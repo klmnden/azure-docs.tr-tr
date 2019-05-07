@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702628"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147598"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Zaman serisi görüşleri ortamınıza bir event hub olay kaynağı ekleme
 
@@ -27,9 +27,9 @@ Bu makalede, Azure zaman serisi görüşleri ortamınız için Azure Event Hubs'
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Zaman serisi görüşleri ortamı oluşturun. Daha fazla bilgi için [Azure zaman serisi görüşleri ortamı oluşturma](./time-series-insights-update-create-environment.md).
-- Bir olay hub'ı oluşturun. Event Hubs hakkında daha fazla bilgi için bkz. [Azure portalını kullanarak bir Event Hubs ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md).
-- Gönderilen etkin ileti olayları olay hub'ı olması gerekir. Daha fazla bilgi için [Gönder olayları Azure Event Hubs için .NET Framework kullanarak](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Bölümünde anlatıldığı gibi bir zaman serisi görüşleri ortamı oluşturma [Azure zaman serisi görüşleri ortamı oluşturma](./time-series-insights-update-create-environment.md).
+- Bir olay hub'ı oluşturun. Bkz: [Azure portalını kullanarak bir Event Hubs ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md).
+- Gönderilen etkin ileti olayları olay hub'ı olması gerekir. Bilgi edinmek için nasıl [Gönder olayları Azure Event Hubs için .NET Framework kullanarak](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Zaman serisi görüşleri ortamına gelen tüketebileceği olay hub'ında ayrılmış bir tüketici grubu oluşturun. Her zaman serisi görüşleri olay kaynağı, diğer bir tüketici ile paylaşılmaz kendi adanmış bir tüketici grubu olması gerekir. Aynı tüketici grubu olaylardan birden fazla okuyucuyu kapsayacak kullanmasına, tüm okuyucular hatalar görmeniz olasıdır. Olay hub'ı başına 20 tüketici grubu sınırı yoktur. Ayrıntılar için bkz [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md).
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Olay hub'ınıza bir tüketici grubu Ekle
@@ -42,7 +42,7 @@ Olay hub'ında yeni bir tüketici grubu eklemek için:
 
 1. Altında **varlıkları**seçin **tüketici grupları**ve ardından **tüketici grubu**.
 
-   ![Olay hub'ı - bir tüketici grubu Ekle](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![Olay hub'ı - bir tüketici grubu Ekle](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. Üzerinde **tüketici grupları** sayfasında, yeni bir benzersiz değer için girin **adı**.  Zaman serisi görüşleri ortamına yeni bir olay kaynağı oluşturduğunuzda bu aynı adı kullanın.
 
@@ -56,7 +56,7 @@ Olay hub'ında yeni bir tüketici grubu eklemek için:
 
 1. Altında **ortam topolojisinin**seçin **olay kaynakları**ve ardından **Ekle**.
 
-   ![Olay kaynakları altında Ekle düğmesini seçin.](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![Olay kaynakları altında Ekle düğmesini seçin.](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. İçin bir değer girin **olay kaynağı adını** olan bu zaman serisi görüşleri ortamına benzersiz gibi **olay akışı**.
 
@@ -66,11 +66,11 @@ Olay hub'ında yeni bir tüketici grubu eklemek için:
    - Mevcut bir olay hub'ı aboneliklerinizden biri varsa, seçin **kullanımı olay Hub'ından kullanılabilir abonelikleri**. Bu seçenek için kolay bir yaklaşımdır.
    - Olay hub'ı aboneliklerinize dış olup olmadığını veya Gelişmiş seçeneklerini seçmek istiyorsanız seçin **sağlayan olay hub'ı ayarlarını elle**.
 
-   ![Yeni olay kaynağı bölmesinde ilk üç parametreleri için değerleri girin.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![Yeni olay kaynağı bölmesinde ilk üç parametreleri için değerleri girin.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. Aşağıdaki tablo için gerekli özellikleri açıklar **kullanımı olay Hub'ından kullanılabilir abonelikleri** seçeneği:
 
-   ![Abonelik ve olay hub'ı ayrıntıları](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![Abonelik ve olay hub'ı ayrıntıları](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | Özellik | Açıklama |
    | --- | --- |
@@ -101,7 +101,7 @@ Olay hub'ında yeni bir tüketici grubu eklemek için:
 
 1. **Oluştur**’u seçin.
 
-   ![Oluştur’u seçin](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![Oluştur'u seçin](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    Olay kaynağı oluşturulduktan sonra zaman serisi görüşleri ortamınıza veri akışını otomatik olarak başlar.
 

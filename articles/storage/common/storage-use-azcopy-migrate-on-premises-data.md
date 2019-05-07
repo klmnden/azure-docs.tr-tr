@@ -2,18 +2,19 @@
 title: 'Öğretici: AzCopy komutunu kullanarak Azure Depolama’ya şirket içi verileri geçirme| Microsoft Docs'
 description: Bu öğreticide AzCopy komutunu kullanarak blob, tablo ve dosya içeriğine/içeriğinden verileri geçirecek veya kopyalayacaksınız. Yerel depolama alanınızdan Azure Depolama’ya kolayca verileri geçirin.
 services: storage
-author: roygara
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5c10edc4f11aad23801045011b67592b6cc537e4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125500"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149072"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Öğretici: AzCopy komutunu kullanarak bulut depolamaya şirket içi verileri geçirme
 

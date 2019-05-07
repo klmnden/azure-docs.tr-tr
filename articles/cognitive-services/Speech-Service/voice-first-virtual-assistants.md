@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: f40e53c67f099fea739e45f6bdc6963ee1e235cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026111"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138176"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Özel ses öncelikli sanal Yardımcıları önizleme hakkında
 
-Azure konuşma Hizmetleri kullanarak özel sanal Yardımcıları, geliştiricilere uygulamalarını ve deneyimler için doğal olarak, İnsan benzeri damıtarak konuşma bağlamında kullanılabilen arabirimlerini oluşturma olanağı sunun. Bot Framework'ün doğrudan satır konuşma kanal, ses, sesli etkileşim düşük gecikme süresi ve yüksek güvenilirlikle kullanıma sağlayan uyumlu bir bot için Eşgüdümlü, düzenlenmiş giriş noktası sunarak bu özelliklerini geliştirir. Bu botlar, doğal dil etkileşimi için Microsoft'un Language Understanding (LUIS) kullanabilirsiniz. Doğrudan satır konuşma tanıma, konuşma Hizmetleri Yazılım Geliştirme Seti (SDK) kullanarak cihazları tarafından erişilir.
+Azure konuşma Hizmetleri kullanarak özel sanal Yardımcıları, geliştiricilere uygulamalarını ve deneyimler için doğal olarak, İnsan benzeri damıtarak konuşma bağlamında kullanılabilen arabirimlerini oluşturma olanağı sunun. Bot Framework'ün doğrudan satır konuşma kanal, ses, sesli etkileşim düşük gecikme süresi ve yüksek güvenilirlikle kullanıma sağlayan uyumlu bir bot için Eşgüdümlü, düzenlenmiş giriş noktası sunarak bu özelliklerini geliştirir. Bu botlar, doğal dil etkileşimi için Microsoft'un Language Understanding (LUIS) kullanabilirsiniz. Doğrudan satır konuşma tanıma, konuşma Yazılım Geliştirme Seti (SDK) kullanarak cihazları tarafından erişilir.
 
    ![Doğrudan hat konuşma düzenleme hizmeti flow kavramsal diyagramı](media/voice-first-virtual-assistants/overview.png "konuşma kanal akış")
 
@@ -28,12 +28,12 @@ Doğrudan satır konuşma ve özel ses öncelikli sanal Yardımcıları için il
 
 ## <a name="core-features"></a>Temel özellikleri
 
-| Kategori | Özellikler |
+| Category | Özellikler |
 |----------|----------|
 |[Özel Uyandırma sözcük](speech-devices-sdk-create-kws.md) | "Hey Contoso" gibi özel bir anahtar sözcüğü kullanılarak botlar konuşmaları şununla açabileceğinizi bilirsiniz Bu görev, bir özel Uyandırma sözcük ile yapılandırılabilir konuşma SDK'da özel Uyandırma word altyapısıyla gerçekleştirilir [burada oluşturabilen](speech-devices-sdk-create-kws.md). Doğrudan satır konuşma kanal başına cihaz karşı Uyandırma word etkinleştirme doğruluğunu artırır Hizmet tarafı Uyandırma word doğrulama içerir.
 |[Konuşmayı metne dönüştürme](speech-to-text.md) | Gerçek zamanlı ses tanıma tanınan metin kullanarak doğrudan satır konuşma kanal içerir [konuşma metin](speech-to-text.md) Azure konuşma Services'dan. Transcribed gibi bu metin botunuzun hem de istemci uygulamanız için kullanılabilir.
-|[Metin okuma](text-to-speech.md) | Botunuzun metinsel yanıtlarından oluşturulan kullanarak [metin okuma](text-to-speech.md) Azure konuşma Services'dan. Bu sentezi sonra istemci uygulamanıza bir ses akışı olarak kullanıma sunulacaktır. Microsoft, kendi oluşturma imkanı sunar [özel, yüksek kaliteli sinir TTS ses](https://aka.ms/customneuraltts) markanız için bir ses vermektedir.
-|[Doğrudan hat konuşma](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md) | Bot Framework içinde bir kanal doğrudan satır konuşma istemci uygulamanızın, uyumlu bir bot ve Azure konuşma Hizmetleri yeteneklerini arasında düzgün ve sorunsuz bir bağlantı sağlar. Botunuzun doğrudan satır konuşma kanal kullanmak için yapılandırma hakkında daha fazla bilgi için bkz. [, Bot Framework belgeleri sayfasında](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+|[Metin okuma](text-to-speech.md) | Botunuzun metinsel yanıtlarından oluşturulan kullanarak [metin okuma](text-to-speech.md) Azure konuşma Services'dan. Bu sentezi sonra istemci uygulamanıza bir ses akışı olarak kullanıma sunulacaktır. Microsoft, markanızı daha fazla bilgi edinmek için bir ses veren kendi özel, yüksek kaliteli sinir TTS ses oluşturma imkanı sunar [bizimle](mailto:mstts@microsoft.com).
+|[Doğrudan hat konuşma](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Bot Framework içinde bir kanal doğrudan satır konuşma istemci uygulamanızın, uyumlu bir bot ve Azure konuşma Hizmetleri yeteneklerini arasında düzgün ve sorunsuz bir bağlantı sağlar. Botunuzun doğrudan satır konuşma kanal kullanmak için yapılandırma hakkında daha fazla bilgi için bkz. [, Bot Framework belgeleri sayfasında](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="sample-code"></a>Örnek kod
 

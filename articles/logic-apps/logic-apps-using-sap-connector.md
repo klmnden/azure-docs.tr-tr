@@ -8,29 +8,34 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
-ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120170"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136780"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps'ten SAP sistemlerini bağlanma
 
-Bu makalede, SAP ERP merkezi bileşeni (ECC) Bağlayıcısı'nı kullanarak şirket içi SAP kaynaklarınızdan bir mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. Bağlayıcıyı şirket içi ECC hem s/4 HANA sistemleri ile çalışır. SAP ECC bağlayıcı SAP Netweaver tabanlı sistemlerde Ara belge (IDoc) veya iş uygulaması programlama arabirimi (BAPI) veya uzak işlev çağrısı (RFC) aracılığıyla gelen ve giden ileti veya veri tümleştirmeyi destekler.
+Bu makalede, SAP bağlayıcısını kullanarak şirket içi SAP kaynaklarınızdan bir mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. Bağlayıcı ile çalışır SAP'nin Klasik şirket sistemleri ECC gibi R/3 serbest bırakır. Bağlayıcı tümleştirme de sağlar. bunlar - şirket içinde veya bulutta barındırılan her yerde ile SAP s/4 HANA gibi SAP sistemlerini yeni HANA tabanlı kullanıcının.
+SAP bağlayıcısını SAP Netweaver tabanlı sistemlerde Ara belge (IDoc) veya iş uygulaması programlama arabirimi (BAPI) veya uzak işlev çağrısı (RFC) aracılığıyla gelen ve giden ileti veya veri tümleştirmeyi destekler.
 
-SAP ECC bağlayıcıyı kullanan <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Bağlayıcısı (NCo) kitaplığı</a> ve bu işlemleri veya eylemleri sağlar:
+SAP bağlayıcısını kullanan <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Bağlayıcısı (NCo) kitaplığı</a> ve bu işlemleri veya eylemleri sağlar:
 
 - **SAP için gönderme**: IDoc gönderebilir veya BAPI işlevleri tRFC üzerinde SAP sistemlerinde çağırın.
 - **SAP'den alma**: IDoc veya BAPI işlev çağrıları SAP sistemlerden tRFC alıyorsunuz.
 - **Şemalar oluşturabilirsiniz**: IDoc veya BAPI veya RFC SAP yapıtlar için şemalar oluşturur.
 
+Yukarıdaki işlemleri tüm için temel kimlik doğrulaması kullanıcı adı ve parola ile SAP bağlayıcısını destekler. Bağlayıcı ayrıca destekler <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> güvenli ağ iletişimi (SNC)</a>, kullanılabileceği için SAP Netweaver çoklu oturum açma veya bir dış güvenlik ürün tarafından sağlanan ek güvenlik özellikleri. 
+
 SAP bağlayıcısı şirket içi SAP sistemlerini tümleşir [şirket içi veri ağ geçidi](https://www.microsoft.com/download/details.aspx?id=53127). Gönderme senaryolarda, örneğin, bir SAP sistemine Logic Apps'ten ileti gönderilirken veri ağ geçidi bir RFC istemci olarak davranır ve SAP için Logic Apps'ten alınan isteklerden iletir.
 Benzer şekilde, alma senaryolarda veri ağ geçidi SAP'den isteklerini alır ve mantıksal uygulamaya ileten bir RFC sunucu görevi görür. 
 
 Bu makalede örnek daha önce açıklanan tümleştirme senaryolarını kapsayan sırasında SAP ile tümleştiren mantıksal uygulamalar oluşturma işlemini gösterir.
+
+<a name="pre-reqs"></a>
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,6 +48,12 @@ Bu makaleyi izlemek için bu öğeler gerekir:
 * <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP uygulama sunucusu</a> veya <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP ileti sunucusu</a>
 
 * En son yükleyip [şirket içi veri ağ geçidi](https://www.microsoft.com/download/details.aspx?id=53127) herhangi bir şirket içi bilgisayarda. Devam etmeden önce Azure portalında, ağ geçidi ayarlama emin olun. Ağ geçidi, güvenli bir şekilde erişim veri yardımcı olur ve şirket içi kaynaklardır. Daha fazla bilgi için [yükleme şirket içi veri ağ geçidi için Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+* SNC çoklu oturum açma (SSO ile) kullanıyorsanız, ağ geçidi karşı SAP kullanıcı eşlenmiş bir kullanıcı olarak çalıştığından emin olun. Varsayılan hesabını değiştirmek için seçin **hesabını değiştir** ve kullanıcı kimlik bilgilerini girin.
+
+   ![Ağ geçidi hesabını değiştirme](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* Bir dış güvenlik ürünle SNC etkinleştiriyorsanız SNC kitaplığı veya aynı makinede ağ geçidinin yüklendiği dosyaları kopyalayın. Bazı örnekler SNC ürünlerin <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, ve benzeri.
 
 * Şu anda en son SAP istemci kitaplığı yükleyip <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">Microsoft .NET Framework 4.0 ve Windows 64 bit (x64) SAP Bağlayıcısı (NCo) 3.0.21.0</a>, şirket içi veri ağ geçidi ile aynı bilgisayarda. Bu sürümü yükleyin veya sonraki bir sürümü bu nedenlerle:
 
@@ -114,7 +125,7 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
       Varsa **oturum açma türü** özelliği **grubu**, genellikle isteğe bağlı görünür, bu özellikler gereklidir: 
 
       ![SAP ileti sunucusu bağlantısını oluşturma](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. İşiniz bittiğinde **Oluştur**’u seçin. 
    
       Mantıksal uygulamalar, ayarlar ve bağlantının düzgün çalıştığından emin olun, bağlantınızı test eder.
@@ -375,23 +386,45 @@ Tasarımcı araç çubuğunda **Kaydet**'i seçin.
 
 2. Başarılı bir sonra çalıştırın, tümleştirme hesabı'na gidin ve oluşturulan oluşturulan şemaları mevcut olduğunu denetleyin.
 
+## <a name="enable-secure-network-communications-snc"></a>Güvenli ağ iletişimi (SNC) etkinleştir
+
+Başlamadan önce yukarıda listelenen sağlandığından emin olun [önkoşulları](#pre-reqs):
+
+* Şirket içi veri ağ geçidi, SAP sistemine aynı ağda bulunan bir makinede yüklü.
+
+* Çoklu oturum açma için ağ geçidi için SAP kullanıcı eşlenmiş bir kullanıcı olarak çalışıyor.
+
+* Ek güvenlik işlevleri sağlayan SNC kitaplığı, veri ağ geçidi ile aynı makinede yüklü. Örnekler bunlardan bazıları <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, ve benzeri.
+
+SNC SAP sistemine gelen veya isteklerinizi etkinleştirmek için seçin **kullanım SNC** SAP bağlantı onay kutusunu işaretleyin ve bu özellikleri sağlar:
+
+   ![SAP SNC bağlantı yapılandırma](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | Özellik   | Açıklama |
+   |------------| ------------|
+   | **SNC kitaplığı** | SNC kitaplığı adı veya NCo yükleme konumu göreli yol veya mutlak yol. Örnek sapsnc.dll veya.\security\sapsnc.dll ya da c:\security\sapsnc.dll  | 
+   | **SNC SSO** | SNC bağlanırken SNC kimlik genellikle arayan kimliğini doğrulamak için kullanılır. Böylece kullanıcı/parola bilgiler arayan kimliğini doğrulamak için kullanılabilir, ancak satır yine de şifrelenir geçersiz kılma başka bir seçenektir.|
+   | **SNC adımı** | Çoğu durumda bu yoksayılabilir. Yüklü SNC çözümü, genellikle kendi SNC adı bilir. "Birden çok kimlik" destekleyen çözümler için bu belirli hedef/sunucu için kullanılacak kimlik belirtmeniz gerekebilir |
+   | **SNC iş ortağı adı** | Arka ucun SNC adı |
+   | **SNC kaliteyi koruma** | SNC bu belirli hedef/sunucu iletişimi için kullanılacak hizmet kalitesi. Varsayılan değer, arka uç sistem tarafından tanımlanır. SNC için kullanılan güvenlik ürün tarafından tanımlanan en yüksek değer |
+   |||
+
+   > [!NOTE]
+   > Snc_lıb ve snc_lıb_64 ortam değişkenleri, veri ağ geçidi ve SNC kitaplığı sahip olduğu bir makinede ayarlanmamalıdır. Ayarlanırsa, bunlar bağlayıcısı aracılığıyla geçirilen SNC kitaplığı değer öncelikli.
+   >
+
 ## <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar
 
 Şu anda bilinen sorunlar ve sınırlamalar için SAP bağlayıcısını şunlardır:
+
+* Yalnızca tek bir gönderme için SAP çağrısı veya iletinin tRFC ile çalışır. Aynı oturumda birden çok tRFC çağrıları yapma gibi iş uygulaması programlama arabirimi (BAPI) işleme düzeni desteklenmiyor.
 
 * SAP tetikleyici SAP'den batch IDoc'ları alma desteklemez. Bu eylem, SAP sistemine ve veri ağ geçidi arasında bağlantı hatası RFC neden olabilir.
 
 * SAP tetikleyici veri ağ geçidi kümelerini desteklemez. Yük devretme bazı durumlarda, SAP sistemiyle iletişim kuran veri ağ geçidi düğümü etkin düğüm, beklenmeyen davranışla farklılık gösterebilir. Veri ağ geçidi kümeleri gönderme senaryoları için desteklenir.
 
-* Alma senaryolarda, bir null olmayan yanıtı döndürülüyor desteklenmez. Bir mantıksal uygulama bir tetikleyici ve bir yanıt eylemi içeren beklenmeyen davranışa neden olur. 
-
-* Yalnızca tek bir gönderme için SAP çağrısı veya iletinin tRFC ile çalışır. Aynı oturumda birden çok tRFC çağrıları yapma gibi iş uygulaması programlama arabirimi (BAPI) işleme düzeni desteklenmiyor.
-
-* Ekleri olan RFC'ler hem gönderme SAP ve şemaları eylemleri üretmek desteklenmez.
-
 * SAP bağlayıcısı şu anda SAP yönlendirici dizeleri desteklememektedir. Şirket içi veri ağ geçidi, bağlanmak istediğiniz SAP sistemiyle aynı LAN üzerinde olmalıdır.
 
-* Dönüştürme için yok (null), boş, minimum ve maksimum değerleri DATS ve TIMS SAP alanlar için şirket içi veri ağ geçidini daha sonra güncelleştirmeleri belgesidir.
 
 ## <a name="get-support"></a>Destek alın
 

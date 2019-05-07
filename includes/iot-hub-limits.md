@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805369"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150309"
 ---
 Aşağıdaki tabloda farklı hizmet katmanlarında S1, S2, S3 ve F1 ile ilişkili sınırlar listelenmektedir. Her birinin maliyeti hakkında bilgi için *birim* her katmanında bkz [Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Kaynak | S1 Standart | S2 Standart | S3 Standart | F1 Ücretsiz |
+| Resource | S1 Standart | S2 Standart | S3 Standart | F1 Ücretsiz |
 | --- | --- | --- | --- | --- |
 | İleti/gün |400,000 |6,000,000 |300,000,000 |8,000 |
 | En fazla birim |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ Aşağıdaki tabloda farklı hizmet katmanlarında S1, S2, S3 ve F1 ile ilişkil
 
 Aşağıdaki tabloda, IOT Hub kaynakları için geçerli olan sınırlar listelenmektedir.
 
-| Kaynak | Sınır |
+| Resource | Sınır |
 | --- | --- |
 | Azure aboneliği başına en fazla ücretli IoT hub’ı sayısı |50 |
 | Azure aboneliği başına en fazla ücretsiz IoT hub’ı sayısı |1 |
@@ -40,9 +40,9 @@ Aşağıdaki tabloda, IOT Hub kaynakları için geçerli olan sınırlar listele
 | Buluttan cihaza iletiler için en fazla teslim <br/> sayısı |100 |
 | Geri bildirim iletileri için en fazla teslim sayısı <br/> (buluttan cihaza iletiye yanıt olarak) |100 |
 | Buluttan cihaza iletiye yanıt olarak <br/> geri bildirim iletileri için en fazla TTL |2 gün |
-| En büyük cihaz ikizi boyutu <br/> (etiketler, rapor edilen özellikler ve istenen özellikler) | 8 KB |
+| [En büyük cihaz ikizi boyutu](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (etiketler, rapor edilen özellikler ve istenen özellikler) | 8 KB |
 | Cihaz ikizi dize değerinin en büyük boyutu | 4 KB |
-| Cihaz ikizindeki en büyük nesne derinliği | 5 |
+| [En büyük cihaz ikizindeki nesne derinliği](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | Doğrudan yöntem yükünün en büyük boyutu | 128 KB |
 | En büyük iş geçmişi bekletme süresi | 30 gün |
 | En fazla eşzamanlı iş sayısı | 10 (S3 için), 5 (S2 için), 1 (S1 için) |
@@ -51,10 +51,8 @@ Aşağıdaki tabloda, IOT Hub kaynakları için geçerli olan sınırlar listele
 | En fazla eşzamanlı olarak bağlı cihaza akış sayısı | 50 (S1, S2, S3 ve yalnızca F1) |
 | En fazla cihaz akış veri aktarımı | 300 MB / gün (için S1, S2, S3 ve yalnızca F1) |
 
-
 > [!NOTE]
 > 50'den fazla Ücretli IOT hub'ı bir Azure aboneliğine ihtiyacınız varsa, Microsoft Support başvurun.
-
 
 > [!NOTE]
 > Şu anda, cihazları tek bir IOT hub'ına bağlanabilir sayısı 1.000.000 ' dir. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).

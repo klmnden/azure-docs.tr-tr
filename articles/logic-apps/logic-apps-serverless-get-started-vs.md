@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/02/2019
-ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.openlocfilehash: 265ed220b023a9d81fc5af48920152d95d9cac08
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61323856"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136681"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps ve Azure işlevleri - Visual Studio ile ilk sunucusuz uygulamanızı oluşturun
 
@@ -25,33 +25,33 @@ Hızlı bir şekilde geliştirin ve sunucusuz araçları ve özellikleri Azure'd
 
 Visual Studio'da sunucusuz bir uygulama oluşturmak için bu öğeler gerekir:
 
-* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
+* Azure aboneliği. Azure aboneliğiniz yoksa [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/).
 
 * Henüz yoksa şu araçları indirip yükleyin:
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 veya 2015 - Community sürümü veya üzeri</a>. 
+  * [Visual Studio 2019, 2017 veya 2015 - Community sürümü veya üzeri](https://aka.ms/download-visual-studio). 
   Bu hızlı başlangıçta ücretsiz olan Visual Studio Community 2017 kullanılmaktadır.
 
     > [!IMPORTANT]
     > Visual Studio 2019 veya 2017'yi yüklediğinizde, seçtiğinizden emin olun **Azure geliştirme** iş yükü.
-    > Visual Studio 2019 için Cloud Explorer Azure portalında mantıksal Uygulama Tasarımcısı açabilirsiniz, ancak henüz ekli mantıksal Uygulama Tasarımcısı açılamıyor.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">.NET için Microsoft Azure SDK (2.9.1 veya sonrası)</a>. <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a> hakkında daha fazla bilgi edinin.
+  * [.NET için Microsoft Azure SDK (2.9.1 veya sonrası)](https://azure.microsoft.com/downloads/). 
+  [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet) hakkında daha fazla bilgi edinin.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * Azure Logic Apps araçları istediğiniz Visual Studio sürümü için:
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Azure Logic Apps Araçlarını doğrudan Visual Studio Market’ten indirip yükleyebilir veya <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">bu uzantıyı Visual Studio’nun içinden yükleme</a> hakkında bilgi edinebilirsiniz. 
+    Azure Logic Apps Araçlarını doğrudan Visual Studio Market’ten indirip yükleyebilir veya [bu uzantıyı Visual Studio’nun içinden yükleme](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions) hakkında bilgi edinebilirsiniz. 
     Yükleme işlemini tamamladıktan sonra Visual Studio’yu yeniden başlattığınızdan emin olun.
 
-  * <a href="https://www.npmjs.com/package/azure-functions-core-tools" target="_blank">Azure işlevleri temel araçları</a> işlevleri yerel olarak hata ayıklama
+  * [Azure işlevleri temel araçları](https://www.npmjs.com/package/azure-functions-core-tools) işlevleri yerel olarak hata ayıklama
 
 * Ekli Mantıksal Uygulama Tasarımcısı kullanılırken web erişimi
 

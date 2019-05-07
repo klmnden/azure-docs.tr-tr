@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 100d50443c7ed839e57d80ceea3b8b86904e4ba7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027878"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154449"
 ---
 # <a name="manage-azure-blockchain-service-with-azure-cli"></a>Azure CLI ile Azure blok zinciri hizmetini yönetme
 
@@ -30,7 +30,7 @@ Aşağıdaki örneklerde, örnek değiştirin `<parameter names>` kendi değerle
 Örnek bir blok zinciri üye çekirdek muhasebe Protokolü yeni Konsorsiyumu içinde çalışan Azure blok zinciri hizmeti oluşturur.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "<myBlockchainLocation>", "properties": {"password": "<myStrongPassword>", "protocol": "Quorum", "consortium": "<myConsortiumName>", "consortiumManagementAccountPassword": "<myConsortiumManagementAccountPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] }, "sku": { "name": "<skuName>" } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"<myBlockchainLocation>\", \"properties\": {\"password\": \"<myStrongPassword>\", \"protocol\": \"Quorum\", \"consortium\": \"<myConsortiumName>\", \"consortiumManagementAccountPassword\": \"<myConsortiumManagementAccountPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] }, \"sku\": { \"name\": \"<skuName>\" } }"
 ```
 
 | Parametre | Açıklama |
@@ -38,7 +38,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 | **kaynak grubu** | Azure Blockchain hizmet kaynaklarının oluşturulduğu kaynak grubu adı. |
 | **name** | Azure Blockchain hizmet blok zinciri üyelik tanımlayan benzersiz bir ad. Ad için genel bir uç nokta adresi kullanılır. Örneğin, `myblockchainmember.blockchain.azure.com`. |
 | **konum** | Blok zinciri üye oluşturulduğu azure bölgesi. Örneğin, `eastus`. Kullanıcılarınıza veya diğer Azure uygulamalarınıza en yakın konumu seçin. |
-| **Parola** | Üye hesabı parolası. Üye hesabı parolası, temel kimlik doğrulaması kullanarak blok zinciri üyenin genel uç kimlik doğrulaması için kullanılır. Parola dört gereksinimini takip üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklif () \`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
+| **Parola** | Üye hesabı parolası. Üye hesabı parolası, temel kimlik doğrulaması kullanarak blok zinciri üyenin genel uç kimlik doğrulaması için kullanılır. Parola aşağıdaki dört gereksinimleri üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklifi (\`), çift quote("), tek tırnak işareti, Tireli ve semicolumn(;)|
 | **Protokolü** | Genel Önizleme çekirdek destekler. |
 | **Consortium** | Katılma veya oluşturma consortium adı. |
 | **consortiumManagementAccountPassword** | Consortium yönetim parolası. Parola Konsorsiyumu birleştirmek için kullanılır. |
@@ -58,7 +58,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **kaynak grubu** | Azure Blockchain hizmet kaynaklarının oluşturulduğu kaynak grubu adı. |
 | **name** | Azure Blockchain Service üyelik tanımlayan ad. |
-| **Parola** | Üye hesabı parolası. Parola dört gereksinimini takip üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklif () \`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
+| **Parola** | Üye hesabı parolası. Parola aşağıdaki dört gereksinimleri üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklifi (\`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
 
 
 ## <a name="create-transaction-node"></a>İşlem düğümü oluşturma
@@ -66,7 +66,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 Bir işlem düğümü varolan bir blok zinciri üye içinde oluşturun. İşlem düğümleri ekleyerek yükünü dağıtmak ve güvenlik yalıtımı artırın. Örneğin, farklı istemci uygulamaları için bir işlem düğümü uç noktası olabilir.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties '{ "location": "<myRegion>", "properties": { "password": "<myStrongPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties "{ \"location\": \"<myRegion>\", \"properties\": { \"password\": \"<myStrongPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] } }"
 ```
 
 | Parametre | Açıklama |
@@ -74,7 +74,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 | **kaynak grubu** | Azure Blockchain hizmet kaynaklarının oluşturulduğu kaynak grubu adı. |
 | **name** | Yeni işlem düğüm adını da içeren Azure blok zinciri hizmet blockchain üyesinin adı. |
 | **konum** | Blok zinciri üye oluşturulduğu azure bölgesi. Örneğin, `eastus`. Kullanıcılarınıza veya diğer Azure uygulamalarınıza en yakın konumu seçin. |
-| **Parola** | İşlem düğümü parolası. Parola dört gereksinimini takip üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklif () \`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
+| **Parola** | İşlem düğümü parolası. Parola aşağıdaki dört gereksinimleri üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklifi (\`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
 | **RuleName** | Kural adı izin verilenler listesine bir IP adresi aralığı. Güvenlik duvarı kuralları için isteğe bağlı parametre. |
 | **startIpAddress** | Beyaz listeye ekleme için IP adresi aralığı başlangıcı. Güvenlik duvarı kuralları için isteğe bağlı parametre. |
 | **Değerini** | Beyaz listeye ekleme için IP adresi aralığı sonu. Güvenlik duvarı kuralları için isteğe bağlı parametre.|
@@ -91,7 +91,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 |---------|-------------|
 | **kaynak grubu** | Azure Blockchain hizmet kaynaklarının bulunduğu kaynak grubu adı. |
 | **name** | Yeni işlem düğüm adını da içeren Azure blok zinciri hizmet blockchain üyesinin adı. |
-| **Parola** | İşlem düğümü parolası. Parola dört gereksinimini takip üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklif () \`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
+| **Parola** | İşlem düğümü parolası. Parola aşağıdaki dört gereksinimleri üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklifi (\`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
 
 ## <a name="change-consortium-management-account-password"></a>Consortium yönetim hesabı parolasını değiştirme
 
@@ -105,12 +105,12 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **kaynak grubu** | Azure Blockchain hizmet kaynaklarının oluşturulduğu kaynak grubu adı. |
 | **name** | Azure Blockchain Service üyelik tanımlayan ad. |
-| **consortiumManagementAccountPassword** | Consortium yönetim hesabının parolası. Parola dört gereksinimini takip üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklif () \`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
+| **consortiumManagementAccountPassword** | Consortium yönetim hesabının parolası. Parola aşağıdaki dört gereksinimleri üçünü karşılamalıdır: uzunluğu 12 & 72 karakter, 1 küçük harf, 1 büyük harf karakter, 1 sayı ve sayı değil sign(#), percent(%), virgül (,), star(*), 1 özel karakter arasında olması gerekiyor geri teklifi (\`), çift quote("), tek tırnak işareti, Tireli ve semicolon(;). |
   
 ## <a name="update-firewall-rules"></a>Güvenlik duvarı kurallarını güncelleştir
 
 ```azurecli
-az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules='[ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ]' --remove properties.consortiumManagementAccountAddress
+az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
 ```
 
 | Parametre | Açıklama |

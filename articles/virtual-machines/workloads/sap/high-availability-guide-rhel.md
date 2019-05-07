@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925794"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143004"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure sanal makineler Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -87,6 +87,9 @@ Yüksek kullanılabilirlik elde etmek için SAP NetWeaver paylaşılan depolama 
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar ve SAP HANA veritabanı sanal ana bilgisayar adı ve sanal IP adresleri kullanın. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki liste, (A) yapılandırılmasını gösterir SCS ve Ağıranlar yük dengeleyici.
 
+> [!IMPORTANT]
+> Azure sanal makinelerinde konuk işletim sistemi gibi çoklu SID, SAP ASCS/Ağıranlar Red Hat Linux ile kümeleme **desteklenmiyor**. Çoklu SID kümeleme Pacemaker kümedeki farklı SID'lere sahip birden çok SAP ASCS/Ağıranlar örneklerinin yüklenmesini açıklar.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Ön uç yapılandırması
@@ -113,6 +116,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar ve SAP HANA ver
 * Araştırma bağlantı noktası
   * Port 621<strong>&lt;nr&gt;</strong>
 * Yük Dengeleme kuralları
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -128,7 +132,7 @@ Sanal makineler de dahil olmak üzere tüm gerekli Azure kaynakları dağıtmak 
 
 ### <a name="deploy-linux-via-azure-template"></a>Azure şablonu aracılığıyla Linux dağıtın
 
-Azure Market'te Red Hat Enterprise Linux için yeni sanal makineleri dağıtmak için kullanabileceğiniz bir görüntü içerir. Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
+Azure Market'te Red Hat Enterprise Linux için yeni sanal makineleri dağıtmak için kullanabileceğiniz bir görüntü içerir. Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
 1. Açık [ASCS/SCS şablon] [ template-multisid-xscs] Azure portalında  
 1. Aşağıdaki parametreleri girin
@@ -145,7 +149,7 @@ Azure Market'te Red Hat Enterprise Linux için yeni sanal makineleri dağıtmak 
    1. Sistem kullanılabilirliği  
       HA seçin
    1. Yönetici kullanıcı adı, yönetici parolası veya SSH anahtarı  
-      Yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
+      Yeni bir kullanıcı oluşturulur makinede oturum açmak için kullanılabilir.
    1. Alt ağ kimliği  
    Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
 
@@ -527,7 +531,7 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Eski bir sürümden yükseltme ve 2 kuyruğa sunucusuna geçiş'lu sap notuna bakın [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Eski bir sürümden yükseltme ve 2 kuyruğa sunucusuna geçiş SAP bkz Not [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
 

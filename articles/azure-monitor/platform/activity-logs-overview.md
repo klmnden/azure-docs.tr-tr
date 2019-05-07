@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138229"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -63,6 +63,7 @@ Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 * Power BI kullanarak Analiz [ **Power BI içerik paketi**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Kaydetmesi bir **depolama hesabı** arşivleme veya el ile İnceleme](../../azure-monitor/platform/archive-activity-log.md). Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **günlük profilini**.
 * PowerShell cmdlet'i, CLI veya REST API sorgulayın.
+* Görünüm [değişiklik geçmişini](#view-change-history) belirli olayları
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure portalında etkinlik günlüğü sorgulama
 
@@ -183,6 +184,20 @@ CLI ile bir izleme profili oluşturmak için tam belgeleri için bkz. [CLI komut
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>Değişiklik geçmişi görüntüle
+
+Etkinlik günlüğünü gözden geçirirken, değişiklikleri sırasında olduğunu görmek için yardımcı olur, olay saati. Bu bilgilerle değişiklik geçmişini görüntüleyebilirsiniz.
+
+Portalın sol tarafındaki menüyü kullanarak etkinlik günlüğüne gidin. Daha ayrıntılı olarak incelemek istediğiniz etkinlik günlüğünden bir olay seçin. Seçin **değişiklik geçmişini (Önizleme)** herhangi görüntülemek için sekmesinde değişiklikler olay ile ilişkili.
+
+![Bir olay için değişiklik geçmişi listesi](./media/activity-logs-overview/change-history-event.png)
+
+Olay ile ilişkili herhangi bir değişiklik varsa, seçebileceğiniz değişikliklerin bir listesini görürsünüz. Bu açılır **değişiklik geçmişini (Önizleme)** sayfası. Bu sayfada kaynak değişiklikleri bakın. Aşağıdaki örnekte görebileceğiniz gibi biz yalnızca VM boyutları, ancak değişiklikten önce önceki VM boyutu ne olduğunu ve ne şekilde değiştirilmiştir değiştiğini görebilirsiniz.
+
+![Farkları gösteren değişiklik geçmişi sayfası](./media/activity-logs-overview/change-history-event-details.png)
+
+Değişiklik geçmişi hakkında daha fazla bilgi için bkz: [alma kaynak değişiklikleri](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

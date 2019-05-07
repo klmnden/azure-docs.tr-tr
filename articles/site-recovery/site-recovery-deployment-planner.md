@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 195c70cd887d75eebb23cb7632b5fa250f89661c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035801"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137752"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında vmware'den azure'a
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -104,6 +104,9 @@ Klasör birden fazla dosya ve alt klasör içerir. Yürütülebilir dosya, üst 
     E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Dağıtım Planlayıcısı’nı en son sürüme güncelleştirme
+
+Dağıtım Planlayıcısı en son güncelleştirmeleri özetlenmiştir [sürüm geçmişi](site-recovery-deployment-planner-history.md).
+
 Dağıtım Planlayıcısı’nın önceki sürümüne sahipseniz şunlardan birini yapın:
  * En son sürüm bir profil oluşturma düzeltmesi içermiyor ve profil oluşturma planlayıcının geçerli sürümünde devam ediyorsa, profil oluşturmaya devam edin.
  * En son sürüm bir profil oluşturma düzeltmesi içeriyorsa, geçerli sürümünüzde profil oluşturmayı durdurmanız ve profil oluşturma işlemini yeni sürümle yeniden başlatmanız önerilir.

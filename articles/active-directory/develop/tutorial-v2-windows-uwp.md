@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252306"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138248"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API'sini çağırmak bir evrensel Windows platformu uygulaması (XAML)
 
@@ -333,8 +333,10 @@ Kimlik belirteçlerini alınan aracılığıyla **Openıd Connect** kullanıcıy
    - İçinde **desteklenen hesap türleri** bölümünden **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları (örneğin, Skype, Xbox, Outlook.com) hesaplarında**.
    - Uygulamayı kaydetmek için **Kaydet**'i seçin.
 1. Uygulamasında **genel bakış** sayfasında, bulmak **uygulama (istemci) kimliği** değeri ve daha sonra kullanmak üzere kaydedin. Visual Studio, açık dönün **MainPage.xaml.cs**, ClientID değerini yalnızca kayıtlı uygulama Kimliğiyle değiştirin:
-1. Uygulama sayfaları listesinde seçin **kimlik doğrulaması**:
-   - İçinde **yeniden yönlendirme URI'leri** | **genel istemciler (mobil, Masaüstü) için yeniden yönlendirme URI'leri önerilen** bölümünde onay **urn: ietf:wg:oauth:2.0:oob**
+1. Uygulama sayfa listesinde **Kimlik doğrulaması**'nı seçin.
+   1. İçinde **yeniden yönlendirme URI'leri** bölümünde yeniden yönlendirme URI'leri listesi:
+   1. İçinde **türü** Sütun Seç **genel istemci (Mobil ve Masaüstü)**.
+   1. Girin `urn:ietf:wg:oauth:2.0:oob` içinde **yeniden yönlendirme URI'si** sütun.
 1. **Kaydet**’i seçin.
 1. Uygulama sayfaları listesinde seçin **API izinleri**
    - Tıklayın **bir izin eklemek** düğmesine ve ardından,

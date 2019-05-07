@@ -3,8 +3,7 @@ title: Azure sanal makine ağ aktarım hızı | Microsoft Docs
 description: Azure sanal makine ağ aktarım hızı hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689245"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153714"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Sanal makine ağ bant genişliği
 
@@ -43,6 +42,30 @@ Aktarım hızı sınırı, sanal makine için geçerlidir. Aktarım hızı, aşa
 - **Hızlandırılmış**: Özellik yayımlanan sınırını elde etmeye yardımcı olabilir ancak sınırı değiştirmez.
 - **Trafiği hedef**: Tüm hedeflere giden sınırında sayılır.
 - **Protokol**: Tüm protokoller üzerinden giden tüm trafiği, sınırında sayılır.
+
+## <a name="network-flow-limits"></a>Ağ akış limitleri
+
+Bant genişliğine ek olarak, belirli bir zamanda bir sanal makinede mevcut ağ bağlantısı sayısı ağ performansını etkileyebilir. Azure ağ yığınının her yönünü 'akışlar' adlı veri yapılarını TCP/UDP bağlantı için durumu korur. Tipik bir TCP/UDP bağlantı oluşturan, bir gelen ve giden yön için başka 2 akışa sahip. 
+
+Uç noktalar arasında veri aktarımı, veri aktarımı gerçekleştirmesi yanı sıra birkaç akışları oluşturulmasını gerektirir. DNS çözümlemesi için oluşturulan akışlar ve yük dengeleyici sistem durumu araştırmaları için oluşturulan akışların bazı örnekler verilmiştir. Ayrıca ağ sanal Gereçleri (Nva) ağ geçitleri, Ara sunucuları, güvenlik duvarları, Not gereç sonlandırıldı ve Gereci tarafından oluşturulan bağlantıları için oluşturulan akışların görürsünüz. 
+
+![TCP konuşma iletme Gereci aracılığıyla akış sayısı](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>Akış limitleri ve öneriler
+
+Bugün Azure ağ yığınını 8 CPU Çekirdeği ve VM'ler için iyi bir performans az 8 CPU çekirdeği ile 100 k toplam akışlar daha büyük sanal makineler için iyi bir performans 250 bin toplam ağ akışlarıyla desteklemektedir. Akışlar, gelen ve 500, 500 K sabit bir sınır 1 milyon adede kadar ek akışlar toplam için bu sınırı ağ performansı düzgün bir şekilde düşürür K hangi ek akışlar bırakılan sonra giden.
+
+||Vm'lerle < 8 CPU Çekirdeği|VM'ler ile 8 + CPU çekirdekleri|
+|---|---|---|
+|<b>İyi bir performans</b>|100 bin akışlar |250 bin akışlar|
+|<b>Performans</b>|100 bin cinsinden akışlar|250 bin akışlar|
+|<b>Akış sınırı</b>|1M akışlar|1M akışlar|
+
+Ölçümler kullanılabilir [Azure İzleyici](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) ağ akışlarına ve akış oluşturma oranını sayısını, VM veya VMSS örnekleri izlemek için.
+
+![Azure İzleyici akışı metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+Bağlantı kurma ve sonlandırma ücretleri, ayrıca bağlantı kurma ve sonlandırma paylaşımlarıyla CPU işleme rutinleri paket olarak ağ performansını etkileyebilir. Beklenen trafik modelleri ve iş yüklerinin ölçeğini iş yükleri uygun şekilde performans ihtiyaçlarınıza uyum sağlayacak Kıyaslama olmasını öneririz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726617"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074159"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Kimlik doğrulama ve yetkilendirme Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -88,7 +88,7 @@ RBAC kullanarak Kubernetes kaynaklarına erişimi denetlemek için Azure AD grup
 
 ## <a name="use-pod-identities"></a>Pod kimlikler kullanın
 
-**En iyi uygulama kılavuzunu** -Etkilenme veya kötüye kullanımı riski olduğu gibi sabit kimlik bilgilerini pod'ların veya kapsayıcı görüntüleri kullanmayın. Bunun yerine, otomatik olarak kullanarak merkezi bir erişim istemek için pod kimlikleri kullanmak Azure AD kimlik çözümü.
+**En iyi uygulama kılavuzunu** -Etkilenme veya kötüye kullanımı riski olduğu gibi sabit kimlik bilgilerini pod'ların veya kapsayıcı görüntüleri kullanmayın. Bunun yerine, otomatik olarak kullanarak merkezi bir erişim istemek için pod kimlikleri kullanmak Azure AD kimlik çözümü. Pod kimlikler Linux pod'ların ve kapsayıcı görüntüleri ile kullanılmak için tasarlanmıştır.
 
 Pod'ların Cosmos DB, anahtar kasası veya Blob Depolama gibi diğer Azure hizmetlerine erişim için gerektiğinde pod erişim kimlik bilgileri gerekir. Bu erişim kimlik bilgileri ile kapsayıcı görüntüsü tanımlanabilir veya Kubernetes gizli eklenmiş ancak el ile oluşturulan ve atanmış gerekir. Genellikle, kimlik bilgilerini pod'ları arasında yeniden ve düzenli olarak Döndürülmüş değildir.
 

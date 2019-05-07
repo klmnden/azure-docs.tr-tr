@@ -1,9 +1,9 @@
 ---
-title: Windows için Azure sanal makine seri Konsolu | Microsoft Docs
-description: Azure Windows sanal makineler için çift yönlü seri konsol.
+title: Windows için Azure seri konsol | Microsoft Docs
+description: Azure sanal makineler ve sanal makine ölçek kümeleri için iki yönlü seri konsol.
 services: virtual-machines-windows
 documentationcenter: ''
-author: harijay
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,59 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: e50243c15b5b783976374bc8b8861a0245ce1b05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307265"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141052"
 ---
-# <a name="virtual-machine-serial-console-for-windows"></a>Windows için sanal makine seri Konsolu
+# <a name="azure-serial-console-for-windows"></a>Windows için Azure seri konsol
 
-Azure portalında sanal makine (VM) seri konsol, Windows sanal makineler için metin tabanlı bir konsol erişim sağlar. Bu seri bağlantı COM1, bu, sanal makinenin ağ veya işletim sisteminin durumunu bağımsız erişim sağlayan sanal makinenin seri bağlantı noktasına bağlanır. Bir sanal makinenin seri konsol erişimi, yalnızca Azure portalı kullanılarak yapılabilir. Sanal makineye sanal makine Katılımcısı veya daha yüksek bir erişim rolü olan kullanıcılar için izin verilir.
+Seri konsol Azure portalında Windows sanal makineleri (VM'ler) metin tabanlı bir konsol için erişim sağlar ve sanal makine ölçek kümesi örnekleri (sanal makine ölçek kümesi). Bu seri bağlantı, COM1, VM veya ağ veya işletim sisteminin durumunu bağımsız ona erişim sağlayarak, sanal makine ölçek kümesi örneğinin seri bağlantı noktasına bağlanır. Seri konsol yalnızca Azure portalı kullanılarak erişilebilir ve katkıda bulunan, bir erişim rolüne sahip kullanıcılar için izin verilen ya da sanal makine veya sanal makine ölçek kümesi için daha büyük.
 
-Linux VM'ler için seri konsol belgeleri için bkz [Linux için sanal makinenin seri konsol](serial-console-linux.md).
+Seri konsol VM'ler için aynı şekilde çalışır ve sanal makine ölçek kümesi örnekleri. Bu belgedeki tüm bahsetmeleri vm'lere örtük olarak sanal makine ölçek kümesi örneklerine aksi belirtilmediği sürece dahil edilir.
+
+Linux sanal makineleri ve sanal makine ölçek kümesi için seri konsol belgeleri için bkz [Linux için Azure seri konsol](serial-console-linux.md).
 
 > [!NOTE]
-> Sanal makineler için seri konsol genel Azure bölgelerinde genel kullanıma sunulmuştur. Henüz Azure kamu veya Azure China Bulutları kullanılabilir değil.
+> Seri konsol genel Azure bölgelerinde genel kullanıma sunulmuştur. Henüz Azure kamu veya Azure China Bulutları kullanılabilir değil.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Seri konsol eriştiğiniz VM kaynak yönetimi dağıtım modeline kullanmanız gerekir. Klasik dağıtımlar desteklenmez.
+* Sanal makine veya sanal makine ölçek kümesi örneğinin kaynak yönetimi dağıtım modeline kullanmanız gerekir. Klasik dağıtımlar desteklenmez.
+
+- Seri Konsolu kullanır, hesabınızın olması gerekir [sanal makine Katılımcısı rolü](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı
+
+- Parola tabanlı bir kullanıcı, sanal makine veya sanal makine ölçek kümesi örneği olmalıdır. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) işlevi VM erişimi uzantısı. Seçin **parolayı Sıfırla** gelen **destek + sorun giderme** bölümü.
 
 * Hangi erişim seri konsol VM olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin.
 
     ![Önyükleme tanılama ayarları](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-* Seri konsol kullanarak bir hesabınızın olması gerekir [sanal makine Katılımcısı rolü](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı.
-
-* Sanal Makinenin seri konsol eriştiğiniz parola tabanlı bir hesabı olması gerekir. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) işlevi VM erişimi uzantısı. Seçin **parolayı Sıfırla** gelen **destek + sorun giderme** bölümü.
-
-
 ## <a name="get-started-with-the-serial-console"></a>Seri konsol ile çalışmaya başlama
-Seri konsol sanal makineler için yalnızca Azure Portalı aracılığıyla erişilebilir:
+Seri konsol VM'ler ve sanal makine ölçek kümesi için yalnızca Azure Portalı aracılığıyla erişilebilir:
 
+### <a name="serial-console-for-virtual-machines"></a>Sanal makineler için seri konsol
+VM'ler için seri konsol üzerinde tıklamak kadar basit **seri konsol** içinde **destek + sorun giderme** bölümünde Azure portalında.
   1. [Azure portalı](https://portal.azure.com) açın.
-  1. Sol menüden **sanal makineler**.
-  1. VM listesinde seçin. VM için genel bakış sayfası açılır.
+
+  1. Gidin **tüm kaynakları** ve bir sanal makine seçin. VM için genel bakış sayfası açılır.
+
   1. Ekranı aşağı kaydırarak **destek + sorun giderme** seçin ve bölüm **seri konsol**. Seri konsolu ile yeni bir bölme açılır ve bağlantısını başlatır.
+
+### <a name="serial-console-for-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri için seri konsol
+Seri konsol-örnek başına sanal makine ölçek kümeleri için kullanılabilir. Görebilmek için önce bir sanal makine ölçek kümesi tek örneğine gidin gerekecektir **seri konsol** düğmesi. Önyükleme tanılaması etkin sanal makine ölçek kümeniz yoksa, önyükleme tanılamasını etkinleştirin ve ardından seri konsoluna erişmek için yeni modeline tüm örneklerini yükseltin, sanal makine ölçek kümesi modelinden güncelleştirdiğinizden emin olun.
+  1. [Azure portalı](https://portal.azure.com) açın.
+
+  1. Gidin **tüm kaynakları** ve bir sanal makine ölçek kümesi seçin. Sanal makine ölçek ilişkin genel bakış sayfası açılır ayarlayın.
+
+  1. Gidin **örnekleri**
+
+  1. Bir sanal makine ölçek kümesi örneği seçin
+
+  1. Gelen **destek + sorun giderme** bölümünden **seri konsol**. Seri konsolu ile yeni bir bölme açılır ve bağlantısını başlatır.
 
 ## <a name="enable-serial-console-functionality"></a>Seri konsol işlevselliğini etkinleştirin
 
 > [!NOTE]
-> Seri konsol, herhangi bir şey görmediğinizden, sanal makinenizde, önyükleme tanılaması etkin olduğundan emin olun.
+> Seri konsol, herhangi bir şey görmediğinizden, bu önyükleme Tanılaması, sanal makine veya sanal makine ölçek kümesi üzerinde etkin olduğundan emin olun.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Seri konsol özel veya eski resimlerdeki etkinleştir
 Azure'da yeni Windows Server görüntülerini sahip [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak (örneğin, Windows 10, Windows 8 veya Windows 7) istemci sürümlerinde kullanılamaz.
 
-(Şubat 2018 tarihinden önce oluşturulan) daha eski Windows Server görüntüleri için otomatik olarak seri konsol üzerinden Azure portalının komutu çalıştır özelliğini etkinleştirebilirsiniz. Azure portalında **komutu Çalıştır**, adlandırılmış komutu seçin **EnableEM** listeden.
+(Şubat 2018 tarihinden önce oluşturulan) daha eski Windows Server görüntüleri için otomatik olarak seri konsol üzerinden Azure portalının komutu çalıştır özelliğini etkinleştirebilirsiniz. Azure portalında **komutu Çalıştır**, adlandırılmış komutu seçin **EnableEMS** listeden.
 
 ![Komut listesini çalıştırın.](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
 
-Alternatif olarak, Şubat 2018 tarihinden önce oluşturulan Windows sanal makineleri için seri konsoluna el ile etkinleştirmek için aşağıdaki adımları izleyin:
+Alternatif olarak, Şubat 2018 tarihinden önce oluşturulan Windows Vm'leri/sanal makine ölçek kümesi için seri konsoluna el ile etkinleştirmek için aşağıdaki adımları izleyin:
 
 1. Uzak Masaüstü'nü kullanarak Windows sanal makinenize bağlanın
 1. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın:
@@ -90,7 +106,7 @@ Varsa [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) değil
 
 Windows önyükleme yükleyicisi istemleri seri konsolunda görüntülenecek etkinleştirmeniz gerekirse, aşağıdaki ek seçenekler önyükleme yapılandırma verilerinizi ekleyebilirsiniz. Daha fazla bilgi için [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
 
-1. Windows sanal makinenize Uzak Masaüstü'nü kullanarak bağlanın.
+1. Windows sanal Makinenize bağlanın veya sanal makine ölçek kümesi örneği Uzak Masaüstü'nü kullanarak.
 
 1. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın:
    - `bcdedit /set {bootmgr} displaybootmenu yes`
@@ -137,15 +153,18 @@ Bir NMI aldığında bir kilitlenme bilgi döküm dosyası oluşturmak için Win
 ### <a name="use-wsl-in-serial-console"></a>Seri konsol WSL kullanımda
 Seri konsol içinde kullanmak için Windows Server 2019 çalıştırıyorsanız WSL etkinleştirmek olası veya sonraki bir sürümü Ayrıca, bu nedenle Linux (WSL) için Windows alt sistemi veya üzeri, Windows Server 2019 için etkinleştirildi. Bu, Linux komutlarını konusunda de kullanıcılar için yararlı olabilir. Windows Server için WSL etkinleştirmek yönergeler için bkz: [Yükleme Kılavuzu](https://docs.microsoft.com/windows/wsl/install-on-server).
 
-### <a name="restart-your-windows-vm-within-serial-console"></a>Seri konsol içinde Windows VM'nizi yeniden başlatın
-VM'NİZİN seri konsol içinde gezinme için güç düğmesi ve "VM yeniden Başlat" ı tıklatarak başlatabilirsiniz. Bu VM yeniden başlatır ve yeniden başlatma ile ilgili Azure portalında bir bildirim görürsünüz.
+### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Windows VM'ye/sanal makine ölçek kümesi örneği seri Konsolu içinden yeniden başlatın
+Seri Konsolu içinden bir yeniden başlatma, gezinme için güç düğmesi ve "VM yeniden Başlat" ı tıklatarak başlatabilirsiniz. Bu VM yeniden başlatır ve yeniden başlatma ile ilgili Azure portalında bir bildirim görürsünüz.
 
-Seri konsol deneyimi çıkmadan sanal makinenizin önyükleme menüye erişmek için burada isteyebileceğiniz durumlarda kullanışlıdır.
+Seri konsol deneyimi çıkmadan önyükleme menüsüne erişmek için burada isteyebileceğiniz durumlarda kullanışlıdır.
 
 ![Windows seri konsol yeniden başlatma](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Seri konsol devre dışı bırak
 Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Seri konsol veya abonelik düzeyinde hem de VM düzeyinde devre dışı bırakabilirsiniz.
+
+### <a name="vmvirtual-machine-scale-set-level-disable"></a>VM'ye/sanal makine ölçek kümesi düzeyinde devre dışı bırak
+Seri konsol önyükleme tanılama ayarını devre dışı bırakarak belirli sanal makine veya sanal makine ölçek kümesi için devre dışı bırakılabilir. Azure portalından sanal makine veya sanal makine ölçek kümesi için seri konsol devre dışı bırakmak için önyükleme tanılaması devre dışı bırakın. Bir sanal makine ölçek kümesinde seri Konsolu kullanıyorsanız, sanal makine ölçek kümesi örneklerinize en son modele yükseltme emin olun.
 
 > [!NOTE]
 > Etkinleştirmek veya seri konsol bir abonelik için devre dışı bırakmak için abonelik için yazma izinleri olmalıdır. Bu izinleri içerir ancak için yönetici veya sahip rollerinin sınırlı değildir. Özel roller ayrıca yazma izinlerine sahip olabilir.
@@ -181,9 +200,6 @@ Alternatif olarak, devre dışı bırakma, etkinleştirme ve seri konsol bir abo
 
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
-
-### <a name="vm-level-disable"></a>VM düzeyinde devre dışı bırak
-Seri konsol için belirli bir VM'ye, sanal makinenin önyükleme tanılama ayarı devre dışı bırakılarak devre dışı bırakılabilir. Önyükleme tanılaması sanal Makinenin seri konsol devre dışı bırakmak için Azure portalından devre dışı bırakın.
 
 ## <a name="serial-console-security"></a>Seri konsol güvenlik
 
@@ -226,7 +242,7 @@ Sistem ağ kilitleme | Seri konsol sistemini yönetmek için Azure portalından 
 
 
 ## <a name="errors"></a>Hatalar
-Geçici hataların çoğu olduğundan, bağlantınızı yeniden deneniyor genellikle bunları düzeltebilir. Aşağıdaki tabloda, hataları ve risk azaltma işlemleri listesini gösterir.
+Geçici hataların çoğu olduğundan, bağlantınızı yeniden deneniyor genellikle bunları düzeltebilir. Aşağıdaki tabloda hataları ve risk azaltma işlemleri için her iki VM listesi gösterilir ve sanal makine ölçek kümesi örnekleri.
 
 Hata                            |   Risk azaltma
 :---------------------------------|:--------------------------------------------|
@@ -239,7 +255,7 @@ Web yuvası kapalı veya açılamadı. | Beyaz listeye gerekebilir `*.console.az
 Yalnızca sistem durumu bilgileri, bir Windows VM'ye bağlanırken gösterilir.| Özel Yönetim Konsolu, Windows görüntüsü için etkin değil, bu hata meydana gelir. Bkz: [eski veya özel görüntüleri seri konsolundan etkinleştirme](#enable-the-serial-console-in-custom-or-older-images) SAC, Windows VM'de el ile etkinleştirme hakkında yönergeler için. Daha fazla bilgi için [Windows durum sinyallerini](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-Seri konsol ile ilgili bazı sorunlar farkında duyuyoruz. Bu sorunlar ve risk azaltma için adımlar listesi aşağıda verilmiştir.
+Seri konsol ile ilgili bazı sorunlar farkında duyuyoruz. Bu sorunlar ve risk azaltma için adımlar listesi aşağıda verilmiştir. Bu sorunları ve riskleri azaltma hem sanal makineler için geçerlidir ve sanal makine ölçek kümesi örnekleri.
 
 Sorun                             |   Risk azaltma
 :---------------------------------|:--------------------------------------------|

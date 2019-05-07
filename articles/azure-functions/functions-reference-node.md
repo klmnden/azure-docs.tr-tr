@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697833"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140952"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Tüm girdi ve çıktı verilerini içeren adlandırılmış bir nesne döndürür. Örneğin, aşağıdaki bağlama tanımlar, function.json, bir kuyruktan içeriğine erişmek izin `context.bindings.myInput` ve kullanarak bir kuyruk çıkış atama `context.bindings.myOutput`.
+Okumak veya veri bağlama atamak için kullanılan adlandırılmış bir nesne döndürür. Giriş ve veri bağlama tetikleyici üzerinde özelliklerini okuyarak erişilebilir `context.bindings`. Çıkış veri bağlama verileri ekleyerek atanabilir. `context.bindings`
+
+Örneğin, aşağıdaki bağlama tanımlar, function.json, bir kuyruktan içeriğine erişmek izin `context.bindings.myInput` ve kullanarak bir kuyruk çıkış atama `context.bindings.myOutput`.
 
 ```json
 {
@@ -273,10 +275,10 @@ Varsayılan izleme düzeyinde akış işlev günlükleri yazmanızı sağlar. Ü
 
 | Yöntem                 | Açıklama                                |
 | ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | Oturum açma veya daha düşük hata düzeyini yazar.   |
-| **warn(_message_)**    | Oturum açma veya daha düşük uyarı düzeyi için yazar. |
-| **info(_message_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
-| **verbose(_message_)** | Ayrıntılı düzeyinde günlüğe kaydetme için yazar.           |
+| **hata (_ileti_)**   | Oturum açma veya daha düşük hata düzeyini yazar.   |
+| **uyar (_ileti_)**    | Oturum açma veya daha düşük uyarı düzeyi için yazar. |
+| **Info (_ileti_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
+| **ayrıntılı (_ileti_)** | Ayrıntılı düzeyinde günlüğe kaydetme için yazar.           |
 
 Aşağıdaki örnek, bir uyarı izleme düzeyini günlüğüne yazar:
 
@@ -290,7 +292,7 @@ Okuma [Azure işlevleri izleme](functions-monitoring.md) görüntüleme ve işle
 
 ## <a name="writing-trace-output-to-the-console"></a>İzleme çıktısı konsola yazma 
 
-İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevler'ın v2.x içinde İzleme çıkışı kullanarak `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil ve bu nedenle belirli bir işlevin günlüklerini görüntülenmez. Ancak, Application Insights'a yayılması. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için.
+İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevler'ın v2.x içinde İzleme çıkışı kullanarak `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil ve belirli bir işlevin günlüklerini içinde görüntülenmez. Ancak, Application Insights'a yayılması. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için.
 
 Çağırdığınızda `context.log()`, iletinizin olduğundan varsayılan izleme düzeyini konsolda yazılan _bilgisi_ izleme düzeyi. Aşağıdaki kod, bilgi izleme düzeyini konsola yazar:
 
@@ -350,12 +352,12 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 | Özellik      | Açıklama                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | İstek gövdesini içeren bir nesne.               |
-| _headers_     | İstek üst bilgilerini içeren bir nesne.                   |
-| _method_      | İsteğin HTTP yöntemi.                                |
+| _Gövde_        | İstek gövdesini içeren bir nesne.               |
+| _Üst bilgileri_     | İstek üst bilgilerini içeren bir nesne.                   |
+| _Yöntemi_      | İsteğin HTTP yöntemi.                                |
 | _originalUrl_ | İsteğin URL'si.                                        |
 | _params_      | İstek yönlendirme parametrelerini içeren bir nesne. |
-| _query_       | Sorgu parametrelerini içeren bir nesne.                  |
+| _Sorgu_       | Sorgu parametrelerini içeren bir nesne.                  |
 | _rawBody_     | Dize olarak iletinin gövdesi.                           |
 
 
@@ -365,10 +367,10 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 | Özellik  | Açıklama                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Yanıtın gövdesini içeren bir nesne.         |
-| _headers_ | Yanıt üst bilgilerini içeren bir nesne.             |
+| _Gövde_    | Yanıtın gövdesini içeren bir nesne.         |
+| _Üst bilgileri_ | Yanıt üst bilgilerini içeren bir nesne.             |
 | _isRaw_   | Biçimlendirme yanıt atlanır gösterir.    |
-| _status_  | Yanıtın HTTP durum kodu.                     |
+| _Durumu_  | Yanıtın HTTP durum kodu.                     |
 
 ### <a name="accessing-the-request-and-response"></a>İstek ve yanıt erişme 
 

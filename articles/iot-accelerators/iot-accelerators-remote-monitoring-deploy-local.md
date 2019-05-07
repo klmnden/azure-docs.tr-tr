@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450605"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150961"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio dağıtma
 
@@ -83,7 +83,7 @@ Her web hizmeti, bir komut istemi'ni ve web tarayıcı penceresi açılır. Komu
 Stream Analytics işi başlatmak için aşağıdaki adımları izleyin:
 
 1. [Azure portalına](https://portal.azure.com) gidin.
-1. Gidin **kaynak grubu** çözümünüz için oluşturulur. Kaynak grubunun adı çalıştırdığınızda çözümünüz için seçtiğiniz addır **start.cmd** betik **.
+1. Gidin **kaynak grubu** çözümünüz için oluşturulur. Kaynak grubunun adı çalıştırdığınızda çözümünüz için seçtiğiniz addır **start.cmd** betiği.
 1. Tıklayın **Stream Analytics işi** kaynakları listesinde.
 1. Stream Analytics işinde **genel bakış** sayfasında **Başlat** düğmesi. Ardından **Başlat** işini şimdi başlatmak için.
 

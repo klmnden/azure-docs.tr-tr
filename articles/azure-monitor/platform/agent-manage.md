@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics Aracısı'nı yönetme | Microsoft Docs
-description: Bu makalede, Microsoft Monitoring Agent (bir makinede dağıtılan MMA) yaşam döngüsü boyunca genellikle gerçekleştirecek farklı yönetim görevleri açıklanır.
+description: Bu makalede, Log Analytics Windows veya Linux aracı makine üzerinde dağıtılan yaşam döngüsü boyunca genellikle gerçekleştirecek farklı yönetim görevleri açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730281"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139257"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows ve Linux için Log Analytics aracısını korumak ve yönetme
 
-Log Analytics Windows veya Linux Aracısı Azure İzleyici'de, ilk dağıtımdan sonra aracıyı yeniden yapılandırın, yükseltmek veya yaşam döngüsü emeklilik aşamasında ulaştıysa bilgisayardan kaldırmanız gerekebilir. Bu bakım görevleri el ile veya işlem hatası hem giderlerini azaltan ve Otomasyon aracılığıyla kolayca yönetebilirsiniz.
+Log Analytics Windows veya Linux Aracısı Azure İzleyici'de, ilk dağıtımdan sonra aracıyı yeniden yapılandırmak, yükseltmek veya yaşam döngüsü emeklilik aşamasında ulaştıysa bilgisayardan kaldırmanız gerekebilir. Bu bakım görevleri el ile veya işlem hatası hem giderlerini azaltan ve Otomasyon aracılığıyla kolayca yönetebilirsiniz.
 
 ## <a name="upgrading-agent"></a>Aracı yükseltme
 
@@ -40,7 +40,7 @@ Bir Windows VM aracısını kullanarak Log Analytics VM uzantısı yüklü deği
 
 Aşağıdaki adımları uygulayarak, Log Analytics çalışma alanınızda Windows Aracısı'nı en son sürümünü indirebilirsiniz.
 
-1. Azure Portal’da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Log Analytics çalışma alanları**.
 
@@ -91,6 +91,7 @@ Bir aracıyı yükseltmek için aşağıdaki komutu çalıştırın.
 ## <a name="adding-or-removing-a-workspace"></a>Ekleyerek veya kaldırarak bir çalışma alanı
 
 ### <a name="windows-agent"></a>Windows Aracısı
+Yalnızca Windows Aracısı farklı bir çalışma alanına raporlama yapacak veya bir çalışma alanı yapılandırmasını kaldırmak için yeniden yapılandırmak istediğiniz zaman, aynı zamanda (genellikle birden fazla çalışma alanına raporlama yapacak aracıyı yapılandırmak istediğiniz zaman bu bölümdeki adımlar gereklidir birden çok giriş adlandırılır). Birden çok çalışma alanına raporlama yapacak Windows aracısını yapılandırma yalnızca aracısının ve aşağıda açıklanan yöntemlerle ilk Kurulumdan sonra gerçekleştirilebilir.    
 
 #### <a name="update-settings-from-control-panel"></a>Denetim Masası'ndan ayarlarını güncelleştirme
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Aşağıdaki adımları, farklı bir çalışma alanı ile kaydolun veya bir çalışma alanı yapılandırmasını kaldırmak istediğiniz karar verirseniz, Linux Aracısı yapılandırılacağını göstermektedir.
+Aşağıdaki adımları, farklı bir çalışma alanı ile kaydetmek için veya bir çalışma yapılandırmasını kaldırmak isterseniz Linux aracısını yeniden yapılandırmak nasıl ekleyebileceğiniz gösterilmektedir.
 
 1. Bir çalışma alanına kaydedilir doğrulamak için aşağıdaki komutu çalıştırın:
 
@@ -160,7 +161,7 @@ Aşağıdaki adımları, farklı bir çalışma alanı ile kaydolun veya bir ça
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. Değişikliklerinizi etkileyen Süren doğrulamak için aşağıdaki komutu çalıştırın:
+4. Değişikliklerinizi etkisi sürdü doğrulamak için aşağıdaki komutu çalıştırın:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 

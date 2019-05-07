@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597241"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146150"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Öğretici: Toplu test veri kümesi
 
@@ -28,7 +28,7 @@ Toplu test etmek için gereksinimler:
 
 * En fazla test başına 1000 konuşma. 
 * Yinelenen değer yok. 
-* İzin verilen varlık türleri: basit, hiyerarşik yalnızca Eve öğrenilen varlıklar (salt üst) ve karma. Toplu test yalnızca öğrenilen Eve amaç ve varlıkları için yararlı olur.
+* İzin verilen varlık türleri: Basit ve bileşik yalnızca Eve öğrenilen varlıklar. Toplu test yalnızca öğrenilen Eve amaç ve varlıkları için yararlı olur.
 
 Bu öğreticinin dışında bir uygulama kullanırken, yapmak *değil* zaten bir amaç için eklenen örnek konuşma kullanın. 
 
@@ -95,7 +95,7 @@ Aşağıdaki adımları kullanın:
 
 ## <a name="review-batch-results"></a>Toplu iş sonuçlarını gözden geçirin
 
-Batch grafik dört quadrants sonuçlarını görüntüler. Grafiğin sağına bir filtredir. Varsayılan olarak, listedeki ilk amaca filtre ayarlanır. Tüm amaçlar ve yalnızca basit, hiyerarşik filtre içerir (üst salt) ve bileşik varlıkları. Seçtiğinizde, bir [grafik bölümünü](luis-concept-batch-test.md#batch-test-results) veya bir nokta grafik içinde ilişkili utterance(s) grafiğin altına görüntüleyebilirsiniz. 
+Batch grafik dört quadrants sonuçlarını görüntüler. Grafiğin sağına bir filtredir. Varsayılan olarak, listedeki ilk amaca filtre ayarlanır. Filtre, tüm hedefleri ve yalnızca basit ve bileşik varlıklar içeriyor. Seçtiğinizde, bir [grafik bölümünü](luis-concept-batch-test.md#batch-test-results) veya bir nokta grafik içinde ilişkili utterance(s) grafiğin altına görüntüleyebilirsiniz. 
 
 Grafik üzerine gelindiğinde, fare tekerleğini büyütebilir veya grafikte görüntülenecek azaltın. Bu, sıkı bir şekilde birlikte kümelenmiş grafik üzerinde çok sayıda noktası olduğunda yararlıdır. 
 
@@ -169,7 +169,7 @@ Toplu test konuşma doğru şekilde tahmin doğrulamak için batch testi yeniden
 
 ## <a name="create-batch-file-with-entities"></a>Toplu iş dosyası ile varlıkları oluşturun 
 
-Toplu test varlıklarda doğrulamak için varlıkları batch JSON dosyasında etiketlenmesi gerekir. Yalnızca makine öğrenilen varlıklar kullanılır: basit, hiyerarşik (ana salt) ve bileşik varlıkları. Makine öğrenilen varlıklar her zaman normal ifadeler üzerinden bulundukları veya açık metinle eşleşen eklemeyin.
+Toplu test varlıklarda doğrulamak için varlıkları batch JSON dosyasında etiketlenmesi gerekir. Yalnızca makine öğrenilen varlıklar kullanılır: Basit ve Bileşik varlık. Makine öğrenilen varlıklar her zaman normal ifadeler üzerinden bulundukları veya açık metinle eşleşen eklemeyin.
 
 Varlıklar için toplam word çeşitlemesi ([belirteci](luis-glossary.md#token)) sayısı, tahmin kalite etkileyebilir. Varlık uzunluklarının çeşitli amaca etiketli Konuşma ile sağlanan eğitim verilerini içerdiğinden emin olun. 
 
@@ -205,11 +205,11 @@ Değerini bir **iş** test konuşma içinde sağlanan varlıktır genellikle dah
 
 ## <a name="review-entity-batch-results"></a>Varlık toplu sonuçları gözden geçirin
 
-Grafik doğru şekilde tahmin edilen tüm hedefleri ile açılır. Varlık Öngörüler erroring bulmak için sağ taraftaki filtreye kaydırın. 
+Grafik doğru şekilde tahmin edilen tüm hedefleri ile açılır. Hatalı varlık Öngörüler bulmak için sağ taraftaki filtre aşağı kaydırın. 
 
 1. Seçin **iş** filtredeki varlık.
 
-    ![Filtredeki erroring varlık Öngörüler](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Filtredeki hata varlık Öngörüler](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     Varlık Öngörüler görüntülemek için grafik değişir. 
 

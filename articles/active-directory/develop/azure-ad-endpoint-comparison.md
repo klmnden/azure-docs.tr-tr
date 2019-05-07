@@ -1,31 +1,30 @@
 ---
-title: Microsoft kimlik Platformu (v2.0) uç noktası Azure AD v1.0 uç noktası ile karşılaştırma | Microsoft Docs
-description: Microsoft kimlik Platformu (v2.0) uç noktası ve Azure Active Directory (Azure AD) v1.0 uç nokta arasındaki farkları öğrenin.
+title: Neden Microsoft identity platformuna (v2.0) güncelleştir | Azure
+description: Microsoft kimlik Platformu (v2.0) uç noktası ve Azure Active Directory (Azure AD) v1.0 uç nokta arasındaki farkları bilmeniz ve v2.0 için güncelleştirme sağladığı avantajları öğrenin.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dba74735b4c703123f9ff89b63a57d53faa84fde
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410680"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138777"
 ---
-# <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Microsoft kimlik platformu uç nokta ve Azure AD v1.0 uç noktası karşılaştırma
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Neden Microsoft identity platformuna (v2.0) güncelleştirilsin mi?
 
 Yeni bir uygulama geliştirirken, Microsoft kimlik Platformu (v2.0) ve Azure Active Directory (v1.0) uç noktaları arasındaki farkları bilmeniz önemlidir. Bu makalede uç noktaları ve Microsoft kimlik platformu için var olan bazı sınırlamalar arasındaki temel farklar ele alınmaktadır.
 
@@ -56,7 +55,7 @@ Doğrudan uygulama kaydı üzerinde izinler **statik**. Azure Portalı'nda tanı
 
 * Uygulamanın tüm önceden hiç olmadığı kadar eriştiğiniz kaynaklar bilmeniz gerekir. Kaynakları rastgele bir sayıdan erişebilir uygulamalar oluşturmak zordu.
 
-Microsoft kimlik platformu uç nokta ile Azure portal ve istek izinleri uygulama kayıt bilgileri artımlı olarak bunun yerine, tanımlanan statik izinleri isteyen bir çıplak en düşük izinler kümesini önceden için anlamına gelir yoksayabilirsiniz ve müşteri zaman içinde daha tahakkuk ek uygulama özelliklerini kullanır. Bunu yapmak için uygulamanız gereken herhangi bir zamanda yeni kapsamlar dahil ederek kapsamları belirtebilirsiniz `scope` - önceden uygulama kayıt defteri bilgilerini tanımlamak için gerek kalmadan, bir erişim belirteci isteğinde bulunurken parametresi. Kullanıcı henüz isteğine eklenen yeni kapsamlar için onaylı taşınmadığından, yalnızca yeni izinler için izin istenir. Daha fazla bilgi için bkz. [izinler ve onay kapsamları](v2-permissions-and-consent.md).
+Microsoft kimlik platformu uç nokta ile Azure portal ve istek izinleri uygulama kayıt bilgileri artımlı olarak bunun yerine, tanımlanan statik izinleri isteyen bir çıplak en düşük izinler kümesini önceden için anlamına gelir yoksayabilirsiniz ve müşteri zaman içinde daha fazla büyümesini ek uygulama özelliklerini kullanır. Bunu yapmak için uygulamanız gereken herhangi bir zamanda yeni kapsamlar dahil ederek kapsamları belirtebilirsiniz `scope` - önceden uygulama kayıt defteri bilgilerini tanımlamak için gerek kalmadan, bir erişim belirteci isteğinde bulunurken parametresi. Kullanıcı henüz isteğine eklenen yeni kapsamlar için onaylı taşınmadığından, yalnızca yeni izinler için izin istenir. Daha fazla bilgi için bkz. [izinler ve onay kapsamları](v2-permissions-and-consent.md).
 
 İzin istemek için bir uygulama ile dinamik olarak izin vererek `scope` parametresi, geliştiricilerin kullanıcı deneyimi üzerinde tam denetim sağlar. Ayrıca, izninizi deneyimi ve tüm izinleri bir ilk yetkilendirme isteği için sorun yük ön. Uygulamanız çok sayıda izinleri gerektiriyorsa, zaman içinde belirli bir uygulamanın özelliklerini kullanmak çalışırken, bu izinleri kullanıcıdan artımlı olarak toplayabilirsiniz.
 
@@ -91,7 +90,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Burada, **kapsam** parametresi gösterir uygulamanın hangi kaynak ve izinleri isteyen yetkilendirme. İstenen kaynak istekte hala mevcut - her kapsam parametresinin değeri ileride olan. Bu şekilde kapsam parametresi kullanarak Microsoft kimlik platformu endpoint OAuth 2.0 belirtimiyle daha uyumlu olmasını sağlar ve ortak sektör uygulamalarına sahip daha yakından hizalar. Ayrıca gerçekleştirmek uygulamaları tanır [artımlı onay](#incremental-and-dynamic-consent) - yalnızca uygulama bunları başlangıcı yerine sonundan Önden gerektirdiğinde izinleri isteyen.
+Burada, **kapsam** parametresi gösterir uygulamanın hangi kaynak ve izinleri isteyen yetkilendirme. İstenen kaynak istekte hala mevcut - her kapsam parametresinin değeri ileride olan. Bu şekilde kapsam parametresi kullanarak Microsoft kimlik platformu endpoint OAuth 2.0 belirtimiyle daha uyumlu olmasını sağlar ve ortak sektör uygulamalarına sahip daha yakından hizalar. Ayrıca yapmak uygulamaları tanır [artımlı onay](#incremental-and-dynamic-consent) - yalnızca uygulama bunları başlangıcı yerine sonundan Önden gerektirdiğinde izinleri isteyen.
 
 ## <a name="well-known-scopes"></a>İyi bilinen kapsamları
 
@@ -99,7 +98,7 @@ Burada, **kapsam** parametresi gösterir uygulamanın hangi kaynak ve izinleri i
 
 Microsoft kimlik platformu uç noktası kullanan uygulamalar - uygulamalar için yeni iyi bilinen bir izin kullanımını gerektirebilir `offline_access` kapsam. Tüm uygulamalar, bir uzun süre, kullanıcının uygulamayı etkin bir şekilde kullanırken değil, hatta bir kullanıcı adına kaynaklara gerekiyorsa bu izin istemesi gerekir. `offline_access` Kapsamı Onayı iletişim kutularının kullanıcıya görünür **verilerinizi dilediğiniz zaman erişin**, hangi kullanıcının kabul etmesi gerekir. İsteyen `offline_access` izni OAuth 2.0 refresh_tokens Microsoft kimlik platformu uç noktasından almak üzere web uygulamanızı etkinleştirir. Yenileme belirteçleri uzun süreli ve uzun süreler erişim için yeni OAuth 2.0 erişim belirteçleri değiştirilebilir.
 
-Uygulamanızı istemeyen varsa `offline_access` kapsamı, yenileme belirteçleri almaz. OAuth 2.0 yetkilendirme kod akışı bir yetkilendirme kodunda şifrenizi kullandığınızda, yalnızca geri bir erişim belirteci alırsınız, yani `/token` uç noktası. Bu belirteç kalan süre (genellikle bir saat) kısa bir süre için geçerli erişim, ancak sonunda sona erer. Uygulamanızı, zaman içinde nokta kullanıcıyı yeniden yönlendirmek için gereken en başa `/authorize` yeni bir yetkilendirme kodu almak için uç nokta. Bu yeniden yönlendirme sırasında kullanıcı veya kimlik bilgilerini yeniden girin veya uygulamanın türüne bağlı olarak, izinlerde reconsent gerekmeyebilir.
+Uygulamanızı istemeyen varsa `offline_access` kapsamı, yenileme belirteçleri almazsınız. OAuth 2.0 yetkilendirme kod akışı bir yetkilendirme kodunda şifrenizi kullandığınızda, yalnızca geri bir erişim belirteci alırsınız, yani `/token` uç noktası. Bu belirteç kalan süre (genellikle bir saat) kısa bir süre için geçerli erişim, ancak sonunda sona erer. Uygulamanızı, zaman içinde nokta kullanıcıyı yeniden yönlendirmek için gereken en başa `/authorize` yeni bir yetkilendirme kodu almak için uç nokta. Bu yeniden yönlendirme sırasında kullanıcı veya kimlik bilgilerini yeniden girin veya uygulamanın türüne bağlı olarak, izinlerde reconsent gerekmeyebilir.
 
 OAuth 2.0 hakkında daha fazla bilgi edinmek için `refresh_tokens`, ve `access_tokens`, kullanıma [Microsoft kimlik platformu Protokolü başvurusu](active-directory-v2-protocols.md).
 
@@ -109,8 +108,8 @@ Tarihsel olarak, en temel Openıd Connect oturum açma akışını Microsoft kim
 
 Bilgi, `openid` kapsam ortaya koymaktadır, uygulamanıza erişimi, artık sınırlı. `openid` Kapsamı yalnızca kullanıcının oturum açmasını ve kullanıcı için uygulamaya özgü tanımlayıcı almak uygulamanızı sağlayacaktır. Uygulamanızda kullanıcı hakkındaki kişisel verileri almak istiyorsanız, kullanıcıdan ilave izin istemek uygulamanız gerekir. İki yeni kapsamlar `email` ve `profile`, ilave izin istemek izin verir.
 
-* `email` Kapsam aracılığıyla kullanıcının birincil e-posta adresi erişim sağlayan `email` adreslenebilir e-posta adresi kullanıcının sahip olduğu varsayılırsa, id_token içinde talep. 
-* `profile` Kapsamı ortaya koymaktadır, diğer tüm kullanıcıların adı, tercih edilen kullanıcı adı gibi kullanıcı hakkında temel bilgileri erişim nesne kimliği, vb. id_token içinde.
+* `email` Kapsam aracılığıyla kullanıcının birincil e-posta adresi erişim sağlayan `email` adreslenebilir e-posta adresi kullanıcının sahip olduğu varsayılırsa, id_token içinde talep.
+* `profile` Kapsamı ortaya koymaktadır, diğer temel bilgileri kullanıcıların adı, tercih edilen kullanıcı adı gibi kullanıcıyla ilgili erişim nesne kimliği vb. id_token içinde.
 
 Bu kapsam, uygulamanızı kendi işini yapması için gereken bilgileri kümesi için yalnızca kullanıcı sorabilirsiniz uygulamanızı açığa en az bir şekilde kod olanak sağlar. Bu kapsamları hakkında daha fazla bilgi için bkz. [Microsoft kimlik platformu kapsam başvurusu](v2-permissions-and-consent.md).
 
@@ -124,7 +123,7 @@ Microsoft kimlik platformu kullanırken dikkat edilmesi gereken bazı kısıtlam
 
 Microsoft kimlik platformu ile tümleştirilen uygulamalar oluştururken, Microsoft kimlik platformu uç noktasını ve kimlik doğrulama protokolleri gereksinimlerinizi karşılayıp karşılamadığını karar vermeniz gerekir. Platform ve v1.0 uç nokta hala tam olarak desteklenir ve bazı açılardan, daha fazla özellik zengin daha Microsoft kimlik platformu olan. Ancak, Microsoft kimlik platformu [önemli avantajlar sunuyor](azure-ad-endpoint-comparison.md) geliştiriciler için.
 
-Geliştiriciler için bu anda basitleştirilmiş bir öneri şu şekildedir:
+Geliştiriciler için artık basitleştirilmiş bir öneri şu şekildedir:
 
 * İstediğiniz veya kişisel Microsoft hesapları, uygulamanızda desteklemesi gerekir ya da yeni bir uygulama yazıyorsanız, Microsoft kimlik platformu kullanın. Ancak bunu yapmadan önce bu makalede ele alınan sınırlamaları anladığınızdan emin olun.
 * Geçiş ya da SAML üzerinde dayalı bir uygulama güncelleştirme, Microsoft kimlik platformu kullanamazsınız. Bunun yerine, başvurmak [Azure AD v1.0 Kılavuzu](v1-overview.md).
@@ -133,7 +132,7 @@ Microsoft kimlik platformu uç noktası, böylece hiç olmadığı kadar yalnız
 
 ### <a name="restrictions-on-app-registrations"></a>Uygulama kayıtları kısıtlamaları
 
-Microsoft kimlik platformu uç noktası ile tümleştirmek istediğiniz her uygulama için bir uygulama kaydı yeni oluşturabileceğiniz [ **uygulama kayıtları** deneyimi](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) Azure portalında. Mevcut bir Microsoft hesabı uygulamaları Önizleme portalı ile uyumlu değildir, ancak nerede ve ne zaman kayıtlı bağımsız olarak tüm Azure AD uygulamaları şunlardır.
+Microsoft kimlik platformu uç noktası ile tümleştirmek istediğiniz her uygulama için bir uygulama kaydı yeni oluşturabileceğiniz [ **uygulama kayıtları** deneyimi](https://aka.ms/appregistrations) Azure portalında. Mevcut bir Microsoft hesabı uygulamaları portal ile uyumlu değil, ancak nerede ve ne zaman kayıtlı bağımsız olarak tüm Azure AD uygulamaları şunlardır.
 
 İş ve Okul hesapları ve kişisel hesapları destekleyen bir uygulama kayıtları aşağıdaki uyarılar vardır:
 
@@ -168,9 +167,9 @@ Sahip olan bir uygulama istiyorsanız `login-east.contoso.com` ve `login-west.co
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-İlk yönlendirme URL'sinin alt etki alanlarını olduklarından, sonraki iki ekleyebilirsiniz contoso.com. Bu sınırlama, gelecek bir sürümde kaldırılacak.
+İlk yönlendirme URL'sinin alt etki alanlarını oldukları için sonraki iki ekleyebilirsiniz contoso.com.
 
-Ayrıca unutmayın, belirli bir uygulama için yalnızca 20 yanıt URL'leri olabilir - kayıt (SPA, yerel istemci, web uygulaması ve hizmet) destekler, bu sınır tüm uygulama türlerinde geçerlidir.  
+Belirli bir uygulama için yalnızca 20 yanıt URL'leri olabilir: kayıt (tek sayfalı uygulama (SPA), yerel istemci, web uygulaması ve hizmet) destekler, bu sınır tüm uygulama türlerinde geçerlidir.  
 
 Microsoft kimlik platformu ile kullanmak için bir uygulamayı kaydetme hakkında bilgi için bkz: [yeni uygulama kaydı deneyimini kullanarak bir uygulamayı kaydetme](quickstart-register-app.md).
 
@@ -178,9 +177,9 @@ Microsoft kimlik platformu ile kullanmak için bir uygulamayı kaydetme hakkınd
 
 Şu anda, Microsoft kimlik platformu uç noktası için kitaplık desteği sınırlıdır. Microsoft kimlik platformu uç noktası, bir üretim uygulamasında kullanmak istiyorsanız, bu seçenekler vardır:
 
-* Bir web uygulaması derliyorsanız, oturum açma ve belirteç doğrulama gerçekleştirmek için genel kullanıma sunulan sunucu tarafı ara yazılımı güvenli bir şekilde kullanabilirsiniz. Bunlar, ASP.NET ve Node.js Passport eklentisi için OWIN Openıd Connect ara yazılımını içerir. Microsoft Ara yazılımında kullanan kod örnekleri için bkz. [Başlarken Microsoft kimlik platformu](v2-overview.md#getting-started) bölümü.
-* Masaüstü veya mobil bir uygulama oluşturuyorsanız, Microsoft kimlik doğrulama kitaplığı (MSAL) önizleme birini kullanabilirsiniz. Bu kitaplıklar üretim desteklenen bir önizleme aşamasında olduğundan, bunları üretim uygulamalarında kullanmak daha güvenlidir. Daha fazla Önizleme kullanılabilir kitaplıkları ve terimler hakkında [kimlik doğrulama kitaplıkları başvuru](reference-v2-libraries.md).
-* Microsoft kitaplıkları tarafından kapsamında olmayan platformlar için doğrudan uygulama kodunuzda protokolü ileti alma ve gönderme tarafından Microsoft kimlik platformu uç noktası ile tümleştirebilirsiniz. Openıd Connect ve OAuth protokolleri [açıkça belirtilmiştir](active-directory-v2-protocols.md) bu tür bir tümleştirme gerçekleştirmenizi sağlayacak.
+* Bir web uygulaması derliyorsanız, oturum açma ve belirteç doğrulama için genel kullanıma sunulan sunucu tarafı ara yazılımı güvenli bir şekilde kullanabilirsiniz. Bunlar, ASP.NET ve Node.js Passport eklentisi için OWIN Openıd Connect ara yazılımını içerir. Microsoft Ara yazılımında kullanan kod örnekleri için bkz. [Başlarken Microsoft kimlik platformu](v2-overview.md#getting-started) bölümü.
+* Masaüstü veya mobil bir uygulama oluşturuyorsanız, Microsoft kimlik doğrulama kitaplığı (MSAL) kullanabilirsiniz. Bu kitaplıklar genel kullanıma sunulmuştur veya bir üretim desteklenen, bu nedenle, bunları üretim uygulamalarında kullanmak üzere güvenli önizlemededir. Daha fazla Önizleme kullanılabilir kitaplıkları ve terimler hakkında [kimlik doğrulama kitaplıkları başvuru](reference-v2-libraries.md).
+* Microsoft kitaplıkları tarafından kapsamında olmayan platformlar için doğrudan uygulama kodunuzda protokolü ileti alma ve gönderme tarafından Microsoft kimlik platformu uç noktası ile tümleştirebilirsiniz. Openıd Connect ve OAuth protokolleri [açıkça belirtilmiştir](active-directory-v2-protocols.md) bu tür bir tümleştirme yapmanıza yardımcı olmak için.
 * Son olarak, Microsoft kimlik platformu uç noktası ile tümleştirmek için açık kaynaklı Openıd Connect ve OAuth kitaplıklarını kullanabilirsiniz. Microsoft kimlik platformu uç noktası, değişiklik yapmak zorunda kalmadan birçok açık kaynak Protokolü kitaplıkları ile uyumlu olmalıdır. Bu tür kitaplıkları kullanılabilirliğini, dil ve platforma göre değişir. [Openıd Connect](https://openid.net/connect/) ve [OAuth 2.0](https://oauth.net/2/) Web siteleri korumak popüler uygulamaları listesi. Daha fazla bilgi için [Microsoft kimlik platformu ve kimlik doğrulama kitaplıkları](reference-v2-libraries.md), açık kaynak istemci kitaplıkları ve Microsoft kimlik platformu uç noktası ile test edilmiştir örnekleri listesi.
 * Başvuru için `.well-known` Microsoft kimlik platformu ortak uç nokta için uç nokta `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Değiştirin `common` kiracınıza belirli verileri almak için Kiracı kimliği.  
 
@@ -196,4 +195,4 @@ Microsoft kimlik platformu uç nokta desteklenen protokol işlevselliği daha iy
 
 #### <a name="saml-restrictions"></a>SAML kısıtlamaları
 
-Windows uygulamalarında Active Directory Authentication Library (ADAL) kullandıysanız, güvenlik onaylama işlemi biçimlendirme dili (SAML) onay verme kullanan Windows tümleşik kimlik doğrulaması avantajlarından geçen. Bu izinle, kullanıcıları Azure AD'ye Federasyon kiracıları sessizce kimlik doğrulaması gerçekleştirmenin kendi şirket içi Active Directory örneği ile kimlik bilgilerini girmeden. SAML onay verme Microsoft kimlik platformu uç noktada desteklenmiyor.
+Windows uygulamalarında Active Directory Authentication Library (ADAL) kullandıysanız, güvenlik onaylama işlemi biçimlendirme dili (SAML) onay verme kullanan Windows tümleşik kimlik doğrulaması avantajlarından geçen. Bu izinle, kullanıcıları Azure AD'ye Federasyon kiracıları sessizce kimlik doğrulaması gerçekleştirmenin kendi şirket içi Active Directory örneği ile kimlik bilgilerini girmeden. SAML onay verme, Microsoft kimlik platformu uç noktada desteklenmez.

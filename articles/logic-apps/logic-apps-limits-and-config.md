@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/16/2018
-ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/06/2019
+ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916806"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147739"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -48,20 +48,20 @@ Bir tek bir mantıksal uygulama tanımını sınırları şunlardır:
 
 Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
-| Ad | Sınır | Notlar |
-|------|-------|-------|
-| Çalıştırma süresi | 90 gün | Bu sınırı değiştirmek için bkz: [değişiklik çalıştırma süresini](#change-duration). |
-| En az yinelenme aralığı | 1 saniye | |
-| En fazla yinelenme aralığı | 500 gün | |
-| Depolama bekletme | 90 gün içinde çalıştırmanın başlangıç saati | 7 gün-90 gün arasında bir değer bu sınırı değiştirmek için bkz: [depolama bekletmeyi değiştirme](#change-retention). |
-||||
+| Ad | Çok kiracılı sınırı | Tümleştirme hizmeti ortamı sınırı | Notlar |
+|------|--------------------|---------------------------------------|-------|
+| Çalıştırma süresi | 90 gün | 365 gün | Varsayılan sınırı değiştirmek için bkz [değişiklik çalıştırma süresini](#change-duration). |
+| Depolama bekletme | 90 gün içinde çalıştırmanın başlangıç saati | 365 gün | Varsayılan sınırı değiştirmek için bkz [depolama bekletmeyi değiştirme](#change-retention). |
+| En az yinelenme aralığı | 1 saniye | 1 saniye ||
+| En fazla yinelenme aralığı | 500 gün | 500 gün ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-storage-retention"></a>Çalışma süresi ve depolama bekletmeyi değiştirme
 
-Varsayılan sınır 7 gün ve 90 gün arasında değiştirmek için aşağıdaki adımları izleyin. Maksimum sınırı Git gerekiyorsa [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
+Çalışma süresi ve depolama bekletme için varsayılan sınırı değiştirmek için aşağıdaki adımları izleyin. Maksimum sınırı Git gerekiyorsa [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
 
 1. Azure portalında mantıksal uygulama menüsünde seçin **iş akışı ayarları**.
 
@@ -91,7 +91,7 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
-### <a name="global-logic-apps-service"></a>Logic Apps hizmetinin genel
+### <a name="multi-tenant-logic-apps-service"></a>Çok kiracılı Logic Apps hizmetinin
 
 | Ad | Sınır | Notlar |
 | ---- | ----- | ----- |
@@ -107,9 +107,9 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 | Ad | Sınır | Notlar |
 |------|-------|-------|
-| Baz birim yürütme sınırı | 5 dakika başına 10.000 eylem yürütmeleri <br>ayda yaklaşık 80 milyon eylem yürütmeleri olduğu | |
-| Ölçek birimi yürütme sınırı | 5.000 eylem yürütmeleri 5 dakika başına <br>ayda yaklaşık 40 milyon eylem yürütmeleri olduğu | |
-| Ekleyebileceğiniz en fazla ölçek birimi | 3 | |
+| Baz birim yürütme sınırı | Sistem-kısıtlanan altyapı kapasitesi % 80'e ulaştığında | ~ 160 milyon eylem yürütmeleri aylık olan dakika başına yaklaşık 4.000 eylem yürütmeleri sağlar | |
+| Ölçek birimi yürütme sınırı | Sistem-kısıtlanan altyapı kapasitesi % 80'e ulaştığında | Her ölçek birimi yaklaşık 2.000 ek eylem yürütmeleri ~ 80 milyon olan dakika başına aylık daha fazla eylem yürütmeleri sağlayabilir. | |
+| Ekleyebileceğiniz en fazla ölçek birimi | 10 | |
 ||||
 
 Normal işleme bu sınırların üzerinde gidin veya bu sınırların üzerinde geçebilir, yük testi çalıştırmak için [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
@@ -124,20 +124,20 @@ Tek HTTP isteği veya zaman uyumlu bağlayıcı çağrı sınırları şunlardı
 
 Bazı bağlayıcı işlemler zaman uyumsuz çağrıları yapmak veya bu işlemler için zaman aşımı limitler uzun olabilir. Bu nedenle, Web kancası isteğini, dinleme. Daha fazla bilgi için özel bağlayıcı için teknik ayrıntıları bakın ve ayrıca [iş akışı tetikleyici ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Ad | Sınır | Notlar |
-| ---- | ----- | ----- |
-| Giden istek | 120 saniye | Uzun çalışan işlemleri için bir [yoklama zaman uyumsuz desen](../logic-apps/logic-apps-create-api-app.md#async-pattern) veya [until döngüsü](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Zaman uyumlu yanıt | 120 saniye | İç içe geçmiş iş akışı olarak başka bir mantıksal uygulama çağırmadığınız sürece özgün istek yanıt almak tüm adımları yanıt sınırı içinde tamamlanmalıdır. Daha fazla bilgi için [çağrı, tetikleyici veya iç içe mantıksal uygulamalar](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Ad | Çok kiracılı sınırı | Tümleştirme hizmeti ortamı sınırı | Notlar |
+|------|--------------------|---------------------------------------|-------|
+| Giden istek | 120 saniye | 240 saniye | Uzun çalışan işlemleri için bir [yoklama zaman uyumsuz desen](../logic-apps/logic-apps-create-api-app.md#async-pattern) veya [until döngüsü](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Zaman uyumlu yanıt | 120 saniye | 240 saniye | İç içe geçmiş iş akışı olarak başka bir mantıksal uygulama çağırmadığınız sürece özgün istek yanıt almak tüm adımları yanıt sınırı içinde tamamlanmalıdır. Daha fazla bilgi için [çağrı, tetikleyici veya iç içe mantıksal uygulamalar](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### <a name="message-size"></a>İleti boyutu
 
-| Ad | Sınır | Notlar |
-| ---- | ----- | ----- |
-| İleti boyutu | 100 MB | Bu sınırını çözmek için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. |
-| Öbekleme ile ileti boyutu | 1 GB | Bu limit, yerel olarak destekleyen parçalama veya çalışma zamanı yapılandırmalarını Öbekleme etkinleştirmenize izin eylemler için geçerlidir. Daha fazla bilgi için [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). |
-| İfade değerlendirme limiti | 131.072 karakter | `@concat()`, `@base64()`, `@string()` İfadeleri bu sınırdan daha uzun olamaz. |
-||||
+| Ad | Çok kiracılı sınırı | Tümleştirme hizmeti ortamı sınırı | Notlar |
+|------|--------------------|---------------------------------------|-------|
+| İleti boyutu | 100 MB | 200 MB | Bu sınırını çözmek için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. |
+| Öbekleme ile ileti boyutu | 1 GB | 5 GB | Bu limit, yerel olarak destekleyen parçalama veya çalışma zamanı yapılandırmalarını Öbekleme etkinleştirmenize izin eylemler için geçerlidir. <p>Tümleştirme hizmeti ortamı için Logic Apps altyapısı bu sınırı destekler, ancak bağlayıcıları örneğin altyapısı sınıra kadar kümeleme kendi sınırlara sahiptir, bkz: [Azure Blob Depolama Bağlayıcısı](/connectors/azureblob/). Daha fazla bilgi parçalama için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). |
+| İfade değerlendirme limiti | 131.072 karakter | 131.072 karakter | `@concat()`, `@base64()`, `@string()` İfadeleri bu sınırdan daha uzun olamaz. |
+|||||
 
 #### <a name="retry-policy"></a>Yeniden deneme ilkesi
 
@@ -154,10 +154,10 @@ Bazı bağlayıcı işlemler zaman uyumsuz çağrıları yapmak veya bu işlemle
 
 Web API'leri oluşturabileceğiniz özel bağlayıcılar için sınırlar aşağıda verilmiştir.
 
-| Ad | Sınır |
-| ---- | ----- |
-| Özel bağlayıcılar sayısı | Azure aboneliği başına 1000 |
-| Özel bir bağlayıcı tarafından oluşturulan her bağlantı için dakika başına istek sayısı | Bağlantı başına 500 istek |
+| Ad | Çok kiracılı sınırı | Tümleştirme hizmeti ortamı sınırı | Notlar |
+|------|--------------------|---------------------------------------|-------|
+| Özel bağlayıcılar sayısı | Azure aboneliği başına 1000 | Azure aboneliği başına 1000 ||
+| Özel bağlayıcı için dakika başına istek sayısı | Bağlantı başına dakikada 500 istek | dakika başına başına 2000 istek *özel bağlayıcı* ||
 |||
 
 <a name="managed-identity"></a>
@@ -216,13 +216,13 @@ Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağ�
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>B2B Protokolü (AS2, EDIFACT olan X12) ileti boyutu
 
-B2B protokolleri için uygulanan limitler şunlardır:
+B2B protokolleri için geçerli olan ileti boyutu sınırlarını şunlardır:
 
-| Ad | Sınır | Notlar |
-| ---- | ----- | ----- |
-| AS2 | 50 MB | Kod çözme ve kodlama için geçerlidir |
-| X12 | 50 MB | Kod çözme ve kodlama için geçerlidir |
-| EDIFACT | 50 MB | Kod çözme ve kodlama için geçerlidir |
+| Ad | Çok kiracılı sınırı | Tümleştirme hizmeti ortamı sınırı | Notlar |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Kod çözme ve kodlama için geçerlidir |
+| X12 | 50 MB | 50 MB | Kod çözme ve kodlama için geçerlidir |
+| EDIFACT | 50 MB | 50 MB | Kod çözme ve kodlama için geçerlidir |
 ||||
 
 <a name="disable-delete"></a>

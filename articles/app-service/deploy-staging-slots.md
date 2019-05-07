@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266214"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137871"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ Beta uygulamanıza kabul et kullanıcılar izin vermek için aynı sorgu paramet
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+Varsayılan olarak, yeni bir yuva yönlendirme kuralını verilen `0%`gri gösterilmiştir. Bu değeri açıkça ayarlayarak `0%` (siyah metinde görünür), kullanıcılarınıza hazırlama yuvasına el ile kullanarak erişebilirsiniz `x-ms-routing-name` sorgu parametresi, ancak değil yönlendirilecek yuvaya otomatik olarak Yönlendirme yüzde 0 olarak ayarlanmış olduğundan. Bu, burada, "hazırlama, ortak yuvadan yuvası değişiklikleri test etmek dahili ekipler verirken gizleyebilirsiniz" Gelişmiş bir senaryodur.
 
 <a name="Delete"></a>
 

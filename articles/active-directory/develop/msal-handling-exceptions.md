@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7c9a578cb3c3a59ae6bba13e585188020f35f03a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: 43c98181c926410bea2acf64bf1ed4d588c12616
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080943"
+ms.locfileid: "65138963"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Özel durum ve MSAL kullanarak hataları işleme
 Microsoft Authentication Library (MSAL) özel durum sorunlarını gidermek uygulama geliştiricileri için ve son kullanıcılara görüntülenemiyor içindir. Özel durum iletileri yerelleştirilmiş değil.
@@ -82,21 +82,18 @@ Aşağıdaki hata türleri kullanılabilir:
 
 * *InteractionRequiredAuthError:* Etkileşimli bir arama gerektiren sunucu hataları temsil etmek için ServerError genişletme hatası sınıfı. Tarafından oluşturulan bu `acquireTokenSilent` kullanıcının kimlik bilgilerini belirtin veya kimlik doğrulama/yetkilendirme için onay sunucusu ile etkileşim kurmak için gerekiyorsa. Hata kodları "interaction_required", "login_required", "consent_required" içerir.
 
-Hata ile kimlik doğrulama akışları işleme yöntemlerini yeniden yönlendirmek için (`loginRedirect`, `acquireTokenRedirect`), yeniden yönlendirme kullandıktan sonra çağrılacak başarı ve başarısızlık geri aramaları kaydetme gerekecektir `handleRedirectCallbacks()` yöntemini aşağıdaki şekilde:
+Hata ile kimlik doğrulama akışları işleme yöntemlerini yeniden yönlendirmek için (`loginRedirect`, `acquireTokenRedirect`), yeniden yönlendirme kullandıktan sonra çağrılan geri arama başarı veya başarısızlık ile kaydetmeniz gerekir `handleRedirectCallback()` yöntemini aşağıdaki şekilde:
 
 ```javascript
-function acquireTokenRedirectCallBack(response) {
-    // success response
+function authCallback(error, response) {
+    //handle redirect response
 }
 
-function  acquireTokenErrorRedirectCallBack(error) {
-    console.log(error);
-}
 
 var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 // Register Callbacks for redirect flow
-myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
+myMSALObj.handleRedirectCallback(authCallback);
 
 myMSALObj.acquireTokenRedirect(request);
 ```
@@ -143,7 +140,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## <a name="conditional-access-and-claims-challenges"></a>Koşullu erişim ve talepleri zorlukları
-Uygulama belirteçleri sessizce alınırken hatalar alabilirsiniz, bir [koşullu erişim talep sınama](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) MFA İlkesi tarafından API gerektiği gibi erişmeye çalıştığınız.
+Uygulama belirteçleri sessizce alınırken hatalar alabilirsiniz, bir [koşullu erişim talep sınama](conditional-access-dev-guide.md) MFA İlkesi tarafından API gerektiği gibi erişmeye çalıştığınız.
 
 Bu hatayı işlemek için bir desen, etkileşimli olarak MSAL kullanarak bir belirteç elde etmektir. Etkileşimli bir belirteç alınırken kullanıcıdan ve bunları gerekli koşullu erişim ilkesini karşılayan fırsatı sunar.
 
@@ -155,7 +152,7 @@ MSAL.NET koşullu erişim gerektiren bir API'nin çağrılması durumunda talep 
 Talep kimlik işlemek için kullanmanız gerekecektir `.WithClaim()` yöntemi `PublicClientApplicationBuilder` sınıfı.
 
 ### <a name="javascript"></a>JavaScript
-Belirteçleri sessizce alırken (kullanarak `acquireTokenSilent`) MSAL.js kullanılarak, uygulamanızın hatalar alabilirsiniz, bir [koşullu erişim talep sınama](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) MFA İlkesi tarafından API gerektiği gibi erişmeye çalıştığınız.
+Belirteçleri sessizce alırken (kullanarak `acquireTokenSilent`) MSAL.js kullanılarak, uygulamanızın hatalar alabilirsiniz, bir [koşullu erişim talep sınama](conditional-access-dev-guide.md) MFA İlkesi tarafından API gerektiği gibi erişmeye çalıştığınız.
 
 Bu hatayı işlemek için bir desen gibi MSAL.js belirteç almak için etkileşimli bir arama yapmak için olan `acquireTokenPopup` veya `acquireTokenRedirect` aşağıdaki örnekteki gibi:
 

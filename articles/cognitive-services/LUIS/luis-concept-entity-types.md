@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813166"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141038"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
@@ -97,7 +97,6 @@ Varlık ayıklandıktan sonra varlık verilerini bilgilerin tek bir birim olarak
 |Makine öğrendiniz|Can Mark|Öğretici|Örnek<br>Yanıt|Varlık türü|Amaç|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Bileşik**](#composite-entity)|Varlık Türü bağımsız olarak varlıklar gruplandırmasıdır.|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiyerarşik**](#hierarchical-entity)|Basit varlıkları gruplandırmasıdır.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Liste**](#list-entity)|Öğelerin listesini ve bunların eş anlamlılar ile tam metin ayıklandı eşleşir.|
 |Karma||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.Any**](#patternany-entity)|Varlığın son saptamak zor olduğu varlık.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Önceden oluşturulmuş**](#prebuilt-entity)|Çeşitli türlerde verileri ayıklamak zaten eğitildi.|
@@ -112,7 +111,7 @@ Karma varlıkları varlık algılama yöntemleri bir birleşimini kullanın.
 
 ## <a name="composite-entity"></a>Bileşik varlık
 
-Bileşik bir varlık önceden oluşturulmuş varlıklar gibi diğer varlıklar, basit, normal ifade, liste ve hiyerarşik varlıkları oluşur. Ayrı varlıklar, tam bir varlık oluşturur. 
+Bileşik bir varlık önceden oluşturulmuş varlıklar gibi diğer varlıklar, basit, normal ifade ve liste varlıkları oluşur. Ayrı varlıklar, tam bir varlık oluşturur. 
 
 Bu varlık yarar ne zaman uygun veri:
 
@@ -126,18 +125,6 @@ Bu varlık yarar ne zaman uygun veri:
 
 [Öğretici](luis-tutorial-composite-entity.md)<br>
 [Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>Hiyerarşik varlık
-
-**Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır. Kullanım [varlık rolleri](luis-concept-roles.md) hiyerarşik varlıkları yerine varlık subtypes belirlemek için.**
-
-Hiyerarşik bir varlık, alt öğeleri olarak adlandırılan bağlamsal öğrenilen basit varlıkları kategorisidir.
-
-![hiyerarşik varlık](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>Hiyerarşik varlıkları ve rolleri
-
-[Rolleri](luis-concept-roles.md) hiyerarşik varlıklar, ancak tüm varlık türlerine uygulanır, aynı sorunu çözdü.  
 
 ## <a name="list-entity"></a>Liste varlığı
 
@@ -171,10 +158,10 @@ Aşağıdaki tabloda, her satır utterance iki sürümü vardır. Üst utterance
 
 |İfade|
 |--|
-|ADAM kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için bu yılın bir Amerikan tarafından yazılmış?<br>Olan **Man kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için** bir Amerikan göre bu yılın yazılmış?|
-|Yarı uyku Frog Pajamas bir Amerikan tarafından yazılan bu yıl içinde neydi?<br>Olan **Frog Pajamas içinde yarım uyku** bir Amerikan göre bu yılın yazılmış?|
-|Limonlu pasta, belirli üzüntü şöyleydi: Bu yıl bir Amerikan tarafından yazılmış bir Romanım?<br>Olan **Limonlu pasta, belirli üzüntü: Bir Romanım** bir Amerikan göre bu yılın yazılmış?|
-|My Pocket içinde bir Wocket yok edildi! Bu yıl bir Amerikan tarafından yazılmış?<br>Olan **My Pocket içinde bir Wocket yoktur!** Bu yıl bir Amerikan tarafından yazılmış?|
+|' Hat ve diğer klinik bir Amerikan tarafından yazılan bu yılın örnekleri için ortadaki kimin Zannettiği HIS eşim oldu?<br>Olan **Man kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için** bir Amerikan göre bu yılın yazılmış?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
 
 ## <a name="prebuilt-entity"></a>Önceden oluşturulmuş varlık
 

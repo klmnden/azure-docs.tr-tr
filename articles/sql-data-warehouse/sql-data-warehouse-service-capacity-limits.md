@@ -10,18 +10,18 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37f16ab914fe4062bc9720ae9cc0139c573fb93
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154269"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değerleri.
 
 ## <a name="workload-management"></a>İş yükü yönetimi
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
 | [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Tek bir SQL veri ambarı için en fazla DWU | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Sunucu başına varsayılan DTU |54,000<br></br>Varsayılan olarak, her bir SQL server (örn. myserver.database.windows.net) kadar DW6000c izin veren bir DTU kota olarak 54.000, vardır. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotanızı artırabilirsiniz [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md) seçerek *kota* istek türü olarak.  DTU'yu hesaplama, DWU gereken toplam 7,5 ile çarpın veya 9.0 gereken toplam cDWU tarafından Çarp gerekir. Örneğin:<br></br>7.5 = 45,000 x DW6000 Dtu<br></br>DW6000c 9.0 = olarak 54.000 x dtu'ları.<br></br>SQL server seçeneği geçerli DTU tüketiminizi portalında görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
@@ -31,7 +31,7 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | [tempdb](sql-data-warehouse-tables-temporary.md) |En fazla GB |Değeri DW100 399 GB. Bu nedenle DWU1000 sırasında tempdb 3,99 TB boyutlandırılır. |
 
 ## <a name="database-objects"></a>Veritabanı nesneleri
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
 | Database |Maksimum boyut | Gen1: 240 TB disk üzerinde sıkıştırılır. Bu alanı, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış.  Kümelenmiş columnstore sıkıştırması, 5 X tahmin edilir.  Bu sıkıştırma sağlar veritabanına yaklaşık 1 büyütme tüm tablolarda kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. <br/><br/> Gen2: 240TB rowstore ve columnstore tabloları için sınırsız depolama |
 | Tablo |Maksimum boyut |Diskte sıkıştırılmış 60 TB |
@@ -52,12 +52,12 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | Görünüm |Sütunları görüntüleme başına |1,024 |
 
 ## <a name="loads"></a>Yükleri
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| Polybase yükleri |Satır başına MB |1<br/><br/>Polybase, 1 MB'den daha küçük olan ve VARCHAR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) yüklenemiyor satırları yükler.<br/><br/> |
+| Polybase yükleri |Satır başına MB |1<br/><br/>Polybase, 1 MB'den daha küçük olan satırları yükler.<br/><br/> |
 
 ## <a name="queries"></a>Sorgular
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
 | Sorgu |Sıraya alınan kullanıcı tabloları sorguları. |1000 |
 | Sorgu |Sistem görünümleri eş zamanlı sorguları. |100 |

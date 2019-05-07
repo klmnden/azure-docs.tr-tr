@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149241"
 ---
 # <a name="streaming-endpoints-origin"></a>Akış uç noktaları (kaynak)
 
@@ -156,7 +156,7 @@ CDN tümleştirmesi, Çin ve Federal devlet bölgeler dışındaki tüm Azure ve
 
 Bir akış (trafiği yönlendirildiğinde Azure CDN) uç noktasında DNS değişiklik yapılıp yapılmadığını kullanarak belirleyebilirsiniz https://www.digwebinterface.com. Sonuçları varsa azureedge.net etki alanı adları sonuçlarda, trafiği artık CDN işaret edilip.
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 
 Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru sorun, görüşlerinizi ve medya hizmetleri hakkında güncelleştirmeler almak farklı yollarını görmek için makaleyi.
 

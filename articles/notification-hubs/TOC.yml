@@ -4,6 +4,8 @@
   items:
     - name: Notification Hubs hakkında
       href: notification-hubs-push-notification-overview.md
+    - name: App Service Mobile Apps ile Tümleştirme
+      href: notification-hubs-app-service.md
 - name: Hızlı Başlangıçlar
   items:
     - name: Bildirim hub'ı oluşturma - Azure portalı

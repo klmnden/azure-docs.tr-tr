@@ -2,18 +2,17 @@
 title: Kavramlar - Azure Kubernetes Hizmetleri (AKS) uygulamaları ölçeklendirme
 description: Azure Kubernetes hizmeti (yatay pod otomatik ölçeklendiricinin, küme ölçeklendiriciyi ve Azure Container Instances Bağlayıcısı gibi AKS), ölçeklendirme hakkında bilgi edinin.
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: zarhoads
+ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466975"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074032"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ölçeklendirme seçenekleri
 
@@ -57,6 +56,8 @@ Değişen taleplere pod düğüm havuzundaki istenen işlem kaynaklarını göre
 ![Kubernetes küme ölçeklendiriciyi](media/concepts-scale/cluster-autoscaler.png)
 
 Küme ölçeklendirici, genellikle yatay pod otomatik ölçeklendiricinin kullanılır. Yatay pod otomatik ölçeklendiricinin birleştirildiğinde artırır veya uygulamanın talebine bağlı pod'ların sayısını azaltır ve bu ek pod'lar uygun şekilde çalışması için gerekli olarak küme ölçeklendiriciyi düğüm sayısını ayarlar.
+
+Küme ölçeklendiriciyi tek düğüm havuzu AKS kümeleriyle'te önizlemesi yalnızca test edilmelidir.
 
 Küme otomatik ölçeklendiricinin aks'deki kullanmaya başlamak için bkz. [AKS üzerinde Küme Ölçeklendiriciyi][aks-cluster-autoscaler].
 

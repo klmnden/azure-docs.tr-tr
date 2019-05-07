@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148022"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Konuşma SDK'da günlüğü etkinleştirme
 
-Dosyasına günlük kaydetmeyi Speech SDK'sı için isteğe bağlı bir özelliktir. Geliştirme sırasında ek bilgi ve Speeck SDK'ın temel bileşenlerinden tanılama günlüğü sağlar. Özelliğini ayarlayarak etkinleştirilebilir `Speech_LogFilename` günlük dosyasının adını ve konumunu bir konuşma yapılandırma nesnesine üzerinde. Günlüğe kaydetme, yapılandırmasından bir tanıyıcı oluşturulduktan sonra genel olarak etkinleştirilir ve daha sonra devre dışı bırakılamaz. Günlüğe kaydetme oturumu sırasında çalışan bir günlük dosyasının adını değiştiremezsiniz.
+Dosyasına günlük kaydetmeyi Speech SDK'sı için isteğe bağlı bir özelliktir. Geliştirme sırasında ek bilgi ve konuşma SDK'ın temel bileşenlerinden tanılama günlüğü sağlar. Özelliğini ayarlayarak etkinleştirilebilir `Speech_LogFilename` günlük dosyasının adını ve konumunu bir konuşma yapılandırma nesnesine üzerinde. Günlüğe kaydetme, yapılandırmasından bir tanıyıcı oluşturulduktan sonra genel olarak etkinleştirilir ve daha sonra devre dışı bırakılamaz. Günlüğe kaydetme oturumu sırasında çalışan bir günlük dosyasının adını değiştiremezsiniz.
 
 > [!NOTE]
 > Günlüğe kaydetme programlama dilleri, JavaScript hariç tüm desteklenen konuşma SDK kullanıma sunulmuştur.

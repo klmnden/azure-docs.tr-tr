@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: 1623d592751da191efa5125b8d7cf28e10431808
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683879"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136633"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Öğretici: Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda SQL Server'ı geçirme çevrimiçi DMS kullanarak
 
@@ -234,9 +234,7 @@ Geçirilecek **AdventureWorks2012** bir tek veritabanı veya havuza alınmış v
 
     Maliyetler ve fiyatlandırma katmanları hakkında daha fazla bilgi için [fiyatlandırma sayfasına](https://aka.ms/dms-pricing) bakın.
 
-    Doğru Azure veritabanı geçiş hizmeti katmanını seçme yardıma gereksinim duyarsanız, posta önerilere bakın [burada](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Azure Veritabanı Geçiş Hizmeti örneği ayarlarını yapılandırma](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Azure Veritabanı Geçiş Hizmeti örneği ayarlarını yapılandırma](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. select **Oluştur** hizmeti oluşturmak için.
 

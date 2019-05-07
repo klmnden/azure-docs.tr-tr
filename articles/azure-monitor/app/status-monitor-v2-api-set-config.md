@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2ca738d5d79fc73f892922825d4b731e8ee92b72
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 953edcb98de6ea705721aef0922562d23e18f0f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870500"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148255"
 ---
 # <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Set-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -121,3 +121,21 @@ VERBOSE: set config file
 VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+  Telemetrinizi görüntüleyin:
+ - Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
+- [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için
+- Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
+- [Panolar oluşturun](../../azure-monitor/app/app-insights-dashboards.md)
+ 
+ Daha fazla telemetri ekleyin:
+ - [Web testleri oluşturun](monitor-web-app-availability.md) sitenizin Canlı kalması için.
+- [Web istemcisi telemetrisini ekleyin](../../azure-monitor/app/javascript.md) web sayfası koduna ait özel durumları görmek ve izleme çağrıları eklemenize izin vermek için.
+- [Kodunuza Application Insights SDK'sını ekleyin](../../azure-monitor/app/asp-net.md) izleme ve günlük çağrıları
+ 
+ Durum İzleyicisi v2 ile daha fazlasını yapın:
+ - Kılavuzunu kullanın [sorun giderme](status-monitor-v2-troubleshoot.md) Durum İzleyicisi v2.
+ - [Yapılandırmasını al](status-monitor-v2-api-get-config.md) ayarlarınızı doğru kaydedilmiş olduğunu onaylamak için.
+ - [Durumu Al](status-monitor-v2-api-get-status.md) izleme incelemek için.

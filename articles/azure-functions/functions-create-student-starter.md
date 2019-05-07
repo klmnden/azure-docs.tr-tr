@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107151"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143091"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Öğrenciler için Azure'ı kullanarak bir işlev oluşturma
 
@@ -76,8 +76,6 @@ Azure hesabınızla Azure portalında <https://portal.azure.com> sayfasında otu
 
 8. Yeni işlev uygulamanızı görüntülemek için **Kaynağa git**’i seçin.
 
-> [!TIP]
-> Portalda işlev uygulamalarınızı bulma konusunda sorun yaşıyorsanız, [Azure portalında İşlev Uygulamalarını sık kullanılanlarınıza eklemeyi](./functions-how-to-use-azure-function-app-settings.md#favorite) deneyin.
 Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 ## <a name="create-function"></a>HTTP ile tetiklenen bir işlev oluşturma

@@ -2,18 +2,19 @@
 title: Bölgeler arası dayanıklılık Azure depolama için coğrafi olarak yedekli depolama (GRS) | Microsoft Docs
 description: Coğrafi olarak yedekli depolama (GRS) verilerinizi yüzlerce mil uzaklıkta bulunan iki bölge arasında çoğaltır. GRS, bölgesel bir olağanüstü yanı sıra veri merkezi donanım arızalarına karşı korur.
 services: storage
-author: tolandmike
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09b553f3ca64d8f5217f023c776ec848215366f9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516284"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151002"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]

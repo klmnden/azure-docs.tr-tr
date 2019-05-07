@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 347de9b575e3b47ee795026115fd2452c28b866b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877346"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150234"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Hızlı Başlangıç: Önceden oluşturulmuş giriş Otomasyon uygulamasını kullanma
 
@@ -57,6 +57,8 @@ Etki alanı başarıyla eklendiğinde önceden oluşturulmuş etki alanı kutusu
 ## <a name="intents-and-entities"></a>Amaçlar ve varlıklar
 
 HomeAutomation etki alanının amaçlarını incelemek için sol taraftaki gezinti bölmesinden **Amaçlar**'ı seçin. Her amaçta örnek konuşmalar bulunur.
+
+![Ekran görüntüsü, HomeAutomation hedefleri listesinde](media/luis-quickstart-new-app/home-automation-intents.png "ekran görüntüsü, HomeAutomation hedefleri listesinde")]
 
 > [!NOTE]
 > **Hiçbiri**, tüm LUIS uygulamaları tarafından sağlanan bir amaçtır. Uygulamanızın sağladığı işlevleri karşılamayan konuşmaların işlenmesi için bunu seçersiniz. 

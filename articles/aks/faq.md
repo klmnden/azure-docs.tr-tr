@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f365fcd61944fbae131ab79a1c3660aaf02fa8d7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725643"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073942"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -25,7 +25,9 @@ Kullanılabilir bölgelerin tam listesi için bkz. [AKS bölgeler ve kullanılab
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS düğümü otomatik ölçeklendirme destekliyor mu?
 
-Evet, otomatik ölçeklendirme aracılığıyla kullanılabilir [Kubernetes otomatik ölçeklendiricinin] [ auto-scaler] Kubernetes 1.10 itibaren. Yapılandırma ve küme ölçeklendiriciyi kullanmak hakkında daha fazla bilgi için bkz. [AKS kümesi otomatik][aks-cluster-autoscale].
+Evet, otomatik ölçeklendirme aracılığıyla kullanılabilir [Kubernetes otomatik ölçeklendiricinin] [ auto-scaler] Kubernetes 1.10 itibaren. El ile yapılandırmak ve küme ölçeklendiriciyi kullanmak hakkında daha fazla bilgi için bkz. [AKS kümesi otomatik][aks-cluster-autoscale].
+
+Ayrıca yerleşik küme ölçeklendiriciyi (şu anda önizlemede aks'deki) düğümlerini ölçeklendirme yönetmek için kullanabilirsiniz. Daha fazla bilgi için [aks'deki uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme][aks-cluster-autoscaler].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS, Kubernetes rol tabanlı erişim denetimi (RBAC) destekliyor mu?
 
@@ -41,13 +43,17 @@ Evet, var olan bir sanal ağ kullanarak bir AKS kümesi dağıtabilirsiniz [Geli
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Güvenlik güncelleştirmeleri için AKS aracı düğümleri uygulandı?
 
-Evet, Azure otomatik olarak güvenlik yamaları düğümleri gecelik bir zamanlamaya göre uygulanır. Ancak, düğümleri yeniden başlatılır sağlamaktan sorumlu olduğunuz gerektiğinde. Düğümü yeniden başlatma işlemlerini gerçekleştirmek için birkaç seçeneğiniz vardır:
+Azure güvenlik yamaları Linux düğümleri gecelik bir zamanlamaya göre otomatik olarak uygulanır. Ancak, bu Linux düğümleri olarak yeniden gerekli sağlamak sizin sorumluluğunuzdadır. Düğümü yeniden başlatma işlemlerini gerçekleştirmek için birkaç seçeneğiniz vardır:
 
 - El ile Azure portal veya Azure CLI ile.
 - AKS kümenizi yükseltme tarafından. Yükseltme otomatik olarak küme [kordon altına alma ve düğüm boşaltma][cordon-drain], ardından her düğümü en son Ubuntu görüntüsünü ve yeni bir düzeltme eki sürümü veya ikincil bir Kubernetes sürümü ile çevrimiçine yedekleyin. Daha fazla bilgi için [AKS kümesini yükseltme][aks-upgrade].
 - Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. İşletim sistemi yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi] [ cordon-drain] olarak bir küme yükseltmesi.
 
 Kured kullanma hakkında daha fazla bilgi için bkz. [AKS düğümleri için güvenlik ve çekirdek güncelleştirmeleri uygulamak][node-updates-kured].
+
+### <a name="windows-server-nodes"></a>Windows sunucu düğümleri
+
+(Şu anda önizlemede aks'deki) Windows Server düğümleri için Windows Update otomatik olarak çalıştırın ve en son güncelleştirmeleri uygulayın. Düzenli bir zamanlamaya göre Windows Güncelleştirme sürüm döngüsü ve kendi doğrulama işlemi, AKS kümenizi yükseltme üzerinde Windows Server düğüm havuzları gerçekleştirmeniz gerekir. Bu yükseltme işlemi, düzeltme ekleri ve en son Windows Server görüntüsü çalıştıran düğümlere oluşturur, ardından eski düğümleri kaldırır. Bu işlem hakkında daha fazla bilgi için bkz. [aks'deki bir düğüm havuzunu yükseltme][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>İki kaynak grubu, AKS ile neden oluşturulur?
 
@@ -102,7 +108,9 @@ AKS şu anda yerel olarak Azure Key Vault ile tümleşik değil. Ancak, [Kuberne
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server kapsayıcıları AKS üzerinde çalıştırabilir mi?
 
-Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı düğümleri çalıştırmanız gerekir. Windows Server tabanlı düğümler şu anda AKS içinde kullanılamaz. Ancak, Azure Container Instances Windows kapsayıcıları zamanlayabilir ve AKS kümenizin bir parçası yönetmek için Virtual Kubelet kullanabilirsiniz. Daha fazla bilgi için [kullanım Virtual Kubelet ile AKS][virtual-kubelet].
+Evet, Windows Server kapsayıcıları Önizleme sürümünde kullanılabilir. Windows Server kapsayıcıları, AKS içinde çalıştırmak için konuk işletim sistemi Windows Server çalıştıran bir düğüm havuzu oluşturun. Windows Server kapsayıcıları, yalnızca Windows Server 2019 kullanabilirsiniz. Başlamak için [Windows Server düğüm havuzu ile bir AKS kümesi oluşturma][aks-windows-cli].
+
+Yukarı Akış Kubernetes projesi Windows Server'da parçası olan bazı sınırlamalar penceresi sunucu düğüm havuzu desteği içerir. Bu sınırlamalar hakkında daha fazla bilgi için bkz. [AKS sınırlamaları Windows Server kapsayıcıları][aks-windows-limitations].
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS bir hizmet düzeyi sözleşmesi sunar?
 
@@ -120,6 +128,10 @@ Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düz
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-cluster-autoscaler]: cluster-autoscaler.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[aks-windows-cli]: windows-container-cli.md
+[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

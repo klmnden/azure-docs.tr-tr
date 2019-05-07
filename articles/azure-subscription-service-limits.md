@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717449"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150312"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -123,6 +123,13 @@ Resource Manager API'si hakkında bilgi için okuma ve yazma sınırları, bkz: 
 Azure Resource Manager ve Azure kaynak grupları kullandığınızda aşağıdaki sınırlar geçerlidir. Azure Resource Manager ile değiştirilmemiş sınırları listelenmiyor. Bu sınırları için önceki tabloya bakın.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+#### <a name="shared-image-gallery-limits"></a>Görüntü Galerisi sınırları paylaşılan
+
+Sınırları, paylaşılan resim galerileri kullanarak kaynakları dağıtmak için abonelik başına vardır:
+- Bölge başına abonelik başına 10 paylaşılan resim galerileri
+- Abonelik, bölge başına 200 görüntü tanımları
+- Abonelik, bölge başına 2000 yansıma sürümü
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Sanal makine ölçek kümeleri sınırları
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

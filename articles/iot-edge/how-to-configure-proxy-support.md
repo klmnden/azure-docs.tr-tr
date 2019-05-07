@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4fa5402b87eea969a5a4093000dda06d3cb5675d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 883f6022f3d0f609de2d8f33b0285d8c40b7bee9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216267"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142136"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma
 
@@ -43,22 +43,28 @@ Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**prox
 
 Bir Linux cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleme paketi erişmek için Ara sunucu üzerinden gitmesi için Paket Yöneticisi'ni yapılandırın. Örneğin, [apt-get bir http Ara sunucusunu kullanacak şekilde](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Paket Yöneticisi'ni yapılandırıldıktan sonra yönergeleri izleyin [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md) veya [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) zamanki.
 
-Bir Windows cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, proxy sunucusu üzerinden iki kez gitmeniz gerekiyor. İlk bağlantı Yükleyici komut dosyasını indirmek için ve ikinci bir bağlantı gerekli bileşenleri yüklemek için yükleme sırasında. Proxy bilgileri Windows ayarlarında yapılandırdığınız veya proxy bilgilerinizi doğrudan yükleme betiğini içerir. Aşağıdaki powershell betiğini kullanarak bir windows yükleme ilişkin bir örnektir `-proxy` bağımsız değişkeni:
+Bir Windows cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, proxy sunucusu üzerinden iki kez gitmeniz gerekiyor. İlk bağlantı Yükleyici komut dosyasını indirmek için ve ikinci bir bağlantı gerekli bileşenleri yüklemek için yükleme sırasında. Proxy bilgileri Windows ayarlarını yapılandırın veya proxy bilgilerinizi doğrudan PowerShell komutları içerir. Aşağıdaki adımları kullanarak bir windows yükleme örneği gösteren `-proxy` bağımsız değişkeni:
 
-```powershell
-. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOs Windows -proxy <proxy URL>
-```
+1. Invoke-WebRequest komut yükleyicisi betiği erişmek için Ara sunucu bilgileri gerekir. Daha sonra dağıtım IoTEdge komutu yükleme dosyalarının indirileceği proxy bilgisi gerekir. 
 
-URL'de bulunan proxy sunucusu için kimlik bilgilerini karmaşık kullanırsanız `-ProxyCredential` parametre içinde `-InvokeWebRequestParameters`. Örneğin,
+   ```powershell
+   . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
+   ```
+
+2. Initialize-IoTEdge komut ikinci adım, Ara sunucu bilgilerini yalnızca Invoke-WebRequest gerektirir. proxy sunucusu üzerinden konulunca gerekmez.
+
+   ```powershell
+   . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
+
+If you have complicated credentials for the proxy server that can't be included in the URL, use the `-ProxyCredential` parameter within `-InvokeWebRequestParameters`. For example,
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
 . {Invoke-WebRequest -proxy <proxy URL> -ProxyCredential $proxyCredential -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
+Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Ara sunucu parametreleri hakkında daha fazla bilgi için bkz. [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Yükleme seçenekleri hakkında daha fazla bilgi için bkz. [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows.md).
+Ara sunucu parametreleri hakkında daha fazla bilgi için bkz. [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Windows yükleme seçenekleri hakkında daha fazla bilgi için bkz. [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows.md).
 
 IOT Edge çalışma zamanı yüklendikten sonra Ara sunucu bilgileri ile yapılandırmak için aşağıdaki bölümü kullanın. 
 

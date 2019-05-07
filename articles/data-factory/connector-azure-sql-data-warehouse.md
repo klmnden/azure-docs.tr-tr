@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926613"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153434"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -229,7 +229,7 @@ Yönetilen kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) makalesi. Bu bölümde, Azure SQL veri ambarı veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Gelen veya Azure SQL veri ambarı veri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **AzureSqlDWTable**. Aşağıdaki özellikler desteklenir:
+Gelen veya Azure SQL veri ambarı veri kopyalamak için aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -248,6 +248,7 @@ Gelen veya Azure SQL veri ambarı veri kopyalamak için ayarlanmış **türü** 
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -375,7 +376,7 @@ Azure SQL veri ambarı'na veri kopyalamak için kopyalama etkinliği Havuz tür�
 | rejectType | Belirtir olup olmadığını **rejectValue** seçenektir değişmez değer veya bir yüzdesi.<br/><br/>İzin verilen değerler **değer** (varsayılan) ve **yüzdesi**. | Hayır |
 | rejectSampleValue | Reddedilen satırların yüzdesi PolyBase yeniden hesaplar önce almak için satır sayısını belirler.<br/><br/>İzin verilen değerler: 1, 2, vs. | Evet, varsa **rejectType** olduğu **yüzdesi**. |
 | useTypeDefault | PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünden bu özellik hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>İzin verilen değerler **True** ve **False** (varsayılan). | Hayır |
-| writeBatchSize | Arabellek boyutu ulaştığında veri SQL tablosuna ekler **writeBatchSize**. Yalnızca PolyBase ne zaman kullanılmaz geçerlidir.<br/><br/>İzin verilen değer **tamsayı** (satır sayısı). | Hayır. Varsayılan 10000'dir. |
+| writeBatchSize | SQL tablosuna ekler için satır sayısı **toplu iş başına**. Yalnızca PolyBase ne zaman kullanılmaz geçerlidir.<br/><br/>İzin verilen değer **tamsayı** (satır sayısı). Varsayılan olarak, Data Factory dinamik olarak satır boyutuna göre uygun toplu iş boyutu belirler. | Hayır |
 | writeBatchTimeout | Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. Yalnızca PolyBase ne zaman kullanılmaz geçerlidir.<br/><br/>İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
 | preCopyScript | Her bir çalıştırmada Azure SQL Data Warehouse'a veri yazılmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanın. | Hayır |
 
@@ -423,12 +424,13 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
 
 2. **Kaynak veri biçimi** değil **Parquet**, **ORC**, veya **ayrılmış metin**, aşağıdaki yapılandırmaları ile:
 
-   1. `folderPath` ve `fileName` joker karakter filtresi içermiyor.
-   2. `rowDelimiter` olmalıdır **\n**.
-   3. `nullValue` ya da ayarlanmış **boş dize** ("") veya varsayılan olarak sola ve `treatEmptyAsNull` varsayılan sola veya ayarlamak true.
-   4. `encodingName` ayarlanır **utf-8**, varsayılan değer olan.
-   5. `escapeChar`, `quoteChar` ve `skipLineCount` belirtilmeyen. PolyBase destek Atla olarak yapılandırılan üst bilgi satırı `firstRowAsHeader` ADF içinde.
-   6. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
+   1. Joker karakter filtresi içermeyen klasör yolu.
+   2. Dosya adı için tek bir dosyayı işaret eden veya `*` veya `*.*`.
+   3. `rowDelimiter` olmalıdır **\n**.
+   4. `nullValue` ya da ayarlanmış **boş dize** ("") veya varsayılan olarak sola ve `treatEmptyAsNull` varsayılan sola veya ayarlamak true.
+   5. `encodingName` ayarlanır **utf-8**, varsayılan değer olan.
+   6. `quoteChar`, `escapeChar`, ve `skipLineCount` belirtilmeyen. PolyBase destek Atla olarak yapılandırılan üst bilgi satırı `firstRowAsHeader` ADF içinde.
+   7. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
 
 ```json
 "activities":[

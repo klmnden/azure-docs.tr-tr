@@ -2,19 +2,20 @@
 title: Microsoft Azure depolama için Java ile istemci tarafı şifreleme | Microsoft Docs
 description: Java için Azure depolama istemci kitaplığı, Azure depolama uygulamalarınız için en yüksek güvenlik için istemci tarafı şifreleme ve Azure anahtar kasası ile tümleştirmeyi destekler.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992463"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147021"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure depolama için Java ile istemci tarafı şifreleme ve Azure anahtar kasası
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -118,7 +119,7 @@ Depolama istemcisi kitaplığı Key Vault çekirdek kitaplığı anahtarlarını
 1. Çevrimdışı bir gizli dizi oluşturma ve anahtar Kasası'na yükleyin.  
 2. Parolanın temel tanımlayıcısı, şifreleme için gizli anahtarı'nın geçerli sürümü çözümlemek ve bu bilgileri yerel olarak önbelleğe için parametre olarak kullanın. CachingKeyResolver önbelleğe almak için kullanın. kullanıcılara uygulamak için kendi mantığını önbelleğe alma beklenmiyor.  
 3. Önbelleğe alma çözme, şifreleme ilkesi oluşturulurken girdi olarak kullanın.
-   Şifreleme kod örnekleri, Key Vault kullanımıyla ilgili daha fazla bilgi bulunabilir. <fix URL>  
+   Şifreleme kod örnekleri, Key Vault kullanımıyla ilgili daha fazla bilgi bulunabilir.
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 Şifreleme desteği, yalnızca Java için depolama istemci Kitaplığı'nda kullanılabilir.
@@ -142,7 +143,7 @@ EncryptionPolicy nesne oluşturma sırasında kullanıcılara (IKey uygulama) ya
   * Anahtar çözümleyici belirtilmişse anahtarını almak için çağrılır. Çözümleyici belirtildi, ancak anahtar tanımlayıcısı için bir eşleme yok. bir hata oluşturulur.  
   * Tanımlayıcısını gerekli anahtar tanımlayıcısı eşleşiyorsa çözümleyici belirtilmedi, ancak belirtilen bir anahtarı anahtar kullanılır. Tanımlayıcı eşleşmiyorsa, bir hata oluşturulur.  
     
-    [Şifreleme örnekleri](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>daha ayrıntılı bir uçtan uca senaryo bloblar, kuyruklar ve tablolar için Key Vault tümleştirmesiyle bunların gösterir.
+    [Şifreleme örnekleri](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) daha ayrıntılı bir uçtan uca senaryo bloblar, kuyruklar ve tablolar için Key Vault tümleştirmesiyle bunların gösterir.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption modu
 Kullanıcılar, isteğe bağlı olarak burada tüm karşıya yüklemelerden ve şifrelenmelidir işlemi modu etkinleştirebilirsiniz. Bu modda, istemcide bir şifreleme ilkesi olmadan veri yükleme veya hizmette şifrelenmez verileri indirmek için girişimleri başarısız olur. **RequireEncryption** bayrağı istek seçenekleri nesnenin bu davranışını denetler. Uygulamanızı Azure Depolama'da depolanan tüm nesneleri şifreler sonra ayarlayabileceğiniz **requireEncryption** hizmet istemci nesnesi için varsayılan istek seçenekleri özelliği.   

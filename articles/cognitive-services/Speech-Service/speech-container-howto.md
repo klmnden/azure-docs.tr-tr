@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026124"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153059"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Yükleme ve konuşma hizmeti kapsayıcıları çalıştırma
 
@@ -178,7 +178,7 @@ Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı i
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) üç kapsayıcı birini çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-**Özel önizleme sırasında**, fatura ayarları kapsayıcı başlatmak için geçerli olmalıdır ancak kullanımı için faturalandırılmaz.
+**Önizleme sırasında**faturalama ayarları kapsayıcı başlatmak için geçerli olması gerekir, ancak kullanım için faturalandırılır değildir.
 
 | Yer tutucu | Değer |
 |-------------|-------|
@@ -226,7 +226,7 @@ Bu komut:
 
 ### <a name="speech-to-text"></a>Konuşmayı metne dönüştürme
 
-Kapsayıcı websocket tabanlı sorgu uç noktası aracılığıyla erişilen API'ler sağlar [konuşma Hizmetleri SDK Belgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Kapsayıcı websocket tabanlı sorgu uç noktası aracılığıyla erişilen API'ler sağlar [Speech SDK'sı](index.yml).
 
 Varsayılan olarak, Speech SDK'sı çevrimiçi konuşma Hizmetleri kullanır. Kapsayıcı kullanmak için başlatma yöntemi değiştirmeniz gerekir. Aşağıdaki örneklere bakın.
 

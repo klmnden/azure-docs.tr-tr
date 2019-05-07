@@ -1,6 +1,6 @@
 ---
-title: Azure AD PIM - Azure Active Directory rolleri için erişim gözden geçirmesi tamamlama | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM), Azure AD rolleri için erişim gözden geçirmesi tamamlama ve sonuçları görüntüleme hakkında bilgi edinin
+title: Azure AD rollerini PIM - Azure Active Directory erişim gözden geçirmesi tamamlama | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) rollerini Azure AD erişim gözden geçirmesi tamamlama ve sonuçları görüntülemek hakkında bilgi edinin
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288309"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140985"
 ---
-# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Azure AD PIM rolleri için erişim değerlendirmesi tamamlama
+# <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Azure AD PIM rolleri, erişim değerlendirmesi tamamlama
 Ayrıcalıklı rol yöneticileri gözden geçirebileceğiniz ayrıcalıklı erişim kez bir [erişim gözden geçirmesi çalışmaya](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişim gözden geçirilecek kullanıcılar isteyen bir e-posta gönderir. Bir kullanıcı bir e-posta alma değil, onlara yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-how-to-perform-security-review.md).
 
 Erişim gözden geçirmesi dönemi bittikten veya tüm kullanıcılar, kendi kendini gözden tamamladıktan sonra gözden geçirme yönetmek ve sonuçları görmek için bu makaledeki adımları izleyin.

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 21374e20a2ba2c9134ed12e4b1072ff5c320c75e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024402"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149775"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search API sürümleri
 Azure arama özelliği güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri API geriye dönük uyumluluğu korumak için yeni bir sürümü gerektirir. Yeni bir sürüm yayımlama, ne zaman ve nasıl kodunuzda arama hizmet güncelleştirmelerini tümleştirme denetlemenizi sağlar.
@@ -32,8 +32,8 @@ Aşağıda tüm geçerli sürümlerinde anlık görüntüsünü Azure Search iç
 
 | Arabirimler | En son ana sürüm | Durum |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Genel olarak kullanılabilir, Mayıs 2019 yayımladı. İçerik yine de tamamlanmamıştır.  |
-| [.NET SDK'sı Önizleme](https://aka.ms/search-sdk-preview) |8.0.0-Preview |Önizleme, Nisan 2019 yayımladı. İçerik yine de tamamlanmamıştır.|
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Genel olarak kullanılabilir, yayımlanan Mayıs 2019 |
+| [.NET SDK'sı Önizleme](https://aka.ms/search-sdk-preview) |8.0.0-Preview |Nisan 2019 yayımlanan Önizleme |
 | [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Genel Kullanıma Sunuldu |
 | [Hizmet REST API 2019-05-06-Önizleme](search-api-preview.md) |2019-05-06-Önizleme |Önizleme |
 | [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |3.0 |Genel Kullanıma Sunuldu |
@@ -57,6 +57,6 @@ Azure arama her zaman REST API aracılığıyla Deneysel özellikler ilk olarak,
 
 Bu nedenle, bir bağımlılık Önizleme sürümlerinde alan üretim kod yazmaya karşı öneririz. Eski bir önizleme sürümünü kullanıyorsanız, genel kullanıma (GA) sürümüne geçiş öneririz.
 
-.NET SDK'sı için: Kod geçiş için yönergeler bulunabilir [.NET SDK'yı yükseltme](search-dotnet-sdk-migration.md).
+.NET SDK'sı için: Kod geçiş için yönergeler bulunabilir [.NET SDK'yı yükseltme](search-dotnet-sdk-migration-version-9.md).
 
 Genel kullanılabilirlik, Azure Search artık hizmet düzeyi sözleşmesi (SLA) altında olduğunu gösterir. SLA'sı şu yolda bulunabilir: [Azure Search hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
