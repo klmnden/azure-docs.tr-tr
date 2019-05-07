@@ -92,7 +92,7 @@ Bu makalenin aşağıdaki bölümlerde, her bir üst düzey özellik açıklanma
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
-## <a name="applicationinsights"></a>Applicationınsights
+## <a name="applicationinsights"></a>applicationInsights
 
 Bu ayar bir alt öğesidir [günlüğü](#logging).
 

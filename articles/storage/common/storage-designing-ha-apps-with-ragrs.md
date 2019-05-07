@@ -1,5 +1,5 @@
 ---
-title: Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanarak yüksek oranda kullanılabilir Aaplications tasarlama | Microsoft Docs
+title: Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama | Microsoft Docs
 description: Nasıl kesintilerden işlemek için esnek yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure RA-GRS depolama kullanın.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139338"
+ms.locfileid: "65205492"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
 
@@ -148,7 +148,7 @@ Bir uygulama birden çok örneğini nasıl ele alınacağını ve her bir örne�
 
 Birincil bölgede yeniden denemeler sıklığını ikincil bölge'ye geçiş yapın ve uygulamayı salt okunur modunda çalışacak şekilde değiştirmek ne zaman belirlemek için izleme için üç ana seçeneğiniz vardır.
 
-*   İçin bir işleyici eklemek [ **yeniden deneniyor** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) olayda [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) depolama geçirdiğiniz nesne istekleri – bu yöntem, Bu makalede gösterilen ve eşlik eden örnek kullanılır. Bu olayları, istemcinin ne sıklıkta yeniden denenebilir hata birincil uç noktasında istemci karşılaştığında izlemenize olanak sağlayan bir isteği yeniden deneme zaman kov.
+*   İçin bir işleyici eklemek [ **yeniden deneniyor** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) olayda [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) depolama geçirdiğiniz nesne istekleri – bu yöntem, Bu makalede gösterilen ve eşlik eden örnek kullanılır. Bu olayları, istemcinin ne sıklıkta yeniden denenebilir hata birincil uç noktasında istemci karşılaştığında izlemenize olanak sağlayan bir isteği yeniden deneme zaman kov.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ Birincil bölgede yeniden denemeler sıklığını ikincil bölge'ye geçiş yap
     };
     ```
 
-*   İçinde [ **değerlendir** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) yöntemi özel bir yeniden deneme ilkesinde çalıştırabilirsiniz özel kod her bir yeniden deneme gerçekleşir. Bir yeniden deneme zaman kaydı yanı sıra olur, bu Ayrıca, yeniden deneme davranışı değiştirme olanağı sağlar.
+*   İçinde [ **değerlendir** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) yöntemi özel bir yeniden deneme ilkesinde çalıştırabilirsiniz özel kod her bir yeniden deneme gerçekleşir. Bir yeniden deneme zaman kaydı yanı sıra olur, bu Ayrıca, yeniden deneme davranışı değiştirme olanağı sağlar.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

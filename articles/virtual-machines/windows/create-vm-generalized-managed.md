@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977567"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205728"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Yönetilen bir görüntüden VM oluşturma
 
 Birden çok sanal makine (VM) yönetilen bir Azure VM'den oluşturabilirsiniz Azure portal veya PowerShell kullanarak görüntü. Yönetilen bir VM görüntüsü işletim sistemi ve veri diskleri dahil olmak üzere, bir VM oluşturmak gerekli bilgileri içerir. Sanal sabit hem işletim sistemi diskleri ve tüm veri diskleri dahil olmak üzere, görüntüyü oluşturan diskleri (VHD'ler), yönetilen diskler olarak depolanır. 
 
-Yeni bir sanal makine oluşturmadan önce şunları yapmanız gerekir [yönetilen bir VM görüntüsü oluşturma](capture-image-resource.md) kaynak görüntü olarak kullanılacak. 
+Yeni bir sanal makine oluşturmadan önce şunları yapmanız gerekir [yönetilen bir VM görüntüsü oluşturma](capture-image-resource.md) kaynak görüntü olarak kullanın ve görüntüyü erişimi olması gereken herhangi bir kullanıcı görüntüsü üzerinde okuma erişimi vermek için. 
 
 
 ## <a name="use-the-portal"></a>Portalı kullanma
@@ -44,7 +44,7 @@ Yeni bir sanal makine oluşturmadan önce şunları yapmanız gerekir [yönetile
 
 Basitleştirilmiş parametre kümesi kullanarak görüntüden bir VM oluşturmak için PowerShell kullanabilirsiniz [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet'i. Görüntü, burada VM oluşturacağınız aynı kaynak grubunda olması gerekiyor.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 İçin Basitleştirilmiş parametre kümesi [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) yalnızca bir görüntüden bir VM oluşturmak için ad, kaynak grubu ve görüntü adı sağlamanız gerekir. Yeni-AzVm değerini kullanacağınız **-adı** parametre adı olarak tüm kaynakları otomatik olarak oluşturur. Bu örnekte, kaynakların her biri için ayrıntılı adlar sağlar ancak onları otomatik olarak oluşturmasını cmdlet'i sağlar. Ayrıca, kaynak sanal ağ gibi önceden oluşturabilir ve kaynak adı cmdlet'e geçirin. Yeni-AzVm adlarına göre bunları bulabilirsiniz varolan kaynakları kullanır.
 

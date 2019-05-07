@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5d4be0bf52fd925e22e40e98258082304a25a111
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148781"
+ms.locfileid: "65191692"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
@@ -101,4 +101,7 @@ $job.State
 ```
 
 > [!NOTE]
-> Görüntü sürümü yerleşik ve başka bir görüntü sürümünü oluşturmak için aynı yönetilen görüntüsünü kullanabilmeniz için önce çoğaltılmış tamamen tamamlanmasını beklemeniz gerekir.
+> Görüntü sürümü yerleşik ve başka bir görüntü sürümünü oluşturmak için aynı yönetilen görüntüsünü kullanabilmeniz için önce çoğaltılmış tamamen tamamlanmasını beklemeniz gerekir. 
+>
+> Görüntü sürümünüzde da depolayabilirsiniz [bölgesel olarak yedekli depolama](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) ekleyerek `-StorageAccountType Standard_ZRS` oluşturduğunuzda görüntü sürümü.
+>

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782966"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204212"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Azure veri kutusu Blob depolama alanına ilgili sorunları giderme
 
@@ -55,7 +55,7 @@ Bu bölümde Data Box Disk dağıtımı sırasında bir Linux istemcisi için ve
 |Hata iletisi  |Önerilen eylem |
 |---------|---------|
 |HTTP üstbilgileri birinin değeri doğru biçimde değil. |Python için Microsoft Azure depolama Kitaplığı'nın yüklü sürümü veri kutusu tarafından desteklenmiyor. Azure veri kutusu Blob Depolama alanı gereksinimleri, desteklenen sürümleri için bkz.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Python çalıştırmadan önce SSL Base64 kodlamalı sertifika dosyasının yolunu REQUESTS_CA_BUNDLE ortam değişkenini ayarlamak (bkz. nasıl [sertifikayı indirip]()). <br>Örneğin:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternatif olarak, sistemin sertifika deposuna sertifika ekleyin ve ardından bu ortam değişkeni, deposunun yolunu ayarlayın. <br> Örneğin, Ubuntu üzerinde: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Python çalıştırmadan önce SSL Base64 kodlamalı sertifika dosyasının yolunu REQUESTS_CA_BUNDLE ortam değişkenini ayarlamak (bkz. nasıl [sertifikayı indirip](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Örneğin:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternatif olarak, sistemin sertifika deposuna sertifika ekleyin ve ardından bu ortam değişkeni, deposunun yolunu ayarlayın. <br> Örneğin, Ubuntu üzerinde: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Sık karşılaşılan hatalar

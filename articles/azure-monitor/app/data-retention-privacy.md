@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899257"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204883"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -87,7 +87,7 @@ Ham veri noktalarını (diğer bir deyişle, Analytics'te sorgu ve arama İncele
 
 Toplanan verileri (diğer bir deyişle, sayıları, ortalamalar ve ölçüm Gezgini'nde gördüğünüz diğer istatistiksel veriler), 90 gün boyunca 1 dakikalık bir dilimi korunur.
 
-[Anlık görüntü hata ayıklama](../../azure-monitor/app/snapshot-debugger.md) yedi gün boyunca saklanır. Bu bekletme ilkesi, bir uygulama başına temelinde ayarlanır. Bu değeri arttırmak gerekiyorsa, Azure portalında bir destek talebi açarak artışı isteyebilirsiniz.
+[Anlık görüntü hata ayıklama](../../azure-monitor/app/snapshot-debugger.md) beş gün boyunca depolanır. Bu bekletme ilkesi, bir uygulama başına temelinde ayarlanır. Bu değeri arttırmak gerekiyorsa, Azure portalında bir destek talebi açarak artışı isteyebilirsiniz.
 
 ## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 Verileri sizin için görünür olur ve bir kuruluş hesabı veya takım üyeleriniz varsa. 

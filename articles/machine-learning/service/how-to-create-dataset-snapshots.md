@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.date: 05/02/2019
-ms.openlocfilehash: ed10cb259802321769605bc0399a610131ddb174
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029153"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205011"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Verileri karşılaştırmak ve anlık görüntüleri (Önizleme) ile yeniden üretilebilirliğini emin olun
 
-Bu makalede, şunların nasıl oluşturup anlık görüntülerini yönetmek için [Azure Machine Learning veri kümeleri](how-to-create-register-datasets.md) (veri kümeleri yakalama ya da zaman içinde verileri karşılaştırın). Veri kümeleri erişmek ve çeşitli senaryolarda bulutta, verilerle çalışmayı kolaylaştırır. 
+Bu makalede, şunların nasıl oluşturup anlık görüntülerini yönetmek için [Azure Machine Learning veri kümeleri](how-to-create-register-datasets.md) (veri kümeleri yakalama ya da zaman içinde verileri karşılaştırın). Veri kümeleri erişmek ve çeşitli senaryolarda bulutta, verilerle çalışmayı kolaylaştırır.
 
-**Veri kümesi anlık görüntüleri** oluşturulduğu sırada bir ' % s'profil (Özet istatistikleri) veri depolayın. Ayrıca, anlık görüntü yeniden üretilebilirliğini için verilerin bir kopyasını depolamak seçebilirsiniz. 
+**Veri kümesi anlık görüntüleri** oluşturulduğu sırada bir ' % s'profil (Özet istatistikleri) veri depolayın. Ayrıca, anlık görüntü yeniden üretilebilirliğini için verilerin bir kopyasını depolamak seçebilirsiniz.
 
 >[!Important]
 > Anlık görüntü depolama ücret yansıtılmaz. Verilerin bir kopyasını depolayarak, anlık görüntüde, daha fazla depolama gerektirir. Kullanım [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) bunlar artık gerekli olmadığında.
@@ -29,9 +29,9 @@ Bu makalede, şunların nasıl oluşturup anlık görüntülerini yönetmek içi
 
 Anlık görüntüler için üç temel kullanım vardır:
 
-+ **Model doğrulama**: Eğitim çalıştırmaları arasında veya karşı üretim verileri farklı anlık görüntü veri profili karşılaştırın. 
++ **Model doğrulama**: Eğitim çalıştırmaları arasında veya karşı üretim verileri farklı anlık görüntü veri profili karşılaştırın.
 
-+ **Modeli yeniden üretilebilirliğini**: Sonuçlarınızı eğitim sırasında verileri içeren bir anlık görüntü çağırarak yeniden oluşturun. 
++ **Modeli yeniden üretilebilirliğini**: Sonuçlarınızı eğitim sırasında verileri içeren bir anlık görüntü çağırarak yeniden oluşturun.
 
 + **Zaman içinde verileri izleme**: Veri kümesi tarafından nasıl geliştirildiğini bkz [profilleri karşılaştırma](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#compare-profiles-rhs-dataset-snapshot--include-columns-none--exclude-columns-none--histogram-compare-method--histogramcomparemethod-wasserstein--0--)
   
@@ -41,16 +41,17 @@ Veri kümesi anlık görüntüleri oluşturmak için kayıtlı bir Azure Machine
 
 ## <a name="create-dataset-snapshots"></a>Veri kümesi anlık görüntüleri oluşturma
 
-Bir veri kümesinin bir anlık görüntü oluşturmak için kullanın [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) Azure Machine Learning SDK. 
+Bir veri kümesinin bir anlık görüntü oluşturmak için kullanın [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) Azure Machine Learning SDK.
 
 Varsayılan olarak, anlık görüntü ' % s'profil (Özet istatistikleri) en son verileri depolayan [veri kümesi tanımı](how-to-manage-dataset-definitions.md) uygulanır. Bir veri kümesi tanımı, veriler için tanımlanmış herhangi bir dönüştürme adımı bir kaydını içerir. Tekrarlanabilir iş, veri hazırlığı yapmak için harika bir yoludur.
 
-İsteğe bağlı olarak ayrıca verilerin bir kopyasını, anlık görüntüde ekleyerek ekleyebilirsiniz `create_data_snapshot = True`.  Bu veriler için yeniden üretilebilirliğini yararlı olabilir. 
+İsteğe bağlı olarak ayrıca verilerin bir kopyasını, anlık görüntüde ekleyerek ekleyebilirsiniz `create_data_snapshot = True`.  Bu veriler için yeniden üretilebilirliğini yararlı olabilir.
 
 Bu örnekte [örnek suç verileri](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) ve bir veri kümesi olarak adlandırılan `dataset_crime` makale kullanılarak oluşturulan ["veri kümeleri oluşturma ve kaydetme"](how-to-create-register-datasets.md).
 
 ```Python
-from azureml.core.dataset import Workspace, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.dataset import Dataset
 from azureml.data.dataset_snapshot import DatasetSnapshot
 import datetime
 
@@ -58,7 +59,7 @@ import datetime
 workspace = Workspace.from_config()
 
 # get existing, named dataset:
-dataset = workspace.Dataset['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 
 # assign name to snapshot
 snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
@@ -69,11 +70,10 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
 ```
- 
 
 Anlık görüntüleri zaman uyumsuz olarak oluşturulduğundan, kullanın [ `wait_for_completion()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) işlemini izlemek için yöntemi.
 
-```python
+```Python
 # monitor process every 10 seconds
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 
@@ -102,7 +102,7 @@ Kullanım [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/
 
 Var olan bir anlık görüntü almak için kullanın [ `get_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
 
-Belirli bir veri kümesi, kaydedilen anlık görüntülerini listesini almak için kullanın [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). 
+Belirli bir veri kümesi, kaydedilen anlık görüntülerini listesini almak için kullanın [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--).
 
 ```Python
 # Get named snapshot for this dataset
@@ -141,12 +141,11 @@ Bölge|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|1
 İleri Git|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Topluluk alan|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 
-
 ### <a name="get-the-data-from-the-snapshot"></a>Anlık görüntüden veri alma
 
 Bir veri kümesi anlık görüntüde kaydedilen verilerin bir kopyasını almak için bir pandas DataFrame oluşturun ile [ `to_pandas_dataframe()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--) yöntemi.
 
-Bu yöntem verilerin bir kopyasını anlık görüntü oluşturma sırasında istenmemiştir başarısız olur. 
+Bu yöntem verilerin bir kopyasını anlık görüntü oluşturma sırasında istenmemiştir başarısız olur.
 
 ```Python
 snapshot.to_pandas_dataframe().head(3)
@@ -157,7 +156,6 @@ snapshot.to_pandas_dataframe().head(3)
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|YANILTICI YÖNTEMİ|FİNANSAL KİMLİK HIRSIZLIĞINDAN 300 ABD DOLARI ÜZERİNDEN|DİĞER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|HIRSIZLIĞI|ÖĞESİNDEN YAPI|İKAMET|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|1154|YANILTICI YÖNTEMİ|FİNANSAL KİMLİK HIRSIZLIĞINDAN 300 ABD DOLARI VE ALTINDA|İKAMET|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -5,22 +5,21 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: fd1dd1f8af8fee9b1fecb05405381dba879facde
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149796"
+ms.locfileid: "65192383"
 ---
 Paylaşılan görüntü Galerisi yapısı ve kendi özel VM görüntülerinizi yönetilen etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan resim galerileri sağlar:
 
 - Görüntüleri yönetilen küresel çoğaltma.
 - Sürüm oluşturma ve daha kolay yönetim için görüntüleri gruplandırmasıdır.
-- Sınırları daha yüksek ölçeklendirme. 1000 eşzamanlı VM'ler için paylaşılan resim galerileri olanak tanırken özel görüntüler 600 eşzamanlı VM'ler için sağlar.
-- Bölgesel olarak yedekli depolama kullanarak yüksek oranda kullanılabilir görüntüleri. Bir veri merkezi devre dışı kalsa bile, bu bölgede görüntülerine erişim gerekir.
+- Görüntülerinizin bölgesel olarak yedekli depolama (ZRS) hesapları ile yüksek kullanılabilirlik alanlarını destekleyen bölgelerde olun. ZRS, bölgesel hatalarına karşı daha iyi esneklik sunar.
 - Abonelikler arasında ve hatta RBAC kullanarak kiracılar arasında paylaştırma.
 
 Paylaşılan görüntü Galerisi kullanarak görüntülerinizi farklı kullanıcılar, hizmet sorumluları veya AD grupları kuruluşunuzun içinde paylaşabilirsiniz. Paylaşılan görüntüleri, dağıtımlarınıza daha hızlı ölçeklendirme için birden fazla bölgeyi çoğaltılabilir.
@@ -92,12 +91,10 @@ Kaynak bölgeleri aşağıdaki tabloda listelenmiştir. Tüm genel bölgelerde h
 
 ## <a name="limits"></a>Limits 
 
-Yönetilen görüntülerle 600 eşzamanlı VM görüntüsüyle paylaşılan resim galerileri başına yalnızca olabilir, bu görüntü sürümü başına 1000 eşzamanlı vm'lere artırılır.
-
 Sınırları, paylaşılan resim galerileri kullanarak kaynakları dağıtmak için abonelik başına vardır:
-- Bölge başına abonelik başına 10 paylaşılan resim galerileri
-- Abonelik, bölge başına 200 görüntü tanımları
-- Abonelik, bölge başına 2000 yansıma sürümü
+- Bölge başına abonelik başına 100 paylaşılan resim galerileri
+- Bölge başına abonelik başına 1.000 görüntü tanımları
+- Abonelik, bölge başına 10.000 yansıma sürümü
 
 Daha fazla bilgi için [sınırları karşı kaynak kullanımını denetleyin](https://docs.microsoft.com/azure/networking/check-usage-against-limits) örnekler geçerli kullanımınızı denetleme.
  

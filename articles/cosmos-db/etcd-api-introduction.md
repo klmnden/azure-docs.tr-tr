@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 30d18e1e23767ce3a179221714e001574f8e9778
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075498"
+ms.locfileid: "65205798"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Azure Cosmos DB etcd API'si (Önizleme) giriş
 
@@ -23,7 +23,7 @@ Azure Cosmos DB, Microsoft'un Global olarak dağıtılmış çok modelli veritab
 Azure Cosmos DB'de etcd API için arka uç deposu olarak Azure Cosmos DB kullanmanıza olanak tanır [Azure Kubernetes](../aks/index.yml). Azure Cosmos DB'de etcd API'si şu anda Önizleme aşamasındadır. Azure Cosmos DB etcd kablo protokolünü uygular. API Azure Cosmos DB'de etcd ile geliştiriciler otomatik olarak yüksek oranda güvenilir alırsınız [kullanılabilir](high-availability.md), [Global olarak dağıtılmış](distribute-data-globally.md) Kubernetes. Bu API, geliştiricilerin Kubernetes durum yönetimi üzerinde tam olarak yönetilen bulut yerel PaaS hizmeti ölçeklendirme sağlar. 
 
 > [!NOTE]
-> Azure Cosmos DB'de diğer API'ler bir etcd API hesabı Azure portalı, CLI veya SDK'ları aracılığıyla sağlayamazsınız. Yalnızca Resource Manager şablonu dağıtarak bir etcd API hesabı sağlayabilirsiniz; ayrıntılı adımlar için bkz. [sağlama Azure Cosmos DB ile Azure Kubernetes](bootstrap-kubernetes-cluster.md) makalesi.  
+> Azure Cosmos DB'de diğer API'ler bir etcd API hesabı Azure portalı, CLI veya SDK'ları aracılığıyla sağlayamazsınız. Yalnızca Resource Manager şablonu dağıtarak bir etcd API hesabı sağlayabilirsiniz; ayrıntılı adımlar için bkz. [sağlama Azure Cosmos DB ile Azure Kubernetes](bootstrap-kubernetes-cluster.md) makalesi. Azure Cosmos DB etcd API'si şu anda sınırlı Önizleme aşamasındadır. Yapabilecekleriniz [Önizleme için kaydolun](https://aka.ms/cosmosetcdapi-signup), kaydolma formu doldurarak.
 
 ## <a name="wire-level-compatibility"></a>Hat düzeyinde uyumluluk
 

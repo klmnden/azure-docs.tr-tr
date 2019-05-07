@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325396"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199539"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Hizmeti örneği oluşturma
 
@@ -39,6 +39,4 @@ Uygulamanız Azure’da bir SignalR hizmeti örneğine bağlanır.
 
 1. SignalR Hizmeti örneğini dağıtmaya başlamak için **Oluştur**’u seçin.
 
-1. Örneği dağıtıldıktan sonra portalda açın ve kendi ayarları sayfasını bulun. Hizmet Modu ayarını *sunucusuz*.
-
-    ![SignalR hizmeti modu](../media/signalr-concept-azure-functions/signalr-service-mode.png)
+1. Örneği dağıtıldıktan sonra portalda açın ve kendi ayarları sayfasını bulun. Hizmet Modu ayarını *sunucusuz* yalnızca Azure işlevleri bağlama veya REST API Azure SignalR hizmeti kullanıyorsanız. İçinde bırakın *Klasik* veya *varsayılan* Aksi takdirde.

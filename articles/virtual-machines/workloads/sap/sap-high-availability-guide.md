@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720425"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204929"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -283,7 +283,7 @@ Yüksek kullanılabilirlik SAP ASCS/SCS örneği için paylaşılan depolama kü
 2. SIOS DataKeeper Cluster Edition, her iki sanal makine düğümde çalıştırın.
 3. Hedef sanal makineye bağlı ek disk hacmi kaynak sanal makineden bağlı ek disk birimi içeriği yansıtan SIOS DataKeeper Cluster Edition yapılandırın. SIOS DataKeeper kaynak ve hedef yerel birimlere soyutlar ve Windows Server Yük Devretme Kümelemesi bir paylaşılan disk olarak için sunar.
 
-Hakkında daha fazla bilgi edinin [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Hakkında daha fazla bilgi edinin [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Şekil 3: SIOS DataKeeper ile azure'da Windows Server Yük Devretme Kümelemesi yapılandırma][sap-ha-guide-figure-1002]
 
@@ -767,7 +767,7 @@ Azure Load Balancer iç yük dengeleyici bağlantıları için belirlenen bir s�
 
 SAP ASCS/SCS örneği her iki küme düğümlerinde kayıt defteri girdileri eklemek için ilk olarak, bu Windows kayıt defteri girişleri hem Windows Küme düğümlerinde SAP ASCS/SCS ekleyin:
 
-| Yol | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Değişken adı |`KeepAliveTime` |
 | Değişken türü |REG_DWORD (ondalık) |
@@ -778,7 +778,7 @@ _**Tablo 3:** İlk TCP/IP'yi parametre değiştirme_
 
 Ardından, bu Windows kayıt defteri girdileri SAP ASCS/SCS için hem Windows Küme düğümlerinde ekleyin:
 
-| Yol | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Değişken adı |`KeepAliveInterval` |
 | Değişken türü |REG_DWORD (ondalık) |

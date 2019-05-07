@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870290"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205695"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Ayarlama ve AWS maliyet ve kullanım raporu tümleştirmeyi Yapılandır
 
 Amazon Web Services maliyet ve kullanım raporu tümleştirme sayesinde, izleyebilir ve AWS Azure maliyet Yönetimi'nde harcamalarınızı denetim. Tümleştirmesi, tek bir konum burada izleyebilirsiniz Azure portalı ve Azure ve AWS için harcama denetim sağlar. Bu makalede, tümleştirmeyi ayarlamak ve maliyetleri analiz etmek ve bütçe gözden geçirmek için maliyet yönetimi özellikleri kullanmak için yapılandırma açıklanmaktadır.
 
-Maliyet yönetimi, AWS maliyet ve kullanım raporu rapor tanımları almak ve rapor GZIP CSV Dosyaları indirmek için AWS erişim kimlik bilgilerinizi kullanarak bir S3 demetini içinde depolanan okur.
+Yönetim süreçlerini rapor tanımları almak ve rapor GZIP CSV Dosyaları indirmek için AWS erişim kimlik bilgilerinizi kullanarak bir S3 demetini içinde depolanan AWS maliyet ve kullanım raporu maliyet.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>AWS'de bir maliyet ve kullanım raporu oluşturma
 
@@ -45,13 +45,15 @@ Kullanım **raporları** faturalandırma ve maliyet Yönetimi aşağıdaki adım
 14. Raporunuzun tıklatın ayarları gözden geçirdikten sonra **gözden geçirme ve tam**.
     Not **rapor adı**. Sonraki adımlarda kullanır.
 
-Bu raporlar, Amazon S3 demetini için göndermeye başlamak AWS 24 saate kadar sürebilir. Teslim başlatıldıktan sonra AWS AWS maliyet ve kullanım raporu dosyaları günde bir en az bir kez güncelleştirir.
+Bu raporlar, Amazon S3 demetini için göndermeye başlamak AWS 24 saate kadar sürebilir. Teslim başlatıldıktan sonra AWS AWS maliyet ve kullanım raporu dosyaları günde bir en az bir kez güncelleştirir. Başlamak için teslim beklemeden AWS ortamınızı yapılandırmaya devam edebilirsiniz.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>AWS'de bir rol ve ilke oluşturma
 
 Azure maliyet yönetimi, maliyet ve kullanım raporu günde birkaç kez bulunduğu S3 demetini erişir. Maliyet yönetimi, yeni verileri denetlemek için kimlik bilgilerini erişmesi gerekir. Maliyet Yönetimi tarafından erişime izin vermek için AWS rolü ve ilke oluşturun.
 
 Rol, rol tabanlı erişim Azure maliyet Yönetimi'nde AWS hesabınız için etkinleştirmek için AWS konsolunda oluşturulur. İhtiyacınız _rol ARN_ ve _Dış kimlik_ AWS Konsolu. Daha sonra bunları Azure maliyet Yönetimi'nde bir AWS bağlayıcı sayfası kullanın.
+
+Bir yeni rol Oluşturma Sihirbazı'nı kullanın:
 
 1. Oturum açma, AWS konsola ve seçin **Hizmetleri**.
 2. Hizmetler listesinde seçin **IAM**.
@@ -64,30 +66,42 @@ Rol, rol tabanlı erişim Azure maliyet Yönetimi'nde AWS hesabınız için etki
 8. Tıklayın **sonraki: İzinleri**.
 9. Tıklayın **ilkesi oluşturma**. Yeni bir ilke oluşturduğunuz yeni bir tarayıcı sekmesi açılır.
 10. Tıklayın **bir hizmet seçin**.
-11. Tür **maliyet ve kullanım raporu**.
-12. Seçin **erişim düzeyi**, **okuma** > **DescribeReportDefinitions**. Bu ven tanımlanır ve rapor tanımı önkoşul eşleşip eşleşmediğini belirlemek raporları maliyet Yönetimi okuma sağlar.
-13. Tıklayın **ek izinler ayarlamanız**.
-14. Tıklayın **bir hizmet seçin**.
-15. Tür _S3_.
-16. Seçin **erişim düzeyi**, **listesi** > **ListBucket**. Bu eylem, içinde S3 Demetini nesneleri listesini alır.
-17. Seçin **erişim düzeyi**, **okuma** > **GetObject**. Bu eylem, dosyaları indirme faturalandırma sağlar.
-18. Seçin **kaynakları**.
-19. Seçin **demet – ekleme ARN**.
-20. İçinde **demet adı**, bu ven dosyaları depolamak için kullanılan demet girin.
-21. Seçin **nesnesi – ekleme ARN**.
-22. İçinde **demet adı**, bu ven dosyaları depolamak için kullanılan demet girin.
-23. İçinde **nesne adı**seçin **herhangi**.
-24. Tıklayın **ek izinler ayarlamanız**.
-25. Tıklayın **bir hizmet seçin**.
-26. Tür _Explorer hizmeti maliyet_.
-27. Seçin **tüm maliyet Gezgini hizmet eylemleri (ce:\*)**. Bu eylem, koleksiyon doğru olduğunu doğrular.
-28. Tıklayın **ek izinler ayarlamanız**.
-29. Tür **kuruluşlar**.
-30. Seçin **erişim düzeyi, liste** > **ListAccounts**. Bu eylem hesapların adlarını alır.
-31. İçinde **İnceleme İlkesi**, yeni ilke için bir ad girin. Doğru bilgileri girdiğinizden emin olun ve ardından onay **ilke Oluştur**.
-32. Önceki sekmeye dönün ve tarayıcınızın web sayfasını yenileyin. Arama çubuğunda, yeni ilkeniz için arama yapın.
-33. Seçin **sonraki: inceleme**.
-34. Yeni rol için bir ad girin. Doğru bilgileri girdiğinizden emin olun ve ardından onay **Rol Oluştur**.
+
+Maliyet ve kullanım raporu izni yapılandırın:
+
+1. Tür **maliyet ve kullanım raporu**.
+2. Seçin **erişim düzeyi**, **okuma** > **DescribeReportDefinitions**. Bu ven tanımlanır ve rapor tanımı önkoşul eşleşip eşleşmediğini belirlemek raporları maliyet Yönetimi okuma sağlar.
+3. Tıklayın **ek izinler ayarlamanız**.
+
+S3 demetini ve nesneleri izninizi yapılandırın:
+
+1. Tıklayın **bir hizmet seçin**.
+2. Tür _S3_.
+3. Seçin **erişim düzeyi**, **listesi** > **ListBucket**. Bu eylem, içinde S3 Demetini nesneleri listesini alır.
+4. Seçin **erişim düzeyi**, **okuma** > **GetObject**. Bu eylem, dosyaları indirme faturalandırma sağlar.
+5. Seçin **kaynakları**.
+6. Seçin **demet – ekleme ARN**.
+7. İçinde **demet adı**, bu ven dosyaları depolamak için kullanılan demet girin.
+8. Seçin **nesnesi – ekleme ARN**.
+9. İçinde **demet adı**, bu ven dosyaları depolamak için kullanılan demet girin.
+10. İçinde **nesne adı**seçin **herhangi**.
+11. Tıklayın **ek izinler ayarlamanız**.
+
+Maliyet Gezgini izni yapılandırın:
+
+1. Tıklayın **bir hizmet seçin**.
+2. Tür _Explorer hizmeti maliyet_.
+3. Seçin **tüm maliyet Gezgini hizmet eylemleri (ce:\*)**. Bu eylem, koleksiyon doğru olduğunu doğrular.
+4. Tıklayın **ek izinler ayarlamanız**.
+
+Kuruluşların izin ekleyin:
+
+1. Tür **kuruluşlar**.
+2. Seçin **erişim düzeyi, liste** > **ListAccounts**. Bu eylem hesapların adlarını alır.
+3. İçinde **İnceleme İlkesi**, yeni ilke için bir ad girin. Doğru bilgileri girdiğinizden emin olun ve ardından onay **ilke Oluştur**.
+4. Önceki sekmeye dönün ve tarayıcınızın web sayfasını yenileyin. Arama çubuğunda, yeni ilkeniz için arama yapın.
+5. Seçin **sonraki: inceleme**.
+6. Yeni rol için bir ad girin. Doğru bilgileri girdiğinizden emin olun ve ardından onay **Rol Oluştur**.
     Not **rol ARN** ve **Dış kimlik** rolü oluşturduğunuz zaman önceki adımlarda kullanılır. Azure maliyet Yönetimi Bağlayıcısı'nı ayarlarken daha sonra kullanacaksınız.
 
 JSON İlkesi, aşağıdaki örneğe benzemelidir. Değiştirin _bucketname_ , S3 demetini adı.

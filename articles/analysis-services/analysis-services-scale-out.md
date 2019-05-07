@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939664"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192301"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -51,7 +51,7 @@ Sonraki bir ölçeklendirme işlemi gerçekleştirirken, örneğin, iki beş, so
 
 ### <a name="separate-processing-from-query-pool"></a>Sorgu havuzundan ayrı işleme
 
-Hem işlem hem de sorgu işlemleri için en yüksek performans için işlem sunucunuzun sorgu havuzundan ayırmak seçebilirsiniz. Ayrılmış, mevcut ve yeni istemci bağlantılarını sorgu çoğaltmaları yalnızca sorgu havuzundaki atanır. İşlemleri yalnızca kısa bir süre alırsa, sorgu havuzu, işleme ve eşitleme işlemleri ve ardından sorgu havuza eklemek için gereken süre, işlem sunucusundan ayrı seçebilirsiniz. 
+Hem işlem hem de sorgu işlemleri için en yüksek performans için işlem sunucunuzun sorgu havuzundan ayırmak seçebilirsiniz. Ayrılmış, yeni istemci bağlantılarını sorgu çoğaltmaları yalnızca sorgu havuzundaki atanır. İşlemleri yalnızca kısa bir süre alırsa, sorgu havuzu, işleme ve eşitleme işlemleri ve ardından sorgu havuza eklemek için gereken süre, işlem sunucusundan ayrı seçebilirsiniz. Sorgu havuzu veya sorgu havuza geri ekleme işlemi sunucudan ayrılması zaman işleminin tamamlanması için beş dakikaya kadar sürebilir.
 
 ## <a name="monitor-qpu-usage"></a>QPU kullanımı izleme
 

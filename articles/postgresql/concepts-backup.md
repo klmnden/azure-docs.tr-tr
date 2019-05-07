@@ -1,19 +1,19 @@
 ---
-title: Yedekleme ve PostgreSQL için Azure veritabanı'nda geri yükleme
-description: Otomatik yedeklemeler ve PostgreSQL için Azure veritabanı sunucunuza geri yükleme hakkında bilgi edinin.
+title: Yedekleme ve PostgreSQL - tek bir sunucu için Azure veritabanı'nda geri yükleme
+description: Otomatik yedeklemeler ve PostgreSQL sunucusu - tek bir sunucu için Azure veritabanı geri yükleme hakkında bilgi edinin.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456266"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068865"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Yedekleme ve PostgreSQL için Azure veritabanı'nda geri yükleme
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Yedekleme ve PostgreSQL - tek bir sunucu için Azure veritabanı'nda geri yükleme
 
 PostgreSQL için Azure veritabanı, otomatik olarak sunucu yedeklemelerini oluşturur ve bunları yapılandırılan kullanıcı yerel olarak yedekli veya coğrafi olarak yedekli depolama alanında depolar. Yedeklemeler, sunucunuz bir-belirli bir noktaya için geri yüklemek için kullanılabilir. Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için yedekleme ve geri yükleme herhangi bir iş devamlılığı stratejinizin önemli bir parçası olan.
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573560"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199637"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -133,8 +133,8 @@ ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gö
 
 ILB ASE’nizin geçerli bir SSL sertifikası olmalıdır. İç sertifika yetkililerini kullanın, harici bir verenden sertifika satın alın ya da otomatik olarak imzalanan bir sertifika kullanın. SSL sertifikasının kaynağından bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
-* **Konu**: Bu öznitelik *.your-root-domain-here olarak ayarlanmalıdır.
-* **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir **.your-root-domain-here* ve **.Your-kök-etki-burada*. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
+* **Konu**: Bu öznitelik ayarlanmalıdır *\.your-root-domain-here.
+* **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir *.your-root-domain-here* ve *.Your-kök-etki-burada*. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
 
 SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .pfx dosyası, tüm ara ve kök sertifikaları içermelidir. Bir parola ile güvenli hale getirin.
 

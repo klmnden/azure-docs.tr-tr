@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: b37f16ab914fe4062bc9720ae9cc0139c573fb93
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154269"
+ms.locfileid: "65204905"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değerleri.
@@ -25,7 +25,7 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 |:--- |:--- |:--- |
 | [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Tek bir SQL veri ambarı için en fazla DWU | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Sunucu başına varsayılan DTU |54,000<br></br>Varsayılan olarak, her bir SQL server (örn. myserver.database.windows.net) kadar DW6000c izin veren bir DTU kota olarak 54.000, vardır. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotanızı artırabilirsiniz [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md) seçerek *kota* istek türü olarak.  DTU'yu hesaplama, DWU gereken toplam 7,5 ile çarpın veya 9.0 gereken toplam cDWU tarafından Çarp gerekir. Örneğin:<br></br>7.5 = 45,000 x DW6000 Dtu<br></br>DW6000c 9.0 = olarak 54.000 x dtu'ları.<br></br>SQL server seçeneği geçerli DTU tüketiminizi portalında görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
-| Veritabanı bağlantısı |En fazla eşzamanlı oturum açın |1024<br/><br/>Eş zamanlı açık oturum sayısı, seçilen DWU göre değişir. DWU500c ve en çok 1024 desteği üzerinde oturum açın. DWU400c ve en fazla eş zamanlı açık oturum sınırı 512, aşağıdaki özellikleri destekler. Unutmayın, eşzamanlı olarak yürütebilir sorguların sayısına yönelik sınırlar vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç kuyruğuna burada işlenmeyi bekleyen gider. |
+| Veritabanı bağlantısı |En fazla eşzamanlı oturum açın |1024<br/><br/>Eş zamanlı açık oturum sayısı, seçilen DWU göre değişir. DWU600c ve en çok 1024 desteği üzerinde oturum açın. DWU500c ve en fazla eş zamanlı açık oturum sınırı 512, aşağıdaki özellikleri destekler. Unutmayın, eşzamanlı olarak yürütebilir sorguların sayısına yönelik sınırlar vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç kuyruğuna burada işlenmeyi bekleyen gider. |
 | Veritabanı bağlantısı |Hazırlanmış deyimleri için en fazla belleği |20 MB |
 | [İş yükü yönetimi](resource-classes-for-workload-management.md) |En fazla eş zamanlı sorguları |128<br/><br/> SQL veri ambarı, en fazla 128 eş zamanlı sorguları ve sorguları kalan kuyrukları yürütebilir.<br/><br/>Kullanıcılar daha yüksek kaynak sınıfları veya SQL veri ambarı düşük olduğunda atandığında eş zamanlı sorgu sayısını azaltabilir [veri ambarı birimi](memory-and-concurrency-limits.md) ayarı. DMV sorgu gibi bazı sorgular çalıştırın ve her zaman izin eş zamanlı sorgu sınırı etkisi yok. Eş zamanlı sorgu yürütme hakkında daha fazla bilgi için bkz. [eşzamanlılık sınırları](memory-and-concurrency-limits.md#concurrency-maximums) makalesi. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |En fazla GB |Değeri DW100 399 GB. Bu nedenle DWU1000 sırasında tempdb 3,99 TB boyutlandırılır. |

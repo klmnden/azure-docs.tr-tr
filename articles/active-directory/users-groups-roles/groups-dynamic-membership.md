@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471651"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192443"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -346,8 +346,8 @@ Aşağıdaki cihaz öznitelikleri kullanılabilir.
  Cihaz özniteliği  | Değerler | Örnek
  ----- | ----- | ----------------
  accountEnabled | doğru yanlış | (device.accountEnabled - eq true)
- displayName | herhangi bir dize değeri |(device.displayName - eq "Rob Iphone")
- deviceOSType | herhangi bir dize değeri | (cihaz.cihazostürü - eq "iPad")- veya (cihaz.cihazostürü - eq "iPhone")
+ displayName | herhangi bir dize değeri |(device.displayName -eq "Rob iPhone")
+ deviceOSType | herhangi bir dize değeri | (cihaz.cihazostürü - eq "iPad")- veya (cihaz.cihazostürü - eq "iPhone")<br>(cihaz.cihazostürü-"AndroidEnterprise" içerir)<br>(cihaz.cihazostürü - eq "AndroidForWork")
  deviceOSVersion | herhangi bir dize değeri | (device.deviceOSVersion - eq "9.1")
  deviceCategory | Geçerli cihaz kategorisi adı | (device.deviceCategory - eq "KCG")
  deviceManufacturer | herhangi bir dize değeri | (device.deviceManufacturer -eq "Samsung")

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138471"
+ms.locfileid: "65192116"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -244,6 +244,7 @@ Tamamlandığında, kimlik doğrulama belirteci önbelleğe alınır. Yalnızca 
 Başarıyla oturum açtıktan sonra bir yetkilendirme hata iletisini görüyorsanız, kontrol olmadığını:
 1. Bir konuk değil (farklı bir dizinden birleştirilmiş bir hesap kullanırsanız, bu senaryo genellikle bir durumdur) Azure AD örneğinde olduğu gibi kullanıcı, oturum açan.
 2. Kullanıcı, 200'den fazla grupların bir üyesi değil.
+3. Uygulama kayıt sunucusu için tanımlanan gizli--aad-server-app-secret kullanarak yapılandırılan değerle eşleşmiyor
 
 ```console
 error: You must be logged in to the server (Unauthorized)

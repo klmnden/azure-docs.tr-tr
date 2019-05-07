@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a0fc9a8356f4a322ae81a668515a6a60c6001011
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: c0d5108ee235be74f6188bfc8b590069a4e790b5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141252"
+ms.locfileid: "65192636"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure sayfa blobları genel bakış
 
@@ -43,7 +43,7 @@ Aşağıdaki diyagramda, hesap, kapsayıcılar ve sayfa BLOB'ları arasındaki g
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Belirli bir boyuttaki bir boş sayfa blobu oluşturma
-Bir sayfa blobu oluşturmak için önce oluşturduğumuz bir **CloudBlobClient** nesneyle depolama hesabınız için blob depolama alanına erişim için temel URI'sini (*pbaccount* Şekil 1'içinde) ile birlikte  **StorageCredentialsAccountAndKey** aşağıdaki örnekte gösterildiği gibi nesne. Örnek için bir başvuru oluşturmanın ardından gösterir bir **CloudBlobContainer** nesnesi ve ardından bir kapsayıcı oluşturma (*testvhds*) zaten mevcut değilse. Ardından kullanarak **CloudBlobContainer** nesne, bir başvuru bir **CloudPageBlob** erişim sayfa blob adı (os4.vhd) belirterek nesne. Sayfa blobu oluşturmak için arama [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) blob oluşturmak için en büyük boyutu tümleştirilmesidir. *BlobSize* 512 baytın katlarından biri olmalıdır.
+Bir sayfa blobu oluşturmak için önce oluşturduğumuz bir **CloudBlobClient** nesneyle depolama hesabınız için blob depolama alanına erişim için temel URI'sini (*pbaccount* Şekil 1'içinde) ile birlikte  **StorageCredentialsAccountAndKey** aşağıdaki örnekte gösterildiği gibi nesne. Örnek için bir başvuru oluşturmanın ardından gösterir bir **CloudBlobContainer** nesnesi ve ardından bir kapsayıcı oluşturma (*testvhds*) zaten mevcut değilse. Ardından kullanarak **CloudBlobContainer** nesne, bir başvuru bir **CloudPageBlob** erişim sayfa blob adı (os4.vhd) belirterek nesne. Sayfa blobu oluşturmak için arama [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) blob oluşturmak için en büyük boyutu tümleştirilmesidir. *BlobSize* 512 baytın katlarından biri olmalıdır.
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -66,13 +66,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
 #### <a name="resizing-a-page-blob"></a>Bir sayfa blobu yeniden boyutlandırma
-Oluşturulduktan sonra bir sayfa blob'yeniden boyutlandırmak için [yeniden boyutlandırma](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API. İstenen boyutu 512 baytın katlarından biri olmalıdır.
+Oluşturulduktan sonra bir sayfa blob'yeniden boyutlandırmak için [yeniden boyutlandırma](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) API. İstenen boyutu 512 baytın katlarından biri olmalıdır.
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes); 
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Bir sayfa blobu yazma sayfalarına
-Sayfaları yazmak için kullanın [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) yöntemi.  Bu sayfaları 4MBs kadar sıralı bir dizi yazmanıza olanak sağlar. Yazılmakta olan uzaklığı bir 512 bayt sınırlarında başlaması gerekir (startingOffset % 512 == 0) ve 512 sınır - 1 sonlandır.  Aşağıdaki kod örneğinde nasıl çağrılacağını gösterir **WritePages** bir blob için:
+Sayfaları yazmak için kullanın [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) yöntemi.  Bu sayfaları 4MBs kadar sıralı bir dizi yazmanıza olanak sağlar. Yazılmakta olan uzaklığı bir 512 bayt sınırlarında başlaması gerekir (startingOffset % 512 == 0) ve 512 sınır - 1 sonlandır.  Aşağıdaki kod örneğinde nasıl çağrılacağını gösterir **WritePages** bir blob için:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -88,7 +88,7 @@ Diyagramda gösterildiği 2 ayrı yazma işlemleri:
 2.  1024 uzunluğu 4096 başlayan bir yazma işlemi uzaklığı 
 
 #### <a name="reading-pages-from-a-page-blob"></a>Bir sayfa blobu okuma sayfaları
-Sayfaları okumak için kullandığınız [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) sayfa blobu bayt aralığı okumak için yöntem. Bu, tam blob veya herhangi bir uzaklık BLOB başlayarak bir bayt aralığı indirmenizi sağlar. Okuma sırasında katlarından biri 512 başlatmak uzaklık yok. Hizmeti, NUL sayfasından bayt okuma, sıfır bayt döndürür.
+Sayfaları okumak için kullandığınız [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) sayfa blobu bayt aralığı okumak için yöntem. Bu, tam blob veya herhangi bir uzaklık BLOB başlayarak bir bayt aralığı indirmenizi sağlar. Okuma sırasında katlarından biri 512 başlatmak uzaklık yok. Hizmeti, NUL sayfasından bayt okuma, sıfır bayt döndürür.
 ```csharp
 byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
@@ -97,7 +97,7 @@ Aşağıdaki şekilde BlobOffSet 256 ve rangeSize 4352, bir okuma işlemi göste
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-Seyrek doldurulmuş bir blob varsa, yalnızca sıfır bayt egressing için ödeme yapmaktan kaçınmak üzere ve indirme gecikme süresini azaltmak için geçerli bir sayfa bölgeleri indirmek isteyebilirsiniz.  Hangi sayfaların veri tarafından desteklenen belirlemek için [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Ardından, döndürülen aralıkları numaralandırır ve her aralıkta verilerin indirin. 
+Seyrek doldurulmuş bir blob varsa, yalnızca sıfır bayt egressing için ödeme yapmaktan kaçınmak üzere ve indirme gecikme süresini azaltmak için geçerli bir sayfa bölgeleri indirmek isteyebilirsiniz.  Hangi sayfaların veri tarafından desteklenen belirlemek için [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Ardından, döndürülen aralıkları numaralandırır ve her aralıkta verilerin indirin. 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
 

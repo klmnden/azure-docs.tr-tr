@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926057"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205525"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların türlerini açıklar. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
@@ -228,7 +228,7 @@ Bu sorunu çözmek için çalışan işini durdurma ve Power BI çıkışınız�
 | Tablo adı |Tablonun adı. Tablo yoksa oluşturulur. |
 | Bölüm anahtarı |Bölüm anahtarını içeren çıkış sütununun adı. Bölüm anahtarı bölüm içinde bir varlığın birincil anahtarının ilk bölümünü oluşturan bir tablo için benzersiz bir tanımlayıcıdır. Bu boyutu en çok 1 KB olabilen bir dize değeridir. |
 | Satır anahtarı |Satır anahtarını içeren çıkış sütununun adı. Satır anahtarı bölüm içindeki bir varlık için benzersiz bir tanımlayıcıdır. Bu, bir varlığın birincil anahtarının ikinci bölümü oluşturur. Satır anahtarı boyutu en çok 1 KB olabilen bir dize değeridir. |
-| Toplu işlem boyutu |Bir toplu işlem için kayıt sayısı. Varsayılan değer (100) çoğu işleri için yeterli olur. Bkz: [tablo toplu işlem spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) bu ayarı değiştirme hakkında daha fazla ayrıntı için. |
+| Toplu işlem boyutu |Bir toplu işlem için kayıt sayısı. Varsayılan değer (100) çoğu işleri için yeterli olur. Bkz: [tablo toplu işlem spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) bu ayarı değiştirme hakkında daha fazla ayrıntı için. |
 
 ## <a name="service-bus-queues"></a>Service Bus kuyrukları
 [Service Bus kuyruklarını](https://msdn.microsoft.com/library/azure/hh367516.aspx) bir veya birden çok rakip tüketiciye bir FIFO mesaj teslimatı sağlar. Genellikle, iletiler alınan ve zamana bağlı kuyruğa eklendikleri sırayla alıcılar tarafından işlenebilir. Her bir ileti alındı ve yalnızca bir ileti tüketicisi tarafından alınıp.

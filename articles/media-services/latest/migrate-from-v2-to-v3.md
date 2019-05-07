@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148917"
+ms.locfileid: "65205480"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -71,7 +71,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
     * Akış Bulucusu Bulucu değiştirir.
     * Canlı olay kanal değiştirir.<br/>Canlı etkinlikler üzerinde Canlı kanal oranları üzerinden faturalandırılır. Daha fazla bilgi için [fatura](live-event-states-billing.md) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
     * Canlı çıktı Program değiştirir.
-* Canlı çıkışları açıkça başlatılması gerekmez, üzerinde oluşturma işlemini başlatmak ve silindiğinde durdurun. V2 API'leri farklı şekilde çalışan programlar, bunlar oluşturulduktan sonra başlatılmış olması gerekiyordu.
+* Oluşturma çıkışları başlangıç canlı ve silindiğinde sona erer. V2 API'leri farklı şekilde çalışan programlar, bunlar oluşturulduktan sonra başlatılmış olması gerekiyordu.
 *  Bir iş hakkında bilgi almak için işin oluşturulduğu dönüştürme adını bilmeniz gerekir. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Özellik boşluklarına v2 API'leri göre

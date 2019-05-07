@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916394"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205371"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -274,7 +274,7 @@ Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım 
 
 ## <a name="performance-tests"></a>Performans testleri
 > [!NOTE]  
-> Bulut tabanlı yük testi hizmetinin kullanım dışı bırakılmıştır. Kullanımdan kaldırma, hizmet kullanılabilirliği ve diğer hizmetleri hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> Bulut tabanlı yük testi hizmetinin kullanım dışı bırakılmıştır. Kullanımdan kaldırma, hizmet kullanılabilirliği ve diğer hizmetleri hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
 

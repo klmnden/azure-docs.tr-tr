@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363516"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205747"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure İzleyici'de Windows ve Linux performans veri kaynakları
 Windows ve Linux performans sayaçları, performans donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Azure İzleyici, neredeyse gerçek zamanlı (NRT) analiz uzun süreli analiz için performans verilerini toplama ve raporlama yanı sıra sık aralıklarla performans sayaçları toplayabilirsiniz.
@@ -211,10 +211,10 @@ Aşağıdaki tabloda farklı performans kayıtları almak günlük sorguları ö
 | Perf |Tüm performans verileri |
 | Perf &#124; nerede bilgisayar "Bilgisayarım" == |Belirli bir bilgisayardaki tüm performans verileri |
 | Perf &#124; CounterName burada "Geçerli Disk Sırası Uzunluğu" == |Belirli bir sayaç için tüm performans verileri |
-| Perf &#124; nerede ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" ve InstanceName == "_Toplam" == &#124; AVGCPU özetlemek avg(Average) bilgisayar tarafından = |Tüm bilgisayarlardaki ortalama CPU kullanımı |
-| Perf &#124; CounterName burada "% işlemci zamanı" == &#124; Summarize aggregatedvalue = max(Max) bilgisayar tarafından |Tüm bilgisayarlardaki en fazla CPU kullanımı |
-| Perf &#124; nerede ObjectName "LogicalDisk" ve CounterName == "Geçerli Disk Sırası Uzunluğu" ve bilgisayar == "MyComputerName" == &#124; Summarize aggregatedvalue = avg(Average) InstanceName tarafından |Belirli bir bilgisayarın tüm örneklerdeki ortalama geçerli Disk Sırası Uzunluğu |
-| Perf &#124; CounterName burada "DiskTransfers/sn" == &#124; Summarize aggregatedvalue = bilgisayar tarafından yüzdebirlik (ortalama, 95) |95. yüzdebirlik, Disk aktarımı/sn tüm bilgisayarlardaki |
+| Perf &#124; nerede ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" ve InstanceName == "_Toplam" == &#124; AVGCPU özetlemek avg(CounterValue) bilgisayar tarafından = |Tüm bilgisayarlardaki ortalama CPU kullanımı |
+| Perf &#124; CounterName burada "% işlemci zamanı" == &#124; Summarize aggregatedvalue = max(CounterValue) bilgisayar tarafından |Tüm bilgisayarlardaki en fazla CPU kullanımı |
+| Perf &#124; nerede ObjectName "LogicalDisk" ve CounterName == "Geçerli Disk Sırası Uzunluğu" ve bilgisayar == "MyComputerName" == &#124; Summarize aggregatedvalue = avg(CounterValue) InstanceName tarafından |Belirli bir bilgisayarın tüm örneklerdeki ortalama geçerli Disk Sırası Uzunluğu |
+| Perf &#124; CounterName burada "Disk aktarımı/sn" == &#124; Summarize aggregatedvalue = bilgisayar tarafından yüzdebirlik (Ort, 95) |95. yüzdebirlik, Disk aktarımı/sn tüm bilgisayarlardaki |
 | Perf &#124; CounterName burada "% işlemci zamanı" ve InstanceName == "_Toplam" == &#124; Summarize aggregatedvalue = avg(CounterValue) bin (TimeGenerated, 1 saat), bilgisayar tarafından |Saatlik tüm bilgisayarlardaki CPU kullanımı ortalaması |
 | Perf &#124; nerede bilgisayar "Bilgisayarım" ve CounterName startswith_cs "%" ve InstanceName == "_Toplam" == &#124; Summarize aggregatedvalue göre gruplama (TimeGenerated, 1 saat), CounterName yüzdebirlik (Ort, 70) = | Belirli bir bilgisayar için her % yüzde sayacın saatlik 70 yüzdebirlik |
 | Perf &#124; CounterName burada "% işlemci zamanı" ve InstanceName == "_Toplam" ve bilgisayar == "Bilgisayarım" == &#124; ["min(CounterValue)"] özetlemek min(CounterValue), = ["avg(CounterValue)"] avg(CounterValue), = ["percentile75(CounterValue)"] yüzdebirlik (Ort, 75), = ["max(CounterValue)"] max(CounterValue) bin (TimeGenerated, 1 saat), bilgisayar tarafından = |Saatlik ortalama, minimum, maksimum ve 75 yüzdebirlik CPU kullanımı belirli bir bilgisayar için |

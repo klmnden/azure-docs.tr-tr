@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031414"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192283"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 
@@ -94,3 +94,27 @@ Küme işlemlerini, etkin yükseltme gibi işlemler gerçekleştiğini veya yük
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kümem için farklı bir abonelik veya aboneliğime kümem için yeni bir kiracı ile taşıyabilirim?
 
 AKS kümenizi farklı bir abonelik veya yeni bir kiracı için abonelik sahibi olan küme taşıdıysanız, küme işlevselliği kaybeden rol atamaları ve hizmet sorumluları hakları nedeniyle kaybedersiniz. **AKS abonelikleri veya kiracılar arasında taşıma kümelerini desteklemez** nedeniyle bu kısıtlama.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri gerektiren özelliklerini kullanmayı denemek hata mesajı alıyorum
+
+*Bu sorun giderme Yardımı aka.ms/aks-vmss-etkinleştirme yönlendirilir*
+
+AKS kümenizi aşağıdaki örnek gibi bir sanal makine ölçek kümesinde değil belirtmek hataları alabilirsiniz:
+
+**AgentPool 'agentpool' de etkinleştirildiği şekilde, otomatik ölçeklendirme ayarlayın ancak sanal makine ölçek kümeleri üzerinde değil**
+
+Küme otomatik ölçeklendiricinin veya birden çok düğüm gibi özellikleri kullanmak için havuzları, AKS küme sanal makine ölçek kümeleri kullanan oluşturulması gerekir. Sanal makine ölçek kümelerinde bağlı özelliklerini kullanmayı deneyin ve normal, sanal makine ölçek kümesi AKS kümesi hedef hatalar döndürülür. Sanal makine ölçek kümesi desteği şu anda önizleme olarak kullanılabilir.
+
+İzleyin *başlamadan önce* özellik sanal makine ölçek kümesi için doğru olarak kaydetmek için uygun belgedeki adımları Önizleme ve AKS kümesi oluşturma:
+
+* [Küme otomatik ölçeklendiricinin kullanın](cluster-autoscaler.md)
+* [Oluşturma ve birden fazla düğüm havuzu kullanma](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>AKS kaynakları ve parametreleri için hangi adlandırma kısıtlamaları uygulanır?
+
+*Bu sorun giderme Yardımı aka.ms/aks-adlandırma-kurallardan yönlendirilir*
+
+Adlandırma kısıtlamaları Azure platformu ve AKS tarafından uygulanır. Bir kaynak adı ya da parametre kısıtlamalarının birini keserse, farklı giriş sağlamak isteyen bir hata döndürülür. Aşağıdaki ortak adlandırma yönergeleri uygulayın:
+
+* AKS *MC_* kaynak grubu adı, kaynak grubu adı ve kaynak adı birleştirir. Otomatik olarak oluşturulan söz dizimi `MC_resourceGroupName_resourceName_AzureRegion` 80 karakterden büyük olması gerekir. Gerekli olursa, kaynak grubu adı veya AKS kümesinin adını kısaltın.
+* *Dnsprefıx* ve alfa sayısal değerler ile bitmelidir. Geçerli karakterler alfasayısal değerler ve kısa çizgi (-) içerir. *Dnsprefıx* bir nokta (.) gibi özel karakterler içeremez.

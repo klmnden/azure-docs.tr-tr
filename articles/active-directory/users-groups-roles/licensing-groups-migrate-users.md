@@ -1,6 +1,6 @@
 ---
-title: Tek tek lisanslı kullanıcıları grup tabanlı lisanslama için - geçirme Azure Active Directory | Microsoft Docs
-description: Grup tabanlı Azure Active Directory'yi kullanarak lisanslama için tek tek kullanıcı lisanslarını geçiş yapma
+title: Tek tek lisanslı kullanıcıları grup tabanlı lisanslama için - ekleme Azure Active Directory | Microsoft Docs
+description: Tek tek kullanıcı lisanslarını grup tabanlı Azure Active Directory'yi kullanarak lisanslamaya geçirme
 services: active-directory
 keywords: Azure AD lisanslama
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471047"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192447"
 ---
-# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Ekleme için lisans gruplarına bireysel lisansa sahip kullanıcılar geçirme
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Tek bir lisansa sahip kullanıcılar için lisans gruplarına geçirme
 
 "Doğrudan atama"; aracılığıyla kuruluşlardaki kullanıcılara dağıtılan var olan lisansları olabilir diğer bir deyişle, tek tek kullanıcı lisansı atamak için PowerShell betikleri veya diğer araçları kullanarak. Kuruluşunuzdaki lisansları yönetmek için Grup tabanlı lisanslama kullanmaya başlamadan önce mevcut çözümleri'nın Grup tabanlı lisanslama ile sorunsuz bir şekilde değiştirmek için bu geçiş planı kullanabilirsiniz.
 

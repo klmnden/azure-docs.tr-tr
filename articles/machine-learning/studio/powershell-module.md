@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: e3c2587fceed265c9768b6ea6f2ecf3b9a8b7b1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bee42f8a9582908963c0eef95a2fd04742cd425e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61094375"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205672"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için PowerShell modülleri
 
@@ -57,7 +57,7 @@ PowerShell Klasik Az ya da AzureRM yanı sıra hem "Yeni" ve "Klasik" kaynak tü
 | Çalışma alanı taahhüt planları yönetme | [Yeni AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | Çalışma alanı kullanıcıları yönetme |  | [AmlWorkspaceUsers ekleyin](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | Web hizmetlerini yönetme | [Yeni AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("Yeni" web Hizmetleri)|| [Yeni-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("Klasik" web Hizmetleri) |
-| Web Hizmeti uç noktaları/anahtarları yönetme |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| Web Hizmeti uç noktaları/anahtarları yönetme |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | Kullanıcı veri kümesi ve eğitilen modelleri Yönet| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | Kullanıcı deneyimleri yönetme |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
 | Özel modüller yönetme | | [Yeni AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |

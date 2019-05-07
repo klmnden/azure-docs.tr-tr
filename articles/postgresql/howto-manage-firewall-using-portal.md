@@ -1,19 +1,19 @@
 ---
-title: Oluşturma ve PostgreSQL için Azure veritabanı'nda güvenlik duvarı kurallarını yönetme
-description: Oluşturma ve Azure veritabanı Azure portalını kullanarak PostgreSQL için güvenlik duvarı kurallarını yönetme
+title: Oluşturma ve PostgreSQL - tek bir sunucu için Azure veritabanı'nda güvenlik duvarı kurallarını yönetme
+description: Oluşturma ve PostgreSQL - Azure portalını kullanarak tek bir sunucu için Azure veritabanı güvenlik duvarı kurallarını yönetme
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421038"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069018"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Oluşturma ve Azure veritabanı Azure portalını kullanarak PostgreSQL için güvenlik duvarı kurallarını yönetme
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Oluşturma ve PostgreSQL - Azure portalını kullanarak tek bir sunucu için Azure veritabanı güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, bir Azure veritabanı'na PostgreSQL sunucusu için belirtilen bir IP adresi veya IP adresi aralığı erişimi yönetmek için kullanılabilir.
 
 Sanal ağ (VNet) kuralları, sunucunuza erişim güvenliğini sağlamak için de kullanılabilir. Daha fazla bilgi edinin [oluşturma ve yönetme sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar](howto-manage-vnet-using-portal.md).

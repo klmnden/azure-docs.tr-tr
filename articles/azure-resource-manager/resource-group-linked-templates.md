@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: d4ecccf8787e369b9a3270eab2d01a01ce7ae0c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205935"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -73,11 +73,12 @@ Ana şablon içinde şablonun içine yerleştirmek için kullanmanız **şablon*
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2018-07-01",
+            "apiVersion": "2019-04-01",
             "name": "[variables('storageName')]",
             "location": "West US",
-            "properties": {
-              "accountType": "Standard_LRS"
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Standard_LRS"
             }
           }
         ]
@@ -150,6 +151,51 @@ Bir değer, bağlı şablonun ana şablonu geçirmek için kullanın **parametre
           "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
         }
      }
+  }
+]
+```
+
+## <a name="using-copy"></a>Kullanarak kopyalama
+
+Copy öğesinde bir iç içe geçmiş şablon ile birden çok kaynak örneğini oluşturmak için düzeyinde ekleme **Microsoft.Resources/deployments** kaynak.
+
+Aşağıdaki örnek şablonu, kopyalama ile iç içe geçmiş şablon kullanma işlemi gösterilmektedir.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy":{
+      "name": "storagecopy",
+      "count": 2
+    },
+    "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "kind": "StorageV2",
+            "sku": {
+              "name": "Standard_LRS"
+            }
+            // no, copy doesn't work here
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
+      }
+    }
   }
 ]
 ```

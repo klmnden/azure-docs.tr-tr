@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 82cbffb257d85197848b8bca14231e5363d6d45c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 360674514aff79908dcab8c8b93095ca2feb5d51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199563"
 ---
 SQL Server veya Oracle gibi bazı veritabanı iş yükleri, yüksek bellek, depolama ve g/ç bant genişliği, ancak yüksek çekirdek sayısı gerektirir. Birçok veritabanı iş yüklerini CPU yoğunluklu değildir. Azure VM vCPU sayısı aynı bellek, depolama ve g/ç bant genişliği koruyarak yazılım lisans maliyetini azaltmak için nereye kısıtlayabilirsiniz belirli VM boyutları sunar.
 
@@ -41,7 +41,7 @@ SQL Server veya Oracle için yeni vCPU sayısı sınırlı olduğu ve diğer ür
 | Standard_E8-2s_v3   | 2    | Same as E8s_v3  |
 | Standard_E16-8s_v3  | 8    | Same as E16s_v3 |
 | Standard_E16-4s_v3  | 4    | Same as E16s_v3 |
-| Standard_E32-16_v3  | 16   | Same as E32s_v3 |
+| Standard_E32-16s_v3 | 16   | Same as E32s_v3 |
 | Standard_E32-8s_v3  | 8    | Same as E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Same as E64s_v3 |
 | Standard_E64-16s_v3 | 16   | Same as E64s_v3 |

@@ -1,6 +1,6 @@
 ---
 title: Azure Otomasyonu iş verilerini Azure İzleyici günlüklerine iletme
-description: Bu makalede, iş durumunu ve runbook iş akışları hakkındaki ek bilgiler ve yönetim sağlamak üzere Azure Azure İzleyici günlüklerine göndermek nasıl gösterir.
+description: Bu makalede, iş durumunu ve runbook iş akışları hakkındaki ek bilgiler ve yönetim sağlamak için Azure İzleyici günlüklerine göndermek nasıl gösterir.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739139"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200602"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>İş durumunu ve iş akışları Otomasyonu, Azure İzleyici günlüklerine iletin.
 
@@ -97,7 +97,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
 | resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
-| Kategori | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
+| Category | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Resource | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |
@@ -120,7 +120,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
 | resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
-| Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
+| Category | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Resource | Otomasyon hesabının adı |
 | SourceSystem | Azure İzleyici nasıl günlüğe yazacağını veri toplanmadı. Her zaman *Azure* Azure tanılama için. |

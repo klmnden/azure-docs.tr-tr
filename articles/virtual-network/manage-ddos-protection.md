@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: kumud
-ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728352"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203518"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS koruması Azure portalını kullanarak standart yönetme
 
@@ -33,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-a-ddos-protection-plan"></a>Bir DDoS koruması planı oluşturma
 
-Bir DDoS koruma planı DDoS koruma standardını, abonelikler arasında etkin olan sanal ağlar kümesi tanımlar. Bir DDoS koruma planı kuruluşunuz ve bağlantı aynı planı için birden çok aboneliklerden Sanal Ağları için yapılandırabilirsiniz. DDoS koruma planı kendisi de plan oluşturma sırasında seçtiğiniz abonelik ile ilişkilidir. Korumalı genel IP adresi sayısı 100 değerini aşmasına durumunda abonelik planı doğurur için fazla kullanım ücretleri, yanı sıra planı için yinelenen aylık fatura ilişkilidir. DDoS fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/ddos-protection/).
+Bir DDoS koruma planı DDoS koruma standardını, abonelikler arasında etkin olan sanal ağlar kümesi tanımlar. Bir DDoS koruma planı kuruluşunuz ve bağlantı aynı planı için birden çok aboneliklerden Sanal Ağları için yapılandırabilirsiniz. DDoS koruma planı kendisi de plan oluşturma sırasında seçtiğiniz abonelik ile ilişkilidir. DDoS koruma planı, bölgeler ve abonelikler üzerinde çalışır. Örnek-kiracınızda bölge Doğu ABD ve bağlantı #1. abonelik planı oluşturabilirsiniz. Aynı planı için sanal ağlar farklı bölgelerde, diğer Aboneliklerdeki kiracınız bağlanabilir. Korumalı genel IP adresi sayısı 100 değerini aşmasına durumunda abonelik planı doğurur için fazla kullanım ücretleri, yanı sıra planı için yinelenen aylık fatura ilişkilidir. DDoS fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 Birden fazla plan oluşturulmasını çoğu kuruluş için gerekli değildir. Bir plan, abonelikler arasında taşınamaz. Bir planın aboneliğinizi değiştirmek istiyorsanız, zorunda [var olan bir planı silme](#work-with-ddos-protection-plans) ve yeni bir tane oluşturun.
 
@@ -101,7 +101,7 @@ Azure İzleyici uyarı yapılandırması'nı kullanarak herhangi bir saldırı s
     |Ad                     | myDdosAlert                                                                                        |
     |Abonelik             | Uyarıları almak istediğiniz genel IP adresini içeren aboneliği seçin.        |
     |Kaynak grubu           | Uyarıları almak istediğiniz genel IP adresini içeren kaynak grubunu seçin.      |
-    |Kaynak                 | Uyarıları almak istediğiniz genel IP adresini içeren bir genel IP adresi seçin. Bir sanal ağdaki kaynaklara atanan genel IP adresleri DDoS izler. Herhangi bir kaynağa genel IP adresleri sanal ağ içinde yoksa, öncelikle bir genel IP adresiyle bir kaynak oluşturmanız gerekir. Genel IP adresini kaynak listelenen Yöneticisi aracılığıyla (Klasik değil) dağıtılan tüm kaynakları izleyebilirsiniz [Azure Hizmetleri için sanal ağ](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), Azure App Service ortamları ve Azure VPN ağ geçidi dışında. Bu öğretici ile devam etmek için hızlı bir şekilde oluşturabileceğiniz bir [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine.                   |
+    |Resource                 | Uyarıları almak istediğiniz genel IP adresini içeren bir genel IP adresi seçin. Bir sanal ağdaki kaynaklara atanan genel IP adresleri DDoS izler. Herhangi bir kaynağa genel IP adresleri sanal ağ içinde yoksa, öncelikle bir genel IP adresiyle bir kaynak oluşturmanız gerekir. Genel IP adresini kaynak listelenen Yöneticisi aracılığıyla (Klasik değil) dağıtılan tüm kaynakları izleyebilirsiniz [Azure Hizmetleri için sanal ağ](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), Azure App Service ortamları ve Azure VPN ağ geçidi dışında. Bu öğretici ile devam etmek için hızlı bir şekilde oluşturabileceğiniz bir [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine.                   |
     |Ölçüm                   | Altında DDoS saldırı veya değil                                                                            |
     |Eşik                | 1 - **1** saldırı altında olduğu anlamına gelir. **0** Saldırıya uğramış olmamak anlamına gelir.                         |
     |Dönem                   | Seçtiğiniz herhangi bir değer seçin.                                                                   |
@@ -127,6 +127,7 @@ Telemetri bir saldırı, gerçek zamanlı olarak Azure İzleyici sağlanır. Tel
 4. Seçin **abonelik** ve **kaynak grubu** için telemetri istediğiniz genel IP adresini içerir.
 5. Seçin **genel IP adresi** için **kaynak türü**, ardından telemetri için istediğiniz belirli genel IP adresini seçin.
 6. Bir dizi **kullanılabilir ölçümler** ekranın sol tarafında görünür. İçinde seçili olduğunda, bu ölçümleri grafiği çizilecek **Azure İzleyici ölçüm grafiği** genel bakış ekranında.
+7. Seçin **toplama** olarak yazın **Maks**
 
 Ölçüm adları farklı paket türleri ve paketleri karşılaştırması bayt etiket adları her ölçümü üzerinde temel bir yapısı ile aşağıdaki gibi sunar:
 
@@ -138,7 +139,7 @@ Telemetri doğrulamak için bir DDoS saldırısının benzetimini yapmak için b
 
 ## <a name="view-ddos-mitigation-policies"></a>DDoS önleme ilkelerini görüntüle
 
-DDoS koruması standart DDoS etkin olan sanal ağda korumalı kaynağa her genel IP adresi için üç otomatik olarak ayarlanmış bir risk azaltma ilkeleri (TCP SYN, TCP ve UDP) uygular. İlke eşikleri seçerek görüntüleyebilirsiniz **DDoS saldırılarının tetiklemek için TCP gelen paketleri** ve **DDoS saldırılarının tetiklemek için gelen UDP paketlerini** ölçümleri, aşağıdaki resimde gösterildiği gibi:
+DDoS koruması standart DDoS etkin olan sanal ağda korumalı kaynağa her genel IP adresi için üç otomatik olarak ayarlanmış bir risk azaltma ilkeleri (TCP SYN, TCP ve UDP) uygular. İlke eşikleri seçerek görüntüleyebilirsiniz **DDoS saldırılarının tetiklemek için TCP gelen paketleri** ve **DDoS saldırılarının tetiklemek için gelen UDP paketlerini** Ölçümleriyle **toplama** 'Max' aşağıdaki resimde gösterildiği gibi yazın:
 
 ![Risk azaltma ilkeleri görüntüle](./media/manage-ddos-protection/view-mitigation-policies.png)
 

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722164"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205026"
 ---
 # <a name="data-querying"></a>Veri sorgulama
 
@@ -35,9 +35,9 @@ Azure zaman serisi öngörüleri Önizleme, olayları ve genel yüzey API'leri a
 
 Aşağıdaki Çekirdek API'leri desteklenir.
 
-![tsq][1]
+[![Zaman serisi sorgu genel bakış](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>Ortam API'leri
+## <a name="environment-apis"></a>Ortam API'leri
 
 Aşağıdaki ortam API'leri kullanılabilir:
 
@@ -45,7 +45,7 @@ Aşağıdaki ortam API'leri kullanılabilir:
 * [Ortam kullanılabilirlik API alma](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Olay zaman damgası üzerinde olay sayısı dağılımını döndürür `$ts`. Bu API, özel olarak varsa meydana gelen olayları zaman damgasının, olayların sayısı döndürerek varsa belirlenmesine yardımcı olur.
 * [Olay şeması API get](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Belirtilen arama aralığının olay şema meta verilerini döndürür. Bu API tüm meta veriler ve özellikler kullanılabilir şemasında belirtilen, arama aralığının yardımcı olur.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>Zaman serisi modeli-sorgu (TSM-Q) API'leri
+## <a name="time-series-model-query-tsm-q-apis"></a>Zaman serisi modeli-sorgu (TSM-Q) API'leri
 
 Aşağıdaki zaman serisi modeli sorgu API'leri kullanılabilir:
 
@@ -54,7 +54,7 @@ Aşağıdaki zaman serisi modeli sorgu API'leri kullanılabilir:
 * [Hiyerarşiler API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): CRUD, zaman serisi hiyerarşileri ve onların ilişkilendirilmiş alan yollarını sağlar.
 * [API örnekleri](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): CRUD, zaman serisi örnekler ve bunların ilişkili örnek alanları sağlar.
 
-### <a name="time-series-query-tsq-apis"></a>Zaman serisi sorgu (TSQ) API'leri
+## <a name="time-series-query-tsq-apis"></a>Zaman serisi sorgu (TSQ) API'leri
 
 Aşağıdaki zaman serisi sorgu API'leri kullanılabilir:
 
@@ -80,6 +80,3 @@ Aşağıdaki zaman serisi sorgu API'leri kullanılabilir:
 - Zaman serisi öngörüleri Önizleme okuma [veri modelleme](./time-series-insights-update-tsm.md) makalesi.
 
 - Bulma [en iyi uygulamalar bir zaman serisi kimliği seçerken](./time-series-insights-update-how-to-id.md).
-
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png

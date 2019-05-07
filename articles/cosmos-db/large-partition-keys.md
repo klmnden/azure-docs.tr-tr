@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160043"
+ms.locfileid: "65205842"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Büyük bir bölüm anahtarı ile kapsayıcıları oluşturma
 
@@ -43,6 +43,17 @@ database,
 Azure portalını kullanarak yeni bir kapsayıcı oluştururken bir büyük bölüm anahtarı oluşturmak için işaretleyin **My bölüm anahtarı 100 bayttan büyük** seçeneği. Varsayılan olarak, büyük bölüm anahtarlarını kullanarak tüm yeni kapsayıcılar devre dışı bırakılır. Onay kutusunun işaretini kaldırın büyük bölüm anahtarlarını ihtiyacınız yoksa veya 1.18 eski SDK sürümü üzerinde çalışan uygulamalar varsa.
 
 ![Azure portalını kullanarak büyük bölüm anahtarları oluşturma](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## <a name="supported-sdk-versions"></a>Desteklenen SDK sürümleri
+
+Büyük bölüm anahtarlarını SDK'ları minimum aşağıdaki sürümleriyle desteklenir:
+
+|SDK'sı türü  | En düşük sürüm   |
+|---------|---------|
+|.NET     |    1.18     |
+|Java eşitleme     |   2.4.0      |
+|Java zaman uyumsuz   |  2.5.0        |
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

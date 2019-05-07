@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 683f916596b4c77ec1dbc2acf1f91876c0752c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028838"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204960"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Keşfedin ve veri kümesi sınıfı (Önizleme) ile verileri hazırlama
 
@@ -44,7 +44,7 @@ Keşfedin ve verilerinizi hazırlamanız için gerekir:
 Bir örnek veri mimarisi ve içeriğin ilk anlamak için verilerinizi alın. Şu anda [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) Dataset sınıfı yönteminden üst N, basit rastgele ve Stratified örnekleme stratejileri destekler.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -109,7 +109,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE KAYDET|890|HIRSIZLIĞI|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN KAYDET|810|HIRSIZLIĞI|...
 
-
 ## <a name="explore-with-summary-statistics"></a>İle Özet istatistiklerini keşfedin
 
  Eksik değerleri, anormallikleri veya hata sayılarını ile [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) yöntemi. Bu işlev profili alır ve Özet istatistiklerini sırayla yardımcı olur, verilerinizin uygulamak için gerekli veri hazırlığı işlemleri belirleyin.
@@ -152,7 +151,7 @@ Veri kümeleri, null değerler, NaN'ın ve içerik içeren değerleri eksik değ
 İlk olarak, en son tanım ile veri kümesinin alın [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) ve verileri ile Karşılaştır [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), biz yalnızca adresine istediğimiz sütunları görüntüleme.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -222,7 +221,6 @@ ds_def.head(3)
 1|10516598|False|41.744107|-87.664494
 2|10519196|False|41.780049|-87.000000
 
-
 Veri kümesi tanımı, güncelleştirme [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) gerçekleştirilen dönüştürme adımı korumak için.
 
 ```Python
@@ -240,12 +238,13 @@ dataset.head(3)
 
 Sık sık veri ile temizlerken çalışıyoruz ve verileri hazırlama yalnızca üretim için ihtiyacımız olan toplam veriler alt kümesidir. Sonuç olarak, bazı bizim temizleme işleminin bir parçası vermiyoruz varsayımların false olarak duyuyor olabilir. Örneğin, sürekli olarak güncelleştirilen bir veri kümesi, başlangıçta yalnızca numaraları belirli bir aralıkta bulunan bir sütun geniş bir sonraki yürütmeleri değerleri içerebilir. Bu hatalar genellikle bozuk işlem hatları veya bozuk veri neden.
 
-Veri kümeleri, işlem hattı yürütme sırasında hangi değerlendirilir veri oluşturma bir onayları destekler. Bu bir onayları bize bizim varsayımlar veri çubuğunda doğru devam ettiğini doğrulayın ve belirtilmediğinde, buna göre hatalarını işlemek için.
+İşlem hattı yürütme sırasında hangi değerlendirilir veri onaylar oluşturma veri kümeleri desteği. Bu bir onayları bize bizim varsayımlar veri çubuğunda doğru devam ettiğini doğrulayın ve belirtilmediğinde, buna göre hatalarını işlemek için.
 
 Örneğin, kısıtlamak istediğiniz `Latitude` ve `Longitude` kümenize belirli Sayısal aralıklar, değerler [ `assert_value()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) yöntemi, bu, her zaman çalışması sağlar.
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -282,7 +281,7 @@ print(error.originalValue)
 Veri kümeleri için daha gelişmiş araçlara istenen sonuçları örneklerini kullanarak sütunları türetme olanağını biridir. Bu, hedeflenen dönüştürmeleri elde etmek için kod oluşturabilmek SDK'sı bir örnek vermek sağlar.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -302,8 +301,8 @@ Aşağıdaki kod iki istenen çıkış örnekleri sağlar ("2016-04-04 23:56:00"
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -329,7 +328,7 @@ Farklı kaynaklardan gelen verileri toplamanıza, yazım denetimi, büyük/küç
 Örneğin, sütun `inspections.business.city` şehir adı "İstanbul" birçok formları içerir.
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

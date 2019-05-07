@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2573ad64830247d232bbd6d156fac7f50d65f410
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925100"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192615"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Özel Uyarı Kuralları (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza yardımcı olur.
 
 > [!NOTE]
-> Özel uyarılar yakında kullanımdan kaldırılacak diğer üzerinde alternatif hizmetler aşağıdaki okuyun.
+> Özel uyarılar 30 Haziran 2019 üzerinde kullanımdan kaldırılacaktır.
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde devre dışı bırakılması özel uyarı kuralları
 
 Özel uyarı deneyimi 30 Haziran 2019 dayanır emeklilik altyapının nedeniyle kullanımdan kaldırılacaktır. Zaman çerçevesinde kullanımdan kaldırma kadar kullanıcılar var olan özel uyarı kuralları düzenlemek mümkün olacaktır, ancak yenilerini eklemek mümkün olmayacaktır.
-Kullanıcılar tavsiye etkinleştirmek için [Azure Gözcü](https://azure.microsoft.com/services/azure-sentinel/) günlük uyarıları ile otomatik olarak mevcut uyarılarını geçirme ve yenilerini oluşturun veya alternatif olarak Azure İzleyici ile uyarılarını yeniden oluşturmak için tek tıklamayla ekleme.
+Kullanıcılar için önerilir:
+- Etkinleştirme [Azure Gözcü](https://azure.microsoft.com/services/azure-sentinel/) ile otomatik olarak mevcut uyarılarını geçirme ve yenilerini oluşturmak için tek tıklamayla ekleme
+- Azure izleyici günlüğü uyarıları, uyarılarla yeniden oluşturun
                                      
 Mevcut uyarılarınızı tutun ve bunları Azure Gözcü için geçirmek için lütfen [Azure Gözcü başlatma](https://portal.azure.com/#create/Microsoft.ASI/preview). İlk adımı olarak özel uyarıları depolandığı çalışma alanını seçin ve sonra uyarıları otomatik olarak geçirilecek 'Analytics' menü öğesini seçin.
 

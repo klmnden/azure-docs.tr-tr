@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: b824c99a015cfa2c1d1c75e2a1257eff482e8dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60833307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198610"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
@@ -195,7 +195,7 @@ Sürümünden başlayarak 3.x, Web işleri SDK'sı tarafından gerekli depolama 
 
    `QueueTrigger` Özniteliği söyler adlı bir Azure depolama kuyruğuna üzerinde yeni bir mesaj yazıldığında bu işlevi çağırmak için çalışma zamanı `queue`. Kuyruk iletisi içeriğini yöntemi kodunda sağlanır `message` parametresi. Tetikleyici verileri işlem nerede Yöntemin gövdesi olur. Bu örnekte, kod yalnızca iletiyi günlüğe kaydeder.
 
-   `message` Parametresi bir dize olması gerekmez. Ayrıca bir JSON nesnesi bir bayt dizisi bağlayabilir veya [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) nesne. [Kuyruk tetikleyicisi kullanımını görmek](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Her bağlama türü (örneğin, kuyruklar, blobları veya tabloları) bağlayabilirsiniz parametre türleri farklı bir kümesi vardır.
+   `message` Parametresi bir dize olması gerekmez. Ayrıca bir JSON nesnesi bir bayt dizisi bağlayabilir veya [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) nesne. [Kuyruk tetikleyicisi kullanımını görmek](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Her bağlama türü (örneğin, kuyruklar, blobları veya tabloları) bağlayabilirsiniz parametre türleri farklı bir kümesi vardır.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 

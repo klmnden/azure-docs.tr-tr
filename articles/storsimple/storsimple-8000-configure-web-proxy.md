@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362501"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204260"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple cihazınız için Web Proxy'yi Yapılandır
 
@@ -68,7 +68,7 @@ Web proxy yapılandırma adımlarında size yol göstermesi için Kurulum Sihirb
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Varsayılan olarak, TCP bağlantı noktası 8080 belirtilir.
-4. Kimlik doğrulaması türü olarak seçin **NTLM**, **temel**, veya **hiçbiri**. En az güvenli kimlik doğrulaması için proxy sunucusu yapılandırması, temel üyeliktir. NT LAN Manager (NTLM), bir üç yönlü Mesajlaşma sistemi (bazen dört ek bütünlüğü gerekliyse) kullanan bir yüksek oranda güvenli ve karmaşık kimlik doğrulama protokolü olan bir kullanıcının kimliğini doğrulamak için. Varsayılan kimlik doğrulaması, NTLM olur. Daha fazla bilgi için [temel](http://hc.apache.org/httpclient-3.x/authentication.html) ve [NTLM kimlik doğrulaması](http://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Kimlik doğrulaması türü olarak seçin **NTLM**, **temel**, veya **hiçbiri**. En az güvenli kimlik doğrulaması için proxy sunucusu yapılandırması, temel üyeliktir. NT LAN Manager (NTLM), bir üç yönlü Mesajlaşma sistemi (bazen dört ek bütünlüğü gerekliyse) kullanan bir yüksek oranda güvenli ve karmaşık kimlik doğrulama protokolü olan bir kullanıcının kimliğini doğrulamak için. Varsayılan kimlik doğrulaması, NTLM olur. Daha fazla bilgi için [temel](https://hc.apache.org/httpclient-3.x/authentication.html) ve [NTLM kimlik doğrulaması](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **StorSimple cihaz Yöneticisi hizmeti, cihaz izleme grafiklerini, temel sırasında çalışmıyor veya cihaz için proxy sunucusu yapılandırmasını NTLM kimlik doğrulaması etkin. İzleme grafiklerini çalışmak söz konusu kimlik doğrulamasını NONE olarak ayarlandığından emin olmak gerekir.**
