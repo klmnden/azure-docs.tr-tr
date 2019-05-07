@@ -70,8 +70,8 @@ Azure Veri Gezgini bağlı hizmeti için aşağıdaki özellikleri destekler:
 |:--- |:--- |:--- |
 | type | **Türü** özelliği ayarlanmalıdır **AzureDataExplorer** | Evet |
 | endpoint | Uç nokta URL'si biçiminde Azure Veri Gezgini kümenin `https://<clusterName>.<regionName>.kusto.windows.net`. | Evet |
-| veritabanı | Veritabanının adı. | Evet |
-| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, normal olarak tanıdığınız, "**yetkilisi kimliği**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
+| database | Veritabanının adı. | Evet |
+| tenant | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, normal olarak tanıdığınız, "**yetkilisi kimliği**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama istemci Kimliğini**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Evet |
 | serviceprincipalkey değerleri | Uygulama anahtarını belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama anahtarı**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 
@@ -107,7 +107,7 @@ Aşağıdaki özellikler desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** özelliği ayarlanmalıdır **AzureDataExplorerTable** | Evet |
-| tablo | Bağlı hizmet başvurduğu tablonun adı. | Havuz için Evet; Kaynak için Hayır |
+| table | Bağlı hizmet başvurduğu tablonun adı. | Havuz için Evet; Kaynak için Hayır |
 
 **Veri kümesi özellikleri örneği**
 
@@ -138,7 +138,7 @@ Azure veri Gezgini'nde verileri kopyalamak için ayarlanmış **türü** için k
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynağı özelliği ayarlanmalıdır: **AzureDataExplorerSource** | Evet |
-| sorgu | Verilen istek salt okunur bir [KQL biçimi](/azure/kusto/query/). Özel KQL sorgu referans olarak kullanın. | Evet |
+| query | Verilen istek salt okunur bir [KQL biçimi](/azure/kusto/query/). Özel KQL sorgu referans olarak kullanın. | Evet |
 | queryTimeout | Sorgu isteği önceki bekleme süresi zaman aşımına uğradı. Varsayılan değer: 10 dakikalık (00: 10:00); izin verilen en yüksek değer olan 1 saat (01: 00:00). | Hayır |
 
 >[!NOTE]
