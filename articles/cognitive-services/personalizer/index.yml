@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Kişiselleştirme Belgeleri
+metadata:
+  document_id: null
+  title: 'Kişiselleştirme - Öğreticiler, Hızlı Başlangıçlar, API Başvurusu'
+  description: 'Uygulamanızın, kullanıcıların gerçek zamanlı davranışlarından öğrenerek onlara gösterilen en iyi deneyimin seçilmesini sağlamak için Kişiselleştirme hizmetini kullanmayı öğrenin.'
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: 'Azure Kişiselleştirme, kullanıcıların gerçek zamanlı davranışlarından öğrenerek onlara gösterilebilecek en iyi deneyimi seçmenizi sağlayan bulut tabanlı bir API’dir.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/personalizer/what-is-personalizer
+            html: <p>Kişiselleştirme’nin ne olduğunu ve nasıl kullanıldığını öğrenin.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Kişiselleştirme nedir?
+          - href: /azure/cognitive-services/personalizer/how-personalizer-works
+            html: <p>Kişiselleştirme geri bildirim döngüsünün Derece ve Ödül API’leri ile nasıl çalıştığını öğrenin.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Kişiselleştirme nasıl çalışır?
+          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
+            html: <p>Kişiselleştirmeyi şirketinize ve hizmetinize karşı güven oluşturacak şekilde uygulayın.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Etik kurallar ve sorumluluk
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ../media/index/logo_Csharp.svg
+            href: csharp-quickstart-commandline-feedback-loop.md
+            text: 'C#'
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST API'leri
+            html: '<p><a href="https://aka.ms/personalizer-rest-api-docs"> Kişiselleştirme API’si</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'

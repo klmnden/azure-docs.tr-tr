@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/19/2019
+  ms.date: 02/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -55,8 +55,8 @@ sections:
         style: unordered
         items:
           - html: '<a href="https://aka.ms/aml-sdk">Ana Python SDK’sı</a>: Temel işlevsellik, otomatik makine öğrenmesi, işlem hatları ve daha fazlası'
-          - html: '<a href="https://aka.ms/data-prep-sdk">Veri Hazırlama</a> Python SDK’sı: Verilerinizi hazırlama ve dönüştürme'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">İzleme</a> Python SDK’sı: Dağıtılmış web hizmetlerinden veri toplama'
+          - html: Görsel arabirim için <a href="../algorithm-module-reference/module-reference.md">algoritma ve modül başvurusu</a>
   - title: Diğer Azure Machine Learning teknolojileri
     items:
       - type: list

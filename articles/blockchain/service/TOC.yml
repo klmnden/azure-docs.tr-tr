@@ -1,0 +1,67 @@
+- name: Azure Blok Zinciri Hizmeti (Önizleme)
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure Blok Zinciri Hizmeti Hakkında
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Üye Oluşturma - Portal
+      href: create-member.md
+    - name: Üye Oluşturma - CLI
+      href: create-member-cli.md
+    - name: İşlem düğümüne bağlanma
+      items:
+        - name: MetaMask kullanma
+          href: connect-metamask.md
+        - name: Geth kullanma
+          href: connect-geth.md
+        - name: Truffle kullanma
+          href: connect-truffle.md
+- name: Öğreticiler
+  items:
+    - name: İşlem gönderme
+      href: send-transaction.md
+- name: Kavramlar
+  items:
+    - name: Konsorsiyum
+      href: consortium.md
+    - name: Veri erişimi ve güvenlik
+      href: data-security.md
+    - name: Geliştirme
+      href: develop.md
+    - name: Sınırlar
+      href: limits.md
+    - name: 'Düzeltme eki uygulama, güncelleştirme, sürüm oluşturma'
+      href: ledger-versions.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Azure AD erişimini yapılandırma
+      href: configure-aad.md
+    - name: İşlem düğümlerini yapılandırma
+      href: configure-transaction-nodes.md
+    - name: Azure CLI kullanarak yönetme
+      href: manage-cli.md
+    - name: PowerShell kullanarak konsorsiyum yönetme
+      href: manage-consortium-powershell.md
+- name: Kaynaklar
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Azure Blok Zinciri Hizmeti Visual Studio Code uzantısı
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
+    - name: Kod örnekleri
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: Topluluk
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/forums/security/home?forum=AzureBlockchainService'
+    - name: Ürün geri bildirimi
+      href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

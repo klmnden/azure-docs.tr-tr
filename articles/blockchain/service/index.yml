@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Blok Zinciri Hizmeti Belgeleri
+metadata:
+  title: 'Azure Blok Zinciri Hizmeti Belgeleri - Öğreticiler, API Başvurusu'
+  description: 'Blok zinciri uygulamaları oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure’daki blok zinciri uygulamalarını oluşturmak, geliştirmek ve yönetmek için Azure Blok Zinciri Hizmetini nasıl kullanacağınızı gösterir.'
+  services: azure-blockchain
+  author: patricka
+  manager: femila
+  ms.service: azure-blockchain
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/13/2019
+  ms.author: patricka
+abstract:
+  description: 'Blok zinciri uygulamaları oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure’daki blok zinciri uygulamalarını oluşturmak, geliştirmek ve kullanmak için Azure Blok Zinciri Hizmetini nasıl kullanacağınızı gösterir.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Azure’da konsorsiyum üyeleri oluşturmayı ve bunlara bağlanmayı öğrenin.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/deploy.svg
+            text: Konsorsiyum üyesi oluşturma
+            href: /azure/blockchain/service/create-member
+          - image:
+              src: ./media/index/multi-connect.svg
+            text: MetaMask kullanarak bağlanma
+            href: /azure/blockchain/service/connect-metamask
+          - image:
+              src: ./media/index/multi-connect.svg
+            text: Geth kullanarak bağlanma
+            href: /azure/blockchain/service/connect-geth
+          - image:
+              src: ./media/index/multi-connect.svg
+            text: Truffle kullanarak bağlanma
+            href: /azure/blockchain/service/connect-truffle
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Azure’da blok zinciri uygulamaları oluşturmayı, yapılandırmayı ve geliştirmeyi öğrenin.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/blockchain/service/send-transaction">Bir Azure Blok Zinciri Hizmeti üyesi oluşturma ve işlem gönderme</a>

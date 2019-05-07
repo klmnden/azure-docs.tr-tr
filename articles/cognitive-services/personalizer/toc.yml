@@ -1,0 +1,70 @@
+- name: Kişiselleştirme Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Kişiselleştirme nedir?
+      href: what-is-personalizer.md
+      displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Geri bildirim döngüsü oluşturma ve kullanma
+      href: csharp-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, c#'
+- name: Kavramlar
+  items:
+    - name: Kişiselleştirme nasıl çalışır?
+      href: how-personalizer-works.md
+      displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
+    - name: Kişiselleştirme’yi nerelerde kullanabilirsiniz?
+      href: where-can-you-use-personalizer.md
+      displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Etik & sorumlu kullanım
+      href: ethics-responsible-use.md
+      displayName: 'best practice, design'
+    - name: Temel kavramlar
+      items:
+        - name: 'Özellikler: Eylem ve bağlam'
+          href: concepts-features.md
+          displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Pekiştirmeye dayalı öğrenme
+          href: concepts-reinforcement-learning.md
+          displayName: 'RL, contextual bandits, Vowpal Wabbit'
+    - name: Analiz
+      items:
+        - name: Çevrimdışı değerlendirme
+          href: concepts-offline-evaluation.md
+          displayName: 'learning policy, Counterfactual, features'
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Kişiselleştirme’yi yapılandırma
+      href: how-to-settings.md
+      displayName: 'azure, portal, settings, evaluation, offline, policy'
+    - name: Çözümleme
+      items:
+        - name: Çevrimdışı değerlendirme
+          href: how-to-offline-evaluation.md
+- name: Başvuru
+  items:
+    - name: Örnekler
+      href: 'https://aka.ms/personalizer-samples'
+    - name: REST API Başvurusu
+      href: 'https://aka.ms/personalizer-rest-api-docs'
+    - name: SDK’lar
+      items:
+        - name: .Net SDK başvurusu
+          href: 'https://aka.ms/personalizer-dotnet-sdk-docs'
+        - name: NuGet paketi
+          href: 'https://aka.ms/personalizer-nuget-sdk'
+- name: Kaynaklar
+  items:
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://aka.ms/personalizer-roadmap'
+    - name: Fiyatlandırma
+      href: 'https://aka.ms/personalizer-pricing'
+    - name: Stack Overflow
+      href: 'https://aka.ms/personalizer-stackoverflow'
+    - name: UserVoice
+      href: 'https://aka.ms/personalizer-uservoice'

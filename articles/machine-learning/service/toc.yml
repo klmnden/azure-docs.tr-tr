@@ -16,32 +16,68 @@
       href: setup-create-workspace.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Bulut not defteri ile deneme yapma
-      displayName: workspace
-      href: quickstart-run-cloud-notebook.md
-    - name: Yerel not defteri ile deneme yapma
-      displayName: 'workspace, install, sdk'
-      href: quickstart-run-local-notebook.md
+    - name: Python SDK'sı
+      items:
+        - name: Bulutta deneme çalıştırma
+          displayName: workspace
+          href: quickstart-run-cloud-notebook.md
+        - name: Yerel olarak deneme çalıştırma
+          displayName: 'workspace, install, sdk'
+          href: quickstart-run-local-notebook.md
+    - name: Görsel arabirim
+      items:
+        - name: Verileri hazırlama ve görselleştirme
+          displayName: experiment drag-and-drop
+          href: ui-quickstart-run-experiment.md
 - name: Öğreticiler
   items:
-    - name: Görüntü sınıflandırması (MNIST verileri)
+    - name: Python SDK'sı
       items:
-        - name: 1. Modeli eğitme
-          displayName: build modeling
-          href: tutorial-train-models-with-aml.md
-        - name: 2. Model dağıtma
-          href: tutorial-deploy-models-with-aml.md
-    - name: Regresyon (NYC Taxi verileri)
+        - name: Görüntü sınıflandırması (MNIST verileri)
+          items:
+            - name: 1. Modeli eğitme
+              displayName: build modeling
+              href: tutorial-train-models-with-aml.md
+            - name: 2. Model dağıtma
+              href: tutorial-deploy-models-with-aml.md
+        - name: Regresyon (NYC Taxi verileri)
+          items:
+            - name: 1. Verileri modelleme için hazırlama
+              displayName: data prep
+              href: tutorial-data-prep.md
+            - name: 2. ML modelini otomatik olarak eğitme
+              displayName: 'automl, automated, auto ml,'
+              href: tutorial-auto-train-models.md
+    - name: Görsel arabirim
       items:
-        - name: 1. Verileri modelleme için hazırlama
-          displayName: data prep
-          href: tutorial-data-prep.md
-        - name: 2. ML modelini otomatik olarak eğitme
-          displayName: 'automl, automated, auto ml,'
-          href: tutorial-auto-train-models.md
+        - name: Regresyon modelini eğitme
+          displayName: experiment drag-and-drop visual interface Tutorial 1
+          href: ui-tutorial-automobile-price-train-score.md
+        - name: Regresyon modelini dağıtma
+          displayName: experiment drag-and-drop visual interface Tutorial 2
+          href: ui-tutorial-automobile-price-deploy.md
 - name: Örnekler
-  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
-  href: samples-notebooks.md
+  items:
+    - name: Notebooks
+      displayName: 'example, examples, jupyter, azure notebooks, python, notebook, github'
+      href: samples-notebooks.md
+    - name: Görsel arabirim denemeleri
+      items:
+        - name: Fiyat tahmini
+          displayName: 'Sample 1, training, regression'
+          href: ui-sample-regression-predict-automobile-price-basic.md
+        - name: Fiyat tahmini (gelişmiş)
+          displayName: 'Sample 2, training, regression'
+          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
+        - name: Kredi riski tahmini
+          displayName: 'Sample 3, training, classification'
+          href: ui-sample-classification-predict-credit-risk-basic.md
+        - name: Kredi riski tahmini (gelişmiş)
+          displayName: 'Sample 4, training, classification'
+          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
+        - name: Değişim sıklığı tahmini
+          displayName: 'Sample 5, training, CRM, classification'
+          href: ui-sample-classification-predict-churn.md
 - name: Kavramlar
   items:
     - name: Bu hizmet nasıl çalışır?
@@ -50,14 +86,16 @@
     - name: Otomatik makine öğrenimi
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Model yönetimi
-      displayName: 'deploy, deployment'
+    - name: Model yönetimi (MLOps)
+      displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
     - name: Model yorumlanabilirliği
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
     - name: FPGA’lar ile hızlandırma
       href: concept-accelerate-with-fpgas.md
+    - name: ONNX ve ONNX Çalışma Zamanı ile iyileştirme
+      href: concept-onnx.md
     - name: Makine öğrenmesi işlem hatları
       href: concept-ml-pipelines.md
     - name: Güvenlik
@@ -85,24 +123,40 @@
         - name: Geliştirme ortamlarını yapılandırma
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Visual Studio Code uzantısını kullanma
+        - name: Günlü kaydını etkinleştir
+          displayName: 'troubleshoot, log, files, tracing'
+          href: how-to-enable-logging.md
+        - name: VS Code uzantısı kullanma
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
     - name: Verilerle çalışma
-      displayName: 'data prep, ETL, ELT, data preparation'
       items:
-        - name: Verileri keşfetme ve hazırlama
-          displayName: 'data prep, ETL, ELT, data preparation'
+        - name: Veri kümelerini ekleme ve kaydetme
+          displayName: 'data, dataset'
+          href: how-to-create-register-datasets.md
+        - name: azureml.dataprep ile hazırlama
           items:
             - name: Veri yükleme
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-load-data.md
             - name: Verileri dönüştürme
+              displayName: 'data, etl, dataprep, data prep'
               href: how-to-transform-data.md
             - name: Veri yazma
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-    - name: Veri deposuna veri alma
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
+        - name: Veri kümeleri ile hazırlama (önizleme)
+          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: Sürüm ve veri tanımlarını yönetme
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: Verilerinizin anlık görüntüsünü alın
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: Bir veri deposundan veri alma
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
     - name: Modelleri eğitme
       items:
         - name: Eğitim ortamlarını ayarlama
@@ -117,7 +171,7 @@
         - name: Hiperparametreleri ayarlama
           displayName: parameter
           href: how-to-tune-hyperparameters.md
-    - name: Denemeleri çalıştırma ve izleme
+    - name: Denemeleri izleme ve denetleme
       items:
         - name: 'Çalıştırmaları başlatma, izleme ve iptal etme'
           displayName: 'cancel, fail, status, child run'
@@ -130,21 +184,24 @@
         - name: Otomatik ML kullanma (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
+        - name: Otomatik ML kullanma (Azure portalı)
+          href: how-to-create-portal-experiments.md
         - name: Uzak işlem hedeflerini kullanma
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: Tahmin modellerini otomatik olarak eğitme
           displayName: time series
           href: how-to-auto-train-forecast.md
-    - name: ONNX modelleri
-      href: how-to-build-deploy-onnx.md
-    - name: Modelleri dağıtma
+    - name: Modelleri dağıtma ve sunma
       items:
         - name: Dağıtım nereye ve nasıl yapılır?
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
         - name: FPGA'lar
           href: how-to-deploy-fpga-web-service.md
+        - name: IoT Edge
+          href: ../../iot-edge/tutorial-deploy-machine-learning.md
+          maintainContext: true
         - name: Sorun giderme
           href: how-to-troubleshoot-deployment.md
     - name: Web hizmetlerini kullanma
@@ -162,31 +219,118 @@
           href: how-to-enable-data-collection.md
         - name: Application Insights ile izleme
           href: how-to-enable-app-insights.md
-    - name: İlk işlem hattınızı oluşturma
-      href: how-to-create-your-first-pipeline.md
-    - name: Günlü kaydını etkinleştir
-      displayName: logging
-      href: how-to-enable-logging.md
+    - name: Yeniden kullanılabilir iş akışları oluşturma
+      displayName: pipelines
+      items:
+        - name: Bir ML işlem hattı oluşturma
+          href: how-to-create-your-first-pipeline.md
     - name: Kaynak kotalarını yönetme
       displayName: limits
       href: how-to-manage-quotas.md
-    - name: Machine Learning CLI’yı kullanma
-      displayName: cli extension command line command-line az ci/cd automate automated
-      href: reference-azure-machine-learning-cli.md
     - name: Verileri dışarı aktarma ve silme
       displayName: GDPR
       href: how-to-export-delete-data.md
 - name: Başvuru
   items:
     - name: Machine learning SDK
-      displayName: api core package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
     - name: Veri hazırlığı SDK’sı
-      displayName: api preparation package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/data-prep-sdk'
     - name: İzleme SDK’sı
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
+    - name: Machine Learning CLI
+      displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
+      href: reference-azure-machine-learning-cli.md
+    - name: Görsel arabirim modülleri
+      displayName: module reference
+      items:
+        - name: Modül başvurusuna genel bakış
+          href: ../algorithm-module-reference/module-reference.md
+        - name: Veri biçimi dönüştürmeleri
+          items:
+            - name: CSV’ye dönüştürme
+              href: ../algorithm-module-reference/convert-to-csv.md
+        - name: Veri girişi ve çıkışı
+          items:
+            - name: Verileri İçeri Aktarma
+              href: ../algorithm-module-reference/import-data.md
+            - name: Verileri Dışarı Aktarma
+              href: ../algorithm-module-reference/export-data.md
+            - name: Verileri El ile Girme
+              href: ../algorithm-module-reference/enter-data-manually.md
+        - name: Veri dönüşümleri
+          items:
+            - name: Veri kümesindeki Sütunları seçme
+              href: ../algorithm-module-reference/select-columns-in-dataset.md
+            - name: Meta Verileri Düzenleme
+              href: ../algorithm-module-reference/edit-metadata.md
+            - name: Eksik Verileri Temizleme
+              href: ../algorithm-module-reference/clean-missing-data.md
+            - name: Sütun Ekleme
+              href: ../algorithm-module-reference/add-columns.md
+            - name: Satır Ekleme
+              href: ../algorithm-module-reference/add-rows.md
+            - name: Yinelenen Satırları Kaldırma
+              href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Verileri Bölme
+              href: ../algorithm-module-reference/split-data.md
+            - name: Verileri Normalleştirme
+              href: ../algorithm-module-reference/normalize-data.md
+            - name: Bölüm ve Örnek
+              href: ../algorithm-module-reference/partition-and-sample.md
+        - name: Makine öğrenimi
+          items:
+            - name: Modeli Puanlama
+              href: ../algorithm-module-reference/score-model.md
+            - name: Kümelere Veri Atama
+              href: ../algorithm-module-reference/assign-data-to-clusters.md
+            - name: Model Eğitme
+              href: ../algorithm-module-reference/train-model.md
+            - name: Kümeleme Modeli Eğitme
+              href: ../algorithm-module-reference/train-clustering-model.md
+            - name: Modeli Değerlendirme
+              href: ../algorithm-module-reference/evaluate-model.md
+            - name: Dönüşüm Uygulama
+              href: ../algorithm-module-reference/apply-transformation.md
+            - name: Çizgisel Regresyon
+              href: ../algorithm-module-reference/linear-regression.md
+            - name: Sinir Ağı Regresyonu
+              href: ../algorithm-module-reference/neural-network-regression.md
+            - name: Karar Ormanı Regresyonu
+              href: ../algorithm-module-reference/decision-forest-regression.md
+            - name: Artırmalı Karar Ağacı Regresyonu
+              href: ../algorithm-module-reference/boosted-decision-tree-regression.md
+            - name: Çift Sınıflı Artırmalı Karar Ağacı
+              href: ../algorithm-module-reference/two-class-boosted-decision-tree.md
+            - name: Çift Sınıflı Lojistik Regresyon
+              href: ../algorithm-module-reference/two-class-logistic-regression.md
+            - name: Çok Sınıflı Lojistik Regresyon
+              href: ../algorithm-module-reference/multiclass-logistic-regression.md
+            - name: Çok Sınıflı Sinir Ağı
+              href: ../algorithm-module-reference/multiclass-neural-network.md
+            - name: Çok Sınıflı Karar Ormanı
+              href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: İki Sınıflı Ortalaması Alınmış Perceptron
+              href: ../algorithm-module-reference/two-class-averaged-perceptron.md
+            - name: İki Sınıflı Karar Ormanı
+              href: ../algorithm-module-reference/two-class-decision-forest.md
+            - name: İki Sınıflı Sinir Ağı
+              href: ../algorithm-module-reference/two-class-neural-network.md
+            - name: İki Sınıflı Destek Vektör Makinesi
+              href: ../algorithm-module-reference/two-class-support-vector-machine.md
+            - name: K Ortalamaları Kümeleme
+              href: ../algorithm-module-reference/k-means-clustering.md
+        - name: Python dil modülleri
+          items:
+            - name: Python Betiği Yürütme
+              href: ../algorithm-module-reference/execute-python-script.md
+            - name: Python Modeli Oluşturma
+              href: ../algorithm-module-reference/create-python-model.md
+        - name: Hata iletileri ve kodları
+          href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Kaynaklar
   items:
     - name: Sürüm notları

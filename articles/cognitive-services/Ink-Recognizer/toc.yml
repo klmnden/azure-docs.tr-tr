@@ -1,0 +1,54 @@
+- name: Mürekkep Tanıma Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Mürekkep Tanıma API’si nedir?
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: REST API
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Javascript
+          href: quickstarts/javascript.md
+- name: Kavramlar
+  items:
+    - name: Mürekkep Tanıma API’sine mürekkep verisi gönderme
+      href: concepts/send-ink-data.md
+- name: Örnekler
+  items:
+    - name: 'C# ve Evrensel Windows Platformu (UWP)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
+    - name: 'C# ve Windows Presentation Foundation (WPF)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
+    - name: JavaScript web tarayıcı uygulaması
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
+    - name: Java ve Android mobil uygulama
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
+    - name: Swift ve iOS mobil uygulama
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
+- name: Başvuru
+  items:
+    - name: REST API başvurusu
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
+    - name: PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Dil desteği
+      href: language-support.md
+    - name: Bölgeler
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+- name: Kaynaklar
+  items:
+    - name: Fiyatlandırma ve limitler
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Gizlilik ve tanımlama bilgileri
+      href: 'https://privacy.microsoft.com/privacystatement'
