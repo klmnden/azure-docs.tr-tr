@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/03/2019
+ms.date: 5/06/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918547"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191551"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -31,7 +31,7 @@ SCIM standartlaştırılmış protokolü ve kimlik sistemleri arasında nasıl y
 
 Uygulamaları Azure AD'ye destekleyen birçok [otomatik kullanıcı hazırlama, önceden tümleştirilmiş](../saas-apps/tutorial-list.md) SCIM kullanıcı almak için gereken araçları değişiklik bildirimleri gibi uygulayın.  Bunlara ek olarak, müşterilerin belirli profilini destekleyen uygulamalar bağlanabilir [SCIM 2.0 protokolü belirtimi](https://tools.ietf.org/html/rfc7644) Azure portalında genel "galeri dışı" tümleştirme seçeneğini kullanma. 
 
-Bu makalenin odaklandığı SCIM 2.0, Azure AD galeri dışı uygulamalar için kendi genel SCIM Bağlayıcısı bir parçası olarak uygulayan profilini açıktır. Ancak, başarılı bir uygulamayı test etme SCIM'yi destekleyen genel Azure AD ile bir adım olarak kullanıcı sağlamayı destekleyen Azure AD galeri listelenen bir uygulamayı edinmenin Bağlayıcıdır. Uygulamanızın Azure AD uygulama galerisinde listelenmesini daha fazla bilgi için bkz: [Microsoft uygulama ağı](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx).
+Bu makalenin odaklandığı SCIM 2.0, Azure AD galeri dışı uygulamalar için kendi genel SCIM Bağlayıcısı bir parçası olarak uygulayan profilini açıktır. Ancak, başarılı bir uygulamayı test etme SCIM'yi destekleyen genel Azure AD ile bir adım olarak kullanıcı sağlamayı destekleyen Azure AD galeri listelenen bir uygulamayı edinmenin Bağlayıcıdır. Uygulamanızın Azure AD uygulama galerisinde listelenmesini daha fazla bilgi için bkz: [nasıl yapılır: Uygulamanızı Azure AD uygulama galerisinde listeleyin](../develop/howto-app-gallery-listing.md).
  
 
 >[!IMPORTANT]

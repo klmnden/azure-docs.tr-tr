@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489766"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143294"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -205,8 +205,8 @@ Görüntüleyebilir ve Configuration Manager aracını kullanarak HTTP Ara sunuc
 ### <a name="configure-proxy-server-settings"></a>Ara sunucu ayarlarını yapılandırma
 Seçerseniz **sistem Ara sunucu kullanmak** HTTP proxy ayarı, ağ geçidi proxy diahost.exe.config ve diawp.exe.config ayarını kullanır. Proxy diahost.exe.config ve diawp.exe.config belirtilirse, Ara sunucu üzerinden geçmeden doğrudan ağ geçidi bulut hizmetine bağlanır. Aşağıdaki yordam diahost.exe.config dosyayı güncelleştirmek için yönergeler sağlar.
 
-1. Dosya Gezgini'nde, özgün dosyasını yedeklemek için C:\Program Files\Microsoft veri yönetimi Gateway\2.0\Shared\diahost.exe.config güvenli bir kopyasını oluşturun.
-2. Yönetici olarak çalıştırdığınızdan Notepad.exe başlatın ve "C:\Program Files\Microsoft veri yönetimi Gateway\2.0\Shared\diahost.exe.config. metin dosyasını açın Aşağıdaki kodda gösterildiği gibi varsayılan etiket için system.net bulun:
+1. Dosya Gezgini'nde, güvenli bir kopyasını *C:\\\\Program dosyaları\\Microsoft Veri Yönetimi ağ geçidi\\2.0\\paylaşılan\\diahost.exe.config* için özgün dosyasının yedeğini alın.
+2. Yönetici olarak çalıştırdığınızdan Notepad.exe başlatın ve metin dosyasını Aç *C:\\\\Program dosyaları\\Microsoft Veri Yönetimi ağ geçidi\\2.0\\paylaşılan\\ diahost.exe.config*. Aşağıdaki kodda gösterildiği gibi varsayılan etiket için system.net bulun:
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdaki adımlar�
 
 [Tek düğümlü ağ geçidi için]
 1. Ağ geçidi makinesinde Windows PowerShell'i başlatın.
-2. C:\Program Files\Microsoft tümleştirme Runtime\3.0\PowerShellScript\ klasöre geçin.
+2. Geçiş *C:\\\\Program dosyaları\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  klasör.
 3. Özellik (devre dışı bırakın) otomatik güncelleştirmesini etkinleştirmek için aşağıdaki komutu çalıştırın.
 
     ```powershell
@@ -293,7 +293,7 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdaki adımlar�
     ```
    [Yüksek oranda kullanılabilir ve ölçeklenebilir çok düğümlü gateway için](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Ağ geçidi makinesinde Windows PowerShell'i başlatın.
-2. C:\Program Files\Microsoft tümleştirme Runtime\3.0\PowerShellScript\ klasöre geçin.
+2. Geçiş *C:\\\\Program dosyaları\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  klasör.
 3. Özellik (devre dışı bırakın) otomatik güncelleştirmesini etkinleştirmek için aşağıdaki komutu çalıştırın.
 
     Yüksek oranda kullanılabilirlik özelliği ile ağ geçidi için ek bir AuthKey param gereklidir.
@@ -310,7 +310,7 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdaki adımlar�
 Ağ geçidini yükledikten sonra veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni aşağıdaki yollardan birini başlatabilirsiniz:
 
 1. İçinde **arama** penceresinde, tür **veri yönetimi ağ geçidi** bu yardımcı programına erişmek için.
-2. Yürütülebilir dosyayı çalıştırmak **ConfigManager.exe** klasöründeki: **C:\Program Files\Microsoft veri yönetimi Gateway\2.0\Shared**
+2. Yürütülebilir dosyayı çalıştırmak *ConfigManager.exe* klasöründeki: *C:\\\\Program dosyaları\\Microsoft Veri Yönetimi ağ geçidi\\2.0\\paylaşılan*.
 
 ### <a name="home-page"></a>Giriş sayfası
 Giriş sayfası aşağıdaki eylemleri gerçekleştirmenize izin verir:
@@ -511,7 +511,7 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell'de klasöre geçin: **C:\\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript\\**. Çalıştırma **RegisterGateway.ps1** yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
+1. Azure PowerShell'de klasöre geçin: *C:\\\\Program dosyaları\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Çalıştırma *RegisterGateway.ps1* yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

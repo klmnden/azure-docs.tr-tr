@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200302"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150864"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Öğretici: Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -90,10 +90,10 @@ CDN tarafından yönetilen bir sertifika kullandığınızda HTTPS özelliği sa
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[2. seçenek: Kendi sertifikası ile HTTPS'yi etkinleştirme](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Bu seçenek yalnızca **Microsoft tarafından sunulan Azure CDN Standard** profilleriyle kullanılabilir. 
+> Bu seçenek yalnızca kullanılabilir **Microsoft Azure CDN'den** ve **verizon'dan Azure CDN** profilleri. 
 >
  
-HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz. Bu işlem, sertifikalarınızı güvenli bir şekilde depolamanıza olanak tanıyan Azure Key Vault ile tümleştirme yoluyla gerçekleştirilir. Azure CDN, sertifikanızı almak için bu güvenli mekanizmayı kullanır ve birkaç ek adım gerektirir. SSL sertifikanızı oluştururken, bunu izin verilen bir sertifika yetkilisiyle (CA) oluşturmanız gerekir. Buna karşılık, izin verilmeyen bir CA kullanırsanız isteğiniz reddedilir. İzin verilen CA'ların listesi için bkz. [Azure CDN'de özel HTTPS'leri etkinleştirmek için izin verilen sertifika yetkilileri](cdn-troubleshoot-allowed-ca.md).
+HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz. Bu işlem, sertifikalarınızı güvenli bir şekilde depolamanıza olanak tanıyan Azure Key Vault ile tümleştirme yoluyla gerçekleştirilir. Azure CDN, sertifikanızı almak için bu güvenli mekanizmayı kullanır ve birkaç ek adım gerektirir. SSL sertifikanızı oluştururken, bunu izin verilen bir sertifika yetkilisiyle (CA) oluşturmanız gerekir. Buna karşılık, izin verilmeyen bir CA kullanırsanız isteğiniz reddedilir. İzin verilen CA'ların listesi için bkz. [sertifika yetkilileri üzerinde Azure CDN özel HTTPS'yi etkinleştirmek için izin verilen](cdn-troubleshoot-allowed-ca.md). İçin **verizon'dan Azure CDN**, geçerli bir CA'yı kabul edilir. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure Key Vault hesabınızı ve sertifikanızı hazırlama
  

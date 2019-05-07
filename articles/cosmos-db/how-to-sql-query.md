@@ -4,14 +4,14 @@ description: Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054131"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148945"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -139,14 +139,14 @@ Sorgu sonuçlarını şunlardır:
     }]
 ```
 
-Aşağıdaki sorgu ailedeki verilen adlarını, çocukların döndürür, `id` eşleşen `WakefieldFamily`, sıralı olarak sınıf.
+Aşağıdaki sorgu ailedeki verilen adlarını, çocukların döndürür, `id` eşleşen `WakefieldFamily`, ikamet şehre göre sıralanmış.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 Sonuçlar şu şekildedir:
@@ -160,7 +160,7 @@ Sonuçlar şu şekildedir:
 
 Önceki örneklerde, Cosmos sorgu dili çeşitli yönlerini gösterir:  
 
-* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3….Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
+* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3…..Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
 
 * Sorgu dili şemasız verilerle çalışır çünkü tür sistemi dinamik olarak bağlı olmalıdır. Farklı türlerde farklı öğeye aynı ifadesi üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olmasını garanti yoktur.  
 
@@ -314,6 +314,70 @@ Sonuçlar şu şekildedir:
     ]
 ```
 
+## <a id="DistinctKeyword"></a>DISTINCT anahtar sözcüğü
+
+DISTINCT anahtar sözcüğüne çoğaltmaları sorgunun projeksiyon olarak ortadan kaldırır.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+Bu örnekte, her bir soyadı için değerler sorgu yansıtıyor.
+
+Sonuçlar şu şekildedir:
+
+```json
+[
+    "Andersen"
+]
+```
+
+Benzersiz nesne da yansıtabilirsiniz. Bu durumda, sorgu boş bir nesne döndürecek şekilde lastName alanlarını iki belge birinde yok.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+Sonuçlar şu şekildedir:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT projeksiyon alt sorgu içinde de kullanılabilir:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+Bu sorgu, yinelenenleri kaldırılan ile her çocuğun givenName içeren bir dizi yansıtıyor. Bu dizi ChildNames olarak bilinir ve dış sorguda yansıtılır.
+
+Sonuçlar şu şekildedir:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>Diğer ad kullanımı
 
 Açıkça diğer ad değer sorguları içinde kullanabilirsiniz. Bir sorgu aynı ada sahip iki özellik varsa, diğer ad kullanımı birini veya her ikisini özelliklerini öngörülen sonucunda disambiguated şekilde yeniden adlandırmak için kullanın.
@@ -380,7 +444,7 @@ Sonuçlar şu şekildedir:
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -599,7 +663,7 @@ Kullanım?? verimli bir şekilde bir öğede bir özellik karşı yarı yapılan
 
 ## <a id="TopKeyword"></a>TOP işleci
 
-İlk üst anahtar sözcüğü döner `N` tanımlanmamış bir sırada sorgu sonuç sayısı. İlk sonuçlarını sınırlamak için en iyi uygulama, üst ile ORDER BY yan tümcesi kullanın `N` sıralı değerleri sayısı. Bu iki yan tümceyi birleştirme üst etkiler, satırları tahmin edilebilir bir biçimde belirtmek için tek yoludur. 
+İlk üst anahtar sözcüğü döner `N` tanımlanmamış bir sırada sorgu sonuç sayısı. İlk sonuçlarını sınırlamak için en iyi uygulama, üst ile ORDER BY yan tümcesi kullanın `N` sıralı değerleri sayısı. Bu iki yan tümceyi birleştirme üst etkiler, satırları tahmin edilebilir bir biçimde belirtmek için tek yoludur.
 
 Aşağıdaki örnekte olduğu gibi sabit bir değer ile veya bir değişken değerle parametreli sorgular kullanma üst kullanabilirsiniz. Daha fazla bilgi için [parametreli sorgular](#parameterized-queries) bölümü.
 
@@ -679,6 +743,65 @@ Sonuçlar şu şekildedir:
       }
     ]
 ```
+
+Ayrıca, birden çok özelliklerine göre sıralayabilirsiniz. Birden çok özelliklerine göre sıralayan bir sorgu gerektiren bir [bileşik dizin](index-policy.md#composite-indexes). Şu sorguyu inceleyin:
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+Bu sorgu ailesi alır `id` artan düzende şehir adı. Birden çok öğe aynı şehir adı varsa, sorgu tarafından sırayla `creationDate` azalan sırayla düzenleyin.
+
+## <a id="OffsetLimitClause"></a>UZAKLIK sınırlama yan tümcesi
+
+UZAKLIK bazı sayısı değerleri sorgudan Al atlamak için isteğe bağlı bir yan tümcesi sınırdır. UZAKLIK sayımı ve sınırı sayısı sınırı UZAKLIĞI yan tümcesinde gereklidir.
+
+UZAKLIK sınırı, ORDER BY yan tümcesi ile birlikte kullanıldığında, sonuç kümesi Atla yaparak oluşturulur ve sıralı değerlerine gerçekleştirin. ORDER BY yan tümce kullandıysanız, değer belirleyici bir sırada neden olur.
+
+Örneğin, ilk değer atlar ve ikinci değer (yerleşik şehir adı sırasına göre) döndüren bir sorgu aşağıdadır:
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+Sonuçlar şu şekildedir:
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+İlk değer atlar ve ikinci değer (sıralama olmadan) döndüren bir sorgu aşağıda verilmiştir:
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+Sonuçlar şu şekildedir:
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>Skaler ifade
 
 SELECT yan tümcesi skaler ifadeler sabitler, aritmetik ifadeler ve mantıksal ifadeleri gibi destekler. Aşağıdaki sorgu, skaler bir ifade kullanır:
@@ -1018,7 +1141,7 @@ Aşağıdaki örnek bir öğe kapsayıcısı altında bir UDF Cosmos DB veritaba
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

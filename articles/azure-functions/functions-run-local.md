@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 14990cd4a066c126b5e4d498c5a109dac1b8820a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140932"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -186,7 +186,7 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 
 | Ayar      | Açıklama                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Ayarlandığında `true`, tüm değerlerin bir yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer `false`. |
+| **`IsEncrypted`** | Ayarlandığında `true`, tüm değerlerin bir yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer `true`. Zaman `true`, tüm ayarlar kullanılarak eklenen `func settings add` yerel makine anahtarı kullanılarak şifrelenir. Bu işlev uygulaması ayarları uygulama ayarlarını azure'da nasıl depolandığını yansıtır. Yerel ayar değerlerini şifreleme local.settings.json genel olarak maruz kalmalıdır değerli veriler için ek koruma sağlar.  |
 | **`Values`** | Uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri koleksiyonu. Bu değerler, azure'daki işlev uygulamanızın uygulama ayarlarında gibi karşılık [ `AzureWebJobsStorage` ]. Birçok tetikleyiciler ve bağlamalar gibi bir bağlantı dizesi uygulama ayarına başvuran bir özelliği olan `Connection` için [Blob Depolama tetikleyicisi](functions-bindings-storage-blob.md#trigger---configuration). Tür özellikleri için tanımlanan bir uygulama ayarı ihtiyacınız `Values` dizisi. <br/>[`AzureWebJobsStorage`] gerekli bir uygulama dışındaki HTTP tetikleyici ayarlanıyor. <br/>Sürüm 2.x çalışma zamanı işlevleri gerektirir [ `FUNCTIONS_WORKER_RUNTIME` ] ayarını projeniz için temel araçları tarafından oluşturulur. <br/> Olduğunda [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) ayarlayabileceğiniz yerel olarak yüklü [ `AzureWebJobsStorage` ] için `UseDevelopmentStorage=true` ve temel araçları öykünücüsü kullanır. Geliştirme sırasında kullanışlıdır ancak gerçek depolama bağlantısı dağıtımdan önce test etmeniz gerekir. |
 | **`Host`** | Bu bölümdeki ayarlarını yerel olarak çalıştırılırken işlevleri ana bilgisayar işlemi özelleştirin. |
 | **`LocalHttpPort`** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
