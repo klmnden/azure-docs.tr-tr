@@ -1,5 +1,5 @@
 ---
-title: Stream Kafka özellikli event hub - Azure Event Hubs | Microsoft Docs
+title: Azure Event Hubs Kafka protokolünü kullanarak akış verileri | Microsoft Docs
 description: Bu makalede akış için nasıl Azure Event Hubs'a API'leri ve Kafka protokolü kullanarak bilgi sağlanır.
 services: event-hubs
 author: basilhariri
@@ -7,15 +7,15 @@ ms.author: bahariri
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 4fec60cdf3fcf24378567ea97dd7922c805cde18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: a4e050fdef20cdc62ee92e6383c455ffcb9abc90
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821583"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203915"
 ---
-# <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Apache Kafka için Event Hubs’da akış yapma
+# <a name="data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Event Hubs Kafka protokolünü kullanarak akış verileri
 Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturulacağı gösterilir. Yalnızca uygulamalarınızdaki bir yapılandırma değişikliğiyle Kafka etkin Event Hubs ile konuşmak için üreticilerinizi ve tüketicilerinizi nasıl kullanacağınızı öğrenirsiniz. Azure Event Hubs [Apache Kafka sürüm 1.0](https://kafka.apache.org/10/documentation.html)’ı destekler.
 
 > [!NOTE]

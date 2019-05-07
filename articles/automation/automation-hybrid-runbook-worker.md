@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739353"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198462"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -27,9 +27,6 @@ Aşağıdaki görüntüde bu işlevselliği gösterilmektedir:
 Her karma Runbook çalışanı, aracı yükleme sırasında belirttiğiniz bir karma Runbook çalışanı grubunun bir üyesidir. Bir grubu tek bir aracı ekleyebilirsiniz, ancak yüksek kullanılabilirlik için bir grupta birden çok aracı yükleyebilirsiniz.
 
 Bir karma Runbook çalışanı üzerinde bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Gruptaki her çalışan tüm işleri olup olmadığını görmek için Azure Otomasyonu yoklar. Bir iş varsa, bu işi almak için ilk worker götürür. Karma çalışanı donanım profili ve yükleme işleri sırasının işleme süresi bağlıdır. Belirli bir alt belirtemezsiniz. Karma Runbook çalışanları, birçok Azure sanal sahip sınırları paylaşmayın. Bunlar aynı sınırlarını disk alanı, bellek veya ağ yuvaları üzerinde yok. Karma Runbook çalışanları, yalnızca karma Runbook çalışanında kendisini kaynaklar tarafından sınırlandırılmıştır. Ayrıca, karma Runbook çalışanları 180 dakika paylaşmayın [adil paylaşımı](automation-runbook-execution.md#fair-share) süre sınırı, Azure sanal yapın. Azure sanal ve karma Runbook çalışanları için hizmet sınırları hakkında daha fazla bilgi için iş bkz [sınırları](../azure-subscription-service-limits.md#automation-limits) sayfası.
-
-> [!NOTE]
-> Karma Runbook çalışanları Azure Çin'de desteklenmez.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Karma Runbook çalışanı'nı yükleme
 

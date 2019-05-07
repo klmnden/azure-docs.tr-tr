@@ -1,19 +1,19 @@
 ---
-title: İzleme ve PostgreSQL için Azure veritabanı'nda ayarlayın
-description: Bu makalede izleme ve PostgreSQL için Azure veritabanı özellikleri ayarlamayı açıklar.
+title: İzleme ve - tek bir sunucu PostgreSQL için Azure veritabanı'nda ayarlayın
+description: Bu makalede, PostgreSQL - tek bir sunucu için Azure veritabanı izleme ve ayarlama özellikleri açıklanmaktadır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456232"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068986"
 ---
-# <a name="monitor-and-tune"></a>İzleme ve ayarlama
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>İzleme ve - tek bir sunucu PostgreSQL için Azure veritabanı ayarlama
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. PostgreSQL için Azure veritabanı sunucunuzu davranışını bir anlayış sağlamak için çeşitli izleme seçenekleri sağlar.
 
 ## <a name="metrics"></a>Ölçümler
@@ -33,8 +33,8 @@ Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
 |serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Yüzde|Sunucunun en fazla sunucu günlük depolama dışında kullanılan sunucu günlük depolama yüzdesi.|
 |serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Sunucu günlüğü depolama miktarı.|
 |serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Bu sunucu için en fazla sunucu günlük depolama.|
-|active_connections|Etkin bağlantılar|Sayı|Sunucu için etkin bağlantı sayısı.|
-|connections_failed|Başarısız Bağlantılar|Sayı|Başarısız bağlantılar sunucu sayısı.|
+|active_connections|Etkin bağlantılar|Count|Sunucu için etkin bağlantı sayısı.|
+|connections_failed|Başarısız Bağlantılar|Count|Başarısız bağlantılar sunucu sayısı.|
 |network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 |backup_storage_used|Kullanılan yedekleme depolama alanı|Bayt|Kullanılan yedekleme depolama alanı miktarı.|

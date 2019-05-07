@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72e51deb31ad2894ccfc0fc71884c99863184f5b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306858"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203652"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -273,7 +273,7 @@ JavaScript'te kullanın `context.bindings.<name>` Kuyruk öğesi yükü erişmek
 
 ## <a name="trigger---message-metadata"></a>Tetikleyici - ileti meta verileri
 
-Kuyruk tetikleyicisi birkaç sağlar [meta veri özelliklerini](./functions-bindings-expressions-patterns.md#trigger-metadata). Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu özellikleri olan [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) sınıfı.
+Kuyruk tetikleyicisi birkaç sağlar [meta veri özelliklerini](./functions-bindings-expressions-patterns.md#trigger-metadata). Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu özellikleri olan [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) sınıfı.
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|
@@ -526,7 +526,7 @@ Bağlanılacak çalışırsanız `CloudQueueMessage` ve bir hata iletisi alırsa
 C# ve C# betiği şu türlerden birini kullanarak birden fazla kuyruk iletileri yazın: 
 
 * `ICollector<T>` veya `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 JavaScript işlevleri'nde kullanmak `context.bindings.<name>` çıkış kuyruk iletisi erişmek için. Bir dize veya JSON seri hale getirilebilir bir nesne için kuyruk öğesi yükü kullanabilirsiniz.
 
@@ -586,4 +586,4 @@ Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832882"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65202934"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
 Bu öğretici, güvenliğinin nasıl sağlanacağını gösterir, [App Service uygulaması](https://docs.microsoft.com/azure/app-service/) veya [işlev uygulaması](https://docs.microsoft.com/azure/azure-functions/) (satın) oluşturarak bir App Service sertifikası [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) ve kendisine bağlama bir App Service uygulaması.
 
 > [!TIP]
-> App Service sertifikaları, herhangi bir Azure veya Azure Hizmetleri için kullanılabilir ve uygulama hizmetleri için sınırlı değildir. Bunu yapmak için onu istediğiniz yere kullanabileceğiniz bir App Service sertifikasının yerel PFX kopyasını oluşturmak gerekir. Daha fazla bilgi için [bir App Service sertifikasının yerel PFX kopyasını oluşturma](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+> App Service sertifikaları, herhangi bir Azure veya Azure Hizmetleri için kullanılabilir ve uygulama hizmetleri için sınırlı değildir. Bunu yapmak için onu istediğiniz yere kullanabileceğiniz bir App Service sertifikasının yerel PFX kopyasını oluşturmak gerekir. Daha fazla bilgi için [bir App Service sertifikasının yerel PFX kopyasını oluşturma](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
 >
 
 ## <a name="prerequisites"></a>Önkoşullar

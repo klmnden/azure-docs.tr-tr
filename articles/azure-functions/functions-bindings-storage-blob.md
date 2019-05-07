@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 0294c7eefb6cad17ef83c24a59c37a42e68861b9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4ec13453c204885f38b10272e76245e641fbef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728541"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203588"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -318,7 +318,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `blobTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
-|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı. |
+|**name** | yok | İşlev kodunu blob temsil eden değişken adı. |
 |**Yolu** | **BlobPath** |[Kapsayıcı](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) izlemek için.  Olabilir bir [blob adı deseni](#trigger---blob-name-patterns). |
 |**bağlantı** | **bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
@@ -389,13 +389,13 @@ Blob ise  *{20140101}-soundfile.mp3*, `name` işlev kodunu değişken değer *so
 
 ## <a name="trigger---metadata"></a>Tetikleyici - meta verileri
 
-Blob tetikleyicisi çeşitli meta veri özelliklerini sağlar. Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu değerleri ile aynı semantiklere sahip [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) türü.
+Blob tetikleyicisi çeşitli meta veri özelliklerini sağlar. Bu özellikler, diğer bağlamalar bağlama ifadelerinde parçası olarak veya kodunuzu parametreler olarak kullanılabilir. Bu değerleri ile aynı semantiklere sahip [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) türü.
 
 |Özellik  |Tür  |Açıklama  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Tetikleyici blob yolu.|
 |`Uri`|`System.Uri`|Birincil konumu olarak blob URI'si.|
-|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Blobun Sistem Özellikleri. |
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobproperties)|Blobun Sistem Özellikleri. |
 |`Metadata` |`IDictionary<string,string>`|Kullanıcı tanımlı meta veriler blob için.|
 
 Örneğin, aşağıdaki C# betiği ve JavaScript örnekler kapsayıcı dahil olmak üzere tetikleyici blob yolu oturum:
@@ -426,7 +426,7 @@ Azure işlevleri depoları giriş adlı bir kapsayıcı içinde blob *azure webj
 * Blob adı
 * ETag (örneğin, bir blob sürüm tanımlayıcısı: "0x8D1DC6E70A277EF")
 
-Bir blobu yeniden işlemeyerek zorlamak için bu blobu için blob giriş Sil *azure webjobs konakları* kapsayıcı el ile. Yeniden işlemeyerek hemen gerçekleşmeyebilir olmakla zaman sonraki bir noktada gerçekleşmesi için garantili arasındadır.
+Bir blobu yeniden işlemeyerek zorlamak için bu blobu için blob giriş Sil *azure webjobs konakları* kapsayıcı el ile. Yeniden işlemeyerek hemen gerçekleşmeyebilir olsa da sonraki bir noktada kapatmasında garanti.
 
 ## <a name="trigger---poison-blobs"></a>Tetikleyici - zehirli BLOB'ları
 
@@ -733,7 +733,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `blob`. |
 |**direction** | yok | Ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
-|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.|
+|**name** | yok | İşlev kodunu blob temsil eden değişken adı.|
 |**Yolu** |**BlobPath** | Blob yolu. |
 |**bağlantı** |**bağlantı**| İçeren bir uygulama ayarı adı [depolama bağlantı dizesi](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) Bu bağlama için kullanılacak. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
@@ -1067,8 +1067,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `blob`. |
 |**direction** | yok | Ayarlanmalıdır `out` bir çıkış bağlaması için. Özel durumlar belirtilmiştir [kullanım](#output---usage) bölümü. |
-|**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.  Kümesine `$return` işlev dönüş değeri başvurmak için.|
-|**Yolu** |**BlobPath** | Blobco yolu. |
+|**name** | yok | İşlev kodunu blob temsil eden değişken adı.  Kümesine `$return` işlev dönüş değeri başvurmak için.|
+|**Yolu** |**BlobPath** | Blob kapsayıcısı yolu. |
 |**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 

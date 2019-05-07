@@ -1,5 +1,5 @@
 ---
-title: Bir yavaş ya da başarısız olan HDInsight kümesi - Azure HDInsight sorunlarını giderme
+title: Bir HDInsight kümesi - Azure HDInsight üzerinde yavaş ya da başarısız olan bir işi sorunlarını giderme
 description: Tanılama ve yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708905"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203621"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Bir HDInsight kümesinde bir yavaş ya da başarısız olan işi sorunlarını giderme
 
-Bir HDInsight kümesi yavaş çalışan veya bir hata kodu ile başarısız olursa sorun giderme birkaç seçeneğiniz vardır. İşlerinizi beklenenden daha uzun çalışması daha uzun sürüyor veya yavaş yanıt sürelerinin genel görüyorsunuz kümenizden küme üzerinde çalışan hizmetleri gibi Yukarı Akış hataları olabilir. Ancak, bu yavaşlamalardan en yaygın nedeni, yetersiz ölçeklendirme olur. Yeni bir HDInsight kümesi oluşturduğunuzda, uygun seçin [sanal makine boyutları](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Bir HDInsight kümesinde veri yavaş çalışan veya bir hata kodu ile başarısız olan bir uygulama işlemi, sorun giderme birkaç seçeneğiniz vardır. İşlerinizi beklenenden daha uzun çalışması daha uzun sürüyor veya yavaş yanıt sürelerinin genel görüyorsunuz kümenizden küme üzerinde çalışan hizmetleri gibi Yukarı Akış hataları olabilir. Ancak, bu yavaşlamalardan en yaygın nedeni, yetersiz ölçeklendirme olur. Yeni bir HDInsight kümesi oluşturduğunuzda, uygun seçin [sanal makine boyutları](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Yavaş ya da başarısız olan bir küme tanılamak için ilgili Azure Hizmetleri, küme yapılandırması ve iş yürütme bilgileri gibi ortamın tüm yönleri hakkında bilgi toplayın. Başka bir küme üzerinde hata durumunda yeniden oluşturmak yararlı bir tanılama denemektir.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198588"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
 Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure sanal ağları] [ VNETOverview] (Vnet'ler) birçok Azure kaynaklarınızın bir internet olmayan routeable ağında yerleştirin izin verir. Bu ağlar VPN'si teknolojileri kullanarak, şirket içi ağlara bağlanabilirsiniz. 
@@ -271,9 +271,9 @@ Yeni sürümü Önizleme aşamasındadır ve aşağıdaki özelliklere sahiptir.
 * ExpressRoute ile tümleştirme ötesinde herhangi bir ek yapılandırma, sanal ağa bağlı olmayan ExpressRoute bağlantılar üzerinden kaynaklara erişebilir.
 * Uygulama ve sanal ağ aynı bölgede olması gerekir
 * Yeni özellik, Resource Manager sanal ağınızdaki kullanılmayan bir alt ağ gerektiriyor.
+* Uygulamanız Premium v2'ye yükseltme işleyebilen bir Azure App Service dağıtımı olması gerekir.
 * App Service planınızın standart, Premium veya PremiumV2 planına olmalıdır
 * Önizleme aşamasında olduğu sürece üretim iş yükleri üzerinde yeni özelliği desteklenmiyor
-* Uygulamanız Premium v2'ye yükseltme işleyebilen bir Azure App Service dağıtımı olması gerekir.
 * Yeni VNet tümleştirme özelliği, bir App Service ortamında uygulamaları için çalışmaz.
 * Tümleşik bir uygulama ile bir Vnet'i silemiyor.  
 * Rota tabloları ve genel eşleme henüz yeni VNet Tümleştirmesi ile kullanılamaz.  

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: b26af87de8a09f987d69f0441a817638e626b4af
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074134"
+ms.locfileid: "65192227"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Ağ bağlantısını ve güvenlik Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -47,7 +47,7 @@ Azure CNI ağ kullandığınızda, bir AKS kümesi için ayrı bir kaynak grubun
 
 AKS hizmet sorumlusu temsilci seçme hakkında daha fazla bilgi için bkz. [temsilci diğer Azure kaynaklarına erişimi][sp-delegation].
 
-Her düğüm ve pod almak gibi kendi IP adresini, AKS alt ağlar için adres aralıklarını kullanıma planlayın. Alt ağ, her düğüm, pod'ların ve dağıttığınız ağ kaynaklarına IP adresleri sağlamak amacıyla büyük olmalıdır. Her bir AKS kümesi, kendi alt ağına yerleştirilmelidir. Azure'da şirket içi ya da eşlenen ağlara bağlantı izin vermek için çakışan IP adresi aralıkları ile var olan ağ kaynaklarını kullanmayın. Her düğümü hem kubernetes hem de Azure CNI ağ ile çalışan pod'ların sayısını için varsayılan limitleri vardır. Ölçeği artırma olayları veya Küme yükseltme işlemleri işlemek için ayrıca ek IP adresleri kullanılmak üzere atanmış bir alt ağ gerekir. Bu ek adres alanı, bu düğüm havuzları en son güvenlik düzeltme eklerinin uygulanacağı bir yükseltme gerektirir. (şu anda önizlemede aks'deki), Windows Server kapsayıcıları kullanırsanız, özellikle önemlidir. Windows Server düğümleri hakkında daha fazla bilgi için bkz. [aks'deki bir düğüm havuzunu yükseltme][nodepool-upgrade].
+Her düğüm ve pod almak gibi kendi IP adresini, AKS alt ağlar için adres aralıklarını kullanıma planlayın. Alt ağ, her düğüm, pod'ların ve dağıttığınız ağ kaynaklarına IP adresleri sağlamak amacıyla büyük olmalıdır. Her bir AKS kümesi, kendi alt ağına yerleştirilmelidir. Azure'da şirket içi ya da eşlenen ağlara bağlantı izin vermek için çakışan IP adresi aralıkları ile var olan ağ kaynaklarını kullanmayın. Her düğümü hem kubernetes hem de Azure CNI ağ ile çalışan pod'ların sayısını için varsayılan limitleri vardır. Ölçeği artırma olayları veya Küme yükseltme işlemleri işlemek için ayrıca ek IP adresleri kullanılmak üzere atanmış bir alt ağ gerekir.
 
 IP adresi hesaplamak için gereken bkz [aks'deki Azure CNI yapılandırma ağ][advanced-networking].
 
@@ -101,8 +101,6 @@ spec:
 
 Bir AKS düğümü üzerinde çalışan ve gelen istekler için izleyen bir arka plan programı bir giriş denetleyicisidir. Trafik giriş kaynağında tanımlanan kurallar temel alınarak dağıtılır. En yaygın giriş denetleyicisine dayanır [NGINX]. AKS değil kısıtlamak, belirli bir denetleyiciye gibi diğer denetleyicileri kullanabilmeniz [dağılımı][contour], [HAProxy][haproxy], veya [ Traefik][traefik].
 
-Giriş denetleyicileri üzerinde bir Linux düğüm zamanlanmalıdır. Windows Server düğümleri (şu anda önizlemede aks'deki) giriş denetleyicisine çalıştırmamalısınız. YAML bildirimi ya da Helm grafiği dağıtım düğüm seçicide, kaynak Linux tabanlı bir düğümde çalışması gerektiğini belirtmek için kullanın. Daha fazla bilgi için [düğüm seçici denetimi için pod'ların AKS burada zamanlanır kullanın][concepts-node-selectors].
-
 Aşağıdaki nasıl yapılır kılavuzlarını da dahil olmak üzere, giriş için birçok senaryo vardır:
 
 * [Dış ağ bağlantısına sahip bir temel giriş denetleyicisi oluşturun][aks-ingress-basic]
@@ -128,7 +126,7 @@ Yük Dengeleyici veya giriş kaynakları, daha fazla trafik dağılımı iyileş
 
 Ağ İlkesi pod'ları arasındaki trafik akışını denetlemenize olanak sağlayan bir Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ ilkeleri kullanımını trafik akışını denetlemek için bulutta yerel bir yol sağlar. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir. Azure ağ güvenlik grupları kullanmayın pod pod trafiği denetlemek için ağ ilkeleri kullanın.
 
-Bir AKS kümesi oluşturduğunuzda, Ağ İlkesi'ni kullanmak için özelliğin etkinleştirilmesi gerekir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor. Ağ ilkesini kümelerde etkinleştirmek ve bunları gerektiği şekilde kullanabileceğiniz emin olmak önceden planlayın. Ağ İlkesi, yalnızca Linux tabanlı düğümler ve pod'ların AKS için kullanılmalıdır.
+Bir AKS kümesi oluşturduğunuzda, Ağ İlkesi'ni kullanmak için özelliğin etkinleştirilmesi gerekir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor. Ağ ilkesini kümelerde etkinleştirmek ve bunları gerektiği şekilde kullanabileceğiniz emin olmak önceden planlayın.
 
 Ağ İlkesi YAML bir bildiri kullanarak bir Kubernetes kaynak olarak oluşturulur. Tanımlanan pod'ların ilkeleri uygulanır ve trafiğin nasıl akış girişi veya çıkışı kuralları tanımlar. Aşağıdaki örnek pod'ları ile ağ ilkenin uygulanacağı *uygulama: arka uç* uygulanmış etiketi. Giriş kural sonra yalnızca pod'ları ile gelen trafiğe izin *uygulama: ön uç* etiketi:
 
@@ -188,5 +186,3 @@ Bu makalede, ağ bağlantısını ve güvenlik odaklı. Kubernetes temel ağ bil
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
-[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

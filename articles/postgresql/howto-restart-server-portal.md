@@ -1,19 +1,19 @@
 ---
-title: Azure portalını kullanarak PostgreSQL sunucusu için Azure veritabanını yeniden başlatın
-description: Bu makalede, Azure portalını kullanarak PostgreSQL için Azure veritabanı nasıl yeniden açıklanır.
+title: Azure veritabanını Postgresql'ye - Azure portalını kullanarak tek bir sunucu yeniden başlatın.
+description: Bu makalede, PostgreSQL - Azure portalını kullanarak tek bir sunucu için Azure veritabanı nasıl yeniden başlatabilirsiniz açıklanır.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420507"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066830"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Azure portalını kullanarak PostgreSQL sunucusu için Azure veritabanını yeniden başlatın
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure veritabanını Postgresql'ye - Azure portalını kullanarak tek bir sunucu yeniden başlatın.
 Bu konuda, PostgreSQL sunucusu için Azure veritabanı nasıl yeniden açıklanmaktadır. Sunucu işlemi gerçekleştirirken, kısa bir kesintiye neden sunucunuzun bakım nedeniyle yeniden başlatmanız gerekebilir.
 
 Sunucunun yeniden başlatılması, Hizmet meşgul olduğunda engellenir. Örneğin, hizmet sanal çekirdekler ölçeklendirme gibi daha önce istenen bir işlemin işliyor olabilir.

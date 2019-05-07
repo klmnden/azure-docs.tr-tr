@@ -1,20 +1,19 @@
 ---
-title: PostgreSQL için Azure Veritabanı’nda okuma amaçlı çoğaltmalar
-description: Bu makalede, PostgreSQL için Azure veritabanı'nda okuma çoğaltması özelliğini açıklar.
-author: WenJason
-ms.author: v-jay
+title: -Tek bir sunucu PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
+description: Bu makalede, PostgreSQL - tek bir sunucu için Azure veritabanı'nda okuma çoğaltma özelliği açıklanır.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564366"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067430"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı’nda okuma amaçlı çoğaltmalar
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
 
 Okuma çoğaltması özelliği salt okunur bir sunucuya bir PostgreSQL sunucusu için Azure veritabanı'ndan veri çoğaltmanıza olanak sağlar. Ana sunucu ile aynı Azure bölgesindeki en fazla beş çoğaltmalarına çoğaltabilirsiniz. Çoğaltmalar, PostgreSQL altyapısı yerel çoğaltma teknolojisiyle zaman uyumsuz olarak güncelleştirilir.
 
@@ -51,7 +50,7 @@ Bir çoğaltma oluşturduğunuzda, sanal ağ hizmet uç noktası ana sunucu ve g
 PostgreSQL sunucusu için normal bir Azure veritabanında olduğu gibi kendi ana bilgisayar adı ve geçerli kullanıcı hesabı kullanarak çoğaltmaya bağlanabilirsiniz. Adlı bir sunucu için **myreplica** yönetici kullanıcı adı ile **myadmin**, çoğaltmaya psql kullanarak bağlanabilirsiniz:
 
 ```
-psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
 İstemde, kullanıcı hesabı için parolayı girin.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148515"
+ms.locfileid: "65205709"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -67,7 +67,7 @@ Evet. Genel IP adresi aralıkları hakkında daha fazla bilgi için bkz: [sanal 
 Evet. Bkz: [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) Ayrıntılar için. Alt ağ adres alanlarının birbiriyle çakışamaz.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Bu alt ağları içindeki IP adresleri kullanarak herhangi bir kısıtlama var mıdır?
-Evet. Azure her alt ağ içinde bazı IP adreslerini ayırır. Her alt ağ ilk ve son IP adreslerini birlikte her alt ağ, Azure Hizmetleri için kullanılan x.x.x.1 x.x.x.3 adresleri protokol uyumluluğu için ayrılmıştır.
+Evet. Azure, her alt ağ içindeki 5 IP adresini ayırır. Her alt ağ ilk ve son IP adreslerini birlikte her alt ağ, Azure Hizmetleri için kullanılan x.x.x.1 x.x.x.3 adresleri protokol uyumluluğu için ayrılmıştır.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Küçük ve ne kadar büyük nasıl sanal ağlar ve alt ağları olabilir?
 Desteklenen en düşük alt /29 olduğunu ve en büyük 8 uzunluğudur (CIDR alt ağ tanımlarının kullanarak).
@@ -231,7 +231,7 @@ Evet. Kullanma hakkında daha fazla bilgi edinin:
 VNet eşlemesi (veya sanal ağ eşlemesi) sanal ağları bağlamanıza olanak sağlar. Sanal ağ arasında VNet eşleme bağlantısı, özel IPv4 adresleri üzerinden aralarındaki trafik yönlendirme sağlar. Eşlenmiş sanal ağlardaki sanal makineler aynı ağ içinde yoksa gibi birbiriyle iletişim kurabilir. Bu sanal ağları, aynı bölgedeki veya farklı bölgelerde (diğer adıyla genel sanal ağ eşleme) olabilir. Sanal ağ eşleme bağlantılarını da Azure abonelikleri genelinde oluşturulabilir.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Farklı bir bölgede bir VNet eşleme bağlantısı oluşturabilir miyim?
-Evet. Küresel VNet eşlemesi, farklı bölgelerdeki sanal ağları eşlemenize olanak sağlar. Küresel VNet eşlemesi tüm genel Azure bölgeleri ve Çin bulut bölgelerinde kullanılabilir. Ulusal bulut bölgeleri için Azure ortak bölgelerden genel eş olamaz. Genel eşleme kamu bulutunda şu anda kullanılamıyor.
+Evet. Küresel VNet eşlemesi, farklı bölgelerdeki sanal ağları eşlemenize olanak sağlar. Küresel VNet eşlemesi tüm genel Azure bölgeleri, Çin bulut bölgeleri ve kamu bulut bölgelerinde kullanılabilir. Ulusal bulut bölgeleri için Azure ortak bölgelerden genel eş olamaz.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Genel sanal ağ eşleme ve yük Dengeleyiciler ile ilgili sınırlamalar nelerdir?
 İki sanal ağ farklı bölgede (genel sanal ağ eşleme), temel yük dengeleyici kullanan kaynaklara bağlanamıyor. Standard Load Balancer kullanan kaynaklara bağlanabilir.
@@ -241,7 +241,6 @@ Küresel VNet eşlemesi bunlara kuramayan anlamına temel yük dengeleyicileri a
 - Redis Cache 
 - Uygulama ağ geçidi (v1) SKU
 - Service Fabric
-- SQL her zaman açık
 - SQL MI
 - API yönetimini
 - Active Directory etki alanı hizmeti (ADDS)

@@ -2,18 +2,17 @@
 title: İşleç en iyi uygulamalar - Azure Kubernetes Hizmetleri (AKS) küme güvenliği
 description: Küme güvenliği ve yükseltmeleri Azure Kubernetes Service (AKS) nasıl yönetileceği küme işleci en iyi uygulamaları öğrenin
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: bf794c6c4f73c4dd25849148aa2ea68b538372c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: iainfou
+ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465126"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192204"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Küme güvenliği ve yükseltmeler Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -68,7 +67,7 @@ AppArmor nasıl çalıştığını görmek için aşağıdaki örnek dosyalara y
 #include <tunables/global>
 profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
-
+  
   file,
   # Deny all file writes.
   deny /** w,
@@ -182,13 +181,13 @@ AKS, dört alt Kubernetes sürümlerini destekler. Bu, yeni bir ikincil düzeltm
 
 Kümeniz için kullanılabilir sürümlerini denetlemek için kullanmak [az aks get-yükseltmeleri] [ az-aks-get-upgrades] komutu aşağıdaki örnekte gösterildiği gibi:
 
-```azurecli
+```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Ardından bölümünü kullanarak AKS kümenizin yükseltebilirsiniz [az aks yükseltme] [ az-aks-upgrade] komutu. Yükseltme işlemi güvenli bir şekilde cordons ve aynı anda bir düğümü boşaltır, pod'ların Kalan düğümlerde zamanlar ve sonra en son işletim sistemi ve Kubernetes sürümlerini çalıştıran yeni bir düğüm dağıtır.
 
-```azurecli
+```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
@@ -225,13 +224,13 @@ Bu makalede, AKS kümenizin güvenliğini sağlama konusunda odaklanır. Bu alan
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-get-upgrades]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-upgrade]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-upgrade
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [aks-supported-versions]: supported-kubernetes-versions.md
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722291"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203648"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight için düzeltme eki uygulama işletim sistemi 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722291"
 Bir HDInsight kümesinde sanal makineler, böylece önemli güvenlik düzeltme eklerinin yüklü bazen başlatılması gerekir. 
 
 Bu makalede açıklanan betik eylemi kullanarak işletim sistemi gibi düzeltme eki uygulama zamanlamasını değiştirebilirsiniz:
-1. Etkinleştirmek veya devre dışı otomatik yeniden başlatma
-2. Kümesi sıklığını (gün önyüklemeler) ile yeniden başlatır.
-3. Bir yeniden başlatma işlemi gerçekleştiğinde haftanın günü ayarlayın
+1. Tam işletim sistemi güncelleştirmeleri yüklemek veya yalnızca güvenlik güncelleştirmelerini yükleyin
+2. VM'yi yeniden başlatın
 
 > [!NOTE]  
-> Bu betik eylemi, yalnızca 1 Ağustos 2016'dan sonra oluşturulan Linux tabanlı HDInsight kümeleri ile çalışır. Yalnızca VM'ler yeniden başlatıldığı zaman düzeltme ekleri tarihinden itibaren geçerli olacaktır. 
+> Bu betik eylemi, yalnızca 1 Ağustos 2016'dan sonra oluşturulan Linux tabanlı HDInsight kümeleri ile çalışır. Yalnızca VM'ler yeniden başlatıldığı zaman düzeltme ekleri tarihinden itibaren geçerli olacaktır. Bu betik, tüm gelecek güncelleştirmelerden döngüleri güncelleştirmeleri otomatik olarak uygulanmaz. Her yeni güncelleştirme VM'yi yeniden başlatın ve güncelleştirmeleri yüklemek için uygulanması gerekiyor betiği çalıştırın.
 
 ## <a name="how-to-use-the-script"></a>Komut dosyası kullanma 
 
 Ne zaman bu betiği kullanarak, aşağıdaki bilgileri gerektirir:
-1. Betik konumu: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight bu URI'yi bulmak ve kümedeki tüm sanal makinelerde betiğini çalıştırmak için kullanır.
+1. Betik konumu: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.  HDInsight bu URI'yi bulmak ve kümedeki tüm sanal makinelerde betiğini çalıştırmak için kullanır.
   
-2. Betik uygulanan küme düğümü türlerini: baş düğüm, workernode, zookeeper. Bu betik, kümedeki tüm düğüm türleri uygulanması gerekir. Bir düğüm türü için uygulanmamış durumunda, sanal makineler, düğüm türü için önceki düzeltme eki uygulama zamanlamasını kullanmayı sürdürecektir.
+2. Betik uygulanan küme düğümü türlerini: baş düğüm, workernode, zookeeper. Bu betik, kümedeki tüm düğüm türleri uygulanması gerekir. Bir düğüm türü için uygulanmadı, sanal makineler, düğüm türü için güncelleştirilmez.
 
 
-3.  Parametre: Bu betik, üç sayısal parametre kabul eder:
+3.  Parametre: Bu betik, bir sayısal parametre kabul eder:
 
     | Parametre | Tanım |
     | --- | --- |
-    | Otomatik yeniden başlatmaları etkinleştirmek/devre dışı bırak |0 veya 1. 0 değeri 1 otomatik yeniden başlatmaları etkinleştirse otomatik yeniden başlatmaları devre dışı bırakır. |
-    | Sıklık |7-90 (sınırlar dahil). Yeniden başlatma gerektiren düzeltme ekleri için sanal makineleri yeniden başlatmadan önce beklenecek gün sayısı. |
-    | Haftanın günü |1 ile 7 (sınırlar dahil). 1 değeri, yeniden başlatma Pazartesi günü olmamalıdır, 7 parametrelerini kullanarak bir Sunday.For örnek belirtir 1 60 2 sonuçları otomatik yeniden Başlatmalara 60 günde (en fazla) Salı günü. |
-    | Kalıcılık |Betik eylemi mevcut bir kümeye uygularken, komut dosyasını kalıcı olarak işaretleyebilirsiniz. Küme ölçeklendirme işlemlerinin aracılığıyla eklenen yeni workernodes kalıcı duruma getirilmiş betiklerin uygulanır. |
+    | Yükleme tam işletim sisteminde güncelleştirmeler/güvenlik güncelleştirmeleri yükle |0 veya 1. 0 değeri, yalnızca tam işletim sistemi güncelleştirme 1 yüklerken güvenlik güncelleştirmeleri yükler. Hiçbir parametre sağlanmazsa varsayılan değer 0'dır. |
 
 > [!NOTE]  
 > Bu betik, mevcut bir kümeye uygularken kalıcı olarak işaretlemeniz gerekir. Aksi takdirde, ölçeklendirme işlemleri aracılığıyla oluşturulan tüm yeni düğümler, düzeltme eki uygulama zamanlamasını varsayılan kullanır.  Küme oluşturma işlemi kapsamında betiği uygularsanız, otomatik olarak kalıcıdır.

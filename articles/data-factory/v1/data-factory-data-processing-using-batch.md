@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487813"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204031"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -409,7 +409,7 @@ Yöntemi anlamanız gereken birkaç önemli bileşenden oluşur:
 #### <a name="execute-method"></a>Execute yöntemi
 Bu bölümde, yürütme yönteminde kod hakkında daha fazla ayrıntı sağlar.
 
-1. Giriş koleksiyonu yineleme üyeleri bulunan [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) ad alanı. Blob toplulukta tekrarlama için kullanmak isteniyor **BlobContinuationToken** sınıfı. Esas olarak, do kullanmanız gerekir-while döngüsü döngüden çıkma mekanizması olarak belirtecine sahip. Daha fazla bilgi için [.NET kullanım Blob depolamadan](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Temel bir döngü burada gösterilmiştir:
+1. Giriş koleksiyonu yineleme üyeleri bulunan [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) ad alanı. Blob toplulukta tekrarlama için kullanmak isteniyor **BlobContinuationToken** sınıfı. Esas olarak, do kullanmanız gerekir-while döngüsü döngüden çıkma mekanizması olarak belirtecine sahip. Daha fazla bilgi için [.NET kullanım Blob depolamadan](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Temel bir döngü burada gösterilmiştir:
 
     ```csharp
     // Initialize the continuation token.
@@ -432,7 +432,7 @@ Bu bölümde, yürütme yönteminde kod hakkında daha fazla ayrıntı sağlar.
     } while (continuationToken != null);
 
     ```
-   Daha fazla bilgi için belgelerine bakın [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) yöntemi.
+   Daha fazla bilgi için belgelerine bakın [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) yöntemi.
 
 1. BLOB'ları kümesi aracılığıyla mantıksal olarak çalışmak için kodu içinde do gider-while döngüsü. İçinde **yürütme** yöntemi, do-döngü BLOB listesini adlı bir yönteme geçirir **Calculate**. Yöntem adı bir dize değişkeni döndürür **çıkış** diğer bir deyişle kesimdeki tüm blobları aracılığıyla yinelenir sonucu.
 

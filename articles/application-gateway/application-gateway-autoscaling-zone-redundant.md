@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148896"
+ms.locfileid: "65202904"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi 
 
@@ -22,6 +22,8 @@ Yeni v2 SKU aşağıdaki geliştirmeleri içerir:
 
 - **Otomatik ölçeklendirme**: Uygulama ağ geçidi veya WAF dağıtımlar altında SKU otomatik ölçeklendirme ölçeğini artırabilir veya trafik yük düzenleri değişen aşağı dayalı. Otomatik ölçeklendirme ayrıca sağlama sırasında dağıtım boyutu veya örnek sayısı seçme gereksinimini de ortadan kaldırır. Bu SKU, doğru esneklik sunar. Standard_v2 ve WAF_v2 SKU, Application Gateway hem de sabit kapasite (otomatik ölçeklendirmeyi devre dışı) otomatik ölçeklendirme etkin modda çalışabilir. Sabit kapasite modu, tutarlı ve öngörülebilir iş yüklerine sahip senaryolar için kullanışlıdır. Otomatik ölçeklendirme modu, uygulama trafiği varyans bkz uygulamalarda yararlıdır.
 - **Bölge yedekliliği**: Bir uygulama ağ geçidi veya WAF dağıtımını birden fazla kullanılabilirlik, bir Traffic Manager ile her bölgedeki ayrı bir Application Gateway örneğinden sağlamaya gerek kaldırma yayılabilir. Tek bir bölge veya uygulama ağ geçidi örneklerinin dağıtıldığı birden çok bölgeyi bölge hatalarına karşı daha dayanıklı hale getiren seçebilirsiniz. Uygulamalar için arka uç havuzu kullanılabilirlik alanları genelinde benzer şekilde dağıtılabilir.
+
+  Bölge artıklığı, yalnızca Azure bölgeleri kullanılabilir olduğu kullanılabilir. Diğer bölgelerde, diğer tüm özellikler desteklenir. Daha fazla bilgi için [Azure kullanılabilirlik alanları nedir?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statik VIP**: Uygulama ağ geçidi v2 SKU destekler statik VIP özel olarak yazın. Bu, bir yeniden başlatma işleminden sonra bile dağıtım yaşam döngüsü için bu uygulama ağ geçidiyle ilişkili VIP de değişmez sağlar.
 - **Üstbilgi yeniden yazma**: Uygulama ağ geçidi eklemek, kaldırmak veya HTTP istek ve yanıt üstbilgileri v2 SKU ile güncelleştirme sağlar. Daha fazla bilgi için [uygulama ağ geçidi ile yeniden HTTP üstbilgileri](rewrite-http-headers.md)
 - **Anahtar kasası tümleştirmeyi (Önizleme)**: Uygulama ağ geçidi v2, etkin HTTPS dinleyicileri için bağlı sunucu sertifikaları için (genel önizlemede) anahtar kasası ile tümleştirmeyi destekler. Daha fazla bilgi için [sertifikaları Key Vault ile SSL sonlandırma](key-vault-certs.md).
