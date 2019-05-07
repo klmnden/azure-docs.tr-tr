@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7d57b9d6a06f230835b53d5f6c8120b2a9b61ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924881"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150756"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -54,7 +54,12 @@ ABD veya Kanada cihaz döndüren, aşağıdaki adımları uygulayın.
     - Cihaz etiketi eklemesi.
 
 2. Sevkiyat kutusunu mühürleyin ve iade sevkiyat etiketinin görünür olduğundan emin olun.
-3. UPS ile bir toplama zamanlayın.
+3. UPS ile bir toplama zamanlayın. Bir toplama zamanlamak için:
+
+    - Yerel UPS (ücretsiz ülkelere özgü arama numarası) çağırın.
+    - Çağrınızda, izleme yazdırılan etiketinizin gösterildiği numarası ters sevkiyat teklif.
+    - İzleme numarası tırnak içinde değil, UPS alımı sırasında ek bir ücret ödeme yapmanızı gerektirir.
+    - Toplama zamanlama yerine, ayrıca en yakın bırakma konumu Data Box Disk devre dışı bırakabilir.
 
 
 ### <a name="pick-up-in-europe"></a>Avrupa'da öğrenilip

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 131d62fd2cea3ed76342f0fd179b7a9e0fd673e5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925255"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148515"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -170,7 +170,7 @@ Evet. Daha fazla bilgi bulabilirsiniz [farklı bir alt ağa bir VM veya rol örn
 Hayır. Bir MAC adresi statik olarak yapılandırılamaz.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>Oluşturulduktan sonra MAC adresini sanal Makinem için aynı kalır?
-Evet, MAC adresini silinene kadar Resource Manager ve klasik dağıtım modelleri aracılığıyla dağıtılan bir sanal makine için aynı kalır. Daha önce MAC adresini VM durduruldu (serbest bırakıldı), ancak VM serbest bırakılmış durumda olduğunda bile artık MAC adresini korunur yayınlanmıştır.
+Evet, MAC adresini silinene kadar Resource Manager ve klasik dağıtım modelleri aracılığıyla dağıtılan bir sanal makine için aynı kalır. Daha önce MAC adresini VM durduruldu (serbest bırakıldı), ancak VM serbest bırakılmış durumda olduğunda bile artık MAC adresini korunur yayınlanmıştır. Ağ arabirimi silinmiş veya birincil ağ arabiriminin birincil IP yapılandırması için atanmış özel IP adresi değiştirildiğinde kadar MAC adresinin ağ arabirimine atanmış olarak kalır. 
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>İnternet'e bir sanal ağ içindeki bir VM'den bağlanabiliyor musunuz?
 Evet. Bir sanal ağ içinde dağıtılan tüm Vm'leri ve Cloud Services rol örnekleri, Internet'e bağlanabilir.

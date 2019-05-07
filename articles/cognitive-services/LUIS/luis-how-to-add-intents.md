@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097071"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148161"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Konuşma kullanıcı amacınıza belirlemek için hedef ekleme
 
@@ -42,16 +42,25 @@ Hedefleri, üst gezinti çubuğundan 's yönetilir **derleme** bölümünden, ar
 
     LUIS, tüm konuşma küçük harfe dönüştürür ve kısa çizgi gibi belirteçleri boşluk ekler.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Hedefi tahmin tutarsızlık hataları 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Bir hedefi olarak bir utterance seçili amaç ve tahmin puanı arasında bir hedefi tahmin uyumsuzluk olabilir. LUIS çevresinde ile bu farklılık gösteren **hedefi etiketli** örnek utterance satırda. 
+## <a name="intent-prediction-errors"></a>Hedefi tahmin hataları 
 
-![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, utterance tahmin tutarsızlık hataları](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+Bir örnek utterance bir amacı, hedefi tahmin hata yer şu anda örnek utterance amaç ve eğitim sırasında belirlenen tahmin hedefi arasında olabilir. 
 
-Üst gezinti bölmesinde **eğitme**. Tahmin tutarsızlık sunulmuştur kayboldu.
+Utterance tahmin hataları bulmak ve bunları düzeltmek için kullanın **filtre** seçeneğin **değerlendirme** yanlış ve Unclear seçenekleri Sunucusu'yla birlikte **görünümü** seçeneği**Ayrıntılı görünümü**. 
 
-> [!Note]
-> Bir sözcük veya tümcecik örnek utterance içinde altında kırmızı bir çizgi olduğunda bir [varlık tahmin hata](luis-how-to-add-example-utterances.md#entity-status-predictions) oluştu. Düzeltmeniz gerekir. 
+![Utterance tahmin hataları bulmak ve bunları düzeltmek için filtre seçeneğini kullanın.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Filtreler ve görünüm uygulanır ve örnek konuşma hatalarla olduğunda, örnek utterance liste konuşma ve sorunları gösterir.
+
+![! [Filtreler ve görünüm uygulanır ve örnek konuşma hatalarla olduğunda, örnek utterance liste konuşma ve sorunları gösterir.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Her satır için bu iki puanları farkı olan en yakın müsabık'ın puanı örnek utterance geçerli eğitim 's tahmin puanı gösterir. 
+
+### <a name="fixing-intents"></a>Intents düzeltme
+
+Hedefi tahmin hataların nasıl düzeltileceğini öğrenmek için kullanın [Özet Panosu](luis-how-to-use-dashboard.md). Özet panosu için etkin sürüme ait son eğitim analizini sağlar ve modelinizi düzeltmek için en çok istenen önerilerden sunar.  
 
 ## <a name="add-a-custom-entity"></a>Özel bir varlık ekleme
 

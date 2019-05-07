@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720333"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142530"
 ---
 # <a name="get-resource-changes"></a>Kaynak değişikliklerini alma
 
@@ -29,7 +29,7 @@ Değişiklik algılama ve ayrıntıları, aşağıdaki örnek senaryolar için d
 - Bir yapılandırma yönetim veritabanıdır tutarak bir CMDB, güncel bilinir. Tüm kaynaklar ve bunların tam özellik kümeleri üzerinde zamanlanmış sıklığı yenilemek yerine yalnızca nelerin değiştiğini alın.
 - Hangi özelliklerde değiştirilmiş bir kaynağın uyumluluk durumu değiştiğinde anlama. Bu ek özellikler değerlendirmesi bir Azure İlkesi tanım yönetilmesi gereken diğer özellikleri hakkında Öngörüler sağlar.
 
-Bu makalede, Kaynak grafiğin SDK'sı aracılığıyla bu bilgileri toplamak gösterilmektedir. Bu bilgiler Azure portalında görmek için Azure İlkesi'nin bkz [değişiklik geçmişini](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+Bu makalede, Kaynak grafiğin SDK'sı aracılığıyla bu bilgileri toplamak gösterilmektedir. Bu bilgiler Azure portalında görmek için Azure İlkesi'nin bkz [değişiklik geçmişini](../../policy/how-to/determine-non-compliance.md#change-history-preview) veya Azure etkinlik günlüğü [değişiklik geçmişini](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Değişiklik ayrıntıları kaynak Graph'te için Resource Manager özelliklerdir. Azure Automation'ın bir sanal makine içinde değişiklikleri izlemek için bkz [değişiklik izleme](../../../automation/automation-change-tracking.md) veya Azure İlkesi'nin [sanal makineler için konuk yapılandırma](../../policy/concepts/guest-configuration.md).

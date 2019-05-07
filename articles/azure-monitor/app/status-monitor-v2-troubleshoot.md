@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 26d677df81df6e10fae8d63362d49deee2cd0aca
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f8e057bf2e71d5a00c1e2a8ef72a5c9415a5a207
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870755"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145115"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Sorun giderme durumu izleme v2
 
@@ -200,3 +200,9 @@ Komutunu kullanarak bir PowerShell oturumuna Modül yüklenmedi, el ile yükleye
 4. Uygulamanız için göz atmayı deneyin.
 5. Uygulamanızı yükleme tamamlandıktan sonra PerfView için dönüş ve "Toplamasını Durdur" tıklayın
 
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Gözden geçirme bizim [API Başvurusu](status-monitor-v2-overview.md#powershell-api-reference) kaçırdığınıza bir parametre bulunamadı.
+- Burada listelenmeyen bir sorun arasında geliyorsa, bize başvurabilirsiniz [burada](https://github.com/Microsoft/ApplicationInsights-Home/issues).

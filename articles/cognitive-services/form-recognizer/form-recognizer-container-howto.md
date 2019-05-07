@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d4374b329049e2e55966a28567c5232be77abda
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027071"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143031"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Yüklemek ve forma tanıyıcı kapsayıcılarını çalıştırın
 Form tanıyıcı tanımlamak ve anahtar-değer çiftleri ve tabloları formlardan ayıklamak için makine öğrenimi teknolojisi geçerlidir. Bu değerler ve tablo girişleri onlara ilişkilendirir ve ardından özgün dosyayı ilişkileri içeren yapılandırılmış verileri çıkarır. İş akışı Otomasyonu işleminiz veya başka bir uygulama içinde kolayca tümleştirin ve karmaşıklığını azaltmak için basit bir REST API kullanarak özel Form tanıyıcı modelinizi çağırabilirsiniz. Yalnızca beş belge (veya boş bir form) gerekli sonuçları alabilmeniz için hızlı bir şekilde, doğru bir şekilde ve ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gerek kalmadan özel içeriğinize uyarlanmış. Veri ek açıklama verileri etiketleme veya gerektirmez.
@@ -34,7 +34,7 @@ Form tanıyıcı kapsayıcıları kullanmadan önce aşağıdaki gereksinimleri 
 |Docker altyapısı| Docker Altyapısı'nın kurulu ihtiyacınız bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
 |Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.|
 |Azure CLI| Yüklemeniz gereken [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) konağınızdaki.|
-|Görüntü işleme API'si kaynak bilgisayar| Taranmış belgeler ve resimler işlemek için bir **görüntü işleme kaynak** gereklidir. Erişebildiğiniz **metni tanı** özellik ya da bir Azure kaynağı (REST API veya SDK'sı) olarak veya bir `cognitive-services-recognize-text` kapsayıcı. Her zamanki faturalandırma ücretleri uygulanır. <br><br>Hem anahtar hem de fatura uç noktası, özel görüntü işleme kaynak için (Azure Bulut veya Bilişsel hizmetler kapsayıcısı) geçmesi gerekir. Bu anahtar ve fatura uç nokta {COMPUTER_VISION_API_KEY} kullanın ve {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Kullanırsanız  **`cognitive-services-recognize-text` kapsayıcı**, emin olun:<br><br>* Görüntü işleme anahtarınız Form tanıyıcı kapsayıcısı için görüntü işleme belirtilen anahtarla ise `docker run` komutunu `cognitive-services-recognize-text` kapsayıcı.<br>* Fatura bitiş kapsayıcının uç noktası, olduğu gibi `https://localhost:5000`. Görüntü işleme ve Form tanıyıcı kapsayıcılar aynı ana bilgisayarda birlikte kullanıyorsa, bunlar her ikisi de varsayılan bağlantı noktası ile başlatılamıyor `5000`.  |  
+|Görüntü işleme API'si kaynak bilgisayar| Taranmış belgeler ve resimler işlemek için bir **görüntü işleme kaynak** gereklidir. Erişebildiğiniz **metni tanı** özellik ya da bir Azure kaynağı (REST API veya SDK'sı) olarak veya bir `cognitive-services-recognize-text` [kapsayıcı](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). Her zamanki faturalandırma ücretleri uygulanır. <br><br>Hem anahtar hem de fatura uç noktası, özel görüntü işleme kaynak için (Azure Bulut veya Bilişsel hizmetler kapsayıcısı) geçmesi gerekir. Bu anahtar ve fatura uç nokta {COMPUTER_VISION_API_KEY} kullanın ve {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Kullanırsanız  **`cognitive-services-recognize-text` kapsayıcı**, emin olun:<br><br>* Görüntü işleme anahtarınız Form tanıyıcı kapsayıcısı için görüntü işleme belirtilen anahtarla ise `docker run` komutunu `cognitive-services-recognize-text` kapsayıcı.<br>* Fatura bitiş kapsayıcının uç noktası, olduğu gibi `https://localhost:5000`. Görüntü işleme ve Form tanıyıcı kapsayıcılar aynı ana bilgisayarda birlikte kullanıyorsa, bunlar her ikisi de varsayılan bağlantı noktası ile başlatılamıyor `5000`.  |  
 |Form tanıyıcı kaynağı |Bu kapsayıcıların kullanabilmeniz için şunlara sahip olmalısınız:<br><br>A _Form tanıyıcı_ fatura uç noktası URI'si ve ilişkili faturalandırma anahtarı almak için Azure kaynak. Her iki değeri de Azure portalında üzerinde kullanılabilir **Form tanıyıcı** genel bakış ve anahtarları sayfaları ve bu, kapsayıcı başlatma için gerekli.<br><br>**{BILLING_KEY}** : kaynak anahtarı<br><br>**{BILLING_ENDPOINT_URI}** : uç nokta URI'si örnektir: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Kapsayıcı kayıt defterine erişim isteği
@@ -65,13 +65,19 @@ Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir Form t
 > [!Note]
 > En düşük ve önerilen değerler Docker sınırları dışına temel alır ve *değil* ana makine kaynakları.
 
-## <a name="get-the-container-image-with-docker-pull"></a>İle kapsayıcı görüntüsünü Al `docker pull`
+## <a name="get-the-container-image-with-docker-pull-command"></a>Docker pull komutuyla kapsayıcı görüntüsünü Al
 
 Kapsayıcı görüntülerini Form tanıyıcı için kullanılabilir.
 
 | Kapsayıcı | Depo |
 |-----------|------------|
 | bilişsel-services-form-tanıyıcı | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+
+Kullanmayı planlıyorsanız `cognitive-services-recognize-text` [kapsayıcı](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull), Form tanıyıcı hizmet yerine kullandığınızdan emin olun `docker pull` komutunu doğru kapsayıcı adı: 
+
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

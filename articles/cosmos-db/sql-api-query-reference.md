@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626901"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145187"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL dil başvurusu 
 
@@ -31,7 +31,8 @@ Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan t
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
  **Açıklamalar**  
@@ -42,6 +43,8 @@ SELECT <select_specification>
 -   [FROM yan tümcesi](#bk_from_clause)    
 -   [WHERE yan tümcesi](#bk_where_clause)    
 -   [ORDER BY yan tümcesi](#bk_orderby_clause)  
+-   [UZAKLIK sınırlama yan tümcesi](#bk_offsetlimit_clause)
+
   
 Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır.  
   
@@ -52,7 +55,8 @@ Yan tümceleri işlenme sırası şöyledir:
 1.  [FROM yan tümcesi](#bk_from_clause)  
 2.  [WHERE yan tümcesi](#bk_where_clause)  
 3.  [ORDER BY yan tümcesi](#bk_orderby_clause)  
-4.  [SELECT yan tümcesi](#bk_select_query)  
+4.  [SELECT yan tümcesi](#bk_select_query)
+5.  [UZAKLIK sınırlama yan tümcesi](#bk_offsetlimit_clause)
 
 Bu söz diziminde görünme sırasını farklı olduğunu unutmayın. İşlenen bir yan tümce tarafından kullanıma sunulan tüm yeni simgeler görünür ve daha sonra işlenen yan tümcelerinde kullanılabilir olacağı şekilde sıralamadır. Örneğin, bir FROM yan tümcesinde bildirilen diğer adlar nerede erişilebilir ve SELECT yan.  
 
@@ -76,8 +80,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -101,7 +105,11 @@ SELECT <select_specification>
 - `VALUE`  
 
   JSON değerinin yerine tam JSON nesne alınacağını belirtir. Bunun aksine `<property_list>` Öngörülen Değer nesneyi kaydırma değil.  
+ 
+- `DISTINCT`
   
+  Yinelenen öngörülen özelliklerinin kaldırılması gerektiğini belirtir.  
+
 - `<scalar_expression>`  
 
   Hesaplanmasını değeri gösteren ifade. Bkz: [skaler ifadelerin](#bk_scalar_expressions) ayrıntıları bölümü.  
@@ -341,23 +349,23 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **Bağımsız Değişkenler**  
   
 - `<sort_specification>`  
   
-   Bir özellik ya da üzerinde sorgu sonucu kümesini sıralama yapılacak ifade belirtir. Sıralama sütunu adı ya da sütun diğer adı belirtilebilir.  
+   Bir özellik ya da üzerinde sorgu sonucu kümesini sıralama yapılacak ifade belirtir. Sıralama sütununu bir ad veya özelliği diğer adı belirtilebilir.  
   
-   Sütunları Sırala birden çok belirtilebilir. Sütun adları benzersiz olmalıdır. Sıralanmış bir sonuç kümesi organizasyonu ORDER BY yan tümcesindeki sıralama sütun sırasını tanımlar. Diğer bir deyişle, sonuç kümesi ilk özelliği tarafından sıralanır ve ardından bu sıralı liste ikinci özelliği vb. göre sıralanır.  
+   Birden çok özellikler belirtilebilir. Özellik adlarının benzersiz olması gerekir. Kuruluş sıralanmış sonuç kümesinin özellikleri Sırala ORDER BY yan tümcesinde sırasını tanımlar. Diğer bir deyişle, sonuç kümesi ilk özelliği tarafından sıralanır ve ardından bu sıralı liste ikinci özelliği vb. göre sıralanır.  
   
-   ORDER BY yan tümcesinde başvurulan sütun adları ya da bir sütuna seçim listesinde veya tanımlanan tüm belirsizlikleri olmadan FROM yan tümcesinde belirtilen bir tablodaki bir sütuna karşılık gelmelidir.  
+   ORDER BY yan tümcesinde başvurulan özellik adlarını özelliği seçim listesinde veya FROM yan tümcesi olmadan tüm belirsizlikleri belirtilen koleksiyonda tanımlanan bir özellik karşılık gelmelidir.  
   
 - `<sort_expression>`  
   
-   Tek bir özellik veya üzerinde sorgu sonucu kümesini sıralama yapılacak ifade belirtir.  
+   Bir veya daha fazla özellikleri ya da, sorgu sonucu kümesini sıralama ifadelerini belirtir.  
   
 - `<scalar_expression>`  
   
@@ -369,8 +377,34 @@ ORDER BY <sort_specification>
   
   **Açıklamalar**  
   
-  Sorgu dil bilgisi, özellik tarafından birden çok sipariş desteklese de, Cosmos DB sorgu çalışma zamanı yalnızca tek bir özelliğe karşı ve yalnızca özellik adlarının (değil karşı hesaplanan Özellikler) göre sıralamayı destekler. Sıralama, aynı zamanda dizin oluşturma ilkesini özelliği ve verilen duyarlık ile belirtilen tür için bir aralık dizini içerir gerektirir. Daha fazla ayrıntı için dizin oluşturma ilkesi belgeleri bakın.  
+   ORDER BY yan tümcesi, dizin oluşturma ilkesini sıralanan alanları için dizin eklemenizi gerektirir. Azure Cosmos DB sorgu çalışma zamanı, bir özellik adı değil, hesaplanan özellikler adlarla ve sıralamayı destekler. Azure Cosmos DB, birden çok ORDER BY özelliklerini destekler. ORDER BY birden çok özelliklerle bir sorgu çalıştırmak için tanımlamalıdır bir [bileşik dizin](index-policy.md#composite-indexes) sıralanan alanları.
+
+
+##  <a name=bk_offsetlimit_clause></a> UZAKLIK sınırlama yan tümcesi
+
+Atlanan öğe sayısını ve döndürülen öğe sayısını belirtir. Örnekler için bkz [UZAKLIĞI sınırı tümcesi örnekleri](how-to-sql-query.md#OffsetLimitClause)
   
+ **Söz dizimi**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **Bağımsız Değişkenler**  
+ 
+- `<offset_amount>`
+
+   Sorgu sonuçları atlamalısınız öğeleri tamsayı sayısını belirtir.
+
+
+- `<limit_amount>`
+  
+   Sorgu sonuçları içermelidir bir öğe tamsayı sayısını belirtir
+
+  **Açıklamalar**  
+  
+  UZAKLIK sayımı hem sınırı sayısı sınırı UZAKLIĞI yan tümcesinde gerekir. İsteğe bağlı ise `ORDER BY` yan tümcesi kullanıldığında, sonuç kümesi sıralı değerleri Atla yaparak üretilir. Aksi takdirde, sorgu bir sabit değerlerin sırasını döndürür.
+
 ##  <a name="bk_scalar_expressions"></a> Skaler ifade  
  Skaler bir ifade, semboller ve işleçleri tek bir değer almak için değerlendirilen bir birleşimidir. Basit ifadeler sabitler, özellik başvuru, dizi öğesi başvuruları, diğer başvurular veya işlev çağrıları olabilir. Basit ifadeler işleçleri kullanarak karmaşık ifadelere birleştirilebilir. Örnekler için bkz [skaler ifade örnekleri](how-to-sql-query.md#scalar-expressions)
   
@@ -681,7 +715,8 @@ ORDER BY <sort_specification>
 |[Matematik işlevleri](#bk_mathematical_functions)|Matematik işlevleri her, genellikle bağımsız değişken olarak sağlanan ve sayısal bir değer döndürmesi giriş değerlerine göre bir hesaplama gerçekleştirir.|  
 |[Tür denetimini işlevleri](#bk_type_checking_functions)|Tür denetimi işlevleri SQL sorgusu içindeki bir ifadenin türü denetlemenizi sağlar.|  
 |[Dize işlevleri](#bk_string_functions)|Dize işlevleri, bir dize giriş değeri bir işlem gerçekleştirmek ve bir dize, sayısal veya Boolean değeri döndürür.|  
-|[Dizi işlevleri](#bk_array_functions)|Dizi işlevler bir dizi giriş değeri ve dönüş sayısal, Boole değeri veya dizi değeri üzerinde bir işlem gerçekleştirir.|  
+|[Dizi işlevleri](#bk_array_functions)|Dizi işlevler bir dizi giriş değeri ve dönüş sayısal, Boole değeri veya dizi değeri üzerinde bir işlem gerçekleştirir.|
+|[Tarih ve saat işlevleri](#bk_date_and_time_functions)|Tarih ve saat işlevleri geçerli UTC tarih ve saat iki biçimde almanızı sağlar. değeri milisaniye cinsinden veya ISO 8601 biçimine uyan bir dize olarak UNIX dönem olan sayısal bir zaman damgası.|
 |[Uzamsal İşlevler](#bk_spatial_functions)|Uzamsal İşlevler, uzamsal nesne giriş değeri bir işlem gerçekleştirmek ve bir sayısal veya Boolean değeri döndürür.|  
   
 ###  <a name="bk_mathematical_functions"></a> Matematik işlevleri  
@@ -2363,13 +2398,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- Sonuç kümesini burada verilmiştir.
+Sonuç kümesini burada verilmiştir.
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- Geçersiz giriş örneği verilmiştir. 
+Geçersiz giriş örneği verilmiştir. 
    
  Dizi içinde tek tırnak işareti, geçerli bir JSON değil.
 Bir sorgu içinde geçerli olsa da, geçerli dizilere ayrıştırılamıyor. Dizi dize içindeki dizeler ya da konulmalıdır "[\\"\\"]" ya da çevreleyen tırnak tek ' [""]'.
@@ -2379,13 +2414,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- Sonuç kümesini burada verilmiştir.
+Sonuç kümesini burada verilmiştir.
 
 ```
 [{}]
 ```
 
- Geçersiz girdi örnekleri aşağıda verilmiştir.
+Geçersiz girdi örnekleri aşağıda verilmiştir.
    
  Geçen ifadeye bir JSON dizisi olarak ayrıştırılacak; aşağıdaki dizi türü ve dolayısıyla tanımlanmamış döndürmek için değerlendirmez.
    
@@ -2398,7 +2433,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- Sonuç kümesini burada verilmiştir.
+Sonuç kümesini burada verilmiştir.
 
 ```
 [{}]
@@ -2429,7 +2464,7 @@ StringToBoolean(<expr>)
  
  Geçerli giriş ile örnekleri aşağıda verilmiştir.
 
- Boşluk yalnızca önce veya sonra "true"/ "false" izin verilmiyor.
+Boşluk yalnızca önce veya sonra "true"/ "false" izin verilmiyor.
 
 ```  
 SELECT 
@@ -2444,8 +2479,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- Geçersiz giriş ile örnekleri aşağıda verilmiştir.
- 
+Geçersiz giriş ile örnekleri aşağıda verilmiştir.
+
  Boole değerleri büyük/küçük harfe duyarlıdır ve tüm küçük harfle ör "true" ve "false" için yazılmış olmalıdır.
 
 ```  
@@ -2454,15 +2489,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- Sonuç kümesini burada verilmiştir.  
+Sonuç kümesini burada verilmiştir.  
   
 ```  
 [{}]
 ``` 
 
- Geçen ifadeye bir Boole ifadesi ayrıştırılacak; Boolean türü ve dolayısıyla tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
+Geçen ifadeye bir Boole ifadesi ayrıştırılacak; Boolean türü ve dolayısıyla tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2471,7 +2506,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- Sonuç kümesini burada verilmiştir.  
+Sonuç kümesini burada verilmiştir.  
   
 ```  
 [{}]
@@ -2500,8 +2535,8 @@ StringToNull(<expr>)
   
   Aşağıdaki örnek, StringToNull farklı türleri arasında nasıl davranacağını gösterir. 
 
- Geçerli giriş ile örnekleri aşağıda verilmiştir.
- 
+Geçerli giriş ile örnekleri aşağıda verilmiştir.
+
  Boşluk yalnızca önce veya sonra "null" izin verilmiyor.
 
 ```  
@@ -2517,9 +2552,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- Geçersiz giriş ile örnekleri aşağıda verilmiştir.
+Geçersiz giriş ile örnekleri aşağıda verilmiştir.
 
- Null büyük/küçük harfe duyarlıdır ve tüm küçük harfle "null" yani yazılmış olmalıdır.
+Null büyük/küçük harfe duyarlıdır ve tüm küçük harfle "null" yani yazılmış olmalıdır.
 
 ```  
 SELECT    
@@ -2533,7 +2568,7 @@ SELECT
 [{}]
 ```  
 
- Geçen ifadeye null bir ifade olarak ayrıştırılacak; null yazın ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
+Geçen ifadeye null bir ifade olarak ayrıştırılacak; null yazın ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
 
 ```  
 SELECT    
@@ -2572,8 +2607,8 @@ StringToNumber(<expr>)
   
   Aşağıdaki örnek, StringToNumber farklı türleri arasında nasıl davranacağını gösterir. 
 
- Boşluk yalnızca önce veya sonra sayısı izin verilir.
- 
+Boşluk yalnızca önce veya sonra sayısı izin verilir.
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2588,8 +2623,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- JSON biçiminde geçerli bir sayı olmalıdır ya da bir tamsayı veya kayan olması nokta sayısı.
- 
+JSON biçiminde geçerli bir sayı olmalıdır ya da bir tamsayı veya kayan olması nokta sayısı.
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2601,7 +2636,7 @@ SELECT
 {{}}
 ```  
 
- Geçen ifadeye sayı bir ifade olarak ayrıştırılacak; Numarasını yazın ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez. 
+Geçen ifadeye sayı bir ifade olarak ayrıştırılacak; Numarasını yazın ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez. 
 
 ```  
 SELECT 
@@ -2643,7 +2678,7 @@ StringToObject(<expr>)
   Aşağıdaki örnek, StringToObject farklı türleri arasında nasıl davranacağını gösterir. 
   
  Geçerli giriş ile örnekleri aşağıda verilmiştir.
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2652,7 +2687,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- Sonuç kümesini burada verilmiştir.
+Sonuç kümesini burada verilmiştir.
 
 ```
 [{"obj1": {}, 
@@ -2660,40 +2695,40 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  Geçersiz giriş ile örnekleri aşağıda verilmiştir.
 Bir sorgu içinde geçerli olsa da, geçerli nesnelere ayrıştırılamıyor. Nesnenin dize içindeki dizeler ya da konulmalıdır "{\\" bir\\":\\" str\\"}" veya çevreleyen tırnak tek ' {"a": "dizesi"}'.
 
- Özellik adlarının çevreleyen tırnak geçerli JSON değil.
+Özellik adlarının çevreleyen tırnak geçerli JSON değil.
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- Sonuç kümesini burada verilmiştir.
+Sonuç kümesini burada verilmiştir.
 
 ```  
 [{}]
 ```  
 
- Özellik adlarının çevreleyen tırnak işaretleri olmadan geçerli bir JSON değil.
+Özellik adlarının çevreleyen tırnak işaretleri olmadan geçerli bir JSON değil.
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- Sonuç kümesini burada verilmiştir.
+Sonuç kümesini burada verilmiştir.
 
 ```  
 [{}]
 ``` 
 
- Geçersiz giriş ile örnekleri aşağıda verilmiştir.
- 
+Geçersiz giriş ile örnekleri aşağıda verilmiştir.
+
  Geçen ifadeye bir JSON nesnesi olarak ayrıştırılacak; nesne türünü ve bu nedenle tanımlanmamış döndürmek için bu girişlerin değerlendirmez.
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2798,20 +2833,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- Sonuç kümesini burada verilmiştir.  
+Sonuç kümesini burada verilmiştir.  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 Şu giriş verilir.
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- Aşağıdaki örnek, diğer değiştirme gibi dize işlevlerle ToString'ın nasıl kullanılabileceğini gösterir.   
+Aşağıdaki örnek, diğer değiştirme gibi dize işlevlerle ToString'ın nasıl kullanılabileceğini gösterir.   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2819,14 +2854,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- Sonuç kümesini burada verilmiştir.  
+Sonuç kümesini burada verilmiştir.  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> KIRPMA  
  Baştaki ve sondaki boşlukları kaldırır sonra bir dize ifadesi döndürür.  
@@ -2937,7 +2972,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Dizi belirtilen değeri içerip içermediğini gösteren bir Boole değeri döndürür. Komut içinde bir Boole ifadesi kullanarak bir nesne için bir kısmi veya tam eşleşme kontrol edebilirsiniz. 
 
- **Söz dizimi**  
+**Söz dizimi**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2977,7 +3012,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- Aşağıdaki örnek nasıl bir JSON dizi ARRAY_CONTAINS kısmi bir eşleşme olup olmadığını denetleyin.  
+Aşağıdaki örnek nasıl bir JSON dizi ARRAY_CONTAINS kısmi bir eşleşme olup olmadığını denetleyin.  
   
 ```  
 SELECT  
@@ -3085,7 +3120,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> Tarih ve saat işlevleri
+ Aşağıdaki skaler işlevler geçerli UTC tarih ve saat iki biçimde almanızı sağlar. değeri milisaniye cinsinden veya ISO 8601 biçimine uyan bir dize olarak UNIX dönem olan sayısal bir zaman damgası. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Geçerli UTC tarihi ve saati ISO 8601 dize olarak döndürür.
+  
+ **Söz dizimi**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **Dönüş türleri**
+  
+  Geçerli UTC tarihi ve saati ISO 8601 dize değeri döndürür. 
+
+  Bu biçimi YYYY-AA-DDThh:mm:ss.sssZ ifade burada:
+  
+  |||
+  |-|-|
+  |YYYY|dört rakamlı yıl|
+  |MM|iki haneli ay (01 Ocak, = vs.)|
+  |DD|iki basamaklı ayın (01 ile 31)|
+  |T|Başlangıç saati öğelerin signifier|
+  |hh|iki basamaklı saat (00-23)|
+  |aa|iki basamaklı dakika (00 ile 59)|
+  |ss|iki basamaklı saniye (00 ile 59)|
+  |.SSS|kesirli saniyenin üç hanesi|
+  |Z|UTC (Eşgüdümlü Evrensel Saat) göstergesi||
+  
+  ISO 8601 biçimi hakkında daha fazla bilgi için bkz. [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **Açıklamalar**
+
+  GetCurrentDateTime belirleyici olmayan bir işlevdir. 
+  
+  UTC (Eşgüdümlü Evrensel Saat) döndürülen sonuç çizgidir.
+
+  **Örnekler**  
+  
+  Aşağıdaki örnek, geçerli UTC tarih saat GetCurrentDateTime yerleşik işlevini kullanarak nasıl gösterir.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ İşte bir örnek sonuç kümesi.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ 00:00:00 beri Perşembe, 1 Ocak 1970 geçen milisaniye sayısını döndürür. 
+  
+ **Söz dizimi**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Dönüş türleri**  
+  
+  Sayısal bir değer, geçerli UNIX dönem itibaren Örneğin 00:00:00 beri Perşembe, 1 Ocak 1970 geçen milisaniye sayısını geçen milisaniye sayısını döndürür.
+
+  **Açıklamalar**
+
+  GetCurrentTimestamp belirleyici olmayan bir işlevdir. 
+  
+  UTC (Eşgüdümlü Evrensel Saat) döndürülen sonuç çizgidir.
+
+  **Örnekler**  
+  
+  Aşağıdaki örnek alma GetCurrentTimestamp yerleşik işlevi kullanarak geçerli zaman damgasını gösterir.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ İşte bir örnek sonuç kümesi.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> Uzamsal İşlevler  
  Aşağıdaki skaler İşlevler, uzamsal nesne giriş değeri bir işlem gerçekleştirmek ve bir sayısal veya Boolean değeri döndürür.  
   
@@ -3292,7 +3420,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
 - [SQL söz dizimi ve Cosmos DB SQL sorgusu](how-to-sql-query.md)

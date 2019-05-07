@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b4c3f7445d18ab1548fd63b1f4d12c5901cf949
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712840"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148648"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 LUIS uygulaması için önceden oluşturulmuş varlık
 
@@ -31,16 +31,16 @@ Aşağıdaki örnek JSON yanıtı sahip bir `datetimeV2` bir alt varlık `dateti
 ```json
 "entities": [
   {
-    "entity": "8am on may 2nd 2017",
+    "entity": "8am on may 2nd 2019",
     "type": "builtin.datetimeV2.datetime",
     "startIndex": 0,
     "endIndex": 18,
     "resolution": {
       "values": [
         {
-          "timex": "2017-05-02T08",
+          "timex": "2019-05-02T08",
           "type": "datetime",
-          "value": "2017-05-02 08:00:00"
+          "value": "2019-05-02 08:00:00"
         }
       ]
     }
@@ -82,8 +82,8 @@ Her öğeyi `values` dizisi, aşağıdaki alanları olabilir:
 |Özellik adı|Özellik açıklaması|
 |--|--|
 |Timex|saat, tarih veya tarih aralığını izleyen TIMEX biçiminde ifade [ISO 8601 standardına](https://en.wikipedia.org/wiki/ISO_8601) ve TIMEX3 özniteliklerini TimeML dilini kullanarak ek açıklaması için. Bu ek açıklama açıklanan [TIMEX yönergeleri](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|Aşağıdaki öğelerden herhangi birini alt tür: tarih/saat, tarih, saat, daterange, timerange, datetimerange, süre, kümesi.|
-|değer|**İsteğe bağlı.** Bir datetime nesnesini (tarih) (TarihSaat) ss: dd: ss (saat) yyyy:MM:dd biçimi yyyy:MM:dd içinde. Varsa `type` olduğu `duration`, değeri (süre) saniye sayısıdır. <br/> Yalnızca `type` olduğu `datetime` veya `date`, `time`, veya ' süresi.|
+|type|Aşağıdaki öğeler herhangi birini alt tür: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
+|value|**İsteğe bağlı.** Bir datetime nesnesini (tarih) (TarihSaat) ss: dd: ss (saat) yyyy:MM:dd biçimi yyyy:MM:dd içinde. Varsa `type` olduğu `duration`, değeri (süre) saniye sayısıdır. <br/> Yalnızca `type` olduğu `datetime` veya `date`, `time`, veya ' süresi.|
 
 ## <a name="valid-date-values"></a>Geçerli bir tarih değerleri
 
@@ -116,12 +116,12 @@ Aşağıdaki örnek, "2 Mayıs" varlık çözümleme gösterir. Bu çözüm, bug
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2017-05-02"
+            "value": "2019-05-02"
           },
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2018-05-02"
+            "value": "2020-05-02"
           }
         ]
       }
@@ -145,14 +145,8 @@ Aşağıdaki örnek, "2 Mayıs" varlık çözümleme gösterir. Bu çözüm, bug
           {
             "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
             "type": "daterange",
-            "start": "2017-05-02",
-            "end": "2017-05-05"
-          },
-          {
-            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-            "type": "daterange",
-            "start": "2018-05-02",
-            "end": "2018-05-05"
+            "start": "2019-05-02",
+            "end": "2019-05-05"
           }
         ]
       }
@@ -176,14 +170,8 @@ Aşağıdaki örnek, LUIS nasıl kullandığını gösterir. **datetimeV2** "Per
           {
             "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
             "type": "daterange",
-            "start": "2017-06-13",
-            "end": "2017-06-15"
-          },
-          {
-            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-            "type": "daterange",
-            "start": "2017-06-20",
-            "end": "2017-06-22"
+            "start": "2019-04-30",
+            "end": "2019-05-02"
           }
         ]
       }
@@ -216,6 +204,89 @@ Aşağıdaki örnek, LUIS nasıl kullandığını gösterir. **datetimeV2** bir 
       }
     }
   ]
+```
+
+## <a name="preview-api-version-3x"></a>Önizleme API sürümü 3.x
+
+DatetimeV2 JSON yanıtı API v3 sürümüne değişti. 
+
+API V2 değişiklikler:
+* `datetimeV2.timex.type` özelliği üst düzeyde döndürdüğünden bundan böyle döndürülen `datetimev2.type`. 
+* `datetimeV2.timex` Özelliği adlandırıldı `datetimeV2.value`.
+
+Utterance için `8am on may 2nd 2017`, DatetimeV2 V3 sürümüdür:
+
+```JSON
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+Aşağıdaki JSON ile olan `verbose` parametresini `false`:
+
+```json
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ],
+            "$instance": {
+                "datetimeV2": [
+                    {
+                        "type": "builtin.datetimeV2.datetime",
+                        "text": "8am on may 2nd 2017",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 ## <a name="deprecated-prebuilt-datetime"></a>Önceden oluşturulmuş kullanım dışı tarih/saat

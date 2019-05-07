@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586527"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145212"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
+Bu makale, Vm'leri ve işletim sistemleri için en iyi güvenlik uygulamaları açıklar.
+
+Bir fikrim fikir birliği üzerinde en iyi uygulamaları temel alır ve geçerli Azure platform özellikleriyle çalışma ve özellik kümeleri. Fikirlerini ve teknolojileri zaman içinde değişebileceği için bu makalede, bu değişiklikleri yansıtacak şekilde güncelleştirilir.
 
 Bir hizmet (Iaas) senaryoları olarak çoğu altyapısında [Azure sanal makineleri (VM'ler)](https://docs.microsoft.com/azure/virtual-machines/) bulut kullanan kuruluşlar için ana iş yükü olan bilgi işlem. Bu, yetkisiz değiştirmeye karşı korumalı bir gerçeğidir [karma senaryolar](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) kuruluşlar yavaş iş yüklerini buluta taşımak istediğiniz. Böyle senaryolarda izleyin [Iaas için genel güvenlik konuları](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)ve en iyi güvenlik uygulamaları, tüm Vm'lere uygulayabilirsiniz.
 
+## <a name="shared-responsibility"></a>Paylaşılan sorumluluk
 Güvenlik için sizin sorumluluğunuzdadır, bulut hizmeti türüne bağlıdır. Aşağıdaki grafik, hem Microsoft hem de sizin sorumluluğunuzdadır bakiyesini özetlenmektedir:
 
 ![Sorumluluk alanları](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 Güvenlik gereksinimleri bir dizi farklı türde iş yükleri gibi etkenlere bağlı olarak farklılık gösterir. Bu en iyi bir tek başına sistemlerinizin güvenliğini sağlayabilirsiniz. Başka bir şey gibi güvenlik, size uygun seçenekleri belirleyin ve nasıl çözümler birbirine boşlukları doldurarak tamamlayabilir görmek sahip.
 
-Bu makale, Vm'leri ve işletim sistemleri için en iyi güvenlik uygulamaları açıklar.
-
-Bir fikrim fikir birliği üzerinde en iyi uygulamaları temel alır ve geçerli Azure platform özellikleriyle çalışma ve özellik kümeleri. Fikirlerini ve teknolojileri zaman içinde değişebileceği için bu makalede, bu değişiklikleri yansıtacak şekilde güncelleştirilir.
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Kimlik doğrulaması ve erişim denetimi kullanarak Vm'leri koruma
 Vm'lerinizi koruma ilk adımı, yeni VM'ler ve VM erişimi, yalnızca yetkili kullanıcıların emin olmak için sonuna ayarlayabilirsiniz ' dir.
+
+> [!NOTE]
+> Azure'da Linux Vm'lerini güvenliğini artırmak için Azure AD kimlik doğrulamasıyla tümleştirilebilir. Kullanırken [Linux VM'ler için Azure AD kimlik doğrulaması](../virtual-machines/linux/login-using-aad.md), merkezi olarak denetlemek ve verdiği veya erişimini engellediği Vm'lere ilkeleri zorunlu tutmanıza.
+>
+>
 
 **En iyi yöntem**: VM erişimi denetler.   
 **Ayrıntı**: Kullanım [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) , kuruluşunuzdaki kaynaklar için kuralları kurmak ve özelleştirilmiş ilkeler oluşturun. Bu ilkeler gibi kaynaklara uygulamak [kaynak grupları](../azure-resource-manager/resource-group-overview.md). Bir kaynak grubuna ait VM'lerin onun ilkelerini devralır.
@@ -102,6 +107,9 @@ Windows Update kullanıyorsanız, otomatik Windows güncelleştirme ayarı etkin
 **En iyi yöntem**: Düzenli olarak yeni bir işletim sistemi sürümünü zorunlu kılmak için sanal makinelerinizin yeniden dağıtın.   
 **Ayrıntı**: VM'nizi tanımlayan bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) şekilde kolayca yeniden dağıtabilirsiniz. İhtiyacınız olduğunda bir şablon kullanarak düzeltme eki uygulama ve güvenli bir sanal makine sağlar.
 
+**En iyi yöntem**: Hızlı bir şekilde güvenlik güncelleştirmeleri, Vm'lere uygulanır.   
+**Ayrıntı**: Azure Güvenlik Merkezi'ni etkinleştirin (ücretsiz katman veya standart katman) için [eksik güvenlik güncelleştirmelerini tanımlamaya ve bunları uygulamak](../security-center/security-center-apply-system-updates.md).
+
 **En iyi yöntem**: En son güvenlik güncelleştirmelerini yükleyin.   
 **Ayrıntı**: Müşterilerin Azure'a taşımak ilk iş yüklerinin laboratuvarlar ve dönük sistemleri bazılarıdır. Azure sanal makineleriniz, internet'e erişilmesi gereken uygulamaları veya hizmetleri barındırıyorsanız, düzeltme eki uygulama hakkında dikkatli olun. İşletim sisteminin ötesine geçen eki. İş ortağı uygulamaları Açıklarında güvenlik açıklarını da iyi düzeltme eki yönetimi yerinde olduğunda önlenebilir sorunlara neden olabilir.
 
@@ -165,6 +173,18 @@ Azure Disk şifrelemesi uyguladığınızda, aşağıdaki iş gereksinimlerini k
 
 - Iaas Vm'leri, Kurumsal güvenlik ve uyumluluk gereksinimlerini karşılamak için endüstri standardı şifreleme teknolojisini kullanılmadıkları güvenlidir.
 - Müşteri tarafından denetlenen anahtarları ve ilkeleri kapsamında Iaas Vm'leri başlatın ve bunların kullanımını anahtar kasanıza denetleyebilirsiniz.
+
+## <a name="restrict-direct-internet-connectivity"></a>Doğrudan internet bağlantısı kısıtlama
+İzleme ve VM doğrudan internet bağlantısı kısıtlayın. Saldırganlar, sürekli tarama açık yönetim bağlantı noktalarını için genel bulut IP aralıkları ve sık kullanılan parolaları ve yüklenmemiş bilinen güvenlik açıkları gibi "kolay" saldırılar denemeden. Aşağıdaki tabloda, bu saldırılara karşı korumaya yardımcı olmak için en iyi uygulamaları listelenmiştir:
+
+**En iyi yöntem**: Ağ yönlendirmesi ve güvenlik için yanlışlıkla açığa engeller.   
+**Ayrıntı**: RBAC, yalnızca merkezi ağ grubu ağ kaynakları izni olduğundan emin olmak için kullanın.
+
+**En iyi yöntem**: Belirleyin ve "tüm" kaynak IP adresinden erişime izin ver sunulan sanal makineleri düzeltme.   
+**Ayrıntı**: Azure Güvenlik Merkezi'ni kullanın. Güvenlik Merkezi, herhangi bir ağ güvenlik gruplarınız varsa "tümü" kaynak IP adresinden erişime izin veren bir veya daha fazla gelen kuralları internet'e yönelik uç noktalarla erişimi sınırlama önerir. Güvenlik Merkezi için aşağıdaki gelen kurallarını düzenlemenizi öneririz [erişimi kısıtlama](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) gerçekten erişmesi gereken kaynak IP adresleri için.
+
+**En iyi yöntem**: Yönetim bağlantı noktalarına (RDP, SSH) kısıtlayın.   
+**Ayrıntı**: [Just-in-time (JIT) VM erişimi](../security-center/security-center-just-in-time.md) Vm'lere gerektiğinde bağlanılabilmesi için kolay erişim sağlamanın yanı sıra saldırılara maruz kalma riskinizi azaltır, Azure Vm'lere gelen trafiği kilitlemek için kullanılabilir. JIT etkinleştirildiğinde Güvenlik Merkezi Azure Vm'lere gelen trafiği bir ağ güvenlik grubu kuralı oluşturarak kilitler. Sizin için gelen trafiği kilitlenir VM bağlantı noktalarını seçin. Bu bağlantı noktaları, JIT çözüm tarafından denetlenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bkz: [Azure güvenlik en iyi uygulamaları ve desenleri](security-best-practices-and-patterns.md) kullanmak üzere daha fazla güvenlik için en iyi yöntemler, tasarlama, dağıtma ve Azure'ı kullanarak bulut çözümlerinizi yönetme.

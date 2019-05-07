@@ -2,19 +2,20 @@
 title: Microsoft Azure depolama için Python ile istemci tarafı şifreleme | Microsoft Docs
 description: Python için Azure depolama istemci kitaplığı, Azure depolama uygulamalarınız için en yüksek güvenlik için istemci tarafı Şifreleme destekler.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011124"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146907"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure depolama istemci tarafı şifreleme ile Python
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ En az anahtar Çözümleyici, verilen bir anahtar kimlik yukarıdaki arabirimini
   * Anahtar çözümleyici belirtilmişse anahtarını almak için çağrılır. Çözümleyici belirtildi, ancak anahtar tanımlayıcısı için bir eşleme yok. bir hata oluşturulur.
   * Tanımlayıcısını gerekli anahtar tanımlayıcısı eşleşiyorsa çözümleyici belirtilmedi, ancak belirtilen bir anahtarı anahtar kullanılır. Tanımlayıcı eşleşmiyorsa, bir hata oluşturulur.
 
-    Şifreleme örnekleri azure.storage.samples <fix URL>bloblar, kuyruklar ve tablolar için daha ayrıntılı bir uçtan uca senaryoyu göstermek.
+    Azure.storage.samples şifreleme örneklerinde, BLOB'lar, kuyruklar ve tablolar için daha ayrıntılı bir uçtan uca senaryoyu göstermektedir.
       Örnek uygulamaları KEK ve anahtar çözümleyici örnek dosyaları sırasıyla KeyWrapper ve KeyResolver sağlanır.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption modu

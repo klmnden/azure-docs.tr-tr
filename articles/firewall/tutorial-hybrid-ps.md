@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194259"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144911"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -61,9 +61,9 @@ Bu senaryonun doğru çalışması için üç önemli gereksinimi vardır:
 Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#create-the-routes) bölümüne bakın.
 
 >[!NOTE]
->Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Varsayılan olarak, bir UDR 0.0.0.0/0 ile yalnızca AzureFirewallSubnet sağlamalıdır **NextHopType** değer kümesini olarak **Internet**.
+>Azure güvenlik duvarı, doğrudan Internet bağlantısı olması gerekir. Bir varsayılan yolu BGP aracılığıyla şirket içi ağınıza, AzureFirewallSubnet öğrenir, bu ile 0.0.0.0/0 UDR ile geçersiz kılmanız gerekir **NextHopType** değer kümesini olarak **Internet** doğrudan korumak için Internet bağlantısı. Varsayılan olarak, bir şirket içi ağ için zorlamalı tünel, Azure Güvenlik Duvarı'nı desteklemez.
 >
->Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirirseniz, açıkça NextHopType değeri olarak ayarlanmış bir UDR 0.0.0.0/0 yapılandırmanız gerekebilir **Internet** , AzureFirewallSubnet ile ilişkilendirin. Kuruluşunuz için Azure güvenlik duvarı trafiğine zorlamalı tünel gerektiriyorsa, beyaz liste aboneliğiniz olabilir ve gerekli güvenlik duvarı Internet bağlantısı korunduğundan emin olmak için lütfen desteğe başvurun.
+>Bir şirket içi ağ için zorlamalı tünel yapılandırma gerektirir, ancak Microsoft bunu tek olay temelinde destekler. Biz durumunuzu gözden geçirmek, desteğe başvurun. Kabul ediyoruz aboneliğinizi beyaz liste göreceksiniz ve gerekli güvenlik duvarı Internet bağlantısı karşılandığından emin olun.
 
 >[!NOTE]
 >Azure Güvenlik Duvarı varsayılan ağ geçidi için bir UDR işaret ediyor olsa bile doğrudan eşlenmiş sanal ağlar arasındaki trafiği doğrudan yönlendirilir. Bu senaryoda bir güvenlik duvarı alt ağ için alt ağ trafiği göndermek için bir UDR her iki alt ağ üzerinde açıkça hedef alt ağ ön eki içermesi gerekir.
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Sanal ağınız için oluşturacağınız VPN ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, VPN ağ geçidinize dinamik olarak ayrılır. 
+Sanal ağınız için oluşturacağınız VPN ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, VPN ağ geçidinize dinamik olarak ayrılır.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Sanal ağ için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır. 
+Sanal ağ için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -471,7 +471,7 @@ Internet Information Services varsayılan sayfasını görmelisiniz.
 
 Bağlantınız başarılı olmalı ve seçtiğiniz kullanıcı adıyla parolayı kullanarak oturum açabilmelisiniz.
 
-Güvenlik duvarı kurallarının çalıştığını doğruladığınıza göre:
+Şimdi güvenlik duvarı kuralları çalıştığını doğruladığınıza göre:
 
 <!---- You can ping the server on the spoke VNet.--->
 - Web sunucusu uç sanal ağ üzerinde göz atabilirsiniz.

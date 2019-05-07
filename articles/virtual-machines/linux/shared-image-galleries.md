@@ -1,27 +1,26 @@
 ---
 title: VM görüntüleri ile paylaşılan galeriler paylaşma | Microsoft Docs
-description: VM görüntüleri kuruluşunuz içinde paylaşmak için shread resim galerileri kullanmayı öğrenin.
+description: VM görüntüleri kuruluşunuz içinde paylaşmak için paylaşılan resim galerileri kullanmayı öğrenin.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: axayjo
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 5366a4d2ef353ba09c18147dceb231631c8ad52e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253c9403e2a5a85d4307a72b38c69a833bd38657
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799519"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138394"
 ---
 # <a name="shared-image-galleries-overview"></a>Paylaşılan resim galerileri genel bakış
 

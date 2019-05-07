@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867714"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150692"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Utterance metinle amaç ve varlıkları veri ayıklamak
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin.
@@ -172,34 +172,6 @@ Uç noktadan döndürülen veriler, varlık adı, utterance bulunan metni, bulun
 |--|--|--|
 |Varlığın|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>Hiyerarşik bir varlığın verilerinin
-
-**Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır. Kullanım [varlık rolleri](luis-concept-roles.md) hiyerarşik varlıkları yerine varlık subtypes belirlemek için.**
-
-[Hiyerarşik](luis-concept-entity-types.md) varlıkları makine hakkında bilgi edindiniz ve bir sözcük veya tümcecik ekleyebilirsiniz. Alt öğeleri bağlam tarafından tanımlanır. İle tam metin eşleşmesi için bir üst-alt ilişkisi arıyorsanız, kullanan bir [listesi](#list-entity-data) varlık.
-
-`book 2 tickets to paris`
-
-Önceki utterance içinde `paris` etiketli bir `Location::ToLocation` alt `Location` hiyerarşik varlık.
-
-Uç noktadan döndürülen veriler, varlık adı ve alt adı utterance bulunan metni, bulunan metin ve puan konumunu içerir:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Veri nesnesi|Üst öğe|Alt|Değer|
-|--|--|--|--|
-|Hiyerarşik varlık|Konum|ToLocation|"paris"|
-
 ## <a name="composite-entity-data"></a>Bileşik bir varlığın verilerinin
 [Bileşik](luis-concept-entity-types.md) varlıkları makine hakkında bilgi edindiniz ve bir sözcük veya tümcecik ekleyebilirsiniz. Örneğin, önceden oluşturulmuş bir bileşik varlığın düşünün `number` ve `Location::ToLocation` aşağıdaki utterance ile:
 
@@ -212,53 +184,54 @@ Dikkat `2`, sayı ve `paris`, ToLocation varlıkları parçası olmayan araları
 Bileşik varlıkları döndürülür bir `compositeEntities` dizisi ve bileşik tüm varlıklarda da döndürülür içinde `entities` dizisi:
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Veri nesnesi|Varlık adı|Değer|
 |--|--|--|
 |Önceden oluşturulmuş varlık - sayı|"builtin.number"|"2"|
-|Hiyerarşik varlık - konum|"Location::ToLocation"|"paris"|
+|Önceden oluşturulmuş varlık - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>Varlık verilerini listesi
 
@@ -268,8 +241,8 @@ Adlı bir listesi uygulamanın olduğu varsayalım `Cities`, şehir adları hava
 
 |Liste öğesi|Öğe eş anlamlı sözcükler|
 |---|---|
-|Seattle|Deniz tac, Deniz, 98101, 206 + 1 |
-|Paris|cdg, geçmiş, roissy 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

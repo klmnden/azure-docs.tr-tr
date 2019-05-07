@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869552"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150896"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure veri fabrikasında kopyalama etkinliği
 
@@ -176,12 +176,14 @@ Kopyalama etkinliğinin yürütme ayrıntıları ve performans özelliklerini de
 | DataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
 | DataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
 | filesRead | Dosya depolama'yı veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
-| fileScanned | Kaynak dosya depolama'yı taranan dosya sayısı. | Int64 değeri (birim) |
 | filesWritten | Dosya depolama alanına veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
-| rowsCopied | (İkili kopya için geçerli değildir) Kopyalanan satırların sayısı. | Int64 değeri (birim) |
+| rowsRead | (İkili kopya için geçerli değildir) kaynaktan okunan satır sayısı. | Int64 değeri (birim) |
+| rowsCopied | Havuz (ikili kopya için geçerli değildir) Kopyalanan satırların sayısı. | Int64 değeri (birim) |
 | rowsSkipped | İki tanesinden uyumsuz satırların sayısı. True olarak Ayarla "Enableskipıncompatiblerow" tarafından özelliğini kapatabilirsiniz. | Int64 değeri (birim) |
-| Aktarım hızı | Aktarılan ve veri oranı | Kayan noktalı sayı olarak **KB/sn** |
-| copyDuration | Kopyalama süresi | Int32 değeri saniye |
+| Aktarım hızı | Aktarılan ve veri oranı. | Kayan noktalı sayı olarak **KB/sn** |
+| copyDuration | Kopyalama süresi. | Int32 değeri saniye |
+| sourcePeakConnections | Yoğun kaynak veri deposu için kopyalama sırasında oluşturulan eş zamanlı bağlantı sayısı. | Int32 değeri |
+| sinkPeakConnections| Havuz veri deposuna kopyalama sırasında oluşturulan eş zamanlı bağlantı sayısı yüksek.| Int32 değeri |
 | sqlDwPolyBase | PolyBase, SQL veri ambarı'na veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
 | redshiftUnload | UNLOAD veri Redshift'ten kopyalarken kullanılıyorsa. | Boole |
 | hdfsDistcp | Verileri HDFS kopyalarken DistCp kullanılıyorsa. | Boole |

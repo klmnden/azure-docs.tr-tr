@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069263"
+ms.locfileid: "65149290"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Öğretici: Bir utterance bağlamsal ilgili verileri ayıklayın
 
@@ -93,12 +93,8 @@ Bir rolü olmalıdır yüklendiğinde varlık verilerini ayıklamak için:
     ![Roller için önceden oluşturulmuş varlık ekleme](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Seçin **hedefleri** seçip sol taraftaki gezinti bölmesinden **MoveEmployeeToCity** hedefi. Şehir adları ile önceden oluşturulmuş varlık etiketli fark **geogrpahyV2**.
 1. İçinde ilk utterance listenin kaynağı konumu seçin. Bir açılan menü görünür. Seçin **geographyV2** listesinde menüsünün yatay seçmek için daha sonra izleyin **kaynak**.
-
-    [![Kaynak konumu olarak Şehir işaretleme ekran görüntüsü](media/tutorial-entity-roles/tag-origin-city-with-role.png "Şehir kaynak konumu olarak işaretleme ekran görüntüsü")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Konuşma konumlarda tüm rolleri işaretlemek için önceki adımdan gelen yöntemi kullanın. 
 
-    [![Konuşma etiketlenmiş ekran görüntüsü, konumları varlık](media/tutorial-entity-roles/all-locations-marked-with-roles.png "konuşma etiketlenmiş ekran görüntüsü, konumları varlık")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Örnek konuşma hiçbiri hedefi ekleme 
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910498"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143446"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri
 Bu kılavuzu kullanarak Azure Güvenlik Merkezi'ndeki uygulama denetimi özelliklerini yapılandırmayı öğrenebilirsiniz.
@@ -154,6 +154,22 @@ Liste aşağıdakileri içerir:
 
 Azure Güvenlik Merkezi uygulama beyaz listeye ekleme ilkesi olmayan önerilen VM grupları üzerinde de tanımlamanızı sağlar. Daha önce bu gruplara göre bir uygulama beyaz listeye ekleme İlkesi yapılandırmak için açıklanan aynı ilkeler izleyin.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>Bir gruptan VM'yi taşıma
+
+ VM bir grubundan diğerine taşıdığınızda uygulanan uygulama denetim ilkesini Grup ayarlarına bu değişiklikler için taşındı. Ayrıca, sanal Makineye daha önce uygulanan herhangi bir uygulama denetim ilkesini kaldırma sonuçları bir yapılandırılmamış grubu, yapılandırılmış bir gruptan bir VM taşıyabilirsiniz.
+
+ 1. Gelen **Uyarlamalı uygulama denetimleri** sayfasında gelen **YAPILANDIRILDI** sekmesinde, şu anda taşınacak VM'nin ait olduğu grubu seçin.
+1. Tıklayın **yapılandırılan VM'ler ve bilgisayarlar**.
+1. Taşıyın ve sanal makinenin satırdaki üç noktaya tıklayın **taşıma**. **Farklı grubuna taşıma bilgisayar** penceresi açılır.
+
+    ![Koruma](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. VM'ye taşıma ve grubu seçin **taşıma bilgisayar**, tıklatıp **Kaydet**.
+
+    ![Koruma](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> Tıkladığınızdan emin olun **Kaydet** tıkladıktan sonra **taşıma bilgisayar**. Değil tıklarsanız **Kaydet**, bilgisayarın taşınmayacak sonra.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Azure ve Azure Vm'lerinde çalışan uygulamaları beyaz listeye için Azure Güvenlik Merkezi'ndeki Uyarlamalı uygulama denetimlerini kullanmak öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:

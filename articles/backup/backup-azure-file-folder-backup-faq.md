@@ -1,42 +1,50 @@
 ---
-title: Azure Backup aracısıyla ilgili SSS
-description: Azure Backup aracısının çalışması, yedekleme ve bekletme sınırları hakkındaki yaygın soruların yanıtları.
-services: backup
-author: trinadhk
-manager: shreeshd
-keywords: yedekleme ve olağanüstü durum kurtarma; backup hizmeti
+title: Azure Backup ile dosya ve klasörleri yedekleme sık sorulan sorular
+description: Azure Backup ile dosya ve klasörleri yedekleme ile ilgili yaygın sorular ele alınmıştır.
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
-ms.author: trinadhk
-ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2019
+ms.author: dacurwin
+ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641237"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148585"
 ---
-# <a name="questions-about-the-azure-backup-agent"></a>Azure Backup aracısıyla ilgili sorular
-Bu makalede Azure Backup aracısı bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Dosya ve klasör yedekleme hakkında sık sorulan sorular 
 
-## <a name="configure-backup"></a>Yedeklemeyi yapılandırma
-### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>En son Azure Backup aracısını nereden indirebilirim? <br/>
-Windows Server, System Center DPM veya Windows istemcisini yedeklemeye yönelik en son aracıyı [buradan](https://aka.ms/azurebackup_agent) indirebilirsiniz. Bir sanal makineyi yedeklemek istiyorsanız VM Aracısı'nı (otomatik olarak uygun uzantıyı yükler) kullanın. VM Aracısı, Azure galerisinden oluşturulan sanal makineler üzerinde zaten mevcuttur.
+Bu makalede Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile dosya ve klasörleri yedekleme abound yaygın soruların yanıtları bulunur [Azure Backup](backup-overview.md) hizmeti.
 
-### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Azure Backup aracısını yapılandırırken kasa kimlik bilgilerini girmem isteniyor. Kasa kimlik bilgilerinin süresi dolar mı?
-Evet, kasa kimlik bilgilerinin süresi 48 saat sonra dolar. Dosyanın süresi dolarsa Azure portalında oturum açın ve kasa kimlik bilgileri dosyalarını kasanızdan indirin.
+## <a name="general"></a>Genel
 
-### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Ne tür sürücülerden dosya ve klasör yedekleyebilirim? <br/>
-Aşağıdaki sürücüleri/birimleri yedekleyemezsiniz:
+### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>Neden MARS Aracısı gerekli .NET framework 4.5.2 veya üzeri?
+
+Bulunan yeni işlevleri [anında geri yükleme](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) gerekli .NET Framework 4.5.2 veya üzeri.
+
+## <a name="configure-backups"></a>Yedeklemeleri Yapılandırma
+
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>MARS aracısının en son sürümünü nereden indirebilirim? 
+Windows Server makineleri, System Center DPM ve Microsoft Azure Backup sunucusunu yedeklerken kullanılan en yeni MARS Aracısı kullanılabilir [indirme](https://aka.ms/azurebackup_agent). 
+
+### <a name="how-long-are-vault-credentials-valid"></a>Kasa kimlik bilgileri geçerli ne kadar?
+Kasa kimlik bilgilerinin süresi 48 sonra dolar. Kimlik bilgileri dosyasının süresi dolarsa, dosyayı Azure portalından yeniden yükleyin.
+
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Hangi sürücülerden miyim dosya ve klasörleri yedekleyebilir miyim? 
+
+Aşağıdaki türde sürücüleri ve birimleri yedekleyemezsiniz:
 
 * Çıkarılabilir medya: Tüm yedekleme öğesi kaynaklarının sabit olarak bildirilmesi gerekir.
 * Salt okunur birimler: Birimi, Birim Gölge Kopyası Hizmeti (VSS) çalışması için yazılabilir olmalıdır.
 * Çevrimdışı birimler: Birimin çalışması için VSS'ye yönelik olarak çevrimiçi olması gerekir.
-* Ağ paylaşımı: Birimin çevrimiçi yedekleme kullanılarak Yedeklenebilmesi için sunucuya yerel olması gerekir.
+* Ağ paylaşımları: Birimin çevrimiçi yedekleme kullanılarak Yedeklenebilmesi için sunucuya yerel olması gerekir.
 * BitLocker korumalı birimler: Yedeklemenin gerçekleşebilmesi birimin kilidinin açık olması gerekir.
 * Dosya sistemi tanımı: NTFS, desteklenen tek dosya sistemidir.
 
-### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Sunucumdan hangi dosya ve klasör hangi türlerini yedekleyebilirim?<br/>
+### <a name="what-file-and-folder-types-are-supported"></a>Hangi dosya ve klasör türleri desteklenir?
+
 Aşağıdaki türler desteklenir:
 
 * Şifreli
@@ -47,57 +55,83 @@ Aşağıdaki türler desteklenir:
 * Yeniden ayrıştırma noktası: Desteklenmez, atlanır
 * Şifreli + seyrek: Desteklenmez, atlanır
 * Sıkıştırılmış Stream: Desteklenmez, atlanır
-* Seyrek Stream: Desteklenmez, atlanır
+* Yeniden ayrıştırma noktaları, DFS bağlantıları ve birleşim noktaları da dahil olmak üzere
 
-### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Azure Backup aracısını, önceden VM uzantısı kullanılarak Azure Backup hizmeti tarafından yedeklenmiş olan bir Azure VM üzerine yükleyebilir miyim? <br/>
-Kesinlikle. Azure Backup, VM uzantısını kullanan Azure VM'ler için VM düzeyinde yedekleme sağlar. Konuk Windows işletim sistemi üzerindeki dosya ve klasörleri korumak için Azure Backup aracısını konuk Windows işletim sistemine yükleyin.
 
-### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Azure Backup aracısını bir Azure VM'ye yükleyerek mevcut dosya ve klasörleri Azure VM tarafından sağlanan geçici depolama alanına yedekleyebilir miyim? <br/>
-Evet. Azure Backup aracısını Konuk Windows işletim sistemine yükleyin ve dosya ve klasörleri geçici depolama alanına yedekleyin. Geçici depolama verileri silindikten sonra yedeklemeler başarısız olur. Ayrıca, geçici depolama verilerinin silinmiş olması durumunda, yalnızca geçici olmayan depolama alanına geri yükleme gerçekleştirebilirsiniz.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Bir Azure sanal makinesinde dosyaları ve klasörleri yedeklemek için MARS Aracısı kullanabilir miyim?  
+Evet. Azure Backup, Azure VM Aracısı VM uzantısı kullanarak, Azure Vm'leri için VM düzeyinde yedekleme sağlar. Sanal makinedeki Konuk Windows işletim sisteminde dosya ve klasörleri yedeklemek istiyorsanız, bunu yapmak için MARS Aracısı yükleyebilirsiniz. 
 
-### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Önbellek klasörü için minimum boyut gereksinimini nedir? <br/>
-Önbellek klasörünün boyutu, yedeklediğiniz veri miktarını belirler. Önbellek klasörünüzün birimi en az 5-%10, boş alanı, yedekleme verilerinin toplam boyutuna göre. Birim % 5'ten az boş alan varsa, ya da birim boyutunu artırın veya [Önbellek klasörü yeterli boş alana sahip bir birime taşıyın](backup-azure-file-folder-backup-faq.md#backup).
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Dosya ve klasörleri Azure VM için geçici depolama alanında yedeklemek için MARS Aracısı kullanabilir miyim? 
+Evet. MARS aracısı yükleyin ve dosya ve klasörleri geçici depolama alanına Konuk Windows işletim sisteminde yedekleyin. -Geçici depolama verileri silindikten hakkında yedekleme işleri başarısız.
+- Geçici depolama verileri silinirse, yalnızca geçici olmayan depolama birimine geri yükleyebilirsiniz.
 
-### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Sunucumu başka bir veri merkezine nasıl kaydederim?<br/>
-Yedekleme verileri, kasanın kayıtlı olduğu veri merkezine gönderilir. Veri merkezini değiştirmenin en kolay yolu, aracıyı kaldırmak ve aracıyı yeniden yükleyip istenilen veri merkezine ait yeni bir kasa kaydetmektir.
+### <a name="how-do-i-register-a-server-to-another-region"></a>Bir sunucu başka bir bölgeye nasıl kaydedebilirim?
 
-### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Azure Backup aracısı, Windows Server 2012 yinelenenleri kaldırma özelliğini kullanan bir sunucu üzerinde çalışır mı? <br/>
-Evet. Aracı hizmeti, yedekleme işlemini hazırlarken yinelenenleri kaldırma işlemi uygulanmış verileri normal verilere dönüştürür. Ardından verileri yedekleme için en iyi duruma getirir, verileri şifreler ve daha sonra, şifreli verileri çevrimiçi yedekleme hizmetine gönderir.
+Yedekleme verileri, sunucunun kayıtlı olduğu kasanın veri merkezine gönderilir. Veri merkezini değiştirmenin en kolay yolu, kaldırmak ve aracıyı yeniden yükleyin ve ardından yeni bir kasa makineye ihtiyacınız bölgede kaydetme
 
-## <a name="prerequisites-and-dependencies"></a>Önkoşullar ve bağımlılıkları
-### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nın hangi özelliklerin .NET framework 4.5.2 gerektirir ve daha yüksek?
-[Anında geri yükleme](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) sağlayan tek tek dosya ve klasörleri geri yükleme özelliği *veri kurtarma* Sihirbazı, .NET Framework 4.5.2 gerektirir veya üzeri.
+### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>MARS Aracısı destek Windows Server 2012 yinelenenleri kaldırma işlemi yapar?
+Evet. MARS Aracısı, yedekleme işlemini hazırlarken yinelenenleri kaldırılmış verileri normal verilere dönüştürür. Ardından verileri yedekleme için en iyi duruma getirir, verileri şifreler ve şifrelenmiş verileri kasaya ardından gönderir.
 
-## <a name="backup"></a>Backup
-### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Azure Backup aracısı için belirtilen önbellek konumunu nasıl değiştiririm?<br/>
-Önbellek konumunu değiştirmek için aşağıdaki listeyi kullanın.
+## <a name="manage-backups"></a>Yedekleri yönetme
 
-1. Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını durdurun:
+### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>Ben yedekleme için yapılandırılmış bir Windows makine yeniden adlandırırsanız ne olur?
+
+Windows makine yeniden adlandırdığınızda, geçerli olarak yapılandırılmış tüm yedeklemeler durdurulur.
+
+- Yeni makine adını Backup kasasına kaydetmeniz gerekir.
+- Yeni adı kasaya kaydettiğinizde, ilk işlem, bir *tam* yedekleme.
+- Eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa, Veri Kurtarma Sihirbazı'nı alternatif bir konuma geri yüklemek için bu seçeneği kullanın. [Daha fazla bilgi edinin](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+
+### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Yedekleme için en fazla dosya yolu uzunluğu nedir?
+MARS Aracısı NTFS kullanır ve sınırlı dosya yolu uzunluğu belirtimi kullanır [Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Korumak istediğiniz dosyaları üst klasörünü veya disk sürücüsünü yedekleyin, izin verilen değer daha uzun olması durumunda.  
+
+### <a name="what-characters-are-allowed-in-file-paths"></a>Dosya yolları hangi karakterlere izin verilir?
+
+MARS Aracısı NTFS kullanır ve sağlayan [karakterler](/windows/desktop/FileIO/naming-a-file#naming_conventions) dosya adları/yollarda.
+
+### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>"Azure yedeklemeleri bu sunucu için yapılandırılmamış" uyarısı görüntülenir.
+Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları yedekleme kasasında depolanan ayarlarla aynı olmadığında bir yedekleme İlkesi yapılandırmış olduğunuz olsa bile görünebilir.
+- Sunucu ya da ayarlar bilinen bir iyi duruma getirilerek kurtarıldığında, yedekleme zamanlamaları eşitlenmemiş hale gelebilir.
+- Bu uyarıyı alırsanız [yapılandırma](backup-azure-manage-windows-server.md) yedekleme ilkesini yeniden ve ardından yerel sunucuyu Azure ile yeniden eşitlemek için Çalıştır isteğe bağlı bir yedekleme.
+
+
+## <a name="manage-the-backup-cache-folder"></a>Yedekleme önbelleği klasörü Yönet
+
+### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>Önbellek klasörü için minimum boyut gereksinimini nedir?
+Önbellek klasörünün boyutu, yedeklediğiniz veri miktarını belirler.
+- Önbellek klasörü birimleri, yedekleme verilerinin toplam boyutunun en az 5-%10 eşittir boş alan olması gerekir.
+- Birim % 5'ten az boş alan varsa, birim boyutunu artırın veya önbellek klasörünü yeterli alana sahip bir birime taşıyın.
+- 
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS aracısı için Önbellek konumunu nasıl değiştiririm?
+
+
+1. Yedekleme Altyapısı durdurmak için yükseltilmiş bir komut isteminde şu komutu çalıştırın:
 
     ```PS C:\> Net stop obengine```
 
-2. Dosyaları taşımayın. Bunun yerine, önbellek alanı klasörünü yeterli alana sahip farklı bir sürücüye kopyalayın. Yedeklemelerin yeni önbellek alanı ile çalıştığı onaylandıktan sonra özgün önbellek alanı kaldırılabilir.
-3. Aşağıdaki kayıt defteri girdilerini yeni önbellek alanı klasörünün yolu ile güncelleştirin.<br/>
+2. Dosyaları taşımayın. Bunun yerine, önbellek alanı klasörünü yeterli alana sahip başka bir sürücüye kopyalayın.
+3. Aşağıdaki kayıt defteri girdilerini yeni önbellek klasörünün yolu ile güncelleştirin.<br/>
 
     | Kayıt defteri yolu | Kayıt Defteri Anahtarı | Değer |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Yeni önbellek klasörü konumu* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Yeni önbellek klasörü konumu* |
 
-4. Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını yeniden başlatın:
+4. Yükseltilmiş bir komut isteminde Backup altyapısını yeniden başlatın:
 
     ```PS C:\> Net start obengine```
 
-Yedekleme oluşturma yeni önbellek konumunda başarıyla tamamlandıktan sonra, özgün önbellek klasörünü kaldırabilirsiniz.
+5. Yeni konumu başarıyla kullanarak Yedekleme tamamlandıktan sonra özgün önbellek klasörünü kaldırabilirsiniz.
 
 
-### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Azure Backup Aracısı'nın beklendiği şekilde çalışması için önbellek klasörünü nereye koyabilirim?<br/>
+### <a name="where-should-the-cache-folder-be-located"></a>Burada önbellek klasörünün bulunduğu olmalıdır?
+
 Önbellek klasörü için aşağıdaki konumlar önerilmez:
 
-* Ağ paylaşımı veya çıkarılabilir medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medya desteklenmez.
+* Ağ paylaşımı/çıkarılabilir medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medya desteklenmez.
 * Çevrimdışı birimler: Önbellek klasörü Azure Backup Aracısı kullanılarak gerçekleştirilecek beklenen yedekleme için çevrimiçi olması gerekir
 
-### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>
+### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Desteklenmeyen herhangi bir özniteliği önbellek klasörünün var mı?
 Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü için desteklenmez:
 
 * Şifreli
@@ -108,25 +142,17 @@ Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü içi
 
 Önbellek klasörü ve meta veri VHD’si, Azure Backup aracısı için gerekli özniteliklere sahip değildir.
 
-### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Backup hizmeti tarafından kullanılan bant genişliği miktarını ayarlamanın bir yolu var mıdır?<br/>
-  Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayabilirsiniz. Adım adım yönergeler için bkz. **[Ağ kapasitesi azaltmayı etkinleştirme](backup-configure-vault.md#enable-network-throttling)**.
+### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Yedekleme için kullanılan bant genişliği miktarını ayarlamanın bir yolu var mı?
+ 
+Evet, kullanabileceğiniz **özelliklerini değiştirme** MARS Aracısı bant genişliği ve zamanlama ayarlamak için seçeneği. [Daha fazla bilgi edinin](backup-configure-vault.md#enable-network-throttling)**.
 
 ## <a name="restore"></a>Geri Yükleme
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Ben bir devam eden geri yükleme işi iptal edersem ne olur?
-Devam eden geri yükleme işi iptal edilirse, geri yükleme işlemi durdurur ve tüm dosyaları iptalden önce geri kalın herhangi düzeyine olmadan yapılandırılmış hedef (özgün veya alternatif konum).
+
+Devam eden geri yükleme işi iptal edilirse, geri yükleme işlemi durdurur. Tüm dosyaları iptalden önce geri herhangi bir geri alma işlemleri yapılandırılan hedef (konum), özgün veya alternatif olarak kalır.
 
 
-## <a name="manage-backups"></a>Yedekleri yönetme
+## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Azure'a veri yedekleyen bir Windows sunucusunu yeniden adlandırırsam ne olur?<br/>
-Bir sunucuyu yeniden adlandırdığınızda, geçerli olarak yapılandırılmış olan tüm yedeklemeler durdurulur. Sunucunun yeni adını Backup kasasına kaydedin. Yeni adı kasaya kaydettiğinizde, ilk yedekleme işlemi *tam* yedekleme olur. Eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa **Veri Kurtarma** sihirbazındaki [**Başka bir sunucu**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) seçeneğini kullanın.
-
-### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Yedekleme ilkesinde Azure Backup aracısını kullanarak belirtilebilecek dosya yolu uzunluğu için üst sınır nedir? <br/>
-Azure Backup aracısı NTFS kullanır. [Dosya yolu uzunluğu belirtimi, Windows API ile sınırlıdır](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Korumak istediğiniz dosyalar Windows API tarafından izin verilenden daha uzun dosya yollarına sahipse, üst klasörü veya disk sürücüsünü yedekleyin.  
-
-### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin dosya yolunda hangi karakterlere izin verilir? <br>
- Azure Backup aracısı NTFS kullanır. [NTFS destekli karakterleri](/windows/desktop/FileIO/naming-a-file#naming_conventions) dosya belirtiminin bir parçası olarak etkinleştirir.
-
-### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Bir yedekleme ilkesi zamanlamış olmama karşın "Azure Yedeklemeleri bu sunucu için yapılandırılmamış" uyarısını alıyorum <br/>
-Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları, yedekleme kasasında depolanan ayarlarla aynı olmadığında oluşur. Sunucu ya da ayarlar bilinen bir iyi duruma getirilerek kurtarıldığında, yedekleme zamanlamaları eşitlemesini kaybedebilir. Bu uyarıyı alırsanız [yedekleme ilkesini yeniden yapılandırın](backup-azure-manage-windows-server.md) ve ardından yerel sunucuyu Azure ile yeniden eşitlemek için **Run Back Up Now (Yedeklemeyi Şimdi Çalıştır)** işlemini uygulayın.
+[Bilgi](tutorial-backup-windows-server-to-azure.md) Windows makinesini yedekleme.

@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021101"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149764"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
@@ -69,6 +69,9 @@ Gözlemlerseniz, `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died
 
 Tensor Flow otomatik makine öğrenimi tensor flow sürümü 1.13 şu anda desteklemiyor. Bu sürümü yüklemeden Paket bağımlılıklarını çalışmayı durdurmasına neden olur. Gelecekteki bir sürümde bu sorunu düzeltmek için çalışıyoruz. 
 
+### <a name="experiment-charts"></a>Deneme grafikleri
+
+Otomatik ML deneme yinelemelerini gösterilen ikili sınıflandırma grafikleri (duyarlık geri çekme, ROC, elde eğri vb.) işleme corectly kullanıcı arabiriminde 4/12 beri değildir. Grafik çizimleri daha iyi performans gösteren modelleri ile alt sonuçlar burada gösterilen ters sonuçlar gösteriliyor, şu anda içindedir. Bir çözüm incelenmektedir.
 
 ## <a name="databricks"></a>Databricks
 

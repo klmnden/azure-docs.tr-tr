@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078321"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142755"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning (Önizleme) IOT Edge modülü dağıtma
+
+Azure not defterleri, bir makine öğrenme modülü geliştirme ve Azure IOT Edge çalıştıran bir Linux cihazına dağıtmak için kullanın. 
 
 İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide simülasyon makinesi sıcaklık verilerini temel alarak bir cihazın arızalanacağı zamanı tahmin eden bir Azure Machine Learning modülünü dağıtma adımları açıklanmaktadır. IOT Edge üzerinde Azure Machine Learning hizmeti hakkında daha fazla bilgi için bkz. [Azure Machine Learning belgeleri](../machine-learning/service/how-to-deploy-to-iot.md).
 
@@ -51,58 +53,12 @@ Bulut kaynakları:
    * Çalışma alanı adı, kaynak grubu ve abonelik kimliğini not edin Bu değerleri çalışma alanına genel bakış Azure portalında tüm kullanılabilir. Bir Azure not defteri çalışma kaynaklarınıza bağlanmak için öğreticinin ilerleyen bölümlerinde bu değerleri kullanacaksınız. 
 
 
-### <a name="disable-process-identification"></a>İşlem tanımlamasını devre dışı bırakma
-
->[!NOTE]
->
-> Azure Machine Learning, önizleme sürümünde IoT Edge ile varsayılan olarak etkinleştirilen işlem tanımlaması güvenlik özelliğini desteklemez.
-> Aşağıdaki adımları kullanarak bu özelliği devre dışı bırakabilirsiniz. Ancak bu süreç üretimde kullanıma uygun değildir. Bu adımlar, yalnızca Linux cihazlarda gereklidir. 
-
-IOT Edge Cihazınızda işlem kimliği devre dışı bırakmak için IP adresini belirtin ve için bağlantı noktasına ihtiyacınız **workload_uri** ve **management_uri** içinde **bağlanmak** IOT Edge daemon yapılandırma bölümü.
-
-Önce IP adresini alın. Komut satırına `ifconfig` yazın ve **docker0** arabiriminin IP adresini kopyalayın.
-
-IoT Edge daemon yapılandırma dosyasını düzenleyin:
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-Yapılandırmanın **connect** bölümünü IP adresinizle güncelleştirin. Örneğin:
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Aynı adresleri yapılandırmanın **listen** bölümüne girin. Örneğin:
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Yapılandırma dosyasını kaydedip kapatın.
-
-Bir ortam değişkeni IOTEDGE_HOST management_uri adresiyle oluşturun (kalıcı olarak ayarlamak için eklemeniz `/etc/environment`). Örneğin:
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-Değişikliklerin etkili olması IOT Edge hizmetini yeniden başlatın.
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
-
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Oluşturma ve Azure Machine Learning modülü dağıtma
 
 Bu bölümde, eğitilen makine öğrenme modeli dosyalarını dönüştürmek ve bir Azure Machine Learning kapsayıcı hizmeti. Docker görüntüsü için gerekli tüm bileşenler [Azure IoT Edge için AI Toolkit deposunda](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial) mevcuttur. Microsoft Azure kapsayıcı oluşturma ve Azure Container Registry'ye gönderme için Not Defterleri ile ilgili depoya karşıya yüklemek için aşağıdaki adımları izleyin.
 
 
-1. Azure not defterleri projelerinize gidin. Alabilirsiniz, Azure Machine Learning hizmeti çalışma alanınızın [Azure portalında](https://portal.azure.com) veya oturum açarak [Microsoft Azure not defterleri](https://notebooks.azure.com/home/projects) Azure hesabınızla.
+1. Azure not defterleri projelerinize gidin. Azure Machine Learning hizmeti çalışma alanınızın buradan ulaşabilirsiniz [Azure portalında](https://portal.azure.com) veya oturum açarak [Microsoft Azure not defterleri](https://notebooks.azure.com/home/projects) Azure hesabınızla.
 
 2. Seçin **GitHub deposunu karşıya**.
 
@@ -131,7 +87,7 @@ Bu bölümde, eğitilen makine öğrenme modeli dosyalarını dönüştürmek ve
     >[!TIP]
     >Bazı kullanıcılar henüz bir IOT Hub gibi olmayabilir veya kaynakları'na oluşturduğundan anomali algılama öğretici not defterinde hücrelerin isteğe bağlı, bazılarıdır. Mevcut kaynak bilgilerinizi ilk hücreye yerleştirirseniz, Azure yinelenen kaynaklar oluşturmaz, çünkü yeni kaynaklar oluşturan hücreleri çalıştırırsanız, hataları alırsınız. Bu bir sakınca yoktur ve hataları yoksayma ya da tamamen isteğe bağlı Bu bölüm atlayın. 
 
-Not Defteri yer alan tüm adımları tamamladıktan sonra bir Docker kapsayıcı görüntüsü yerleşik anomali algılama modeli eğitilir ve bu görüntüyü Azure Container Registry'ye gönderildi. Daha sonra modeli test ve son olarak IOT Edge cihazınıza dağıttınız. 
+Not Defteri yer alan tüm adımları tamamlayarak bir Docker kapsayıcı görüntüsü yerleşik anomali algılama modeli eğitilir ve bu görüntüyü Azure Container Registry'ye gönderildi. Daha sonra modeli test ve son olarak IOT Edge cihazınıza dağıttınız. 
 
 ## <a name="view-container-repository"></a>Bir kapsayıcı deposuna görüntüle
 
@@ -151,7 +107,7 @@ Kapsayıcı görüntünüzü başarıyla oluşturulduğundan ve makine öğrenme
 
    Bu kimlik bilgileri, IOT Edge cihaz erişimi için kapsayıcı görüntüleri çekmeniz kayıt defterinden vermek için dağıtım bildirimi içinde eklenebilir. 
 
-Artık Machine Learning kapsayıcı görüntüsünün depolandığı biliyorsunuz. Sonraki bölümde, IOT Edge Cihazınızda dağıtılan bir modül olarak nasıl çalıştığını görebilmenizi adımlarını açıklar. 
+Artık Machine Learning kapsayıcı görüntüsünün depolandığı biliyorsunuz. Sonraki bölümde, IOT Edge Cihazınızda bir modül olarak çalışan kapsayıcıyı görmek için adım adım yönergeler sağlanmıştır. 
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 

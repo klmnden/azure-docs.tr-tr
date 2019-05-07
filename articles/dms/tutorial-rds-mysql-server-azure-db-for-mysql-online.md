@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/30/2019
-ms.openlocfilehash: 3f5a69454356d16fd6f3c5dddb063fcf8e450014
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/01/2019
+ms.openlocfilehash: 9aadfd1f3685466c8c0beb6dff3bb8d063f4bfd8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943710"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137396"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Öğretici: RDS Mysql'i MySQL için Azure veritabanı'na geçirme çevrimiçi DMS kullanarak
 
@@ -170,9 +170,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 6. Bir fiyatlandırma katmanı seçin. Bu çevrimiçi geçiş için Premium seçtiğinizden emin olun: 4vCores fiyatlandırma katmanı.
 
-    Maliyetler ve fiyatlandırma katmanları hakkında daha fazla bilgi için [fiyatlandırma sayfasına](https://aka.ms/dms-pricing) bakın. Doğru Azure veritabanı geçiş Service fiyatlandırma katmanı seçme yardıma gereksinim duyarsanız, posta önerilere bakın [burada](https://go.microsoft.com/fwlink/?linkid=861067).
-
-     ![Azure Veritabanı Geçiş Hizmeti örneği ayarlarını yapılandırma](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
+    ![Azure Veritabanı Geçiş Hizmeti örneği ayarlarını yapılandırma](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
 7. Hizmeti oluşturmak için **Oluştur**’u seçin.
 

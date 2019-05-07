@@ -8,14 +8,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7ce2cf40dafc09d86d0c424a3954a334ae83143a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704806"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145476"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Yükleme ve Hadoop tabanlı HDInsight kümelerinde Presto kullanma
+
+> [!IMPORTANT]  
+> LÜTFEN OKUYUN: Aşağıdaki yönergeleri artık kullanım dışı. En son kılavuzdan edinmek [Yıldız Yağmuru veri](http://docs.starburstdata.com/latest/azure.html) yükleyin ve Presto Azure HDInsight üzerinde çalıştırın.  
 
 Bu makalede, betik eylemlerini kullanarak Azure HDInsight Hadoop tabanlı kümelerde Presto yükleme açıklanmaktadır. Ayrıca var olan bir Presto HDInsight kümesinde Airpal yüklemeyi öğrenin.
 

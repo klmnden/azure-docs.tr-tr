@@ -1,28 +1,28 @@
 ---
-title: 'Öğretici: Azure SQL veri ambarı için Azure Data Lake depolama Gen1 yükü | Microsoft Docs'
-description: Verileri Azure Data Lake depolama Gen1 Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın.
+title: 'Öğretici: Azure Data Lake depolama alanından Azure SQL veri ambarı yükü | Microsoft Docs'
+description: Verileri Azure Data Lake depolama alanından Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b5083d6b4cf6758997e4e0551e5f3c2968a31c1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476145"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145977"
 ---
-# <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Azure Data Lake depolama Gen1 yük verileri SQL veri ambarı
-Verileri Azure Data Lake depolama Gen1 Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın. Data Lake depolama Gen1 içinde depolanan veriler üzerinde geçici sorgular çalıştırabilirsiniz, ancak en iyi performans için SQL veri ambarı'na verilerin içeri aktarılması önerilir.
+# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Verileri Azure Data Lake depolama alanından SQL Data Warehouse'a veri yükleme
+Verileri Azure Data Lake depolama alanından Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın. Data Lake depolanan veriler üzerinde geçici sorgular çalıştırabilirsiniz, ancak en iyi performans için SQL veri ambarı'na verilerin içeri aktarılması önerilir.
 
 > [!div class="checklist"]
-> * Data Lake depolama Gen1 ' yüklemek için gerekli veritabanı nesnelerini oluşturun.
-> * Bir Data Lake depolama Gen1 dizine bağlayın.
+> * Data Lake depolama alanından yüklemek için gerekli veritabanı nesnelerini oluşturun.
+> * Bir Data Lake depolama dizinine bağlanın.
 > * Verileri Azure SQL veri ambarı'na yükleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
@@ -32,18 +32,18 @@ Bu öğreticiye başlamadan önce, [SQL Server Management Studio](/sql/ssms/down
 
 Bu öğreticide çalıştırmak için ihtiyacınız vardır:
 
-* Azure Active Directory hizmetten hizmete kimlik doğrulaması için kullanılacak uygulama. Oluşturmak için takip [Active directory kimlik doğrulaması](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
+* Azure Active Directory Gen1 yüklüyorsanız, hizmetten hizmete kimlik doğrulaması için kullanılacak uygulama. Oluşturmak için takip [Active directory kimlik doğrulaması](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> İstemci Kimliğini, anahtar ve SQL veri ambarı'ndan Data Lake depolama Gen1 hesabınıza bağlanmak için Active Directory uygulamasının OAuth2.0 belirteç uç noktası değeri gerekir. Bu değerleri almak nasıl için Ayrıntılar yukarıdaki bağlantıya bulunur. Azure Active Directory Uygulama kaydı için istemci kimliği olarak uygulama Kimliğini kullanın.
+> Azure Data Lake depolama Gen1 yüklüyorsanız, istemci Kimliğini, anahtar ve SQL veri ambarı'ndan depolama hesabınıza bağlanmak için Active Directory uygulamasının OAuth2.0 belirteç uç noktası değeri gerekir. Bu değerleri almak nasıl için Ayrıntılar yukarıdaki bağlantıya bulunur. Azure Active Directory Uygulama kaydı için istemci kimliği olarak uygulama Kimliğini kullanın.
 > 
 
 * Bir Azure SQL veri ambarı. Bkz: [oluşturma ve sorgu ve Azure SQL veri ambarı](create-data-warehouse-portal.md).
 
-* Bir Data Lake depolama Gen1 hesabı. Bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Bir Data Lake Store hesabı. Bkz: [Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Bir kimlik bilgisi oluşturma
-Data Lake depolama Gen1 hesabınıza erişmek için kullanılan bir sonraki adımda, kimlik bilgisi gizli anahtarını şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekecektir. Daha sonra bir veritabanı kapsamlı AAD'de ayarlanmış hizmet sorumlusu kimlik bilgileri depolayan kimlik bilgisi, oluşturursunuz. Bu Windows Azure depolama BLOB'ları için bağlanmak için PolyBase kullanmış olduğunuz CREDENTIAL sözdizimi farklı olduğuna dikkat edin.
+Data Lake Storage hesabınıza erişmek için kullanılan bir sonraki adımda, kimlik bilgisi gizli anahtarını şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekecektir. Daha sonra Database Scoped CREDENTIAL oluşturursunuz. Gen1 için Database Scoped CREDENTIAL AAD'de ayarlanmış hizmet sorumlusu kimlik bilgileri depolar. 2. nesil için Database Scoped CREDENTIAL içinde depolama hesabı anahtarını kullanmanız gerekir. 
 
 Data Lake depolama Gen1 için bağlanmak için şunları yapmanız gerekir **ilk** Azure Active Directory uygulaması oluşturma, bir erişim anahtarı oluşturmak ve Data Lake depolama Gen1 kaynak erişim verin. Yönergeler için [doğrulaması için Azure Data Lake depolama Gen1 kullanarak Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
@@ -56,19 +56,29 @@ Data Lake depolama Gen1 için bağlanmak için şunları yapmanız gerekir **ilk
 CREATE MASTER KEY;
 
 
--- B: Create a database scoped credential
+-- B (for Gen1): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
-CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;
 
--- It should look something like this:
-CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
+-- B (for Gen2): Create a database scoped credential
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- SECRET: Provide your Azure storage account key.
+
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
+WITH
+    IDENTITY = 'user',
+    SECRET = '<azure_storage_account_key>'
+;
+
+-- It should look something like this for Gen1:
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
     SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
@@ -79,21 +89,33 @@ WITH
 Bunu kullanın [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) konumu verileri depolamak için komutu. 
 
 ```sql
--- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage Gen1.
+-- C (for Gen1): Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage.
 -- LOCATION: Provide Data Lake Storage Gen1 account name and URI
 -- CREDENTIAL: Provide the credential created in the previous step.
 
-CREATE EXTERNAL DATA SOURCE AzureDataLakeStorageGen1
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
     LOCATION = 'adl://<datalakestoregen1accountname>.azuredatalakestore.net',
-    CREDENTIAL = ADLSG1Credential
+    CREDENTIAL = ADLSCredential
+);
+
+-- C (for Gen2): Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage.
+-- LOCATION: Provide Data Lake Storage Gen2 account name and URI
+-- CREDENTIAL: Provide the credential created in the previous step.
+
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
+WITH (
+    TYPE = HADOOP,
+    LOCATION='abfs://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    CREDENTIAL = ADLSCredential
 );
 ```
 
 ## <a name="configure-data-format"></a>Veri biçimi yapılandırma
-Data Lake depolama Gen1 verileri içeri aktarmak için dış dosya biçimini belirtmek gerekir. Bu nesne, dosyalar Data Lake depolama Gen1 nasıl yazılır tanımlar.
+Data Lake depolama alanından verileri içeri aktarmak için dış dosya biçimini belirtmek gerekir. Bu nesne, dosyalar Data Lake Storage nasıl yazılır tanımlar.
 Tam liste için T-SQL belgelerimize bakın [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
@@ -119,7 +141,7 @@ Belirttiğiniz veri kaynağı ve dosya biçimini, dış tablolar oluşturmak haz
 
 ```sql
 -- D: Create an External Table
--- LOCATION: Folder under the Data Lake Storage Gen1 root folder.
+-- LOCATION: Folder under the Data Lake Storage root folder.
 -- DATA_SOURCE: Specifies which Data Source Object to use.
 -- FILE_FORMAT: Specifies which File Format Object to use
 -- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
@@ -134,7 +156,7 @@ CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
 WITH
 (
     LOCATION='/DimProduct/'
-,   DATA_SOURCE = AzureDataLakeStorageGen1
+,   DATA_SOURCE = AzureDataLakeStorage
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
 ,   REJECT_VALUE = 0
@@ -154,7 +176,7 @@ REJECT_TYPE ve REJECT_VALUE seçenekleri kaç satır veya verilerin yüzde son t
 Data Lake depolama Gen1 verilere erişimi denetlemek için rol tabanlı erişim denetimi (RBAC) kullanır. Bu hizmet sorumlusunu konumu parametresinde tanımlanan dizinleri ve dosyaları ve son dizin alt izni okuma izinlerinizin olduğunu anlamına gelir. Bu kimlik doğrulaması yapmak ve verileri yüklemek PolyBase sağlar. 
 
 ## <a name="load-the-data"></a>Verileri yükleme
-Data Lake depolama Gen1 kullanımdan verileri yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) deyimi. 
+Data Lake Storage kullanımdan verileri yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) deyimi. 
 
 CTAS, yeni bir tablo oluşturur ve bir select deyiminin sonuçları ile doldurur. CTAS bir select deyiminin sonuçları aynı sütunlara ve veri türleri için yeni tablo tanımlar. Bir dış tablodan tüm sütunları seçerseniz, yeni bir tablo veri türleri, dış tablo ve sütunları çoğaltmasıdır.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025851"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148001"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Metin okuma çıkış ince ayar yapma
 
@@ -43,7 +43,7 @@ Metin okuma çıkış ses ayarlama aracıyla ince ayar başlamadan önce bu adı
    * Bulun ve seçin **tüm abonelikleri**.  
    * Seçin **mevcut aboneliğe bağlanma**.  
      ![Mevcut bir aboneliğe bağlanma](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Azure portalından Azure konuşma Hizmetleri abonelik anahtarınızı girin ve ardından **Ekle**. Abonelik anahtarlarınızın Azure portalında kaynak yönetimi bölmesinde kullanılabilir.  Anahtarlar, sesli ayarlama portalı abonelik listesinden de alabilir.
+   * Konuşma Hizmetleri Azure abonelik anahtarınızı girin ve ardından **Ekle**. Abonelik anahtarlarınızın konuşma özelleştirme Portalı'nda kullanılabilir [abonelik sayfasını](https://go.microsoft.com/fwlink/?linkid=2090458). Kaynak Yönetimi bölmesinde anahtarlar alabilir [Azure portalında](https://portal.azure.com/). 
    * Kullanmayı planladığınız konuşma Hizmetleri birden fazla aboneliğiniz varsa, her abonelik için bu adımları yineleyin.
 
 ## <a name="customize-the-text-to-speech-output"></a>Metin okuma çıkış özelleştirme

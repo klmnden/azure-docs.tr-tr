@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139284"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect eşitleme: Scheduler
-Bu konuda Azure AD Connect Eşitleme'deki yerleşik Zamanlayıcı (diğer adıyla) açıklanır Eşitleme altyapısı).
+Bu konuda, Azure AD Connect eşitleme (eşitleme altyapısı) içinde yerleşik Zamanlayıcı açıklanmaktadır.
 
 Bu özellik 1.1.105.0 derleme ile (Şubat 2016'da yayımlanan) kullanıma sunulmuştur.
 
@@ -92,29 +92,62 @@ Değişikliklerinizi yaptıktan sonra Zamanlayıcı'yla yeniden etkinleştirmek 
 ## <a name="start-the-scheduler"></a>Zamanlayıcı'yı başlatma
 Zamanlayıcı, 30 dakikada bir Çalıştır varsayılan olarak açıktır. Bazı durumlarda, bir eşitleme döngüsü zamanlanmış döngüleri arasında çalıştırmak isteyebilirsiniz veya farklı bir tür çalıştırmanız gerekir.
 
-**Delta eşitleme döngüsü**  
+### <a name="delta-sync-cycle"></a>Delta eşitleme döngüsü
 Delta eşitleme döngüsü aşağıdaki adımları içerir:
 
-* Delta içeri aktarma işlemi sırasında tüm bağlayıcılar
-* Tüm bağlayıcılar delta eşitleme
-* Tüm bağlayıcılarda dışarı aktarma
 
-Neden bir döngü el ile çalıştırmak için ihtiyacınız olan hemen eşitlenmesi gereken bir Acil değişiklik sahip olabilir. El ile bir döngüsü çalıştırmak Powershell'den sonra çalıştırmanız gerekiyorsa `Start-ADSyncSyncCycle -PolicyType Delta`.
+- Delta içeri aktarma işlemi sırasında tüm bağlayıcılar
+- Tüm bağlayıcılar delta eşitleme
+- Tüm bağlayıcılarda dışarı aktarma
 
-**Tam eşitleme döngüsü**  
-Şu yapılandırma değişiklikleri birini yaptıysanız, bir tam eşitleme döngüsü (diğer adıyla) çalıştırmak ihtiyacınız İlk):
+### <a name="full-sync-cycle"></a>Tam eşitleme döngüsü
+Tam eşitleme döngüsü aşağıdaki adımları içerir:
 
-* Daha fazla nesne veya öznitelik, bir kaynak dizinden içeri aktarılacak eklendi
-* Eşitleme kurallarında yapılan değişiklikler
-* Değiştirilen [filtreleme](how-to-connect-sync-configure-filtering.md) nesneleri farklı sayıda dahil edilmesi gereken şekilde
+- Tüm bağlayıcılar üzerinde tam içeri aktarma
+- Tüm bağlayıcılar üzerinde tam eşitleme
+- Tüm bağlayıcılarda dışarı aktarma
 
-Bu değişikliklerden birini yaptıysanız, eşitleme altyapısı bağlayıcı alanları yeniden birleştirmek için fırsatına sahip için bir tam eşitleme döngüsü çalıştırmak gerekir. Tam eşitleme döngüsü aşağıdaki adımları içerir:
+Neden bir döngü el ile çalıştırmak için ihtiyacınız olan hemen eşitlenmesi gereken bir Acil değişiklik sahip olabilir. 
 
-* Tüm bağlayıcılar üzerinde tam içeri aktarma
-* Tüm bağlayıcılar üzerinde tam eşitleme
-* Tüm bağlayıcılarda dışarı aktarma
+El ile bir eşitleme döngüsü çalıştırın Powershell'den sonra çalıştırmanız gerekiyorsa `Start-ADSyncSyncCycle -PolicyType Delta`.
 
-Bir tam eşitleme döngüsü başlatmak için Çalıştır `Start-ADSyncSyncCycle -PolicyType Initial` PowerShell isteminden. Bu komut, bir tam eşitleme döngüsü başlatır.
+Bir tam eşitleme döngüsü başlatmak için Çalıştır `Start-ADSyncSyncCycle -PolicyType Initial` PowerShell isteminden.   
+
+Tam eşitleme döngüsü çalıştırmak çok zaman alıcı olabilir, bu işlem en iyi duruma getirme okumak için sonraki bölüme okuyun.
+
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Farklı yapılandırma değişikliklerini gerekli eşitleme adımları
+Farklı yapılandırma değişiklikleri, değişikliklerin doğru olarak tüm nesneler için uygulandığından emin olmak için farklı bir eşitleme adımları gerektirir.
+
+- Daha fazla nesne veya öznitelik (ekleme/eşitleme kuralları değiştirerek) kaynak dizinden içeri aktarılacak eklendi
+    - Bu kaynak dizini için bağlayıcı üzerinde tam içeri aktarma gereklidir
+- Eşitleme kurallarında yapılan değişiklikler
+    - Değiştirilen eşitleme kuralları için bağlayıcı üzerinde tam eşitleme gereklidir
+- Değiştirilen [filtreleme](how-to-connect-sync-configure-filtering.md) nesneleri farklı sayıda dahil edilmesi gereken şekilde
+    - Kullanmakta olduğunuz sürece tam içeri aktarma bağlayıcı her AD Bağlayıcısı için eşitleme motoruna içeri aktarılmakta olan öznitelikleri temel öznitelik tabanlı filtreleme gereklidir
+
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Delta ve tam eşitleme adımları doğru karışımını çalıştırma bir eşitleme döngüsü özelleştirme
+Tam eşitleme döngüsü çalıştırmaktan kaçınmak için aşağıdaki cmdlet'leri kullanarak tam bir adım çalıştırmak için özel bağlayıcılar işaretleyebilirsiniz.
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullSyncRequired $true`
+
+`Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
+
+Örnek:  İçe aktarılacak yeni öznitelikleri gerektirmeyen eşitleme kuralları için "AD ormanı A" bağlayıcı için bir değişiklik yaptıysanız, aşağıdaki çalıştıracağınız delta eşitlemesi çalıştırmak için cmdlet'leri döngüsü, ayrıca bir tam eşitleme adım bu bağlayıcı için.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
+Örnek:  Böylece artık gereksinim duydukları aktarabilmek için yeni bir öznitelik değişiklik eşitleme kuralları için Bağlayıcısı "AD ormanı A" yaptıysanız ayrıca tam içeri aktarma, bu bağlayıcı için tam eşitleme adım yaptığınız bir delta eşitleme döngüsü çalıştırmak için aşağıdaki cmdlet'leri çalışır.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
 
 ## <a name="stop-the-scheduler"></a>Zamanlayıcı'yı Durdur
 Zamanlayıcı bir eşitleme döngüsü şu anda çalışıyorsa durdurun gerekebilir. Örneğin, Yükleme Sihirbazı'nı başlatın ve bu hatayı alırsınız:

@@ -41,15 +41,15 @@
         - name: Hesap yönetimi
           href: cloudsimple-account.md
         - name: Etkinlik yönetimi
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-activity/'
+          href: cloudsimple-activity.md
         - name: Özel bulut üzerinde VMware
-          href: 'https://docs.azure.cloudsimple.com/vmware-components/'
+          href: vmware-components.md
         - name: Güvenliğe genel bakış
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
         - name: Düğüm kotası
-          href: 'https://docs.azure.cloudsimple.com/node-quota/'
+          href: node-quota.md
         - name: Bakım ve güncelleştirmeler
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/'
+          href: cloudsimple-maintenance-updates.md
         - name: SSS
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
     - name: Öğreticiler

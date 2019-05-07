@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5ec38c510fedee7f489b3b100285eeb7c75f4561
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690981"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146516"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Hızlı Başlangıç: LUIS portalda yeni bir uygulama oluşturma
 
@@ -56,7 +56,7 @@ Uygulamayı iki farklı kullanıcının _amaçları_ hizalamak için aşağıdak
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
 
-Intents oluşturmak için aşağıdaki adımları uygulayın:
+Intents oluşturmak için aşağıdaki adımları tamamlayın:
 
 1. Uygulama oluşturulduktan sonra olan **hedefleri** sayfasının **derleme** bölümü. **Create new intent** (Yeni amaç oluştur) öğesini seçin.
 
@@ -71,6 +71,8 @@ Intents oluşturmak için aşağıdaki adımları uygulayın:
 Intents oluşturduktan sonra örnek Konuşma ekleme. Örnek konuşma bir sohbet Robotu veya başka bir istemci uygulama, kullanıcının girdiği metinlerdir. Bunlar, kullanıcının metin amacınıza LUIS ıntent'e eşleyin.
 
 Bu örnek uygulama için `FindForm` hedefi, örnek konuşma form numarası da içerecektir. İstemci uygulamasının utterance içerecek şekilde önemli olduğu için kullanıcının isteği gerçekleştirmek için form sayısının gerekir.
+
+[![FindForm amaç için örnek konuşma girin](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Aşağıdaki örnek 15 konuşma için ekleme `FindForm` hedefi.
 
@@ -100,11 +102,11 @@ Tasarım gereği, bu örnek konuşma aşağıdaki yollarla farklılık gösterir
 * Fiili şimdiki (ise, oluştu, olacaktır)
 * sözcük sırasını
 
-[![FindForm amaç için örnek konuşma girin](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+
 
 ## <a name="create-a-regular-expression-entity"></a>Bir normal ifade varlık oluşturma
 
-Döndürülen çalışma zamanı tahmin yanıtın bir parçası form numarasını almak için formun bir varlık olarak işaretlenmesi gerekir. Form numarası metni ileri düzeyde yapılandırılmış olduğundan, bir normal ifade varlık kullanmayı işaretlenebilir. Varlık, aşağıdaki adımlarla oluşturun:
+Form sayısının çalışma zamanı tahmin yanıtta döndürülecek form bir varlık olarak işaretlenmesi gerekir. Form numarası metni ileri düzeyde yapılandırılmış olduğundan, normal ifade varlık kullanarak işaretleyebilirsiniz. Varlık, aşağıdaki adımlarla oluşturun:
 
 1. Seçin **varlıkları** sol taraftaki menüden.
 

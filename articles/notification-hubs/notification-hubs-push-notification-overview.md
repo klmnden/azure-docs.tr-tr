@@ -13,14 +13,14 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: da2f9f8c8f9579d315f7df9e050ee07a5fb9cab4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03d4c269f76a89c43dec253367d07f3bf71a06d8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872165"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141204"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Azure Notification Hubs nedir?
 
@@ -35,9 +35,9 @@ Azure Notification Hubs, herhangi bir arka uçtan (bulut ya da şirket içi) her
 
 ## <a name="what-are-push-notifications"></a>Anında iletme bildirimleri nedir?
 
-Anında iletme bildirimleri, mobil uygulama kullanıcılarının istenen belirli bilgiler hakkında genellikle bir açılır pencere ya da iletişim kutusu içinde bildirim aldığı, uygulamadan kullanıcıya iletişim biçimidir. Kullanıcılar genellikle iletiyi görüntülemeyi veya kapatmayı seçebilir. İletiyi görüntülemeyi seçtiklerinde, bildirimi ileten mobil uygulama açılır.
+Anında iletme bildirimleri olan bir form uygulama kullanıcısı iletişim genellikle bir mobil cihazda bir açılır pencere ya da iletişim kutusunda, istenen belirli bilgileri kullanıcıların mobil uygulamaları burada bildirilir. Kullanıcılar genellikle iletiyi kapatın veya görüntülemek seçin; Önceki açılır bildirim olarak iletilen bir mobil uygulama seçme. Bazı bildirimler sessiz - ne yapacağınıza karar verin ve arka planda işleme bir uygulamanın arka planda teslim.
 
-Anında iletme bildirimleri, tüketici uygulamalarında uygulama etkileşiminin ve kullanımının artırılması, kurumsal uygulamalarda ise güncel iş bilgilerinin iletilmesi açısından çok önemlidir. Mobil cihazlar için enerji verimliliği, bildirimi gönderenler için esneklik ve ilgili uygulamalar etkin olmadığında kullanılabilirlik sağladığından, en iyi uygulamadan kullanıcıya iletişim yöntemidir.
+Anında iletme bildirimleri, tüketici uygulamalarında uygulama etkileşiminin ve kullanımının artırılması, kurumsal uygulamalarda ise güncel iş bilgilerinin iletilmesi açısından çok önemlidir. İlgili uygulamalar etkin olmasa da enerji tasarrufu sağlayan mobil cihazlar, bildirimler Gönderenler için esnek ve kullanılabilir olduğundan en iyi uygulama kullanıcısı iletişim olur.
 
 Birkaç popüler platformda anında iletme bildirimleri hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
@@ -47,13 +47,13 @@ Birkaç popüler platformda anında iletme bildirimleri hakkında daha fazla bil
 
 ## <a name="how-push-notifications-work"></a>Anında iletme bildirimleri nasıl çalışır?
 
-Anında iletme bildirimleri, *Platform Bildirim Sistemleri* (PNS) adlı platforma özgü altyapılar aracılığıyla teslim edilir. Bunlar, sağlanan tanıtıcıyla bir cihaza ileti teslim etmek için temel gönderme işlevleri sunarlar ve ortak bir arabirimleri yoktur. Android, iOS ve Windows uygulama sürümleri arasında tüm müşteriler için bir bildirim göndermek için geliştiricinin Apple anında iletilen bildirim Service(APNS), Firebase Cloud Messaging(FCM) ve Windows bildirim Service(WNS) çalışmanız gerekir.
+Anında iletme bildirimleri, *Platform Bildirim Sistemleri* (PNS) adlı platforma özgü altyapılar aracılığıyla teslim edilir. Bunlar, sağlanan tanıtıcıyla bir cihaza ileti teslim etmek için temel gönderme işlevleri sunarlar ve ortak bir arabirimleri yoktur. Android, iOS ve Windows uygulama sürümleri arasında tüm müşteriler için bir bildirim göndermek için geliştiricinin Apple anında iletilen bildirim Service(APNS), Firebase Cloud Messaging(FCM) ve Windows bildirim Service(WNS) ile ayrı olarak çalışmalıdır.
 
 Yüksek bir düzeyde gönderme işlemi şu şekilde çalışır:
 
-1. İstemci uygulaması, bildirimi almak isteyip istemediğine karar verir. Bu nedenle, benzersiz ve geçici gönderme tanıtıcısını almak üzere ilgili PNS ile iletişim kurar. Tanıtıcı türü, sisteme bağlıdır (örneğin, WNS’de URI’ler, APNS’de ise belirteçler bulunur).
-2. İstemci uygulaması bu tanıtıcıyı uygulama arka ucunda veya sağlayıcısında depolar.
-3. Anında iletilen bildirim göndermek için, uygulama arka ucu belirli bir istemci uygulamasını hedeflemek amacıyla tanıtıcıyı kullanarak PNS'ye bağlanır.
+1. Uygulama bildirimini alır, böylece uygulama nerede çalışıyor ve benzersiz ve geçici bir anında iletme tanıtıcı istekleri hedef platform için PNS'ye bağlanır istediği karar verir. Tanıtıcı türü sisteme bağlıdır (APNS belirteçlerini kullanır. Örneğin, WNS URI'ler kullanır).
+2. İstemci uygulama, uygulama arka ucuna veya sağlayıcı bu tutamacı depolar.
+3. Anında iletme bildirimi göndermek için uygulama arka ucu hedef belirli istemci uygulaması tanıtıcıyı kullanarak PNS'ye bağlanır.
 4. PNS, tanıtıcı tarafından belirtilen cihaza bildirimi iletir.
 
 ![Anında iletme bildirimi iş akışı](./media/notification-hubs-overview/registration-diagram.png)
@@ -65,16 +65,16 @@ PNS’ler güçlüdür. Bununla birlikte, segmentlere ayrılmış kullanıcılar
 Anında iletme bildirimlerinin gönderilmesi için, uygulamanın ana iş mantığıyla ilgili olmayan karmaşık bir altyapı gerekir. Altyapıyla ilgili zorluklardan bazıları şunlardır:
 
 - **Platform bağımlılığı**
-  - PNS’ler birleşik olmadığından, arka ucun çeşitli platformlardaki cihazlara bildirim göndermesi için karmaşık ve bakımı zor, platforma bağımlı bir mantığa sahip olması gerekir.
+  - Arka uç PNSes değil birleşik gibi çeşitli platformlarda cihazları bildirimleri göndermek için karmaşık ve korunması zor platforma bağımlı mantık gerektirir.
 - **Ölçeklendirme**
-  - PNS yönergelerine göre, uygulama her başlatıldığında cihaz belirteçlerinin yenilenmesi gerekir. Arka uç, yalnızca belirteçleri güncel tutmak için büyük miktarda trafik ve veritabanı erişimi ile uğraşır. Cihazların sayısı yüzlerce ve binlerce milyona ulaştığında, bu altyapıyı oluşturma ve koruma maliyeti çok büyük olur.
+  - PNS yönergelerine göre, uygulama her başlatıldığında cihaz belirteçlerinin yenilenmesi gerekir. Arka uç ile büyük miktarda trafik ve veritabanı erişimi yalnızca belirteçlerini güncel tutmak için ilgilenir. Cihaz sayısı, yüzlerce, binlerce veya milyonlarca büyürken, oluşturma ve bu altyapı bakım maliyeti çok büyük.
   - Çoğu PNS, birden fazla cihaza yayın yapmayı desteklemez. Bir milyon cihaza basit bir yayın yapılması, PNS’lere yönelik bir milyon çağrı ile sonuçlanır. Bu miktarda trafiğin en düşük gecikme ile ölçeklendirilmesi sıradan bir işlem değildir.
 - **Yönlendirme**
   - PNS’ler cihazlara iletileri göndermek için bir yol sağlasa da, çoğu uygulama bildirimi kullanıcılara veya ilgi alanı gruplarına yöneliktir. Cihazları ilgi alanı grupları, kullanıcılar, özellikler vb. ile ilişkilendirmek için arka ucun bir kayıt defteri tutması gerekir. Bu ek yük, bir uygulamanın pazara sunum süresine ve bakım maliyetlerine eklenir.
 
 ## <a name="why-use-azure-notification-hubs"></a>Azure Notification Hubs neden kullanılır?
 
-Notification Hubs, uygulama arka ucunuzdan kendi başınıza bildirim göndermeyle ilişkili tüm karmaşıklığı ortadan kaldırır. Çok platformlu, ölçeği genişletilmiş anında iletme bildirimi altyapısı, gönderme ile ilgili kodlama işlemlerini azaltır ve arka ucunuzu basitleştirir. Notification Hubs sayesinde cihazlar yalnızca PNS tanıtıcılarını bir hub’a kaydetmekten sorumludur. Arka uç ise aşağıdaki şekilde gösterildiği gibi kullanıcılara veya ilgili alanı gruplarına iletiler gönderir:
+Notification hubs'ın uygulamanızdan kendi arka uçta bildirimler gönderme ile ilişkili tüm karmaşıklıkları ortadan kaldırır. Çok platformlu, ölçeği genişletilmiş anında iletme bildirimi altyapısı, gönderme ile ilgili kodlama işlemlerini azaltır ve arka ucunuzu basitleştirir. Notification Hubs sayesinde cihazlar yalnızca PNS tanıtıcılarını bir hub’a kaydetmekten sorumludur. Arka uç ise aşağıdaki şekilde gösterildiği gibi kullanıcılara veya ilgili alanı gruplarına iletiler gönderir:
 
 ![Bildirim Hub'ı diyagramı](./media/notification-hubs-overview/notification-hub-diagram.png)
 
@@ -105,28 +105,6 @@ Bildirim hub'ları, aşağıdaki avantajlara sahip olan kullanıma hazır gönde
   - Yeniden tasarlama veya cihaz parçalaması yapmadan milyonlarca cihaza hızlı iletiler gönderin.
 - **Güvenlik**
   - Paylaşılan Erişim Gizli Dizisi (SAS) veya şirket dışı kimlik doğrulaması.
-
-## <a name="integration-with-app-service-mobile-apps"></a>App Service Mobile Apps ile Tümleştirme
-
-Azure hizmetleri genelinde kesintisiz ve birleştirici bir deneyimi kolaylaştırmak amacıyla [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)'in Notification Hubs'ı kullanan anında iletme bildirimleri için yerleşik desteği mevcuttur. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md), Kurumsal Geliştiriciler ve Sistem Tümleştiricileri için mobil geliştiricilere zengin bir özellik kümesi sağlayan, yüksek düzeyde ölçeklenebilir, global olarak kullanılabilir bir mobil uygulama geliştirme platformu sunar.
-
-Mobile Apps geliştiricileri Notification Hubs'ı aşağıdaki iş akışı ile kullanabilir:
-
-1. Cihaz PNS tanıtıcısını alma
-2. Uygun Mobile Apps İstemci SDK'sı kayıt API'si yoluyla Notification Hubs'a cihazı kaydetme
-
-    > [!NOTE]
-    > Mobile Apps'in güvenlik amacıyla kayıtlardaki tüm etiketleri kaldırdığını unutmayın. Etiketleri cihazlarla ilişkilendirmek için doğrudan arka ucunuzdan Notification Hubs ile çalışın.
-3. Uygulama arka ucunuzdan Notification Hubs ile bildirimler gönderme
-
-Bu tümleştirme ile geliştiricilere sağlanan bazı kolaylıklar şunlardır:
-
-- **Mobile Apps istemci SDK'ları**: Bu çoklu platform SDK'ları kayıt için basit API'ler sağlar ve mobil uygulama ile bağlantılı bildirim hub'ı ile otomatik olarak konuşur. Geliştiricilerin Notification Hubs kimlik bilgilerini sorgulaması ve ek bir hizmet ile çalışması gerekmez.
-  - *Kullanıcıya anında iletme*: SDK'lar, kullanıcı senaryosuna gönderimi sağlamak için, belirli bir cihazı otomatik olarak Mobile Apps kimliği doğrulanmış Kullanıcı Kimliği ile etiketler.
-  - *Cihaza anında iletme*: SDK'lar, Notification Hubs'a kaydetmek için Mobile Apps Yükleme Kimliği'ni otomatik olarak GUID gibi kullanır. Böylece, geliştiricileri birden çok hizmet GUID'i saklama zahmetinden kurtarır.
-- **Yükleme modeli**: Mobile Apps, Anında İletme Bildirimi Hizmetleri ile hizalanan ve kullanımı kolay olan bir JSON Yüklemesi'nde, bir cihaz ile ilişkili tüm gönderim özelliklerini temsil etmek için Notification Hubs'ın en son gönderim modeli ile çalışır.
-- **Esneklik**: Geliştiriciler, yerinde tümleştirme söz konusu olduğunda bile her zaman için Notification Hubs ile doğrudan çalışmayı tercih edebilir.
-- **Tümleşik deneyim [Azure portalında](https://portal.azure.com)**: Mobile Apps'te gönderim özelliği görsel olarak temsil edilir ve geliştiriciler Mobile Apps aracılığıyla ilişkili bildirim hub'ı ile kolayca çalışabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
