@@ -55,10 +55,10 @@ Cassandra bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Type özelliği ayarlanmalıdır: **Cassandra** |Evet |
-| konak |Bir veya daha fazla IP adresleri veya Cassandra sunucusunun ana bilgisayar adını.<br/>IP adreslerini veya aynı anda tüm sunuculara bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
+| host |Bir veya daha fazla IP adresleri veya Cassandra sunucusunun ana bilgisayar adını.<br/>IP adreslerini veya aynı anda tüm sunuculara bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
 | port |Cassandra sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |Hayır (varsayılan değer 9042) |
 | authenticationType | Cassandra veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel**, ve **anonim**. |Evet |
-| kullanıcı adı |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
+| username |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
 | password |Kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet, authenticationType temel olarak ayarlanmışsa. |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
@@ -98,7 +98,7 @@ Cassandra verileri kopyalamak için dataset öğesinin type özelliği ayarlamak
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır: **CassandraTable** | Evet |
-| anahtar alanı |Anahtar alanı veya Cassandra veritabanındaki şema adı. |Hayır ("CassandraSource" için "sorgu" belirtilmişse) |
+| keySpace |Anahtar alanı veya Cassandra veritabanındaki şema adı. |Hayır ("CassandraSource" için "sorgu" belirtilmişse) |
 | tableName |Cassandra veritabanındaki tablonun adı. |Hayır ("CassandraSource" için "sorgu" belirtilmişse) |
 
 **Örnek:**
@@ -132,7 +132,7 @@ Cassandra verileri kopyalamak için kopyalama etkinliği için kaynak türünü 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **CassandraSource** | Evet |
-| sorgu |Verileri okumak için özel sorgu kullanın. 92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |("TableName" ve "anahtar" alanı kümesindeki belirtilirse) yok. |
+| query |Verileri okumak için özel sorgu kullanın. 92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |("TableName" ve "anahtar" alanı kümesindeki belirtilirse) yok. |
 | consistencyLevel |Tutarlılık düzeyi, istemci uygulamasına veri döndürmeden önce kaç çoğaltmalar için Okuma isteği yanıtlamalıdır belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için.<br/><br/>İzin verilen değerler şunlardır: **BİR**, **iki**, **üç**, **çekirdek**, **tüm**, **LOCAL_QUORUM**, **EACH_QUORUM**, ve **LOCAL_ONE**. |Hayır (varsayılan değer `ONE`) |
 
 **Örnek:**
@@ -176,14 +176,14 @@ Cassandra veri kopyalama işlemi sırasında aşağıdaki eşlemeler Cassandra v
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLE DEĞERİ |Boolean |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| ÇİFT |Double |
-| KAYAN NOKTA |Single |
+| DOUBLE |Double |
+| FLOAT |Single |
 | INET |String |
 | INT |Int32 |
-| METİN |String |
-| ZAMAN DAMGASI |DateTime |
+| TEXT |String |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |
