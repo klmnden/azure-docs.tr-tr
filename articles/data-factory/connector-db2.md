@@ -62,10 +62,10 @@ DB2 bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Db2** | Evet |
-| sunucu |DB2 sunucusunun adı. Aşağıdaki örneğin virgül ile ayrılmış sunucu adı bağlantı noktası numarasını belirtebilirsiniz `server:port`. |Evet |
-| veritabanı |DB2 veritabanı adı. |Evet |
+| server |DB2 sunucusunun adı. Aşağıdaki örneğin virgül ile ayrılmış sunucu adı bağlantı noktası numarasını belirtebilirsiniz `server:port`. |Evet |
+| database |DB2 veritabanı adı. |Evet |
 | authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değeri şudur: **Temel**. |Evet |
-| kullanıcı adı |DB2 veritabanına bağlanmak için kullanıcı adı belirtin. |Evet |
+| username |DB2 veritabanına bağlanmak için kullanıcı adı belirtin. |Evet |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
@@ -133,7 +133,7 @@ DB2'den veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarla
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
@@ -174,27 +174,27 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemeler DB2 veri tür
 | DB2 veritabanı türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | BigInt |Int64 |
-| binary |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
-| char |String |
+| Char |String |
 | Clob |String |
-| Tarih |DateTime |
+| Date |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Grafiği |String |
-| Tamsayı |Int32 |
-| LONGVARBINARY |Byte[] |
+| Graphic |String |
+| Integer |Int32 |
+| LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
 | Numeric |Decimal |
-| real |Single |
-| Tamsayı |Int16 |
-| Zaman |TimeSpan |
-| Zaman damgası |DateTime |
+| Real |Single |
+| SmallInt |Int16 |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

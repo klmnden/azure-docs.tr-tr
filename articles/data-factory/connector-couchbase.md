@@ -45,7 +45,7 @@ Couchbase bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Couchbase** | Evet |
-| bağlantı dizesi | Couchbase için bağlanmak için bir ODBC bağlantı dizesi. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Kimlik bilgisi dizesi Azure anahtar kasası ve çekme koyabilirsiniz `credString` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. | Evet |
+| connectionString | Couchbase için bağlanmak için bir ODBC bağlantı dizesi. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Kimlik bilgisi dizesi Azure anahtar kasası ve çekme koyabilirsiniz `credString` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 **Örnek:**
@@ -137,7 +137,7 @@ Couchbase verileri kopyalamak için kopyalama etkinliği için kaynak türünü 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **CouchbaseSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
