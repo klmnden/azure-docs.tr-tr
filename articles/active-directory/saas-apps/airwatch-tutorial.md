@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888340"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Öğretici: AirWatch ile Azure Active Directory Tümleştirme
 
@@ -207,15 +207,15 @@ Azure AD çoklu oturum açma ile AirWatch yapılandırmak için aşağıdaki ad�
 
     a. İçinde **nesne tanımlayıcısı** metin kutusuna `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    b. İçinde **kullanıcıadı** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    b. İçinde **kullanıcıadı** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    c. İçinde **görünen ad** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    c. İçinde **görünen ad** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    d. İçinde **ad** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. İçinde **ad** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. İçinde **Soyadı** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. İçinde **Soyadı** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. İçinde **e-posta** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. İçinde **e-posta** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     g. **Kaydet**’e tıklayın.
 

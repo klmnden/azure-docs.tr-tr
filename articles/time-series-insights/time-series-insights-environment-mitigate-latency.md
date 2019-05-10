@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685160"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471733"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde gecikme süresini azaltmak için azaltmayı giderme ve izleme
 
@@ -34,21 +34,21 @@ Gecikme süresi ve ne zaman azaltma deneyimi büyük olasılıkla:
 
 ## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Bu videoda, Time Series Insights veri giriş davranışı ve onun için nasıl kapsar.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Time Series Insights veri giriş davranışı ve onun için planlama hakkında daha fazla bilgi edinin.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Gecikme süresi ve azaltma uyarılarla izleme
 
-Uyarılar, ortamınız tarafından neden gecikme sorunlarını tanılamak ve azaltmak amacıyla yardımcı olabilir. 
+Uyarılar, ortamınız tarafından neden gecikme sorunlarını tanılamak ve azaltmak amacıyla yardımcı olabilir.
 
-1. Azure portalında **ölçümleri**. 
+1. Azure portalında **ölçümleri**.
 
-   ![Ölçümler](media/environment-mitigate-latency/add-metrics.png)
+   [![Ölçümleri](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-2. Tıklayın **ölçüm uyarısı Ekle**.  
+1. Tıklayın **ölçüm uyarısı Ekle**.  
 
-    ![Ölçüm uyarısı Ekle](media/environment-mitigate-latency/add-metric-alert.png)
+   [![Ölçüm uyarısı Ekle](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsiniz:
 
@@ -62,21 +62,21 @@ Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsini
 |**Alınan ileti zaman gecikmesini giriş**    |  İleti sıraya alınan olay olduğu zaman arasındaki saniye cinsinden kaynak ve giriş işlendiği zaman farkı.      |
 |**İleti sayısı Lag giriş alındı**    |  Son sıradaki ileti sıra numarası arasındaki fark, giriş işlenmekte olan ileti bölüm ve sıra sayısı olay kaynağı.      |
 
-![Gecikme süresi](media/environment-mitigate-latency/latency.png)
+![Gecikme](media/environment-mitigate-latency/latency.png)
 
-Aşarak, bir değer görürsünüz *giriş alınan ileti zaman gecikmesini*, TSI arkasında kaç saniye gerçekleşen süresi iletidir size bildiren İsabetleri (appx dizin oluşturma zamanı dışında. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı Lag* arkasında, ileti sayısını belirlemek sağlayan bir değer de sahip olmalıdır.  Yakalanan için en kolay yolu, fark üstesinden olanak sağlayacak bir boyuta ortamınızın kapasite artırmaktır.  
+* Aşarak, bir değer görürsünüz *giriş alınan ileti zaman gecikmesini*, kaç saniye, TSI arkasında gerçekleşen süresi iletidir size bildiren İsabetleri (appx dizin oluşturma zamanı dışında. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı Lag* arkasında, ileti sayısını belirlemek sağlayan bir değer de sahip olmalıdır.  Yakalanan için en kolay yolu, fark üstesinden olanak sağlayacak bir boyuta ortamınızın kapasite artırmaktır.  
 
-Örneğin, bir tek birim S1 ortamınız varsa ve beş milyon ileti lag görmek, ortamınıza yakalandı için altı birim için günde bir geçici boyutunu arttırabilir.  Hatta daha fazla sınırlandıramazsınız catch yukarı daha hızlı artırabilir.  Oldukça sık karşılaştıkları özellikle bu olayları zaten var. bir olay kaynağı bağlandığınızda başlangıçta bir ortam sağlanırken veya geçmiş verileri karşıya yükleme çok sayıda toplu dönemdir.
+  Örneğin, bir tek birim S1 ortamınız varsa ve 5,000,000 ileti lag görmek, ortamınıza yakalandı için altı birim için günde bir geçici boyutunu arttırabilir.  Hatta daha fazla sınırlandıramazsınız catch yukarı daha hızlı artırabilir. Oldukça sık karşılaştıkları özellikle bu olayları zaten var. bir olay kaynağı bağlandığınızda başlangıçta bir ortam sağlanırken veya geçmiş verileri karşıya yükleme çok sayıda toplu dönemdir.
 
-Ayarlamak için başka bir tekniktir bir **depolanan giriş olayları** uyarı > = 2 saat boyunca toplam ortam kapasite biraz aşağıda bir eşiği.  Bu uyarı, gecikme süresi yüksek bir olasılığını gösteren kapasitede sürekli olup olmadığını anlamanıza yardımcı olabilir.  
+* Ayarlamak için başka bir tekniktir bir **depolanan giriş olayları** uyarı > = 2 saat boyunca toplam ortam kapasite biraz aşağıda bir eşiği.  Bu uyarı, gecikme süresi yüksek bir olasılığını gösteren kapasitede sürekli olup olmadığını anlamanıza yardımcı olabilir. 
 
-Sağlanan üç adet S1 birimi (veya 2100 olay başına dakika alma kapasitesi) varsa, örneğin, ayarlayabilirsiniz bir **depolanan giriş olayları** için uyarı > 1900 olayları için 2 saat =. Sürekli olarak bu eşiğini ve bu nedenle, uyarıyı tetikleyen ise, büyük olasılıkla altında-sağlanır.  
+  Sağlanan üç adet S1 birimi (veya 2100 olay başına dakika alma kapasitesi) varsa, örneğin, ayarlayabilirsiniz bir **depolanan giriş olayları** için uyarı > 1900 olayları için 2 saat =. Sürekli olarak bu eşiğini ve bu nedenle, uyarıyı tetikleyen ise, büyük olasılıkla altında-sağlanır.  
 
-Kaynaklarınızın azaltılıp şüpheleniyorsanız, ayrıca, karşılaştırabilirsiniz, **giriş alınan iletilerin** ile olay kaynağı iletileri egressed.  Olay hub'ıyla giriş sayısından büyükse, **giriş alınan iletilerin**, zaman serisi görüşleri, büyük olasılıkla aşarak.
+* Kaynaklarınızın azaltılıp şüpheleniyorsanız karşılaştırabileceğiniz, **giriş alınan iletilerin** ile olay kaynağı iletileri egressed.  Olay hub'ıyla giriş sayısından büyükse, **giriş alınan iletilerin**, zaman serisi görüşleri, büyük olasılıkla aşarak.
 
 ## <a name="improving-performance"></a>Performansı iyileştirme
 
-Azaltma veya karşılaşılan gecikme süresini azaltmak için bunu düzeltmek için en iyi yolu ortamınızın kapasite artırmaktır. 
+Azaltma veya karşılaşılan gecikme süresini azaltmak için bunu düzeltmek için en iyi yolu ortamınızın kapasite artırmaktır.
 
 Gecikme süresi ve analiz etmek istediğiniz veri miktarı, ortamınızı düzgün şekilde yapılandırarak azaltma önleyebilirsiniz. Ortamınız için kapasite ekleme hakkında daha fazla bilgi için bkz. [ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md).
 

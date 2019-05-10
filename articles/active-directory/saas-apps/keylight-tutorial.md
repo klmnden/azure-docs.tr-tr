@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9757588b7adb4032600113d2ac948097e8df6c2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717467"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Öğretici: LockPath Keylight ile Azure Active Directory Tümleştirme
 
@@ -172,11 +172,11 @@ Azure AD çoklu oturum açma ile LockPath Keylight yapılandırmak için aşağ�
 
     j. Ayarlama **otomatik sağlama güvenlik yapılandırma**seçin **standart kullanıcı yapılandırması**.
 
-    k. İçinde **e-posta özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. İçinde **e-posta özniteliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    m. İçinde **ad özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    m. İçinde **ad özniteliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. İçinde **son name özniteliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. İçinde **son name özniteliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. **Kaydet**’e tıklayın.
 

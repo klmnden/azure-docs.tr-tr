@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 30de4da43569abf4d7bd668fd0fa481ecac23f4d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081104"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406442"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Hızlı Başlangıç: PostgreSQL - Azure portalında hiper ölçekli (Citus) (Önizleme) için Azure veritabanı oluşturma
 
@@ -169,7 +169,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Şu ana kadar sorgular github dahil\_olayları özel olarak, ancak bu bilgiler github ile birleştirdik\_kullanıcılar. Parçalı Biz bu yana hem kullanıcılar hem de aynı tanımlayıcıyı olaylarına (`user_id`), kullanıcı kimliklerini eşleşen her iki tablonun satırlarını olacaktır [birlikte](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) aynı veritabanı düğümleri ve kolayca katılabilir.
+Şu ana kadar sorgular github dahil\_olayları özel olarak, ancak bu bilgiler github ile birleştirdik\_kullanıcılar. Parçalı Biz bu yana hem kullanıcılar hem de aynı tanımlayıcıyı olaylarına (`user_id`), kullanıcı kimliklerini eşleşen her iki tablonun satırlarını olacaktır [birlikte](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) aynı veritabanı düğümleri ve kolayca katılabilir.
 
 Üzerinde katılırsanız `user_id`, Hiper ölçekli gönderebilir birleştirme yürütme Paralel yürütme için parçalar halinde çalışan düğümlerinde. Örneğin, en yüksek sayıda depo oluşturan kullanıcıların bulalım:
 

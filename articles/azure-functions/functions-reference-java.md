@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922937"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507191"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -113,6 +113,37 @@ Karşıdan yükleme ve kullanma [Azul Zulu Enterprise Azure](https://assets.azul
 
 [Azure Destek](https://azure.microsoft.com/support/) JDK ve işlev ile ilgili sorunlar için uygulamalar, kullanılabilir bir [tam destek planı](https://azure.microsoft.com/support/plans/).
 
+## <a name="customize-jvm"></a>JVM özelleştirme
+
+İşlevleri, Java sanal makinesi (JVM) Java işlevlerinizi yürütmek için kullanılan özelleştirmenize olanak sağlar. [Aşağıdaki JVM seçenekleri](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) varsayılan olarak kullanılır:
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+Ek bağımsız değişkenler adlandırılmış ayarı bir uygulamada sağlayabilir `JAVA_OPTS`. Uygulama ayarlarını işlev uygulamanız için şu yöntemlerden birini kullanarak Azure'a dağıtılan ekleyebilirsiniz:
+
+### <a name="azure-portal"></a>Azure portal
+
+İçinde [Azure portalında](https://portal.azure.com), kullanın [uygulama ayarları sekmesinde](functions-how-to-use-azure-function-app-settings.md#settings) eklemek için `JAVA_OPTS` ayarı.
+
+### <a name="azure-cli"></a>Azure CLI'si
+
+[Az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) komutu ayarlamak için kullanılabilir `JAVA_OPTS`, aşağıdaki örnekte olduğu gibi:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+Bu örnekte gözetimsiz modunu etkinleştirir. Değiştirin `<APP_NAME>` işlev uygulamanızın adıyla ve `<RESOURCE_GROUP> ` kaynak grubu ile.
+
+> [!WARNING]  
+> Çalıştırıldığında bir [tüketim planı](functions-scale.md#consumption-plan), eklemelisiniz `WEBSITE_USE_PLACEHOLDER` değeriyle ayarlama `0`.  
+Bu ayar, Java işlevleri için soğuk başlangıç zamanlarını artırın.
+
 ## <a name="third-party-libraries"></a>Üçüncü taraf kitaplıklar 
 
 Azure işlevleri, üçüncü taraf kitaplıkların kullanımını destekler. Varsayılan olarak, tüm bağımlılıkları belirtilen projenizde `pom.xml` dosya otomatik olarak toplanmış sırasında [ `mvn package` ](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) hedefi. Bağımlılık olarak belirtilmemiş kitaplıkları `pom.xml` dosya, yerleştirebilirsiniz bir `lib` işlevin kök dizininde dizin. Bağımlılıkları yerleştirildiğinde `lib` dizin sistemi sınıf yükleyicisi zamanında eklenecektir.
@@ -189,7 +220,7 @@ Bu işlev, bir HTTP isteğiyle çağrılır.
 - HTTP isteği yükü olarak geçirilen bir `String` bağımsız değişkeni `inputReq`
 - Bir giriş Azure tablo depolama biriminden alınır ve olarak geçirilen `TestInputData` bağımsız değişkene `inputData`.
 
-Bir batch girişlerinin almak, adlarınıza bağlayabileceğiniz `String[]`, `POJO[]`, `List<String>` veya `List<POJO>`.
+Bir batch girişlerinin almak, adlarınıza bağlayabileceğiniz `String[]`, `POJO[]`, `List<String>`, veya `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ Birden çok çıkış değerleri göndermek için `OutputBinding<T>` tanımlanan
     }
 ```
 
-İşlevi bir HTTP isteği üzerinde çağrılır ve birden çok değer Azure kuyruğuna yazma
+Bu işlev üzerinde bir HTTP isteği tarafından çağrılan ve birden çok değer Azure kuyruğuna yazar.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage ve HttpResponseMessage
 
@@ -274,7 +305,7 @@ Birden çok çıkış değerleri göndermek için `OutputBinding<T>` tanımlanan
 | `HttpRequestMessage<T>`  |    HTTP Tetikleyicisi     | Yöntemi, üst bilgiler veya sorgu Al |
 | `HttpResponseMessage` | HTTP çıkış bağlaması | 200 dışında dönüş durumu   |
 
-## <a name="metadata"></a>Meta Veriler
+## <a name="metadata"></a>Meta veriler
 
 Birkaç tetikleyicilere göndermek [meta verileri tetikleme](/azure/azure-functions/functions-triggers-bindings) giriş verileriyle birlikte. Ek açıklama kullanabileceğiniz `@BindingName` meta verileri tetiklemek için bağlamak için
 
@@ -363,7 +394,7 @@ Günlük dosyaları, Azure CLI kullanarak tek bir ZIP dosyası olarak karşıdan
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-Bu komutu çalıştırmadan önce Azure Portal veya Azure CLI günlüğü dosya sistemi etkinleştirmiş olmanız gerekir.
+Bu komutu çalıştırmadan önce Azure portal veya Azure CLI günlüğü dosya sistemi etkinleştirmiş olmanız gerekir.
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 

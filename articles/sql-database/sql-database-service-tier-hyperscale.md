@@ -3,7 +3,7 @@ title: Azure SQL veritabanı hiper ölçekli genel bakış | Microsoft Docs
 description: Bu makalede Azure SQL veritabanı'ndaki sanal çekirdek tabanlı satın alma modeli hiper ölçekli hizmet katmanında ve genel amaçlı ve iş açısından kritik hizmet katmanı arasından farklı nasıl açıklar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,28 +11,27 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/04/2019
-ms.openlocfilehash: 5e323b28913e0ba259654d39f97e0436e6bff2db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 9455b8488bdf7c36c662a8f771e6b26d1a27b13e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786043"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236565"
 ---
-# <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet Katmanı (Önizleme)
+# <a name="hyperscale-service-tier-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet katmanı
 
 Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için ayarlanmış bir SQL Server veritabanı altyapısı mimarisini temel alır. Azure SQL veritabanı'nda kullanılan üç Mimari modeli vardır:
-
 - Genel amaçlı/standart 
-- Kritik iş/Premium
-- Hiper Ölçek
+-  Hiper Ölçek
+-  Kritik iş/Premium
 
 Azure SQL veritabanı'nda hiper ölçekli hizmet katmanı sanal çekirdek tabanlı satın alma modeli en yeni hizmet katmanında ' dir. Bu hizmet katmanında yüksek düzeyde ölçeklenebilir depolama ve Azure mimarisini depolama ve önemli ölçüde kullanılabilir sınırları aşan bir Azure SQL veritabanı için genel amaçlı ve iş için bilgi işlem kaynaklarını yararlanır işlem performans katmanı olan Kritik hizmet katmanları.
 
-> [!IMPORTANT]
-> Hiper ölçekli hizmet katmanı genel önizlemeye sunuldu ve şu anda sınırlı Azure bölgelerinde kullanılabilir. Bölge tam listesi için bkz [hiper ölçekli hizmet katmanı kullanılabildiği bölgeler](#available-regions). Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
+> 
 > [!NOTE]
-> Sanal çekirdek tabanlı satın alma modeli, genel amaçlı ve iş açısından kritik hizmet katmanları hakkında daha fazla bilgi için bkz: [genel amaçlı](sql-database-service-tier-general-purpose.md) ve [iş açısından kritik](sql-database-service-tier-business-critical.md) hizmet katmanları. Sanal çekirdek tabanlı satın alma modeli DTU tabanlı satın alma modeli ile bir karşılaştırması için bkz: [Azure SQL veritabanı'nın modelleri ve kaynakları satın alma](sql-database-purchase-models.md).
+> Sanal çekirdek tabanlı satın alma modeli, genel amaçlı ve iş açısından kritik hizmet katmanları hakkında daha fazla bilgi için bkz: [genel amaçlı](sql-database-service-tier-general-purpose.md) ve [iş açısından kritik](sql-database-service-tier-business-critical.md) hizmet katmanları. Sanal çekirdek tabanlı satın alma modeli DTU tabanlı satın alma modeli ile bir karşılaştırması için bkz: [Azure SQL veritabanı'nın modelleri ve kaynakları satın alma](sql-database-service-tiers.md).
+
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>Hiper ölçekli özellikleri nelerdir
 
@@ -66,17 +65,17 @@ Hiper ölçekli hizmet katmanında bulunan yalnızca [vCore modeli](sql-database
 
 - **İşlem**:
 
-  Büyük ölçekli işlem birim fiyatı bir çoğaltmadır. [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) ölçek çoğaltmaları otomatik olarak okumak için fiyat uygulanır. Genel Önizleme sürümünde varsayılan olarak iki çoğaltmaları hiper ölçekli veritabanı başına oluştururuz.
+  Büyük ölçekli işlem birim fiyatı bir çoğaltmadır. [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) ölçek çoğaltmaları otomatik olarak okumak için fiyat uygulanır. Birincil çoğaltma ve salt okunur bir çoğaltması hiper ölçekli veritabanı başına varsayılan olarak oluştururuz.  Kullanıcıların toplam sayısı 1-5 birincil dahil olmak üzere çoğaltmaları ayarlayabilirsiniz.
 
 - **Depolama**:
 
-  Maks. veri boyutu bir hiper ölçekli veritabanı yapılandırırken belirtmeniz gerekmez. Hiper ölçeklendirme katmanında, veritabanınıza yönelik depolama alanı için gerçek kullanıma göre ücret alınır. Depolama alanı 1 GB artışlarla 5 GB ve 100 TB arasında dinamik şekilde ayrılır.  
+  Maks. veri boyutu bir hiper ölçekli veritabanı yapılandırırken belirtmeniz gerekmez. Hiper ölçeklendirme katmanında, veritabanınıza yönelik depolama alanı için gerçek kullanıma göre ücret alınır. Depolama alanı, 40 GB ve 10 GB arasında dinamik olarak ayarlanmış artışlarla 10 GB ve 100 TB arasında otomatik olarak ayrılır.  
 
 Hiper ölçekli fiyatlandırması hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
 ## <a name="distributed-functions-architecture"></a>Dağıtılmış işlevleri mimarisi
 
-Tüm veri yönetim işlevlerinin bir işlemde konum / (hatta bugün üretimde çağrılan dağıtılmış veritabanları tek parçalı veri altyapısı birden çok kopyasını böylece) merkezi geleneksel veritabanı altyapıları, bir hiper ölçekli veritabanı ayırır. Burada çeşitli veri altyapıları semantiği, uzun vadeli depolama ve dayanıklılık için veri sağlayan bileşenlerden ayırmak sorgu işleme altyapısı. Bu şekilde, depolama kapasitesini sorunsuz gerektiği kadar genişletilebilir (ilk hedef değer 100 TB). Yeni bir okunabilir çoğaltma dönmesi için hiçbir veri kopyalama gerekli şekilde salt okunur çoğaltmalar aynı işlem bileşenleri paylaşın. Önizleme sırasında yalnızca 1 salt okunur çoğaltma desteklenir.
+Tüm veri yönetim işlevlerinin bir işlemde konum / (hatta bugün üretimde çağrılan dağıtılmış veritabanları tek parçalı veri altyapısı birden çok kopyasını böylece) merkezi geleneksel veritabanı altyapıları, bir hiper ölçekli veritabanı ayırır. Burada çeşitli veri altyapıları semantiği, uzun vadeli depolama ve dayanıklılık için veri sağlayan bileşenlerden ayırmak sorgu işleme altyapısı. Bu şekilde, depolama kapasitesini sorunsuz gerektiği kadar genişletilebilir (ilk hedef değer 100 TB). Yeni bir okunabilir çoğaltma dönmesi için hiçbir veri kopyalama gerekli şekilde salt okunur çoğaltmalar aynı depolama bileşenleri paylaşın. 
 
 Aşağıdaki diyagram, farklı türde bir hiper ölçekli veritabanında düğümleri gösterir:
 
@@ -90,7 +89,7 @@ Bir hiper ölçekli veritabanı aşağıdaki farklı tür düğüm içerir:
 
 ### <a name="page-server-node"></a>Sunucu düğümü sayfası
 
-Sayfa sunucuları genişletilmiş depolama altyapısı temsil eden sistemleridir.  Her bir sayfası sunucusu, veritabanındaki sayfaları kümesini sorumludur.  Olup, her sayfa sunucusu 1 terabayt veri denetler. Veri yok (dışında yedeklilik ve kullanılabilirlik tutulur çoğaltmalar) birden fazla sayfa sunucudaki paylaşılır. Bir sayfa sunucusunun isteğe bağlı işlem düğümlerine veritabanlarının sunmak ve veri hareketlerini güncelleştir güncel sayfaları tutmak işidir. Günlük hizmeti günlük kayıtları yürüterek sayfası sunucular güncel tutulur. Sayfa sunucuları da performansı geliştirmek için SSD tabanlı önbellekler bulundurur. Uzun vadeli depolaması ve veri sayfalarını ek güvenilirlik için Azure depolama alanında tutulur.
+Sayfa sunucuları genişletilmiş depolama altyapısı temsil eden sistemleridir.  Her bir sayfası sunucusu, veritabanındaki sayfaları kümesini sorumludur.  Her bir sayfası sunucusu olup, 128 GB ile 1 TB veri arasında kontrol eder. Veri yok (dışında yedeklilik ve kullanılabilirlik tutulur çoğaltmalar) birden fazla sayfa sunucudaki paylaşılır. Bir sayfa sunucusunun isteğe bağlı işlem düğümlerine veritabanlarının sunmak ve veri hareketlerini güncelleştir güncel sayfaları tutmak işidir. Günlük hizmeti günlük kayıtları yürüterek sayfası sunucular güncel tutulur. Sayfa sunucuları da performansı geliştirmek için SSD tabanlı önbellekler bulundurur. Uzun vadeli depolaması ve veri sayfalarını ek güvenilirlik için Azure depolama alanında tutulur.
 
 ### <a name="log-service-node"></a>Günlük hizmeti düğümü
 
@@ -110,25 +109,26 @@ Hızlı bir şekilde ek salt okunur işlem düğümleri Yukarı/Aşağı Döndü
 
 ## <a name="create-a-hyperscale-database"></a>Hiper ölçekli bir veritabanı oluşturma
 
-Kullanılarak bir hiper ölçekli veritabanı oluşturulabilir [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hiper ölçekli veritabanları yalnızca kullanılabilir [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
+Kullanılarak bir hiper ölçekli veritabanı oluşturulabilir [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hiper ölçekli veritabanları yalnızca kullanılabilir [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
 Aşağıdaki T-SQL komutu, Hiper ölçekli bir veritabanı oluşturur. Hem sürüm hem de hizmet hedef belirtmelisiniz `CREATE DATABASE` deyimi.
 
 ```sql
 -- Create a HyperScale Database
-CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
+Bu, 4 çekirdek, 5. nesil donanımlarda hiper ölçekli bir veritabanı oluşturur.
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Hiper ölçekli hizmet katmanı için mevcut bir Azure SQL veritabanını geçirme
 
-Hiper ölçekli kullanarak, mevcut Azure SQL veritabanlarınızı taşıyabilirsiniz [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Genel önizlemede, tek yönlü bir geçiş budur. Başka bir hizmet katmanı için hiper ölçekli veritabanları taşıyamazsınız. Üretim veritabanlarınızı bir kopyasını alın ve (kanıtları) kavram kanıtı için hiper ölçekli için geçirme öneririz.
+Hiper ölçekli kullanarak, mevcut Azure SQL veritabanlarınızı taşıyabilirsiniz [Azure portalında](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Şu anda tek yönlü bir geçiş budur. Başka bir hizmet katmanı için hiper ölçekli veritabanları taşıyamazsınız. Üretim veritabanlarınızı bir kopyasını alın ve (kanıtları) kavram kanıtı için hiper ölçekli için geçirme öneririz.
 
 Aşağıdaki T-SQL komutu, Hiper ölçekli hizmet katmanına bir veritabanı taşır. Hem sürüm hem de hizmet hedef belirtmelisiniz `ALTER DATABASE` deyimi.
 
 ```sql
 -- Alter a database to make it a HyperScale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen4_4');
+ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
@@ -140,27 +140,110 @@ Hiper ölçekli veritabanlarında `ApplicationIntent` istemci tarafından sağla
 -- Connection string with application intent
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
+## <a name="disaster-recovery-for-hyperscale-databases"></a>Hiper ölçekli veritabanları için olağanüstü durum kurtarma
+### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Hiper ölçekli bir veritabanı için farklı bir coğrafi geri yükleme
+Şu anda, olağanüstü durum kurtarma işlemi veya ayrıntıya, yeniden konumlandırma veya diğer herhangi bir nedenle bir parçası olarak barındırıldığı farklı bir bölge için bir Azure SQL veritabanı hiper ölçekli DB geri yüklemeniz gerekirse birincil veritabanının coğrafi geri yükleme bir yapmak için yöntemidir.  Bu, farklı bir bölgeye diğer bir AZURE SQL veritabanını geri yüklemek için kullanmak olarak tam olarak aynı adımları içerir:
+1. Zaten uygun bir sunucu var olmayan varsa SQL veritabanı sunucusu hedef bölgede oluşturun.  Bu sunucu özgün (kaynak) sunucu ile aynı aboneliğe ait.
+2. Bölümündeki yönergeleri [coğrafi geri yükleme](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) Azure SQL veritabanları, otomatik yedeklemelerden geri yükleme sayfasının konu.
 
-## <a name="available-regions"></a>Kullanılabilen bölgeler
+#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>Bir hiper ölçekli veritabanının coğrafi geri yükleme ile ilgili notlar
+Farklı bölgelerde olduğundan, kaynak ve hedef veritabanını kaynak veritabanıyla olduğu son derece hızlı bir şekilde tamamlamak olmayan coğrafi geri yükleme gibi anlık görüntü depolama paylaşamazsınız.  Bir coğrafi geri yükleme durumunda bir hiper ölçekli veritabanının, hedef coğrafi çoğaltmalı depolama eşleştirilmiş bölgede olsa bile, bir veri boyutu işlemi olacaktır.  Bir coğrafi geri yükleme yaparsanız kurtarılan veritabanının boyutunu orantılı zaman süreceği anlamına gelir.  Hedef eşlenen bölgesi içinde ise, kopyalama internet üzerinden şehirlerarası kopyasını önemli ölçüde daha hızlı olacak, bir veri merkezi içinde olacaktır, ancak tüm bitleri kopyalayın devam.
 
-Hiper ölçekli hizmet katmanı şu anda genel önizlemede ve aşağıdaki Azure bölgelerinde kullanılabilir: 1 Doğu ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Kuzey CentralU S, Batı Avrupa, Kuzey Avrupa, Avustralya Doğu, Avustralya, Güneydoğu Avustralya, Güneydoğu Asya, Japonya Doğu ve Kore Orta
+## <a name=regions></a>Kullanılabilir bölgeler
+
+Şu bölgelerde Azure SQL veritabanı hiper ölçekli katmanı şu anda kullanılabilir:
+
+- Avustralya Doğu
+- Avustralya Güneydoğu
+- Brezilya Güney
+- Kanada Orta
+- Orta ABD
+- Çin Doğu 2
+- Çin Kuzey 2
+- Doğu Asya
+- Doğu ABD
+- Doğu ABD 2
+- Fransa Orta
+- Japonya Doğu
+- Japonya Batı
+- Kore Orta
+- Kore Güney
+- Orta Kuzey ABD
+- Kuzey Avrupa
+- Güney Afrika Kuzey
+- Orta Güney ABD
+- Güneydoğu Asya
+- BK Güney
+- BK Batı
+- Batı Avrupa
+- Batı ABD
+- Batı ABD 2
+
+Desteklenen belirtilmeyen bir bölgede hiper ölçekli veritabanı oluşturmak istiyorsanız, Azure portal aracılığıyla bir ekleme isteği gönderebilirsiniz. Listesini genişletmek için çalışıyoruz bu nedenle Lütfen onay son bölge listesi için desteklenen bölgeler.
+
+Listede olmayan bölgelerde hiper ölçekli veritabanları oluşturma olanağı istemek için:
+
+1. Gidin [Azure Yardım ve Destek dikey penceresi](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+
+2. Tıklayarak [ **yeni destek isteği**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
+    ![Azure Yardım ve Destek dikey penceresi](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+
+3. İçin **sorun türü**seçin **hizmet ve abonelik sınırlarını (kotalar)**
+
+4. Veritabanları oluşturmak için kullanacağınız aboneliği seçin
+
+5. İçin **kota türü**seçin **SQL veritabanı**
+
+6. Tıklayın **sonraki: Çözümleri**
+
+1. Tıklayın **ayrıntılarını sağlayın**
+
+    ![Sorun ayrıntıları](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+
+8. Seçin **SQL veritabanı kota türü**: **Diğer kota isteği**
+
+9. Aşağıdaki şablon doldurun:
+
+    ![Kota ayrıntıları](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+
+    Şablonda, aşağıdaki bilgileri sağlayın
+
+    > Yeni bölgede Azure Hiperölçekli SQL veritabanı oluşturma isteği<br/> Bölge: [istenen bölgenizde dolgu]  <br/>
+    > SKU/toplam çekirdek okunabilir çoğaltma dahil olmak üzere işlem <br/>
+    > Tahmini TB sayısı 
+    >
+
+10. **Önem Derecesi C**’yi seçin
+
+11. Uygun iletişim yöntemini seçin ve ayrıntıları doldurun.
+
+12. Tıklayın **Kaydet** ve **devam edin**
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
+Bunlar hiper ölçekli hizmet katmanına büyüyecek itibarıyla geçerli sınırlamalar  Etkin bir şekilde Bu sınırlamalar olabildiğince fazla sayıda kaldırmak için çalışıyoruz.
 
 | Sorun | Açıklama |
 | :---- | :--------- |
-| SQL server hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez veritabanı yedekleri Yönet bölmesi ->  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
+| Yedekleri Yönet bölmesinde bir mantıksal sunucu, Hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez için ->  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
 | Belirli bir noktaya geri yükleme | Bir veritabanı hiper ölçekli hizmet katmanına geçirildikten sonra bir-belirli bir noktaya geçişten önce geri yükleme desteklenmiyor.|
+| Geri yükleme, olmayan - hiper ölçekli DB Hypserscale ve tersi | Bir hiper ölçekli veritabanı olmayan hiper ölçekli bir veritabanına geri yükleyemezsiniz ya da bir hiper ölçekli olmayan veritabanı hiper ölçekli bir veritabanına geri yükleyebilirsiniz.|
 | Bir veritabanı dosyası etkin bir iş yükü nedeniyle geçiş sırasında artar ve dosya sınır başına 1 TB'ı aştığında, geçiş başarısız olur. | Risk azaltma işlemleri: <br> -Eğer Mümkünse, çalışan hiçbir güncelleştirme iş yükü olduğunda veritabanını geçirin.<br> -Geçiş işlemini yeniden deneyin, geçiş sırasında 1 TB sınır aşıldığında değil sürece başarılı olur.|
-| Yönetilen örnek şu anda desteklenmiyor | Şu anda desteklenmiyor |
+| Yönetilen Örnek | Azure SQL veritabanı yönetilen örneği, Hiper ölçekli veritabanlarıyla şu anda desteklenmiyor. |
+| Elastik Havuzlar |  Esnek havuzlar ile SQL veritabanı Hiperölçekli şu anda desteklenmemektedir.|
 | Geçiş için hiper ölçekli şu anda bir tek yönlü işlem değil | Bir veritabanı için hiper ölçekli geçirildikten sonra doğrudan bir hiper ölçekli olmayan hizmet katmanına geçirilemez. Şu anda Hiperölçekli için olmayan hiper ölçekli bir veritabanını geçirme yalnızca kullanarak BACPAC dosyasına dışarı/içeri aktarma için yoludur.|
-| Bellek içi nesneleri içeren bir veritabanı geçişi şu anda desteklenmiyor | Bellek içi nesneler bırakılan ve hiper ölçekli hizmet katmanına bir veritabanını geçirmeden önce bellek olmayan nesneler olarak yeniden oluşturulması gerekir.|
-| Değişiklik izleme verileri şu anda desteklenmiyor. | Değişiklik izleme verileri ile hiper ölçekli databasess kullanmanız mümkün olmayacaktır.
+| Bellek içi nesneleri içeren bir veritabanı geçişi | Bellek içi nesneler bırakılan ve hiper ölçekli hizmet katmanına bir veritabanını geçirmeden önce bellek olmayan nesneler olarak yeniden oluşturulması gerekir.|
+| Değişiklik izleme verileri | Değişiklik izleme verileri hiper ölçekli veritabanlarıyla kullanmanız mümkün olmayacaktır. |
+| Coğrafi Çoğaltma  | Coğrafi çoğaltma, henüz Azure SQL veritabanı için hiper ölçekli yapılandıramazsınız.  Coğrafi-geri yükler (DR veya diğer amaçlar için veritabanı farklı bir coğrafi geri yükleme) gerçekleştirebilirsiniz. |
+| TDE/AKV tümleştirme | Hizmet tarafından yönetilen anahtarlar ile TDE tam olarak desteklenir ancak saydam veritabanı şifrelemesi Azure anahtar Kasası'nın (Getir--kendi-anahtarınız veya BYOK olarak yaygın olarak adlandırılır) kullanarak Azure SQL veritabanı Hiperölçekli için henüz desteklenmiyor. |
+|Akıllı veritabanı özellikleri | 1. Dizin oluşturma, Drop Index Danışman modelleri için hiper ölçekli DBs eğitilir değil. <br/>2. Şema sorunu, DbParameterization - en son eklenen advisers hiper ölçekli veritabanı için desteklenmiyor.|
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Üzerinde hiper ölçekli bir SSS için bkz: [hiper ölçekli hakkında sık sorulan sorular](sql-database-service-tier-hyperscale-faq.md).
-- Hizmet katmanları hakkında daha fazla bilgi için bkz: [hizmet katmanları](sql-database-purchase-models.md)
-- Bkz: [kaynak bakış sınırlayan bir SQL veritabanı sunucusunda](sql-database-resource-limits-database-server.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+- Hizmet katmanları hakkında daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md)
+- Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Model sınırları tek bir veritabanı için satın almak için bkz: [Azure SQL veritabanı sanal çekirdek tabanlı satın alma modeli sınırları tek bir veritabanı için](sql-database-vcore-resource-limits-single-databases.md).
 - Bir özellik için ve karşılaştırma listesini görmek [SQL ortak özellikleri](sql-database-features.md).

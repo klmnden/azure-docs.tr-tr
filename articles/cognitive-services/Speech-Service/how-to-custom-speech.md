@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: f2441d5660ed84a8680c1861e2e20a1a17ee4762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025838"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511092"
 ---
 # <a name="what-is-custom-speech"></a>Özel konuşma tanıma nedir?
 
@@ -43,7 +43,7 @@ Bu diyagramda özel konuşma tanıma portalı parçaları vurgular. Her bir adı
 
 ## <a name="set-up-your-azure-account"></a>Azure hesabınızı ayarlama
 
-Özel bir model oluşturmak için özel konuşma tanıma Portalı'nı kullanmadan önce bir konuşma Hizmetleri aboneliği gereklidir. Standart bir konuşma Hizmetleri aboneliği oluşturmak için aşağıdaki yönergeleri izleyin: [Konuşma abonelik oluşturma](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account).
+Özel bir model oluşturmak için özel konuşma tanıma Portalı'nı kullanmadan önce bir konuşma Hizmetleri aboneliği gereklidir. Standart bir konuşma Hizmetleri aboneliği oluşturmak için aşağıdaki yönergeleri izleyin: [Konuşma abonelik oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
 
 > [!NOTE]
 > Lütfen standart (S0) abonelikleri oluşturduğunuzdan emin olun, ücretsiz deneme sürümü (F0) abonelikleri desteklenmez.

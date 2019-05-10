@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025104"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470278"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
-Bu öğreticide, regresyon kullanarak model için verileri hazırlama hakkında bilgi edinin [Python için Azure Machine Learning veri hazırlığı SDK](https://aka.ms/data-prep-sdk). Filtreleme ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeler çalıştırın.
+Bu öğreticide, regresyon kullanarak model için verileri hazırlama hakkında bilgi edinin [için Azure Machine Learning veri hazırlama paketinde](https://aka.ms/data-prep-sdk). Filtreleme ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeler çalıştırın.
 
 Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**. Öğretici serisinin tamamladıktan sonra taksi seyahat maliyetini veri özellikleri bir model eğitip geleceği tahmin edebilirsiniz. Bu özellikler, toplama gün ve saat, Yolcuların Sayısı ve toplama konumunu içerir.
 
@@ -94,7 +94,7 @@ import azureml.dataprep as dprep
 > [!IMPORTANT]
 > En son sürümü yükleyin emin olun. Bu öğreticide, sürüm numarası 1.1.0 düşük ile çalışmaz
 
-## <a name="load-data"></a>Veri yükleme
+## <a name="load-data"></a>Verileri yükleyin
 
 İki farklı NYC taksi veri kümesi, veri akışı nesneleri indirin. Veri kümeleri biraz farklı alanlara sahiptir. `auto_read_file()` Yöntemi giriş dosya türü otomatik olarak tanır.
 

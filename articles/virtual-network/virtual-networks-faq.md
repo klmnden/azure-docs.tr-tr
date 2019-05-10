@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205709"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508415"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -49,7 +49,7 @@ Oluşturun veya bir sanal ağı yapılandırmak için aşağıdaki araçları ku
 
 * Azure portal
 * PowerShell
-* Azure CLI
+* Azure CLI'si
 * Ağ yapılandırma dosyası (yalnızca klasik sanal ağlar için - netcfg). Bkz: [ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md) makalesi.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Sanal Ağlarımın içinde hangi adres aralıkları kullanabilirim?
@@ -67,7 +67,9 @@ Evet. Genel IP adresi aralıkları hakkında daha fazla bilgi için bkz: [sanal 
 Evet. Bkz: [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) Ayrıntılar için. Alt ağ adres alanlarının birbiriyle çakışamaz.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Bu alt ağları içindeki IP adresleri kullanarak herhangi bir kısıtlama var mıdır?
-Evet. Azure, her alt ağ içindeki 5 IP adresini ayırır. Her alt ağ ilk ve son IP adreslerini birlikte her alt ağ, Azure Hizmetleri için kullanılan x.x.x.1 x.x.x.3 adresleri protokol uyumluluğu için ayrılmıştır.
+Evet. Azure, her alt ağ içindeki 5 IP adresini ayırır. X.x.x.0 x.x.x.3 ve alt ağın son adresi şunlardır.    
+- x.x.x.0 ve alt ağın son adresi protokol uyumluluğu için ayrılmıştır.
+- x.x.x.1 x.x.x.3 Azure Hizmetleri için her alt ağda ayrılmıştır.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Küçük ve ne kadar büyük nasıl sanal ağlar ve alt ağları olabilir?
 Desteklenen en düşük alt /29 olduğunu ve en büyük 8 uzunluğudur (CIDR alt ağ tanımlarının kullanarak).
@@ -225,7 +227,7 @@ Evet. Kullanma hakkında daha fazla bilgi edinin:
 - Üzerinden dağıtılan sanal ağlarda yönetmek için PowerShell'i [Resource Manager](/powershell/module/az.network) ve [Klasik](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) dağıtım modelleri.
 - Azure komut satırı arabirimi (CLI) dağıtma ve yönetme ile dağıtılan sanal ağlarda [Resource Manager](/cli/azure/network/vnet) ve [Klasik](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) dağıtım modelleri.  
 
-## <a name="vnet-peering"></a>VNet eşlemesi
+## <a name="vnet-peering"></a>Sanal ağ eşleme
 
 ### <a name="what-is-vnet-peering"></a>VNet eşlemesi nedir?
 VNet eşlemesi (veya sanal ağ eşlemesi) sanal ağları bağlamanıza olanak sağlar. Sanal ağ arasında VNet eşleme bağlantısı, özel IPv4 adresleri üzerinden aralarındaki trafik yönlendirme sağlar. Eşlenmiş sanal ağlardaki sanal makineler aynı ağ içinde yoksa gibi birbiriyle iletişim kurabilir. Bu sanal ağları, aynı bölgedeki veya farklı bölgelerde (diğer adıyla genel sanal ağ eşleme) olabilir. Sanal ağ eşleme bağlantılarını da Azure abonelikleri genelinde oluşturulabilir.
@@ -242,7 +244,7 @@ Küresel VNet eşlemesi bunlara kuramayan anlamına temel yük dengeleyicileri a
 - Uygulama ağ geçidi (v1) SKU
 - Service Fabric
 - SQL MI
-- API yönetimini
+- API Management
 - Active Directory etki alanı hizmeti (ADDS)
 - Logic Apps
 - HD Insight
@@ -281,6 +283,9 @@ Hayır. Geçişli eşleme desteklenmiyor. C ve VNetC Bunun gerçekleşmesi için
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Eşleme bağlantıları için herhangi bir bant genişliği sınırlaması var mı?
 Hayır. VNet eşlemesi, yerel veya genel bant genişliği kısıtlamalar uygulamaz. Bant genişliği, VM veya işlem kaynağı tarafından yalnızca sınırlıdır.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>VNet eşlemesi sorunları'ilgili sorunları nasıl giderebilirim?
+[Sorun giderici Kılavuzu] İşte (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) deneyebilirsiniz.
 
 ## <a name="virtual-network-tap"></a>Sanal ağ TAP
 

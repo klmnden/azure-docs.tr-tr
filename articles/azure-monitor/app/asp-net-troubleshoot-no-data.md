@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691208"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471844"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -42,7 +42,7 @@ ms.locfileid: "60691208"
 * Tüm türleri .NET projesinin araçları tarafından desteklenir. Web ve WCF proje desteklenir. Masaüstü veya hizmet uygulamalar gibi diğer proje türleri için yine de [bir Application Insights SDK'sını projenize el ile ekleme](../../azure-monitor/app/windows-desktop.md).
 * Olduğundan emin olun [Visual Studio 2013 Update 3 veya üzeri](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Application Insights SDK'sı sağlayan Geliştirici analiz araçları ile önceden yüklenmiş olarak sunulur.
 * Seçin **Araçları**, **Uzantılar ve güncelleştirmeler** denetimi **Developer Analytics Tools** yüklü ve etkin. Öyleyse **güncelleştirmeleri** kullanılabilir bir güncelleştirme olup olmadığını görmek için.
-* Yeni Proje iletişim kutusunu açın ve ASP.NET Web uygulamasını seçin. Application Insights seçeneği yok görürseniz, daha sonra Araçlar yüklenir. Aksi durumda, Application Insights'ı yeniden yüklemeyi deneyin.
+* Yeni Proje iletişim kutusunu açın ve ASP.NET Web uygulamasını seçin. Application Insights seçeneği yok görürseniz, daha sonra Araçlar yüklenir. Aksi durumda, Developer Analytics Tools ' ı yeniden yüklemeyi deneyin.
 
 ## <a name="q02"></a>Application Insights ekleme işlemi başarısız oldu
 *Varolan bir projeye Application Insights ekleme çalıştığınızda bir hata iletisi konusuna bakın.*
@@ -85,7 +85,7 @@ Düzeltme:
 * Seçin **Araçları**, **Uzantılar ve güncelleştirmeler** denetimi **Geliştirici analiz araçları** yüklü ve etkin. Öyleyse **güncelleştirmeleri** kullanılabilir bir güncelleştirme olup olmadığını görmek için.
 * Çözüm Gezgini'nde projenize sağ tıklayın. Komut görürseniz **Application Insights > Application ınsights'ı Yapılandır**, projenizin kaynak Application Insights hizmetine bağlanmak için kullanın.
 
-Aksi takdirde, proje türünüzü doğrudan Application Insights araçları tarafından desteklenmiyor. Telemetrinizi görmek için oturum açın [Azure portalında](https://portal.azure.com), sol gezinti çubuğunda Application Insights'ı seçin ve uygulamanızı seçin.
+Aksi takdirde, proje türünüzü doğrudan Geliştirici analiz araçları tarafından desteklenmiyor. Telemetrinizi görmek için oturum açın [Azure portalında](https://portal.azure.com), sol gezinti çubuğunda Application Insights'ı seçin ve uygulamanızı seçin.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>'Erişim engellendi' Application ınsights'ı Visual Studio'dan açarken
 *'Application ınsights'ı Aç' menü komutu bana Azure portalına götürür, ancak bir 'erişim engellendi' hatası alıyorum.*

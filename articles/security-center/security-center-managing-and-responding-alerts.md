@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111398"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235780"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama
 Bu belge, güvenlik uyarılarını yönetmeniz ve yanıtlamanız için Azure Güvenlik Merkezi’ni kullanmanıza yardımcı olur.
@@ -67,16 +67,16 @@ Bu sayfanın alt bölümünde her bir uyarı için ayrıntılar bulunur. Sırala
 
 ### <a name="alert-severity"></a>Uyarı önem derecesi
 
-> [!NOTE]
-> Uyarı önem derecesi, portalı ve REST API farklı şekilde görüntülenir, farklar aşağıda belirtilmiştir.
-
 -   **Yüksek**: Kaynağınızın tehlikeye girmemesini yüksek olasılık yoktur. İçine hemen görünmelidir. Güvenlik Merkezi, hem kötü amaçlı bir eyleme ve uyarı vermek üzere kullanılan bulguları yüksek güvenilirliğe sahip. Örneğin, mimikatz'ı kimlik bilgisi hırsızlığı için kullanılan genel bir aracı gibi bilinen bir kötü amaçlı araç yürütülmesini algılarsa bir uyarı. 
--   **Orta (REST API'de düşük)**: Bir kaynak tehlikede olduğunu gösterebilecek kuşkulu bir etkinlik büyük olasılıkla budur.
+-   **Orta**: Bir kaynak tehlikede olduğunu gösterebilecek kuşkulu bir etkinlik büyük olasılıkla budur.
 Güvenlik Merkezi'nin ellerde analitik veya arama Orta ve kötü amaçlı güvenini Orta Yüksek. Bunlar genellikle machine learning'e ya da tabanlı anomali algılama olur. Örneğin, bir oturum açma denemesi, anormal bir konumdan.
--   **Düşük (REST API'si bilgileri)**: Bu, zararsız pozitif ya da engellenen bir saldırı olabilir. 
+-   **Düşük**: Bu, zararsız pozitif ya da engellenen bir saldırı olabilir. 
     - Güvenlik Merkezi amaç kötü amaçlı ve etkinlik zararsız başarılara yeterli değil. Örneğin, günlük Temizle izlerini gizlemek bir saldırgan çalışır, ancak çoğu durumda, sıradan bir işlem yöneticileri tarafından gerçekleştirilir, bu sorunla karşılaşabilirsiniz bir eylemdir.
     - İçine bak öneririz ilgi çekici bir durum değilse Güvenlik Merkezi genellikle zaman saldırıları engellendi, sunmayacaktır. 
--   **Bilgilendirici (sessiz) REST API'de**: Bir güvenlik olayı altında ayrıntıya veya belirli bir uyarı kimliği ile REST API kullanıyorsanız, yalnızca bilgilendirici uyarılar görürsünüz Olay uyarıları, bazıları, yalnızca bilgilendirici olacak şekilde kendi görünebilir, ancak diğer uyarılar bağlamında daha yakından bakın bu durum bir dizi genellikle oluşur. 
+-   **Bilgilendirme**: Bir güvenlik olayı altında ayrıntıya veya belirli bir uyarı kimliği ile REST API kullanıyorsanız, yalnızca bilgilendirici uyarılar görürsünüz Olay uyarıları, bazıları, yalnızca bilgilendirici olacak şekilde kendi görünebilir, ancak diğer uyarılar bağlamında daha yakından bakın bu durum bir dizi genellikle oluşur.  
+
+> [!NOTE]
+> Kullanıyorsanız **2015-06-01-preview** API sürümü, daha sonra hangi alarma önem derecesi türleri uygulanır hangi senaryoları için hangi yukarıda listelenen gelen farklar vardır.  
 
 ### <a name="filtering-alerts"></a>Uyarıları filtreleme
 Tarihe, duruma ve önem derecesine göre uyarıları filtreleyebilirsiniz. Filtreleme uyarıları, güvenlik uyarıları gösterimi kapsamını daraltmanızın gerektiği senaryolar için faydalı olabilir. Örneğin, sistemde olası bir ihlali araştırdığınız için son 24 saatte oluşan güvenlik uyarılarını ele almak isteyebilirsiniz.

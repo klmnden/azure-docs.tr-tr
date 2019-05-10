@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153394"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472448"
 ---
 # <a name="encoding-with-media-services"></a>Media Services ile kodlama
 
@@ -86,6 +86,10 @@ Media Services kodlama özgü ihtiyaçları ve gereksinimleri karşılamak için
 - [.NET ile önayarlarını özelleştirme](customize-encoder-presets-how-to.md)
 - [CLI ile önayarlarını özelleştirme](custom-preset-cli-howto.md)
 - [REST ile önayarlarını özelleştirme](custom-preset-rest-howto.md)
+
+## <a name="preset-schema"></a>Şema hazır
+
+Media Services v3 sürümünde hazır kesin türü belirtilmiş API'sinde varlıklardır. Bu nesneler için "şema" tanımı bulabilirsiniz [açık API Belirtimi (ya da Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Önceden oluşturulmuş tanımlarını da görüntüleyebilirsiniz (gibi **StandardEncoderPreset**) içinde [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK'sı](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (veya diğer Media Services v3 SDK başvuru belgeleri).
 
 ## <a name="scaling-encoding-in-v3"></a>V3 sürümünde kodlama ölçeklendirme
 

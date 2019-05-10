@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/22/2019
+ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572657"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507832"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -50,7 +50,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Günlük oran sınırları (MBps)|2,5|5|7.5|10|12,5|15|
+|Günlük oran sınırları (MBps)|3.75|7.5|11.25|15|18.75|22.5|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1|
@@ -73,7 +73,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)
 |Hedef IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Günlük oran sınırları (MBps)|17.5|20|20|20|20|20|
+|Günlük oran sınırları (MBps)|26.25|30|30|30|30|30|
 |Maks. eş zamanlı çalışan (istek)|1400|1600|1800|2000|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1|
@@ -95,8 +95,8 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |TempDB boyutu (GB)|64|128|192|256|320|384|384|
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
-|Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Günlük oran sınırları (MBps)|2,5|56|7.5|10|12,5|15|17.5|
+|Hedef IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Günlük oran sınırları (MBps)|3.75|7.5|11.25|15|18.75|22.5|26.25|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|1400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
@@ -118,8 +118,8 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |TempDB boyutu (GB)|384|384|384|384|384|384|384|
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
-|Hedef IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Günlük oran sınırları (MBps)|20|20|20|20|20|20|20|
+|Hedef IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Günlük oran sınırları (MBps)|30|30|30|30|30|30|30|
 |Maks. eş zamanlı çalışan (istek)|1600|1800|2000|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1.|1|
@@ -127,7 +127,35 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>İş kritik hizmet katmanı: Depolama boyutlarına ve işlem boyutları
+### <a name="serverless-compute-tier"></a>Sunucusuz işlem katmanı
+
+[Sunucusuz bilgi işlem katmanı](sql-database-serverless.md) genel Önizleme aşamasındadır ve yalnızca sanal çekirdek satın kullanarak tek veritabanı modeli aranır.
+
+#### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+
+|İşlem boyutu|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
+|:--- | --: |--: |--: |
+|S/W oluşturma|5|5|5|
+|Min-Maks sanal çekirdekler|0.5-1|0.5-2|0.5-4|
+|Min-Maks bellek (GB)|2.02-3|2.05-6|2.10-12|
+|Min otomatik duraklatma gecikme (saat)|6|6|6|
+|Columnstore desteği|Evet|Evet|Evet|
+|Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|
+|En yüksek veri boyutu (GB)|512|1024|1024|
+|Maksimum günlük boyutu (GB)|12|24|48|
+|TempDB boyutu (GB)|32|64|128|
+|Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
+|GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
+|Hedef IOPS (64 KB)|250|500|1000|
+|Günlük oran sınırları (MBps)|2,5|5.6|10|
+|Maks. eş zamanlı çalışan (istek)|75|150|300|
+|İzin verilen maks. oturumları|30000|30000|30000|
+|Çoğaltma sayısı|1|1.|1|
+|Çok AZ|Yok|Yok|Yok|
+|Ölçek genişletme okuyun|Yok|Yok|Yok|
+|Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
+
+## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Sağlanan işlem katmanı için iş kritik hizmet katmanı
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>İş kritik hizmet katmanı: 4. nesil işlem platformu (1. bölüm)
 
@@ -144,7 +172,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |TempDB boyutu (GB)|32|64|96|128|160|192|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Günlük oran sınırları (MBps)|6|12|18|24|30|36|
+|Günlük oran sınırları (MBps)|8|16|24|32|40|48|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|
 |Maks. eş zamanlı oturum|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
@@ -168,7 +196,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |TempDB boyutu (GB)|224|256|288|320|384|384|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Günlük oran sınırları (MBps)|42|48|54|60|64|64|
+|Günlük oran sınırları (MBps)|56|64|64|64|64|64|
 |Maks. eş zamanlı çalışan (istek)|1400|1600|1800|2000|3200|4800|
 |En fazla eşzamanlı oturum açma (istek)|1400|1600|1800|2000|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
@@ -191,8 +219,8 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |TempDB boyutu (GB)|64|128|192|256|320|384|384|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
-|Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Günlük oran sınırları (MBps)|6|12|18|24|30|36|42|
+|Hedef IOPS (64 KB)|8000|16000|24000|32000|40000|48000|56000|
+|Günlük oran sınırları (MBps)|12|24|36|48|60|72|84|
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|1400|
 |Maks. eş zamanlı oturum|200|400|600|800|1000|1200|1400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
@@ -215,8 +243,8 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |TempDB boyutu (GB)|384|384|384|384|384|384|384|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
-|Hedef IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Günlük oran sınırları (MBps)|48|54|60|72|96|96|96|
+|Hedef IOPS (64 KB)|64000|72000|80000|96000|128000|160000|320000|
+|Günlük oran sınırları (MBps)|96|96|96|96|96|96|96|
 |Maks. eş zamanlı çalışan (istek)|1600|1800|2000|2400|3200|4000|8000|
 |Maks. eş zamanlı oturum|1600|1800|2000|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
@@ -225,30 +253,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
-## <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)
-
-### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>4. nesil işlem platformu: Depolama boyutlarına ve işlem boyutları
-
-|Performans düzeyi|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|S/W oluşturma|4|4|4|4|4|4|
-|Sanal çekirdekler|1|2|4|8|16|24|
-|Bellek (GB)|7|14|28|56|112|168|
-|Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|
-|Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|
-|En yüksek veri boyutu (TB)|100 |100 |100 |100 |100 |100 |
-|Maksimum günlük boyutu (TB)|1 |1. |1. |1. |1. |1 |
-|TempDB boyutu (GB)|32|64|128|256|384|384|
-|Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
-|Hedef IOPS (64 KB)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
-|GÇ gecikmesi (yaklaşık)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
-|Maks. eş zamanlı çalışan (istek)|200|400|800|1600|3200|4800|
-|İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
-|Çoğaltma sayısı|2|2|2|2|2|2|
-|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
-|Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
-|Yedekleme depolama alanı dahil|7|7|7|7|7|7|
-|||
+## <a name="hyperscale-service-tier"></a>Hiper ölçekli hizmet katmanı
 
 ### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
 
@@ -270,7 +275,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Çoğaltma sayısı|2|2|2|2|2|2|2|2|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
-|Dahil edilen yedekleme depolama alanı (sınırlı Önizleme)|7|7|7|7|7|7|7|7|
+|Yedekleme depolama alanı dahil |7|7|7|7|7|7|7|7|
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar

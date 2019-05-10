@@ -10,23 +10,22 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7d9827b11136370bcb401073a4d9cc4871c1cc9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714134"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472781"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights ortamınızı ölçeklendirme
 
-Bu makalede, Azure portalını kullanarak zaman serisi görüşleri ortamınıza ortamınızın kapasiteyi değiştirmek açıklar. Giriş oranı, depolama kapasitesi ve maliyeti, seçilen SKU ile ilişkili uygulanan çarpan kapasitesidir. 
+Bu makalede, Azure portalını kullanarak zaman serisi görüşleri ortamınıza ortamınızın kapasiteyi değiştirmek açıklar. Giriş oranı, depolama kapasitesi ve maliyeti, seçilen SKU ile ilişkili uygulanan çarpan kapasitesidir.
 
-Artırmak veya belirli bir fiyatlandırma SKU kapasitesiyle azaltmak için Azure portalını kullanabilirsiniz. 
+Artırmak veya belirli bir fiyatlandırma SKU kapasitesiyle azaltmak için Azure portalını kullanabilirsiniz.
 
-Ancak, fiyatlandırma katmanını değiştirme SKU izin verilmiyor. Örneğin, S2 veya tam tersi bir S1 fiyatlandırma SKU'su bir ortam dönüştürülemez. 
-
+Ancak, fiyatlandırma katmanını değiştirme SKU izin verilmiyor. Örneğin, S2 veya tam tersi bir S1 fiyatlandırma SKU'su bir ortam dönüştürülemez.
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU'ya giriş oranları ve kapasite
 
@@ -45,19 +44,20 @@ Ancak, fiyatlandırma katmanını değiştirme SKU izin verilmiyor. Örneğin, S
 Kapasiteleri doğrusal olarak, ölçeği, böylece bir S1 SKU kapasitesi 2 ile aylık günlük giriş oranı ve 60 GB (60 milyon olay) başına 2 GB (2 milyon) olayları destekler.
 
 ## <a name="change-the-capacity-of-your-environment"></a>Ortamınızın kapasitesini değiştirme
-1. Azure portalında bulun ve zaman serisi görüşleri ortamınızı seçin. 
 
-2. Zaman serisi görüşleri ortamınız için menüde **yapılandırma**.
+1. Azure portalında bulun ve zaman serisi görüşleri ortamınızı seçin.
 
-   ![Configure.PNG](media/scale-your-environment/configure.png)
+1. Zaman serisi görüşleri ortamınız için menüde **yapılandırma**.
 
-3. Ayarlama **kapasite** kaydırıcısının giriş ücretlerinizi gereksinimlerini karşılayan kapasite ve depolama kapasitesini seçin. Bildirim **giriş oranı**, **depolama kapasitesi**, ve **tahmini maliyet** dinamik olarak değişikliğin etkisini göstermek için güncelleştirme. 
+   [![Configure.PNG](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
-   ![Kaydırıcı](media/scale-your-environment/slider.png)
+1. Ayarlama **kapasite** kaydırıcısının giriş ücretlerinizi gereksinimlerini karşılayan kapasite ve depolama kapasitesini seçin. Bildirim **giriş oranı**, **depolama kapasitesi**, ve **tahmini maliyet** dinamik olarak değişikliğin etkisini göstermek için güncelleştirme.
 
-   Alternatif olarak, metin kutusuna kaydırıcı sağındaki kapasite çarpanı sayısını yazın. 
+   [![Kaydırıcı](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
-4. Seçin **Kaydet** ortamı ölçeklendirebilirsiniz. İlerleme göstergesi, kısa bir süre içinde değişiklik kaydedilinceye kadar görüntülenir. 
+   Alternatif olarak, metin kutusuna kaydırıcı sağındaki kapasite çarpanı sayısını yazın.
+
+1. Seçin **Kaydet** ortamı ölçeklendirebilirsiniz. İlerleme göstergesi, kısa bir süre içinde değişiklik kaydedilinceye kadar görüntülenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

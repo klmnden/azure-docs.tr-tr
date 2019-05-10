@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483658"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236744"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
-Azure depolama hesabınız Azure Storage veri nesnelerinizi içerir: bloblar, dosyalar, kuyruklar, tablolar ve diskler. Azure depolama hesabınızdaki veriler, herhangi bir dünyada HTTP veya HTTPS üzerinden dayanıklı ve yüksek oranda kullanılabilir, güvenli, yüksek düzeyde ölçeklenebilir ve erişilebilir.
+Azure depolama hesabınız Azure Storage veri nesnelerinizi içerir: bloblar, dosyalar, kuyruklar, tablolar ve diskler. Depolama hesabı, Azure Storage verilerinizin herhangi bir dünyada HTTP veya HTTPS üzerinden erişilebilir için benzersiz bir ad alanı sağlar. Azure depolama hesabınızdaki veriler, dayanıklı ve yüksek oranda kullanılabilir, güvenli ve yüksek düzeyde ölçeklenebilir.
 
 Bir Azure depolama hesabı oluşturma hakkında bilgi edinmek için [depolama hesabı oluşturma](storage-quickstart-create-account.md).
 
@@ -32,7 +32,7 @@ Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini de
 - BLOB'ları (tüm türleri: Engelleme, Sayfa Ekle)
 - Dosyalar
 - Diskler
-- Kuyruklar
+- Sıralar
 - Tablolar
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Genel amaçlı v1 hesapları, tüm Azure depolama hizmetlerine erişim sağlar, 
 - BLOB'ları (tüm türleri için)
 - Dosyalar
 - Diskler
-- Kuyruklar
+- Sıralar
 - Tablolar
 
 Genel amaçlı v1 hesapları, genel amaçlı v2 hesapları çoğu durumda önerilir, ancak bu senaryolar için en uygun seçenektir:

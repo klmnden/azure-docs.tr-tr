@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924955"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236665"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell ile ana bilgisayar havuzu oluşturma
 
@@ -100,17 +100,6 @@ Sanal Masaüstü Windows aracılarını kaydetmek için her sanal makinede aşa�
    - İndirme [Windows sanal masaüstü aracı Şifresizdir](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - İndirilen yükleyiciye sağ tıklayın, **özellikleri**seçin **Engellemeyi Kaldır**, ardından **Tamam**. Bu yükleyici güven için sisteminizi olanak tanır.
    - Yükleyiciyi çalıştırın.
-4. Yükleme ya da Windows sanal masaüstü yan yana yığın etkinleştirin. Adımlar farklı olacaktır sanal makine bağlı olarak hangi işletim sistemi sürümü kullanır.
-   - Sanal makinenin işletim sistemi Windows Server 2016 ise:
-     - İndirme [Windows sanal masaüstü yan yana yığın](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - İndirilen yükleyiciye sağ tıklayın, **özellikleri**seçin **Engellemeyi Kaldır**, ardından **Tamam**. Bu yükleyici güven için sisteminizi olanak tanır.
-     - Yükleyiciyi çalıştırın.
-   - Sanal makinenin işletim sistemi Windows ise 10 1809 veya üzeri ya da Windows Server 2019 veya sonraki bir sürümü:
-     - İndirme [betik](https://go.microsoft.com/fwlink/?linkid=2084268) yan yana yığın etkinleştirmek için.
-     - İndirdiğiniz betiğin sağ tıklayın, **özellikleri**seçin **Engellemeyi Kaldır**, ardından **Tamam**. Bu betik güven için sisteminizi olanak tanır.
-     - Gelen **Başlat** menüsünde, Windows PowerShell ISE'yi arayın, sağ tıklayın ve ardından **yönetici olarak çalıştır**.
-     - Seçin **dosya**, ardından **Aç...** ve ardından PowerShell betiğini indirilen dosyaları bulmak ve açmak.
-     - Betiği çalıştırmak için yeşil Oynat düğmesini seçin.
 
 >[!IMPORTANT]
 >Güvenliğini sağlamaya yardımcı olmak için azure'da Windows sanal masaüstü ortamınızı Vm'lerinizde gelen bağlantı noktası 3389 açmayın öneririz. Windows sanal masaüstü açık bir konak havuzun Vm'leri erişmek kullanıcılar için 3389 numaralı gelen bağlantı noktası gerektirmez. Sorun giderme amacıyla 3389 numaralı bağlantı noktası açmanız gerekiyorsa, kullanmanızı öneririz [tam zamanında VM erişimi](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414843"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506866"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD parola korumasını dağıtma
 
@@ -39,6 +39,9 @@ Denetim aşamasında pek çok kuruluş bulmak:
 * DC Aracı hizmeti Azure AD parola koruması yüklü Windows Server 2012 çalıştırmanız gerekir veya sonraki bir sürümü Al tüm etki alanı denetleyicileri. Bu gereksinim Active Directory etki alanı veya orman Windows Server 2012 etki alanı veya orman işlev düzeyinde de olmalıdır göstermez. Belirtildiği gibi [tasarım ilkeleri](concept-password-ban-bad-on-premises.md#design-principles), en düşük DFL veya çalıştırmak her iki DC aracı veya ara yazılım için gerekli FFL yoktur.
 * Alma DC aracısı hizmetinin yüklü olduğu tüm makineler, .NET 4. 5'in yüklü olması gerekir.
 * Proxy hizmet için Azure AD parola koruması yüklü Windows Server 2012 R2 çalıştırmalıdır veya sonraki bir sürümü alın, tüm makineler.
+   > [!NOTE]
+   > Proxy hizmet dağıtımı, etki alanı denetleyicisi giden doğrudan internet bağlantısı olmasa bile, Azure AD parola koruması dağıtmak için zorunlu bir gereksinimdir. 
+   >
 * Azure AD parola koruması Proxy hizmeti yüklü olduğu tüm makineler .NET 4.7 yüklü olması gerekir.
   .NET 4.7 zaten tamamen güncelleştirilmiş bir Windows sunucusuna yüklenmesi gerekir. Durum bu değilse, indirmek ve bulunan yükleyiciyi çalıştırın [Windows için .NET Framework 4.7 çevrimdışı yükleyici](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Tüm makineler, Azure AD parola koruması bileşenleri yüklü etki alanı denetleyicileri, dahil olmak üzere, Evrensel C çalışma zamanı yüklü olması gerekir. Tüm güncelleştirmeleri Windows Update'ten olmasını sağlayarak çalışma zamanı elde edebilirsiniz. Veya bir işletim sistemine özgü güncelleştirme paketinde alabilirsiniz. Daha fazla bilgi için [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
@@ -279,7 +282,7 @@ Azure AD parola koruması birden çok orman içinde dağıtmak için ek gereksin
 
 Parola değişiklikleri/ayarlar değil işlenir ve salt okunur etki alanı denetleyicileri (RODC) kalıcı. Bunlar, yazılabilir etki alanı denetleyicilerine iletilir. Bu nedenle, RODC üzerinde DC Aracısı yazılımını yüklemeniz gerekmez.
 
-## <a name="high-availability"></a>Yüksek kullanılabilirlik
+## <a name="high-availability"></a>Yüksek oranda kullanılabilirlik
 
 Bir ormandaki etki alanı denetleyicilerinin yeni ilkeler veya diğer verileri Azure'dan indirilmeye çalışılırken ana kullanılabilirlik parola koruması için proxy sunucuları kullanılabilirliğini konusudur. Her bir DC aracı çağırmak için proxy sunucusunu verirken basit bir hepsini bir kez deneme stili algoritması kullanır. Aracı yanıt olmayan proxy sunucuları atlar. Dizin hem sysvol klasörü durumunun sağlıklı çoğaltmanın en tam olarak bağlı Active Directory dağıtımları için iki proxy sunucu olduğu yeterli kullanılabilir olmasını sağlamak için. Bu yeni ilkeleri zamanında indirilmesini ve diğer verileri sonuçlanır. Ancak, ek bir proxy sunucuları dağıtabilirsiniz.
 

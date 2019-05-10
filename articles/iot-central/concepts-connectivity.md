@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887511"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467793"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -107,7 +107,7 @@ IOT Central sağlayan bir anahtar OEM'ler ilk olmadan bir IOT Central uygulamas�
 
 Aşağıdaki diyagramda, bu akış özetlenmektedir:
 
-![Bağlantı ayarları](media/concepts-connectivity/device-connection-flow.png)
+![Bağlantı ayarları](media/concepts-connectivity/device-connection-flow1.png)
 
 Aşağıdaki adımlarda, bu işlem daha ayrıntılı açıklanmıştır. Adımları olup olmadığını, SAS veya X.509 sertifikaları için cihaz kimlik doğrulamasını kullanıyorsanız bağlı olarak biraz farklılık gösterir:
 

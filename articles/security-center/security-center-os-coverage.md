@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703583"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233608"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
 
@@ -70,7 +70,7 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 > [!div class="mx-tableFixed"]
 > 
 
-|Sunucu|Windows||Linux||
+|Sunucu |Windows||Linux||
 |----|----|----|----|----|
 |Ortam|Azure|Azure Dışı|Azure|Azure Dışı|
 |VMBA tehdit algılama uyarıları|✔|✔|✔ (üzerinde desteklenen sürümleri)|✔|
@@ -80,7 +80,7 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 |Güvenlik yapılandırmaları|✔|✔|✔|✔|
 |Uç nokta koruması|✔|✔|X|X|
 |JIT VM erişimi|✔|X|✔|X|
-|Uyarlamalı uygulama denetimleri|✔|X|X|X|
+|Uyarlamalı uygulama denetimleri|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |Disk şifrelemesi|✔|X|✔|X|
 |Üçüncü taraf dağıtım|✔|X|✔|X|
@@ -96,7 +96,7 @@ Aşağıdaki tabloda bir matrisi verilmektedir:
  - Olup Azure Güvenlik Merkezi, her çözüm için yüklemek için kullanabilirsiniz.
  - Hangi uç nokta koruma çözümleri Güvenlik Merkezi bulabilir. Bu uç nokta koruma çözümleri bulunursa, Güvenlik Merkezi bir yükleme tavsiyede bulunmaz.
 
-| Uç Nokta Koruması| Platformlar | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
+| Endpoint Protection| Platformlar | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)| Windows Server 2016| Hayır, işletim sisteminde yerleşik| Evet |
 | System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 (aşağıdaki nota bakın) | Uzantı ile | Evet |
@@ -121,10 +121,10 @@ Aşağıdaki tabloda bir matrisi verilmektedir:
 |MySQL*|✔| ✔|
 |Azure Blob Depolama hesapları *|✔| ✔|
 |Uygulama hizmetleri|✔| ✔|
-|Cloud Services|✔| X|
+|Bulut Hizmetleri|✔| X|
 |Sanal Ağlar|✔| NA|
 |Alt ağlar|✔| NA|
-|NIC’ler|✔| ✔|
+|NIC|✔| ✔|
 |NSG'ler|✔| NA|
 |Abonelik|✔| ✔|
 

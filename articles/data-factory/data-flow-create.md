@@ -1,19 +1,17 @@
 ---
 title: Veri akışı eşleme Azure veri fabrikası oluşturma
-description: Veri akışı eşleme Azure veri fabrikası oluşturma
-author: WenJason
-ms.author: v-jay
-ms.reviewer: douglasl
+description: Bir Azure Data Factory eşleme veri akışı oluşturma
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-origin.date: 02/12/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/12/2019
+ms.openlocfilehash: 366ed60534544ebbf889e2f72fe703f9b821f871
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883763"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235661"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Azure Data Factory veri akışı oluşturma
 
@@ -23,7 +21,7 @@ Eşleme veri akışları'nda ADF gerekli kodlamaya gerek kalmadan ölçekli veri
 
 İlk olarak Azure portalından yeni V2 veri Fabrikasına oluşturarak başlayın. Yeni Fabrika oluşturduktan sonra Data Factory kullanıcı arabirimini başlatmak için "Yazar ve İzleyici" kutucuğuna tıklayın.
 
-![Veri akışı seçenekleri](media/data-flow/v2dataflowportal.png "veri akışı oluşturma")
+![Veri akışı seçenekleri](media/data-flow/v2portal.png "veri akışı oluşturma")
 
 Data Factory kullanıcı Arabiriminde eklendiğinde, örnek veri akışları kullanabilirsiniz. Örnekler ADF şablonu galerisinden kullanılabilir. ADF, "İşlem hattı şablondan" oluşturma ve şablon Galeriden veri akışı kategoriyi seçin.
 
@@ -37,7 +35,7 @@ Azure Blob Depolama hesap bilgilerinizi girmeniz istenir.
 
 ## <a name="create-new-data-flow"></a>Yeni veri akışı oluşturma
 
-Veri akışları oluşturmak için ADF Arabiriminde Kaynağı Oluştur "artı işaretini" düğmesini kullanın
+Veri akışları oluşturmak için ADF Arabiriminde Kaynağı Oluştur "artı işaretini" düğmesini kullanın.
 
 ![Veri akışı seçenekleri](media/data-flow/newresource.png "yeni kaynak")
 

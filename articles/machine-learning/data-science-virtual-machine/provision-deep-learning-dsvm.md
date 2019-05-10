@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943914"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410446"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Derin azure'da sanal makine öğrenme vm'si sağlama 
 
@@ -68,7 +68,7 @@ VM oluşturulduktan sonra Uzak Masaüstü uygulamasına önceki yapılandırdı�
 
 ### <a name="linux-edition"></a>Linux sürümü
 
-VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan [ **Temelleri** ](#basics) bölümünde metin kabuk arabirimi için adım 3. Azure Vm'leri için SSH bağlantıları hakkında daha fazla bilgi için bkz. [yükleyin ve azure'da bir Linux VM'ye bağlanmak için Uzak Masaüstü yapılandırma](/azure/virtual-machines/linux/use-remote-desktop). Bir Windows istemcisinde gibi bir SSH istemcisi aracı indirebilirsiniz [Putty](http://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin. 
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan [ **Temelleri** ](#basics) bölümünde metin kabuk arabirimi için adım 3. Azure Vm'leri için SSH bağlantıları hakkında daha fazla bilgi için bkz. [yükleyin ve azure'da bir Linux VM'ye bağlanmak için Uzak Masaüstü yapılandırma](/azure/virtual-machines/linux/use-remote-desktop). Bir Windows istemcisinde gibi bir SSH istemcisi aracı indirebilirsiniz [Putty](https://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin. 
 
 > [!NOTE]
 > Bizim testimizde iletme X11 daha iyi X2Go istemci gerçekleştirdi. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.

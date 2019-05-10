@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159173"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468439"
 ---
 Kısa ömürlü işletim sistemi diskleri yerel sanal makine (VM) depolama alanında oluşturulur ve uzak Azure Depolama'da kalıcı hale değil. Burada uygulamaları tek tek VM kesintilerine dayanıklı olsa da, büyük ölçekli dağıtımlar için geçen süreyi veya tek tek sanal makine örneği görüntüsünü yeniden oluşturmak zaman hakkında daha fazla endişe iyi durum bilgisiz iş yükleri için kısa ömürlü işletim sistemi diskleri çalışır. Resource Manager dağıtım modeline taşımak Klasik dağıtım modeli kullanılarak dağıtılan uygulamalar için de uygundur. Kısa ömürlü işletim sistemi diski ile işletim sistemi diski ve daha hızlı VM yeniden görüntü oluşturma için daha düşük okuma/yazma gecikme süresi görebilirsiniz. Ayrıca, kısa ömürlü işletim sistemi diski ücretsizdir, işletim sistemi diski için hiçbir depolama maliyeti doğurur. 
  
@@ -30,7 +30,7 @@ Kalıcı ve kısa ömürlü işletim sistemi diskleri arasındaki temel farklar:
 |                             | Kalıcı işletim sistemi diski                          | Kısa Ömürlü İşletim Sistemi Diski                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | İşletim sistemi diski için boyut sınırı      | 2 TiB                                                                                        | Önbellek boyutu için VM boyutunu veya 2TiB, hangisi daha küçük - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), ve [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Desteklenen VM boyutları          | Tümü                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| Desteklenen VM boyutları          | Tümü                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Disk türü desteği           | Yönetilen ve yönetilmeyen işletim sistemi diski                                                                | Yalnızca yönetilen işletim sistemi diski                                                               |
 | Bölge desteği              | Tüm bölgeler                                                                                  | Tüm bölgeler                              |
 | Veri kalıcılığı            | İşletim sistemi diski için yazılan işletim sistemi disk verilerini Azure Depolama'da depolanır.                                  | İşletim sistemi diski için yazılan veriler yerel VM depolama alanına depolanır ve Azure Depolama'ya kalıcı değil. |
@@ -48,13 +48,13 @@ Kendi kendine en son Azure CLI veya Azure PowerShell sürümünü kullanarak kı
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Önizleme için kayıtlı olmadığını denetlemek için:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Önizleme için kayıtlı olmadığını denetlemek için:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

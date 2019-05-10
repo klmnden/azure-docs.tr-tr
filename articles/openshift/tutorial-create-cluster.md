@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/06/2019
-ms.openlocfilehash: 5bc71a2d0f29fed163fb5c93ebd27df7f66a1325
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/08/2019
+ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080761"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466189"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Öğretici: Azure Red Hat OpenShift kümesi oluşturma
 
@@ -28,19 +28,19 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
 > * Azure Red Hat OpenShift kümesi oluşturma
 > * [Azure Red Hat OpenShift kümesini ölçeklendirme](tutorial-scale-cluster.md)
-> * [Azure Red Hat OpenShift küme silme](tutorial-delete-cluster.md)
+> * [Azure Red Hat OpenShift kümesini silme](tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
 Emin olun [geliştirme ortamınızı ayarlama](howto-setup-environment.md), içerir:
-- En yeni CLI yükleme
+- En yeni CLI yükleme (2.0.64 sürümü veya üzeri)
 - Kiracı oluşturma
 - Azure uygulama nesnesi oluşturma
 - Küme üzerinde çalışan uygulamalara oturum açmak için kullanılan bir Active Directory kullanıcısı oluşturuluyor.
 
-## <a name="step-1-sign-in-to-azure"></a>1. Adım: Azure'da oturum açma
+## <a name="step-1-sign-in-to-azure"></a>1. Adım: Oturum açın: Azure
 
 Azure CLI'yi yerel olarak çalıştırıyorsanız, bir Bash komut kabuğu ve çalışma açın `az login` için Azure'da oturum açın.
 
@@ -101,7 +101,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>İsteğe bağlı: Mevcut bir sanal ağa kümenin sanal ağ bağlama
 
-Sanal ağ (VNET), oluşturduğunuz kümenin mevcut bir sanal ağa bağlanmak gerekmiyorsa, bu adımı atlayın.
+Sanal ağ (VNET) eşlemesi aracılığıyla oluşturduğunuz kümenin mevcut bir sanal ağa bağlanmak gerekmiyorsa, bu adımı atlayın.
 
 İlk olarak, mevcut bir VNET tanımlayıcısını alın. Tanımlayıcı biçiminde olacaktır: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 
@@ -130,9 +130,9 @@ Birkaç dakika sonra `az openshift create` başarıyla tamamlanabilmesi ve küme
 > [!NOTE]
 > Konak adı kullanılabilir değil bir hata alırsanız, küme adınızı benzersiz olmadığı için olabilir. Deneyin, özgün bir uygulama kaydı silme ve (son adım, önceden oluşturulan bu yana yeni bir kullanıcı oluşturma atlayarak) adımları [yeni bir uygulama kaydı oluşturma] (howto-aad-app-configuration.md#create-a-new-app-registration) ile yineleme bir farklı bir küme adı.
 
-## <a name="step-3-sign-in-to-the-openshift-console"></a>3. Adım: OpenShift konsoluna oturum açın
+## <a name="step-3-sign-in-to-the-openshift-console"></a>3. adım: OpenShift konsoluna oturum açın
 
-Artık yeni kümenizin OpenShift konsola oturum açmanız için hazırsınız. [OpenShift Web Konsolu](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) görselleştirin, göz atın ve OpenShift projelerinizi içeriğini yönetmek için etkinleştirir.
+Artık yeni kümenizin OpenShift konsol oturum açmaya hazırsınız. [OpenShift Web Konsolu](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) görselleştirin, göz atın ve OpenShift projelerinizi içeriğini yönetmek için etkinleştirir.
 
 Biz olarak oturum açmanız [yeni Azure AD kullanıcı](howto-aad-app-configuration.md#create-a-new-active-directory-user) test etmek için oluşturuldu. Bunu yapmak için Azure portalında oturum açmak için normalde kullandığınız kimliğin önbelleğe edilmemiş bir yeni tarayıcı örneği gerekir.
 
@@ -147,13 +147,13 @@ Oluşturduğunuz parola ve kullanıcı oturum [yeni bir Active Directory kullan�
 
 Artık, bir kümenin konsolda günlüğe kaydedilir.
 
-[OpenShift küme Konsolu ekran görüntüsü](./media/aro-console.png)
+![OpenShift küme Konsolu ekran görüntüsü](./media/aro-console.png)
 
- Daha fazla bilgi edinebilirsiniz [OpenShift konsolunu kullanarak](https://docs.openshift.com/dedicated/getting_started/developers_console.html) oluşturmak için ve yerleşik görüntüleri [Red Hat OpenShift](https://docs.openshift.com/dedicated/welcome/index.html) belgeleri.
+ Daha fazla bilgi edinin [OpenShift konsolunu kullanarak](https://docs.openshift.com/aro/getting_started/developers_console.html) oluşturmak için ve yerleşik görüntüleri [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) belgeleri.
 
 ## <a name="step-4-install-the-openshift-cli"></a>4. Adım: OpenShift CLI'yı yükleme
 
-[OpenShift CLI](https://docs.openshift.com/dedicated/cli_reference/get_started_cli.html) (veya *OC Araçları*) OpenShift kümenizin çeşitli bileşenleri ile etkileşim kurmak için alt düzey yardımcı programları ve uygulamaları yönetmek için komutlar sağlar.
+[OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (veya *OC Araçları*) OpenShift kümenizin çeşitli bileşenleri ile etkileşim kurmak için alt düzey yardımcı programları ve uygulamaları yönetmek için komutlar sağlar.
 
 OpenShift konsolunda, sağ üst köşedeki soru işareti ve oturum açma adınız tıklayıp **komut satırı araçları**.  İzleyin **en son sürüm** indirmek ve Linux, MacOS veya Windows için desteklenen oc CLI yüklemek için bağlantı.
 

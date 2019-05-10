@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f7219578932a259f48b0109d433dcba9ff28d1f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190820"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508062"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -51,6 +51,9 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 * Azure AD Connect yüklenemez Small Business Server veya Windows Server Essentials 2019 önce (Windows Server Essentials 2019 desteklenir). Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
 * Güvenlik uygulamaları ve Azure AD Connect doğru bir şekilde yüklenmesini engelleyen daha kısıtlayıcı ayarlar nedeniyle Azure AD Connect, etki alanı denetleyicisine yüklenmesi önerilmez
 * Azure AD Connect sunucusu tam GUI yüklü olması gerekir. Bu **desteklenmiyor** sunucu Çekirdeğinde yüklemek için.
+>[!IMPORTANT]
+>Small business server, server essentials veya sunucu çekirdeği üzerinde Azure AD Connect yüklenmesi desteklenmez.
+
 * Azure AD Connect, Windows Server 2008 R2 veya üzeri yüklü olmalıdır. Bu sunucunun etki alanına katılmamışsa ve bir etki alanı denetleyicisi veya üye sunucu olması gerekir.
 * Windows Server 2008 R2'de Azure AD Connect'i yüklemek, Windows Update'ten en son düzeltmeler uyguladığınızdan emin olun. Yükleme yüklenmemiş bir sunucuyla başlatmanız mümkün değil.
 * Özelliğini kullanmayı planlıyorsanız **parola eşitleme**, Azure AD Connect sunucusu, Windows Server 2008 R2 SP1 veya üstü olmalıdır.
@@ -135,7 +138,7 @@ Bağlantı sorunlarınız olduğunda, daha fazla bilgi için bkz. [bağlantı so
 Azure AD Connect, Microsoft PowerShell ve .NET Framework 4.5.1 bağlıdır. Bu sürümü veya sonraki bir sürümü sunucuda yüklü ihtiyacınız var. Windows Server sürümüne bağlı olarak, aşağıdakileri yapın:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell varsayılan olarak yüklenir. İşlem yapmanız gerekmez.
+  * Microsoft PowerShell varsayılan olarak yüklenir. Eylem gerekmiyor.
   * .NET framework 4.5.1 ve sonraki sürümleri, Windows Update aracılığıyla sunulur. Denetim Masası'nda Windows Server için en son güncelleştirmeleri yüklediğinizden emin olun.
 * Windows Server 2008 R2 ve Windows Server 2012
   * Microsoft PowerShell'in en son sürümünü kullanılabilir **Windows Management Framework 4.0**üzerinden [Microsoft Download Center](https://www.microsoft.com/downloads).

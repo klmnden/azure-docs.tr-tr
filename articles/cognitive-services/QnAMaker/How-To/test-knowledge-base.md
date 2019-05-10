@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875705"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472065"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Bilgi bankanızı etkileşimli soru-cevap Oluşturucu test edin
 
@@ -24,14 +24,10 @@ Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu 
 
 ## <a name="test-answer-matching"></a>Test yanıt eşleştirme
 
-1.  Adını seçerek bilgi bankanızı erişim **My bilgi bankalarından** sayfası.
-2.  Test slayt genişletme paneline erişmek için seçin **Test** uygulamanızın üst panelinde.
-
-    ![Erişim Test paneli](../media/qnamaker-how-to-test-kb/access-test.png)
-
-3.  Metin kutusuna bir sorgu girin ve Enter tuşuna basın.
-
-4.  Bilgi Bankası'nden en iyi eşleşen yanıtlama yanıt döndürülür.
+1. Adını seçerek bilgi bankanızı erişim **My bilgi bankalarından** sayfası.
+1. Test slayt genişletme paneline erişmek için seçin **Test** uygulamanızın üst panelinde.
+1. Metin kutusuna bir sorgu girin ve Enter tuşuna basın.
+1. Bilgi Bankası'nden en iyi eşleşen yanıtlama yanıt döndürülür.
 
 ## <a name="clear-test-panel"></a>Açık test paneli
 
@@ -65,14 +61,20 @@ Belirli bir yanıt soru diğer formlara ekleyebilirsiniz. Diğer tıklayın ve m
 
 ## <a name="add-a-new-answer"></a>Yeni bir yanıt Ekle
 
-Yanıt Bilgi Bankası (KB iyi eşleşme bulundu) mevcut değil veya eşleştirilmiş olan mevcut yanıtlar yanlış olan, yeni bir yanıt ekleyebilirsiniz. Yeni geçerli sorusuna yanıt metin kutusuna girin ve eklemek için enter tuşuna basın. 
+Yanıt Bilgi Bankası (KB iyi eşleşme bulundu) mevcut değil veya eşleştirilmiş olan mevcut yanıtlar yanlış olan, yeni bir yanıt ekleyebilirsiniz. 
 
-Seçin **kaydedin ve eğitme** bu yanıt kalıcı hale getirmek için. Yeni bir soru-cevap çifti şimdi Bilgi Bankası'na eklendi.
+Yanıtlar listenin altındaki metin kutusuna yeni bir yanıt girmeye kullanın ve eklemek için enter tuşuna basın. 
 
-![Yeni bir soru ve yanıt çifti Ekle](../media/qnamaker-how-to-test-kb/add-answer.png)
+Seçin **kaydedin ve eğitme** bu yanıt kalıcı hale getirmek için. Yeni bir soru-cevap çifti şimdi Bilgi Bankası'na eklendi. 
 
 > [!NOTE]
 > Tuşuna bastığınızda tüm düzenlemeleri bilgi bankanızı yalnızca kaydedileceği **kaydedin ve eğitme** düğmesi.
+
+## <a name="test-the-published-knowledge-base"></a>Yayımlanan Bilgi Bankası test
+
+Test Bölmesi'nde Bilgi Bankası yayımlanan sürümünü test edebilirsiniz. KB yayımladıktan sonra seçin **yayımlanan KB** kutusu ve yayımlanan KB sonuçları elde etmek için bir sorgu gönderin.
+
+![Yayımlanan bir KB karşı test etme](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

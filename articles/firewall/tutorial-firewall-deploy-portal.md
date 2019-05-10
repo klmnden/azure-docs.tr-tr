@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194225"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405676"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -52,7 +52,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 İlk olarak güvenlik duvarını dağıtmak için gerekli olan kaynakları içerecek bir kaynak grubu oluşturun. Ardından sanal ağı, alt ağları ve test sunucularını oluşturun.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Kaynak grubu, bu öğreticideki tüm kaynakları içerir.
 
@@ -236,12 +236,12 @@ Bu öğreticide test amacıyla, sunucunun birincil ve ikincil DNS adreslerini ya
 1. Azure portalda **Srv-Work** sanal makinesinin ağ ayarlarını gözden geçirin ve özel IP adresini not edin.
 2. Bağlanmak için Uzak Masaüstü **Srv atlama** sanal makine ve oturum açın. Burada, bir Uzak Masaüstü Bağlantısı açın **Srv iş** özel IP adresi.
 
-3. Internet Explorer'ı açın ve http://www.google.com adresine gidin.
+3. Internet Explorer'ı açın ve https://www.google.com adresine gidin.
 4. Seçin **Tamam** > **Kapat** üzerinde Internet Explorer güvenlik uyarıları.
 
    Google'nın ana sayfası görmeniz gerekir.
 
-5. http://www.microsoft.com adresine gidin.
+5. konumuna gözatın https://www.microsoft.com.
 
    Güvenlik duvarının engellemesi gerekir.
 

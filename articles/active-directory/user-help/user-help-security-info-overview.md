@@ -1,6 +1,6 @@
 ---
 title: Güvenlik bilgilerine (önizleme) genel bakış - Azure Active Directory | Microsoft Docs
-description: Özellik ilgili diğer makalelere bağlantılar dahil olmak üzere güvenlik bilgileri alan hakkında üst düzey bir genel.
+description: Güvenlik bilgileri sayfasını ve özelliğini hakkında makaleler yönelik bağlantıların listesi.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,34 +9,36 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/11/2019
+ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234c7244f438926f43ddf31234a38c9034a6ca52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e471f447b0c50c9c65923d7135b2b48789728df
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60473240"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470690"
 ---
 # <a name="security-info-preview-overview"></a>Güvenlik bilgilerine (önizleme) genel bakış
-Güvenlik bilgilerinizi iki aşamalı doğrulama ve parola sıfırlamasına ayarlayabilirsiniz **güvenlik bilgisi** sayfası. Ayrıca güvenlik bilgilerinizi düzenleyin ve bu sayfadan varsayılan yönteminizi değiştirmek
+
+**Güvenlik bilgisi** sayfa iki aşamalı doğrulama yöntemlerinizi ayarlamanıza yardımcı olur ve parola sıfırlama bilgileriniz. Ayrıca, kişisel güvenlik bilgileri ve varsayılan doğrulama yönteminizi güncelleştirmek için yardımcı olur.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
 >Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
 
-## <a name="in-this-section"></a>Bu bölümde
-Güncelleştirme, ekleme hakkında daha fazla bilgi bulabilirsiniz ve, aşağıdaki makaleler de kullanmak istiyorsanız yöntemine dayalı güvenlik bilgilerinizi siliniyor.
+## <a name="security-info-articles"></a>Güvenlik bilgileri makaleleri
+
+Ayrıntılı bilgi ve ekleme hakkında yönergeler için güncelleştirme ve güvenlik bilgilerinizi silme (kullanmak istediğiniz yönteme bağlı olarak) aşağıdaki makalelere bakın:
 
 |Makale |Açıklama |
 |------|------------|
-|[Oturum açma sırasında güvenlik bilgileri ' ayarlayın](security-info-setup-signin.md)|Güvenlik bilgilerinizi kullanarak oturum açma sayfasından istenirse ayarlama işlemi açıklanmaktadır.|
-|[Güvenlik bilgilerini bir kimlik doğrulayıcı uygulama ayarlama](security-info-setup-auth-app.md)|Güvenlik bilgilerinizi yönteminiz olarak bir Microsoft Authenticator uygulamasını kullanmak için ayarlama işlemi açıklanmaktadır.|
-|[Metin iletileri için güvenlik bilgilerini ayarlama](security-info-setup-text-msg.md)|Metin iletileri yönteminiz olarak kullanmak için güvenlik bilgilerinizi ayarlama işlemi açıklanmaktadır.|
-|[Güvenlik bilgilerini telefon aramalarını kullanacak şekilde ayarlama](security-info-setup-phone-number.md)| Telefon numaranızı doğrulama yöntemi olarak ayarlamayı anlatır.|
-|[Güvenlik bilgilerini e-posta kullanacak şekilde ayarlama](security-info-setup-email.md)|Parolanızı sıfırlamaya yardımcı olması için e-posta adresinizi ayarlamayı anlatır.|
-|[Güvenlik bilgilerini önceden tanımlı güvenlik sorularını kullanacak şekilde ayarlama](security-info-setup-questions.md)|Parolanızı sıfırlamaya yardımcı olması için güvenlik sorularını kullanmayı anlatır.|
-|[Uygulama parolalarını yönetme](security-info-app-passwords.md)|Güvenlik bilgilerini kullanarak uygulama parolası ayarlamayı anlatır.|
-|[Oturum açma](user-help-sign-in.md)|Belirtilen yöntemi kullanarak oturum açma adımlarını anlatır.|
+|[Oturum açma sayfanız bir istemi güvenlik yönteminize ekleyin](security-info-setup-signin.md)| Güvenlik bilgilerinizi kullanarak oturum açma sayfasından istendiğinde ayarlama hakkında yönergeler. Zaten kuruluşunuz için gerekli güvenlik bilgilerini ayarlama ayarlamadıysanız, yalnızca bu istemi görürsünüz. İstemini görmüyorsanız, yine de değiştirmek ve diğer makalelerden bu tabloda kullanarak doğrulama yöntemlerini ekleyin.|
+|[Microsoft Authenticator uygulamasını bir doğrulama yöntemi olarak Ekle](security-info-setup-auth-app.md)| Bir doğrulama yöntemi olarak Microsoft Authenticator uygulamasını ayarlama hakkında yönergeler.|
+|[Bir doğrulama yöntemi olarak Mesajlaşma metin Ekle](security-info-setup-text-msg.md)| Metin iletileri bir doğrulama yöntemi olarak ayarlama hakkında yönergeler.|
+|[Bir doğrulama yöntemi olarak telefon çağrıları ekleyin](security-info-setup-phone-number.md)| Telefonunuza bir doğrulama yöntemi olarak ayarlama hakkında yönergeler.|
+|[Kendi parolanızı sıfırlamak için bir e-posta adresi ekleyin](security-info-setup-email.md)| Kendi parolanızı sıfırlayabilir için e-posta adresinizi ekleme hakkında yönergeler.|
+|[Kendi parolanızı sıfırlamak için güvenlik soruları Ekle](security-info-setup-questions.md)| Kendi parolanızı sıfırlayabilir şekilde önceden tanımlı güvenlik soruları ekleme hakkında yönergeler.|
+|[İki aşamalı doğrulamayı desteklemeyen uygulamalar için uygulama parolaları yönetme](security-info-app-passwords.md)| İki aşamalı doğrulama kullanan bir kuruluş içinde iki aşamalı doğrulamayı desteklemeyen uygulamalar için uygulama parolaları oluşturma hakkında yönergeler.|
+|[Oturum açma](user-help-sign-in.md)|Belirtilen doğrulama yöntemini kullanarak oturum açma adımlarını anlatır.|

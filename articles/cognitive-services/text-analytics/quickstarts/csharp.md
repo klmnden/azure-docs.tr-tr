@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: assafi
-ms.openlocfilehash: e7b07472623cc459c31906aeaa6ccfb4388b4b50
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c521be03f884227116a21c8c5396d47cdd1ae253
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146098"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466546"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Kullanarak C# metin analizi Bilişsel hizmetini çağırmak için
 <a name="HOLTop"></a>
@@ -136,17 +136,11 @@ Sonraki bölümlerde, her API çağırmak nasıl açıklar.
 ## <a name="sentiment-analysis"></a>Yaklaşım analizi
 
 1. Adlı yeni bir işlev oluşturma `SentimentAnalysisExample()` daha önce oluşturduğunuz istemci alır.
-2. Yeni bir `TextAnalyticsClient` nesnesi ile `ApiKeyServiceClientCredentials` bir parametre olarak ve ardından listesi oluşturmak `MultiLanguageInput` çözümlemek istediğiniz belgeleri içeren nesne.
+2. Listesini oluşturmak `MultiLanguageInput` çözümlemek istediğiniz belgeleri içeren nesne.
 
     ```csharp
-    public static async Task SentimentAnalysisExample(string endpoint, string key)
+    public static async Task SentimentAnalysisExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         // The documents to be analyzed. Add the language of the document. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
@@ -184,16 +178,11 @@ Document ID: 4 , Sentiment Score: 1.00
 ## <a name="language-detection"></a>Dil algılama
 
 1. Adlı yeni bir işlev oluşturma `DetectLanguageExample()` daha önce oluşturduğunuz istemci alır.
-2. Yeni bir `TextAnalyticsClient` nesnesi ile `ApiKeyServiceClientCredentials` bir parametre olarak ve ardından listesi oluşturmak `LanguageInput` belgelerinizi içeren nesne.
+2. Listesini oluşturmak `LanguageInput` belgelerinizi içeren nesne.
 
     ```csharp
-    public static async Task DetectLanguageExample(string endpoint, string key)
+    public static async Task DetectLanguageExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for language detection. The ID can be any value.
         var inputDocuments = new LanguageBatchInput(
@@ -231,16 +220,11 @@ Document ID: 3 , Language: Chinese_Simplified
 ## <a name="entity-recognition"></a>Varlık tanıma
 
 1. Adlı yeni bir işlev oluşturma `RecognizeEntitiesExample()` daha önce oluşturduğunuz istemci alır.
-2. Yeni bir `TextAnalyticsClient` nesnesi ile `ApiKeyServiceClientCredentials` bir parametre olarak ve ardından listesi oluşturmak `MultiLanguageBatchInput` belgelerinizi içeren nesne.
+2. Listesini oluşturmak `MultiLanguageBatchInput` belgelerinizi içeren nesne.
 
     ```csharp
-    public static async Task RecognizeEntitiesExample(string endpoint, string key)
+    public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for entity recognition. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
@@ -309,17 +293,11 @@ Document ID: 2
 ## <a name="key-phrase-extraction"></a>Anahtar tümcecik ayıklama
 
 1. Adlı yeni bir işlev oluşturma `KeyPhraseExtractionExample()` daha önce oluşturduğunuz istemci alır.
-2. Yeni bir `TextAnalyticsClient` nesnesi ile `ApiKeyServiceClientCredentials` bir parametre olarak ve ardından listesi oluşturmak `MultiLanguageBatchInput` belgelerinizi içeren nesne.
+2. Listesini oluşturmak `MultiLanguageBatchInput` belgelerinizi içeren nesne.
 
     ```csharp
-    public static async Task KeyPhraseExtractionExample(string endpoint, string key)
+    public static async Task KeyPhraseExtractionExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         var inputDocuments = new MultiLanguageBatchInput(
                     new List<MultiLanguageInput>
                     {

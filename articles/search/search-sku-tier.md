@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024309"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472714"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
@@ -89,7 +89,7 @@ Hizmetleri farklı bölgelerde bulunuyorsa için giden veri ücretleri uygulanı
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. Yapay ZEKA-zenginleştirilmiş Bilişsel hizmetler kullanarak dizin oluşturma
 
-İçin [Bilişsel hizmetler ile yapay ZEKA dizin](cognitive-search-concept-intro.md), fiyatlandırma katmanını Kullandıkça Öde işleme için Faturalanabilir bir Bilişsel hizmetler kaynağı S0 adresindeki iliştirilirken planlamanız gerekir. "Bilişsel Hizmetleri ekleme ile ilişkili hiçbir sabit ücret" yoktur. Yalnızca gereksinim duyduğunuz işleme için ödeme yaparsınız.
+İçin [Bilişsel hizmetler ile yapay ZEKA dizin](cognitive-search-concept-intro.md), aynı bölgede Azure Search, Kullandıkça Öde işleme S0 fiyatlandırma katmanında Faturalanabilir bir Bilişsel hizmetler kaynağı iliştirilirken planlamanız gerekir. "Bilişsel Hizmetleri ekleme ile ilişkili hiçbir sabit ücret" yoktur. Yalnızca gereksinim duyduğunuz işleme için ödeme yaparsınız.
 
 Görüntü ayıklama belge çözme sırasında olan bir Azure Search ücret faturalandırılır, belgeleri ayıklanan görüntülerin göre. Metin ayıklama şu anda ücretsiz olarak kullanılabilir. 
 

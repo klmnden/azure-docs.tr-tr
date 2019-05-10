@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 47778576099d8fab1692f9dd733311dcb44babdb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917519"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Öğretici: Leapsome ile Azure Active Directory Tümleştirme
 
@@ -126,10 +126,10 @@ Azure AD çoklu oturum açma ile Leapsome yapılandırmak için aşağıdaki ad�
 
     | Ad | Kaynak özniteliği | Ad alanı |
     | ---------------| --------------- | --------- |  
-    | firstName | User.givenName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Soyadı | User.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | başlık | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | resmi | Çalışanın resim URL'si | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName | User.givenName | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Soyadı | User.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | başlık | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | resmi | Çalışanın resim URL'si | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]

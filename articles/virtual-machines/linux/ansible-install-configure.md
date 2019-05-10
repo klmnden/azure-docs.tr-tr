@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: e7a664be48d1e26e09faf4f330fd1267ec003315
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/30/2019
+ms.openlocfilehash: 60cefe24feab9de4262e81eb1bc313aeadc7eb05
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685607"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409249"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Hızlı Başlangıç: Azure'da Linux sanal makinelerinde Ansible'ı yükleme
 
@@ -21,8 +21,8 @@ Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - **Linux veya Linux sanal makinesine erişim** - Linux makineniz yoksa [Linux sanal makinesi](/azure/virtual-network/quick-create-cli) oluşturun.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesine Ansible yükleme
@@ -155,7 +155,7 @@ Bu bölümde, Ansible kimlik bilgilerinizi yapılandırmak için hizmet sorumlus
     export AZURE_TENANT=<security-principal-tenant>
     ```
 
-## <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
+## <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
 
 Başarılı yapılandırmasını doğrulamak için bir Azure kaynak grubu oluşturmak için ansible'ı kullanın.
 

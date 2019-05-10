@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a8b894a5b790321c0af8527bf77e07b9923d577
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 574c21dc2713f10513ac296e7db538e20a94c9d6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686755"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Öğretici: LearnUpon ile Azure Active Directory Tümleştirme
 
@@ -165,9 +165,9 @@ Azure AD çoklu oturum açma ile LearnUpon yapılandırmak için aşağıdaki ad
 
      ![Çoklu oturum açmayı yapılandırın](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. İçinde **ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar firstname de bize bildiren değerin bulunduğu - örneğin: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    a. İçinde **ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar firstname de bize bildiren değerin bulunduğu - örneğin: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
-    b. İçinde **son ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar lastname, bize bildiren değerin bulunduğu - örneğin: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    b. İçinde **son ad tanımlayıcı biçimi** metin kutusuna, SAML onaylama işlemi burada kullanıcılar lastname, bize bildiren değerin bulunduğu - örneğin: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

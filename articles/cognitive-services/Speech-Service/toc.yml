@@ -139,8 +139,8 @@
       displayName: 'recognize speech, speech recognition, speech-to-text, stt'
     - name: Ses giriş akışlarını tüketme (SDK)
       href: how-to-use-audio-input-streams.md
-    - name: Sıkıştırılmış ses giriş akışlarını tüketme (SDK)
-      href: how-to-use-compressed-audio-input-streams.md
+    - name: Codec sıkıştırılmış ses giriş akışlarını tüketme (SDK)
+      href: how-to-use-codec-compressed-audio-input-streams.md
       displayName: 'mp3, opus, ogg, flac'
     - name: Ses giriş cihazını seçme (SDK)
       href: how-to-select-audio-input-devices.md
@@ -184,7 +184,7 @@
               href: record-custom-voice-samples.md
             - name: Metin okuma çıkışı için hassas ayar yapma
               href: how-to-voice-tuning.md
-        - name: Özel uyandırma sözcüğü oluşturma (Cihazlar SDK'sı)
+        - name: Özel uyandırma sözcüğü oluşturma (anahtar sözcük bulma)
           href: speech-devices-sdk-create-kws.md
           displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
     - name: Geçiş
@@ -195,9 +195,9 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Translator Konuşma Çevirisi API’sinden
           href: how-to-migrate-from-translator-speech-api.md
-    - name: Kapsayıcıları kullanma
+    - name: Şirket içi kapsayıcıları kullanma
       items:
-        - name: Kapsayıcıları yükleme ve çalıştırma
+        - name: Şirket içi kapsayıcıları yükleme ve çalıştırma
           displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
           href: speech-container-howto.md
         - name: Kapsayıcıları yapılandırma
@@ -220,6 +220,8 @@
         - name: Genel Bakış
           href: speech-sdk.md
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+        - name: Senaryo kullanılabilirliği
+          href: scenario-availability.md
         - name: Sürüm notları
           href: releasenotes.md
         - name: C++
@@ -255,6 +257,9 @@
         - name: Toplu iş transkripsiyonu ve özelleştirmesi
           href: 'https://westus.cris.ai/swagger/ui/index'
           displayName: 'Batch transcription, transcription, custom models, customization, model management'
+        - name: Konuşma transkripsiyonu
+          href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+          displayName: 'Conversation transcription, signature generation'
         - name: Web Kancaları
           href: webhooks.md
           displayName: Webhooks

@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: Nasıl yapılır
       items:
-        - name: İşlemi yönetme
-          href: data-box-edge-manage-compute.md
         - name: 'C# modülü geliştirme'
           href: data-box-edge-create-iot-edge-module.md
-        - name: Paylaşımları yönetme
-          href: data-box-edge-manage-shares.md
-        - name: Kullanıcıları yönetme
-          href: data-box-edge-manage-users.md
-        - name: Bant genişliği zamanlamalarını yönetme
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 'Gücü, erişimi ve bağlantıyı yönetme'
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: PowerShell aracılığıyla yönetme
-          href: data-box-edge-connect-powershell-interface.md
+        - name: Yönetme
+          items:
+            - name: Uç işlemi
+              href: data-box-edge-manage-compute.md
+            - name: Paylaşımlar
+              href: data-box-edge-manage-shares.md
+            - name: Kullanıcılar
+              href: data-box-edge-manage-users.md
+            - name: Bant genişliği zamanlamaları
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 'Güç, erişim, bağlantı'
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: PowerShell aracılığıyla
+              href: data-box-edge-connect-powershell-interface.md
         - name: Sorun giderme
           href: data-box-edge-troubleshoot.md
         - name: İzleme
           href: data-box-edge-monitor.md
+        - name: Cihazın iade edilmesi
+          href: data-box-edge-return-device.md
     - name: Sürüm notları
       items:
         - name: Genel kullanılabilirlik

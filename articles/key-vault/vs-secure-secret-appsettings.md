@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 6b60e03c8888ad2c9726116f1f3b2e49d9a4e1e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722742"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506436"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -49,14 +49,16 @@ Bir proje geliştiriyorsanız ve güvenli bir şekilde kaynak kodu paylaşmak ih
 
     ![Key Vault gizli Ekle](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-4. Yükleme [Visual Studio için Azure Hizmetleri kimlik doğrulaması uzantısı](https://go.microsoft.com/fwlink/?linkid=862354). Bu uzantı Visual Studio oturum açma kimliğini kullanarak Key Vault uygulama erişebilirsiniz.
-
-5. Aşağıdaki NuGet paketlerini projenize ekleyin:
+    > [!NOTE] 
+    > Visual Studio 2017 V15.6 önce Azure Hizmetleri kimlik doğrulaması uzantısı için Visual Studio yüklemenizi öneririz için kullandık. Kullanım dışı bırakılmıştır, ancak artık funcionality Visual Studio tümleşik olarak. Visual Studio 2017 daha eski bir sürümü varsa, bu nedenle en az güncelleştirmenizi öneririz VS 2017 15.6 veya siz de bu işlev yerel olarak kullanan ve Visual Studio oturum açma kimliğini kendisini kullanarak anahtar kasası erişim.
+    >
+ 
+4. Aşağıdaki NuGet paketlerini projenize ekleyin:
 
     ```
     Microsoft.Azure.Services.AppAuthentication
     ```
-6. Program.cs dosyasına aşağıdaki kodu ekleyin:
+5. Program.cs dosyasına aşağıdaki kodu ekleyin:
 
     ```csharp
     public static IWebHost BuildWebHost(string[] args) =>
@@ -79,11 +81,11 @@ Bir proje geliştiriyorsanız ve güvenli bir şekilde kaynak kodu paylaşmak ih
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-7. Anahtar kasası URL'nizi launchsettings.json dosyasına ekleyin. Ortam değişkeni adı *KEYVAULT_ENDPOINT* 6. adımda eklediğiniz kod içinde tanımlanır.
+6. Anahtar kasası URL'nizi launchsettings.json dosyasına ekleyin. Ortam değişkeni adı *KEYVAULT_ENDPOINT* 6. adımda eklediğiniz kod içinde tanımlanır.
 
     ![Key Vault URL'si bir proje ortam değişkeni Ekle](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-8. Projede hata ayıklamaya başlayın. Başarılı bir şekilde çalışması gerekir.
+7. Projede hata ayıklamaya başlayın. Başarılı bir şekilde çalışması gerekir.
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET ve .NET uygulamaları
 

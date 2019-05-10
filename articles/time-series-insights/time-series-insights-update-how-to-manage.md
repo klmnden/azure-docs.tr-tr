@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73be313daa3b45cabc2adb07bb3d2592c7d307e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725465"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471637"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Sağlama ve Azure zaman serisi öngörüleri önizlemesi yönetme
 
@@ -33,7 +33,7 @@ Azure zaman serisi öngörüleri Önizleme ortamı sağladığınızda, iki Azur
 Bilgi [ortamınızı planlama nasıl](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Önizleme için bir Azure depolama genel amaçlı v1 kullandığınızdan emin olun (GPv1) hesabı.  GPv2 ve daha sonra destek yakın gelecekte eklenecektir.  
+> Önizleme için bir Azure depolama genel amaçlı v1 kullandığınızdan emin olun (GPv1) hesabı.
 
 İsteğe bağlı olarak, her bir Azure zaman serisi öngörüleri Önizleme ortamı bir olay kaynağı ile ilişkilendirebilirsiniz. Daha fazla bilgi için okuma [hub olay kaynağı ekleme](./time-series-insights-how-to-add-an-event-source-eventhub.md) ve [bir IOT hub'ı kaynağı ekleme](./time-series-insights-how-to-add-an-event-source-iothub.md). Bu adım sırasında bir zaman damgası kimliği özelliği ve benzersiz bir tüketici grubu sağlayın. Bunun yapılması, ortam uygun etkinliklerine erişime sahip olmasını sağlar.
 
@@ -45,7 +45,7 @@ Aşağıdaki adımlar bir Azure zaman serisi öngörüleri önizlemesi ortamın�
 
 1. Seçin **PAYG** düğmesini **SKU** menüsü. Bir ortam adı sağlayın ve hangi Abonelik grubu ve kaynak grubunu kullanmayı seçin. Ardından barındırılması için ortamı için desteklenen bir konum seçin.
 
-   ![Azure Time Series Insights örneği oluşturun.][1]
+   [![Azure Time Series Insights örneği oluşturun.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 1. Zaman serisi girin kimliği
 
@@ -56,7 +56,7 @@ Aşağıdaki adımlar bir Azure zaman serisi öngörüleri önizlemesi ortamın�
 
 1. Azure depolama hesabınız depolama hesabı adı seçerek ve bir çoğaltma seçeneği belirleme oluşturun. Otomatik olarak yapılması, bir Azure depolama genel amaçlı v1 hesabı oluşturur. Daha önce seçtiğiniz Azure zaman serisi öngörüleri Önizleme ortamı ile aynı bölgede oluşturulur.
 
-    ![Örneğiniz için bir Azure depolama hesabı oluşturma][5]
+    [![Örneğiniz için bir Azure depolama hesabı oluşturma](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
 
 1. İsteğe bağlı olarak, bir olay kaynağı ekleyebilirsiniz.
 
@@ -67,11 +67,11 @@ Aşağıdaki adımlar bir Azure zaman serisi öngörüleri önizlemesi ortamın�
      > [!TIP]
      > İleti sıraya süresi, toplu iş olayı veya geçmiş verileri karşıya yükleme senaryoları kullanmak için en iyi şekilde yapılandırılan bir ayarı olmayabilir. Kullanacağınıza karar kullanın veya bir zaman damgası özelliği, bu gibi durumlarda kullanmamanız doğruladığınızdan emin olun.
 
-     ![Olay kaynağı sekmesi][2]
+     [![Olay kaynağı sekmesi](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
 
 1. Ortamınızı istenen ayarlarla sağlandığını doğrulayın.
 
-    ![Gözden geçir + sekme oluşturma][3]
+    [![Gözden geçir + sekme oluşturma](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 ## <a name="manage-the-environment"></a>Ortam yönetme
 
@@ -88,7 +88,7 @@ Azure portalını kullanarak Azure zaman serisi öngörüleri Önizleme ortamın
 
 * Azure portalının **başvuru verileri** dikey başvuru verileri bir bileşen PAYG ortamların olmadığından Azure zaman serisi öngörüleri önizlemesinde kaldırıldı.
 
-![Azure portalında zaman serisi öngörüleri Önizleme ortamı][4]
+[![Azure portalında zaman serisi öngörüleri Önizleme ortamı](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -97,10 +97,3 @@ Azure portalını kullanarak Azure zaman serisi öngörüleri Önizleme ortamın
 - Bilgi edinmek için nasıl [hub olay kaynağı ekleme](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
 - Yapılandırma [bir IOT hub'ı kaynak](./time-series-insights-how-to-add-an-event-source-iothub.md).
-
-<!-- Images -->
-[1]: media/v2-update-manage/manage_one.PNG
-[2]: media/v2-update-manage/manage_two.PNG
-[3]: media/v2-update-manage/manage_three.PNG
-[4]: media/v2-update-manage/manage_four.PNG
-[5]: media/v2-update-manage/manage_five.PNG

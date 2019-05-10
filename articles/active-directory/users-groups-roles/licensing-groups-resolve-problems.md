@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470286"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466280"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory'de bir grup için lisans atama sorunlarını tanımlama ve çözme
 
@@ -107,9 +107,15 @@ Exchange Online kullanıyorsanız, kiracınızdaki bazı kullanıcılar yanlış
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Bu sorun hakkında daha fazla bilgi için bkz. [Exchange Online'da "Proxy adresi zaten kullanılıyor" hata iletisini](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Makale hakkında bilgileri de içerir. [Exchange Online'a uzak PowerShell kullanarak bağlanma konusunda](https://technet.microsoft.com/library/jj984289.aspx). Daha fazla bilgi için bu makaleye bakın [proxyAddresses özniteliği Azure AD'de nasıl doldurulur üzerinde](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> Bu sorun hakkında daha fazla bilgi için bkz. [Exchange Online'da "Proxy adresi zaten kullanılıyor" hata iletisini](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Makale hakkında bilgileri de içerir. [Exchange Online'a uzak PowerShell kullanarak bağlanma konusunda](https://technet.microsoft.com/library/jj984289.aspx).
 
 Etkilenen kullanıcılar için herhangi bir proxy adresi sorunu çözdükten sonra lisans artık uygulanabilir emin olmak için grupta lisans işleme zorlamak emin olun.
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD posta ve ProxyAddresses öznitelik
+
+**Sorun:** Bir kullanıcı veya gruba lisans atamaya güncelleştirilirken bazı kullanıcılar Azure AD posta ve ProxyAddresses özniteliği değiştiğini görebilirsiniz.
+
+Proxy adresi hesaplama tetiklenmesi için bir kullanıcı nedenleri üzerinde lisans ataması, hangi kullanıcı özniteliklerini değiştirebilirsiniz. Değişikliğin nedenini anlamanıza ve sorunu çözmek için bu makaleye bakın [proxyAddresses özniteliği Azure AD'de nasıl doldurulur](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Bir grup üzerinde birden fazla ürün lisans olmadığında ne olur?
 

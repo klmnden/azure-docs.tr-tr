@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190770"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231084"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft kimlik Platformu (v2.0) genel bakış
 
@@ -43,7 +43,7 @@ Microsoft kimlik platformu ile bir kez kod yazın ve herhangi bir kullanıcı ul
 
 ## <a name="getting-started"></a>Başlarken
 
-Kimlik ile çalışma, sabit olması gerekmez. Uygun bir senaryo seçin — bir hızlı başlangıç ve dakikalar içinde çalıştırmaya başlamanızı sağlayacak bir genel bakış sayfasında her senaryo yolu vardır:
+Kimlikle çalışmanın zor olması şart değil. Uygun bir senaryo seçin — bir hızlı başlangıç ve dakikalar içinde çalıştırmaya başlamanızı sağlayacak bir genel bakış sayfasında her senaryo yolu vardır:
 
 - [Tek sayfa uygulaması derleme](scenario-spa-overview.md)
 - [Kullanıcılar oturum açtığında bir web uygulaması derleme](scenario-web-app-sign-user-overview.md)
@@ -56,7 +56,7 @@ Kimlik ile çalışma, sabit olması gerekmez. Uygun bir senaryo seçin — bir 
 
 Genel kimlik doğrulaması uygulama senaryolarını aşağıdaki tabloda özetlenmiştir: Microsoft kimlik platformu uygulamanızla tümleştirmek, bir referans olarak kullanın.
 
-[![Uygulama senaryolarında Microsoft kimlik platformu](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
+[![Uygulama senaryolarında Microsoft kimlik platformu](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

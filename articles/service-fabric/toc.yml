@@ -643,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: Küme düğümlerine yama yapma (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: Küme düğümlerine yama yapma (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: Disk şifrelemesini etkinleştirme (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: Disk şifrelemesini etkinleştirme (Linux)

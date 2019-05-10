@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: İki Web yöntemini tümleştirme bulut ile Azure Active Directory Tümleştirme | Microsoft Docs'
-description: Azure Active Directory ve iki Web yöntemini tümleştirme bulut arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: İki Web yöntemini tümleştirme paketi ile Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Azure Active Directory ve iki Web yöntemini tümleştirme paketi arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 11021562cd34f31564e6b4c22fcd64aac25d3469
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8dead16c60a26e2fc53953ed65337195c3b2aa67
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862072"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470801"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-cloud"></a>Öğretici: İki Web yöntemini tümleştirme bulut ile Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Öğretici: İki Web yöntemini tümleştirme paketi ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, iki Web yöntemini tümleştirme bulut Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
-Azure AD ile tümleştirme bulut iki Web yöntemini tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, iki Web yöntemini tümleştirme paketi Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
+Azure AD ile tümleştirme paketine iki Web yöntemini tümleştirme ile aşağıdaki avantajları sağlar:
 
-* İki Web yöntemini tümleştirme bulut erişimi, Azure AD'de kontrol edebilirsiniz.
-* Azure AD hesaplarına otomatik olarak iki Web yöntemini (çoklu oturum açma) tümleştirme bulut oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* İki Web yöntemini tümleştirme paketi erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak iki Web yöntemini (çoklu oturum açma) tümleştirme paketi oturum açmış, kullanıcıların etkinleştirebilirsiniz.
 * Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,24 +35,24 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İki Web yöntemini tümleştirme bulut ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD tümleştirmesi iki Web yöntemini tümleştirme paketi ile yapılandırmak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
-* iki Web yöntemini tümleştirme bulut tek oturum açma etkin abonelik
+* tek oturum açma etkin abonelik iki Web yöntemini tümleştirme paketi
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* iki Web yöntemini tümleştirme bulutun desteklediği **SP** ve **IDP** tarafından başlatılan
+* Tümleştirme paketini iki Web yöntemini destekleyen **SP** ve **IDP** tarafından başlatılan
 
-* iki Web yöntemini tümleştirme bulutun desteklediği **just-ın-time** kullanıcı sağlama
+* Tümleştirme paketini iki Web yöntemini destekleyen **just-ın-time** kullanıcı sağlama
 
-## <a name="adding-webmethods-integration-cloud-from-the-gallery"></a>İki Web yöntemini tümleştirme bulut galeri ekleme
+## <a name="adding-webmethods-integration-suite-from-the-gallery"></a>Galeriden iki Web yöntemini tümleştirme paketi ekleme
 
-Azure AD'de iki Web yöntemini tümleştirme bulut tümleştirmesini yapılandırmak için iki Web yöntemini tümleştirme bulut Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de iki Web yöntemini tümleştirme paketi tümleştirmesini yapılandırmak için iki Web yöntemini tümleştirme paketi Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden iki Web yöntemini tümleştirme bulut eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden iki Web yöntemini tümleştirme paketi eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
@@ -66,31 +66,31 @@ Azure AD'de iki Web yöntemini tümleştirme bulut tümleştirmesini yapılandı
 
     ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **iki Web yöntemini tümleştirme bulut**seçin **iki Web yöntemini tümleştirme bulut** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **iki Web yöntemini tümleştirme paketi**seçin **iki Web yöntemini tümleştirme paketi** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![sonuç listesinde tümleştirme bulut iki Web yöntemini](common/search-new-app.png)
+     ![sonuç listesinde tümleştirme paketi iki Web yöntemini](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ile tümleştirme bulut tabanlı bir test kullanıcı adında iki Web yöntemini test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili iki Web yöntemini tümleştirme bulut kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ile tümleştirme paketinin temel bir test kullanıcı adında iki Web yöntemini test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve iki Web yöntemini tümleştirme paketi ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma iki Web yöntemini tümleştirme paketi ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[İki Web yöntemini tümleştirme bulut çoklu oturum açmayı yapılandırma](#configure-webmethods-integration-cloud-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **[İki Web yöntemini tümleştirme paketi çoklu oturum açmayı yapılandırma](#configure-webmethods-integration-suite-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[İki Web yöntemini tümleştirme bulut test kullanıcısı oluşturma](#create-webmethods-integration-cloud-test-user)**  - Britta Simon iki Web yöntemini kullanıcı Azure AD gösterimini bağlı tümleştirme bulut içinde bir karşılığı vardır.
+5. **[İki Web yöntemini tümleştirme paketinin test kullanıcısı oluşturma](#create-webmethods-integration-suite-test-user)**  - Britta Simon iki Web yöntemini kullanıcı Azure AD gösterimini bağlı tümleştirme paketi içinde bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma iki Web yöntemini tümleştirme paketi ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **iki Web yöntemini tümleştirme bulut** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **iki Web yöntemini tümleştirme paketi** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
@@ -102,9 +102,9 @@ Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılan
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
+4. Yapılandırmak için **iki Web yöntemini tümleştirme bulut**, **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** modunda başlatılan gerçekleştirin Aşağıdaki adımlar:
 
-    ![iki Web yöntemini tümleştirme bulut etki alanı ve URL'ler çoklu oturum açma bilgileri](common/idp-intiated.png)
+    ![iki Web yöntemini tümleştirme paketi etki alanı ve URL'ler çoklu oturum açma bilgileri](common/idp-intiated.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
@@ -122,12 +122,12 @@ Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılan
     | `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse` |
     | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse` |
 
-5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+    c. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    ![iki Web yöntemini tümleştirme bulut etki alanı ve URL'ler çoklu oturum açma bilgileri](common/metadata-upload-additional-signon.png)
+    ![iki Web yöntemini tümleştirme paketi etki alanı ve URL'ler çoklu oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
-    
+    d. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -135,13 +135,48 @@ Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılan
     | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest` |
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [iki Web yöntemini tümleştirme bulut istemci Destek ekibine](https://empower.softwareag.com/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [iki Web yöntemini tümleştirme paketi istemci Destek ekibine](https://empower.softwareag.com/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+
+5. Yapılandırmak için **iki Web yöntemini API bulut**, **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** modunda başlatılan gerçekleştirin Aşağıdaki adımlar:
+
+    ![iki Web yöntemini tümleştirme paketi etki alanı ve URL'ler çoklu oturum açma bilgileri](common/idp-intiated.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
+    | |
+    |--|
+    | `<SUBDOMAIN>.webmethodscloud.com` |
+    | `<SUBDOMAIN>.webmethodscloud.eu` |
+    | `<SUBDOMAIN>.webmethodscloud.de` |
+
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
+    | |
+    |--|
+    | `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso` |
+    | `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso` |
+    | `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso` |
+
+    c. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+
+    ![iki Web yöntemini tümleştirme paketi etki alanı ve URL'ler çoklu oturum açma bilgileri](common/metadata-upload-additional-signon.png)
+
+    d. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
+    | |
+    |--|
+    | `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+    | `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+    | `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [iki Web yöntemini tümleştirme paketi istemci Destek ekibine](https://empower.softwareag.com/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-7. Üzerinde **iki Web yöntemini tümleştirme bulut kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+7. Üzerinde **tümleştirme paketi iki Web yöntemini kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
@@ -151,11 +186,11 @@ Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılan
 
     c. Oturum Kapatma URL'si
 
-### <a name="configure-webmethods-integration-cloud-single-sign-on"></a>İki Web yöntemini tümleştirme bulut çoklu oturum açmayı yapılandırın
+### <a name="configure-webmethods-integration-suite-single-sign-on"></a>İki Web yöntemini tümleştirme paketi çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **iki Web yöntemini tümleştirme bulut** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [iki Web yöntemini Tümleştirme bulut Destek ekibine](https://empower.softwareag.com/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **iki Web yöntemini tümleştirme paketi** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [iki Web yöntemini Tümleştirme paketi Destek ekibine](https://empower.softwareag.com/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -171,9 +206,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    a. İçinde **adı** alana **BrittaSimon**.
+    a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -182,15 +217,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, iki Web yöntemini tümleştirme bulut erişimi vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, iki Web yöntemini tümleştirme paketi için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **iki Web yöntemini tümleştirme bulut**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **iki Web yöntemini tümleştirme paketi**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **iki Web yöntemini tümleştirme bulut**.
+2. Uygulamalar listesinde **iki Web yöntemini tümleştirme paketi**.
 
-    ![İki Web yöntemini uygulamalar listesinde tümleştirme bulut bağlantısı](common/all-applications.png)
+    ![İki Web yöntemini uygulamalar listesindeki bağlantılardan tümleştirme paketi](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -206,15 +241,15 @@ Bu bölümde, iki Web yöntemini tümleştirme bulut erişimi vererek, Azure ço
 
 7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="create-webmethods-integration-cloud-test-user"></a>İki Web yöntemini tümleştirme bulut test kullanıcısı oluşturma
+### <a name="create-webmethods-integration-suite-test-user"></a>İki Web yöntemini tümleştirme paketinin test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon adlı bir kullanıcı iki Web yöntemini tümleştirme bulut içinde oluşturulur. iki Web yöntemini tümleştirme bulut just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı iki Web yöntemini tümleştirme bulut içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
+Bu bölümde, Britta Simon adlı bir kullanıcı iki Web yöntemini tümleştirme paketi içinde oluşturulur. iki Web yöntemini tümleştirme paketi just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı iki Web yöntemini tümleştirme paketi içinde zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli bulut tümleştirmesi parçasında iki Web yöntemini'ye tıkladığınızda, otomatik olarak iki Web yöntemini tümleştirme SSO'yu ayarlama bulutta oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Tümleştirme paketi kutucuğu erişim Paneli'nde iki Web yöntemini tıklattığınızda, otomatik olarak iki Web yöntemini tümleştirme paketine SSO'yu ayarlama oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

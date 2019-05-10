@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445710"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466916"
 ---
 # <a name="add-an-email-action"></a>Bir e-posta eylemi ekleme
 
@@ -102,11 +102,11 @@ Aşağıdaki adımlarda ayarlama ve e-posta eylemleri el ile doğrulama gösteri
 
 1. Tıklayın **office365 Bağlayıcısı**:
 
-    ![API Bağlantısı](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API Bağlantısı](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Yetkilendirme işlemini başlatmak için başlığa tıklayın:
 
-    ![Yetkilendirme](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![Yetkilendirme](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Tıklayın **yetkilendirmek**. Oturum açmanız istenir. Oturum açmak için kullandığınız hesap, e-posta bildirimleri göndermek için e-posta adresi uygulamanın kullandığı olmalıdır:
 
@@ -116,7 +116,7 @@ Aşağıdaki adımlarda ayarlama ve e-posta eylemleri el ile doğrulama gösteri
 
 1. İçinden bildirimleri gönderildiği gelen e-posta adresini değiştirmek için tıklayın **Düzenle API bağlantısı**.
 
-    ![e-postasını Değiştir](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![e-postasını Değiştir](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>Sahip rolü Outlook Kurulumu
 
@@ -142,7 +142,7 @@ Aşağıdaki adımlar oturum açmak ve e-posta eylemleri ayarlamak için yardım
 
 Çıkış,-hazır, Uzaktan izleme çözüm Hızlandırıcısını eylem e-postalar için bir temel HTML şablonu sağlar. E-posta şablonunun e-posta eylemi ayarları değerlerini kullanır. Örnek e-posta aşağıda verilmiştir:
 
-![e-posta örneği](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![e-posta örneği](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 Aşağıdaki adımlarda HTML e-posta şablonu Düzen gösterilmektedir. Örneğin, daha fazla bilgi dahil edebilir veya özel görüntüleri ekleyin:
 

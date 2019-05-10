@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993158"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507920"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 
@@ -46,7 +46,7 @@ Zamanlanmış olaylar ile uygulamanız, bakım zaman ve ortaya etkisini sınırl
 
 Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 
-- [Platform tarafından başlatılan Bakım](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (örneğin, VM yeniden başlatma, dinamik geçiş veya ana bilgisayar güncelleştirmeleri koruma bellek)
+- [Platform tarafından başlatılan Bakım](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (örneğin, VM yeniden başlatma, dinamik geçiş veya ana bilgisayar güncelleştirmeleri koruma bellek)
 - Düzeyi düşürülmüş donanım
 - Kullanıcı tarafından başlatılan Bakım (örneğin, bir kullanıcı yeniden başlatır veya bir sanal makine yeniden dağıtır)
 - [Düşük öncelikli VM çıkarma](https://azure.microsoft.com/blog/low-priority-scale-sets) içinde ölçek kümeleri
@@ -55,7 +55,7 @@ Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 
   Meta veri hizmeti VM içinden erişilebilir bir REST uç noktasını kullanarak Vm'leri çalıştırma hakkında bilgi gösterir. Böylece VM dışında gösterilmez, bilgileri bir nonroutable IP kullanılabilir.
 
-### <a name="scope"></a>Kapsam
+### <a name="scope"></a>`Scope`
 Zamanlanmış olaylar teslim edilir:
 
 - Tek başına sanal makineler.
@@ -79,7 +79,7 @@ Zamanlanmış olaylar olarak tutulan hizmetidir. Sürümleri zorunludur; geçerl
 | - | - | - | - | 
 | 2017-11-01 | Genel Erişilebilirlik | Tümü | <li> Düşük öncelikli VM çıkarma EventType 'Preempt' desteği eklendi<br> | 
 | 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas Vm'leri için kaynak adları alt çizgi başına kaldırıldı<br><li>Tüm istekler için zorlanan meta veri üst bilgisi gereksinimi | 
-| 2017-03-01 | Önizleme | Tümü | <li>İlk yayın
+| 2017-03-01 | Preview | Tümü | <li>İlk yayın
 
 
 > [!NOTE] 
@@ -131,7 +131,7 @@ Bu durumda Zamanlanmış olaylar olduğunda, bir dizi olay yanıtı içerir.
 | - | - |
 | EventID | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye için duraklatır şekilde zamanlanır. CPU ve ağ bağlantısı askıya alınabilir, ancak bellek veya açık dosyaları üzerinde etkisi yoktur.<li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makineyi başka bir düğüme taşımak üzere zamanlanmış (kısa ömürlü diskleri kaybolur). <li>`Preempt`: Düşük öncelikli sanal makine siliniyor (kısa ömürlü diskleri kaybolur).|
-| ResourceType | Bu olayın etkileyen kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
+| KaynakTürü | Bu olayın etkileyen kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
 | Kaynaklar| Bu olayın etkileyen kaynakların listesi. Listenin en fazla bir makinelerden içeren garanti [güncelleme etki alanı](manage-availability.md), ancak tüm makinelerde UD içermeyebilir. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay, belirtilen süre geçtikten sonra başlatmak için zamanlanmış `NotBefore` özelliği.<li>`Started`: Bu olayı başlatıldı.</ul> Hayır `Completed` veya benzer durum hiç olmadığı kadar sağlanır. Olay, olay sona erdiğinde artık döndürülür.
 | notBefore| Saat sonra bu olay başlayabilirsiniz. <br><br> Örnek: <br><ul><li> Pzt, 19 Eylül 2016 18:29:47 GMT  |
@@ -143,7 +143,7 @@ Her olay zamanlanmış bir minimum süre gelecekte olay türüne dayalı. Bu sü
 | - | - |
 | Dondurma| 15 dakika |
 | Yeniden başlatma | 15 dakika |
-| Yeniden dağıtım | 10 dakika |
+| Yeniden dağıtın | 10 dakika |
 | Etkisiz hale | 30 saniye |
 
 ### <a name="start-an-event"></a>Bir olayı Başlat 

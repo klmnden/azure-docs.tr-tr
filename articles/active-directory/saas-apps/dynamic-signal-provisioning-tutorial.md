@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: fec6a7e3433eb5d657deac8c1b2ceb327f8d32e4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159413"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470586"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için dinamik sinyalini Yapılandır
 
@@ -84,7 +84,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Azure AD'
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Azure AD'de dinamik bir sinyal için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamalar**, ardından **dinamik sinyal**.
+1. [Azure Portal](https://portal.azure.com) oturum açın. Seçin **kurumsal uygulamalar**, ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
@@ -104,11 +104,11 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Azure AD'
 
 6. Dinamik sinyal Yönetici konsolunda gidin **yönetici > Gelişmiş > API**.
 
-    ![Dinamik sinyal sağlama](./media/dynamicsignal-provisioning-tutorial/secret-token-1.png)
+    ![Dinamik sinyal sağlama](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
     Kopyalama **SCIM API URL'si** için **Kiracı URL'si**. Tıklayarak **yeni belirteç Oluştur** oluşturmak için bir **taşıyıcı belirteci** ve değeri kopyalayın **gizli belirteç**.
 
-    ![Dinamik sinyal sağlama](./media/dynamicsignal-provisioning-tutorial/secret-token-2.png)
+    ![Dinamik sinyal sağlama](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
 7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, dinamik sinyale bağlanabilirsiniz. Bağlantı başarısız olursa, dinamik sinyal hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
 
@@ -122,11 +122,11 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Azure AD'
 
 10. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları için dinamik sinyal**.
 
-    ![Dinamik sinyal kullanıcı eşlemeleri](media/dynamicsignal-provisioning-tutorial/user-mappings.png)
+    ![Dinamik sinyal kullanıcı eşlemeleri](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
 11. Dinamik sinyalin için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri, dinamik güncelleştirme işlemlerini sinyal kullanıcı hesaplarını eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
 
-    ![Keeper kullanıcı öznitelikleri](media/dynamicsignal-provisioning-tutorial/user-mapping-attributes.png)
+    ![Dinamik sinyal kullanıcı öznitelikleri](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -160,7 +160,3 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
 * [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

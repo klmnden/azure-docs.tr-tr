@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaaaa5c2fe87b419bf38d6e6522ef745476ac1ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204953"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409963"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -1229,9 +1229,10 @@ Bir küme dosya paylaşım tanığı yapılandırma, bu görevleri kapsar:
 
    _**Şekil 38:** Küme yeniden yapılandırılması onayı_
 
-Windows Yük devretme kümesi başarıyla yükledikten sonra değişiklikler için bazı eşikleri koşullara azure'da yük devretme algılama uyum sağlamak için yapılması gerekir. Parametreleri değiştirilmesi bu blogda belgelenmiştir: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Aynı alt ağda ASCS/SCS derleme Windows Küme yapılandırması, iki VM olduğu varsayılırsa, aşağıdaki parametreleri, bu değerleri değiştirilmesi gerekebilir:
-- SameSubNetDelay = 2
-- SameSubNetThreshold = 15
+Windows Yük devretme kümesi başarıyla yükledikten sonra değişiklikler için bazı eşikleri koşullara azure'da yük devretme algılama uyum sağlamak için yapılması gerekir. Parametreleri değiştirilmesi bu blogda belgelenmiştir: [ https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834 ](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). Aynı alt ağda ASCS/SCS derleme Windows Küme yapılandırması, iki VM olduğu varsayılırsa, aşağıdaki parametreleri, bu değerleri değiştirilmesi gerekebilir:  
+- SameSubNetDelay = 2000  
+- SameSubNetThreshold = 15  
+- RoutingHistoryLength = 30  
 
 Bu ayarlar müşterilerle test ve sağlanan bir tarafında yeterince dayanıklı olması için iyi bir güvenlik ihlali. Öte yandan bu ayarlar gerçek hata koşullarında yeterli yük devretme SAP yazılım veya düğüm/VM başarısız sağlama hızlı. 
 

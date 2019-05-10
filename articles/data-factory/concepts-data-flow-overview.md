@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5064f47444b4ca6d9194ed66144938e6e3d51a4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051886f98d6d35594336291bbb2defb2a4acdfc5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261995"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233056"
 ---
-# <a name="what-are-mapping-data-flows-in-azure-data-factory"></a>Azure Data factory'de veri akışları eşleme nelerdir?
+# <a name="what-are-mapping-data-flows"></a>Veri akışları eşleme nelerdir?
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Eşleme veri akışları, veri mühendisleri, kod yazmaya gerek kalmadan grafik veri dönüştürme mantığını geliştirmek izin verin. Sonuçta elde edilen bir veri akışı, Azure veri fabrikası genişletilmiş Azure Databricks kümeleri kullanarak işlem hatlarını içindeki etkinlikleri olarak yürütülür.
+Eşleme veri akışları Azure Data factory'de görsel olarak tasarlanmış veri dönüştürme var. Bir veri akışı veri mühendisleri, kod yazmaya gerek kalmadan grafik veri dönüştürme mantığını geliştirmek izin verin. Sonuçta elde edilen bir veri akışı, Azure veri fabrikası genişletilmiş Azure Databricks kümeleri kullanarak işlem hatlarını içindeki etkinlikleri olarak yürütülür.
 
 Azure Data Factory, veri akışı amacı gerekli kodlama ile tam olarak görsel bir deneyim sağlamaktır. Veri akışları, ölçeği genişletilmiş veri işleme için kendi yürütme kümesinde yürütülür. Azure Data Factory tüm kod çevirisi, yolu en iyi duruma getirme ve yürütme veri akışı işlerinizin yürütür.
 

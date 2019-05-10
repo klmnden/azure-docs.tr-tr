@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147889"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406540"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
 
@@ -25,7 +25,11 @@ Bu makalede, Media Services v3 ile geliştirirken varlıkları ve API'ler için 
 
 ## <a name="accessing-the-azure-media-services-api"></a>Azure Media Services API erişme
 
-Azure Media Services kaynaklara erişmek için Azure Active Directory (AD) hizmet sorumlusu kimlik doğrulaması kullanabilirsiniz.
+Media Services kaynakları ve Media Services API'sine erişim iznine sahip olması için önce kimliğinin doğrulanması gerekir. Media Services'ı destekleyen [Azure Active Directory (Azure AD)-temel](../../active-directory/fundamentals/active-directory-whatis.md) kimlik doğrulaması. İki ortak kimlik doğrulama seçenekleri şunlardır:
+ 
+* **Hizmet sorumlusu kimlik doğrulaması** - hizmet kimlik doğrulaması için kullanılır (örneğin: web apps, işlev uygulamaları, logic apps, API ve mikro hizmetler). Genellikle bu kimlik doğrulama yöntemi kullanan uygulamalar, daemon Hizmetleri, orta katman Hizmetleri ya da zamanlanmış işleri çalıştırma uygulamalardır. Örneğin, Web için uygulamalar var. her zaman bir hizmet sorumlusu ile Media Services bağlanan bir orta katmanda olmalıdır.
+* **Kullanıcı kimlik doğrulaması** - kullanan uygulama etkileşim kurmak için Media Services kaynaklarla bir kişinin kimliğini doğrulamak için kullanılır. Etkileşimli uygulama önce kullanıcının kimlik bilgilerini girmesini. Kodlama işi izlemek veya canlı akış için yetkili kullanıcılar tarafından kullanılan bir yönetim konsol uygulaması örneğidir.
+
 Media Services API'sine gerektirir kullanıcı veya uygulamanın REST API'si kullanın ve Media Services hesabı kaynağa erişimi istekleri bir **katkıda bulunan** veya **sahibi** rol. API ile erişilebilir **okuyucu** ancak yalnızca Rol **alma** veya **listesi**   işlemleri kullanıma sunulacaktır. Daha fazla bilgi için [Media Services hesapları için rol tabanlı erişim denetimi](rbac-overview.md).
 
 Bir hizmet sorumlusu oluşturmak yerine, Azure Resource Manager ile Media Services API'sine erişmek için Azure kaynakları için yönetilen kimlikleri kullanmayı düşünün. Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi için bkz: [Azure kaynakları için yönetilen kimlikleri nedir](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -52,6 +56,16 @@ Aşağıdaki şekilde kronolojik sırada isteklerinin akışını sayıları tem
 2. Azure AD erişim belirteci için orta katman gönderilir.
 4. Orta katman Azure AD belirteciyle Azure medya REST API isteği gönderir.
 5. Orta katman veri Media Services'den geri alır.
+
+### <a name="samples"></a>Örnekler
+
+Azure AD hizmet sorumlusu ile bağlanma işlemini gösteren aşağıdaki örneklere bakın:
+
+* [REST ile bağlanma](media-rest-apis-with-postman.md)  
+* [Java ile bağlanma](configure-connect-java-howto.md)
+* [.NET ile bağlanma](configure-connect-dotnet-howto.md)
+* [Node.js ile bağlanma](configure-connect-nodejs-howto.md)
+* [Python ile bağlanma](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>Adlandırma kuralları
 

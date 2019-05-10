@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159563"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511053"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Görüntü oluşturma ve Azure depolamadaki dosyalara erişmek için bir kullanıcı tarafından atanan bir yönetilen kimliği kullanma 
 
 Betik kullanarak ya da birden fazla konuma, GitHub ve Azure depolama vb. gibi dosyaları kopyalama, azure Görüntü Oluşturucu destekler. Bunları kullanmak için Azure görüntü oluşturucusu için harici olarak erişilebilen verilmiş olması gerekir, ancak, SAS belirteçleri kullanarak Azure depolama blobları koruyabilir.
 
-Bu makalede, Azure VM görüntüsü burada kullanılacak oluşturucu kullanılarak özelleştirilmiş bir görüntü oluşturma işlemi gösterilmektedir bir [yönetilen kullanıcı tarafından atanan kimliği](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) Azure depolamadaki dosyalara görüntü özelleştirme olmadan olun gerek kalmadan erişmek için dosyalar genel anlamda erişilebilen veya SAS belirteçlerini ayarlama.
+Bu makalede, Azure VM görüntüsü burada kullanılacak oluşturucu kullanılarak özelleştirilmiş bir görüntü oluşturma işlemi gösterilmektedir bir [yönetilen kullanıcı tarafından atanan kimliği](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure depolamadaki dosyalara görüntü özelleştirme olmadan olun gerek kalmadan erişmek için dosyalar genel anlamda erişilebilen veya SAS belirteçlerini ayarlama.
 
 Aşağıdaki örnekte, iki kaynak grubu oluşturur, bir özel görüntü için kullanılır ve başka bir komut dosyası içeren bir Azure depolama hesabını barındıracak. Bu derleme yapıtları veya görüntü dosyaları Görüntü Oluşturucu dışında farklı depolama hesaplarında burada sahip olabilen bir gerçek yaşam senaryo benzetimini yapar. Bir kullanıcı tarafından atanan kimlik ve ardından komut dosyasını okuma izni oluşturur, ancak o dosya için herhangi bir genel erişimi ayarlamaz. Ardından, indirmek ve depolama hesabından bu betiği çalıştırmak için kabuk Özelleştirici kullanacaktır.
 
@@ -57,7 +57,7 @@ az provider register -n Microsoft.Storage
 ```
 
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Bu bilgileri depolamak için bazı değişkenler oluşturacağız. böylece biz bazı bilgilere tekrar tekrar kullanacaklardır.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan yönetilen kimlik oluşturma
 
-Kimlik oluşturun ve betik depolama hesabı için izinler atayın. Daha fazla bilgi için [User-Assigned yönetilen kimliği](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Kimlik oluşturun ve betik depolama hesabı için izinler atayın. Daha fazla bilgi için [User-Assigned yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 

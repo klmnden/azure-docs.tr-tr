@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdf28418e7e1335dcb1f664964fa6ef03174aa1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709202"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463486"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Oturum açma etkinlik raporundaki hata kodları 
 
@@ -177,6 +177,7 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |90051| Geçersiz bir temsilci belirteci. Geçersiz Ulusal bulut kimliği ({Cloudıd}) belirtildi.|
 |90072| Hesabın kiracıda bir dış kullanıcı olarak önce eklenmesi gerekir. Oturum kapatma ve yeniden farklı bir Azure AD ile oturum açma hesabı.|
 |90094| Grant yönetici izinleri gerektirir. Bu uygulama için rıza sağlamanın Kiracı yöneticinize başvurun.|
+|500021|Kiracı şirket proxy'si tarafından kısıtlanıyor. Kaynak erişim engellendi.|
 |500121| Kimlik doğrulaması güçlü kimlik doğrulama isteği sırasında başarısız oldu.|
 |500133| Onaylama işlemi, geçerli zaman aralığı içinde değil. Kullanıcı onayı için kullanmadan önce erişim belirtecinin süresi dolmadı emin olun veya yeni bir belirteç isteyin.|
 |530021|Application onaylı koşullu erişim uygulama gereksinimlerini karşılamıyor.|

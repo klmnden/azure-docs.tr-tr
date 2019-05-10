@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 4416c30f57b469ee125400c696e8b34311a94926
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028193"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406413"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain hizmeti nedir?
 
@@ -65,7 +65,7 @@ Ekleme ve Konsorsiyumu üyeler kaldırılırken gibi yönetim işlemlerini conso
 
 ## <a name="develop-using-familiar-development-tools"></a>Aşina olduğunuz geliştirme araçlarını kullanarak geliştirme
 
-Ethereum uygulamalarınız için yaptığınız gibi açık kaynaklı çekirdek Ethereum defterini bağlı olarak, uygulamaları Azure blok zinciri hizmeti için aynı şekilde geliştirebilirsiniz. Sektörün önde gelen iş ortaklarıyla çalışma, Azure blok zinciri Geliştirme Seti Visual Studio Code uzantısı Truffle nitelikli akıllı anlaşmalar oluşturun Suite gibi tanıdık araçlarından yararlanarak geliştiricilerin sağlar. Azure blok zinciri Geliştirme Seti eklentiyi kullanarak, geliştiriciler oluşturma veya bağlanın ve mevcut consortium oluşturmak ve dağıtmak, akıllı sözleşmeler tüm tek bir IDE içinden. Azure Blockchain Visual Studio Code uzantısı'nı kullanarak oluşturabilir veya, oluşturabilir ve akıllı sözleşmelerinizi tek bir IDE içinden dağıtmak için mevcut bir konsorsiyum bağlanın. Daha fazla bilgi için [VS Code Marketi'nde Azure blok zinciri Geliştirme Seti](http://aka.ms/vscodebcextension) ve [Azure blok zinciri Geliştirme Seti Kullanıcı Kılavuzu](http://aka.ms/vscodebcextensionwiki ).
+Ethereum uygulamalarınız için yaptığınız gibi açık kaynaklı çekirdek Ethereum defterini bağlı olarak, uygulamaları Azure blok zinciri hizmeti için aynı şekilde geliştirebilirsiniz. Sektörün önde gelen iş ortaklarıyla çalışma, Azure blok zinciri Geliştirme Seti Visual Studio Code uzantısı Truffle nitelikli akıllı anlaşmalar oluşturun Suite gibi tanıdık araçlarından yararlanarak geliştiricilerin sağlar. Azure blok zinciri Geliştirme Seti eklentiyi kullanarak, geliştiriciler oluşturma veya bağlanın ve mevcut consortium oluşturmak ve dağıtmak, akıllı sözleşmeler tüm tek bir IDE içinden. Azure Blockchain Visual Studio Code uzantısı'nı kullanarak oluşturabilir veya, oluşturabilir ve akıllı sözleşmelerinizi tek bir IDE içinden dağıtmak için mevcut bir konsorsiyum bağlanın. Daha fazla bilgi için [VS Code Marketi'nde Azure blok zinciri Geliştirme Seti](https://aka.ms/vscodebcextension) ve [Azure blok zinciri Geliştirme Seti Kullanıcı Kılavuzu](https://aka.ms/vscodebcextensionwiki ).
 
 ## <a name="support-and-feedback"></a>Destek ve geri bildirim
 

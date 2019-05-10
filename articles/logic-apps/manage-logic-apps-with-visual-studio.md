@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
-ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/07/2019
+ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136508"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467415"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio ile mantıksal uygulamaları yönetme
 
@@ -36,8 +36,7 @@ Oluşturabilirseniz de düzenleme, yönetme ve logic apps'te dağıtma [Azure po
   Bu hızlı başlangıçta ücretsiz olan Visual Studio Community 2017 kullanılmaktadır.
 
     > [!IMPORTANT]
-    > Visual Studio 2019 veya 2017'yi yüklediğinizde, seçtiğinizden emin olun **Azure geliştirme** iş yükü.
-    > Daha fazla bilgi için [şekilde Azure hesaplarınızı Visual Studio Cloud Explorer ile ilişkili kaynakları yönetme](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Visual Studio 2019 veya 2017'yi yüklediğinizde, seçtiğinizden emin olun **Azure geliştirme** iş yükü. Visual Studio 2019 için Cloud Explorer Azure portalında mantıksal Uygulama Tasarımcısı açabilirsiniz, ancak henüz ekli mantıksal Uygulama Tasarımcısı açılamıyor. Daha fazla bilgi için [şekilde Azure hesaplarınızı Visual Studio Cloud Explorer ile ilişkili kaynakları yönetme](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Visual Studio 2015 için cloud Explorer'ı yüklemek için [Cloud Explorer'ı Visual Studio Market'ten indir](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Daha fazla bilgi için [Azure hesaplarınızı Visual Studio Cloud Explorer (2015) ile ilişkili kaynakları yönetme](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -106,6 +105,9 @@ Logic apps'ten indirebileceğiniz [Azure portalında](https://portal.azure.com) 
 
 1. Visual Studio'daki bulut Gezgini'ni açın ardından bulun ve Azure'dan indirmek istediğiniz bir mantıksal uygulama seçin.
 
+   > [!NOTE]
+   > Visual Studio 2019 için Cloud Explorer Azure portalında mantıksal Uygulama Tasarımcısı açabilirsiniz, ancak henüz mantıksal uygulamanızı indirmeye ekli mantıksal Uygulama Tasarımcısı açılamıyor.
+
 2. Bu uygulamanın kısayol menüsünde **Logic App Düzenleyicisi ile açın**.
 
    Logic Apps Tasarımcısı açılır ve mantıksal uygulama gösterilir. 
@@ -127,7 +129,7 @@ Azure portalında mantıksal uygulamanızı düzenlemek ve bu değişiklikleri t
 
 * Visual Studio'da mantıksal Uygulama Tasarımcısı araç çubuğunda **Yenile**.
 
-  -veya-
+  veya
 
 * Visual Studio Cloud Explorer, mantıksal uygulamanızın kısayol menüsünü açın ve seçin **Yenile**.
 

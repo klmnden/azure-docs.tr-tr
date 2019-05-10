@@ -224,7 +224,8 @@
       items:
         - name: Bir ML işlem hattı oluşturma
           href: how-to-create-your-first-pipeline.md
-        - name: Azure Pipelines ile ML modelleri eğitme ve dağıtma
+        - name: Azure Pipelines ile ML iş akışlarına yönelik CI/CD
+          displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
           mainContext: true
     - name: Kaynak kotalarını yönetme
@@ -238,9 +239,6 @@
     - name: Machine learning SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: Veri hazırlığı SDK’sı
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: İzleme SDK’sı
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'

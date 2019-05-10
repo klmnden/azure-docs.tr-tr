@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429248"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406971"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory E satış yöneticisi Remix ile tümleştirme
 
@@ -158,7 +158,7 @@ Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum a
     
     b. İçinde **işbirliği öğesi** bölümünde aşağı açılan listesinde seçin **e-posta**.
 
-    c. İçinde **işbirliği öğesi** kutusunda, daha önce Azure portaldan kopyaladığınız talep değerini yapıştırın (diğer bir deyişle, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. İçinde **işbirliği öğesi** kutusunda, daha önce Azure portaldan kopyaladığınız talep değerini yapıştırın (diğer bir deyişle, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. İçinde **veren (varlık kimliği)** kutusunda, daha önce kopyaladığınız öğesinden tanımlayıcı değerini yapıştırın **E Sales Manager Remix etki ve URL'leri** Azure portal'ın bölümü.
 

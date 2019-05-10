@@ -1,28 +1,26 @@
 ---
-title: API Azure Cosmos DB Spark'a giriş
-description: İşlem analizi ve yapay ZEKA çalıştırmak için Azure Cosmos DB Spark API'sine nasıl kullanabileceğinizi öğrenin
+title: Azure Cosmos DB'de Apache Spark ile yerleşik işlem analizi giriş
+description: Nasıl yerleşik desteği Azure Cosmos DB'de Apache Spark için işlem analizi ve yapay ZEKA çalıştırmak için kullanabileceğiniz öğrenin
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 05/06/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: de920f40f2968942b7ac66414170b43bd9317cfb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 504f463f55edf1a22f99e1ba02449121e8bf5efc
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081097"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472252"
 ---
-# <a name="introduction-to-the-azure-cosmos-db-spark-api-preview"></a>Azure Cosmos DB Spark API'si (Önizleme) giriş 
+# <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Azure Cosmos DB'de Apache Spark (Önizleme) ile yerleşik işlem analizi 
 
-Azure Cosmos DB'de Spark API, bir Azure Cosmos hesabında depolanan verileriniz Apache Spark'tan analiz çalıştırmanıza olanak sağlar.
-
-Spark API'yi Azure Cosmos DB'de küresel olarak dağıtılan, Cosmos veritabanlarını doğrudan yürütmek Apache Spark işleri için yerel destek sağlar. Bu özellikler sayesinde geliştiriciler, veri mühendisleri ve veri uzmanları Azure Cosmos DB esnek kullanabilirsiniz, ölçeklenebilir ve yüksek performanslı bir veri platformu hem de çalıştırılacak **OLTP ve OLAP/HTAP** iş yükleri. 
+Azure Cosmos DB'de Apache Spark için yerleşik destek, bir Azure Cosmos hesabında depolanan verileriniz Apache Spark'tan analiz çalıştırmanıza olanak tanır. Global olarak dağıtılmış, Cosmos veritabanlarını doğrudan yürütmek Apache Spark işleri için yerel destek sağlar. Bu özellikler sayesinde geliştiriciler, veri mühendisleri ve veri uzmanları Azure Cosmos DB esnek kullanabilirsiniz, ölçeklenebilir ve yüksek performanslı bir veri platformu hem de çalıştırılacak **OLTP ve OLAP/HTAP** iş yükleri. 
 
 > [!NOTE]
-> Azure Cosmos DB Spark API'si şu anda sınırlı Önizleme aşamasındadır. Önizleme için kaydolma, gitmek [Önizleme için kaydolun](https://aka.ms/cosmos-spark-preview) sayfası. 
+> Azure Cosmos DB'de Apache Spark için yerleşik destek, şu anda sınırlı Önizleme aşamasındadır. Önizleme için kaydolma, gitmek [Önizleme için kaydolun](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) sayfası. 
 
-Azure Cosmos DB'de Spark API'si aşağıdaki avantajları sunar:
+Azure Cosmos DB'de Apache Spark desteği aşağıdaki faydaları sunar:
 
 * Verileri ve coğrafi olarak dağıtılmış kullanıcılar için Öngörüler için en iyi süreye elde edebilirsiniz.
 
@@ -32,13 +30,13 @@ Azure Cosmos DB'de Spark API'si aşağıdaki avantajları sunar:
 
 * "Always on" sağlar veya [yüksek oranda kullanılabilir](high-availability.md) katı SLA'lar ile desteklenen son kullanıcı analizi.
 
-![Azure Cosmos DB Spark API Görselleştirme](./media/spark-api-introduction/spark-api-visualization.png)
+![Azure Cosmos DB görselleştirme Apache Spark desteği](./media/spark-api-introduction/spark-api-visualization.png)
  
-Azure Cosmos DB Spark API'sini kullanarak, derleme ve yapay ZEKA ve derin öğrenme modelleri, Tahmine dayalı analiz, öneriler, gibi çözümleri dağıtma IOT, müşteri 360, sahtekarlık algılama, metin duyguları, tıklama dizisi analizi. Bu, doğrudan Azure Cosmos DB verilerinizi karşı çalışır.
+Azure Cosmos DB'de Apache Spark desteği kullanarak oluşturabilir ve yapay ZEKA ve derin öğrenme modelleri, Tahmine dayalı analiz, öneriler, gibi çözümleri dağıtma IOT, müşteri 360, sahtekarlık algılama, metin duyguları, tıklama dizisi analizi. Bu çözümler, doğrudan Azure Cosmos DB verilerinizi karşı çalışır.
 
 Ayarlamak ve akış ETL işi, Azure Cosmos DB veritabanı hizmetinin dışında gidin veya ek eklemek zorunda kalmadan işlem hizmetlerini kullanabilirsiniz. ETL işi gerçekleştirmek ve ölçeklemek geri zaman işin tamamlanıp gerektiğinde işlem ortamını esnek olarak ölçeklendirebilirsiniz.
 
-Azure Cosmos DB'de Spark API yerleşik Machine Learning desteği Apache Spark çalışma zamanlarını destekler. Spark MLLib, Spark, Azure Machine Learning ve Bilişsel hizmetler için Microsoft Machine Learning çalışma zamanları içerir. Bu özelliklerle veri bilimcileri, veri mühendisleri ve veri analistleri derleme ve makine öğrenimi modellerini doğrudan Azure Cosmos DB, zaman ve düşük maliyetle kesir içinde kullanıma hazır hale getirme.
+Azure Cosmos DB'de Apache Spark desteği, Apache Spark çalışma zamanları yerleşik Machine Learning desteği sunar. Spark MLLib, Spark, Azure Machine Learning ve Bilişsel hizmetler için Microsoft Machine Learning çalışma zamanları içerir. Bu özelliklerle veri bilimcileri, veri mühendisleri ve veri analistleri derleme ve makine öğrenimi modellerini doğrudan Azure Cosmos DB, zaman ve düşük maliyetle kesir içinde kullanıma hazır hale getirme.
 
 
 ## <a name="key-benefits"></a>Önemli avantajlar
@@ -57,7 +55,7 @@ Apache Spark ile Global olarak dağıtılmış bir Azure Cosmos veritabanı, dü
 
 Çok modelli bir veritabanı Azure Cosmos DB artık, OSS API'lerini desteğini sağlayarak genişletir bir **Apache Spark için sunucusuz deneyimi birleşik** anahtar-değer, belge, grafik, sütun ailesi veri modelleri ile. Farklı veri modelleri, MongoDB, Cassandra, Gremlin, Etcd ve SQL API'leri - tüm işletim aynı temel alınan verileri kullanarak desteklenir. 
 
-Spark API ile yerel olarak yazılan Scala, Python, Java uygulamalarını destekler ve birden çok sıkı bir şekilde tümleşik kitaplık için SQL kullanın. Bu kitaplıklar içerir ([Spark SQL](https://spark.apache.org/sql/)), makine öğrenimi (Spark [MLlib](https://spark.apache.org/mllib/)), akış işleme ([Spark yapılandırılmış akış](https://spark.apache.org/streaming/)) ve grafik işleme (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html)). Bu araçlar çeşitli kullanım örnekleri için Spark API'SİNDEN yararlanarak kolaylaştırır. Spark yönetimiyle uğraşmak zorunda değilsiniz veya Spark kümeleri. Bilindik Apache Spark API'lerini kullanabilirsiniz ve **Jupyter not defterleri** analytics ve SQL API'si veya aynı anda aynı temel alınan veriler üzerinde işlem tabanlı işleme için Cassandra gibi OSS NoSQL API'ları için.
+Azure Cosmos DB'de Apache Spark destek sayesinde, yerel olarak yazılan Scala, Python, Java uygulamalarını destekler ve birkaç sıkıca tümleşik kitaplıkları için SQL kullanın. Bu kitaplıklar içerir ([Spark SQL](https://spark.apache.org/sql/)), makine öğrenimi (Spark [MLlib](https://spark.apache.org/mllib/)), akış işleme ([Spark yapılandırılmış akış](https://spark.apache.org/streaming/)) ve grafik işleme (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html)). Bu araçlar çeşitli kullanım örnekleri için Apache Spark'tan yararlanın kolaylaştırır. Spark yönetimiyle uğraşmak zorunda değilsiniz veya Spark kümeleri. Bilindik Apache Spark API'lerini kullanabilirsiniz ve **Jupyter not defterleri** analytics ve SQL API'si veya aynı anda aynı temel alınan veriler üzerinde işlem tabanlı işleme için Cassandra gibi OSS NoSQL API'ları için.
 
 ### <a name="no-schema-or-index-management"></a>Şema veya dizin yönetimi yok
 

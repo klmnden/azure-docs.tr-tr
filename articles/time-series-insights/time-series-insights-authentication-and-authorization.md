@@ -10,76 +10,88 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66a3c40bf1e1e1dc6253520a555e19ebf011297c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5fb2802bfe9cc0a4d3297e6fa749e5b94008c616
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698566"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472537"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme için Azure zaman serisi öngörüleri API'si
 
 Bu makalede, kimlik doğrulama ve yetkilendirme Azure zaman serisi öngörüleri API'yi çağıran özel bir uygulamada kullanılan nasıl yapılandırılacağı açıklanmaktadır.
 
+> [!TIP]
+> Hakkında bilgi edinin [veri erişimi verme](./time-series-insights-data-access.md) zaman serisi görüşleri ortamınıza Azure Active Directory'de.
+
 ## <a name="service-principal"></a>Hizmet sorumlusu
 
-Bu bölümde, zaman serisi öngörüleri API adına uygulamaya erişmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama daha sonra verileri sorgulayabilir veya kullanıcı kimlik bilgileri yerine uygulama kimlik bilgileri ile zaman serisi görüşleri ortamına başvuru verilerini yayımlamak.
+Bu ve aşağıdaki bölümlerde, zaman serisi öngörüleri API adına uygulamaya erişmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama ardından sorgulayabilir veya kullanıcı kimlik bilgileri yerine uygulama kimlik bilgileri ile zaman serisi görüşleri ortamdaki başvuru verilerini yayımlama.
 
-Erişim zaman serisi görüşleri gereken bir uygulamanız varsa, bir Azure Active Directory uygulaması oluşturma ve zaman serisi görüşleri ortamına veri erişimi ilkeleri atamanız gerekir. Bu yaklaşım olmadığından uygulama kendi kimlik bilgileriniz altında çalışan için tercih edilir:
+## <a name="best-practices"></a>En iyi yöntemler
 
-* Kendi izinlerinden farklı uygulama kimliği izinler atayabilirsiniz. Genellikle, bu izinler için yalnızca ne gerektiren uygulama kısıtlanır. Örneğin, yalnızca belirli bir zaman serisi görüşleri ortamına verileri okumasına izin verebilirsiniz.
-* Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmeniz gerekmez.
+Erişim zaman serisi görüşleri gereken bir uygulama varsa:
+
+1. Bir Azure Active Directory uygulaması ayarlayın.
+1. [Veri erişimi ilkeleri atama](./time-series-insights-data-access.md) zaman serisi görüşleri ortamı içinde.
+
+Kullanıcı kimlik bilgilerinizi yerine uygulama itibaren tercih edilir:
+
+* Uygulama kimliği, kendi izinlerinden ayrı izinler atayabilirsiniz. Genellikle, bu izinler için yalnızca ne gerektiren uygulama kısıtlanır. Örneğin, yalnızca belirli bir zaman serisi görüşleri ortamına verileri okumasına izin verebilirsiniz.
+* Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmek zorunda değilsiniz.
 * Katılımsız betik çalıştırırken kimlik doğrulaması otomatikleştirmek için bir sertifika veya bir uygulama anahtarı'nı kullanabilirsiniz.
 
-Bu makalede, Azure portalı üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Tek kiracılı uygulamalar genellikle kuruluşunuzdaki satır iş kolu uygulamaları için kullanırsınız.
+Aşağıdaki bölümlerde, Azure portalı üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Bu makalede tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Tek kiracılı uygulamalar, kuruluşunuzda satır iş kolu uygulamaları için genellikle kullanacaksınız.
 
-Bir kurulum akışında, üst düzey üç adımdan oluşur:
+## <a name="set-up-summary"></a>Özeti ayarlayın
+
+Bir kurulum akışında üç adımdan oluşur:
 
 1. Azure Active Directory'de bir uygulama oluşturun.
-2. Zaman serisi görüşleri ortamına erişmek için bu uygulamayı yetkilendirin.
-3. İçin bir belirteç almak için uygulama kimliği ve anahtarı kullan `"https://api.timeseries.azure.com/"` hedef kitleden veya kaynaktan. Belirteç, daha sonra zaman serisi öngörüleri API'sini çağırmak için de kullanılabilir.
+1. Zaman serisi görüşleri ortamına erişmek için bu uygulamayı yetkilendirin.
+1. Uygulamasından bir belirteç almak üzere uygulama kimliği ve anahtarı kullan `https://api.timeseries.azure.com/`. Belirteç, daha sonra zaman serisi öngörüleri API'sini çağırmak için de kullanılabilir.
 
-Ayrıntılı adımlar şunlardır:
+## <a name="detailed-setup"></a>Ayrıntılı Kurulum
 
 1. Azure portalında **Azure Active Directory** > **uygulama kayıtları** > **yeni uygulama kaydı**.
 
-   ![Azure Active Directory'de yeni uygulama kaydı](media/authentication-and-authorization/active-directory-new-application-registration.png)  
+   [![Azure Active Directory'de yeni uygulama kaydı](media/authentication-and-authorization/active-directory-new-application-registration.png)](media/authentication-and-authorization/active-directory-new-application-registration.png#lightbox)
 
-2. Uygulama bir ad verin, türünün olmasını seçin **Web uygulaması / API**, için geçerli bir URI seçin **oturum açma URL'si**, tıklatıp **Oluştur**.
+1. Uygulama bir ad verin, türünün olmasını seçin **Web uygulaması / API**, için geçerli bir URI seçin **oturum açma URL'si**, tıklatıp **Oluştur**.
 
-   ![Azure Active Directory'de uygulama oluşturma](media/authentication-and-authorization/active-directory-create-web-api-application.png)
+   [![Azure Active Directory'de uygulama oluşturma](media/authentication-and-authorization/active-directory-create-web-api-application.png)](media/authentication-and-authorization/active-directory-create-web-api-application.png#lightbox)
 
-3. Yeni oluşturulan uygulamanızı seçin ve uygulama Kimliğini, sık kullandığınız metin düzenleyicisine kopyalayın.
+1. Yeni oluşturulan uygulamanızı seçin ve uygulama Kimliğini, sık kullandığınız metin düzenleyicisine kopyalayın.
 
-   ![Uygulama Kimliğini kopyalama](media/authentication-and-authorization/active-directory-copy-application-id.png)
+   [![Uygulama Kimliğini kopyalama](media/authentication-and-authorization/active-directory-copy-application-id.png)](media/authentication-and-authorization/active-directory-copy-application-id.png#lightbox)
 
-4. Seçin **anahtarları**, anahtar adı girin, sona erme seçin ve tıklayın **Kaydet**.
+1. Seçin **anahtarları**, anahtar adı girin, sona erme seçin ve tıklayın **Kaydet**.
 
-   ![Uygulama anahtarları seçin](media/authentication-and-authorization/active-directory-application-keys.png)
+   [![Uygulama anahtarları seçin](media/authentication-and-authorization/active-directory-application-keys.png)](media/authentication-and-authorization/active-directory-application-keys.png#lightbox)
 
-   ![Süre sonu ve anahtar adını girin ve Kaydet'e tıklayın](media/authentication-and-authorization/active-directory-application-keys-save.png)
+   [![Süre sonu ve anahtar adını girin ve Kaydet'e tıklayın](media/authentication-and-authorization/active-directory-application-keys-save.png)](media/authentication-and-authorization/active-directory-application-keys-save.png#lightbox)
 
-5. Anahtar, sık kullandığınız metin düzenleyiciye kopyalayın.
+1. Anahtar, sık kullandığınız metin düzenleyiciye kopyalayın.
 
-   ![Uygulama anahtarını kopyalama](media/authentication-and-authorization/active-directory-copy-application-key.png)
+   [![Uygulama anahtarını kopyalama](media/authentication-and-authorization/active-directory-copy-application-key.png)](media/authentication-and-authorization/active-directory-copy-application-key.png#lightbox)
 
-6. Zaman serisi görüşleri ortamı için seçin **veri erişimi ilkeleri** tıklatıp **Ekle**.
+1. Zaman serisi görüşleri ortamı için seçin **veri erişimi ilkeleri** tıklatıp **Ekle**.
 
-   ![Zaman serisi görüşleri ortamına yeni bir veri erişim ilkesi Ekle](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
+   [![Zaman serisi görüşleri ortamına yeni bir veri erişim ilkesi Ekle](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-7. İçinde **Kullanıcı Seç** iletişim kutusu, yapıştırma uygulama adı (2. adım) veya uygulama kimliği (', 3. adım).
+1. İçinde **Kullanıcı Seç** iletişim kutusunda, uygulama adı yapıştırın (gelen **2. adım**) veya uygulama kimliği (gelen **3. adım**).
 
-   ![Kullanıcı Seç iletişim kutusunda uygulama Bul](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)
+   [![Kullanıcı Seç iletişim kutusunda uygulama Bul](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-8. Rol seçin (**okuyucu** verileri sorgulamak için **katkıda bulunan** verileri sorgulama ve başvuru verilerini değiştirmek için) ve tıklayın **Tamam**.
+1. Rol seçin (**okuyucu** verileri sorgulamak için **katkıda bulunan** verileri sorgulama ve başvuru verilerini değiştirmek için) ve tıklayın **Tamam**.
 
-   ![Okuyucu veya katkıda bulunan rolü Seç iletişim kutusunda seçin](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
+   [![Okuyucu veya katkıda bulunan rolü Seç iletişim kutusunda seçin](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
-9. Tıklayarak ilkeyi kaydedin **Tamam**.
+1. Tıklayarak ilkeyi kaydedin **Tamam**.
 
-10. Uygulama adına belirteci almak için uygulama kimliği (3. adımdaki) ve uygulama anahtarından (5. adım) kullanın. Belirteç, ardından geçirilebilir `Authorization` uygulama zaman serisi öngörüleri API çağırdığında başlığı.
+1. Uygulama kimliğini (gelen **3. adım**) ve uygulama anahtarı (gelen **5. adım**) uygulama adına belirteci almak için. Belirteç, ardından geçirilebilir `Authorization` uygulama zaman serisi öngörüleri API çağırdığında başlığı.
 
     C# kullanıyorsanız, uygulama adına belirteci almak için aşağıdaki kodu kullanabilirsiniz. Eksiksiz bir örnek için bkz. [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
 
@@ -92,17 +104,17 @@ Ayrıntılı adımlar şunlardır:
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
         // Set the resource URI to the Azure Time Series Insights API
-        resource: "https://api.timeseries.azure.com/", 
+        resource: "https://api.timeseries.azure.com/",
         clientCredential: new ClientCredential(
             // Application ID of application registered in Azure Active Directory
-            clientId: "1bc3af48-7e2f-4845-880a-c7649a6470b8", 
+            clientId: "YOUR_APPLICATION_ID",
             // Application key of the application that's registered in Azure Active Directory
-            clientSecret: "aBcdEffs4XYxoAXzLB1n3R2meNCYdGpIGBc2YC5D6L2="));
+            clientSecret: "YOUR_CLIENT_APPLICATION_KEY"));
 
     string accessToken = token.AccessToken;
     ```
 
-Uygulama kimliği ve anahtarı Azure zaman serisi görüşleri ile kimlik doğrulaması için uygulamanızı kullanın. 
+Kullanım **uygulama kimliği** ve **anahtar** uygulamanızda Azure zaman serisi görüşleri ile kimlik doğrulaması.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

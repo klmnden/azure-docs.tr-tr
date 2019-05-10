@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024969"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471593"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -299,7 +299,7 @@ Küme çalışmaya başladıktan sonra [bir kitaplığı oluşturma](https://doc
 
 1. Seçin **tek** seçeneği (diğer bir SDK yüklemesi desteklenir)
 
-   |SDK'sı&nbsp;paket&nbsp;ek özellikler|Kaynak|Pypı&nbsp;adı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK'sı&nbsp;paket&nbsp;ek özellikler|Source|Pypı&nbsp;adı&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks için| Python yükleme Yumurta veya Pypı | azureml-sdk[databricks]|
    |-With - için Databricks<br> Otomatik ML özellikleri| Python yükleme Yumurta veya Pypı | azureml-sdk[automl_databricks]|
@@ -396,5 +396,5 @@ Yapılandırma dosyası üç şekilde oluşturabilirsiniz:
 
 - [Bir model eğitip](tutorial-train-models-with-aml.md) MNIST veri kümesi ile Azure Machine Learning hakkında
 - Görünüm [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) başvurusu
-- Hakkında bilgi edinin [Azure Machine Learning veri hazırlama SDK'sı](https://aka.ms/data-prep-sdk)
+- Hakkında bilgi edinin [için Azure Machine Learning veri hazırlama paketinde](https://aka.ms/data-prep-sdk)
 - 

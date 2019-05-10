@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190980"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406778"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Web tarayıcısı MSAL.NET kullanarak
 Web tarayıcılar için etkileşimli kimlik doğrulaması gereklidir. Varsayılan olarak, MSAL.NET destekler [sistem web tarayıcısı](#system-web-browser-on-xamarinios-and-xamarinandroid) üzerinde Xamarin.iOS ve [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Ancak [katıştırılmış bir Web tarayıcısı da etkinleştirebilirsiniz](#enable-embedded-webviews) gereksinimlerinizi (UX, çoklu oturum açma (SSO), güvenlik gereksinimini) bağlı olarak [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) ve [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) uygulamaları. Ve getirebilirsiniz [dinamik olarak seçin](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) kullanmak için hangi web tarayıcısı, Chrome veya Chrome özel sekmeler Android tarayıcı varlığını temel.
@@ -93,7 +93,7 @@ MSAL.NET kullanarak bir geliştirici olarak, STS etkileşimli iletişim kutusund
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Katıştırılmış bir web tarayıcısı veya sistem tarayıcıda Xamarin.iOS arasında seçim yapma
 
-İOS uygulamanızda içinde `AppDelegate.cs` başlatabilirsiniz `ParentWindow` için `null`. İOS kullanılmaz
+İOS uygulamanızda içinde `AppDelegate.cs` başlatmak `ParentWindow` için `null`. İOS kullanılmaz
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS

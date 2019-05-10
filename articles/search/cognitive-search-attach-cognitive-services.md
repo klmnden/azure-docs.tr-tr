@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024595"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472475"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
@@ -60,7 +60,7 @@ Bilişsel hizmetler API'leri çağırmak için yetenekler yalnızca ücretlendir
 
    ![Bilişsel hizmetler kaynağı oluşturma](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Bilişsel hizmetler kaynağı oluşturma")
 
-1. Aynı bölgede Azure Search, bölgeler arasında giden bant genişliğini ücretlerden kaçınmak için konum seçin.
+1. Konumunda, Azure Search ile aynı bölgede seçin. Bu performansla ilgili nedenlerden dolayı gereklidir, ancak bunu ayrıca giden bant genişliği ücretleri bölgeler arasında hükümsüz kılar.
 
 1. Fiyatlandırma katmanında seçin **S0** Azure Search tarafından kullanılan önceden tanımlanmış beceriler geri görme ve dil özellikleri dahil olmak üzere, Bilişsel hizmetler özelliklerinin hepsi bir arada koleksiyonu almak için. 
 

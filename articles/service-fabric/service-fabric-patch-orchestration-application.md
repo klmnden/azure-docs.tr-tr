@@ -14,25 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773375"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471772"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
-
-> [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
->
->
-
 
 > 
 > [!IMPORTANT]
 > Uygulama sürümü 1.2. * desteği 30 Nisan 2019 tarihinde geçiyor. Lütfen en son sürüme yükseltin.
+
+> 
+> [!IMPORTANT]
+> Linux üzerinde düzeltme ekini düzenlemeyi uygulaması kullanım dışı bırakıldı. Lütfen [Azure sanal makine ölçek kümesinin otomatik işletim sistemi görüntüsü yükseltmeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) güncelleştirmeleri linux üzerinde tümleştirmeye.
 
 
 [Azure sanal makine ölçek kümesinin otomatik işletim sistemi görüntüsü yükseltmeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) tutma, işletim sistemleri, Azure'da düzeltme eki için en iyi yöntem ve düzeltme eki düzenleme uygulaması (POA) hizmeti dokularını RepairManager sistemler hizmeti çevresinde bir sarmalayıcı Bu, yapılandırma temel işletim sistemi düzeltme eki Azure dışı barındırılan kümeler için zamanlama sağlar. POA Azure dışı barındırılan kümeleri için gerekli değildir, ancak yükseltme etki alanları, düzeltme eki yüklemesiyle zamanlama Service Fabric kümeleri konakları kapalı kalma süresi olmadan düzeltme için gereklidir.

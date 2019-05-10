@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 69cb48df4e765250247605fb5c4e1f421554fd20
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021007"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467010"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Hızlı Başlangıç: Java Speech SDK'sı ile Konuşma Çevir
+
+Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma metin](quickstart-java-jre.md) ve [ses öncelikli sanal asistan](quickstart-virtual-assistant-java-jre.md).
 
 Bu hızlı başlangıçta, bilgisayarınızın mikrofondan gelen kullanıcı konuşma yakalar, konuşma çevirir ve gerçek zamanlı olarak komut satırında çevrilmiş metne dönüştürür basit bir Java uygulaması oluşturacaksınız. Bu uygulama, Windows 64-bit veya 64-bit Linux'ta (Ubuntu 16.04, 18.04 Ubuntu, Debian 9) veya macOS 10.13 veya sonraki bir sürümü üzerinde çalışacak şekilde tasarlanmıştır. Konuşma SDK Maven paketini ve Eclipse Java IDE ile oluşturulmuştur.
 
@@ -55,7 +57,7 @@ Linux çalıştırıyorsanız, Eclipse başlatmadan önce bu bağımlılıkları
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-## <a name="add-sample-code"></a>Örnek kod ekleme
+## <a name="add-sample-code"></a>Örnek kod ekleyin
 
 1. Java projenize yeni bir boş sınıf eklemek için **Dosya** > **Yeni** > **Sınıf** seçeneklerini belirleyin.
 
@@ -79,7 +81,7 @@ F11 tuşuna basın veya **Çalıştır** > **Hata Ayıkla** seçeneğini belirle
 
 Mikrofondan giriş konuşma Almanca transcribed ve konsol penceresinde günlüğe kaydedilir. Konuşma Yakalamayı durdurmak için "Enter" tuşuna basın.
 
-![Başarılı tanıma sonrasında konsol çıktısının ekran görüntüsü](media/sdk/qs-translate-java-jre-output.png)
+![Başarılı tanıma sonrası konsol çıktısının ekran görüntüsü](media/sdk/qs-translate-java-jre-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/09/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: b230ac48cf2ca14c9ed988f869b5abba3e347215
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696661"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406367"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Zaman serisi görüşleri'nde veri saklamayı anlama
 
@@ -24,13 +24,14 @@ Bu makalede, zaman serisi öngörüleri (TSI) ortamınızda veri bekletme etkile
 
 ## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Bu videoda, Time Series Insights veri saklama ve bunun için nasıl kapsar.</br>
+### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Aşağıdaki video, Time Series Insights veri saklama ve bunun için nasıl özetler.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-Her TSI ortamın denetleyen bir ayarı vardır **veri saklama zamanı**. Değer 1 ile 400 gün yayılır. Veriler ortamı depolama kapasitesi veya bekletme süresine (1-400) göre silinir, hangisinin önce geldiğine.
+Her Azure Time Series ortamlarınızda denetleyen bir ayarı vardır **veri saklama zamanı**. Değer 1'den 400 gün olarak yayılır. Veriler ortam depolama kapasitesi veya bekletme süresi göre silinir, hangisinin önce geldiğine.
 
-Her TSI ortam ek ayarının **depolama sınırı aştı davranışı**. Bu ayar, bir ortamın maksimum kapasite üst sınırına ulaşıldığında giriş ve temizleme davranışını denetler. Aralarından seçim yapabileceğiniz iki davranışları vardır:
+Ayrıca, Azure Time Series ortamınızda olduğundan bir **depolama sınırı aştı davranışı** ayarı. Bu giriş kontrol eder ve bir ortamın maksimum kapasite üst sınırına ulaşıldığında davranışı temizleme. Yapılandırırken ona aralarından seçim yapabileceğiniz iki davranışları vardır:
+
 - **Eski veri temizleme** (varsayılan)  
 - **Duraklatma giriş**
 
@@ -45,16 +46,16 @@ Veri saklama davranışını karşılaştırın:
 
 - Bu davranış TSI ortamları ve aynı davranışı TSI ortamları olduğundan, genel Önizleme için başlatılan sergilenen sergiler varsayılan davranışıdır.  
 - Kullanıcıların her zaman görmek istediğinizde bu davranışı tercih edilir, *en son verileri* TSI ortamlarında. 
-- Bu davranış *temizler* veri ortamı (elde tutma süresi, boyut veya count, hangisi önce gerçekleşirse) sınırlara ulaştı. Bekletme, varsayılan olarak 30 gün olarak ayarlanır. 
+- Bu davranış *temizler* veri ortamı (elde tutma süresi, boyut veya count, hangisi önce gerçekleşirse) sınırlara ulaştı. Bekletme, varsayılan olarak 30 gün olarak ayarlanır.
 - En eski alınan verilerin ilk (FIFO yaklaşım) temizlenir.
 
 ### <a name="example-one"></a>Bir örnek
 
-Bekletme davranışı bulunduğu ortamı göz önünde bulundurun **giriş devam etmek ve eski verilerini Temizle**: Bu örnekte, **veri saklama zamanı** 400 gün olarak ayarlanır. **Kapasite** 30 GB toplam kapasite içeren S1 birimi için ayarlanır.   Ortalama olarak her gün gelen veri 500 MB olarak birikir varsayalım. Bu ortama, yalnızca 60 gün gelen veri hızı maksimum kapasite 60 gün boyunca ulaşıldıktan sonra verilen verileri koruyabilirsiniz. Gelen veri olarak toplanır: 500 MB her gün x 60 gün = 30 GB.
+Bekletme davranışı bulunduğu ortamı göz önünde bulundurun **giriş devam etmek ve eski verilerini Temizle**:
 
-Bu örnekte, 61st gün ortamı çevrimiçiyken gösterir, ancak 60 günden eski eski verileri temizler. Temizleme, akış yeni verilere yer yapar ve böylece yeni veri incelenecek devam edebilir. 
+**Veri saklama zamanı** 400 gün olarak ayarlanır. **Kapasite** 30 GB toplam kapasite içeren S1 birimi için ayarlanır.   Ortalama olarak her gün gelen veri 500 MB olarak birikir varsayalım. Bu ortama, yalnızca 60 gün gelen veri hızı maksimum kapasite 60 gün boyunca ulaşıldıktan sonra verilen verileri koruyabilirsiniz. Gelen veri olarak toplanır: 500 MB her gün x 60 gün = 30 GB.
 
-Kullanıcı verileri daha uzun süre tutmak isteyen, ek birimleri ekleyerek ortamı boyutunu artırabilir veya daha az veri gönderebilirsiniz.  
+61st gün ortamı çevrimiçiyken gösterir, ancak eski verileri, 60 günden eski temizler. Temizleme, akış yeni verilere yer yapar ve böylece yeni veri incelenecek devam edebilir. Kullanıcı verileri daha uzun süre tutmak isteyen, ek birimleri ekleyerek ortamı boyutunu artırabilir veya daha az veri gönderebilirsiniz.  
 
 ### <a name="example-two"></a>İki örnek
 
@@ -64,16 +65,19 @@ Bu ortamın günlük giriş oranı günde 0.166 GB aştığında, bazı veriler 
 
 ## <a name="pause-ingress"></a>Duraklatma girişi
 
-- Bu davranış, boyutu ve sayısı sınırları, tutma süresi öncesinde ulaştıysanız veri temizlenmez emin olmak için tasarlanmıştır.  
-- Bu davranış kullanıcılar veri bekletme süresi ihlal nedeniyle temizlenir. önce ortamlarında kapasitesini artırmak için ek süre sağlar.
-- Bu davranış veri kaybına karşı korunmasına yardımcı olur, ancak tutma süresi, olay kaynağı olan giriş duraklatılmışsa, en son veri kaybı için bir fırsat oluşturur.
-- Ancak, bir ortamın kapasite üst sınırı aşıldığında, ortam veri girişi duraklatır kadar ek eylemler gerçekleşir: 
-   - Ortamın kapasite üst sınırı artırırsınız. Daha fazla bilgi için [Time Series Insights ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md) daha fazla ölçek birimi eklemek için.
-   - Veri saklama süresi ulaştı ve bu nedenle, kapasite üst sınırı aşağıdaki ortam getirme veri temizlenir.
+- **Duraklatma giriş** ayarı veri boyutu ve sayısı sınırları, saklama dönemi önce ulaşılırsa değil temizleneceği emin olmak için tasarlanmıştır.  
+- **Duraklatma giriş** kullanıcıların veri bekletme süresi ihlal nedeniyle temizlenir. önce ortamlarında kapasitesini artırmak için ek süre sağlar
+- Veri kaybına karşı korunmasına yardımcı olur, ancak tutma süresi, olay kaynağı olan giriş duraklatılmışsa, en son veri kaybı için bir fırsat oluşturabilirsiniz.
+- Ancak, bir ortamın kapasite üst sınırı ulaşıldığında, aşağıdaki ek eylemleri ortaya kadar veri girişi ortamı duraklatır:
+
+   - Bölümünde anlatıldığı gibi daha fazla ölçek birimi eklemek için ortamın kapasite üst sınırı artırmak [Time Series Insights ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md).
+   - Veri saklama süresi ulaştı ve en yüksek kapasiteye aşağıda ortamı getirme veri temizlenir.
 
 ### <a name="example-three"></a>Örnek üç
 
-Bir ortam için yapılandırılmış bekletme davranışı göz önünde bulundurun **giriş duraklatma**. Bu örnekte, **veri saklama süresi** 60 gün için yapılandırılmıştır. **Kapasite** 3 S1 birimi için ayarlanır. Bu ortamda, her gün 2 GB'lık veri girişi sahip olduğunu varsayın. Bu ortamda, kapasite üst sınırı aşıldığında giriş duraklatıldı. O anda giriş sürdürür kadar veya 'giriş devam' (yeni veriler için yer açmak için eski verileri temizlemek) etkin olduğu kadar aynı veri ortam gösterilmektedir. 
+Bir ortam için yapılandırılmış bekletme davranışı göz önünde bulundurun **giriş duraklatma**. Bu örnekte, **veri saklama süresi** 60 gün için yapılandırılmıştır. **Kapasite** 3 S1 birimi için ayarlanır. Bu ortamda, her gün 2 GB'lık veri girişi sahip olduğunu varsayın. Bu ortamda, kapasite üst sınırı aşıldığında giriş duraklatıldı.
+
+O anda giriş sürdürür kadar veya kadar ortamı aynı veri kümesi gösterir **giriş devam** etkinleştirilir (hangi temizleme yeni veriler için yer açmak için eski verileri).
 
 Ne zaman giriş devam eder:
 
@@ -85,12 +89,12 @@ Ne zaman giriş devam eder:
 
 Etkilenen Event Hubs, ayarlamayı göz önünde bulundurun **ileti bekletme** duraklatma Giriş zaman serisi öngörüleri ortaya çıktığında, veri kaybını en aza indirmek için özellik.
 
-![Olay hub'ı ileti bekletme.](media/time-series-insights-contepts-retention/event-hub-retention.png)
+[![Olay hub'ı ileti bekletme.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Olay kaynağı (timeStampPropertyName) üzerinde hiçbir özellik yapılandırıldıysa, TSI x ekseni olarak sıem'e olay hub'ı, zaman damgası varsayılan kullanır. TimeStampPropertyName farklı bir şey olacak şekilde yapılandırılmışsa, olaylar ayrıştırılır, ortam veri paketindeki yapılandırılmış timeStampPropertyName arar. 
+Hiçbir özellik olay kaynağında yapılandırılmış olması halinde (`timeStampPropertyName`), TSI varsayılanlara x ekseni olarak sıem'e olay hub'ı, zaman damgası. Varsa `timeStampPropertyName` başka bir ortam arar yapılandırılmış olarak yapılandırılan `timeStampPropertyName` olayları ayıklanırken veri paketindeki.
 
 Ek kapasite uyum veya bekletme, uzunluğunu artırmak için ortamınızın ölçeğini gerekiyorsa [Time Series Insights ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md) daha fazla bilgi için.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Değiştirme bekletme davranışı hakkında daha fazla bilgi için gözden [bekletme zaman serisi Öngörülerinde yapılandırma](time-series-insights-how-to-configure-retention.md).
+- Yapılandırma veya veri saklama ayarlarını değiştirme hakkında daha fazla bilgi için gözden [bekletme zaman serisi Öngörülerinde yapılandırma](time-series-insights-how-to-configure-retention.md).

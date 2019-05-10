@@ -14,19 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: f768582e8ef32bc654a2f797c5c7a481a26fb643
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 012f4e479a5b8ea2e3ddea1bfde70ab10ee4e834
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734192"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467055"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntüleri oluşturmak için Packer kullanma
 Azure'daki her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümünü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure marketi, en yaygın işletim sistemi için birinci ve üçüncü taraf çok sayıda görüntü sağlar ve uygulama ortamları veya uygulamanızın ihtiyaçlarına yönelik kendi özel görüntülerinizi oluşturabilir. Bu makalede, açık kaynaklı aracının nasıl kullanılacağı ayrıntılı [Packer](https://www.packer.io/) tanımlama ve azure'da özel görüntü oluşturma.
 
 Bu makalede son 21/2/2019 kullanarak test [Az PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-az-ps) sürüm 1.3.0 ve [Packer](https://www.packer.io/docs/install/index.html) 1.3.4 sürümü.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+> [!NOTE]
+> Azure artık Azure Görüntü Oluşturucu (Önizleme) bir hizmet tanımlama ve kendi özel görüntülerinizi oluşturmak için var. Hatta mevcut Packer Kabuk sağlayıcısı betiklerinizi ile kullanabilmesi için azure Görüntü Oluşturucu Packer üzerinde oluşturulmuştur. Azure Görüntü Oluşturucu ile çalışmaya başlamak için bkz. [Azure Görüntü Oluşturucu ile Windows VM oluşturma](image-builder.md).
 
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
 Kaynak VM oluştururken derleme işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. Bir görüntü olarak kullanmak için kaynak VM yakalamak için bir kaynak grubu tanımlamanız gerekir. Packer yapı işleminin çıktısı, bu kaynak grubunda depolanır.
@@ -248,6 +249,4 @@ Packer sağlayıcısı IIS yükle eylemini içeren, VM'nize görmek için genel 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekte, Packer ile IIS zaten yüklü bir VM görüntüsü oluşturmak için kullanılır. Azure DevOps Hizmetleri, Ansible, Chef veya Puppet ile görüntüden oluşturulan sanal makineler için uygulamanızı dağıtmak için olduğu gibi bu VM görüntüsü mevcut dağıtım iş akışları ile birlikte kullanabilirsiniz.
-
-Diğer Windows distro'lara için ek örnek Packer şablonları için bkz: [bu GitHub deposunu](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Mevcut Packer sağlayıcısı betiklerle kullanabilirsiniz [Azure Görüntü Oluşturucu](image-builder.md).

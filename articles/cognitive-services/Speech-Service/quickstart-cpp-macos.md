@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
-ms.openlocfilehash: b602a26c83be1ffd4bd55a8eff9ff8d83aac5919
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 86ad938cd3d248ad907b3143342b0acf9ff15631
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020806"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236871"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak macOS üzerinde c++ konuşma tanıma
 
@@ -64,7 +64,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
 
    Dizin listeleme lisans dosyaları ve üçüncü taraf bildirimi içermelidir yanı sıra bir `MicrosoftCognitiveServicesSpeech.framework` dizin.
 
-## <a name="add-sample-code"></a>Örnek kod ekleme
+## <a name="add-sample-code"></a>Örnek kod ekleyin
 
 1. `helloworld.cpp` adlı bir C++ kaynak dosyası oluşturun ve aşağıdaki kodu dosyaya yapıştırın.
 
@@ -72,7 +72,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
 
 1. Bu yeni dosya, dize değiştirin `YourSubscriptionKey` konuşma Hizmetleri abonelik anahtarınız ile.
 
-1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
+1. `YourServiceRegion` dizesini aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin ücretsiz deneme aboneliğinde `westus`) değiştirin.
 
 ## <a name="build-the-app"></a>Uygulama oluşturma
 
@@ -82,7 +82,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
 * Uygulamayı oluşturmak için aşağıdaki komutu çalıştırın.
 
   ```sh
-  g++ helloworld.cpp -o helloworld --std=c++11 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
+  g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma

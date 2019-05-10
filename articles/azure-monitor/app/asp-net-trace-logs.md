@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150709"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472061"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Application Insights izleme günlükleri.NET/.NET Core keşfedin
 
@@ -177,8 +177,8 @@ Uygulamanızın genel bakış bölmesinde [Application Insights portalında][por
 Kullanım [Java günlük bağdaştırıcıları](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Proje bağlam menüsünde Application Insights seçeneği yoktur
-* Application Insights araçları geliştirme makinenizde yüklü olduğundan emin olun. Visual Studio, **Araçları** > **Uzantılar ve güncelleştirmeler**, Aranan **Application Insights Araçları**. Üzerinde çalışmıyorsa **yüklü** sekmesini **çevrimiçi** sekme ve yükleyin.
-* Bu Application Insights araçları desteği olmayan bir proje türü olabilir. Kullanım [el ile yükleme](#manual-installation).
+* Developer Analytics Tools geliştirme makinenizde yüklü olduğundan emin olun. Visual Studio, **Araçları** > **Uzantılar ve güncelleştirmeler**, Aranan **Developer Analytics Tools**. Üzerinde çalışmıyorsa **yüklü** sekmesini **çevrimiçi** sekme ve yükleyin.
+* Bu işlem, analiz araçları Devloper desteklemeyen bir proje türü olabilir. Kullanım [el ile yükleme](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Yapılandırma aracında günlük bağdaştırıcısı seçeneği yoktur
 * Günlüğe kaydetme çerçevesi ilk yükleyin.

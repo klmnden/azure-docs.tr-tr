@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205073"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507000"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -25,8 +25,8 @@ Machine learning modeli Azure bulutta veya IOT Edge cihazları için bir web hiz
 | Hedef işlem | Dağıtım türü | Açıklama |
 | ----- | ----- | ----- |
 | [Yerel web hizmeti](#local) | Test/hata ayıklama | Sınırlı test etme ve sorun giderme için uygundur.
-| [Azure Kubernetes Service (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
-| [Azure Container Instances (ACI)](#aci) | Test Etme | Düşük ölçek, CPU tabanlı iş yükleri için uygundur. |
+| [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
+| [Azure Container Instances (ACI)](#aci) | Test ediliyor | Düşük ölçek, CPU tabanlı iş yükleri için uygundur. |
 | [Azure Machine Learning işlem](how-to-run-batch-predictions.md) | (Önizleme) Batch çıkarımı | Toplu Puanlama sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | Dağıtma ve IOT cihazlarında ML modelleri hizmet. |
 
@@ -42,7 +42,7 @@ Dağıtım iş akışı içinde ilgili kavramları hakkında daha fazla bilgi i�
 
 ## <a name="prerequisites-for-deployment"></a>Dağıtım önkoşulları
 
-- Bir model. Eğitilen bir modelin izniniz yok, modeli kullandığınız & bağımlılığı dosyaları sağlanan içinde [Bu öğreticide](http://aka.ms/azml-deploy-cloud).
+- Bir model. Eğitilen bir modelin izniniz yok, modeli kullandığınız & bağımlılığı dosyaları sağlanan içinde [Bu öğreticide](https://aka.ms/azml-deploy-cloud).
 
 - [Machine Learning hizmeti için Azure CLI uzantısı](reference-azure-machine-learning-cli.md), veya [Azure Machine Learning Python SDK'sı](https://aka.ms/aml-sdk).
 
@@ -458,7 +458,7 @@ Azure Machine Learning işlem hedefleri oluşturulur ve Azure Machine Learning h
 Bir Azure Machine Learning işlem ile batch çıkarım kılavuzu için okuma [Batch Öngörüler çalıştırma nasıl](how-to-run-batch-predictions.md) makalesi.
 
 ## <a id="iotedge"></a> IOT Edge üzerinde çıkarımı
-Uca dağıtma desteği Önizleme aşamasındadır. Daha fazla bilgi için [Azure Machine Learning bir IOT Edge modülü olarak dağıtma](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) makalesi.
+Uca dağıtma desteği Önizleme aşamasındadır. Daha fazla bilgi için [Azure Machine Learning bir IOT Edge modülü olarak dağıtma](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Dağıtım sorunlarını giderme](how-to-troubleshoot-deployment.md)

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025330"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506965"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz yenileme
 
@@ -201,42 +201,9 @@ Değerleri `syncstate`:
 1.  Kopyalayın veya depo indirin. RestApiSample çözümü açın.
 2.  Satırı bulun **istemci. BaseAddress =...** ve belirtin, [ana URL](#base-url).
 
-Kod örneği kullanabilirsiniz etkileşimli oturum açma işlemi, kullanıcı adı/parola veya [hizmet sorumlusu](#service-principal).
+Kod örneği kullanır [hizmet sorumlusu](#service-principal) kimlik doğrulaması.
 
-#### <a name="interactive-login-or-usernamepassword"></a>Etkileşimli oturum açma veya kullanıcı adı/parola
-
-Azure uygulaması gerekli API izinleri atanmış oluşturulması bu form kimlik doğrulaması gerektirir. 
-
-1.  Azure portalında **kaynak Oluştur** > **Azure Active Directory** > **uygulama kayıtları**  >   **Yeni uygulama kaydı**.
-
-    ![Yeni uygulama kaydı](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  İçinde **Oluştur**, bir ad yazın, seçin **yerel** uygulama türü. İçin **yeniden yönlendirme URI'si**, girin **urn: ietf:wg:oauth:2.0:oob**ve ardından **Oluştur**.
-
-    ![Ayarlar](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Uygulamanızı seçin ve ardından kopyalayın ve kaydedin **uygulama kimliği**.
-
-    ![Uygulama Kimliğini kopyalayın](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  İçinde **ayarları**, tıklayın **gerekli izinler** > **Ekle**.
-
-    ![API erişimi ekler](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  İçinde **bir API seçin**, türü **Azure Analysis Services** Ara kutusuna ve ardından bu seçeneği belirleyin.
-
-    ![API seçin](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Seçin **okuma ve yazma tüm modelleri**ve ardından **seçin**. Her ikisi de seçildiğinde tıklayın **Bitti** izinleri eklemek için. Bu, yaymak için birkaç dakika sürebilir.
-
-    ![Oku seçin ve tüm model yazma](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  Kod örneğinde, bulma **UpdateToken()** yöntemi. Bu yöntem içeriğini gözlemleyin.
-8.  Bulma **ClientID dize =...** yazıp enter **uygulama kimliği** 3. adımdaki kopyalanır.
-9.  Örnek uygulamayı çalıştırın.
-
-#### <a name="service-principal"></a>Hizmet sorumlusu
+### <a name="service-principal"></a>Hizmet sorumlusu
 
 Bkz: [hizmet sorumlusu - Azure portal'ı oluşturma](../active-directory/develop/howto-create-service-principal-portal.md) ve [sunucu yöneticisi rolüne hizmet sorumlusu ekleme](analysis-services-addservprinc-admins.md) bir hizmet sorumlusu ayarlamak ve Azure AS gerekli izinler atama hakkında daha fazla bilgi . Adımları tamamladıktan sonra aşağıdaki ek adımları tamamlayın:
 

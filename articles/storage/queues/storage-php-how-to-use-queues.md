@@ -10,12 +10,12 @@ ms.date: 01/11/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 84c5562e83518eab371f7c820d163c4dbf932cf7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142641"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410459"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -99,7 +99,7 @@ $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>
 $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Bir kuyruk oluşturma
+## <a name="create-a-queue"></a>Kuyruk oluştur
 A **QueueRestProxy** nesnesi kullanarak bir kuyruk oluşturmanıza olanak tanıyan **createQueue** yöntemi. Bir kuyruğu oluştururken, kuyruktaki seçeneklerini ayarlayabilirsiniz ancak bunu yaparsanız bu nedenle gerekli değildir. (Aşağıdaki örnekte bir kuyruğa meta verileri ayarlama işlemini gösterir.)
 
 ```php
@@ -419,7 +419,7 @@ Azure kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık dep
 Daha fazla bilgi için Ayrıca bkz: [PHP Geliştirici Merkezi](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
-[require_once]: http://www.php.net/manual/en/function.require-once.php
+[require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 [composer-phar]: https://getcomposer.org/composer.phar
 

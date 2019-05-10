@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246624"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472497"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server sistem durumunu geri yükle
 
@@ -27,7 +27,7 @@ Bu makalede, Windows Server sistem durumu yedeklemeleri bir Azure kurtarma Hizme
 
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>Aynı sunucuya kurtarma sistem durumu dosyaları
-Aşağıdaki adımlar, Windows Server yapılandırmanız için önceki bir duruma geri alma işlemleri açıklanmaktadır. Sunucu yapılandırmanızı, bilinen ve kararlı bir duruma geri alma, son derece yararlı olabilir. Aşağıdaki adımlar, bir kurtarma Hizmetleri kasasından sunucunun sistem durumu geri yükleyin. 
+Aşağıdaki adımlar, Windows Server yapılandırmanız için önceki bir duruma geri alma işlemleri açıklanmaktadır. Sunucu yapılandırmanızı, bilinen ve kararlı bir duruma geri alma, son derece yararlı olabilir. Aşağıdaki adımlar, bir kurtarma Hizmetleri kasasından sunucunun sistem durumu geri yükleyin.
 
 1. **Microsoft Azure Backup** ek bileşenini açın. Ek bileşenini yüklendiği bilmiyorsanız, bilgisayar veya sunucu için arama **Microsoft Azure Backup**.
 
@@ -45,7 +45,7 @@ Aşağıdaki adımlar, Windows Server yapılandırmanız için önceki bir durum
 
     ![Dosyalara göz atın](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-5. Takvim üzerinde **birim ve tarih seçin** bölmesinde, bir kurtarma noktası. 
+5. Takvim üzerinde **birim ve tarih seçin** bölmesinde, bir kurtarma noktası.
 
     Zaman içinde herhangi bir kurtarma noktasından geri yükleyebilirsiniz. Tarihler **kalın** en az bir kurtarma noktasının kullanılabilirliğini gösterir. Birden fazla kurtarma noktası mevcutsa bir tarih seçtiğinizde belirli bir kurtarma noktasından seçin **zaman** açılan menüsü.
 
@@ -91,11 +91,11 @@ Bu adımlarda kullanılan terminolojiyi içerir:
 5. Karşılık gelen kasa kimlik bilgilerini sağlayın *örnek kasası*. Kasa kimlik bilgilerini geçersiz (veya süresi dolmuş) ise, yeni bir kasa kimlik bilgileri dosyasını indirin *örnek kasası* Azure portalında. Kasa kimlik bilgilerini sağlandıktan sonra kasa kimlik bilgileri dosyası ile ilişkilendirilen bir kurtarma Hizmetleri kasası görünür.
 
 6. Yedekleme sunucusu seçin bölmeden *kaynak makine* görüntülenen makineler listesinden.
-7. Kurtarma modunu Seç bölmesinde **sistem durumu** tıklatıp **sonraki**. 
+7. Kurtarma modunu Seç bölmesinde **sistem durumu** tıklatıp **sonraki**.
 
     ![Arama](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. Takvim üzerinde **birim ve tarih seçin** bölmesinde, bir kurtarma noktası. Zaman içinde herhangi bir kurtarma noktasından geri yükleyebilirsiniz. Tarihler **kalın** en az bir kurtarma noktasının kullanılabilirliğini gösterir. Birden fazla kurtarma noktası mevcutsa bir tarih seçtiğinizde belirli bir kurtarma noktasından seçin **zaman** açılan menüsü. 
+8. Takvim üzerinde **birim ve tarih seçin** bölmesinde, bir kurtarma noktası. Zaman içinde herhangi bir kurtarma noktasından geri yükleyebilirsiniz. Tarihler **kalın** en az bir kurtarma noktasının kullanılabilirliğini gösterir. Birden fazla kurtarma noktası mevcutsa bir tarih seçtiğinizde belirli bir kurtarma noktasından seçin **zaman** açılan menüsü.
 
     ![Arama öğeleri](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -107,13 +107,13 @@ Bu adımlarda kullanılan terminolojiyi içerir:
 
     Seçenek **böylece hem sürümlerde kopya oluşturma**, tüm sistem durumu arşiv kopyasını oluşturmak yerine var olan bir sistem durumu Dosya arşiv tek tek dosyaların kopyalarını oluşturur.
 
-11. Onay bölmesinde kurtarma ayrıntılarını doğrulayın ve tıklayın **kurtarmak**. 
+11. Onay bölmesinde kurtarma ayrıntılarını doğrulayın ve tıklayın **kurtarmak**.
 
     ![kurtarma işlemini onaylamak için kurtarma düğmesine tıklayın](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Kopyalama *WindowsImageBackup* dizin sunucunun kritik olmayan bir birime (örneğin, D:\). Genellikle Windows işletim sistemi birimi kritik bir birimdir.
 
-13. Kurtarma işlemini tamamlamak için aşağıdaki bölüme kullanın [Windows Server'da geri yüklenen sistem durumu dosyaları geçerli](backup-azure-restore-system-state.md#apply-restored-system-state-on-a-windows-server).
+13. Kurtarma işlemini tamamlamak için aşağıdaki bölüme kullanın [Windows Server'da geri yüklenen sistem durumu dosyaları geçerli](#apply-restored-system-state-on-a-windows-server).
 
 
 
@@ -143,7 +143,7 @@ Bir kez sistem durumu olarak Azure kurtarma Hizmetleri Aracısı'nı kullanarak 
 
    ![farklı bir sunucuya kurtarmak seçin](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
 
-6. Konum türü belirtirken seçin **paylaşılan uzak klasör** sistem durumu yedeklemenizin başka bir sunucuya kurtarıldı. Yerel Sistem durumunuzu yapılıyorsa, ardından **yerel sürücüler**. 
+6. Konum türü belirtirken seçin **paylaşılan uzak klasör** sistem durumu yedeklemenizin başka bir sunucuya kurtarıldı. Yerel Sistem durumunuzu yapılıyorsa, ardından **yerel sürücüler**.
 
     ![Yerel sunucu ya da başka bir kurtarma olup olmadığını seçin](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
 
@@ -171,7 +171,7 @@ Sistem durumu yedeklemesi, Active Directory verilerini içerir. Aşağıdaki ad�
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Başarısız sistem durumu geri yükleme sorunlarını giderme
 
-Önceki sistem durumu uygulama işlemini başarıyla tamamlanmazsa, Windows Server'ı kurtarmak için Windows Kurtarma Ortamı'nı (Win RE) kullanın. Aşağıdaki adımlar, Win RE kullanarak kurtarma işlemleri açıklanmaktadır. Yalnızca Windows Server normalde bir sistem durumu geri yüklemeden sonra önyükleme yapmaz, bu seçeneği kullanın. Aşağıdaki işlem sistemi olmayan verileri, dikkatli siler. 
+Önceki sistem durumu uygulama işlemini başarıyla tamamlanmazsa, Windows Server'ı kurtarmak için Windows Kurtarma Ortamı'nı (Win RE) kullanın. Aşağıdaki adımlar, Win RE kullanarak kurtarma işlemleri açıklanmaktadır. Yalnızca Windows Server normalde bir sistem durumu geri yüklemeden sonra önyükleme yapmaz, bu seçeneği kullanın. Aşağıdaki işlem sistemi olmayan verileri, dikkatli siler.
 
 1. Windows Server, Windows Kurtarma Ortamı'nı (Win RE) içine önyükleyin.
 

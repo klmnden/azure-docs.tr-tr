@@ -13,17 +13,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/03/2018
+ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543105"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467741"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure'da Linux sanal makine görüntüleri oluşturmak için Packer kullanma
 Azure'daki her sanal makine (VM) Linux dağıtımına ve işletim sistemi sürümünü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure marketi, en yaygın dağıtım ve uygulama ortamları için birinci ve üçüncü taraf çok sayıda görüntü sağlar veya uygulamanızın ihtiyaçlarına yönelik kendi özel görüntülerinizi oluşturabilir. Bu makalede, açık kaynak aracı kullanma ayrıntılı [Packer](https://www.packer.io/) tanımlama ve azure'da özel görüntü oluşturma.
+
+> [!NOTE]
+> Azure artık Azure Görüntü Oluşturucu (Önizleme) bir hizmet tanımlama ve kendi özel görüntülerinizi oluşturmak için var. Hatta mevcut Packer Kabuk sağlayıcısı betiklerinizi ile kullanabilmesi için azure Görüntü Oluşturucu Packer üzerinde oluşturulmuştur. Azure Görüntü Oluşturucu ile çalışmaya başlamak için bkz. [Azure Görüntü Oluşturucu ile Linux VM oluşturma](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
@@ -232,6 +235,4 @@ Artık bir web tarayıcısı açıp adres çubuğuna `http://publicIpAddress` if
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekte, NGINX ile önceden yüklenmiş VM görüntüsü oluşturmak için Packer kullanılır. Ansible, Chef veya Puppet görüntüden oluşturulan sanal makineler için uygulamanızı dağıtmak için olduğu gibi bu VM görüntüsü mevcut dağıtım iş akışları ile birlikte kullanabilirsiniz.
-
-Diğer Linux dağıtımları için ek örnek Packer şablonları için bkz: [bu GitHub deposunu](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Mevcut Packer sağlayıcısı betiklerle kullanabilirsiniz [Azure Görüntü Oluşturucu](image-builder.md).

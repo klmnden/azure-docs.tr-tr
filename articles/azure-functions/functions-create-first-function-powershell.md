@@ -10,12 +10,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: 21fe1d654b802cb2bcb1a1fd3d5ffc4d04112334
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 24640c9013f7a5b81cd5b1b6f45de49c5baad0e6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530471"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473280"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>(Önizleme) ile Azure PowerShell'i ilk işlevinizi oluşturma
 
@@ -50,24 +50,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
-
-## <a name="enable-powershell-in-the-extension"></a>Uzantı PowerShell'i etkinleştirme
-
-Azure işlevleri uzantısı PowerShell'de etkinleştirmek için aşağıdaki adımları kullanın:
-
-1. Visual Studio Code'da aşağıdaki menü komutlarını birini seçin:
-
-    * Windows veya Linux üzerinde seçin **dosya** > **tercihleri** > **ayarları**.
-    * MacOS üzerinde seçin **kod** > **tercihleri** > **ayarları**.
-
-1. Arama ayarları alanına `powershell`.
-
-1. İçinde **kullanıcı ayarları** sekmesinde, genişletme **uzantıları** > **Azure işlevleri**, ardından **Önizleme desteğini etkinleştirmek için PowerShell**.
-
-    ![Visual Studio projesinde Azure İşlevleri kodu](./media/functions-create-first-function-powershell/enable-powershell-support-vs-code.png)
-
-Ayarları kapatın. PowerShell şimdi etkinleştirildi.  
+[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)] 
 
 ## <a name="create-a-function-app-project"></a>İşlev uygulaması projesi oluşturma
 
@@ -120,6 +103,9 @@ Azure işlevleri temel araçları, Visual Studio, çalıştırın ve Azure işle
 
 > [!NOTE]
 > Çağrıları kaldırmayı unutmayın `Wait-Debugger` Azure'da işlevlerinizin yayımlamadan önce. 
+
+> [!NOTE]
+> Azure'da bir işlev uygulaması oluşturma, işlev uygulaması adı için yalnızca ister. AzureFunctions.advancedCreation diğer tüm değerler için size sorulması için true olarak ayarlayın.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

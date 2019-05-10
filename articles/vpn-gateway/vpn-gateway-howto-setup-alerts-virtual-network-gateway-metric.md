@@ -1,5 +1,5 @@
 ---
-title: Azure VPN ağ geçidi ölçümler ile ilgili uyarılar kurma
+title: Azure VPN ağ geçidi ölçümler üzerinde uyarılar ayarlayın
 description: VPN ağ geçidi ölçümler üzerinde uyarılar yapılandırma adımları
 services: vpn-gateway
 author: anzaman
@@ -7,62 +7,68 @@ ms.service: vpn-gateway
 ms.topic: conceptional
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: 890b096acba601ec20efaac21155da84e77a1f31
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769474"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509900"
 ---
-# <a name="setting-up-alerts-on-vpn-gateway-metrics"></a>VPN ağ geçidi ölçümler ile ilgili uyarılar ayarlama
+# <a name="set-up-alerts-on-vpn-gateway-metrics"></a>VPN ağ geçidi ölçümler üzerinde uyarılar ayarlayın
 
-Bu makalede VPN ağ geçidi ölçümleri için uyarılar ayarlamanıza yardımcı olur. Azure İzleyici, Azure kaynakları için uyarıları ayarlama olanağı sağlar. "VPN" türünde sanal ağ geçitleri için uyarılar ayarlanabilir.
+Bu makalede Azure VPN ağ geçidi ölçümler ile ilgili uyarılar ayarlamanıza yardımcı olur. Azure İzleyici, Azure kaynakları için uyarıları ayarlama olanağı sağlar. Sanal ağ geçitleri "VPN" türü için uyarılar ayarlayabilirsiniz.
 
 
 |**Ölçüm**   | **Birim** | **Ayrıntı düzeyi** | **Açıklama** | 
 |---       | ---        | ---       | ---            | ---       |
-|**AverageBandwidth**| Bayt/s  | 5 dakika| Ortalama ağ geçidi tüm siteden siteye bağlantılarda birleştirilmiş bant genişliği kullanımı.     |
-|**P2SBandwidth**| Bayt/s  | 1 dakika  | Ortalama ağ geçidinde tüm noktadan siteye bağlantıları birleştirilmiş bant genişliği kullanımı.    |
-|**P2SConnectionCount**| Sayı  | 1 dakika  | Ağ geçidi sayısı, P2S bağlantıları.   |
+|**AverageBandwidth**| Bayt/s  | 5 dakika| Ortalama ağ geçidine siteden siteye bağlantılarda tüm birleştirilmiş bant genişliği kullanımı.     |
+|**P2SBandwidth**| Bayt/s  | 1 dakika  | Ortalama ağ geçidi tüm noktadan siteye bağlantıları birleştirilmiş bant genişliği kullanımı.    |
+|**P2SConnectionCount**| Count  | 1 dakika  | Ağ geçidinde noktadan siteye bağlantıları sayısı.   |
 |**TunnelAverageBandwidth** | Bayt/s    | 5 dakika  | Ortalama ağ geçidi üzerinde oluşturulan tünelleri bant genişliği kullanımı. |
 |**TunnelEgressBytes** | Bayt | 5 dakika | Giden trafiği ağ geçidi üzerinde oluşturulan tünelinde.   |
-|**TunnelEgressPackets** | Sayı | 5 dakika | Ağ geçidi üzerinde oluşturulan tünelinde giden paketlerin sayısı.   |
-|**TunnelEgressPacketDropTSMismatch** | Sayı | 5 dakika | Giden paketlerin sayısı tünelinde TS uyumsuzluğu nedeniyle bırakıldı. |
+|**TunnelEgressPackets** | Count | 5 dakika | Ağ geçidi üzerinde oluşturulan tünelinde giden paketlerin sayısı.   |
+|**TunnelEgressPacketDropTSMismatch** | Count | 5 dakika | Giden paketlerin sayısı tünelinde trafik seçicisini uyumsuzluğu nedeniyle bırakıldı. |
 |**TunnelIngressBytes** | Bayt | 5 dakika | Ağ geçidi üzerinde oluşturulmuş tüneller gelen trafiği.   |
-|**TunnelIngressPackets** | Sayı | 5 dakika | Ağ geçidi üzerinde oluşturulan tünelinde gelen paket sayısı.   |
-|**TunnelIngressPacketDropTSMismatch** | Sayı | 5 dakika | TS uyumsuzluğu nedeniyle tünelinde bırakılan gelen paketlerin sayısı. |
+|**TunnelIngressPackets** | Count | 5 dakika | Ağ geçidi üzerinde oluşturulan tünelinde gelen paket sayısı.   |
+|**TunnelIngressPacketDropTSMismatch** | Count | 5 dakika | Gelen paket sayısını tünelinde trafik seçicisini uyumsuzluğu nedeniyle bırakıldı. |
 
 
-## <a name="setup"></a>Portalı kullanarak ölçümlere göre Azure İzleyici uyarıları ayarlama
+## <a name="setup"></a>Azure portalını kullanarak ölçümlere göre Azure İzleyici uyarıları ayarlama
 
-Aşağıdaki örnek adımlarda, bir ağ geçidi için bir uyarı oluşturacak: <br>
+Aşağıdaki örnek adımlarda, bir ağ geçidi için bir uyarı oluşturacak:
 
-**Ölçüm:** Tünel ortalama bant genişliği <br>
-**Koşul:** bant genişliği > 10 bayt / saniye <br>
-**Penceresi:** 5 dakika <br>
-**Uyarı eylemi:** Email <br>
+- **Ölçüm:** TunnelAverageBandwidth
+- **Koşul:** Bant genişliği > 10 bayt / saniye
+- **Penceresi:** 5 dakika
+- **Uyarı eylemi:** E-posta
 
 
 
-1. Sanal ağ geçidi kaynağına gidin ve izleme sekmesinde, "Uyarı" seçin sonra yeni bir uyarı kuralı oluşturmak veya mevcut bir uyarı kuralı düzenleyin.
+1. Sanal ağ geçidi kaynağına gidin ve seçin **uyarılar** gelen **izleme** sekmesi. Ardından yeni bir uyarı kuralı oluşturmak veya mevcut bir uyarı kuralı düzenleyin.
 
-![Noktadan siteye](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "oluştur")
+   ![Bir uyarı kuralı oluşturmak için seçim](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert1.png "oluştur")
 
 2. VPN ağ geçidiniz kaynağı seçin.
 
-![Noktadan siteye](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "seçin")
+   ![Seçme düğmesi ve VPN ağ geçidi kaynakları listesinden](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "seçin")
 
-3. Uyarı için yapılandırmak için bir ölçüm seçin ![noktadan siteye](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "seçin")
-4. Sinyal mantığını yapılandırma. Sinyal mantığını için üç bileşeni vardır:
+3. Uyarı için yapılandırmak için bir ölçüm seçin.
 
-    a. Boyutlar: Ölçüm, boyutları değiştiyse, uyarı verileri bu boyutun yalnızca değerlendirir. böylece belirli boyut değerleri seçilebilir. Bu isteğe bağlıdır.<br>
-    b. Koşul: Ölçüm değeri değerlendirmek için işlem.<br>
-    c. Zaman: Ölçüm verilerinin ayrıntı düzeyi ve uyarı değerlendir süreyi belirtin.<br>
+   ![Ölçüm listesinde ölçümün seçili](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "seçin")
+4. Sinyal mantığını yapılandırma. Ona üç bileşeni vardır:
 
-![Noktadan siteye](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "seçin")
+    a. **Boyutlar**: Ölçüm, boyutları değiştiyse, böylece yalnızca bu boyut veri uyarı değerlendirir belirli boyut değerleri seçebilirsiniz. Bu isteğe bağlıdır.
 
-5. Yapılandırılmış kurallara görüntülemek için "Üzerinde uyarı kurallarını yönet"'i tıklatın. ![noktadan siteye](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "seçin")
+    b. **Koşul**: Bu ölçüm değeri değerlendirilecek işlemdir.
+
+    c. **Zaman**: Ölçüm verilerinin ayrıntı düzeyi ve uyarı değerlendirmek için süreyi belirtin.
+
+   ![Sinyal mantığını yapılandırma ayrıntıları](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "seçin")
+
+5. Yapılandırılmış kurallara görüntülemek için seçin **uyarı kurallarını yönet**.
+
+   ![Uyarı kuralları yönetmek için düğme](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "seçin")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uyarılar tünel tanılama günlüklerini yapılandırmak için bkz [VPN ağ geçidi tanılama günlükleri ile ilgili uyarıları ayarlama](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+Uyarılar tünel tanılama günlüklerini yapılandırmak için bkz [VPN ağ geçidi tanılama günlükleri ile ilgili uyarılar ayarlamak](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

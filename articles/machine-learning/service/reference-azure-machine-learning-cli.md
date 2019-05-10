@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: be3cedc4b496f4f64a52217099f64092dfb49228
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 35e57dfcc7b1fd6f8de265ab75de29dedd8fdfc2
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149839"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501657"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için CLI uzantısını kullanma
 
@@ -36,7 +36,11 @@ CLI, Azure Machine Learning SDK'sı yerine değil. Yüksek oranda parametreli ke
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-## <a name="install-the-extension"></a>Uzantıyı yükleme
+## <a name="full-reference-docs"></a>Tam başvuru belgeleri
+
+Bulma [tam Azure CLI, azure-cli-ml uzantısı için başvuru belgeleri](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
+
+## <a name="install-the-extension"></a>Uzantıyı yükle
 
 Machine Learning CLI uzantısını yüklemek için aşağıdaki komutu kullanın:
 
@@ -45,7 +49,7 @@ az extension add -n azure-cli-ml
 ```
 
 > [!TIP]
-> Aşağıdaki komutları ile kullanabileceğiniz örnek dosyaları bulunabilen [burada](http://aka.ms/azml-deploy-cloud).
+> Aşağıdaki komutları ile kullanabileceğiniz örnek dosyaları bulunabilen [burada](https://aka.ms/azml-deploy-cloud).
 
 Sorulduğunda, `y` uzantıyı yüklemek için.
 
@@ -55,7 +59,7 @@ Uzantı yüklü olduğunu doğrulamak için ML özgü alt komutları listesini g
 az ml -h
 ```
 
-## <a name="remove-the-extension"></a>Uzantıyı kaldırma
+## <a name="remove-the-extension"></a>Uzantıyı kaldırın
 
 CLI uzantısını kaldırmak için aşağıdaki komutu kullanın:
 
@@ -82,9 +86,12 @@ Aşağıdaki komutları, Azure Machine Learning tarafından kullanılan kaynakla
     Daha fazla bilgi için [az ml çalışma alanı oluşturma](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Bir çalışma alanı yapılandırması CLI bağlamsal tanıma etkinleştirmek için bir klasöre bağlayın.
+
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    Bu komut, oluşturur bir `.azureml` örnek runconfig ve conda ortam dosyaları içeren alt. Ayrıca içerdiği bir `config.json` , Azure Machine Learning çalışma alanı ile iletişim kurmak için kullanılan dosya.
 
     Daha fazla bilgi için [az ml klasör ekleme](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
@@ -121,6 +128,13 @@ Aşağıdaki komutları, Azure Machine Learning tarafından kullanılan kaynakla
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
+    > [!TIP]
+    > `az ml folder attach` Komut oluşturur bir `.azureml` iki örnek runconfig dosyaları içeren alt dizini. 
+    >
+    > Program aracılığıyla çalıştırma yapılandırma nesnesini oluşturan bir Python komut dosyası varsa, kullanabileceğiniz [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) runconfig dosyası olarak kaydedin.
+    >
+    > Daha fazla örnek runconfig dosyalar için bkz: [ https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml ](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
+
     Daha fazla bilgi için [az ml çalıştırma betiği Gönder](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
 * Denemeleri listesini görüntüleyin:
@@ -156,9 +170,26 @@ Aşağıdaki komutlar, eğitilen bir modeli kaydedin ve ardından bunu bir üret
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
     ```
 
+    Bir örneği verilmiştir `inferenceconfig.json` belge:
+
+    ```json
+    {
+    "entryScript": "score.py",
+    "runtime": "python",
+    "condaFile": "myenv.yml",
+    "extraDockerfileSteps": null,
+    "sourceDirectory": null,
+    "enableGpu": false,
+    "baseImage": null,
+    "baseImageRegistry": null
+    }
+    ```
+
     Daha fazla bilgi için [az ml model dağıtma](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Machine Learning CLI uzantısı için başvuru komut](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
+
+* [Eğitim ve Azure işlem hatları kullanarak makine öğrenimi modelleri dağıtma](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)

@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817432"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471619"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
@@ -54,11 +54,11 @@ Hizmet adı gereksinimleri:
 * İlk 2 karakter olarak veya sondaki tek karakter olarak tire ("-") kullanmaktan kaçının
 * Hiçbir yerde art arda tire ("--") kullanmayın
 
-## <a name="select-a-subscription"></a>Abonelik seçme
+## <a name="select-a-subscription"></a>Bir abonelik seçin
 
 Birden fazla aboneliğiniz varsa, veri veya dosya depolama hizmetleri de içeren bir abonelik seçin. Azure arama için otomatik algıla Azure Tablosu'nu ve Blob Depolama, SQL veritabanı ve Azure Cosmos DB aracılığıyla dizin oluşturmak için [ *dizin oluşturucular*](search-indexer-overview.md), ancak yalnızca aynı Abonelikteki hizmetler için.
 
-## <a name="select-a-resource-group"></a>Kaynak grubu seçme
+## <a name="select-a-resource-group"></a>Kaynak grubu seç
 
 Kaynak grubu, birlikte kullanılan Azure hizmetleri ve kaynakları koleksiyonudur. Örneğin, bir SQL veritabanının dizinini oluşturmak için Azure Search kullanıyorsanız, her iki hizmet de aynı kaynak grubunun parçası olmalıdır.
 
@@ -67,11 +67,13 @@ Tek bir grup olarak birleştirip olmayan ya da mevcut kaynak gruplarını ilgisi
 > [!TIP]
 > Bir kaynak grubu silindiğinde, o kaynak grubunun içindeki hizmetler de silinir. Birden fazla hizmet kullanan prototip projeler için, tüm bunların aynı kaynak grubuna yerleştirilmesi, proje bittikten sonra temizleme işlemini kolaylaştırır.
 
-## <a name="select-a-hosting-location"></a>Barındırma konumu seçme
+## <a name="select-a-location"></a>Konum seçin
 
 Azure hizmeti olarak Azure Search, dünyanın dört bir yanındaki veri merkezlerinde barındırılabilir. [Fiyatlar gösterebileceğini](https://azure.microsoft.com/pricing/details/search/) coğrafyaya göre.
 
-Bir Azure'da yer alan içeriği sıralıyorsanız hizmeti (Azure depolama, Azure Cosmos DB, Azure SQL veritabanı), bant genişliği ücretlerden kaçınmak için verilerinizi aynı bölgede Azure Search hizmetinizi oluşturun. Hizmetler aynı bölgede çalışırken giden veriler için herhangi bir ücreti yoktur.
+Başka bir Azure tarafından sağlanan veri sıralıyorsanız hizmeti (Azure depolama, Azure Cosmos DB, Azure SQL veritabanı), bant genişliği ücretleri önlemek için aynı bölgede Azure Search hizmetinizi oluşturun. Hizmetler aynı bölgede çalışırken giden veriler için herhangi bir ücreti yoktur.
+
+Bilişsel arama AI zenginleştirmelerinin kullanıyorsanız, Bilişsel hizmetler kaynağınızı aynı bölgede hizmetinizi oluşturun. Hizmetlerin birlikte bulundurma, yapay ZEKA zenginleştirme için bir gereksinimdir.
 
 ## <a name="select-a-pricing-tier-sku"></a>Fiyatlandırma katmanı (SKU) seçme
 

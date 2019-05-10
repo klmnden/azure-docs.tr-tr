@@ -16,8 +16,8 @@
   items:
     - name: Konumlar ve iş ortakları
       href: virtual-wan-locations-partners.md
-    - name: Genel ağ geçiş mimarisi
-      href: virtual-wan-global-transit-architecture.md
+    - name: Genel geçiş ağ mimarisi
+      href: virtual-wan-global-transit-network-architecture.md
     - name: Sanal WAN Office 365 denetim düzlemi
       href: virtual-wan-office365-overview.md
 - name: Nasıl yapılır kılavuzları

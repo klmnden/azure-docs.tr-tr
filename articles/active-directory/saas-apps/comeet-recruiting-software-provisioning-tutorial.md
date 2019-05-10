@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: 0f1b5f424a71aeccd4b1e57129c0f5b22ff158af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159398"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470421"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Comeet işe yazılım yapılandırma
 
@@ -84,7 +84,7 @@ Oluşturmak için Azure AD sağlama hizmeti yapılandırmak için gereken adıml
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Azure AD'de Comeet işe yazılım için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamalar**, ardından **Comeet işe yazılım**.
+1. [Azure Portal](https://portal.azure.com) oturum açın. Seçin **kurumsal uygulamalar**, ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
@@ -104,8 +104,7 @@ Oluşturmak için Azure AD sağlama hizmeti yapılandırmak için gereken adıml
 
 6. İçinde [Comeet işe yazılım Yönetici Konsolu](https://app.comeet.co/), gidin **Comeet > Ayarlar > kimlik doğrulaması > Microsoft Azure**ve kopyalayın **belirteci gizli anahtarı şirketinizin**değerini **gizli belirteç** Azure ad alanı.
 
-    ![Yazılım sağlama işe comeet](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-    
+    ![Yazılım sağlama işe comeet](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD Comeet işe yazılımı bağlanabilirsiniz. Bağlantı başarısız olursa Comeet işe yazılım hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
@@ -119,11 +118,11 @@ Oluşturmak için Azure AD sağlama hizmeti yapılandırmak için gereken adıml
 
 10. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları Comeet**.
 
-    ![Yazılım sağlama işe comeet](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+    ![Yazılım kullanıcı eşlemeleri işe comeet](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. İşe alma Comeet yazılımınızla Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Comeet işe yazılım güncelleştirme işlemleri için kullanıcı hesaplarını eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
 
-    ![Yazılım sağlama işe comeet](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+    ![Personel arama yazılım grup öznitelikleri comeet](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -156,7 +155,3 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
 * [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

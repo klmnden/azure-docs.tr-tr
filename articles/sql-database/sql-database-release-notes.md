@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717437"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406576"
 ---
 # <a name="sql-database-release-notes"></a>SQL veritabanı sürüm notları
 
@@ -25,7 +25,8 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 
 | Özellik | Ayrıntılar |
 | ---| --- |
-| Esnek veritabanı işleri | Bilgi için [oluşturun, yapılandırın ve elastik işleri Yönet](elastic-jobs-overview.md) |
+| Sunucusuz işlem katmanı | Bilgi için [sunucusuz SQL veritabanı (Önizleme)](sql-database-serverless.md).|
+| Elastik veritabanı işleri | Bilgi için [oluşturun, yapılandırın ve elastik işleri Yönet](elastic-jobs-overview.md) |
 | Elastik işlemler | [Bulut veritabanlarında dağıtılmış işlemler](sql-database-elastic-transactions-overview.md) |
 | Esnek sorgular | Bilgi için [esnek sorgu genel bakış](sql-database-elastic-query-overview.md) |
 | Çoğaltma ile yönetilen örnekleri |Bilgi için [bir Azure SQL veritabanı yönetilen örnek veritabanında çoğaltmayı yapılandırma](replication-with-sql-database-managed-instance.md)|
@@ -45,6 +46,16 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 |SQL analizi|Bilgi için [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Yönetilen örnek için saat dilimi desteği|Daha fazla bilgi için [saat diliminde Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>Mayıs 2019
+
+### <a name="service-improvements"></a>Hizmet geliştirmeleri
+
+| Hizmet geliştirmeleri | Ayrıntılar |
+| --- | --- |
+|Hiper ölçekli hizmet katmanı| Daha fazla bilgi için [hiper ölçekli hizmet katmanı için en fazla 100 TB](sql-database-service-tier-hyperscale.md).|
+|Sunucusuz işlem katmanı| Daha fazla bilgi için [sunucusuz SQL veritabanı (Önizleme)](sql-database-serverless.md).|
+
 
 ## <a name="april-2019"></a>Nisan 2019
 

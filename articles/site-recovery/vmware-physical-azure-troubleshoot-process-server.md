@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: rayne
-ms.openlocfilehash: 926e5b685369f8660daf6221f818734f6f12d2b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0383226853ed86943b73d2b8740825967f3124c9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928415"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411521"
 ---
 # <a name="troubleshoot-the-process-server"></a>İşlem Sunucusu sorunlarını giderme
 
@@ -51,14 +51,14 @@ Sorun giderme ilk adımı, durumunu ve işlem sunucusu durumunu denetlemektir. B
 
 **Uyarı türü** | **Hata:** | **Sorun giderme**
 --- | --- | --- 
-![Sorunsuz][green] | None  | İşlem sunucusu bağlı ve iyi durumda.
+![İyi Durumda][green] | None  | İşlem sunucusu bağlı ve iyi durumda.
 ![Uyarı][yellow] | Belirtilen Hizmetleri çalıştırmıyor. | 1. Hizmetlerinin çalıştığını kontrol edin.<br/> 2. Hizmetleri beklendiği şekilde çalışıyor, aşağıdaki yönergeleri izleyin. [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).
 ![Uyarı][yellow]  | CPU kullanımı > % 80'in son 15 dakika. | 1. Yeni makineleri eklemeyin.<br/>2. İşlem sunucusunu kullanan VM sayısına hizalar onay [sınırları tanımlanmış](site-recovery-plan-capacity-vmware.md#capacity-considerations)ve kurmayı göz önünde bulundurun bir [ek işlem sunucusu](vmware-azure-set-up-process-server-scale.md).<br/>3. Aşağıdaki yönergeleri [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).
-![Kritik][red] |  Son 15 dakika için CPU kullanımı > %95. | 1. Yeni makineleri eklemeyin.<br/>2. İşlem sunucusunu kullanan VM sayısına hizalar onay [sınırları tanımlanmış](site-recovery-plan-capacity-vmware.md#capacity-considerations)ve kurmayı göz önünde bulundurun bir [ek işlem sunucusu](vmware-azure-set-up-process-server-scale.md).<br/>3. Aşağıdaki yönergeleri [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).<br/> 4. Sorun devam ederse çalıştırma [dağıtım Planlayıcısı](http://aka.ms/asr-v2a-deployment-planner) VMware/fiziksel sunucu çoğaltma için.
+![Kritik][red] |  Son 15 dakika için CPU kullanımı > %95. | 1. Yeni makineleri eklemeyin.<br/>2. İşlem sunucusunu kullanan VM sayısına hizalar onay [sınırları tanımlanmış](site-recovery-plan-capacity-vmware.md#capacity-considerations)ve kurmayı göz önünde bulundurun bir [ek işlem sunucusu](vmware-azure-set-up-process-server-scale.md).<br/>3. Aşağıdaki yönergeleri [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).<br/> 4. Sorun devam ederse çalıştırma [dağıtım Planlayıcısı](https://aka.ms/asr-v2a-deployment-planner) VMware/fiziksel sunucu çoğaltma için.
 ![Uyarı][yellow] | Bellek kullanımı > % 80'in son 15 dakika. |  1. Yeni makineleri eklemeyin.<br/>2. İşlem sunucusunu kullanan VM sayısına hizalar onay [sınırları tanımlanmış](site-recovery-plan-capacity-vmware.md#capacity-considerations)ve kurmayı göz önünde bulundurun bir [ek işlem sunucusu](vmware-azure-set-up-process-server-scale.md).<br/>3. Uyarıyla ilişkili tüm yönergeleri izleyin.<br/> 4. Sorun devam ederse, için aşağıdaki yönergeleri izleyerek [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).
-![Kritik][red] | Bellek kullanımı > %95 son 15 dakika içinde. | 1. Yeni makineleri ekleme ve ayarlama dikkate bir [ek işlem sunucusu](vmware-azure-set-up-process-server-scale.md).<br/> 2. Uyarıyla ilişkili tüm yönergeleri izleyin.<br/> 3. 4. Sorun devam ederse, için aşağıdaki yönergeleri izleyerek [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).<br/> 4. Sorun devam ederse çalıştırma [dağıtım Planlayıcısı](http://aka.ms/asr-v2a-deployment-planner) VMware/fiziksel sunucu çoğaltma sorunları için.
+![Kritik][red] | Bellek kullanımı > %95 son 15 dakika içinde. | 1. Yeni makineleri ekleme ve ayarlama dikkate bir [ek işlem sunucusu](vmware-azure-set-up-process-server-scale.md).<br/> 2. Uyarıyla ilişkili tüm yönergeleri izleyin.<br/> 3. 4. Sorun devam ederse, için aşağıdaki yönergeleri izleyerek [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).<br/> 4. Sorun devam ederse çalıştırma [dağıtım Planlayıcısı](https://aka.ms/asr-v2a-deployment-planner) VMware/fiziksel sunucu çoğaltma sorunları için.
 ![Uyarı][yellow] | Önbellek klasörü boş alan < % 30 son 15 dakika içinde. | 1. Yoksa yeni makineleri ekleyin ve kurmayı göz önünde bulundurun bir [ek işlem sunucusu](vmware-azure-set-up-process-server-scale.md).<br/>2. İşlem sunucusunu kullanan VM sayısına hizalar onay [yönergeleri](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Aşağıdaki yönergeleri [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).
-![Kritik][red] |  Son 15 dakika boyunca % boş alan < 25 | 1. Bu sorun için bir uyarı ile ilgili yönergeleri izleyin.<br/> 2. 3. Aşağıdaki yönergeleri [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).<br/> 3. Sorun devam ederse çalıştırma [dağıtım Planlayıcısı](http://aka.ms/asr-v2a-deployment-planner) VMware/fiziksel sunucu çoğaltma için.
+![Kritik][red] |  Son 15 dakika boyunca % boş alan < 25 | 1. Bu sorun için bir uyarı ile ilgili yönergeleri izleyin.<br/> 2. 3. Aşağıdaki yönergeleri [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).<br/> 3. Sorun devam ederse çalıştırma [dağıtım Planlayıcısı](https://aka.ms/asr-v2a-deployment-planner) VMware/fiziksel sunucu çoğaltma için.
 ![Kritik][red] | 15 dakika veya daha fazla işlem sunucusundan sinyal alınmadı. Tmansvs hizmet yapılandırma sunucusuyla iletişim kurmuyor. | (1) işlem sunucusu çalışmaya olup olmadığını denetleyin.<br/> 2. Tmassvc işlem sunucusunda çalıştığından emin olun.<br/> 3. Aşağıdaki yönergeleri [bağlantı ve çoğaltma sorunlarını giderme](#check-connectivity-and-replication).
 
 
@@ -78,7 +78,7 @@ StartType ayarlamak Microsoft Azure kurtarma Hizmetleri Aracısı'nı (obengine)
 **Azure'da yeniden çalışma için Dağıtılmış işlem sunucusu** | Dosya; ProcessServerMonitor; cxprocessserver; Inmage Pushınstall; Günlük karşıya yükleme hizmeti (LogUpload)
 
 
-## <a name="step-3-check-the-process-server-heartbeat"></a>3. Adım: İşlem sunucusu sinyal denetleyin
+## <a name="step-3-check-the-process-server-heartbeat"></a>3. adım: İşlem sunucusu sinyal denetleyin
 
 (Hata kodu 806) işlem sunucusundan sinyal yok ise, aşağıdakileri yapın:
 
@@ -96,7 +96,7 @@ StartType ayarlamak Microsoft Azure kurtarma Hizmetleri Aracısı'nı (obengine)
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>4. Adım: Kaynak makine üzerinde zaman eşitleme doğrulayın
 
-Çoğaltılan makinelerin için sistem tarihi/saatinin eşitlenmiş olduğundan emin olun. [Daha fazla bilgi](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Çoğaltılan makinelerin için sistem tarihi/saatinin eşitlenmiş olduğundan emin olun. [Daha fazla bilgi edinin](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
 
 ## <a name="step-5-check-anti-virus-software-on-source-machine"></a>5. Adım: Kaynak makinedeki virüsten koruma yazılımı denetleyin
 

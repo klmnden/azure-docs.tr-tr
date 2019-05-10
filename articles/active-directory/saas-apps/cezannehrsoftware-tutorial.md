@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834978"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Öğretici: Cezanne ik yazılım ile Azure Active Directory Tümleştirme
 
@@ -156,7 +156,7 @@ Azure AD çoklu oturum açma Cezanne ik yazılımıyla yapılandırmak için aş
 
     d. İçinde **güvenlik belirteci Hizmeti uç noktası** metin değerini yapıştırın **oturum açma URL'si** hangi Azure portaldan kopyaladığınız.
 
-    e. Kullanıcı Kimliği öznitelik adı metin kutusuna girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. Kullanıcı Kimliği öznitelik adı metin kutusuna girin `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Tıklayın **karşıya** Azure portalından indirilen sertifikayı karşıya yüklemek için simge.
 
@@ -251,7 +251,7 @@ Azure AD kullanıcılarının Cezanne ik yazılımına oturum etkinleştirmek i�
 
     c. Seçin **ik Professional** olarak **güvenlik rolü**.
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**'ı tıklatın.
 
 5. Gidin **çoklu oturum açma** sekmenize **yeni Ekle** içinde **SAML 2.0 tanımlayıcıları** alan.
 

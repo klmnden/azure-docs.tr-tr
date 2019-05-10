@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 580a8baa19e8ed4fc3f4449ead9d8aedbc4c039a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160913"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472250"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza SensorTile.box cihazı bağlayın
 
@@ -23,21 +23,21 @@ Bu makalede, Microsoft Azure IOT Central uygulamanıza SensorTile.box cihaz bağ
 
 Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki kaynakları gerekir:
 
-* Bir SensorTile.box cihaz bkz [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/SensorTile.box) daha fazla bilgi için.
-* ST BLO algılayıcı uygulamasının Android Cihazınızda, [yükleyebilir, buradan] yüklü (https://play.google.com/store/apps/details?id=com.st.bluems). Daha fazla bilgi için ziyaret edin: [ST BLO algılayıcı] ()http://www.st.com/stblesensor)
+* Bir SensorTile.box cihaz. Daha fazla bilgi için [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mems-motion-sensor-eval-boards/steval-mksbox1v1.html).
+* Android Cihazınızda yüklü ST BLO algılayıcı uygulama yapabilecekleriniz [buradan indirin](https://play.google.com/store/apps/details?id=com.st.bluems). Daha fazla bilgi için bkz.: [ST BLO algılayıcısı](https://www.st.com/stblesensor)
 * Oluşturulan bir Azure IOT Central uygulamasına **DevKits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
-* Ekleme **SensorTile.box** cihaz şablonu ederek, IOT Central uygulamasına **cihaz şablonları** tıklayarak sayfasında **+ yeni**, seçerek**SensorTile** şablonu.
+* Ekleme **SensorTile.box** cihaz şablonu ederek, IOT Central uygulamasına **cihaz şablonları** tıklayarak sayfasında **+ yeni**, seçerek**SensorTile.box** şablonu.
 
 ### <a name="get-your-device-connection-details"></a>Cihazınızı bağlantı ayrıntılarını Al
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **SensorTile.box** cihaz şablonu ve cihaz bağlantı ayrıntılarını not olun: **Kapsam kimliği, cihaz kimliği ve birincil anahtar**:
+Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **SensorTile.box** cihaz şablonu ve cihaz bağlantı ayrıntılarını not olun: **Kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar**:
 
 1. Device Explorer bir cihaz ekleyin. Seçin **+ yeni > gerçek** gerçek bir cihaz eklemek için.
 
     * Bir küçük harf girin **cihaz kimliği**, veya önerilen **cihaz kimliği**.
     * Girin bir **cihaz adı**, ya da önerilen adı kullanın
 
-    ![Cihaz Ekleme](media/howto-connect-sensortile/real-device.png)
+    ![Cihaz Ekle](media/howto-connect-sensortile/real-device.png)
 
 1. Cihaz bağlantı ayrıntılarını almak için **kapsam kimliği**, **cihaz kimliği**, ve **birincil anahtar**seçin **Connect** cihaz sayfasında.
 
@@ -47,7 +47,8 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **SensorTile.box**
 
 ## <a name="set-up-the-sensortilebox-with-the-mobile-application"></a>Mobil uygulama ile SensorTile.box ayarlama
 
-Bu bölümde, cihaza uygulama bellenim gönderme ve cihaz verilerini IOT Central ST BLO algılayıcı mobil uygulama üzerinden Bluetooth düşük enerji (etkinleştir) bağlantı yoluyla Gönder öğreneceksiniz.
+Bu bölümde, cihaza uygulama bellenim gönderme konusunda bilgi edinin. Ardından cihaz verilerini IOT Central Bluetooth düşük enerji (etkinleştir) bağlantısı kullanarak ST BLO algılayıcı mobil uygulamada gönderme.
+
 1. ST BLO algılayıcı uygulama açıp tuşuna **yeni uygulama oluştur** düğmesi.
 
     ![Uygulama oluştur](media/howto-connect-sensortile/create-app.png)
@@ -58,11 +59,12 @@ Bu bölümde, cihaza uygulama bellenim gönderme ve cihaz verilerini IOT Central
     ![Barometre karşıya yükleme](media/howto-connect-sensortile/barometer-upload.png)
 
 1. İle SensorTile.box ilişkili YÜRÜT düğmesine basın.
-1. İşlem tamamlandığında SensorTile.box BLO üzerinde sıcaklık, baskısı ve nem akış.
+1. İşlem tamamlandığında SensorTile.box BLO üzerinde sıcaklık, baskısı ve nem akışları.
 
 ## <a name="connect-the-sensortilebox-to-the-cloud"></a>SensorTile.box buluta bağlayın
 
-Bu bölümde SensorTile.box mobil uygulamaya bağlanmak ve mobil uygulamanızı buluta bağlayın öğreneceksiniz.
+Bu bölümde SensorTile.box mobil uygulamaya bağlanmak ve mobil uygulamanızı buluta bağlayın öğrenin.
+
 1. Sol menüyü kullanarak seçin **bulut günlüğü** düğmesi.
 
     ![Bulut günlüğü](media/howto-connect-sensortile/cloud-logging.png)
@@ -100,7 +102,6 @@ Aşağıdaki özelliklere sahip SensorTile.box cihaz şablondan oluşturulan bir
 | FFT_Y     |    |    |     |               |
 | FFT_Z     |    |    |     |               |
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT Central uygulamanıza bir SensorTile.box bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.
+Azure IOT Central uygulamanıza bir SensorTile.box bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir [nasıl bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.

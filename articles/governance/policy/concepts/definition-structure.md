@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716758"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506704"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -46,7 +46,7 @@ Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı yönelik öğ
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -114,7 +114,7 @@ Bir parametre ilke tanımında kullanılan aşağıdaki özelliklere sahiptir:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ Bir koşulu değerlendirir olup olmadığını bir **alan** veya **değer** eri�
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 Kullanırken **gibi** ve **notLike** koşullar, sağladığınız bir joker karakter `*` değerindeki değişikliği belirtir.
@@ -416,15 +420,25 @@ Değerlendirme, özellikler ve örnekler de sırasını her etkisi hakkında tü
 
 ### <a name="policy-functions"></a>İlke işlevleri
 
-Tüm [Resource Manager şablonu işlevleri](../../../azure-resource-manager/resource-group-template-functions.md) aşağıdaki işlevler hariç bir ilke kuralı içinde kullanmak kullanılabilir:
+Tüm [Resource Manager şablonu işlevleri](../../../azure-resource-manager/resource-group-template-functions.md) aşağıdaki işlevleri ve kullanıcı tanımlı işlevler dışında bir ilke kuralı içinde kullanmak kullanılabilir:
 
 - copyındex)
 - deployment()
 - Liste *
+- newGuid()
+- pickZones()
 - providers()
 - Reference()
 - resourceId()
 - variables()
+
+Aşağıdaki işlevleri, ilke kuralında kullanabilirsiniz, ancak bir Azure Resource Manager şablonu kullanımda farklı kullanılabilir:
+
+- addDays (dateTime, numberOfDaysToAdd)
+  - **dateTime**: [gerekli] dize - dize Evrensel ISO 8601 tarih saat biçiminde ' yyyy-aa-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [gerekli] tamsayı - eklenecek gün sayısı
+- utcNow() - aksine, bir Resource Manager şablonu, bu defaultValue dışında kullanılabilir.
+  - Geçerli tarih ve saat Evrensel ISO 8601 tarih saat biçiminde şekilde ayarlanan bir dize döndürür ' yyyy-aa-ddTHH:mm:ss.fffffffZ'
 
 Ayrıca, `field` işlevi ilke kuralları için kullanılabilir. `field` ile kullanılır **AuditIfNotExists** ve **Deployıfnotexists** değerlendirilmekte kaynak başvurusu alanlarında. Bu kullanım örneği görülebilir [Deployıfnotexists örnek](effects.md#deployifnotexists-example).
 

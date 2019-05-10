@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0e5dc73c1f24ccbc2032cecbb857587eb20c6806
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026215"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409069"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Cihaz: Roobo akıllı ses Dev Seti
 
@@ -69,7 +69,7 @@ Daha fazla geliştirme için bilgi [Roobo geliştirme Kılavuzu](http://dwn.roo.
 
 ## <a name="audio"></a>Ses
 
-Roobo bellek Flash tüm ses yakalayan bir araç sağlar. Ses sorunları gidermenize yardımcı olabilir. Aracı sürümü her Geliştirme Seti yapılandırması için sağlanır. Üzerinde [Roobo site](http://ddk.roobo.com/)Cihazınızı seçin ve ardından **Roobo Araçları** sayfanın alt kısmındaki bağlantı.
+Roobo bellek Flash tüm ses yakalayan bir araç sağlar. Ses sorunları gidermenize yardımcı olabilir. Aracı sürümü her Geliştirme Seti yapılandırması için sağlanır. Üzerinde [Roobo site](https://ddk.roobo.com/)Cihazınızı seçin ve ardından **Roobo Araçları** sayfanın alt kısmındaki bağlantı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60315652"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: TextMagic ile Azure Active Directory Tümleştirme
 
@@ -116,10 +116,10 @@ Azure AD çoklu oturum açma ile TextMagic yapılandırmak için aşağıdaki ad
 
     | Ad |   Kaynak özniteliği| Ad alanı  |
     | --------------- | --------------- | --------------- |
-    | Şirket | User.CompanyName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | FirstName               | User.givenName |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Soyadı            | User.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | telefon               | User.telephoneNumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Şirket | User.CompanyName | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | FirstName               | User.givenName |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Soyadı            | User.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | telefon               | User.telephoneNumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

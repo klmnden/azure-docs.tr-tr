@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363715"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472730"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IoT Hub’dan buluttan cihaza iletileri gönderme
 
@@ -71,10 +71,11 @@ Bkz: [bulut-cihaz yapılandırma seçenekleri](#cloud-to-device-configuration-op
 
 ## <a name="message-feedback"></a>İleti geri bildirim
 
-Hizmet, bulut buluttan cihaza ileti gönderme, ileti son durumu hakkında bir ileti başına geri bildirim teslim isteğinde bulunabilirsiniz.
+Hizmet, bulut buluttan cihaza ileti gönderme, ileti son durumu hakkında bir ileti başına geri bildirim teslim isteğinde bulunabilirsiniz. Bu ayarı gerçekleştirilir `iothub-ack` uygulama özelliği şu değerlerden birini gönderilen C2D iletisi:
 
-| ACK özelliği | Davranış |
+| ACK özellik değeri | Davranış |
 | ------------ | -------- |
+| **Yok**     | IOT hub'ı geri bildirim iletisi (varsayılan davranış) oluşturmaz. |
 | **Pozitif** | Bulut-cihaz ileti ulaşırsa **tamamlandı** durumunda, IOT hub'ı geri bildirim iletisi oluşturur. |
 | **Negatif** | Bulut-cihaz ileti ulaşırsa **kullanılmayan lettered** durumunda, IOT hub'ı geri bildirim iletisi oluşturur. |
 | **Tam**     | IOT hub'ı, her iki durumda da bir geri bildirim iletisi oluşturmayacaktır. |

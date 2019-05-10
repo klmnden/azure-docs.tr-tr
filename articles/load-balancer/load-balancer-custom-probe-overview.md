@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884767"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415692"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -30,7 +30,7 @@ Sistem durumu araştırmaları, birden çok protokolü destekler. Kullanılabili
 | | Standart SKU | Temel SKU |
 | --- | --- | --- |
 | [Araştırma türleri](#types) | TCP VE HTTP, HTTPS | TCP VE HTTP |
-| [Davranışı araştırma](#probedown) | Tüm araştırmaları, tüm TCP akışları devam edin. | Tüm araştırmaları aşağı tüm TCP akışları sonlandırın. | 
+| [Davranışı araştırma](#probedown) | Tüm araştırmaları, tüm TCP akışları devam edin. | Tüm araştırmaları aşağı tüm TCP akışlar sona erer. | 
 
 > [!IMPORTANT]
 > Yük Dengeleyici sistem durumu araştırmalarını 168.63.129.16 IP adresinden kaynaklanan ve örneğinizin işaretlemek araştırmaları için engellenen değil gerekir.  Gözden geçirme [araştırma kaynak IP adresi](#probesource) Ayrıntılar için.
@@ -178,7 +178,7 @@ Yük Dengeleyici, dağıtılmış bir yoklama hizmeti için kendi iç sistem dur
 
 Bu kaynak IP adresi AzureLoadBalancer hizmet etiketi tanımlar, [ağ güvenlik grupları](../virtual-network/security-overview.md) ve varsayılan olarak sistem durumu araştırması trafiğe izin verir.
 
-Yük Dengeleyici sistem durumu araştırmaları ek olarak, aşağıdaki işlemleri bu IP adresi kullanın:
+Yük Dengeleyici sistem durumu araştırmaları yanı sıra [aşağıdaki işlemleri bu IP adresi kullanın](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - VM platformu ile iletişim kurmak için bir "Hazır" durumunda olduğu sinyal aracısı sağlar
 - Özel DNS sunucuları tanımlamaz müşterilere filtrelenmiş ad çözümlemesi sağlamak için DNS sanal sunucu ile iletişimi sağlar.  Bu filtreleme müşteriler bunların dağıtım ana bilgisayar adları yalnızca çözümleyebilmesini sağlar.

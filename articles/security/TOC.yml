@@ -67,27 +67,29 @@
                 - name: Microsoft Azure Sanal Makine Ölçek Kümeleri uzantı sıralaması ile disk şifreleme
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: Disk şifreleme için ek
-              href: azure-security-disk-encryption-appendix.md
-            - name: Disk şifrelemesi hakkında SSS
-              href: azure-security-disk-encryption-faq.md
-            - name: Sorun giderme
-              href: azure-security-disk-encryption-tsg.md
-            - name: Azure AD uygulaması (önceki sürüm) ile Azure Disk Şifrelemesi
-              displayName: active directory
-              items:
-                - name: Azure AD uygulaması önkoşulları ile disk şifrelemesi
+                  href: azure-security-disk-encryption-appendix.md
+                - name: Disk şifrelemesi hakkında SSS
+                  href: azure-security-disk-encryption-faq.md
+                - name: Sorun giderme
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Azure AD uygulaması (önceki sürüm) ile Azure Disk Şifrelemesi
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: Windows VM’ler için Azure AD uygulaması ile disk şifrelemesi
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: Linux VM’ler için Azure AD uygulaması ile disk şifrelemesi
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: Azure AD uygulaması önkoşulları ile disk şifrelemesi
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: Windows VM’ler için Azure AD uygulaması ile disk şifrelemesi
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: Linux VM’ler için Azure AD uygulaması ile disk şifrelemesi
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Azure Depolama güvenliği
       href: security-storage-overview.md
     - name: Depolama güvenliği kılavuzu
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Müşteri Kasası
+      href: azure-customer-lockbox-overview.md
 - name: Platform ve altyapı
   items:
     - name: Altyapı güvenliği

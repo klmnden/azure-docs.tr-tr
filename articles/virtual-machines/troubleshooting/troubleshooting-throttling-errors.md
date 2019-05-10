@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445392"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233773"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API azaltma hatalarının sorunlarını giderme 
 
@@ -80,7 +80,7 @@ Yukarıda gösterildiği gibi her kısıtlama hatası içerir `Retry-After` sani
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API çağrısı oranı ve azaltma hata Çözümleyicisi
 Bir sorun giderme özelliğini bir önizleme sürümünü işlem kaynak sağlayıcısı API'si için kullanılabilir. Bu PowerShell cmdlet'lerini işlemi her zaman aralığını ve azaltma ihlalleri her işlem grubu (ilke) başına API istek hızı hakkında istatistikler sağlar:
 -   [Dışarı aktarma AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Dışarı aktarma AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-   [Dışarı aktarma AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 API çağrısı istatistikleri, bir aboneliğin istemci davranışını harika Öngörüler sağlar ve azaltma neden arama desenlerinin kolay tanımayı etkinleştirin.
 
@@ -89,7 +89,7 @@ Bir anda Çözümleyicisi (desteklemek üzere yönetilen diskler) disk ve anlık
 PowerShell cmdlet'leri (desteğiyle hiç biçimsel ancak henüz) doğrudan istemcileri tarafından kolayca çağrılabilen REST hizmeti API'si kullanmaktadır. Cmdlet'leri HTTP istek biçimini görmek için bunların yürütme Fiddler ile hata ayıklama anahtarı veya gözetleme - ile çalıştırın.
 
 
-## <a name="best-practices"></a>En iyi uygulamalar 
+## <a name="best-practices"></a>En iyi yöntemler 
 
 - Azure hizmet API hatalarını koşulsuz olarak ve/veya hemen yeniden denemeyin. Yeniden deneme mümkün olmayan bir hata ile karşılaşıldığında hızlı yeniden deneme döngüsünde almak için istemci kodu buna yaygın bir durumdur. Yeniden deneme sonunda hedef işlem grubu için izin verilen çağrısı sınırı tüketebilir ve diğer istemciler aboneliğin etkiler. 
 - Yüksek hacimli API Otomasyon durumlarda, bir hedef işlem grubu için kullanılabilir çağrı sayısı düşük bazı eşiğinin altına düştüğünde proaktif istemci-tarafı Self kısıtlama uygulama göz önünde bulundurun. 

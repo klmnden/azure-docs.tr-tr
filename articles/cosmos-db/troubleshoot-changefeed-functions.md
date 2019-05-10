@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404727"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510536"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Tanılama ve Azure Cosmos DB tetikleyicisi Azure işlevleri'nde kullanırken sorunlarını giderme
 
@@ -27,17 +27,19 @@ Azure Cosmos DB tetikleyicisini ve bağlamalarını uzantı paketleri temel Azur
 
 Çalışma zamanı belirtildiği zaman, bu makalede açıkça belirtilmediği sürece her zaman Azure işlevler V2'ye başvuracaktır.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>Bağlamalar ve tetikleyici listesinden Cosmos DB SDK'sını kullanma
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Bağımsız olarak Azure Cosmos DB SDK'sını kullanma
 
 Uzantı paketinin temel işlevselliğini bağlamaları ve Azure Cosmos DB tetikleyicisi için destek sağlamaktır. Ayrıca [Azure Cosmos DB .NET SDK'sı](sql-api-sdk-dotnet-core.md), Azure Cosmos DB ile tetikleyicisini ve bağlamalarını kullanmadan program aracılığıyla etkileşim kurmak istiyorsanız yararlı olduğu.
 
-Varsa Azure Cosmos DB SDK'sını kullanmak istediğiniz başka bir NuGet paketi başvurusu projenize eklemeyin emin olun. Bunun yerine, **Azure işlevleri uzantı paketi çözmek SDK başvurusu izin**.
+Varsa Azure Cosmos DB SDK'sını kullanmak istediğiniz başka bir NuGet paketi başvurusu projenize eklemeyin emin olun. Bunun yerine, **Azure işlevleri uzantı paketi çözmek SDK başvurusu izin**. Bağlamalar ve tetikleyici listesinden Azure Cosmos DB SDK'sını kullanma
 
 Ayrıca, kendi örneğini el ile oluşturuyorsanız [Azure Cosmos DB SDK istemcisi](./sql-api-sdk-dotnet-core.md), istemci yalnızca bir örneği olan desenini izlemelidir [bir Singleton deseni yaklaşımı kullanarak](../azure-functions/manage-connections.md#documentclient-code-example-c) . Bu işlem, işlemlerinizin içinde olası yuva sorunlarından kurtulursunuz.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Bilinen yaygın senaryolar ve geçici çözümler
+## <a name="common-scenarios-and-workarounds"></a>Yaygın senaryolar ve geçici çözümler
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Azure işlevi, hata iletisi ile başarısız oluyor "ya da kaynak koleksiyonu 'koleksiyon-adı' ('veritabanı adı' veritabanında) veya 'collection2-name' ('Veritabanı2-name' veritabanında) kira koleksiyonu yok. Her iki koleksiyon dinleyici başlamadan önce mevcut olması gerekir. Otomatik olarak kira koleksiyonu oluşturmak için 'CreateLeaseCollectionIfNotExists' 'true' olarak Ayarla"
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure işlevi başarısız olduğunda hata iletisi koleksiyonuyla yok
+
+Azure işlevi, hata iletisi ile başarısız oluyor "ya da kaynak koleksiyonu 'koleksiyon-adı' ('veritabanı adı' veritabanında) veya 'collection2-name' ('Veritabanı2-name' veritabanında) kira koleksiyonu yok. Her iki koleksiyon dinleyici başlamadan önce mevcut olması gerekir. Otomatik olarak kira koleksiyonu oluşturmak için 'CreateLeaseCollectionIfNotExists' 'true' olarak Ayarla"
 
 Bu, bir veya tetikleyici çalışması gerekli Azure Cosmos kapsayıcıları her ikisi de mevcut değil veya Azure işlevi için erişilebilir durumda olmadığı anlamına gelir. **Hangi Azure Cosmos veritabanı hata bildirir ve kapsayıcılar olan aranırken tetikleyici** yapılandırmanızı temel alarak.
 
@@ -78,7 +80,8 @@ Bazı değişiklikler hedefte eksik olduğunda, bu, değişiklikleri alınan son
 
 Bu senaryoda en iyi eylem planını eklemektir `try/catch blocks` öğelerinin belirli bir alt kümesi için herhangi bir hata algılama ve bunları uygun şekilde işlemek için değişiklikleri işleme döngü içindeydi ve kodunuzda (başka bir depolama için başka şirketlerde Analiz veya yeniden deneme). 
 
-> **İşlenmeyen bir özel durum varsa Azure Cosmos DB tetikleyicisi, varsayılan olarak, toplu değişiklikler yeniden olmaz** , kod yürütme sırasında. Bu değişiklikler hedefte ulaşmasını değil neden olduğundan bunları işlemekte başarısız olan anlamına gelir.
+> [!NOTE]
+> Azure Cosmos DB tetikleyicisi, kod yürütülürken işlenmeyen bir özel durum oluştuysa varsayılan olarak, toplu değişiklikler yeniden olmaz. Bu değişiklikler hedefte ulaşmasını değil neden olduğundan bunları işlemekte başarısız olan anlamına gelir.
 
 İse, bulma, bazı değişiklikler, tetikleyici tarafından hiç alınmadı, en sık karşılaşılan bir senaryodur olan **başka bir Azure işlevi çalışan**. Azure'da dağıtılan başka bir Azure işlevi olabilir veya yerel olarak Geliştirici makine çalıştıran bir Azure işlevi olan **tam olarak aynı yapılandırmayı** (aynı izlenen ve kira kapsayıcılar) ve bu Azure işlevi çalarak bir Azure işlevinizi işlenecek beklediğiniz değişiklikleri alt kümesi.
 

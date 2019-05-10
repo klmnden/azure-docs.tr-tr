@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146136"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236934"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Öğretici: PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
 
@@ -21,7 +21,7 @@ Hizmet sorumluları belirli bir amaç için rolleri ve izinleri atamak için Azu
 - Belirli Windows sanal masaüstü yönetim görevlerini otomatikleştirin
 - Herhangi bir Windows sanal masaüstü Azure Resource Manager şablonu çalıştırılırken yerine kullanıcıları MFA gerekli kimlik bilgilerini kullanın
 
-Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * Azure Active Directory'de hizmet sorumlusu oluşturma
@@ -38,7 +38,7 @@ Hizmet sorumluları ve rol atamaları oluşturmadan önce üç şey yapmanız ge
     Install-Module AzureAD
     ```
 
-2. Teklif oturumunuza geçerli değerleri yerine değerleri aşağıdaki cmdlet'leri çalıştırın.
+2. Teklif oturumunuza geçerli değerleri yerine değerleri aşağıdaki cmdlet'leri çalıştırın. Yalnızca Windows sanal masaüstü kiracınızdan oluşturduysanız [Windows sanal masaüstü öğreticide bir kiracı oluşturmanız](./tenant-setup-azure-active-directory.md), ardından "Varsayılan Kiracı grubu" Kiracı grubu adınız kullanın.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Not üç kimlik bilgilerini ve bunları almak için çalıştırmak için ihtiya
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir hizmet sorumlusu oluşturma ve Windows sanal masaüstü ile oturum açma öğrendiniz. Windows sanal masaüstü oturum açma hakkında daha fazla bilgi için Windows sanal masaüstü bilgi belgeleri Bağlan devam edin.
+Hizmet sorumlusu oluşturup Windows sanal masaüstü kiracınızda bir rolü atanmış bir konak havuzu oluşturmak için kullanabilirsiniz. Ana bilgisayar havuzları hakkında daha fazla bilgi için Windows sanal masaüstü konak havuzu oluşturmak için öğreticisiyle devam edin.
 
-- [Windows 10 veya Windows 7 bağlanın](connect-windows-7-and-10.md)
-- [Bir web tarayıcısından bağlanma](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Windows sanal masaüstü konak havuzu Öğreticisi](./create-host-pools-azure-marketplace.md)

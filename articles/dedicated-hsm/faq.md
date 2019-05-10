@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118987"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467732"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
@@ -74,10 +74,10 @@ Geç Mart 2019'den itibaren ayrılmış HSM aşağıda listelenen 14 bölgede ku
 * Doğu Asya
 * Kuzey Avrupa
 * Batı Avrupa
-* Birleşik Krallık Güney
-* Birleşik Krallık Batı
-* Orta Kanada
-* Doğu Kanada
+* BK Güney
+* BK Batı
+* Kanada Orta
+* Kanada Doğu
 * Avustralya Doğu
 * Avustralya Güneydoğu
 
@@ -183,7 +183,7 @@ Bir müşteri, HSM etkinlik günlükleri syslog ve SNMP aracılığıyla tam eri
 
 Evet. Bir syslog sunucusuna HSM Gereci günlüklerini gönderebilirsiniz
 
-## <a name="high-availability"></a>Yüksek kullanılabilirlik
+## <a name="high-availability"></a>Yüksek oranda kullanılabilirlik
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>S: Aynı bölgedeki veya birden çok bölgede yüksek kullanılabilirlik yapılandırmak mümkündür?
 
@@ -233,7 +233,7 @@ Microsoft, müşterilere ayrılmış HSM'ler için bağlantı özelliği yok. M�
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>S: Peki my HSM yeniden başlatma gerekecek?
 
- Bir komut satırı yeniden başlatma seçeneğini HSM vardır ve "donanımdan önyükleme" seçeneği kullanılmalıdır unutulmamalıdır. Bu herhangi bir nedenle başarısız olursa, Microsoft ile bir destek isteği oluşurun ve fiziksel olarak yeniden cihaz sahibiz. 
+Bir komut satırı yeniden başlatma seçeneğini HSM var, ancak biz yeniden başlatma işlemi yanıt vermemeye sorun aralıklı olarak yaşayan ve güvenli için önerilir, bu nedenle yeniden cihaza fiziksel olarak yeniden sağlamak için Microsoft ile bir destek isteği oluşturun. 
 
 ## <a name="cryptography-and-standards"></a>Şifreleme ve standartları
 

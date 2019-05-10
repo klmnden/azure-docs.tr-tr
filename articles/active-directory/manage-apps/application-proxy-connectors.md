@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293056"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406504"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -29,7 +29,7 @@ Bağlayıcılar, şirket içi yaslanın ve uygulama proxy'si Hizmeti giden bağl
 
 ## <a name="requirements-and-deployment"></a>Gereksinimler ve dağıtım
 
-Uygulama proxy'si başarıyla dağıtmak için en az bir bağlayıcı gerekir, ancak iki veya daha fazla dayanıklılık için daha fazla öneririz. Bağlayıcı, Windows Server 2012 R2 veya 2016 makinesine yükleyin. Yayımladığınız şirket içi uygulamalar ve uygulama proxy'si hizmeti ile iletişim kurmak bağlayıcıyı gerekir. 
+Uygulama proxy'si başarıyla dağıtmak için en az bir bağlayıcı gerekir, ancak iki veya daha fazla dayanıklılık için daha fazla öneririz. Bağlayıcı'yı Windows Server 2012 R2 çalıştıran bir makineye yüklemek veya üzeri. Yayımladığınız şirket içi uygulamalar ve uygulama proxy'si hizmeti ile iletişim kurmak bağlayıcıyı gerekir. 
 
 ### <a name="windows-server"></a>Windows server
 Windows Server 2012 R2 çalıştıran bir sunucuya ihtiyacınız veya daha sonra uygulama ara sunucusu Bağlayıcısı'nı yükleyebilirsiniz. Azure'da uygulama ara sunucusu hizmetlerini ve yayımlamakta şirket içi uygulamalara bağlanmak sunucunun gerekir.
@@ -89,7 +89,7 @@ Bağlayıcı grupları hakkında daha fazla bilgi için bkz: [ayrı ağlar ve ko
 
 Beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapasite planladığınızdan emin olmak önemlidir. Genel, sahip olduğunuz daha fazla kullanıcı, daha büyük içinde bir makine gerekir. Farklı makineler birimin bir özetini veren bir tablo işleyebilir aşağıdadır. Tüm beklenen işlem başına ikinci (TPS üzerinde) temel kullanım bu yana bir kullanıcı tarafından desenleri değişir ve yük tahmin kullanılamaz yerine unutmayın. Ayrıca yanıtları ve arka uç uygulama yanıt süresini boyutuna bağlı olarak bazı farklılıklar da olacaktır - büyük yanıt boyutu ve daha yavaş yanıt süresi daha düşük bir maksimum TPS neden olur. Böylece makinelerdeki dağıtılmış yük yaklaşık % 50 ek makineler olması önerilir. Ek kapasite, yüksek kullanılabilirlik ve dayanıklılığı sahip olmanızı sağlar.
 
-|Çekirdek|RAM|Gecikme süresi (MS) bekleniyordu-P99|En fazla TPS|
+|Çekirdekler|RAM|Gecikme süresi (MS) bekleniyordu-P99|En fazla TPS|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
@@ -103,7 +103,7 @@ Beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapa
 
 ## <a name="security-and-networking"></a>Güvenlik ve ağ özellikleri
 
-Bağlayıcılar için uygulama proxy'si hizmeti istekleri göndermesine izin veren ağ her yerden yüklenebilir. Önemli olan, ayrıca bağlayıcıyı çalıştıran bilgisayarın uygulamalarınıza erişim sahip olur. Bağlayıcılar, Kurumsal ağınızın içinde veya bulutta çalışan bir sanal makine üzerinde yükleyebilirsiniz. Bağlayıcılar bir (DMZ) arındırılmış bölge içinde çalıştırabilirsiniz, ancak tüm trafik ağınıza güvenli kalmasını giden olduğu için gerekli değildir.
+Bağlayıcılar için uygulama proxy'si hizmeti istekleri göndermesine izin veren ağ her yerden yüklenebilir. Önemli olan, ayrıca bağlayıcıyı çalıştıran bilgisayarın uygulamalarınıza erişim sahip olur. Bağlayıcılar, Kurumsal ağınızın içinde veya bulutta çalışan bir sanal makine üzerinde yükleyebilirsiniz. Bağlayıcılar bir sivil bölge (DMZ) olarak da bilinen bir çevre ağ içinde çalıştırabilirsiniz ancak ağınızın güvenliğini korumak için tüm trafik gidendir çünkü gerekli değildir.
 
 Bağlayıcılar, yalnızca giden istekler gönderin. Giden trafik uygulama proxy'si hizmeti ve yayımlanan uygulamalara gönderilir. Oturum kurulduktan sonra iki yolu vardır ve trafik akışları için gelen bağlantı noktalarını açmanız gerekmez. Ayrıca, güvenlik duvarları üzerinden gelen erişimi yapılandırmak gerekmez. 
 

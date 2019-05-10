@@ -19,7 +19,7 @@ sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
-        text: Azure’da mantıksal uygulama oluşturmayı öğrenin.
+        text: Azure’da çalışan mantıksal uygulama oluşturmayı öğrenin.
       - type: list
         style: icon48
         items:
@@ -27,6 +27,14 @@ sections:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
             text: Azure portal
             href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Visual Studio
+            href: /azure/logic-apps/quickstart-create-logic-apps-with-visual-studio
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Visual Studio Code
+            href: /azure/logic-apps/quickstart-create-logic-apps-visual-studio-code
   - title: Adım Adım Öğreticiler
     items:
       - type: paragraph

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025786"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236994"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Konuşma cihaz SDK'sı mikrofon dizi önerileri
 
@@ -29,9 +29,11 @@ Aşağıdaki dizi geometriler Microsoft ses Stack ile kullanmak için önerilir.
 
 |          | Döngüsel bir dizi    |       |  Doğrusal bir dizi              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 MIC döngüsel dizi](media/speech-devices-sdk/7-mic-c.png)|![4 MIC döngüsel dizi](media/speech-devices-sdk/4-mic-c.png)|![4 MIC doğrusal dizisi](media/speech-devices-sdk/4-mic-l.png)|![2. MIC doğrusal dizisi](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Mikrofon  | 7                 | 4                 | 4              | 2              |
 | Geometri | 6 dış 1 Merkezi, RADIUS eşit aralıklı 42,5 aa =| 3 dış 1 Merkezi, RADIUS eşit aralıklı 42,5 aa = | Uzunluğu 120 aa = aralığı 40 aa = | Aralık 40 aa = |
+
+Mikrofon kanalları her dizi 0'dan artırılması, yukarıda gösterilen numaralandırmayı göre sıralanmalıdır.  Ses çalma yankı iptali gerçekleştirmek için bir diğer başvuru akışını Microsoft ses yığını gerektirir.
 
 ## <a name="component-selection"></a>Bileşen Seçimi
 
@@ -110,4 +112,4 @@ Yüksek hızlı USB ses sınıfı 2.0 için gerekli bant genişliğini daha yük
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> Daha fazla bilgi edinin [konuşma cihaz SDK'sı](speech-devices-sdk.md)
+> [Konuşma cihaz SDK'sı hakkında daha fazla bilgi edinin](speech-devices-sdk.md)

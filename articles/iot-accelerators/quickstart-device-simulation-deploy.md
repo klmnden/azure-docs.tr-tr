@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 0fcd688c9e5164522a482a4375c524a97a48d400
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105693"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467871"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Hızlı Başlangıç: Dağıtın ve bir IOT cihaz benzetimi Azure'da çalıştırın
 
@@ -36,7 +36,7 @@ Azure hesabınızın kimlik bilgilerini kullanarak [azureiotsolutions.com](https
 
 Cihaz Benzetimi açıklama sayfasındaki **Şimdi Deneyin**’e tıklayın:
 
-![Şimdi Deneyin öğesine tıklayın](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![Şimdi Deneyin öğesine tıklayın](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 **Cihaz Benzetimi çözümü oluşturun** sayfasına benzersiz bir **Çözüm adı** girin.
 
@@ -58,7 +58,7 @@ Hazırlama işlemi tamamlandığında **Başlat**’a tıklayarak kendi Cihaz Be
 
 İlk açıldığında **Başlarken** kılavuzunun bulunduğu Cihaz Benzetimi panosunu görürsünüz. Örnek benzetimi açmak için ilk kutucuğa tıklayın. **Başlarken** kılavuzunu kapatırsanız **Örnek Basit Benzetim**’i kutucuğuna tıklayarak panodan açabilirsiniz:
 
-![Çözüm panosu](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![Çözüm panosu](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## <a name="sample-simulation"></a>Örnek Benzetim
 
@@ -72,7 +72,7 @@ Hazırlama işlemi tamamlandığında **Başlat**’a tıklayarak kendi Cihaz Be
 | Telemetri sıklığı | 10 saniye                  |
 | Benzetim süresi | Süresiz olarak çalıştır            |
 
-![Benzetim yapılandırması](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![Benzetim yapılandırması](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## <a name="run-the-simulation"></a>Benzetimi çalıştırma
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 39e0547421c446c1ee48b93b30487ccb9358de02
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192083"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508016"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Azure CNI ağı yapılandırma
 
@@ -62,13 +62,22 @@ Pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını 110 ' dir
 
 | Dağıtım yöntemi | Kubernetes varsayılan | Azure CNI varsayılan | Dağıtım sırasında yapılandırılabilir |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | Evet (en fazla 250) |
+| Azure CLI'si | 110 | 30 | Evet (en fazla 250) |
 | Resource Manager şablonu | 110 | 30 | Evet (en fazla 250) |
 | Portal | 110 | 30 | Hayır |
 
 ### <a name="configure-maximum---new-clusters"></a>Maksimum - yeni kümeleri yapılandırma
 
-Pod'ların düğüm başına en fazla sayısını yapılandırabilirsiniz *küme dağıtım sırasında yalnızca*. Azure CLI veya Resource Manager şablonu ile dağıtırsanız, maksimum pod'ların her düğüm değeri 250 yüksek olarak ayarlayabilirsiniz.
+Pod'ların düğüm başına en fazla sayısını yapılandırabilirsiniz *küme dağıtım sırasında yalnızca*. Azure CLI veya Resource Manager şablonu ile dağıtırsanız, aşağıdaki içinde gerektiğinde maksimum pod'ların her düğüm değeri ayarlayabilirsiniz `maxPods` yönergeleri:
+
+| Ağ | Minimum | Maksimum |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubernetes | 30 | 110 |
+
+> [!NOTE]
+> Yukarıdaki tabloda en küçük değerin kesinlikle AKS hizmeti tarafından zorlanır.
+Bir maxPods değer yapmak böylece küme başlamasını engelleyebilir olarak gösterilen en küçük ayarlanamaz.
 
 * **Azure CLI**: Belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma] [ az-aks-create] komutu. En yüksek değer 250'dir.
 * **Resource Manager şablonu**: Belirtin `maxPods` özelliğinde [ManagedClusterAgentPoolProfile] bir Resource Manager şablonu ile bir küme dağıtılırken nesne. En yüksek değer 250'dir.

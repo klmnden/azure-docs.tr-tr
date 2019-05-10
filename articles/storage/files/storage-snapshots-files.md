@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708089"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235806"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure dosyaları için paylaşım anlık görüntülerine genel bakış 
 Azure dosyaları, dosya paylaşımları paylaşım anlık görüntüsünü olanağı sağlar. Anlık görüntüleri yakalama paylaşım durumu zamandaki o noktada paylaşın. Bu makalede, hangi özelliklerin paylaşım anlık görüntüleri sağlar ve bunları kendi özel kullanım örneğindeki özelliklerinden nasıl gerçekleştirebileceğiniz açıklanmaktadır.
@@ -40,7 +40,7 @@ Paylaşım anlık görüntü özelliği, dosya paylaşımı düzeyinde sağlanı
 
 Bir dosya paylaşımının paylaşım anlık görüntüsü, kendi temel dosya paylaşımına aynıdır. Tek fark bir **DateTime** değeri, paylaşım için paylaşım anlık görüntünün alındığı zaman göstermek için URI eklenir. Örneğin, URI bir dosya paylaşımı ise http://storagesample.core.file.windows.net/myshare, URI benzer paylaşım anlık görüntüsü:
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Paylaşım anlık görüntüleri kalıcı olarak açıkça silinene kadar. Paylaşım anlık görüntüsü, kendi temel dosya paylaşımı daha uzun sürmesi olamaz. Geçerli anlık görüntüleriniz izlemek için temel dosya paylaşımıyla ilişkili anlık görüntüleri sıralayabilirsiniz. 

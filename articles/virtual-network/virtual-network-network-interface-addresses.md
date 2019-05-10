@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a6635b811dfa9c46facfffee1c57b2871cb4c738
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719712"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506369"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -175,7 +175,7 @@ Genel ve özel IP adresleri atama aşağıdaki yöntemlerden birini kullanarak a
 (İsteğe bağlı olarak), bir IP yapılandırmasına bir genel veya özel statik IPv4 adresi atayabilirsiniz. Bir IP yapılandırması için statik bir genel veya özel IPv6 adresi atanamıyor. Azure'nın statik genel IPv4 adreslerinin nasıl atar hakkında daha fazla bilgi için bkz: [genel IP adresleri](virtual-network-public-ip-address.md).
 
 - **Yalnızca genel**: Azure, her bir Azure bölgesine adresi benzersiz aralıktan atar. Azure [Genel](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [Çin](https://www.microsoft.com/download/details.aspx?id=57062) ve [Almanya](https://www.microsoft.com/download/details.aspx?id=57064) bulutları için bu aralıkların (ön ekler) listesini indirebilirsiniz. Dinamik atama yöntemini değişmesi veya atanan genel IP adresi kaynağı silinmiş kadar adresi değişmez. Genel IP adresi kaynağına bir IP yapılandırmasıyla ilişkili ise, atama yöntemi değiştirmeden önce IP yapılandırmasından ilişkisi olmalıdır.
-- **Yalnızca özel**: Seçin ve alt ağın adres aralığından bir adresi atayabilirsiniz. Alt ağ adres aralığından atadığınız adres, alt ağa adres aralığının ilk dört adresi dışında kalan ve şu anda alt ağda başka bir kaynağa atanmamış olan herhangi bir adres olabilir. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
+- **Yalnızca özel**: Seçin ve alt ağın adres aralığından bir adresi atayabilirsiniz. Alt ağ adres aralığından atadığınız adres, alt ağa adres aralığının ilk dört adresi dışında kalan ve şu anda alt ağda başka bir kaynağa atanmamış olan herhangi bir adres olabilir. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini statik olarak değiştirirseniz, adres alt ağ adres aralığında sonraki kullanılabilir adres olmasa bile Azure daha önce atanan dinamik IP adresi dinamik olarak statik adres olarak atar. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
 
 ## <a name="ip-address-versions"></a>IP adresi sürümleri
 

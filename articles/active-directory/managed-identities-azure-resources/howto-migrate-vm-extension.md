@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440841"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406781"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Sanal makineyi durdurmak nasıl yönetilen kimlikleri uzantısı ve Azure örnek meta veri hizmeti kullanmaya başlayın
 
@@ -35,7 +35,7 @@ Sonraki bölümde açıklanan tüm sınırlamaları nedeniyle, yönetilen kimlik
 
 ### <a name="provision-the-extension"></a>Uzantı sağlama 
 
-Bir sanal makine veya sanal makine ölçek kümesi yönetilen bir kimlik sağlamak için yapılandırdığınızda, isteğe bağlı olabilir karar isteğe bağlı olarak VM uzantısıyla Azure kaynakları için yönetilen kimlikleri sağlamak için seçtiğiniz `-Type` parametresi[ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet'i. Geçirebilirsiniz `ManagedIdentityExtensionForWindows` veya `ManagedIdentityExtensionForLinux`, sanal makine türüne bağlı olarak ve kullanarak ad `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
+Bir sanal makine veya sanal makine ölçek kümesi yönetilen bir kimlik sağlamak için yapılandırdığınızda, isteğe bağlı olarak VM uzantısıyla Azure kaynakları için yönetilen kimlikleri sağlamak seçebilirsiniz `-Type` parametresi [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet'i. Geçirebilirsiniz `ManagedIdentityExtensionForWindows` veya `ManagedIdentityExtensionForLinux`, sanal makine türüne bağlı olarak ve kullanarak ad `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -95,7 +95,7 @@ Sanal makine ölçek sağlamak üzere Azure Resource Manager dağıtım şablonu
 
 Sanal makine uzantısı sağlanıyor DNS arama hataları nedeniyle başarısız olabilir. Bu durumda, sanal makineyi yeniden başlatın ve yeniden deneyin. 
 
-### <a name="remove-the-extension"></a>Uzantıyı kaldırma 
+### <a name="remove-the-extension"></a>Uzantıyı kaldırın 
 Uzantıyı kaldırmak için `-n ManagedIdentityExtensionForWindows` veya `-n ManagedIdentityExtensionForLinux` anahtarı (sanal makine türünü bağlı olarak) [az vm uzantısı silme](https://docs.microsoft.com/cli/azure/vm/), veya [az vmss uzantısı silme](https://docs.microsoft.com/cli/azure/vmss) için sanal makine ölçek Azure CLI kullanarak ayarlar veya `Remove-AzVMExtension` Powershell için:
 
 ```azurecli-interactive

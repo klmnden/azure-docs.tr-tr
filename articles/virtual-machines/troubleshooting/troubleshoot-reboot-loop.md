@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318989"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472286"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM'de Windows başlatma döngüsünde
 Bu makalede, Microsoft azure'da Windows sanal makine (VM) üzerinde karşılaşabileceğiniz başlatma döngüsünde açıklanır.
@@ -102,6 +102,8 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
 Sanal Makinenin bilinen son iyi yapılandırmaya geri yükleme, adımları [bilinen son iyi yapılandırma ile Azure Windows VM başlatma](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Çözüm nedeni 3
+>[!NOTE]
+>Aşağıdaki yordam, yalnızca son kaynak olarak kullanılmalıdır. Regback geri erişim makineye geri, ancak veri kayıt defteri kovanı zaman damgası ve geçerli gün arasında kayıp olduğundan işletim sistemi kararlı olarak kabul edilmez. Yeni bir VM oluşturun ve veri taşımak için ilave planlar yapmanıza gerek.
 
 1. Bir sorun giderme sanal makinesine disk bağlandıktan sonra disk olarak işaretlenmiş emin olun **çevrimiçi** Disk Yönetimi Konsolu'nda.
 
@@ -113,5 +115,4 @@ Sanal Makinenin bilinen son iyi yapılandırmaya geri yükleme, adımları [bili
 
 5. [İşletim sistemi diskinden yeni bir VM oluşturmak](../windows/create-vm-specialized.md).
 
->[!NOTE]
->Aşağıdaki yordam, yalnızca son kaynak olarak kullanılmalıdır. Regback geri erişim makineye geri, ancak veri kayıt defteri kovanı zaman damgası ve geçerli gün arasında kayıp olduğundan işletim sistemi kararlı olarak kabul edilmez. Yeni bir VM oluşturun ve veri taşımak için ilave planlar yapmanıza gerek.
+

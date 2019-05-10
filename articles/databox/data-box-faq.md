@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/25/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: c9cef479c1d4af55ae58c61a07ff1d5348ed7183
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868254"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473258"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 
@@ -36,12 +36,12 @@ Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
 A.  Azure Data Box hizmeti, çevrimdışı veri alımı için tasarlanmıştır. Bu hizmet tamamı veri aktarımı için tasarlanmış olan farklı depolama kapasitelerine sahip ürün dizisini yönetir. 
 
 ### <a name="q-what-is-azure-data-box"></a>S. Azure Data Box nedir?
-A. Azure Data Box terabaytlarca veriyi Azure'da çift yönlü olarak hızlı, uygun maliyetli ve güvenli bir şekilde aktarmanızı sağlar. Data Box cihazını Azure portalı üzerinden sipariş edersiniz. Microsoft, 80 TB kullanılabilir kapasite bölgesel bir taşıyıcı aracılığıyla bir depolama cihazı olarak gelir. 
+A. Azure Data Box hızlı, ucuz ve azure'a güvenli terabaytlarca veri aktarımı sağlar. Data Box cihazını Azure portalı üzerinden sipariş edersiniz. Microsoft, 80 TB kullanılabilir kapasite bölgesel bir taşıyıcı aracılığıyla bir depolama cihazı olarak gelir. 
 
 Cihaz size ulaştıktan sonra, yerel web kullanıcı arabirimini kullanarak cihazı hızla ayarlayabilirsiniz. Sunucularınızdaki verileri cihaza kopyalayın ve cihazı Azure'a geri gönderin. Azure veri merkezinde, verileriniz cihazdan Azure'a otomatik olarak yüklenir. Sürecin tamamı Azure portaldaki Data Box hizmeti tarafından uçtan uca izlenir.
 
 ### <a name="q-when-should-i-use-data-box"></a>S. Data Box'ı ne zaman kullanmalıyım?
-A. Azure'a aktarmak istediğiniz 40-500 TB arası veriniz varsa Data Box'tan faydalanabilirsiniz. 40 TB'ın altındaki veriler için Data Box Disk'i kullanabilir, 500 TB'ın üzerindeki veriler için ise Data Box Heavy'ye kaydolabilirsiniz.
+A. Azure'a aktarmak istediğiniz 40-500 TB arası veriniz varsa Data Box'tan faydalanabilirsiniz. Veri boyutları < 40 TB, Data Box Disk kullanın ve > 500 TB veri boyutları için kaydolmaya [veri kutusu ağır](data-box-heavy-overview.md).
 
 ### <a name="q-what-is-the-price-of-data-box"></a>S. Data Box'ın maliyeti nedir?
 A. Data Box için 10 gün boyunca nominal bir ücret tahsil edilir. Azure portalda sipariş oluştururken ürün modelini seçme aşamasında cihaz ücretleri görüntülenir. Sevkiyat da ücretsizdir ancak Azure depolama ücretleri tahsil edilecektir. Daha fazla bilgi için bkz. [Azure Data Box fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/databox/). 
@@ -124,7 +124,7 @@ A. Azure portalda kilit açma parolasına erişemiyorsanız aboneliğinizin ve d
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>S. Bağlantı noktası kanalı yapılandırması üzerinde Data Box destekleniyor mu? MPIO ne dersiniz?
 A. Bağlantı noktası kanalı yapılandırma, çok yollu GÇ (MPIO) yapılandırması veya vLAN yapılandırması üzerinde Data Box desteklemiyoruz.
 
-## <a name="track-status"></a>Durumu izleme
+## <a name="track-status"></a>Durumu izle
 
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>S. Data Box'ı geri göndermek için sipariş oluşturduktan sonra cihazı nasıl takip edebilirim? 
 A.  Data Box siparişinin durumunu Azure portaldan takip edebilirsiniz. Siparişi oluşturduğunuzda bildirimlerin gönderileceği bir e-posta adresi girmeniz de istenir. E-posta adresi girdiyseniz sipariş durumundaki tüm değişiklikler bu adrese gönderilir. [Bilgilendirme e-postalarını yapılandırma](data-box-portal-ui-admin.md#edit-notification-details) hakkında daha fazla bilgi edinin.

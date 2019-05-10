@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331897"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506861"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 
@@ -99,7 +99,7 @@ SQL veritabanı için elastik veritabanı işlemleri de destekler, kullandığı
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Azure Cloud Services için .NET yükleme
 
-Azure .NET uygulamalarını barındırmak için çeşitli teklifleri sağlar. Farklı teklifleri karşılaştırması kullanılabilir [Azure App Service, Cloud Services ve Virtual Machines karşılaştırması](../app-service/overview-compare.md). ' % S'konuk işletim sistemi teklifin .NET 4.6.1 elastik işlemler için gerekli daha küçükse 4.6.1 için konuk işletim sistemi yükseltme gerekir. 
+Azure .NET uygulamalarını barındırmak için çeşitli teklifleri sağlar. Farklı teklifleri karşılaştırması kullanılabilir [Azure App Service, Cloud Services ve Virtual Machines karşılaştırması](/azure/architecture/guide/technology-choices/compute-decision-tree). ' % S'konuk işletim sistemi teklifin .NET 4.6.1 elastik işlemler için gerekli daha küçükse 4.6.1 için konuk işletim sistemi yükseltme gerekir. 
 
 Azure uygulama hizmetleri için konuk işletim sistemi yükseltmeleri şu anda desteklenmemektedir. Azure sanal makineleri için yalnızca VM'de oturum açın ve en son .NET framework için yükleyiciyi çalıştırın. Azure bulut Hizmetleri için başlangıç görevleri dağıtımınızın daha yeni bir .NET sürümü yüklemesine eklemeniz gerekir. Kavramlar ve adımlar bölümünde belgelendirilen [.NET bulut hizmeti rolündeki yükleme](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

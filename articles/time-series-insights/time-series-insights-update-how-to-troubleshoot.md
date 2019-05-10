@@ -8,26 +8,26 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ab3c680f7279ff78e0319f28f67c1cc8c203b47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4a63bfd4e82147fe3324e146f2aaff8889da87e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708025"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472411"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Tanılama ve sorun giderme
 
 Bu makalede, Azure zaman serisi öngörüleri önizlemesi ortamınız ile çalışırken karşılaşabileceğiniz bazı yaygın sorunlar özetlenmektedir. Makalede ayrıca olası nedenler ve çözümler her sorun için açıklanır.
 
-## <a name="problem-i-cant-find-my-environment-in-the-time-series-insights-preview-explorer"></a>Sorun: Zaman serisi öngörüleri Önizleme Gezgini'nde ortamımın bulunamıyor
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Sorun: Önizleme Gezgini'nde ortamımın bulunamıyor
 
 Zaman serisi görüşleri ortamına erişim izni yoksa, bu sorun oluşabilir. Kullanıcıların kendi Time Series Insights ortamı görüntülemek için bir okuyucu düzeyinde erişim rolünü gerekir. Geçerli erişim düzeyleri doğrulamak ve ek erişim vermek için zaman serisi görüşleri kaynak veri erişimi ilkeleri bölümü ziyaret [Azure portalında](https://portal.azure.com/).
 
-  ![Ortam][1]
+  [![Ortam](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Sorun: Veri yok zaman serisi öngörüleri Önizleme Gezgini'nde görülür.
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Sorun: Veri önizleme Gezgini'nde görülür.
 
 Neden olmayan görebileceğiniz verilerinizi birkaç genel nedeni vardır [Azure zaman serisi öngörüleri önizlemesi Gezgini](https://insights.timeseries.azure.com/preview).
 
@@ -35,7 +35,7 @@ Neden olmayan görebileceğiniz verilerinizi birkaç genel nedeni vardır [Azure
 
     Bir olay hub'ı veya IOT hub, olay kaynağı veri etiketleri ya da örnek aldığını doğrulayın. Doğrulamak için Azure portalında kaynağınıza Genel Bakış sayfasına gidin.
 
-    ![ınsights Panosu][2]
+    [![ınsights Panosu](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Olay kaynağı verileriniz, JSON biçiminde değil.
 
@@ -45,12 +45,12 @@ Neden olmayan görebileceğiniz verilerinizi birkaç genel nedeni vardır [Azure
 
   * Bir IOT hub için anahtar sağlamanız gereken **hizmetini bağlama** izni.
 
-    ![Yapılandırma][3]
+    [![Yapılandırma](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
 
   * Yukarıdaki görüntüde, iki ilke gösterildiği **iothubowner** ve **hizmet** sahip oldukları çalışma **hizmetine bağlanın** izni.
   * Bir event hub için anahtar sağlamanız gereken **dinleme** izni.
   
-    ![İzinler][4]
+    [![İzinleri](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
 
   * Yukarıdaki görüntüde, her ikisi de gösterildiği gibi **okuma** ve **yönetme** ilkeleri, sahip oldukları çalışma **dinleme** izni.
 
@@ -62,7 +62,7 @@ Neden olmayan görebileceğiniz verilerinizi birkaç genel nedeni vardır [Azure
 
     Zaman serisi ID özelliği ortamı sağlama sırasında yanlış yapılandırılırsa, bu sorun ortaya çıkabilir. Daha fazla bilgi için [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md). Şu anda farklı bir zaman serisi kimliği kullanmak için bir zaman serisi görüşleri ortamı güncelleştirilemiyor.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Sorun: Bazı verileri gösterir, ancak bazı eksik
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Sorun: bazı verileri gösterir, ancak bazı eksik
 
 Zaman serisi kimliği olmadan veri gönderiyor olabilir
 
@@ -73,7 +73,7 @@ Zaman serisi kimliği olmadan veri gönderiyor olabilir
     > [!NOTE]
     > Şu anda 6 MB/sn en yüksek alma oranını Time Series Insights'ı destekler.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Sorun: My olay kaynağının zaman damgası özellik adı ayarı çalışmaz
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Sorun: benim olay kaynağının zaman damgası özellik adı çalışmıyor
 
 Ad ve değer şu kurallara uyar emin olun:
 
@@ -88,34 +88,26 @@ Zaman damgası özellik adı, yakalanan ve zaman serisi öngörüleri Önizleme 
 
 Zaman damgası özelliği açıkça belirtilmezse, bir olayın IOT hub'ı veya olay hub'ı sıraya süresi varsayılan zaman damgası kullanılır.
 
-## <a name="problem-i-cant-edit-or-view-my-time-series-model"></a>Sorun: Düzenleyemiyor veya my zaman serisi modeli görüntüleyin
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Sorun: Ben görüntüleyemez veya my zaman serisi modeli Düzenle
 
 - Zaman serisi öngörüleri S1 veya S2 ortam erişiyor.
 
    Zaman serisi modelleri yalnızca PAYG ortamlarında desteklenir. Zaman serisi öngörüleri Önizleme Gezgini'nden S1/S2 ortamınızı erişim hakkında daha fazla bilgi için bkz. [gezginde verileri görselleştirme](./time-series-insights-update-explorer.md).
 
-   ![Access][5]
+   [![Erişim](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - Görüntüleme ve düzenleme model izni olmayabilir.
 
    Kullanıcıların, düzenlemek ve görüntülemek, zaman serisi modeli için katkıda bulunan düzeyinde erişim gerekir. Geçerli erişim düzeyleri doğrulamak ve ek erişim vermek için Azure portalında Time Series Insights kaynağınızda veri erişimi ilkeleri bölümünü ziyaret edin.
 
-## <a name="problem-all-my-instances-in-the-time-series-insights-preview-explorer-dont-have-a-parent"></a>Sorun: Zaman serisi öngörüleri Önizleme Gezgini'nde tüm Örneklerim üst öğesi yok
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Sorun: tüm Örneklerim Önizleme Gezgini'nde bir üst öğesi eksik.
 
 Ortamınızı tanımlı bir zaman serisi modeli hiyerarşi yok, bu sorun ortaya çıkabilir. Daha fazla bilgi için [çalışma ile zaman serisi modelleri](./time-series-insights-update-how-to-tsm.md).
 
-  ![Zaman serisi modelleri][6]
+  [![Zaman serisi modelleri](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Okuma [çalışma ile zaman serisi modelleri](./time-series-insights-update-how-to-tsm.md).
 
 - Hakkında bilgi edinin [desteklenen JSON şekilleri](./how-to-shape-query-json.md).
-
-<!-- Images -->
-[1]: media/v2-update-diagnose-and-troubleshoot/environment.png
-[2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
-[3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
-[4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
-[5]: media/v2-update-diagnose-and-troubleshoot/access.png
-[6]: media/v2-update-diagnose-and-troubleshoot/tsm.png

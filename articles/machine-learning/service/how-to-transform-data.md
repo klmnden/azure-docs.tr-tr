@@ -12,19 +12,19 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023781"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471828"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı ile verileri dönüştürün
 
-Bu makalede, Azure Machine Learning veri hazırlığı SDK'sını kullanarak verileri dönüştürme farklı yöntemleri öğrenin. SDK'sı eksik değerleri impute sütunlar eklemek ve istenmeyen satırları veya sütunları filtrelemek basit hale getirmek işlevleri sunar. SDK için başvuru belgeleri görmek için bkz: [genel bakış](https://aka.ms/data-prep-sdk).
+Bu makalede, farklı yöntemler kullanarak verileri dönüştürme bilgi `azureml-dataprep` paket. Paket eksik değerleri impute sütunlar eklemek ve istenmeyen satırları veya sütunları filtrelemek basit hale getirmek işlevleri sunar. Tam başvuru belgelerine bakın [azureml dataprep paket](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Yeni bir çözüm oluşturuyorsanız deneyin [Azure Machine Learning veri kümeleri](how-to-explore-prepare-data.md) (Önizleme) verileri, anlık görüntü verileri dönüştürme ve tutulan veri kümesi tanımlarını depolar. Veri kümeleri, veri hazırlığı SDK'sı, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan sonraki sürümüdür.
+> Yeni bir çözüm oluşturuyorsanız deneyin [Azure Machine Learning veri kümeleri](how-to-explore-prepare-data.md) (Önizleme) verileri, anlık görüntü verileri dönüştürme ve tutulan veri kümesi tanımlarını depolar. Veri kümeleri, veri hazırlığı SDK'sı, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan sonraki sürümüdür. Kullanırsanız `azureml-dataprep` Bağlantılarınızdaki kullanmak yerine bir veri akışı oluşturmak için paket `azureml-datasets` bir veri kümesini oluşturmak için paket, anlık görüntüler veya tutulan veri kümeleri, daha sonra kullanmak üzere mümkün olmayacaktır.
 
 Bu nasıl yapılır örnekler için aşağıdaki görevleri gösterir:
 
@@ -500,5 +500,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bkz: SDK [genel bakış](https://aka.ms/data-prep-sdk) tasarım desenleri ve kullanım örnekleri
 * Azure Machine Learning veri hazırlığı SDK'sı bkz [öğretici](tutorial-data-prep.md) çözmenin belirli bir senaryo örneği

@@ -342,6 +342,8 @@
               items:
                 - name: Önbellekten belirteç alma
                   href: msal-net-acquire-token-silently.md
+                - name: Belirteç önbelleği temizleme
+                  href: msal-net-clear-token-cache.md
                 - name: Seçeneklerle genel istemci örneği oluşturma
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Seçeneklerle gizli istemci örneği oluşturma

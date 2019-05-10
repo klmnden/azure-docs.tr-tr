@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711610"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472775"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Yükseltme ve bir Azure Service Fabric kümesi güncelleştiriliyor
 
@@ -99,7 +99,7 @@ Kümeniz için el ile yapı yükseltmeleri ayarladıysanız, bu ilkeler, kümeni
 Bir kümede küme ve düğüm özelliklerinin güvenilirlik düzeyi gibi birçok farklı yapılandırma ayarları özelleştirilebilir. Daha fazla bilgi için okuma [Service Fabric kümesi yapı ayarları](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>İşletim sisteminde küme düğümlerine yama yapma
-Düzeltme eki düzenleme uygulaması (POA) işletim sistemi düzeltme eki uygulama kapalı kalma süresi olmadan bir Service Fabric kümesinde otomatikleştiren bir Service Fabric uygulamasıdır. [Düzenleme uygulama Windows için düzeltme eki](service-fabric-patch-orchestration-application.md) veya [Linux için düzeltme eki düzenleme uygulaması](service-fabric-patch-orchestration-application-linux.md) kümenizdeki Hizmetleri koruyarak düzenli bir şekilde düzeltme eklerini yüklemeyi dağıtılabilir kullanılabilir tüm zamanlar. 
+Düzeltme eki düzenleme uygulaması (POA) işletim sistemi düzeltme eki uygulama kapalı kalma süresi olmadan bir Service Fabric kümesinde otomatikleştiren bir Service Fabric uygulamasıdır. [Düzenleme uygulama Windows için düzeltme eki](service-fabric-patch-orchestration-application.md) düzeltme ekleri her zaman kullanılabilen hizmetler tutarken düzenlenmiş bir şekilde yüklemek için küme üzerinde dağıtılabilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

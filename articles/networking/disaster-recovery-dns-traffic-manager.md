@@ -4,7 +4,7 @@ description: Azure DNS ve Traffic Manager'ı kullanarak olağanüstü durum kurt
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507802"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501734"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
 
@@ -96,7 +96,7 @@ Bu bölge içinde üç kayıtları oluşturma (örneğin - www\.contoso.com ve p
 
 Bu senaryoda, site, www\.contoso.com de belirtilen RTO ve üretim sitesini prod.contoso.com için işaret eden bir 30 dakika, TTL sahiptir. Bu yapılandırma normal iş işlemleri sırasında dir. Prod.contoso.com dr.contoso.com ve TTL 300 saniye veya 5 dakika olarak ayarlandı. Bir Azure hizmeti gibi Azure İzleyici ya da Azure App Insights izleme kullanabilirsiniz veya tüm iş ortağı çözümlerini Dynatrace gibi izleme, izleme veya uygulama ya da sanal altyapı düzeyinde hataları algılamak giriş büyütülmesi çözümleri bile kullanabilirsiniz.
 
-### <a name="step-3-update-the-cname-record"></a>3. Adım: CNAME kaydı güncelleştirin
+### <a name="step-3-update-the-cname-record"></a>3. adım: CNAME kaydı güncelleştirin
 
 Hata algılandığında, kayıt değeri dr.contoso.com için aşağıda gösterildiği gibi işaret edecek şekilde değiştirin:
        
@@ -140,8 +140,9 @@ Azure Traffic Manager ile yük devri yapılandırmak için adımlar aşağıdaki
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>1. Adım: Yeni bir Azure Traffic Manager profili oluşturma
 Adı contoso123 ile yeni bir Azure Traffic manager profili oluşturun ve öncelikli olarak yönlendirme yöntemini seçin. Aksi takdirde, mevcut bir kaynak grubunu seçip, ile ilişkilendirmek istediğiniz önceden var olan bir kaynak grubu varsa, yeni bir kaynak grubu oluşturun.
 
-![Traffic Manager profili oluşturma](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*şekil - Traffic Manager profili oluşturma*
+![Traffic Manager profili oluştur](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+
+*Şekil - Traffic Manager profili oluşturma*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>2. Adım: Traffic Manager profili içindeki uç noktalar oluşturma
 
@@ -152,7 +153,7 @@ Benzer şekilde, olağanüstü durum kurtarma uç nokta Traffic Manager içinde 
 
 *Şekil - olağanüstü durum kurtarma uç noktaları oluşturma*
 
-### <a name="step-3-set-up-health-check-and-failover-configuration"></a>3. Adım: Sistem durumu denetimi ve yük devretme yapılandırmasını ayarlayın
+### <a name="step-3-set-up-health-check-and-failover-configuration"></a>3. adım: Sistem durumu denetimi ve yük devretme yapılandırmasını ayarlayın
 
 Bu adımda, DNS TTL'yi 10 saniyeye, çoğu internet'e yönelik özyinelemeli çözümleyiciler tarafından kabul ayarlayın. Bu yapılandırma hiçbir DNS Çözümleyicisi 10 saniyeden fazla bilgilerini önbelleğe alacağı anlamına gelir. Uç Nokta İzleyicisi ayarları için geçerli kümesinin yoludur / veya kök, ancak bir yolu, örneğin, prod.contoso.com/index değerlendirmek için uç nokta ayarlarını özelleştirebilirsiniz. Gösterir aşağıdaki örnekte **https** araştırma protokolü olarak. Ancak, seçebileceğiniz **http** veya **tcp** de. Protokol seçimi son uygulama gereksinimlerinize bağlıdır. Yoklama aralığı 10 saniye için hızlı yoklama sağlayan ayarlanır ve yeniden 3 olarak ayarlayın. Sonuç olarak, Traffic Manager yapmayacağınıza ikinci uç nokta yük devretme üç ardışık aralıkları hata kaydedin. Şu formül olarak ayarlayın, bir otomatik yük devretme için toplam süreyi tanımlar: Yük devretme için zaman TTL = + yeniden deneyin * Probing aralığı ve bu durumda, değer 10 + 3 * 10 = 40 saniye (en fazla).
 Yeniden deneme 1 ve TTL'ye ayarlanmışsa, 10 saniye için yük devretme 10 + 1 * 10 = 20 saniye sonra zaman ayarlanır. Yeniden deneme daha büyük bir değere ayarlayın **1** hatalı pozitif sonuçları veya herhangi bir alt ağ blips nedeniyle yük devretmeleri olasılığını ortadan kaldırmak için. 

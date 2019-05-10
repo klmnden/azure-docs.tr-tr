@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693588"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467941"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun
 
@@ -43,7 +43,7 @@ Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında 
 
 1. Erişimi ve bu IOT Central kuralına bağlı iş akışları tha listesini görürsünüz. Tıklayın **şablonları keşfedin** veya **yeni > Şablondan Oluştur** ve kullanılabilir şablonlardan birini seçebilirsiniz. 
 
-    ![Kullanılabilir Microsoft Flow şablonları](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![Kullanılabilir Microsoft Flow şablonları](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. Seçtiğiniz şablon bağlayıcılarında oturum açmanız istenir. Bağlayıcılar oturum açtıktan sonra iş akışınızı oluşturmak için Tasarımcısı'nda ulaşırsınız. İş akışı, uygulamanızı ve kural zaten doldurulmuş olan bir IOT Central tetikleyicisine sahiptir.
 
@@ -52,7 +52,7 @@ Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında 
     > [!NOTE]
     > Seçin **daha fazla bilgi bkz** kuralını tetikleyen ölçüm ve özellik değerlerini almak için dinamik içerik penceresindeki metin.
 
-    ![Akış eylemi dinamik bölmesi açık düzenleme](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Akış eylemi dinamik bölmesi açık düzenleme](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. İşiniz bittiğinde, eyleminiz düzenleme seçin **Kaydet**. İş akışının genel bakış sayfasına yönlendirilirsiniz. Çalıştırma geçmişini burada görebilirsiniz ve diğer iş arkadaşlarınızla paylaşabilirsiniz.
 
@@ -79,7 +79,7 @@ Bu bölümde, IOT Central içinde bir düğme anında iletme Microsoft Flow mobi
 
 1. Cihaz ad alanını seçin. Dinamik içerik bölmesinden seçin **cihaz adı**. Bu değer, kullanıcı mobil uygulama üzerinden girer ve IOT Central'nde yeni Cihazınızı adıdır girdisinden geçirilir. Bu örnekte, tek gerekli alan kırmızı yıldız işaretiyle belirtilen cihaz adıdır. Başka bir cihaz şablonu yeni bir cihaz oluşturmak için doldurulması gereken birden çok gerekli alanları olabilir.
 
-    ![Dinamik eylem bölmesinde, cihaz akış oluşturma](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Dinamik eylem bölmesinde, cihaz akış oluşturma](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (İsteğe bağlı) Oluşturma yeni cihazlarınız için dilediğiniz şekilde diğer alanları doldurun.
 
@@ -110,7 +110,7 @@ Bu bölümde, cihaz ayarlarını ve özelliklerini IOT Central içinde bir düğ
 
 1. Cihaz adını güncelleştirebilirsiniz. Cihazın özellikleri ve ayarları güncelleştirmek için cihaz şablonu güncelleştirmek istediğiniz cihazı seçin **cihaz şablonu** açılır. Tüm özellikleri ve ayarları güncelleştirebilirsiniz göstermek için eylem kutucuk genişletir.
 
-    ![Akış güncelleştirme cihaz iş akışı](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Akış güncelleştirme cihaz iş akışı](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. Her özellik ve güncelleştirmek istediğiniz ayarları seçin. Dinamik içerik bölmesinden tetikleyiciden karşılık gelen bir giriş seçin. Bu örnekte konum değeri aşağı cihazın konum özelliği güncelleştirilecek yayılır.
 
@@ -126,7 +126,7 @@ Kimliği kullanarak cihaz bilgilerini alabileceğiniz **Azure IOT Central - bir 
 
 Cihaz adı, cihaz şablonu adı, özellik değerlerini ve iş akışınızı sonraki eylemlerde geçirilecek ayarları değerlerini gibi daha fazla bilgi edinebilirsiniz. Müşteri adı özellik değeri bir CİHAZDAN için Microsoft Teams geçirir. bir örnek iş akışı şu şekildedir.
 
-   ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Bir komut bir iş akışında bir cihazda çalıştırma
@@ -137,7 +137,7 @@ Kendi kimliği kullanılarak belirtilen bir cihaz üzerinde komut çalıştırab
     
 Komutu çalıştırın ve komut parametrelerinde bu eylem geçirmek için seçebilirsiniz. Microsoft Flow mobil uygulamasında bir düğmeyle cihaz yeniden başlatma komutu çalışan bir örnek iş akışı şu şekildedir.
 
-   ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![Akış get cihaz iş akışı](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Bir iş akışında bir cihazı silme
 

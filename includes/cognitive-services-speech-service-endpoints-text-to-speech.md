@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 4f48fc0ad65984df42e2a85853f39e49d7481302
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d5a4b3a07854c2664de7ec60f3677b666798a9bd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020422"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237094"
 ---
 ### <a name="standard-and-neural-voices"></a>Standart ve sinir sesleri
 
@@ -17,24 +17,24 @@ Bölge/uç noktası tarafından standart ve sinir sesleri kullanılabilirliğini
 
 | Bölge | Uç Nokta | Standart sesler | Sinir sesleri |
 |--------|----------|-----------------|---------------|
-| Avustralya Doğu | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Orta Kanada | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Orta ABD | https://centralus.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Doğu Asya | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Doğu ABD | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Doğu ABD 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Fransa Orta | https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Hindistan Orta | https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Japonya Doğu | https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Kore Orta | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Orta Kuzey ABD | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Kuzey Avrupa | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Orta Güney ABD | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Güneydoğu Asya | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Birleşik Krallık Güney | https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Batı Avrupa | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
-| Batı ABD | https://westus.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Hayır |
-| Batı ABD 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/v1 | Evet | Evet |
+| Avustralya Doğu | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| Kanada Orta | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| Orta ABD | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Doğu Asya | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Doğu ABD | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| Doğu ABD 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Fransa Orta | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Hindistan Orta | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| Japonya Doğu | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Kore Orta | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Orta Kuzey ABD | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Kuzey Avrupa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Orta Güney ABD | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| Güneydoğu Asya | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| BK Güney | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| Batı Avrupa | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
+| Batı ABD | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Hayır |
+| Batı ABD 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Evet | Evet |
 
 ### <a name="custom-voices"></a>Özel ses
 
@@ -42,21 +42,21 @@ Bölge/uç noktası tarafından standart ve sinir sesleri kullanılabilirliğini
 
 | Bölge | Uç Nokta |
 |--------|----------|
-| Avustralya Doğu | https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Orta Kanada | https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Orta ABD | https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Doğu Asya | https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Doğu ABD | https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Doğu ABD 2 | https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Fransa Orta | https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Hindistan Orta | https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Japonya Doğu | https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Kore Orta | https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Orta Kuzey ABD | https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Kuzey Avrupa | https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Orta Güney ABD | https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Güneydoğu Asya | https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Birleşik Krallık Güney | https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Batı Avrupa | https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Batı ABD | https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
-| Batı ABD 2 | https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId} |
+| Avustralya Doğu | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Kanada Orta | `https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Orta ABD | `https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Doğu Asya | `https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Doğu ABD | `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Doğu ABD 2 | `https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Fransa Orta | `https://francecentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Hindistan Orta | `https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Japonya Doğu | `https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Kore Orta | `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Orta Kuzey ABD | `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Kuzey Avrupa | `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Orta Güney ABD | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Güneydoğu Asya | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| BK Güney | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Batı Avrupa | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Batı ABD | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Batı ABD 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924969"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236805"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Öğretici: Azure Market ile ana bilgisayar havuzu oluşturma
 
@@ -22,7 +22,7 @@ Bu makalede, Microsoft Azure Marketi teklifi kullanarak bir Windows sanal masaü
 
 Başlamadan önce [indirin ve Windows sanal masaüstü PowerShell modülünü içeri aktarın](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) henüz yapmadıysanız, PowerShell oturumunuzda kullanılacak.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 <https://portal.azure.com> adresinden Azure portalında oturum açın.
 
@@ -36,7 +36,7 @@ Yeni bir konak havuz sağlama teklifi Azure Marketi çalıştırmak için:
 
 Uygun dikey pencereleri bilgilerini girmek için yönergeleri izleyin.
 
-### <a name="basics"></a>Temel Bilgiler
+### <a name="basics"></a>Temel
 
 Temel bilgiler dikey penceresi için neler aşağıda verilmiştir:
 
@@ -70,7 +70,7 @@ Windows sanal masaüstü Kiracı bilgileri dikey:
 
 1. Girin **Windows sanal masaüstü Kiracı grubu adı** kiracınızın içerdiğinden Kiracı grubu. Planlı bir belirli Kiracı grubu adı yoksa, varsayılan olarak bırakın.
 2. Girin **Windows sanal masaüstü Kiracı adı** Kiracı için bu ana havuzuna oluşturursunuz.
-3. Windows sanal masaüstü Kiracı RDS sahibi olarak kimlik doğrulaması için kullanmak istediğiniz kimlik bilgileri türünü belirtin. Seçerseniz **hizmet sorumlusu**, sağlamanız gereken **Azure AD Kiracı Kimliğinizi** hizmet sorumlusu ile ilişkili.
+3. Windows sanal masaüstü Kiracı RDS sahibi olarak kimlik doğrulaması için kullanmak istediğiniz kimlik bilgileri türünü belirtin. Tamamlanmışsa [PowerShell öğretici ile hizmet sorumluları ve rol atamalarını oluşturma](./create-service-principal-role-powershell.md)seçin **hizmet sorumlusu**. Şimdi de girmeniz gerekecek **Azure AD Kiracı Kimliğinizi** hizmet sorumlusu içeren Azure Active Directory.
 4. Ya da Kiracı yönetici hesabının kimlik bilgilerini girin. Yalnızca bir parola kimlik bilgisi ile hizmet sorumluları desteklenir.
 5. **Tamam**’ı seçin.
 
