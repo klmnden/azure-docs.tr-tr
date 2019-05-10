@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570826"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228175"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
@@ -61,7 +61,7 @@ Kanada Microsoft aşağıdaki SMS kısa kodlarını kullanır:
 
 Microsoft, tutarlı SMS veya sesli tabanlı çok faktörlü kimlik doğrulama istemi teslim aynı sayıda garanti etmez. Kullanıcılarımızın açısından Microsoft ekleyebilir veya SMS teslimat geliştirmek için rota ayarlamalar vermiyoruz kısa kodları dilediğiniz zaman kaldırabilirsiniz. Microsoft Amerika Birleşik Devletleri ve Kanada'da yanı sıra ülkeler/bölgeler için kısa kodlarını desteklemez.
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Çoğu faturalama soruları için başvurarak yanıtlanması gereken [multi-Factor Authentication Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) veya ilgili belgelere [Azure multi-Factor Authentication'ı alma](concept-mfa-licensing.md).
 
@@ -146,11 +146,11 @@ Kuruluşunuz eski istemciler yoksa, kullanıcılarınızın uygulama parolaları
 
 **S: Kullanıcılarım bazen kısa mesajı almadığınız ya da bunlar için iki yönlü kısa mesaj yanıtlama ancak doğrulama zaman aşımına varsayalım.**
 
-Metin iletileri teslim ve iki yönlü SMS yanıtlara giriş garanti edilmez, hizmet güvenilirliğini etkileyebilecek denetlenemeyen Etkenler olduğundan. Bu etkenler, hedef ülke, cep telefonu operatörü ve sinyal gücü içerir.
+Metin iletileri teslim ve iki yönlü SMS yanıtlara giriş garanti edilmez, hizmet güvenilirliğini etkileyebilecek denetlenemeyen Etkenler olduğundan. Bu etkenler, hedef ülke/bölge, cep telefonu operatörü ve sinyal gücü içerir.
 
 Kullanıcılarınız genellikle güvenilir bir şekilde kısa mesaj alma sorunları varsa, mobil uygulama ya da telefon aramasına yöntemi kullanmayı söyleyin. Mobil uygulama bildirimleri hem hücresel ve Wi-Fi bağlantıları üzerinden alabilir. Ayrıca, cihaz hiçbir sinyal hiç olsa bile mobil uygulama doğrulama kodları oluşturur. Microsoft Authenticator uygulamasını kullanılabilir [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-Kısa mesaj kullanmanız gerekiyorsa, iki yönlü SMS mümkün olduğunda yerine tek yönlü SMS kullanmanızı öneririz. Tek yönlü SMS daha güvenilirdir ve kullanıcıların başka bir ülkeden gönderildiği bir mesaj yanıtlama genel SMS ücretleri doğurmasını engeller.
+Kısa mesaj kullanmanız gerekiyorsa, iki yönlü SMS mümkün olduğunda yerine tek yönlü SMS kullanmanızı öneririz. Tek yönlü SMS daha güvenilirdir ve kullanıcıların başka bir ülke/bölge gönderildiği bir mesaj yanıtlama genel SMS ücretleri doğurmasını engeller.
 
 **S: Kullanıcılarımın sistem zaman aşımına uğramadan önce kısa mesaj doğrulama kodu girmeniz gerekir süre miktarını değiştirebilirim?**
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3df54c6805c5117e627afe0a2b4caa0ddd94b182
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7ca7a670e8d660efb43861312b2670efbaac6638
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723709"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190229"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir yerel istemci uygulaması ile kimlik doğrulamasını etkinleştirin
 
@@ -33,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 
 - [Kullanıcı akışları oluşturma](tutorial-create-user-flows.md) uygulamanızdaki kullanıcı deneyimi sağlar. 
-- **.NET masaüstü geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi yükleyin.
+- Yükleme [Visual Studio 2019](https://www.visualstudio.com/downloads/) ile **.NET masaüstü geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
 
 ## <a name="add-the-native-client-application"></a>Yerel istemci uygulaması Ekle
 

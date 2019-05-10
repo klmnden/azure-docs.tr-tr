@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682024"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464635"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Verilerinizi Azure Blob depolama alanına dışarı aktarma
 
@@ -57,14 +57,14 @@ Verileri dışarı aktarmak için bir depolama hedefi olduğuna göre verileri s
     > [!Note]
     > Verileri sürekli dışarı aktarma sol taraftaki menüde görmüyorsanız, yöneticinin uygulamanızda değildir. Verileri dışarı aktarma ' için yöneticinin konuşun.
 
-    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_menu.PNG)
+    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_menu1.png)
 
 3. Seçin **+ yeni** sağ üst köşesindeki düğme. Seçin **Azure Blob Depolama** dışarı aktarma hedefi olarak. 
 
     > [!NOTE] 
     > Dışarı aktarmalar uygulama başına en fazla sayısı beştir. 
 
-    ![Yeni verileri sürekli dışarı aktarma oluştur](media/howto-export-data/export_new.PNG)
+    ![Yeni verileri sürekli dışarı aktarma oluştur](media/howto-export-data/export_new1.png)
 
 4. Aşağı açılan liste kutusunda, **depolama hesabı ad alanı**. Son seçenek, listeden seçebilirsiniz **bir bağlantı dizesi girin**. 
 
@@ -87,7 +87,7 @@ Verileri dışarı aktarmak için bir depolama hedefi olduğuna göre verileri s
 
 6. Verileri sürekli dışarı aktarma üzerinde etkinleştirmek için emin **verileri dışarı aktarma** olduğu **üzerinde**. **Kaydet**’i seçin.
 
-  ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/export-list-blob.png)
+   ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/export-list-blob.png)
 
 7. Birkaç dakika sonra verilerinizi, seçtiğiniz hedef olarak görünür.
 

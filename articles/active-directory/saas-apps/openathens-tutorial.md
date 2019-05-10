@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847357"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Öğretici: OpenAthens ile Azure Active Directory Tümleştirme
 
@@ -143,11 +143,11 @@ Azure AD çoklu oturum açma ile OpenAthens yapılandırmak için aşağıdaki a
 
     a. İçinde **görünen adı eşlemesi**seçin **kullanım özniteliği**.
 
-    b. İçinde **Display name özniteliği** metin kutusunda, değeri girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. İçinde **Display name özniteliği** metin kutusunda, değeri girin `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
     c. İçinde **benzersiz kullanıcı eşleme**seçin **kullanım özniteliği**.
 
-    d. İçinde **benzersiz kullanıcı özniteliği** metin kutusunda, değeri girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    d. İçinde **benzersiz kullanıcı özniteliği** metin kutusunda, değeri girin `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. İçinde **durumu**, üç onay kutusunu seçin.
 

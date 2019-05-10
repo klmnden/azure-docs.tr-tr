@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488379"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510054"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM'de iç içe sanallaştırmayı etkinleştirme
 
@@ -80,7 +80,7 @@ Konuk sanal makine için yeni bir sanal ağ bağdaştırıcısı oluşturmak ve 
 2. Bir iç anahtar oluşturun.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. Anahtar özelliklerini görüntülemek ve yeni bağdaştırıcı ifIndex dikkat edin.
@@ -145,7 +145,7 @@ DHCP ana bilgisayar sanal makine dinamik adres ataması için yapılandırmak i�
   
 3. Seçmek için tıklatın **DHCP sunucusu** onay kutusuna tıklayın **Özellik Ekle**ve ardından **sonraki** sihirbaz tamamlanana kadar.
   
-4. **Yükle**'ye tıklayın.
+4. **Yükle**'ye tıklatın.
 
 #### <a name="configure-a-new-dhcp-scope"></a>Yeni bir DHCP kapsamı yapılandırın
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838921"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412827"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te uygulama sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -42,7 +42,7 @@ Bu öğretici geliştirme ortamı, web projesi ve içinde ayarladığınız App 
 
 Bu öğreticide gösterilen kod örnekleri bir C# MVC web uygulaması içindir, ancak sorun giderme yordamlarını Visual Basic ve Web Forms uygulamaları için aynıdır.
 
-Öğreticide, Visual Studio 2017'yi kullandığınız varsayılır. 
+Bu öğreticide, Visual Studio 2019 kullanmakta olduğunuz varsayılır. 
 
 Akış günlükleri yalnızca .NET Framework 4 veya sonraki sürümlerini hedefleyen uygulamalar için çalışır özellik.
 
@@ -144,7 +144,7 @@ public ActionResult About()
 
     ![Hata ayıklama modunda yayımlama](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-1. **Yayımla**’ta tıklayın. Dağıtım tamamlandıktan sonra tarayıcı açılır uygulamanızın Azure URL'sine Tarayıcıyı kapatın.
+1. Tıklayın **yayımlama**. Dağıtım tamamlandıktan sonra tarayıcı açılır uygulamanızın Azure URL'sine Tarayıcıyı kapatın.
 
 1. İçinde **Sunucu Gezgini**uygulamanıza sağ tıklayın ve ardından **hata ayıklayıcı iliştirmek**.
 

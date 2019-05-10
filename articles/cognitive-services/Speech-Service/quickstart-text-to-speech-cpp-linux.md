@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: yinhew
-ms.openlocfilehash: 211394186fe8fc0fd1514a5ce1dbc1e0efc10b7e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b5db21d40f1e270fb6771ba47af28a9e90228ea4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020620"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465580"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Linux üzerinde c++ konuşma Speech SDK'sı kullanarak sentezlemek
+
+Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma tanıma](quickstart-cpp-linux.md).
 
 Bu makalede, oluşturduğunuz bir C++ konsol uygulaması için Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9). Bilişsel Hizmetler'i kullanma [Speech SDK'sı](speech-sdk.md) sentezlemek konuşma gerçek zamanlı metin ve konuşma bilgisayarınızın hoparlöründen yürütmek için. Uygulama [Linux için Konuşma SDK'sı](https://aka.ms/csspeech/linuxbinary) ve Linux dağıtımınızın C++ derleyicisi (örneğin `g++`) ile oluşturulur.
 
@@ -88,7 +90,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
 
 1. Bu yeni dosya, dize değiştirin `YourSubscriptionKey` konuşma Hizmetleri abonelik anahtarınız ile.
 
-1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
+1. `YourServiceRegion` dizesini aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin ücretsiz deneme aboneliğinde `westus`) değiştirin.
 
 ## <a name="build-the-app"></a>Uygulama oluşturma
 

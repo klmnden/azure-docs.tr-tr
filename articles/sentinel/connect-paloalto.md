@@ -4,7 +4,7 @@ description: Palo Alto Networks tarafından sağlanan veri Azure Gözcü için b
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: a4b21d67-1a72-40ec-bfce-d79a8707b4e1
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0e811fb8d084f90410d48124f488843daa31a5a5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 8bdd5764bf2fc08890375adcdedbc5387b1a9534
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107662"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209595"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Palo Alto Networks gerecinize bağlanma
 
@@ -113,7 +113,7 @@ Palo Alto Networks, Syslog aracı üzerinden Azure çalışma alanınıza CEF bi
  
   ![CEF metin Kopyala sorun](./media/connect-cef/paloalto-text-prob1.png)
 
-## <a name="step-3-validate-connectivity"></a>3. Adım: Bağlantıyı doğrula
+## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
 

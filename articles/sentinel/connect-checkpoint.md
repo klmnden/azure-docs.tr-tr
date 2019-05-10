@@ -4,7 +4,7 @@ description: Azure Gözcü için denetim noktası verileri bağlanmayı öğrene
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: cfdc6bd0fab1a9156e8b161536b6eae37769e2f2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120935"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228350"
 ---
 # <a name="connect-your-check-point-appliance"></a>Denetim noktası gerecinize bağlanma
 
@@ -113,7 +113,7 @@ Denetim noktası gerecinize Syslog aracı üzerinden Azure çalışma alanınız
      - Biçim kümesine **CEF**.
 3. Sürüm R77.30 veya R80.10 kullanıyorsanız kadar kaydırın **yüklemeleri** ve günlük verici sürümünüzün yüklemek için yönergeleri izleyin.
  
-## <a name="step-3-validate-connectivity"></a>3. Adım: Bağlantıyı doğrula
+## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
 

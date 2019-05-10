@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202904"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510830"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi 
 
@@ -62,7 +62,7 @@ Birim kılavuzu işlem:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-[Fiyatlandırma sayfası](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) bölgelere ait fiyatlara 14 Mayıs 2019 üzerinde yansıtacak şekilde güncelleştirilir. Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.
+[Fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/application-gateway/) bölgelere ait fiyatlara 14 Mayıs 2019 üzerinde yansıtacak şekilde güncelleştirilir. Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.
 
 **Örnek 1**
 
@@ -93,7 +93,7 @@ Kapasite Birimi fiyatı 744(hours) = * Maks (işlem birimi Max(25/50 for connect
 
 Toplam Fiyat = $267.84 + $85.71 $353.55 =
 
-[Fiyatlandırma sayfası](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) bölgelere ait fiyatlara 14 Mayıs 2019 üzerinde yansıtacak şekilde güncelleştirilir. Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.
+[Fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/application-gateway/) bölgelere ait fiyatlara 14 Mayıs 2019 üzerinde yansıtacak şekilde güncelleştirilir. Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Application Gateway ve WAF v2 ölçeklendirme
 
@@ -112,7 +112,7 @@ Aşağıdaki tabloda her SKU ile sunulan özellikler karşılaştırılmaktadır
 | Bölge artıklığı                                   |          | &#x2713; |
 | Statik VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service (AKS) giriş denetleyicisine |          | &#x2713; |
-| Azure Anahtar Kasası tümleştirme                       |          | &#x2713; |
+| Azure Key Vault tümleştirmesi                       |          | &#x2713; |
 | HTTP (S) üst bilgileri yeniden yazma                           |          | &#x2713; |
 | URL tabanlı yönlendirme                                 | &#x2713; | &#x2713; |
 | Birden çok site barındırma                             | &#x2713; | &#x2713; |
@@ -138,7 +138,7 @@ Aşağıdaki tabloda her SKU ile sunulan özellikler karşılaştırılmaktadır
 |Kullanıcı tanımlı yol (UDR) uygulama ağ geçidi alt ağı üzerinde|Desteklenmiyor|
 |Gelen bağlantı noktası aralığı için NSG| -65200 ila 65535 Standard_v2 için SKU<br>-65503 için 65534 standart SKU için.<br>Daha fazla bilgi için [SSS](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Azure Tanılama'da Performans Günlükleri|Desteklenmiyor.<br>Azure ölçümleri kullanılmalıdır.|
-|Faturalandırma|Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.|
+|Faturalama|Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.|
 |FIPS modundayken|Bunlar şu anda desteklenmemektedir.|
 |ILB yalnızca modu|Bu şu anda desteklenmiyor. Genel ve ILB modu birlikte desteklenir.|
 |Netwatcher tümleştirme|Desteklenmiyor.|

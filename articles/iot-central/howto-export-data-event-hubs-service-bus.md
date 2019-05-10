@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730237"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463946"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IOT Central verilerinizi dışarı aktarma
 
@@ -64,14 +64,14 @@ Verileri dışarı aktarmak için bir olay hub'ları / Service Bus hedef olduğu
     > [!Note]
     > Verileri sürekli dışarı aktarma sol taraftaki menüde görmüyorsanız, yöneticinin uygulamanızda değildir. Verileri dışarı aktarma ' için yöneticinin konuşun.
 
-    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_menu.PNG)
+    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_menu1.png)
 
 3. Seçin **+ yeni** sağ üst köşesindeki düğme. Birini **Azure Event Hubs** veya **Azure Service Bus** dışarı aktarma hedefi olarak. 
 
     > [!NOTE] 
     > Dışarı aktarmalar uygulama başına en fazla sayısı beştir. 
 
-    ![Yeni verileri sürekli dışarı aktarma oluştur](media/howto-export-data/export_new.PNG)
+    ![Yeni verileri sürekli dışarı aktarma oluştur](media/howto-export-data/export_new1.png)
 
 4. Aşağı açılan liste kutusunda, **Event Hubs ad alanı/Service Bus ad alanı**. Son seçenek, listeden seçebilirsiniz **bir bağlantı dizesi girin**. 
 
@@ -81,7 +81,7 @@ Verileri dışarı aktarmak için bir olay hub'ları / Service Bus hedef olduğu
     > [!NOTE] 
     > 7 günlük deneme uygulamaları, verileri sürekli yapılandırmak için tek yolu dışarı aktarmak için bir bağlantı dizesidir. 7 günlük deneme uygulamalar, ilişkili Azure aboneliği olmadığı için budur.
 
-    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_create.PNG)
+    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_create1.png)
 
 5. (İsteğe bağlı) Seçerseniz, **bir bağlantı dizesi girin**, bağlantı dizenizi yapıştırmak için yeni kutusu görünür. Bağlantı dizesini almak için:
     - Olay hub'ları veya Service Bus, Azure portalında ad alanına gidin.
@@ -95,7 +95,7 @@ Verileri dışarı aktarmak için bir olay hub'ları / Service Bus hedef olduğu
 
 6. Verileri sürekli dışarı aktarma üzerinde etkinleştirmek için emin **verileri dışarı aktarma** olduğu **üzerinde**. **Kaydet**’i seçin.
 
-  ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/export_list.PNG)
+    ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/export_list1.png)
 
 7. Birkaç dakika sonra verilerinizi, seçtiğiniz hedef olarak görünür.
 

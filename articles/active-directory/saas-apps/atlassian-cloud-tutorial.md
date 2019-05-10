@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49d44fa0926afac917ae0ba355d37f13a354f432
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b8b9076c0a4b1fddda4ab0bcfe9f104d7dcf8a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887943"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Öğretici: Atlassian bulut ile Azure Active Directory Tümleştirme
 
@@ -38,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Azure AD tümleştirmesi Atlassian Bulutla yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
 * Atlassian bulut çoklu oturum açma abonelik etkin.
 * Güvenlik onaylama işlemi biçimlendirme dili (SAML) çoklu oturum açma için Atlassian bulut ürünleri etkinleştirmek için Atlassian erişimi ayarlamak gerekir. Daha fazla bilgi edinin [Atlassian erişim]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
@@ -115,7 +116,7 @@ Azure AD çoklu oturum açma Atlassian Bulutla yapılandırmak için aşağıdak
     d. İçinde **geçiş durumu** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > Yukarıdaki değerleri gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirin ve yanıt URL'si. Bu öğreticinin ilerleyen bölümlerinde açıklanan Atlassian bulut SAML yapılandırma ekranında, bu gerçek değerler alırsınız.
+    > Yukarıdaki değerleri gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirin ve yanıt URL'si. Bu gerçek değerleri erişmenizi sağlayacak **Atlassian bulut SAML Yapılandırması** daha sonra açıklanan ekranını **yapılandırma Atlassian bulut çoklu oturum açma** Öğreticisi.
 
 5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
@@ -140,39 +141,47 @@ Azure AD çoklu oturum açma Atlassian Bulutla yapılandırmak için aşağıdak
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
 ### <a name="configure-atlassian-cloud-single-sign-on"></a>Atlassian bulut çoklu oturum açmayı yapılandırın
 
-1. Uygulamanız için yapılandırılmış SSO almak için Atlassian portalına yönetici kimlik bilgileriyle oturum açın.
+1. Atlassian bulut içinde yapılandırmasını otomatik hale getirmenizi yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
-2. Çoklu oturum açmayı yapılandırmak için geçmeden önce etki alanınızı doğrulayın gerekir. Daha fazla bilgi için [Atlassian etki alanı doğrulaması](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) belge.
+    ![Uygulamaları uzantım](common/install-myappssecure-extension.png)
 
-3. Sol bölmede seçin **SAML çoklu oturum açma**. Zaten yapmadıysanız, Atlassian Identity Manager'a abone olun.
+2. Uzantı tarayıcıya ekledikten sonra tıklayarak **Kurulum Atlassian bulut** Atlassian bulut uygulamaya yönlendirir. Burada, Atlassian bulut hizmetlerinde oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 3-7 arası adımlar otomatik hale getirin.
+
+    ![Kurulum yapılandırması](common/setup-sso.png)
+
+3. Atlassian bulut el ile ayarlamak istiyorsanız, yeni bir web tarayıcı penceresi ve oturum Atlassian bulut şirketinizin sitesi yönetici olarak oturum açın ve aşağıdaki adımları gerçekleştirin:
+
+4. Çoklu oturum açmayı yapılandırmak için geçmeden önce etki alanınızı doğrulayın gerekir. Daha fazla bilgi için [Atlassian etki alanı doğrulaması](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) belge.
+
+5. Sol bölmede seçin **SAML çoklu oturum açma**. Zaten yapmadıysanız, Atlassian Identity Manager'a abone olun.
 
     ![Çoklu oturum açmayı yapılandırma](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-4. İçinde **ekleme SAML yapılandırma** penceresinde aşağıdakileri yapın:
+6. İçinde **ekleme SAML yapılandırma** penceresinde aşağıdakileri yapın:
 
     ![Çoklu oturum açmayı yapılandırma](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. İçinde **kimlik sağlayıcısı varlık kimliği** kutusuna, Azure Portalı'ndan kopyaladığınız SAML varlık kimliği yapıştırın.
+    a. İçinde **kimlik sağlayıcısı varlık kimliği** kutusu, yapıştırma **Azure AD tanımlayıcısı** Azure portaldan kopyaladığınız.
 
-    b. İçinde **kimlik sağlayıcısı SSO URL** kutusunda, SAML çoklu oturum açma hizmeti Azure portaldan kopyaladığınız URL'yi yapıştırın.
+    b. İçinde **kimlik sağlayıcısı SSO URL** kutusu, yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız.
 
     c. Açık bir .txt dosyasında Azure portalından indirilen sertifikayı kopyalamanız değeri (olmadan *başlamak sertifika* ve *End Certıfıcate* satırları), ardından yapıştırın **genel X509 Sertifika** kutusu.
 
     d. Tıklayın **yapılandırmayı kaydetmek**.
 
-5. Doğru URL'leri ayarladığınızdan emin olmak için aşağıdakileri yaparak Azure AD ayarlarını güncelleştirin:
+7. Doğru URL'leri ayarladığınızdan emin olmak için aşağıdakileri yaparak Azure AD ayarlarını güncelleştirin:
 
     ![Çoklu oturum açmayı yapılandırma](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. SAML penceresindeki kopyalamak **SP kimliği** ve ardından Azure portalında, Atlassian Bulut'un altında **etki alanı ve URL'ler**, yapıştırın **tanımlayıcı** kutusu.
+    a. SAML penceresindeki kopyalamak **SP kimliği** ve ardından Azure portalında, Atlassian Bulut'un altında **temel SAML yapılandırma**, yapıştırın **tanımlayıcı** kutusu.
 
-    b. SAML penceresindeki kopyalamak **SP onay belgesi tüketici hizmeti URL'si** ve ardından Azure portalında, Atlassian Bulut'un altında **etki alanı ve URL'ler**, yapıştırın **yanıt URL'si** kutusu. Oturum açma URL'si Atlassian bulut Kiracı URL'sidir.
+    b. SAML penceresindeki kopyalamak **SP onay belgesi tüketici hizmeti URL'si** ve ardından Azure portalında, Atlassian Bulut'un altında **temel SAML yapılandırma**, yapıştırın **yanıt URL'si**kutusu. Oturum açma URL'si Atlassian bulut Kiracı URL'sidir.
 
     > [!NOTE]
     > Güncelleştirdikten sonra varolan bir müşteri olmadığınızı **SP kimliği** ve **SP onay belgesi tüketici hizmeti URL'si** Azure portalında, değerler **Evet, yapılandırmayıgüncelleştirme**. Yeni bir müşteri iseniz, bu adımı atlayabilirsiniz.

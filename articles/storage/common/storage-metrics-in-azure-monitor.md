@@ -9,12 +9,12 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: d776c67aad9f42184d8cf9ba0a437fbcf9d2c46c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8b091ecce98a626f18fe6547445d898b6710e1a5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154240"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510558"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -339,7 +339,7 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 | ------------------- | ----------------- |
 | UsedCapacity | Depolama hesabı tarafından kullanılan depolama miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitenin toplamıdır. Premium depolama ve Blob Depolama hesapları için BlobCapacity ile aynıdır. <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
-### <a name="blob-storage"></a>Blob depolama
+### <a name="blob-storage"></a>Blob depolama alanı
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
@@ -348,7 +348,7 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 | ContainerCount    | Depolama hesabındaki kapsayıcıları sayısı. <br/><br/> Birim: Count <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 | IndexCapacity     | ADLS Gen2 hiyerarşik dizin tarafından kullanılan depolama miktarı <br/><br/> Birim: Bayt <br/> Toplama türü: Ortalama <br/> Değeri örneği: 1024 |
 
-### <a name="table-storage"></a>Table Storage
+### <a name="table-storage"></a>Tablo depolama alanı
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
@@ -385,7 +385,7 @@ Azure depolama, Azure İzleyici'de aşağıdaki işlem ölçümlerini sağlar.
 | Çıkış | Çıkış verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya çıkan ve Azure içinde çıkan verileri içerir. Sonuç olarak bu sayı, faturalanabilir çıkışı yansıtmaz. <br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
 | SuccessServerLatency | Azure Depolama tarafından gerçekleştirilen başarılı bir isteği işlemek için kullanılan ortalama süre. Bu değer, Başarı E2E Gecikme Süresi’nde belirtilen ağ gecikme süresini içermez. <br/><br/> Birim: Milisaniye <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
 | Başarı E2e | Bir depolama hizmetine yapılan başarılı isteklerin veya belirtilen API işleminin ortalama uçtan uca gecikme süresi. Bu değer, isteği okumak, yanıtı göndermek ve yanıtın onayını almak için Azure Depolama içinde gerekli işleme süresini içerir. <br/><br/> Birim: Milisaniye <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
-| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam faturalandırılabilir istek değerinin beklenmeyen hata üreten istekler dahil olmak üzere ilgili istek sayısına bölünmesiyle hesaplanır. Beklenmeyen tüm hatalar, depolama hizmeti veya belirtilen API işlemi için kullanılabilirliğin azalmasıyla sonuçlanır. <br/><br/> Birim: Yüzde <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 99.99 |
+| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam faturalandırılabilir istek değerinin beklenmeyen hata üreten istekler dahil olmak üzere ilgili istek sayısına bölünmesiyle hesaplanır. Azaltılmış kullanılabilirlik ve depolama hizmetine veya belirtilen API işlemi için beklenmeyen tüm hatalar sonuçlanır. <br/><br/> Birim: Yüzde <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 
@@ -396,9 +396,9 @@ Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 | **BlobType** | Yalnızca Blob ölçümler için blob türü. Desteklenen değerler şunlardır: **BlockBlob**, **PageBlob**, ve **Azure Data Lake Storage**. Ekleme Blob BlockBlob içinde bulunur. |
 | **BlobTier** | Azure depolama, blob nesne verilerini en uygun maliyetli bir şekilde depolamanızı sağlayan farklı erişim katmanı sunuyor. Daha fazla bilgi bkz [Azure depolama blob katmanı](../blobs/storage-blob-storage-tiers.md). Desteklenen değerler şunlardır: <br/> <li>**Sık erişimli**: Sık erişimli katmanı</li> <li>**Seyrek erişimli**: Seyrek erişimli katman</li> <li>**Arşiv**: Arşiv katmanı</li> <li>**Premium**: Premium katman için blok blobu</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Premium sayfa blobu için katman türleri</li> <li>**Standart**: Standard sayfa blobu için katman türü</li> <li>**Untiered**: Genel amaçlı v1 depolama hesabı için katman türü</li> |
 | **GeoType** | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler **birincil** ve **ikincil**. Okuma erişimli coğrafi olarak yedekli Storage(RA-GRS) nesneleri ikincil kiracıdan okurken uygulanır. |
-| **ResponseType** | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>**ServerOtherError**: Açıklananlar hariç diğer tüm sunucu tarafı hatalar </li> <li>**ServerBusyError**: HTTP 503 durum kodu döndüren, kimliği doğrulanmış istek. </li> <li>**ServerTimeoutError**: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. Zaman aşımı bir sunucu hatası nedeniyle gerçekleşti. </li> <li>**AuthorizationError**: Yetkisiz veri erişimi veya yetkilendirme hatası nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. </li> <li>**NetworkError**: Ağ hataları nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. Çoğunlukla bir istemci, zaman aşımı süre sonundan önce bağlantıyı erkenden kapattığında gerçekleşir. </li> <li>**ClientThrottlingError**: İstemci tarafı azaltma hatası. </li> <li>**ClientTimeoutError**: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklediğinden düşük bir değere ayarlanmışsa beklenen bir zaman aşımıdır. Aksi takdirde, bir ServerTimeoutError olarak bildirilir. </li> <li>**ClientOtherError**: Açıklananlar hariç diğer tüm istemci tarafı hatalar. </li> <li>**Success**: Başarılı istek</li> |
+| **ResponseType** | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>**ServerOtherError**: Açıklananlar hariç diğer tüm sunucu tarafı hatalar </li> <li>**ServerBusyError**: HTTP 503 durum kodu döndüren, kimliği doğrulanmış istek. </li> <li>**ServerTimeoutError**: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. Zaman aşımı bir sunucu hatası nedeniyle gerçekleşti. </li> <li>**AuthorizationError**: Yetkisiz veri erişimi veya yetkilendirme hatası nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. </li> <li>**NetworkError**: Ağ hataları nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. Çoğunlukla bir istemci, zaman aşımı süre sonundan önce bağlantıyı erkenden kapattığında gerçekleşir. </li> <li>**ClientThrottlingError**: İstemci tarafı azaltma hatası. </li> <li>**ClientTimeoutError**: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklediğinden düşük bir değere ayarlanmışsa beklenen bir zaman aşımıdır. Aksi takdirde, bir ServerTimeoutError olarak bildirilir. </li> <li>**ClientOtherError**: Açıklananlar hariç diğer tüm istemci tarafı hatalar. </li> <li>**Success**: Başarılı istek</li> <li> **SuccessWithThrottling**: SMB istemcisi ilk girişimleri içinde kısıtlanan ancak denemeden sonra başarılı başarılı istek.</li> |
 | **ApiName** | İşlem adı. Örneğin: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Kimlik doğrulaması** | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>**AccountKey**: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>**SAS**: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>**OAuth**: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>**Anonim**: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>**AnonymousPreflight**: Denetim öncesi isteği bir işlemdir.</li> |
+| **Kimlik Doğrulaması** | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>**AccountKey**: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>**SAS**: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>**OAuth**: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>**Anonim**: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>**AnonymousPreflight**: Denetim öncesi isteği bir işlemdir.</li> |
 
 Ölçümleri destekleyen boyutları için karşılık gelen bir ölçüm değerleri görmek için boyut değerini belirtmeniz gerekir. Örneğin bakarsanız **işlemleri** değeri başarılı yanıtlar için filtre uygulamak gereken **ResponseType** ile Boyut **başarı**. Veya bakarsanız **BLOB sayısı** değeri filtrelemek ihtiyacınız blok blobu için **BlobType** ile Boyut **BlockBlob**.
 

@@ -4,7 +4,7 @@ description: Bu makalede Azure Gözcü avcılık yer işaretleri veri izlemek i�
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1a438b9645dbb37d852eb0092355850d816872d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596945"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207459"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Veri aramaya sırasında izler
 
@@ -74,7 +74,7 @@ Tıklayarak işaretli verilerinizi görselleştirebilirsiniz **Araştır**. Bu a
 
 İşaretli verilerinizi Log Analytics'te görüntülemek için birden çok seçenek vardır. 
 
-İstenen yer işaretini seçerek işaretli sorguları, sonuçları veya geçmişini görüntülemek için en kolay yolu olan **yer işaretleri** tablo ve Ayrıntılar bölmesinde sağlanan bağlantıları kullanabilirsiniz. Seçeneklere şunlar dahildir: 
+İstenen yer işaretini seçerek işaretli sorguları, sonuçları veya geçmişini görüntülemek için en kolay yolu olan **yer işaretleri** tablo ve Ayrıntılar bölmesinde sağlanan bağlantıları kullanabilirsiniz. Şu seçenekler mevcuttur: 
 - Tıklayarak **sorguyu görüntüle** Log Analytics'te kaynak sorguyu görüntülemek için.  
 - Tıklayarak **yer işareti geçmişi görüntüleyebilir** görmek için meta veriler dahil olmak üzere tüm yer işareti: güncelleştirme, güncelleştirilmiş değerleri ve güncelleştirme zamanını kimin yaptığını. 
 

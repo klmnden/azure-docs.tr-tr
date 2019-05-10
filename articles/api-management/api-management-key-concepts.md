@@ -14,16 +14,18 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3934dbb01c3b9f3219c5e649d97371850b8daadc
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656617"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230616"
 ---
-# <a name="what-is-api-management"></a>API Management nedir?
+# <a name="about-api-management"></a>API Management hakkında
 
-API Management (APIM), kuruluşların kendi veri ve hizmet potansiyellerini ortaya çıkarmak üzere API’leri dış, iş ortağı ve iç geliştiricilere yayımlamalarına yardımcı olur. Her yerdeki işletmeler, bir dijital platform olarak işlemlerini genişletmek, yeni kanallar oluşturmak, yeni müşteriler bulmak ve mevcut müşterilerle daha derin etkileşimi yürütmeyi amaçlar. API Management; geliştirici katılımı, iş öngörüleri, analizler, güvenlik ve koruma aracılığıyla başarılı bir API programı yürütmeye ilişkin temel uzmanlıklar sağlar. Azure API Management’i bir arka uç almak ve bunu temel alan tam özellikli bir API programını başlatmak için kullanabilirsiniz.
+API Management (APIM), tutarlı ve modern API ağ geçitleri mevcut arka uç hizmetleri oluşturmak için kullanılan bir yoldur.
+
+API yönetimi, kuruluşların kendi veri ve hizmet potansiyellerini ortaya çıkarmak üzere API'leri dış, iş ortağı ve iç geliştiricilere yayımlamalarına yardımcı olur. Her yerdeki işletmeler, bir dijital platform olarak işlemlerini genişletmek, yeni kanallar oluşturmak, yeni müşteriler bulmak ve mevcut müşterilerle daha derin etkileşimi yürütmeyi amaçlar. API Management; geliştirici katılımı, iş öngörüleri, analizler, güvenlik ve koruma aracılığıyla başarılı bir API programı yürütmeye ilişkin temel uzmanlıklar sağlar. Azure API Management’i bir arka uç almak ve bunu temel alan tam özellikli bir API programını başlatmak için kullanabilirsiniz.
 
 Bu makale, APIM içeren yaygın senaryolara genel bakış sağlar.  Ayrıca, APIM sisteminin ana bileşenlerine de kısa bir genel bakış sağlar. Böylece makale, her bir bileşene daha ayrıntılı bir genel bakış sunmuş olur.
 
@@ -68,7 +70,7 @@ Daha fazla bilgi için [bulut tabanlı API Yönetimi: API'lerin gücünden yarar
  * Analizler ve ölçümler
  * API Management platformuyla denetim ve öngörü elde etme
  * Bulut ile şirket içi çözüm kullanımının karşılaştırması
- * Azure API Management
+ * Azure API Yönetimi
  
 ## <a name="apis"> </a>API’ler ve işlemler
 API'ler bir API Management hizmet örneğinin temelini oluşturur. Her API geliştiricilere sunulan bir işlemler kümesini temsil eder. Her API, API’yi uygulayan arka uç hizmetine başvuru içerir ve bunun işlemleri arka uç hizmeti tarafından uygulanan işlemlere eşlenir. API Management işlemleri; URL eşleme, sorgu ve yol parametreleri, istek ve yanıt içeriği ve işlem yanıtını önbelleğe alma üzerinde sahip olunan denetim sayesinde yüksek oranda yapılandırılabilir niteliktedir. Hızı sınırı, kotalar ve IP kısıtlama ilkeleri de API veya tek işlem düzeyinde uygulanabilir.

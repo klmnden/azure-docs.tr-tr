@@ -12,44 +12,47 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471545"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235769"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapasite planlama ve ölçekleme
 
-Herhangi bir Azure Service Fabric kümesi oluşturma veya kümenizi barındırma işlem kaynaklarını ölçeklendirme önce kapasiteyi planlamak üzere önemlidir. Kapasite planlaması hakkında daha fazla bilgi için bkz. [Service Fabric küme kapasitesini planlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). NodeType ve küme özelliklerini düşünmeye ek olarak, eklemekte olduğunuz sanal makine sayısına bakılmaksızın bir üretim ortamı için tamamlamak için bir saatten daha uzun sürmesine operations ölçeklendirme için planlayın.
+Herhangi bir Azure Service Fabric kümesi oluşturma veya kümenizi barındırma işlem kaynaklarını ölçeklendirme önce kapasiteyi planlamak üzere önemlidir. Kapasite planlaması hakkında daha fazla bilgi için bkz. [Service Fabric küme kapasitesini planlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Daha fazla için en iyi yöntem kümesi ölçeklenebilirliği yönergeler bkz [Service Fabric ölçeklenebilirliği hakkında hususlar](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations)
+
+Düğüm türü ve küme özelliklerini düşünmeye ek olarak, eklemekte olduğunuz sanal makine sayısına bakılmaksızın bir üretim ortamı için tamamlamak için bir saatten daha uzun sürmesine operations ölçeklendirme için planlamanız gerekir.
 
 ## <a name="auto-scaling"></a>Auto Scaling
-Ölçeklendirme işlemlerinin gerçekleştirilmelidir aracılığıyla Azure kaynak şablon dağıtımı, değerlendirmek için en iyi bir yöntemdir çünkü [kod olarak kaynak yapılandırmaları]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)ve otomatik ölçeklendirme neden olur, sanal makine ölçek kümesi kullanılarak, sanal makine ölçek kümenizi zamanlayıcılara tanımlama tutulan Resource Manager şablonu örneği sayılarının ayarlayın; istenmeyen ölçeklendirme işlemleri neden gelecekteki dağıtımlar ve genel risk artırılması, otomatik ölçeklendirme kullanmanız gerekir:
+Ölçeklendirme işlemlerinin gerçekleştirilmelidir aracılığıyla Azure kaynak şablon dağıtımı, çünkü bu değerlendirmek için en iyi [kod olarak kaynak yapılandırmaları]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)ve sanal makine ölçek kümesini otomatik ölçeklendirme neden olur, sanal makine ölçek kümenizi zamanlayıcılara tanımlama tutulan Resource Manager şablonu örneği sayılarının ayarlayın; istenmeyen ölçeklendirme işlemleri neden gelecekteki dağıtımlar ve genel risk artırılması, otomatik ölçeklendirme kullanmanız gerekir:
 
 * Resource Manager şablonlarınızı dağıtmak bildirilen uygun kapasitede kullanım Örneğinize desteklemiyor.
-  * Yapılandırabileceğiniz el ile ölçeklendirmenin yanı sıra bir [sürekli tümleştirme ve teslim işlem hattı Azure DevOps Azure kaynak grubu dağıtım projeleri kullanarak Hizmetleri'nde]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), hangi yaygın olarak tetiklenir yararlanan bir mantıksal uygulama tarafından sanal makine performans ölçümlerini gelen sorgulanan [Azure İzleyici REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); etkili bir şekilde ne olursa olsun ölçümlere göre otomatik ölçeklendirme, istediğiniz değeri eklemek Azure Resource Manager için en iyi duruma getirme sırasında.
+  * Yapılandırabileceğiniz el ile ölçeklendirmenin yanı sıra bir [sürekli tümleştirme ve teslim işlem hattı Azure DevOps Azure kaynak grubu dağıtım projeleri kullanarak Hizmetleri'nde](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), hangi yaygın olarak tetiklenir yararlanan bir mantıksal uygulama tarafından sanal makine performans ölçümlerini gelen sorgulanan [Azure İzleyici REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); etkili bir şekilde otomatik ölçeklendirme kullanmak istediğiniz Azure Resource Manager değer eklenmesi için en iyi duruma getirme sırasında hangi ölçümleri göre.
 * 1 sanal makine ölçek kümesi düğümü aynı anda yatay olarak genişletmek yeterlidir.
-  * 3 veya daha fazla düğüm tarafından bir zaman ölçek genişletme için aşağıdakileri yapmalısınız [bir sanal makine ölçek kümesi ekleyerek bir Service Fabric kümesinin ölçeğini](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), ölçeklendirme en güvenli olanıdır ve sanal makine ölçek genişletme yatay olarak 1 düğüm aynı anda ayarlar.
+  * 3 veya daha fazla düğüm tarafından bir zaman ölçek genişletme için aşağıdakileri yapmalısınız [bir sanal makine ölçek kümesi ekleyerek bir Service Fabric kümesinin ölçeğini](https://docs.microsoft.com/azure service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), ölçeklendirme en güvenlisidir ve sanal makine ölçek yatay olarak 1 düğüm aynı anda ayarlar.
 * Sahip olduğunuz Silver güvenilirlik veya Service Fabric kümesi ve Silver dayanıklılık için daha yüksek veya daha yüksek bir ölçek kümesini otomatik ölçeklendirme kurallarını yapılandırın.
-  * Otomatik ölçeklendirme kuralları kapasite [en düşük] 5 sanal makine örnekleri'değerinden büyük veya eşit olmalıdır ve eşit veya birincil düğüm türünüz için güvenilirlik katmanını en az'dan büyük olmalıdır.
+  * Otomatik ölçeklendirme kuralları Kapasite (minimum), 5 sanal makine örnekleri'değerinden büyük veya eşit olmalıdır ve, güvenilirlik katmanını minimum birincil düğüm türünüz için daha büyük veya eşit olmalıdır.
 
 > [!NOTE]
-> Azure Service Fabric durum bilgisi olan service fabric: / Sistem/InfastructureService/< NODE_TYPE_NAME > çalışan her Silver sahip bir düğüm türü veya Azure'da herhangi bir düğüm türleri kümeleriniz üzerinde çalıştırmak için desteklenen tek sistem hizmet yüksek dayanıklılık . 
+> Azure Service Fabric durum bilgisi olan service fabric: / Sistem/InfastructureService/< NODE_TYPE_NAME > çalışan her Silver sahip düğüm türü veya Azure'da herhangi bir küme düğümü türlerinizi üzerinde çalıştırmak için desteklenen tek sistem hizmet yüksek dayanıklılık .
 
 ## <a name="vertical-scaling-considerations"></a>Dikey ölçeklendirme hakkında önemli noktalar
 
 [Dikey ölçeklendirme](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) Azure Service fabric'te bir düğüm türü bir dizi adımları ve konuları gerektirir. Örneğin:
+
 * Küme ölçeklendirme önce iyi durumda olması gerekir. Aksi durumda yalnızca daha fazla küme kararlılığını.
-* **Gümüş veya daha yüksek düzeyde dayanıklılık** tüm Service Fabric kümesi durum bilgisi olan hizmetler barındıran NodeType için gereklidir.
+* **Gümüş veya daha yüksek düzeyde dayanıklılık** durum bilgisi olan hizmetler barındıran tüm Service Fabric kümesi düğüm türleri için gereklidir.
 
 > [!NOTE]
-> Durum bilgisi olan Service Fabric sistem hizmetlerinin barındıran, birincil NodeType Gümüş dayanıklılık düzeyi veya daha büyük olmalıdır. Gümüş dayanıklılık, yükseltmeleri gibi küme işlemleri etkinleştirdikten sonra düğümleri ve benzeri ekleyerek veya kaldırarak sistemin veri güvenliği için işlemlerinin hız iyileştirdiği için daha yavaş olur.
+> Durum bilgisi olan Service Fabric sistem hizmetlerinin barındıran birincil düğüm türünüz Gümüş dayanıklılık düzeyi veya daha büyük olmalıdır. Gümüş dayanıklılık, yükseltmeleri gibi küme işlemleri etkinleştirdikten sonra düğümleri ve benzeri ekleyerek veya kaldırarak sistemin veri güvenliği için işlemlerinin hız iyileştirdiği için daha yavaş olur.
 
-Bir sanal makine ölçek kümesi ölçeklendirme dikey zararlı olabilir. Bunun yerine, yatay olarak yeni bir ölçek kümesi istenen SKU ile ekleyerek kümenizi ölçeklendirme ve hizmetlerinizi güvenli dikey ölçeklendirme işlemi tamamlamak için istenen SKU'nuz geçirin. Tüm yerel olarak kalıcı durum kaldıran, ana bilgisayar görüntüsünü yeniden oluşturur çünkü bir sanal makine ölçek kümesi kaynak SKU zararlı bir işlemdir.
+Dikey ölçeklendirme bir sanal makine ölçek kümesi zararlı bir işlemdir. Bunun yerine, yatay olarak yeni bir ölçek kümesi istenen SKU ile ekleyerek kümenizi ölçeklendirme ve hizmetlerinizi güvenli dikey ölçeklendirme işlemi tamamlamak için istenen SKU'nuz geçirin. Tüm yerel olarak kalıcı durum kaldıran konaklarınız yeniden görüntüleri için bir sanal makine ölçek kümesi kaynak SKU değiştirme zararlı bir işlemdir.
 
-Service Fabric [düğümü özellikleri ve yerleştirme kısıtlamaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) kümeniz tarafından uygulamaları hizmetlerinizin nerede karar vermek için kullanılır. Ne zaman birincil düğüm türünüz dikey olarak ölçeklendirme izin ver bildirmek için aynı özellik değerlerini `"nodeTypeRef"`, sanal makine ölçek kümesi Service Fabric uzantısı içinde bulunamadı. Resource Manager şablonu, aşağıdaki kod parçacığı için ölçeklendirme ve geçici bir durum bilgisi olan kümeniz için yalnızca desteklenen yeni sağlanan ölçek kümeleriniz için aynı değere sahip tanımlayacağınız özelliklerini gösterir:
+Service Fabric [düğümü özellikleri ve yerleştirme kısıtlamaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) kümeniz tarafından uygulamaları hizmetlerinizin nerede karar vermek için kullanılır. Ne zaman birincil düğüm türünüz dikey olarak ölçeklendirme izin ver bildirmek için aynı özellik değerlerini `"nodeTypeRef"`, hizmet yapı uzantısını sanal makine ölçek kümesinde bulunduğu ayarlayın. Resource Manager şablonu, aşağıdaki kod parçacığı için ölçeklendirme ve geçici bir durum bilgisi olan kümeniz için yalnızca desteklenen yeni sağlanan ölçek kümeleriniz için aynı değere sahip tanımlayacağınız özelliklerini gösterir:
 
 ```json
 "settings": {
@@ -59,9 +62,10 @@ Service Fabric [düğümü özellikleri ve yerleştirme kısıtlamaları](https:
 
 > [!NOTE]
 > Kümeniz ile aynı birden fazla ölçek kümesinde çalışan bırakmayın `nodeTypeRef` başarılı dikey ölçeklendirme işlemi tamamlamak için özellik değeri daha uzun gerekir.
-> Her zaman test ortamları işlemlerinde, üretim ortamı değişiklikleri denemeden önce doğrulayın. Varsayılan olarak, Service Fabric küme sistem hizmetlerinin yalnızca birincil nodetype hedeflemek için bir yerleştirme kısıtlamasına sahip.
+> Her zaman test ortamları işlemlerinde, üretim ortamı değişiklikleri denemeden önce doğrulayın. Varsayılan olarak, Service Fabric küme sistem hizmetlerinin yalnızca hedef birincil düğüm türü için bir yerleştirme kısıtlamasına sahip.
 
 Düğüm özellikleri ve bildirilen yerleştirme kısıtlamaları aşağıdaki adımlar bir sanal makine örneğinin aynı anda yapın. Bu, Sistem Hizmetleri (ve, durum bilgisi olan hizmetler) başka bir yerde yeni çoğaltmaları oluşturuldukça kaldırmakta olduğunuz VM örneğine göre düzgün biçimde kapatılması izin verir.
+
 1. PowerShell üzerinden çalıştırın `Disable-ServiceFabricNode` düğümü devre dışı bırakmak için ilerlememesi ileride kaldırmak amacıyla 'RemoveNode'. En yüksek olan düğüm türünü kaldırın. Örneğin, bir altı düğüm kümeniz varsa, "MyNodeType_5" sanal makine örneği kaldırın.
 2. Çalıştırma `Get-ServiceFabricNode` düğümü devre dışı olarak çözümlemeye geçmiş emin olmak için. Aksi durumda, düğümü devre dışı kadar bekleyin. Bu, her düğüm için birkaç saat sürebilir. Düğümü devre dışı olarak çözümlemeye geçmiş kadar devam yok.
 3. Tek düğüm türü VM'lerin sayısını azaltın. En yüksek VM örneği şimdi kaldırılacak.
@@ -76,7 +80,7 @@ Service Fabric'te ölçeklendirme yatay ya da yapılabilir [el ile](https://docs
 
 ### <a name="scaling-out"></a>Ölçeği genişletme
 
-Bir Service Fabric kümesi belirli bir sanal makine ölçek kümesi için örnek sayısını artırarak ölçeklendirin. Program aracılığıyla kapasitesini artırmak istediğiniz ölçek için AzureClient ve Kimliği'ni kullanarak ölçeği genişletebilirsiniz.
+Bir Service Fabric kümesi belirli sanal makine ölçek kümesi için örnek sayısını artırarak ölçeklendirin. Program aracılığıyla kapasitesini artırmak istediğiniz ölçek için AzureClient ve Kimliği'ni kullanarak ölçeği genişletebilirsiniz.
 
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -96,6 +100,7 @@ El ile ölçeğini genişletmek için kapasite SKU özelliği istenen güncelle�
 ### <a name="scaling-in"></a>Ölçek artırma
 
 Ölçek artırma, Ölçek genişletme değerinden daha fazla dikkat gerektirir. Örneğin:
+
 * Birincil düğüm türü kümenizde Service Fabric sistem hizmetlerinin çalıştırın. Hiçbir zaman kapatmanız veya örneklerinin düğüm türü için ne gerektirdiğini güvenilirlik katmanını daha az sayıda örneğe sahip böylece ölçeği. 
 * Bir durum bilgisi olan hizmet için belirli bir sayıda her zaman kullanılabilirliği sürdürmek ve hizmetinizi durumunu korumak için üst düğüm gerekir. En az bir düğüm sayısını bölüm/hizmet hedef çoğaltma kümesi sayısı eşittir da gerekir.
 
@@ -161,15 +166,14 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Ölçeği, kümeyi Service Fabric Explorer'da kötü bir durumda görüntülenen kaldırılan düğüm/VM örneği görürsünüz. Bu davranış bir açıklaması için bkz: [gözlemleyin, Service Fabric Explorer'ın davranışları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
-> 
-> Şunları yapabilirsiniz:
+> Ölçeği, kümeyi Service Fabric Explorer'da kötü bir durumda görüntülenen kaldırılan düğüm/VM örneği görürsünüz. Bu davranış bir açıklaması için bkz: [gözlemleyin, Service Fabric Explorer'ın davranışları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Şunları yapabilirsiniz:
 > * Çağrı [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) uygun düğümü ada sahip.
 > * Dağıtma [service fabric otomatik ölçeklendirme yardımcı uygulama](https://github.com/Azure/service-fabric-autoscale-helper/) genişletilmiş düğümler sağlar, kümenizde Service Fabric Explorer'ın temizlenir.
 
 ## <a name="reliability-levels"></a>Güvenilirlik düzeyi
 
-[Güvenilirlik düzeyi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) bir Service Fabric kümesi kaynağınızı özelliğidir ve farklı için tek tek NodeType yapılandırılamaz. Sistem Hizmetleri kümesi için çoğaltma faktörü denetler ve küme kaynak düzeyinde bir ayardır. Güvenilirlik düzeyi birincil düğüm türünüz gereken düğüm sayısı alt sınırı belirler. Güvenilirlik katmanı, şu değerleri alabilir:
+[Güvenilirlik düzeyi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) Service Fabric kümesi kaynağınızın bir özelliktir ve tek tek düğüm türleri için farklı şekilde yapılandırılamaz. Sistem Hizmetleri kümesi için çoğaltma faktörü denetler ve küme kaynak düzeyinde bir ayardır. Güvenilirlik düzeyi birincil düğüm türünüz gereken düğüm sayısı alt sınırı belirler. Güvenilirlik katmanı, şu değerleri alabilir:
+
 * Platinum - yedi ve dokuz çekirdek düğümleri hedef çoğaltma kümesi sayısı ile sistem hizmetleri çalıştırır.
 * Altın - yedi ve yedi çekirdek düğümleri hedef çoğaltma kümesi sayısı ile sistem hizmetleri çalıştırır.
 * Gümüş - sistem hizmetlerini bir hedef çoğaltma kümesi beş ila beş çekirdek düğüm sayısı ile çalışır.

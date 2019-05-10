@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147919"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231400"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Güvenlik Merkezi özelliklerini (Temmuz 2019) devre dışı bırakma
 
@@ -81,6 +81,7 @@ Güvenlik Merkezi'nde "Klasik" kimlik ve erişim deneyimi, müşterilerin kimlik
 ![Kimlik sayfası - Pano][8]
 
 Yukarıdaki tüm üç ekran ileride kullanımdan kaldırılacaktır. Verilerinizi log analytics güvenlik çözümdeki kullanılabilir kalır ve değil değiştirilemiyor veya kaldırılamıyor.
+Güvenlik Merkezi'nin kimlik ve erişim Panosu doldurmak için kullanılan özgün Log Analytics sorguları kullanılabilir [GitHub deposu](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Klasik kimlik ve erişim (Önizleme) - yeni deneyim
 Log analytics panosunu ınsights üzerinde yalnızca belirli bir çalışma ayarının sağlarken, Yerel Güvenlik Merkezi özelliklerini tüm abonelikler ve bunlarla bir kolayca ilişkili tüm çalışma alanlarını görünürlük sağlar-sağlayan görünümü kullanmak için ne üzerinde odaklanın ait önemli güvenli puanı, kimlik ve erişim öneri göre.
@@ -96,13 +97,14 @@ Güvenlik Merkezi ile sağlar bir [harita](https://docs.microsoft.com/azure/secu
 
 Bugün "Güvenlik olaylarını harita Git" tıkladığınızda tehdit zekası panosu açılır. Tehdit zekası panosunu kullanımdan kaldırılacaktır.  
 
-![Tehdit bilgileri panosu][11]
+![Tehdit Zekası panosu][11]
 
 Tehdit zekası panosunu görüntülemek istediğiniz çalışma alanını seçtiğinizde map(Preview) ekran güvenlik uyarıları *Log analytics'te* açılır. Bu ekran kullanımdan kaldırılacaktır.
 
 ![Log analytics'te güvenlik uyarıları eşleme][12]
 
 Mevcut verilerinizi log analytics güvenlik çözümdeki kullanılabilir kalır ve değil değiştirilmiş veya kaldırılamaz.
+Güvenlik Merkezi tehdit zekası panosunu doldurmak için kullanılan özgün Log Analytics sorguları kullanılabilir [GitHub deposu](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Güvenlik olayları eşleme - yeni deneyim
 Güvenlik Merkezi ile oluşturulan uyarılar Haritası işlevini kullanmak için müşterilerimizin öneririz: "güvenlik uyarıları harita (Önizleme)". Bu en iyi duruma getirilmiş bir deneyim sağlar ve tüm abonelikler ve ilişkili çalışma alanları arasında çalışır bir makro izin vererek ortamınız genelinde görüntülemek ve tek bir çalışma alanında odaklanmak değil.
@@ -165,6 +167,8 @@ Log analytics'te güvenlik Panosu, önemli güvenlik olayları ve tehditler, teh
 
 ### <a name="security--audit-dashboard---new-experience"></a>Güvenlik ve Denetim Panosu - yeni deneyim
 Birden çok aboneliğe ve bunlarla ilişkili daha zengin bir özellik kümesi ile birlikte çalışma alanları arasında aynı güvenliğine genel bakış sağlayan Azure Güvenlik Merkezi'ni kullanmayı müşterilerimizin önerilir.
+
+Güvenlik Merkezi güvenlik Doldur & Pano denetlemek için kullanılan özgün Log Analytics sorguları kullanılabilir [GitHub deposu](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/)

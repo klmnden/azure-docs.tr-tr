@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191036"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231159"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -38,7 +38,7 @@ Bu hızlı başlangıcın sonunda uygulamanız Azure Active Directory (Azure AD)
 
 Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 
-* Visual Studio 2015 güncelleştirme 3 veya Visual Studio 2019 yüklü. Sizde yok mu? [Visual Studio 2019 ücretsiz olarak indirin](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 güncelleştirme 3 veya üzeri yüklü. Sizde yok mu? [Visual Studio 2019 ücretsiz olarak indirin](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Senaryo: ASP.NET uygulamanızı iş ve Okul hesaplarında kullanıcılardan oturum açma
 
@@ -70,11 +70,12 @@ Bu örneğe ait Visual Studio projesini indirmek için şu adımları izleyin:
 ## <a name="step-2-create-your-aspnet-project"></a>2. Adım: ASP.NET projenizi oluşturun
 
 1. Visual Studio'da **Dosya > Yeni > Proje**'yi seçin.
-2. **Visual C#\Web** bölümünde **ASP.NET Web Uygulaması (.NET Framework)** girişini seçin.
-3. Uygulamanıza bir ad verin ve **Tamam**'ı seçin.
-4. **Boş**'u seçin ve **MVC** başvurusu eklemek için onay kutusunu seçin.
+2. İçin **proje türü**seçin **Web**, ardından **ASP.NET Web uygulaması (.NET Framework)**.
+3. Uygulamanızı adlandırın ve seçin **Oluştur**.
+4. Seçin **boş** seçip **MVC** altında **klasörler ekleme ve çekirdek başvuruları** MVC başvuruları eklemek için.
+5. **Oluştur**’u seçin.
 
-## <a name="step-3-add-authentication-components"></a>3. Adım: Kimlik doğrulama bileşenleri ekleme
+## <a name="step-3-add-authentication-components"></a>3. adım: Kimlik doğrulama bileşenleri ekleme
 
 1. Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na gidin.
 2. Paket Yöneticisi Konsolu penceresinde aşağıdakileri yazarak **OWIN ara yazılım NuGet paketlerini** ekleyin:
@@ -125,7 +126,7 @@ OWIN ara yazılımı *Başlangıç Sınıfı* oluşturmak için:
 Oturum açma ve oturumu kapatma metotlarını kullanıma sunmak için yeni bir denetleyici oluşturun.
 
 1.  **Denetleyiciler** klasörüne sağ tıklayın ve **Ekle > Denetleyici**'yi seçin.
-2.  **MVC (.NET sürümü) Denetleyici – Boş** girişini seçin.
+2.  **MVC {sürüm} Denetleyici – Boş** girişini seçin.
 3.  **Add (Ekle)** seçeneğini belirleyin.
 4.  `HomeController` olarak adlandırın ve **Ekle**'yi seçin.
 5.  **OWIN** ad alanlarını sınıfa ekleyin:
@@ -268,7 +269,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 1. Visual Studio projenizi çalıştırmak için **F5** tuşuna basın. Tarayıcı açılır ve **Microsoft ile Oturum Aç** düğmesinin bulunduğu `http://localhost:{port}` sayfası görüntülenir.
 1. Düğmeyi seçerek oturum açın.
 
-### <a name="sign-in"></a>Oturum aç
+### <a name="sign-in"></a>Oturum Aç
 
 Test için hazır olduğunuzda bir iş hesabı (Azure AD) kullanarak oturum açın.
 

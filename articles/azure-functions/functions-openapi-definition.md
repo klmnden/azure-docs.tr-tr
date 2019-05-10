@@ -5,19 +5,18 @@ services: functions
 keywords: OpenAPI, Swagger, bulut uygulamaları, bulut hizmetleri,
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 255a7c9d0b9da15176fca90c6934a84fa0f863ed
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141499"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501866"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Azure API Management ile bir işlev için Openapı tanımı oluşturma
 
@@ -133,13 +132,9 @@ Acil onarımların maliyet açısından uygunluğunu belirleyen bir işleviniz o
 
 Artık OpenAPI tanımını oluşturmaya hazırsınız.
 
-1. İşlev uygulamasını seçin ve ardından **Platform özellikleri**, **tüm ayarlar**
+1. İşlev uygulaması, ardından **Platform özellikleri**, seçin **API Management** seçip **Yeni Oluştur** altında **API Management**.
 
-    ![İşlevi Azure portalında test etme](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. Aşağı kaydırın ve ardından **API Management** > **Yeni Oluştur** yeni bir API Management örneği oluşturma.
-
-    ![Bağlantı işlevi](media/functions-openapi-definition/link-apim-openapi.png)
+    ![API yönetimi platformu özellikleri seçin](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. Görüntünün altındaki tabloda belirtilen API yönetimi ayarlarını kullanın.
 
@@ -150,11 +145,10 @@ Artık OpenAPI tanımını oluşturmaya hazırsınız.
     | **Ad** | Genel olarak benzersiz bir ad | İşlev uygulamanızın adına dayalı bir ad oluşturulur. |
     | **Abonelik** | Aboneliğiniz | Bu yeni kaynak oluşturulduğu abonelik. |  
     | **[Kaynak Grubu](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Aynı kaynak için ayarlamalısınız, işlev uygulaması. |
-    | **Konum** | Batı ABD | Batı ABD konumunda seçin |
+    | **Konum** | Batı ABD | Batı ABD konumu seçin. |
     | **Kuruluş adı** | Contoso | Geliştirici portalında ve e-posta bildirimleri için kullanılan kuruluş adı. |
     | **Yönetici e-postası** | e-postanız | Sistem bildirimlerini API Yönetimi'nden alınan e-posta. |
-    | **Fiyatlandırma katmanı** | Tüketim (önizleme) | Tüm fiyatlandırma ayrıntıları için bkz. [API Management'ın fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/api-management/) |
-    | **Application Insights** | Örneğiniz | İşlev uygulamanız tarafından kullanılan aynı Application Insights'ı kullanın. |
+    | **Fiyatlandırma katmanı** | Tüketim (önizleme) | Tüketim katmanı Önizleme aşamasındadır ve tüm bölgelerde kullanılamaz. Tüm fiyatlandırma ayrıntıları için bkz. [API Management'ın fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/api-management/) |
 
 1. Seçin **Oluştur** birkaç dakika sürebilir API Yönetimi örneğini oluşturmak için.
 
@@ -178,27 +172,20 @@ API tanımı kullanmadan önce çalışır durumda olduğunu doğrulamanız gere
 
 1. İçin değerler girin **saat** ve **kapasite**
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Tıklayın **Gönder**, ardından HTTP yanıtı görüntüleyin.
 
     ![API'yi test et işlevi](media/functions-openapi-definition/test-function-api-openapi.png)
 
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Azure’da işlev oluşturma
-> * Azure API Management ile Openapı tanımı oluşturma
-> * İşleve çağrı yaparak tanımı test etme
-
-API Management hakkında bilgi için bir sonraki konuya geçin.
-
 > [!div class="nextstepaction"]
-> [API Management](../api-management/api-management-key-concepts.md)
+> [API yönetimi hakkında daha fazla bilgi edinin](../api-management/api-management-key-concepts.md)

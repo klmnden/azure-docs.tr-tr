@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575409"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230897"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure haritalar coğrafi kodlama kapsamı
 
 Azure Haritalar ile konum için arama yaparken, arama hizmeti arama terimlerinizi alır ve coğrafi kodlama adlı bir işlem enlem ve boylam koordinatlarını döndürür. Ancak, Maps yok aynı düzeyde bilgi ve tüm bölge ve ülke doğruluk. Konumlar ne tür güvenilir bir şekilde her bölgede arayabilirsiniz belirlemek için bu makaleyi kullanın. 
 
-Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti coğrafi kodlama duyarlığını temel bağlıdır. Aşağıdaki kategorilere ayırma kullanılan her ülkede coğrafi kodlama destek düzeyini belirtin.
+Bir ülke/bölge içinde geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti coğrafi kodlama duyarlığını temel bağlıdır. Aşağıdaki kategorilere ayırma kullanılan her ülkesinde/bölgesinde coğrafi kodlama destek düzeyini belirtin.
 * **Adres noktaları** -adresleri veri bir enlem/boylam koordinatını (özellik sınırı) adresi paket içinde Çözüldü olabilir. 'Çatı ' doğru bazen adlandırılır. Doğruluk adresleri için kullanılabilir en üst düzey budur. 
 * **Sayı barındırmak** -adresleri Sokak üzerinde bir enlem/boylam koordinatını için ilişkilendirilmiş.
 * **Sokak düzeyi** -adresleri olan sokak adresi içeren enlem/boylam koordinatını çözümlenen. Bina numarasını işlenmeyebilir.
@@ -36,13 +36,13 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahamalar                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Beliz                                              |                 |                |              |      ✓     |          ✓         |
+| Belize                                              |                 |                |              |      ✓     |          ✓         |
 | Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolivya                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bonaire, Sint Eustatius ve Saba                   |                 |                |              |      ✓     |          ✓         |
 | Brezilya                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kanada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Kayman Adaları                                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Cayman Adaları                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Şili                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kolombiya                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kosta Rika                                          |                 |                |       ✓      |      ✓     |          ✓         |
@@ -79,7 +79,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Güney Georgia ve Güney Sandwich Adaları        |                 |                |              |      ✓     |          ✓         |
 | Surinam                                            |                 |                |              |      ✓     |          ✓         |
 | Trinidad ve Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Birleşik Devletler Küçük Harici Adaları                |                 |                |              |      ✓     |          ✓         |
+| Amerika Birleşik Devletleri Küçük Harici Adaları                |                 |                |              |      ✓     |          ✓         |
 | Amerika Birleşik Devletleri                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -94,7 +94,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Avustralya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladeş                                          |                 |                |              |      ✓     |          ✓         |
 | Butan                                              |                 |                |              |      ✓     |          ✓         |
-| Britanya Hint Okyanusu Toprakları                      |                 |                |              |      ✓     |          ✓         |
+| İngiliz Hint Okyanusu İdari Bölgesi                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kamboçya                                            |                 |                |              |      ✓     |          ✓         |
 | Çin                                               |                 |                |              |      ✓     |          ✓         |
@@ -168,7 +168,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Faroe Adaları                                       |                 |                |              |      ✓     |          ✓         |
 | Finlandiya                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Fransa                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Gürcistan                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| Georgia                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Almanya                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cebelitarık                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Yunanistan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -185,7 +185,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Kosova                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Kırgızistan                                          |                 |                |              |      ✓     |          ✓         |
 | Letonya                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Lihtenştayn                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Litvanya                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lüksemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kuzey Makedonya                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -236,7 +236,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Çad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Kongo Cumhuriyeti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Fildişi Sahili (Côte d’Ivoire)                                       |                 |                |       ✓      |      ✓     |          ✓         |
-| Kongo Demokratik Cumhuriyeti                    |                 |                |       ✓      |      ✓     |          ✓         |
+| Demokratik Kongo Cumhuriyeti                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Cibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Mısır                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ekvator Ginesi Cumhuriyeti                      |                 |                |       ✓      |      ✓     |          ✓         |
@@ -255,7 +255,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Kenya                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Kuveyt                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lübnan                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Lesoto                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberya                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Libya                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Madagaskar                                          |                 |                |       ✓      |      ✓     |          ✓         |
@@ -269,13 +269,13 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Fas                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mozambik                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Myanmar                                             |                 |                |              |      ✓     |          ✓         |
-| Namibya                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Namibia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Nijer                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Nijerya                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Umman                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Katar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Réunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Ruanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Helena                                        |                 |                |              |      ✓     |          ✓         |
 | Suudi Arabistan                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -295,7 +295,7 @@ Bir ülkede geocode yeteneği, yol veri kapsamı ve coğrafi kodlama hizmeti co�
 | Birleşik Arap Emirlikleri                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Batı Şeria                                           |                 |                |              |      ✓     |          ✓         |
 | Yemen                                               |                 |                |              |      ✓     |          ✓         |
-| Zambiya                                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabve                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
 

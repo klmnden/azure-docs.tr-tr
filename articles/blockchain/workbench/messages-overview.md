@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896430"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510156"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench ile tümleştirme Mesajlaşma
 
@@ -406,8 +406,8 @@ Tek tek bloklar hakkında bilgi içerir. *BlockMessage* blok düzeyi bilgileri i
 |--------------------|-------------|
 | TransactionID      | Azure Blockchain Workbench içinde işlem için benzersiz tanımlayıcı |
 | TransactionHash    | Genel muhasebe üzerinde işlem karması |
-| başlangıç               | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
-| -                 | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
+| from               | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
+| bitiş                 | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
 | ProvisioningStatus | Geçerli işlem için sağlama işlemini durumunu tanımlar. Olası değerler şunlardır: </br>0 – işlem veritabanı API'si tarafından oluşturuldu</br>1 – işlem defterine gönderildi</br>2 – işlem için bir kayıt defteri başarıyla kaydedildi</br>3 veya 4 - işlem için bir kayıt defteri kaydedilemedi</br>5 - işlem için bir kayıt defteri başarıyla yürütüldü |
 
 Örnek bir *BlockMessage* blok zinciri workbench'ten:
@@ -468,15 +468,15 @@ Bir sözleşme hakkında bilgi içerir. İleti sözleşmesi özelliklere sahip b
 |--------------------|-------------|
 | TransactionID | Azure Blockchain Workbench içinde işlem için benzersiz tanımlayıcı |
 | TransactionHash | Genel muhasebe üzerinde işlem karması |
-| başlangıç | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
-| - | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
+| from | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
+| bitiş | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
 
 #### <a name="contract-properties"></a>Sözleşme özellikleri
 
 | Ad               | Açıklama |
 |--------------------|-------------|
 | WorkflowPropertyId | Azure Blockchain Workbench içinde iş akışı özellik için benzersiz tanımlayıcı |
-| ad | İş akışı özelliğin adı |
+| name | İş akışı özelliğin adı |
 | value | İş akışı özelliğinin değeri |
 
 Örnek bir *ContractMessage* blok zinciri workbench'ten:
@@ -580,14 +580,14 @@ Bir sözleşme işlevi çağrıldığında işlev adı, parametreleri giriş ve 
 | Ad | Açıklama |
 |------|-------------|
 | type | Arayanın gibi bir kullanıcı veya sözleşme türü |
-| id | Arayanın içinde Azure Blockchain Workbench için benzersiz tanımlayıcı |
+| kimlik | Arayanın içinde Azure Blockchain Workbench için benzersiz tanımlayıcı |
 | ledgerIdentifier | Çağrı üzerinde genel benzersiz tanıtıcısı |
 
 #### <a name="parameter-information"></a>Parametre bilgileri
 
 | Ad | Açıklama |
 |------|-------------|
-| ad | Parametre adı |
+| name | Parametre adı |
 | value | Parametre değeri |
 
 #### <a name="event-message-transaction-information"></a>Olay iletisi işlem bilgileri
@@ -596,8 +596,8 @@ Bir sözleşme işlevi çağrıldığında işlev adı, parametreleri giriş ve 
 |--------------------|-------------|
 | TransactionID      | Azure Blockchain Workbench içinde işlem için benzersiz tanımlayıcı |
 | TransactionHash    | Genel muhasebe üzerinde işlem karması |
-| başlangıç               | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
-| -                 | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
+| from               | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
+| bitiş                 | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
 
 Örnek bir *EventMessage ContractFunctionInvocation* blok zinciri workbench'ten:
 
@@ -660,23 +660,23 @@ Workbench için bir uygulama yüklendiğinde adı ve sürümü gibi bilgileri i�
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde sözleşme kod dosyası için benzersiz tanımlayıcı |
+| kimlik | Azure Blockchain Workbench içinde sözleşme kod dosyası için benzersiz tanımlayıcı |
 | LedgerId | Azure Blockchain Workbench içinde bir kayıt defteri için benzersiz tanımlayıcı |
-| location | Sözleşme kod dosyasının bulunduğu URL'si |
+| konum | Sözleşme kod dosyasının bulunduğu URL'si |
 
 #### <a name="application-role-information"></a>Uygulama rol bilgileri
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde uygulama rolü için benzersiz tanımlayıcı |
-| ad | Uygulama rolü adı |
+| kimlik | Azure Blockchain Workbench içinde uygulama rolü için benzersiz tanımlayıcı |
+| name | Uygulama rolü adı |
 
 #### <a name="application-workflow-information"></a>Uygulama iş akışı bilgileri
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde uygulama iş akışı için benzersiz tanımlayıcı |
-| ad | Uygulama iş akışı adı |
+| kimlik | Azure Blockchain Workbench içinde uygulama iş akışı için benzersiz tanımlayıcı |
+| name | Uygulama iş akışı adı |
 | displayName | Uygulama iş akışı görünen adı |
 | işlevler | Koleksiyonu [uygulama iş akışı için işlevleri](#workflow-function-information)|
 | durumları | Koleksiyonu [uygulama iş akışı durumları](#workflow-state-information) |
@@ -686,15 +686,15 @@ Workbench için bir uygulama yüklendiğinde adı ve sürümü gibi bilgileri i�
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde uygulama iş akışı işlevi için benzersiz tanımlayıcı |
-| ad | İşlev adı |
+| kimlik | Azure Blockchain Workbench içinde uygulama iş akışı işlevi için benzersiz tanımlayıcı |
+| name | İşlev adı |
 | parametreler | İşlevi için parametreler |
 
 ##### <a name="workflow-state-information"></a>İş akışı durumu bilgileri
 
 | Ad | Açıklama |
 |------|-------------|
-| ad | Eyalet adı |
+| name | Eyalet adı |
 | displayName | Durum görünen adı |
 | Stil | Durum stili (başarı veya hata) |
 
@@ -702,8 +702,8 @@ Workbench için bir uygulama yüklendiğinde adı ve sürümü gibi bilgileri i�
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde uygulama iş akışı özelliği için benzersiz tanımlayıcı |
-| ad | Özellik adı |
+| kimlik | Azure Blockchain Workbench içinde uygulama iş akışı özelliği için benzersiz tanımlayıcı |
+| name | Özellik adı |
 | type | Özellik türü |
 
 Örnek bir *EventMessage ApplicationIngestion* blok zinciri workbench'ten:
@@ -853,14 +853,14 @@ Bir kullanıcı rol ataması ve karşılık gelen uygulama ve rol adını gerçe
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde uygulama rolü için benzersiz tanımlayıcı |
-| ad | Uygulama rolü adı |
+| kimlik | Azure Blockchain Workbench içinde uygulama rolü için benzersiz tanımlayıcı |
+| name | Uygulama rolü adı |
 
 #### <a name="roleassignment-assigner"></a>RoleAssignment atayan
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde kullanıcının benzersiz tanımlayıcısı |
+| kimlik | Azure Blockchain Workbench içinde kullanıcının benzersiz tanımlayıcısı |
 | type | Atayan türü |
 | ChainIdentifier | Genel muhasebe kullanıcının benzersiz tanımlayıcısı |
 
@@ -868,7 +868,7 @@ Bir kullanıcı rol ataması ve karşılık gelen uygulama ve rol adını gerçe
 
 | Ad | Açıklama |
 |------|-------------|
-| id | Azure Blockchain Workbench içinde kullanıcının benzersiz tanımlayıcısı |
+| kimlik | Azure Blockchain Workbench içinde kullanıcının benzersiz tanımlayıcısı |
 | type | Atanan türü |
 | ChainIdentifier | Genel muhasebe kullanıcının benzersiz tanımlayıcısı |
 

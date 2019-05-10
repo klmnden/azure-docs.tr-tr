@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145011"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509792"
 ---
 # <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
@@ -64,7 +64,7 @@ Hizmet uç noktalarına ağ bağlanabilirliğini izlemek için testleri oluştur
 
     * Seçin **Web** outlook.office365.com veya bing.com gibi HTTP/S istekleri, yanıt veren bir hizmet bağlantısı izlemek için.<br>
     * Seçin **ağ** TCP isteklerine yanıt verir, ancak SQL server, FTP sunucusu veya SSH bağlantı noktası gibi HTTP/S isteklerine yanıt vermiyor hizmetine bağlantıyı izlemek için. 
-    * Örneğin: Bir web testine bir blob depolama hesabı oluşturmak için Seç **Web** ve hedef olarak girin <your storageaccount>. blob.core.windows.net. Benzer şekilde, diğer tablo depolama, kuyruk depolama ve Azure dosyaları'nı kullanarak testleri oluşturabilirsiniz [Bu bağlantı.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Örneğin: Bir web testine bir blob depolama hesabı oluşturmak için Seç **Web** ve hedef olarak girin *yourstorageaccount*. blob.core.windows.net. Benzer şekilde, diğer tablo depolama, kuyruk depolama ve Azure dosyaları'nı kullanarak testleri oluşturabilirsiniz [Bu bağlantı.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Topoloji Bulma, ağ gecikme süresi ve paket kaybı gibi ağ ölçümlerini gerçekleştirmek istemiyorsanız Temizle **ağ ölçümlerini gerçekleştirmek** onay kutusu. En fazla özellikten faydalanmak için seçili devam eder. 
 5. İçinde **hedef**, ağ bağlantılarını izlemek istediğiniz URL/FQDN/IP adresini girin.
 6. İçinde **bağlantı noktası numarası**, hedef hizmet bağlantı noktası numarasını girin. 
@@ -128,6 +128,16 @@ Bir abnormality gözlemlerseniz, şu adımları izleyin:
 
 * Uygulamayı yavaş çalışıyorsa, kötü uygulama performansı ağ veya uygulama sağlayıcısının son bir sorun nedeniyle olup olmadığını belirler.
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>ABD kamu müşterilerine yönelik GCC Office URL'leri
+ABD Devleti Virginia bölge için yalnızca DOD URL'leri, yerleşik NPM noktalardır. GCC URL'leri kullanan müşteriler özel testleri oluşturun ve her URL inidividually eklemeniz gerekir.
+
+| Alan | GCC |
+|:---   |:--- |
+| Office 365 portalı ve paylaşılan | Portal.Apps.mil |
+| Office 365 kimlik doğrulaması ve kimlik | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * oturum açma-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.Teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Arama günlüklerini](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı ağ performansı verileri kayıtları görüntülemek için.

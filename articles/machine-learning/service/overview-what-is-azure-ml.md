@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025309"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510425"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
@@ -38,7 +38,7 @@ Keşfedin ve veri hazırlamasını, eğitin ve test modelleri ve bunları dağı
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile neler yapabilirim?
 
-Kullanarak <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> açık kaynak Python paketlerini veya kullanarak [görsel arabirim (Önizleme)](ui-quickstart-run-experiment.md), derleme ve yüksek oranda doğru makine öğrenimi ve derin öğrenme eğitin kendiniz bir Azure Machine Learning hizmetinde çalışma alanı modeller.
+Kullanma <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> açık kaynak Python paketlerini veya kullanım [görsel arabirim (Önizleme)](ui-quickstart-run-experiment.md) oluşturup yüksek doğruluk oranına makine öğrenimi ve derin öğrenme modelleri eğitme kendiniz bir Azure Machine Learning hizmetinde çalışma alanı.
 
 Açık kaynak Python paketlerini kullanılabilen birçok makine öğrenme bileşenler gibi seçebileceğiniz <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-öğrenme</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>ve <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -106,8 +106,6 @@ Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikte
 - Eksiksiz öğreticileri izleyin: 
   + [Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) 
   + [Veri hazırlama ve otomatik-bir regresyon modeli eğitimi için otomatik makine öğrenimi kullanıyor](tutorial-data-prep.md)
-
-- Kullanım [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) verilerinizi hazırlamak için.
 
 - Makine öğrenmesi senaryolarınızı derlemek, iyileştirmek ve yönetmek için [makine öğrenmesi işlem hatları](/azure/machine-learning/service/concept-ml-pipelines) hakkında bilgi edinin.
 

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: d8e095303161002d10914ca7c3213ac0c6894e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467137"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508153"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Önizleme - Azure Kubernetes Service'teki (AKS) uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme
 
 Azure Kubernetes Service (AKS) uygulama taleplerini tutmak için iş yüklerinizi çalıştırmak düğüm sayısını ayarlamanız gerekebilir. Küme otomatik ölçeklendiricinin bileşeni için kaynak kısıtlamaları nedeniyle zamanlanamaz kümenizi pod'ların izleyebilirsiniz. Sorunlar tespit edildiğinde, uygulama talebi karşılamak için düğüm sayısı artar. Düğümler, daha sonra gerektiğinde azalan düğüm sayısını ile pod'ları, çalışan bir olmaması için de düzenli olarak denetlenir. Bu özelliği otomatik olarak ölçeği artırın veya azaltın, AKS kümenizdeki düğüm sayısını, verimli ve ekonomik bir küme çalıştırmanıza olanak tanır.
 
-Bu makalede etkinleştirin ve bir AKS kümesindeki Küme ölçeklendiriciyi yönetme gösterilmektedir.
+Bu makalede etkinleştirin ve bir AKS kümesindeki Küme ölçeklendiriciyi yönetme gösterilmektedir. Küme ölçeklendiriciyi tek düğüm havuzu AKS kümeleriyle'te önizlemesi yalnızca test edilmelidir.
 
 > [!IMPORTANT]
 > AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
@@ -59,6 +59,12 @@ Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kay
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## <a name="limitations"></a>Sınırlamalar
+
+Oluştururken ve sanal makine ölçek kümeleri kullanan, AKS kümelerini yönetme aşağıdaki sınırlamalar geçerlidir:
+
+* HTTP uygulama yönlendirme eklenti kullanılamaz.
 
 ## <a name="about-the-cluster-autoscaler"></a>Küme otomatik ölçeklendiricinin hakkında
 
@@ -101,7 +107,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

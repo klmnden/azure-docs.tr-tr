@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 175cc03dac21280a5e3ef3ec130cb94bc800f540
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153896"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510950"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 
@@ -36,7 +36,7 @@ Azure Depolama şu veri hizmetlerini içerir:
 
 Her hizmete bir depolama hesabı aracılığıyla erişilir. Başlamak için bkz. [Depolama hesabı oluşturma](storage-quickstart-create-account.md).
 
-## <a name="blob-storage"></a>Blob depolama
+## <a name="blob-storage"></a>Blob depolama alanı
 
 Azure Blob depolama, Microsoft’un buluta yönelik nesne depolama çözümüdür. Blob depolama, metin veya ikili veri gibi çok miktarda yapılandırılmamış veriyi depolamak için iyileştirilmiştir. 
 
@@ -77,7 +77,7 @@ Azure Kuyruk hizmeti, iletileri depolamak ve almak için kullanılır. Kuyruk il
 
 Azure Kuyrukları hakkında daha fazla bilgi için bkz. [Kuyruklara Giriş](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Tablo depolama alanı
 
 Azure Tablo depolama artık Azure Cosmos DB’nin bir parçasıdır. Azure Tablo depolama belgelerini görmek için bkz. [Azure Tablo Depolamaya Genel Bakış](../tables/table-storage-overview.md). Mevcut Azure Tablo depolama hizmetine ek olarak, aktarım hızı için iyileştirilmiş tablolar, genel dağıtım ve otomatik ikincil dizinler sağlayan yeni bir Azure Cosmos DB Tablo API'si teklifi vardır. Daha fazla bilgi edinmek ve yeni premium deneyimini denemek için lütfen [Azure Cosmos DB Tablo API’si](https://aka.ms/premiumtables) konusunu inceleyin.
 
@@ -158,7 +158,7 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure Depolama veri taşıma API’si ve kitaplık başvuruları
 * [Depolama İçeri/Dışarı Aktarma Hizmeti REST API'si](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [.NET için Depolama Veri Taşıma İstemcisi Kitaplığı](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+* [.NET için Depolama Veri Taşıma İstemcisi Kitaplığı](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Araçlar ve Yardımcı Programlar
 * [Depolama için Azure PowerShell Cmdlet'leri](https://docs.microsoft.com/powershell/module/az.storage)

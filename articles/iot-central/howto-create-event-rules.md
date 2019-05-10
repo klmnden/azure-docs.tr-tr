@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c98136e2f45965834fa1c538a5929eee14b24466
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2bce535d8612eca565970d4c530a27efb356334
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886265"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464623"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir olayı kuralı oluşturun ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -31,19 +31,19 @@ Olay kuralı oluşturmak için cihaz şablonu en az bir olay ölçümü tanımla
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
-    ![Henüz hiçbir kural](media/howto-create-event-rules/Rules_Landing_Page.png)
+    ![Henüz hiçbir kural](media/howto-create-event-rules/rules_landing_page1.png)
 
 1. Üzerinde **kuralları** sekmesinde **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
 1. Seçin **olay** izleme kuralı bir olay oluşturmak için bir kutucuk.
 
-    ![Kural türü](media/howto-create-event-rules/Rule_Types.png)
+    ![Kural türü](media/howto-create-event-rules/rule_types1.png)
 
 1. Bu cihaz şablonu kuralında tanımlamanıza yardımcı olacak bir ad girin.
 
 1. Kural bu şablondan oluşturulan tüm cihazlar için hemen etkinleştirmek için geçiş **Bu şablon, tüm cihazlar için etkinleştirme kuralı**.
 
-    ![Kural Ayrıntıları](media/howto-create-event-rules/Rule_Detail.png)
+    ![Kural Ayrıntıları](media/howto-create-event-rules/rule_detail1.png)
 
     Kural cihaz şablonu altındaki tüm cihazlara otomatik olarak uygulanır.
 
@@ -55,7 +55,7 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
 1. Ölçüm açılan listeden izlemek istediğiniz olayı seçin. Bu örnekte, **Fan Motor hata** olay seçildi.
 
-   ![Koşul](media/howto-create-event-rules/Condition_Filled_Out.png)
+   ![Koşul](media/howto-create-event-rules/condition_filled_out1.png)
 
 1. İsteğe bağlı olarak da ayarlayabilirsiniz **sayısı** olarak **toplama** ve karşılık gelen eşiği sağlayın.
 
@@ -64,7 +64,7 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
      Örneğin, 5 dakika içinde üçten fazla cihaz olayları olduğunda uyar isterseniz, olay'ı seçin ve "count" olarak toplama işlevi, işleci olarak "büyüktür" ve "eşik" 3 olarak ayarlayın. "5 dakika" olarak "toplama süre" olarak ayarlayın. Kural üçten fazla olayları 5 dakika içinde cihaz tarafından gönderildiğinde tetiklenir. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir.
 
-     ![Olay koşulu Ekle](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     ![Olay koşulu Ekle](media/howto-create-event-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >Birden fazla olay ölçümü altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşul, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
@@ -75,14 +75,14 @@ Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak i�
 
 1. Seçin **+** yanındaki **eylemleri**. Burada, kullanılabilir eylemler listesini görürsünüz.
 
-    ![Eylem Ekle](media/howto-create-event-rules/Add_Action.png)
+    ![Eylem Ekle](media/howto-create-event-rules/add_action1.png)
 
 1. Seçin **e-posta** eylemi, bir geçerli e-posta adresi girerek **için** alan ve kural tetiklendiğinde e-postanın gövdesinde görüntülenen bir not girin.
 
     > [!NOTE]
     > E-postaları, yalnızca uygulamaya eklenen ve en az bir kez oturum kullanıcılara gönderilir. Daha fazla bilgi edinin [kullanıcı yönetimi](howto-administer.md) Azure IOT Central içinde.
 
-   ![Eylem yapılandırma](media/howto-create-event-rules/Configure_Action.png)
+   ![Eylem yapılandırma](media/howto-create-event-rules/configure_action1.png)
 
 1. Kuralı kaydetmek için seçin **Kaydet**. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen olaylar izlemeye başlar. Kuralda belirtilen koşul eşleştiğinde kural yapılandırılan e-posta eylemi tetikler.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683047"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408695"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Azure uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma
 
@@ -41,7 +41,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seçin **anahtar/değer Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
+6. Seçin **yapılandırması Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
     | Anahtar | Değer |
     |---|---|
@@ -66,7 +66,7 @@ Kullandığınız [.NET Core komut satırı arabirimi (CLI)](https://docs.micros
 
 Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core/security/app-secrets) projenize. Gizli Dizi Yöneticisi aracı, geliştirme işine yönelik hassas verileri proje ağacınızın dışında depolar. Bu yaklaşım, uygulama gizli dizilerini kaynak kodunun içinde yanlışlıkla paylaşmayı önlemeye yardımcı olur.
 
-- *.csproj* dosyanızı açın. Ekleme bir `UserSecretsId` burada gösterildiği gibi öğesi, genellikle bir GUID olan değerini, kendi ile değiştirin. Dosyayı kaydedin.
+- Açık *.csproj* dosya. Ekleme bir `UserSecretsId` burada gösterildiği gibi öğesi, genellikle bir GUID olan değerini, kendi ile değiştirin. Dosyayı kaydedin.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -88,7 +88,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 
 1. Bir başvuru ekleyin `Microsoft.Extensions.Configuration.AzureAppConfiguration` aşağıdaki komutu çalıştırarak NuGet paketi:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Projeniz için paketler geri yüklemek için aşağıdaki komutu çalıştırın:
 
@@ -102,7 +102,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    Gizli dizi Yöneticisi, yalnızca web uygulamasını yerel olarak test etmek için kullanılır. Ne zaman uygulama dağıtılır, örneğin, çok [Azure App Service](https://azure.microsoft.com/services/app-service/web), bir uygulama ayarı, örneğin, kullandığınız **bağlantı dizeleri** App Service'te. Gizli dizi Yöneticisi'yle bağlantı dizesini depolamak yerine, bu ayarı kullanın.
+    Gizli dizi Yöneticisi, yalnızca web uygulamasını yerel olarak test etmek için kullanılır. Ne zaman uygulamanın dağıtıldığı [Azure App Service](https://azure.microsoft.com/services/app-service/web), örneğin, bir uygulama ayarı kullanmanızı **bağlantı dizeleri** App Service'te bağlantı dizesini depolamak için Yöneticisi ile gizli dizi yerine.
 
     Bu gizli dizi API configuration ile erişilir. İki nokta üst üste (:) Yapılandırma adı ' % s'yapılandırma API'si tüm desteklenen platformlarda ile çalışır. Bkz: [ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 

@@ -13,12 +13,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249806"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413998"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>MVC projeme ne oldu (Visual Studio Azure Active Directory bağlı hizmet)?
 
@@ -145,7 +145,7 @@ Seçtiyseniz, ek değişiklikler **dizin verilerini okuma** seçeneği:
 
 ### <a name="file-backup-visual-studio-2015"></a>Dosya yedekleme (Visual Studio 2015)
 
-Bağlı hizmet eklerken, Visual Studio 2015 değiştirilmiş ve kaldırılan dosyaları yedekler. Etkilenen tüm dosyaları klasörüne kaydedilir `Backup/AzureAD`. Visual Studio 2017, yedeklemeler oluşturmaz.
+Bağlı hizmet eklerken, Visual Studio 2015 değiştirilmiş ve kaldırılan dosyaları yedekler. Etkilenen tüm dosyaları klasörüne kaydedilir `Backup/AzureAD`. Visual Studio 2017 ve sonraki yedeklemeleri oluşturmaz.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

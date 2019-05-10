@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 471b10a83d8da3b520f4a9dd00a5db4420fc504f
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.date: 04/30/2019
+ms.openlocfilehash: 06d416358c1886f09b0b2336cc1ea53ce89947ae
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63767218"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230820"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Öğretici: Ansible'ı kullanarak Azure Cosmos DB hesaplarını yapılandırma
 
@@ -31,9 +31,9 @@ ms.locfileid: "63767218"
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-random-postfix"></a>Rastgele bir sonek oluşturma
 
@@ -48,7 +48,7 @@ ms.locfileid: "63767218"
         run_once: yes
 ```
 
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma 
+## <a name="create-resource-group"></a>Kaynak grubu oluştur 
 
 Örnek playbook kod parçacığında, bir Azure kaynak grubu oluşturur. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -83,7 +83,7 @@ Aşağıdaki kod, bir sanal ağ ve Azure Cosmos DB hesabı için alt ağ oluştu
       address_prefix_cidr: "10.1.0.0/24"
 ```
 
-## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
+## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturun
 
 Aşağıdaki kod, Cosmos DB hesabı oluşturur:
 

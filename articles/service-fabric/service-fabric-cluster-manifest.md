@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386729"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209713"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Tek başına bir Windows kümesi için yapılandırma ayarları
 Bu makalede bir tek başına Azure Service Fabric kümesinin ayarlanabilir yapılandırma ayarlarını *ClusterConfig.json* dosya. Bu dosya, hata ve yükseltme etki alanlarında bakımından ağ topolojisini yanı sıra küme düğümleri, güvenlik yapılandırmaları hakkında bilgi belirtmek için kullanır.  Değiştirme veya yapılandırma ayarı da ekledikten sonra yapabilirsiniz veya [tek başına küme oluşturma](service-fabric-cluster-creation-for-windows-server.md) veya [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,7 +122,7 @@ Güvenlik bölümüne güvenli tek başına Service Fabric kümesi için gerekli
 }
 ```
 
-Meta verileri güvenli kümenize açıklamasını ve kurulumunuza göre ayarlanabilir. ClusterCredentialType ve ServerCredentialType küme ve düğümleri uygulayan güvenlik türünü belirler. Bunlar için her iki ayarlanabilir *X509* sertifika tabanlı bir güvenlik veya *Windows* Azure Active Directory tabanlı güvenlik için. Güvenlik bölümün geri kalanında güvenlik türüne bağlıdır. Kalan güvenlik bölümüne doldurun hakkında daha fazla bilgi için bkz: [tek başına küme sertifikaları tabanlı güvenlik](service-fabric-windows-cluster-x509-security.md) veya [tek başına küme Windows Güvenlik](service-fabric-windows-cluster-windows-security.md).
+Meta verileri güvenli kümenize açıklamasını ve kurulumunuza göre ayarlanabilir. ClusterCredentialType ve ServerCredentialType küme ve düğümleri uygulayan güvenlik türünü belirler. Bunlar için her iki ayarlanabilir *X509* sertifika tabanlı bir güvenlik veya *Windows* Active Directory tabanlı güvenlik için. Güvenlik bölümün geri kalanında güvenlik türüne bağlıdır. Kalan güvenlik bölümüne doldurun hakkında daha fazla bilgi için bkz: [tek başına küme sertifikaları tabanlı güvenlik](service-fabric-windows-cluster-x509-security.md) veya [tek başına küme Windows Güvenlik](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Düğüm türleri
 NodeType bölüm kümenizi sahip düğüm türünü açıklar. En az bir düğüm türü, aşağıdaki kod parçacığında gösterildiği gibi bir küme için belirtilmelidir: 

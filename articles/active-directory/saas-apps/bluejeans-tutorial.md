@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698937"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Öğretici: BlueJeans ile Azure Active Directory Tümleştirme
 
@@ -102,18 +102,17 @@ Azure AD çoklu oturum açma ile BlueJeans yapılandırmak için aşağıdaki ad
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+    ![Temel SAML yapılandırmasını düzenle](media/bluejeans-tutorial/edit-urls-bluejeans.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. İçinde **temel SAML yapılandırma** iletişim kutusunda aşağıdaki değerleri girin:
 
-    ![BlueJeans etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![BlueJeans etki alanı ve URL'ler tek oturum açma bilgileri](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.BlueJeans.com`
-
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL yazın: `http://samlsp.bluejeans.com`
-
-    > [!NOTE]
-    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [BlueJeans istemci Destek ekibine](https://support.bluejeans.com/contact) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+   - İçinde **tanımlayıcı** metin kutusunda, aşağıdaki komutu yazın: `https://samlsp.bluejeans.com`
+    
+   - İçinde **oturum açma URL'si** metin kutusunda, size BlueJeans tarafından sağlanan giriş sayfası URL'sini yazın (Bu değer almak için sizinle iletişim [BlueJeans istemci Destek ekibine](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
+    
+   - **Kaydet**’e tıklayın.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -161,9 +160,9 @@ Azure AD çoklu oturum açma ile BlueJeans yapılandırmak için aşağıdaki ad
 
     ![Değişiklikleri kaydetmek](./media/bluejeans-tutorial/ic785874.png "Değişiklikleri Kaydet")
 
-    a. İçinde **kullanıcı kimliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. İçinde **kullanıcı kimliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. İçinde **e-posta** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. İçinde **e-posta** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Tıklayın **değişiklikleri kaydetme**.
 

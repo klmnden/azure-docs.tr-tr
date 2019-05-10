@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.date: 04/29/2019
+ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "61425017"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510811"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Nasıl oluşturmak ve yönetmek, Azure portalını kullanarak MySQL için Azure veritabanı çoğaltmalarını okuyun
 
-Bu makalede, oluşturmak ve yönetmek için aynı Azure bölgesindeki Yöneticisi olarak Azure portalını kullanarak MySQL hizmeti için Azure veritabanı salt okunur çoğaltmalar öğreneceksiniz. Bu özellik şu anda genel Önizleme aşamasındadır.
+Bu makalede, oluşturmak ve yönetmek için Azure veritabanı Azure portalını kullanarak MySQL hizmeti salt okunur çoğaltma öğreneceksiniz.
+
+> [!IMPORTANT]
+> Salt okunur bir çoğaltması, ana sunucunuz ile aynı bölgede ya da diğer Azure bölgesinde, tercih ettiğiniz oluşturabilirsiniz. Bölgeler arası çoğaltma şu anda genel Önizleme aşamasındadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,9 +41,15 @@ Salt okunur çoğaltma sunucusu, aşağıdaki adımları kullanarak oluşturulab
 
    ![MySQL - çoğaltma için Azure veritabanı](./media/howto-read-replica-portal/add-replica.png)
 
-5. Çoğaltma sunucusu için bir ad girin ve tıklayın **Tamam** oluşturma işlemini onaylamak için.
+5. Çoğaltma sunucusu için bir ad girin.
 
-   ![Azure veritabanı - MySQL için çoğaltma oluşturma](./media/howto-read-replica-portal/create-replica.png)
+    ![MySQL - çoğaltma adı için Azure veritabanı](./media/howto-read-replica-portal/replica-name.png)
+
+6. Çoğaltma sunucusu için bir konum seçin. Bir çoğaltma, herhangi bir Azure bölgesinde oluşturabilirsiniz. Varsayılan konumu ana sunucu ile aynıdır
+
+    ![MySQL - çoğaltma konumu için Azure veritabanı](./media/howto-read-replica-portal/replica-location.png)
+
+7. Seçin **Tamam** oluşturma işlemini onaylamak için.
 
 > [!NOTE]
 > Okuma çoğaltmaları aynı sunucu yapılandırma yöneticisi olarak oluşturulur. Çoğaltma sunucusu yapılandırması, oluşturulduktan sonra değiştirilebilir. Çoğaltma sunucusunun yapılandırmasını çoğaltma ana ayak olduğundan emin olmak için ana daha eşit veya daha fazla değerlerinde tutulması gereken önerilir.
@@ -115,7 +124,7 @@ Azure portalından bir ana sunucu silmek için aşağıdaki adımları kullanın
 
 2. Altında **izleme** select yan bölümünü **ölçümleri**:
 
-3. Seçin **çoğaltma bekleme süresini saniye cinsinden** ölçümlerin aşağı açılan listeden. 
+3. Seçin **çoğaltma bekleme süresini saniye cinsinden** ölçümlerin aşağı açılan listeden.
 
    ![Çoğaltma gecikmesi seçin](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

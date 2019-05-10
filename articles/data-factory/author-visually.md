@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60593099"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507808"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -60,7 +60,7 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 
 | Ayar | Açıklama | Değer |
 |:--- |:--- |:--- |
-| **Depo türü** | Azure depoları kod deposu türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Azure depoları Git |
+| **Depo türü** | Azure depoları kod deposu türü.<br/> | Azure depoları Git |
 | **Azure Active Directory** | Azure AD Kiracı adı. | `<your tenant name>` |
 | **Azure depoları kuruluş** | Azure depoları kuruluşunuzun adı. Azure depoları kuruluş adınızı bulabilirsiniz `https://{organization name}.visualstudio.com`. Yapabilecekleriniz [Azure depoları kuruluşunuz oturum](https://www.visualstudio.com/team-services/git/) Visual Studio profilinize erişmek ve projeleri ve depoları bakın. | `<your organization name>` |
 | **projectName** | Azure depoları proje adı. Azure depoları proje adınızı bulabilirsiniz `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
@@ -266,7 +266,7 @@ Desteklenen ifadeler hakkında daha fazla bilgi için bkz: [ifadeler ve İşlevl
 
 ![Dinamik İçerik Ekle](media/author-visually/dynamic-content-2.png)
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 Seçin **geri bildirim** özellikleri hakkında yorum yapmak veya Microsoft aracı ile ilgili sorunları bildirmek için:
 
 ![Geri Bildirim](media/author-visually/provide-feedback.png)

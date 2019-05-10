@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4eadbd119c69a018d65739f55933e91a37f1f3ab
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572367"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410897"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
 
@@ -34,9 +34,9 @@ Bu öğretici, şirket içi sanal makineleri (Hyper-V) Azure'a çoğaltmak isted
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
-## <a name="sign-in"></a>Oturum aç
+## <a name="sign-in"></a>Oturum Aç
 
-[Azure Portal](http://portal.azure.com) oturum açın.
+[Azure Portal](https://portal.azure.com) oturum açın.
 
 ## <a name="verify-account-permissions"></a>Hesap izinlerini doğrulama
 
@@ -91,11 +91,11 @@ Yük devretmeden sonra depolamadan Azure sanal makineleri oluşturulduğunda san
 7. Hiçbir Ağ Hizmeti uç noktası ile temel DDoS Koruması varsayılan seçenekleri bırakın.
 8. **Oluştur**’u seçin.
 
-![Sanal ağ oluşturma](media/tutorial-prepare-azure/create-network.png)
+![Sanal ağ oluştur](media/tutorial-prepare-azure/create-network.png)
 
 Sanal ağın oluşturulması birkaç saniye sürer. Oluşturulduktan sonra Azure portalı panosunda görürsünüz.
 
-## <a name="useful-links"></a>Yararlı bağlantılar
+## <a name="useful-links"></a>Faydalı bağlantılar
 
 Hakkında bilgi edinin:
 - [Azure ağı](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ebd10544331d3b7d887124542fe4ee2753c714
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542433"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233149"
 ---
 # <a name="openshift-in-azure"></a>Azure’da OpenShift
 
@@ -34,15 +34,15 @@ OpenShift Kubernetes kapsayıcı düzenleme ve management içerir. Bu etkinleşt
 
 OpenShift birden çok sürümü kullanılabilir.  Bu sürümleri yalnızca iki bugün müşterilerin Azure'da dağıtmak kullanılabilir: OpenShift kapsayıcı platformu ve OKD (eski adıyla OpenShift Origin).
 
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+Microsoft Azure Red Hat OpenShift, Azure'da çalıştırılan OpenShift tam olarak yönetilen bir tekliftir. Bu hizmet tüm dünyada yönetilen ve Microsoft ve Red Hat tarafından desteklenir. Tüm belgeler olabilir [burada](https://docs.microsoft.com/azure/openshift/). 
+
 ## <a name="openshift-container-platform"></a>OpenShift Kapsayıcı Platformu
 
 Bir kapsayıcı platformudur Kurumsal kullanıma hazır [ticari sürümü](https://www.openshift.com) gelen ve Red Hat tarafından desteklenir. Bu sürümü ile müşteriler OpenShift kapsayıcı platformu için gerekli yetkilendirmeleri satın alma ve yükleme ve yönetimini tüm altyapının sorumludur.
 
 Tüm platform müşteriler "sahip"olduğundan, bunlar kendi şirket içi veri merkezinde veya genel bulut (Azure gibi) yükleyebilirsiniz.
-
-## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
-
-Azure Red Hat OpenShift, Azure'da çalıştırılan OpenShift tam olarak yönetilen bir tekliftir. Bu hizmet tüm dünyada yönetilen ve Microsoft ve Red Hat tarafından desteklenir. Küme, müşterinin Azure aboneliğinize dağıtırsınız. Hizmet genel kullanım Mayıs 2019'geçici olarak sunulması planlanmaktadır. Hizmet genel kullanımda da geçerli olduğunda ayrı bir belge için Yönetilen hizmet kullanıma sunulacaktır
 
 ## <a name="okd"></a>OKD
 

@@ -67,7 +67,7 @@ HDInsight Spark kümeleri, Phoenix Spark Bağlayıcısı'nı desteklemez.
 
 **Azaltma:**
 
-Bunun yerine HBase Spark Bağlayıcısı'nı kullanmanız gerekir. Yönergeler için bkz. [Spark HBase bağlayıcı kullanma konusuna](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Bunun yerine HBase Spark Bağlayıcısı'nı kullanmanız gerekir. Yönergeler için bkz. [Spark HBase bağlayıcı kullanma konusuna](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter not defterleri için ilgili sorunlar
 Jupyter not defterleri için ilgili bazı bilinen sorunlar aşağıda verilmiştir.

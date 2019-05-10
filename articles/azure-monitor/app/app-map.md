@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693425"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509984"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama Haritası: Dağıtılmış uygulamalar Önceliklendirme
 
@@ -68,7 +68,7 @@ Performans sorunlarını gidermek için seçin **performansını araştırın**.
 
 ### <a name="go-to-details"></a>Ayrıntılara git
 
-Seçin **ayrıntıları Git** çağrı yığın düzeyi için gerçekleştirilen görünümleri sunan uçtan uca işlem deneyimi keşfedin.
+Seçin **ayrıntıları Git** görünümleri çağrı yığını düzeyine sunan uçtan uca işlem deneyimi keşfedin.
 
 ![Git ayrıntıları düğmesinin Ekran görüntüsü](media/app-map/go-to-details.png)
 

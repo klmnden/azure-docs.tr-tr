@@ -10,35 +10,40 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9d0743e30c4ae32c052a9f27c9fa22b1036aead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681722"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510039"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C# kullanarak bir Azure zaman serisi görüşleri ortamınıza başvuru verilerini yönetme
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Bir Azure zaman serisi görüşleri ortamınıza başvuru verilerini GA kullanarak yönetmeC#
 
 Bu makalede bir Azure zaman serisi görüşleri ortamınıza başvuru veri yönetmek için derleme örnek C# projesinde açıklanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Derlemek ve örnek kodu çalıştırma önce aşağıdaki adımları tamamlayın:
+
 1. [Başvuru veri kümesi oluşturma](time-series-insights-add-reference-data-set.md).
 
-2. Uygulama kimlik doğrulama erişim belirtecinin yapılandırın. Belirteç, Azure Active Directory API'si edinilen emin olun. Bu belirteci geçmelidir `Authorization` her sorgu API'si isteği üstbilgisi. 
- 
+1. Uygulama kimlik doğrulama erişim belirtecinin yapılandırın. Belirteç, Azure Active Directory API'si edinilen emin olun. Bu belirteci geçmelidir `Authorization` her sorgu API'si isteği üstbilgisi.
+
    Etkileşimli olmayan uygulama ayarlama hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md).
 
-3. Örnek kod, atanan örnek sabitleri değiştirmek için Düzenle **DUMMY #**, neredeyse kod başlangıcı. 
+1. Örnek kod, atanan örnek sabitleri değiştirmek için Düzenle **DUMMY #**, neredeyse kod başlangıcı.
 
-Bu örnek kodu da bulunabilir. [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+> [!NOTE]
+> GA örnek kodlar da görüntüleme [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
 
-## <a name="project-references"></a>Proje başvuruları
-NuGet paketleri Ekle `Microsoft.IdentityModel.Clients.ActiveDirectory` ve `Newtonsoft.Json` bu örneğin. 
+## <a name="project-dependencies"></a>Proje bağımlılıkları
 
-## <a name="c-sample-code"></a>C# örnek kod 
+NuGet paketleri Ekle `Microsoft.IdentityModel.Clients.ActiveDirectory` ve `Newtonsoft.Json` bu örneğin.
+
+## <a name="c-sample-code"></a>C# örnek kod
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -134,7 +139,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-        },
+    },
         ""properties"": [""BladeCount""]
     }]
 }";

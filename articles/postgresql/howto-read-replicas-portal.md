@@ -1,22 +1,24 @@
 ---
-title: Salt okunur çoğaltmalar için Azure veritabanı PostgreSQL için Azure portalından yönetin
-description: Azure portalından çoğaltmaları okuma PostgreSQL için Azure veritabanı yönetmeyi öğrenin.
-author: WenJason
-ms.author: v-jay
+title: Salt okunur çoğaltmalar için Azure veritabanı, PostgreSQL - Azure portalında tek bir sunucu için yönetme
+description: PostgreSQL - Azure portalında tek bir sunucu için Azure veritabanı salt okunur çoğaltmalar yönetmeyi öğrenin.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420859"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510373"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Oluşturma ve Azure portalından salt okunur çoğaltmalar yönetme
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Oluşturma ve PostgreSQL - Azure portalında tek bir sunucu için Azure veritabanı'nda salt okunur çoğaltmalar yönetme
 
 Bu makalede, oluşturma ve Azure veritabanı'nda salt okunur çoğaltmalar PostgreSQL için Azure portalından yönetme öğrenin. Salt okunur çoğaltmalar hakkında daha fazla bilgi için bkz: [genel bakış](concepts-read-replicas.md).
+
+> [!IMPORTANT]
+> Salt okunur bir çoğaltması, ana sunucunuz ile aynı bölgede ya da diğer Azure bölgesinde, tercih ettiğiniz oluşturabilirsiniz. Bölgeler arası çoğaltma şu anda genel Önizleme aşamasındadır.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -59,9 +61,15 @@ Salt okunur bir çoğaltma oluşturmak için aşağıdaki adımları izleyin:
 
    ![Bir çoğaltma ekleme](./media/howto-read-replicas-portal/add-replica.png)
 
-4. Okuma çoğaltması için bir ad girin. Seçin **Tamam** oluşturma işlemini onaylamak için.
+4. Okuma çoğaltması için bir ad girin. 
 
-   ![Ad çoğaltma](./media/howto-read-replicas-portal/name-replica.png) 
+    ![Ad çoğaltma](./media/howto-read-replicas-portal/name-replica.png)
+
+5. Çoğaltma için bir konum seçin. Bir çoğaltma, herhangi bir Azure bölgesinde oluşturabilirsiniz. Varsayılan konumu, ana sunucu ile aynıdır.
+
+    ![Konum seçin](./media/howto-read-replicas-portal/location-replica.png)
+
+6. Seçin **Tamam** oluşturma işlemini onaylamak için.
 
 Çoğaltma Yöneticisi olarak aynı sunucu yapılandırmasını kullanarak oluşturulur. Bir çoğaltma oluşturulduktan sonra birkaç ayar bağımsız olarak ana sunucu ile değiştirilebilir: işlem oluşturma, sanal çekirdek, depolama ve yedekleme bekletme süresi. Fiyatlandırma katmanı da ayrı ayrı değiştirilebilir ya da temel katmandan hariç.
 

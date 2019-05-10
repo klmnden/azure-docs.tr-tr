@@ -5,27 +5,81 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2019
+ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093225"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510918"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda okunur çoğaltmalar
 
-Okuma çoğaltması özelliğini sunucularına en fazla beş salt okunur (Yineleme) aynı Azure bölgesindeki bir MySQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmanıza olanak sağlar. Salt okunur çoğaltmalar MySQL altyapının (binlog) yerel ikili günlük dosyası konumu tabanlı çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Okuma çoğaltması özelliği salt okunur bir sunucuya bir MySQL sunucusu için Azure veritabanı'ndan veri çoğaltmanıza olanak sağlar. En fazla beş çoğaltmalar için ana sunucu ile çoğaltma yapabilirsiniz. Çoğaltma, zaman uyumsuz olarak MySQL altyapının (binlog) yerel ikili günlük dosyası konumu tabanlı çoğaltma teknolojisini kullanarak güncelleştirilir. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-MySQL hizmeti için Azure veritabanı'nda oluşturulan yinelemeler normal/tek başına MySQL sunucuları aynı şekilde yönetilebilir yeni sunucularıdır. Okuma amaçlı her çoğaltma için sanal çekirdek cinsinden sağlanan işlem ve GB/ay cinsinden sağlanan depolama karşılığı faturalandırılırsınız.
+> [!IMPORTANT]
+> Salt okunur bir çoğaltması, ana sunucunuz ile aynı bölgede ya da diğer Azure bölgesinde, tercih ettiğiniz oluşturabilirsiniz. Bölgeler arası çoğaltma şu anda genel Önizleme aşamasındadır.
+
+Çoğaltmalar, yönettiğiniz benzer normal Azure veritabanını MySQL sunucuları için yeni sunucularıdır. Her yineleme okumak için sanal Çekirdeklerde sağlanan işlem ve depolama GB için faturalandırılırsınız / ay.
 
 MySQL çoğaltma özellikler ve sorunlar hakkında daha fazla bilgi için bkz. [MySQL çoğaltma belgeleri](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
-## <a name="when-to-use-read-replicas"></a>Salt okunur çoğaltmalar kullanıldığı durumlar
+## <a name="when-to-use-a-read-replica"></a>Salt okunur bir çoğaltması kullanmak üzere ne zaman
 
-Uygulamaları ve yoğun okuma iş yükleri tarafından salt okunur çoğaltmaların sunulabilir. Salt okunur çoğaltmalar yalnızca tek bir sunucu okuma ve yazma için kullanılacak olsaydı karşılaştırıldığında okuma kapasite miktarını artırmak yardımcı olur. Yazma iş yüklerinin asıl yönlendirilebilir okuma iş yükleri için çoğaltmalar, yalıtılmış olabilir.
+Salt okunur çoğaltma özelliği okuma açısından yoğun iş yükleri, ölçek ve performans artırmaya yardımcı olur. Yazma iş yüklerinin asıl yönlendirilebilir okuma iş yükleri için çoğaltmalar, yalıtılmış olabilir.
 
 Sık karşılaşılan bir senaryodur BI sahip olmaktır ve analiz iş yükleri okuma çoğaltması raporlama için veri kaynağı olarak kullanın.
+
+Çoğaltmaların salt okunur olduğundan, doğrudan asıl kapasite yazma yüklerini azaltmak yok. Bu özellik, yazma yoğunluklu iş yükleri hedeflenen değil.
+
+MySQL zaman uyumsuz çoğaltma okuma çoğaltması özelliğini kullanır. Bu özellik, zaman uyumlu çoğaltma senaryoları için tasarlanmamıştır. Ana ve çoğaltma arasında ölçülebilir bir gecikme olur. Veri çoğaltma sonunda asıl verilerle tutarlı hale gelir. Bu gecikme uyum iş yükleri için bu özelliği kullanın.
+
+Okuma çoğaltma, olağanüstü durum kurtarma planınızı geliştirebilirsiniz. Bölgesel bir olağanüstü durum yoktur ve ana sunucunuz yoksa, başka bir bölgede bir yineleme için iş yükünüzü yönlendirebilir. Bunu yapmak için ilk çoğaltma durdurma çoğaltma işlevini kullanarak yazma kabul olanak tanır. Ardından, bağlantı dizesini güncelleştirerek uygulamanızı yönlendirebilirsiniz. Daha fazla bilgi [çoğaltma durdurma](#stop-replication) bölümü.
+
+## <a name="create-a-replica"></a>Bir çoğaltma oluşturma
+
+Ana sunucu mevcut hiçbir çoğaltma sunucuları varsa, ana ilk çoğaltma için hazırlanması için yeniden başlatılır.
+
+MySQL sunucusu için boş bir Azure veritabanı oluşturma çoğaltma iş akışı başlattığınızda oluşturulur. Yeni sunucunun ana sunucuya olan verilerle doldurulur. Oluşturma zamanı asıl ve haftalık tam yedekleme saatinden veri miktarına bağlıdır. Süre birkaç dakikadan birkaç saate kadar değişebilir.
+
+> [!NOTE]
+> Depolama uyarı kümesi sunucularınızda yoksa, bunu yapmanız önerilir. Uyarı ne zaman bir sunucu çoğaltma etkiler, depolama sınırına yaklaşıyor size bildirir.
+
+Bilgi edinmek için nasıl [salt okunur bir çoğaltması Azure Portalı'nda oluşturma](howto-read-replicas-portal.md).
+
+## <a name="connect-to-a-replica"></a>Bir kopyaya bağlanın
+
+Bir çoğaltma oluşturduğunuzda, sanal ağ hizmet uç noktası ana sunucu ve güvenlik duvarı kuralları devralmaz. Bu kurallar, çoğaltma için bağımsız olarak ayarlanmalıdır.
+
+Çoğaltma yönetici hesabı, ana sunucudan devralır. Tüm kullanıcı hesapları ana sunucu üzerinde salt okunur kopyaya çoğaltılır. Salt okunur bir çoğaltması için yalnızca ana sunucu üzerinde kullanılabilir olan kullanıcı hesaplarını kullanarak da bağlanabilirsiniz.
+
+MySQL sunucusu için normal bir Azure veritabanında olduğu gibi kendi ana bilgisayar adı ve geçerli kullanıcı hesabı kullanarak çoğaltmaya bağlanabilirsiniz. Adlı bir sunucu için **myreplica** yönetici kullanıcı adı ile **myadmin**, çoğaltma için mysql CLI kullanarak bağlanabilirsiniz:
+
+```bash
+mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
+```
+
+İstemde, kullanıcı hesabı için parolayı girin.
+
+## <a name="monitor-replication"></a>İzleyici çoğaltma
+
+MySQL için Azure veritabanı tarafından sağlanan **çoğaltma bekleme süresini saniye cinsinden** ölçüm Azure İzleyici'de. Bu ölçüm yalnızca çoğaltmalar için kullanılabilir.
+
+Bu ölçüm kullanılarak hesaplanır `seconds_behind_master` MySQL'ın kullanılabilir ölçüm `SHOW SLAVE STATUS` komutu.
+
+Çoğaltma gecikmesi, iş yükü için kabul edilebilir olmayan bir değer ulaştığında bildirmek için uyarı ayarlama.
+
+## <a name="stop-replication"></a>Çoğaltmayı durdur
+
+Bir ana ve çoğaltma arasında çoğaltmayı durdurabilirsiniz. Ana sunucu ile bir salt okunur çoğaltma arasında çoğaltmayı durdurulduktan sonra çoğaltma, tek başına sunucu haline gelir. Tek başına sunucu verileri çoğaltma durdurma komutunun başlatılmasından çoğaltma üzerinde kullanılabilir olan verilerdir. Tek başına sunucu ana sunucu ile Kaçırdığınız değil.
+
+Bir çoğaltma için çoğaltma durdurma seçtiğinizde, önceki ana ve diğer yinelemeler için tüm bağlantılar kaybeder. Hiçbir otomatik yük devretme çoğaltması arasındaki asıl yoktur.
+
+> [!IMPORTANT]
+> Tek başına sunucu ile bir çoğaltma yeniden yapılamıyor.
+> Salt okunur bir çoğaltma üzerinde çoğaltma durdurmadan önce çoğaltma gerektiren tüm verilere sahip olun.
+
+Bilgi edinmek için nasıl [bir çoğaltma için çoğaltma durdurma](howto-read-replicas-portal.md).
 
 ## <a name="considerations-and-limitations"></a>Önemli noktalar ve sınırlamalar
 
@@ -37,38 +91,22 @@ Okuma çoğaltma şu anda yalnızca genel amaçlı ve bellek için iyileştirilm
 
 Bir çoğaltma yok mevcut çoğaltmaları olan bir şablonu oluşturduğunuzda, ana ilk çoğaltma için hazırlanması için yeniden başlatılır. Lütfen bu dikkate alın ve yoğun olmayan bir dönem boyunca bu işlemleri gerçekleştirin.
 
-### <a name="stopping-replication"></a>Çoğaltmayı durdurma
+### <a name="new-replicas"></a>Yeni yineleme
 
-Bir ana ve çoğaltma sunucusu arasında çoğaltmayı durdurmak seçebilirsiniz. Çoğaltma durdurma Yöneticisi ile çoğaltma sunucusu arasındaki çoğaltma ilişkisini kaldırır.
+MySQL sunucusu için yeni bir Azure veritabanı salt okunur bir çoğaltması oluşturulur. Mevcut bir sunucu ile bir çoğaltma yapılamaz. Bir kopyasını başka bir okuma çoğaltması oluşturulamıyor.
 
-Çoğaltma durdurulduğunda bir tek başına sunucu çoğaltma sunucusu olur. Tek başına sunucu verileri "çoğaltma stop" komutunu başlatıldığı anda çoğaltma üzerinde kullanılabilir olan verilerdir. Tek başına sunucu ana sunucu ile yakalamaz. Bu sunucu bir yinelemeye yeniden yapılamıyor.
+### <a name="replica-configuration"></a>Çoğaltma yapılandırması
 
-### <a name="replicas-are-new-servers"></a>Çoğaltmaları olan yeni sunucular
+Çoğaltma Yöneticisi olarak aynı sunucu yapılandırmasını kullanarak oluşturulur. Bir çoğaltma oluşturulduktan sonra birkaç ayar bağımsız olarak ana sunucu ile değiştirilebilir: işlem oluşturma, sanal çekirdek, depolama, yedekleme bekletme süresi ve MySQL altyapı sürümü. Fiyatlandırma katmanı da ayrı ayrı değiştirilebilir ya da temel katmandan hariç.
 
-Çoğaltmalar, MySQL Server için yeni bir Azure veritabanı olarak oluşturulur. Mevcut sunucuları, yinelemeler yapılamaz.
+> [!IMPORTANT]
+> Bir ana sunucu yapılandırması için yeni değerleri güncelleştirilmeden önce çoğaltma yapılandırması eşit veya daha fazla değerlerle güncelleştirin. Bu eylem, çoğaltma ana dala yapılan değişiklikler ile koruyabilirsiniz sağlar.
 
-### <a name="replica-server-configuration"></a>Çoğaltma sunucusunu yapılandırma
+### <a name="stopped-replicas"></a>Durdurulan çoğaltmalar
 
-Çoğaltma sunucusu, aşağıdaki yapılandırmaları içerir asıl aynı sunucu yapılandırmaları kullanılarak oluşturulur:
+Bir ana sunucu ve bir salt okunur çoğaltma arasında çoğaltmayı durdurursanız, durdurulmuş çoğaltma hem okuma hem de yazma işlemleri kabul eden bir tek başına sunucu haline gelir. Tek başına sunucu ile bir çoğaltma yeniden yapılamıyor.
 
-- Fiyatlandırma katmanı
-- İşlem oluşturma
-- Sanal çekirdekler
-- Depolama
-- Yedekleme bekletme süresi
-- Fazladan yedek seçeneği
-- MySQL altyapısı sürümü
-- Güvenlik duvarı kuralları
-
-Bir çoğaltma oluşturulduktan sonra fiyatlandırma katmanını değiştirebilirsiniz (Basic gelen ve giden hariç), işlem oluşturma, sanal çekirdek, depolama ve bağımsız olarak ana sunucudan yedekleme bekletme.
-
-### <a name="master-server-configuration"></a>Ana sunucu yapılandırması
-
-Asıl varsa ait sunucu yapılandırması (ör. Sanal çekirdek ve depolama) güncelleştirilir, çoğaltmaları yapılandırma da eşit veya daha büyük değerler için güncelleştirilmesi gerekir. Bu, olmadan çoğaltma sunucusu ana dala yapılan değişiklikleri takip edin mümkün olmayabilir ve sonuç olarak kilitlenebilir.
-
-Bir çoğaltma sunucusu oluşturulduktan sonra ana sunucu için eklenen yeni güvenlik duvarı kuralları çoğaltmaya çoğaltılmaz. Çoğaltma bu yeni bir güvenlik duvarı kuralı da güncelleştirilmelidir.
-
-### <a name="deleting-the-master-server"></a>Ana sunucu siliniyor
+### <a name="deleted-master-and-standalone-servers"></a>Silinen Yöneticisi ve tek başına sunucular
 
 Ana sunucu silindiğinde, tüm salt okunur çoğaltmalar için çoğaltma durdurulur. Bu çoğaltmaların tek başına sunucuları olur. Ana sunucu silinir.
 
@@ -76,15 +114,23 @@ Ana sunucu silindiğinde, tüm salt okunur çoğaltmalar için çoğaltma durdur
 
 Ana sunucu üzerinde kullanıcılar, salt okunur kopyaya çoğaltılır. Yalnızca ana sunucu üzerinde kullanılabilir olan kullanıcı hesaplarını kullanarak bir okuma çoğaltması bağlanabilirsiniz.
 
+### <a name="server-parameters"></a>Sunucu parametreleri
+
+Veri eşitlenmemiş hale gelmesini önlemek ve olası veri kaybı veya bozulması önlemek için bazı sunucu parametreleri kullanarak çoğaltmaları okuduğunuzda güncelleştirilmiş kilitlenir.
+
+Aşağıdaki sunucu parametreleri hem ana hem de çoğaltma sunucularında kilitli:
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
+
+[ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) Parametresi ile çoğaltma sunucularında kilitlendi. 
+
 ### <a name="other"></a>Diğer
 
 - Genel işlem tanımlayıcıları (GTID) desteklenmez.
 - Bir çoğaltma bir kopyasını oluşturma desteklenmiyor.
 - Bellek içi tablolar çoğaltmalar eşitlenmemiş hale neden olabilir. Bu MySQL çoğaltma teknolojisinin sınırlamasıdır. Daha fazla bilgi [MySQL başvuru belgeleri](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) daha fazla bilgi için.
-- Ayarlama [ `innodb_file_per_table` ](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parametresi bir ana sunucuya bir çoğaltma sunucusu oluşturma, çoğaltma eşitlenmemiş hale neden olabilir. Çoğaltma sunucusu farklı açabilmek uyumlu değildir.
 - Ana sunucu tabloların birincil anahtarlara sahip olun. Birincil anahtarlar eksikliği ana ile çoğaltmalar arasındaki çoğaltma gecikmesine neden olabilir.
 - MySQL çoğaltma sınırlamaları tam listesini gözden geçirin [MySQL belgeleri](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

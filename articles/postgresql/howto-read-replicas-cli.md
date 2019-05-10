@@ -1,21 +1,24 @@
 ---
-title: Salt okunur çoğaltmalar için Azure clı'dan PostgreSQL için Azure veritabanı yönetme
-description: Azure CLI üzerinden çoğaltmaları okuma PostgreSQL için Azure veritabanı yönetmeyi öğrenin.
+title: Salt okunur çoğaltmalar için Azure veritabanı, PostgreSQL - Azure CLI üzerinden tek bir sunucu için yönetme
+description: PostgreSQL - Azure CLI üzerinden tek bir sunucu için Azure veritabanı'nda salt okunur çoğaltmalar yönetmeyi öğrenin.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420249"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510246"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Oluşturma ve Azure CLI üzerinden salt okunur çoğaltmalar yönetme
 
 Bu makalede, oluşturma ve Azure clı'dan PostgreSQL için Azure veritabanı'nda salt okunur çoğaltmalar yönetme konusunda bilgi edinin. Salt okunur çoğaltmalar hakkında daha fazla bilgi için bkz: [genel bakış](concepts-read-replicas.md).
+
+> [!NOTE]
+> Azure CLI'yı henüz oluştururken çoğaltmaları ana sunucudan farklı bir bölgede desteklemez. Bölgeler arası çoğaltma oluşturmak için kullanın [Azure portalında](howto-read-replicas-portal.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 - Bir [PostgreSQL sunucusu için Azure veritabanı](quickstart-create-server-up-azure-cli.md) ana sunucu olarak.
@@ -49,7 +52,7 @@ Bu adımlar, genel amaçlı veya bellek için iyileştirilmiş katmanlarındaki 
 | Ayar | Örnek değer | Açıklama  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Çoğaltma sunucusu oluşturulacağı kaynak grubu.  |
-| ad | mydemoserver-çoğaltma | Oluşturulan yeni çoğaltma sunucusunun adı. |
+| name | mydemoserver-çoğaltma | Oluşturulan yeni çoğaltma sunucusunun adı. |
 | source-server | mydemoserver | Çoğaltma kaynağı adı veya kaynak kimliği mevcut ana sunucu. |
 
 ```azurecli-interactive

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8413c75a683ff135b3442da6c6a94787ed0866ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441249"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441454"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Uygulama Ara sunucusu için kısıtlı Kerberos temsilcisi yapılandırmalarıyla ilgili sorunları giderme
 
@@ -177,7 +177,7 @@ Yine de ilerleme yapamıyorsanız, Microsoft desteği size yardımcı olabilir. 
 
 ## <a name="other-scenarios"></a>Diğer senaryolar
 
-- Azure uygulama proxy'si, uygulamaya kendi isteği göndermeden önce bir Kerberos anahtarı ister. Tableau Server gibi bazı üçüncü taraf uygulamalar bu kimlik doğrulama yöntemi beğenmediniz. Bu uygulamalar, daha geleneksel anlaşmaları gerçekleşmesi için bekler. İlk istek uygulama bir 401 destekleyen kimlik doğrulama türleri ile yanıt veren, anonimdir.
+- Azure uygulama proxy'si, uygulamaya kendi isteği göndermeden önce bir Kerberos anahtarı ister. Bazı üçüncü taraf uygulamalar bu kimlik doğrulama yöntemi beğenmediniz. Bu uygulamalar, daha geleneksel anlaşmaları gerçekleşmesi için bekler. İlk istek uygulama bir 401 destekleyen kimlik doğrulama türleri ile yanıt veren, anonimdir.
 
 - Çoklu atlamalı kimlik doğrulaması genellikle senaryolarda burada bir uygulama, bir arka plan ve ön uç ile katmanlı nerede hem de SQL Server Reporting Services gibi kimlik doğrulaması gerektiren kullanılır. Çoklu atlama senaryo yapılandırmak için destek makalesine bakın. [Kerberos Kısıtlı temsilci olabilir gerektiren protokol geçişi çoklu atlamalı senaryolarda](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 

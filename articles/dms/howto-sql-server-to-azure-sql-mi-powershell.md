@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867912"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233720"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Şirket içi SQL Server, Azure PowerShell kullanarak Azure SQL veritabanı yönetilen örneğine geçirme
 Bu makalede, geçiş **Adventureworks2016** yukarıda bir Azure SQL veritabanı'na Microsoft Azure PowerShell kullanarak yönetilen örnek veya bir şirket içi SQL Server 2005 örneğine geri veritabanı. Kullanarak bir Azure SQL veritabanı yönetilen örneği için bir şirket içi SQL Server örneğinden veritabanları geçirebilirsiniz `Az.DataMigration` Microsoft Azure PowerShell modülü.
@@ -57,7 +57,7 @@ Bu adımları tamamlamak için ihtiyacınız vardır:
 
 PowerShell kullanarak Azure aboneliğinizde oturum açın. Daha fazla bilgi için bkz [oturum Azure PowerShell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Bir Azure kaynak grubu, Azure kaynaklarını dağıtıldığı ve yönetildiği mantıksal bir kapsayıcıdır.
 
@@ -86,7 +86,7 @@ Aşağıdaki örnekte adlı bir hizmet oluşturur *MyDMS* kaynak grubundaki *MyD
 > Aşağıdaki kod parçacığında, bir Premium SKU üzerinde temel Azure veritabanı geçiş hizmeti örneği gerektirmeyen bir çevrimdışı geçiş içindir. Çevrimiçi bir geçiş için bir Premium SKU - Sku parametresi değerini içermelidir.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

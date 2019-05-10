@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 0eec75767ab61aef9322e7475515871bdd36b5d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7346d5f40e0fe7dd4dbe892e96549f7ff181cb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572396"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511003"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Güvenli bir MySQL için Azure veritabanı'na bağlanmak üzere uygulamanızda SSL bağlantısı yapılandırma
 MySQL için Azure veritabanı, Güvenli Yuva Katmanı (SSL) kullanarak istemci uygulamaları için Azure veritabanınızı MySQL sunucusuna bağlanmayı destekler. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
@@ -35,7 +35,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 > [!NOTE]
 > Windows üzerinde MySQL komut satırı arabirimi kullanarak, bir hata alabilir `SSL connection error: Certificate signature check failed`. Bu meydana gelirse, değiştirin `--ssl-mode=REQUIRED --ssl-ca={filepath}` parametrelerle `--ssl`.
 
-## <a name="step-3--enforcing-ssl-connections-in-azure"></a>3. Adım:  Azure'da SSL bağlantılarının zorlanması 
+## <a name="step-3--enforcing-ssl-connections-in-azure"></a>3. adım:  Azure'da SSL bağlantılarının zorlanması 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 Azure portalını kullanarak MySQL için Azure veritabanı sunucunuza ziyaret edin ve ardından **bağlantı güvenliği**. İki durumlu düğmeyi etkinleştirme veya devre dışı kullanın **SSL'yi zorunlu bağlantı** ayarlama ve ardından **Kaydet**. Microsoft, her zaman etkinleştirmeyi önerir **SSL'yi zorunlu bağlantı** için Gelişmiş güvenlik ayarı.
 ![ssl etkinleştir](./media/howto-configure-ssl/enable-ssl.png)
@@ -64,6 +64,13 @@ mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@myd
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
+```
+### <a name="php-using-pdo"></a>PHP (PDO kullanarak)
+```phppdo
+$options = array(
+    PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+);
+$db = new PDO('mysql:host=mydemoserver.mysql.database.azure.com;port=3306;dbname=databasename', 'username@mydemoserver', 'yourpassword', $options);
 ```
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python

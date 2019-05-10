@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570490"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228111"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark uzak bir HDInsight Spark kümesine göndermek için REST API kullanma
 
@@ -153,13 +153,7 @@ Aşağıdaki adımları gerçekleştirin:
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>HDInsight 3.5 sürümünden başlayarak Livy yapılandırma güncelleştirmeleri
 
-HDInsight 3.5 kümeleri ve varsayılan olarak, yukarıdaki erişim örnek veri dosyalarını veya jar dosyaları dışındaki yerel dosya yolları kullanımını devre dışı. Kullanmanızı öneriyoruz `wasb://` yolu yerine jar dosyaları dışındaki erişmek veya örnek veri dosyalarını kümeden. Yerel yol kullanmak istiyorsanız, Ambari yapılandırma uygun şekilde güncelleştirmeniz gerekir. Bunu yapmak için:
-
-1. Küme için Ambari portalına gidin. Ambari Web kullanıcı arabirimini https:// konumunda HDInsight kümenize kullanılabilir**CLUSTERNAME**. azurehdidnsight.net, burada CLUSTERNAME kümenizin adıdır.
-
-2. Sol gezinti bölmesinden tıklayın **Livy**ve ardından **yapılandırmaları**.
-
-3. Altında **livy varsayılan** özellik adı Ekle `livy.file.local-dir-whitelist` ve onun değerine **"/"** tam dosya sistemi erişmesine izin vermek istiyorsanız. Yalnızca belirli bir dizin erişimine izin vermek istiyorsanız, bu dizin yolunu değeri olarak belirtin.
+HDInsight 3.5 kümeleri ve varsayılan olarak, yukarıdaki erişim örnek veri dosyalarını veya jar dosyaları dışındaki yerel dosya yolları kullanımını devre dışı. Kullanmanızı öneriyoruz `wasb://` yolu yerine jar dosyaları dışındaki erişmek veya örnek veri dosyalarını kümeden. 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Livy işleri bir küme içinde bir Azure sanal ağı için gönderme
 

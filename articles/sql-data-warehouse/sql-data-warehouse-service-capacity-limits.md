@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad285d71c2bb90f4b5a59eba25c6cc6a6d8588d6
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204905"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501842"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değerleri.
@@ -35,16 +35,16 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 |:--- |:--- |:--- |
 | Database |Maksimum boyut | Gen1: 240 TB disk üzerinde sıkıştırılır. Bu alanı, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış.  Kümelenmiş columnstore sıkıştırması, 5 X tahmin edilir.  Bu sıkıştırma sağlar veritabanına yaklaşık 1 büyütme tüm tablolarda kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. <br/><br/> Gen2: 240TB rowstore ve columnstore tabloları için sınırsız depolama |
 | Tablo |Maksimum boyut |Diskte sıkıştırılmış 60 TB |
-| Tablo |Her bir veritabanı tabloları | 100.000 |
+| Tablo |Her bir veritabanı tabloları | 100,000 |
 | Tablo |Her tablo sütunları |1024 sütunları |
 | Tablo |Sütun başına bayt |Sütun bağımlı [veri türü](sql-data-warehouse-tables-data-types.md). Karakter veri türleri için 8000 nvarchar için 4000 veya en fazla veri türleri için 2 GB sınırdır. |
 | Tablo |Satır, tanımlanmış boyut başına bayt |Açıklama 8060 baytlık<br/><br/>SQL Server için sayfa sıkıştırmayı ile olduğu gibi aynı şekilde satır başına bayt sayısı hesaplanır. SQL Server gibi SQL veri ambarı sağlayan satır taşma depolama destekler **değişken uzunluğu sütununa** satır dışı gönderilecek. Değişken uzunluklu satır satır dışı itildiğinde yalnızca 24 bayt kök ana kayıt içinde depolanır. Daha fazla bilgi için [veri satırı taşma aşan 8 KB'lık](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tablo |Tablo başına bölüm |15.000<br/><br/>Yüksek performans için sayısını en aza olan öneririz bölümler, yine de iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için ek yükü artar ve daha yavaş performans neden olur. |
 | Tablo |Karakter başına bölüm sınırının değeri. |4000 |
-| Dizin oluşturma |Tablo başına olmayan kümelenmiş dizin. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
-| Dizin oluşturma |Tablo başına Kümelenmiş dizinler. |1<br><br/>Rowstore hem columnstore tablolarına uygulanır. |
-| Dizin oluşturma |Dizin anahtarı boyutu. |900 baytı.<br/><br/>Yalnızca rowstore dizini için geçerlidir.<br/><br/>Dizin oluştururken sütunlardaki var olan verilerin 900 baytı aşmıyorsa, birden fazla 900 bayt maksimum boyutu ile varchar sütunları dizinleri oluşturulabilir. Ancak, daha sonra Ekle veya toplam boyutu 900 baytı aşmasına neden sütunlarda güncelleştirme eylemleri başarısız olur. |
-| Dizin oluşturma |Anahtar sütunları dizin başına. |16<br/><br/>Yalnızca rowstore dizini için geçerlidir. Kümelenmiş columnstore dizinleri, tüm sütunlarını ekleyin. |
+| Dizin |Tablo başına olmayan kümelenmiş dizin. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
+| Dizin |Tablo başına Kümelenmiş dizinler. |1<br><br/>Rowstore hem columnstore tablolarına uygulanır. |
+| Dizin |Dizin anahtarı boyutu. |900 baytı.<br/><br/>Yalnızca rowstore dizini için geçerlidir.<br/><br/>Dizin oluştururken sütunlardaki var olan verilerin 900 baytı aşmıyorsa, birden fazla 900 bayt maksimum boyutu ile varchar sütunları dizinleri oluşturulabilir. Ancak, daha sonra Ekle veya toplam boyutu 900 baytı aşmasına neden sütunlarda güncelleştirme eylemleri başarısız olur. |
+| Dizin |Anahtar sütunları dizin başına. |16<br/><br/>Yalnızca rowstore dizini için geçerlidir. Kümelenmiş columnstore dizinleri, tüm sütunlarını ekleyin. |
 | İstatistikler |Birleştirilmiş sütun değerlerini boyutu. |900 baytı. |
 | İstatistikler |Sütun istatistikleri nesne başına. |32 |
 | İstatistikler |Oluşturulan tablo başına sütunlarda istatistikler. |30,000 |
@@ -54,7 +54,7 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 ## <a name="loads"></a>Yükleri
 | Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| Polybase yükleri |Satır başına MB |1<br/><br/>Polybase, 1 MB'den daha küçük olan satırları yükler.<br/><br/> |
+| Polybase yükleri |Satır başına MB |1<br/><br/>Polybase, 1 MB'den daha küçük olan satırları yükler. LOB veri türleri ile bir kümelenmiş Columnstore dizini (CCI) tablolara yüklenmesi desteklenmez.<br/><br/> |
 
 ## <a name="queries"></a>Sorgular
 | Category | Açıklama | Maksimum |
@@ -63,16 +63,16 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | Sorgu |Sistem görünümleri eş zamanlı sorguları. |100 |
 | Sorgu |Sıraya alınan sorguları sistem görünümleri |1000 |
 | Sorgu |En fazla parametreleri |2098 |
-| Batch |En büyük boyutu |65,536*4096 |
+| Yığın |En büyük boyutu |65,536*4096 |
 | Seçim sonuçları |Satır başına sütun |4096<br/><br/>Bu gibi durumlarda, satır başına en fazla 4096 sütun hiçbir zaman seçim sonucu olabilir. Her zaman 4096 olabilir bir garanti yoktur. Sorgu planı geçici tablo gerektiriyorsa, her tablo en fazla 1024 sütunları uygulanabilir. |
-| SELECT |İç içe geçmiş alt sorgular |32<br/><br/>Bu gibi durumlarda, 32'den fazla iç içe geçmiş alt sorgular hiçbir zaman bir SELECT deyiminde olabilir. Her zaman 32 olabilir bir garanti yoktur. Örneğin, bir birleştirme alt sorgu sorgu planı tanıtabilirsiniz. Alt sorgular sayısı tarafından kullanılabilir bellek sınırlı olabilir. |
-| SELECT |Sütun başına birleştirme |1024 sütunları<br/><br/>Hiçbir zaman 1024'ten fazla sütun birleştirme işleminde sahip olabilir. Her zaman 1024 olabilir bir garanti yoktur. Birleştirme planı birleştirme sonucunu çok sütun içeren geçici bir tablo gerektiriyorsa, 1024 sınırı geçici tablo için geçerlidir. |
-| SELECT |GROUP BY sütunları başına bayt sayısı. |8060<br/><br/>GROUP BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
-| SELECT |ORDER BY sütunları başına bayt |Açıklama 8060 baytlık<br/><br/>ORDER BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
+| SEÇ |İç içe geçmiş alt sorgular |32<br/><br/>Bu gibi durumlarda, 32'den fazla iç içe geçmiş alt sorgular hiçbir zaman bir SELECT deyiminde olabilir. Her zaman 32 olabilir bir garanti yoktur. Örneğin, bir birleştirme alt sorgu sorgu planı tanıtabilirsiniz. Alt sorgular sayısı tarafından kullanılabilir bellek sınırlı olabilir. |
+| SEÇ |Sütun başına birleştirme |1024 sütunları<br/><br/>Hiçbir zaman 1024'ten fazla sütun birleştirme işleminde sahip olabilir. Her zaman 1024 olabilir bir garanti yoktur. Birleştirme planı birleştirme sonucunu çok sütun içeren geçici bir tablo gerektiriyorsa, 1024 sınırı geçici tablo için geçerlidir. |
+| SEÇ |GROUP BY sütunları başına bayt sayısı. |8060<br/><br/>GROUP BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
+| SEÇ |ORDER BY sütunları başına bayt |Açıklama 8060 baytlık<br/><br/>ORDER BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
 | İfade başına tanımlayıcıları |Başvurulan tanımlayıcı sayısı |65,535<br/><br/>SQL veri ambarı, bir tek bir sorgu ifadesinde bulunan tanımlayıcı sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor. Daha fazla bilgi için [iç hata: Deyim Hizmetleri sınırına ulaşıldı](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Dize değişmez değerleri | Dize sabit bir ifade sayısı | 20.000 <br/><br/>SQL veri ambarı, sorgu tek bir ifade içinde dize sabitleri sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor.|
 
-## <a name="metadata"></a>Meta Veriler
+## <a name="metadata"></a>Meta veriler
 | Sistem Görünümü | En fazla satır |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |

@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620818"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442407"
 ---
 # <a name="service-health"></a>Hizmet Durumu
 Hizmet durumu, bunları kullandığınız bölgelerde Azure hizmetlerinizin durumunu izleyen özelleştirilebilir bir Pano sağlar. Bu Panoda, sürmekte olan bir hizmet sorunları, yaklaşan planlı Bakım veya ilgili bir sistem durumu danışmanları gibi etkin olayları izleyebilirsiniz. Olayları etkin olmayan duruma geldiğinde, 90 güne kadar sistem durumu geçmişinizde verdiklerine. Son olarak, hizmet durumu panosu oluşturmak ve hizmet sorunları, etkileşimimiz bağlandığınızda proaktif olarak size bildirim hizmeti sistem durumu Uyarıları yönetmek için kullanabilirsiniz.
@@ -60,5 +60,7 @@ Hizmet durumu'nın, iş açısından önemli abonelik, bölge ve kaynak türleri
 ## <a name="configure-service-health-alerts"></a>Hizmet sistem durumu uyarılarını yapılandırma
 Hizmet durumu Azure İzleyici ile iş açısından kritik kaynaklarınız etkilendiğinde e-posta, kısa mesaj ve Web kancası bildirimleri uyarır tümleştirir. Uygun hizmet sistem durumu olayı için bir etkinlik günlüğü uyarısı ayarlayın. Bu uyarı, Eylem grupları kullanarak kuruluşunuzdaki uygun kişilerle rota. Daha fazla bilgi için [hizmet durumu için uyarıları yapılandırma](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
-# <a name="next-steps"></a>Sonraki Adımlar
-Sistem durumu sorunları bildirim almak için uyarılar ayarlayın. Daha fazla bilgi için [hizmet durumu için uyarıları yapılandırın](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>Sonraki adımlar
+Sistem durumu sorunları bildirim almak için uyarılar ayarlayın. Daha fazla bilgi için [Azure hizmet durumu uyarıları ayarlama için en iyi yöntemler](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

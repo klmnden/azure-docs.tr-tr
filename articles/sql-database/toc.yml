@@ -284,6 +284,8 @@
               href: transparent-data-encryption-azure-sql.md
             - name: Kendi Anahtarını Getir ile TDE
               href: transparent-data-encryption-byok-azure-sql.md
+        - name: Güvenlik öznitelikleri
+          href: sql-database-security-attributes.md
     - name: Ölçeklenebilirlik
       items:
         - name: Ölçeklenebilirliğe genel bakış

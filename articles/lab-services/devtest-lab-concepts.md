@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201848"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508375"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs kavramları
 ## <a name="overview"></a>Genel Bakış
 Aşağıdaki liste, temel DevTest Labs kavramları ve tanımları içerir:
 
-## <a name="labs"></a>Labs
+## <a name="labs"></a>Laboratuvarlar
 Limitler ve kotalar belirterek daha iyi sayesinde sanal makineler (VM'ler), bu kaynakları yönetmelerini gibi bir laboratuvar kaynaklarını bir grup kapsayan altyapısıdır.
 
 ## <a name="virtual-machine"></a>Sanal makine
-Bir Azure VM türlerinden biri [isteğe bağlı ve ölçeklenebilir işlem kaynağı](https://docs.microsoft.com/azure/app-service/overview-compare) Azure'un sunduğu. Azure sanal makineleri size sanallaştırma esnekliği satın alma ve rağmen yine de yapılandırma, düzeltme eki uygulama ve üzerinde çalıştığı yazılım yükleme gibi belirli görevleri gerçekleştirerek VM'nin bakımını yapmanız gereken, onu çalıştıran fiziksel donanımı korumak zorunda kalmadan sunar .
+Bir Azure VM türlerinden biri [isteğe bağlı ve ölçeklenebilir işlem kaynağı](/azure/architecture/guide/technology-choices/compute-decision-tree) Azure'un sunduğu. Azure sanal makineleri size sanallaştırma esnekliği satın alma ve rağmen yine de yapılandırma, düzeltme eki uygulama ve üzerinde çalıştığı yazılım yükleme gibi belirli görevleri gerçekleştirerek VM'nin bakımını yapmanız gereken, onu çalıştıran fiziksel donanımı korumak zorunda kalmadan sunar .
 
 [Azure'da Windows sanal makineleri genel bakış](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) önce dikkat etmeniz gereken hakkında bilgi verir oluşturma bir VM, oluşturma ve yönetme biçiminizi.
 

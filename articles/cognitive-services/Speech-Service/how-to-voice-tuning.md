@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148001"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508400"
 ---
-# <a name="fine-tune-text-to-speech-output"></a>Metin okuma çıkış ince ayar yapma
+# <a name="fine-tune-text-to-speech-output"></a>Metin okuma çıkışı için hassas ayar yapma
 
 Azure konuşma Hizmetleri hızı, Söyleniş, birim, aralık ve kullanarak çıktıyı bir metin okuma dağılımını ayarlamanızı izin [konuşma sentezi işaretleme dili (SSML'yi)](speech-synthesis-markup.md). SSML'yi hizmet hangi özelliğinin ayarlanmasını gerektirir hakkında bilgilendirmek için etiketleri kullanan bir XML-tabanlı işaretleme dilidir. SSML'yi ileti, metin okuma hizmetine her isteğin gövdesindeki sonra gönderilir. Teklif artık konuşma Hizmetleri özelleştirme işlemini kolaylaştırmak için bir [ses ayarlama](https://aka.ms/voicetuning) gerçek zamanlı olarak görsel olarak inceleyin ve ayarlamanıza olanak tanıyan metin okuma aracı çıkarır.
 
@@ -28,9 +28,9 @@ Microsoft'un Ses Ayarlama Aracı'nı destekleyen [standart](language-support.md#
 Metin okuma çıkış ses ayarlama aracıyla ince ayar başlamadan önce bu adımları tamamlamak gerekir:
 
 1. Oluşturma bir [ücretsiz Microsoft hesabı](https://account.microsoft.com/account) zaten yoksa.
-2. Oluşturma bir [ücretsiz Azure hesabı](https://azure.microsoft.com/en-us/free/) zaten yoksa. Tıklayın **ücretsiz Başlat**ve Microsoft hesabınızı kullanarak yeni bir Azure hesabı oluşturun.
+2. Oluşturma bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/) zaten yoksa. Tıklayın **ücretsiz Başlat**ve Microsoft hesabınızı kullanarak yeni bir Azure hesabı oluşturun.
 
-3. Bir konuşma Hizmetleri aboneliği, Azure portalında oluşturun. Adım adım yönergeler için [konuşma kaynak oluşturma işlemini](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) kullanılabilir.
+3. Bir konuşma Hizmetleri aboneliği, Azure portalında oluşturun. Adım adım yönergeler için [konuşma kaynak oluşturma işlemini](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) kullanılabilir.
    >[!NOTE]
    >Azure portalında bir konuşma kaynağı oluşturduğunuzda, Azure konum bilgileri TTS ses bölgeyle ile eşleşmesi gerekir. Sinir TTS ses Azure konumları bir alt kümesini destekler. Destek tam bir listesi için bkz. [bölgeleri](regions.md#text-to-speech).
 
@@ -70,6 +70,6 @@ Ses sinir ayarlama, standart ve özel ses için ayarlama değerinden biraz farkl
 > Sesli ayarlama aracın özellikler ve ayarlama hakkında bağlamsal bilgiler sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure'da bir konuşma kaynak oluşturma](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Azure'da bir konuşma kaynak oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [Sesli ayarlama Başlat](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [Konuşma sentezi biçimlendirme dili (SSML'yi)](speech-synthesis-markup.md)

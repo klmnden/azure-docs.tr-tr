@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615873"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232470"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Faturalandırma ve maliyet yönetimi için Otomasyon senaryoları
 
@@ -84,10 +84,10 @@ Doğrudan Web ve kurumsal müşterilere belirtilenler dışında tüm aşağıda
 
 -   [Kullanım API'si derecelendirilmemiş](/previous-versions/azure/reference/mt219003(v=azure.100)): Azure, tüm ölçüm/şarj yapmadan önce ham kullanım bilgilerini alın.
 
-### <a name="billing"></a>Faturalandırma
--   [Faturalama dönemleri API](https://docs.microsoft.com/rest/api/billing/billingperiods): ' % S'fatura kimlikleri bu süre için birlikte analiz etmek için bir faturalandırma döneminde belirleyin. Fatura kimlikleri faturaları API ile kullanabilirsiniz.
+### <a name="billing"></a>Faturalama
+-   [Faturalama dönemleri API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): ' % S'fatura kimlikleri bu süre için birlikte analiz etmek için bir faturalandırma döneminde belirleyin. Fatura kimlikleri faturaları API ile kullanabilirsiniz.
 
--   [Faturaları API](https://docs.microsoft.com/rest/api/billing/invoices): İndirme URL'si için fatura PDF formundaki bir fatura dönemi için alın.
+-   [Faturaları API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): İndirme URL'si için fatura PDF formundaki bir fatura dönemi için alın.
 
 ### <a name="enterprise-consumption"></a>Kurumsal tüketim
 Aşağıdaki API'leri kuruluş için yalnızca şunlardır:
@@ -126,7 +126,7 @@ Bu API'ler, tamamen farklı veri sağlayın:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Fatura API kullanım ayrıntılarını API'si arasındaki fark nedir?
 Bu API'leri, aynı verileri farklı bir görünümünü sağlar:
 
-- [Fatura API](https://docs.microsoft.com/rest/api/billing/invoices) yalnızca Web Direct müşterilerine yöneliktir. Bu aylık faturanızda toplam ücretleri her bir ölçüm türü temel dökümünü sağlar. 
+- [Fatura API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) yalnızca Web Direct müşterilerine yöneliktir. Bu aylık faturanızda toplam ücretleri her bir ölçüm türü temel dökümünü sağlar. 
 
 - [Kullanım ayrıntılarını API'si](https://docs.microsoft.com/rest/api/consumption/usagedetails) her gün için kullanım/maliyeti kayıtları ayrıntılı bir görünümünü sağlar. Hem kurumsal hem de Web Direct müşterilerine onu kullanabilirsiniz.
 

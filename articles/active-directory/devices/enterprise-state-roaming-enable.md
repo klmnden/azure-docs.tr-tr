@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d0be1dfd77035a3522ef8a6b3f4ac93ae20741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353882"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230938"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -46,9 +46,9 @@ Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölg
 
 Ülke/bölge değeri | kendi veri barındırılan
 ---------------------|-------------------------
-Fransa veya Zambiya gibi bir EMEA ülke | Bir veya daha fazla Avrupa içinde Azure bölgeleri 
-ABD veya Kanada gibi Kuzey Amerika ülke | bir veya daha fazla ABD içindeki Azure bölgeler
-Avustralya veya Yeni Zelanda'da gibi bir APAC ülke | bir veya daha fazla Azure bölgeleri içinde Asya
+Bir listelenen Fransa veya Zambiya gibi EMEA ülke/bölge | Bir veya daha fazla Avrupa içinde Azure bölgeleri 
+ABD veya Kanada gibi Kuzey Amerika bir ülke/bölge | bir veya daha fazla ABD içindeki Azure bölgeler
+Bir listelenen Avustralya veya Yeni Zelanda'da gibi APAC ülke/bölge | bir veya daha fazla Azure bölgeleri içinde Asya
 Güney Amerika ve Antarktika bölgeler | ABD içindeki bir veya daha fazla Azure bölgeleri
 
 Ülke/bölge değeri, Azure AD dizin oluşturma işleminin bir parçası olarak ayarlanır ve daha sonra değiştirilemez. Bir bileti, veri depolama konumu ile ilgili daha fazla ayrıntı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/options/).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: c639bc1edceba9c9da08ee6bcc54c860f857cd33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696029"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209454"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS koruması standart genel bakış
 
@@ -29,7 +29,7 @@ Dağıtılmış hizmet engelleme (DDoS) saldırıları, uygulamalarını buluta 
 Uygulama tasarımı, en iyi ile birlikte, azure DDoS koruması, DDoS saldırılarına karşı koruma sağlayın. Azure DDoS koruması, şu hizmet katmanlarında sağlar:
 
 - **Temel**: Azure platformunun bir parçası olarak otomatik olarak etkinleştirilir. Her zaman açık trafik izleme ve gerçek zamanlı azaltma ortak ağ düzeyinde saldırı, Microsoft online services tarafından kullanılan aynı savunmaları sağlar. Tüm ölçek Azure'nın küresel ağı, dağıtmak ve bölgeler arasında saldırı trafiği azaltmak için kullanılabilir. IPv4 ve IPv6 Azure için koruması sağlanan [genel IP adresleri](virtual-network-public-ip-address.md).
-- **Standart**: Azure sanal ağ kaynakları için özel olarak ayarlanmış bir temel hizmet katmanı üzerinden ek risk azaltma özellikleri sağlar. DDoS koruması standart etkinleştirmek, basit ve herhangi bir uygulama değişiklik gerektirmez. Koruma ilkeleri, adanmış trafiğini izleme ve makine öğrenimi algoritmaları ayarlanır. Azure Service Fabric örnekleri, Azure Load Balancer ve Azure Application Gateway gibi sanal ağlara dağıtılan kaynaklara ilişkili genel IP adresleri için ilkeler uygulanır, ancak bu koruma App Service ortamları için geçerli değildir. Gerçek zamanlı telemetri geçmişi yanı sıra, bir saldırı sırasında Azure izleme görünümleri aracılığıyla kullanılabilir. Zengin saldırı azaltma analytics, tanılama ayarları kullanılabilir. Uygulama katmanı koruması aracılığıyla eklenebilir [Azure Application Gateway Web uygulaması güvenlik duvarı](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya 3 taraf güvenlik duvarı Azure Market'ten yükleyerek. Koruma için IPv4 Azure sağlanan [genel IP adresleri](virtual-network-public-ip-address.md).
+- **Standart**: Azure sanal ağ kaynakları için özel olarak ayarlanmış bir temel hizmet katmanı üzerinden ek risk azaltma özellikleri sağlar. DDoS koruması standart etkinleştirmek, basit ve herhangi bir uygulama değişiklik gerektirmez. Koruma ilkeleri, adanmış trafiğini izleme ve makine öğrenimi algoritmaları ayarlanır. Azure Service Fabric örnekleri, Azure Load Balancer ve Azure Application Gateway gibi sanal ağlara dağıtılan kaynaklara ilişkili genel IP adresleri için ilkeler uygulanır, ancak bu koruma App Service ortamları için geçerli değildir. Gerçek zamanlı telemetri geçmişi yanı sıra, bir saldırı sırasında Azure izleme görünümleri aracılığıyla kullanılabilir. Zengin saldırı azaltma analytics, tanılama ayarları kullanılabilir. Uygulama katmanı koruması aracılığıyla eklenebilir [Azure Application Gateway Web uygulaması güvenlik duvarı](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya 3 taraf güvenlik duvarı Azure Market'ten yükleyerek. IPv4 ve IPv6 Azure için koruması sağlanan [genel IP adresleri](virtual-network-public-ip-address.md).
 
 ![Azure DDoS koruması temel vs. Standart](./media/ddos-protection-overview/ddoscomparison.png)
 
@@ -64,7 +64,7 @@ DDoS koruması standart özellikler şunlardır:
 
 DDoS koruması standart gerçek trafik kullanımını izler ve sürekli DDoS ilkede tanımlanan eşiklere göre karşılaştırır. Trafik eşiği aşıldığında, DDoS saldırılarının otomatik olarak başlatılır. Risk azaltma trafiği eşiğin altında döndüğünde kaldırılır.
 
-![Risk azaltma](./media/ddos-protection-overview/mitigation.png)
+![Azaltma](./media/ddos-protection-overview/mitigation.png)
 
 Azaltma, korumalı kaynağa gönderilen trafik DDoS koruması hizmeti tarafından yönlendirilir ve birkaç önleme denetimleri yapıldıktan, aşağıdaki denetimleri gibi:
 

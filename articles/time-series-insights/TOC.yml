@@ -52,7 +52,7 @@
           href: time-series-insights-update-tsm.md
         - name: Veri sorgulama
           href: time-series-insights-update-tsq.md
-        - name: Gezgin güncelleştirmesinde verileri görselleştirme
+        - name: Gezginde verileri görselleştirme (Önizleme)
           href: time-series-insights-update-explorer.md
     - name: Geliştirme
       items:

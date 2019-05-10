@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148709"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414019"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 genel bakış
 
@@ -48,9 +48,10 @@ Media Services, bulutta çeşitli medya iş akışı derlemenize olanak sağlar.
 
 Media Services v3 ile içeriği kodlayıp paketleme, talep üzerine video akışı yapma, canlı yayın gerçekleştirme ve videolarınızı analiz etme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
 
-Geliştirmeye başlamadan önce gözden [temel kavramlar](concepts-overview.md)<br/>
+> [!TIP]
+> Geliştirmeye başlamadan önce gözden geçirin:<br/>* [Temel kavramlar](concepts-overview.md) (incudes önemli kavramlar: paketleme, kodlama, koruma, vs.)<br/>* [Media Services v3 API'leri ile geliştirme](media-services-apis-overview.md) (API, adlandırma kurallarını, vb. erişme hakkında bilgi içerir.)
 
-### <a name="quickstarts"></a>Hızlı Başlangıçlar  
+### <a name="quickstarts"></a>Hızlı girişler  
 
 Hızlı başlangıçlar, Media Services'ı hızlı şekilde denemenize yönelik yeni müşteriler için temel gün-1 yönergeler gösterir.
 
@@ -86,9 +87,5 @@ Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-v3’ü kullanmaya nasıl başlayabilirim? 
-
-> [!div class="nextstepaction"]
-> [Temel kavramlar hakkında bilgi edinin](concepts-overview.md)<br/>
-> [SDK'larını kullanarak Media Services v3 API ile geliştirme](developers-guide.md) 
+[Temel kavramlar hakkında bilgi edinin](concepts-overview.md)
 

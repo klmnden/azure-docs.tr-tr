@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60552081"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230105"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
 Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
@@ -105,10 +105,10 @@ Her Azure önbelleği için Redis teklifi farklı düzeylerde sağlar **boyutu**
 Bir önbellek teklifi seçmek için dikkat edilecek noktalar aşağıda verilmiştir.
 
 * **Bellek**: Temel ve standart katmanları, 250 MB – 53 GB sunar. Premium katmanı, 530 GB'a kadar sunar. Daha fazla bilgi için [Azure önbelleği için Redis fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/).
-* **Ağ performansı**: Premium katmanı, yüksek aktarım hızı gerektiren bir iş yükü varsa, standart ya da temel sürümüne kıyasla daha fazla bant genişliği sunar. Ayrıca her bir katman içinde önbellek barındıran ve temel alınan VM nedeniyle daha fazla bant genişliği boyutu daha büyük önbellekleri vardır. Bkz: [aşağıdaki tabloda](#cache-performance) daha fazla bilgi için.
+* **Ağ performansı**: Premium katmanı, yüksek aktarım hızı gerektiren bir iş yükü varsa, standart ya da temel sürümüne kıyasla daha fazla bant genişliği sunar. Ayrıca her bir katman içinde önbellek barındıran ve temel alınan VM nedeniyle daha fazla bant genişliği boyutu daha büyük önbellekleri vardır. Daha fazla bilgi için [aşağıdaki tabloda](#cache-performance).
 * **Aktarım hızı**: Premium katmanı, en yüksek kullanılabilir aktarım sunar. Önbellek sunucu veya istemci bant genişliği sınırlarını ulaşırsa, istemci tarafındaki zaman aşımı alabilirsiniz. Daha fazla bilgi için aşağıdaki tabloya bakın.
 * **Yüksek kullanılabilirlik SLA**: Azure önbelleği için Redis standart/Premium önbelleğin en az % 99,9 oranında kullanılabilir olduğunu garanti eder. Sunduğumuz SLA hakkında daha fazla bilgi için bkz: [Azure önbelleği için Redis fiyatlandırma](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). SLA yalnızca önbellek uç noktalarına bağlantıyı kapsar. SLA, veri kaybından korumayı kapsamaz. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz.
-* **Redis veri kalıcılığı**: Premium katman, kalıcı önbellek verileri bir Azure depolama hesabı olanak tanır. Temel/standart önbellekte, tüm verileri yalnızca bellekte depolanır. Temel alınan altyapı sorunları, olması durumunda olası veri kaybı olabilir. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz. Azure önbelleği için Redis RDB ve (çok yakında) AOF Redis kalıcılığı seçenekleri sunar. Daha fazla bilgi için [Redis için bir Premium Azure Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
+* **Redis veri kalıcılığı**: Premium katman, kalıcı önbellek verileri bir Azure depolama hesabı olanak tanır. Temel/standart önbellekte, tüm verileri yalnızca bellekte depolanır. Temel alınan altyapı sorunları, olası veri kaybına neden olabilir. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz. Azure önbelleği için Redis RDB ve (çok yakında) AOF Redis kalıcılığı seçenekleri sunar. Daha fazla bilgi için [Redis için bir Premium Azure Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
 * **Redis kümesi**: Birden çok Redis düğümü arasında verileri veya 53 GB'den daha büyük önbellekler oluşturmak için Premium katmanda kullanılabilir Redis kümeleme, kullanabilirsiniz. Her düğüm, yüksek kullanılabilirlik için bir birincil/çoğaltma önbellek çiftinin oluşur. Daha fazla bilgi için [Redis için Premium Azure Cache için kümeleri yapılandırma](cache-how-to-premium-clustering.md).
 * **Gelişmiş Güvenlik ve ağ yalıtımı**: Geliştirilmiş güvenlik ve yalıtım, Azure önbelleği için Redis yanı sıra alt ağlar, erişim denetim ilkeleri için Azure sanal ağ (VNET) dağıtımı sağlar ve diğer özellikleri daha da fazla erişimi kısıtlayın. Daha fazla bilgi için [Redis için bir Premium Azure Cache için sanal ağ desteğini yapılandırma](cache-how-to-premium-vnet.md).
 * **Redis'i yapılandırma**: Standart ve Premium katmanlarda, Redis için anahtar alanı bildirimleri yapılandırabilirsiniz.
@@ -129,25 +129,26 @@ Aşağıdaki tablo standart çeşitli boyutlarda test ederken gözlemlenen en y�
 
 Bu tabloda, size aşağıdaki sonuçları çizebilirsiniz:
 
-* Aktarım hızı aynı boyutta önbellekler için standart katmana göre Premium katmanındaki daha yüksektir. Örneğin, bir 6 GB önbellek ile karşılaştırıldığında C3 için 100.000 180.000 RPS P1'in aktarım hızıdır.
-* Kümedeki parça (düğümler) sayısı arttıkça, Redis Kümeleme ile üretilen işi doğrusal olarak artırır. 10 parça P4 kümesi oluşturursanız, örneğin, kullanılabilir aktarım hızı 400.000 ise * 10 = 4 milyon RPS.
+* Aktarım hızı aynı boyutta önbellekler için standart katmana göre Premium katmanındaki daha yüksektir. Örneğin, bir 6 GB önbellek ile karşılaştırıldığında C3 için 100.000 RPS 180.000 istekleri / saniye (RP'ler) P1'in aktarım hızıdır.
+* Kümedeki parça (düğümler) sayısı arttıkça, Redis Kümeleme ile üretilen işi doğrusal olarak artırır. Örneğin, 10 parça P4 kümesi oluşturursanız, kullanılabilir aktarım hızı 400.000 * 10 = 4 milyon RPS olur.
 * Aktarım hızı büyük anahtar boyutları için standart katmana göre Premium katmanındaki daha yüksektir.
 
-| Fiyatlandırma katmanı | Boyut | CPU çekirdekleri | Kullanılabilir bant genişliği | 1 KB değeri boyutu | 1 KB değeri boyutu |
+| Fiyatlandırma katmanı | Boyutlandır | CPU çekirdekleri | Kullanılabilir bant genişliği | 1 KB'lık değeri boyutu | 1 KB'lık değeri boyutu |
 | --- | --- | --- | --- | --- | --- |
 | **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RP'ler) SSL olmayan başına istek sayısı** |**İkinci (RP'ler) SSL başına istek sayısı** |
-| C0 |250 MB |Paylaşılan |100 / 12.5 |15.000 |7.500 |
-| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
-| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
-| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
-| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| C0 | 250 MB | Paylaşıldı | 100 / 12.5  |  15.000 |   7,500 |
+| C1 |   1 GB | 1      | 500 / 62.5  |  38,000 |  20,720 |
+| C2 | 2,5 GB | 2      | 500 / 62.5  |  41,000 |  37,000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100,000 |  90,000 |
+| C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55,000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102,000 |  93,000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126,000 | 120,000 |
 | **Premium önbellek boyutu** | |**Parça başına CPU çekirdekleri** | **Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RP'ler) SSL olmayan, parça başına başına istek sayısı** |**Parça başına ikinci (RP'ler) SSL başına istek sayısı** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
-| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172,000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
+| P5 | 110 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
 
 Stunnel ' ayarlama veya Redis araçları gibi yükleme yönergeleri için `redis-benchmark.exe`, bkz: [Redis komutları nasıl çalıştırırım?](#cache-commands) bölümü.
 
@@ -162,7 +163,7 @@ En iyi performans ve düşük gecikme süresi için Azure önbelleği için Redi
 Azure önbelleği için Redis fiyatlandırma [burada](https://azure.microsoft.com/pricing/details/cache/). Fiyatlandırma sayfasına bir saatlik tarife listeler. Önbellekler, önbelleği önbellek silinen zamana kadar oluşturulduğu zamandan dakika başına temelinde faturalandırılır. Durdurmak veya bir önbellek Faturalaması duraklatmak için seçeneği yoktur.
 
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Azure önbelleği için Redis Azure kamu Bulutu, Azure Çin Bulutu veya Microsoft Azure Almanya ile kullanabilir?
-Evet, Azure kamu Bulutu, Azure Çin Bulutu ve Microsoft Azure Almanya'yı Azure önbelleği için Redis kullanılabilir. Erişmek ve Azure Cache, Redis için farklı Azure genel bulut ile karşılaştırıldığında bu bulutlarındaki yönetmek için URL. 
+Evet, Azure kamu Bulutu, Azure Çin 21Vianet Bulutu ve Microsoft Azure Almanya'yı Azure önbelleği için Redis kullanılabilir. Erişmek ve Azure Cache, Redis için farklı Azure genel bulut ile karşılaştırıldığında bu bulutlarındaki yönetmek için URL.
 
 | Bulut   | Redis için DNS son eki            |
 |---------|---------------------------------|
@@ -174,10 +175,10 @@ Evet, Azure kamu Bulutu, Azure Çin Bulutu ve Microsoft Azure Almanya'yı Azure 
 Azure önbelleği için Redis ile diğer bulutlarda kullanmayla ilgili konular hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın.
 
 - [Azure kamu veritabanları - Azure önbelleği için Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure Çin Bulutu - Azure önbelleği için Redis](https://www.azure.cn/home/features/redis-cache/)
+- [Azure Çin 21Vianet bulut - Azure önbelleği için Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)
 
-Azure Cache için Redis Azure kamu Bulutu, Azure Çin Bulutu ve Microsoft Azure Almanya'yı PowerShell ile kullanma hakkında daha fazla bilgi için bkz: [diğer bulutlarda - Azure önbelleği için Redis PowerShell bağlanma](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+Azure Cache için Redis Azure kamu Bulutu, Azure Çin 21Vianet Bulutu ve Microsoft Azure Almanya'yı PowerShell ile kullanma hakkında daha fazla bilgi için bkz: [diğer bulutlarda - Azure önbelleği için Redis PowerShell bağlanma](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
@@ -257,7 +258,7 @@ Konusunda listelenen komutlardan herhangi birini kullanabilirsiniz [Redis komutl
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Neden Azure önbelleği için Redis bazı diğer Azure Hizmetleri gibi bir MSDN sınıf kitaplığı başvurusu yok?
-Microsoft Azure Cache Redis popüler Aç temel alınır, Azure önbelleği için Redis kaynak ve çok çeşitli tarafından erişilebilir [Redis istemcileri](https://redis.io/clients) birçok programlama dili için. Azure Cache, Redis örneğinin kullanılması için çağrılar kendi API her bir istemciye sahip [Redis komutları](https://redis.io/commands).
+Microsoft Azure önbelleği için Redis, Redis için popüler açık kaynaklı Azure önbelleğini temel alır. Çok çeşitli tarafından erişilebilen [Redis istemcileri](https://redis.io/clients) birçok programlama dili için. Azure Cache, Redis örneğinin kullanılması için çağrılar kendi API her bir istemciye sahip [Redis komutları](https://redis.io/commands).
 
 Her bir istemciye farklı olduğu için MSDN'de değil bir merkezi sınıf başvurusu yok ve kendi başvuru belgeleri her istemci korur. Başvuru belgeleri yanı sıra farklı dilleri kullanarak Redis için Azure Cache kullanmaya başlama ve istemciler önbelleğe nasıl yapıldığını gösteren çeşitli öğreticiler vardır. Bu öğreticiler erişmek için bkz: [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) ve bu tablodaki eşdüzey makaleler İçindekiler.
 
@@ -277,7 +278,7 @@ Azure Cache PhpRedis istemcisi ile PHP oturum önbelleği olarak Redis kullanma 
 
 ### <a name="what-are-redis-databases"></a>Redis veritabanı nedir?
 
-Redis, yalnızca bir mantıksal ayrılığı aynı Redis örneği içinde veri veritabanlarıdır. Önbellek, tüm gerçek bellek tüketimi, belirli bir veritabanının bu veritabanında depolanan anahtarları/değerleri bağlıdır ve veritabanları arasında paylaşılır. Örneğin C6 önbellek, 53 GB bellek bulunur. Veya, bunu birden çok veritabanı arasında bölmek tüm 53 GB bir veritabanı yerleştirmek seçebilirsiniz. 
+Redis, yalnızca bir mantıksal ayrılığı aynı Redis örneği içinde veri veritabanlarıdır. Önbellek, tüm gerçek bellek tüketimi, belirli bir veritabanının bu veritabanında depolanan anahtarları/değerleri bağlıdır ve veritabanları arasında paylaşılır. Örneğin, bir C6 önbellek 53 GB bellek var. Veya, bunu birden çok veritabanı arasında bölmek tüm 53 GB bir veritabanı yerleştirmek seçebilirsiniz. 
 
 > [!NOTE]
 > Premium Azure önbelleği için Redis kümeleme özellikli kullanırken, yalnızca veritabanı 0 kullanılabilir. Bu sınırlama, iç bir Redis sınırlamasıdır ve Azure önbelleği için Redis özel değildir. Daha fazla bilgi için [kümeleme kullanmak üzere istemci uygulamamın herhangi bir değişiklik yapmanız gerekiyor mu?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
@@ -309,7 +310,7 @@ Redis Araçları'nı yükleme hakkında yönergeler için bkz. [Redis komutları
 * ConnectionMultiplexer yeniden - her istek için yeni bir tane oluşturmayın. `Lazy<ConnectionMultiplexer>` Deseni [burada gösterilen](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) önerilir.
 * Works en küçük değerler ile redis, bu nedenle büyük verilerin birden çok anahtar chopping göz önünde bulundurun. İçinde [bu Redis tartışma](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb büyük değerlendirilir. Okuma [bu makalede](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) büyük değerler neden bir örneğin sorun için.
 * Yapılandırma, [iş parçacığı havuzu ayarları](#important-details-about-threadpool-growth) zaman aşımları önlemek için.
-* En az 5 saniyelik varsayılan connectTimeout kullanın. Bu aralık, ağ blip durumunda bağlantıyı yeniden kurmak için yeterli zaman StackExchange.Redis verirsiniz.
+* En az 5 saniyelik varsayılan connectTimeout kullanın. Bu aralık, ağ blip durumunda bağlantıyı yeniden kurmak için yeterli zamana StackExchange.Redis sağlar.
 * Kullanmakta olduğunuz farklı işlemleriyle ilişkili performans maliyetleri farkında olun. Örneğin, `KEYS` komut bir o(n) ve kaçınılmalıdır. [Redis.io site](https://redis.io/commands/) desteklediği her bir işlem için zaman karmaşıklığı ayrıntılarla sahiptir. Her komut, her işlem için karmaşıklık görmek için tıklayın.
 
 #### <a name="configuration-and-concepts"></a>Yapılandırma ve kavramları
@@ -328,9 +329,9 @@ Redis Araçları'nı yükleme hakkında yönergeler için bkz. [Redis komutları
 <a name="cache-redis-commands"></a>
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Bazı önemli noktalar ortak Redis komutları kullanılırken nelerdir?
-* Bu komutlar etkisini anlama olmadan tamamlanması uzun süren belirli Redis komutları çalıştırmamanız gerekir.
-  * Örneğin, çalışmaz [ANAHTARLARI](https://redis.io/commands/keys) anahtarları sayısına bağlı olarak döndürülecek uzun sürebilir olarak üretim ortamında komutu. Redis bir tek iş parçacıklı bir sunucudur ve komutları teker teker işler. Diğer komutlar sonra ANAHTARLARI varsa, Redis ANAHTARLARI komut işlem kadar bunlar işlenmeyecek. [Redis.io site](https://redis.io/commands/) desteklediği her bir işlem için zaman karmaşıklığı ayrıntılarla sahiptir. Her komut, her işlem için karmaşıklık görmek için tıklayın.
-* Küçük bir anahtar/değer ya da büyük bir anahtar/değer anahtar boyutları - kullanmalıyım? Genel olarak, senaryoya bağlıdır. Büyük anahtarlar senaryonuz gerektiriyorsa, ConnectionTimeout ayarlayın ve yeniden deneme değerleri ve yeniden deneme mantığınız ayarlayın. Redis sunucu açısından bakıldığında, daha iyi performans sağlamak için daha küçük değerler gözlenmiştir.
+
+* Bu komutlar etkisini tam olarak anlamak sürece, tamamlanması uzun süren bazı Redis komut kullanmaktan kaçının. Örneğin, çalışmaz [ANAHTARLARI](https://redis.io/commands/keys) üretimde komutu. Anahtarları sayısına bağlı olarak, bu döndürmek için bir uzun sürebilir. Redis bir tek iş parçacıklı bir sunucudur ve komutları teker teker işler. Diğer komutlar sonra ANAHTARLARI varsa, Redis ANAHTARLARI komut işlem kadar bunlar işlenmeyecek. [Redis.io site](https://redis.io/commands/) desteklediği her bir işlem için zaman karmaşıklığı ayrıntılarla sahiptir. Her komut, her işlem için karmaşıklık görmek için tıklayın.
+* Küçük bir anahtar/değer ya da büyük bir anahtar/değer anahtar boyutları - kullanmalıyım? Bu senaryoya bağlıdır. Büyük anahtarlar senaryonuz gerektiriyorsa, ConnectionTimeout ayarlamak daha sonra yeniden deneme değerleri ve yeniden deneme mantığınız ayarlayın. Redis sunucu açısından bakıldığında, küçük değerler daha iyi performans verir.
 * Bu konuları daha büyük değerler Redis depolanamıyor olduğu anlamına gelmez; Aşağıdaki hususlara farkında olmanız gerekir. Gecikme, daha yüksek olacaktır. Bir büyük veri kümesi ve daha küçük olanı varsa, birden çok ConnectionMultiplexer örneği kullanabilirsiniz, her önceki açıklandığı gibi farklı bir zaman aşımı ve yeniden deneme değerlerini kümesi ile yapılandırılmış [StackExchange.Redis ne yapılandırma seçenekleri yapın](#cache-configuration) bölümü.
 
 <a name="cache-benchmarking"></a>
@@ -356,19 +357,19 @@ Aşağıdaki komutları kullanarak redis benchmark.exe bir örnek sağlar. Doğr
 <a name="threadpool"></a>
 
 ### <a name="important-details-about-threadpool-growth"></a>İş parçacığı havuzu büyüme hakkında önemli ayrıntıları
-CLR iş parçacığı havuzu iş parçacıkları - "Alt" ve "G/ç tamamlama bağlantı" (diğer adıyla görev:%TG/Ç) iki tür olan iş parçacıkları.
+CLR iş parçacığı havuzu iş parçacıkları - "Alt" ve "G/ç tamamlama bağlantı" (görev:%TG/Ç) iki tür olan iş parçacıkları.
 
 * Çalışan iş parçacığı işleme gibi şeyler için kullanılan `Task.Run(…)`, veya `ThreadPool.QueueUserWorkItem(…)` yöntemleri. İş bir arka plan iş parçacığında gerçekleştirilmesi gerektiğinde bu iş parçacıkları CLR içinde çeşitli bileşenleri tarafından da kullanılır.
-* Görev:%TG/Ç iş parçacıkları, zaman uyumsuz g/ç (örneğin ağdan okunurken) olduğunda kullanılır.
+* Zaman uyumsuz g/ç zamanı gibi gerçekleştiğinde görev:%TG/Ç iş parçacığı kullanılır ağdan okunurken.
 
 İş parçacığı her tür için "Düşük" ayarı ulaşana kadar iş parçacığı havuzu yeni çalışan iş parçacıkları veya g/ç Tamamlama iş parçacıkları isteğe bağlı (bir kısıtlama olmadan) sağlar. Varsayılan olarak, bir sistemde işlemci sayısı için en az iş parçacığı sayısını ayarlanır.
 
-Var olan (meşgul) iş parçacığı sayısı "minimum" iş parçacığı sayısını İsabetleri sonra işten başlangıçtan aralığını 500 milisaniyenin başına tek bir iş parçacığı için yeni iş parçacığı eklediği oranı kısıtlama. Sisteminizde bir görev:%TG/Ç iş parçacığı ihtiyaç duyan iş çok alırsa, genellikle, bu iş çok hızlı bir şekilde işler. Ancak, çok sayıda iş birden çok yapılandırılmış "Düşük" ayarı ise, olacaktır bazı gecikme işten olmasını ikisinden biri için bekleyeceği gibi işinin bir kısmını işleme.
+Var olan (meşgul) iş parçacığı sayısı "minimum" iş parçacığı sayısını İsabetleri sonra işten başlangıçtan aralığını 500 milisaniyenin başına tek bir iş parçacığı için yeni iş parçacığı eklediği oranı kısıtlama. Sisteminizde bir görev:%TG/Ç iş parçacığı ihtiyaç duyan iş çok alırsa, genellikle, bu iş hızlı bir şekilde işler. Ancak, çok sayıda iş birden çok yapılandırılmış "Düşük" ayarı ise, olacaktır bazı gecikme işten olmasını ikisinden biri için bekleyeceği gibi işinin bir kısmını işleme.
 
 1. Mevcut bir iş parçacığı işleri işlemek boş olur.
-2. Yeni bir iş parçacığı oluşmasını mevcut iş parçacığının 500ms için boş olur.
+2. Yeni bir iş parçacığı oluşmasını mevcut iş parçacığının 500 ms için boş olur.
 
-Temelde, meşgul iş parçacığı sayısı en az iş parçacığı büyük olduğunda, ağ trafiğini uygulama tarafından işlenmeden önce büyük olasılıkla bir 500ms gecikme ödeme yaparsınız olduğunu anlamına gelir. Ayrıca, mevcut bir iş parçacığı (ben unutmayın üzerinde göre) 15 saniyeden daha uzun süre boşta kalır, temizlenen ve bu döngü büyüme ve azalma yineleyebilirsiniz dikkat etmeniz önemlidir.
+Temelde, meşgul iş parçacığı sayısı en az iş parçacığı büyük olduğunda, ağ trafiğini uygulama tarafından işlenmeden önce büyük olasılıkla bir 500 ms gecikme ödeme yaparsınız olduğunu anlamına gelir. Ayrıca, mevcut bir iş parçacığı (ben unutmayın üzerinde göre) 15 saniyeden daha uzun süre boşta kalır, temizlenen ve bu döngü büyüme ve azalma yineleyebilirsiniz dikkat etmeniz önemlidir.
 
 Örnek hata iletisi StackExchange.Redis baktığımızda, (1.0.450 derleme veya üzeri), bunu şimdi (aşağıdaki ayrıntılara görev:%TG/Ç ve çalışan bakın) iş parçacığı havuzu istatistikleri yazdırır görürsünüz.
 
@@ -377,25 +378,38 @@ Temelde, meşgul iş parçacığı sayısı en az iş parçacığı büyük oldu
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-Önceki örnekte görev:%TG/Ç iş parçacığı için 6 meşgul iş parçacığı vardır ve sistem 4 en az iş parçacığı izin verecek şekilde yapılandırıldığını görebilirsiniz. Bu durumda, istemci büyük olasılıkla iki 500 ms gecikme nedeniyle gördünüz mü 6 > 4.
+Önceki örnekte görev:%TG/Ç iş parçacığı için altı meşgul iş parçacığı vardır ve sistem en az dört iş parçacığı izin verecek şekilde yapılandırıldığını görebilirsiniz. Bu durumda, istemci büyük olasılıkla iki 500 ms gecikme nedeniyle gördünüz mü 6 > 4.
 
 StackExchange.Redis görev:%TG/Ç veya çalışan iş parçacıkları büyütülmesini kısıtlanan, zaman aşımları ulaşmasını unutmayın.
 
 ### <a name="recommendation"></a>Öneri
-Bu bilgiler verildiğinde, müşteriler varsayılan değerinden daha büyük bir şey görev:%TG/Ç ve çalışan iş parçacıkları için en düşük yapılandırma değeri ayarlanmış kesinlikle öneririz. Çok yüksek/düşük başka bir uygulama için bir uygulama için doğru değeri olacağından bu değer neler olması gerektiğini BT'ye Kılavuzu sunuyoruz olamaz. Her müşteriye kendi ihtiyaçlarınıza göre istediğiniz bu ayar ince ayar yapmak gereken şekilde bu ayar de karmaşık uygulamalar, diğer bölümlerini performansını etkileyebilir. İyi bir başlangıç noktası 200 300 olup, ardından test ve gerektiği gibi ince ayar.
+
+Bu bilgiler verildiğinde, müşteriler varsayılan değerinden daha büyük bir şey görev:%TG/Ç ve çalışan iş parçacıkları için en düşük yapılandırma değeri ayarlanmış kesinlikle öneririz. Bir uygulama için doğru değeri, büyük olasılıkla çok yüksek veya düşük başka bir uygulama için olacağı için bu değer neler olması gerektiğini BT'ye Kılavuzu sunuyoruz olamaz. Her müşteriye kendi ihtiyaçlarınıza göre istediğiniz bu ayar ince ayar yapmak gereken şekilde bu ayar de karmaşık uygulamalar, diğer bölümlerini performansını etkileyebilir. İyi bir başlangıç noktası 200 300 olup, ardından test ve gerektiği gibi ince ayar.
 
 Bu ayarı yapılandırmak nasıl:
 
-* ASP.NET'te, kullanın ["minIoThreads" veya "minWorkerThreads" yapılandırma ayarı] [ "minIoThreads" configuration setting] altında `<processModel>` web.config dosyasındaki yapılandırma öğesi. Azure Web siteleri içinde çalıştırıyorsanız, bu ayarı yapılandırma seçenekleri gösterilmez. Ancak, yine de bu program aracılığıyla ayarını yapılandırmak erişebileceğinizi (aşağıda uygulama_başlatma yönteminizi global.asax.cs gelen bakın).
+* Bu ayarı kullanarak program aracılığıyla değiştirme öneririz [ThreadPool.SetMinThreads (...) ](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) yönteminde `global.asax.cs`. Örneğin:
 
-  > [!NOTE] 
-  > Bu yapılandırma öğesinde belirtilen değer bir *çekirdek başına* ayarı. 4 çekirdekli makine olması ve minIOThreads ayarınızı zamanında 200 olmasını istiyorsanız, örneğin, kullanacağınız `<processModel minIoThreads="50"/>`.
-  >
-
-* ASP.NET dışında ve kullanmak, Azure Web siteleri global.asax [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) API.
+```cs
+private readonly int minThreads = 200;
+void Application_Start(object sender, EventArgs e)
+{
+    // Code that runs on application startup
+    AreaRegistration.RegisterAllAreas();
+    RouteConfig.RegisterRoutes(RouteTable.Routes);
+    BundleConfig.RegisterBundles(BundleTable.Bundles);
+    ThreadPool.SetMinThreads(minThreads, minThreads);
+}
+```
 
   > [!NOTE]
-  > Bu API tarafından belirtilen değere tam AppDomain etkileyen genel bir ayardır. 4 çekirdekli makine olması ve CPU başına 50 minWorkerThreads ve minIOThreads çalışma zamanı sırasında ayarlamak istediğiniz ThreadPool.SetMinThreads (200, 200) kullanmanız gerekir.
+  > Bu yöntem tarafından belirtilen değere tam AppDomain etkileyen genel bir ayardır. Örneğin, 4 çekirdekli makine olması ve ayarlamak isterseniz *minWorkerThreads* ve *minIoThreads* çalışma zamanı sırasında CPU başına 50 olarak kullanacağınız **ThreadPool.SetMinThreads (200, 200)**.
+
+* En az iş parçacığı kullanarak ayarı belirtmek mümkündür [ *minIoThreads* veya *minWorkerThreads* yapılandırma ayarı](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) altında `<processModel>` Yapılandırma öğesinde `Machine.config`konumunda bulunan genellikle `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Sistem genelinde bir ayar olduğundan bu şekilde en az iş parçacığı sayısını ayarlama genellikle önerilmez.**
+
+  > [!NOTE]
+  > Bu yapılandırma öğesinde belirtilen değer bir *çekirdek başına* ayarı. Örneğin, 4 çekirdekli makine olması ve isterseniz, *minIoThreads* kullanacağınız çalışma zamanında 200 olarak ayarlanması, `<processModel minIoThreads="50"/>`.
+  >
 
 <a name="server-gc"></a>
 
@@ -460,9 +474,9 @@ Azure önbelleği için Redis sunulmuştur 53 GB'ye varan boyutlarda ve kullanı
 
 Azure önbelleği için Redis müşteriler için Redis, Microsoft tarafından yönetilen güvenli ve adanmış bir Azure önbelleği kullanma olanağı sunar. Bu teklif ile Redis, güvenilir barındırma ve izleme Microsoft tarafından sağlanan bir ekosistem ve zengin özelliklerle yararlanarak alın.
 
-Yalnızca anahtar-değer çiftleri ile uğraşmak geleneksel önbellekler, Redis, yüksek performans sağlamasının yanı sıra veri türleri için yaygın olarak kullanılır. Ayrıca, bir dizeye ekleme gibi bu türlerinde atomik işlemler çalıştırmayı destekler redis; bir karma değer artan; bir listeye gönderme; bilgi işlem küme kesişimi, union ve fark; veya üye bir sıralanmış küme, en yüksek derecelendirme ile alınıyor. Diğer özellikler, işlemler, yayımlama/abonelik, Lua komut dosyası, anahtarlar zaman yaşam ve daha geleneksel bir önbellek gibi davranmasını Redis davranmasını sağlayan yapılandırma ayarları için destek içerir.
+Yalnızca anahtar-değer çiftleri ile uğraşmak geleneksel önbellekleri, Redis, yüksek performans sağlamasının yanı sıra veri türleri için yaygın olarak kullanılır. Ayrıca, bir dizeye ekleme gibi bu türlerinde atomik işlemler çalıştırmayı destekler redis; bir karma değer artan; bir listeye gönderme; bilgi işlem küme kesişimi, union ve fark; veya üye bir sıralanmış küme, en yüksek derecelendirme ile alınıyor. Diğer özellikler, işlemler, yayımlama/abonelik, Lua komut dosyası, anahtarlar zaman yaşam ve daha geleneksel bir önbellek gibi davranmasını Redis davranmasını sağlayan yapılandırma ayarları için destek içerir.
 
-Başka bir anahtar Redis başarılı etrafına yerleşik sağlıklı, canlı bir açık kaynak ekosistemine yönüdür. Bu Redis istemcilerinin kullanılabilir farklı kümesinde birden çok dil arasında yansıtılır. Bu ekosistem ve çeşitli istemciler Azure önbelleği için Redis, Azure'da oluşturabileceğiniz her türlü iş yükü tarafından kullanılmak üzere izin verir.
+Başka bir anahtar Redis başarılı etrafına yerleşik sağlıklı, Canlı açık kaynaklı ekosistemi yönüdür. Bu Redis istemcilerinin kullanılabilir farklı kümesinde birden çok dil arasında yansıtılır. Bu ekosistem ve çeşitli istemciler Azure önbelleği için Redis, Azure'da oluşturabileceğiniz her türlü iş yükü tarafından kullanılmak üzere izin verir.
 
 Redis için Azure önbelleği ile çalışmaya başlama hakkında daha fazla bilgi için bkz. [kullanımı Azure Cache, Redis için nasıl](cache-dotnet-how-to-use-azure-redis-cache.md) ve [Azure önbelleği için Redis belgeleri](index.md).
 

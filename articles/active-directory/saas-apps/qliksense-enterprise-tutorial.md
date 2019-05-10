@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54690386b3654952cc2292963c9bf01dc65e4315
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31df4cb9163e598bfde0c491d8088398c3204119
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875226"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Öğretici: Qlik algılama Enterprise ile Azure Active Directory Tümleştirmesi
 
@@ -183,7 +183,7 @@ Azure AD çoklu oturum açma Qlik algılama Enterprise ile yapılandırmak için
 
     e. **IDP SAML meta veri** daha önce düzenlenebilir bir dosya **Azure AD yapılandırmasından Federasyon meta verileri Düzenle** bölümü.  **IDP meta verilerini karşıya yüklemeden önce dosyayı düzenlenmesi gereken** Azure AD arasında düzgün çalışmasını sağlamak için bilgileri kaldırmak için ve Qlik Sense sunucusu.  **Düzenlenecek dosyayı henüz varsa lütfen yönergeleri inceleyin.**  Dosyayı düzenlerseniz sanal proxy yapılandırması için yüklenecek düzenlenen meta veri dosyasını seçin ve Gözat düğmesine tıklayın.
 
-    f. SAML gösteren özniteliği için öznitelik adı veya şema başvurusu girin **UserID** Azure AD Qlik Sense sunucusuna gönderir.  Azure uygulama ekranları post yapılandırmada şema başvuru bilgileri kullanılabilir.  Ad özniteliği kullanmak için girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. SAML gösteren özniteliği için öznitelik adı veya şema başvurusu girin **UserID** Azure AD Qlik Sense sunucusuna gönderir.  Azure uygulama ekranları post yapılandırmada şema başvuru bilgileri kullanılabilir.  Ad özniteliği kullanmak için girin `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     g. Si **kullanıcı dizini** , eklenen kullanıcılara Qlik Sense sunucusuna Azure AD üzerinden kimlik doğrulaması sırasında.  Sabit kodlanmış değerler arasına, tarafından **köşeli ayraçlar []**.  Azure AD SAML onaylaması içinde gönderilen bir özniteliği kullanacak şekilde öznitelik adı bu metin kutusuna girin **olmadan** köşeli ayraç.
 

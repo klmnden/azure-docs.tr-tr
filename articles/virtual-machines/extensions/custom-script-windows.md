@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869869"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408284"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -207,6 +207,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 * Uzantı **adı** parametresi, önceki dağıtım uzantısı ile aynı.
 * Komut yeniden yürütülmesi olmaz aksi yapılandırmasını güncelleştirin. Dinamik bir özellik gibi bir zaman damgası komutu içine ekleyebilirsiniz.
 
+Alternatif olarak, ayarlayabileceğiniz [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) özelliğini **true**.
+
+### <a name="using-invoke-webrequest"></a>Invoke-WebRequest kullanarak
+
+Kullanıyorsanız [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) betiğinizde, parametresini belirtmeniz gerekir `-UseBasicParsing` ya da aksi takdirde ayrıntılı durumu denetlenirken aşağıdaki hatayı alırsınız:
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
+
 ## <a name="classic-vms"></a>Klasik VM'ler
 
 Özel betik uzantısı'Klasik sanal makinelerinde dağıtmak için Azure portalında veya Klasik Azure PowerShell cmdlet'lerini kullanabilirsiniz.
@@ -239,7 +249,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
-### <a name="troubleshoot"></a>Sorun giderme
+### <a name="troubleshoot"></a>Sorun gider
 
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için aşağıdaki komutu çalıştırın:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364177"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464271"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızdaki cihazları yönetme
 
@@ -66,7 +66,7 @@ Toplu kaydı uygulamanızdaki cihazlar için:
 
 1. Seçin **alma**.
 
-    ![Alma eylemi](./media/howto-manage-devices/BulkImport1.png)
+    ![Alma eylemi](./media/howto-manage-devices/bulkimport1a.png)
 
 1. İçeri aktarılacak cihaz kimlikleri listesi olan CSV dosyasını seçin.
 
@@ -74,7 +74,7 @@ Toplu kaydı uygulamanızdaki cihazlar için:
 
 1. İçeri aktarma işlemi tamamlandıktan sonra cihaz Kılavuzu'nun bir başarı iletisi gösterilir.
 
-    ![İçeri aktarma başarılı](./media/howto-manage-devices/BulkImport3.png)
+    ![İçeri aktarma başarılı](./media/howto-manage-devices/bulkimport3a.png)
 
 Aygıt alma işlemi başarısız olursa cihaz Kılavuzu'nun bir hata iletisi görürsünüz. İndirebilirsiniz, tüm hataları yakalamaya bir günlük dosyası oluşturulur.
 
@@ -86,13 +86,13 @@ Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil,
 
 1. Sol panelde seçin **ilişkili değil, cihazları**:
 
-    ![İlişkilendirilmemiş cihazlar](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![İlişkilendirilmemiş cihazlar](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Şablon ile ilişkilendirmek istediğiniz cihazları seçin:
 
 1. Seçin **ilişkilendirmek**:
 
-    ![Cihazları İlişkilendir](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Cihazları İlişkilendir](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Şablonu kullanılabilir şablonlar listesinden seçip **ilişkilendirmek**.
 
@@ -113,7 +113,7 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 
 1. Dışarı aktarma ve ardından istediğiniz cihazları seçin **dışarı** eylem.
 
-    ![Dışarı Aktarma](./media/howto-manage-devices/Export1.png)
+    ![Dışarı Aktarma](./media/howto-manage-devices/export1a.png)
 
 1. Dışarı aktarma işlemini başlatır. Izgaranın üst durumunu izleyebilirsiniz.
 
@@ -121,7 +121,7 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 
 1. Seçin **başarılı iletisi** disk üzerindeki yerel bir klasöre dosya indirilemedi.
 
-    ![Dışarı aktarma başarılı](./media/howto-manage-devices/Export2.png)
+    ![Dışarı aktarma başarılı](./media/howto-manage-devices/export2a.png)
 
 1. Dışarı aktarılan CSV dosyasını aşağıdaki sütunları içerir: cihaz kimliği, cihaz adı, cihaz anahtarları ve X509 sertifika parmak izleri:
 

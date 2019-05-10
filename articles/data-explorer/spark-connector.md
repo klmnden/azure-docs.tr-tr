@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 8cb1489a0663556f9dd9e6026a036df2468d656d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928340"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441357"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Azure Veri Gezgini Bağlayıcısı için Apache Spark (Önizleme)
 
@@ -200,7 +200,7 @@ Azure Veri Gezgini asıl rolleri hakkında daha fazla bilgi için bkz. [rol taba
     display(df)
     ```
 
-1. Geçici bir blob depolama, büyük miktarlarda veri okuma sırasında sağlanmalıdır. Depolama kapsayıcısı SAS anahtarı veya depolama hesabı adı ve hesap anahtarını kapsayıcı adı sağlayın. 
+1. Geçici bir blob depolama, büyük miktarlarda veri okuma sırasında sağlanmalıdır. Depolama kapsayıcısı SAS anahtarı veya depolama hesabı adı ve hesap anahtarını kapsayıcı adı sağlayın. Bu adım yalnızca, Spark Bağlayıcısı geçerli Önizleme sürümü için gerekli.
 
     ```scala
     // Use either container/account-key/account name, or container SaS

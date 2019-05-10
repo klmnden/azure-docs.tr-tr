@@ -7,18 +7,17 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239242"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203345"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek
 
-Bu öğreticide, bir ETL (ayıklama, dönüştürme ve veri yükleme) gerçekleştirmek Azure Databricks kullanarak işlemi. Verileri Azure Data Lake depolama Gen2 ' Azure Databricks'e ayıklar, Azure databricks'te veriler üzerinde dönüştürmeler çalıştırın ve ardından dönüştürülmüş verileri Azure SQL Data Warehouse'a veri yükleme.
+Bu öğreticide, bir ETL (ayıklama, dönüştürme ve veri yükleme) gerçekleştirmek Azure Databricks kullanarak işlemi. Verileri Azure Data Lake depolama Gen2 ' Azure Databricks'e ayıklar, Azure databricks'te veriler üzerinde dönüştürmeler çalıştırın ve dönüştürülmüş verileri Azure SQL Data Warehouse'a veri yükleme.
 
 Bu öğreticideki adımlarda, verileri Azure Databricks'e aktarmak üzere Azure Databricks için SQL Veri Ambarı bağlayıcısı kullanılır. Bu bağlayıcı da, Azure Databricks kümesiyle Azure SQL Veri Ambarı arasında aktarılan veriler için geçici depolama alanı olarak Azure Blob Depolama'yı kullanır.
 
@@ -48,13 +47,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlayın:
 
-* Bir Azure SQL veri ambarı oluşturma, sunucu düzeyinde güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanma Bkz: [hızlı başlangıç: Bir Azure SQL veri ambarı oluşturma](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Bir Azure SQL veri ambarı oluşturma, sunucu düzeyinde güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanma Bkz: [hızlı başlangıç: Oluşturma ve Azure portalında Azure SQL veri ambarı sorgu](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Azure SQL veri ambarı için veritabanı ana anahtarı oluşturun. Bkz: [bir veritabanı ana anahtarı oluşturma](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Azure Blob depolama hesabı ve bu hesabın içinde bir kapsayıcı oluşturun. Ayrıca, depolama hesabına erişmek için erişim anahtarını alın. Bkz: [hızlı başlangıç: Bir Azure Blob Depolama hesabı oluşturma](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Azure Blob depolama hesabı ve bu hesabın içinde bir kapsayıcı oluşturun. Ayrıca, depolama hesabına erişmek için erişim anahtarını alın. Bkz: [hızlı başlangıç: Karşıya yükleme, indirme ve Azure portalı ile blobları listeleme](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Bkz: [Azure Data Lake depolama Gen2 hesap oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Bir hizmet sorumlusu oluşturun. Bkz: [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -355,6 +354,11 @@ Daha önce bahsedildiği gibi SQL veri ambarı Bağlayıcısı verileri Azure Da
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > Bu örnekte `forward_spark_azure_storage_credentials` bayrak, SQL veri ambarı, verilere erişmek için bir erişim anahtarı kullanarak blob depolama alanından neden olur. Bu yalnızca desteklenen kimlik doğrulama yöntemidir.
+   >
+   > Azure Blob Depolama hesabınızda sanal ağları seçmek için sınırlı ise, SQL veri ambarı gerektirir [yönetilen hizmet kimliği erişim anahtarları yerine](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Bu "Bu isteği bu işlemi gerçekleştirmek yetkili değil." hatasına neden olur
 
 6. Adlı bir veritabanı gördüğünüzü doğrulayın ve SQL veritabanı'na bağlanma **SampleTable**.
 

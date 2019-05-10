@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 8d421adfae335a976485ed463a69484a74be5b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0623a7aff15184822ee8abde0b3c751f8a105b5b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729537"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463575"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux sanal makineleri hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Linux sanal makineleri hakkında bazı yaygın sorular ele alınmıştır. Bu konuda Windows sürümü için bkz: [Windows sanal makineleri hakkında sık sorulan soruya](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -36,7 +36,7 @@ Azure yönetilen diskler önerilen disk depolama kullanmak için Azure sanal mak
 Azure depolama hesapları, aynı zamanda işletim sistemi diski ve varsa veri diskleri için depolama sağlayabilir. Her disk bir sayfa blobu olarak depolanan bir .vhd dosyasıdır. Fiyatlandırma ayrıntıları için bkz. [Depolama Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Sanal Makinem nasıl erişebilirim?
-Güvenli Kabuk (SSH) kullanarak sanal makineye, oturum açmak için Uzak bağlantı kurun. Bağlanma konusunda yönergelere bakın [Windows gelen](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [Linux ve Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Varsayılan olarak, SSH en fazla 10 eş zamanlı bağlantıya izin verir. Yapılandırma dosyasını düzenleyerek bu sayıyı artırabilirsiniz.
+Güvenli Kabuk (SSH) kullanarak sanal makineye, oturum açmak için bir uzak bağlantı kurun. Bağlanma konusunda yönergelere bakın [Windows gelen](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [Linux ve Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Varsayılan olarak, SSH en fazla 10 eş zamanlı bağlantıya izin verir. Yapılandırma dosyasını düzenleyerek bu sayıyı artırabilirsiniz.
 
 Sorun yaşıyorsanız, kullanıma [sorun giderme güvenli Kabuk (SSH) bağlantılarında](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -64,36 +64,26 @@ Kullanıcı adlarını, 1-32 karakter uzunluğunda olmalıdır.
 
 Aşağıdaki kullanıcı adlarını izin verilmez:
 
-<table>
-    <tr>
-        <td style="text-align:center">yönetici </td><td style="text-align:center"> Yönetici </td><td style="text-align:center"> kullanıcı </td><td style="text-align:center"> user1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> Kullanıcı2 </td><td style="text-align:center"> Test1 </td><td style="text-align:center"> KULLANICI3</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASP.NET</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">yedekleme </td><td style="text-align:center"> console </td><td style="text-align:center"> David </td><td style="text-align:center"> Konuk</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> sahip </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> destek </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Kullanıcı4 </td><td style="text-align:center"> user5</td>
-    </tr>
-</table>
-
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Bir VM oluşturulurken parola gereksinimleri nelerdir?
-Parolaları 6-72 karakter uzunluğunda olmalı ve 3 şu 4 karmaşıklık gereksinimini karşılaması gerekir:
+
+Uzunluk gereksinimlerini, kullanmakta olduğunuz aracı bağlı olarak değişen parola vardır:
+ - Portalı - 12-72 karakter
+ - PowerShell - 8-123 karakter arasında
+ - 12-123 arasında - CLI
+ 
+
+Parolaları da 3 şu 4 karmaşıklık gereksinimini karşılamalıdır:
 
 * Daha düşük karakter içerebilir
 * Üst karakter içerebilir

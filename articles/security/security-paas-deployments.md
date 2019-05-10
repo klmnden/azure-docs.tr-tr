@@ -1,6 +1,6 @@
 ---
-title: PaaS dağıtımlarının güvenliğini sağlama | Microsoft Docs
-description: " Paas'nin avantajlarını güvenlik ve diğer bulut hizmeti modeli ve Azure PaaS dağıtımınızın güvenliğini sağlamaya yönelik önerilen adımları öğrenin anlayın. "
+title: Microsoft Azure - güvenli PaaS dağıtımları için en iyi uygulamalar
+description: Tasarlama, oluşturma, için en iyi adımları öğrenin ve bulut uygulamalarınızı azure'da güvenli yönetme ve diğer bulut hizmeti modeli ve güvenlik paas'nin avantajlarını anlayın.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107455"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231127"
 ---
 # <a name="securing-paas-deployments"></a>PaaS dağıtımlarının güvenliğini sağlama
 
@@ -29,6 +29,8 @@ Bu makalede yardımcı olacak bilgileri sağlar:
 - Platform güvenlik avantajlarından hizmet (PaaS) ve diğer bulut hizmeti modeli olarak değerlendir
 - Güvenlik odağınızı bir ağ merkezli bir kimlik odaklı çevre güvenlik yaklaşımı değiştirme
 - Genel PaaS güvenlik en iyi yöntem önerilerini uygulama
+
+[Azure'da güvenli uygulamalar geliştirme](abstract-develop-secure-apps.md) güvenlik sorularını ve bulut için uygulamalar geliştirirken yazılım geliştirme yaşam döngüsünün her aşamada dikkate almanız denetimlerine genel bir kılavuzdur.
 
 ## <a name="cloud-security-advantages"></a>Bulut güvenlik avantajları
 Bulutta olan güvenlik avantajları vardır. Kuruluşların büyük olasılıkla bir şirket içi ortamda sahip karşılaşılmamış sorumluluklar ve burada saldırganlar tarafından tüm katmanlarda güvenlik açıklarından bir ortam oluşturur güvenlik, yatırım için kullanılabilen sınırlı kaynaklar.
@@ -155,17 +157,23 @@ Kullanım [Azure Application Insights](https://azure.microsoft.com/documentation
 
 Application Insights, topladığı verilerle etkileşim kurmak için kapsamlı araçlara sahiptir. Application Insights, verilerini genel bir depoda saklar. Bu uyarılar, panolar ve Kusto sorgu dili ile ayrıntılı analiz gibi paylaşılan işlevselliği yararlanabilirsiniz.
 
+## <a name="perform-security-penetration-testing"></a>Güvenlik sızma testi gerçekleştirme
+Güvenlik savunmaları doğrulama, diğer tüm işlevlerden test olarak kadar önemlidir. Olun [sızma testi](azure-security-pen-testing.md) derleme ve dağıtım sürecinizi standart bir parçası. Normal güvenlik testlerini ve güvenlik açığı taraması dağıtılan uygulamaları zamanlayın ve açık bağlantı noktalarını, uç noktaları ve saldırıları izleyin.
+
+Fuzz test programı arabirimleri (giriş noktaları) ve bu verileri hatalı biçimlendirilmiş girdi verilerini sağlayarak program hataları (kod hataları) bulmaya yönelik bir yöntemdir. [Microsoft güvenlik riski algılama](https://www.microsoft.com/en-us/security-risk-detection/) Azure'a dağıtmadan önce hataları ve diğer güvenlik açıklarını yazılımınızda aramak için kullanabileceğiniz bir bulut tabanlı bir araçtır. Aracı, bir hatayı düzeltme eki uygulama, kilitlenme ile baş veya yazılım kullanıma sunulduktan sonra saldırı yanıt zorunda kalmamak için yazılım dağıtmadan önce güvenlik açıklarını yakalamak için tasarlanmıştır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, bir Azure PaaS dağıtımı ve bulut uygulamalarına yönelik en iyi güvenlik uygulamaları güvenlik avantajlarından odaklandık. Ardından, PaaS web ve mobil çözümler kullanarak belirli Azure hizmetlerinin güvenliğini sağlamak için önerilen yöntemleri öğrenin. Azure App Service, Azure SQL veritabanı ve Azure SQL veri ambarı ve Azure depolama ile başlayacağız. Diğer Azure Hizmetleri için önerilen uygulamaların makalelerde kullanılabilir oldukça aşağıdaki listede bağlantıları sağlanır:
 
-- [Azure App Service](security-paas-applications-using-app-services.md)
+- [Azure uygulama hizmeti](security-paas-applications-using-app-services.md)
 - [Azure SQL veritabanı ve Azure SQL veri ambarı](security-paas-applications-using-sql.md)
 - [Azure Depolama](security-paas-applications-using-storage.md)
 - Redis için Azure Önbelleği
 - Azure Service Bus
 - Web uygulaması güvenlik duvarları
+
+Bkz: [güvenli uygulamaları azure'da geliştirme](abstract-develop-secure-apps.md) için güvenlik sorularını ve denetimleri bulut için uygulamalar geliştirirken yazılım geliştirme yaşam döngüsünün her aşamada dikkate almanız.
 
 Bkz: [Azure güvenlik en iyi uygulamaları ve desenleri](security-best-practices-and-patterns.md) kullanmak üzere daha fazla güvenlik için en iyi yöntemler, tasarlama, dağıtma ve Azure'ı kullanarak bulut çözümlerinizi yönetme.
 

@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 05/07/2019
 ms.author: abnarain
-ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262128"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232417"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
 
+- **Veri akışı**: Yürütme bir [veri akışı](concepts-data-flow-overview.md) yönetilen bir Azure işlem ortamında.  
 - **Veri taşıma**: Ortak Ağ ve veri depoları (şirket içinde veya sanal özel ağ) özel ağdaki veri depoları arasında veri kopyalama. Yerleşik bağlayıcılar, biçim dönüştürme, sütun eşleme, performanslı ve ölçeklenebilir veri aktarımı desteği sunar.
-- **Etkinlik dağıtma**:  Azure HDInsight, Azure Machine Learning, Azure SQL veritabanı, SQL Server ve daha fazlası gibi işlem hizmetlerini çeşitli çalışan gönderim ve İzleyici dönüştürme etkinlikleri.
+- **Etkinlik dağıtma**:  Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL veritabanı, SQL Server ve daha fazlası gibi işlem hizmetlerini çeşitli çalışan gönderim ve İzleyici dönüştürme etkinlikleri.
 - **SSIS paketi yürütme**: Yerel olarak SQL Server Integration Services (SSIS) paketlerini yönetilen bir Azure işlem ortamında yürütme.
 
-Data Factory'de etkinlik, gerçekleştirilecek eylemi tanımlar. Bağlı hizmet, bir hedef veri deposunu veya işlem hizmetini tanımlar. Tümleştirme çalışma zamanı, etkinlik ile bağlı Hizmetler arasında köprü görevi görür.  Bağlı hizmet tarafından başvurulur ve etkinliği çalıştığı veya dağıtıldığı işlem ortamını sağlar.  Bu şekilde etkinlik hedef veri deposuna veya işlem hizmetine en yakın bölgeden en yüksek performansla gerçekleştirilirken güvenlik ve uyum gereksinimleri korunmuş olur.
+Data Factory'de etkinlik, gerçekleştirilecek eylemi tanımlar. Bağlı hizmet, bir hedef veri deposunu veya işlem hizmetini tanımlar. Tümleştirme çalışma zamanı, etkinlik ile bağlı Hizmetler arasında köprü görevi görür.  Bağlı hizmet veya etkinliği tarafından başvurulan ve burada etkinliği çalıştığı veya dağıtıldığı işlem ortamını sağlar. Bu şekilde etkinlik hedef veri deposuna veya işlem hizmetine en yakın bölgeden en yüksek performansla gerçekleştirilirken güvenlik ve uyum gereksinimleri korunmuş olur.
 
 ## <a name="integration-runtime-types"></a>Tümleştirme çalışma zamanı türleri
 Data Factory, üç farklı Integration Runtime türü sunar ve ihtiyacınız olan veri tümleştirme ve ağ ortamı özelliklerine uygun türü seçmeniz gerekir.  Bu üç tür şunlardır:
@@ -39,7 +40,7 @@ Aşağıdaki tabloda tümleştirme çalışma zamanı türlerinin her birinin su
 
 IR türü | Ortak ağ | Özel ağ
 ------- | -------------- | ---------------
-Azure | Veri taşıma<br/>Etkinlik dağıtma | &nbsp;
+Azure | Veri Akışı<br/>Veri taşıma<br/>Etkinlik dağıtma | &nbsp;
 Kendinden konak | Veri taşıma<br/>Etkinlik dağıtma | Veri taşıma<br/>Etkinlik dağıtma
 Azure-SSIS | SSIS paketi yürütme | SSIS paketi yürütme
 
@@ -50,20 +51,24 @@ Aşağıdaki şemada gelişmiş veri tümleştirme özellikleri ve ağ desteği 
 ## <a name="azure-integration-runtime"></a>Azure tümleştirme çalışma zamanı
 Azure tümleştirme çalışma zamanları şunları yapabilir:
 
+- Azure'da çalışan bir veri akışı 
 - Bulut veri depoları arasında kopyalama etkinliği gerçekleştirme
-- Ortak ağda şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği, HDInsight Pig etkinliği, HDInsight MapReduce etkinliği, HDInsight Spark etkinliği, HDInsight Streaming etkinliği, Machine Learning Batch Execution etkinliği, Machine Learning Update Resource etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .NET özel etkinliği, Web etkinliği, Lookup etkinliği ve Get Metadata etkinliği.
+- Ortak ağda şu dönüştürme etkinliklerini dağıtma: Databricks not defteri / Jar / Python etkinliği, HDInsight Hive etkinliği, HDInsight Pig etkinliği, HDInsight MapReduce etkinliği, HDInsight Spark etkinliği, HDInsight Streaming etkinliği, Machine Learning Batch Execution etkinliği, Machine Learning Update Resource etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .NET özel etkinliği, Web etkinliği, arama etkinliği ve Get Metadata etkinliği.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR ağ ortamı
-Azure Integration Runtime, ortak ağda yer alan ve ortak erişime açık uç noktalara sahip olan veri depolarına ve işlem hizmetlerine bağlanmayı destekler. Azure Sanal Ağ ortamı için kendiliğinden konak tümleştirme çalışma zamanı kullanın.
+Azure Integration Runtime, veri depolarına ve işlem hizmetlerini genel erişime açık Uç noktalara ile bağlanmayı destekler. Azure Sanal Ağ ortamı için kendiliğinden konak tümleştirme çalışma zamanı kullanın.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Azure IR işlem kaynağı ve ölçeklendirme
 Azure tümleştirme çalışma zamanı Azure'da tamamen yönetilebilen ve sunucusuz bir işlem sunar.  Altyapı sağlama, yazılım yükleme, düzeltme eki uygulama ve kapasite ölçeklendirme konularında endişe etmeniz gerekmez.  Ayrıca yalnızca gerçekten kullandığınız süre boyunca ödeme yaparsınız.
 
-Azure tümleştirme çalışma zamanı verileri bulut veri depoları arasında güvenli, güvenilir ve yüksek performanslı bir şekilde taşınması için gerekli yerel işlemi sunar.  Kopyalama etkinliğinde kullanılacak veri tümleştirme birimi sayısını belirleyebilirsiniz. Bunu yaptığınızda Azure IR işlem boyutu esnek şekilde ölçeklendirilerek Azure Integration Runtime boyutunu el ile ayarlama ihtiyacını ortadan kaldırır.
+Azure tümleştirme çalışma zamanı verileri bulut veri depoları arasında güvenli, güvenilir ve yüksek performanslı bir şekilde taşınması için gerekli yerel işlemi sunar.  Kopyalama etkinliğinde kullanılacak veri tümleştirme birimi sayısını belirleyebilirsiniz. Bunu yaptığınızda Azure IR işlem boyutu esnek şekilde ölçeklendirilerek Azure Integration Runtime boyutunu el ile ayarlama ihtiyacını ortadan kaldırır. 
 
 Etkinlik dağıtma, etkinliği hedef işlem hizmetine yönlendiren basit bir işlemdir. Bu nedenle bu senaryo için işlem boyutu ölçeğini genişletmeniz gerekmez.
 
 Azure IR oluşturma ve yapılandırma hakkında bilgi almak için nasıl yapılır kılavuzlarından Azure IR'yi oluşturma ve yapılandırma bölümüne bakın. 
+
+> [!NOTE] 
+> Azure tümleştirme çalışma zamanı, bir veri akışı çalıştırmak için kullanılacak temel alınan bilgi işlem altyapısı tanımlayan veri akışı çalışma zamanı, ilgili özellikleri vardır. 
 
 ## <a name="self-hosted-integration-runtime"></a>Kendinden konak tümleştirme çalışma zamanı
 Kendinden konak IR şu özelliklere sahiptir:
@@ -112,7 +117,13 @@ Veri taşıma veya etkinlik başlatmanın gerçekleşmesini istediğiniz bölgey
 Varsayılan ayar olan Azure IR’yi otomatik çözümlemeyi seçerseniz, 
 
 - Kopyalama etkinliğinde ADF, aynı uygun bölgede veya aynı coğrafyadaki en yakın bölgede bulunan en uygun konumu seçmek amacıyla havuzunuzu ve kaynak veri deponuzu otomatik olarak algılamak için veya bunların hiçbiri algılanamıyorsa alternatif olarak veri fabrikası bölgesini kullanmak için özelliklerini en iyi şekilde kullanır.
+
 - Lookup/GetMetadata etkinliğini yürütmek ve dönüşüm etkinliğini göndermek için ADF, veri fabrikası bölgesindeki IR’yi kullanır.
+
+- Veri akışı için ADF IR data factory bölgede kullanır. 
+
+  > [!TIP] 
+  > Veri akışı, karşılık gelen veri depoları ile aynı bölgede (mümkünse) çalıştıran emin olmak için iyi bir uygulama olacaktır. (Veri deposu konumu Data Factory konumuyla aynı değilse) otomatik olarak çözülmeli Azure IR veya veri depolarınıza aynı bölgede yeni bir Azure IR örneğini oluşturarak bunu ve veri akışı üzerinde yürütebilirsiniz. 
 
 Kullanıcı arabirimindeki işlem hattı etkinliğini izleme görünümünde veya etkinlik izleme yükündeki etkinlik yürütme işlemi sırasında kullanıma alınan IR konumunu izleyebilirsiniz.
 
@@ -137,7 +148,7 @@ Aşağıdaki şemada Data Factory konum ayarları ve tümleştirme çalışma za
 
 ## <a name="determining-which-ir-to-use"></a>Kullanılacak IR'yi belirleme
 
-### <a name="copy-activity"></a>Kopyalama etkinliği
+### <a name="copy-activity"></a>Etkinliği kopyala
 
 Kopyalama etkinliği için veri akışı yönünü tanımlamak üzere kaynak ve havuz bağlantılı hizmetleri gerektirir. Kopyalama işlemini gerçekleştirmek için kullanılacak olan tümleştirme çalışma zamanı örneğini belirlemek için aşağıdaki mantık kullanılır: 
 
@@ -153,8 +164,13 @@ Lookup ve GetMetadata etkinliği, veri deposu bağlı hizmetiyle ilişkili tüml
 
 Her dönüştürme etkinliğinde bir tümleştirme çalışma zamanını işaret eden hedef işlem Bağlı Hizmeti vardır. Bu tümleştirme çalışma zamanı örneği, dönüştürme etkinliğinin dağıtıldığı yerdir.
 
+### <a name="data-flow-activity"></a>Veri akışı etkinliği
+
+Veri akış etkinliğini ilişkili Integration runtime üzerinde yürütülür. 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makalelere bakın:
 
+- [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md)
 - [Kendinden konak tümleştirme çalışma zamanı oluşturma](create-self-hosted-integration-runtime.md)
 - [Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale öğreticiyi genişletip ve Azure SQL veritabanı yönetilen örneği kullanma ve IR'yi bir sanal ağa ekleme hakkında yönergeler sağlar. 

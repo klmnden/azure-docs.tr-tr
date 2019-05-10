@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/22/2018
-ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/07/2019
+ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692142"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510992"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight ile etkileşimli Sorgu'yu kullanma
 Etkileşimli sorgu (Hive, Apache LLAP olarak da adlandırılan veya [düşük gecikme süresi analitik işleme](https://cwiki.apache.org/confluence/display/Hive/LLAP)) olan Azure HDInsight [küme türü](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Etkileşimli sorgu bellek içi önbelleğe alma, Apache Hive sorguları daha hızlı ve daha etkileşimli getiren destekler.
@@ -34,10 +34,6 @@ Hive sorguları çalıştırmak için aşağıdaki seçenekleriniz vardır:
 * Microsoft Power BI kullanın
 
     Bkz: [Power BI'da Azure HDInsight ile verileri görselleştirme etkileşimli Apache Hive sorgusu](./apache-hadoop-connect-hive-power-bi-directquery.md) bkz [Power BI'da Azure HDInsight ile büyük verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
- 
-* Apache Zeppelin kullanma
-
-    Bkz: [Azure HDInsight Apache Hive sorguları çalıştırmak için kullanım Apache Zeppelin](../hdinsight-connect-hive-zeppelin.md).
 
 * Visual Studio'yu kullanma
 
@@ -61,7 +57,7 @@ Hive sorguları çalıştırmak için aşağıdaki seçenekleriniz vardır:
 
 Java veritabanı bağlantısı (JDBC) bağlantı dizesi bulmak için:
 
-1. Apache Ambari aşağıdaki URL'yi kullanarak oturum açın: https://\<küme adı\>. AzureHDInsight.net.
+1. Apache Ambari aşağıdaki URL'yi kullanarak oturum açın: `https://<cluster name>.AzureHDInsight.net`.
 2. Sol menüde **Hive**.
 3. URL'yi kopyalamak için Pano simgesini seçin:
    

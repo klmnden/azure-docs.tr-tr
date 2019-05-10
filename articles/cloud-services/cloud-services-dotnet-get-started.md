@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60521362"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510564"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
@@ -36,7 +36,7 @@ Uygulama bir reklam bülteni panosudur. Kullanıcılar metin girerek ve görünt
 Uygulama bir arka uç işleminde küçük resim oluşturmaya yönelik CPU yoğunluklu iş yükünü azaltmak üzere [kuyruk merkezli çalışma deseni](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternatif mimari: App Service ve WebJobs
-Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Ön uç çalıştırılması alternatiftir [Azure App Service](/azure/app-service/) ve [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) arka uç için özellik. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında daha fazla bilgi için bkz. [Azure App Service, Cloud Services ve virtual machines karşılaştırması](../app-service/overview-compare.md).
+Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Ön uç çalıştırılması alternatiftir [Azure App Service](/azure/app-service/) ve [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) arka uç için özellik. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında daha fazla bilgi için bkz. [Azure App Service, Cloud Services ve virtual machines karşılaştırması](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz
 * Azure SDK’sını yükleyerek Azure dağıtımı için makinenizi etkinleştirme.
@@ -391,7 +391,7 @@ Bu bölümde, yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı 
 8. Hala **ContosoAdsWorker [Rolü]** özellikler penceresindeyken başka bir bağlantı dizesi ekleyin:
 
    * Ad: ContosoAdsDbConnectionString
-   * Şunu yazın: String
+   * Tür: String
    * Değer: Web rolü projesi kullandığınız bağlantı dizesinin aynısını yapıştırın. (Aşağıdaki örnek Visual Studio 2013 içindir. Bu örneği kopyalarsanız ve Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız Veri Kaynağını değiştirmeyi unutmayın.)
 
        ```

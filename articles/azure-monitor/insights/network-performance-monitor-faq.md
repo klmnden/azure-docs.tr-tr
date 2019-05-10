@@ -1,6 +1,6 @@
 ---
 title: SSS - azure'da Ağ Performansı İzleyicisi çözüm | Microsoft Docs
-description: Bu makalede, azure'da NPM hakkında sık sorulan sorular yakalar. Performans sorunlarını algılamak ve bulmak için neredeyse gerçek zamanlı, ağlarınız performansını Ağ Performansı İzleyicisi'ni (NPM) izlemenizi ağ.
+description: Bu makalede, azure'da Ağ Performansı İzleyicisi hakkında sık sorulan sorular yakalar. Neredeyse gerçek zamanlı ağlarınızda performansını izlemek ve tespit edip bulmak Ağ Performansı İzleyicisi'ni (NPM) yardımcı olur, performans sorunlarını ağ.
 services: log-analytics
 documentationcenter: ''
 author: vinynigam
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401463"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232663"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
@@ -36,24 +36,24 @@ Tarafından desteklenen çeşitli özellikler hakkında daha fazla bilgi [Ağ Pe
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM ile izleme için kullanılacak düğümleri için platform gereksinimleri nelerdir?
 Aşağıda listelenen NPM'nin platform gereksinimlerini çeşitli özellikleri şunlardır:
 
-- NPM Performans İzleyicisi ve hizmet bağlantı İzleyicisi özellikleri destekleyen hem Windows server (2008 SP1 veya üzeri) ve Windows Masaüstü/istemci işletim sistemlerinde (Windows 10, Windows 8.1, Windows 8 ve Windows 7). 
+- NPM Performans İzleyicisi ve hizmet bağlantı İzleyicisi özellikleri Windows server hem Windows Masaüstü/istemci işletim sistemlerini destekler. Desteklenen Windows server işletim sistemi sürümleri olan 2008 SP1 veya üzeri. Windows Masaüstü/istemci sürümleri desteklenir, Windows 10, Windows 8.1, Windows 8 ve Windows 7 ' dir. 
 - NPM ExpressRoute İzleyicisi özelliğini destekleyen yalnızca Windows server (2008 SP1 veya üstü) işletim sistemi.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Linux makineleri düğümler NPM izleme olarak kullanabilir miyim?
-Linux tabanlı düğümleri kullanarak ağları izleme yeteneği şu anda Önizleme aşamasındadır. Daha fazla bilgi edinmek için hesap yöneticinize ulaşın. Çalışma alanı kimliği sağladığınızda, devam eder ve özelliği etkinleştirin. Linux aracıları yalnızca NPM'nin Performans İzleyicisi özelliği için izleme olanağı sağlar ve için hizmet bağlantı İzleyicisi ve ExpressRoute İzleyicisi özellikleri kullanılabilir değil
+Linux tabanlı düğümleri kullanarak ağları izleme yeteneği şu anda Önizleme aşamasındadır. Daha fazla bilgi edinmek için hesap yöneticinize ulaşın. Linux aracıları yalnızca NPM'nin Performans İzleyicisi özelliği için izleme olanağı sağlar ve için hizmet bağlantı İzleyicisi ve ExpressRoute İzleyicisi özellikleri kullanılabilir değil
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM ile izleme için kullanılacak düğümlerinin boyutu gereksinimleri nelerdir?
-VM ağları izlemek için düğümde NPM çözümü çalıştırmak için en az 500 MB bellek ve bir çekirdek düğümleri olması gerekir. NPM çalıştırmak için ayrı düğüm kullanın gerekmez. Çözüm üzerinde çalışan iş yüklerine olan düğümleri çalıştırabilirsiniz. Çözüm, %5 CPU birden çok durumda onu kullanan izleme işlemini durdurmak için özellik sahiptir.
+VM ağları izlemek için düğümde NPM çözümü çalıştırmak için en az 500 MB bellek ve bir çekirdek düğümleri olması gerekir. NPM çalıştırmak için ayrı düğüm kullanmanız gerekmez. Çözüm üzerinde çalışan iş yüklerine olan düğümleri çalıştırabilirsiniz. Çözüm, %5 CPU birden kullanılıyorsa izleme işlemini durdurmak için özellik sahiptir.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>NPM kullanmak için Bilgisayarım düğümleri doğrudan aracısı veya System Center Operations Manager üzerinden bağlanabilirim?
-Performans İzleyicisi'ni hem de hizmet bağlantı İzleyicisi Özellikleri düğümleri desteklemek [bağlı doğrudan aracılar](../../azure-monitor/platform/agent-windows.md) yanı [Operations Manager ile bağlı](../../azure-monitor/platform/om-agents.md).
+Performans İzleyicisi'ni hem de hizmet bağlantı İzleyicisi Özellikleri düğümleri desteklemek [bağlı doğrudan aracılar](../../azure-monitor/platform/agent-windows.md) ve [Operations Manager ile bağlı](../../azure-monitor/platform/om-agents.md).
 
-ExpressRoute İzleyicisi özelliği için doğrudan aracılar yalnızca Azure düğümleri bağlanmalıdır. Operations Manager ile bağlı olan azure düğümleri desteklenmiyor. Şirket içi düğümleri için bir ExpressRoute bağlantı hattı izlemek için Operations Manager yanı sıra doğrudan aracılar olarak bağlı düğümleri desteklenir.
+ExpressRoute İzleyicisi özelliği için doğrudan aracılar yalnızca Azure düğümleri bağlanmalıdır. Operations Manager ile bağlı olan azure düğümleri desteklenmiyor. Şirket içi düğümleri için bir ExpressRoute bağlantı hattı izlemek için Operations Manager üzerinden doğrudan aracılar olarak bağlı düğümleri desteklenir.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>İzleme için TCP ve ICMP arasından hangi protokolün seçilmelidir?
-Windows server tabanlı düğümleri kullanarak ağınıza izliyorsanız, çünkü daha büyük doğruluk sağlar İzleyici protokolü olarak TCP kullanmanızı öneririz. 
+Windows server tabanlı düğümleri kullanarak ağınızı izleme yapıyorsanız, çünkü daha büyük doğruluk sağlar İzleyici protokolü olarak TCP kullanmanızı öneririz. 
 
-ICMP tabanlı işletim sistemi Windows Masaüstü/istemci düğümleri için önerilir. Bu platform, NPM, ağ topolojisini bulmak için kullandığı ham yuva gönderilmek üzere TCP veri izin vermez.
+ICMP tabanlı işletim sistemi Windows Masaüstü/istemci düğümleri için önerilir. Bu platform does'nt NPM ağ topolojisini bulmak için kullandığı ham yuva gönderilecek TCP verileri sağlar.
 
 Her Protokolü göreli avantajları hakkında daha fazla ayrıntıya ulaşabilirsiniz [burada](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -71,8 +71,8 @@ Betik yalnızca Windows Güvenlik Duvarı yerel olarak yapılandırır. Ağ güv
 ### <a name="how-many-agents-should-i-use"></a>Aracı sayısı kullanmalıyım?
 İzlemek istediğiniz her alt ağ için en az bir aracı kullanmanız gerekir.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Kullanabileceğim aracıların sayısı nedir veya hatası görüyorum "... yapılandırma sınırınıza ulaştınız."?
-NPM çalışma alanı başına 5000 IP'ler için IP'ler sayısını sınırlar. Hem IPv4 hem de IPv6 adreslerini bir düğüm varsa bu bu düğüm için 2 IP'ler sayılır. Bu nedenle, 5000 IP'lerin bu sınırı aracı sayısı üst sınırı karar vermeniz. Etkin aracılar, NPM düğümleri sekmesinden silebilirsiniz >> yapılandırın. NPM, ayrıca VM aracısı ve bu da ayrı IP'ler 5000 IP'ler için bu üst sınır katkıda olarak sayısı barındırma hiç olmadığı kadar atanmış olan tüm IP'lere geçmişini tutar. İçin ücretsiz çalışma alanınız için oluşturan Ip'lerini düğümleri sayfanın kullanımda olmayan IP'ler silmek için kullanabilirsiniz.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Ne kullanabilirim aracıların sayısı ve hatası görüyorum "... Yapılandırma sınırınıza ulaştınız"?
+NPM çalışma alanı başına 5000 IP'ler için IP'ler sayısını sınırlar. Hem IPv4 hem de IPv6 adreslerini bir düğüm varsa bu bu düğüm için 2 IP'ler sayılır. Bu nedenle, 5000 IP'lerin bu sınırı aracı sayısı üst sınırı karar vermeniz. Etkin aracılar, NPM düğümleri sekmesinden silebilirsiniz >> yapılandırın. NPM ayrıca tüm barındırma aracı ve her VM için hiç olmadığı kadar atanmış IP'ler, 5000 IP'ler sayısı üst sınırı için katkıda bulunan ayrı IP olarak sayılır geçmişini tutar. İçin ücretsiz çalışma alanınız için oluşturan Ip'lerini düğümleri sayfanın kullanımda olmayan IP'ler silmek için kullanabilirsiniz.
 
 ## <a name="monitoring"></a>İzleme
 
@@ -136,16 +136,26 @@ NPM izlemek için kullanabileceğiniz Bağlantı Hizmetleri dünyanın herhangi 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM ExpressRoute İzleyicisi için hangi bölgeler desteklenir?
 NPM, dilediğiniz Azure bölgesinde bulunan, ExpressRoute devreleri izleyebilirsiniz. Birinde barındırılan bir Log Analytics çalışma alanı gerektirecektir npm için yerleşik, [desteklenen bölgeler](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorun gider
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Neden bazı ağ topolojisini görüntüleme tanımlanmamış olarak işaretlenmiş atlama misiniz?
-NPM traceroute değiştirilmiş bir sürümünü hedef kaynak aracısından topolojiye bulmak için kullanır. Tanımlanmayan bir atlama ağ atlama kaynak aracının traceroute isteğine yanıt vermedi temsil eder. 3 ardışık ağ atlamaları aracının traceroute için yanıt vermezse, çözüm, yanıt vermeyen atlama tanımlanmamış olarak işaretler ve daha fazla atlama bulunacak denemez.
+NPM traceroute değiştirilmiş bir sürümünü hedef kaynak aracısından topolojiye bulmak için kullanır. Tanımlanmayan bir atlama ağ atlama kaynak aracının traceroute isteğine yanıt vermedi temsil eder. Üç ardışık ağ atlamaları aracının traceroute için yanıt vermezse, çözüm, yanıt vermeyen atlama tanımlanmamış olarak işaretler ve daha fazla atlama bulunacak denemez.
 
 Bir atlama, bir veya daha fazlasında bir traceroute yanıtlayamayabilir senaryolar aşağıda:
 
 * Yönlendiriciler, kimliklerini açığa çıkarmadığınızdan yapılandırıldı.
 * Ağ aygıtlarının ICMP_TTL_EXCEEDED trafiğine izin vermiyor.
 * Bir güvenlik duvarı, ağ aygıtı ICMP_TTL_EXCEEDED yanıttan engelliyor.
+
+### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>Neden sağlıksız my bağlantı show ancak topoloji yok 
+NPM, uçtan uca kaybı, gecikme süresi ve topoloji farklı aralıklarla izler. Kayıp ve gecikme süresi 5 saniyede bir kere hesaplanır ve (Performans İzleyicisi ve Express Route İzleyici) üç dakikada bir toplanan topolojisi her 10 dakikada traceroute kullanarak hesaplanırken. Örneğin, 3:44 ve 4:04 arasında topolojisi üç kez güncelleştirilebilir (3:44, 3:54, 4:04), ancak kayıp ve gecikme süresi yaklaşık yedi kat güncelleştirilir (3:44, 3:47 3:50 3: 53'ü 3:56, 3:59, 4:02). 3:54 oluşturulan topoloji kayıp ve gecikme süresi 3:56 hesaplanan işlenen 3:59 ve 4:02. 3:59 ER devreniz kötü bir uyarı alırsınız varsayalım. NPM için oturum açar ve topoloji saati 3:59 ayarlamaya çalışın. NPM 3:54 oluşturulan topoloji işlenir. Son bilinen ağınızın topolojisi anlamak için alanları TimeProcessed Karşılaştır (hangi kayıp ve gecikme süresi hesaplanmıştır adresindeki süresi) ve TracerouteCompletedTime (hangi topolojiyi hesaplandığında, saat). 
+
+### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>E2EMedianLatency ve AvgHopLatencyList NetworkMonitoring tabloda alanlar arasındaki fark nedir
+E2EMedianLatency AvgHopLatencyList bilgileriyse tcp ping testlerin sonuçlarını toplayarak üzerinde traceroute göre her 10 dakikada güncelleştirdikten sonra üç dakikada bir güncelleştirilen gecikme olur. Başlangıçtan E2EMedianLatency hesaplandığı tam zamanı anlamak için alanın TimeProcessed kullanın. Hangi traceroute tamamlandı ve güncelleştirilmiş AvgHopLatencyList tam zamanında anlamak için alanın TracerouteCompletedTime kullanın.
+
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Atlama atlama gecikme rakamları HopLatencyValues neden farkı nedir 
+HopLatencyValues uç noktasına bir kaynaktır.
+Örneğin: Hops - A,B,C. AvgHopLatency - 10,15,20. Bu kaynak için bir gecikme süresi anlamına gelir = 10, kaynak B gecikme = 15 ve kaynak C gecikme 20. Kullanıcı Arabirimi, A-B atlama gecikme süresi 5 topolojide olarak hesaplar
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Çözüm % 100 kaybı gösterir, ancak kaynak ve hedef arasında bağlantısı
 Konak güvenlik duvarı veya Ara Güvenlik Duvarı (ağ güvenlik duvarı ya da Azure NSG) tarafından NPM izleme için kullanılan bağlantı noktası üzerinden aracı kaynak ve hedef arasındaki iletişimi engelliyor bu durum meydana gelebilir (bağlantı noktası 8084'tür, sürece varsayılan olarak açıktır Müşteri bu dönüştürülmüştür).
@@ -199,7 +209,7 @@ Bir veya daha fazla true ise bu durum oluşabilir:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Hizmet Bağlantı İzleyicisi özelliği NA hizmet yanıt süresi, ancak gecikme süresi yanı sıra ağ kaybı geçerlidir
 Bu durum hedef hizmeti bir web uygulaması değil, ancak test yapılandırılmış bir Web testi olarak. Test yapılandırmasını düzenleyin ve ağ yerine Web test türü seçin.
 
-## <a name="miscellaneous"></a>Muhtelif Hükümler
+## <a name="miscellaneous"></a>Çeşitli
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>İzleme için kullanılan düğümü üzerindeki performans etkisini mı?
 NPM işlemi birden fazla %5 konak CPU kaynaklarını yararlanıyorsa durdurmak için yapılandırılır. Bu, düğümler, her zamanki iş yükleri için performansı etkilemeden kullanmaya devam edebilirsiniz, sağlamaktır.

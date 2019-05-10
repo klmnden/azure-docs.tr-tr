@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192345"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442357"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow ve Keras modellerini eğitin
 
@@ -24,11 +24,11 @@ Azure işlemi üzerinde kolayca TensorFlow eğitim işleri çalıştırabilirsin
 
 `TensorFlow` Estimator ayrıca sağlar bir Soyutlama Katmanı üzerinden kolayca farklı işlem hedefleri parametreli çalışır, eğitim betikleriniz değiştirmeden yapılandırabilirsiniz, yani yürütme.
 
-## <a name="getting-started"></a>Başlarken
+## <a name="get-started"></a>başlarken
 
-İşlerle gönderme `TensorFlow` estimator temel kullanmaya benzer [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). Başlamak okuyarak öneririz, böylece [tahmin aracı ile ilgili nasıl yapılır makalesi](how-to-train-ml-models.md) ıpam'da kavramları öğrenin.
+Bu yana `TensorFlow` estimator sınıfı için temel benzer [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), ilk okuma öneririz [tahmin aracı ile ilgili nasıl yapılır makalesi](how-to-train-ml-models.md) ıpam'da kavramları anlamak için.
 
-Azure Machine Learning hizmeti ile çalışmaya başlama istiyorsanız [hızlı başlangıcı tamamlamak](quickstart-run-cloud-notebook.md). Tüm ile yüklenen bir çalışma ortamı gerekir bizim [örnek not defterleri](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
+Azure Machine Learning hizmeti ile kullanmaya başlamak için [hızlı başlangıcı tamamlamak](quickstart-run-cloud-notebook.md). İşleminizi tamamladıktan sonra sahip olacaksınız bir [Azure Machine Learning çalışma alanı](concept-azure-machine-learning-architecture.md#workspace) ve tüm müşterilerimize [örnek not defterleri](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) eğitim Dnn'leri TensorFlow ve Keras için dahil olmak üzere.
 
 ## <a name="single-node-training"></a>Tek düğümlü eğitim
 

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530339"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230083"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure işlevleri yerel olarak hata ayıklama
 
@@ -97,7 +97,7 @@ Hata ayıklama başladığında, `if` deyimi.
 
 PowerShell işlevlerinizi Visual Studio code'da hata ayıklamak için aşağıdaki uzantılar Visual Studio Code için aşağıdakiler gereklidir:
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure İşlevleri](functions-create-first-function-vs-code.md)
 
 PowerShell ve Azure işlevleri Uzantıları yükledikten sonra var olan bir işlev uygulaması projesi yükleyin. Ayrıca [işlevler projesi oluşturma](functions-create-first-function-vs-code.md).
@@ -189,7 +189,7 @@ Not `ProcessId` olan tablo öğesi için `ProcessName` olarak `dotnet`. İşlev 
 Ardından, aşağıdaki kod parçacığını çalıştırın:
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

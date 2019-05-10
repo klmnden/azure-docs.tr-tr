@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: ed2611896f2c23a3cf1d2fec5d9e711f518a65c6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926346"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415477"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
@@ -22,7 +22,7 @@ Kurumsal güvenlik paketi (ESP) kümeleri, Azure HDInsight kümelerinde birden �
 Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullanarak bir HDInsight kümesi ile ESP yapılandırma konusunda bilgi edinin.
 
 > [!NOTE]  
-> ESP küme türleri için HDI 3.6 genel kullanıma sunulmuştur: Apache Spark, etkileşimli ve Apache Hadoop. ESP Apache HBase ve Apache Kafka kümesi türleri için Önizleme aşamasındadır.
+> ESP, HDInsight 3.6 ve 4.0 küme türleri için genel olarak kullanıma sunulmuştur: Apache Spark, etkileşimli, Apache Hadoop ve HBase. ESP Apache Kafka kümesi türü için Önizleme aşamasındadır.
 
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
 
@@ -112,11 +112,11 @@ ESP ile HDInsight kümesi oluşturduğunuzda, aşağıdaki parametreleri belirtm
 
 Aşağıdaki ekran görüntüsünde, başarılı bir yapılandırma Azure portalında gösterir:
 
-![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png):
 
 Oluşturduğunuz yönetilen kimlik olarak kullanıcı tarafından atanan yönetilen kimlik açılan listeden yeni bir küme oluştururken seçilebilir.
 
-![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png):
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Görüntü işlemleri - JavaScript'
+title: Görüntü işlemleri - JavaScript
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler’de Görüntü İşleme API'sini kullanan temel bir JavaScript uygulamasını keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
 services: cognitive-services
@@ -7,62 +7,58 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 09/19/2017
+ms.topic: conceptual
+ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 7ac8b9e28996c14e702730b72265fd6165798227
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201307"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231654"
 ---
-# <a name="tutorial-computer-vision-api-javascript"></a>Öğretici: Bilgisayar görüntü işleme API'si JavaScript
+# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>JavaScript ve REST API ile görüntü işleme özelliklerini kullanma
 
-Bu öğreticide, Azure Bilişsel Hizmetler Görüntü İşleme REST API’sinin özellikleri gösterilmektedir.
+Bu kılavuz, Azure Bilişsel hizmetler görüntü işleme REST API'si özelliklerini gösterir.
 
 Optik karakter tanıma (OCR) gerçekleştirmek, akıllı kırpılmış küçük resimler oluşturmak, ayrıca bir görüntüdeki yüzler gibi görsel özellikleri algılamak, kategorilere ayırmak, etiketlemek ve açıklamak için Görüntü İşleme REST API’sini kullanan bir JavaScript uygulamasını keşfedin. Bu örnek, analiz veya işleme için bir görüntü URL’si göndermenize olanak sağlar. Bu açık kaynak örneğini, Görüntü İşleme API’sini kullanmak amacıyla kendi JavaScript uygulamanızı derlemek için şablon olarak kullanabilirsiniz.
 
-JavaScript form uygulaması zaten yazılmıştır, ancak Görüntü İşleme işlevselliğine sahip değildir. Bu öğreticide, uygulamanın işlevselliğini tamamlamak için Görüntü İşleme API'sine özgü kodu ekleyeceksiniz.
+JavaScript form uygulaması zaten yazılmıştır, ancak Görüntü İşleme işlevselliğine sahip değildir. Bu kılavuzda, uygulamanın işlevselliğini tamamlamak için görüntü işleme REST API'si için özel kod ekleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Bu öğretici, basit bir metin düzenleyicisi kullanılarak geliştirilmiştir.
+Basit bir metin düzenleyicisi kullanarak bu kılavuzdaki adımları izleyebilirsiniz.
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Görüntü İşleme API’sine abone olma ve abonelik anahtarı alma 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Görüntü İşleme API’sine abone olma ve abonelik anahtarı alma
 
-Örneği oluşturmadan önce, Azure Bilişsel Hizmetler’in parçası olan Görüntü İşleme API’sine abone olmanız gerekir. Abonelik ve anahtar yönetimi ayrıntıları için bkz. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/). Bu öğreticide hem birincil hem de ikincil anahtarlar kullanılabilir. 
+Örneği oluşturmadan önce, Azure Bilişsel Hizmetler’in parçası olan Görüntü İşleme API’sine abone olmanız gerekir. Abonelik ve anahtar yönetimi ayrıntıları için bkz. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/). Bu kılavuzda kullanmak için birincil ve ikincil anahtarlar geçerlidir.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>Tamamlanmamış öğretici projesini alma
+## <a name="acquire-incomplete-tutorial-project"></a>Tam öğretici projesinin Al
 
-### <a name="download-the-tutorial-project"></a>Öğretici projesini indirme
+### <a name="download-the-project"></a>Projenizi indirin
 
 [Bilişsel Hizmetler JavaScript Görüntü İşleme Öğreticisi](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)’ni kopyalayın veya .zip dosyasını indirip boş bir dizine ayıklayın.
 
-Tüm öğretici kodu eklenmiş şekilde tamamlanan öğreticiyi kullanmak isterseniz, **Tamamlandı** klasöründeki dosyaları kullanabilirsiniz.
+Eklenen tüm Eğitmen kodu ile tamamlanmış projeyi kullanmayı tercih ediyorsanız, dosyaları kullanabileceğiniz **tamamlandı** klasör.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>Öğretici kodunu projeye ekleme
+## <a name="add-tutorial-code-to-the-project"></a>Eğitmen kodu projeye ekleyin.
 
-JavaScript uygulaması, her özellik için birer tane olacak şekilde altı .html dosyası ile ayarlanmıştır. Her dosya, Görüntü İşleme’nin farklı bir işlevini (analiz etme, OCR vb.) gösterir. Altı öğretici bölümünde birbirine bağımlılık yoktur, bu nedenle öğretici kodunu tek bir dosyaya, altı dosyanın tümüne veya yalnızca birkaç dosyaya ekleyebilirsiniz. Ayrıca öğretici kodunu herhangi bir sırayla dosyalara ekleyebilirsiniz.
-
-Başlayalım.
+JavaScript uygulaması, her özellik için birer tane olacak şekilde altı .html dosyası ile ayarlanmıştır. Her dosyanın farklı bir görüntü işleme işlevini gösterir (analiz edin, OCR, vs.). Bir dosya, tüm altı dosyayı veya dosyaları yalnızca birkaç Eğitmen kodu ekleyebilmek bağımlılıklarını altı bölüm yok. Ayrıca öğretici kodunu herhangi bir sırayla dosyalara ekleyebilirsiniz.
 
 ### <a name="analyze-an-image"></a>Resim çözümleme
 
-Görüntü İşleme’nin Analiz özelliği, bir görüntüyü 2.000’den fazla tanınabilir nesne, canlı varlık, sahne ve eylem açısından tarar. Analiz tamamlandıktan sonra Analiz işlevi, açıklayıcı etiketler, renk analizi, açıklamalı alt yazılar vb. ile görüntüyü açıklayan bir JSON nesnesi döndürür.
+Görüntü işleme, çözümleme özelliği, binlerce tanınabilir nesne, oturma şey, manzara ve Eylemler için bir görüntü tarar. Analiz tamamlandıktan sonra Analiz işlevi, açıklayıcı etiketler, renk analizi, açıklamalı alt yazılar vb. ile görüntüyü açıklayan bir JSON nesnesi döndürür.
 
-Öğretici uygulamasının Analiz özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
+Uygulamanın analiz özelliği tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Çözümle düğmesi için olay işleyicisini ekleyin
 
 **analyze.html** dosyasını bir metin düzenleyicisinde açın ve dosyanın alt kısmının yakınındaki **analyzeButtonClick** işlevini bulun.
 
-**analyzeButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **AnalyzeImage** işlevini çağırır.
-
-Aşağıdaki kodu kopyalayıp **analyzeButtonClick** işlevine yapıştırın.
+**analyzeButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **AnalyzeImage** işlevini çağırır. Aşağıdaki kodu kopyalayıp **analyzeButtonClick** işlevine yapıştırın.
 
 ```javascript
 function analyzeButtonClick() {
@@ -154,7 +150,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-analyze-function"></a>Analiz işlevi çalıştırın
 
 **analyze.html** dosyasını kaydedip bir Web tarayıcısında açın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. Analiz edilecek görüntünün URL’sini girin, ardından **Görüntüyü Analiz Et** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -162,15 +158,13 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 
 Görüntü İşleme’nin Yer İşareti özelliği, bir görüntüyü dağ veya ünlü binalar gibi doğal ve yapay yer işaretleri açısından analiz eder. Analiz tamamlandıktan sonra Yer İşareti, görüntüde bulunan yer işaretlerini belirleyen bir JSON nesnesini döndürür.
 
-Öğretici uygulamasının Yer İşareti özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
+Yer işareti özelliği uygulamanın tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Yer işareti düğmesi için olay işleyicisini ekleyin
 
 **landmark.html** dosyasını bir metin düzenleyicisinde açın ve dosyanın alt kısmının yakınındaki **landmarkButtonClick** işlevini bulun.
 
-**landmarkButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **IdentifyLandmarks** işlevini çağırır.
-
-Aşağıdaki kodu kopyalayıp **landmarkButtonClick** işlevine yapıştırın.
+**landmarkButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **IdentifyLandmarks** işlevini çağırır. Aşağıdaki kodu kopyalayıp **landmarkButtonClick** işlevine yapıştırın.
 
 ```javascript
 function landmarkButtonClick() {
@@ -261,7 +255,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-landmark-function"></a>Yer işareti işlevi çalıştırın
 
 **landmark.html** dosyasını kaydedip bir Web tarayıcısında açın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. Analiz edilecek görüntünün URL’sini girin, ardından **Görüntüyü Analiz Et** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -269,15 +263,13 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 
 Görüntü İşleme’nin Ünlüler özelliği bir görüntüyü ünlü kişiler açısından analiz eder. Analiz tamamlandıktan sonra Ünlüler, görüntüde bulunan Ünlüleri belirleyen bir JSON nesnesini döndürür.
 
-Öğretici uygulamasının Ünlüler özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
+Uygulamanın Ünlüleri özelliği tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Ünlüleri düğmesi için olay işleyicisini ekleyin
 
 **celebrities.html** dosyasını bir metin düzenleyicisinde açın ve dosyanın alt kısmının yakınındaki **celebritiesButtonClick** işlevini bulun.
 
-**celebritiesButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **IdentifyCelebrities** işlevini çağırır.
-
-Aşağıdaki kodu kopyalayıp **celebritiesButtonClick** işlevine yapıştırın.
+**celebritiesButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **IdentifyCelebrities** işlevini çağırır. Aşağıdaki kodu kopyalayıp **celebritiesButtonClick** işlevine yapıştırın.
 
 ```javascript
 function celebritiesButtonClick() {
@@ -364,7 +356,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-celebrities-function"></a>Çalıştırma ünlüleri işlevi
 
 **celebrities.html** dosyasını kaydedip bir Web tarayıcısında açın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. Analiz edilecek görüntünün URL’sini girin, ardından **Görüntüyü Analiz Et** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -372,15 +364,13 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 
 Görüntü İşleme’nin Küçük Resim özelliği, bir görüntüden küçük resim oluşturur. **Akıllı Kırpma** özelliğini kullanarak Küçük Resim özelliği, estetik olarak daha çekici küçük resim görüntüleri oluşturmak için bir görüntüdeki ilgi alanını belirler ve küçük resmi bu alanda ortalar.
 
-Öğretici uygulamasının Küçük Resim özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
+Uygulamanın küçük resim özelliği tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Küçük Resim düğmesi için olay işleyicisini ekleyin
 
 **thumbnail.html** dosyasını bir metin düzenleyicisinde açın ve dosyanın alt kısmının yakınındaki **thumbnailButtonClick** işlevini bulun.
 
-**thumbnailButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından birine akıllı kırpma uygulanmış ve birine uygulanmamış şekilde iki küçük resim oluşturmak için **getThumbnail** işlevini iki defa çağırır.
-
-Aşağıdaki kodu kopyalayıp **thumbnailButtonClick** işlevine yapıştırın.
+**thumbnailButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından birine akıllı kırpma uygulanmış ve birine uygulanmamış şekilde iki küçük resim oluşturmak için **getThumbnail** işlevini iki defa çağırır. Aşağıdaki kodu kopyalayıp **thumbnailButtonClick** işlevine yapıştırın.
 
 ```javascript
 function thumbnailButtonClick() {
@@ -485,7 +475,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-thumbnail-function"></a>Küçük resim işlevi çalıştırın
 
 **thumbnail.html** dosyasını kaydedip bir Web tarayıcısında açın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. Analiz edilecek görüntünün URL’sini girin, ardından **Küçük Resim Oluştur** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -493,15 +483,13 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 
 Görüntü İşleme’nin Optik Karakter Tanıma (OCR) özelliği, yazdırılan metnin görüntüsünü analiz eder. Analiz tamamlandıktan sonra OCR, görüntüdeki metnin konumunu ve metni içeren bir JSON nesnesi döndürür.
 
-Öğretici uygulamasının OCR özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
+Uygulamanın OCR özelliği tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR adım 1: Form düğmesi için olay işleyicisi kodu ekleme
+### <a name="add-the-event-handler-code-for-the-ocr-button"></a>OCR düğmesi için olay işleyicisini ekleyin
 
 **ocr.html** dosyasını bir metin düzenleyicisinde açın ve dosyanın alt kısmının yakınındaki **ocrButtonClick** işlevini bulun.
 
-**ocrButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **ReadOcrImage** işlevini çağırır.
-
-Aşağıdaki kodu kopyalayıp **ocrButtonClick** işlevine yapıştırın.
+**ocrButtonClick** olay işleyicisi işlevi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **ReadOcrImage** işlevini çağırır. Aşağıdaki kodu kopyalayıp **ocrButtonClick** işlevine yapıştırın.
 
 ```javascript
 function ocrButtonClick() {
@@ -580,17 +568,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-ocr-function"></a>OCR işlevi çalıştırın
 
 **ocr.html** dosyasını kaydedip bir Web tarayıcısında açın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. Okunacak metnin görüntüsünün URL’sini girin, ardından **Görüntüyü Oku** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
-### <a name="read-handwritten-text-handwriting-recognition"></a>El yazısı metni okuma (El Yazısı Tanıma)
+### <a name="read-handwritten-text-handwriting-recognition"></a>El yazısı metni okuma (el yazısı tanıma)
 
 Görüntü İşleme’nin El Yazısı Tanıma özelliği, el yazısı metnin görüntüsünü analiz eder. Analiz tamamlandıktan sonra El Yazısı Tanıma, görüntüdeki metnin konumunu ve metni içeren bir JSON nesnesi döndürür.
 
-Öğretici uygulamasının El Yazısı Tanıma özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
+El yazısı tanıma özelliği uygulamanın tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>El yazısı düğmesi için olay işleyicisini ekleyin
 
 **handwriting.html** dosyasını bir metin düzenleyicisinde açın ve dosyanın alt kısmının yakınındaki **handwritingButtonClick** işlevini bulun.
 
@@ -739,11 +727,12 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-handwriting-function"></a>El yazısı işlevi çalıştırın
 
 **handwriting.html** dosyasını kaydedip bir Web tarayıcısında açın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. Okunacak metnin görüntüsünün URL’sini girin, ardından **Görüntüyü Oku** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Görüntü İşleme API’si C# Öğreticisi](CSharpTutorial.md)
-- [Görüntü İşleme API'si Python Öğreticisi](PythonTutorial.md)
+Bu kılavuzda, görüntü işleme REST API'si ile JavaScript kullanılabilir görüntü analizi özelliklerin çoğunu sınamak için kullanılır. Ardından, ilgili API'ler hakkında daha fazla bilgi edinmek için başvuru belgelerine bakın.
+
+- [Görüntü işleme REST API'si](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

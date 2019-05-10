@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247849"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441647"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Oturum açma, kuruluşunuzun Azure Active Directory sayfasına markalama Ekle
 Kuruluşunuzun logosu ve özel renk düzenleriyle bir tutarlı görünüm ve hisse oturum açma, Azure Active Directory (Azure AD) sayfalarında sağlamak için kullanın. Oturum açma sayfaları kuruluşunuzun web tabanlı uygulamalara, Azure AD kimlik sağlayıcınız olarak kullanan Office 365 gibi kullanıcılar oturum açtığında görünür.
@@ -70,7 +70,7 @@ Kullanıcılar, kuruluşunuzun kiracıya özel uygulamalar için aşağıdaki gi
 
         - **Oturum açma sayfası arka plan rengi.** Onaltılık renk belirtin (örneğin #FFFFFF beyaz) arka plan görüntünüzü düşük bant genişlikli bağlantı durumlarda yerine görüntülenir. Başlık logosu, ya da kuruluş renginiz birincil rengini kullanmanızı öneririz.
 
-        - **Kare logo görüntüsü.** (Tercih edilir) bir .png veya .jpg görüntüsü yeni Windows 10 Enterprise cihazları için Kurulum işlemi sırasında kullanıcıların göreceği kuruluşunuzun logo seçin. Bu görüntü, yalnızca Windows kimlik doğrulaması için kullanılır ve yalnızca kullandığınız kiracının görünür [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) parola girişi veya dağıtım için diğer Windows 10 sayfalarında deneyimleri.
+        - **Kare logo görüntüsü.** (Tercih edilir) bir .png veya .jpg görüntüsü yeni Windows 10 Enterprise cihazları için Kurulum işlemi sırasında kullanıcıların göreceği kuruluşunuzun logo seçin. Bu görüntü, yalnızca Windows kimlik doğrulaması için kullanılır ve yalnızca kullandığınız kiracının görünür [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) parola girişi veya dağıtım için diğer Windows 10 sayfalarında deneyimleri. Bazı durumlarda, onay iletişim kutusunda görüntülenebilir.
         
             Görüntü boyutu 240 x 240 piksel değerinden büyük olamaz ve dosya boyutunun 10 KB'den az olmalıdır. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
     

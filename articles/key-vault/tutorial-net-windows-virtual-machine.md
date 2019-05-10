@@ -2,19 +2,19 @@
 title: Öğretici - bir Windows sanal makinede .NET ile Azure anahtar kasası | Microsoft Docs
 description: Bu öğreticide, anahtar kasasından gizli dizi okumak için bir ASP.NET core uygulaması yapılandırın.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 7fdd2f1832995d279f58af52f96270f7aa3bb5a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686152"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228160"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Öğretici: Bir Windows sanal makinede .NET ile Azure anahtar kasası
 
@@ -61,7 +61,7 @@ Azure CLI'yi kullanarak Azure'da oturum açmak için, şunları girin:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -101,7 +101,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Bu gizli dizinin değerini depolar **ettiyseniz**.
 
-## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+## <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 Aşağıdaki yöntemlerden birini kullanarak bir sanal makine oluşturabilirsiniz:
 
 * [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)

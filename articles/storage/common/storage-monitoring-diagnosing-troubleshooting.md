@@ -2,18 +2,19 @@
 title: İzleme, tanılama ve Azure depolama sorunlarını giderme | Microsoft Docs
 description: Depolama analizi, istemci tarafı günlüğe kaydetme ve diğer üçüncü taraf araçları tanımlamak için tanılama ve Azure depolama ile ilgili sorunları giderme gibi özellikleri kullanın.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103874"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192162"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -425,7 +426,7 @@ Varsa **Percentthrottlingerror'da** ölçüm azaltma bir hata ile başarısız o
 Artış **Percentthrottlingerror'da** genellikle depolama isteklerinin sayısı arasında bir artış ile aynı zamanda oluşur veya uygulamanızı test etme, başlangıçta olduğunuzda yükle. Bu ayrıca kendi istemci "503 Sunucu meşgul" veya "500 işlem zaman aşımı" HTTP durum iletileri depolama işlemleri gibi bildiriminde.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Geçici Percentthrottlingerror'da artış
-Değerini artış görüyorsanız **Percentthrottlingerror'da** yüksek etkinlik dönemlerini uygulama ile çakıştığı, bir üstel (doğrusal değil) geri alma stratejisi için yeniden deneme istemcinizde uygulayın. Geri alma yeniden deneme hemen bölüm azaltmak ve ani trafik kesintisiz uygulamanıza yardımcı olur. Depolama istemci kitaplığı kullanılarak yeniden deneme ilkelerini uygulamanız hakkında daha fazla bilgi için bkz: [durumlarda Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+Değerini artış görüyorsanız **Percentthrottlingerror'da** yüksek etkinlik dönemlerini uygulama ile çakıştığı, bir üstel (doğrusal değil) geri alma stratejisi için yeniden deneme istemcinizde uygulayın. Geri alma yeniden deneme hemen bölüm azaltmak ve ani trafik kesintisiz uygulamanıza yardımcı olur. Depolama istemci kitaplığı kullanılarak yeniden deneme ilkelerini uygulamanız hakkında daha fazla bilgi için bkz: [durumlarda Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
 
 > [!NOTE]
 > Ayrıca değerini bir artış görebilirsiniz **Percentthrottlingerror'da** , değil çakıştığı yüksek etkinlik dönemlerini uygulama ile: Burada en olası nedeni yük dengelemeyi iyileştirmek üzere bölümler taşıma depolama hizmetidir.

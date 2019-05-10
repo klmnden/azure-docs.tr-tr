@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443458"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231507"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanılırken ağ topolojisi hakkında önemli noktalar
 
@@ -39,7 +39,7 @@ Azure AD uygulama proxy'si aracılığıyla uygulama yayınlandıktan sonra uygu
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Kiracı konumu ve uygulama proxy'si hizmeti
 
-Azure AD kiracısı için kaydolduğunuzda, kiracınızın bölge belirttiğiniz ülkeye göre belirlenir. Uygulama Ara sunucusunu etkinleştirme, kiracınız için uygulama proxy'si hizmeti örnekleri seçilen veya Azure AD kiracınızla aynı bölgede ya da kendisine en yakın bölgede oluşturulur.
+Azure AD kiracısı için kaydolduğunuzda, kiracınızın bölge, belirtin ülke/bölge tarafından belirlenir. Uygulama Ara sunucusunu etkinleştirme, kiracınız için uygulama proxy'si hizmeti örnekleri seçilen veya Azure AD kiracınızla aynı bölgede ya da kendisine en yakın bölgede oluşturulur.
 
 Örneğin, Birleşik Krallık, Azure AD kiracınızın ülke veya bölge ise, tüm uygulama ara sunucusu bağlayıcıları AB veri merkezlerinde hizmet örneklerini kullanın. Kullanıcılar erişiminizi yayımlanan uygulamaları, uygulama proxy'si hizmeti örnekleri bu konumda trafiklerini geçer.
 
@@ -78,7 +78,7 @@ Kurumsal ağınız ile Azure arasında adanmış bir VPN veya ExpressRoute bağl
 
 ## <a name="focus-your-optimization-strategy"></a>En iyi duruma getirme stratejinizi odaklanın
 
-Kullanıcılarınızın uygulama proxy'si hizmeti arasında bağlantı kontrol etmek için yapabileceğiniz çok az yoktur. Kullanıcılar, ev ağı, bir kafeterya veya farklı bir ülkede uygulamalarınızı erişebilir. Bunun yerine, uygulama proxy'si hizmeti uygulaması Ara sunucusu bağlayıcıları bağlantılara iyileştirebilirsiniz. Ortamınızı şu desenlerden eklemeyi göz önünde bulundurun.
+Kullanıcılarınızın uygulama proxy'si hizmeti arasında bağlantı kontrol etmek için yapabileceğiniz çok az yoktur. Kullanıcılar, ev ağı, bir kafeterya veya farklı bir ülke/bölge, uygulamalarınız erişebilir. Bunun yerine, uygulama proxy'si hizmeti uygulaması Ara sunucusu bağlayıcıları bağlantılara iyileştirebilirsiniz. Ortamınızı şu desenlerden eklemeyi göz önünde bulundurun.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>1. Desen: Uygulamayı yakın bağlayıcısını yerleştirme
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: b7b096bd1ecf0a4df37ed4de0cf618216dccc2bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159473"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508510"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Keeper parola Yöneticisi & dijital kasa yapılandırma
 
@@ -84,7 +84,7 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılara ve/veya gruplar�
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Azure AD'de parola Yöneticisi Keeper & dijital kasa için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portalında](https://portal.azure.com) seçip **kurumsal uygulamalar**seçin **tüm uygulamalar**, ardından **Keeper parola Yöneticisi & dijital Kasa**.
+1. [Azure Portal](https://portal.azure.com) oturum açın. Seçin **kurumsal uygulamalar**, ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
@@ -104,19 +104,19 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılara ve/veya gruplar�
 
 6. Oturum açın, [Keeper Yönetici Konsolu](https://keepersecurity.com/console/#login). Tıklayarak **yönetici** ve var olan bir düğüm seçin veya yeni bir tane oluşturun. Gidin **sağlama** sekmenize **Ekle yöntemi**.
 
-    ![Keeper Yönetici Konsolu](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Keeper Yönetici Konsolu](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
     Seçin **SCIM (etki alanları arası kimlik yönetimi sistemi**.
 
-    ![SCIM keeper Ekle](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![SCIM keeper Ekle](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
     Tıklayın **sağlama belirteci oluşturma**.
 
-    ![Keeper uç nokta oluşturma](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Keeper uç nokta oluşturma](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
     Değerlerini kopyalayın **URL** ve **belirteci** ve bunları yapıştırın **Kiracı URL'si** ve **gizli belirteç** Azure AD'de. Tıklayın **Kaydet** Keeper üzerinde sağlama Kurulumu tamamlamak için.
 
-    ![Keeper belirteci oluşturma](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Keeper belirteci oluşturma](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
 7. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD Keeper parola Yöneticisi için dijital kasa & bağlanabilirsiniz. Bağlantı başarısız olursa Keeper parola Yöneticisi & dijital kasası hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
@@ -130,19 +130,19 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılara ve/veya gruplar�
 
 10. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları Keeper parola Yöneticisi & dijital kasası**.
 
-    ![Keeper kullanıcı eşlemeleri](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Keeper kullanıcı eşlemeleri](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
 11. Parola Yöneticisi Keeper & dijital kasada Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Keeper parola Yöneticisi & dijital kasa kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
 
-    ![Keeper kullanıcı öznitelikleri](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Keeper kullanıcı öznitelikleri](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
 12. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory grupları Keeper parola Yöneticisi & dijital kasası**.
 
-    ![Keeper Grup Eşlemeleri](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Keeper Grup Eşlemeleri](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
 13. Parola Yöneticisi Keeper & dijital kasada Azure AD'den eşitlenen grup öznitelikleri gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Keeper parola Yöneticisi ve dijital kasa grupları güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
 
-    ![Keeper grup öznitelikleri](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-attributes.png)
+    ![Keeper grup öznitelikleri](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
 14. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -176,7 +176,3 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
 * [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

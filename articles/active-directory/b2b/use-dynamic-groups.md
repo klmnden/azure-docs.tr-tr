@@ -11,17 +11,17 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 066c3cc0a722ea96ff98aba613b493e2be77df0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 17f701eb9ad3c083712ddf9e774e6ddbefbe91fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412508"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227952"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dinamik gruplar ve Azure Active Directory B2B işbirliği
 
 ## <a name="what-are-dynamic-groups"></a>Dinamik gruplar nelerdir?
-Azure Active Directory (Azure AD) için güvenlik grubu üyeliğinin dinamik yapılandırması kullanılabilir [Azure portalında](https://portal.azure.com). Yöneticiler kullanıcı özniteliklerini (örneğin, userType, bölüme veya ülke) temel alarak Azure AD'de oluşturulan grupları doldurmak için kurallar ayarlayabilirsiniz. Üyeleri otomatik olarak eklenen veya kendi özniteliklerine dayalı güvenlik grubundan kaldırıldı. Bu gruplar, uygulamalara veya Bulut kaynaklarına (SharePoint siteleri, belgeler) ve üyelerine lisansları atamak için erişim sağlayabilir. Dinamik grupları hakkında daha fazla bilgiyi [adanmış grupları Azure Active Directory'de](../active-directory-accessmanagement-dedicated-groups.md).
+Azure Active Directory (Azure AD) için güvenlik grubu üyeliğinin dinamik yapılandırması kullanılabilir [Azure portalında](https://portal.azure.com). Yöneticiler kullanıcı özniteliklerini (örneğin, userType, bölüme veya ülke/bölge) temel alarak Azure AD'de oluşturulan grupları doldurmak için kurallar ayarlayabilirsiniz. Üyeleri otomatik olarak eklenen veya kendi özniteliklerine dayalı güvenlik grubundan kaldırıldı. Bu gruplar, uygulamalara veya Bulut kaynaklarına (SharePoint siteleri, belgeler) ve üyelerine lisansları atamak için erişim sağlayabilir. Dinamik grupları hakkında daha fazla bilgiyi [adanmış grupları Azure Active Directory'de](../active-directory-accessmanagement-dedicated-groups.md).
 
 Uygun [Azure AD Premium P1 veya P2 lisansı](https://azure.microsoft.com/pricing/details/active-directory/) dinamik grupları oluşturma ve kullanma için gereklidir. Bu makalede daha fazla bilgi edinin [Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma](../users-groups-roles/groups-dynamic-membership.md).
 

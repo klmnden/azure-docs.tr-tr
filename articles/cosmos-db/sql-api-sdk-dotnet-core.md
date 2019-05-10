@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626834"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510632"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -50,6 +50,20 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 * Akışları için destek.
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi.
 
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* NuGet paketinde tanımlanan SDK'ın System.Net.Http sürümle eşleşen
+* LINQ sorguları için Ondalık Duyarlığı boyutu artar.
+* Yeni eklenen sınıflarda CompositePath CompositePathSortOrder, SpatialSpec SpatialType ve PartitionKeyDefinitionVersion
+* DocumentCollection için eklenen TimeToLivePropertyPath
+* Eklenen CompositeIndexes ve SpatialIndexes IndexPolicy için
+* Eklenen PartitionKeyDefinition sürümüne
+* PartitionKey Yok'a eklendi
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * Eklenen IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection ve MaxTcpConnectionsPerEndpoint ConnectionPolicy için.
+ 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
 * Tanılama geliştirmeleri
@@ -237,6 +251,8 @@ Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackov
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |05 Mayıs 2019 |--- |
+| [2.3.0](#2.3.0) |04 Nisan 2019 |--- |
 | [2.2.3](#2.2.3) |11 Mart 2019 |--- |
 | [2.2.2](#2.2.2) |06 Şubat 2019 |--- |
 | [2.2.1](#2.2.1) |Aralık 24 Mayıs 2018 |--- |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564774"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Tableau Server ile Azure Active Directory Tümleştirme
 
@@ -122,7 +122,7 @@ Azure AD çoklu oturum açma Tableau Server ile yapılandırmak için aşağıda
 
     | Ad | Kaynak özniteliği | Ad alanı |
     | ---------------| --------------- | ----------- |
-    | kullanıcı adı | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | username | User.userPrincipalName | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
@@ -183,7 +183,7 @@ Azure AD çoklu oturum açma Tableau Server ile yapılandırmak için aşağıda
 
     g. Idp'nin kullanıcı adlarını basılı tutun, görünen adları ve e-posta adreslerini kullanan öznitelikleri adlarını girin.
 
-    h. **Kaydet**’e tıklayın
+    h. **Kaydet**'e tıklayın.
 
     > [!NOTE]
     > Müşteriniz varsa Tableau Server SAML SSO yapılandırma herhangi bir sertifikayı karşıya yüklemek ve SSO akışta dikkate. Tableau Server üzerinde SAML yapılandırmasına yardımcı olması sonra lütfen bu makaleyi okuyun [SAML yapılandırma](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).

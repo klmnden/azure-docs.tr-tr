@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479286"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209633"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure Blob depolama alanından güvenli bir şekilde dışarı aktarmak için nasıl kullanılacağını adım adım yönergeler sağlar. Hizmet, Azure veri merkezine boş sürücüleri gönderin gerektirir. Hizmet veri sürücüleri için depolama hesabınızdan verir ve ardından sürücüleri geri gelir.
@@ -52,10 +52,10 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
     - Dışarı aktarma işi için açıklayıcı bir ad girin. İşlerinizi ilerlemesini izlemek için seçtiğiniz adın kullanın. 
         - Ad yalnızca küçük harf, sayı, kısa çizgi ve alt çizgi içerebilir.
         - Ad bir harf ile başlamalı ve boşluk içeremez. 
-    - Bir abonelik seçin.
+    - Abonelik seçin.
     - Bir kaynak grubu seçin veya girin.
 
-        ![Temel Bilgiler](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Temel](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. İçinde **iş ayrıntıları**:
 
@@ -83,7 +83,7 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
 4. İçinde **iade sevkiyat bilgilerini**:
 
     - Taşıyıcı açılır listeden seçin. Bir taşıyıcı FedEx/DHL dışında kullanmak istiyorsanız, açılır listeden var olan bir seçenek seçin. İlgili Azure veri kutusu işlemleri takım konumundaki `adbops@microsoft.com` ile kullanmayı planladığınız taşıyıcı ilgili bilgileri.
-    - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içeri aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. 
+    - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, dışarı aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. 
     - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin.
 
         > [!TIP] 
@@ -105,7 +105,7 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-3-update-the-job-with-tracking-information"></a>3. Adım: İş izleme bilgilerini güncelleştir
+## <a name="step-3-update-the-job-with-tracking-information"></a>3. adım: İş izleme bilgilerini güncelleştir
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 

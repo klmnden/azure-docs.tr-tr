@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a86e63f17230ed30bd5ae164d2d17d65b5cde745
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279678"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Öğretici: Meta ağları Bağlayıcısı ile Azure Active Directory Tümleştirme
 
@@ -131,8 +131,8 @@ Azure AD çoklu oturum açma Meta ağları Bağlayıcısı ile yapılandırmak i
     | ---------------| --------------- | -------- |
     | firstName | User.givenName | |
     | Soyadı | User.surname | |
-    | emailaddress| User.Mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | ad | User.userPrincipalName| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | emailaddress| User.Mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | name | User.userPrincipalName| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | telefon | User.telephoneNumber | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

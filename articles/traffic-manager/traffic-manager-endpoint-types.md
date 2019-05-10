@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916652"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508428"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager uç noktaları
 Microsoft Azure Traffic Manager, farklı veri merkezlerinde çalışan uygulama dağıtımları için ağ trafiğini nasıl dağıtıldığını denetlemenize olanak sağlar. Trafik Yöneticisi'nde ' de her uygulama dağıtımı 'endpoint' olarak yapılandırın. Traffic Manager DNS isteği aldığında, DNS yanıtında döndürmek için kullanılabilir uç nokta seçer. Traffic manager, geçerli uç nokta durumu ve trafik yönlendirme yöntemi seçimi alır. Daha fazla bilgi için [Traffic Manager nasıl çalışır](traffic-manager-how-it-works.md).
 
 Uç nokta Traffic Manager tarafından desteklenen üç tür vardır:
 * **Azure uç noktalarını** Azure'da barındırılan hizmetler için kullanılır.
-* **Dış uç noktalar** IPv4/IPv6 adresleri veya, şirket içi ya da olabilir Azure dışında veya farklı bir barındırma sağlayıcısıyla barındırılan hizmetler için kullanılır.
+* **Dış uç noktalar** ya da şirket içi olabilir Azure dışında veya farklı bir barındırma sağlayıcısıyla barındırılan hizmetler veya FQDN, IPv4/IPv6 adresleri için kullanılır.
 * **İç içe uç noktalar** daha büyük, daha karmaşık dağıtımlar gereksinimlerini desteklemek için daha esnek trafik yönlendirme düzenleri oluşturmak için Traffic Manager profillerini birleştirmek için kullanılır.
 
 Uç noktaları farklı türdeki tek bir Traffic Manager profilinde nasıl birleştirilir hiçbir sınırlama yoktur. Her profil, uç nokta türlerinin bir karışımını içerebilir.
@@ -46,7 +46,7 @@ PublicIPAddress kaynaklarını Azure Resource Manager kaynaklarıdır. Klasik da
 
 ## <a name="external-endpoints"></a>Dış uç noktaları
 
-Dış uç noktaları ya da IPv4/IPv6 adresleri veya, Azure dışındaki hizmetleri için kullanılır. IPv4/IPv6 adresi uç noktalarını traffic manager, bunlar için bir DNS adı gerek kalmadan uç noktaları durumunu denetlemek izin verir. Sonuç olarak, Traffic Manager A/AAAA kayıt sorgularla uç noktanın yanıt olarak döndürürken yanıt verebilir. Azure dışındaki hizmetleri, bir barındırılan hizmet şirket içi içerebilir veya farklı bir sağlayıcı. Dış uç noktalar ayrı ayrı kullanılabilir veya dış uç noktalar yalnızca olabilen IPv4 veya IPv6 adresleri olarak belirtilen uç noktaları dışında aynı Traffic Manager profilindeki Azure uç noktaları ile birlikte. Azure uç noktalarını dış uç noktaları ile birleştirerek, çeşitli senaryolara olanak tanır:
+Dış uç noktalar Azure dışındaki hizmetleri veya FQDN, ya da IPv4/IPv6 adresleri için kullanılır. IPv4/IPv6 adresi uç noktalarını traffic manager, bunlar için bir DNS adı gerek kalmadan uç noktaları durumunu denetlemek izin verir. Sonuç olarak, Traffic Manager A/AAAA kayıt sorgularla uç noktanın yanıt olarak döndürürken yanıt verebilir. Azure dışındaki hizmetleri, bir barındırılan hizmet şirket içi içerebilir veya farklı bir sağlayıcı. Dış uç noktalar ayrı ayrı kullanılabilir veya dış uç noktalar yalnızca olabilen IPv4 veya IPv6 adresleri olarak belirtilen uç noktaları dışında aynı Traffic Manager profilindeki Azure uç noktaları ile birlikte. Azure uç noktalarını dış uç noktaları ile birleştirerek, çeşitli senaryolara olanak tanır:
 
 * Artıklığı ya da mevcut bir şirket içi uygulama için Azure'ı kullanarak bir aktif-aktif veya Aktif-Pasif yük devretme modeli sağlar. 
 * İlişkili bir DNS adı olmayan uç noktaları için trafiği yönlendirme. Döndürülen bir DNS adı bir IP adresini almak için ikinci bir DNS sorgusu çalıştırmak amacıyla gereksinimini ortadan kaldırarak Ayrıca, Genel DNS Arama gecikme süresini azaltın. 

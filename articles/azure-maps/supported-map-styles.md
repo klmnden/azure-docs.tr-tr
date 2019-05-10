@@ -3,17 +3,17 @@ title: Eşleme stilleri Azure eşlemelerinde desteklenen | Microsoft Docs
 description: Azure haritalar tarafından desteklenen eşleme stilleri
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767244"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230837"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure haritalar desteklenen eşleme stilleri
 Azure haritalar, aşağıda açıklandığı gibi birçok farklı yerleşik eşleme stilleri destekler.
@@ -56,6 +56,17 @@ Yollar ve etiketleri uydu ve hava tanımayı üzerine yayılan karma bu harita s
 **İlgili API'ler:**
 * JS harita denetimi 
 * Android harita denetimi
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**gri tonlamalı ışık** yol haritası stili hafif bir sürümüdür.
+
+![gri tonlamalı açık](./media/supported-map-styles/grayscale_light.png)
+
+**İlgili API'ler:**
+* JS harita denetimi
+* Android harita denetimi
+
 
 ## <a name="night"></a>gece
 **gece** koyu renkli yollar ve semboller yol haritası stiliyle sürümüdür.

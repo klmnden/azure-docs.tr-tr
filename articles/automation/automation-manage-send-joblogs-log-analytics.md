@@ -96,7 +96,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | Caller_s |İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
-| resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
+| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
 | Category | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Resource | Otomasyon hesabının adı |
@@ -119,7 +119,7 @@ Azure Otomasyonu tanılamadan Azure İzleyici günlüklerine iki tür kayıt olu
 | StreamType_s |İş akışı türü. Olası değerler şunlardır:<br>- İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
-| resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
+| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
 | Category | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
 | OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Resource | Otomasyon hesabının adı |

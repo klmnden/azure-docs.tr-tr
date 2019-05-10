@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347519"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511086"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -217,7 +217,7 @@ URL myfunction.com bir işlev uygulaması ile bir örnek proxies.json İşte
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Uygulama ayarlarını güncelleştirme hakkında bilgi edinin](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Uygulama ayarlarını güncelleştirme hakkında bilgi edinin](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [Genel ayarlar host.json dosyasına bakın](functions-host-json.md)
 

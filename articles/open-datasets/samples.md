@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: c1b86199f13454f4785a6737b25e489d45dd53f8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026847"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442339"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Açık veri kümelerini verilerle zenginleştirerek nasıl örnek Jupyter not defterleri Göster 
 Azure açık veri kümeleri için örnek Jupyter not defterlerini açık veri kümelerini yüklemek ve tanıtım verileri zenginleştirmek için bunları kullanmayı gösterilmektedir. Teknikleri, veriyi işlemek için Apache Spark ve Pandas kullanımını içerir.
@@ -29,7 +29,7 @@ Azure açık veri kümeleri için örnek Jupyter not defterlerini açık veri k�
 ## <a name="join-demo-data-with-noaa-isd-data"></a>Tanıtım verileri NOAA ISD verilerle katılın 
 |Not Defteri        | Açıklama                                    |
 |----------------|------------------------------------------------|
-|[Tanıtım verileri ile hava durumu verileri - Pandas katılın ](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Algılayıcı konumların hava durumu okumalar ile 1 aylık tanıtım veri kümesi içinde bir Pandas dataframe katılın.  |
+|[Tanıtım verileri ile hava durumu verileri - Pandas katılın](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Algılayıcı konumların hava durumu okumalar ile 1 aylık tanıtım veri kümesi içinde bir Pandas dataframe katılın.  |
 |[Tanıtım verileri ile hava durumu verileri Spark katılın](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Hava durumu okumalar algılayıcı konumlarla bir tanıtım veri kümesi içinde bir Spark dataframe katılın. |
 
 ## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>NYC taksi verilerini NOAA ISD verileriyle katılın 

@@ -131,7 +131,7 @@
           items:
             - name: Öneri oluşturucu oluşturma
               href: index-add-suggesters.md
-            - name: 'Örnekler (öneriler, otomatik tamamlama)'
+            - name: Öneri veya otomatik tamamlama ekleme
               href: search-autocomplete-tutorial.md
         - name: Eş anlamlılar
           items:

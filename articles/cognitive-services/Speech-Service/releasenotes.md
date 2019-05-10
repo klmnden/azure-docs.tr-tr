@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020350"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465612"
 ---
-# <a name="release-notes"></a>Sürüm notları
+# <a name="release-notes"></a>Sürüm Notları
 
 ## <a name="speech-sdk-150-2019-may-release"></a>SDK'sı 1.5.0 konuşma: Mayıs 2019 sürüm
 
 **Yeni Özellikler**
 
-* Anahtar sözcüğü (KWS) işlevselliği belirleme, Windows ve Linux için kullanılabilir. KWS işlevselliği KWS destekler, ancak resmi bir mikrofon türüyle çalışabilir şu anda sınırlı mikrofon dizilerine Azure Kinect DK donanım veya konuşma cihaz SDK'sı bulunamadı.
+* Uyandırma sözcüğünü (anahtar sözcüğü kapsamlı/KWS) işlevselliği, artık Windows ve Linux için kullanılabilir. KWS işlevselliği KWS destekler, ancak resmi bir mikrofon türüyle çalışabilir şu anda sınırlı mikrofon dizilerine Azure Kinect DK donanım veya konuşma cihaz SDK'sı bulunamadı.
 * Tümcecik ipucu işlevselliği SDK aracılığıyla kullanılabilir. Daha fazla bilgi için [burada](how-to-phrase-lists.md).
 * Konuşma transkripsiyonu işlevselliği SDK aracılığıyla kullanılabilir. Bkz: [burada](conversation-transcription-service.md).
 * Ses öncelikli sanal Yardımcıları doğrudan satır konuşma kanalını kullanma için destek eklendi.
@@ -58,7 +58,7 @@ Bu yalnızca JavaScript bir sürümdür. Herhangi bir özellik ekledik. Aşağı
 **Yeni Özellikler** 
 
 * SDK'sı, artık bir beta sürümü metin okuma hizmet destekler. Windows ve Linux Masaüstü'nden desteklenen C++ ve C#. Daha fazla bilgi için kontrol [metin okuma genel bakış](text-to-speech.md#get-started-with-text-to-speech).
-* SDK, artık akışı giriş dosyalarını MP3 ve geçerli/Ogg ses dosyaları destekler. Bu özellik yalnızca C++ Linux'ta kullanılabilir ve C# ve şu anda beta sürümünde olan (daha fazla ayrıntı [burada](how-to-use-compressed-audio-input-streams.md)).
+* SDK, artık akışı giriş dosyalarını MP3 ve geçerli/OGG ses dosyaları destekler. Bu özellik yalnızca C++ Linux'ta kullanılabilir ve C# ve şu anda beta sürümünde olan (daha fazla ayrıntı [burada](how-to-use-codec-compressed-audio-input-streams.md)).
 * Java, .NET core Speech SDK'sı C++ ve Objective-C macOS destek elde. MacOS için Objective-C desteği şu anda beta sürümünde olan.
 * iOS: İOS (Objective-C) Speech SDK'sı artık ayrıca bir CocoaPod yayımlanır.
 * JavaScript: Varsayılan olmayan mikrofon olarak bir giriş cihazının desteği.
