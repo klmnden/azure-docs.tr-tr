@@ -192,7 +192,7 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemeler DB2 veri tür
 | LongVarGraphic |String |
 | Numeric |Decimal |
 | Real |Single |
-| Integer |Int16 |
+| Smallint |Int16 |
 | Time |TimeSpan |
 | Timestamp |Datetime |
 | VarBinary |Byte[] |
