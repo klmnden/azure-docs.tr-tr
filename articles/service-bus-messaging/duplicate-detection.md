@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120866"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413653"
 ---
 # <a name="duplicate-detection"></a>Yineleme algılama
 
@@ -35,6 +35,9 @@ Yalnızca bu bağlamanın verdiğinden tanımlayıcısının uygulama denetimi g
 İçinde birden çok ileti gönderilir bazı uygulama içeriği, işleme sırasında bir iş işlemi *MessageID* bileşik bir satınalma siparişi numarası gibi uygulama düzeyinde bağlam tanımlayıcısının olabilir ve ileti, örneğin, konu **12345.2017/ödeme**.
 
 *MessageID* bazı GUID her zaman olabilir, ancak iş süreci tanımlayıcısına sabitleme, yinelenen algılama özelliği etkili bir şekilde yararlanmak için istenen tahmin edilebilir yinelenebilirliği verir.
+
+> [!NOTE]
+> Yinelenen algılama etkinleştirildi ve sesion kimliği veya bölüm anahtarı ayarlı değil, ileti kimliği bölüm anahtarı olarak kullanılır. İleti kimliği de ayarlanmazsa, .NET ve AMQP kitaplıkları otomatik olarak bir ileti için ileti kimliği oluşturur. Daha fazla bilgi için [bölümlendirmesini anahtarları kullanma](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Yinelenen algılamayı etkinleştir
 

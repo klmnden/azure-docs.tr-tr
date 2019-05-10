@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Görüntü işlemleri - Java'
+title: Görüntü işlemleri - Java
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler’de Görüntü İşleme API’sini kullanan temel bir Java Swing uygulamasını keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
+ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
-ms.date: 09/21/2017
-ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2019
+ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201440"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232639"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Öğretici: Bilgisayar görüntü işleme API'si Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Görüntü işleme özelliklerini REST API ve Java ile kullanma
 
 Bu öğreticide, Azure Bilişsel Hizmetler Görüntü İşleme REST API’sinin özellikleri gösterilmektedir.
 
@@ -34,7 +34,7 @@ Bu öğreticide, Görüntü İşleme’nin nasıl kullanılacağı ele alınacak
 > * Bir görüntüdeki yazdırılan metni okuma
 > * Bir görüntüdeki el yazısı metni okuma
 
-Java Swing form uygulaması zaten yazılmıştır, ancak bir işlevselliğe sahip değildir. Bu öğreticide, uygulamanın işlevselliğini tamamlamak için Görüntü İşleme API'sine özgü kodu ekleyeceksiniz.
+Java Swing form uygulaması zaten yazıldığını ancak hiçbir işlevselliğe sahiptir. Bu öğreticide, uygulamanın işlevselliğini tamamlamak için Görüntü İşleme API'sine özgü kodu ekleyeceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -42,13 +42,13 @@ Java Swing form uygulaması zaten yazılmıştır, ancak bir işlevselliğe sahi
 
 Bu öğretici, NetBeans IDE kullanılarak geliştirilmiştir. Özellikle, [buradan indirebileceğiniz](https://netbeans.org/downloads/index.html) NetBeans’in **Java SE** sürümü.
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Görüntü İşleme API’sine abone olma ve abonelik anahtarı alma 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Görüntü İşleme API’sine abone olma ve abonelik anahtarı alma
 
-Örneği oluşturmadan önce, Azure Bilişsel Hizmetler’in parçası olan Görüntü İşleme API’sine abone olmanız gerekir. Abonelik ve anahtar yönetimi ayrıntıları için bkz. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/). Bu öğreticide hem birincil hem de ikincil anahtarlar kullanılabilir. 
+Örnek oluşturmadan önce görüntü işleme API'si için Azure Bilişsel Hizmetler'in bir parçası olan abone olması gerekir. Abonelik ve anahtar yönetimi ayrıntıları için bkz. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/). Bu öğreticide hem birincil hem de ikincil anahtarlar kullanılabilir.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>Tamamlanmamış öğretici projesini alma
+## <a name="acquire-incomplete-tutorial-project"></a>Tam öğretici projesinin Al
 
-### <a name="download-the-tutorial-project"></a>Öğretici projesini indirme
+### <a name="download-the-project"></a>Projenizi indirin
 
 1. [Bilişsel Hizmetler Java Görüntü İşleme Öğreticisi](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) deposuna gidin.
 1. **Kopyala veya indir** düğmesine tıklayın.
@@ -78,7 +78,7 @@ NetBeans, .zip dosyasından projeyi içeri aktardığından, .zip dosyasının i
 
 1. Öğretici uygulamasından çıkın.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>Öğretici kodunu projeye ekleme
+## <a name="add-tutorial-code-to-the-project"></a>Eğitmen kodu projeye ekleyin.
 
 Java Swing uygulaması altı sekme ile ayarlanır. Her sekme, Görüntü İşleme’nin farklı bir işlevini (analiz etme, OCR vb.) gösterir. Altı öğretici bölümünün birbirine bağımlılıkları yoktur, bu nedenle tek bir bölümü, altı bölümün tümünü veya bir alt kümesini ekleyebilirsiniz. Bölümleri herhangi bir sırayla da ekleyebilirsiniz.
 
@@ -88,7 +88,7 @@ Görüntü İşleme’nin Analiz özelliği, bir görüntüyü 2.000’den fazla
 
 Öğretici uygulamasının Analiz özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Çözümle düğmesi için olay işleyicisini ekleyin
 
 **analyzeImageButtonActionPerformed** olay işleyicisi yöntemi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **AnalyzeImage** yöntemini çağırır. **AnalyzeImage** döndürüldüğünde yöntem, biçimlendirilmiş JSON yanıtını **Yanıt** metin alanında görüntüler, **JSONObject** öğesinden birinci açıklamalı alt yazıyı ayıklar ve açıklamalı alt yazıyı ve açıklamalı alt yazının doğruluğuna yönelik güvenilirlik düzeyini görüntüler.
 
@@ -202,7 +202,7 @@ Aşağıdaki kodu kopyalayıp **analyzeImageButtonActionPerformed** yöntemine y
     }
  ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-analyze-function"></a>Analiz işlevi çalıştırın
 
 Uygulamayı çalıştırmak için **F6** tuşuna basın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. Analiz edilecek görüntünün URL’sini girin, ardından **Görüntüyü Analiz Et** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -326,7 +326,7 @@ Aşağıdaki kodu kopyalayıp **landmarkImageButtonActionPerformed** yöntemine 
     }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-landmark-function"></a>Yer işareti işlevi çalıştırın
 
 Uygulamayı çalıştırmak için **F6** tuşuna basın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. **Yer İşareti** sekmesine tıklayın, bir yer işareti görüntüsünün URL’sini girin, ardından **Görüntüyü Analiz Et** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -336,7 +336,7 @@ Görüntü İşleme’nin Ünlüler özelliği bir görüntüyü ünlü kişiler
 
 Öğretici uygulamasının Ünlüler özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Ünlüleri düğmesi için olay işleyicisini ekleyin
 
 **celebritiesImageButtonActionPerformed** olay işleyicisi yöntemi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **CelebritiesImage** yöntemini çağırır. **CelebritiesImage** döndürüldüğünde yöntem, **Yanıt** metin alanında biçimlendirilmiş JSON yanıtını görüntüler, daha sonra **JSONObject** öğesinden ilk ünlü adını ayıklar ve adı ünlünün doğru şekilde belirlendiği güvenilirlik düzeyiyle birlikte pencerede görüntüler.
 
@@ -450,7 +450,7 @@ Aşağıdaki kodu kopyalayıp **celebritiesImageButtonActionPerformed** yöntemi
     }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-celebrities-function"></a>Çalıştırma ünlüleri işlevi
 
 Uygulamayı çalıştırmak için **F6** tuşuna basın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. **Ünlüler** sekmesine tıklayın, bir ünlü görüntüsünün URL’sini girin, ardından **Görüntüyü Analiz Et** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -460,7 +460,7 @@ Görüntü İşleme’nin Küçük Resim özelliği, bir görüntüden küçük 
 
 Öğretici uygulamasının Küçük Resim özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Küçük Resim düğmesi için olay işleyicisini ekleyin
 
 **thumbnailImageButtonActionPerformed** olay işleyicisi yöntemi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından küçük resmi oluşturmak için **getThumbnailImage** yöntemini çağırır. **getThumbnailImage** döndürüldüğünde yöntem, oluşturulan küçük resmi görüntüler.
 
@@ -573,7 +573,7 @@ Aşağıdaki **getThumbnailImage** yöntemini kopyalayıp **thumbnailImageButton
     }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-thumbnail-function"></a>Küçük resim işlevi çalıştırın
 
 Uygulamayı çalıştırmak için **F6** tuşuna basın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. **Küçük Resim** sekmesine tıklayın, bir görüntünün URL’sini girin, ardından **Küçük Resim Oluştur** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -583,7 +583,7 @@ Görüntü İşleme’nin Optik Karakter Tanıma (OCR) özelliği, yazdırılan 
 
 Öğretici uygulamasının OCR özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>OCR düğmesi için olay işleyicisini ekleyin
 
 **ocrImageButtonActionPerformed** olay işleyicisi yöntemi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **OcrImage** yöntemini çağırır. **OcrImage** döndürüldüğünde yöntem, algılanan metni **Yanıt** metin alanında biçimlendirilmiş JSON olarak görüntüler.
 
@@ -684,7 +684,7 @@ Aşağıdaki **OcrImage** yöntemini kopyalayıp **ocrImageButtonActionPerformed
     }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-ocr-function"></a>OCR işlevi çalıştırın
 
 Uygulamayı çalıştırmak için **F6** tuşuna basın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. **OCR** sekmesine tıklayın, yazdırılan metin görüntüsünün URL’sini girin, ardından **Görüntüyü Oku** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
@@ -694,7 +694,7 @@ Görüntü İşleme’nin El Yazısı Tanıma özelliği, el yazısı metnin gö
 
 Öğretici uygulamasının El Yazısı Tanıma özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Form düğmesi için olay işleyicisi kodu ekleme
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>El yazısı düğmesi için olay işleyicisini ekleyin
 
 **handwritingImageButtonActionPerformed** olay işleyicisi yöntemi, formu temizler, URL’de belirtilen görüntüyü görüntüler, ardından görüntüyü analiz etmek için **HandwritingImage** yöntemini çağırır. **HandwritingImage** döndürüldüğünde yöntem, algılanan metni **Yanıt** metin alanında biçimlendirilmiş JSON olarak görüntüler.
 
@@ -842,11 +842,12 @@ Aşağıdaki **HandwritingImage** yöntemini kopyalayıp **handwritingImageButto
     }
 ```
 
-#### <a name="run-the-application"></a>Uygulamayı çalıştırma
+#### <a name="run-the-handwriting-function"></a>El yazısı işlevi çalıştırın
 
 Uygulamayı çalıştırmak için **F6** tuşuna basın. Abonelik anahtarınızı **Abonelik Anahtarı** alanına girin ve **Abonelik Bölgesi**’nde doğru bölgeyi kullandığınızı doğrulayın. **El Yazısı Metni Oku** sekmesine tıklayın, el yazısı metin görüntüsünün URL’sini girin, ardından **Görüntüyü Oku** düğmesine tıklayarak bir görüntüyü analiz edip sonucu görün.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Görüntü İşleme API’si C# Öğreticisi](CSharpTutorial.md)
-- [Görüntü İşleme API'si Python Öğreticisi](PythonTutorial.md)
+Bu kılavuzda, görüntü işleme REST API'si ile Java kullanılabilir görüntü analizi özelliklerin çoğunu sınamak için kullanılır. Ardından, ilgili API'ler hakkında daha fazla bilgi edinmek için başvuru belgelerine bakın.
+
+- [Görüntü işleme REST API'si](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

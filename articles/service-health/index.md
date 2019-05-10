@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506951"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441651"
 ---
 # <a name="azure-service-health-documentation"></a>Azure Hizmet Durumu Belgeleri
 
@@ -25,6 +25,11 @@ Tüm Azure bölgelerindeki tüm Azure hizmetlerinin durumunun genel görünümü
 **[Azure Kaynak Durumu](resource-health-overview.md)**, belirli sanal makine örnekleri gibi tek tek bulut kaynaklarınızın durumu hakkında bilgi sağlar. Azure İzleyici'yi kullanarak, bulut kaynaklarınızın kullanılabilirliğindeki değişiklikleri size bildirecek uyarılar yapılandırabilirsiniz. Azure Kaynak Durumu, Azure İzleyici bildirimleriyle birlikte kaynaklarınızın kullanılabilirliği hakkında dakika ölçeğinde daha iyi bilgi sahibi olmanıza yardım eder ve bir sorunun sizin tarafınızdan mı yoksa bir Azure platformu etkinliğinden mi kaynaklandığını hızla değerlendirir.
 
 Bu deneyimler bir araya gelerek Azure sistem durumunun size en uygun ayrıntı düzeyindeki kapsamlı bir görünümünü sunar.
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>Azure Status sayfasına, Azure Hizmet Durumu’na ve Azure Kaynak Durumu’na ilişkin genel bakışı izleyin
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>

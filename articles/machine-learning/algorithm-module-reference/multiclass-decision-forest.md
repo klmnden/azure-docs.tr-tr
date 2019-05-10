@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029438"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411470"
 ---
 # <a name="multiclass-decision-forest-module"></a>Veya çoklu sınıflar karar ormanı Modülü
 
@@ -36,7 +36,7 @@ Karar ağaçları, birçok avantaj vardır:
 + Tümleşik özellik seçimi ve sınıflandırma gerçekleştirirler.
 + Bunlar, saklanacaktır gürültülü özellikleri esnektir.
 
-Karar ağaçları'bir topluluğu Azure Machine learning'de karar ormanı sınıflandırıcı oluşur. Genellikle, topluluğu modeller, daha iyi kapsamı ve tek karar ağaçları'den doğruluk sağlar. Daha fazla bilgi için [karar ağaçları](http://go.microsoft.com/fwlink/?LinkId=403677).
+Karar ağaçları'bir topluluğu Azure Machine learning'de karar ormanı sınıflandırıcı oluşur. Genellikle, topluluğu modeller, daha iyi kapsamı ve tek karar ağaçları'den doğruluk sağlar. Daha fazla bilgi için [karar ağaçları](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Yapılandırma veya çoklu sınıflar karar ormanı
 
