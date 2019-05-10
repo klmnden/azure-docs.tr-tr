@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467406"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523934"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir sanal makine gelen ve giden ağ trafiğini günlüğe kaydetme
 
@@ -95,7 +95,7 @@ NSG akış günlüğü kaydı için **Microsoft.Insights** sağlayıcısı gerek
     Depolama hesabının oluşturulması yaklaşık bir dakika sürebilir. Depolama hesabı oluşturulmadan kalan adımlara devam etmeyin. Yenisini oluşturmak yerine mevcut bir depolama hesabını kullanırsanız, depolama hesabı için **AYARLAR** bölümünde **Güvenlik duvarları ve sanal ağlar** için **Tüm ağlar** (varsayılan) seçeneği belirlenmiş bir depolama hesabı seçtiğinizden emin olun.
     
     > [!NOTE]
-    > Microsoft.Insight ve Microsoft.Network sağlayıcıları için Azure depolama şu anda desteklenen, NSG akış günlükleri açıkken yine de tam olarak eklenmedi. NSG akış günlüğü etkinleştirmek için **tüm ağlar** yine de bu özelliği tam olarak eklendikten kadar seçilmelidir. 
+    > Microsoft.Insight ve Microsoft.Network sağlayıcı şu anda Azure depolama için güvenilen Microsoft Services olarak desteklendiğinden, NSG akış günlükleri var. yine de tam olarak eklendi NSG akış günlüğü etkinleştirmek için **tüm ağlar** yine de bu özelliği tam olarak eklendikten kadar seçilmelidir. 
 4. Portalın sol üst köşesinde **Tüm hizmetler**’i seçin. **Filtre** kutusuna *Ağ İzleyicisi* yazın. **Ağ İzleyicisi**, arama sonuçlarında görüntülendiğinde onu seçin.
 5. **GÜNLÜKLER** bölümünde, aşağıdaki resimde gösterildiği gibi **NSG akış günlükleri**’ni seçin:
 

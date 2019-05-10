@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710627"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522504"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Örnek konuşma LUIS test etme
 
@@ -46,7 +46,7 @@ Tüm uç nokta test sayılarını, kullanım kotası doğru.
 Bir uç noktasına karşı test etmek ve günlüğe utterance istemediğiniz kullanmayı unutmayın `logging=false` sorgu dizesi yapılandırma.
 
 ## <a name="where-to-find-utterances"></a>Konuşma nerede bulacağını
-LUIS, ücretsiz olarak kullanılabilir sorgu günlüğü günlüğe kaydedilen tüm konuşma depolar [LUIS](luis-reference-regions.md) Web sitesi **uygulamaları** LUIS yanı sıra, liste sayfası [yazma API'leri](https://aka.ms/luis-authoring-apis). 
+LUIS, ücretsiz olarak kullanılabilir sorgu günlüğü günlüğe kaydedilen tüm konuşma depolar [LUIS](luis-reference-regions.md) Web sitesi **uygulamaları** LUIS yanı sıra, liste sayfası [yazma API'leri](https://go.microsoft.com/fwlink/?linkid=2092087). 
 
 LUIS emin değilseniz, herhangi bir konuşma listelenir **[gözden geçirin, konuşma uç noktası](luis-how-to-review-endpoint-utterances.md)** sayfasının [LUIS](luis-reference-regions.md) Web sitesi. 
 

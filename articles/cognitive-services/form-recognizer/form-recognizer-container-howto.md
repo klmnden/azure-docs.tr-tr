@@ -1,7 +1,7 @@
 ---
 title: Yükleme ve kapsayıcı - Form tanıyıcı çalıştırma
 titleSuffix: Azure Cognitive Services
-description: Form ve tablo verilerini ayrıştırmak için Form tanıyıcı kapsayıcı kullanmayı öğrenin.
+description: Form ve tablo verisini ayrıştırmak için Form Tanıma kapsayıcısını kullanmayı öğrenin.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143031"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507799"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Yüklemek ve forma tanıyıcı kapsayıcılarını çalıştırın
 Form tanıyıcı tanımlamak ve anahtar-değer çiftleri ve tabloları formlardan ayıklamak için makine öğrenimi teknolojisi geçerlidir. Bu değerler ve tablo girişleri onlara ilişkilendirir ve ardından özgün dosyayı ilişkileri içeren yapılandırılmış verileri çıkarır. İş akışı Otomasyonu işleminiz veya başka bir uygulama içinde kolayca tümleştirin ve karmaşıklığını azaltmak için basit bir REST API kullanarak özel Form tanıyıcı modelinizi çağırabilirsiniz. Yalnızca beş belge (veya boş bir form) gerekli sonuçları alabilmeniz için hızlı bir şekilde, doğru bir şekilde ve ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gerek kalmadan özel içeriğinize uyarlanmış. Veri ek açıklama verileri etiketleme veya gerektirmez.
@@ -33,7 +33,7 @@ Form tanıyıcı kapsayıcıları kullanmadan önce aşağıdaki gereksinimleri 
 |--|--|
 |Docker altyapısı| Docker Altyapısı'nın kurulu ihtiyacınız bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
 |Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.|
-|Azure CLI| Yüklemeniz gereken [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) konağınızdaki.|
+|Azure CLI'si| Yüklemeniz gereken [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) konağınızdaki.|
 |Görüntü işleme API'si kaynak bilgisayar| Taranmış belgeler ve resimler işlemek için bir **görüntü işleme kaynak** gereklidir. Erişebildiğiniz **metni tanı** özellik ya da bir Azure kaynağı (REST API veya SDK'sı) olarak veya bir `cognitive-services-recognize-text` [kapsayıcı](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). Her zamanki faturalandırma ücretleri uygulanır. <br><br>Hem anahtar hem de fatura uç noktası, özel görüntü işleme kaynak için (Azure Bulut veya Bilişsel hizmetler kapsayıcısı) geçmesi gerekir. Bu anahtar ve fatura uç nokta {COMPUTER_VISION_API_KEY} kullanın ve {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Kullanırsanız  **`cognitive-services-recognize-text` kapsayıcı**, emin olun:<br><br>* Görüntü işleme anahtarınız Form tanıyıcı kapsayıcısı için görüntü işleme belirtilen anahtarla ise `docker run` komutunu `cognitive-services-recognize-text` kapsayıcı.<br>* Fatura bitiş kapsayıcının uç noktası, olduğu gibi `https://localhost:5000`. Görüntü işleme ve Form tanıyıcı kapsayıcılar aynı ana bilgisayarda birlikte kullanıyorsa, bunlar her ikisi de varsayılan bağlantı noktası ile başlatılamıyor `5000`.  |  
 |Form tanıyıcı kaynağı |Bu kapsayıcıların kullanabilmeniz için şunlara sahip olmalısınız:<br><br>A _Form tanıyıcı_ fatura uç noktası URI'si ve ilişkili faturalandırma anahtarı almak için Azure kaynak. Her iki değeri de Azure portalında üzerinde kullanılabilir **Form tanıyıcı** genel bakış ve anahtarları sayfaları ve bu, kapsayıcı başlatma için gerekli.<br><br>**{BILLING_KEY}** : kaynak anahtarı<br><br>**{BILLING_ENDPOINT_URI}** : uç nokta URI'si örnektir: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
@@ -101,7 +101,7 @@ Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı i
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) üç kapsayıcı birini çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{BILLING_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır ve Azure portalının Form tanıyıcı anahtarlar sayfasında bulabilirsiniz.  |
 |{BILLING_ENDPOINT_URI} | Fatura uç noktası URI değerini Azure portalının Form tanıyıcı genel bakış sayfasında kullanılabilir.|
@@ -261,7 +261,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### <a name="form-recognizer"></a>Form Tanıma
 
-REST uç noktasını bulunabilir API'leri, kapsayıcı sağlar [burada](https://docs.microsoft.com/azure/cognitive-services/formrecognizer-service/rest-apis#formrecognier-api) ve örnekler bulunabilir [burada](https://azure.microsoft.com/resources/samples/cognitive-formrecognizer).
+REST uç noktasını bulunabilir API'leri, kapsayıcı sağlar [burada](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -275,7 +275,7 @@ REST uç noktasını bulunabilir API'leri, kapsayıcı sağlar [burada](https://
 
 Kapsayıcı çalıştırdığınızda, kapsayıcının kullanan **stdout** ve **stderr** başlatılıyor veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan çıkış bilgiler.
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Azure için fatura, kullanarak Form tanıyıcı kapsayıcıları Gönder bir _Form tanıyıcı_ Azure hesabınız kaynaktaki.
 

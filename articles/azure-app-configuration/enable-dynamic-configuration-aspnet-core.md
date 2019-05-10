@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408825"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518998"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Öğretici: ASP.NET Core uygulaması dinamik yapılandırması kullan
 
@@ -63,6 +63,9 @@ Bu öğreticiyi uygulamak için yükleme [.NET Core SDK'sı](https://dotnet.micr
     ```
 
     İkinci parametre `.Watch` yöntemidir yoklama aralığı için ASP.NET istemci kitaplığı bir uygulama yapılandırma deposu sorgular. İstemci Kitaplığı herhangi bir değişiklik oluşup olmadığını görmek için belirli yapılandırma ayarı denetler.
+    
+    > [!NOTE]
+    > İçin varsayılan yoklama aralığını `Watch` belirtilmediyse genişletme yöntemi: 30 saniye.
 
 2. Ekleme bir *Staticcontenthosting.Web* tanımlayan ve uygulayan yeni bir dosya `Settings` sınıfı.
 
@@ -168,7 +171,7 @@ Bu öğreticiyi uygulamak için yükleme [.NET Core SDK'sı](https://dotnet.micr
 
 5. Seçin **yapılandırması Gezgini**ve aşağıdaki anahtarlarını güncelleştirin:
 
-    | Anahtar | Değer |
+    | Anahtar | Value |
     |---|---|
     | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | LightGray |

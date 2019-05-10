@@ -3,22 +3,21 @@ title: Azure Data Factory kullanarak verileri artımlı olarak kopyalama | Micro
 description: Bu öğreticiler verilerin, kaynak veri deposundan hedef veri deposuna nasıl artımlı olarak kopyalanacağını gösterir. İlki bir tablodan veri kopyalar.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: dearandyxu
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-origin.date: 01/22/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: cb75e943416c227730589ab5e7feeb7b8ba5e245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/22/2018
+ms.author: yexu
+ms.openlocfilehash: 1d8b31e55a2a230385730c924d3e6bcc6072e7ea
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335989"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520435"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Bir kaynak veri deposundan hedef veri deposuna artımlı olarak veri yükleme
 
@@ -45,13 +44,13 @@ Adım adım yönergeler için şu öğreticilere bakın: <br/>
 [Değişiklik İzleme teknolojisini kullanarak Azure SQL Veritabanı’ndan Azure Blob depolama alanına artımlı olarak veri kopyalama](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Yalnızca LastModifiedDate kullanarak yeni ve değiştirilmiş dosyalar yükleniyor
-Meta veriler (LastModifiedDate) dosyalarınızın ilk alın ve sonra yalnızca hedef depo için yeni ve değiştirilen dosyaları kopyalayın.
+Yalnızca hedef deponun LastModifiedDate'i kullanarak yeni ve değiştirilen dosyaları kopyalayabilirsiniz. ADF kaynak deposundan tüm dosyaları tarama, dosya filtresi tarafından kendi LastModifiedDate uygulamak ve yalnızca son daraltılmasından yeni ve güncelleştirilmiş dosya için hedef depoyu kopyalayın.  Lütfen ADF tarama büyük miktarlarda dosyaları sağlar, ancak yalnızca birkaç dosyaları kopyalama hedefi için hala dosya tarama nedeniyle uzun süreli de zaman alıcı beklediğiniz unutmayın.   
 
 Adım adım yönergeler için şu öğreticilere bakın: <br/>
 [Yeni ve değiştirilmiş dosyalar üzerinde LastModifiedDate Azure Blob depolama alanından Azure Blob depolama alanına göre artımlı olarak kopyalama](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Yalnızca zaman kullanarak yeni dosyaları yükleme, klasör veya dosya adı bölümlenmiş.
-Burada dosya veya klasör zaten dosya veya klasör adı (örneğin, /yyyy/mm/dd/file.csv) bir parçası olarak timeslice bilgilerle bölümlenmiş zaman yeni dosyalar yalnızca kopyalayabilirsiniz. 
+Burada dosya veya klasör zaten dosya veya klasör adı (örneğin, /yyyy/mm/dd/file.csv) bir parçası olarak timeslice bilgilerle bölümlenmiş zaman yeni dosyalar yalnızca kopyalayabilirsiniz. Bu artımlı yükleme yeni dosyalar için çoğu performans yaklaşımdır. 
 
 Adım adım yönergeler için şu öğreticilere bakın: <br/>
 [Yeni dosyaları saat bölümlenmiş klasör veya dosya adı Azure Blob depolamadan Azure Blob depolama alanına göre artımlı olarak kopyalama](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

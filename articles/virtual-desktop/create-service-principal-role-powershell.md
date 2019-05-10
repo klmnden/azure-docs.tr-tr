@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236934"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523309"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Öğretici: PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
 
@@ -38,10 +38,9 @@ Hizmet sorumluları ve rol atamaları oluşturmadan önce üç şey yapmanız ge
     Install-Module AzureAD
     ```
 
-2. Teklif oturumunuza geçerli değerleri yerine değerleri aşağıdaki cmdlet'leri çalıştırın. Yalnızca Windows sanal masaüstü kiracınızdan oluşturduysanız [Windows sanal masaüstü öğreticide bir kiracı oluşturmanız](./tenant-setup-azure-active-directory.md), ardından "Varsayılan Kiracı grubu" Kiracı grubu adınız kullanın.
+2. Teklif oturumunuza geçerli değerleri yerine değerleri aşağıdaki cmdlet'leri çalıştırın.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,8 +67,7 @@ Windows sanal masaüstüne bağlanmak ve bir rol ataması için hizmet sorumlusu
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Hizmet sorumlusuyla oturum açın

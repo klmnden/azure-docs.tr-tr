@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a33734af34814772fdd8c391d0ee19a79b47d856
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b3d53b7d5fceb303259823198731b5198cfce82c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925028"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508246"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Öğretici: Azure veri kutusu Blob Depolama REST API'leri aracılığıyla veri kopyalama  
 
@@ -46,7 +46,7 @@ Veri kutusu Blob depolama alanına üzerinden bağlanabilir *http* veya *https*.
 - *HTTPS* veri kutusu Blob depolamaya bağlanmak için güvenli ve önerilen yoludur.
 - *HTTP* ağlar üzerinden bağlanma güvenilen kullanılır.
 
-Üzerinde veri kutusu Blob depolamaya bağlanırken bağlanma adımları farklı *http* veya *https*,.
+Üzerinde veri kutusu Blob depolamaya bağlanırken bağlanma adımları farklı *http* veya *https*.
 
 ## <a name="connect-via-http"></a>HTTP üzerinden bağlanma
 
@@ -84,7 +84,7 @@ Sertifika indirmek için Azure portalını kullanın.
 
 1. Azure portalında oturum açın.
 2. Data Box Siparişiniz gidip için **genel > cihaz ayrıntıları**.
-3. Altında **cihaz kimlik bilgilerini**Git **API erişimi** aygıt için. **İndir**’e tıklayın. Bu eylem indiren bir  **\<sipariş adınız > .cer** sertifika dosyası. **Kaydet** bu dosya. Bu sertifika, cihaza bağlanmak için kullanacağınız istemci veya konak bilgisayara yükler.
+3. Altında **cihaz kimlik bilgilerini**Git **API erişimi** aygıt için. **İndir**'e tıklayın. Bu eylem indiren bir  **\<sipariş adınız > .cer** sertifika dosyası. **Kaydet** bu dosya. Bu sertifika, cihaza bağlanmak için kullanacağınız istemci veya konak bilgisayara yükler.
 
     ![Azure portalında sertifikasını indirin](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  

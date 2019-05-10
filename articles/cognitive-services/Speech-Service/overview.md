@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: db32124cb4262745bcb2217224124ec444ccc97e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: HT
+ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236877"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510739"
 ---
 # <a name="what-are-the-speech-services"></a>Konuşma Tanıma Hizmetleri nelerdir?
 
@@ -63,7 +63,7 @@ Hızlı başlangıçlar, en popüler programlama dillerinden, her, kodu 10 dakik
 Konuşma hizmetleri kullanmak üzere ettikten sonra amaçlardan tutun LUIS ve Speech SDK'sı kullanarak konuşma tanıma öğretir öğreticimizi deneyin.
 
 * [Öğretici: Amaçlardan tutun Speech SDK'sı ve LUIS ile Konuşma tanıma,C#](how-to-recognize-intents-from-speech-csharp.md)
-* [Öğretici: Metinleri çevirin, duyguları çözümleyin ve çevrilmiş metin okuma, REST sentezlemek için bir Flask uygulaması derleme](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+* [Öğretici: Metinleri çevirin, duyguları çözümleyin ve çevrilmiş metin okuma, REST sentezlemek için bir Flask uygulaması derleme](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Örnek kodu alma
 

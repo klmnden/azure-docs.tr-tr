@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050986"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520484"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Öğretici: Bir ön kapısı özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -82,7 +82,6 @@ HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz
 
 > [!WARNING]
 > </br> - Azure Front Door Service şu anda yalnızca Front Door yapılandırmasıyla aynı abonelikte olan Key Vault hesaplarını destekler. Front Door’dan farklı bir abonelik altındaki Key Vault’un seçilmesi hatayla sonuçlanır.
-> </br> - Azure Front Door Service şu anda yalnızca Gizli Diziler bölümü altında depolanan Key Vault sertifikalarını destekler. Sertifikayı Gizli Diziler bölümü yerine Sertifikalar bölümünde depolarsanız sertifikanızı içeri aktaramazsınız.
 > </br> - Azure Front Door Service şu anda parola **olmadan** yalnızca PFX ile karşıya yüklenen sertifikaları destekler.
 
 #### <a name="register-azure-front-door-service"></a>Azure Front Door Service’i kaydetme
@@ -142,7 +141,7 @@ Kendi sertifikanızı kullanıyorsanız etki alanı doğrulaması gerekmez.
 
 CNAME kaydınız, *Ad*’ın özel etki alanınız, *Değer*’in ise Front Door’unuzun varsayılan .azurefd.net konak adı olduğu aşağıdaki biçimde olmalıdır:
 
-| Ad            | Tür  | Değer                 |
+| Ad            | Tür  | Value                 |
 |-----------------|-------|-----------------------|
 | < www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -198,7 +197,7 @@ Aşağıdaki tabloda, HTTPS’yi etkinleştirdiğinizde oluşan işlem ilerleme 
 | | Etki alanı sahipliğiniz başarıyla doğrulandı. |
 | | Etki alanı doğrulama isteğinin süresi doldu. (Müşteri büyük olasılıkla 6 gün içinde yanıt vermedi.) HTTPS, etki alanınızda etkinleştirilmeyecek. * |
 | | Etki alanı sahipliğini doğrulama isteği, müşteri tarafından reddedildi. HTTPS, etki alanınızda etkinleştirilmeyecek. * |
-| 3 Sertifika sağlanıyor | Sertifika yetkilisi şu anda etki alanınızdaki HTTPS'nin etkinleştirilmesi için gereken sertifikayı veriyor. |
+| 3 Sertifika sağlanıyor | Sertifika yetkilisi şu anda etki alanınızda HTTPS'yi etkinleştirmek için gereken sertifikayı veriyor. |
 | | Sertifika verildi ve şu anda Front Door’unuz için dağıtılıyor. Bu işlem 1 saat kadar sürebilir. |
 | | Sertifika, Front Door’unuz için başarıyla dağıtıldı. |
 | 4 Tamamlandı | HTTPS, etki alanınızda başarıyla etkinleştirildi. |

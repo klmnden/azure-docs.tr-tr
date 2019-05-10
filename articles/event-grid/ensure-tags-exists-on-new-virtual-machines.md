@@ -8,14 +8,14 @@ manager: ''
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 05/10/2019
 ms.author: eamono
-ms.openlocfilehash: d0764131f0e7e321a87ed383636606b2124ef7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562771"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521422"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Öğretici: Azure Otomasyonu’nu Event Grid ve Microsoft Teams ile tümleştirme
 
@@ -52,10 +52,13 @@ Bu öğreticiyi tamamlamak için, bir [Azure Otomasyonu hesabının](../automati
 
 4. **İçeri Aktar**'ı seçin ve bunu **Watch-VMWrite** olarak adlandırın.
 
-5. İçeri aktarıldıktan sonra, runbook kaynağını görüntülemek için **Düzenle**'yi seçin. **Yayımla** düğmesini seçin.
+5. İçeri aktarıldıktan sonra, runbook kaynağını görüntülemek için **Düzenle**'yi seçin. 
+6. 74 kullanmak için komut satırı güncelleştiririz `Tag` yerine `Tags`.
 
-> [!NOTE]
-> Betiğin 74. satırı `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose` olarak değiştirilmelidir. `-Tags` parametresi artık `-Tag` olmuştur.
+    ```powershell
+    Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
+    ```
+7. **Yayımla** düğmesini seçin.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>İsteğe bağlı bir Microsoft Teams web kancası oluşturma
 
@@ -67,7 +70,7 @@ Bu öğreticiyi tamamlamak için, bir [Azure Otomasyonu hesabının](../automati
 
 3. Ad olarak **AzureAutomationIntegration** girin ve **Oluştur**'u seçin.
 
-4. Web kancasını panoya kopyalayın ve kaydedin. Web kancası URL'si, Microsoft Teams'e bilgi göndermek için kullanılır.
+4. Web kancası URL'sini panoya kopyalayın ve kaydedin. Web kancası URL'si, Microsoft Teams'e bilgi göndermek için kullanılır.
 
 5. **Bitti**'yi seçerek web kancasını kaydedin.
 
@@ -96,14 +99,16 @@ Bu öğreticiyi tamamlamak için, bir [Azure Otomasyonu hesabının](../automati
 2. **+ Olay Aboneliği**'ne tıklayın.
 
 3. Aboneliği aşağıdaki bilgilerle yapılandırın:
+    1. **Konu Başlığı Türü** için **Azure Abonelikleri**'ni seçin.
+    2. **Tüm olay türlerine abone ol** onay kutusunun işaretini kaldırın.
+    3. Ad olarak **AzureAutomation** girin.
+    4. **Tanımlanan Olay Türleri** açılan menüsünde **Kaynak Yazma Başarısı** dışındaki tüm seçeneklerin işaretini kaldırın.
 
-   * **Konu Başlığı Türü** için **Azure Abonelikleri**'ni seçin.
-   * **Tüm olay türlerine abone ol** onay kutusunun işaretini kaldırın.
-   * Ad olarak **AzureAutomation** girin.
-   * **Tanımlanan Olay Türleri** açılan menüsünde **Kaynak Yazma Başarısı** dışındaki tüm seçeneklerin işaretini kaldırın.
-   * **Uç Noktası Türü** için **Web kancası**'nı seçin.
-   * **Bir uç nokta seçin**'e tıklayın. Açılan **Web Kancası seçin** sayfasına Watch-VMWrite runbook'u için oluşturduğunuz web kancası URL'sini yapıştırın.
-   * **FİLTRELER** bölümünde, oluşturulan yeni VM'leri aramak istediğiniz aboneliği ve kaynak grubunu girin. Şu şekilde görünmelidir: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+        > [!NOTE] 
+        > Tüm Microsoft.Resources.ResourceWriteSuccess olaylar için Bu öğreticide, Azure aboneliğinizde uygulama hacmi yüksek olan çağrıları neden olabilir, böylece azure Resource Manager şu anda Create ve Update arasında ayrım yapmaz.
+    1. **Uç Noktası Türü** için **Web kancası**'nı seçin.
+    2. **Bir uç nokta seçin**'e tıklayın. Açılan **Web Kancası seçin** sayfasına Watch-VMWrite runbook'u için oluşturduğunuz web kancası URL'sini yapıştırın.
+    3. **FİLTRELER** bölümünde, oluşturulan yeni VM'leri aramak istediğiniz aboneliği ve kaynak grubunu girin. Şu şekilde görünmelidir: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Event Grid aboneliğini kaydetmek için **Oluştur**'u seçin.
 

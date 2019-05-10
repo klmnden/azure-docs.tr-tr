@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813603"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522487"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Geliştirme ve uç noktası kullanıcı erişimi
 Erişim geliştirme sahipleri ve ortak çalışanlar için kullanılabilir. Özel bir uygulama için erişim uç noktası sahipleri ve ortak çalışanlar için kullanılabilir. Genel bir uygulama için uç nokta kendi LUIS hesabını ve genel uygulama kimliğine sahip herkes için erişilebilir 
 
 ## <a name="access-to-authoring"></a>Yazma erişimi
-Uygulama erişimi [LUIS](luis-reference-regions.md#luis-website) Web sitesi veya [yazma API'leri](https://aka.ms/luis-authoring-apis) uygulama sahibi tarafından denetlenir. 
+Uygulama erişimi [LUIS](luis-reference-regions.md#luis-website) Web sitesi veya [yazma API'leri](https://go.microsoft.com/fwlink/?linkid=2092087) uygulama sahibi tarafından denetlenir. 
 
 Sahibi ve tüm ortak çalışanlar uygulama yazma erişimi vardır. 
 

@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309472"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521999"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 
@@ -53,7 +53,7 @@ LUIS uygulaması, etki alanına özgü doğal dil modeli içerir. LUIS uygulamas
 * **Özel Varlıklar**: LUIS makine öğrenimi varlıkları, özellik veya değişmez varlıklar ve makine öğrenimi ve değişmez varlıkların birleşimi dahil olmak üzere kendi özel amaçlarınızı ve varlıklarınızı tanımlamak için birkaç farklı yöntem sunar.
 
 ## <a name="build-the-luis-model"></a>LUIS modelini derleme
-Modeli [yazma](https://aka.ms/luis-authoring-apis) API'leri veya LUIS portalı ile derleyebilirsiniz.
+Modeli [yazma](https://go.microsoft.com/fwlink/?linkid=2092087) API'leri veya LUIS portalı ile derleyebilirsiniz.
 
 LUIS modeli, **[amaçlar](luis-concept-intent.md)** olarak adlandırılan kullanıcı amacı kategorileriyle başlar. Her amaç için kullanıcı **[konuşmaları](luis-concept-utterance.md)** örneklerine ihtiyaç duyulur. Her bir konuşma, **[varlıklarla](luis-concept-entity-types.md)** ayıklanabilecek çeşitli veriler sunabilir. 
 
@@ -65,7 +65,7 @@ LUIS modeli, **[amaçlar](luis-concept-intent.md)** olarak adlandırılan kullan
 
 ## <a name="query-prediction-endpoint"></a>Sorgu tahmin uç noktası
 
-Model derlendikten ve uç noktada yayımlandıktan sonra istemci uygulaması yayımlanan tahmin [uç noktası](https://aka.ms/luis-endpoint-apis) API'sine konuşma gönderir. API, analiz için modeli metne uygular. API, JSON biçiminde tahmin sonuçlarıyla yanıt verir.  
+Model derlendikten ve uç noktada yayımlandıktan sonra istemci uygulaması yayımlanan tahmin [uç noktası](https://go.microsoft.com/fwlink/?linkid=2092356) API'sine konuşma gönderir. API, analiz için modeli metne uygular. API, JSON biçiminde tahmin sonuçlarıyla yanıt verir.  
 
 JSON uç nokta yanıtı minimumda sorgu konuşmasını ve en yüksek puanlı amacı içerir. Ayrıca aşağıdaki **Kişi Türü** varlığı gibi verileri de ayıklayabilir. 
 
@@ -126,6 +126,6 @@ LUIS kullanan örnekleri:
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

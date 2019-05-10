@@ -11,12 +11,12 @@ ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 255a7c9d0b9da15176fca90c6934a84fa0f863ed
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: HT
+ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501866"
+ms.locfileid: "65510471"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Azure API Management ile bir işlev için Openapı tanımı oluşturma
 
@@ -30,6 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Azure’da işlev oluşturma
 > * Azure API Management ile Openapı tanımı oluşturma
 > * İşleve çağrı yaparak tanımı test etme
+> * Openapı tanımını indirin
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
@@ -164,11 +165,11 @@ Artık OpenAPI tanımını oluşturmaya hazırsınız.
 
 API, artık işlev için oluşturulur.
 
-## <a name="test-the-openapi-definition"></a>OpenAPI tanımını test etme
+## <a name="test-the-api"></a>API'yi test etme
 
-API tanımı kullanmadan önce çalışır durumda olduğunu doğrulamanız gerekir.
+Openapı tanımı kullanmadan önce API çalıştığını doğrulamanız gerekir.
 
-1. Üzerinde **Test** sekmesini seçin, işlevin **POST** işlemi
+1. Üzerinde **Test** sekmesini seçin, işlevin **POST** işlemi.
 
 1. İçin değerler girin **saat** ve **kapasite**
 
@@ -183,9 +184,21 @@ API tanımı kullanmadan önce çalışır durumda olduğunu doğrulamanız gere
 
     ![API'yi test et işlevi](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## <a name="download-the-openapi-definition"></a>Openapı tanımını indirin
+
+API'nizi beklendiği gibi çalışıp çalışmadığını Openapı tanımını indirebilirsiniz.
+
+1. Seçin **indirme Openapı tanımı** sayfanın üstünde.
+   
+   ![OpenAPI tanımını indirin](media/functions-openapi-definition/download-definition.png)
+
+2. İndirilen JSON dosyasını açın ve tanımı gözden geçirin.
+
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+İşlevlerinizi bir Openapı tanımı oluşturma için API Management Tümleştirmesi'ni kullandınız. API Management Portalı'nda tanımı artık düzenleyebilirsiniz. Ayrıca [API Management hakkında daha fazla bilgi](../api-management/api-management-key-concepts.md).
+
 > [!div class="nextstepaction"]
-> [API yönetimi hakkında daha fazla bilgi edinin](../api-management/api-management-key-concepts.md)
+> [API Management Openapı tanımını Düzenle](../api-management/edit-api.md)

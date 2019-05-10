@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c40efca9abd418c8b48f931d327b1f81805b38fb
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60876034"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520413"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 paylaşılan hizmetler şema örnek denetimi eşleme
 
@@ -24,7 +24,7 @@ Aşağıdaki makalede nasıl Azure şemaları ISO 27001 paylaşılan hizmetler I
 
 Tek bir Azure aboneliği sahibi olan Yönetim yedeklilik için izin vermez. Buna karşılık, çok fazla Azure aboneliğine sahip olan, güvenliği aşılmış sahip hesabı aracılığıyla bir ihlal olasılığını artırabilir. Bu şema iki atayarak Azure abonelik sahipleri uygun sayıda tutmanıza yardımcı olur. [Azure İlkesi](../../../policy/overview.md) denetim sahipleri Azure aboneliklerinin sayısını tanımlar. Abonelik sahibi izinleri yönetme, uygun görev ayrımı uygulamak yardımcı olabilir.
 
-- [Önizleme]: Audit minimum number of owners for subscription
+- [Önizleme]: Audit minimum number of owners for a subscription
 - [Önizleme]: Audit maximum number of owners for a subscription
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 sınıflandırması bilgileri

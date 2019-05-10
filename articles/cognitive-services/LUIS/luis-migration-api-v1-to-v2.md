@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196040"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522357"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 için LUIS uygulamaları v2 Geçiş Kılavuzu
-Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
+Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://go.microsoft.com/fwlink/?linkid=2092356) ve [yazma](https://go.microsoft.com/fwlink/?linkid=2092087) API'leri. 
 
 ## <a name="new-azure-regions"></a>Yeni Azure bölgeleri
 LUIS sahip yeni [bölgeleri](https://aka.ms/LUIS-regions) LUIS API'leri için sağlanan. LUIS, bölge grupları için farklı bir portal sağlar. Uygulama sorgu beklediğiniz aynı bölgede yazılması gerekir. Uygulamaları bölgeleri otomatik olarak geçirilmez. Tek bir bölge sonra almak üzere başka bir yeni bölgede kullanılabilir olması için uygulamanın verilecek.
@@ -169,6 +169,6 @@ Bkz: [LUIS API'si yanıt kodları](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Var olan geri KALAN güncelleştirilecek v2 API'si belgeleri çağırır LUIS için kullanım [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
+Var olan geri KALAN güncelleştirilecek v2 API'si belgeleri çağırır LUIS için kullanım [uç nokta](https://go.microsoft.com/fwlink/?linkid=2092356) ve [yazma](https://go.microsoft.com/fwlink/?linkid=2092087) API'leri. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6991201b3cda5699849ac00cc92217c6b7bf72
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236805"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524005"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Öğretici: Azure Market ile ana bilgisayar havuzu oluşturma
 
@@ -68,7 +68,7 @@ Sanal makine ayarı dikey için:
 
 Windows sanal masaüstü Kiracı bilgileri dikey:
 
-1. Girin **Windows sanal masaüstü Kiracı grubu adı** kiracınızın içerdiğinden Kiracı grubu. Planlı bir belirli Kiracı grubu adı yoksa, varsayılan olarak bırakın.
+1. Girin **Windows sanal masaüstü Kiracı grubu adı** kiracınızın içerdiğinden Kiracı grubu. Belirli bir sağlanan sürece varsayılan olarak bırakın. Kiracı grubu adı.
 2. Girin **Windows sanal masaüstü Kiracı adı** Kiracı için bu ana havuzuna oluşturursunuz.
 3. Windows sanal masaüstü Kiracı RDS sahibi olarak kimlik doğrulaması için kullanmak istediğiniz kimlik bilgileri türünü belirtin. Tamamlanmışsa [PowerShell öğretici ile hizmet sorumluları ve rol atamalarını oluşturma](./create-service-principal-role-powershell.md)seçin **hizmet sorumlusu**. Şimdi de girmeniz gerekecek **Azure AD Kiracı Kimliğinizi** hizmet sorumlusu içeren Azure Active Directory.
 4. Ya da Kiracı yönetici hesabının kimlik bilgilerini girin. Yalnızca bir parola kimlik bilgisi ile hizmet sorumluları desteklenir.
@@ -94,12 +94,6 @@ Windows sanal masaüstü ortama oturum açmak için aşağıdaki cmdlet'i çalı
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Aşağıdaki cmdlet'le sunan Azure Marketi'nde belirttiğiniz Windows sanal masaüstü Kiracı gruba bağlamını ayarlayın. Windows sanal masaüstü Kiracı grubu değer Azure Marketi'nde varsayılan değer olarak sunan bırakılırsa, bu adımı atlayabilirsiniz.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Bu iki şey yaptıktan sonra Bu cmdlet ile masaüstü uygulama grubu kullanıcıları ekleyebilirsiniz:

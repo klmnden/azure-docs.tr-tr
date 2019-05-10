@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: fc05f285b286bd0f036c583c154a40cf64e144d4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235799"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522046"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -46,7 +46,7 @@ Evet, eğitmek iyi olduğu, **hiçbiri** diğer amaçlar için daha fazla etiket
 Bkz: [Bing yazım denetimi API'si V7](luis-tutorial-bing-spellcheck.md) öğretici. LUIS, Bing yazım denetimi API'si V7 tarafından uygulanan sınırları zorlar.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>LUIS uygulamamı program aracılığıyla nasıl düzenleyebilirim?
-Program aracılığıyla LUIS uygulamanızı düzenlemek için kullanın [yazma API](https://aka.ms/luis-authoring-apis). Bkz: [API geliştirme LUIS çağrı](./luis-quickstart-node-add-utterance.md) ve [Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma](./luis-tutorial-node-import-utterances-csv.md) yazma API'nin nasıl çağrılacağını örnekleri için. Yazma API kullanmanızı gerektirir. bir [anahtar yazma](luis-concept-keys.md#authoring-key) yerine bir uç noktası anahtarı. Programlı yazma, ayda en fazla 1.000.000 çağrısı ve beş saniyede sağlar. LUIS ile kullandığınız anahtarları hakkında daha fazla bilgi için bkz. [anahtarları Yönet](./luis-concept-keys.md).
+Program aracılığıyla LUIS uygulamanızı düzenlemek için kullanın [yazma API](https://go.microsoft.com/fwlink/?linkid=2092087). Bkz: [API geliştirme LUIS çağrı](./luis-quickstart-node-add-utterance.md) ve [Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma](./luis-tutorial-node-import-utterances-csv.md) yazma API'nin nasıl çağrılacağını örnekleri için. Yazma API kullanmanızı gerektirir. bir [anahtar yazma](luis-concept-keys.md#authoring-key) yerine bir uç noktası anahtarı. Programlı yazma, ayda en fazla 1.000.000 çağrısı ve beş saniyede sağlar. LUIS ile kullandığınız anahtarları hakkında daha fazla bilgi için bkz. [anahtarları Yönet](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Burada sağlanan normal ifade deseni özelliği eşleşiyor mu?
 Önceki **deseni özelliği** şu anda kullanım dışı, değiştirilen  **[desenleri](luis-concept-patterns.md)**.

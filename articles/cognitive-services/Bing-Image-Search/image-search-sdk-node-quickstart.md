@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 641247a0ddc08f15fa70006e280426fda083241f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0858ebdd283ea6696f145eabe2ef923d98f73601
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60917599"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508067"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Bing resim arama SDK'sı ile görüntüleri için arama
 
@@ -40,7 +40,7 @@ Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](ht
 
     ```javascript
     'use strict';
-    const Search = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
@@ -55,7 +55,7 @@ Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](ht
 
     //instantiate the image search client 
     let credentials = new CognitiveServicesCredentials(serviceKey);
-    let imageSearchApiClient = new Search.ImageSearchAPIClient(credentials);
+    let imageSearchApiClient = new ImageSearchAPIClient(credentials);
 
     ```
 

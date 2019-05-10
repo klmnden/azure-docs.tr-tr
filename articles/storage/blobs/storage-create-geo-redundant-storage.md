@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: ff23e5e2c4f0b55121d5310c7fbf99b3ee3b1087
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.openlocfilehash: b884eab6d2d5a2c768991aa82f5a33d2792abd97
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209662"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508125"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Öğretici: Blob Depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun
 
@@ -50,15 +50,14 @@ Bu öğreticiyi tamamlamak için:
 * [Python](https://www.python.org/downloads/)’ı yükleyin
 * [Python için Azure Depolama SDK’sını](https://github.com/Azure/azure-storage-python) indirip yükleme
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
-
-* [Maven](https://maven.apache.org/download.cgi)’ı yükleyip komut satırından çalışacak şekilde yapılandırma
-* [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 * [Maven](https://maven.apache.org/download.cgi)’ı yükleyip komut satırından çalışacak şekilde yapılandırma
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+* Yükleme [Node.js](https://nodejs.org).
 
 ---
 
@@ -108,14 +107,6 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
-
-[Örnek projeyi indirin](https://github.com/Azure-Samples/storage-java-ha-ra-grs) ve storage-java-ragrs.zip dosyasını ayıklayın. Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje, temel bir Java uygulaması içerir.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
-```
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 [Örnek projeyi indirin](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) ve storage-java-ragrs.zip dosyasını ayıklayın. Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje, temel bir Java uygulaması içerir.
@@ -124,60 +115,54 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+[Örnek projeyi indirin](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) ve dosyanın sıkıştırmasını açın. Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek Proje temel bir Node.js uygulaması içerir.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+```
+
 ---
+
+## <a name="configure-the-sample"></a>Örnek yapılandırma
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Uygulamayı çalıştıran yerel makine üzerindeki bu bağlantı dizesi bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesini uygulamayı çalıştıran yerel makine üzerindeki bir ortam değişkeninde depolayabilirsiniz. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
 
-Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
+Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim sisteminize göre aşağıdaki komutlardan birini çalıştırın değiştirerek \<yourconnectionstring\> gerçek bağlantı dizenizle. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\>
+export storageconnectionstring=<yourconnectionstring>
 ```
 
 ### <a name="windows"></a>Windows
 
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+```powershell
+setx storageconnectionstring "<yourconnectionstring>"
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Uygulamayı çalıştıran yerel makine üzerindeki bu bağlantı dizesi bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
+Uygulamada, depolama hesabı kimlik bilgilerinizi sağlamanız gerekir. Bu bilgiler, uygulamayı çalıştıran yerel makine üzerinde ortam değişkenleri içindeki depolayabilirsiniz. Ortam değişkenlerini oluşturmak için işletim sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
 
-Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
-
-### <a name="linux"></a>Linux
-
-```
-export storageconnectionstring=\<yourconnectionstring\>
-```
-
-### <a name="windows"></a>Windows
-
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
-```
-
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
-
-Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Uygulamayı çalıştıran yerel makine üzerindeki bu bağlantı dizesi bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
-
-Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
+Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Yapıştırma **depolama hesabı adı** ve **anahtarı** değerlerini değiştirerek aşağıdaki komutları \<youraccountname\> ve \<accountkey\>yer tutucu. Bu komut, yerel makineye ortam değişkenlerini kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\>
+export accountname=<youraccountname>
+export accountkey=<youraccountkey>
 ```
 
 ### <a name="windows"></a>Windows
 
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+```powershell
+setx accountname "<youraccountname>"
+setx accountkey "<youraccountkey>"
 ```
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
@@ -193,10 +178,23 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 
 ### <a name="windows-example"></a>Windows örneği
 
-```
+```powershell
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Bu örneği çalıştırmak için depolama hesabı kimlik bilgilerinizle eklemelisiniz `.env.example` yeniden adlandırın ve dosya `.env`.
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
+```
+
+Bu bilgiler, depolama hesabınıza gidin ve seçerek Azure portalında bulabilirsiniz **erişim anahtarları** içinde **ayarları** bölümü.
+
+Gerekli bağımlılıkları da yüklemeniz gerekir. Bunu yapmak için bir komut istemi açın, örnek klasörüne gidin ve sonra girin `npm install`.
 
 ---
 
@@ -223,12 +221,6 @@ Uygulamayı bir terminalde veya komut isteminde çalıştırmak için **circuitb
 Depolama nesnesi yeniden deneme işlevi, doğrusal bir yeniden deneme ilkesine ayarlıdır. Yeniden deneme işlevi, isteklerin yeniden denenip denenmeyeceğini belirler ve isteği yeniden denemeden önce kaç saniye bekleneceğini belirtir. Birincile yapılan istek başarısız olursa aynı isteğin ikincile yeniden denenmesini istiyorsanız **retry\_to\_secondary** değerini true olarak ayarlayın. Örnek uygulamada depolama nesnesinin `retry_callback` işlevinde özel bir yeniden deneme ilkesi tanımlanmıştır.
 
 İndirme işlemi öncesinde Hizmet nesnesinin [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) ve [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) işlevleri tanımlanır. Bu işlevler, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.
-
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
-
-İndirilen uygulama klasörü kapsamlı bir terminal veya komut istemi açarak uygulamayı çalıştırabilirsiniz. Buradan `mvn compile exec:java` komutunu girerek uygulamayı çalıştırın. Uygulama, dizinden depolama hesabınıza **HelloWorld.png** görüntüsünü yükler ve görüntünün ikincil RA-GRS uç noktasına çoğaltılıp çoğaltılmadığını denetler. Denetim tamamlandıktan sonra uygulama art arda görüntüyü indirmeye başlar, bir yandan da içinden indirme işlemini yaptığı uç noktaya geri bildirimde bulunur.
-
-Depolama nesnesi yeniden deneme işlevi, doğrusal bir yeniden deneme ilkesini kullanacak şekilde ayarlıdır. Yeniden deneme işlevi, isteklerin yeniden denenip denenmeyeceğini belirler ve her bir yeniden denemeden önce kaç saniye bekleneceğini belirtir. **BlobRequestOptions** öğenizin **LocationMode** özelliği, **PRIMARY\_THEN\_SECONDARY** olarak ayarlanır. Bu, uygulamanın **HelloWorld.png** dosyasını indirmeye çalışırken birincil konuma ulaşamaması durumunda otomatik olarak ikincil konuma geçmesine olanak sağlar.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -273,6 +265,33 @@ Cleaning up the sample and exiting!
 ```
 
 Örneğin denetimi sizdedir; bu nedenle, kodu çalıştırmasını sağlamak için komutları girin. Girdi büyük/küçük harfe duyarlıdır.
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Örneği çalıştırmak için bir komut istemi açın, örnek klasörüne gidin ve sonra girin `node index.js`.
+
+Örnek, Blob Depolama hesabında bir kapsayıcı oluşturur, yükler **HelloWorld.png** kapsayıcıya daha sonra tekrar tekrar ikincil bölgeye kapsayıcı ve görüntü çoğaltılıp çoğaltılmadığını denetler. Çoğaltma işleminden sonra girmesini ister **D** veya **Q** (ve sonra ENTER) indirin veya çıkmak için. Çıkış aşağıdaki örneğe benzer olmalıdır:
+
+```
+Created container successfully: newcontainer1550799840726
+Uploaded blob: HelloWorld.png
+Checking to see if container and blob have replicated to secondary region.
+[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+...
+[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[32] Container found, but blob has not replicated to secondary region yet.
+...
+[67] Container found, but blob has not replicated to secondary region yet.
+[68] Blob has replicated to secondary region.
+Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
+> D
+Attempting to download blob...
+Blob downloaded from primary endpoint.
+> Q
+Exiting...
+Deleted container newcontainer1550799840726
+```
 
 ---
 
@@ -371,22 +390,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK'sı](#tab/java-v7)
-
-Java ile, **BlobRequestOptions** öğenizin **LocationMode** özelliği, **PRIMARY\_THEN\_SECONDARY** olarak ayarlanırsa geri çağırma işleyicilerinin tanımlanması gerekmez. Bu, uygulamanın **HelloWorld.png** dosyasını indirmeye çalışırken birincil konuma ulaşamaması durumunda otomatik olarak ikincil konuma geçmesine olanak sağlar.
-
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
-
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
-```
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Java V10 SDK'sı ile geri çağırma işleyicilerinin tanımlanması hala gereksizdir ve SDK'sı artık V7 SDK'dan bazı temel farklar vardır. İkincil sahibiz LocationMode yerine **işlem hattı**. İkincil bir işlem hattı aracılığıyla tanımlayabilir **RequestRetryOptions** ve tanımlanmışsa, verilerinizi birincil ardışık düzeninden ulaşmak başarısız olursa otomatik olarak ikincil ardışık düzenine geçmek uygulama izin verir.
+Java V10 SDK'sı ile geri çağırma işleyicilerinin tanımlanması ve SDK'sı artık V7 SDK'dan bazı temel farklar vardır. İkincil sahibiz LocationMode yerine **işlem hattı**. İkincil bir işlem hattı aracılığıyla tanımlayabilir **RequestRetryOptions** ve tanımlanmışsa, verilerinizi birincil ardışık düzeninden ulaşmak başarısız olursa otomatik olarak ikincil ardışık düzenine geçmek uygulama izin verir.
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -394,6 +400,29 @@ PipelineOptions myOptions = new PipelineOptions();
 myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
+```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Node.js V10 SDK ile geri çağırma işleyicilerinin gereksizdir. Bunun yerine, örnek yeniden deneme seçeneklerini ve ikincil uç noktaya ile yapılandırılmış bir işlem hattı oluşturur. Bu uygulamanın verilerinizi birincil ardışık düzeninden ulaşmak başarısız olursa otomatik olarak ikincil ardışık düzenine geçmek sağlar.
+
+```javascript
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
+
+const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
+const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
+
+const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
+  retryOptions: {
+    maxTries: 3,
+    tryTimeoutInMs: 10000,
+    retryDelayInMs: 500,
+    maxRetryDelayInMs: 1000,
+    secondaryHost: secondaryAccountURL
+  }
+});
 ```
 
 ---

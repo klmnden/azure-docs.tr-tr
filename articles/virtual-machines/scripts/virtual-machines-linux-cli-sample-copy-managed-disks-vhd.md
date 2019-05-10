@@ -1,6 +1,6 @@
 ---
 title: Azure CLI örneği - yönetilen diskleri bir depolama hesabına kopyalayın.
-description: Azure CLI örneği - dışarı aktarma veya bir depolama hesabı için bir yönetilen disklere kopyalayın.
+description: Azure CLI örneği - dışarı aktarma veya yönetilen diskleri bir depolama hesabına kopyalayın.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 6252049c2258c391aa4483dd51ec0d9ee766bed0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5055860df007d0f009bd08c2b211ffeeaad711f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302458"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510867"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Azure CLI kullanarak bir depolama hesabına yönetilen disk dışarı aktarma/kopyalama
 
-Bu betik yönetilen diskin VHD dosyasını aynı veya farklı bölgede bulunan bir depolama hesabına aktarır. İlk olarak yönetilen diskin SAS URI'sini oluşturur ve sonra onu VHD dosyasını bir depolama hesabına kopyalamak için kullanır. Bu betiği bölgesel genişleme için yönetilen disklerinizi kopyalama amacıyla kullanabilirsiniz. 
+Bu betik yönetilen diskin VHD dosyasını aynı veya farklı bölgede bulunan bir depolama hesabına aktarır. İlk olarak yönetilen diskin SAS URI'sini oluşturur ve sonra onu VHD dosyasını bir depolama hesabına kopyalamak için kullanır. Bu betiği bölgesel genişleme için yönetilen diskleri farklı bölgelere kopyalama amacıyla kullanabilirsiniz. Azure Market'te bir yönetilen diskin VHD dosyası yayımlamak istiyorsanız, bir depolama hesabına VHD dosyasını kopyalayın ve ardından kopyalanan VHD Market'te yayımlamak için bir SAS URI'sini oluşturmak için bu betiği kullanabilirsiniz.   
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60643355"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518916"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure dosya paylaşımlarını yedekleme
 Bu makalede, Azure portalını kullanarak [Azure dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme ve geri yükleme işlemlerinin nasıl yapılacağı açıklanmaktadır.
@@ -56,7 +56,7 @@ Bu öğreticide zaten yerleşik bir Azure dosya paylaşımınız olduğu varsay�
 
     ![Yedekleme hedefi olarak Azure Dosya Paylaşımı'nı seçin](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Azure dosya paylaşımınızı Kurtarma Hizmetleri kasasına yapılandırmak için **Yedekle**'ye tıklayın. 
+3. Azure dosya paylaşımınızı Kurtarma Hizmetleri kasasına yapılandırmak için **Yedekle**'ye tıklayın.
 
    ![Azure dosya paylaşımını kasayla ilişkilendirmek için Yedekle'ye tıklayın](./media/backup-file-shares/set-backup-goal.png)
 
@@ -77,7 +77,7 @@ Bu öğreticide zaten yerleşik bir Azure dosya paylaşımınız olduğu varsay�
     Yedekleme ilkesi oluşturulduktan sonra, planlanan zamanda Dosya Paylaşımlarının anlık görüntüsü alınır ve seçilen süre için kurtarma noktası korunur.
 
 ## <a name="create-an-on-demand-backup"></a>İsteğe bağlı yedekleme oluşturma
-Bazen yedekleme ilkesinde planlanan zamanların dışında bir yedekleme anlık görüntüsü veya kurtarma noktası oluşturmak isteyebilirsiniz. İsteğe bağlı yedekleme oluşturmak için tercih edilen bir zaman, yedekleme ilkesini yapılandırmanızdan hemen sonrasıdır. Yedekleme ilkesindeki zamanlamaya bağlı olarak, bir anlık görüntünün alınması için saatler veya günler geçebilir. Yedekleme ilkesi devreye girene kadar verilerinizi korumak için, bir isteğe bağlı yedekleme başlatın. Dosya paylaşımlarınızda planlı değişiklikler yapmadan önce çoğunlukla bir İsteğe bağlı yedekleme oluşturmak gerekir.
+Bazen yedekleme ilkesinde planlanan zamanların dışında bir yedekleme anlık görüntüsü veya kurtarma noktası oluşturmak isteyebilirsiniz. İsteğe bağlı yedekleme oluşturmak için tercih edilen bir zaman, yedekleme ilkesini yapılandırmanızdan hemen sonrasıdır. Yedekleme ilkesindeki zamanlamaya bağlı olarak, bir anlık görüntünün alınması için saatler veya günler geçebilir. Yedekleme ilkesi devreye girene kadar verilerinizi korumak için, bir isteğe bağlı yedekleme başlatın. Dosya paylaşımlarınızı planlı değişiklikler yapmadan önce bir isteğe bağlı yedekleme oluşturmak genellikle gerekli değildir.
 
 ### <a name="to-create-an-on-demand-backup"></a>İsteğe bağlı yedekleme oluşturmak için
 
@@ -123,10 +123,12 @@ Azure Backup, Azure Portal'ın içinde bir Geri Yükleme Noktasına göz atabilm
 **Yedekleme İşleri** sayfasını açmak için:
 
 - İzlemek istediğiniz Kurtarma Hizmetleri kasasını açın ve Kurtarma Hizmetleri kasası menüsünde **İşler**'e ve ardından **Yedekleme İşleri**'ne tıklayın.
+
    ![İzlemek istediğiniz işi seçin](./media/backup-file-shares/open-backup-jobs.png)
 
     Yedekleme işlerinin listesi ve bu işlerin durumu gösterilir.
-   ![İzlemek istediğiniz işi seçin](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![İzlemek istediğiniz işi seçin](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>Yeni ilke oluşturma
 

@@ -10,15 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 30f009f76c25d80281d748e1e484175380ca9743
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027176"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506880"
 ---
 # <a name="what-is-reinforcement-learning"></a>Pekiştirmeye dayalı öğrenme nedir?
-
 
 Pekiştirmeye dayalı öğrenme, bunların kullanımından geri bildirim alarak davranışlarını öğrenen makine öğrenimine bir yaklaşımdır.
  
@@ -64,7 +63,7 @@ John aynı zamanda birkaç öğreticiler daha önce birleşik tahmin (ICML 2015)
 
 * [Düşük teknik borç ile bağlamsal bir karar almadan](https://arxiv.org/abs/1606.03966)
 * [Bir adil sınıflandırma indirimleri yaklaşımı](https://arxiv.org/abs/1803.02453)
-* [İleti örneği olmayan Dünyaları içinde verimli bağlamsal Bandits](https://arxiv.org/abs/1708.01799ds)
+* [İleti örneği olmayan Dünyaları içinde verimli bağlamsal Bandits](https://arxiv.org/abs/1708.01799)
 * [Kalan kaybı tahmin: Pekiştirmeye: No ile artımlı geribildirim öğrenme](https://openreview.net/pdf?id=HJNMYceCW)
 * [Yönergeler ve görsel gözlemler Eylemler pekiştirmeye dayalı öğrenme ile eşleme](https://arxiv.org/abs/1704.08795)
 * [Arama için daha iyi, Öğretmen öğrenme](https://arxiv.org/abs/1502.02206)

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: ba3529db07fcc3d92a8ca220dafbed9760a2b63a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: HT
+ms.openlocfilehash: 0bb5fa25301fa86564c7f7aadb3285bdd5898a08
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465514"
+ms.locfileid: "65511173"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Hızlı Başlangıç: .NET Framework için konuşma Speech SDK'sı ile Çevir
 
-Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma metin](quickstart-csharp-dotnet-windows.md) ve ve [metin okuma](quickstart-text-to-speech-dotnet-windows.md).
+Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma metin](quickstart-csharp-dotnet-windows.md) ve [metin okuma](quickstart-text-to-speech-dotnet-windows.md).
 
 Bu hızlı başlangıçta, bilgisayarınızın mikrofondan gelen kullanıcı konuşma yakalar, konuşma çevirir ve gerçek zamanlı olarak komut satırında çevrilmiş metne dönüştürür basit bir .NET Framework uygulaması oluşturacaksınız. Bu uygulama, 64 bit Windows üzerinde çalışacak şekilde tasarlanmıştır ve ile oluşturulmuş [konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
 

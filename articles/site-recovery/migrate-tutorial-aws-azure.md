@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195982"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519228"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -115,7 +115,11 @@ Azure portalda kasanızın sayfasında, **Başlarken** bölümünden **Site Reco
 
 İşiniz bittiğinde, sonraki bölüme geçmek için **Tamam**’ı seçin.
 
-### <a name="2-prepare-source"></a>2: Kaynağı hazırla
+### <a name="2-select-deployment-planning"></a>2: Dağıtım planlaması seçin
+
+**Dağıtım planlamasını tamamladınız mı?** bölümünde, **Daha sonra yapacağım**’ı seçin ve **Tamam**’ı seçin.
+
+### <a name="3-prepare-source"></a>3: Kaynağı hazırla
 
 **Kaynağı hazırla** sayfasında **+ Yapılandırma Sunucusu** seçeneğini belirleyin.
 
@@ -140,7 +144,7 @@ Azure portalda kasanızın sayfasında, **Başlarken** bölümünden **Site Reco
 
 Yapılandırma sunucusunu ayarlama işiniz bittiğinde portala geri dönün, **Yapılandırma Sunucusu** için oluşturmuş olduğunuz sunucuyu seçin. Seçin **Tamam** 3'e gidin: Hedef hazırlayın.
 
-### <a name="3-prepare-target"></a>3: Hedefi hazırla
+### <a name="4-prepare-target"></a>4: Hedefi hazırla
 
 Bu bölümde, bu öğreticinin önceki kısımlarındaki [Azure kaynaklarını hazırlama](#prepare-azure-resources) bölümündeyken oluşturduğunuz kaynaklar hakkında bilgi girersiniz.
 
@@ -149,8 +153,7 @@ Bu bölümde, bu öğreticinin önceki kısımlarındaki [Azure kaynaklarını h
 3. Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağınızın olup olmadığını doğrular. Bunlar, bu öğreticinin önceki kısımlarında [Azure kaynaklarını hazırlama](#prepare-azure-resources) bölümündeyken oluşturduğunuz kaynaklar olmalıdır.
 4. İşiniz bittiğinde **Tamam**’ı seçin.
 
-
-### <a name="4-prepare-replication-settings"></a>4: Çoğaltma ayarlarını hazırlama
+### <a name="5-prepare-replication-settings"></a>5: Çoğaltma ayarlarını hazırlama
 
 Çoğaltmayı etkinleştirmek için önce bir çoğaltma ilkesi oluşturmanız gerekir.
 
@@ -158,12 +161,7 @@ Bu bölümde, bu öğreticinin önceki kısımlarındaki [Azure kaynaklarını h
 2. **Ad** bölümüne **myReplicationPolicy** yazın.
 3. Geri kalan varsayılan ayarları değiştirmeyin ve **Tamam**’ı seçerek ilkeyi oluşturun. Yeni ilke otomatik olarak yapılandırma sunucusu ile ilişkilendirilir.
 
-### <a name="5-select-deployment-planning"></a>5: Dağıtım planlaması seçin
-
-**Dağıtım planlamasını tamamladınız mı?** bölümünde, **Daha sonra yapacağım**’ı seçin ve **Tamam**’ı seçin.
-
 **Altyapıyı hazırlama** altındaki beş bölümü de bitirdiğinizde **Tamam**’ı seçin.
-
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
@@ -236,7 +234,7 @@ Portalda yük devretme testini çalıştırın:
 
 Bazı senaryolarda, yük devretme için ek işlemler gerekir. İşlemin tamamlanması 8-10 dakika sürer.
 
-## <a name="migrate-to-azure"></a>Azure’a geçiş
+## <a name="migrate-to-azure"></a>Azure'a geçirme
 
 EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devretme çalıştırın:
 
@@ -248,7 +246,7 @@ EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devre
    - Böylece geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
    - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez. 
 
-     ![Geçişi tamamlama](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Tam geçiş](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Devam eden yük devretme işlemini iptal etmeyin*. Yük devretme başlatılmadan önce VM çoğaltması durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.  

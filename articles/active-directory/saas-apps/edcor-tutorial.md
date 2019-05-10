@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280143"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Öğretici: Edcor ile Azure Active Directory Tümleştirme
 
@@ -124,7 +124,7 @@ Azure AD çoklu oturum açma ile Edcor yapılandırmak için aşağıdaki adıml
 
 ### <a name="configure-edcor-single-sign-on"></a>Edcor tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Edcor** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Edcor Destek ekibine](http://www.edcor.com/contact-us-2/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Edcor** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Edcor Destek ekibine](https://www.edcor.com/contact-us/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -179,7 +179,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Edcor erişim vererek Br
 
 ### <a name="create-edcor-test-user"></a>Edcor test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Edcor içinde adlı bir kullanıcı oluşturun. Çalışmak [Edcor Destek ekibine](http://www.edcor.com/contact-us-2/) Edcor platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Edcor içinde adlı bir kullanıcı oluşturun. Çalışmak [Edcor Destek ekibine](https://www.edcor.com/contact-us/) Edcor platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

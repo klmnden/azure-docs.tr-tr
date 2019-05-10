@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: edjez
-ms.openlocfilehash: 2a62fd288f9118882e5cd9899ab572d4b247fc5a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a197531a7c78823271c0a5fa5413b76746f63a9a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158542"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507025"
 ---
 # <a name="install-and-run-personalizer-containers"></a>Yükleme ve Personalizer kapsayıcıları çalıştırma
 
@@ -99,7 +99,7 @@ Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı i
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) üç kapsayıcı birini çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{BILLING_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır ve Azure portalının Personalizer hizmet anahtarları sayfasında bulabilirsiniz.  |
 |{BILLING_ENDPOINT_URI} | Fatura uç noktası URI değerini Azure portalının Personalizer hizmetine genel bakış sayfasında kullanılabilir.|
@@ -163,7 +163,7 @@ Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için
 
 Burada kapsayıcı çalışıyor, komut satırı ortamında kapsayıcı kapatmak için basın **Ctrl + C**.
 
-## <a name="troubleshoot"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorun gider
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](personalizer-container-configuration.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
@@ -178,11 +178,11 @@ Kapsayıcı uç noktaları için belgeleri tam bir dizi sağlar hem de bir `Try 
 >  http://localhost:5000/swagger
 >  ```
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Azure için fatura, kullanarak Personalizer hizmeti kapsayıcıları Gönder bir _Personalizer hizmet_ Azure hesabınız kaynaktaki. 
 
-Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini göndermeyin. 
+Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor.  
 
 `docker run` Komutu, faturalama amacıyla aşağıdaki değişkenleri kullanır:
 

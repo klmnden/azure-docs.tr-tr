@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36f14c8b1a462c7cf8c5ef336a5279bf0f99b2f6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: HT
+ms.openlocfilehash: 943131bc746b5d2a1fd95a26a6a6c9f3bb6b9e57
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472877"
+ms.locfileid: "65509949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Öğretici: GmbH çözünürlüğün Jıra için SAML SSO ile Azure Active Directory Tümleştirme
 
@@ -47,7 +47,7 @@ Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamı
 
 * SAML SSO için Jıra GmbH destekler çözünürlüğün **SP** ve **IDP** tarafından başlatılan
 
-## <a name="adding-an-enterprise-application-for-single-sign-on"></a>Kurumsal uygulama için çoklu oturum açma ekleme
+## <a name="adding-an-enterprise-application-for-single-sign-on"></a>Bir kurumsal uygulama için çoklu oturum açma ekleme
 
 Azure AD'de çoklu oturum açmayı ayarlamak için yeni bir kuruluş uygulaması eklemeniz gerekir. Galeride, bunun için önceden önceden yapılandırılmış bir uygulama olduğundan **GmbH çözünürlüğün Jıra için SAML SSO**.
 
@@ -57,7 +57,7 @@ Azure AD'de çoklu oturum açmayı ayarlamak için yeni bir kuruluş uygulaması
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar** ve ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
@@ -65,25 +65,25 @@ Azure AD'de çoklu oturum açmayı ayarlamak için yeni bir kuruluş uygulaması
 
     ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **GmbH çözünürlüğün Jıra için SAML SSO**seçin **GmbH çözünürlüğün Jıra için SAML SSO** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine . Ayrıca, kuruluş adını da değiştirebilirsiniz.
+4. Arama kutusuna **GmbH çözünürlüğün Jıra için SAML SSO**seçin **GmbH çözünürlüğün Jıra için SAML SSO** sonuç paneli ve ardından **Ekle** düğme eklemek için uygulama. Ayrıca, kuruluş adını da değiştirebilirsiniz.
 
      ![SAML SSO için sonuç listesinde GmbH çözünürlüğün Jıra](common/search-new-app.png)
 
-## <a name="configure-and-test-single-sign-on-with-the-saml-sso-plugin-and-azure-ad"></a>Yapılandırma ve çoklu oturum açma SAML SSO eklentisi ve Azure AD ile test etme
+## <a name="configure-and-test-single-sign-on-with-the-saml-sso-plugin-and-azure-ad"></a>Yapılandırma ve Azure AD ve SAML SSO eklentisi ile çoklu oturum açmayı test etme
 
 Bu bölümde, test ve çoklu oturum açma Jıra için bir Azure AD kullanıcısı için yapılandırın. Bu adlı bir test kullanıcısı için gerçekleştirilir **Britta Simon**.
 Tek iş için oturum açma için bir Azure AD kullanıcısı ve SAML SSO Jıra için ilgili kullanıcı çözünürlüğün arasında bir bağlantı ilişki GmbH kurulması gerekir.
 
 Yapılandırma ve çoklu oturum açmayı test etmek için aşağıdaki adımları tamamlamanız gerekir:
 
-1. **[Azure AD Kurumsal uygulaması için çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  -Azure AD Kurumsal uygulama için çoklu oturum açmayı yapılandırın
-2. **[SAML SSO eklentisi Jıra örneğinizin yapılandırma](#configure-saml-sso-for-jira-by-resolution-gmbh-single-sign-on)**  -uygulama tarafında çoklu oturum açma ayarlarını yapılandırın.
+1. **[Azure AD Kurumsal uygulama için çoklu oturum açmayı yapılandırma](#configure-the-azure-ad-enterprise-application-for-single-sign-on)**  -Azure AD Kurumsal uygulama için çoklu oturum açmayı yapılandırın
+2. **[SAML SSO eklentisi Jıra örneğinizin yapılandırma](#configure-the-saml-sso-plugin-of-your-jira-instance)**  -uygulama tarafında çoklu oturum açma ayarlarını yapılandırın.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -Azure AD'de bir test kullanıcısı oluşturun.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  -etkinleştirme tek kullanmak üzere test kullanıcı oturum açma Azure tarafında.
-1. **[Test kullanıcısı oluşturma Jıra'da](#create-saml-sso-for-jira-by-resolution-gmbh-test-user)**  -karşılık gelen bir test kullanıcısı Jıra'da için Azure AD test kullanıcısı oluşturun.
+1. **[Test kullanıcısı oluşturma Jıra'da](#create-the-test-user-also-in-jira)**  -karşılık gelen bir test kullanıcısı Jıra'da için Azure AD test kullanıcısı oluşturun.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  -yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configure-the-azure-ad-enterprise-application-for-single-sign-on"></a>Azure AD Kurumsal uygulaması için çoklu oturum açmayı yapılandırın
+### <a name="configure-the-azure-ad-enterprise-application-for-single-sign-on"></a>Azure AD Kurumsal uygulama için çoklu oturum açmayı yapılandırın
 
 Bu bölümde, çoklu oturum açma Azure portalındaki ayarlarsınız.
 
@@ -101,7 +101,7 @@ Bu bölümde, çoklu oturum açma Azure portalındaki ayarlarsınız.
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
+4. İçinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** modu başlatılan ve ardından aşağıdaki adımları gerçekleştirin:
 
     ![Oturum açma bilgileri tek bir SAML SSO için Jıra çözünürlüğün GmbH etki alanı ve URL'ler](common/idp-intiated.png)
 
@@ -116,13 +116,13 @@ Bu bölümde, çoklu oturum açma Azure portalındaki ayarlarsınız.
     İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
-    > Tanımlayıcı, yanıt URL'si ve oturum açma URL'si için alternatif  **\<sunucu temel url >** Jıra örneğinizin temel URL'si. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında. Sorunlarla karşılaşırsanız, bize dilediğiniz çekinmeyin [SAML SSO Jıra çözünürlüğün GmbH istemci için Destek ekibine](https://www.resolution.de/go/support).
+    > Tanımlayıcı, yanıt URL'si ve oturum açma URL'si için alternatif  **\<sunucu temel url >** Jıra örneğinizin temel URL'si. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında. Bir sorun varsa, adresinden bize başvurun [SAML SSO Jıra çözünürlüğün GmbH istemci için Destek ekibine](https://www.resolution.de/go/support).
 
 4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde, indirme **Federasyon meta verileri XML** ve bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-### <a name="configure-the-saml-sso-plugin-of-your-jira-instance"></a>SAML SSO eklentisi Jıra örneğinizin yapılandırma] 
+### <a name="configure-the-saml-sso-plugin-of-your-jira-instance"></a>SAML SSO eklentisi Jıra örneğinizin yapılandırın 
 
 1. Farklı bir web tarayıcı penceresinde bir Jıra Örneğiniz için bir yönetici olarak oturum açın.
 
@@ -144,11 +144,11 @@ Bu bölümde, çoklu oturum açma Azure portalındaki ayarlarsınız.
 
     ![Çoklu oturum açmayı yapılandırın](./media/samlssojira-tutorial/store-3.png)
 
-6.  Ardından **Yönet**.
+6. ' A tıklayarak **Yönet**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/samlssojira-tutorial/store-4.png)
     
-8. Daha sonra tıklayarak **yapılandırma** yalnızca yüklü eklentiyi yapılandırmak için.
+8. Daha sonra tıklayın **yapılandırma** yalnızca yüklü eklentiyi yapılandırmak için.
 
     ![Çoklu oturum açmayı yapılandırın](./media/samlssojira-tutorial/store-5.png)
 
@@ -188,7 +188,7 @@ Bu bölümde, çoklu oturum açma Azure portalındaki ayarlarsınız.
 
     ![Çoklu oturum açmayı yapılandırın](./media/samlssojira-tutorial/addon5d.png)
     
-14. Üzerinde **kullanıcı oluşturma ve güncelleştirme** sayfasında **sonraki & Kaydet** ayarları kaydedin.
+14. Üzerinde **kullanıcı oluşturma ve güncelleştirme** sayfasında **sonraki & Kaydet** ayarları kaydetmek için.
     
     ![Çoklu oturum açmayı yapılandırın](./media/samlssojira-tutorial/addon6a.png)
     
@@ -228,31 +228,31 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümde, Britta Simon her çoklu oturum açma kullanacak şekilde sağlayan kurumsal uygulamaya ekleyin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**. 
+1. Azure portalında **kurumsal uygulamalar**ve ardından **tüm uygulamaları**. 
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Bu öğreticinin başlangıçta oluşturduğunuz Kurumsal uygulama uygulamalar listesinde arayın. Bu öğreticideki adımları takip ediyorsanız adlı **GmbH çözünürlüğün Jıra için SAML SSO**. Varsa, başka bir ad yazın, arama adı için verilmiş.
+2. Bu öğreticinin başlangıçta oluşturduğunuz Kurumsal uygulama uygulamalar listesinde arayın. Bu öğreticideki adımları takip ediyorsanız adlı **GmbH çözünürlüğün Jıra için SAML SSO**. Başka bir ad verdiyseniz, bu adını aratın.
 
     ![SAML SSO uygulamaları listesinde çözümleme GmbH bağlantısıyla Jıra için](common/all-applications.png)
 
-3. Sol bölmede bulunan tıklayarak **kullanıcılar ve gruplar**.
+3. Sol bölmede bulunan tıklayın **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Seçin **Kullanıcı Ekle**, ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+4. Seçin **Kullanıcı Ekle**ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcılar listesinden ardından **seçin** ekranın alt kısmındaki düğmesi.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıların listesini ve ardından **seçin** ekranın alt kısmındaki düğmesi.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin ve ardından'a tıklayın **seçin** ekranın alt kısmındaki düğmesi.
+6. SAML onaylama işlemi herhangi bir rolü değer daha sonra beklediğiniz varsa **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin ve ardından **seçin** ekranın alt kısmındaki düğmesi .
 
 7. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
 ### <a name="create-the-test-user-also-in-jira"></a>Test kullanıcısı Jıra'da oluşturabilir
 
-SAML SSO için Jıra GmbH çözünürlüğüyle oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar Jıra için SAML SSO içine GmbH çözüm tarafından sağlanması gerekir. Bu öğreticinin çalışması için el ile sağlama yapmanız gerekir. Ancak, aynı zamanda diğer sağlama modeli vardır, çözünürlüğün SAML SSO eklentisi için kullanılabilir örneğin **zamanında** sağlama. Kendi belgelerine başvurmak [SAML SSO GmbH çözünürlüğün](https://wiki.resolution.de/doc/saml-sso/latest/all). İlgili sorularınız varsa desteğe çekinmeyin [çözünürlük desteği](https://www.resolution.de/go/support).
+SAML SSO için Jıra GmbH çözünürlüğüyle oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar Jıra için SAML SSO içine GmbH çözüm tarafından sağlanması gerekir. Bu öğreticinin çalışması için el ile sağlama yapmanız gerekir. Ancak, aynı zamanda diğer sağlama modeli vardır, çözünürlüğün SAML SSO eklentisi için kullanılabilir örneğin **zamanında** sağlama. Kendi belgelerine başvurmak [SAML SSO GmbH çözünürlüğün](https://wiki.resolution.de/doc/saml-sso/latest/all). İlgili bir sorunuz varsa, desteğe başvurun [çözünürlük desteği](https://www.resolution.de/go/support).
 
 **Bir kullanıcı hesabını el ile sağlamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -262,7 +262,7 @@ SAML SSO için Jıra GmbH çözünürlüğüyle oturum açmak Azure AD kullanıc
 
    ![Çalışan Ekle](./media/samlssojira-tutorial/user1.png)
 
-3. Yönetici erişimi sayfasına yönlendirilirsiniz, girin **parola** tıklatıp **Onayla** düğmesi.
+3. Yönetici erişimi sayfasına yönlendirilirsiniz, enter **parola** tıklatıp **Onayla** düğmesi.
 
     ![Çalışan Ekle](./media/samlssojira-tutorial/user2.png) 
 
@@ -270,7 +270,7 @@ SAML SSO için Jıra GmbH çözünürlüğüyle oturum açmak Azure AD kullanıc
 
     ![Çalışan Ekle](./media/samlssojira-tutorial/user3-new.png) 
 
-5. Üzerinde **"Yeni kullanıcı oluşturma"** iletişim sayfasında, aşağıdaki adımları gerçekleştirin. Kullanıcıya tam olarak oluşturmak sahip olduğunuz Azure AD'de ister:
+5. Üzerinde **"Yeni kullanıcı oluşturma"** iletişim sayfasında, aşağıdaki adımları gerçekleştirin. Kullanıcı tam olarak oluşturmak sahip olduğunuz Azure AD'de ister:
 
     ![Çalışan Ekle](./media/samlssojira-tutorial/user4-new.png) 
 
@@ -278,7 +278,7 @@ SAML SSO için Jıra GmbH çözünürlüğüyle oturum açmak Azure AD kullanıc
 
     b. İçinde **tam adı** metin kutusuna kullanıcının tam adını yazın: **Britta Simon**.
 
-    c. İçinde **kullanıcıadı** metin kutusu, kullanıcının e-posta yazın: <b> BrittaSimon@contoso.com </b>. 
+    c. İçinde **kullanıcıadı** metin kutusuna kullanıcı e-posta adresini yazın: <b> BrittaSimon@contoso.com </b>. 
 
     d. İçinde **parola** metin kutusu, kullanıcının parolasını girin.
 
@@ -313,7 +313,7 @@ SSO yeniden yönlendirme etkinleştirmek için aşağıdakileri yapabilirsiniz *
 Seçeneğini etkinleştirdikten sonra kullanıcı adı/parola istemi if ulaşmaya devam edebilirsiniz **etkinleştirme nosso** seçeneği giderek işaretlendiğinden [https://\<sunucu temel url > /login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). Her zaman alternatif  **\<sunucu temel url >** temel URL'niz ile.
 
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 - [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
