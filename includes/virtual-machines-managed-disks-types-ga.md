@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: rockboyfor
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/13/2019
-ms.author: v-yeche
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a4110d68dc8aa921d647f90de654d2ebb4e17d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618066"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65212055"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
@@ -22,12 +22,16 @@ Azure premium SSD giriş/çıkış (GÇ) ile sanal makineleri (VM'ler) için yü
 ### <a name="disk-size"></a>Disk boyutu
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
+Standart depolama aksine, bir premium depolama disk sağlarken, kapasite, IOPS ve aktarım hızı bu diskin garanti edilir. Örneğin, P50 disk oluşturursanız, Azure 4.095 GB depolama kapasitesi, 7.500 IOPS ve 250-MB/sn aktarım hızı bu disk için hazırlar. Uygulamanız, kapasite ve performans bölümünü veya tümünü kullanabilirsiniz. Premium SSD diskleri, hedef performans % 99,9 oranında sağlamak üzere tasarlanmıştır.
+
 ## <a name="standard-ssd"></a>Standart SSD
 
 Azure standart SSD'ler düşük IOPS düzeylerinde tutarlı bir performans gerektiren iş yükleri için en iyi duruma getirilmiş düşük maliyetli depolama bir seçenektir. Standart SSD, özellikle varyansını HDD çözümlerinizi şirket içinde çalışan iş yükleri ile ilgili sorun yaşıyorsanız kullanıcıların buluta taşımak istediğiniz iyi giriş düzeyi deneyimi sunar. Standart SSD daha iyi kullanılabilirlik, tutarlılık, güvenilirlik ve HDD disklere karşılaştırıldığında gecikme süresi sunar. Standart SSD, Web sunucuları, düşük IOPS uygulama sunucuları, az kullanılan kurumsal uygulamalar ve geliştirme/Test iş yükleri için uygundur.
 
 ### <a name="disk-size"></a>Disk boyutu
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+
+Standart SSD GÇ işlemlerinin çoğu için Tek haneli milisaniyelik gecikme süreleri sağlamak ve IOPS ve aktarım hızı önceki tabloda örneklerin % 99 oranında açıklanan limitlerde sunmak için tasarlanmıştır. Bazen gerçek IOPS ve aktarım hızı trafik düzenlerini bağlı olarak değişiklik gösterebilir. Standart SSD daha düşük gecikme süresiyle HDD diskleri daha tutarlı performans sağlar.
 
 ## <a name="standard-hdd"></a>Standart HDD
 
@@ -36,7 +40,7 @@ Azure standart HDD, gecikmeye duyarlı olmayan iş yükleri çalıştıran VM'le
 ### <a name="disk-size"></a>Disk boyutu
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Yönetilen diskleri kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
 

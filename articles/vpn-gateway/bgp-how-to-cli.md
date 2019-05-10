@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390685"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209520"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI kullanarak bir Azure VPN ağ geçidinde BGP yapılandırma
 
@@ -56,7 +56,7 @@ Bu bölümde, diğer iki yapılandırma bölümlerinde adımları gerçekleştir
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-#### <a name="2-create-a-resource-group"></a>2. Kaynak grubu oluşturma
+#### <a name="2-create-a-resource-group"></a>2. Kaynak grubu oluşturun
 
 Aşağıdaki örnek, "eastus" konumunda TestRG1'adlı bir kaynak grubu oluşturur. Sanal ağınızı oluşturmak için istediğiniz bölgede zaten bir kaynak grubu varsa, bunun yerine bunu kullanabilirsiniz.
 
@@ -131,7 +131,7 @@ Ağ geçidi oluşturulduktan sonra içi ve dışı karışık bağlantı veya BG
 Bu alıştırmada, derleme yapılandırması Aşağıdaki diyagramda gösterilen devam eder. Değerleri, yapılandırma için kullanmak istediğiniz değerlerle değiştirdiğinizden emin olun. Yerel ağ geçitleri ile çalışırken şunları göz önünde bulundurun:
 
 * Yerel ağ geçidi aynı konum ve kaynak grubunda VPN Gateway olabilir veya farklı bir konum ve kaynak grubu içinde olabilir. Bu örnekte ağ geçitleri farklı kaynak gruplarında farklı konumlarda gösterilir.
-* Yerel ağ geçidi için bildirmek için gereken en düşük ön ek VPN cihazınızın BGP eş IP adresiniz konak adresidir. Bu durumda, bir özelliğini/32 olduğu 10.52.255.254/32 öneki.
+* Yerel ağ geçidi için bildirmek için gereken en düşük ön ek VPN cihazınızın BGP eş IP adresiniz konak adresidir. Bu durumda, bir özelliğini/32 olduğu 10.51.255.254/32 öneki.
 * Bir anımsatıcı şirket içi ağlarınız ve Azure sanal ağı arasında farklı BGP Asn'ler kullanmanız gerekir. Aynı olmaları durumunda, şirket içi VPN cihazlarınız ile diğer BGP komşu eşlenecek ASN'yi zaten kullanıyorsanız, VNet ASN'nizi değiştirmeniz gerekir.
 
 Devam etmeden önce tamamladığınızdan emin olun [VPN ağ geçidi için BGP etkinleştir](#enablebgp) bölümü Bu alıştırmada, ve 1. Abonelik'e hala bağlı olduğunuz. Bu örnekte dikkat edin, yeni bir kaynak grubu oluşturun. Ayrıca, yerel ağ geçidi için iki ek parametreler dikkat edin: `Asn` ve `BgpPeerAddress`.
@@ -225,7 +225,7 @@ IP adres alanı yeni sanal ağ TestVNet2, tüm sanal ağ Aralıklarınızın ça
 
 Bu örnekte, sanal ağlar aynı aboneliğe ait. Farklı abonelikler arasında VNet-VNet bağlantılarında ayarlayabilirsiniz. Daha fazla bilgi için bkz. [bir VNet-VNet bağlantısını yapılandırma](vpn-gateway-howto-vnet-vnet-cli.md). Eklediğiniz emin `-EnableBgp $True` BGP'yi etkinleştirmek için bir bağlantı oluşturulurken.
 
-#### <a name="1-create-a-new-resource-group"></a>1. Yeni bir kaynak grubu oluşturma
+#### <a name="1-create-a-new-resource-group"></a>1. Yeni kaynak grubu oluştur
 
 ```azurecli
 az group create -n TestBGPRG2 -l westus

@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027981"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229998"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Önizleme - ağ ilkelerini Azure Kubernetes Service (AKS) kullanarak pod'ları arasındaki trafiğin güvenliğini sağlama
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ağ ilkeleri kullanılarak pod'ları arasındaki trafiğin güvenliğini sağlama
 
 Kubernetes'te modern, mikro hizmet tabanlı uygulamaları çalıştırdığınızda, genellikle hangi bileşenlerin birbirleriyle iletişim kurabilir denetlemek istersiniz. En düşük öncelik ilkesini nasıl trafiği Azure Kubernetes Service (AKS) kümesini pod'ların arasında akış için uygulanmalıdır. Büyük olasılıkla, trafiği doğrudan arka uç uygulamaları engellemek istiyorsunuz diyelim. *Ağ İlkesi* özellik kubernetes pod'ların bir küme arasında giriş ve çıkış trafiği için kuralları tanımlamanıza olanak sağlar.
 
-Bu makalede, ağ ilke Altyapısı'nı ve AKS pod'ların arasındaki trafik akışını denetlemek için Kubernetes ağ ilkeleri oluşturmak nasıl gösterir. Bu özellik şu anda önizleme sürümündedir.
-
-> [!IMPORTANT]
-> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
->
-> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+Bu makalede, ağ ilke Altyapısı'nı ve AKS pod'ların arasındaki trafik akışını denetlemek için Kubernetes ağ ilkeleri oluşturmak nasıl gösterir. Ağ İlkesi, yalnızca Linux tabanlı düğümler ve pod'ların AKS için kullanılmalıdır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
-Ağ İlkesi kullanan bir AKS kümesi oluşturmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Kaydedilecek *EnableNetworkPolicy* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kullanarak kayıt durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısı [az provider register] [ az-provider-register] komutu:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> Önizleme sırasında ağ ilkesi özelliğini kullandıysanız, öneririz, [yeni küme oluşturma](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> Ağ İlkesi Önizleme sırasında kullanılan mevcut test kümelerini kullanmaya devam etmek istiyorsanız, en son GA sürümü için yeni bir Kubernetes sürümleri kümenizi yükseltmek ve ardından kilitlenen ölçümleri sunucu ve Kubernetes düzeltmek için aşağıdaki YAML bildirimi dağıtın Pano. Bu düzeltmedir yalnızca Calico ağ ilke altyapısı kullanılan kümeleri için gereklidir.
+>
+> Güvenlik açısından en iyisi [bu YAML bildirimin içeriğini gözden geçirin] [ calico-aks-cleanup] AKS kümeye dağıtılan anlamak için.
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Ağ İlkesi'ne genel bakış
 
@@ -78,6 +64,7 @@ Ağ İlkesi yalnızca Azure CNI (Gelişmiş) seçeneği ile çalışır. Uygulam
 | Kubernetes belirtimi ile uyumluluk | Desteklenen tüm ilke türleri |  Desteklenen tüm ilke türleri |
 | Ek özellikler                      | None                       | Genel ağ ilkesi, genel ağ ayarlayın ve ana bilgisayar bitiş noktası oluşan ilke modeli genişletilmiş. Kullanma hakkında daha fazla bilgi için `calicoctl` bu özellikler, genişletilmiş yönetmek için CLI bkz [calicoctl kullanıcı başvurusu][calicoctl]. |
 | Destek                                  | Azure destek ve mühendislik ekibi tarafından desteklenir | Calico topluluk desteği. Ek Ücretli destek hakkında daha fazla bilgi için bkz. [proje Calico destek seçenekleri][calico-support]. |
+| Günlüğe kaydetme                                  | Eklenen / silindi IPTables kurallarını her konak altında oturum */var/log/azure-npm.log* | Daha fazla bilgi için [Calico bileşeni günlükleri][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS kümesi oluşturma ve Ağ İlkesi'ni etkinleştirin
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ Ağ kaynakları hakkında daha fazla bilgi için bkz. [kavramları Azure Kuberne
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

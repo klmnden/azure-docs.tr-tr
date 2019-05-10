@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad69c4108d747c44eccf37b81adf2c7c615cb58
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156853"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410707"
 ---
 # <a name="create-a-custom-voice"></a>Özel ses oluşturma
 
-İçinde [özel ses için verileri hazırlama](how-to-custom-voice-prepare-data.md), özel sesli ve farklı biçim gereksinimlerini eğitmek için kullanabileceğiniz farklı veri türleri açıkladığımız. Verilerinizi hazır olduktan sonra bunları karşıya başlayabilirsiniz [özel sesli portalı](http://aka.ms/custom-voice-portal), özel sesli eğitim API'si aracılığıyla veya. Burada özel bir ses portal üzerinden eğitim adımları açıklanmaktadır.
+İçinde [özel ses için verileri hazırlama](how-to-custom-voice-prepare-data.md), özel sesli ve farklı biçim gereksinimlerini eğitmek için kullanabileceğiniz farklı veri türleri açıkladığımız. Verilerinizi hazır olduktan sonra bunları karşıya başlayabilirsiniz [özel sesli portalı](https://aka.ms/custom-voice-portal), özel sesli eğitim API'si aracılığıyla veya. Burada özel bir ses portal üzerinden eğitim adımları açıklanmaktadır.
 
 > [!NOTE]
 > Bu sayfa okuma izniniz varsayar [özel sesli ile çalışmaya başlama](how-to-custom-voice.md) ve [özel ses için verileri hazırlama](how-to-custom-voice-prepare-data.md)ve özel ses projesi oluşturmuş oldunuz.
@@ -28,7 +28,7 @@ ms.locfileid: "65156853"
 
 ## <a name="upload-your-datasets"></a>Veri kümelerini karşıya yükleme
 
-Verilerinizi yüklemeye hazır olduğunuzda, Git [özel sesli portalı](http://aka.ms/custom-voice-portal). Oluşturma veya özel sesli bir proje seçin. Projeye sağ dil/bölge ve verileri cinsiyet özellikleri paylaşmalıdır ses eğitiminizde kullanmak istiyorsanız. Örneğin, `en-GB` bir Birleşik Krallık Vurgu ile İngilizce dilinde, sahip ses kayıtlarını gerçekleştirilir.
+Verilerinizi yüklemeye hazır olduğunuzda, Git [özel sesli portalı](https://aka.ms/custom-voice-portal). Oluşturma veya özel sesli bir proje seçin. Projeye sağ dil/bölge ve verileri cinsiyet özellikleri paylaşmalıdır ses eğitiminizde kullanmak istiyorsanız. Örneğin, `en-GB` bir Birleşik Krallık Vurgu ile İngilizce dilinde, sahip ses kayıtlarını gerçekleştirilir.
 
 Git **veri** sekmesine **verileri karşıya yükleme**. Sihirbazda hazırlıklarını tamamladığınızdan eşleşen doğru veri türünü seçin.
 
@@ -44,10 +44,10 @@ Karşıya yükleme düğmesini yaklaştığınızda veri kümeleri otomatik olar
 
 Aşağıdaki tablo, içeri aktarılan veri kümeleri için işleme durumları gösterir:
 
-| Durum | Anlamı |
+| Eyalet | Anlamı |
 | ----- | ------- |
 | İşleniyor | Veri kümeniz alındı ve işleniyor. |
-| Başarılı oldu | Veri kümeniz doğrulandı ve şimdi bir ses model oluşturmak üzere kullanılabilir. |
+| Başarılı Oldu | Veri kümeniz doğrulandı ve şimdi bir ses model oluşturmak üzere kullanılabilir. |
 | Başarısız | Veri işlenirken birçok nedeni, örneğin dosya hataları, veri sorunları veya ağ sorunları nedeniyle başarısız oldu. |
 
 Doğrulama tamamlandıktan sonra toplam sayısı her biri, veri kümeleri için eşleşen konuşma gördüğünüz **konuşma** sütun. Seçtiğiniz veri türü uzun ses Segment gerektiriyorsa, bu sütun yalnızca biz sizin ya da temel alarak, dökümler veya konuşma tanıma hizmeti aracılığıyla segmentlere konuşma yansıtır. Daha fazla veri kümesinin başarıyla içeri aktarıldı konuşma ayrıntılı sonuçlarını ve bunların eşleme Dökümleri gibi görüntülemek için doğrulanmış indirebilirsiniz. İpucu: uzun ses Segment veri işleme tamamlanması bir saat sürebilir.
@@ -86,10 +86,10 @@ Bu yeni modeli oluşturulan eğitim tablo karşılık gelen yeni bir giriş gör
 
 Gösterilen durum veri kümenizde sesli modeline dönüştürme işlemidir, burada gösterildiği gibi yansıtır.
 
-| Durum | Anlamı |
+| Eyalet | Anlamı |
 | ----- | ------- |
 | İşleniyor | Ses modelinizi oluşturuluyor. |
-| Başarılı oldu | Ses modelinizi oluşturuldu ve dağıtılabilir. |
+| Başarılı Oldu | Ses modelinizi oluşturuldu ve dağıtılabilir. |
 | Başarısız | Ses modelinizi eğitim birçok nedeni, örneğin görünmeyen veri sorunları veya ağ sorunları nedeniyle başarısız oldu. |
 
 Zaman eğitim işlenen ses veri hacmine bağlı olarak değişir. Tipik bir kez gelen hakkında konuşma yüzlerce 30 dakika ila 20.000 konuşma 40 saat aralığı. Model eğitim başarılı sonra test etmek başlatabilirsiniz.

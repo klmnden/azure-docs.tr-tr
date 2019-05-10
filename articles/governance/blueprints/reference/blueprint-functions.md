@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769309"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209425"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>İşlevler Azure şemaları ile kullanmak için
 
@@ -41,11 +41,11 @@ Bir nesnenin özellikleri ile blueprint yapıtları çıkışlarının doldurulu
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Çıkış özellikleri bir nesne. Çıktı özelliklerini başvurulan blueprint yapıtı türüne bağlıdır. Tüm türleri, biçimi izleyin:
+Çıkış özellikleri bir nesne. **Çıkarır** özellikleri başvurulan blueprint yapıtı türüne bağımlı. Tüm türleri, biçimi izleyin:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Bir nesnenin özellikleri ile blueprint yapıtları çıkışlarının doldurulu
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -63,13 +63,13 @@ Bir nesnenin özellikleri ile blueprint yapıtları çıkışlarının doldurulu
 
 #### <a name="resource-manager-template-artifact"></a>Resource Manager şablonu yapıt
 
-**Çıkış** döndürülen nesne özellikleri Resource Manager şablonunda tanımlanır ve dağıtımı tarafından döndürülen.
+**Çıkarır** döndürülen nesne özellikleri Resource Manager şablonunda tanımlanır ve dağıtımı tarafından döndürülen.
 
 #### <a name="role-assignment-artifact"></a>Rol atama yapıtındaki
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -109,12 +109,12 @@ Veri alma ilişkin bazı örnekler _myTemplateArtifact_ örnek:
 
 | İfade | Tür | Değer |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Dizi | \["önce", "saniye"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | String | "first" |
-|`[artifacts("myTemplateArtifact").output.myString]` | String | "Benim dize değeri" |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | {"myproperty": "my value", "anotherProperty": true} |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | String | "Benim value" |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Dizi | \["önce", "saniye"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "Benim dize değeri" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "my value", "anotherProperty": true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "Benim value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -324,7 +324,7 @@ Ardından `resourceGroups()` kaynak grubu yer tutucu nesnesine bir başvuru alma
 }
 ```
 
-## <a name="subscription"></a>aboneliği
+## <a name="subscription"></a>abonelik
 
 `subscription()`
 

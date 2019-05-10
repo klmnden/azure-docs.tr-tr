@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: ac07373bcdf4bbf0f7bfc5b131ffe4eb26bc3ac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f987b236cbec9bd4dd332213c2ec7eadcb0752e7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478739"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212060"
 ---
 > [!NOTE] 
-> Veri akışı eşlemesi, Azure Data Factory yeni bir özelliktir. Bu, şu anda sınırlı genel Önizleme aşamasındadır ve Azure müşteri SLA hükümlerine tabi değildir. [Önizleme için kaydolma, lütfen burada erişim isteğinde](https://aka.ms/dataflowpreview).
+> Azure Data Factory eşleme veri akışı şu anda genel Önizleme bir özelliktir ve Azure müşteri SLA hükümlerine tabi değildir.

@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a9726b73226cd940a55e316ae434aeaad6ff4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354069"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190804"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
@@ -40,7 +40,7 @@ Bu öğreticide, yönetilen etki alanlarındaki cihazlar için hibrit Azure AD'y
 > * Hibrit Azure AD'ye katılımı yapılandırma
 > * Windows alt düzey cihazlarını etkinleştirme
 > * Katılmış cihazları doğrulama 
-> * Sorun giderme 
+> * Sorun gider 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -52,7 +52,10 @@ Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
 -  [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](hybrid-azuread-join-plan.md)
 
 -  [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](hybrid-azuread-join-control.md)
-  
+
+> [!NOTE]
+> Azure AD, yönetilen etki alanlarında akıllı kartlar veya sertifikaları desteklemez.
+
 
 Bu makaledeki senaryoda yapılandırmak için gerekir:
 
@@ -102,7 +105,7 @@ Azure AD Connect kullanarak bir hibrit Azure AD'ye katılımı yapılandırmak i
 
 4. **Azure AD'ye Bağlanma** sayfasında Azure AD kiracınızın genel yöneticisinin kimlik bilgilerini girin.  
 
-    ![Azure AD'ye Bağlanma](./media/hybrid-azuread-join-managed-domains/14.png)
+    ![Azure AD'ye bağlan](./media/hybrid-azuread-join-managed-domains/14.png)
 
 5. **Cihaz seçenekleri** sayfasında **Hibrit Azure AD'ye katılımı yapılandır** öğesini seçin ve ardından **İleri** seçeneğine tıklayın. 
 
@@ -148,7 +151,7 @@ Bazı etki alanına katılmış cihazlar Windows alt düzey cihazlarıysa şunla
 - Windows alt düzey cihazlarını denetleme 
 
 
-### <a name="update-device-settings"></a>Cihaz ayarlarını güncelleştirme 
+### <a name="update-device-settings"></a>Cihaz ayarlarını güncelleştir 
 
 Windows alt düzey cihazlarını kaydetmek için, cihaz ayarlarının kullanıcıların Azure AD'de cihazları kaydedebilmesini sağlayacak şekilde ayarlandığından emin olmanız gerekir. Azure portal'da bu ayarı şu bölümde bulabilirsiniz:
 
@@ -200,7 +203,7 @@ Hizmet ayrıntılarını kontrol etmek için **Get-MSolDevice** cmdlet kullanır
 
 2. Azure kiracınıza bağlanmak için `Connect-MsolService` yazın.  
 
-3. `get-msoldevice -deviceId <deviceId>` yazın.
+3. `get-msoldevice -deviceId <deviceId>`yazın.
 
 6. **Enabled** değerinin **True** olarak ayarlandığını doğrulayın.
 

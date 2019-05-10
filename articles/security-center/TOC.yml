@@ -58,6 +58,8 @@
       items:
         - name: Veri toplama
           href: security-center-enable-data-collection.md
+        - name: IaaS için gelişmiş veri güvenliği
+          href: security-center-iaas-advanced-data.md
         - name: Yerleşik güvenlik ilkeleri
           href: security-center-policy-definitions.md
         - name: E-posta bildirimleri
@@ -168,6 +170,8 @@
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: Özellik ve API’yi kullanımdan kaldırma (Temmuz 2019)
+      href: security-center-features-retirement-july2019.md
 - name: Kaynaklar
   items:
     - name: Microsoft Learn ile becerilerinizi geliştirin

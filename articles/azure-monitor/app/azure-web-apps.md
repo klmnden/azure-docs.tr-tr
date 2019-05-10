@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922456"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408231"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 
@@ -23,7 +23,7 @@ Temel üzerinde çalışan web uygulamaları, .NET ve .NET Core izlemeyi etkinle
 > [!NOTE]
 > Bir Application Insights site uzantısı aracılığıyla el ile ekleme **geliştirme araçları** > **uzantıları** kullanım dışı bırakılmıştır. Bu uzantı yükleme yöntemi her yeni sürümü için el ile güncelleştirmeler bağımlıdır. Uzantının en son kararlı sürüm sunulmuştur [önceden](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service görüntünün bir parçası olarak. Dosyalar bulunur `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` ve kararlı her sürümde otomatik olarak güncelleştirilir. İzlemeyi etkinleştirmek için aracı tabanlı yönergeleri izlerseniz aşağıda bunu otomatik olarak kullanım dışı uzantı sizin için kaldırılır.
 
-## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
+## <a name="enable-application-insights"></a>Application Insights'ı Etkinleştir
 
 Azure App Services, barındırılan uygulamalar için uygulama izlemeyi etkinleştirmek için iki yolu vardır:
 
@@ -274,7 +274,7 @@ Bir örneği aşağıda verilmiştir tüm örneklerinin yerine `AppMonitoredSite
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```

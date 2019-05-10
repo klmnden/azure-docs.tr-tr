@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d88de2bf660165022b39aaa0321ff5c62ea81cd3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653808"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231854"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -61,7 +61,7 @@ Hedef birim elde etmek için bazı oluşturulan telemetri atılır. Ancak, örne
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>ASP.NET uygulamaları için Uyarlamalı örnekleme yapılandırma
 
-[Bilgi](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) Uyarlamalı örnekleme için ASP.NET Core uygulamaları için yapılandırma hakkında daha fazla. 
+[Bilgi](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) Uyarlamalı örnekleme ASP.NET Core uygulamaları için yapılandırma hakkında daha fazla. 
 
 İçinde [Applicationınsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), çeşitli parametreleri ayarlayabileceğiniz `AdaptiveSamplingTelemetryProcessor` düğümü. Gösterilen rakamları, varsayılan değerler şunlardır:
 

@@ -4,6 +4,8 @@
   items:
     - name: Stream Analytics nedir?
       href: stream-analytics-introduction.md
+    - name: Uçtan uca çözüm desenleri
+      href: stream-analytics-solution-patterns.md
 - name: Hızlı Başlangıçlar
   items:
     - name: İş oluşturma - Azure portalı
@@ -12,6 +14,8 @@
       href: stream-analytics-quick-create-powershell.md
     - name: İş oluşturma - Visual Studio
       href: stream-analytics-quick-create-vs.md
+    - name: İş oluşturma - Visual Studio Code
+      href: quick-create-vs-code.md
 - name: Öğreticiler
   items:
     - name: 1 - İş oluşturma / yönetme
@@ -143,7 +147,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: IoT Edge işleri için API kullanma
           href: stream-analytics-cicd-api.md
-    - name: Visual Studio araçları
+    - name: Visual Studio ve VS Code
       items:
         - name: Araçları yükleme
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -159,6 +163,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: Edge için .NET UDF yazma
           href: stream-analytics-edge-csharp-udf-methods.md
+        - name: VS Code’da Stream Analytics’i keşfetme
+          href: vs-code-how-to.md
     - name: Sorun giderme
       items:
         - name: Girdi
@@ -435,6 +441,9 @@
               maintainContext: true
             - name: Atlayan Pencere
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+            - name: Pencereleme işlevlerini toplama
+              href: /stream-analytics-query/windows-azure-stream-analytics
               maintainContext: true
     - name: Veri Türleri
       items:

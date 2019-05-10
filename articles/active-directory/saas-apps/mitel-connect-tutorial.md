@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b022d3a51a6a1ef16c7d02aa76c5313e1a94e7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0afa1937b5122d7cdf890176b616c433a63b25a2
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59287423"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-connect"></a>Öğretici: Mitel Connect ile Azure Active Directory Tümleştirmesi
 
@@ -104,12 +104,18 @@ Azure AD çoklu oturum açma Mitel bağlantı ile yapılandırmak için aşağı
 
     ![Mitel bağlanmak etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:
+
+    | |
+    |--|
+    | `https://portal.shoretelsky.com`|
+    | `https://teamwork.shoretel.com`|
+    | |
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://authentication.api.mitel.io/2017-09-01/saml2/<account-uui>`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Mitel bağlanmak istemci Destek ekibine](https://www.mitel.com/support/mitel-technical-support) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Tanımlayıcı değerini gerçek değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Mitel bağlanmak istemci Destek ekibine](https://www.mitel.com/support/mitel-technical-support) bu değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -147,7 +153,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alanına brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com.
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
@@ -183,7 +189,7 @@ Bu bölümde, Azure çoklu oturum açma Mitel bağlanmak için erişim izni verm
 
 Bu bölümde, Britta Simon Mitel Bağlan adlı bir kullanıcı oluşturun. Çalışmak [Mitel bağlanmak Destek ekibine](https://www.mitel.com/support/mitel-technical-support) Mitel bağlanmak platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -196,4 +202,3 @@ Erişim paneli Mitel bağlanma kutucuğa tıkladığınızda, size otomatik olar
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

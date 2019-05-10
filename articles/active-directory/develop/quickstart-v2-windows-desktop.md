@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c9600c20349627c1da2bdf4f1bbc2f3d7a55549
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2d263014638329c454149af8ca922c1c5c6393a5
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067772"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413846"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Hızlı Başlangıç: Bir belirteç almak ve bir Windows Masaüstü uygulamasından Microsoft Graph API çağırma
 
@@ -46,7 +46,7 @@ Bu hızlı başlangıçta bir kişi, iş ve okul hesaplarında oturum açma, bir
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
 >
-> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
+> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydedin
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile eklemek için şu adımları izleyin:
 >
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
@@ -72,9 +72,9 @@ Bu hızlı başlangıçta bir kişi, iş ve okul hesaplarında oturum açma, bir
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirin
 
-[Visual Studio 2017 projesini indirin](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
+#### <a name="step-3-configure-your-visual-studio-project"></a>3. adım: Visual Studio projenizi yapılandırın
 
 1. Zip dosyasını diskin köküne yakın bir yerel klasöre (örneğin **C:\Azure-Samples**) ayıklayın.
 1. Projeyi Visual Studio'da açın.

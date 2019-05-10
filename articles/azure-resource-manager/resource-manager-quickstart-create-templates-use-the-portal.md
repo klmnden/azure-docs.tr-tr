@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4fe859b1343e2aea71bd41a3b7742a29bbff389f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464229"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205877"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Hızlı Başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma
 
@@ -32,7 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="generate-a-template-using-the-portal"></a>Portalı kullanarak şablon oluşturma
 
-Yeni Azure dağıtım ve ile JSON biçiminde değil tanıdık olduğunuz kullanıyorsanız özellikle sıfırdan bir Resource Manager şablonu oluşturarak bir kolayca görev değil. Azure portalını kullanarak, bir kaynak, örneğin bir Azure depolama hesabı yapılandırabilirsiniz. Kaynak dağıtmadan önce bir Resource Manager şablonuyla yapılandırmanızı dışarı aktarabilirsiniz. Şablonu kaydedebilir ve daha sonra yeniden kullanabilirsiniz.
+Sıfırdan bir Resource Manager şablonu oluşturarak bir kolayca görev özellikle Azure dağıtımı için yenidir ve JSON biçimiyle ilgili bilgi sahibi değilseniz değildir. Azure portalını kullanarak, bir kaynak, örneğin bir Azure depolama hesabı yapılandırabilirsiniz. Kaynak dağıtmadan önce bir Resource Manager şablonuyla yapılandırmanızı dışarı aktarabilirsiniz. Şablonu kaydedebilir ve daha sonra yeniden kullanabilirsiniz.
 
 Pek çok deneyimli şablon Geliştirici ile tanıdık olmayan Azure kaynaklarını dağıtın çalıştıklarında şablonları oluşturmak için bu yöntemi kullanın. Portalı kullanarak şablonları dışarı aktarma hakkında daha fazla bilgi için bkz. [kaynak grupları için şablonları dışarı aktarma](./manage-resource-groups-portal.md#export-resource-groups-to-templates). Bir çalışma şablonu bulmak için diğer bir yolu [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/).
 

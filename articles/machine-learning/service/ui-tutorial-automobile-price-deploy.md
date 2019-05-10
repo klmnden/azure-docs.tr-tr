@@ -2,19 +2,19 @@
 title: 'Öğretici: Bir machine learning modeli görsel arabirim ile dağıtma'
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti visual arabiriminde bir Tahmine dayalı analiz çözümü oluşturmayı öğrenin. Eğitme, Puanlama ve sürükleme kullanarak makine öğrenme modeli dağıtma ve modülleri bırakın. Bu öğreticide doğrusal regresyon kullanarak otomobil fiyatlarını tahmin etme bulunan iki bölümden oluşan bir bölümüdür.
-author: peterlu
-ms.author: peterlu
+author: peterclu
+ms.author: peterclu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e9ece81b1f663910fb3c051bd94c13c54ffa8470
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190912"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Öğretici: Bir machine learning modeli görsel arabirim ile dağıtma
 
@@ -31,7 +31,7 @@ Bu öğreticide, Azure Machine Learning hizmeti görsel arabirim Tahmine dayalı
 
 Tam [öğreticinin birinci kısmında](ui-tutorial-automobile-price-train-score.md).
 
-## <a name="prepare-for-deployment"></a>Dağıtım için hazırlanma
+## <a name="prepare-for-deployment"></a>Dağıtıma hazırlanma
 
 Bu öğreticide geliştirilen Tahmine dayalı model kullanmak için bir şans verin başkaları için bir Azure web hizmeti olarak dağıtabilirsiniz.
 
@@ -60,9 +60,9 @@ Seçtiğinizde, **Web hizmetinin ayarı**, olacaklar:
 
 * Tek bir eğitim modeli dönüştürülür **eğitilen Model** modülü. Deneme tuvaline solundaki modül paletindeki depolanır. Bunun altında bulabilirsiniz **eğitilen modelleri**.
 * Eğitim için kullanılan modülleri kaldırılır; özellikle:
-  * Modeli eğitme
-  * Verileri bölme
-  * Modeli değerlendirme
+  * Model Eğitme
+  * Verileri Bölme
+  * Modeli Değerlendirme
 * Kaydedilmiş eğitilen modeli yeniden denemenin eklenir
 * **Web hizmeti giriş** ve **Web hizmeti çıkış** modülleri eklendi. Bu modüller, kullanıcının veri modeli nerede girer ve burada veriler döndürülür belirleyin.
 

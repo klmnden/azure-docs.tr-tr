@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138124"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227976"
 ---
 # <a name="action-rules-preview"></a>Eylem kuralları (Önizleme)
 
@@ -140,13 +140,13 @@ Görüntüleyebilir ve aşağıda gösterildiği liste görünümü, eylem kural
 
 Buradan, bunların yanındaki onay kutusunu seçerek etkinleştir/devre dışı bırakma/silme eylemi kurallarına uygun ölçekte kullanabilirsiniz. Herhangi bir eylem kural'ı tıklatarak, böylece tanımını güncelleştirin ve bu etkinleştir/devre kendi yapılandırma sayfası açılır.
 
-## <a name="best-practices"></a>En iyi uygulamalar
+## <a name="best-practices"></a>En iyi yöntemler
 
-Günlük uyarıları ile oluşturulan ['sonuç sayısı'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) oluşturma seçeneği **tek bir uyarı örneği** kullanarak (örneğin, birden fazla bilgisayara olabilir) tüm arama sonuç. Bir eylem Kuralı 'Uyarı bağlamı (yükü)' filtresi kullanıyorsa bir eşleşme var olduğu sürece bu senaryoda, uyarı örneğinde davranır. Senaryo 2 'Bilgisayar-01' hem 'Bilgisayar-02' oluşturulan günlüğü uyarısı için arama sonuçlarını içeriyorsa, daha önce anlatıldığı gibi tüm bildirim bastırılır (diğer bir deyişle, 'Bilgisayar-02' için hiç oluşturulan bildirim yoktur).
+Günlük uyarıları ile oluşturulan ['sonuç sayısı'](alerts-unified-log.md) oluşturma seçeneği **tek bir uyarı örneği** kullanarak (örneğin, birden fazla bilgisayara olabilir) tüm arama sonuç. Bir eylem Kuralı 'Uyarı bağlamı (yükü)' filtresi kullanıyorsa bir eşleşme var olduğu sürece bu senaryoda, uyarı örneğinde davranır. Senaryo 2 'Bilgisayar-01' hem 'Bilgisayar-02' oluşturulan günlüğü uyarısı için arama sonuçlarını içeriyorsa, daha önce anlatıldığı gibi tüm bildirim bastırılır (diğer bir deyişle, 'Bilgisayar-02' için hiç oluşturulan bildirim yoktur).
 
 ![Eylem kuralları ve günlük uyarıları (sonuç sayısı)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-En iyi yararlanarak günlük uyarıları için eylem kurallarla, biz ile günlüğü uyarıları oluşturma için öneri ['Ölçüm ölçüsü'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) seçeneği. Bu seçeneği kullanarak, ayrı bir uyarı örnekleri grubu tanımlanan alana göre oluşturulur. Ardından Senaryo 2'de, 'Bilgisayar-01' ve 'Bilgisayar-02' için ayrı bir uyarı örneği oluşturulur. Bildirim 'Bilgisayar-02' için normal olarak harekete olmaya devam eder ancak senaryoda açıklanan eylemi kural ile yalnızca bildirim için 'Bilgisayar-01' atlanması.
+En iyi yararlanarak günlük uyarıları için eylem kurallarla, biz ile günlüğü uyarıları oluşturma için öneri ['Ölçüm ölçüsü'](alerts-unified-log.md) seçeneği. Bu seçeneği kullanarak, ayrı bir uyarı örnekleri grubu tanımlanan alana göre oluşturulur. Ardından Senaryo 2'de, 'Bilgisayar-01' ve 'Bilgisayar-02' için ayrı bir uyarı örneği oluşturulur. Bildirim 'Bilgisayar-02' için normal olarak harekete olmaya devam eder ancak senaryoda açıklanan eylemi kural ile yalnızca bildirim için 'Bilgisayar-01' atlanması.
 
 ![Eylem kuralları ve günlük uyarıları (sonuç sayısı)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

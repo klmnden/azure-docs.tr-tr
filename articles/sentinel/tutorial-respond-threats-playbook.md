@@ -4,7 +4,7 @@ description: Bu makalede Azure Gözcü içinde bir playbook çalıştırmayı ö
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5ce409b984ab9110a8ca44f47675045e4d80aed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f055ce337cb43e0813bc9ff295d0958e06f561
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614695"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205437"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Öğretici: Otomatik tehdit yanıtları Gözcü Azure önizlemesinde ayarlama
 
@@ -62,7 +62,7 @@ Azure Gözcü içinde güvenlik playbook'u oluşturmak için aşağıdaki adıml
 1. Açık **Azure Gözcü** Pano.
 2. Altında **Yönetim**seçin **playbook'ları**.
 
-   ![Logic App](./media/tutorial-respond-threats-playbook/playbookimg.png)
+   ![Mantıksal Uygulama](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
 3. İçinde **Azure Gözcü - Playbook'lar (Önizleme)** sayfasında **Ekle** düğmesi.
 

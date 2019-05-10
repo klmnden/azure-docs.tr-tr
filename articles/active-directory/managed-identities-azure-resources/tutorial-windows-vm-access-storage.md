@@ -15,16 +15,21 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd2e30f7ae96ff38b0ded11c158fcef636e3a26
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448810"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191091"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Azure depolama erişim anahtarı erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+
+
+> [!IMPORTANT] 
+> Azure depolama artık Azure AD kimlik doğrulamasını destekler. En iyi uygulama, kullanın [Azure AD kimlik doğrulaması](tutorial-vm-windows-access-storage.md) erişim anahtarları yerine. 
+
 
 Bu öğreticide, depolama hesabı erişim anahtarlarını almak amacıyla, Windows sanal makinesi (VM) için sistem tarafından atanmış yönetilen bir kimliği nasıl kullanacağınız gösterilmektedir. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken depolama erişim anahtarlarını olağan şekilde kullanabilirsiniz. Bu öğreticide, Azure Depolama PowerShell kullanarak blob'ları karşıya yüklüyor ve indiriyoruz. Şunları öğrenirsiniz:
 
@@ -51,7 +56,7 @@ Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız. Ayrıca bu ad
 5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.
 6. **Oluştur**’a tıklayın.
 
-    ![Yeni depolama hesabı oluşturma](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Yeni depolama hesabı oluştur](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabında bir blob kapsayıcısı oluşturma
 

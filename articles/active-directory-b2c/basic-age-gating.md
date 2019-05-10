@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703278"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228010"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de yaş geçidi etkinleştir
 
@@ -25,14 +25,14 @@ ms.locfileid: "64703278"
 
 Azure Active Directory (Azure AD) B2C'de yaş geçidi uygulamanızı kullanmak istediğiniz reşit olmayanların tanımlamanızı sağlar. Küçük uygulamasına açmasını engellemeyi seçebilirsiniz. Kullanıcılar da uygulamaya geri dönün ve kendi yaş grubu ve ebeveyn izni durumlarını tanımlar. Azure AD B2C reşit olmayanların ebeveyn izni olmadan engelleyebilir. Azure AD B2C ile reşit olmayanların karar uygulamaya izin vermek için de ayarlanabilir.
 
-İçinde yaş geçidi etkinleştirdikten sonra [kullanıcı akışı](active-directory-b2c-reference-policies.md), kullanıcıların ne zaman geliştirilen ve hangi ülke sorulan Canlı. Bilgileri daha önce girilen edilmemiş bir kullanıcı oturum açtığında, oturum açtığında girmeniz gerekir. Bir kullanıcı her oturum açtığında kuralları uygulanır.
+İçinde yaş geçidi etkinleştirdikten sonra [kullanıcı akışı](active-directory-b2c-reference-policies.md), kullanıcıların ne zaman geliştirilen ve hangi ülkede/bölgede sorulan Canlı. Bilgileri daha önce girilen edilmemiş bir kullanıcı oturum açtığında, oturum açtığında girmeniz gerekir. Bir kullanıcı her oturum açtığında kuralları uygulanır.
 
 Küçük oldukları olup olmadığını belirlemek için kullanıcının girdiği bilgileri Azure AD B2C kullanır. **Yaş** hesaplarındaki alan güncelleştirildikten sonra. Değer olabilir `null`, `Undefined`, `Minor`, `Adult`, ve `NotAdult`.  **Yaş** ve **consentProvidedForMinor** alanları değerini hesaplamak için kullanılan ardından **legalAgeGroupClassification**.
 
 Yaş geçidi iki yaş değerleri içerir: artık kişidir yaş kabul küçük ve yaş, küçük ebeveyn izni olmalıdır. Aşağıdaki tabloda, küçük ve önemsiz gerektirmeden onayı tanımlamak için kullanılan yaş kuralları listeler.
 
-| Ülke | Ülke adı | Alt onay yaş | Küçük yaş |
-| ------- | ------------ | ----------------- | --------- |
+| Ülke/Bölge | Ülke/bölge adı | Alt onay yaş | Küçük yaş |
+| -------------- | ------------------- | ----------------- | --------- |
 | Varsayılan | None | None | 18 |
 | AE | Birleşik Arap Emirlikleri | None | 21 |
 | AT | Avusturya | 14 | 18 |
@@ -53,13 +53,13 @@ Yaş geçidi iki yaş değerleri içerir: artık kişidir yaş kabul küçük ve
 | HR | Hırvatistan | 16 | 18 |
 | HU | Macaristan | 16 | 18 |
 | IE | İrlanda | 13 | 18 |
-| BT | İtalya | 16 | 18 |
+| IT | İtalya | 16 | 18 |
 | KR | Kore Cumhuriyeti | 14 | 18 |
 | LT | Litvanya | 16 | 18 |
 | LU | Lüksemburg | 16 | 18 |
 | LV | Letonya | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| NA | Namibya | None | 21 |
+| NA | Namibia | None | 21 |
 | NL | Hollanda | 16 | 18 |
 | PL | Polonya | 13 | 18 |
 | PT | Portekiz | 16 | 18 |

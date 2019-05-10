@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 4b3dc019b8d5a31986f4145d9dd2f7bd86bbb467
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d4a93bbd823db59d688f77a626b1225519fb7b44
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920050"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407624"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Öğretici: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/multicontainerwordpress
 cd multicontainerwordpress
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
@@ -268,7 +268,7 @@ Redis için aşağıdaki değişiklikler yapılmıştır (daha sonraki bir böl�
 * [Redis Object Cache 1.3.8 WordPress eklentisini ekler.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [WordPress wp-config.php dosyasında Redis ana bilgisayar adı Uygulama Ayarını kullanır.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Özel görüntüyü kullanmak için docker-compose-wordpress.yml dosyanızı güncelleştirmeniz gerekir. Cloud Shell'de, nano metin düzenleyicisini açmak için `nano docker-compose-wordpress.yml` yazın. `image: mcr.microsoft.com/azuredocs/multicontainerwordpress` kullanmak için `image: wordpress` üzerinde değişiklik yapın. Veritabanı kapsayıcıya artık ihtiyacınız yoktur. Yapılandırma dosyasındaki `db`, `environment`, `depends_on` ve `volumes` bölümlerini kaldırın. Dosyanız aşağıdaki kod gibi görünmelidir:
+Özel görüntüyü kullanmak için docker-compose-wordpress.yml dosyanızı güncelleştirmeniz gerekir. Cloud Shell'de, nano metin düzenleyicisini açmak için `nano docker-compose-wordpress.yml` yazın. `image: microsoft/multicontainerwordpress` kullanmak için `image: wordpress` üzerinde değişiklik yapın. Veritabanı kapsayıcıya artık ihtiyacınız yoktur. Yapılandırma dosyasındaki `db`, `environment`, `depends_on` ve `volumes` bölümlerini kaldırın. Dosyanız aşağıdaki kod gibi görünmelidir:
 
 ```yaml
 version: '3.3'

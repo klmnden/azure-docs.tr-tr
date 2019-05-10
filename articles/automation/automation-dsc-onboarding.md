@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8a505e88ff92c5227d3b42da2adaf1dce58e6fbb
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919982"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441520"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama
 
@@ -75,95 +75,13 @@ Diğer Azure aboneliklerinden gelen sanal makineleri kaydetmek için en iyi yolu
 Örnekler verilmiştir [Desired State Configuration uzantısı Azure Resource Manager şablonları ile](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Şablon parametreleri olarak kullanmak üzere kayıt URL'si ve kayıt anahtarını bulmak için aşağıdakilere bakın [ **güvenli kayıt** ](#secure-registration) bölümü.
 
-## <a name="azure-virtual-machines-classic"></a>Azure sanal makineler (Klasik)
-
-Azure Otomasyonu durum yapılandırması ile yapılandırma yönetimi için Azure portal veya PowerShell kullanarak kolayca yerleşik Azure sanal makineler (Klasik) kullanabilirsiniz. Başlık altında ve yönetici VM uzaktan zorunda olmadan Azure VM Desired State Configuration uzantısı ile Azure Otomasyonu durum yapılandırması VM kaydeder.
-İlerleme durumunu izlemek ve bu sorun giderme adımları aşağıda sağlanan [ **sorun giderme Azure sanal makine ekleme** ](#troubleshooting-azure-virtual-machine-onboarding) bölümü.
-
-### <a name="azure-portal-classic-virtual-machines"></a>Azure portal (Klasik sanal makine)
-
-İçinde [Azure portalında](https://portal.azure.com/), tıklayın **Gözat** -> **sanal makineler (Klasik)**. Eklemek istediğiniz Windows VM'yi seçin. Sanal makinenin Pano dikey penceresinde tıklayın **tüm ayarlar** -> **uzantıları** -> **Ekle** -> **Azure Automation DSC** -> **oluşturma**.
-Girin [PowerShell DSC Local Configuration Manager değerleri](/powershell/dsc/metaconfig4) Otomasyon hesabınıza ait kayıt anahtarını kayıt URL'si ve için isteğe bağlı olarak bir düğüm yapılandırması VM'ye atanacak.
-
-![DSC için Azure VM uzantıları](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
-
-Kayıt URL'si bulmak ve Otomasyon hesabı eklemek için aşağıdaki görmek istediğiniz makineyi anahtar [ **güvenli kayıt** ](#secure-registration) bölümü:
-
-### <a name="powershell-classic-virtual-machines"></a>PowerShell (Klasik sanal makine)
-
-```powershell
-# log in to both Azure Service Management and Azure Resource Manager
-Add-AzureAccount
-Connect-AzureRmAccount
-
-# fill in correct values for your VM/Automation account here
-$VMName = ''
-$ServiceName = ''
-$AutomationAccountName = ''
-$AutomationAccountResourceGroup = ''
-
-# fill in the name of a Node Configuration in Azure Automation State Configuration, for this VM to conform to
-# NOTE: DSC Node Configuration names are case sensitive in the portal.
-$NodeConfigName = ''
-
-# get Azure Automation State Configuration registration info
-$Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-$RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
-
-# use the DSC extension to onboard the VM for management with Azure Automation State Configuration
-$VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
-
-$PublicConfiguration = ConvertTo-Json -Depth 8 @{
-    SasToken = ''
-    ModulesUrl = 'https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip'
-    ConfigurationFunction = 'RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2'
-
-# update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
-# See https://docs.microsoft.com/powershell/dsc/metaConfig for more details
-    Properties = @{
-        RegistrationKey = @{
-            UserName = 'notused'
-            Password = 'PrivateSettingsRef:RegistrationKey'
-        }
-        RegistrationUrl = $RegistrationInfo.Endpoint
-        NodeConfigurationName = $NodeConfigName
-        ConfigurationMode = 'ApplyAndMonitor'
-        ConfigurationModeFrequencyMins = 15
-        RefreshFrequencyMins = 30
-        RebootNodeIfNeeded = $False
-        ActionAfterReboot = 'ContinueConfiguration'
-        AllowModuleOverwrite = $False
-    }
-}
-
-$PrivateConfiguration = ConvertTo-Json -Depth 8 @{
-    Items = @{
-        RegistrationKey = $RegistrationInfo.PrimaryKey
-    }
-}
-
-$VM = Set-AzureVMExtension `
-    -VM $vm `
-    -Publisher Microsoft.Powershell `
-    -ExtensionName DSC `
-    -Version 2.76 `
-    -PublicConfiguration $PublicConfiguration `
-    -PrivateConfiguration $PrivateConfiguration `
-    -ForceUpdate
-
-$VM | Update-AzureVM
-```
-
-> [!NOTE]
-> Durum yapılandırması düğüm yapılandırması adı portalda büyük küçük harfe duyarlı. Eşleşmeyen durumda düğüm altında gösterilmez **düğümleri** sekmesi.
-
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) sanal makineler
 
 Amazon Web Hizmetleri sanal makine için yapılandırma yönetimi AWS DSC araç setini kullanarak Azure Otomasyon durum yapılandırması tarafından kolayca ekleme yapabilirsiniz. Araç Seti hakkında daha fazla bilgi [burada](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
 
 ## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>Fiziksel/sanal Windows makineleri şirket içinde veya Azure/AWS dışındaki bir bulutta bulunan
 
-Windows sunucuları çalıştıran şirket içi veya Azure giden erişime sahip oldukları sürece diğer bulut ortamlarında Azure Otomasyon durum Yapılandırması'na eklediğinizden de olabilir:
+Windows sunucuları çalıştıran şirket içi veya sahip oldukları sürece diğer bulut ortamlarında Azure Otomasyon durum Yapılandırması'na eklediğinizden de olabilir [azure'a giden erişimi](automation-dsc-overview.md#network-planning):
 
 1. En son sürümünü emin [WMF 5](https://aka.ms/wmf5latest) Azure Otomasyon durum yapılandırması için eklemek istediğiniz makineleri yüklenir.
 1. Aşağıdaki bölümde yer alan yönergeleri izleyin [ **oluşturma DSC metaconfigurations** ](#generating-dsc-metaconfigurations) gerekli DSC metaconfigurations içeren bir klasör oluşturmak için.
@@ -178,7 +96,7 @@ Windows sunucuları çalıştıran şirket içi veya Azure giden erişime sahip 
 
 ## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>Fiziksel/sanal Linux makineleri şirket içinde veya Azure dışındaki bir bulutta bulunan
 
-Linux sunucularında çalışan şirket içi veya Azure giden erişime sahip oldukları sürece diğer bulut ortamlarında Azure Otomasyon durum Yapılandırması'na eklediğinizden de olabilir:
+Linux sunucularında çalışan şirket içi veya sahip oldukları sürece diğer bulut ortamlarında Azure Otomasyon durum Yapılandırması'na eklediğinizden de olabilir [azure'a giden erişimi](automation-dsc-overview.md#network-planning):
 
 1. En son sürümünü emin [Linux için PowerShell Desired State Configuration](https://github.com/Microsoft/PowerShell-DSC-for-Linux) Azure Otomasyon durum yapılandırması için eklemek istediğiniz makineleri yüklenir.
 1. Varsa [PowerShell DSC Local Configuration Manager varsayılan](/powershell/dsc/metaconfig4) kullanım Örneğinize uyan ve gibi yerleşik makineleri yapmak istiyorsanız, bunlar **hem** isteneceğini ve Azure Otomasyonu durum yapılandırması için Rapor:

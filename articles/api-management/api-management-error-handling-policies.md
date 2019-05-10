@@ -79,8 +79,8 @@ Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama il
   
 | Ad     | Tür   | Açıklama                                                                                               | Gerekli |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Kaynak   | string | Hatanın oluştuğu öğe adları. İlke ya da yerleşik bir işlem hattı adım adı olabilir.     | Evet      |
-| Neden   | string | Hata işlemede kullanılan makine kullanımı kolay hata kodu.                                       | Hayır       |
+| Source   | string | Hatanın oluştuğu öğe adları. İlke ya da yerleşik bir işlem hattı adım adı olabilir.     | Evet      |
+| Reason   | string | Hata işlemede kullanılan makine kullanımı kolay hata kodu.                                       | Hayır       |
 | `Message`  | string | Kullanıcı tarafından okunabilen hata açıklaması.                                                                         | Evet      |
 | `Scope`    | string | Burada bir hata oluştu ve "Genel", "product", "API" veya "işlem" biri olabilir kapsamı adı | Hayır       |
 | `Section`  | string | Hatanın oluştuğu bölüm adı. Olası değerler: "Giriş", "arka uç", "çıkış" veya "hata".       | Hayır       |
@@ -96,7 +96,7 @@ Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama il
 ## <a name="predefined-errors-for-built-in-steps"></a>Yerleşik adımlar için önceden tanımlanmış hataları  
  Aşağıdaki hatalar yerleşik işleme adımları değerlendirmesi sırasında ortaya çıkabilecek hata koşullarını önceden tanımlanmıştır.  
   
-| Kaynak        | Koşul                                 | Neden                  | `Message`                                                                                                                |
+| Source        | Koşul                                 | Reason                  | `Message`                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | yapılandırma | URI, herhangi bir API veya işlemi eşleşmiyor. | OperationNotFound       | Gelen istek bir işlemle eşleşen yapılamıyor.                                                                      |
 | Yetkilendirme | Abonelik anahtarı sağlanmadı             | SubscriptionKeyNotFound | Erişim abonelik anahtarı eksik nedeniyle reddedildi. Bu API için istekleri yaparken, abonelik anahtarı eklediğinizden emin olun. |
@@ -105,7 +105,7 @@ Bir isteğin işlenmesi sırasında yerleşik adımları, istek için kapsama il
 ## <a name="predefined-errors-for-policies"></a>İlkeleri için önceden tanımlanmış hataları  
  Aşağıdaki hatalar İlkesi değerlendirmesi sırasında ortaya çıkabilecek hata koşullarını önceden tanımlanmıştır.  
   
-| Kaynak       | Koşul                                                       | Neden                    | `Message`                                                                                                                              |
+| Source       | Koşul                                                       | Reason                    | `Message`                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | hız sınırı   | Hız sınırı aşıldı                                             | RateLimitExceeded         | Hız sınırı aşıldı                                                                                                               |
 | kota        | Kota aşıldı                                                  | QuotaExceeded             | Çağrı hacmi kotası aşıldı. Kota xx:xx:xx içinde yenilenmesi. - veya - bant genişliği kota dışı. Kota xx:xx:xx içinde yenilenmesi. |

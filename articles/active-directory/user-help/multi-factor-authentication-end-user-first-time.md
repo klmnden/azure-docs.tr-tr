@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334779"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230051"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Hesabım için iki aşamalı doğrulama ayarlayın
 İki aşamalı doğrulama, kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır. Bu makalede okuyorsanız, büyük olasılıkla bir e-posta iş veya Okul yöneticinizin multi-Factor Authentication hakkında aldığınız. Veya belki de oturum açmaya ve ek güvenlik doğrulama ayarlayın isteyen bir ileti alındı. Bu durum söz konusuysa **otomatik kayıt işlemini tamamlayıncaya kadar oturum açamazsınız**.
@@ -69,7 +69,7 @@ Bu yöntemi kullanarak, telefon veya tablette bir doğrulayıcı uygulaması yü
    ![PIN girmek için kutusu](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. PIN girişi tamamlandıktan sonra seçin **Kapat**. Bu noktada Doğrulamanızın başarılı olması.
-9. Mobil uygulamanıza erişimi kaybetmeniz durumunda cep telefonu numaranızı girmeniz önerilir. Aşağı açılan listeden ülkenizi belirtin ve ülke adının yanındaki kutuya cep telefonu numaranızı girin. **İleri**’yi seçin.
+9. Mobil uygulamanıza erişimi kaybetmeniz durumunda cep telefonu numaranızı girmeniz önerilir. Aşağı açılan listeden ülkenizi/bölgenizi belirtin ve ülke/bölge adının yanındaki kutuya cep telefonu numaranızı girin. **İleri**’yi seçin.
 10. Bu noktada, Outlook 2010 gibi eski veya tarayıcı olmayan uygulamalar için uygulama parolaları veya Apple cihazlarda yerel e-posta uygulaması ayarlamanız istenir. Bazı uygulamalar, iki aşamalı doğrulamayı desteklemeyen olmasıdır. Bu uygulamaları kullanmıyorsanız tıklayın **Bitti** ve kalan adımları atlayın.
 11. Bu uygulamaları kullanıyorsanız, kopya uygulama parolasını sağlanan ve uygulamanızın normal parolanız yerine yapıştırın. Aynı uygulama parolasını birden fazla uygulama için kullanabilirsiniz. Daha fazla bilgi için [yardımcı uygulama parolalarıyla].
 12. **Bitti**’ye tıklayın.
@@ -87,7 +87,7 @@ QR reader'ı kullanarak yerine el ile hesap mobil uygulamaya eklemek istiyorsan�
 1. Seçin **kimlik doğrulama telefonu** aşağı açılan listeden.  
 
     ![Kurulum](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Aşağı açılan listeden ülkenizi seçin ve cep telefonu numaranızı girin.
+2. Aşağı açılan listeden ülkenizi/bölgenizi seçin ve cep telefonu numaranızı girin.
 3. Cep telefonunuz ile - metin veya çağrı kullanmayı tercih ettiğiniz yöntemi seçin.
 4. Seçin **benimle iletişim kurun** telefon numaranızı doğrulamak için. Seçtiğiniz moda bağlı olarak bir metin iletisi veya çağırırsınız. Ekrandaki yönergeleri izleyin ve ardından **doğrulama**.
 5. Bu noktada, Outlook 2010 gibi eski veya tarayıcı olmayan uygulamalar için uygulama parolaları veya Apple cihazlarda yerel e-posta uygulaması ayarlamanız istenir. Bazı uygulamalar, iki aşamalı doğrulamayı desteklemeyen olmasıdır. Bu uygulamaları kullanmıyorsanız tıklayın **Bitti** ve kalan adımları atlayın.

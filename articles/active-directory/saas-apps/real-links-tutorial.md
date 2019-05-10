@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16ba9a510489eb552b2f8c380817000b0b48b855
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d1a250b8deba3d12b968c593ddec7ad9f052ae7d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927075"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-real-links"></a>Öğretici: Azure Active Directory Tümleştirmesi ile gerçek bağlantılar
 
@@ -183,7 +183,7 @@ Erişim paneli gerçek bağlantıları kutucuğa tıkladığınızda, size otoma
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

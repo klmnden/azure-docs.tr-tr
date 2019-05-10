@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386078"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407919"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -290,7 +290,7 @@ Bu adımda, "etki alanı güvenliği" çalışan verileri güvenlik grubuna ilke
 
      ![Etki alanı güvenlik ilkeleri](./media/workday-inbound-tutorial/wd_isu_08.png "etki alanı güvenlik ilkeleri") 
 
-     **Tamam** düğmesine tıklayın.
+     **Tamam**'ı tıklatın.
 
 3. Gösterilir rapora yanında üç nokta (...) seçin **Harici hesap sağlama** ve menü seçeneğine tıklayın **etki alanı güvenlik ilkesi izinleri Düzenle ->**
 
@@ -878,7 +878,7 @@ Evet, bir aracı sağlama aracı görebilmesi için ilgili etki alanı denetleyi
   ```
 
 * Görünen – aracılar listesinden Kopyala "ID" değerini alan bu kaynağı ayarlanmış *resourceName* AD etki alanı adınızı eşittir.
-* Kimliği bu komutuna yapıştırın ve PowerShell'de yürütün.
+* Kimlik değerini bu komutuna yapıştırın ve komutu PowerShell'de yürütün.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -946,9 +946,9 @@ Workday'den AD'ye akışına yalnızca güncelleştirme işlemleri için "Günce
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Nasıl ben AD kullanıcının ülke/bölüm/Şehir öznitelikleri ve tanıtıcı bölgesel farklarını tabanlı görünen adları biçimlendirme?
 
-Yapılandırmak için ortak bir gereksinimdir *displayName* özniteliği AD'de kullanıcının ülke ve departman hakkında bilgi de sağlar. İçin Örneğin John Smith, ABD'de pazarlama departmanındaki çalışırsa, himself isteyebilirsiniz *displayName* olarak görünmesi *Smith, John (pazarlama-US)*.
+Yapılandırmak için ortak bir gereksinimdir *displayName* özniteliği AD'de kullanıcının departmanı ve ülke/bölge hakkında bilgi de sağlar. İçin Örneğin John Smith, ABD'de pazarlama departmanındaki çalışırsa, himself isteyebilirsiniz *displayName* olarak görünmesi *Smith, John (pazarlama-US)*.
 
-İşte oluşturmak için bu gereksinimleri nasıl işleyebileceğini *CN* veya *displayName* şirket, departman, şehir veya ülkede gibi öznitelikleri eklenecek.
+İşte oluşturmak için bu gereksinimleri nasıl işleyebileceğini *CN* veya *displayName* şirket, departman, şehir ve ülke/bölge gibi öznitelikleri eklenecek.
 
 * Her iş günü özniteliği içinde yapılandırılabilir bir temel alınan API XPATH ifadesi kullanarak alınır **-> Gelişmiş bölümü eşleme özniteliği için Workday öznitelik listesini Düzenle ->**. Workday varsayılan API XPATH ifadesi işte *PreferredFirstName*, *PreferredLastName*, *şirket* ve *SupervisoryOrganization* öznitelikleri.
 
@@ -976,7 +976,7 @@ Yapılandırmak için ortak bir gereksinimdir *displayName* özniteliği AD'de k
 
   Workday takımınızla yukarıdaki API ifadeleri Workday kiracısı yapılandırmanız için geçerli olduğundan emin olun. Gerekirse, bunları bölümünde açıklandığı gibi düzenleyebilirsiniz, [Workday kullanıcı özniteliklerinin listesi özelleştirme](#customizing-the-list-of-workday-user-attributes).
 
-* Doğru öznitelik eşlemesi ifadeyi oluşturun, hangi Workday özniteliği "yetkili olarak" tanımlamak için kullanıcının ilk adını, son adı, ülke ve departman temsil eder. Öznitelikler varsayalım *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* ve *SupervisoryOrganization* sırasıyla. Bu AD için bir ifade oluşturmak için kullanabileceğiniz *displayName* gibi bir görünen ad gibi almak için öznitelik *Smith, John (pazarlama-US)*.
+* Doğru öznitelik eşlemesi ifadeyi oluşturun, hangi Workday özniteliği "yetkili olarak" tanımlamak için kullanıcı adı, son adı, ülke/bölge ve departman temsil eder. Öznitelikler varsayalım *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* ve *SupervisoryOrganization* sırasıyla. Bu AD için bir ifade oluşturmak için kullanabileceğiniz *displayName* gibi bir görünen ad gibi almak için öznitelik *Smith, John (pazarlama-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1236,7 +1236,7 @@ Bu değişikliği yapmak için kullanmanız gerekir [Workday Studio](https://com
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1339,7 +1339,7 @@ Bu bölümde Microsoft Graph API ve Graph Gezgini öznitelik eşlemelerini Workd
 
 1. Başarılı oturum açma sırasında sol bölmedeki kullanıcı hesabı ayrıntıları görürsünüz.
 
-#### <a name="step-3-retrieve-the-provisioning-job-id-of-the-workday-provisioning-app"></a>3. Adım: Workday sağlama uygulaması sağlama işi kimliği alınamıyor
+#### <a name="step-3-retrieve-the-provisioning-job-id-of-the-workday-provisioning-app"></a>3. adım: Workday sağlama uygulaması sağlama işi kimliği alınamıyor
 
 Microsoft Graph Explorer'da ile [Serviceprincipalıd] değiştirerek aşağıdaki GET sorguyu çalıştırın. **Serviceprincipalıd** ayıklanan [1. adım](#step-1-retrieve-your-workday-provisioning-app-service-principal-id-object-id).
 

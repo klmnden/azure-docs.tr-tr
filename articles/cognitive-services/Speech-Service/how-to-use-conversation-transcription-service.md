@@ -1,21 +1,21 @@
 ---
 title: Konuşmaların çok katılımcılı sohbet Speech SDK'sı - konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
-description: Konuşma tanıma hizmeti Speech SDK'sı ile kullanmayı öğrenin. Kullanılabilir C++, C#ve Java.
+description: Konuşma Transkripsiyonu Speech SDK'sı ile kullanmayı öğrenin. Kullanılabilir C++, C#ve Java.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: jhakulin
-ms.openlocfilehash: 73ab4cfa92a1efc49dea16ba2941cf16b7a1cf3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025799"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190143"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Çok katılımcılı sohbet Speech SDK'sı özelliği
 
@@ -24,7 +24,7 @@ Konuşma SDK'ın **ConversationTranscriber** API toplantıları/konuşmalar ekle
 ## <a name="limitations"></a>Sınırlamalar
 
 * Konuşma uyarlayıcı için desteklenen C++, C#ve Windows, Linux ve Android üzerinde Java.
-* ROOBO DevKit sağlayan verimli bir şekilde Konuşmacı tanıma için konuşma tanıma hizmeti tarafından yararlanılabilir döngüsel çok mikrofon dizisi olarak konuşmalar oluşturma için desteklenen donanım ortamdır. [Daha fazla bilgi için bkz: konuşma cihazları SDK](speech-devices-sdk.md). 
+* ROOBO DevKit sağlayan verimli bir şekilde Konuşmacı tanıma için konuşma tanıma hizmeti tarafından yararlanılabilir döngüsel çok mikrofon dizisi olarak konuşmalar oluşturma için desteklenen donanım ortamdır. [Daha fazla bilgi için bkz: konuşma cihazları SDK](speech-devices-sdk.md).
 * Ses çekme'si ve anında iletilen PCM ses sekiz kanalları modu akışlarla konuşma SDK desteği sınırlıdır.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -78,7 +78,7 @@ class Program
 
 Birden fazla katılımcıları ile görüşmeler konuşmaların için oluşturma `ConversationTranscriber` ile ilişkili nesne `AudioConfig` konuşma oturumu ve akış ses kullanmak için oluşturulan nesne `PullAudioInputStream` veya `PushAudioInputStream`.
 
-Adlı bir ConversationTranscriber sınıf olduğunu varsayalım `MyConversationTranscriber`. Kodunuz şöyle görünebilir: 
+Adlı bir ConversationTranscriber sınıf olduğunu varsayalım `MyConversationTranscriber`. Kodunuz şöyle görünebilir:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -97,7 +97,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.

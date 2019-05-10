@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: b4d67b64d8fc7c5063e96ed2a2502e9cbecd6065
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876019"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229873"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
 > [!NOTE]
 > Bu makale Azure genel bulutunda ve tersi belirtilmedikçe dışında kamu bulutu için geçerlidir.
 
-**Azure genel bulutunda için OMS portalı resmi olarak kullanımdan kaldırılmıştır. OMS portalında Azure Azure ABD kamu bulutu için resmi olarak 15 Mayıs 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback\@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
+**Azure genel bulutunda için OMS portalı resmi olarak kullanımdan kaldırılmıştır. OMS portalında Azure ABD kamu bulutu için resmi olarak 15 Mayıs 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback\@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
 
 Azure portalı, tüm Azure Hizmetleri için hub'ı ve panolar için kaynaklar, akıllı arama bulma kaynakların ve kaynak yönetimi için etiketleme sabitleme gibi özellikler sayesinde zengin yönetim deneyimi sunar. İzleme ve yönetim iş akışını kolaylaştırın ve birleştirmek için Azure portalında OMS portalı yetenekleri ekleme başlatıldı. OMS Portalı'nın özelliklerin tümü, artık Azure portalında bir parçasıdır. Aslında, bazı trafik analizi gibi yeni özellikleri yalnızca Azure portalında kullanılabilir. Her şeyi ve daha fazlasını Azure portalı ile OMS portalında yaptığınız işe gerçekleştirmek mümkün olacaktır. Zaten yapmadıysanız, Azure Portalı'nı hemen kullanmaya başlayın!
 
@@ -64,9 +64,9 @@ Her iki durumda, yöneticinize el ile aşağıdaki tablodan uygun rol ataması g
 
 | OMS portalı izni | Azure rol |
 |:---|:---|
-| ReadOnly | Log Analytics Okuyucusu |
-| Katılımcı | Log Analytics Katkıda Bulunan |
-| Yönetici | Sahip | 
+| SaltOkunur | Log Analytics Okuyucusu |
+| Katılımcı | Log Analytics Katkıda Bulunanı |
+| Yönetici | Sahibi | 
  
 
 ## <a name="new-workspaces"></a>Yeni çalışma alanları

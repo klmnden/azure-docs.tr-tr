@@ -1,41 +1,41 @@
 ---
-title: Konuşma tanıma hizmeti - konuşma Hizmetleri
+title: Konuşma Transkripsiyonu - konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
-description: Konuşma tanıma hizmeti, gerçek zamanlı konuşma tanıma, konuşmacı tanıma ve diarization birleştiren konuşma Hizmetleri, Gelişmiş bir özelliktir. Konuşma tanıma hizmeti yüz yüze toplantılar konuşmacıları ayırt olanağı fotoğrafını için mükemmel, bu, kimlerin ne ve ne zaman, sonraki adımlara göre toplantı ve hızlıca odaklanmak için izin verme katılımcıları takip söylediğiniz bilmenizi sağlar. Bu özellik ayrıca erişilebilirliği arttırır. Döküm ile etkin olarak işitme zorluğu yaşayan katılımcıları görüşebilirsiniz.
+description: Konuşma Transkripsiyonu, gerçek zamanlı konuşma tanıma, konuşmacı tanıma ve diarization birleştiren konuşma Hizmetleri, Gelişmiş bir özelliktir. Konuşma Transkripsiyonu, yüz yüze toplantılar konuşmacıları ayırt olanağı fotoğrafını için idealdir, bu, kimlerin ne ve ne zaman, sonraki adımlara göre toplantı ve hızlıca odaklanmak için izin verme katılımcıları takip söylediğiniz bilmenizi sağlar. Bu özellik ayrıca erişilebilirliği arttırır. Döküm ile etkin olarak işitme zorluğu yaşayan katılımcıları görüşebilirsiniz.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 2c3269a9e57c0392e152fedfb640b9fae91a4989
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025942"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190269"
 ---
-# <a name="what-is-the-conversation-transcription-service"></a>Konuşma tanıma hizmeti nedir?
+# <a name="what-is-conversation-transcription"></a>Konuşma tanıma nedir?
 
-Konuşma tanıma hizmeti, gerçek zamanlı konuşma tanıma, konuşmacı tanıma ve diarization birleştiren konuşma Hizmetleri, Gelişmiş bir özelliktir. Konuşma tanıma hizmeti yüz yüze toplantılar konuşmacıları ayırt olanağı fotoğrafını için mükemmel, bu, kimlerin ne ve ne zaman, sonraki adımlara göre toplantı ve hızlıca odaklanmak için izin verme katılımcıları takip söylediğiniz bilmenizi sağlar. Bu özellik ayrıca erişilebilirliği arttırır. Döküm ile etkin olarak işitme zorluğu yaşayan katılımcıları görüşebilirsiniz.   
+Konuşma Transkripsiyonu, gerçek zamanlı konuşma tanıma, konuşmacı tanıma ve diarization birleştiren konuşma Hizmetleri, Gelişmiş bir özelliktir. Konuşma Transkripsiyonu, yüz yüze toplantılar konuşmacıları ayırt olanağı fotoğrafını için idealdir, bu, kimlerin ne ve ne zaman, sonraki adımlara göre toplantı ve hızlıca odaklanmak için izin verme katılımcıları takip söylediğiniz bilmenizi sağlar. Bu özellik ayrıca erişilebilirliği arttırır. Döküm ile etkin olarak işitme zorluğu yaşayan katılımcıları görüşebilirsiniz.   
 
-Konuşma tanıma hizmeti doğru tanıma ile sektör ve şirkete özel sözlük anlamak için uyarlayabileceğiniz özelleştirilebilir konuşma modelleri sunar. Ayrıca, konuşma tanıma hizmeti birden çok mikrofonu cihazlar için deneyimini iyileştirmek için konuşma cihaz SDK'sı ile eşleştirin.
+Konuşma Transkripsiyonu doğru tanıma ile sektör ve şirkete özel sözlük anlamak için uyarlayabileceğiniz özelleştirilebilir konuşma modelleri sunar. Ayrıca, konuşma Transkripsiyonu çok mikrofonu cihazlar için deneyimini iyileştirmek için konuşma cihaz SDK'sı ile eşleştirin.
 
 >[!NOTE]
-> Şu anda, konuşma tanıma hizmeti küçük toplantılar için önerilir. Uygun ölçekte büyük toplantılar için konuşma tanıma hizmeti genişletmek istiyorsanız, lütfen bizimle iletişime geçin.
+> Şu anda, konuşma tanıma, küçük toplantılar için önerilir. Uygun ölçekte büyük toplantılar için konuşma Transkripsiyonu genişletmek istiyorsanız, lütfen bizimle iletişime geçin.
 
-Bu diyagram, donanım, yazılım ve konuşma Transkripsiyonu hizmet ile birlikte çalışan hizmetlerini gösterir.
+Bu diyagram, donanım, yazılım ve konuşma Transkripsiyonu birlikte çalışma hizmetlerini gösterir.
 
-![İçeri aktarma konuşma tanıma hizmeti diyagramı](media/scenarios/conversation-transcription-service.png)
+![İçeri aktarma konuşma Transkripsiyonu diyagramı](media/scenarios/conversation-transcription-service.png)
 
 >[!IMPORTANT]
 > Döngüsel bir yedi mikrofon dizi belirli geometri yapılandırmayla gereklidir. Belirtimi ve tasarım ayrıntıları için bkz. [Microsoft konuşma cihaz SDK'sı mikrofon](https://aka.ms/cts/microphone). Daha fazla bilgi edinin veya Geliştirme Seti satın almak için bkz: [alma Microsoft konuşma cihaz SDK'sı](https://aka.ms/cts/getsdk).
 
 ## <a name="get-started-with-conversation-transcription"></a>Konuşma Transkripsiyonu ile çalışmaya başlama
 
-Konuşma Transkripsiyonu Hizmeti'ni kullanmaya başlamak için yapmanız gereken üç adım vardır.
+Konuşma Transkripsiyonu ile kullanmaya başlamak için yapmanız gereken üç adım vardır.
 
 1. Kullanıcıların ses örnekleri toplar.
 2. Kullanıcı sesli örnekleri kullanarak kullanıcı profilleri oluşturma
@@ -54,19 +54,19 @@ Ardından, sesli kayıtlar göndermek ihtiyacınız olacak ses doğrulamak ve ku
 Bir kullanıcı profili oluşturmak için kullanmanız gerekecektir `GenerateVoiceSignature` API. Belirtimi ayrıntıları ve örnek kodu kullanılabilir:
 
 > [!NOTE]
-> Konuşma tanıma hizmeti aşağıdaki bölgelerde kullanılabilir: `centralus` ve `eastasia`.
+> Konuşma Transkripsiyonu "en-US" ve "zh-CN" aşağıdaki bölgelerde kullanılabilir: `centralus` ve `eastasia`.
 
 * [REST belirtimi](https://aka.ms/cts/signaturegenservice)
-* [Konuşma Transkripsiyonu hizmetini kullanma](https://aka.ms/cts/howto)
+* [Konuşma Transkripsiyonu kullanma](https://aka.ms/cts/howto)
 
 ## <a name="transcribe-and-identify-speakers"></a>Konuşmaların dökümünü alın ve konuşmacıları belirleyin
 
-Konuşma tanıma hizmeti, çok kanallı ses akışları ve kullanıcı profilleri döküm oluşturma ve konuşmacıları belirlemek için giriş olarak bekler. Ses ve kullanıcı profil verileri, konuşma cihaz SDK'sını kullanarak konuşma Transkripsiyonu hizmetine gönderilir. Daha önce belirtildiği gibi döngüsel bir yedi mikrofon dizisi ve konuşma cihaz SDK'sı konuşma tanıma hizmeti kullanmak için gereklidir.
+Konuşma Transkripsiyonu, çok kanallı ses akışları ve kullanıcı profilleri döküm oluşturma ve konuşmacıları belirlemek için giriş olarak bekler. Ses ve kullanıcı profil verileri, konuşma cihaz SDK'sını kullanarak konuşma Transkripsiyonu hizmetine gönderilir. Daha önce belirtildiği gibi döngüsel bir yedi mikrofon dizisi ve konuşma cihaz SDK'sı konuşma Transkripsiyonu kullanmak için gereklidir.
 
 >[!NOTE]
 > Belirtimi ve tasarım ayrıntıları için bkz. [Microsoft konuşma cihaz SDK'sı mikrofon](https://aka.ms/cts/microphone). Daha fazla bilgi edinin veya Geliştirme Seti satın almak için bkz: [alma Microsoft konuşma cihaz SDK'sı](https://aka.ms/cts/getsdk).
 
-Konuşma tanıma hizmeti konuşma cihaz SDK'sı ile kullanmayı öğrenmek için bkz [konuşma transkripsiyonu hizmetin nasıl kullanılacağını](https://aka.ms/cts/howto).
+Konuşma Transkripsiyonu konuşma cihaz SDK'sı ile kullanmayı öğrenmek için bkz [konuşma transkripsiyonu kullanmayı](https://aka.ms/cts/howto).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

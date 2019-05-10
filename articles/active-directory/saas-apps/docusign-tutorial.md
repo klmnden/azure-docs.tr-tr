@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 35fc4e855ef53bd7e667fc8de7146916b4d05acb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565759"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Öğretici: DocuSign ile Azure Active Directory Tümleştirme
 
@@ -178,7 +178,7 @@ DocuSign ve Azure AD çoklu oturum açmayı yapılandırmak için aşağıdaki a
 
     ![Çoklu oturum açma yapılandırılıyor][62]
 
-    i. Azure AD talep ile eşlemek istediğiniz alanı seçin. Bu örnekte, **emailaddress** talep değeriyle eşleşen **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Azure ad için e-posta talebi ve ardından varsayılan talep adı olan **Kaydet**.
+    i. Azure AD talep ile eşlemek istediğiniz alanı seçin. Bu örnekte, **emailaddress** talep değeriyle eşleşen **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Azure ad için e-posta talebi ve ardından varsayılan talep adı olan **Kaydet**.
 
     ![Çoklu oturum açma yapılandırılıyor][57]
 

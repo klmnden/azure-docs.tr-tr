@@ -12,14 +12,14 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699912"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408735"
 ---
-# <a name="key-value-store"></a>Anahtar değeri deposu
+# <a name="keys-and-values"></a>Anahtarları ve değerleri
 
 Azure uygulama yapılandırması, yapılandırma verilerini anahtar-değer çiftleri olarak depolar. Geliştiriciler, alışık olduğunuz uygulama ayarları çeşitli türlerdeki temsil etmek için basit ancak esnek bir şekilde anahtar-değer çiftleridir.
 
@@ -104,5 +104,5 @@ Tüm anahtarları ve değerleri içeren bir uygulama yapılandırma deposu için
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Zaman içinde nokta anlık görüntü](./concept-point-time-snapshot.md)  
+* [Zaman içinde nokta anlık görüntü](./concept-point-time-snapshot.md)  
+* [Özellik Yönetimi](./concept-feature-management.md)  

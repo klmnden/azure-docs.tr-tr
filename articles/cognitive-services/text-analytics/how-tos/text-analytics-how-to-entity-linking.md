@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829727"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231432"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Adlandırılmış varlık tanıma metin analizi kullanma
 
@@ -49,21 +49,21 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 | Miktar      | Sıra       | "2", "saniye"     | 
 | Miktar      | NumberRange   | "4-8"     | 
 | Miktar      | Yaş           | "90 gün eski", "30 yıl eski"    | 
-| Miktar      | Para birimi      | "$10.99"     | 
+| Miktar      | Para Birimi      | "$10.99"     | 
 | Miktar      | Boyut     | "10 mil", "40 cm"     | 
 | Miktar      | Sıcaklık   | "32 derece"    |
 | DateTime      | YOK\*         | "6:30 PM 4 Şubat 2012"      | 
 | DateTime      | Tarih          | "Mayıs 2 2017", "02/05/2017"   | 
-| DateTime      | Zaman          | "8 am", "8:00"  | 
+| DateTime      | Time          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "2 Mayıs Mayıs 5 için"    | 
 | DateTime      | timeRange     | "18: 00 için 7 pm"     | 
 | DateTime      | Süre      | "1 dakika ve 45 saniye"   | 
-| DateTime      | Ayarla           | "her Salı"     | 
+| DateTime      | Küme           | "her Salı"     | 
 | DateTime      | TimeZone      |    | 
-| URL'si           | YOK\*         | "https:\//www.bing.com"    |
-| Email         | YOK\*         | "support@contoso.com" |
+| URL           | YOK\*         | "https:\//www.bing.com"    |
+| E-posta         | YOK\*         | "support@contoso.com" |
 
-\* Giriş ve ayıklanan varlıklar bağlı olarak, bazı varlıklar atlasa `SubType`.
+\* Giriş ve ayıklanan varlıklar bağlı olarak, bazı varlıklar atlasa `SubType`.  Listelenen tüm desteklenen varlık türleri yalnızca İngilizce, Basitleştirilmiş Çince, Fransızca, Almanca ve İspanyolca dil için kullanılabilir.
 
 
 
@@ -109,7 +109,7 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 
 Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 
-## <a name="step-3-view-results"></a>3. Adım: Sonuçları görüntüleme
+## <a name="step-3-view-results"></a>3. adım: Sonuçları görüntüle
 
 Tüm POST istekleri, kimlikler ve algılanan özelliklerle JSON tarafından biçimlendirilmiş bir yanıt döndürür.
 

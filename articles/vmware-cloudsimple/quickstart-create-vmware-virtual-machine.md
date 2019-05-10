@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149511"
+ms.locfileid: "65209508"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Hızlı Başlangıç - azure'da VMware sanal makinelerini kullanma
 
@@ -29,7 +29,7 @@ Azure portalında sanal makine oluşturmak için aboneliğinizin CloudSimple yö
 
 2. Arama **CloudSimple sanal makineler**.
 
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 
     ![CloudSimple sanal makine oluşturma](media/create-cloudsimple-virtual-machine.png)
 
@@ -72,7 +72,7 @@ Azure portalında sanal makine oluşturmak için aboneliğinizin CloudSimple yö
     | Öğe | Açıklama | 
     | ------------ | ------------- | 
     | Ad | Diski tanımlamak için bir ad girin.  | 
-    | Boyut | Kullanılabilir boyutlar birini seçin.  | 
+    | Boyutlandır | Kullanılabilir boyutlar birini seçin.  | 
     | SCSI denetleyicisi | Disk bir SCSI denetleyicisi seçin.  |
     | Mod | Disk anlık görüntüleri nasıl katıldığı belirler. Bu seçeneklerden birini seçin: <br> -Bağımsız kalıcı: Diske yazılan tüm veriler kalıcı olarak yazılır.<br> -Kalıcı olmayan bağımsız: Kapatmak veya sanal makineyi Sıfırla diske yazılan değişiklikler atılır.  Bağımsız kalıcı olmayan modu her zaman aynı durumda sanal Makineyi yeniden başlatmanızı sağlar. Daha fazla bilgi için <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware belgeleri</a>.
 
@@ -82,5 +82,5 @@ Azure portalında sanal makine oluşturmak için aboneliğinizin CloudSimple yö
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [CloudSimple sanal makinelerin listesini görüntüleyin](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [Azure'dan CloudSimple sanal makineyi yönetin](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [CloudSimple sanal makinelerin listesini görüntüleyin](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Azure'dan CloudSimple sanal makineyi yönetin](https://docs.azure.cloudsimple.com/azure-manage-vm/)

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687135"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209724"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>SMB üzerinden Azure Active Directory kimlik doğrulaması için Azure dosyaları (Önizleme) genel bakış
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -51,7 +51,7 @@ Azure dosyaları için SMB üzerinden Azure AD, paylaşılan anahtar kimlik doğ
     Mevcut şirket içi dosya paylaşımlarını yedeklemek için Azure dosyaları'nı kullanabilirsiniz. Azure dosyaları, dosya yedekleme Azure dosyaları'na SMB üzerinden paylaştığınızda, ACL'ler birlikte verilerinizi korur.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
-Azure dosyaları, etki alanına katılmış vm'lerden Azure AD kimlik bilgileriyle Kerberos kimlik doğrulamasını desteklemek için Azure AD Domain Services kullanır. Azure AD ile Azure dosyaları kullanmadan önce öncelikle Azure AD Domain Services'ı etkinleştir ve dosya verilerine erişmek planlama vm'lerden etki alanına katılın. Etki alanına katılmış sanal makinenizin aynı sanal ağdaki (VNET) Azure AD Domain Services bulunmalıdır. 
+Azure dosyaları, etki alanına katılmış vm'lerden Azure AD kimlik bilgileriyle Kerberos kimlik doğrulamasını desteklemek için Azure AD Domain Services kullanır. Azure AD ile Azure dosyaları kullanmadan önce öncelikle Azure AD Domain Services'ı etkinleştir ve dosya verilerine erişmek planlama vm'lerden etki alanına katılın. Aynı sanal ağ (VNET) Azure AD Domain Services etki alanına katılmış sanal makinenizin bulunmalıdır. 
 
 Bir sanal makine üzerinde çalışan bir uygulama ile ilişkilendirilmiş bir kimliği Azure dosyaları'nda verilere erişmeye çalıştığında istek kimliğini doğrulamak için Azure AD Domain Services için gönderilir. Kimlik doğrulaması başarılı olursa, Azure AD Domain Services Kerberos belirteci döndürür. Uygulama Kerberos belirteci içeren bir istek gönderir ve Azure dosyaları isteği yetkilendirmek için bu belirteci kullanır. Azure dosyaları, yalnızca belirteci alır ve Azure AD kimlik devam etmez.
 

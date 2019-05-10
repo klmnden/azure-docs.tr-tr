@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130440"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192396"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK kullanarak Azure Cosmos DB tablo API'si ve Azure tablo depolama ile çalışmaya başlama
 
@@ -135,7 +135,7 @@ NuGet paketini edinmek için şu adımları izleyin:
 
 ## <a name="create-a-table"></a>Tablo oluşturma 
 
-[CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet) sınıfı, Table Storage’da depolanan tabloları ve varlıkları almanızı sağlar. Cosmos DB tablo API'si hesabı size herhangi bir tablo olmadığından, ekleyelim `CreateTableAsync` yönteme **Common.cs** sınıfı bir tablo oluşturun:
+[CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) sınıfı, Table Storage’da depolanan tabloları ve varlıkları almanızı sağlar. Cosmos DB tablo API'si hesabı size herhangi bir tablo olmadığından, ekleyelim `CreateTableAsync` yönteme **Common.cs** sınıfı bir tablo oluşturun:
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -168,7 +168,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## <a name="define-the-entity"></a>Varlık tanımlayın 
 
-Varlık eşleme C# özel bir sınıf kullanarak nesneleri türetilen [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Tabloya bir varlık eklemek için varlığınızın özelliklerini tanımlayan bir sınıf oluşturun.
+Varlık eşleme C# özel bir sınıf kullanarak nesneleri türetilen [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Tabloya bir varlık eklemek için varlığınızın özelliklerini tanımlayan bir sınıf oluşturun.
 
 Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni klasör** olarak adlandırın **Model**. Adlı bir sınıf Model klasörü içinde eklemek **CustomerEntity.cs** ve aşağıdaki kodu ekleyin.
 
@@ -194,11 +194,11 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-Bu kod, bölüm anahtarı olarak soyadını ve satır anahtarı müşterinin ad kullanan bir varlık sınıfı tanımlar. Birlikte, bir varlığın bölüm ve sıra anahtarı varlığı tabloda benzersiz şekilde tanımlar. Aynı bölüm anahtarına sahip varlıklar farklı bölüm anahtarlı varlıklara göre daha hızlı sorgulanabilir ancak farklı bölüm anahtarlarının kullanılması paralel işlemler için büyük ölçeklendirme sağlar. Tablolarda depolanacak varlıklar, türetilen, desteklenen bir türde olmalıdır [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet) sınıfı. Bir tabloda depolamak istediğiniz varlık özellikleri, türün genel özellikleri olmalı ve değerleri hem almayı hem de ayarlamayı desteklemelidir. Ayrıca, varlık türü bir parametresiz oluşturucu kullanıma açmalıdır.
+Bu kod, bölüm anahtarı olarak soyadını ve satır anahtarı müşterinin ad kullanan bir varlık sınıfı tanımlar. Birlikte, bir varlığın bölüm ve sıra anahtarı varlığı tabloda benzersiz şekilde tanımlar. Aynı bölüm anahtarına sahip varlıklar farklı bölüm anahtarlı varlıklara göre daha hızlı sorgulanabilir ancak farklı bölüm anahtarlarının kullanılması paralel işlemler için büyük ölçeklendirme sağlar. Tablolarda depolanacak varlıklar, türetilen, desteklenen bir türde olmalıdır [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity) sınıfı. Bir tabloda depolamak istediğiniz varlık özellikleri, türün genel özellikleri olmalı ve değerleri hem almayı hem de ayarlamayı desteklemelidir. Ayrıca, varlık türü bir parametresiz oluşturucu kullanıma açmalıdır.
 
 ## <a name="insert-or-merge-an-entity"></a>Ekleme veya bir varlık Birleştir
 
-Aşağıdaki kod örneği bir varlık nesnesi oluşturur ve tabloya ekler. InsertOrMerge yöntemi içinde [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) sınıfı eklemek veya bir varlık birleştirmek için kullanılır. [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) yöntemi, işlemi yürütmek için çağrılır. 
+Aşağıdaki kod örneği bir varlık nesnesi oluşturur ve tabloya ekler. InsertOrMerge yöntemi içinde [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) sınıfı eklemek veya bir varlık birleştirmek için kullanılır. [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) yöntemi, işlemi yürütmek için çağrılır. 
 
 Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni öğe** ve adlı bir sınıf ekleyin **SamplesUtils.cs**. Bu sınıf, varlıkları CRUD işlemleri gerçekleştirmek için gereken tüm kod depolar. 
 
@@ -237,7 +237,7 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
 
 ### <a name="get-an-entity-from-a-partition"></a>Bir bölümün dışında bir varlık alma
 
-Bir bölümün dışında varlık altında alma yöntemini kullanarak alabilirsiniz [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) sınıfı. Aşağıdaki kod örneği bölüm anahtarı satır anahtarı, bir müşteri varlığı e-posta ve telefon numarasını alır. Bu örnek, varlık için sorgu için kullanılan istek birimleri çıkış yazdırır. Bir varlık için sorgulamak için aşağıdaki kodu ekleyin. **SamplesUtils.cs** dosyası: 
+Bir bölümün dışında varlık altında alma yöntemini kullanarak alabilirsiniz [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) sınıfı. Aşağıdaki kod örneği bölüm anahtarı satır anahtarı, bir müşteri varlığı e-posta ve telefon numarasını alır. Bu örnek, varlık için sorgu için kullanılan istek birimleri çıkış yazdırır. Bir varlık için sorgulamak için aşağıdaki kodu ekleyin. **SamplesUtils.cs** dosyası: 
 
 ```csharp
 public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)

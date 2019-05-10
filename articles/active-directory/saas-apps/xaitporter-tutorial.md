@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b9e1b98be55030c9936222aa66d204ab3abe3374
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ada93903113cedd68e23ec66a36dceef99ec1233
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920225"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Öğretici: XaitPorter ile Azure Active Directory Tümleştirme
 
@@ -120,17 +120,25 @@ Azure AD çoklu oturum açma ile XaitPorter yapılandırmak için aşağıdaki a
 
 ### <a name="configure-xaitporter-single-sign-on"></a>XaitPorter tek oturum açmayı yapılandırın
 
-1. Farklı bir web tarayıcı penceresinde XaitPorter şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Yüklemeniz gerekiyor XaitPorter içinde yapılandırmasını otomatik hale getirmenizi **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
-2. Tıklayarak **yönetici**.
+    ![Uygulamaları uzantım](common/install-myappssecure-extension.png)
+
+2. Uzantı tarayıcıya ekledikten sonra tıklayarak **Kurulum XaitPorter** XaitPorter uygulamaya yönlendirir. Burada, XaitPorter oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 3-6 adımları otomatik hale getirin.
+
+    ![Kurulum yapılandırması](common/setup-sso.png)
+
+3. XaitPorter el ile ayarlamak istiyorsanız, yeni bir web tarayıcı penceresi ve oturum XaitPorter şirketinizin sitesi yönetici olarak oturum açın ve aşağıdaki adımları gerçekleştirin:
+
+4. Tıklayarak **yönetici**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/xaitporter-tutorial/user1.png)
 
-3. Seçin **yönetme çoklu oturum açma** gelen **sistemi Kurulum** açılır liste.
+5. Seçin **yönetme çoklu oturum açma** gelen **sistemi Kurulum** açılır liste.
 
     ![Çoklu oturum açmayı yapılandırın](./media/xaitporter-tutorial/user2.png)
 
-4. İçinde **yönetme çoklu oturum açma** bölümünde, aşağıdaki adımları gerçekleştirin:
+6. İçinde **yönetme çoklu oturum açma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/xaitporter-tutorial/user3.png)
 
@@ -140,7 +148,7 @@ Azure AD çoklu oturum açma ile XaitPorter yapılandırmak için aşağıdaki a
 
     c. Seçin **etkinleştirme kullanıcı Autocreation**.
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**'ı tıklatın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

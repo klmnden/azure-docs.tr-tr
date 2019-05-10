@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854207"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415562"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma
 
@@ -33,7 +33,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Azure’da SQL Veritabanı oluşturma
 > * ASP.NET uygulamasını SQL Veritabanı'na bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki günlüklerin terminalinize akışını sağlama
 > * Uygulamayı Azure portalında yönetme
@@ -44,7 +44,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi tamamlamak için:
 
-**ASP.NET ve web geliştirme** iş yüküyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin.
+Yükleme <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ile **ASP.NET ve web geliştirme** iş yükü.
 
 Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özellikleri Al** seçeneklerine tıklayarak Visual Studio’da iş yüklerini ekleyin.
 
@@ -63,7 +63,7 @@ Uygulamayı hata ayıklaması yapılmadan çalıştırmak için `Ctrl+F5` yazın
 
 ![Yeni ASP.NET Projesi iletişim kutusu](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
-**Düzenle**, **Ayrıntılar** ve **Sil** bağlantılarını test edin.
+Test **Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları.
 
 Uygulama, veritabanıyla bağlantı kurmak için bir veritabanı bağlamı kullanır. Bu örnekte, veritabanı bağlamı `MyDbConnection` adlı bir bağlantı dizesi kullanır. Bağlantı dizesi *Web.config* dosyasında ayarlanır ve *Models/MyDatabaseContext.cs* dosyasında bu bağlantı dizesine başvurulur. Bağlantı dizesi adı öğreticinin ilerleyen bölümlerinde Azure uygulaması kullanarak Azure SQL veritabanına bağlanmak için kullanılır. 
 
@@ -79,7 +79,7 @@ Uygulama, veritabanıyla bağlantı kurmak için bir veritabanı bağlamı kulla
 
 Açılır yayımlama **App Service Oluştur** iletişim kutusunda, ASP.NET uygulamanızı Azure'da çalışmanız için gereken tüm Azure kaynaklarını oluşturmanıza yardımcı olur.
 
-### <a name="sign-in-to-azure"></a>Azure'da oturum açma
+### <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 **App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve ardından Azure aboneliğinizde oturum açın. Bir Microsoft hesabında zaten oturum açtıysanız hesabın Azure aboneliğinizi barındırdığından emin olun. Oturum açtığınız Microsoft hesabında Azure aboneliğiniz yoksa, doğru hesabı eklemek için tıklayın. 
 
@@ -88,7 +88,7 @@ Açılır yayımlama **App Service Oluştur** iletişim kutusunda, ASP.NET uygul
 >
 >
    
-![Azure'da oturum açma](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
+![Oturum açın: Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Web uygulaması adını yapılandırma
 
@@ -96,7 +96,7 @@ Oluşturulan web uygulaması adını koruyabilir veya başka bir benzersiz adla 
 
 ![App Service oluşturma iletişim kutusu](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
@@ -143,7 +143,7 @@ Bu kullanıcı adını ve parolayı unutmayın. Daha sonra mantıksal sunucu ör
 
 ![SQL Server örneği oluşturma](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-**Tamam** düğmesine tıklayın. **SQL Veritabanını Yapılandır** iletişim kutusunu henüz kapatmayın.
+**Tamam**'ı tıklatın. **SQL Veritabanını Yapılandır** iletişim kutusunu henüz kapatmayın.
 
 ### <a name="create-a-sql-database"></a>SQL Veritabanı oluşturma
 
@@ -415,7 +415,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Azure’da SQL Veritabanı oluşturma
 > * ASP.NET uygulamasını SQL Veritabanı'na bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki günlüklerin terminalinize akışını sağlama
 > * Uygulamayı Azure portalında yönetme

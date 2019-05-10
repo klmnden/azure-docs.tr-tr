@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: 604603a145ab360af18ce74748707da9f5f93427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726401"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205815"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Hızlı Başlangıç: Azure zaman serisi öngörüleri önizlemesi tanıtım ortamı keşfedin
 
@@ -43,49 +43,49 @@ Zaman serisi öngörüleri Önizleme Gezgini geçmiş verileri gösteren ve kök
     * Görüntüleme aralığı için güncelleştirme **1/1/17 20:00 3/10/17 için 20:00 (UTC)**.
     * Seçin **Contoso tesis 1** > **W7** > **Oluşturucu sistem** > **GeneratorSpeed** algılayıcı. Sonra sonuç değerlerini gözden geçirin.
 
-      [![Hızlı bir başlangıç](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 bulunan Contoso 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Kısa bir süre önce Contoso yangın Rüzgar türbinin içinde bulunan **W7**. Ateş yakındaki nedeni neydi hakkındaki düşünceleri son derece değişir. Daha yakından incelemesi sırasında yangın uyarı algılayıcı sırasında yangın etkinleştirildi bakın.
 
     * Görüntüleme aralığı için güncelleştirme **3/9/17 20:00 3/10/17 için 20:00 (UTC)**.
     * Seçin **güvenlik sistemi** > **FireAlert** algılayıcı.
 
-      [![İki Hızlı Başlangıç](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso yangın Rüzgar türbinin W7 bulunamadı.](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
 
 1. Ateş neler olduğunu anlamak için zamana yakın diğer olayları gözden geçirin. Petrol baskısı ve hemen önce yangın civarında etkin uyarılar.
 
     * Seçin **aralık sistem** > **HydraulicOilPressure** algılayıcı.
     * Seçin **aralık sistem** > **ActiveWarning** algılayıcı.
 
-      [![Üç Hızlı Başlangıç](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Yaklaşık aynı zamanda diğer olayları gözden geçirin](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
 
 1. Etkin uyarı sensörlerden ve Petrol baskısı hemen önce yangın civarında. Diğer işaretleri mevcut yangın için öncesinde görmek için görüntülenen zaman serisi genişletin. Her iki sensörlerden kalıcı ve içimiz rahat bir desen gösteren zaman içinde tutarlı bir şekilde fluctuated.
 
     * Görüntüleme aralığı için güncelleştirme **2/24/17 20:00 3/10/17 için 20:00 (UTC)**.
 
-      [![Dört hızlı başlangıç](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Petrol baskısı ve ayrıca civarında etkin uyarı algılayıcılar](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
-1. Geçmiş, iki yıl inceleme, aynı algılayıcı dalgalanmaları ile başka bir Ateş olay ortaya çıkarır.
+1. İki yıla ilişkin geçmiş verileri inceleyerek, başka bir Ateş olayla aynı algılayıcı dalgalanmaları ortaya çıkarır.
 
     * Görüntüleme aralığı için güncelleştirme **1/1/16 31/12/17 '** (tüm veriler).
 
-      [![Hızlı Başlangıç 5](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Geçmiş desenleri arayın](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Azure Time Series Insights'ı ve bizim algılayıcı telemetri kullanarak geçmiş verilerimizi gizli uzun vadeli ve sorunlu bir eğilim keşfettiniz. Bu yeni Öngörüler ile biz açıklayabilir:
+Azure Time Series Insights'ı ve bizim algılayıcı telemetri kullanarak geçmiş verilerimizi gizli uzun vadeli ve sorunlu bir eğilim keşfettiniz. Bu yeni Öngörüler ile yapabiliriz:
 
 > [!div class="checklist"]
-> * Gerçekte oluşan
-> * Sorunu düzeltin
+> * Aslında ne olduğunu açıklar.
+> * Sorunu düzeltin.
 > * Üstün uyarı bildirim sistemlerini yere yerleştirin.
 
 ## <a name="root-cause-analysis"></a>Kök neden analizi
 
 1. Bazı senaryolarda veri Zarif ipuçları ortaya çıkarmak için Gelişmiş bir analiz gerektirir. Yeldeğirmeni seçin **W6** tarihinde **6/25**
 
-    * Görüntüleme aralığı için güncelleştirme **6/1/17 20:00 için 7/1/17 20:00 (UTC)**
+    * Görüntüleme aralığı için güncelleştirme **6/1/17 20:00 için 7/1/17 20:00 (UTC)**.
     * Ardından **Contoso tesis 1** > **W6** > **güvenlik sistemi** > **VoltageActuatorSwitchWarning**  algılayıcı.
 
-      [![Hızlı Başlangıç altı](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+      [![Görüntüleme aralığı güncelleştirin ve W6 seçin](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
 1. Uyarı Oluşturucu tarafından çıkış olan voltaj ile bir sorun olduğunu gösterir. Toplam güç çıkışı oluşturucunun içinde normal parametreler bizim geçerli aralık verilen işletim. Başka bir desen bizim aralığı arttırılarak, dolayısıyla: kesin bir bırakma yoktur.
 
@@ -93,20 +93,20 @@ Azure Time Series Insights'ı ve bizim algılayıcı telemetri kullanarak geçmi
     * Seçin **Oluşturucu sistem** > **ActivePower** algılayıcı.
     * Güncelleştirme aralığı için **3B**.
 
-      [![Hızlı Başlangıç yedi](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+      [![3B'ye güncelleştirme aralığı](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
 
 1. Zaman aralığının genişletilmesi tarafından sorun olup olmadığını durdurulmuş veya yanıt olup devam belirleyebiliriz.
 
     * Zaman aralığı 60 gün için genişletin.
 
-      [![Sekiz hızlı başlangıç](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Zaman aralığı 60 gün için genişletin](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
 
 1. Diğer algılayıcı veri noktası üst bağlam sağlamak için eklenebilir. Daha fazla algılayıcılar biz görüntüleyebilirsiniz, soruna ilişkin bileşen olur. Şimdi, gerçek değerleri görmek için bir işaretçi bırakın. 
 
     * Seçin **Oluşturucu sistem** > **GridVoltagePhase1**, **GridVoltagePhase2**, ve **GridVoltagePhase3** algılayıcılar .
     * Son görünen alanın veri noktasına bir işaret bırakın.
 
-      [![Dokuz hızlı başlangıç](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+      [![Bir işaretçi bırak](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
 
     Üç voltaj algılayıcıları karşılaştırılabilir ve normal parametreleri içinde çalışıyor. Gibi görünüyor **GridVoltagePhase3** algılayıcı sorunlu olduğunu.
 
@@ -114,7 +114,7 @@ Azure Time Series Insights'ı ve bizim algılayıcı telemetri kullanarak geçmi
 
     * Tüm yardımcı görüntülenecek güncelleştirme **Oluşturucu sistem** algılayıcılar aynı grafik ölçek.
 
-       [![Hızlı Başlangıç on](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+       [![Her şey dahil etmek için görüntü güncelleştirme](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -122,3 +122,8 @@ Kendi zaman serisi öngörüleri Önizleme ortamı oluşturmak hazır duruma gel
 
 > [!div class="nextstepaction"]
 > [Zaman serisi öngörüleri Önizleme ortamınızı planlama](time-series-insights-update-plan.md)
+
+Tanıtım ve özelliklerini öğrenin:
+
+> [!div class="nextstepaction"]
+> [Zaman serisi öngörüleri Önizleme Gezgini](time-series-insights-update-explorer.md)

@@ -113,7 +113,7 @@
         - name: AKS kümesini silme
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Sanal düğümler oluşturma (önizleme)
+        - name: Sanal düğümler oluşturma
           items:
             - name: Azure CLI
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: Küme Otomatik Ölçeklendiricisi kullanma (önizleme)
           href: cluster-autoscaler.md
+        - name: Birden çok düğüm havuzu kullanma (önizleme)
+          href: use-multiple-node-pools.md
         - name: Terraform ile AKS’yi dağıtma
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Kubernetes panosunu kullanma
+          href: kubernetes-dashboard.md
     - name: Veri hacimlerini yapılandırma
       items:
         - name: Azure Disk - Dinamik
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: Küme yapılandırma dosyasına erişimi sınırlama
           href: control-kubeconfig-access.md
-        - name: Ağ ilkeleri ile pod trafiğinin güvenliğini sağlama (önizleme)
+        - name: Ağ ilkeleri ile pod trafiğinin güvenliğini sağlama
           href: use-network-policies.md
         - name: Pod güvenlik ilkelerini kullanma (önizleme)
           href: use-pod-security-policies.md
+        - name: API sunucusu tarafından yetkilendirilen IP aralıklarını tanımlama (önizleme)
+          href: api-server-authorized-ip-ranges.md
         - name: Küme hizmet sorumlusu kimlik bilgilerini güncelleştirme
           href: update-credentials.md
+        - name: Küme çıkış trafiğini kısıtlama ve denetleme
+          href: limit-egress-traffic.md
         - name: Azure Active Directory tümleştirmesini etkinleştirme
           items:
             - name: Azure CLI kullanma
@@ -285,10 +293,6 @@
         - name: Azure DevOps Projesi
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Kubernetes hakkında temel bilgiler
-      items:
-        - name: Kubernetes panosunu kullanma
-          href: kubernetes-dashboard.md
     - name: Sorun giderme
       items:
         - name: Genel sorunlar

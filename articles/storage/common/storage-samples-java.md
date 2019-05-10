@@ -6,16 +6,15 @@ author: mhopkins-msft
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 05/03/2019
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: ae734215a7a8efe10f33cfbc338d09071d603232
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d241f1905244d3a8039372262f84ba0fd25220d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149995"
+ms.locfileid: "65209791"
 ---
 # <a name="azure-storage-samples-using-java"></a>Java kullanarak azure depolama örnekleri
 
@@ -23,172 +22,172 @@ ms.locfileid: "65149995"
 
 Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar hakkında genel bir bakış sağlar. Github'da karşılık gelen örnek kod için bağlantılar'a tıklayın.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek Kod</th></tr></thead><tbody> 
-<tr> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek Kod</th></tr></thead><tbody>
+<tr>
 <td rowspan="16"><b>Blob</b></td>
-<td>Ekleme Blobu</td> 
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td> 
-</tr> 
-<tr> 
+<td>Ekleme Blobu</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
+</tr>
+<tr>
 <td>Blok Blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>İstemci Tarafında Şifreleme</td>
 <td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption">Java'da Azure istemci tarafı şifreleme kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Kopya blob'u</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Kapsayıcı oluşturma</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>BLOB silme</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Kapsayıcıyı Sil</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>BLOB meta verileri/özellik/Stats</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Kapsayıcı ACL/meta verileri/özellikleri</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Alma sayfası aralıkları</td>
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/CloudPageBlobTests.java">Sayfa blobu örnek test eder.</a></td>
-</tr> 
-<tr> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java#L399">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
+</tr>
+<tr>
 <td>Kira Blob/kapsayıcı</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Blob/kapsayıcı listeleme</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Sayfa Blobu</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
 </tr>
-<tr> 
+<tr>
 <td>SAS</td>
 <td><a href="https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513">SAS testleri örnek</a></td>
 </tr>   
-<tr> 
+<tr>
 <td>Hizmet Özellikleri</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr>           
-<tr> 
+</tr>
+<tr>
 <td>Blob anlık görüntüsü</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Java'da Azure Blob hizmetini kullanmaya başlama</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td rowspan="9"><b>Dosya</b></td>
-<td>Paylaşımları/dizin/dosya oluştur</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
+<td>Paylaşımları/dizin/dosya oluştur</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
 </tr>
-<tr> 
-<td>Dizinler/paylaşımları/dosyaları sil</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>Dizin özelliklerini/meta verileri</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>Dosyaları indirme</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>Dosya özelliklerini/meta verileri/ölçümleri</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>Dosya hizmeti özellikleri</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>Liste dizinler ve dosyalar</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
+<tr>
+<td>Dizinler/paylaşımları/dosyaları sil</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
 </tr>
-<tr> 
-<td>Paylaşımları</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
+<tr>
+<td>Dizin özelliklerini/meta verileri</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
 </tr>
-<tr> 
-<td>Paylaşımı özelliklerini/meta verileri/Stats</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td> 
+<tr>
+<td>Dosyaları indirme</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
 </tr>
-<tr> 
+<tr>
+<td>Dosya özelliklerini/meta verileri/ölçümleri</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
+</tr>
+<tr>
+<td>Dosya hizmeti özellikleri</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
+</tr>
+<tr>
+<td>Liste dizinler ve dosyalar</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
+</tr>
+<tr>
+<td>Paylaşımları</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
+</tr>
+<tr>
+<td>Paylaşımı özelliklerini/meta verileri/Stats</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java'da Azure dosya hizmeti ile çalışmaya başlama</a></td>
+</tr>
+<tr>
 <td rowspan="8"><b>Kuyruk</b></td>
-<td>İleti Ekle</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted/QueueBasics.java">Depolama Java istemci kitaplığı örnekleri</a></td> 
-</tr> 
-<tr> 
-<td>İstemci Tarafında Şifreleme</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/encryption/queue/gettingstarted/QueueGettingStarted.java">Depolama Java istemci kitaplığı örnekleri</a></td> 
-</tr> 
-<tr> 
-<td>Kuyruk oluşturma</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>İleti/kuyruğu silin</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>İletiye Gözat</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>Kuyruk ACL/meta verileri/Stats</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>Kuyruk hizmeti özelliklerini</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td> 
-</tr> 
-<tr> 
-<td>İletiyi güncelleştirme</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td> 
-</tr> 
-<tr> 
+<td>İleti Ekle</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td>
+</tr>
+<tr>
+<td>İstemci Tarafında Şifreleme</td>
+<td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java">Java'da Azure istemci tarafı şifreleme kullanmaya başlama</a></td>
+</tr>
+<tr>
+<td>Kuyruk oluşturma</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td>
+</tr>
+<tr>
+<td>İleti/kuyruğu silin</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td>
+</tr>
+<tr>
+<td>İletiye Gözat</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td>
+</tr>
+<tr>
+<td>Kuyruk ACL/meta verileri/Stats</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td>
+</tr>
+<tr>
+<td>Kuyruk hizmeti özelliklerini</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td>
+</tr>
+<tr>
+<td>İletiyi güncelleştirme</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Java'da Azure kuyruk hizmeti kullanmaya başlama</a></td>
+</tr>
+<tr>
 <td rowspan="7"><b>Tablo</b></td>
-<td>Tablo Oluştur</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
-</tr> 
-<tr> 
-<td>Varlık/tablo silme</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
-</tr> 
-<tr> 
-<td>Birleştirme/Ekle/Değiştir varlık</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
-</tr> 
-<tr> 
-<td>Varlıkları sorgulayın</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
-</tr> 
-<tr> 
-<td>Sorgu tabloları</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
-</tr> 
-<tr> 
-<td>Tablo ACL/özellikleri</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
-</tr> 
-<tr> 
-<td>Varlık güncelleştir</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
-</tr> 
-</tbody> 
+<td>Tablo Oluştur</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td>
+</tr>
+<tr>
+<td>Varlık/tablo silme</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td>
+</tr>
+<tr>
+<td>Birleştirme/Ekle/Değiştir varlık</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td>
+</tr>
+<tr>
+<td>Varlıkları sorgulayın</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td>
+</tr>
+<tr>
+<td>Sorgu tabloları</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td>
+</tr>
+<tr>
+<td>Tablo ACL/özellikleri</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td>
+</tr>
+<tr>
+<td>Varlık güncelleştir</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td>
+</tr>
+</tbody>
 </table>
 <br/>
 

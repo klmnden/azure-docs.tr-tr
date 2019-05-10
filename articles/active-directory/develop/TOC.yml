@@ -237,6 +237,8 @@
               href: msal-js-prompt-behavior.md
             - name: Kendi HttpClient değerinizi sağlama (.NET)
               href: msal-net-provide-httpclient.md
+            - name: Azure AD B2C ile tümleştirme
+              href: msal-b2c-overview.md
             - name: Platformla ilgili dikkate alınacak önemli noktalar (.NET)
               items:
                 - name: Web tarayıcıları

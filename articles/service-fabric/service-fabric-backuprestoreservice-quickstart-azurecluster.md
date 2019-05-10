@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 4d4bc69f00f86bc81c353ef0cc40f37f000ba6c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bce408215cef540604a72109bc5b29ebc3359e7
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472202"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413787"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Düzenli yedekleme ve geri yükleme Azure Service fabric'te 
 > [!div class="op_single_selector"]
@@ -59,8 +59,30 @@ Service Fabric, bir dizi API aşağıdaki işlevselliği ilgili düzenli yedekle
 * Yedeklemeleri depolamak için depolama alanına bağlanmak için gereken gizli şifreleme için X.509 sertifikası. Başvuru [makale](service-fabric-cluster-creation-via-arm.md) alın veya bir X.509 sertifikası oluşturmak nasıl bilmek.
 * Service Fabric SDK'sı sürüm 3.0 kullanılarak oluşturulan Service Fabric durum bilgisi güvenilir olan uygulama veya üzeri. .NET Core 2.0 hedefleyen uygulamalar için Service Fabric SDK'sı sürüm 3.1 kullanarak uygulama oluşturulmalıdır veya üzeri.
 * Uygulama yedeklemeleri depolamak için Azure depolama hesabı oluşturun.
+* Yapılandırma aramaların Microsoft.ServiceFabric.Powershell.Http modülü [Önizleme içinde] yükleyin.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+* Küme kullanarak bağlı olduğundan emin olun `Connect-SFCluster` Microsoft.ServiceFabric.Powershell.Http modülünü kullanarak herhangi bir yapılandırma isteğini yapmadan önce komutu.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
 
 ## <a name="enabling-backup-and-restore-service"></a>Yedekleme ve geri yükleme Hizmeti'ni etkinleştirme
+
+### <a name="using-azure-portal"></a>Azure portalını kullanma
+
+Etkinleştirme `Include backup restore service` altındaki onay kutusunu `+ Show optional settings` içinde `Cluster Configuration` sekmesi.
+
+![Portal ile yedekleme geri yükleme hizmetini etkinleştirme][1]
+
+
+### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanma
 Etkinleştirmek gereken ilk _yedekleme ve geri yükleme hizmeti_ kümenizdeki. Şablonu dağıtmak istediğiniz küme için alın. Kullanabilir [örnek şablonlarından](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) veya bir Resource Manager şablonu oluşturabilirsiniz. Etkinleştirme _yedekleme ve geri yükleme hizmeti_ aşağıdaki adımları:
 
 1. Bu maddeyi `apiversion` ayarlanır **`2018-02-01`** için `Microsoft.ServiceFabric/clusters` kaynak ve aksi takdirde, aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
@@ -117,6 +139,18 @@ Etkinleştirmek gereken ilk _yedekleme ve geri yükleme hizmeti_ kümenizdeki. �
 
 Azure depolama hesabı, yukarıda oluşturulan Yedekleme depolaması için kullanın. Kapsayıcı `backup-container` yedeklemeleri depolamak için yapılandırılır. Bunu zaten, yedekleme karşıya yükleme sırasında mevcut değilse, bu ada sahip bir kapsayıcı oluşturulur. Doldurma `ConnectionString` bir Azure depolama hesabı için geçerli bir bağlantı dizesiyle değiştirerek `account-name` ile depolama hesabı adınızı ve `account-key` depolama hesabınızın anahtarıyla.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell kullanarak Microsoft.ServiceFabric.Powershell.Http Modülü
+
+Aşağıdaki yeni yedekleme ilkesi oluşturmak için PowerShell cmdlet'lerini çalıştırın. Değiştirin `account-name` ile depolama hesabı adınızı ve `account-key` depolama hesabınızın anahtarıyla.
+
+```powershell
+
+New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container' -Basic -RetentionDuration '10.00:00:00'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>PowerShell kullanarak rest araması
+
 Aşağıdaki yeni ilke oluşturmak için gerekli REST API çağırmak için PowerShell betiğini yürütün. Değiştirin `account-name` ile depolama hesabı adınızı ve `account-key` depolama hesabınızın anahtarıyla.
 
 ```powershell
@@ -148,6 +182,7 @@ $body = (ConvertTo-Json $BackupPolicy)
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
+
 ```
 
 > [!IMPORTANT]
@@ -155,6 +190,15 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### <a name="enable-periodic-backup"></a>Dönemsel yedeklemeyi etkinleştirme
 Uygulamanın veri koruma gereksinimlerini karşılamak için yedekleme İlkesi tanımladıktan sonra yedekleme ilkesini uygulama ile ilişkili olması gerekir. Yedekleme İlkesi gereksinim bağlı olarak, bir uygulama, hizmet veya bir bölümü ile ilişkili olabilir.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell kullanarak Microsoft.ServiceFabric.Powershell.Http Modülü
+
+```powershell
+
+Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+
+```
+#### <a name="rest-call-using-powershell"></a>PowerShell kullanarak rest araması
 
 Yedekleme ilkesi adı ile ilişkilendirmek için gerekli REST API'sini çağırmak için PowerShell Betiği aşağıdaki yürütme `BackupPolicy1` uygulamayla adım yukarıda oluşturduğunuz `SampleApp`.
 
@@ -179,6 +223,15 @@ Uygulama düzeyinde yedekleme etkinleştirdikten sonra güvenilir durum bilgisi 
 
 Güvenilir durum bilgisi olan hizmetler ve uygulamanın Reliable Actors ait tüm bölümleri ile ilişkili yedekleri numaralandırılan kullanarak _GetBackups_ API. Yedeklemeler, bir uygulama, hizmet veya bir bölümü için listelenebilir.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell kullanarak Microsoft.ServiceFabric.Powershell.Http Modülü
+
+```powershell
+    
+Get-SFApplicationBackupList -ApplicationId WordCount
+```
+
+#### <a name="rest-call-using-powershell"></a>PowerShell kullanarak rest araması
+
 Tüm bölümleri için oluşturulan yedekleri numaralandırmak için HTTP API çağırmak için PowerShell Betiği aşağıdaki yürütme `SampleApp` uygulama.
 
 ```powershell
@@ -189,6 +242,7 @@ $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7e
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Yukarıdaki örnek çıktısı çalıştırın:
 
 ```
@@ -230,15 +284,17 @@ FailureError            :
 ```
 
 ## <a name="limitation-caveats"></a>Sınırlama / uyarılar
-- Herhangi bir Service Fabric PowerShell cmdlet'leri yerleşik.
+- Service Fabric PowerShell cmdlet'leri Önizleme modundadır.
 - Linux üzerinde Service Fabric desteği kümeleri.
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
 - Bekletme süresi 24 günden az olacak şekilde yapılandırıldığından emin olun. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Düzenli yedekleme yapılandırması anlama](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Yedekleme geri yükleme REST API Başvurusu](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
 

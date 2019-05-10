@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075348"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407000"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Web API'leri - çağıran Masaüstü uygulamasının bir belirteç Al
 
@@ -502,7 +502,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -529,7 +529,7 @@ Uygulanabilir tüm değiştiricilere hakkında ayrıntılı bilgi için `Acquire
 
 Azure AD ile etkileşimli kimlik doğrulaması gerektiren bir web tarayıcısı (Ayrıntılar için bkz. [web tarayıcıları kullanımını](https://aka.ms/msal-net-uses-web-browser)). Ancak, cihaz veya işletim sistemleri, bir Web tarayıcısı sağlamayan kullanıcıların kimliklerini doğrulamak için cihaz kod akışını (örneğin başka bir bilgisayara veya bir cep telefonu) oturum başka bir cihaz etkileşimli olarak olanak. Cihaz kod akışı kullanarak, uygulama belirteçleri bu cihazları/OS için özellikle tasarlanmış iki adımlı bir işlemle alır. Bu uygulamalara örnek olarak, IOT veya komut satırı araçlarını (CLI) çalışan uygulamalardır. Fikir olmasıdır:
 
-1. Kullanıcı kimlik doğrulaması gerekli olduğunda, uygulama bir kod sağlar ve kullanıcıdan bir URL'ye gidin (örneğin, bir İnternet'e bağlı smartphone) başka bir cihaz kullanın (örneğin, `http://microsoft.com/devicelogin`), burada kullanıcı kodunu girmeniz istenir. Bitti, web sayfası kullanıcı onayı istemlerini ve çok faktörlü kimlik doğrulaması gerekirse dahil olmak üzere bir normal kimlik doğrulama deneyimi aracılığıyla önünü açacak olduğunu.
+1. Kullanıcı kimlik doğrulaması gerekli olduğunda, uygulama bir kod sağlar ve kullanıcıdan bir URL'ye gidin (örneğin, bir İnternet'e bağlı smartphone) başka bir cihaz kullanın (örneğin, `https://microsoft.com/devicelogin`), burada kullanıcı kodunu girmeniz istenir. Bitti, web sayfası kullanıcı onayı istemlerini ve çok faktörlü kimlik doğrulaması gerekirse dahil olmak üzere bir normal kimlik doğrulama deneyimi aracılığıyla önünü açacak olduğunu.
 
 2. Başarılı kimlik doğrulamadan sonra komut satırı uygulaması ile arka kanal gerekli belirteçleri alır ve ihtiyaç duyduğu web API çağrıları gerçekleştirmek için kullanın.
 

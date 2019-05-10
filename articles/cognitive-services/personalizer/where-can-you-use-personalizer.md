@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b24e3d7fd71ef60cf8ebe5ba2c33889ff518580c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027113"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441044"
 ---
-# <a name="where-can-you-use-personalizer"></a>Burada Personalizer kullanabilir miyim?
+# <a name="where-can-you-use-personalizer"></a>Kişiselleştirme’yi nerelerde kullanabilirsiniz?
 
 Kullanım Personalizer doğru öğesi, eylem veya - deneyimini iyileştirin için görüntülenecek bir ürün seçmek için uygulamanız gereken yere herhangi bir durumda, daha iyi iş sonuçları elde etmek veya üretkenliği artırın. 
 
@@ -58,7 +58,7 @@ Gerçekleştirerek Personalizer etkisini düzenli aralıklarla izleyebilirsiniz 
 
 Birçok şirket, müşterilerin büyük bir katalog ürünlerden önermek için öneri altyapıları, pazarlama ve campaigning araçları, İzleyici segmentlere ayırma ve kümeleme, ortak filtreleme ve başka bir yolla kullanın.
 
-[Microsoft Recommenders GitHub deposundan ](https://github.com/Microsoft/Recommenders) önerisi sistemleri, Jupyter not defterleri sağlanan oluşturmaya yönelik örnekler ve en iyi yöntemler sağlar. Veri hazırlama, modelleri oluşturmaya, değerlendirme, ayarlama ve xDeepFM, dahil olmak üzere birçok ortak yaklaşım ÖİB, ALS, RBM, DKN için öneri altyapıları faaliyete geçirmeye yönelik çalışma örnekleri sağlar.
+[Microsoft Recommenders GitHub deposundan](https://github.com/Microsoft/Recommenders) önerisi sistemleri, Jupyter not defterleri sağlanan oluşturmaya yönelik örnekler ve en iyi yöntemler sağlar. Veri hazırlama, modelleri oluşturmaya, değerlendirme, ayarlama ve xDeepFM, dahil olmak üzere birçok ortak yaklaşım ÖİB, ALS, RBM, DKN için öneri altyapıları faaliyete geçirmeye yönelik çalışma örnekleri sağlar.
 
 Mevcut olduğunda personalizer bir öneri altyapısı ile çalışabilirsiniz.
 

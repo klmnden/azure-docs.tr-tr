@@ -3,15 +3,15 @@ title: Azure Cosmos öykünücü ile yerel olarak geliştirme
 description: Azure Cosmos öykünücüsü'nü kullanarak geliştirin ve bir Azure aboneliği oluşturmadan için yerel uygulamanızı ücretsiz test edin.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 03/14/2019
+ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925497"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205781"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos öykünücüsünü kullanma
 
@@ -236,7 +236,7 @@ Yükleme konumundan komut satırında başlatmak ve öykünücüsü'nü durdurun
 
 Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe /?` yazın.
 
-|**Seçenek** | **Açıklama** | **Komut**| **Bağımsız Değişkenler**|
+|**Seçeneği** | **Açıklama** | **Komutu**| **Bağımsız Değişkenler**|
 |---|---|---|---|
 |[Bağımsız değişken yok] | Azure Cosmos öykünücüsü varsayılan ayarlarla kurmak başlatır. |CosmosDB.Emulator.exe| |
 |[Yardım] |Desteklenen komut satırı bağımsız değişkenleri listesini görüntüler.|CosmosDB.Emulator.exe /? | |

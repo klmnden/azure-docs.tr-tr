@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
-ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803177"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231376"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric uygulama ve küme için en iyi yöntemler
 
-Azure Service Fabric uygulama ve kümelerin başarılı bir şekilde yönetmek için üretim ortamınızın güvenilirliği iyileştirmek için almanızı öneririz işlemler vardır; Bu belgede tanımlanan işlemleri ve birini bizim [Azure örnekleri Service Fabric kümesi şablonları](https://github.com/Azure-Samples/service-fabric-cluster-templates) üretim çözümünüzü tasarlama başlamak ya da bu uygulamaları eklemek, varolan bir şablonu değiştirmek için.
+Azure Service Fabric uygulama ve kümelerin başarılı bir şekilde yönetmek için üretim ortamınızın güvenilirliği iyileştirmek için almanızı öneririz işlemleri vardır; Lütfen bu belgede tanımlanan işlemlerini gerçekleştirmek ve birini bizim [Azure örnekleri Service Fabric kümesi şablonları](https://github.com/Azure-Samples/service-fabric-cluster-templates) üretim çözümünüzü tasarlama başlamak ya da bu uygulamaları eklemek, varolan bir şablonu değiştirmek için.
 
 ## <a name="security"></a>Güvenlik 
 
@@ -45,6 +45,10 @@ Azure Service Fabric uygulama ve kümelerin başarılı bir şekilde yönetmek i
 ## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
 
 * [Küme izleme ve tanılama için en iyi uygulamalar](service-fabric-best-practices-monitoring.md)
+
+## <a name="application-design"></a>Uygulama tasarımı
+
+* [Uygulama tasarımı için en iyi uygulamalar](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Denetim listesi
 

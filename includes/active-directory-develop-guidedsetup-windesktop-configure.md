@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297747"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199562"
 ---
-## <a name="register-your-application"></a>Uygulamanızı kaydetme
+## <a name="register-your-application"></a>Uygulamanızı kaydedin
 
 Uygulamanızı iki yoldan biriyle kaydedebilirsiniz.
 
@@ -43,7 +43,9 @@ Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze ekleme
    - **Desteklenen hesap türleri** bölümünde **Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesapları (ör. Skype, Xbox, Outlook.com)** seçeneğini belirtin.
    - Uygulamayı kaydetmek için **Kaydet**'i seçin.
 1. Uygulama sayfa listesinde **Kimlik doğrulaması**'nı seçin.
-1. **Yeniden yönlendirme URI'leri** bölümünde **Ortak istemciler (mobil, masaüstü) için önerilen Yeniden Yönlendirme URI'leri** altında **"urn:ietf:wg:oauth:2.0:oob** girişini seçin.
+   1. İçinde **yeniden yönlendirme URI'leri** bölümünde yeniden yönlendirme URI'leri listesi:
+   1. İçinde **türü** Sütun Seç **genel istemci (Mobil ve Masaüstü)**.
+   1. Girin `urn:ietf:wg:oauth:2.0:oob` içinde **yeniden yönlendirme URI'si** sütun.
 1. **Kaydet**’i seçin.
 1. Visual Studio, açık Git *App.xaml.cs* dosya ve sonra değiştirmek `Enter_the_Application_Id_here` yalnızca kayıtlı ve kopyaladığınız uygulama kimliği.
 

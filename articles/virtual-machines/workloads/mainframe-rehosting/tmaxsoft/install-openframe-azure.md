@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: c7e6e7e2023c333207a3a17c3b6711d92de7d044
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b69ded2591478a477cd142decb39218841c9ac62
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187800"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410119"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>TmaxSoft OpenFrame Azure'a yükleme
 
@@ -116,13 +116,13 @@ Başlamadan önce aşağıdakileri yapın:
 
 **Bir VM oluşturmak için**
 
-1. Adresinden Azure portalında Git <http://portal.azure.com> ve hesabınızda oturum açın.
+1. Adresinden Azure portalında Git <https://portal.azure.com> ve hesabınızda oturum açın.
 
 2. Tıklayın **sanal makineler**.
 
     ![Azure portalında kaynak listesi](media/vm-01.png)
 
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 
     ![Azure portalında seçeneği ekleme](media/vm-02.png)
 

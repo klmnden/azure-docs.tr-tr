@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190190"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227912"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 
@@ -32,7 +32,7 @@ Azure AD cihazları ve uygulamaları için çoklu oturum açma sağlar ve hizmet
 - Şirket ağı devre dışı olduklarında hizmet erişen kullanıcılar için çok faktörlü kimlik doğrulaması gerektiren.
 - Bir hizmetin belirli ülke veya bölgelerden erişen kullanıcılar için erişimi engelliyor.
 
-Güvenilen IP'ler bir ağ konumu ya da temsil ettiğini belirtilen konum veya çok faktörlü kimlik doğrulaması için bir konum bir etikettir.
+Bir ağ konumu ya da temsil ettiğini belirtilen konum veya çok faktörlü kimlik doğrulaması güvenilen IP'ler için bir etiket konumdur.
 
 ## <a name="named-locations"></a>Adlandırılmış konumlar
 
@@ -54,7 +54,7 @@ Adlandırılmış bir konuma aşağıdaki bileşenlere sahiptir:
 
 - **Güvenilen konum olarak işaretle** -güvenilen bir konum belirtmek adlandırılmış bir konum için ayarlayabileceğiniz bir bayrak. Genellikle, güvenilen konumları BT departmanınız tarafından denetlenen ağ alanlardır. Koşullu erişim yanı sıra güvenilen adlandırılmış konumlar ayrıca Azure kimlik koruması ve Azure AD güvenlik raporları tarafından azaltmak için kullanılan [hatalı pozitif sonuçları](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Ülkeler/bölgeler** -bu seçenek, bir veya daha fazla ülke veya bölge adlandırılmış bir konuma tanımlamak için seçmenize olanak sağlar.
-- **Bilinmeyen alanları dahil et** -bazı IP adreslerini belirli bir ülkeye eşlenmedi. Bu seçenek, bu IP adresleri adlandırılmış bir konumda dahil edilip edilmeyeceğini seçmenize olanak tanır. Belirtilen konum kullanarak ilke bilinmeyen konumlara uygulanmasını gerektiren bu ayarı kullanın.
+- **Bilinmeyen alanları dahil et** -belirli bir ülke veya bölge için bazı IP adreslerini eşlenmedi. Bu seçenek, bu IP adresleri adlandırılmış bir konumda dahil edilip edilmeyeceğini seçmenize olanak tanır. Belirtilen konum kullanarak ilke bilinmeyen konumlara uygulanmasını gerektiren bu ayarı kullanın.
 
 Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Kuruluşlarda en fazla 90 adlandırılmış konumlar yapılandırabilir, her kadar 12000 IP aralıkları ile yapılandırılmış.
 
@@ -69,7 +69,7 @@ Bir ilke, "Herhangi bir yere" uygulamak için yapılandırılmışsa, IPv4 ve IP
 
 Ayrıca, kuruluşunuzun yerel intranet temsil eden IP adresi aralıklarını yapılandırabilirsiniz [multi-Factor authentication hizmeti ayarlarını](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Bu özellik, 50 adede kadar IP adresi aralıklarını yapılandırmanızı sağlar. IP adresi aralıklarını CIDR biçimindedir. Daha fazla bilgi için [güvenilen IP'ler](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Yapılandırılan güvendiyseniz, bunlar olarak görünmesini **MFA güvenilen IP'ler** konum koşulu için konumları listesinde.
+Güvenilen IP'ler yapılandırılmış varsa, bunlar olarak görünmesini **MFA güvenilen IP'ler** konum koşulu için konumları listesinde.
 
 ### <a name="skipping-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulaması atlanıyor
 

@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209550"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Hızlı Başlangıç - özel bir bulut ortamı yapılandırma
 
 Bu makalede, CloudSimple özel bir bulut oluşturmak ve özel bulut ortamınızı ayarlama hakkında bilgi edinin.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-private-cloud"></a>Özel bulut oluşturma
@@ -104,7 +104,7 @@ VPN istemcisi için CloudSimple bilgisayarınızdan bağlanmak için gereklidir.
 4. Seçin **kullanıcılar**.
 5. Tıklayarak **my VPN yapılandırmasını indir**
 
-    ![VPN yapılandırmasını indirme](media/download-p2s-vpn-configuration.png)
+    ![VPN yapılandırmasını indir](media/download-p2s-vpn-configuration.png)
 
 6. İçeri aktarma üzerinde VPN istemcinizi yapılandırma
 
@@ -135,7 +135,7 @@ VLAN/alt ağ oluşturulur.  Artık bu VLAN kimliği üzerinde özel bulut vCente
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Ortamınızı bir Azure sanal ağına bağlama
 
-CloudSimple ile bir ExpressRoute bağlantı hattı için özel bulutunuzun sağlar. ExpressRoute bağlantı hattı için Azure sanal ağınızda bağlanabilirsiniz. Bağlantı kurma hakkında tam Ayrıntılar için adımları [Azure sanal ağı ExpressRoute kullanarak bağlantı](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple ile bir ExpressRoute bağlantı hattı için özel bulutunuzun sağlar. ExpressRoute bağlantı hattı için Azure sanal ağınızda bağlanabilirsiniz. Bağlantı kurma hakkında tam Ayrıntılar için adımları [Azure sanal ağı ExpressRoute kullanarak bağlantı](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>VCenter'ı açın
 

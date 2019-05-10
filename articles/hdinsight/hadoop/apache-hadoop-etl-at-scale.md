@@ -127,7 +127,7 @@ Sqoop alma ve paralel işlem ve hata toleransı sağlamak için verileri dışar
 
 Apache Flume, verimli bir şekilde toplanması, toplama ve büyük miktarlarda günlük veri taşıma için dağıtılmış, güvenilir ve kullanılabilir bir hizmettir. Flume veri akışları akış dayalı basit ve esnek bir mimariye sahiptir. Flume, güçlü ve hataya dayanıklı ayarlanabilir güvenilirlik mekanizmalar ve birçok yük devretme ve kurtarma mekanizmaları ile. Flume çevrimiçi analitik uygulama için izin veren basit genişletilebilir veri modeli kullanır.
 
-Azure HDInsight ile Apache Flume kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure depolama Blobları veya Azure Data Lake Storage veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için [kullanarak, HDInsight ile Apache Flume](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Azure HDInsight ile Apache Flume kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure depolama Blobları veya Azure Data Lake Storage veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için [kullanarak, HDInsight ile Apache Flume](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## <a name="transform"></a>Dönüşüm
 

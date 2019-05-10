@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C'de kullanıcı erişimini yönetme | Microsoft Docs
-description: Reşit olmayanların tanımlamak, tarih Doğum ve ülke veri toplamak ve Azure AD B2C'yi kullanarak uygulamanızda kullanım koşullarının kabulü alma hakkında bilgi edinin.
+description: Reşit olmayanların tanımlamak, tarih Doğum ve ülke/bölge veri toplamak ve Azure AD B2C'yi kullanarak uygulamanızda kullanım koşullarının kabulü alma hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691097"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228027"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de kullanıcı erişimini yönetme
 
@@ -23,7 +23,7 @@ Bu makalede, Azure Active Directory (Azure AD) B2C'yi kullanarak uygulamaların�
 
 - Reşit olmayanların tanımlama ve uygulamanız için kullanıcı erişimini denetleme.
 - Reşit olmayanların uygulamalarınızı kullanmak için ebeveyn izni gerektirir.
-- Kullanıcılardan Doğum ve ülke veri toplanıyor.
+- Kullanıcılardan Doğum ve ülke/bölge veri toplanıyor.
 - Kullanım koşulları sözleşmesini yakalamak ve erişim geçişi sağlayarak.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -58,11 +58,11 @@ Kullanıcı akışı ebeveyn izni toplamak için bir örnek verilmiştir:
 
 Hakkında daha fazla bilgi için **legalAgeGroupClassification**, **consentProvidedForMinor**, ve **yaş**, bkz: [kullanıcı kaynak türü](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Özel öznitelikler hakkında daha fazla bilgi için bkz. [tüketicileriniz hakkında bilgi toplamak için özel öznitelikler kullanma](active-directory-b2c-reference-custom-attr.md). Genişletilmiş öznitelikleri Azure AD Graph API'sini kullanarak adres, öznitelik uzun sürümü gibi kullanmalısınız *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
-## <a name="gather-date-of-birth-and-country-data"></a>Tarih Doğum ve ülke veri toplayın
+## <a name="gather-date-of-birth-and-countryregion-data"></a>Tarih Doğum ve ülke/bölge veri toplayın
 
-Uygulama doğum tarihi (DOB) ve ülke bilgileri tüm kullanıcıların kayıt sırasında toplamak için Azure AD B2C kullanır. Uygulama, bu bilgileri zaten mevcut değilse, kullanıcıdan bir sonraki kimlik doğrulaması (oturum açma) yolculuğu sırasında isteyebilir. Kullanıcılar kendi DOB sağlamadan devam edemiyor ve ülke bilgileri. Azure AD B2C, tek tek ülkenin Mevzuat standartlarına göre küçük olup olmadığını belirlemek için bilgileri kullanır. 
+Uygulama doğum tarihi (DOB) ve ülke/bölge bilgileri tüm kullanıcıların kayıt sırasında toplamak için Azure AD B2C kullanır. Uygulama, bu bilgileri zaten mevcut değilse, kullanıcıdan bir sonraki kimlik doğrulaması (oturum açma) yolculuğu sırasında isteyebilir. Kullanıcılar kendi DOB ve ülke/bölge bilgilerini sağlamadan devam edemiyor. Azure AD B2C, tek tek ülke/bölge, Mevzuat standartlarına göre küçük olup olmadığını belirlemek için bilgileri kullanır. 
 
-Özelleştirilmiş kullanıcı akışı DOB toplayabilir ve Azure AD B2C ülke bilgileri ve kullanım belirlemek için dönüştürme talep **yaş** ve sonucu (veya DOB kalıcı hale getirmek ve ülke bilgileri doğrudan) dizinde.
+Özelleştirilmiş kullanıcı akışı DOB toplayabilir ve ülke/bölge bilgileri ve kullanım Azure AD B2C talep belirlemek için **yaş** ve sonucu kalıcı (veya doğrudan DOB ve ülke/bölge bilgileri kalıcı hale getirmek), Dizin.
 
 Aşağıdaki adımlarda hesaplamak için kullanılan mantıksal **yaş** kullanıcının doğum tarihi'nden:
 
@@ -78,7 +78,7 @@ Aşağıdaki adımlarda hesaplamak için kullanılan mantıksal **yaş** kullan�
 
 4. Hiçbiri hesaplama true olursa, hesaplama döndürür **yetişkinlere yönelik**.
 
-Bir uygulamanın güvenilir bir biçimde toplanan DOB veya diğer yöntemlerle ülke veri varsa, uygulama bu bilgileri kullanarak kullanıcı kaydı güncelleştirmek için Graph API'sini kullanabilir. Örneğin:
+Uygulamanın güvenilir bir şekilde diğer yöntemlerle DOB ya da ülkeniz/bölgeniz veri topladığı, uygulama bu bilgileri kullanarak kullanıcı kaydı güncelleştirmek için Graph API'sini kullanabilir. Örneğin:
 
 - Bir kullanıcı bir yetişkin olarak bilinen, dizin özniteliği güncelleştirme **yaş** değeriyle **yetişkinlere yönelik**.
 - Bir kullanıcı küçük olmasını biliniyorsa, dizin özniteliği güncelleştirme **yaş** değerini **küçük** ve **consentProvidedForMinor**uygun şekilde.

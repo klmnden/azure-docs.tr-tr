@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142836"
+ms.locfileid: "65204007"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Örneği - Linux sanal makineleri içinde belirtilen uygulamaları yüklü değilse denetim
 
@@ -85,7 +85,7 @@ Kurallarını tanımlayan JSON **Deployıfnotexists** ilke tanımı.
 |RedHat |osa | Tümü |
 |credativ |Debian | Tüm 7 dışında\* |
 |SuSE |SLES\* |Tüm dışında 11\* |
-|Canonical| UbuntuServer |12 dışında tümü\* |
+|Kurallı| UbuntuServer |12 dışında tümü\* |
 |microsoft-dsvm |linux-data-science-vm-ubuntu |Tümü |
 |microsoft-dsvm |azureml |Tümü |
 |Cloudera |cloudera-centos-os |Tüm dışında 6\* |
@@ -108,7 +108,7 @@ Sonra **denetim** ve **Deployıfnotexists** tanımları, portalda oluşturulur, 
 
 ### <a name="create-copy-of-audit-definition"></a>Denetim tanımının bir kopyasını oluşturun
 
-[![İlke örneği Azure'a dağıtma](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![İlke örneği Azure'a dağıtma](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![Azure kamu için ilke örneği dağıtma](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Portal üzerinden dağıtmak için bu düğmeleri kullanarak bir kopyasını oluşturur **denetim** ilke tanımı.
@@ -116,7 +116,7 @@ Eşleştirilmiş olmadan **Deployıfnotexists** ilke tanımı, Konuk yapılandı
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Deployıfnotexists tanımının bir kopyasını oluşturun
 
-[![İlke örneği Azure'a dağıtma](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![İlke örneği Azure'a dağıtma](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![Azure kamu için ilke örneği dağıtma](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Portal üzerinden dağıtmak için bu düğmeleri kullanarak bir kopyasını oluşturur **Deployıfnotexists** ilke tanımı. Eşleştirilmiş olmadan **denetim** ilke tanımı, Konuk yapılandırma düzgün çalışmaz.

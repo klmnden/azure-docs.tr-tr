@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021433"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409096"
 ---
 # <a name="about-the-speech-devices-sdk"></a>SDK'sı konuşma cihazları hakkında
 
@@ -32,7 +32,7 @@ Konuşma cihaz SDK'sını kullanan [Speech SDK'sı](speech-sdk.md). Speech SDK's
 
 Konuşma cihaz SDK'sı kendi çevresel cihazlar oluşturmak için de kullanabilirsiniz [Uyandırma word özelleştirilmiş](speech-devices-sdk-create-kws.md) bir kullanıcı etkileşimi başlatır işaret markanız için benzersiz olacak şekilde.
 
-Konuşma cihaz SDK'sı gibi çeşitli senaryoları, ses etkin kolaylaştıran [özel sesli öncelikli sanal Yardımcıları](https://aka.ms/sdsdk-assistant), sürücü-izlenecek sistemleri, sıralama [konuşma transkripsiyonu](conversation-transcription-service.md)ve akıllı konuşmacılar. Geri bunları varsayılan için metin, kullanıcılara yanıt konuşun veya [özel sesli](how-to-customize-voice-font.md), arama sonuçları sağlamak [çevir](speech-translation.md) diğer diller ve daha fazlası. Hangi derleme görmeye umuyoruz!
+Konuşma cihaz SDK'sı gibi çeşitli senaryoları, ses etkin kolaylaştıran [özel sesli öncelikli sanal Yardımcıları](https://aka.ms/bots/speech/va), sürücü-izlenecek sistemleri, sıralama [konuşma transkripsiyonu](conversation-transcription-service.md)ve akıllı konuşmacılar. Geri bunları varsayılan için metin, kullanıcılara yanıt konuşun veya [özel sesli](how-to-customize-voice-font.md), arama sonuçları sağlamak [çevir](speech-translation.md) diğer diller ve daha fazlası. Hangi derleme görmeye umuyoruz!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

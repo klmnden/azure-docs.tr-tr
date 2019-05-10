@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411343"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231335"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
 
@@ -75,7 +75,7 @@ NameIDPolicy özniteliği hakkında daha fazla bilgi için bkz. [tek oturum açm
 
 | Ad | Açıklama |
 |------|-------------|
-| Email | Kullanıcının e-posta adresi |
+| E-posta | Kullanıcının e-posta adresi |
 | userprincipalName | Kullanıcının kullanıcı asıl adı (UPN) |
 | onpremisessamaccount | Şirket içi ad'nizden Azure AD'ye eşitlenen SAM hesabı adı |
 | Nesne Kimliği | Azure AD'de kullanıcının nesne kimliği |
@@ -116,7 +116,7 @@ Talep dönüştürmeleri işlevleri de kullanabilirsiniz.
 | **ToUpper()** | Seçilen özniteliğin karakterleri büyük harf karakterlere dönüştürür. |
 | **Contains()** | Giriş belirtilen değerle eşleşiyorsa, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Örneğin, bir talep değeri olduğu kullanıcının e-posta adresi etki alanını içeriyorsa yayma istiyorsanız "@contoso.com", kullanıcı asıl adı çıktısını almak istediğiniz Aksi takdirde. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: user.email<br/>*Değer*: "@contoso.com"<br/>Parametre 2 (çıkış): user.email<br/>Parametre 3 (eşleşme yoksa çıkış): user.userprincipalname |
 | **EndWith()** | Belirtilen değerle giriş sona ererse, öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>EmployeeID "000" ile bitiyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: user.employeeid<br/>*Değer*: "000"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
-| **StartWith()** | Giriş belirtilen değerle başlayıp başlamadığını öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Ülke "ABD" ile başlıyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: Resource.country<br/>*Değer*: "BİZE"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
+| **StartWith()** | Giriş belirtilen değerle başlayıp başlamadığını öznitelik veya sabiti çıkarır. Aksi takdirde, eşleşme yoksa, başka bir çıkış belirtebilirsiniz.<br/>Ülke/bölge "ABD" ile başlıyorsa değerin kullanıcının EmployeeID olduğu bir talep yayma istiyorsanız, örneğin, aksi takdirde uzantısı özniteliği çıkış istediğiniz. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>*Parametre 1(input)*: Resource.country<br/>*Değer*: "BİZE"<br/>Parametre 2 (çıkış): user.employeeid<br/>Parametre 3 (eşleşme yoksa çıkış): user.extensionattribute1 |
 | **Extract() - After matching** | Belirtilen değerle eşleşen sonra alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon" ise, eşleşen değeri olan "Finance_" sonra "BSimon" talebin çıkışı yapılır. |
 | **Extract() - Before matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "BSimon_US" ise, eşleşen değeri olan "_US" sonra "BSimon" talebin çıkışı yapılır. |
 | **Extract() - Between matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon_US" ise, ilk eşleşen değeri olan "Finance_", ikinci eşleşen değeri olan "_US" ve ardından "BSimon" talebin çıkışı yapılır. |
