@@ -67,7 +67,7 @@
     - name: Faturalama ve abonelikler
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: Barındırma karşılaştırmaları
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: App Service nedir?
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: Sanal makineler

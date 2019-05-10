@@ -105,7 +105,7 @@ sections:
         className: cardsD
         items:
           - title: REST API'leri v2
-            html: '<p><a href="https://aka.ms/luis-endpoint-apis"> Uç nokta API’si</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Yazma API’si</a></p>'
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092356"> Uç nokta API’si</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2092087"> Yazma API’si</a></p>'
           - title: SDK’lar
             html: '<p><a href="https://aka.ms/luis-endpoint-sdk"> .NET uç nokta SDK’sı</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Yazma SDK’sı</a></p>'
           - title: PowerShell

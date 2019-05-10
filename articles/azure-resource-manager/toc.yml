@@ -124,6 +124,8 @@
         - name: Azure DevOps Services ile sürekli tümleştirme
           href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
           maintainContext: true
+    - name: Şablonu dışarı aktarma
+      href: export-template-portal.md
     - name: Yönetme
       items:
         - name: Kaynak gruplarını yönetme

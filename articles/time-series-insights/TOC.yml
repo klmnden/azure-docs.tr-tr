@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: Veri saklamayı anlama
           href: time-series-insights-concepts-retention.md
+        - name: Geliştirme
+          items:
+            - name: Kimlik doğrulama ve yetkilendirme
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'C# kullanarak verileri sorgulama'
+              href: time-series-insights-query-data-csharp.md
+            - name: 'C# içinde başvuru verilerini yönetme'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: Özel görünüm paylaşma
+              href: time-series-insights-parameterized-urls.md
     - name: Azure Time Series Insights Önizleme
       items:
         - name: Ortamınızı planlama
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: Gezginde verileri görselleştirme (Önizleme)
           href: time-series-insights-update-explorer.md
-    - name: Geliştirme
-      items:
-        - name: Kimlik doğrulama ve yetkilendirme
-          href: time-series-insights-authentication-and-authorization.md
-        - name: 'C# kullanarak verileri sorgulama'
-          href: time-series-insights-query-data-csharp.md
-        - name: 'C# içinde başvuru verilerini yönetme'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: Özel görünüm paylaşma
-          href: time-series-insights-parameterized-urls.md
+        - name: Geliştirme
+          items:
+            - name: Kimlik doğrulama ve yetkilendirme
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'C# kullanarak verileri sorgulama'
+              href: time-series-insights-update-query-data-csharp.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Veri erişim izni verme
