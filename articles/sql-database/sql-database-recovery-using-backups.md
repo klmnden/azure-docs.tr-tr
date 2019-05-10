@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/30/2019
+ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620487"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232652"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 
@@ -28,7 +28,7 @@ Varsayılan olarak, SQL veritabanı yedeklemelerini coğrafi olarak çoğaltılm
 - Herhangi bir SQL veritabanı sunucusu son yedeklemelerin noktasına kurtarılır aynı bölgede yeni bir veritabanı oluşturun.
 - Herhangi bir SQL veritabanı sunucusu en son çoğaltılan yedeklemeler noktasına kurtarılır bölgede yeni bir veritabanı oluşturun.
 
-Yapılandırdıysanız [yedekleme uzun süreli saklama](sql-database-long-term-retention.md) herhangi bir bölgedeki herhangi bir SQL veritabanı sunucusu üzerinde herhangi bir LTR yedekten yeni bir veritabanı oluşturabilirsiniz.
+Yapılandırdıysanız [yedekleme uzun süreli saklama](sql-database-long-term-retention.md), herhangi bir SQL veritabanı sunucusunda LTR yedekten yeni bir veritabanı oluşturabilirsiniz.
 
 > [!IMPORTANT]
 > Varolan bir veritabanını geri yükleme sırasında üzerine yazılamıyor.
@@ -38,7 +38,7 @@ Standart veya Premium Hizmet katmanını kullanırken, geri yüklenen veritaban�
 - Veritabanı boyutu 500 GB'den daha büyük ise, P11 – P15 S4-S12 veya P1 – P6 geri yükleyin.
 - Veritabanı boyutu 250 GB'tan büyük ise, P1 – P6 S4-S12 için geri yükleme.
 
-Ekstra maliyeti, çünkü geri yüklenen veritabanının maksimum boyutunu işlem boyutu için dahil edilen depolama miktarını büyüktür ve dahil edilen miktarın üzerinde sağlanan ek depolama ek ücret alınır. Fiyatlandırma ayrıntıları ek depolama alanının bkz [SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/). Gerçek kullanılan alanı miktarı dahil edilen depolama alanı miktarı azsa, daha sonra bu ek maliyet veritabanı boyutu için dahil edilen miktarın azaltarak önlenebilir.
+Ekstra maliyeti, icurred geri yüklenen veritabanının maksimum boyutunu hedef veritabanının Hizmet katmanını ve performans düzeyi ile dahil edilen depolama alanı miktarından daha büyük olduğunda. Dahil edilen miktarın üzerinde sağlanan ek depolama alanı, ek ücret alınır. Fiyatlandırma ayrıntıları ek depolama alanının bkz [SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/). Kullanılan alan gerçek miktarı dahil edilen depolama alanı miktarı azsa, bu en büyük veritabanı boyutu için dahil edilen miktarı ayarlayarak ek maliyet önleyebilirsiniz.
 
 > [!NOTE]
 > [Veritabanı Yedeklemeleri otomatik](sql-database-automated-backups.md) , oluştururken kullanılan bir [veritabanı kopyalama](sql-database-copy.md).
@@ -54,9 +54,9 @@ Otomatik veritabanı yedeklerini kullanarak bir veritabanını geri yüklemek i�
 - Geri yükleme farklı bir bölgeye ise ağ bant genişliği
 - Hedef bölgede işlenmekte olan isteği eşzamanlı geri yükleme sayısı
 
-İçin çok büyük ve/veya etkin bir veritabanı, geri yükleme işlemi birkaç saat sürebilir. Bir bölgede uzun süre boyunca kesinti oluşursa, çok sayıda diğer bölgelere tarafından işlenmekte olan coğrafi geri yükleme isteği olduğunu mümkündür. Çok sayıda istek olduğunda, bu bölgede veritabanları için kurtarma süresini artırabilir. Çoğu veritabanı tam 12 saatten kısa bir süre içinde geri yükler.
+Büyük ve/veya çok etkin veritabanı için geri yükleme işlemi birkaç saat sürebilir. Bir bölgede uzun süre boyunca kesinti oluşursa, çok sayıda diğer bölgelere tarafından işlenmekte olan coğrafi geri yükleme isteği olduğunu mümkündür. Çok sayıda istek olduğunda, bu bölgede veritabanları için kurtarma süresini artırabilir. Çoğu veritabanı tam 12 saatten kısa bir süre içinde geri yükler.
 
-Tek bir abonelik için bazı sınırlamalar (belirli bir geri yükleme, coğrafi geri yükleme ve uzun süreli bekletme yedeklemesi geri yükleme noktası dahil) eş zamanlı geri yükleme isteği sayısı gönderildi ve bulunmaktadır proceeded:
+Tek bir abonelik için restore eş zamanlı istek sayısı sınırlamaları vardır.  Bu sınırlamalar zaman geri yükler, coğrafi geri yükler ve geri yükleme noktası herhangi bir birleşimini uzun süreli saklama yedeklemesinden geçerlidir):
 
 | | **En fazla işlenmekte olan eş zamanlı istek sayısı** | **En fazla gönderilen eş zamanlı istek sayısı** |
 | :--- | --: | --: |
@@ -64,24 +64,24 @@ Tek bir abonelik için bazı sınırlamalar (belirli bir geri yükleme, coğrafi
 |Elastik havuz (başına havuzu)|4|200|
 ||||
 
-Geri yükleme toplu olarak yerleşik işlevi yoktur. [Azure SQL veritabanı: Tam sunucu kurtarma](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) betik bu görevi yerine getirmeye bir yolu bir örnektir.
+Şu anda tüm sunucuyu geri yüklemek için yerleşik bir yöntem yoktur. [Azure SQL veritabanı: Tam sunucu kurtarma](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) betik, bu görevi gerçekleştirmek nasıl bir örnek.
 
 > [!IMPORTANT]
 > Otomatik yedekleri kullanarak kurtarma için bir Abonelikteki SQL Server Katılımcısı rolü üyesi olmanız veya - abonelik sahibi olmanız göz atın [RBAC: Yerleşik roller](../role-based-access-control/built-in-roles.md). Verileri Azure portalı, PowerShell veya REST API kullanarak kurtarabilirsiniz. Transact-SQL kullanamazsınız.
 
 ## <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 
-Havuza alınmış, tek başına geri yükleme ya da zaman yeni bir veritabanı Azure portalını kullanarak aynı sunucuda veritabanı daha önceki bir noktaya örnek [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases). Bir veritabanı herhangi bir hizmet katmanına geri yüklenebilir veya işlem boyutu. Veritabanını geri yüklediğiniz sunucuda yeterli kaynaklara sahip olun. Tamamlandıktan sonra geri yüklenen veritabanı bir normal, tam olarak erişilebilir, çevrimiçi veritabanı hizmetidir. Geri yüklenen veritabanı, hizmet katmanı ve işlem boyutuna bağlı olarak normal fiyatlarıyla ücretlendirilir. Veritabanı geri yükleme işlemi tamamlanana kadar bir ücrete tabi değildir.
+Havuza alınmış, tek başına geri yükleme ya da daha önceki bir noktaya veritabanını Azure portalını kullanarak örnek [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases). İstek, herhangi bir hizmet katmanı belirtin veya geri yüklenen veritabanı için boyutu işlem. Veritabanını geri yüklediğiniz sunucuda yeterli kaynaklara sahip olun. İşlem tamamlandıktan sonra özgün veritabanıyla aynı sunucuda yeni bir veritabanı oluşturulur. Geri yüklenen veritabanı, hizmet katmanı ve işlem boyutuna bağlı olarak normal tarifesi üzerinden ücret alınacaktır. Veritabanı geri yükleme işlemi tamamlanana kadar bir ücrete tabi değildir.
 
-Bir veritabanını daha önceki bir noktaya kurtarma amacıyla genellikle geri. Bunun yapılması, yerine özgün veritabanını geri yüklenen veritabanı işle veya verileri almak ve sonra özgün veritabanını güncellemek için kullanın.
+Bir veritabanını daha önceki bir noktaya kurtarma amacıyla genellikle geri. Yerine özgün veritabanını geri yüklenen veritabanı işle veya özgün veritabanını güncellemek için bir kaynak veri kullanabilirsiniz.
 
 - **Veritabanını değiştirme**
 
-  Geri yüklenen veritabanının, özgün veritabanının bir ardılı olarak bekleniyorsa, işlem boyutu doğrulamanız gerekir ve/veya hizmet katmanı uygundur ve gerekirse, veritabanının ölçeğini. Özgün veritabanını yeniden adlandırın ve ardından özgün adı kullanarak geri yüklenen veritabanı vermek [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL komutu.
+  Geri yüklenen veritabanının, özgün veritabanının bir ardılı olarak amaçlanıyorsa orinal veritabanının işlem boyutunu ve Hizmet katmanını belirtmeniz gerekir. Özgün veritabanını yeniden adlandırın ve özgün adı kullanarak geri yüklenen veritabanı vermek [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL komutu.
 
 - **Veri Kurtarma**
 
-  Bir kullanıcı veya uygulama hatasından kurtarmak için geri yüklenen veritabanından veri almak planlama, yazma ve özgün veritabanına geri yüklenen veritabanından verileri ayıklamak için gerekli verileri kurtarma betiklerini yürütmek gerekir. Geri yükleme işleminin tamamlanması uzun zaman alabilir ancak geri yüklenen veritabanının geri yükleme işlemi boyunca veritabanı listesinde görünür. Veritabanını geri yükleme sırasında silmeniz halinde, geri yükleme işlemi iptal edildi ve geri yükleme işlemi tamamlanamadı veritabanı için ücretlendirilmez.
+  Bir kullanıcı veya uygulama hatasından kurtarmak için geri yüklenen veritabanından veri almak planlama, yazma ve geri yüklenen veritabanından verileri ayıklayan ve özgün veritabanı için geçerli bir veri kurtarma betiği yürütmek gerekir. Geri yükleme işleminin tamamlanması uzun zaman alabilir ancak geri yüklenen veritabanının geri yükleme işlemi boyunca veritabanı listesinde görünür. Veritabanını geri yükleme sırasında silmeniz halinde, geri yükleme işlemi iptal edilir ve geri yükleme işlemi tamamlanamadı veritabanı için ücretlendirilmez.
 
 Tek bir, kurtarılır havuza, veya Azure portalını kullanarak örnek bir noktasının veritabanına, veritabanı sayfasını açın ve tıklayın **geri** araç.
 
@@ -92,7 +92,7 @@ Tek bir, kurtarılır havuza, veya Azure portalını kullanarak örnek bir nokta
 
 ## <a name="deleted-database-restore"></a>Silinen veritabanını geri yükleme
 
-Silinen bir veritabanını Azure portalını kullanarak SQL veritabanını aynı sunucuya silme süresine, silinen veritabanını geri yükleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), veya [REST (createMode = geri yükle)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Yapabilecekleriniz [silinmiş öğeleri geri yükleme veritabanı yönetilen örneği PowerShell kullanarak](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). Bekletme kullanarak sırasında zaman içinde önceki bir noktaya silinen veritabanını geri yükleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
+Silinen bir veritabanını silme işlemi süresi veya daha önceki bir noktaya zamanlı Azure portalını kullanarak SQL veritabanını aynı sunucuya geri yükleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), veya [REST (createMode = geri yükle)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Yapabilecekleriniz [silinmiş öğeleri geri yükleme veritabanı yönetilen örneği PowerShell kullanarak](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
 
 > [!TIP]
 > Silinen bir veritabanını geri yükleme işlemini gösteren bir örnek PowerShell Betiği için bkz: [PowerShell kullanarak bir SQL veritabanını geri](scripts/sql-database-restore-database-powershell.md).
@@ -101,7 +101,7 @@ Silinen bir veritabanını Azure portalını kullanarak SQL veritabanını aynı
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>Azure portalını kullanarak silinen veritabanını geri yükleme
 
-Sırasında Azure portalını kullanarak silinen bir veritabanını kurtarmak için kendi [DTU tabanlı model saklama süresi](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı model saklama süresi](sql-database-service-tiers-vcore.md) Azure portalını kullanarak sunucunuzun ve sayfayı açın İşlem alanı tıklayın **veritabanlarını sildi**.
+Azure portalını kullanarak silinen bir veritabanını kurtarmak için sunucunuzun ve işlem alanında sayfasını açın, **veritabanlarını sildi**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -112,9 +112,9 @@ Sırasında Azure portalını kullanarak silinen bir veritabanını kurtarmak i�
 
 ## <a name="geo-restore"></a>Coğrafi Geri Yükleme
 
-Bir SQL veritabanı herhangi bir sunucuda herhangi bir Azure bölgesinde en son coğrafi çoğaltmalı yedeklerden geri yükleyebilirsiniz. Coğrafi geri yükleme, coğrafi olarak yedekli bir yedeklemesini, kaynağı olarak kullanır ve veritabanı veya veri merkezinde bir kesinti nedeniyle erişilemez durumda olsa bile bir veritabanını kurtarmak için kullanılabilir.
+Bir SQL veritabanı herhangi bir sunucuda herhangi bir Azure bölgesinde en son coğrafi çoğaltmalı yedeklerden geri yükleyebilirsiniz. Coğrafi geri yükleme, coğrafi olarak çoğaltılmış yedekleme kaynağı kullanır. Veritabanını veya veri merkezinde bir kesinti nedeniyle erişilemez durumda olsa bile istenebilir.
 
-Coğrafi geri yükleme veritabanı barındırıldığı bölgedeki bir olay nedeniyle veritabanınız kullanılamıyor varsayılan kurtarma seçeneğini andır. Büyük ölçekli olay kullanılamazlık veritabanı uygulamanızın bir bölge sonucu, veritabanını coğrafi çoğaltmalı yedeklerden başka bir bölgede bir sunucuya geri yükleyebilirsiniz. Yedekleme zaman alınır ve Azure için coğrafi olarak çoğaltılmış olduğunda arasında bir gecikme blob farklı bir bölgede. Bu gecikme, bir saat, bu nedenle, bir olağanüstü durum oluşursa, olabilir yukarı bir saatlik veri kaybı için en fazla olabilir. Aşağıdaki çizimde, başka bir bölgede kullanılabilir son yedekleme veritabanından veritabanı geri yükleme gösterilmektedir.
+Veritabanınızı, barındırma bölgedeki bir olay nedeniyle kullanılamaz duruma geldiğinde coğrafi geri yükleme varsayılan kurtarma seçenektir. Veritabanı başka bir bölgede bir sunucuya geri yükleyebilirsiniz. Yedekleme zaman alınır ve Azure için coğrafi olarak çoğaltılmış olduğunda arasında bir gecikme blob farklı bir bölgede. Sonuç olarak, geri yüklenen veritabanı orignal veritabanı arkasındaki bir saate kadar olabilir. Aşağıdaki çizimde, başka bir bölgede kullanılabilir son yedekleme veritabanından veritabanı geri yükleme gösterilmektedir.
 
 ![Coğrafi geri yükleme](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -124,7 +124,7 @@ Coğrafi geri yükleme veritabanı barındırıldığı bölgedeki bir olay nede
 Belirli bir noktaya geri yükleme bir coğrafi-ikincil üzerinde şu anda desteklenmiyor. Belirli bir noktaya geri yükleme, yalnızca birincil veritabanında gerçekleştirilebilir. Kesintiden kurtarma için coğrafi geri yükleme kullanma hakkında ayrıntılı bilgi için bkz: [kesintiden kurtarma](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Kurtarılmasını, olağanüstü durum kurtarma çözümleri uzun kurtarma noktası hedefi (RPO) ve tahmini kurtarma süresi (ERT) ile SQL veritabanı'nda kullanılabilen en temel üyeliktir. Küçük boyut veritabanları (örneğin temel hizmet katmanı veya Kiracı veritabanları elastik havuzlardaki küçük boyut) kullanan çözümler için coğrafi geri yükleme sık makul bir DR çözümü bir ERT 12 saate kadar (genellikle daha az) sahip olduğu. Çözümleri kullanarak büyük veritabanları ve gerektiren daha kısa kurtarma süreleri ve kullanmayı düşünmeniz gerekir [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) veya [otomatik yük devretme grupları](sql-database-auto-failover-group.md). Etkin coğrafi çoğaltma, bir çok daha düşük ERT ve RPO yalnızca gerektirir gibi sunar sürekli olarak çoğaltılmış ikincil bir yük devretme başlatın. Otomatik Yük devretme grupları, bir veritabanı grubu için otomatik yük devretme sağlar. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz. [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
+> Coğrafi geri yükleme, en temel olağanüstü durum kurtarma çözümü SQL veritabanı'nda kullanılabilir olan. Coğrafi olarak çoğaltılmış yedekleme RPO ile otomatik olarak oluşturulan kullanır = 1 saat ve tahmini kurtarma süresi 12 saate kadar. Hedef bölge veritabanlarınız talebin keskin bir artış olasılığı nedeniyle bir bölgesel ourage sonra geri yüklemek için kapasite sahip olacağını garanti etmez. Görece küçük veritabanları olmayan iş kritik bir uygulama için coğrafi geri yükleme bir uygun olağanüstü durum kurtarma çözümüdür. Büyük veritabanları kullanın ve iş sürekliliğinin sağlanması gerekir busniess Kritik uygulamalar için kullanmanız gereken [otomatik yük devretme grupları](sql-database-auto-failover-group.md). Bir çok daha düşük RTO ve RPO sunar ve kapasite her zaman sağlanır. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz. [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Azure portalını kullanarak coğrafi-geri yükleme
 
@@ -172,7 +172,7 @@ REST API kullanarak bir tek veya havuza alınmış veritabanını geri yüklemek
 | [REST (createMode kurtarma =)](https://docs.microsoft.com/rest/api/sql/databases) |Bir veritabanını geri yükler |
 | [Alma oluşturma veya güncelleştirme veritabanı durumu](https://docs.microsoft.com/rest/api/sql/operations) |Durumu geri yükleme işlemi sırasında döndürür |
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 - Azure CLI kullanarak tek veya havuza alınmış veritabanını geri yüklemek için bkz: [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 - Azure CLI kullanarak bir yönetilen örneğine geri yüklemek için bkz: [az sql ORTAB geri yükleme](/cli/azure/sql/midb#az-sql-midb-restore)

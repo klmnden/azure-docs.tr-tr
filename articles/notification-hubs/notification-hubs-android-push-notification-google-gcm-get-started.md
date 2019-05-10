@@ -16,16 +16,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 6e82ec9563832c7569fa1cff735a46dad50a8b3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 929977913fdbf0c6f59d69ec536a2638bca7b97c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61462351"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232729"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlarına anında iletme bildirimleri
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Öğretici: Azure Notification Hubs ve (kullanım dışı), Google Cloud Messaging kullanarak Android cihazlarına anında iletme bildirimleri
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!WARNING]
+> 10 Nisan 2018'den itibaren Google Google Cloud Messaging (GCM) kullanım dışı. GCM sunucu ve istemci API'leri kullanım dışı bırakılmıştır ve 29 Mayıs 2019 olan en kısa sürede kaldırılacak. Daha fazla bilgi için [GCM ve FCM ile ilgili sık sorulan sorular](https://developers.google.com/cloud-messaging/faq).
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -46,7 +49,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 > * Google Cloud Messaging'i destekleyen bir proje oluşturma.
 > * Bildirim hub’ı oluşturma
 > * Uygulamanızı bildirim hub'ına bağlama
-> * Uygulamayı test edin
+> * Uygulamayı test etme
 
 ## <a name="prerequisites"></a>Önkoşullar
 

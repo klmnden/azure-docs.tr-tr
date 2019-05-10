@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718247"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411555"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı platformu dağıtma
 
@@ -66,7 +66,7 @@ Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adl
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -257,7 +257,7 @@ Farklı sürümleri, bu nedenle kullandığınız dal için gerekli parametreler
 | `infraVmSize` | Boyutu Infra VM. Azuredeploy.json dosyasında listelenen izin verilen VM boyutları arasından seçin |  | Standard_D4s_v3 |
 | `nodeVmSize` | Uygulama düğümüne VM boyutu. Azuredeploy.json dosyasında listelenen izin verilen VM boyutları arasından seçin |  | Standard_D4s_v3 |
 | `cnsVmSize` | Kapsayıcı yerel depolama (CNS) düğümü VM boyutu. Azuredeploy.json dosyasında listelenen izin verilen VM boyutları arasından seçin |  | Standard_E4s_v3 |
-| `osImageType` | Kullanılacak RHEL görüntüsü. defaultgallery: İsteğe bağlı; Market: üçüncü taraf görüntüsü | defaultgallery <br> Market | defaultgallery |
+| `osImageType` | Kullanılacak RHEL görüntüsü. defaultgallery: İsteğe bağlı; Market: üçüncü taraf görüntüsü | defaultgallery <br> market | defaultgallery |
 | `marketplaceOsImage` | Varsa `osImageType` Market ve ardından 'Yayımcı', 'teklif', 'sku', 'sürümü' Market teklifi için uygun değerleri girin. Bu parametre bir nesne türü. |  |  |
 | `storageKind` | Kullanılacak depolama türü  | Yönetilen<br> Yönetilmeyen | Yönetilen |
 | `openshiftClusterPrefix` | Tüm düğümleri için konak adları yapılandırmak için kullanılan önek küme.  1 ila 20 karakter |  | mycluster |
@@ -283,7 +283,7 @@ Farklı sürümleri, bu nedenle kullandığınız dal için gerekli parametreler
 | `enableAzure` | Azure bulut sağlayıcısını etkinleştir | true <br> false | true |
 | `aadClientId` | Azure Active Directory istemci da için hizmet sorumlusu uygulama kimliği olarak bilinen kimliği |  |  |
 | `domainName` | (Eğer varsa) kullanılacak özel etki alanı adı adı. "None" değilse için dağıtımı tam olarak özel kümeye ayarlayın |  | yok |
-| `masterClusterDnsType` | OpenShift web Konsolu için etki alanı türü. 'default' kullanacağı ana DNS etiketi altyapısı genel IP. 'custom', kendi adınızı tanımlamanızı sağlar | default <br> özel | default |
+| `masterClusterDnsType` | OpenShift web Konsolu için etki alanı türü. 'default' kullanacağı ana DNS etiketi altyapısı genel IP. 'custom', kendi adınızı tanımlamanızı sağlar | varsayılan <br> özel | varsayılan |
 | `masterClusterDns` | 'Custom' için seçtiyseniz, OpenShift web konsoluna erişmek için kullanılacak özel DNS adı `masterClusterDnsType` |  | Console.contoso.com |
 | `routingSubDomainType` | Varsa 'nipio' ayarlayın `routingSubDomain` nip.io kullanır.  Yönlendirme için kullanmak istediğiniz kendi etki alanınız varsa 'custom' kullanın | nipio <br> özel | nipio |
 | `routingSubDomain` | 'Custom' için seçtiyseniz, yönlendirme için kullanmak istediğiniz joker DNS adı `routingSubDomainType` |  | Apps.contoso.com |

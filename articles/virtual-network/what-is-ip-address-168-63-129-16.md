@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 05/07/2019
 ms.author: genli
-ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108002"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416025"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP adresi: 168.63.129.16 nedir?
 
@@ -28,14 +28,17 @@ IP adresi: 168.63.129.16 Azure platformu kaynaklar için bir iletişim kanalı k
 
 - VM aracısının "Hazır" bir durumda olduğunu göstermek için Azure platformuyla iletişim kurmasına olanak tanır.
 - Özel bir DNS sunucusu olmayan kaynaklara (örneğin, VM) filtrelenmiş ad çözümlemesi sağlamak için DNS sanal sunucu ile iletişimi sağlar. Bu filtreleme müşterilerin yalnızca ana bilgisayar adlarını kaynaklarını çözümleyebileceğinden emin olur.
-- Gelen yük dengeli bir kümedeki VM'lerin sistem durumunu belirlemek için yük dengeleyici sistem durumu araştırmaları etkinleştirir.
+- Sağlar [sistem durumu araştırmalarının Azure yük dengeleyiciden](../load-balancer/load-balancer-custom-probe-overview.md) Vm'leri sistem durumunu belirlemek için.
+- DHCP hizmeti azure'da dinamik bir IP adresi almak VM sağlar.
 - PaaS rolü için konuk Aracısı sinyal iletileri sağlar.
 
 ## <a name="scope-of-ip-address-1686312916"></a>IP adresi: 168.63.129.16 kapsamı
 
-Genel sanal IP adresi 168.63.129.16 tüm bölgeler ve tüm Ulusal Bulutlar kullanılır. Bu özel bir genel IP adresi değişmez. Varsayılan ağ güvenliği Grup kuralı tarafından engellenmiş olur. Tüm yerel güvenlik duvarı ilkeleri bu IP adreslerine izin verecek öneririz. Bu özel IP adresi ve kaynaklar arasındaki iletişimi güvenli çünkü yalnızca iç Azure platformu, bu IP adresinden bir ileti edinebilir. Bu adresi engellendiğinde beklenmeyen davranış çeşitli senaryoları ortaya çıkabilir.
+Genel IP adresini 168.63.129.16 tüm bölgeler ve tüm Ulusal Bulutlar kullanılır. Bu özel bir genel IP adresi Microsoft'a ait ve değişmez. Varsayılan ağ güvenliği Grup kuralı tarafından engellenmiş olur. Tüm yerel güvenlik duvarı ilkeleri bu IP adreslerine izin verecek öneririz. Bu özel IP adresi ve kaynaklar arasındaki iletişimi güvenli çünkü yalnızca iç Azure platformu, bu IP adresinden bir ileti edinebilir. Bu adresi engellendiğinde beklenmeyen davranış çeşitli senaryoları ortaya çıkabilir.
 
-Ayrıca, bu trafiği için yapılandırılan uç sanal genel IP adresi 168.63.129.16 akış bekleyebileceğiniz bir [yük dengeleyici durum araştırması](../load-balancer/load-balancer-custom-probe-overview.md). Sanal olmayan ağ senaryosunda, sistem durumu araştırması özel bir IP kaynağı. 
+[Azure Load Balancer sistem durumu araştırmalarının](../load-balancer/load-balancer-custom-probe-overview.md) bu IP adresinden kaynaklanan. Bu IP adres bloğu, araştırmaları başarısız olur.
+
+Bir sanal olmayan ağ senaryoda durum yoklaması, özel bir IP kaynağı ve 168.63.129.16 kullanılmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

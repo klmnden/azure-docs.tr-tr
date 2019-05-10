@@ -4,23 +4,35 @@
   items:
     - name: Azure Uygulama Yapılandırması hakkında
       href: overview.md
+    - name: SSS
+      href: faq.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: ASP.NET Core uygulaması oluşturma
-      href: quickstart-aspnet-core-app.md
-    - name: .NET Core uygulaması oluşturma
-      href: quickstart-dotnet-core-app.md
-    - name: .NET Framework uygulaması oluşturma
-      href: quickstart-dotnet-app.md
-    - name: Azure işlevi oluşturma
-      href: quickstart-azure-function-csharp.md
-    - name: Java Spring uygulaması oluşturma
-      href: quickstart-java-spring-app.md
+    - name: Yapılandırma
+      items:
+        - name: ASP.NET Çekirdeği
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: .NET Core’da Azure İşlevi
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: Özellik yönetimi
+      items:
+        - name: ASP.NET Çekirdeği
+          href: quickstart-feature-flag-aspnet-core.md
 - name: Öğreticiler
   items:
     - name: ASP.NET Core'da dinamik yapılandırmayı etkinleştirme
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: .NET Core uygulamasında özellik bayraklarını kullanma
+      href: use-feature-flags-dotnet-core.md
+    - name: Özellik bayraklarını yönetme
+      href: manage-feature-flags.md
     - name: CI/CD işlem hattıyla tümleştirme
       href: integrate-ci-cd-pipeline.md
 - name: Örnekler
@@ -33,24 +45,36 @@
       href: concept-key-value.md
     - name: Belirli bir noktanın anlık görüntüsü
       href: concept-point-time-snapshot.md
+    - name: Özellik yönetimi
+      href: concept-feature-management.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure Yönetilen Hizmet Kimliği ile tümleştirme
       href: howto-integrate-azure-managed-service-identity.md
     - name: Yapılandırma verilerini içeri veya dışarı aktarma
       href: howto-import-export-data.md
+    - name: En iyi uygulamalar
+      href: howto-best-practices.md
 - name: Başvuru
   items:
-    - name: .NET Core yapılandırma sağlayıcısı
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-    - name: .NET Framework yapılandırma oluşturucusu
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-    - name: Java Spring yapılandırma oluşturucusu
-      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
-    - name: .NET Azure SDK
-      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
-    - name: REST
-      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Yapılandırma
+      items:
+        - name: .NET Core yapılandırma sağlayıcısı
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: .NET Framework yapılandırma oluşturucusu
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Java Spring yapılandırma oluşturucusu
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: .NET Azure SDK
+          href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Özellik yönetimi
+      items:
+        - name: .NET Core kitaplığı
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: ASP.NET Core kitaplığı
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091410'
 - name: Kaynaklar
   items:
     - name: Başlarken videosu

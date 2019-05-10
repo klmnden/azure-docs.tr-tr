@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 05/08/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a4d4293eeea06e30189e0bccce488a8f44b199
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e2c52bd0bf6c1e385248bd379a8001756d28ac2d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918823"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413576"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Hızlı Başlangıç: Bir uygulama tarafından desteklenen hesaplarını değiştirme
 
@@ -37,15 +37,14 @@ Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 * Diğer kullanıcılar veya uygulamalar tarafından kullanılması gereken uygulamaları derleme konusunda önemli olan desteklenen [izinler ve onaylar](v2-permissions-and-consent.md) hakkında bilgi edinin.
 * Uygulamaların kaydedilmiş olduğu bir kiracı kullanın.
   * Kayıtlı uygulama yoksa, [Microsoft kimlik platformu ile uygulamaları kaydetmeyi öğrenin](quickstart-register-app.md).
-* Azure portalında uygulama kaydı için Önizleme deneyimine katılın. Bu hızlı başlangıçtaki adımlar yeni kullanıcı arabirimine karşılık gelir ve yalnızca Önizleme deneyimine geçmeyi kabul ettiyseniz çalışır.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Azure portalında oturum açın ve uygulamayı seçin
 
 Uygulamayı yapılandırmadan önce, aşağıdaki adımları izleyin:
 
 1. Bir iş veya okul hesabı ya da kişisel Microsoft hesabınızı kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-1. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu kullanmak istediğiniz Azure AD kiracısına ayarlayın.
-1. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin ve ardından **Uygulama kayıtları (Önizleme)** seçeneğini belirleyin.
+1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
+1. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmet ve ardından **uygulama kayıtları**.
 1. Yapılandırmak istediğiniz uygulamayı bulun ve seçin. Uygulamayı seçtiğinizde, uygulamanın **Genel Bakış** veya ana kayıt sayfasını görürsünüz.
 1. [Uygulama kaydını farklı hesapları destekleyecek şekilde değiştirme](#change-the-application-registration-to-support-different-accounts) adımlarını izleyin.
 1. Tek sayfalı bir uygulamanız varsa, [OAuth 2.0 örtük onayını etkinleştirin](#enable-oauth-20-implicit-grant-for-single-page-applications).

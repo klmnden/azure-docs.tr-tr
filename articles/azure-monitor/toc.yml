@@ -131,6 +131,8 @@
           href: platform/alerts-common-schema.md
         - name: Eylem kuralları
           href: platform/alerts-action-rules.md
+        - name: Değişiklik analizi
+          href: app/change-analysis.md
     - name: Verileri görselleştirme
       href: visualizations.md
     - name: İş ortağı tümleştirmeleri

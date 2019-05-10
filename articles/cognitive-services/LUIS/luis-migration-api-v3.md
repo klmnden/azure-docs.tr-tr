@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d0b5537f31edf330b54b91ddf7268338df0c0a6b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148269"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233556"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Önizleme: API sürümüne geçirme 3.x LUIS uygulamalar için
 
@@ -43,10 +43,6 @@ Aşağıdaki LUIS özellikleri **desteklenmiyor** V3 API:
 * Bing yazım denetimi V7
 
 [Başvuru belgeleri](https://aka.ms/luis-api-v3) V3 için kullanılabilir.
-
-## <a name="prebuilt-domains-with-new-models-and-language-coverage"></a>Yeni modeller ve dil kapsamına sahip önceden oluşturulmuş etki alanları
-
-Gözden geçirme [V3 API önceden oluşturulmuş etki alanları listesi](luis-reference-prebuilt-domains.md). Bu etki alanlarında daha eksiksiz, hem model ve dil kapsamı. 
 
 ## <a name="prebuilt-entities-with-new-json"></a>Önceden oluşturulmuş varlıklarla yeni JSON
 

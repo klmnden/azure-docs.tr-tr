@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a344e4a068ac6791403f686fa728530b3c4f17e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60876796"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65209363"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Firebase Cloud Messaging kullanarak Android cihazlarına anında iletme bildirimleri
 
@@ -42,7 +42,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/).
+Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/).
 
 * Yukarıda belirtilen etkin bir Azure hesabının yanı sıra, bu öğretici [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)'nun en son sürümünü gerektirir.
 * Firebase Cloud Messaging için Android 2.3 veya üstü.
@@ -111,7 +111,8 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
 1. İçinde `Build.Gradle` dosya **uygulama**, aşağıdaki satırları ekleyin **bağımlılıkları** zaten mevcut değilse bölüm. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ```
 
 2. Zaten mevcut değilse şu eklenti dosyanın sonuna ekleyin. 
@@ -119,22 +120,11 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
     ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
+3. Seçin **Şimdi Eşitle** araç.
 
 ### <a name="updating-the-androidmanifestxml"></a>Androidmanifest.XML'i güncelleştirme
 
-1. FCM'yi desteklemek için kodunuza, [Google'ın FirebaseInstanceId API'sini](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId) kullanarak [kayıt belirteçleri elde etmek](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) için kullanılan bir Örnek Kimliği dinleme hizmeti eklemeniz gerekir. Bu öğreticide sınıfın adı `MyInstanceIDService` şeklindedir.
-
-    Aşağıdaki hizmet tanımını AndroidManifest.xml dosyasında `<application>` etiketinin içine ekleyin.
-
-    ```xml
-    <service android:name=".MyInstanceIDService">
-        <intent-filter>
-            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-        </intent-filter>
-    </service>
-    ```
-
-2. FirebaseInstanceId API’sinden FCM kayıt belirtecinizi aldıktan sonra, [Azure Notification Hub’a kaydolmak](notification-hubs-push-notification-registration-management.md) için bu belirteci kullanacaksınız. `RegistrationIntentService` adlı bir `IntentService` kullanarak bu kaydı arka planda desteklersiniz. Bu hizmet, FCM kayıt belirtecinizi yenilemekten de sorumludur.
+1. FCM kayıt belirtecinizi aldıktan sonra bunu kullanın [Azure bildirim Hub'ınızla kaydolmak](notification-hubs-push-notification-registration-management.md). `RegistrationIntentService` adlı bir `IntentService` kullanarak bu kaydı arka planda desteklersiniz. Bu hizmet, FCM kayıt belirtecinizi yenilemekten de sorumludur.
 
     Aşağıdaki hizmet tanımını AndroidManifest.xml dosyasında `<application>` etiketinin içine ekleyin.
 
@@ -145,7 +135,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
     </service>
     ```
 
-3. Bildirimleri almak için bir alıcı da tanımlamanız gerekir. Aşağıdaki alıcı tanımını AndroidManifest.xml dosyasına `<application>` etiketinin içine ekleyin. 
+2. Bildirimleri almak için bir alıcı da tanımlamanız gerekir. Aşağıdaki alıcı tanımını AndroidManifest.xml dosyasına `<application>` etiketinin içine ekleyin. 
 
     ```xml
     <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
@@ -159,8 +149,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
 
     > [!IMPORTANT]
     > `<your package NAME>` yer tutucusunu, `AndroidManifest.xml` dosyasının üst kısmında gösterilen asıl paket adınızla değiştirin.
-4. Seçin **Şimdi Eşitle** araç.
-5. FCM ile ilgili aşağıdaki gerekli izinleri Ekle **aşağıda** `</application>` etiketi.
+3. FCM ile ilgili aşağıdaki gerekli izinleri Ekle **aşağıda** `</application>` etiketi.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -188,29 +177,6 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
 
      > [!IMPORTANT]
      > Girin **adı** ve **DefaultListenSharedAccessSignature** proceding önce bildirim hub'ınızın daha fazla. 
-2. Adlı başka bir sınıf ekleyin `MyInstanceIDService`. Bu sınıf, Örnek Kimliği dinleyici hizmeti uygulamanız olacaktır.
-
-    Bu sınıfın kodu, arka planda `IntentService`FCM belirtecini yenileme[ amacıyla ](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) hizmetinizi çağırır.
-
-    ```java
-    import android.content.Intent;
-    import android.util.Log;
-    import com.google.firebase.iid.FirebaseInstanceIdService;
-
-    public class MyInstanceIDService extends FirebaseInstanceIdService {
-
-        private static final String TAG = "MyInstanceIDService";
-
-        @Override
-        public void onTokenRefresh() {
-
-            Log.d(TAG, "Refreshing FCM Registration Token");
-
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
-        }
-    };
-    ```
 
 3. `RegistrationIntentService` adlı projenize, başka bir yeni sınıf ekleyin. Bu sınıf, `IntentService` arabirimini uygular ve [FCM belirtecini yenileme](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) ve [bildirim hub’ıyla kayıt yapma](notification-hubs-push-notification-registration-management.md) işlemlerini ele alır.
 
@@ -222,12 +188,16 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
     import android.content.SharedPreferences;
     import android.preference.PreferenceManager;
     import android.util.Log;
+    import com.google.android.gms.tasks.OnSuccessListener;
     import com.google.firebase.iid.FirebaseInstanceId;
+    import com.google.firebase.iid.InstanceIdResult;
     import com.microsoft.windowsazure.messaging.NotificationHub;
+    import java.util.concurrent.TimeUnit;
 
     public class RegistrationIntentService extends IntentService {
 
         private static final String TAG = "RegIntentService";
+        String FCM_token = null;
 
         private NotificationHub hub;
 
@@ -244,8 +214,14 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
             String storedToken = null;
 
             try {
-                String FCM_token = FirebaseInstanceId.getInstance().getToken();
-                Log.d(TAG, "FCM Registration Token: " + FCM_token);
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() { 
+                    @Override 
+                    public void onSuccess(InstanceIdResult instanceIdResult) { 
+                        FCM_token = instanceIdResult.getToken(); 
+                        Log.d(TAG, "FCM Registration Token: " + FCM_token); 
+                    } 
+                }); 
+                TimeUnit.SECONDS.sleep(1);
 
                 // Storing the registration ID that indicates whether the generated token has been
                 // sent to your server. If it is not stored, send the token to your server,
@@ -541,13 +517,13 @@ Aşağıdaki eylemleri uygulayarak [Azure portal] anında iletme bildirimleri g�
 ### <a name="run-the-mobile-app-on-emulator"></a>Mobil uygulama emulator'da çalıştırma
 Anında iletme bildirimlerini bir öykünücüde test etmek isterseniz öykünücü görüntünüzün, uygulamanız için seçtiğiniz Google API düzeyini desteklediğinden emin olun. Görüntünüz yerel Google API'lerini desteklemiyorsa, alabilirsiniz **hizmet\_değil\_kullanılabilir** özel durum.
 
-Ek olarak, **Ayarlar** > **Hesaplar**'ın altında çalışan öykünücünüze Google hesabınızı eklediğinizden emin olun. Aksi halde, GCM ile kayıt girişimleriniz **KİMLİK DOĞRULAMASI\_BAŞARISIZ** özel durumuyla sonuçlanabilir.
+Ek olarak, **Ayarlar** > **Hesaplar**'ın altında çalışan öykünücünüze Google hesabınızı eklediğinizden emin olun. Aksi takdirde, FCM ile kayıt girişimleriniz sonuçlanabilir **kimlik doğrulaması\_başarısız** özel durum.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Android cihazlara anında iletme bildirimleri göndermek için Firebase Cloud Messaging’i kullandınız. Google Cloud Messaging kullanarak nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin:
+Bu öğreticide, Firebase Cloud Messaging hizmete kayıtlı tüm Android cihazlar için bildirimleri için kullanılır. Belirli cihazlara nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
->[Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md)
+>[Öğretici: Belirli Android cihazlarına anında iletme bildirimleri gönderme](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
 
@@ -556,6 +532,4 @@ Bu öğreticide, Android cihazlara anında iletme bildirimleri göndermek için 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure portal]: https://portal.azure.com

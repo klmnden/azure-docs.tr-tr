@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025229"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502089"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -23,7 +23,7 @@ Mimari, kavramlar ve Azure Machine Learning hizmeti için iş akışı hakkında
 
 [![Azure Machine Learning hizmeti mimarisi ve iş akışı](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-## <a name="workflow"></a>İş akışı
+## <a name="workflow"></a>İş Akışı
 
 Machine learning iş akışı genellikle bu sırayı takip eder:
 
@@ -32,9 +32,7 @@ Machine learning iş akışı genellikle bu sırayı takip eder:
 1. **Komut Gönderme** ortamında çalıştırmak için yapılandırılmış işlem hedefine. Eğitim sırasında komut dosyaları okuyabilir ya da yazma **veri deposu**. Ve olarak yürütme kayıtlarını kaydedilir **çalıştıran** içinde **çalışma** ve altında gruplandırılmış **denemeleri**.
 1. **Denemeyi sorgu** için ölçümleri geçerli ve geçmiş çalıştırmalardan oturum. Ölçümler istenilen bir sonucu göstermediği, geri adım 1 ve betiklerinizi üzerinde yineleme döngüsü.
 1. Tatmin edici bir çalıştırma bulunduktan sonra kalıcı modelde kaydetme **modeli kayıt defteri**.
-1. Puanlama betiği geliştirin.
-1. **Görüntü oluşturma** ve içinde kaydetmek **görüntü kayıt**.
-1. **Görüntüyü dağıtmak** olarak bir **web hizmetini** azure'da.
+1. Geliştirme modelini kullanan Puanlama betiğine ve **model dağıtma** olarak bir **web hizmetini** azure'da yenilemek için bir **IOT Edge cihazı**.
 
 
 > [!NOTE]
@@ -46,11 +44,11 @@ Machine learning iş akışı genellikle bu sırayı takip eder:
 
 Çalışma alanı, modeli eğitmek için kullanabileceğiniz işlem hedefleri listesini tutar. Ayrıca, günlükler, ölçümler, çıkış ve komut dosyalarınızın anlık görüntüsünü de dahil olmak üzere, bir eğitim çalıştırmalarının geçmişini tutar. Hangi eğitim çalıştırmanın en iyi modeli belirlemek için bu bilgileri kullanın.
 
-Model çalışma alanı ile kaydedin. Bir görüntü oluşturmak için kayıtlı bir model ve puanlama komut dosyaları'nı kullanın. Ardından görüntüyü Azure Container Instances, Azure Kubernetes hizmeti veya bir alanda programlanabilir kapı dizileri (FPGA) için bir REST tabanlı bir HTTP uç noktası olarak dağıtabilirsiniz. Ayrıca, görüntüyü Azure IOT Edge cihazına bir modül olarak dağıtabilirsiniz.
+Model çalışma alanı ile kaydedin. Azure Container Instances, Azure Kubernetes hizmeti veya bir REST tabanlı bir HTTP uç noktası olarak bir alanda programlanabilir kapı dizileri (FPGA) için model dağıtma için kayıtlı bir model ve puanlama komut dosyaları'nı kullanın. Ayrıca, görüntüyü Azure IOT Edge cihazına bir modül olarak dağıtabilirsiniz. Dahili olarak, dağıtılan görüntüye barındırmak için bir docker görüntüsü oluşturulur. Gerekirse, kendi görüntünüzü belirtebilirsiniz.
 
 Her bir çalışma alanı birden çok kişi tarafından paylaşılabilir ve birden çok çalışma alanı oluşturabilirsiniz. Bir çalışma alanı paylaştığınızda, kullanıcılar için aşağıdaki rolleri atayarak erişim iznini kontrol edebilirsiniz:
 
-* Sahip
+* Sahibi
 * Katılımcı
 * Okuyucu
 
@@ -94,7 +92,7 @@ Modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir mo
 
 Modeli kaydettiğinizde, ek meta veri etiketleri sağlar ve modelleri için arama yaptığınızda etiketleri kullanın.
 
-Görüntü tarafından kullanılmakta olan modeller nelze odstranit.
+Etkin bir dağıtım tarafından kullanılan modelleri nelze odstranit.
 
 Model kaydediliyor ilişkin bir örnek için bkz [bir Azure Machine Learning ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
 
@@ -159,7 +157,7 @@ Bir modeli eğitmek için eğitim betiğini ve ilişkili dosyaları içeren dizi
 
 Bir örnek için bkz [Öğreticisi: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
 
-## <a name="run"></a>Çalıştırın
+## <a name="run"></a>Çalıştır
 
 Aşağıdaki bilgileri içeren bir kaydı bir çalıştırmadır:
 
@@ -172,7 +170,7 @@ Bir modeli eğitmek için bir betik gönderdiğinizde çalıştırma üretir. Bi
 
 Bir model eğitip geleceği üretilen çalıştırmalarını görüntüleme ilişkin bir örnek için bkz [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-run-cloud-notebook.md).
 
-## <a name="snapshot"></a>Anlık Görüntü
+## <a name="snapshot"></a>Anlık görüntü
 
 Bir farklı çalıştır gönderdiğinizde, Azure Machine Learning komut dosyasına bir zip dosyası olarak içeren ve işlem hedefe gönderir dizini sıkıştırır. Zip dosyası ardından ayıklanır ve komut dosyası var. çalıştırın. Azure Machine Learning, zip dosyası da çalıştırma kaydı bir parçası olarak bir anlık görüntü olarak depolar. Çalışma alanına erişimi olan herkes bir çalıştırma kaydı göz atabilir ve anlık görüntü indirin.
 
@@ -208,11 +206,11 @@ Görüntü kayıt defteri, Modellerinizi oluşturulan görüntüleri izler. Gör
 
 ## <a name="deployment"></a>Dağıtım
 
-Bulutta barındırılan ya da bir web hizmeti veya tümleşik cihaz dağıtımları için bir IOT modülü görüntünüzü örneklemesi dağıtımıdır.
+Bulutta barındırılan bir web hizmeti ya da veya bir IOT modülü tümleşik cihaz dağıtımları için model örneklemesi dağıtımıdır.
 
 ### <a name="web-service"></a>Web hizmeti
 
-Azure Container Instances, Azure Kubernetes hizmeti veya FPGA dağıtılmış bir web hizmetini kullanabilirsiniz. Hizmet, model, betik ve ilişkili dosyaları kapsülleyen bir görüntüden oluşturun. Görüntü, web hizmetine gönderilen Puanlama istekleri alan yük dengeli bir HTTP uç vardır.
+Azure Container Instances, Azure Kubernetes hizmeti veya FPGA dağıtılmış bir web hizmetini kullanabilirsiniz. Hizmet, model, betik ve ilişkili dosyalar oluşturun. Bu web hizmeti için çalışma zamanı ortamı sağlayan bir görüntü içinde kapsüllenir. Görüntü, web hizmetine gönderilen Puanlama istekleri alan yük dengeli bir HTTP uç vardır.
 
 Azure Application Insights telemetrisini veya model telemetri, bu özelliği etkinleştirmek seçtiyseniz toplayarak web hizmeti dağıtımınızı izlemenize yardımcı olur. Telemetri verilerini yalnızca, erişilebilir ve depolama hesabı örnekleri ve Application Insights içinde depolanır.
 

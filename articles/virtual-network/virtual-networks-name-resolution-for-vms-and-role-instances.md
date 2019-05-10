@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925246"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411351"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
 
@@ -169,7 +169,7 @@ Azure'a sorguları iletme ihtiyaçlarınıza uygun değil, kendi DNS çözüm sa
 * Dış aracıları tarafından teşkil tehditleri azaltmak için internet'ten erişime karşı korunması.
 
 > [!NOTE]
-> DNS sunucuları olarak Azure Vm'leri kullanırken en iyi performans için IPv6 devre dışı bırakılması gerekir. A [genel IP adresi](virtual-network-public-ip-address.md) her DNS sunucusu VM'sine atanmalıdır. Ek Performans Analizi ve DNS sunucunuz, Windows Server kullanırken en iyi duruma getirme görmek için [adı özyinelemeli bir Windows Server 2012 R2'dns çözümlemesi performansını](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> DNS sunucuları olarak Azure Vm'leri kullanırken en iyi performans için IPv6 devre dışı bırakılması gerekir. A [genel IP adresi](virtual-network-public-ip-address.md) her DNS sunucusu VM'sine atanmalıdır. Ek Performans Analizi ve DNS sunucunuz, Windows Server kullanırken en iyi duruma getirme görmek için [adı özyinelemeli bir Windows Server 2012 R2'dns çözümlemesi performansını](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 

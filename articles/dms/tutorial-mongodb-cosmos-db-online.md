@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: af1e9df2e9afbd3b51736806fcd4bd8101d583df
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: 57b92400f81a3fac8d22c6522cde7eb3406a2e70
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153407"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415499"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Öğretici: MongoDB için Azure Cosmos DB API için MongoDB geçişi çevrimiçi DMS kullanarak
 MongoDB için API Azure Cosmos DB'nin MongoDB örneğini Bulut veya bir şirket içi veritabanları bir çevrimiçi (en düşük kapalı kalma süresi) geçişi gerçekleştirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz.
@@ -70,7 +70,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
     
 3.  "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
  
-    ![Kaynak sağlayıcısını kaydetme](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
+    ![Kaynak sağlayıcısını kaydet](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Örnek oluşturma
 1.  Azure portalda +**Kaynak oluştur**'u seçin, Azure Veritabanı Geçiş Hizmeti araması yapın ve açılan listeden **Azure Veritabanı Geçiş Hizmeti**'ni seçin.

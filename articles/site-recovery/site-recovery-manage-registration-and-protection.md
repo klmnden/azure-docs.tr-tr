@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277171"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415496"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -150,6 +150,12 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 
 > [!NOTE]
 > Mobility hizmetinin korunan sunucularda kaldırılmayacak hem seçenekler, el ile kaldırmanız gerekir. Aynı yapılandırma sunucusuna yeniden kullanarak sunucuyu korumayı planlıyorsanız, mobility hizmetini kaldırma atlayabilirsiniz.
+
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Bir Azure sanal makine (Azure'dan Azure'a) için korumayı devre dışı bırakın
+
+-  İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
+> [!NOTE]
+> Mobility hizmetinin korunan sunucularda kaldırılmayacak, el ile kaldırmanız gerekir. Sunucu yeniden korumayı planlıyorsanız, mobility hizmetini kaldırma atlayabilirsiniz.
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>(Hyper-V'den azure'a) Hyper-V sanal makine için korumayı devre dışı bırakın
 

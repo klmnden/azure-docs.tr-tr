@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875939"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234046"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir HTTP uç noktasından veri kopyalama
 
@@ -217,7 +217,7 @@ HTTP veri kopyalamak için **ORC/Avro/JSON/ikili biçimi**, aşağıdaki özelli
 | requestMethod | HTTP yöntemi. İzin verilen değerler **alma** (varsayılan) ve **Post**. | Hayır |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
 | Includesearchresults: true | HTTP isteğinin gövdesi. | Hayır |
-| biçim | HTTP uç noktası olarak veri almak istiyorsanız-ayrıştırma olmadan ve verilerin bir dosya tabanlı depolama alanına kopyalayın atla **biçimi** girdi ve çıktı veri kümesi tanımları bölümünde.<br/><br/>Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Altında **biçimi**ayarlayın **türü** özelliğini şu değerlerden biri. Daha fazla bilgi için [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format). |Hayır |
+| format | HTTP uç noktası olarak veri almak istiyorsanız-ayrıştırma olmadan ve verilerin bir dosya tabanlı depolama alanına kopyalayın atla **biçimi** girdi ve çıktı veri kümesi tanımları bölümünde.<br/><br/>Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Altında **biçimi**ayarlayın **türü** özelliğini şu değerlerden biri. Daha fazla bilgi için [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format). |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler:  **En iyi** ve **hızlı**. |Hayır |
 
 > [!NOTE]
@@ -284,10 +284,10 @@ HTTP veri kopyalamak için **Parquet veya sınırlandırılmış metin biçimi**
 | addtionalHeaders         | Ek HTTP isteği üstbilgileri.                             | Hayır       |
 | Includesearchresults: true              | HTTP isteğinin gövdesi.                               | Hayır       |
 | RequestTimeout           | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Bu değer, yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olur. Varsayılan değer **00:01:40**. | Hayır       |
-| MaxConcurrentConnections | Depolama deposu bağlanmayan bağlantılarının sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır       |
+| maxConcurrentConnections | Depolama deposu bağlanmayan bağlantılarının sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır       |
 
 > [!NOTE]
-> Parquet ve sınırlandırılmış metin biçimi **HttpSource** sonraki bölümde bahsedilen türü kopyalama etkinliği kaynağı olarak desteklenen hala-için geriye dönük uyumluluk içindir. İleride bu yeni modeli kullanmak için önerilir ve bu yeni tür oluşturma için kullanıcı Arabirimi geliştirme ADF geçti.
+> Parquet ve sınırlandırılmış metin biçimi **HttpSource** sonraki bölümde bahsedilen türü kopyalama etkinliği kaynağı olarak desteklenen hala-geriye dönük uyumluluğu içindir. İleride bu yeni modeli kullanmak için önerilir ve bu yeni tür oluşturma için kullanıcı Arabirimi geliştirme ADF geçti.
 
 **Örnek:**
 

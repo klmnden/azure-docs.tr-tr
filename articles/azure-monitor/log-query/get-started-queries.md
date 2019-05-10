@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520033"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415889"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları kullanmaya başlama
 
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Özetlenmektedir: toplam satır gruplarını
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Bir zaman sütun tarafından özetleme
 Sonuçları gruplandırma de saat sütunu veya başka bir sürekli değer temel alabilir. Yalnızca özetleme `by TimeGenerated` bu benzersiz değerler olduğundan, gruplar için her tek bir milisaniyeden kısa zaman aralığı üzerinde ancak oluşturursunuz. 
 
-Sürekli değerlerine göre grupları oluşturmak için aralığı kullanılarak yönetilebilir birimler halinde bölmek en iyisidir **bin**. Aşağıdaki sorguyu analiz eder *Perf* boş bellek ölçen kayıtları (*Kullanılabilir MBayt*) belirli bir bilgisayardaki. Her dönem if ortalama değerini hesaplar 1 saat, son 7 içinde:
+Sürekli değerlerine göre grupları oluşturmak için aralığı kullanılarak yönetilebilir birimler halinde bölmek en iyisidir **bin**. Aşağıdaki sorguyu analiz eder *Perf* boş bellek ölçen kayıtları (*Kullanılabilir MBayt*) belirli bir bilgisayardaki. Bu, son 7 gün içindeki her 1 saatlik dönem ortalama değerini hesaplar:
 
 ```Kusto
 Perf 

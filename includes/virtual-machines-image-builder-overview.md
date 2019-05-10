@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160013"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416377"
 ---
 Standart sanal makine (VM) görüntülerini kuruluşların buluta taşımayı ve dağıtımlarında tutarlılığı sağlar. Görüntüler genellikle önceden tanımlı güvenlik ve yapılandırma ayarlarını ve gerekli yazılımı da içerir. Kendi görüntü işlem hattı ayarlama süresi, altyapı ve Kurulum gerektirir ancak Azure VM Görüntü Oluşturucu ile yalnızca görüntünüzü açıklayan basit bir yapılandırma sağlayın, hizmete gönderme ve görüntü oluşturulan dağıtılmış ve.
  
@@ -37,7 +37,7 @@ Azure VM Görüntü Oluşturucu (Azure Görüntü Oluşturucu), bir Windows veya
 Azure Görüntü Oluşturucu hizmeti bu bölgelerde Önizleme için kullanıma sunulacaktır. Bu bölgeler dışında görüntüleri dağıtılabilir.
 - Doğu ABD
 - Doğu ABD 2
-- Batı Orta ABD
+- Orta Batı ABD
 - Batı ABD
 - Batı ABD 2
 
@@ -95,7 +95,7 @@ Görüntü oluşturma işlemi sırasında dosyaları indirilir ve depolanan `IT_
  
 Görüntü Oluşturucusu bir VM D1v2 VM boyutu ve depolama kullanarak ve ağ sanal makine için gerekli oluşturur. Bu kaynaklar, yapı işleminin süresi boyunca en son ve Görüntü Oluşturucu görüntüsü oluşturma tamamlandıktan sonra silinir. 
  
-Azure görüntü oluşturucusu, görüntü dağıtmak, seçilen bölge için hangi hangi işlem ücreti ağ çıkışı.
+Ağ çıkışı ücretlerine tabi olabilirsiniz, seçtiğiniz bölgelerde, görüntüyü Azure Görüntü Oluşturucu dağıtacak.
  
 ## <a name="next-steps"></a>Sonraki adımlar 
  

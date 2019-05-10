@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 10c015a9aee4ed8be54805f7adaae5bb4b5c422f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870395"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411395"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Bir kapsayıcı grubundaki bir SSL uç noktayı etkinleştirme
 
@@ -66,7 +66,7 @@ code nginx.conf
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -128,7 +128,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Base64 kodlama gizli dizileri ve yapılandırma dosyası
 
-Base64 ile kodlamanız Ngınx yapılandırma dosyasını, SSL sertifikası ve SSL anahtarı. Kodlanmış içeriği Nginx kapsayıcısını yapılandırmak için kullanın.
+Base64 ile kodlamanız Ngınx yapılandırma dosyasını, SSL sertifikası ve SSL anahtarı. Sonraki bölümde, kapsayıcı grubu dağıtmak için kullanılan bir YAML dosyası kodlanmış içeriğini girin.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -148,7 +148,7 @@ Adlı yeni bir dosyaya aşağıdaki YAML'ye kopyalayın `deploy-aci.yaml`. Azure
 code deploy-aci.yaml
 ```
 
-Base64 ile kodlanmış içeriği girin altında belirtilen yerlerde dosyaları `secret`. Bu dosyalar eklenir, dağıtım sırasında bir [gizli birimi](container-instances-volume-secret.md) kapsayıcı grubunda. Bu örnekte, gizli birimi için Nginx kapsayıcısını bağlanmıştır.
+Base64 ile kodlanmış içeriği girin altında belirtilen yerlerde dosyaları `secret`. Örneğin, `cat` içeriğini görmek için base64 kodlamalı dosyaların her biri. Bu dosyalar eklenir, dağıtım sırasında bir [gizli birimi](container-instances-volume-secret.md) kapsayıcı grubunda. Bu örnekte, gizli birimi için Nginx kapsayıcısını bağlanmıştır.
 
 ```YAML
 api-version: 2018-10-01
@@ -181,9 +181,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:
@@ -232,7 +232,7 @@ app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-
 ![Bir Azure kapsayıcı örneğinde çalışan uygulamayı gösteren tarayıcı ekran görüntüsü](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Bu örnekte otomatik olarak imzalanan bir sertifika ve sertifika yetkilisinden bir kullandığından, tarayıcı siteye HTTPS üzerinden bağlanırken bir güvenlik uyarısı görüntüler. Bu beklenen bir davranıştır.
+> Bu örnekte otomatik olarak imzalanan bir sertifika ve sertifika yetkilisinden bir kullandığından, tarayıcı siteye HTTPS üzerinden bağlanırken bir güvenlik uyarısı görüntüler. Bu davranış beklenmektedir.
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310885"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413727"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service fabric'te yedeğini geri yükleme
 
@@ -37,6 +37,20 @@ Bir istek ve yanıt işlem tamamlandıktan sonra değişebilir, yetkili bir duru
 - Bir geri yüklemeyi tetikleyecek _hata analizi hizmeti (FAS)_ küme için etkinleştirilmesi gerekir.
 - _Yedekleme geri yükleme hizmeti (BRS)_ yedekleme oluşturulur.
 - Geri yükleme, yalnızca bir bölümünde tetiklenebilir.
+- Yapılandırma aramaların Microsoft.ServiceFabric.Powershell.Http modülü [Önizleme içinde] yükleyin.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Küme kullanarak bağlı olduğundan emin olun `Connect-SFCluster` Microsoft.ServiceFabric.Powershell.Http modülünü kullanarak herhangi bir yapılandırma isteğini yapmadan önce komutu.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggered-restore"></a>Tetiklenen geri yükleme
 
@@ -50,6 +64,15 @@ Bir geri yükleme aşağıdaki senaryolar için tetiklenebilir:
 Tüm bir Service Fabric kümesi kaybolursa, Reliable Actors ve güvenilir durum bilgisi olan hizmet bölümlerini verilerini kurtarabilirsiniz. İstenen yedekleme kullandığınızda listeden seçilebilir [yedekleme depolama ayrıntılarla GetBackupAPI](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). Yedekleme sabit bir uygulama, hizmet veya bölüm olabilir.
 
 Aşağıdaki örneğin kayıp küme için belirtilen kümenin olduğunu varsayın [güvenilir durum bilgisi olan hizmet ve Reliable Actors için düzenli aralıklarla yedeklemeyi etkinleştirme](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Bu durumda, `SampleApp` etkin, yedekleme ilkesiyle dağıtılır ve Azure depolama için yedeklemeleri yapılandırılır.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell kullanarak Microsoft.ServiceFabric.Powershell.Http Modülü
+
+```powershell
+Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>PowerShell kullanarak rest araması
 
 Tüm bölümleri için oluşturulan yedekleri listesini döndürmek için REST API'yi kullanmak için bir PowerShell betiğini yürütün `SampleApp` uygulama. API, kullanılabilir yedekler listelemek için yedekleme depolama bilgileri gerektirir.
 
@@ -142,12 +165,30 @@ Bölüm kimliği alternatif kümede ise `1c42c47f-439e-4e09-98b9-88b8f60800c6`, 
 
 İçin _adlı bölümleme_, hedef bölüm alternatif kümesinde belirlemek için ad değeri karşılaştırılır.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell kullanarak Microsoft.ServiceFabric.Powershell.Http Modülü
+
+```powershell
+
+Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>PowerShell kullanarak rest araması
+
 Aşağıdakileri kullanarak yedekleme kümesi bölüm karşı geri yükleme isteği [geri API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
+
+$StorageInfo = @{
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
+    ContainerName = 'backup-container'
+    StorageKind = 'AzureBlobStore'
+}
+
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+    BackupStorage  = $StorageInfo
 }
 
 $body = (ConvertTo-Json $RestorePartitionReference) 
@@ -184,6 +225,16 @@ FailureError            :
 
 Geri yükleme API'si için _Backupıd_ ve _BackupLocation_ ayrıntıları. Etkin yedek küme sahip böylece Service Fabric _yedekleme geri yükleme hizmeti (BRS)_ ilişkili yedekleme İlkesi doğru depolama konumundan tanımlar.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell kullanarak Microsoft.ServiceFabric.Powershell.Http Modülü
+
+```powershell
+Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>PowerShell kullanarak rest araması
+
 ```powershell
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
@@ -201,6 +252,14 @@ TrackRestoreProgress kullanarak geri yükleme ilerleme durumunu izleyebilirsiniz
 ## <a name="track-restore-progress"></a>Geri Yükleme ilerlemesini İzle
 
 Güvenilir durum bilgisi olan hizmet veya Reliable Actor ilişkin bir bölüm aynı anda yalnızca bir geri yükleme isteği kabul eder. Geçerli geri yükleme isteği tamamlandıktan sonra bir bölüm yalnızca başka bir istek kabul eder. Birden çok geri yükleme isteği aynı anda farklı bölümlerde tetiklenebilir.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell kullanarak Microsoft.ServiceFabric.Powershell.Http Modülü
+
+```powershell
+    Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+```
+
+#### <a name="rest-call-using-powershell"></a>PowerShell kullanarak rest araması
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
@@ -229,7 +288,7 @@ Aşağıdaki sırada geri yükleme isteği ilerler:
     ```
     
 3. **Başarı**, **hatası**, veya **zaman aşımı**: İstenen bir geri yükleme, aşağıdaki durumlardan birinde tamamlanabilir. Her durum önem ve yanıt ayrıntıları aşağıdaki gibidir:
-    - **Success**: A _başarı_ durumunu geri yükle buldum bölüm durumunu gösterir. Bölüm raporları _RestoredEpoch_ ve _RestoredLSN_ saat (UTC) ile birlikte durumları.
+    - **Başarı**: A _başarı_ durumunu geri yükle buldum bölüm durumunu gösterir. Bölüm raporları _RestoredEpoch_ ve _RestoredLSN_ saat (UTC) ile birlikte durumları.
 
         ```
         RestoreState  : Success

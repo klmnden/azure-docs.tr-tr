@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e235af8ae35a6ff8e310bac802484e6c3d0f5397
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761175"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506933"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Bir Node.js uygulaması derleme ve Azure Cloud Service’e dağıtma
 
@@ -164,7 +164,7 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: ../app-service/overview-compare.md
+[Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [basit bir web uygulaması kullanmayı]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET 2.7 için Azure SDK’sını]: https://www.microsoft.com/en-us/download/details.aspx?id=48178

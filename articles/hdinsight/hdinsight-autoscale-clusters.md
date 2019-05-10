@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146366"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413711"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight kümeleri (Önizleme) otomatik olarak ölçeklendirme
 
@@ -21,9 +21,12 @@ Azure HDInsight'ın küme otomatik ölçeklendirme özelliği otomatik olarak ç
 
 ## <a name="cluster-compatibility"></a>Küme uyumluluğu
 
+> [!Important]
+> Otomatik ölçeklendirme özelliği, yalnızca Mayıs 2019 özelliğinin genel kullanılabilirlik sonrasında oluşturulmuş kümeleri için çalışır. Önceden var olan kümeleri için çalışmaz.
+
 Aşağıdaki tabloda, küme türlerini ve otomatik ölçeklendirme özelliği ile uyumlu sürümlerini açıklar.
 
-| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Kovan | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 ESP olmadan | Evet | Evet | Hayır | Hayır | Hayır | Hayır | Hayır |
 | HDInsight 4.0 ESP olmadan | Evet | Evet | Hayır | Hayır | Hayır | Hayır | Hayır |

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory v2.0 kimlik doğrulama kitaplıkları | Microsoft Docs
-description: Uyumlu bir istemci kitaplıkları ve sunucusu ara yazılım kitaplıkları ve ilgili kitaplık, kaynak ve örnekleri bağlantılar, Azure Active Directory v2.0 uç noktası için.
+title: Microsoft kimlik platformu kimlik doğrulama kitaplıkları | Microsoft Docs
+description: Uyumlu bir istemci kitaplıkları ve sunucusu ara yazılım kitaplıkları ve ilgili kitaplık, kaynak ve Microsoft kimlik platformu uç noktası için örnekleri bağlantılarını.
 services: active-directory
 documentationcenter: ''
 author: negoe
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 05/07/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda17994f0279c975682b52449c71ef88a252401
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: e7678969f58e650382ff2ed478784f4d0107f6e0
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139303"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441546"
 ---
-# <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
+# <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft kimlik platformu kimlik doğrulama kitaplıkları
 
-[Azure Active Directory (Azure AD) v2.0 uç noktası](active-directory-v2-compare.md) endüstri standardı OAuth 2.0 ve Openıd Connect 1.0 protokollerini destekler. Microsoft Authentication Library (MSAL), Azure AD v2.0 uç noktası ile çalışacak şekilde tasarlanmıştır. OAuth 2.0 ve Openıd Connect 1.0 destekleyen açık kaynak kitaplıkları kullanmak mümkündür.
+[Microsoft kimlik platformu uç nokta](active-directory-v2-compare.md) endüstri standardı OAuth 2.0 ve Openıd Connect 1.0 protokollerini destekler. Microsoft Authentication Library (MSAL), Microsoft kimlik platformu uç noktası ile çalışacak şekilde tasarlanmıştır. OAuth 2.0 ve Openıd Connect 1.0 destekleyen açık kaynak kitaplıkları kullanmak mümkündür.
 
 Bir güvenlik geliştirme yaşam döngüsü (SDL) yöntemleri gibi izleyen Protokolü etki alanı uzmanları tarafından yazılmış kitaplıkları kullanmanızı tavsiye edilir [biri Microsoft tarafından izlenen][Microsoft-SDL]. Elle kod protokoller için karar verirseniz, Microsoft'un SDL ve ödeme standartları özellikleri her protokol için güvenlik konuları dikkat kapatmak gibi bir Metodoloji izlemelidir.
 
 > [!NOTE]
-> Azure AD için sık sorulan sorular v1.0 kitaplığı (ADAL) mi arıyorsunuz? Kullanıma alma [ADAL kitaplığını Kılavuzu](active-directory-authentication-libraries.md).
+> Azure AD kimlik doğrulama kitaplığı (ADAL) için mi arıyorsunuz? Kullanıma alma [ADAL kitaplığını Kılavuzu](active-directory-authentication-libraries.md).
 
 ## <a name="types-of-libraries"></a>Tür kitaplıkları
 
-Azure AD v2.0 uç noktası, iki tür kitaplıkları ile çalışır:
+Microsoft kimlik platformu uç nokta, iki tür kitaplıkları ile çalışır:
 
 * **İstemci kitaplıkları**: Yerel istemcileri ve sunucuları Microsoft Graph gibi bir kaynak çağırmak için erişim belirteçlerini almak için istemci kitaplıkları'nı kullanın.
 * **Server ara yazılım kitaplıklarını**: Web uygulamaları, kullanıcı oturum açma için server ara yazılım kitaplıklarını kullanın. Web API'leri, diğer sunucuları veya yerel istemciler tarafından gönderilen belirteçleri doğrulamak için sunucu ara yazılım kitaplıkları kullanın.
@@ -46,20 +46,22 @@ Azure AD v2.0 uç noktası, iki tür kitaplıkları ile çalışır:
 Kitaplıkları iki destek kategoriye ayrılır:
 
 * **Microsoft tarafından desteklenen**: Microsoft bu kitaplıklar için düzeltme sağlayan ve SDL işlemi yapana aksaklıkla Bu kitaplıklar üzerinde.
-* **Uyumlu**: Microsoft, temel senaryolarda bu kitaplıklar test ve çalıştıkları v2.0 uç noktası ile onaylandı. Bu kitaplıklar için düzeltmeler ve bu kitaplıklar incelenmesi yapmış değil Microsoft sağlamaz. Sorunları ve özellik istekleri kitaplığın açık kaynak projesine yönlendirilebilir.
+* **Uyumlu**: Microsoft, temel senaryolarda bu kitaplıklar test ve Microsoft kimlik platformu uç noktada çalıştığını onaylandı. Bu kitaplıklar için düzeltmeler ve bu kitaplıklar incelenmesi yapmış değil Microsoft sağlamaz. Sorunları ve özellik istekleri kitaplığın açık kaynak projesine yönlendirilebilir.
 
-V2.0 uç nokta ile çalışmaya kitaplıkları listesi için bu makalenin sonraki bölümlere bakın.
+Microsoft kimlik platformu uç nokta ile çalışmaya kitaplıkların bir listesi için bu makalenin sonraki bölümlere bakın.
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft tarafından desteklenen istemci kitaplıkları
 
 Korumalı bir Web API'sini çağırmak için bir belirteç almak için kullanılan istemci kimlik doğrulama kitaplıkları
 
-| Platform | Kitaplık | İndirme | Kaynak kod | Örnek | Başvuru | Kavramsal belge | Yol Haritası |
+| Platform | Kitaplık | Karşıdan Yükle | Kaynak kod | Örnek | Başvuru | Kavramsal belge | Yol Haritası |
 | --- | --- | --- | --- | --- | --- | --- | ---|
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js (Önizleme) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Tek sayfalı uygulama](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Başvuru](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)| [Yol Haritası](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Tek sayfalı uygulama](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Başvuru](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Kavramsal belgeler](msal-overview.md)| [Yol Haritası](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular(Preview) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
-| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET (Önizleme) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Masaüstü uygulaması](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [Yol Haritası](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Masaüstü uygulaması](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [Yol Haritası](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![Python](media/sample-v2-code/logo_python.png) | MSAL Python (Önizleme) | [PyPI](https://pypi.org/project/msal) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Örnekler](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [Yol Haritası](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
+| ![Java](media/sample-v2-code/logo_java.png) | MSAL Java (Önizleme) | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Örnekler](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | | | [Yol Haritası](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | ![iOS / Objective C ya da swift'te](media/sample-v2-code/logo_iOS.png) | MSAL obj_c (Önizleme) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS uygulaması](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
 |![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL (Önizleme) | [Merkezi depo](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android uygulaması](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
 
@@ -67,7 +69,7 @@ Korumalı bir Web API'sini çağırmak için bir belirteç almak için kullanıl
 
 Ara yazılım kitaplıkları, Web uygulamaları ve Web API'leri korumak için kullanılır. Web uygulaması veya ASP.NET veya ASP.NET Core ile yazılmış Web API'si için ara yazılım kitaplıkları ASP.NET tarafından kullanılan / ASP.NET Core
 
-| Platform | Kitaplık | İndirme | Kaynak kodu | Örnek | Başvuru
+| Platform | Kitaplık | Karşıdan Yükle | Kaynak kodu | Örnek | Başvuru
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET güvenliği |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC uygulaması](quickstart-v2-aspnet-webapp.md) |[ASP.NET API Başvurusu](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| .NET için IdentityModel uzantıları| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC uygulaması](quickstart-v2-aspnet-webapp.md) |[Başvuru](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
@@ -86,16 +88,16 @@ Ara yazılım kitaplıkları, Web uygulamaları ve Web API'leri korumak için ku
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | ![iOS](media/sample-v2-code/logo_iOS.png) ![Android](media/sample-v2-code/logo_Android.png) | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | [Sürüm 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-İçin standartlara uygun bir kitaplık v2.0 uç noktası kullanabilirsiniz. böylece desteği için nereye bilmek önemlidir.
+Herhangi bir standartlara uygun kitaplığı için Microsoft kimlik platformu endpoint kullanabilirsiniz. böylece desteği için nereye bilmek önemlidir.
 
 * Sorunlar ve yeni özellik istekleriniz kitaplığı kod için kitaplık sahibine başvurun.
 * Sorunlar ve Hizmet tarafı protokolünü uygulamasındaki yeni özellik istekleri için Microsoft ile iletişime geçin.
 * [Bir özellik isteği](https://feedback.azure.com/forums/169401-azure-active-directory) protokolünde görmek istediğiniz ek özellikler.
-* [Bir destek isteği oluşturma](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) bir sorun bulursanız burada Azure AD v2.0 uç noktası OAuth 2.0 veya Openıd Connect 1.0 ile uyumlu değildir.
+* [Bir destek isteği oluşturma](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) bir sorun bulursanız burada Microsoft kimlik platformu uç nokta OAuth 2.0 veya Openıd Connect 1.0 ile uyumlu değildir.
 
 ## <a name="related-content"></a>İlgili içerik
 
-Azure AD v2.0 uç noktası hakkında daha fazla bilgi için bkz: [Azure AD uygulama modeli v2.0 genel bakış][AAD-App-Model-V2-Overview].
+Microsoft kimlik platformu uç noktası hakkında daha fazla bilgi için bkz: [Microsoft Identity platformuna genel bakış][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

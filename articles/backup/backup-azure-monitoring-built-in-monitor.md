@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809034"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236442"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup iş yüklerini izleme
 
@@ -49,7 +49,7 @@ Uyarılar, öncelikli olarak kullanıcılar, ilgili eylem yararlanabilmeniz bura
 Aşağıdaki senaryolarda alertable senaryoları hizmeti tarafından tanımlanır.
 
   - Yedekleme/geri yükleme hataları
-  - Yedekleme uyarılarla başarılı oldu
+  - Yedekleme Azure Yedekleme aracısı (MAB) uyarılarla başarılı oldu
   - Veri/durdurmayı silinecek verileri bekleterek korumayı durdurun
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Bir uyarı olduğunda özel durumlar
@@ -92,7 +92,7 @@ Bildirim yapılandırıldığında, Hoş Geldiniz veya tanıtım e-posta alırs�
 Bir uyarı oluşturulur ve bir saat içinde çözülen sıklığı için bir saatlik Özet ayarlandı ve yaklaşan saatlik Özet bir parçası olmayacaktır.
 
 > [!NOTE]
-> 
+>
 > * Zararlı gibi **silinecek verileri korumasını Durdur** olduğu gerçekleştirilirse, bir uyarı tetiklenir ve bildirimleri için kurtarma hizmeti yapılandırılmamış olsa bile abonelik sahipleri, yöneticileri ve ortak Yöneticiler bir e-posta gönderilir Kasa.
 > * Bildirim başarılı işler kullanmak için yapılandırmak üzere [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 

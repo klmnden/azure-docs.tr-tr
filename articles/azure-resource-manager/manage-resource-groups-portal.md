@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551319"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507221"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Resource Manager kaynak gruplarını yönetme
 
@@ -31,7 +31,7 @@ Kaynak gruplarını yönetme hakkında diğer makaleler:
 
 ## <a name="what-is-a-resource-group"></a>Kaynak grubu nedir
 
-Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Kaynak grubu bir çözümün tüm kaynaklarını veya yalnızca grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz. Genellikle, kolayca dağıtabilir, güncelleştirme ve onları bir grup olarak silmek için aynı kaynak grubuna aynı yaşam döngüsünü paylaşan kaynakların ekleyin.
+Kaynak grubu, bir Azure çözümüne ilişkin kaynakları tutan bir kapsayıcıdır. Kaynak grubu bir çözümün tüm kaynaklarını veya yalnızca grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz. Genellikle, kolayca dağıtabilir, güncelleştirme ve onları bir grup olarak silmek için aynı kaynak grubuna aynı yaşam döngüsünü paylaşan kaynakların ekleyin.
 
 Kaynak grubu, kaynaklarla ilgili meta verileri depolar. Bu nedenle, kaynak grubu için bir konum belirttiğinizde meta verilerin nereye depolanacağını belirtirsiniz. Uyumluluk nedeniyle verilerinizin belirli bir bölgeye depolandığından emin olmanız gerekebilir.
 
@@ -108,64 +108,7 @@ Varlıklarınızı mantıksal olarak düzenlemek için kaynak grupları ve kayna
 
 ## <a name="export-resource-groups-to-templates"></a>Kaynak grupları için şablonları dışarı aktarma
 
-Kaynak grubunuz başarıyla ayarladıktan sonra kaynak grubu için Resource Manager şablonu görüntülemek isteyebilirsiniz. Şablonu dışarı aktarma iki avantajı sunar:
-
-- Şablon tüm eksiksiz altyapı içerdiğinden çözümün gelecekteki dağıtımlar otomatikleştirin.
-- Şablon söz dizimi, JavaScript nesne gösterimi (çözümünüzü temsil eden JSON konumunda) bakarak öğrenin.
-
-Şablonu dışarı aktarmanın iki yolu vardır:
-
-- Dağıtım için kullanılan gerçek şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bu yaklaşım kaynakları portal üzerinden dağıttığınızda ve bu kaynakları oluşturmak için kullanılan şablonu görmek istediğinizde yararlıdır. Bu şablon kullanıma hazırdır. 
-- Kaynak grubunun geçerli durumunu temsil eden oluşturulmuş bir şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullanılan herhangi bir şablonu temel değil. Bunun yerine "snapshot" veya "yedek" kaynak grubu olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Kaynaklar aynı kaynak grubuna yeniden dağıtmak için bu seçeneği kullanın. Başka bir kaynak grubu için bu şablonu kullanmak için önemli ölçüde değiştirmeniz gerekebilir.
-
-### <a name="export-templates-from-deployment-history"></a>Dağıtım geçmişinden dışarı aktarma şablonları
-
-Bu yöntem, bazı dağıtımlar için şablonları dışarı aktarır. Portal ya da birden çok dağıtım kaynağı ekleme/kaldırma yapıldığında kaynakları değiştirdiyseniz bkz [dışarı aktarma şablonları kaynak gruplarınızdaki](#export-templates-from-resource-groups).
-
-1. Dışarı aktarmak istediğiniz kaynak grubunu açın.  Bkz: [açık kaynak grupları](#open-resource-groups).
-2. Sol bölmede seçin **dağıtımları**, veya altındaki bağlantıyı seçin **dağıtımları**.  Aşağıdaki ekran gösterilir **4 başarılı** olmadığı için dört farklı dağıtım adlarına sahip dört ayrılmış dağıtımları. Görebileceğiniz **1 başarılı**.
-
-    ![Azure kaynak grubunu dışarı aktarma şablonları](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Dağıtımlardan biri listeden seçin.
-4. Sol bölmede seçin **şablon**. Resource Manager sizin için aşağıdaki altı dosyayı alır:
-
-   - **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
-   - **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. İlk dağıtım sırasında sağladığınız değerleri içerir. Şablonu yeniden dağıtırken bu değerlerden herhangi birini değiştirebilirsiniz.
-   - **CLI** -şablonu dağıtmak için kullanabileceğiniz bir Azure CLI betiği.
-   - **PowerShell**: Şablonu dağıtmak için kullanabileceğiniz bir Azure PowerShell betiği.
-   - **.NET**: Şablonu dağıtmak için kullanabileceğiniz bir .NET sınıfı.
-   - **Ruby** - Şablonu dağıtmak için kullanabileceğiniz bir Ruby sınıfı.
-
-     Varsayılan olarak, portal şablonunu görüntüler.
-
-5. Seçin **indirme** yerel bilgisayarınıza bir şablonu dışarı aktarmak için.
-
-    ![Azure kaynak grubunu dışarı aktarma şablonları](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Kaynak grubundan dışarı aktarma şablonları
-
-Dağıtım geçmişinden bir şablonu alınırken, kaynaklarınızı portal değiştirdiyseniz veya birden çok dağıtım kaynakları eklenen/Kaldır, kaynak grubunun geçerli durumunu yansıtmaz. Bu bölümde kaynak grubunun geçerli durumunu yansıtan bir şablonun nasıl dışarı aktarıldığı gösterilir. Aynı kaynak grubuna yeniden dağıtmak için kullanabileceğiniz kaynak grubunun bir anlık görüntü olarak tasarlanmıştır. Diğer çözümler için dışarı aktarılan şablon kullanmak için önemli ölçüde değiştirmeniz gerekir.
-
-1. Dışarı aktarmak istediğiniz kaynak grubunu açın.  Bkz: [açık kaynak grupları](#open-resource-groups).
-2. Sol bölmede seçin **şablonu dışarı aktarma**. Resource Manager sizin için aşağıdaki altı dosyayı alır:
-
-   - **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
-   - **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. İlk dağıtım sırasında sağladığınız değerleri içerir. Şablonu yeniden dağıtırken bu değerlerden herhangi birini değiştirebilirsiniz.
-   - **CLI** -şablonu dağıtmak için kullanabileceğiniz bir Azure CLI betiği.
-   - **PowerShell**: Şablonu dağıtmak için kullanabileceğiniz bir Azure PowerShell betiği.
-   - **.NET**: Şablonu dağıtmak için kullanabileceğiniz bir .NET sınıfı.
-   - **Ruby** - Şablonu dağıtmak için kullanabileceğiniz bir Ruby sınıfı.
-
-     Varsayılan olarak, portal şablonunu görüntüler.
-3. Seçin **indirme** yerel bilgisayarınıza bir şablonu dışarı aktarmak için.
-
-Dışarı aktarılan bazı şablonlar kullanılabilmesi için önce bazı düzenlemeler gerekir. Şablonları geliştirme hakkında bilgi edinmek için [adım adım öğreticiler](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Dağıtmadan önce şablonu dışarı aktarma
-
-Bir kaynağı tanımlamak için portalı kullanabilirsiniz.  Kaynak dağıtmadan önce görüntüleyebilir ve bir şablonu dışarı aktarma. Yönergeler için bkz. [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md).
+Şablonları dışarı aktarma hakkında daha fazla bilgi için bkz: [şablonu - Portal için tek ve birden çok kaynak dışarı aktarma](export-template-portal.md).
 
 ### <a name="fix-export-issues"></a>Dışarı aktarma sorunlarını düzeltme
 

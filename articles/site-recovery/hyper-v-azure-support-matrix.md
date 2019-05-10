@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748994"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235884"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi
 
@@ -33,8 +33,8 @@ Hyper-V olmadan Virtual Machine Manager | Virtual Machine Manager tarafından y�
 
 **Sunucu** | **Gereksinimler** | **Ayrıntılar**
 --- | --- | ---
-(Çalışan Virtual Machine Manager olmadan) Hyper-V | Windows Server 2016 (dahil olmak üzere Sunucu Çekirdeği yüklemesi), en son güncelleştirmeleri içeren Windows Server 2012 R2 | Windows Server 2012 R2 ile zaten yapılandırdıysanız / veya SCVMM 2012 R2 ile Azure Site Recovery ve işletim sistemi, yükseltmeyi planlıyorsanız, lütfen Kılavuzu izleyin [belgeleri.](upgrade-2012R2-to-2016.md) 
-(Çalışan Virtual Machine Manager ile) Hyper-V | Virtual Machine Manager 2012 R2 Virtual Machine Manager 2016 | Virtual Machine Manager kullandıysanız, Virtual Machine Manager 2016'da Windows Server 2016 ana yönetilmelidir.<br/><br/>
+(Çalışan Virtual Machine Manager olmadan) Hyper-V |  Windows Server 2019, Windows Server 2016 (dahil olmak üzere Sunucu Çekirdeği yüklemesi), en son güncelleştirmeleri içeren Windows Server 2012 R2 | Windows Server 2012 R2 ile zaten yapılandırdıysanız / veya SCVMM 2012 R2 ile Azure Site Recovery ve işletim sistemi, yükseltmeyi planlıyorsanız, lütfen Kılavuzu izleyin [belgeleri.](upgrade-2012R2-to-2016.md) 
+(Çalışan Virtual Machine Manager ile) Hyper-V | 2019, Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 Virtual Machine Manager | Virtual Machine Manager kullandıysanız, Windows Server 2019 konak Virtual Machine Manager 2019 yönetilmelidir. Benzer şekilde, Virtual Machine Manager 2016'da Windows Server 2016 ana yönetilmelidir.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Çoğaltılan VM'ler
@@ -138,7 +138,7 @@ Hedef depolama/önbellek depolama hesabı (çoğaltma verilerini depolamak için
 
 ## <a name="azure-compute-features"></a>Azure işlem özellikleri
 
-**Özellik** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
+**Özelliği** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
 Kullanılabilirlik kümeleri | Evet | Evet
 HUB | Evet | Evet  

@@ -462,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: Yönetilen örnek için mevcut VNet’i ve alt ağı yapılandırma
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: Yönetilen örneği sildikten sonra alt ağı silme
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: Özel API'yi yapılandırma
           href: sql-database-managed-instance-custom-dns.md
         - name: Eşitleme ağı yapılandırması

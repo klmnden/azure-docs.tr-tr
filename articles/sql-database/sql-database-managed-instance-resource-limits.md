@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487553"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233513"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -37,25 +37,25 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 |   | **4. nesil** | **5. nesil** |
 | --- | --- | --- |
 | Donanım | Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, bağlı SSD sanal çekirdek = 1 PP (fiziksel çekirdek) | Intel E5-2673 v4 (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, sanal çekirdek = 1 LP (hiper iş parçacığı) |
-| İşlem | 8, 16, 24 sanal çekirdek | 8, 16, 24, 32, 40, 64, 80 sanal çekirdekler |
+| Sanal çekirdekler | 8, 16, 24 sanal çekirdek | 8, 16, 24, 32, 40, 64, 80 sanal çekirdekler |
 | Bellek | Sanal çekirdek başına 7 GB | Sanal çekirdek başına 5.1 GB |
-| Bellek içi OLTP bellek | Sanal çekirdek başına 3 GB | Sanal çekirdek 2,6 GB |
-| Maks. depolama alanı (genel amaçlı) |  8 TB | 8 TB |
-| En fazla depolama alanı (iş açısından kritik) | 1 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
+| Maks. bellek içi OLTP bellek | Sanal çekirdek başına 3 GB | Sanal çekirdek 2,6 GB |
+| En büyük örnek depolama (genel amaçlı) |  8 TB | 8 TB |
+| En büyük örnek depolama (iş açısından kritik) | 1 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
 
 ### <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
 İki hizmet katmanıyla - genel amaçlı ve iş açısından kritik yönetilen örnek sahiptir. Bu katmanlar, aşağıdaki tabloda açıklandığı gibi farklı özellikleri sunar:
 
-| **Özellik** | **Genel amaçlı** | **İş açısından kritik** |
+| **Özelliği** | **Genel amaçlı** | **İş açısından kritik** |
 | --- | --- | --- |
 | Sanal çekirdek sayısı\* | 4. nesil: 8, 16, 24<br/>5. nesil: 8, 16, 24, 32, 40, 64, 80 | 4. nesil: 8, 16, 24, 32 <br/> 5. nesil: 8, 16, 24, 32, 40, 64, 80 |
-| Bellek | 4. nesil: 56 GB - 168 GB<br/>5. nesil: 40.8 GB - 408 GB<br/>\*Orantılı sanal çekirdek sayısı | 4. nesil: 56 GB - 168 GB <br/> 5. nesil: 40.8 GB - 408 GB<br/>\*Orantılı sanal çekirdek sayısı |
-| En büyük depolama boyutu | 8 TB | 4. nesil: 1 TB <br/> 5. nesil: <br/>-1 TB 8, 16 sanal çekirdek<br/>-24 sanal çekirdek 2 TB<br/>-32, 40, 64 4 TB 80 sanal çekirdekler |
+| Bellek | 4. nesil: 56 GB - 168 GB (7GB/sanal çekirdek)<br/>5. nesil: 40.8 GB - 408 GB (5.1 GB/sanal çekirdek) | 4. nesil: 56 GB - 168 GB (7GB/sanal çekirdek)<br/>5. nesil: 40.8 GB - 408 GB (5.1 GB/sanal çekirdek) |
+| En büyük örnek depolama boyutu | 8 TB | 4. nesil: 1 TB <br/> 5. nesil: <br/>-1 TB 8, 16 sanal çekirdek<br/>-24 sanal çekirdek 2 TB<br/>-32, 40, 64 4 TB 80 sanal çekirdekler |
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
 | Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
-| Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1,375 sanal çekirdek başına) |
+| Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/sanal çekirdek) |
 | Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 3 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
 | Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/sn başına sanal çekirdek |
 | GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |

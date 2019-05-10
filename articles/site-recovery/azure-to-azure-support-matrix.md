@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926585"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412768"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm'leri bir bölgeden diğerine çoğaltma için destek matrisi
 
@@ -24,7 +24,7 @@ Bu makalede Azure Vm'leri olağanüstü durum kurtarma bir Azure bölgesinden ay
 **Dağıtım** |  **Destek**
 --- | ---
 **Azure portal** | Destekleniyor.
-**PowerShell** | Destekleniyor. [Daha fazla bilgi](azure-to-azure-powershell.md)
+**PowerShell** | Destekleniyor. [Daha fazla bilgi edinin](azure-to-azure-powershell.md)
 **REST API** | Destekleniyor.
 **CLI** | Şu anda desteklenmiyor
 
@@ -47,7 +47,7 @@ Bu makalede Azure Vm'leri olağanüstü durum kurtarma bir Azure bölgesinden ay
 **Coğrafi küme** | **Azure bölgeleri**
 -- | --
 Amerika | Kanada Doğu, Kanada Orta, Güney Orta ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Orta ABD
-Avrupa | UK Batı, UK Güney, Kuzey Avrupa, Batı Avrupa, Fransa Orta, Fransa Güney
+Avrupa | UK Batı, UK Güney, Kuzey Avrupa, Batı Avrupa, Fransa Orta, Fransa Güney, Güney Afrika Batı, Güney Afrika Kuzey
 Asya | Güney Hindistan, Orta Hindistan, Güneydoğu Asya, Doğu Asya, Japonya Doğu, Kore Orta, Kore Güney Batı, Japonya
 Avustralya   | Avustralya Doğu, Avustralya Güneydoğu, Avustralya Orta, Avustralya Orta 2
 Azure Kamu    | ABD Devleti Virginia, ABD Devleti Iowa, ABD Devleti Arizona, ABD Devleti Texas, US DOD Doğu, ABD DOD Orta
@@ -146,7 +146,7 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.21 | SP1 3.12.49-11-default 3
 
 **Ayar** | **Destek** | **Ayrıntılar**
 --- | --- | ---
-Boyut | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
+Boyutlandır | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
 Kullanılabilirlik kümeleri | Desteklenen | Varsayılan seçeneklerle bir Azure VM için çoğaltmayı etkinleştirin, bir kullanılabilirlik kümesinde kaynak bölge ayarlara göre otomatik olarak oluşturulur. Bu ayarları değiştirebilirsiniz.
 Kullanılabilirlik alanları | Desteklenen |
 Hibrit kullanım teklifi (HUB) | Desteklenen | Kaynak VM etkin bir HUB lisans yük devretme testi veya yük devretme varsa VM, ayrıca HUB lisansı kullanır.
@@ -156,6 +156,7 @@ Azure Galerisi'ndeki görüntüleri - üçüncü taraf yayımlandı | Desteklene
 Özel görüntüleri - üçüncü taraf yayımlandı | Desteklenen | Sanal Makineyi desteklenen bir işletim sisteminde çalışıyorsa desteklenmiyor.
 Site RECOVERY'yi kullanarak VM'lerin geçişi | Desteklenen | Bir VMware VM veya fiziksel makine için Azure Site Recovery kullanılarak geçirilmiş, makinede çalışan mobilite hizmetinin eski sürümü kaldırın ve makineyi başka bir Azure bölgesine çoğaltmak önce yeniden gerekebilir.
 RBAC ilkeleri | Desteklenmiyor | Rol tabanlı erişim denetimi (RBAC) İlkeleri vm'lerde yük devretme VM'sine hedef bölgede çoğaltılmaz.
+Genişletmeler | Desteklenmiyor | Hedef bölgede VM yük devretmesi için uzantıları çoğaltılmaz. Yük devretmeden sonra elle yüklenmesi gerekir.
 
 ## <a name="replicated-machines---disk-actions"></a>Çoğaltılan makineler - disk eylemleri
 
@@ -241,10 +242,10 @@ Azure DNS | Desteklenen |
 Özel DNS  | Desteklenen |
 Kimliği doğrulanmamış proxy | Desteklenen | [Daha fazla bilgi]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimliği doğrulanmış bir ara sunucu kullanıyorsa, Azure Site Recovery kullanarak yinelenemez.    
-Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site Recovery trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)    
-VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)  
-Sanal Ağ Hizmet Uç Noktaları | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, güvenilen Microsoft hizmetlerinin depolama hesabına erişim izni verildiğini emin olun.
-Hızlandırılmış ağ iletişimi | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site Recovery trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)    
+VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)  
+Sanal Ağ Hizmeti Uç Noktaları | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, güvenilen Microsoft hizmetlerinin depolama hesabına erişim izni verildiğini emin olun.
+Hızlandırılmış ağ | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

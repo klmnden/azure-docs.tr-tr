@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143262"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235749"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL veritabanı sunucusuz (Önizleme)
 
@@ -52,7 +52,7 @@ Aşağıdaki tabloda sağlanan işlem katmanı ile sunucusuz bilgi işlem katman
 |---|---|---|
 |**Tipik kullanım senaryosu**|Etkin nokta ile interspersed yükselen, tahmin edilemeyen kullanım veritabanlarıyla|Veritabanları ya da daha fazla normal kullanım ile elastik havuzları|
 |**Performans yönetim çabası**|Daha düşük|Daha yüksek|
-|**Ölçeklendirme işlem**|Automatic|Manual|
+|**Ölçeklendirme işlem**|Otomatik|El ile|
 |**İşlem yanıt hızı**|Etkin nokta sonra daha düşük|Hemen|
 |**Faturalandırma ayrıntı düzeyi**|Saniye başına|Saatlik|
 |
@@ -111,14 +111,14 @@ Aşağıdaki koşullardan herhangi biri herhangi bir zamanda doğruysa Autoresum
 |Bırakabilirsiniz|Uygulama ve bırakabilirsiniz önerileri otomatik dizin oluşturma gibi doğrulama|
 |Veritabanı kopyalama|Kopya olarak veritabanı oluşturma<br>Bir BACPAC dosyasına aktarma|
 |SQL data Sync'i|Yapılandırılabilir bir zamanlamaya göre çalıştırın ya da el ile gerçekleştirilen hub ve üye veritabanı arasında eşitleme|
-|Belirli bir veritabanı meta verileri değiştirme|Yeni veritabanı etiketler ekleme<br>En yüksek vcore, en düşük vcore autopause gecikme değiştirme|
+|Belirli bir veritabanı meta verileri değiştirme|Yeni veritabanı etiketler ekleme<br>En yüksek Vcore, en düşük Vcore autopause gecikme değiştirme|
 |SQL Server Management Studio (SSMS)|Sürüm 18 SSMS kullanarak ve herhangi bir veritabanı için yeni bir sorgu penceresi açıp sunucuda aynı sunucuya otomatik olarak duraklatıldı veritabanında devam edecek. IntelliSense ile SSMS sürümü 17.9.1 kullanarak devre dışı ise bu davranışı gerçekleşmez.|
 
 ### <a name="connectivity"></a>Bağlantı
 
 Sunucusuz bir veritabanları duraklatıldı durumunda ilk oturum açma veritabanını sürdürmeniz ve veritabanı kullanılamaz olduğunu bildiren bir hata döndürür. Veritabanı sürdürülüyor sonra oturum açma bağlantısı kurmak için yeniden denenmelidir. Veritabanı bağlantısı yeniden deneme mantığı istemcilerle değiştirilmesi gerekmez.
 
-### <a name="latency"></a>Gecikme süresi
+### <a name="latency"></a>Gecikme
 
 Autopause ya da sunucusuz veritabanı autoresume gecikme süresi, genellikle 1 dakika bazında ' dir.
 
@@ -260,7 +260,7 @@ Get-AzSqlDatabase `
 
 Kaynak limitleri için bkz. [sunucusuz bilgi işlem katmanı](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Saniyede faturalandırılan işlem en fazla kullanılan CPU ve saniyede kullanılan bellek miktarıdır. Kullanılan CPU miktarını ve her biri için sağlanan en düşük miktar daha az kullanılan bellek miktarı sağlanan faturalandırılır. CPU ile bellek faturalandırma için karşılaştırmak için bellek, sanal çekirdekler birimlerine bellek miktarı GB olarak 3 GB sanal çekirdek ölçeklendirme tarafından normalleştirilmiştir.
 

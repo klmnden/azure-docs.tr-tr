@@ -2,19 +2,19 @@
 title: Öğretici - Azure Key Vault ile bir Azure Linux sanal makinesinde .NET - Azure kullanmak için Key Vault nasıl | Microsoft Docs
 description: Öğretici Anahtar Kasasından gizli dizi okumak için bir ASP.NET Core uygulaması yapılandırma
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 969213f4006aa842711459fed7a76d08a9d3ce37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88d06518c6cabe1f796dbdef6d954db83bc5ae28
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707060"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234009"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Öğretici: Azure Key Vault ile Azure Linux sanal makinesine .NET kullanma
 
@@ -52,7 +52,7 @@ Daha fazla ilerlemeden önce, MSI'yi anlayalım. Azure Key Vault kimlik bilgiler
 Ardından, kodunuz erişim belirtecini almak için Azure kaynağında sağlanan bir yerel meta veri hizmetini çağırır.
 Kodunuz yerel MSI_ENDPOINT'ten aldığı erişim belirtecini kullanarak Azure Key Vault hizmetinde kimlik doğrulaması yapar. 
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Azure CLI'yi kullanarak Azure'da oturum açmanız için şunu girin:
 
@@ -60,7 +60,7 @@ Azure CLI'yi kullanarak Azure'da oturum açmanız için şunu girin:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 

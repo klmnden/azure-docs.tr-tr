@@ -64,26 +64,34 @@
   items:
     - name: Sınıf laboratuvarları
       items:
-        - name: Laboratuvar hesaplarını yönetme
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Sınıf laboratuvarlarını yönetme
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Şablonları ayarlama ve yayımlama
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: Kullanımı yapılandırma ve denetleme
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: Sınıf laboratuvarlarına erişim
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: Zamanlamaları oluşturma ve yönetme
-          href: classroom-labs/how-to-create-schedules.md
-        - name: Bir şablon VM'sinin içinde birden çok VM ile ortam oluşturma
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: Laboratuvarlarınızı eş sanal ağa bağlama
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: Paylaşılan görüntü galerisi ekleme ve kullanma
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Linux için uzak masaüstü bağlantısını etkinleştirme
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: Laboratuvar hesabı oluşturma ve yapılandırma
+          items:
+            - name: Laboratuvar hesabı oluşturma ve yönetme
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: Laboratuvar hesaplarını yapılandırma
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: Laboratuvarlarınızı eş sanal ağa bağlama
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: Paylaşılan görüntü galerisi ekleme ve kaldırma
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 'Sınıf laboratuvarları oluşturma, yapılandırma ve kullanma'
+          items:
+            - name: Sınıf laboratuvarları oluşturma ve yönetme
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: Şablonları ayarlama ve yayımlama
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: Kullanımı yapılandırma ve denetleme
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: Sınıf laboratuvarlarına erişim
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Zamanlamaları oluşturma ve yönetme
+              href: classroom-labs/how-to-create-schedules.md
+            - name: Bir şablon VM'sinin içinde birden çok VM ile ortam oluşturma
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: Paylaşılan görüntü galerisi kullanma
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Linux için uzak masaüstü bağlantısını etkinleştirme
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: Laboratuvar sanal makineleri için kaynak grubunu belirtme
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Azure DevOps CI/CD ardışık düzeninizi ortamlarla tümleştirme
               href: integrate-environments-devops-pipeline.md
+            - name: Hizmet Olarak Platform (PaaS) hizmetlerini kullanma
+              href: use-paas-services.md
         - name: Laboratuvarlara güvenli erişim
           items:
             - name: Laboratuvar sahibi ve kullanıcıları ekleme
               href: devtest-lab-add-devtest-user.md
             - name: Özel rollerle izinleri özelleştirme
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Laboratuvar kullanıcısı eklemeyi otomatikleştirme
+              href: automate-add-lab-user.md
         - name: Laboratuvar yapılandırma
           items:
             - name: İlke ve zamanlamalar ayarlama

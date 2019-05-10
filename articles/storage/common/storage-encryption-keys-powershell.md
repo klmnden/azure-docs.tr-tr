@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0eeae1451e77d9000c87b1aff7ad73323e74f7ee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154118"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233684"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Müşteri tarafından yönetilen anahtarlar powershell'den Azure depolama şifrelemesi için yapılandırma
 
@@ -75,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 Varsayılan olarak, Microsoft tarafından yönetilen anahtarlar Azure depolama şifrelemesi kullanır. Bu adımda, müşteri tarafından yönetilen anahtarlar kullanın ve depolama hesabıyla ilişkilendirmek için anahtarı belirtmek için Azure depolama hesabınızı yapılandırın.
 
-Çağrı [kümesi AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) depolama hesabının şifrelemesini güncelleştirilecek. Köşeli ayraçlar içindeki yer tutucu değerlerini kendi değerlerinizle değiştirin ve önceki örneklerde tanımlanan değişkenleri kullanmayı unutmayın.
+Çağrı [kümesi AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) depolama hesabının şifrelemesini güncelleştirilecek. Köşeli ayraçlar içindeki yer tutucu değerlerini kendi değerlerinizle değiştirin ve önceki örneklerde tanımlanan değişkenleri kullanmayı unutmayın.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -88,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>Anahtar sürümü güncelleştir
 
-Bir anahtarın yeni bir sürümünü oluşturduğunuzda, yeni sürümü kullanmak için depolama hesabının güncelleştirilmesi gerekir. İlk olarak, çağrı [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) anahtar en son sürümünü almak için. Ardından çağırın [kümesi AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) önceki bölümde gösterildiği gibi anahtarın yeni sürümü kullanmak için depolama hesabının şifreleme ayarlarını güncelleştirmek için.
+Bir anahtarın yeni bir sürümünü oluşturduğunuzda, yeni sürümü kullanmak için depolama hesabının güncelleştirilmesi gerekir. İlk olarak, çağrı [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) anahtar en son sürümünü almak için. Ardından çağırın [kümesi AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) önceki bölümde gösterildiği gibi anahtarın yeni sürümü kullanmak için depolama hesabının şifreleme ayarlarını güncelleştirmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291288"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441414"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Kullanıcıları ve grupları Azure Active Directory'de bir uygulamaya atama
 Bu makalede bir uygulamayı Azure Active Directory (Azure AD) kullanıcıları veya grupları atama gösterilmektedir. Yöneticinin bunları aşağıdakileri yapmak için erişim izni verebilmeniz için önce kullanıcıların önce uygulamaya atanması gerekir:
@@ -31,6 +31,8 @@ Bu makalede bir uygulamayı Azure Active Directory (Azure AD) kullanıcıları v
 -   Görünür bir uygulama bkz kendi [uygulama erişim panelinde](https://myapps.microsoft.com/) veya mobil uygulama.
 
 -   Görünür bir uygulama bkz kendi [Office 365 uygulama başlatıcısında](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
+
+Grup tabanlı atama kullanılabilirliğini, lisans sözleşmenize göre belirlenir. Grup tabanlı atama, yalnızca güvenlik grupları için desteklenir ve iç içe geçmiş grup üyelikleri şu anda desteklenmiyor.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Uygulamaya kullanıcıları ve grupları atamadan önce kullanıcı atamasını gerektirir. Kullanıcı ataması gerekli kılmak için:

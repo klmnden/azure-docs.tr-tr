@@ -12,22 +12,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 04/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 1e02e4fdf0dbe04d8756fc6355c6a9e414b27d2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb82d2abb756d636aeb77042cc817b7b05f6b0c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719182"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233671"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Neden mikro hizmetler yaklaşımı uygulamaları oluşturmak için?
 
-Yazılım geliştiricileri yoktur nasıl bir uygulama bileşeni parçalara hesaba katacak şekilde hakkında düşünüyoruz içinde yeni bir şey yok. Genellikle, katmanlı bir yaklaşım, bir arka uç depolama, orta katman iş mantığı ve bir ön uç kullanıcı arabirimi (UI) ile alınır. Hangi *sahip* biz geliştiriciler olarak, bulut için dağıtılmış uygulamalar oluşturuyorsanız olan son birkaç yılda değiştirildi.
+Yazılım geliştiriciler olarak, bir uygulama bileşeni parçalara hesaba katacak şekilde mi düşünüyorsunuz yeni bir şey değildir. Genellikle, katmanlı bir yaklaşım, bir arka uç depolama, orta katman iş mantığı ve bir ön uç kullanıcı arabirimi (UI) ile alınır. Hangi *sahip* biz geliştiriciler olarak, bulut için dağıtılmış uygulamalar oluşturuyorsanız olan son birkaç yılda değiştirildi.
 
 Değişen iş gereksinimleri şunlardır:
 
-* Yerleşik olarak bulunur ve yeni coğrafi bölgelerdeki müşterilere ölçekte çalışır bir hizmettir.
+* Oluşturulur ve yeni coğrafi bölgelerdeki müşterilere ölçekte çalıştırılan bir hizmeti.
 * Özellikler ve yetenekler, Müşteri taleplerine Çevik bir şekilde yanıt verebilmesi için daha hızlı teslim.
 * Maliyetleri azaltmak için geliştirilmiş kaynak kullanımı'nı tıklatın.
 
@@ -37,15 +37,15 @@ Azure'da mikro hizmetler yaklaşımı hakkında daha fazla bilgi için okuma [mi
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Tek parçalı mikro hizmet yaklaşımı karşılaştırması
 
-Uygulamalar zamanla gelişmesinin. Kişiler için yararlı olan başarılı uygulamalar geliştirin. Başarısız uygulamalar değil evrim geçiren ve sonunda kullanım dışı bırakılmıştır. Soru da şudur: Ne kadar gereksinimleriniz hakkında bugün biliyor musunuz ve ne, gelecekte sunulacak? Örneğin, bir departman için bir raporlama uygulaması oluşturuyorsanız varsayalım. Uygulamayı yalnızca şirketiniz kapsamında geçerlidir ve raporları kısa süreli olduğundan emin olursunuz. Söyleyin tercih ettiğiniz yaklaşımı, farklı olduğundan, bir hizmet oluşturma için on milyonlarca müşteriye video içeriği sunar.
+Uygulamalar zamanla gelişmesinin. Kişiler için yararlı olan başarılı uygulamalar geliştirin. Başarısız uygulamalar değil evrim geçiren ve sonunda kullanım dışı bırakılmıştır. Soru da şudur: Ne kadar gereksinimleriniz hakkında bugün tanıdığınız ve ne, gelecekte olacak? Örneğin, bir departman için bir raporlama uygulaması oluşturuyorsanız varsayalım. Uygulamayı yalnızca şirketiniz kapsamında geçerlidir ve raporları kısa süreli olduğundan emin olursunuz. Söyleyin tercih ettiğiniz yaklaşımı, farklı olduğundan, bir hizmet oluşturma için on milyonlarca müşteriye video içeriği sunar.
 
-Bazen, kavram kanıtı olarak bir kullanıma alma bildiğiniz uygulama daha sonra tasarlanması ancak sürükleyici etken olabilir. Hiçbir zaman kullanılan bir şey aşırı mühendislik içinde çok az noktası yok. Bu normal mühendislik dengedir. Şirketler için bulut yapı hakkında konuşurken, diğer taraftan, büyüme ve kullanım beklenir. Büyüme ve ölçek öngörülemeyen sorunudur. Hızlı bir şekilde gelecekteki başarılı bir şekilde ilgilenmenin bir yolu üzerinde olduğunu da bilerek prototip kullanabilmek istiyorsunuz. Yalın başlangıç yaklaşım budur: oluşturun, ölçün, öğrenin ve yineleme.
+Bazı durumlarda, kavram kanıtı olarak bir kullanıma alma uygulama daha sonra tasarlanması bilerek sürüş, faktördür. Hiçbir zaman kullanılan bir şey aşırı mühendislik içinde çok az noktası yok. Şirketler için bulut yapı hakkında konuşurken, diğer taraftan, büyüme ve kullanım beklenir. Büyüme ve ölçek öngörülemeyen sorunudur. Hızlı bir şekilde gelecekteki işleyebilen bir yolda olduğunu da bilerek prototip kullanabilmek istiyorsunuz. Yalın başlangıç yaklaşım budur: oluşturun, ölçün, öğrenin ve yineleme.
 
-İstemci-sunucu dönemi sırasında size her katmanında belirli teknolojileri kullanarak katmanlı uygulamalar oluşturmaya odaklanın tended. Terim *tek parça* uygulama için bu yaklaşımları ortaya çıktı. Katmanlar arasında olacak şekilde arabirimleri tended ve daha sıkı şekilde bağlı bir tasarım, her bir katmanında bileşenleri arasında kullanıldı. Geliştiriciler tasarlanmış ve kitaplıklara derlenmiş ve birkaç yürütülebilir dosyaları ve dll birbirine üretilen sınıfları. 
+İstemci-sunucu dönemi sırasında size her katmanında belirli teknolojileri kullanarak katmanlı uygulamalar oluşturmaya odaklanın tended. Terim *tek parça* uygulama için bu yaklaşımları ortaya çıktı. Katmanlar arasında olacak şekilde arabirimleri tended ve daha sıkı şekilde bağlı bir tasarım, her bir katmanında bileşenleri arasında kullanıldı. Geliştiriciler tasarlanmış ve kitaplıklara derlenmiş ve birkaç yürütülebilir dosyaları ve dll birbirine üretilen sınıfları.
 
 Bu tür bir tek yapılı tasarım yaklaşımın avantajları vardır. Genellikle tasarlamak daha basit olduğundan ve bu çağrıları genellikle işlemler arası iletişim (IPC) üzerinde olduğundan bileşenleri arasında daha hızlı çağrıları vardır. Ayrıca, herkesin daha fazla kişi-kaynak etkili olma eğilimindedir tek bir ürün sınar. Dezavantajı, katmanlı katmanlar arasında sıkı bir bağ vardır ve tek tek bileşenler ölçeklendirilemez ' dir. Düzeltmeleri veya yükseltmeler yapmanız gereken, diğerleri kendi test bitmesini beklemek zorunda. Çevik olun daha zordur.
 
-Mikro hizmetler bu downsides adres ve önceki iş gereksinimleriyle daha yakından hizalama, ancak onların avantajları ve Borçlar hem de vardır. Mikro hizmetler avantajları, her biri genellikle ölçeği artırın veya azaltın, test etmek, dağıtmak ve bağımsız olarak yönetmek daha basit iş işlevselliğini Kapsüller ' dir. Bir mikro hizmet yaklaşımı önemli yararlarından biri, takımlar tarafından iş senaryolarını daha fazla katmanlı bir yaklaşımı teşvik eder teknolojisini tarafından--temelli ' dir. Uygulama, daha küçük takımlar müşteri senaryo temel alınarak bir mikro hizmet geliştirin ve tercih ettikleri herhangi teknolojileri kullanın.
+Mikro hizmetler bu downsides adres ve önceki iş gereksinimleriyle daha yakından hizalama, ancak onların avantajları ve Borçlar hem de vardır. Mikro hizmetler avantajları, her biri genellikle ölçeği artırın veya azaltın, test etmek, dağıtmak ve bağımsız olarak yönetmek daha basit iş işlevselliğini Kapsüller ' dir. Bir mikro hizmet yaklaşımı önemli yararlarından biri, takımlar tarafından iş senaryolarını daha fazla bilgi teknolojisi tabanlı ' dir. Uygulama, daha küçük takımlar müşteri senaryo temel alınarak bir mikro hizmet geliştirin ve tercih ettikleri herhangi teknolojileri kullanın.
 
 Diğer bir deyişle, kuruluş, mikro hizmet uygulamalarını korumak için teknik standart hale getirmek gerekmez. Ayrı takımlar kendi Hizmetleri algılama için bunları team uzmanlık düzeyine göre yapar veya sorunu çözmek en uygun ne yapabilirsiniz. Uygulamada, belirli bir NoSQL gibi önerilen teknoloji kümesi depolamak veya web uygulama çerçevesi, tercih edilir.
 
@@ -71,11 +71,11 @@ Daha fazla bulut uygulaması üretilen gibi genel uygulama bu ayrıştırma bağ
 
 Bir mikro hizmet tasarlama yaklaşım tüm projeleri için her derde deva değildir, ancak daha önce açıklanan iş hedefleri ile hizalamaya daha yakından. Tek parçalı bir yaklaşım ile başlayan kodu tasarımından mikro hizmet daha sonra yeniden fırsatı olacağını bildiğiniz kabul edilebilir olabilir. Daha sık monolitik bir uygulamayla başlar ve daha ölçeklenebilir ve daha Çevik olması gereken işlevsel alanları ile başlangıç aşamasında, yavaş bölün.
 
-Mikro hizmet yaklaşımı, birçok küçük hizmetler uygulamanızı oluşturma anlamına gelir. Makine bir kümede dağıtılan kapsayıcılardaki Hizmetleri çalıştırın. Küçük takımlar senaryoyu odaklanan bir hizmeti geliştirme ve test bağımsız olarak sürümü, dağıtmanızı ve böylece uygulamanın tamamı geliştirebilirsiniz her hizmet ölçeklendirmenizi.
+Mikro hizmet yaklaşımı, birçok küçük hizmetler uygulamanızı oluşturma anlamına gelir. Bu hizmetler, makine kümesi dağıtılan kapsayıcılarında çalıştırın. Küçük takımlar senaryoyu odaklanan bir hizmeti geliştirme ve test bağımsız olarak sürümü, dağıtmanızı ve böylece uygulamanın tamamı geliştirebilirsiniz her hizmet ölçeklendirmenizi.
 
 ## <a name="what-is-a-microservice"></a>Bir mikro hizmet nedir?
 
-Mikro hizmetler farklı tanımları vardır. Bununla birlikte, mikro hizmetler, aşağıdaki özelliklerin en yaygın olarak anlaşmaya varılmış:
+Mikro hizmetler farklı tanımları vardır. Bununla birlikte, mikro hizmetler, aşağıdaki özelliklerin en yaygın olarak kabul edilir:
 
 * Bir müşteri veya iş senaryosu kapsüller. Sorun çözme nedir?
 * Küçük bir mühendislik ekibi tarafından geliştirilmiştir.
@@ -97,7 +97,7 @@ Sonra teknoloji ve gelen işletimsel veya yaşam döngüsü yönetim ve hizmet �
 
 ### <a name="allows-code-and-state-to-be-independently-versioned-deployed-and-scaled"></a>Kod ve birbirinden bağımsız sürümlere olması durumuna dağıtılan ve ölçeği sağlar.
 
-Bununla birlikte, mikro hizmetler, kod ve isteğe bağlı olarak durumu bağımsız olarak dağıtma, yükseltme ölçeklendirin ve yazmak seçin. Bu, kendi seçtiğiniz teknolojilerle gelir, çünkü çözmek için daha zor sorunları biridir. Ölçeklendirme, anlamak için nasıl bölüm (veya parça) hem kod hem de durumu zor olur. Kod ve durum bugün yaygındır, ayrı teknolojiler kullandığınızda, mikro hizmet için dağıtım betikleri her ikisinin de ölçeğini genişletebilmesi gerekir. Mikro hizmetlerin bazılarını tümünün aynı anda yükseltmek zorunda kalmadan yükseltebilmek için aynı zamanda çevikliği ve esnekliği, budur.
+Nasıl, mikro hizmetler, kod ve isteğe bağlı olarak durumu yazmak seçtiğiniz ne olursa olsun, bağımsız olarak dağıtma, yükseltme ölçeklendirin ve. Bu, kendi seçtiğiniz teknolojilerle gelir, çünkü çözmek için daha zor sorunları biridir. Ölçeklendirme, anlamak için nasıl bölüm (veya parça) hem kod hem de durumu zor olur. Kod ve durum bugün yaygındır, ayrı teknolojiler kullandığınızda, mikro hizmet için dağıtım betikleri her ikisinin de ölçeğini genişletebilmesi gerekir. Mikro hizmetlerin bazılarını tümünün aynı anda yükseltmek zorunda kalmadan yükseltebilmek için aynı zamanda çevikliği ve esnekliği, budur.
 
 Bir süre dönme tek parçalı mikro hizmet yaklaşımı yerine, aşağıdaki diyagramda için durumu depolamak üzere bir yaklaşım farklılıkları gösterir.
 
@@ -121,7 +121,7 @@ Son 10 iletişim düzenleri açıklayan yıllar içinde hizmet odaklı mimari ha
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Konumu çözümlemek için kullanılan benzersiz bir ad (URL)
 
-Kendi mikro hizmet, çalıştığı her yerde adreslenebilir olması gerekiyor. Makineler hakkında düşünüyor ve hangisinin belirli bir mikro hizmet çalışıyorsa, öğeleri hızlı bir şekilde hatalı gidin. 
+Kendi mikro hizmet, çalıştığı her yerde adreslenebilir olması gerekiyor. Makineler hakkında düşünüyor ve hangisinin belirli bir mikro hizmet çalışıyorsa, öğeleri hızlı bir şekilde hatalı gidin.
 
 Geçerli konumuna bulunabilir olmasını sağlama DNS belirli bir makine için belirli bir URL'ye çözümler aynı şekilde, mikro hizmet benzersiz bir adı olmalıdır. Mikro hizmetler, çalıştırıldıkları altyapının bağımsız adreslenebilir adları olması gerekir. Bu, bir hizmet kayıt defteri olması gerekir çünkü hizmetinizin nasıl dağıtıldığını ve nasıl bulunduğunda, arasında etkileşim olduğunu belirtir. Bir makine başarısız olduğunda, kayıt defteri hizmeti hizmet nerede taşındı söylemeniz gerekir.
 
@@ -138,6 +138,9 @@ Dayanıklılık, uygulama yükseltme sırasında hatalar meydana geldiğinde eld
 Belirgin, görünebilir ve genellikle kaçan, ancak bir mikro hizmet durumu ve tanılama bildirilmesi gerekir. Aksi takdirde, sistem durumu işlemleri açısından çok az bir anlayış yoktur. Tanılama Olayları bağımsız bir hizmetler kümesi arasında ilişkilendirme ve olay siparişin anlamlı makine saat farklarından ilgilenme zorludur. Anlaşılan protokolleri ve veri biçimleri üzerinde bir mikro hizmet ile etkileşimde bulunan aynı şekilde, sistem durumu ve sonuçta sorgulama ve görüntüleme için bir olay deposunda ulaşır tanılama olayları günlüğe kaydetmek nasıl standartlaştırmanız gerekir. Bir mikro hizmetler yaklaşımı sahip tuş, farklı ekipler, tek bir günlük biçimi kabul etmiş olursunuz. Burada bir bütün olarak uygulamadan tanılama olaylarını görüntüleme için tutarlı bir yaklaşım olması gerekir.
 
 Sistem durumu, Tanılama'ya farklıdır. Geçerli durumuna uygun eylemleri raporlama mikro hizmet hakkında durumudur. İyi bir örnek, kullanılabilirliği sürdürmek için yükseltme ve dağıtım mekanizması ile çalışmaktadır. Hizmet şu anda bir işlem kilitlenmesi nedeniyle sağlıksız veya makineyi yeniden başlatma, ancak hizmet işletimsel olabilir. İhtiyacınız olan son bir şey bu yükseltme gerçekleştirerek yarışacağından olmasını sağlamaktır. İlk araştırma yapmak için en iyi yaklaşımdır veya kurtarmak mikro hizmet için zaman tanıyın. Bir mikro hizmet durumu olayları, bilgiye dayalı kararlar ve kendi kendini onaran hizmetleri oluşturma aslında yardımcı yardımcı olur.
+
+## <a name="microservices-design-guidance-on-azure"></a>Azure'da mikro hizmet Tasarım Kılavuzu
+Azure Mimari Merkezi için tasarım yönergeleri ziyaret [Azure'da mikro hizmetler oluşturma](https://docs.microsoft.com/azure/architecture/microservices/)
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric, mikro hizmet platformu olarak
 
@@ -170,8 +173,8 @@ Erişebildiğiniz yeniden vurgulamak önemlidir **başlatma ve durdurma Bu aşam
 **Lift- and -Shift**  
 Şirket çok sayıda kaldırarak ve var olan tek yapılı uygulamaları kapsayıcılara iki nedenden dolayı kaydırma:
 
-- Maliyet azaltma nedeniyle birleştirme ve temizleme çalıştıran donanım ya da mevcut uygulamaların en yüksek yoğunluklu.
-- Geliştirme ve operasyon arasında tutarlı dağıtım sözleşme.
+* Maliyet azaltma nedeniyle birleştirme ve temizleme çalıştıran donanım ya da mevcut uygulamaların en yüksek yoğunluklu.
+* Geliştirme ve operasyon arasında tutarlı dağıtım sözleşme.
 
 Maliyet indirimleri anlaşılır ve Microsoft bünyesinde, mevcut uygulamaları çok sayıda yalnızca milyonlarca dolar tasarruf için kapsayıcıya alınmış. Tutarlı dağıtım, değerlendirilecek daha zor, ancak eşit oranda önemli değildir. Bu geliştiricilerin hala işlemleri yalnızca bu uygulamaları dağıtmak ve yönetmek için tek bir yolu kabul eder ancak onlara uygun teknolojiyi seçin ücretsiz olabileceği anlamına gelir. Bu, birçok farklı teknoloji karmaşıklığı ile uğraşmak zorunda ya da yalnızca belirli olanları seçmeyi geliştiricilerin zorlama işlemlerini azaltır. Temelde her uygulama kendi başına dağıtım görüntüleri olarak kapsayıcılı hale.
 
@@ -181,23 +184,24 @@ Birçok kuruluşun burada durabilir. Zaten sahip oldukları kapsayıcılarının
 Varolan yanı sıra yeni hizmetler eklenen kod kapsayıcıya alınmış. Yeni kod yazmak için kullanacaksanız, mikro hizmetler yolunu küçük adımlar atın karar en iyisidir. Bu, yeni REST API uç noktası veya yeni bir iş mantığı ekleme. Bu şekilde, yeni mikro hizmetler oluşturma ve uygulama geliştirme ve bunları dağıtma yolculukta başlatın.
 
 **Yenilik yapın**  
-Mikro hizmetler yaklaşımı, değişen iş gereksinimlerini karşılar. Bu aşamada, tek parçalı uygulama hizmetleri veya yenilik bölme Başlat gerekip gerekmediğini kararıdır. İşlem sorunu iş akışı sırası olarak kullanılan bir veritabanı hale geldiğinde buraya örneğidir. İş akışı sayısı arttıkça istekleri gibi iş için ölçek dağıtılması gerekir. Belirli olan İnceleyenleri olmaması ölçeklendirmeyle veya, daha sık güncelleştirilmesi gerekiyor uygulamanın bu mikro hizmete bölmek ve yenilik yapın.
+Mikro hizmetler yaklaşımı, değişen iş gereksinimlerini karşılar. Bu aşamada, tek parçalı uygulama hizmetleri veya yenilik bölme Başlat gerekip gerekmediğini kararıdır. Bir iş akışı sırası olarak kullanılan bir veritabanı işleme tıkanıklık olduğunda bir Klasik burada örnektir. İş akışı sayısı arttıkça istekleri gibi iş için ölçek dağıtılması gerekir. Belirli olan İnceleyenleri olmaması ölçeklendirmeyle veya, daha sık güncelleştirilmesi gerekiyor uygulamanın bu mikro hizmete bölmek ve yenilik yapın.
 
 **Mikro hizmetler halinde dönüştürdü**  
-Bu, uygulamanızın tam olarak oluştuğundan, (veya ayrılmış olarak) olduğu, mikro hizmetler. Buraya ulaşmak için mikro hizmetler yolculuğu yapıldı. Buradan başlayın, ancak bir mikro hizmetler Bunu yapmak için yardımcı olması için ciddi bir yatırım platformudur. 
+Bu, uygulamanızın tam olarak oluştuğundan, (veya bölünmüş içine) olduğu, mikro hizmetler. Buraya ulaşmak için mikro hizmetler yolculuğu yapıldı. Buradan başlayın, ancak bir mikro hizmetler Bunu yapmak için yardımcı olması için ciddi bir yatırım platformudur.
 
 ### <a name="are-microservices-right-for-my-application"></a>Mikro hizmetler sağ Uygulamam için misiniz?
 
 Olabilir. Biz deneyimli iş nedenleriyle bulut oluşturmak giderek daha fazla Microsoft teams'de başlangıcından gibi çoğu bir mikro hizmet benzeri yaklaşımı avantajları gerçekleşen oluştu. Örneğin, Bing, yıl boyunca mikro hizmetler kullanarak geliştirmektedir. Diğer ekipler, mikro hizmetler yaklaşımı yeni. Takımlar, orada zor sorunları gücü kendi çekirdek alanlarının dışında çözmek için bulundu. Service Fabric hizmetleri oluşturmak için tercih ettiğiniz bir teknoloji olarak oldukça yaygınlaştı kazanılan nedeni budur.
 
 Service Fabric amacı, çok yüksek maliyetli yönelik çalışmalarımızı gitmek zorunda değil bir mikro hizmet uygulamaları oluşturmak, karmaşıklık azaltmaktır. Küçükten başlayabilir, gerektiğinde ölçeklendirin, hizmetleri kullanımdan, yenilerini ekleyin ve evrim Geçiren ile müşteri kullanım. Mikro hizmetler Çoğu geliştirici için daha erişilebilir hale getirmek için henüz çözülmesi gereken birçok diğer sorunları olduğunu biliyoruz. Kapsayıcılar ve aktör programlama modeli bu yöndeki küçük adımlara ilişkin örnekler ve bunu kolaylaştırmak için daha fazla yenilik çıkacaktır emin duyuyoruz.
- 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Service Fabric terminolojiye genel bakış](service-fabric-technical-overview.md)
 * [Mikro hizmetler: Bulut tarafından desteklenen bir uygulama Devrimi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Azure Mimari Merkezi: Azure'da mikro hizmetler oluşturma](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Azure Service Fabric uygulama ve küme için en iyi yöntemler](service-fabric-best-practices-overview.md)
+* [Service Fabric terminolojiye genel bakış](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

@@ -9,16 +9,16 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 985ad59a1ffa5bd68f97824f7f50af604174b543
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026980"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65440940"
 ---
-# <a name="quickstart-prepare-and-visualize-data-without-writing-code"></a>Hızlı Başlangıç: Hazırlama ve kod yazmaya gerek kalmadan verileri görselleştirin
+# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Hızlı Başlangıç: Hazırlama ve Azure Machine Learning'de kod yazmaya gerek kalmadan verileri görselleştirin
 
-Hazırlama ve bir Sürükle ve bırak kullanıcı arabirimi ile verilerinizi görselleştirin. Kullanacağınız veri üreticisi, model, teknik belirtimler ve fiyat gibi bilgiler dahil olmak üzere çeşitli ayrı otomobil için giriş içerir.  
+Hazırlama ve Azure Machine Learning için görsel sürükle ve bırak arabirimi (Önizleme) verilerinizi görselleştirin. Kullanacağınız veri üreticisi, model, teknik belirtimler ve fiyat gibi bilgiler dahil olmak üzere çeşitli ayrı otomobil için giriş içerir.  
 
 Bu hızlı başlangıçta keşfedin ve verileri hazırlama:
 
@@ -64,7 +64,7 @@ Görsel arabirim araç kolayca oluşturun, test ve Tahmine dayalı bir modeli ü
 
     ![Denemeyi yeniden adlandırma](./media/ui-quickstart-run-experiment/rename.png)
 
-## <a name="add-data"></a>Veri ekleme
+## <a name="add-data"></a>Veri ekle
 
 Machine learning için gereken ilk şey verilerdir. Bu arabirimde kullanabileceğiniz birçok örnek veri kümesi vardır ve birçok kaynaktan verileri içeri aktarabilirsiniz. Bu örnekte, örnek veri kümesini kullanırsınız **otomobil fiyat verileri (ham)**. 
 
@@ -172,7 +172,7 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ç
 
     Modülü artık yorum gizlemek için bir yukarı ok gösterir.
         
-    ![Yorumlar](./media/ui-quickstart-run-experiment/comments.png)
+    ![Açıklamalar](./media/ui-quickstart-run-experiment/comments.png)
 
 ### <a name="clean-missing-data"></a>Eksik verileri temizleme
 

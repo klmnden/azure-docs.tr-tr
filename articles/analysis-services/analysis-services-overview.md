@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 443d6ca86f8ac40bd2df186fd189a333cb7b7425
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61066149"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416012"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -41,7 +41,7 @@ Azure Analysis Services; **Geliştirici**, **Temel** ve **Standart** katmanları
 
 Bu katman değerlendirme, geliştirme ve test senaryoları için önerilir. Tek bir plan, standart katman ile sunulan aynı işlevleri içerir ancak işlemci gücü, QPU ve bellek boyutu bakımından sınırlıdır. Bu katmanda sorgu çoğaltma ölçeği *artırılamaz*. Bu katman bir SLA sunmaz.
 
-|Planlama  |QPU’lar  |Bellek (GB)  |
+|Plan  |QPU’lar  |Bellek (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -50,7 +50,7 @@ Bu katman değerlendirme, geliştirme ve test senaryoları için önerilir. Tek 
 
 Bu katman küçük tablolu modeller, sınırlı düzeyde kullanıcı eşzamanlılığı ve basit veri yenileme gereksinimlerine sahip olan üretim çözümleri için önerilir. Bu katmanda sorgu çoğaltma ölçeği *artırılamaz*. Perspektifler, çoklu bölümler ve DirectQuery tablolu model özellikleri bu katmanda *desteklenmez*.  
 
-|Planlama  |QPU’lar  |Bellek (GB)  |
+|Plan  |QPU’lar  |Bellek (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    20     |
@@ -59,7 +59,7 @@ Bu katman küçük tablolu modeller, sınırlı düzeyde kullanıcı eşzamanlı
 
 Bu katman, kullanıcı eşzamanlılığının elastik olmasını gerektiren ve hızla büyüyen veri modellerine sahip olan görev açısından kritik üretim uygulamalarına yöneliktir. Neredeyse gerçek zamanlı veri modeli güncelleştirmeleri için gelişmiş veri yenilemeyi ve tüm tablo modelleme özelliklerini destekler.
 
-|Planlama  |QPU’lar  |Bellek (GB)  |
+|Plan  |QPU’lar  |Bellek (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -78,15 +78,15 @@ Azure Analysis Services, dünyanın dört bir yanındaki bölgelerde desteklenir
 
 |Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
-|Güney Brezilya     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
-|Orta Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|Brezilya Güney     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Kanada Orta    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Doğu ABD     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Doğu ABD 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Doğu ABD 2     |     S8, S9   |    1    |
 |Orta Kuzey ABD     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Orta ABD     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Orta Güney ABD     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Batı Orta ABD   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|Orta Batı ABD   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Batı ABD     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Batı ABD     |    S8, S9   |    2  |
 |Batı ABD 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
@@ -97,7 +97,7 @@ Azure Analysis Services, dünyanın dört bir yanındaki bölgelerde desteklenir
 |Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
 |Kuzey Avrupa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Birleşik Krallık Güney     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|BK Güney     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Batı Avrupa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Batı Avrupa    |   S8, S9  |  1  |
 
@@ -155,7 +155,7 @@ Azure Analysis Services, birden fazla düzeyde hassas verileriniz için güvenli
 
 Analysis Services, sunucu düzeyinde güvenlik duvarı, Azure kimlik doğrulaması, sunucu yöneticisi rolleri ve sunucu tarafı şifrelemesi sağlar. Veri modeli düzeyinde kullanıcı rolleri, satır düzeyinde ve nesne düzeyinde güvenlik verileriniz güvendedir ve yalnızca yöneliktir kullanıcılara sunulmadan tarafından görülen olun.
 
-### <a name="firewall"></a>Güvenlik duvarı
+### <a name="firewall"></a>Güvenlik Duvarı
 
 Azure Analysis Services Güvenlik Duvarı, kurallarda belirtilen IP adresleri dışındaki tüm istemci bağlantılarını engeller. Varsayılan olarak, yeni sunucular için güvenlik duvarı koruması etkin değil. Güvenlik duvarı koruması etkinleştirilir ve hemen sunucu oluşturulduktan sonra kuralları parçası olarak sunucu betik sağlama veya Portalı'nda yapılandırılır önerilir. İstemci IP’lerine veya aralığa göre izin verilen IP adreslerini belirten kuralları yapılandırın. Power BI (hizmet) bağlantılarına da izin verilebilir veya bağlantılar engellenebilir. Güvenlik duvarı ve kuralları portaldan ya da PowerShell kullanarak yapılandırın. Daha fazla bilgi için bkz. [Sunucu güvenlik duvarı yapılandırma](analysis-services-qs-firewall.md).
 
@@ -200,7 +200,7 @@ Azure Güvenliği hakkında daha fazla bilgi edinmek için bkz. [Microsoft Güve
 
 Ücretsiz [Visual Studio için SQL Server Veri Araçları (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) ile modeller geliştirin ve dağıtın. SSDT'de, hızla başlangıç yapıp ilerlemeniz için Analysis Services proje şablonları vardır. SSDT şimdi tablosal 1400 modelleri için karma işlevselliğini ve modern Veri Al veri kaynağı sorgusunu içerir. Power BI Masaüstü ve Excel 2016'daki Veri Al işlevini biliyorsanız, üst düzeyde özelleştirilmiş veri kaynağı sorguları oluşturmanın ne kadar kolay olduğunu zaten biliyor olmalısınız. 
 
-Visual Studio 2017 kullanıyorsanız, Microsoft Analysis Services Projeleri ücretsiz yüklenebilir VSIX paketi olarak kullanıma sunulmuştur. [Market'ten indirin](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Microsoft Analysis Services projeleri, Visual Studio 2017 veya sonraki bir sürümü kullanıyorsanız, ücretsiz yüklenebilen VSIX paketi olarak kullanılabilir. [Market'ten indirin](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>Sql Server Management Studio
 

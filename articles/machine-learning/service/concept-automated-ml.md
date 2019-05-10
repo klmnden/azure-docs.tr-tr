@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cba01b5ad5c2cfea32f1faa6cb67c5ce7ee98fcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 136141f5b598fd080edf3254fd01200f2742c763
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024912"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235823"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -90,7 +90,7 @@ Azure Machine Learning ile bir Python modeli oluşturun ve ONNX biçimine dönü
 ## <a name="automated-ml-across-microsoft"></a>Microsoft Otomatik ML
 
 Otomatik ML ayrıca gibi diğer Microsoft çözümleri kullanılabilir:
-+ Visual Studio ve Visual Studio Code kullanarak .NET uygulamaları [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ Visual Studio ve Visual Studio Code kullanarak .NET uygulamaları [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
 + [HDInsight üzerinde](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), otomatik ML eğitim projelerinizdeki Spark HDInsight kümeleri paralel olarak ölçeği genişletme burada. 
 + [Power BI'da](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 

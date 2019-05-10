@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7a4db08a342bc4004d4957e26353ef810ebae4d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 617c75024b45dab7ff2466b99bfb71c18cdd778a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689597"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Öğretici: Picturepark ile Azure Active Directory Tümleştirme
 
@@ -154,7 +154,7 @@ Azure AD çoklu oturum açma ile Picturepark yapılandırmak için aşağıdaki 
    
     ![Kimlik sağlayıcısı Yapılandırması](./media/picturepark-tutorial/ic795064.png "kimlik sağlayıcı yapılandırması")
    
-    a. **Ekle**'ye tıklayın.
+    a. **Ekle**'yi tıklatın.
   
     b. Yapılandırma için bir ad yazın.
    
@@ -250,7 +250,7 @@ Azure AD Picturepark oturum açmasına etkinleştirmek için bunların Picturepa
    
     e. İçinde **şirket** metin kutusuna **şirket adı** kullanıcının. 
    
-    f. İçinde **Ülke** metin seçme **Ülke** kullanıcının.
+    f. İçinde **Ülke** metin seçme **ülke/bölge** kullanıcının.
   
     g. İçinde **ZIP** metin kutusuna **posta kodu** şehir.
    

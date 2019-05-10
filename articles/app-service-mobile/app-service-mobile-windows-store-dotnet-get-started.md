@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127990"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412778"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Bir Azure arka uç ile bir Windows uygulaması oluşturma
 
@@ -37,9 +37,9 @@ Bu öğreticiyi tamamlamak UWP uygulamalarına ilişkin tüm Mobil Uygulama öğ
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Visual Studio Community 2017].
+* [Visual Studio Community].
 * UWP uygulama geliştirme ile aşinalık. Ziyaret [UWP belgeleri](https://docs.microsoft.com/windows/uwp/) bilgi edinmek için nasıl [ayarlanmasını](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) UWP uygulamaları oluşturmak için.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Yeni bir Azure Mobil Uygulama arka ucu oluşturma
@@ -70,7 +70,7 @@ Mobil Uygulama arka ucunuzu yapılandırdıktan sonra, Azure’a bağlanmak içi
     Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST isteği gönderir.
 
 > [!TIP]
-> .NET arka ucu kullanıyorsanız UWP uygulaması projesini sunucu projesiyle aynı çözüme ekleyebilirsiniz. Bu, aynı Visual Studio çözümündeki uygulama ve arka uç için hata ayıklama ve test etmeyi daha kolay hale getirir. Arka uç çözümüne UWP uygulaması projesi eklemek için Visual Studio 2017 kullanıyor olmanız gerekir.
+> .NET arka ucu kullanıyorsanız UWP uygulaması projesini sunucu projesiyle aynı çözüme ekleyebilirsiniz. Bu, aynı Visual Studio çözümündeki uygulama ve arka uç için hata ayıklama ve test etmeyi daha kolay hale getirir. Arka uç çözüme UWP uygulaması projesi eklemek için Visual Studio 2017 veya sonraki bir sürümü kullanılmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -86,4 +86,4 @@ Mobil Uygulama arka ucunuzu yapılandırdıktan sonra, Azure’a bağlanmak içi
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: b6bcd8afe9bbf58addf3e41173cfd011eddb3ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b760612d8d9a5ed0817ce662ed190f3477cd125
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927170"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235838"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure portalını kullanarak bir paylaşılan görüntü Galerisi oluşturma
 
@@ -33,7 +33,7 @@ Galeri tam rol tabanlı erişim denetimi (RBAC) sağlayan bir üst düzey bir ka
 
 Paylaşılan görüntü Galerisi özelliği, birden çok kaynak türü vardır. Biz kullanarak veya kaldırılacak bunlar bu makaledeki oluşturma:
 
-| Kaynak | Açıklama|
+| Resource | Açıklama|
 |----------|------------|
 | **Yönetilen bir görüntü** | Bu, tek başına kullanılan veya oluşturmak için kullanılan bir temel görüntü, bir **görüntü sürümü** bir görüntü galerisinde. Yönetilen bir görüntü genelleştirilmiş sanal makinelerinden oluşturulur. Yönetilen bir görüntü, birden çok sanal makine sağlamak için kullanılabilir ve artık paylaşılan görüntü sürümlerini oluşturmak için kullanılan VHD özel türüdür. |
 | **Görüntü Galerisi** | Azure Marketi gibi bir **görüntü Galerisi** yönetmek ve görüntüler, ancak kimlerin erişebildiğini siz denetlersiniz paylaşımı için bir depodur. |
@@ -43,7 +43,9 @@ Paylaşılan görüntü Galerisi özelliği, birden çok kaynak türü vardır. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede örneği tamamlamak için var olan yönetilen bir görüntü olması gerekir. İzleyebileceğiniz [Öğreticisi: Azure PowerShell ile Azure VM'deki özel görüntüsünü oluşturma](tutorial-custom-images.md) gerekirse oluşturmak için. Bu makalede, üzerinden geçmeden değiştirdiğinizde kaynak grubu ve VM adlarını gerektiğinde.
+Bu makalede örneği tamamlamak için var olan yönetilen bir görüntü olması gerekir. İzleyebileceğiniz [Öğreticisi: Azure PowerShell ile Azure VM'deki özel görüntüsünü oluşturma](tutorial-custom-images.md) gerekirse oluşturmak için. Yönetilen bir görüntü veri diski varsa, veri disk boyutu 1 TB'den fazla olamaz.
+
+Bu makalede, üzerinden geçmeden değiştirdiğinizde kaynak grubu ve VM adlarını gerektiğinde.
 
  
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]

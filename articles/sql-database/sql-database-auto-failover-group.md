@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61417367"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415925"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
-Otomatik Yük devretme grupları, çoğaltma ve yük devretme grubunun veritabanı bir SQL veritabanı sunucusunda veya yönetilen bir örneği için başka bir bölgede (şu anda genel Önizleme yönetilen örneği için) içindeki tüm veritabanlarına yönetmenize olanak sağlayan bir SQL veritabanı özelliğidir. Aynı temel teknoloji olarak kullandığı [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md). Yük devretme el ile başlatabilir veya kullanıcı tanımlı bir ilkesini temel alarak SQL veritabanı hizmeti için temsilci. İkinci seçeneği, otomatik olarak geri dönülemez bir arıza ya da birincil bölgedeki SQL veritabanı hizmetinizin kullanılabilirliğini tam veya kısmi kaybı ile sonuçlanır diğer planlanmamış bir olay sonra ikincil bir bölgede birden çok ilişkili veritabanlarını kurtarmanıza olanak tanır. Ayrıca, okunabilir ikincil veritabanı salt okunur sorgu iş yükleri yük boşaltması için kullanabilirsiniz. Otomatik Yük devretme grupları, birden çok veritabanı içerdiğinden, bu veritabanları birincil sunucuda yapılandırılması gerekir. Yük devretme grubundaki veritabanları için birincil ve ikincil sunucular, aynı abonelikte olmalıdır. Otomatik Yük devretme grupları için farklı bir bölgedeki tek bir ikincil sunucu grubundaki tüm veritabanlarının çoğaltma destekler.
+Otomatik Yük devretme grupları, çoğaltma ve yük devretme grubunun veritabanı bir SQL veritabanı sunucusunda veya başka bir bölgede bir yönetilen örnek içindeki tüm veritabanlarına yönetmenize olanak sağlayan bir SQL veritabanı özelliğidir. Aynı temel teknoloji olarak kullandığı [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md). Yük devretme el ile başlatabilir veya kullanıcı tanımlı bir ilkesini temel alarak SQL veritabanı hizmeti için temsilci. İkinci seçeneği, otomatik olarak geri dönülemez bir arıza ya da birincil bölgedeki SQL veritabanı hizmetinizin kullanılabilirliğini tam veya kısmi kaybı ile sonuçlanır diğer planlanmamış bir olay sonra ikincil bir bölgede birden çok ilişkili veritabanlarını kurtarmanıza olanak tanır. Ayrıca, okunabilir ikincil veritabanı salt okunur sorgu iş yükleri yük boşaltması için kullanabilirsiniz. Otomatik Yük devretme grupları, birden çok veritabanı içerdiğinden, bu veritabanları birincil sunucuda yapılandırılması gerekir. Yük devretme grubundaki veritabanları için birincil ve ikincil sunucular, aynı abonelikte olmalıdır. Otomatik Yük devretme grupları için farklı bir bölgedeki tek bir ikincil sunucu grubundaki tüm veritabanlarının çoğaltma destekler.
 
 > [!NOTE]
 > SQL veritabanı sunucusu ve tek veya havuza alınmış veritabanlarıyla çalışmayı aynı veya farklı bölgelerde birden fazla ikincil veritabanı istediğinizde kullanın [etkin coğrafi çoğaltma](sql-database-active-geo-replication.md).
@@ -42,58 +42,45 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Yük devretme grubu (SİS)**
 
-  Bir yük devretme grubu, tek bir SQL veritabanı sunucusu ya da tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, başka bir bölgede bir birim olarak yük devredebilir tek bir yönetilen örnek içinde yönetilen bir veritabanı için kullanılan bir gruptur.
+  Bir yük devretme grubu, tek bir SQL veritabanı sunucusu ya da tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, başka bir bölgede bir birim olarak yük devredebilir tek bir yönetilen örnek içinde yönetilen bir veritabanı için kullanılan bir gruptur. Yönetilen örnek için rdoc, tüm kullanıcı veritabanlarına örneğinde bir yük devretme grubu içerir ve bu nedenle bir örneği üzerinde yalnızca bir yük devretme grupları yapılandırılabilir.
 
-  - **SQL veritabanı sunucuları**
+- **SQL veritabanı sunucuları**
 
      SQL veritabanı sunucuları ile bir yük devretme grubunda bazılarını veya tümünü tek bir SQL veritabanı sunucusu kullanıcı veritabanlarında yerleştirilebilir. Ayrıca, SQL veritabanı sunucusu, tek bir SQL veritabanı sunucusunda birden çok yük devretme grupları destekler.
 
-  - **Yönetilen örnek**
-  
-     Yönetilen örneği ile bir yük devretme grubu yönetilen örneğe içindeki tüm kullanıcı veritabanlarına içerir ve bu nedenle bir yönetilen örnek bir tek yük devretme grubu yalnızca destekler.
-
 - **Birincil**
 
-  SQL veritabanı sunucu veya yük devretme grubunda birincil veritabanlarını barındıran yönetilen örneği.
+  SQL veritabanı sunucu veya yük devretme grubunda birincil veritabanlarını barındıran yönetilen örnek.
 
 - **İkincil**
 
-  SQL veritabanı sunucu veya yük devretme grubundaki ikincil veritabanlarını barındıran yönetilen örneği. İkincil birincil olarak aynı bölgede olamaz.
+  SQL veritabanı sunucu veya yük devretme grubundaki ikincil veritabanlarını barındıran yönetilen örnek. İkincil birincil olarak aynı bölgede olamaz.
 
 - **Tek veritabanları yük devretme grubuna ekleme**
 
   Birden fazla tek veritabanı aynı SQL veritabanı sunucusunda aynı yük devretme grubuna koyabilirsiniz. Tek bir veritabanı yük devretme grubuna eklerseniz, otomatik olarak ikincil sunucuda aynı sürümü ve işlem boyutu kullanarak ikincil bir veritabanı oluşturur.  Yük devretme grubu oluşturulduğunda bu sunucu belirtildi. İkincil bir veritabanı ikincil sunucuya zaten olan bir veritabanının eklerseniz, söz konusu coğrafi çoğaltma bağlantısı grubu tarafından devralınır. Yeni bir ikincil, ikincil sunucuya eklediğinizde, ikincil veritabanına yük devretme grubunun parçası olmayan bir Server'da zaten bir veritabanı oluşturulur.
   
-> [!IMPORTANT]
-  > Bir yönetilen örnek, tüm kullanıcı veritabanlarına çoğaltılır. Kullanıcı veritabanı çoğaltması için bir alt kümesi yük devretme grubunda seçemezsiniz.
+  > [!IMPORTANT]
+  > Yönetilen bir örneği, tüm kullanıcı veritabanlarına çoğaltılır. Kullanıcı veritabanı çoğaltması için bir alt kümesi yük devretme grubunda seçemezsiniz.
 
 - **Veritabanları, elastik havuzunda yük devretme grubuna ekleme**
 
   İçinde bir elastik havuz tüm veya birden fazla veritabanı aynı yük devretme grubuna koyabilirsiniz. Birincil veritabanını bir elastik havuzda ise ikincil (ikincil havuzu) aynı ada sahip bir elastik havuzdaki otomatik olarak oluşturulur. İkincil sunucu yük devretme grubu tarafından oluşturulacak ikincil veritabanlarını barındırmak için yeterli kapasite ve aynı tam adını içeren bir elastik havuzun içerdiğinden emin olmanız gerekir. Bir veritabanı zaten ikincil havuzda ikincil veritabanına sahip havuzun eklerseniz, söz konusu coğrafi çoğaltma bağlantısı grubu tarafından devralınır. İkincil veritabanına yük devretme grubunun parçası olmayan bir Server'da zaten bir veritabanı eklediğinizde, yeni bir ikincil ikincil havuzunda oluşturulur.
   
-  - **Yük devretme grubu okuma / yazma dinleyici**
+- **DNS bölgesi**
 
-  Geçerli birincil ait URL işaret eden DNS CNAME kaydı oluşturulmuş. Yük devretme sonrasında birincil değiştiğinde şeffaf bir şekilde birincil veritabanına bağlanmak okuma-yazma SQL uygulamalar sağlar.
+  Yeni bir örneği oluşturulduğunda otomatik olarak oluşturulan bir benzersiz kimliği. Bu örnek için çoklu etki alanı (SAN) sertifika aynı DNS bölgesinde herhangi bir örneğine istemci bağlantılarının kimliğini doğrulamak için sağlanır. Aynı yük devretme grubunda iki yönetilen örnek, DNS bölgesini paylaşmanız gerekir. 
+  
+  > [!NOTE]
+  > Bir DNS bölgesi kimliği SQL veritabanı sunucuları için oluşturulan yük devretme grupları için gerekli değildir.
 
-  - **SQL veritabanı sunucusu için okuma / yazma dinleyici DNS CNAME kaydı**
+- **Yük devretme grubu okuma / yazma dinleyici**
 
-     Bir SQL veritabanı sunucusunda, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.database.windows.net`.
-
-  - **Örnek DNS CNAME kaydı okuma / yazma dinleyici için yönetilen**
-
-     Bir yönetilen örnek, geçerli birincil 's URL'si için yük devretme grubu için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.zone_id.database.windows.net`.
+  Geçerli birincil ait URL işaret eden DNS CNAME kaydı oluşturulmuş. Yük devretme sonrasında birincil değiştiğinde şeffaf bir şekilde birincil veritabanına bağlanmak okuma-yazma SQL uygulamalar sağlar. Bir SQL veritabanı sunucusuna yük devretme grubu oluşturulduğunda, dinleyici URL'si için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.database.windows.net`. Yönetilen örneğinde yük devretme grubu oluşturulduğunda, dinleyici URL'si için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.zone_id.database.windows.net`.
 
 - **Yük devretme grubu salt okunur dinleyicisi**
 
-  Bir DNS CNAME kaydı ikincil ait URL işaret eden salt okunur dinleyicisi işaret eden oluşturulmuş. Belirtilen yük dengeleyici kurallarını kullanarak ikincil şeffaf bir şekilde bağlanmak salt okunur SQL uygulamalar sağlar.
-
-  - **SQL veritabanı sunucusu salt okuma dinleyici için DNS CNAME kaydı**
-
-     Bir SQL veritabanı sunucusuna ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `'.secondary.database.windows.net`.
-
-  - **Örnek DNS CNAME kaydı salt okuma dinleyici için yönetilen**
-
-     Bir yönetilen örnek ikincil 's URL'si için salt okunur dinleyici için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.zone_id.database.windows.net`.
+  Bir DNS CNAME kaydı ikincil ait URL işaret eden salt okunur dinleyicisi işaret eden oluşturulmuş. Belirtilen yük dengeleyici kurallarını kullanarak ikincil şeffaf bir şekilde bağlanmak salt okunur SQL uygulamalar sağlar. Bir SQL veritabanı sunucusuna yük devretme grubu oluşturulduğunda, dinleyici URL'si için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.secondary.database.windows.net`. Yönetilen örneğinde yük devretme grubu oluşturulduğunda, dinleyici URL'si için DNS CNAME kaydı olarak biçimlendirilmiş `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Otomatik Yük devretme İlkesi**
 
@@ -101,7 +88,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Salt okunur bir yük devretme İlkesi**
 
-  Varsayılan olarak, yük devretme işlemlerini salt okuma dinleyici devre dışıdır. İkincil çevrimdışı olduğunda birincil performansını etkilenmez sağlar. Ancak, bu da salt okunur oturumları ikincil kurtarılmadan kadar bağlanmak mümkün olmayacaktır anlamına gelir. Kapalı kalma süresi için salt okunur oturumları tolere olamaz ve olası performans düşüşü birincil çoğaltamaz hem salt okunur ve okuma-yazma trafiği geçici olarak birincil kullanılmak üzere Tamam, salt okunur dinleyici için yük devretme etkinleştirebilirsiniz. Bu durumda ikincil kullanılabilir değilse, salt okunur trafiği otomatik olarak birincil siteye yönlendirilir.
+  Varsayılan olarak, yük devretme işlemlerini salt okuma dinleyici devre dışıdır. İkincil çevrimdışı olduğunda birincil performansını etkilenmez sağlar. Ancak, bu da salt okunur oturumları ikincil kurtarılmadan kadar bağlanmak mümkün olmayacaktır anlamına gelir. Kapalı kalma süresi için salt okunur oturumları tolere olamaz ve olası performans düşüşü birincil çoğaltamaz hem salt okunur ve okuma-yazma trafiği geçici olarak birincil kullanılmak üzere Tamam, salt okunur dinleyici için yük devretme etkinleştirebilirsiniz. Bu durumda, ikincil kullanılabilir değilse, salt okunur trafiği otomatik olarak birincil siteye yönlendirilir.
 
 - **Planlı yük devretme**
 
@@ -113,7 +100,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Planlanmamış yük devretme**
 
-   Planlanmamış veya zorlamalı yük devretme hemen ikincil birincil ile herhangi bir eşitleme olmadan birincil role geçirir. Bu işlem veri kaybına yol açar. Birincil erişilebilir olmadığı durumlarda, planlanmamış yük devretme kesintiler sırasında kurtarma yöntemi olarak kullanılır. Özgün birincil yeniden çevrimiçi olduğunda, bunu otomatik olarak eşitleme yeniden bağlanma ve yeni ikincil olur.
+   Planlanmamış veya zorlamalı yük devretme hemen ikincil birincil ile herhangi bir eşitleme olmadan birincil role geçirir. Bu işlem veri kaybına yol açar. Birincil erişilebilir olmadığı durumlarda, planlanmamış yük devretme kesintiler sırasında kurtarma yöntemi olarak kullanılır. Özgün birincil yeniden çevrimiçi olduğunda, bunu otomatik olarak eşitleme yeniden ve yeni ikincil olur.
 
 - **El ile yük devretme**
 
@@ -127,7 +114,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   Yük devretmeleri ölçeğini denetlemek için birden çok yük devretme grupları sunucuları aynı çifti için yapılandırabilirsiniz. Her grup bağımsız olarak yük devreder. Elastik havuzlar, çok kiracılı bir uygulama kullanıyorsa, birincil ve ikincil veritabanlarının havuzdaki her karıştırmak için bu özelliği kullanabilirsiniz. Bu şekilde kesinti etkisini kiracılar yalnızca yarısını için azaltabilir.
 
-  > [!IMPORTANT]
+  > [!NOTE]
   > Yönetilen örnek, birden çok yük devretme grupları desteklemez.
   
 ## <a name="permissions"></a>İzinler
@@ -173,10 +160,10 @@ Otomatik Yük devretme grubu, birincil SQL veritabanı sunucusunda yapılandır�
 
   Kesinti algılanırsa, SQL tarafından belirtilen süre boyunca bekler **GracePeriodWithDataLossHours**. Varsayılan değer 1 saattir. Veri kaybını göze alamayacağı, ayarladığınızdan emin olun **GracePeriodWithDataLossHours** 24 saat gibi yeterince büyük bir sayı. Birincil siteden ikincil bölgeden başarısız için el ile grubu yük devretme kullanın.
 
-> [!IMPORTANT]
-> 800 ya da daha az dtu'ları ve coğrafi çoğaltmayı kullanarak 250'den fazla veritabanları ile elastik havuzları artık planlanan yük devretmeler sorunlarla karşılaşabilirsiniz ve performansı düştü.  Bu sorunları yazma yoğunluklu iş yükleri için coğrafi çoğaltma uç noktaları coğrafyaya göre değişim yaygın olarak ayrılıyorsa ya da her veritabanı için birden çok ikincil uç noktaları kullanıldığında ortaya daha yüksektir.  Coğrafi çoğaltma gecikmesi zamanla artar, bu sorunları belirtileri gösterilir.  Bu gecikme kullanılarak izlenebilir [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Bu sorun oluşursa, risk azaltma işlemleri havuz Dtu sayısını artırmak veya coğrafi olarak çoğaltılmış veritabanlarının aynı havuzdaki sayısını azaltmayı içerir.
+  > [!IMPORTANT]
+  > 800 ya da daha az dtu'ları ve coğrafi çoğaltmayı kullanarak 250'den fazla veritabanları ile elastik havuzları artık planlanan yük devretmeler sorunlarla karşılaşabilirsiniz ve performansı düştü.  Bu sorunları yazma yoğunluklu iş yükleri için coğrafi çoğaltma uç noktaları coğrafyaya göre değişim yaygın olarak ayrılıyorsa ya da her veritabanı için birden çok ikincil uç noktaları kullanıldığında ortaya daha yüksektir.  Coğrafi çoğaltma gecikmesi zamanla artar, bu sorunları belirtileri gösterilir.  Bu gecikme kullanılarak izlenebilir [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Bu sorun oluşursa, risk azaltma işlemleri havuz Dtu sayısını artırmak veya coğrafi olarak çoğaltılmış veritabanlarının aynı havuzdaki sayısını azaltmayı içerir.
 
-## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Yönetilen örnekler ile yük devretme grupları kullanmanın en iyi uygulamalar
+## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Yük devretme grupları ile yönetilen örnekleri kullanmanın en iyi uygulamalar
 
 Otomatik Yük devretme grubu birincil örneğinde yapılandırılmalıdır ve farklı bir Azure bölgesinde ikinci örneğine bağlanın.  Örneğindeki tüm veritabanlarını ikincil örneğine çoğaltılır. Aşağıdaki diyagramda, yönetilen örneği ile otomatik yük devretme grubu bir coğrafi olarak yedekli bir bulut uygulamasının tipik yapılandırma gösterilmektedir.
 
@@ -185,11 +172,11 @@ Otomatik Yük devretme grubu birincil örneğinde yapılandırılmalıdır ve fa
 > [!IMPORTANT]
 > Yönetilen örnek için otomatik yük devretme grupları şu genel Önizleme aşamasındadır.
 
-Uygulamanız, yönetilen örneği, veri katmanı olarak kullanıyorsa, iş sürekliliği için tasarlarken şu genel yönergeleri izleyin:
+Uygulamanız, yönetilen örnek, veri katmanı olarak kullanıyorsa, iş sürekliliği için tasarlarken şu genel yönergeleri izleyin:
 
 - **İkincil örneği birincil örnekle aynı DNS bölgesi oluşturma**
 
-  Yeni bir örneği oluşturulduğunda, benzersiz bir kimliği otomatik olarak oluşturulan DNS bölgesi ve örnek DNS adını dahil. Bu örnek biçiminde SAN alanı sağlandığında için çoklu etki alanı (SAN) sertifika `zone_id.database.windows.net`. Bu sertifika, aynı DNS bölgesinde örneğine istemci bağlantılarının kimliğini doğrulamak için kullanılabilir. Birincil örneğe yönelik bağlantının kesintiye yük devretmenin ardından birincil ve ikincil emin olmak için örnekleri aynı DNS bölgesinde olmalıdır. Uygulamanızı Üretim dağıtımı için hazır olduğunda, ikincil bir örneği farklı bir bölgede oluşturun ve DNS bölgesini birincil örneğiyle paylaştığı emin olun. Bu belirtilerek yapılır bir `DNS Zone Partner` Azure portalı, PowerShell veya REST API'yi kullanarak isteğe bağlı parametre.
+  Birincil örneğe yönelik bağlantının kesintiye yük devretmenin ardından birincil ve ikincil emin olmak için örnekleri aynı DNS bölgesinde olmalıdır. Aynı çoklu etki alanı (SAN) sertifika ya da yük devretme grubunda iki örnek istemci bağlantılarının kimliğini doğrulamak için kullanılabilir garanti eder. Uygulamanızı Üretim dağıtımı için hazır olduğunda, ikincil bir örneği farklı bir bölgede oluşturun ve DNS bölgesini birincil örneğiyle paylaştığı emin olun. Belirterek bunu yapabilirsiniz bir `DNS Zone Partner` Azure portalı, PowerShell veya REST API'yi kullanarak isteğe bağlı parametre. 
 
   Birincil örnekle aynı adlı DNS bölgesinde ikincil örneği oluşturma hakkında daha fazla bilgi için bkz. [yönetilen örnek (Önizleme) ile yük devretme grupları yönetme](#powershell-managing-failover-groups-with-managed-instances-preview).
 
@@ -206,7 +193,7 @@ Uygulamanız, yönetilen örneği, veri katmanı olarak kullanıyorsa, iş süre
 
 - **OLTP iş yükü için okuma / yazma dinleyici kullanın**
 
-  OLTP işlemleri gerçekleştirirken kullanmak `<fog-name>.zone_id.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak birincil siteye yönlendirilir. Bu URL, yük devretme sonrasında değiştirmez. Yük devretme, yalnızca istemci DNS önbelleği yenilendiğini sonra istemci bağlantıları yeni birincil siteye yönlendirilir için DNS kaydı güncelleştirmeniz gerekir. İkincil örneği ile birincil DNS bölgesi paylaştığından, istemci uygulaması aynı SAN sertifikayı kullanarak yeniden bağlanmanız mümkün olacaktır.
+  OLTP işlemleri gerçekleştirirken kullanmak `<fog-name>.zone_id.database.windows.net` sunucunun URL'sini ve bağlantı otomatik olarak birincil siteye yönlendirilir. Bu URL, yük devretme sonrasında değiştirmez. Yük devretme, yalnızca istemci DNS önbelleği yenilendiğini sonra istemci bağlantıları yeni birincil siteye yönlendirilir için DNS kaydı güncelleştirmeniz gerekir. İkincil örneği ile birincil DNS bölgesi paylaştığından, istemci uygulaması aynı SAN sertifika kullanarak bağlanmayı mümkün olacaktır.
 
 - **Coğrafi çoğaltmalı ikincil salt okunur sorgular için doğrudan bağlanma**
 
@@ -225,14 +212,14 @@ Uygulamanız, yönetilen örneği, veri katmanı olarak kullanıyorsa, iş süre
 
   Kesinti algılanırsa, sıfır veri kaybı bizim bilgi en iyi ise SQL otomatik olarak okuma / yazma yük devretmeyi tetikler. Aksi takdirde, belirtilen süre boyunca bekler `GracePeriodWithDataLossHours`. Belirttiyseniz `GracePeriodWithDataLossHours`, veri kaybı için hazır. Genel olarak, kesintiler sırasında Azure kullanılabilirlik ayrıcalık tanır. Veri kaybını göze alamayacağı, 24 saat gibi yeterince büyük bir sayı GracePeriodWithDataLossHours ayarladığınızdan emin olun.
 
-  DNS güncelleştirme okuma-yazma dinleyici, yük devretme hemen başlatıldıktan sonra gerçekleşir. Bu işlem veri kaybına neden olmaz. Ancak, veritabanı rolleri geçiş işleminin normal koşullar altında 5 dakikaya kadar sürebilir. Tamamlanana kadar yeni birincil örnekteki bazı veritabanları yine de salt okunur olacaktır. PowerShell kullanarak yük devretme başlatılması halinde tüm operasyon uyumludur. Azure portalını kullanarak başlatılmışsa UI tamamlanma durumu gösterir. REST API kullanarak başlatılır, standart Azure Resource Manager'ın yoklama mekanizması tamamlanma durumunu izlemek için kullanın.
+  DNS güncelleştirme okuma-yazma dinleyici, yük devretme hemen başlatıldıktan sonra gerçekleşir. Bu işlem veri kaybına neden olmaz. Ancak, veritabanı rolleri geçiş işleminin normal koşullar altında 5 dakikaya kadar sürebilir. Tamamlanana kadar yeni birincil örnekteki bazı veritabanları yine de salt okunur olacaktır. PowerShell kullanarak yük devretme başlatılana, tüm işlemi zaman uyumlu olur. Azure portalını kullanarak başlatılır, UI tamamlanma durumu gösterir. REST API kullanarak başlatılır, standart Azure Resource Manager'ın yoklama mekanizması tamamlanma durumunu izlemek için kullanın.
 
   > [!IMPORTANT]
   > El ile grubu yük devretme seçimlerine özgün konuma geri taşımak için kullanın. Yük devretme neden oldu kesinti giderildikten sonra birincil veritabanlarınızı özgün konuma taşıyabilirsiniz. Bunu yapmak için el ile yük devretme grubunun başlatmalıdır.
 
 ## <a name="failover-groups-and-network-security"></a>Yük devretme grupları ve ağ güvenliği
 
-Veri katmanı için ağ erişimi belirli bir bileşeni ya da VM gibi bileşenleri kısıtlanmıştır güvenlik kuralları gerektiren bazı uygulamalar için web hizmeti vb. Bu gereksinim, iş sürekliliği tasarım için bazı zorluklar ve yük devretme grupları kullanımını gösterir. Kısıtlı erişim uygularken aşağıdaki seçenekleri düşünmelisiniz.
+Veri katmanı için ağ erişimi belirli bir bileşeni ya da VM gibi bileşenleri kısıtlanmıştır güvenlik kuralları gerektiren bazı uygulamalar için web hizmeti vb. Bu gereksinim, iş sürekliliği tasarım için bazı zorluklar ve yük devretme grupları kullanımını gösterir. Kısıtlı erişim uygularken aşağıdaki seçenekleri göz önünde bulundurun.
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Yük devretme grupları ve sanal ağ kuralları kullanma
 
@@ -266,25 +253,25 @@ Yukarıdaki yapılandırma, otomatik yük devretme ön uç bileşenlerini bağla
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Yönetilen örnekleri kendi sanal ağlar arasındaki coğrafi çoğaltma etkinleştirme
 
-Birincil ve ikincil iki farklı bölgede yönetilen örnekleri arasında bir yük devretme grupları ayarladığınızda, her örnek bağımsız bir sanal ağ kullanarak yalıtılmıştır. İzleme sağlamak için bu sanal ağlar arasındaki çoğaltma trafiğine izin vermek için bu önkoşulların karşılandığından:
+Birincil ve ikincil iki farklı bölgede yönetilen örnekleri arasında bir yük devretme grubu ayarladığınızda, her örnek bağımsız bir sanal ağ kullanarak yalıtılmıştır. İzin vermek için bu sanal ağlar arasındaki çoğaltma trafiğinin emin bu önkoşulların karşılandığından:
 
 1. İki yönetilen örnek, farklı Azure bölgelerinde olması gerekir.
 2. İkincil olması gerekir (kullanıcı veritabanları) boş.
-3. Birincil ve ikincil yönetilen örnekler aynı kaynak grubunda olması gerekir.
-4. Yönetilen örnekler üzerinden bağlanması gereken bir parçası olan sanal ağlar bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md). Küresel VNet eşlemesi desteklenmiyor.
-5. İki yönetilen örnek sanal ağ, çakışan IP adresleri sahip olamaz.
-6. Kur, ağ güvenlik grupları (Bu bağlantı noktası 5022 NSG) bu tür ve ' % s'aralığı 11000 gerek ~ 12000 olan yönetilen örnekli bir alt ağdan gelen ve giden için açık bağlantılar. Örnekler arasında çoğaltma trafiğine izin verecek şekilde budur
+3. Birincil ve ikincil yönetilen örnekleri aynı kaynak grubunda olması gerekir.
+4. Yönetilen örnek üzerinden bağlanması gereken bir parçası olan sanal ağlar bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md). Küresel VNet eşlemesi desteklenmiyor.
+5. İki yönetilen örnek sanal ağlar, çakışan IP adreslerine sahip olamaz.
+6. Ağ güvenlik grupları (Bu bağlantı noktası 5022 NSG) bu tür ve 11000 aralığı ayarlamak gereken ~ 12000 olan açık gelen ve giden bağlantılar diğer yönetilen örnekli alt ağ için. Örnekler arasında çoğaltma trafiğine izin verecek şekilde budur
 
-    > [!IMPORTANT]
-    > NSG güvenlik kuralları liderlerine takılan veritabanı kopyalama işlemleri için yanlış.
+   > [!IMPORTANT]
+   > NSG güvenlik kuralları liderlerine takılan veritabanı kopyalama işlemleri için yanlış.
 
-7. DNS bölgesi iş ortağı ikincil örnekteki yapılandırmanız gerekir. Bir DNS bölgesi, bir yönetilen örnek için kullanılan bir özelliktir. Yönetilen örnek adı izler ve önündeki ana bilgisayar adı bölümü temsil ettiği `.database.windows.net` önek. Her sanal ağ içindeki ilk yönetilen örnek oluşturma sırasında rastgele bir dize olarak oluşturulur. DNS bölgesi yönetilen örneği oluşturulduktan sonra değiştirilemez ve tüm yönetilen örnekleri aynı alt ağda aynı DNS bölge değeri paylaşın. Yönetilen örnek yük devretme grubu kurulumu için yönetilen örneğe birincil ve ikincil yönetilen örneğe aynı DNS bölge değeri paylaşmanız gerekir. Bunun için ikincil yönetilen örneği oluşturulurken DnsZonePartner parametresini belirterek. DNS bölgesi iş ortağı özelliği, bir örnek yük devretme grubu ile paylaşmak için yönetilen örneğe tanımlar. DnsZonePartner giriş olarak başka bir yönetilen örnek kaynak kimliğini uygulamasına geçirme tarafından yönetilen örneği şu anda oluşturuluyor yönetilen örnek iş ortağı aynı DNS bölgesi değerini devralır.
+7. İkincil örneği doğru DNS bölgesi kimliği ile yapılandırılır. Yönetilen örnek, DNS bölgesi özelliğidir ve Kimliğine konak adı adresi dahil edilir. Bölge kimliği, ilk yönetilen örnek, her bir sanal ağ oluşturulur ve aynı alt ağdaki diğer tüm örnekleri aynı kimliği atanır, rastgele bir dize olarak oluşturulur. DNS bölgesi, kendilerine atandıktan sonra değiştirilemez. Aynı yük devretme grubunda yer alan yönetilen örnekleri, DNS bölgesini paylaşmanız gerekir. Bunun için birincil örneğinin bölge kimliği DnsZonePartner parametresinin değeri ikincil örneği oluşturulurken geçirerek. 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Yükseltme veya bir birincil veritabanı önceki sürüme indirme
 
 Yükseltme veya birincil farklı işlem boyuta (aynı hizmet katmanında, genel amaçlı ve iş açısından kritik arasında değil) tüm ikincil veritabanlarını kesmeden düşürebilirsiniz. Yükseltme yaparken, tüm ikincil veritabanları yükseltmeniz ve ardından birincil yükseltmeniz önerilir. Önceki sürüme indirirken ters sırada: birincil ilk sürümüne düşürürseniz ve tüm ikincil veritabanları düşürme. Bu öneri, yükseltme ya da farklı bir hizmet katmanına düşürebilirsiniz zorlanır.
 
-Bu sıra özellikle burada daha düşük bir SKU'ya konumunda ikincil aşırı ve bir yükseltme veya düşürme işlemi sırasında yeniden köklü bir sorundan kaçınmak için önerilir. Birincil salt okunur, birincil karşı tüm okuma-yazma iş yükleri etkileyen çoğaltamaz hale getirerek, sorun kaçınmanız. 
+Bu sıra, özellikle daha düşük bir SKU'ya konumunda ikincil burada aşırı ve bir yükseltme veya düşürme işlemi sırasında reseeded bir sorundan kaçınmak için önerilir. Birincil salt okunur, birincil karşı tüm okuma-yazma iş yükleri etkileyen çoğaltamaz hale getirerek, sorun kaçınmanız. 
 
 > [!NOTE]
 > Yük devretme grubu yapılandırmasının bir parçası olarak ikincil bir veritabanı oluşturduysanız, bu ikincil veritabanını indirgemek için önerilmez. Bu veri katmanınızın yük devretme etkinleştirildikten sonra normal iş yükünü işlemek için yeterli kapasiteye sahip sağlamaktır.

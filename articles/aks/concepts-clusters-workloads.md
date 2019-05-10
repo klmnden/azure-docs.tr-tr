@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467468"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230139"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -99,9 +99,11 @@ Temel alınan düğümün işletim sistemi, ayrıca kendi çekirdek işlevleri t
 
 ### <a name="node-pools"></a>Düğüm havuzları
 
-Aynı yapılandırmaya sahip düğümler halinde gruplandırılır birlikte *düğüm havuzları*. Bir veya daha fazla düğüm havuzları bir Kubernetes kümesi içerir. Oluşturur bir AKS kümesi oluşturduğunuzda, ilk düğüm sayısını ve boyutunu tanımlanan bir *varsayılan düğüm havuzu*. Bu varsayılan düğüm havuzu aks'deki aracınızı düğümleri çalıştıran temel alınan sanal makineler içeriyor.
+Aynı yapılandırmaya sahip düğümler halinde gruplandırılır birlikte *düğüm havuzları*. Bir veya daha fazla düğüm havuzları bir Kubernetes kümesi içerir. Oluşturur bir AKS kümesi oluşturduğunuzda, ilk düğüm sayısını ve boyutunu tanımlanan bir *varsayılan düğüm havuzu*. Bu varsayılan düğüm havuzu aks'deki aracınızı düğümleri çalıştıran temel alınan sanal makineler içeriyor. Birden çok düğüm havuzu desteği şu anda önizleme olarak kullanılabilir.
 
-Ölçeklendirme ya da bir AKS kümesini yükseltme eylemi varsayılan düğüm havuzu karşı yapılır. Tüm düğümleri başarıyla yükseltilene kadar yükseltme işlemlerinde, düğüm havuzdaki diğer düğüm üzerinde çalışan kapsayıcıları zamanlanır.
+Ölçeklendirme ya da bir AKS kümesini yükseltme eylemi varsayılan düğüm havuzu karşı yapılır. Ölçeklendirin veya belirli bir düğüm havuzu yükseltmek seçebilirsiniz. Tüm düğümleri başarıyla yükseltilene kadar yükseltme işlemlerinde, düğüm havuzdaki diğer düğüm üzerinde çalışan kapsayıcıları zamanlanır.
+
+AKS içindeki birden çok düğüm havuzları kullanma hakkında daha fazla bilgi için bkz. [oluşturun ve bir AKS kümesi için birden çok düğüm havuzları yönetme][use-multiple-node-pools].
 
 ## <a name="pods"></a>Pod'ları
 
@@ -245,3 +247,4 @@ Bu makale, bazı temel Kubernetes bileşenleri ve bunların AKS kümeye nasıl u
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

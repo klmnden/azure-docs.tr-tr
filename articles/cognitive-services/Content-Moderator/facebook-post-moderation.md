@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699587"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233825"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Öğretici: Orta Facebook gönderilerinizi ve Azure Content Moderator ile komutları
 
@@ -33,6 +33,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu diyagramda bu senaryonun her bileşenin gösterilir:
 
 ![Content Moderator facebook'taki "FBListener" üzerinden bilgi almak ve "CMListener" üzerinden bilgi gönderme diyagramı](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> 2018'de, Facebook bir daha katı Facebook uygulamaları güvenlik incelemesi uygulanır. Uygulamanızı edilmemiş gözden geçirdi ve Facebook gözden geçirme ekibi tarafından onaylanan, bu öğreticideki adımları tamamlaması mümkün olmayacaktır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -59,68 +62,71 @@ Yeniden bakın [tanımlayın ve test kullanım iş akışları](review-tool-user
 
 ## <a name="create-azure-functions"></a>Azure İşlevleri oluşturma
 
-Oturum [Azure portalı](https://portal.azure.com/) ve aşağıdaki adımları izleyin:
+Oturum [Azure portalında](https://portal.azure.com/) ve aşağıdaki adımları izleyin:
 
 1. [Azure İşlevleri](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasında gösterildiği gibi bir Azure İşlev Uygulaması oluşturun.
-2. Yeni oluşturulan işlev uygulamasına gidin.
-3. Uygulamanın içinde Git **Platform özellikleri** sekmenize **uygulama ayarları**. İçinde **uygulama ayarları** bölümü, bir sonraki sayfada, listenin sonuna kaydırın ve **yeni ayar Ekle**. Aşağıdaki anahtar/değer çifti Ekle
+1. Yeni oluşturulan işlev uygulamasına gidin.
+1. Uygulamanın içinde Git **Platform özellikleri** sekmenize **yapılandırma**. İçinde **uygulama ayarları** sonraki sayfada, select bölümünü **yeni uygulama ayarı** aşağıdaki anahtar/değer çiftlerini eklemek için:
     
     | Uygulama ayarı adı | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | Content Moderator Takım Kimliğiniz  | 
-    | cm:SubscriptionKey | Content Moderator abonelik anahtarınız. Bkz. [Kimlik Bilgileri](review-tool-user-guide/credentials.md) | 
-    | cm:Region | Content Moderator bölge adınız (boşluk içermez). Önceki nota bakın. |
+    | cm:SubscriptionKey | Content Moderator abonelik anahtarınız. Bkz. [Kimlik Bilgileri](review-tool-user-guide/credentials.md) |
+    | cm:Region | Content Moderator bölge adınız (boşluk içermez). |
     | cm:ImageWorkflow | Görüntüler üzerinde çalıştırılacak iş akışının adı |
     | cm:TextWorkflow | Metinler üzerinde çalıştırılacak iş akışının adı |
-    | cm:CallbackEndpoint | Bu kılavuzda daha sonra oluşturacağınız CMListener İşlev Uygulamasının Url'si |
-    | fb:VerificationToken | Facebook akış olaylarına abone olmak için de kullanılan gizli dizi belirteci |
-    | fb:PageAccessToken | Facebook graph api'si erişim belirtecinin süresi dolmaz ve işlevin sizin adınıza gönderileri Gizlemesini/Silmesini sağlar. |
+    | cm:CallbackEndpoint | Bu kılavuzda daha sonra oluşturacağınız CMListener işlev uygulaması için URL |
+    | fb:VerificationToken | Oluşturduğunuz gizli bir belirteç kullanılan olayları akış Facebook abone olma |
+    | fb:PageAccessToken | Facebook graph api'si erişim belirtecinin süresi dolmaz ve işlevin sizin adınıza gönderileri Gizlemesini/Silmesini sağlar. Bu daha sonraki bir adımda alırsınız. |
 
     Tıklayın **Kaydet** sayfanın üstünde düğme.
 
-1. Kullanarak **+** yeni işlev bölmesini açmak için sol bölmedeki düğmesi.
+1. Geri Git **Platform özellikleri** sekmesi. Kullanım **+** ortaya çıkarmak için sol bölmesinde düğmesine **yeni işlev** bölmesi. Oluşturmakta olduğunuz işlevi Facebook'tan olaylarını alacaksınız.
 
     ![İşlev Ekle düğmesi ile Azure işlevleri bölmesi.](images/new-function.png)
-
-    Ardından **+ yeni işlev** sayfanın üstünde. Bu işlev Facebook'tan olayları alır. Bu işlevi oluşturmak için aşağıdaki adımları izleyin:
 
     1. İfadesini içeren kutucuğa tıklayın **Http tetikleyicisi**.
     1. **FBListener** adını girin. **Yetkilendirme Düzeyi** alanı **İşlev** olarak ayarlanmalıdır.
     1. **Oluştur**’a tıklayın.
     1. Öğesinin içeriğini değiştirin **run.csx** içeriğiyle **FbListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
 1. Yeni bir **Http tetikleyicisi** adlı işlev **CMListener**. Bu işlev Content Moderator'dan olayları alır. Öğesinin içeriğini değiştirin **run.csx** içeriğiyle **CMListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
 ---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Facebook sayfasını ve Uygulamasını yapılandırma
+
 1. Facebook Uygulaması oluşturun.
 
     ![facebook Geliştirici sayfası](images/facebook-developer-app.png)
 
     1. [Facebook geliştirici sitesine](https://developers.facebook.com/) gidin
-    2. **My Apps** (Uygulamalarım) öğesine tıklayın.
-    3. Yeni Uygulama ekleyin.
+    1. **My Apps** (Uygulamalarım) öğesine tıklayın.
+    1. Yeni Uygulama ekleyin.
     1. bir ad
     1. Seçin **Web kancaları -> kümesi ayarlama**
     1. Seçin **sayfa** açılır menüsünü seçip **bu nesne için abone olun**
     1. Geri Arama URL'si olarak **FBListener Url'sini** sağlayın ve **İşlevi Uygulaması Ayarları** altında yapılandırdığınız **Belirteci Doğrulayın**
     1. Abone olduktan sonra, akışı aşağı kaydırıp **subscribe** (abone ol) öğesini seçin.
+    1. Tıklayarak **Test** düğmesini **akışı** FBListener Azure işlevinizi test iletisi göndermek için satır ve isabet **göndermek için My Server** düğmesi. Üzerinde FBListener alınan istek görmeniz gerekir.
 
-2. Facebook Sayfası oluşturun.
+1. Facebook Sayfası oluşturun.
+
+    > [!IMPORTANT]
+    > 2018'de, Facebook bir daha katı Facebook uygulamaları güvenlik incelemesi uygulanır. Uygulamanızı edilmemiş gözden geçirdi ve Facebook gözden geçirme ekibi tarafından onaylanan, bölüm 2, 3 ve 4 yürütülecek mümkün olmayacaktır.
 
     1. [Facebook](https://www.facebook.com/bookmarks/pages)'a gidin ve **yeni bir Facebook Sayfası** oluşturun.
-    2. Şu adımları izleyerek Facebook Uygulamasının bu sayfaya erişmesine izin verin:
+    1. Şu adımları izleyerek Facebook Uygulamasının bu sayfaya erişmesine izin verin:
         1. [Graph API Explorer](https://developers.facebook.com/tools/explorer/)'a gidin.
-        2. **Uygulama**'yı seçin.
-        3. **Sayfa Erişim Belirteci**'ni seçin. Bir **Get** isteği gönderin.
-        4. Yanıtta **Sayfa Kimliği**'ne tıklayın.
-        5. Şimdi **/subscribed_apps** bölümünü URL'ye ekleyin ve bir **Get** (boş yanıt) isteği gönderin.
-        6. **Post** isteği gönderin. **success: true** gibi bir yanıt alırsınız.
+        1. **Uygulama**'yı seçin.
+        1. **Sayfa Erişim Belirteci**'ni seçin. Bir **Get** isteği gönderin.
+        1. Yanıtta **Sayfa Kimliği**'ne tıklayın.
+        1. Şimdi **/subscribed_apps** bölümünü URL'ye ekleyin ve bir **Get** (boş yanıt) isteği gönderin.
+        1. **Post** isteği gönderin. **success: true** gibi bir yanıt alırsınız.
 
 3. Süresi dolmayan bir Graph API erişim belirteci oluşturun.
 

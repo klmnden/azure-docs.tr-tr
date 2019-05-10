@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a3c035715de736b816027b08a1e242e6a65d1f13
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148770"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235908"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Azure PowerShell ile bir paylaşılan görüntü Galerisi oluşturma 
 
@@ -44,7 +44,9 @@ Paylaşılan görüntü Galerisi özelliği, birden çok kaynak türü vardır. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede örneği tamamlamak için var olan yönetilen bir görüntü olması gerekir. İzleyebileceğiniz [Öğreticisi: Azure PowerShell ile Azure VM'deki özel görüntüsünü oluşturma](tutorial-custom-images.md) gerekirse oluşturmak için. Bu makalede, üzerinden geçmeden değiştirdiğinizde kaynak grubu ve VM adlarını gerektiğinde.
+Bu makalede örneği tamamlamak için var olan yönetilen bir görüntü olması gerekir. İzleyebileceğiniz [Öğreticisi: Azure PowerShell ile Azure VM'deki özel görüntüsünü oluşturma](tutorial-custom-images.md) gerekirse oluşturmak için. Yönetilen bir görüntü veri diski varsa, veri disk boyutu 1 TB'den fazla olamaz.
+
+Bu makalede, üzerinden geçmeden değiştirdiğinizde kaynak grubu ve VM adlarını gerektiğinde.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
@@ -72,6 +74,7 @@ New-AzVm `
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+[Azure Görüntü Oluşturucu (Önizleme)](image-builder-overview.md) bile bunu güncelleştirmek için kullanabilirsiniz, görüntü sürümü oluşturma otomatikleştirilmesine yardımcı olur ve [varolan bir görüntü sürümü yeni bir görüntü sürümü oluşturma](image-builder-gallery-update-image-version.md). 
 
 Paylaşılan görüntü Galerisi kaynak şablonlarını kullanarak da oluşturabilirsiniz. Çeşitli Azure hızlı başlangıç şablonları mevcuttur: 
 

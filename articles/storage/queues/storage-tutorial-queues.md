@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151060"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233856"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Öğretici: Azure depolama kuyrukları ile çalışma
 
@@ -27,7 +27,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > - Azure Storage hesabı oluşturma
 > - Uygulama oluşturma
 > - Zaman uyumsuz kod için destek eklendi
-> - Bir kuyruk oluşturma
+> - Kuyruk oluştur
 > - Bir kuyruğa ileti Ekle
 > - İletileri sıradan çıkarma
 > - Boş bir kuyruk silme
@@ -127,7 +127,7 @@ Kod, uygulamanın bulut kaynaklarını kullandığından, zaman uyumsuz olarak �
 
 6. Kaydet **Program.cs** dosya.
 
-## <a name="create-a-queue"></a>Bir kuyruk oluşturma
+## <a name="create-a-queue"></a>Kuyruk oluştur
 
 1. Yükleme **WindowsAzure. Depolama** projeye sahip paket `dotnet add package` komutu. Konsol penceresinde proje klasöründen aşağıdaki dotnet komutu yürütün.
 
@@ -206,7 +206,7 @@ Depolama hesabına erişebilmesi için bu bağlantı dizesini uygulamaya ekleyin
 
 ## <a name="insert-messages-into-the-queue"></a>İletilerin Kuyruğa Ekle
 
-Kuyruğa ileti göndermek için yeni bir yöntem oluşturun. Aşağıdaki yöntemi ekleyin, **Program** sınıfı. Bu yöntem bir sıra başvuru alır ve ardından çağırarak zaten yoksa yeni bir sıra oluşturur [Createıfnotexistsasync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Daha sonra bu iletiyi çağırarak eklediğinde kuyruğun [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Kuyruğa ileti göndermek için yeni bir yöntem oluşturun. Aşağıdaki yöntemi ekleyin, **Program** sınıfı. Bu yöntem bir sıra başvuru alır ve ardından çağırarak zaten yoksa yeni bir sıra oluşturur [Createıfnotexistsasync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Daha sonra bu iletiyi çağırarak eklediğinde kuyruğun [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
 1. Aşağıdaki **SendMessageAsync** yönteme, **Program** sınıfı.
 
@@ -229,7 +229,7 @@ Kuyruğa ileti göndermek için yeni bir yöntem oluşturun. Aşağıdaki yönte
 
 ## <a name="dequeue-messages"></a>İletileri sıradan çıkarma
 
-Adlı yeni bir yöntem oluşturma **ReceiveMessageAsync**. Bu yöntem çağırarak iletiyi kuyruktan alır [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). İletinin başarıyla alındığında, birden çok kez işlenen olmayan şekilde kuyruktan silmek önemlidir. İleti alındıktan sonra çağırarak kuyruktan Sil [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Adlı yeni bir yöntem oluşturma **ReceiveMessageAsync**. Bu yöntem çağırarak iletiyi kuyruktan alır [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). İletinin başarıyla alındığında, birden çok kez işlenen olmayan şekilde kuyruktan silmek önemlidir. İleti alındıktan sonra çağırarak kuyruktan Sil [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
 
 1. Aşağıdaki **ReceiveMessageAsync** yönteme, **Program** sınıfı.
 
@@ -499,7 +499,7 @@ Bu bir çıktı görmeniz gerekir:
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
-1. Bir kuyruk oluşturma
+1. Kuyruk oluştur
 2. Eklemek ve iletileri kuyruktan kaldırın
 3. Azure depolama kuyruğu silin
 

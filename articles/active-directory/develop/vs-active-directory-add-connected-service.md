@@ -14,25 +14,25 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250959"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414003"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio bağlı Hizmetler'i kullanarak bir Azure Active Directory'ye ekleme
 
 Azure Active Directory (Azure AD) kullanarak, çoklu oturum açma (SSO) ASP.NET MVC web uygulamaları veya Active Directory kimlik doğrulaması için Web API Hizmetleri destekler. Azure AD kimlik doğrulaması ile kullanıcıların hesaplarını Azure Active Directory'den web uygulamalarınıza bağlanmak için kullanabilirsiniz. Web API'si ile Azure AD kimlik doğrulaması avantajları, bir web uygulamasından API gösterme, Gelişmiş veri güvenliği içerir. Azure AD ile bir kimlik doğrulama sistemi kendi hesabı ve kullanıcı yönetimi ile yönetmek zorunda değildir.
 
-Bu makalede ve yardımcı makaleleri için Active Directory Visual Studio bağlı hizmeti özelliğini kullanarak ayrıntılarını sağlayın. Özelliği, hem Visual Studio 2017 hem de Visual Studio 2015 için kullanılabilir.
+Bu makalede ve yardımcı makaleleri için Active Directory Visual Studio bağlı hizmeti özelliğini kullanarak ayrıntılarını sağlayın. Visual Studio 2015'te kullanılabilir ve sonraki özellik yöneliktir.
 
 Şu anda Active Directory bağlı hizmetini ASP.NET Core uygulamaları desteklemez.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure hesabı: bir Azure hesabınız yoksa, şunları yapabilirsiniz [ücretsiz deneme için kaydolun](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone Avantajlarınızı etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** veya üzeri. [Visual Studio 2017'yi hemen indirin](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2015** veya üzeri. [Visual Studio'yu hemen indirin](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Azure bağlı hizmetler iletişim kutusunu kullanarak Active Directory için Bağlan
 

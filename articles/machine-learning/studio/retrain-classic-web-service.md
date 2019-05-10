@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502444"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234054"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Yeniden eğitme ve klasik Studio web hizmeti dağıtma
 
@@ -46,7 +46,7 @@ Bu konuda sağlanan örnek kodu kullanarak Puanlama uç noktalar ekleyebilirsini
 
 1. Machine Learning Studio'da, sol gezinti sütununda, Web Hizmetleri.
 1. Web hizmeti Pano altındaki tıklatın **yönetin uç noktaları Önizleme**.
-1. **Ekle**'ye tıklayın.
+1. **Ekle**'yi tıklatın.
 1. Bir ad ve yeni uç nokta için bir açıklama yazın. Günlüğe kaydetme düzeyini ve örnek veriler etkin olup olmadığını seçin. Günlüğe kaydetme hakkında daha fazla bilgi için bkz. [Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirme](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Eklenen uç noktanın eğitilen modeli güncelleştirme

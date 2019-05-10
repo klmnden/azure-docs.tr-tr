@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911553"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234076"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Güvenlik Merkezi Veri Güvenliği
 Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardımcı olmak amacıyla Azure Güvenlik Merkezi, güvenlikle ilgili veriler, meta veriler, olay günlükleri, kilitlenme dökümü dosyaları ve diğer verileri toplar ve işler. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır.
@@ -46,12 +46,18 @@ Azure Güvenlik Merkezi, güvenlik durumunuzu görüntüleme, güvenlik açıkla
 
 **Alanlarınıza**: Aşağıdaki coğrafi bölgeler için bir çalışma alanı belirtilir ve Azure sanal kilitlenme bilgi dökümleri ve bazı uyarı verisi türleri de dahil olmak üzere makinelerinizden, toplanan veriler en yakın çalışma alanında depolanır.
 
-| VM'nin Bulunduğu Coğrafi Bölge                        | Çalışma Alanının Bulunduğu Coğrafi Bölge |
-|-------------------------------|---------------|
-| Amerika Birleşik Devletleri, Brezilya, Kanada | Amerika Birleşik Devletleri |
-| Avrupa, Birleşik Krallık        | Avrupa        |
-| Asya Pasifik, Japonya, Hindistan    | Asya Pasifik  |
-| Avustralya                     | Avustralya     |
+| VM'nin Bulunduğu Coğrafi Bölge                              | Çalışma Alanının Bulunduğu Coğrafi Bölge |
+|-------------------------------------|---------------|
+| Amerika Birleşik Devletleri, Brezilya, Güney Afrika | Amerika Birleşik Devletleri |
+| Kanada                              | Kanada        |
+| Avrupa (Birleşik Krallık hariç)   | Avrupa        |
+| Birleşik Krallık                      | Birleşik Krallık |
+| Asya (Hindistan, Japonya, Kore, Çin dışında)   | Asya Pasifik  |
+| Güney Kore                              | Asya Pasifik  |
+| Hindistan                               | Hindistan         |
+| Japonya                               | Japonya         |
+| Çin                               | Çin         |
+| Avustralya                           | Avustralya     |
 
 
 VM diski anlık görüntüleri, VM diski ile aynı depolama hesabına kaydedilir.

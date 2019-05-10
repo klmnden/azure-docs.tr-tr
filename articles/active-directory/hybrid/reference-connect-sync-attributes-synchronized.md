@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729538"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508105"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: Azure Active Directory ile eşitlenen öznitelikler
 Bu konuda, Azure AD Connect eşitlemesi ile eşitlenen öznitelikler listelenir.  
@@ -48,7 +48,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | pwdLastSet |X |mekanik özelliği. Zaten verilen belirteçleri geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola karma eşitlemesi, geçişli kimlik doğrulaması ve Federasyon tarafından kullanılır. |
 |samAccountName|X| |
 | sourceAnchor |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişki korumak için sabit tanımlayıcısı. |
-| usageLocation |X |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X |mekanik özelliği. Kullanıcının ülke/bölge. Lisans ataması için kullanılır. |
 | userPrincipalName |X |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -168,7 +168,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | thumbnailphoto |X |X | | |
 | başlık |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke/bölge. Lisans ataması için kullanılır. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 | userSMIMECertificates |X |X | | |
@@ -251,7 +251,8 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | başlık |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke/bölge
+: Lisans ataması için kullanılır. |
 | userPrincipalName |X | | |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 | wWWHomePage |X |X | | |
 
@@ -299,7 +300,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | başlık |X |X | | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke/bölge. Lisans ataması için kullanılır. |
 | userPrincipalName |X | | |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 | wWWHomePage |X |X | | |
 
@@ -315,7 +316,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | proxyAddresses |X |X |X |mekanik özelliği. Azure AD tarafından kullanılır. Kullanıcı için tüm ikincil e-posta adreslerini içerir. |
 | pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçleri geçersiz kılmak ne zaman öğrenmek için kullanılır. |
 | sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişki korumak için sabit tanımlayıcısı. |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke/bölge. Lisans ataması için kullanılır. |
 | userPrincipalName |X | | |Bu UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 
 ## <a name="intune"></a>Intune
@@ -333,7 +334,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçleri geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola karma eşitlemesi, geçişli kimlik doğrulaması ve Federasyon tarafından kullanılır. |
 | sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişki korumak için sabit tanımlayıcısı. |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke/bölge. Lisans ataması için kullanılır. |
 | userPrincipalName |X | | |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -365,7 +366,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | başlık |X |X | | |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke/bölge. Lisans ataması için kullanılır. |
 | userPrincipalName |X | | |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 
 ## <a name="3rd-party-applications"></a>3. taraf uygulamalar
@@ -381,6 +382,7 @@ Bu grup, Office 365, Dynamics veya Intune desteği sağlamak üzere Azure AD diz
 | accountEnabled |X | | |Bir hesap etkinse tanımlar. |
 | CN = |X | |X | |
 | displayName |X |X |X | |
+| EmployeeID |X |  |  | |
 | givenName |X |X | | |
 | posta |X | |X | |
 | managedBy | | |X | |
@@ -391,7 +393,7 @@ Bu grup, Office 365, Dynamics veya Intune desteği sağlamak üzere Azure AD diz
 | pwdLastSet |X | | |mekanik özelliği. Zaten verilen belirteçleri geçersiz kılmak ne zaman öğrenmek için kullanılır. Parola karma eşitlemesi, geçişli kimlik doğrulaması ve Federasyon tarafından kullanılır. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mekanik özelliği. EKLER ve Azure AD arasındaki ilişki korumak için sabit tanımlayıcısı. |
-| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke. Lisans ataması için kullanılır. |
+| usageLocation |X | | |mekanik özelliği. Kullanıcının ülke/bölge. Lisans ataması için kullanılır. |
 | userPrincipalName |X | | |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 
 ## <a name="windows-10"></a>Windows 10
@@ -420,7 +422,7 @@ Bu öznitelikler için **kullanıcı** seçtiğiniz olan diğer uygulamaların y
 ## <a name="exchange-hybrid-writeback"></a>Exchange karma geri yazma
 Etkinleştirmeyi seçtiğinizde bu öznitelikler geri Azure AD'den şirket içi Active Directory'ye yazılır **Exchange karma**. Exchange sürümünüzün bağlı olarak daha az sayıda öznitelik eşitleniyor olabilir.
 
-| Öznitelik adı (kullanıcı Arabirimi Connect) |Öznitelik adı (şirket içi AD) | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik adı (şirket içi AD) | Öznitelik adı (kullanıcı Arabirimi Connect) | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Azure AD'de cloudAnchor türetilmiş. Bu öznitelik, Exchange 2016 ve Windows Server 2016 AD yeni bir özelliktir. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Çevrimiçi Arşiv: Müşterilerin posta arşiv sağlar. |

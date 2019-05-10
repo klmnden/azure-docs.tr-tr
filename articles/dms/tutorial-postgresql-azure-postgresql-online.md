@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 67212986e0478a03ac2ef1b5f30488cc1c7f869d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137428"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415695"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Öğretici: DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme
 
@@ -24,7 +24,6 @@ ms.locfileid: "65137428"
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
-
 > * Örnek şemanın pg_dump yardımcı programını kullanarak geçirin.
 > * Azure Veritabanı Geçiş Hizmeti örneği oluşturma.
 > * Azure Veritabanı Geçiş Hizmeti'ni kullanarak geçiş projesi oluşturma.
@@ -46,10 +45,10 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
     Ayrıca, şirket içi PostgreSQL sürümünün, PostgreSQL için Azure Veritabanı sürümü ile eşleşmesi gerekir. Örneğin, PostgreSQL 9.5.11.5 yalnızca PostgreSQL için Azure Veritabanı 9.5.11 sürümüne geçirilebilir ve 9.6.7 sürümüne geçirilemez.
 
     > [!NOTE]
-    > PostgreSQL için sürüm 10, şu anda DMS yalnızca PostgreSQL için Azure veritabanı 10.3 sürümüne geçişini destekler. PostgreSQL daha yeni sürümlerini çok yakında desteklemeyi planlıyoruz.
+    > PostgreSQL için sürüm 10, şu anda DMS yalnızca PostgreSQL için Azure veritabanı 10.3 sürümüne geçişini destekler.
 
 * [PostgreSQL için Azure Veritabanı’nda örnek oluşturma](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlar Azure Resource Manager dağıtım modelini kullanarak bir Azure sanal ağı (VNet) için Azure veritabanı geçiş hizmeti oluşturma [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlar Azure Resource Manager dağıtım modelini kullanarak bir Azure sanal ağı (VNet) için Azure veritabanı geçiş hizmeti oluşturma [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [sanal ağ belgeleri](https://docs.microsoft.com/azure/virtual-network/)ve özellikle hızlı başlangıç makalelerini ile adım adım ayrıntıları.
 
     > [!NOTE]
     > Microsoft Ağ eşlemesi ile ExpressRoute kullanıyorsanız, sanal ağ kurulumu sırasında şu Hizmet Ekle [uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) hangi hizmet sağlanacağı alt ağ için:
@@ -65,6 +64,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 * Kaynak veritabanlarınızın önünde bir güvenlik duvarı cihazı kullanıyorsanız, Azure Veritabanı Geçiş Hizmeti'nin geçiş amacıyla kaynak veritabanlarına erişmesi için güvenlik duvarı kuralları eklemeniz gerekebilir.
 * Sunucu düzeyinde oluşturma [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) hedef veritabanlarına erişmek Azure veritabanı geçiş hizmeti izin vermek PostgreSQL için Azure veritabanı. Azure veritabanı geçiş hizmeti için kullanılan sanal ağ alt ağ aralığını belirtin.
 * CLI’yi çağırmak için iki yöntem vardır:
+
     * Azure portalın sağ üst köşesindeki Cloud Shell düğmesini seçin:
 
        ![Azure portaldaki Cloud Shell düğmesi](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
@@ -210,6 +210,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
    ```
 
    Örneğin, aşağıdaki komut şurada bir hizmet oluşturur:
+
    * Konum: Doğu ABD 2
    * Abonelik: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Kaynak Grubu Adı: PostgresDemo
@@ -259,7 +260,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
 
     Örneğin, aşağıdaki komut bu parametreleri kullanarak bir proje oluşturur:
 
-   * Konum: Batı Orta ABD
+   * Konum: Orta Batı ABD
    * Kaynak Grubu Adı: PostgresDemo
    * Hizmet Adı: PostgresCLI
    * Proje adı: PGMigration
@@ -358,7 +359,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   OR
+   VEYA
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output

@@ -12,14 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572501"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415928"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>CI/CD işlem hattıyla tümleştirme
+
+Bu makalede, Azure uygulama yapılandırması bir sürekli tümleştirme ve sürekli dağıtım sistem verilerini kullanarak çeşitli yollarını açıklar.
+
+## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Azure DevOps işlem hattınızı uygulama yapılandırmasını kullanma
+
+Bir Azure DevOps işlem hattı varsa, uygulama yapılandırmasından anahtar-değer getirir ve bunları görev değişkenleri olarak ayarlayın. [Azure uygulama yapılandırma DevOps uzantısı](https://go.microsoft.com/fwlink/?linkid=2091063) bu işlevselliği sağlayan bir eklenti modüldür. Yalnızca bir yapı içinde uzantısının kullanılması veya görev dizisi yayın için kendi yönergeleri izleyin.
+
+## <a name="deploy-app-configuration-data-with-your-application"></a>Uygulama yapılandırma verileri ile uygulamanızı dağıtma
 
 Uygulamanız Azure uygulama yapılandırmasına bağlıdır ve onu ulaşamıyor çalışmayabilir. Böyle bir olay ile gerçekleştirilecek olan ancak olası dağıtılacak uygulama dayanıklılığı artırabilir. Bunu yapmak için başlatma sırasında yerel olarak dağıtılan uygulamayla ve yüklenen bir dosyaya geçerli yapılandırma verilerini paketi. Bu yaklaşım, uygulamanızın en az varsayılan ayarı değerlerine sahip olacağını garanti eder. Kullanılabilir olduğunda bu değerler daha yeni bir uygulama yapılandırma deposu değişiklikler tarafından üzerine yazılır.
 
@@ -29,13 +37,13 @@ Aşağıdaki örnek, uygulama yapılandırmalarını dahil edecek şekilde göst
 
 Bu öğreticideki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
 
-## <a name="prerequisites"></a>Önkoşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Yerel olarak derleme yaparsanız, indirme ve yükleme [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) henüz yapmadıysanız.
 
 Bulut derleme yapmak için Azure ile DevOps gibi emin [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yapı sisteminizde yüklü.
 
-## <a name="export-an-app-configuration-store"></a>Bir uygulama yapılandırma deposu dışarı aktarma
+### <a name="export-an-app-configuration-store"></a>Bir uygulama yapılandırma deposu dışarı aktarma
 
 1. Açık, *.csproj* dosyasını bulun ve aşağıdaki betiği ekleyin:
 
@@ -64,7 +72,7 @@ Bulut derleme yapmak için Azure ile DevOps gibi emin [Azure CLI](https://docs.m
             .UseStartup<Startup>();
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Derleme ve uygulamayı yerel olarak çalıştırma
+### <a name="build-and-run-the-app-locally"></a>Derleme ve uygulamayı yerel olarak çalıştırma
 
 1. Adlı bir ortam değişkenini ayarlamak **ConnectionString**ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanırsanız, aşağıdaki komutu çalıştırın ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
 

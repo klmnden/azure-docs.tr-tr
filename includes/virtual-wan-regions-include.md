@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe7a7a548050d8d5d81ccecf17b4240ebcea10b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459860"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416380"
 ---
 Aşağıdaki tabloda büyüyecek olan özellikler için kullanılabilir desteklenen bölgeler listelenir.
 
 |Coğrafi bölge | Azure bölgeleri|
 |---|---|
 |Kuzey Amerika | Doğu ABD, Batı ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Orta Güney ABD, Orta Kuzey ABD, Batı Orta ABD, Orta Kanada, Doğu Kanada |
-|Güney Amerika |Güney Brezilya |
+|Güney Amerika |Brezilya Güney |
 | Avrupa | Fransa Orta, Fransa Güney, Kuzey Avrupa, Batı Avrupa, UK Batı, UK Güney |
 | Asya | Doğu Asya, Güneydoğu Asya |
 | Japonya  | Batı Japonya, Doğu Japonya |
@@ -28,6 +28,7 @@ Aşağıdaki tabloda büyüyecek olan özellikler için kullanılabilir destekle
 | Avustralya Devleti | Avustralya Orta, Avustralya Orta 2 |
 | Hindistan | Batı Hindistan, Orta Hindistan, Güney Hindistan |
 | Güney Kore | Kore Orta, Kore Güney |
+| Güney Afrika | Güney Afrika Kuzey, Güney Afrika Batı |
 
 * ExpressRoute önizlemesi hakkında daha fazla bilgi için bkz: [sanal WAN ve ExpressRoute - Önizleme](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).
 * Noktadan siteye önizlemesi hakkında daha fazla bilgi için bkz: [sanal WAN ve noktadan siteye - Önizleme](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register).

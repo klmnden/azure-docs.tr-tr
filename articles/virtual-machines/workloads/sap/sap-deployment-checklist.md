@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648797"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236904"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP iş yüküne Azure planlama ve dağıtım denetim listesi 
 
@@ -140,9 +140,10 @@ Pilot proje planlama ve hazırlama için paralel ya da önce çalıştırabilirs
       2. Bir şirket içi arasında GUI zaman aşımları önlemek için SAP GUI arabirimleri ve Azure'da dağıtılmış SAP uygulama katmanları dağıtılırsa, aşağıdaki parametreleri default.pfl veya örneği profilinde ayarlanmış olup olmadığını denetleyin:
          1.   rdisp/keepalive_timeout 3600 =
          2.   rdisp/keepalive = 20
-      3. Windows Yük devretme kümesi yapılandırma kullanırsanız, duyuracağı düğümlerinde yanıt vermek zaman Azure için doğru ayarlandığından emin olun. Microsoft makalesi [ayarlama yük devretme kümesi ağ eşikleri](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) parametreleri ve bu yük devretme sensitivities nasıl etkilediği listeler. Listelenen parametrelerinin değerleri bu iki parametre ayarlanmalıdır:
-         1.   SameSubNetDelay = 2
+      3. Windows Yük devretme kümesi yapılandırma kullanırsanız, duyuracağı düğümlerinde yanıt vermek zaman Azure için doğru ayarlandığından emin olun. Microsoft makalesi [ayarlama yük devretme kümesi ağ eşikleri](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) parametreleri ve bu yük devretme sensitivities nasıl etkilediği listeler. Küme düğümleri aynı alt ağda olduğunu varsayarsak, aşağıdaki parametreleri değiştirilmelidir:
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Test, yüksek kullanılabilirlik ve olağanüstü durum kurtarma yordamları
    1. Yük devretme durumları benzetimini yapmak Vm'lerini (Windows konuk işletim sistemi) kapatılıyor veya işletim sistemleri, yük devretme yapılandırmaları tasarlandığı gibi çalışması anlamak için Panik modunda (Linux konuk işletim sistemi) koyarak. 
    2. Bir yük devretme çalıştırmak için gereken zamanlarınızı ölçün. Bir kez uzun zaman alıyorsa, göz önünde bulundurun:

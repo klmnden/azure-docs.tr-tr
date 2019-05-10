@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128949"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416089"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure ile Xamarin.Forms uygulaması oluşturma
 
@@ -34,9 +34,9 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Daha fazla bilgi için bkz. [Azure Ücretsiz Denemesi](https://azure.microsoft.com/pricing/free-trial/).
 
-* Xamarin için Visual Studio Araçları, Visual Studio 2017 veya Mac için Visual Studio içinde. Yönergeler için bkz. [Xamarin yükleme sayfası][Install Xamarin].
+* Mac için Visual Studio veya Visual Studio 2017 veya sonraki sürümlerde, Xamarin için Visual Studio Araçları Yönergeler için bkz. [Xamarin yükleme sayfası][Install Xamarin].
 
-* (isteğe bağlı) iOS uygulaması oluşturmak için, Xcode 9.0 veya üzerine sahip bir Mac gereklidir. Mac için Visual Studio iOS uygulamaları geliştirmek için kullanılabilir veya Visual Studio 2017 kullanabilirsiniz (Mac bilgisayar ağda olduğu sürece).
+* (isteğe bağlı) iOS uygulaması oluşturmak için, Xcode 9.0 veya üzerine sahip bir Mac gereklidir. Mac için Visual Studio (Mac ağda kullanılabilir olduğu sürece) daha sonra kullanılabilir veya Visual Studio 2017 veya iOS uygulamaları geliştirmek için kullanılabilir.
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Yeni bir Mobile Apps arka ucu oluşturma
 
@@ -64,7 +64,7 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 
    Bu işlem, mobil uygulamanıza bağlı olan istemci uygulaması içeren bir projeyi indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 
-3. İndirdiğiniz projeyi ayıklayın ve Visual Studio 2017’de açın.
+3. İndirdiğiniz projeyi çıkarın ve ardından Visual Studio'da açın.
 
    ![Visual Studio'da ayıklanan proje][8]
 

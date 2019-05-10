@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150312"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233694"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -127,9 +127,9 @@ Azure Resource Manager ve Azure kaynak grupları kullandığınızda aşağıdak
 #### <a name="shared-image-gallery-limits"></a>Görüntü Galerisi sınırları paylaşılan
 
 Sınırları, paylaşılan resim galerileri kullanarak kaynakları dağıtmak için abonelik başına vardır:
-- Bölge başına abonelik başına 10 paylaşılan resim galerileri
-- Abonelik, bölge başına 200 görüntü tanımları
-- Abonelik, bölge başına 2000 yansıma sürümü
+- Bölge başına abonelik başına 100 paylaşılan resim galerileri
+- Bölge başına abonelik başına 1.000 görüntü tanımları
+- Abonelik, bölge başına 10.000 yansıma sürümü
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Sanal makine ölçek kümeleri sınırları
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

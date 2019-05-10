@@ -97,6 +97,8 @@
       href: service-fabric-best-practices-infrastructure-as-code.md
     - name: İzleme ve tanılama
       href: service-fabric-best-practices-monitoring.md
+    - name: Uygulama tasarımı
+      href: service-fabric-best-practices-applications.md
     - name: Üretim hazırlığı denetim listesi
       href: service-fabric-production-readiness-checklist.md
 - name: Örnekler
@@ -609,6 +611,8 @@
                   href: service-fabric-cluster-azure-deployment-preparation.md
                 - name: Azure portalda oluşturma
                   href: service-fabric-cluster-creation-via-portal.md
+                - name: Kullanılabilirlik alanlarına bir Azure Service Fabric Kümesi dağıtma
+                  href: service-fabric-cross-availability-zones.md
                 - name: Azure Active Directory kimlik doğrulamasını ayarlama
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Özel küme şablonu oluşturma

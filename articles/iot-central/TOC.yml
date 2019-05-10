@@ -99,6 +99,10 @@
           href: howto-administer.md
         - name: Görüntüleri hazırlama ve karşıya yükleme
           href: howto-prepare-images.md
+        - name: Uygulama panosunu yapılandırma
+          href: howto-configure-homepage.md
+        - name: Uygulama kullanıcı arabirimini özelleştirme
+          href: howto-customize-ui.md
         - name: Azure portalından yönetme
           href: howto-manage-iot-central-from-portal.md
         - name: Azure CLI’den yönetme
@@ -106,9 +110,7 @@
         - name: Azure PowerShell’den yönetme
           href: howto-manage-iot-central-from-powershell.md
         - name: CSP olarak uygulama oluşturma ve yönetme
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: Uygulama panosunu yapılandırma
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: Kişiselleştirme
       items:
         - name: Kişisel panolar oluşturma
