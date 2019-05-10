@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819349"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236958"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -430,6 +430,7 @@ Bu not defterlerini eğitim çeşitli işlem hedefleri olan örnekler için bkz:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md) bir modeli eğitmek için yönetilen işlem hedefi kullanır.
+* Bilgi edinmek için nasıl [hiperparametreleri verimli bir şekilde ayarlamak](how-to-tune-hyperparameters.md) daha iyi modelleri oluşturmak için.
 * Eğitilen bir modelin aldıktan sonra bilgi [nasıl ve nerede modelleri dağıtma](how-to-deploy-and-where.md).
 * Görünüm [RunConfiguration sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK başvurusu.
 * [Azure Machine Learning hizmeti ile Azure sanal ağları kullanın.](how-to-enable-virtual-network.md)

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58a8d3b62fab7614375436846888b78113740ce2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298266"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406610"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD SAML belirteç başvurusu
 
@@ -42,10 +42,10 @@ Azure Active Directory (Azure AD) güvenlik belirteçleri her kimlik doğrulama 
 > | Fazla kullanım göstergesi grupları | `groups:src1` | Uzunluğu sınırlı olmayan belirteç istekleri için (bkz `hasgroups` yukarıda), ancak yine de çok büyük belirteç için bir bağlantı kullanıcı için tam grupları listesine eklenir. SAML için bunun yerine yeni bir talep olarak eklenir `groups` talep. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Kimlik Sağlayıcı | `idp` |Belirtecin öznesinin kimliğini doğrulayan kimlik sağlayıcısını kaydeder. Farklı bir kiracıya veren kullanıcı hesabının bulunduğu sürece bu değeri veren talep değeri için aynıdır. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Belirteç verildiği zaman depolar. Genellikle, belirteç güncellik ölçmek için kullanılır. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
-> |Veren | `iss` |Oluşturur ve belirteci döndürür güvenlik belirteci hizmeti (STS) tanımlar. Azure AD döndüren belirteçlerinde veren sts.windows.net ' dir. Azure AD dizini Kiracı kimliği verenin talep değeri GUID'dir. Kiracı kimliği dizinin değişmez ve güvenilir bir tanımlayıcıdır. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
+> |Sertifikayı Veren | `iss` |Oluşturur ve belirteci döndürür güvenlik belirteci hizmeti (STS) tanımlar. Azure AD döndüren belirteçlerinde veren sts.windows.net ' dir. Azure AD dizini Kiracı kimliği verenin talep değeri GUID'dir. Kiracı kimliği dizinin değişmez ve güvenilir bir tanımlayıcıdır. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 > |Soyadı | `family_name` |Son adını, soyadını veya kullanıcının aile adı Azure AD kullanıcı nesnesinde tanımlanan sağlar. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
 > |Ad | `unique_name` |Belirtecin konusunu tanımlayan ve okunabilir bir değer sunar. Bu değer, bir kiracıda benzersiz olması garanti edilmez ve yalnızca görüntüleme amaçları için kullanılmak üzere tasarlanmıştır. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
-> |Nesne Kimliği | `oid` |Azure AD'de bir nesnenin benzersiz bir tanımlayıcı içerir. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Azure AD'ye sorgulardaki bir nesne tanımlamak için nesne Kimliğini kullanın. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
+> |Nesne kimliği | `oid` |Azure AD'de bir nesnenin benzersiz bir tanımlayıcı içerir. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Azure AD'ye sorgulardaki bir nesne tanımlamak için nesne Kimliğini kullanın. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Roller | `roles` |Konu grubu üyeliği üzerinden doğrudan ve dolaylı olarak verilmiş ve rol tabanlı erişim denetimi uygulamak için kullanılabilir tüm uygulama rolleri temsil eder. Uygulama rolleri aracılığıyla uygulama başına temelinde, tanımlanan `appRoles` uygulama bildiriminin özelliğidir. `value` Rol talebi görüntülenen değeri her uygulama rolü özelliğidir. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 > |Subject | `sub` |Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar tanımlar. Bu değer sabittir ve sonraki atanamaz veya yeniden, bu nedenle bu yetkilendirme denetimleri güvenli bir şekilde gerçekleştirmek için kullanılabilir. Konu her zaman Azure AD sorunlarını belirteçlerinde bulunduğundan, bu değer bir genel amaçlı yetkilendirme sistemde kullanılması önerilir. <br> `SubjectConfirmation` bir talep değil. Bu konu belirtecin nasıl doğrulanır açıklar. `Bearer` Konu belirtecin kendi mülkü tarafından doğrulandığını gösterir. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |Kiracı Kimliği | `tid` |Belirteci veren dizin Kiracı tanımlayan bir sabit, yeniden kullanılabilir olmayan tanımlayıcısı. Bu değer, çok kiracılı bir uygulamadaki kiracıya özgü directory kaynaklarına erişmek için kullanabilirsiniz. Örneğin, bu değer, Graph API'sine çağrıda kiracıda tanımlamak için kullanabilirsiniz. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
@@ -56,12 +56,12 @@ Azure Active Directory (Azure AD) güvenlik belirteçleri her kimlik doğrulama 
 Bu, tipik bir SAML belirtecinin bir örnektir.
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+    <t:RequestSecurityTokenResponse xmlns:t="https://schemas.xmlsoap.org/ws/2005/02/trust">
       <t:Lifetime>
         <wsu:Created xmlns:wsu="https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T05:15:47.060Z</wsu:Created>
         <wsu:Expires xmlns:wsu="https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T06:15:47.060Z</wsu:Expires>
       </t:Lifetime>
-      <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:AppliesTo xmlns:wsp="https://schemas.xmlsoap.org/ws/2004/09/policy">
         <EndpointReference xmlns="https://www.w3.org/2005/08/addressing">
           <Address>https://contoso.onmicrosoft.com/MyWebApp</Address>
         </EndpointReference>
@@ -151,7 +151,7 @@ Bu, tipik bir SAML belirtecinin bir örnektir.
         </SecurityTokenReference>
       </t:RequestedUnattachedReference>
       <t:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</t:TokenType>
-      <t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+      <t:RequestType>https://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
       <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
     </t:RequestSecurityTokenResponse>
 

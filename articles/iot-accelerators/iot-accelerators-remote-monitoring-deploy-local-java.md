@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147458"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412716"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Intellij dağıtma
 
@@ -27,7 +27,7 @@ Uzaktan izleme çözüm Hızlandırıcısını Docker'da yerel makinenizde çal�
 
 Uzaktan izleme çözüm Hızlandırıcısını tarafından kullanılan Azure Hizmetleri dağıtmak için bir etkin Azure aboneliği gerekir.
 
-Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Makine Kurulumu
 
@@ -100,9 +100,9 @@ Aşağıdaki adımları Uzaktan izleme mikro hizmetler Intellij çalıştırma i
     * Web hizmeti (services\iothub Yöneticisi)
     * Web hizmeti (services\storage bağdaştırıcısı)
 
-Örneğin aşağıdaki görüntüde, bir hizmeti için yapılandırma ekleme gösterir:
+Örneğin, aşağıdaki görüntüde bir hizmeti yapılandırması ekleniyor:
 
-[![Yapılandırması Ekle](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Yapılandırması Ekle](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>Bileşik yapılandırması oluştur
@@ -111,14 +111,11 @@ Aşağıdaki adımları Uzaktan izleme mikro hizmetler Intellij çalıştırma i
 1. Girin **adı** ve **sbt görev ekleyin**
 1. Tıklayın **Uygula > Tamam** seçimlerinizi kaydetmek için.
 
-Örnek olarak aşağıdaki görüntüde, çoklu yapılandırma için tüm sbt görev eklemeyi gösterir:
+Örnek olarak, tüm sbt görevler için tek bir yapılandırması ekleme, aşağıdaki resimde gösterilmektedir:
 
+[![Ekle-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Ekle-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Tıklayın **çalıştırma** oluşturun ve web hizmetleri yerel makinede çalıştırın.
+Tıklayın **çalıştırma** oluşturun ve web hizmetleri yerel makinede çalıştırın.
 
 Her web hizmeti, bir komut istemi'ni ve web tarayıcı penceresi açılır. Komut isteminde çalışan hizmetin çıktısını görürsünüz ve tarayıcının durumunu izlemenize olanak tanır. Komut istemleri veya web sayfaları kapatmayın, bu eylem web hizmetini durdurur.
 

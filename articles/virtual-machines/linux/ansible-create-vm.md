@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 4bf7d43b682a2a42d9909f9cd33aa9542a1a9330
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/30/2019
+ms.openlocfilehash: ce99b537dd5958c2bec43759c58a9c182dd05142
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711632"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237043"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Hızlı Başlangıç: Ansible'ı kullanarak Azure'da Linux sanal makineleri yapılandırma
 
@@ -21,10 +21,10 @@ Ansible, bildirim temelli bir dil kullanarak Ansible *playbook'ları* aracılı�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Ansible için kaynaklarınızın dağıtıldığı bir kaynak grubu gerekir. Aşağıdaki örnek Ansible playbook bölümünde `eastus` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturulur:
 
@@ -35,7 +35,7 @@ Ansible için kaynaklarınızın dağıtıldığı bir kaynak grubu gerekir. Aş
     location: eastus
 ```
 
-## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+## <a name="create-a-virtual-network"></a>Sanal ağ oluştur
 
 Azure sanal makinesi oluştururken bir [sanal ağ](/azure/virtual-network/virtual-networks-overview) oluşturmanız ya da mevcut bir sanal ağı kullanmanız gerekir. Sanal ağda sanal makinelerinize nasıl erişilmesini istediğinize de karar vermeniz gerekir. Aşağıdaki örnek Ansible playbook bölümünde `10.0.0.0/16` adres alanında `myVnet` adlı bir sanal ağ oluşturulur:
 
@@ -115,7 +115,7 @@ Aşağıdaki bölümde örnek Ansible playbook bölümünde adlı bir sanal ağ 
     security_group: myNetworkSecurityGroup
 ```
 
-## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+## <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 
 Son adım, bu makalenin önceki bölümlerinde oluşturduğunuz tüm kaynakları kullanan bir sanal makine oluşturmaktır. 
 
