@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521280"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236430"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Öğretici: Bir utterance tam metni eşleştirilen veri alma
 
@@ -94,7 +94,7 @@ Birincil _kurallı_, her öğe için bölüm adı adı. Eş Anlamlılar her kura
 |Geliştirme işlemleri|DevOps<br>4949|
 |Mühendislik|eng<br>altyapısındaki<br>4567|
 |Finans|Bul<br>2020|
-|Bilgi teknolojisi|BT<br>2323|
+|Bilgi teknolojisi|IT<br>2323|
 |İçinde satış|isale<br>insale<br>1414|
 |Araştırma ve geliştirme|AR -GE<br>1234|
 
@@ -108,11 +108,7 @@ Birincil _kurallı_, her öğe için bölüm adı adı. Eş Anlamlılar her kura
 
 1. Departman varlık sayfasında girin `Accounting` yeni değeri.
 
-    [![Değer girme ekran görüntüsü](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "değeri girme ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Eş Anlamlılar için önceki tablosundan eş anlamlı sözcükler ekleyin.
-
-    [![Eş Anlamlılar girme ekran görüntüsü](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "eş anlamlılar girme ekran görüntüsü")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Kurallı tüm adlarını ve bunların eş anlamlılar eklemeye devam edebilirsiniz. 
 

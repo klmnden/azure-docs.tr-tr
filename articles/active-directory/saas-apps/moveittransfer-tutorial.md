@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a491cd303cccd94cbb489654890d55c03912a63
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259414"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Öğretici: Azure Active Directory tümleştirmesiyle Moveıt aktarımı - Azure AD tümleştirmesi
 
@@ -174,7 +174,7 @@ Azure AD çoklu oturum açma Moveıt aktarımı - Azure AD Tümleştirmesi ile y
     
     b. Seçin **diğer** olarak **tam adı** ve **öznitelik adı** textbox değeri koyun: `http://schemas.microsoft.com/identity/claims/displayname`.
     
-    c. Seçin **diğer** olarak **e-posta** ve **öznitelik adı** textbox değeri koyun: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Seçin **diğer** olarak **e-posta** ve **öznitelik adı** textbox değeri koyun: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
     d. Seçin **Evet** olarak **oturum açma hesabı otomatik olarak oluşturma**.
     

@@ -140,6 +140,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Dosyaları - Statik
           href: azure-files-volume.md
+        - name: NFS Sunucusu - Statik
+          href: azure-nfs-volume.md
     - name: Ağ yapılandırması
       items:
         - name: Sanal ağ oluşturma veya mevcut bir sanal ağı kullanma

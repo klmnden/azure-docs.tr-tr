@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026280"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518624"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Hızlı Başlangıç: Dijital Mürekkep mürekkep tanıyıcı REST API ve Java ile tanıması
 
@@ -30,13 +30,13 @@ Bu Hızlı Başlangıç için kaynak kodu bulunabilir [GitHub](https://go.micros
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Java&trade; geliştirme Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) veya üzeri.
+- [Java&trade; geliştirme Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) veya üzeri.
 
 - Bu kitaplıklar Maven deposundan içeri aktarma
     - [Java'da JSON](https://mvnrepository.com/artifact/org.json/json) paket
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) paket
 
-- Bu hızlı başlangıç örnek mürekkep vuruşu verilerini bulunabilir [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- Bu hızlı başlangıç örnek mürekkep vuruşu verilerini bulunabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Uygulamayı çalıştırmak ve yanıtı görüntüleyin
 
-Uygulamayı çalıştırın. Başarılı bir yanıt JSON biçiminde döndürülür. Üzerinde JSON yanıt bulabilirsiniz [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Uygulamayı çalıştırın. Başarılı bir yanıt JSON biçiminde döndürülür. Üzerinde JSON yanıt bulabilirsiniz [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -143,8 +143,8 @@ Uygulamayı çalıştırın. Başarılı bir yanıt JSON biçiminde döndürül�
 
 
 Mürekkep tanıma API'si dijital mürekkep bir uygulamada nasıl çalıştığını görmek için Github'da aşağıdaki örnek uygulamaları göz atın:
-* [C#ve evrensel Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#ve Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [C# Evrensel Windows Platformu (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [JavaScript web tarayıcı uygulaması](https://go.microsoft.com/fwlink/?linkid=2089908)       
 * [Java ve Android mobil uygulaması](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Swift ve iOS mobil uygulama](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [Swift ve iOS mobil uygulaması](https://go.microsoft.com/fwlink/?linkid=2089805)

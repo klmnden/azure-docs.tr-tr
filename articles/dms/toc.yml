@@ -54,6 +54,8 @@
       href: resource-network-topologies.md
     - name: Bilinen sorunlar
       items:
+        - name: Genel sorunların ve hataların çözümü
+          href: known-issues-troubleshooting-dms.md
         - name: Bilinen Sorunlar - Azure SQL DB’ye çevrimiçi geçiş
           href: known-issues-azure-sql-online.md
         - name: Bilinen Sorunlar - MySQL için Azure DB’ye çevrimiçi geçiş

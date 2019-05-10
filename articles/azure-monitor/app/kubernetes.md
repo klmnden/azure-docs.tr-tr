@@ -2,18 +2,18 @@
 title: Azure İzleyici - Kubernetes için barındırılan uygulamaları izlemeyi sıfır izleme uygulama | Microsoft Docs
 description: Barındırılan Kubernetes uygulamaları için izlemeyi sıfır izleme uygulaması tarafından Kubernetes kümenizde çalıştırılıyor pod'ların gelen ve gelen ve giden istekleri ilgili Application Insights telemetri toplamak izin veren izleme çözümüdür hizmeti kafes teknolojisini kullanan Istio çağrılır.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149888"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408221"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Sıfır izleme uygulama Kubernetes için izleme barındırılan uygulamalar
 
@@ -134,7 +134,7 @@ Aşağıdaki sorun giderme akış telemetri Azure portalında görünmüyor kull
 
 Bu projede ilerlemesi için en son bilgi için ziyaret [Istio Mixer projenin GitHub için Application Insights bağdaştırıcısı](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
-## <a name="uninstall"></a>Kaldırma
+## <a name="uninstall"></a>Kaldır
 
 Ürünü için kaldırma *her* YAML dosyası bulundu altında *src/kubernetes/* çalıştırın:
 

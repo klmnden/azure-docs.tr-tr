@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724410"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236326"
 ---
 # <a name="manage-your-application-preferences"></a>Uygulama tercihlerinizi yönetin
 
@@ -23,13 +23,16 @@ IOT Central, uygulamalarınızı gereksinimlerinize uyacak şekilde özelleştir
 
 ## <a name="changing-language"></a>Dil değiştirme
 
-IOT Central, birden çok dil desteklenir. Tercih ettiğiniz dili kullanarak geçiş yapabilirsiniz **dil Seçici** üst gezinti çubuğunda ayarlar simgesine. Dilinizi değiştirdikten sonra IOT Central seçiminizi hatırlar ve tüm uygulamalarınız arasında geçerlidir. Pano görüntüleri yerelleştirilmiş olmayan uygulama içinde bu özelleştirmeyi unutmayın.
+IOT Central, birden çok dil desteklenir. Tercih ettiğiniz dili kullanarak geçiş yapabilirsiniz **dil Seçici** üst gezinti çubuğunda ayarlar simgesine. Dilinizi değiştirdikten sonra IOT Central seçiminizi hatırlar ve tüm uygulamalarınız arasında geçerlidir. Pano görüntüleri yerelleştirilmiş olmayan uygulama içinde özelleştirme.
 
 ## <a name="changing-theme"></a>Tema değiştiriliyor
 
-Koyu tema hem de açık tema için destek sunuyoruz. Açık tema varsayılan olsa da, üst gezinti çubuğunda ayarlar simgesine seçerek değiştirebilirsiniz.
+Koyu tema hem de açık tema için destek sunuyoruz. Açık tema varsayılan olsa da, üst gezinti çubuğunda ayarlar simgesine seçerek temayı değiştirebilirsiniz.
 
 ![IOT Central tema Seçici](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> Açık ve koyu temalar arasında seçim yapma olanağı, uygulama için özel bir tema yöneticinize yapılandırdıysa kullanılamaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

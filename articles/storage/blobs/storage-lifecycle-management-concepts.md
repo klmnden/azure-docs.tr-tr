@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148311"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409969"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 
@@ -87,7 +87,7 @@ Tanımlayabilir ve yaşam döngüsü yönetimi, ARM şablonları kullanarak Azur
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -150,13 +150,13 @@ Yaşam döngüsü yönetim ilkesi kuralları bir JSON belgesinde koleksiyonudur:
 
 | Parametre adı | Parametre türü | Notlar |
 |----------------|----------------|-------|
-| rules          | Kural nesnelerinin bir dizisi | İlke en az bir kural gerekir. İlke, en fazla 100 kuralları tanımlayabilirsiniz.|
+| kurallar          | Kural nesnelerinin bir dizisi | İlke en az bir kural gerekir. İlke, en fazla 100 kuralları tanımlayabilirsiniz.|
 
 Her bir kural ilke içinde çeşitli parametrelere sahiptir:
 
 | Parametre adı | Parametre türü | Notlar | Gerekli |
 |----------------|----------------|-------|----------|
-| ad           | String |Kural adı, alfasayısal en fazla 256 karakter içerebilir. Kural adı büyük/küçük harf duyarlıdır.  Bir ilke içinde benzersiz olmalıdır. | True |
+| name           | String |Kural adı, alfasayısal en fazla 256 karakter içerebilir. Kural adı büyük/küçük harf duyarlıdır.  Bir ilke içinde benzersiz olmalıdır. | True |
 | enabled | Boolean | Bir kural geçici olarak izin vermek için isteğe bağlı bir boolean devre dışı. Bunu ayarlanmamışsa varsayılan değer True'dur. | False | 
 | type           | Bir sabit listesi değeri | Geçerli geçerli tür `Lifecycle`. | True |
 | tanım     | Yaşam döngüsü kuralı tanımlayan bir nesne | Her tanım, bir filtre kümesi ve bir eylem kümesinden oluşur. | True |
@@ -219,11 +219,11 @@ Geçerli filtreler aşağıdakileri içerir:
 
 Yaşam döngüsü yönetimi, katmanlama ve silme BLOB ve blob anlık görüntüleri silme işlemi destekler. BLOB'ları veya blob anlık görüntüleri, her kural için en az bir eylem tanımlayın.
 
-| Eylem        | Temel Blob                                   | Anlık Görüntü      |
+| Eylem        | Temel Blob                                   | Anlık görüntü      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Sık erişimli katmanı şu anda bloblarını destekler         | Desteklenmiyor |
 | tierToArchive | Seyrek veya sık erişimli katmanı şu anda bloblarını destekler | Desteklenmiyor |
-| delete        | Desteklenen                                   | Desteklenen     |
+| sil        | Desteklenen                                   | Desteklenen     |
 
 >[!NOTE] 
 >Aynı bloba birden fazla eylem tanımlarsanız, yaşam döngüsü yönetimi için blob ucuz eylemini uygular. Örneğin, eylem `delete` eyleminden daha ucuz `tierToArchive`. Eylem `tierToArchive` eyleminden daha ucuz `tierToCool`.

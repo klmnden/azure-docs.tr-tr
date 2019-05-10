@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716705"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236383"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bir ortam için veri erişim izni verme
 
@@ -34,11 +34,11 @@ Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin
 
 1. Seçin **veri erişimi ilkeleri**ve ardından **+ Ekle**.
 
-    ![Veri erişim bir][1]
+    [![Veri erişim bir](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. Seçin **Kullanıcı Seç**. Eklemek istediğiniz kullanıcı bulmak kullanıcı adı veya e-posta adresi arayın. Tıklayın **seçin** Seçimi onaylamak için.
 
-    ![Veri erişim iki][2]
+    [![Veri erişim iki](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. Seçin **rol seçme**. Kullanıcı için uygun erişim rolü seçin:
 
@@ -48,15 +48,15 @@ Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin
 
    Seçin **Tamam** rolü seçiminizi onaylamak için.
 
-    ![Veri erişim üç][3]
+    [![Veri erişim üç](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. Seçin **Tamam** üzerinde **kullanıcı rolü Seç** sayfası.
 
-    ![Veri erişim dört][4]
+    [![Veri erişim dört](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. Onaylayın **veri erişimi ilkeleri** sayfası, kullanıcıları ve her kullanıcı için rolleri listeler.
 
-    ![Veri erişim beş][5]
+    [![Veri erişim beş](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>Başka bir AAD kiracısı Konuk erişimi sağlar
 
@@ -66,19 +66,19 @@ Başka bir kiracıdaki Azure AD kullanıcısı için bir zaman serisi görüşle
 
 1. Seçin **veri erişimi ilkeleri**ve ardından **+ davet**.
 
-    ![Veri erişim altı][6]
+    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. Davet etmek istediğiniz kullanıcı için e-posta adresi girin. Bu e-posta adresi, Azure AD ile ilişkilendirilmelidir. İsteğe bağlı olarak davete kişisel bir ileti içerebilir.
 
-    ![Veri erişim yedi][7]
+    [![Veri erişim yedi](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. Ekranda görünen onay Kabarcık arayın.
 
-    ![Veri erişim sekiz][8]
+    [![Veri erişim sekiz](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. Seçin **Kullanıcı Seç**. Konuk kullanıcı eklemek istediğiniz kullanıcı bulmak için davet e-posta adresini arayın. Tıklayın **seçin** Seçimi onaylamak için.
 
-    ![Veri erişim dokuz][9]
+    [![Veri erişim dokuz](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. Seçin **rol seçme**. Konuk kullanıcı için uygun erişim rolü seçin:
 
@@ -88,29 +88,29 @@ Başka bir kiracıdaki Azure AD kullanıcısı için bir zaman serisi görüşle
 
    Seçin **Tamam** rolü seçiminizi onaylamak için.
 
-    ![Veri erişim on][10]
+    [![Veri erişim on](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. Seçin **Tamam** üzerinde **kullanıcı rolü Seç** sayfası.
 
 1. Onaylayın **veri erişimi ilkeleri** sayfasında, Konuk kullanıcı ve her bir Konuk kullanıcı için rolleri listeler.
 
-    ![Data-access-eleven][11]
+    [![Veri-erişim-on](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. Artık Konuk kullanıcı için bunları davet Azure kiracısında bulunan bir ortama erişmek için adımları izlemeniz gerekir. İlk olarak, bunlar onlara gönderdiğiniz daveti kabul edin. Bu davet, 5. adımda kullandığınız e-posta adresine e-posta ile gönderilir. Seçmeleri **Başlarken** kabul etmek için.
 
-    ![Veri erişim on][12]
+    [![Veri erişim on](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. Ardından, Konuk kullanıcı, yöneticinin kuruluşla ilişkili izinleri kabul eder.
 
-    ![Veri-erişim-On üç][13]
+    [![Veri-erişim-On üç](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. Konuk kullanıcı oturum açtıktan sonra onları davet etmek için kullanılan e-posta adresine ve daveti kabul, bunlar için insights.azure.com gidin. Sonra e-posta adresi yanındaki avatar ekranın sağ üst köşedeki seçerler.
 
-    ![Veri-erişim-on dört][14]
+    [![Veri-erişim-on dört](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. Yanında, Azure directory aşağı açılan menüden Kiracı Konuk kullanıcı seçer. Bu Kiracı için bunları davet olur.
 
-    ![Veri erişim beş][15]
+    [![Veri erişim beş](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 Kiracınıza Konuk kullanıcı seçtikten sonra bunları erişim sağladığınız zaman serisi görüşleri ortamına görürler. Artık bunları ile sağlanan rol ile ilişkili olan tüm özellikleri sahip oldukları **5. adım**.
 
@@ -121,20 +121,3 @@ Kiracınıza Konuk kullanıcı seçtikten sonra bunları erişim sağladığın�
 * Gönderme [olayları için olay kaynağı](./time-series-insights-send-events.md).
 
 * Görünüm [zaman serisi öngörüleri Önizleme Gezgini ortamınızda](./time-series-insights-update-explorer.md).
-
-<!-- Images -->
-[1]: media/data-access/data-access-one.png
-[2]: media/data-access/data-access-two.png
-[3]: media/data-access/data-access-three.png
-[4]: media/data-access/data-access-four.png
-[5]: media/data-access/data-access-five.png
-[6]: media/data-access/data-access-six.png
-[7]: media/data-access/data-access-seven.png
-[8]: media/data-access/data-access-eight.png
-[9]: media/data-access/data-access-nine.png
-[10]: media/data-access/data-access-ten.png
-[11]: media/data-access/data-access-eleven.png
-[12]: media/data-access/data-access-twelve.png
-[13]: media/data-access/data-access-thirteen.png
-[14]: media/data-access/data-access-fourteen.png
-[15]: media/data-access/data-access-fifteen.png

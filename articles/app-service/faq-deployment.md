@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270056"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413873"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure Web Apps'te dağıtım hakkında SSS
 
@@ -47,7 +47,7 @@ Bu hatayı gidermek için yükseltme [en son SDK'sı](https://azure.microsoft.co
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Bir ASP.NET uygulamasını Visual Studio'dan App Service'e nasıl dağıtabilirim?
 <a id="deployasp"></a>
 
-Öğreticiyi [beş dakika içinde Azure'da ilk ASP.NET web uygulamanızı oluşturma](app-service-web-get-started-dotnet.md) Visual Studio 2017'yi kullanarak bir ASP.NET web uygulamasını App Service'te bir web uygulamasına dağıtma işlemi gösterilmektedir.
+Öğreticiyi [beş dakika içinde Azure'da ilk ASP.NET web uygulamanızı oluşturma](app-service-web-get-started-dotnet.md) Visual Studio kullanarak bir ASP.NET web uygulamasını App Service'te bir web uygulamasına dağıtma işlemi gösterilmektedir.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Dağıtım kimlik bilgileri farklı türleri nelerdir?
 

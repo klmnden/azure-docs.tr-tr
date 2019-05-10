@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999000"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408898"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>Öğretici: Azure ile tümleştirilmesini yönetilen kimlikleri
+# <a name="integrate-with-azure-managed-identities"></a>Azure ile tümleştirilmesini yönetilen kimlikleri
 
 Azure Active Directory [yönetilen kimlikleri](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) bulut uygulamanız için gizli dizileri Yönetimi basitleştirin. Yönetilen bir kimlikle Azure bilgi işlem hizmetinin üzerinde çalıştığı için oluşturulan hizmet sorumlusu kullanmak kodunuzu oluşturan ayarlayabilirsiniz. Azure anahtar kasası veya bir yerel bağlantı dizesi içinde depolanan ayrı bir kimlik bilgisi yerine yönetilen bir kimlik kullanın. 
 
@@ -61,7 +61,7 @@ Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama ol
 
 1. İçinde [Azure portalında](https://aka.ms/azconfig/portal)seçin **tüm kaynakları** ve hızlı başlangıç bölümünde oluşturduğunuz uygulama yapılandırma deposu seçin.
 
-2. **Erişim denetimi (IAM)** öğesini seçin.
+2. Seçin **erişim denetimi (IAM)**.
 
 3. Üzerinde **denetleyin erişim** sekmesinde **Ekle** içinde **rol ataması Ekle** UI kartı.
 

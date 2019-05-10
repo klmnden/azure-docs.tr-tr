@@ -70,13 +70,13 @@ sections:
         style: unordered
         items:
           - html: '(Önizleme) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Yapılandırma saat dilimi</a> örnek oluşturma sırasında.'
+          - html: 'Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.'
           - html: 'Coğrafi geri yükleme işlevi etkinleştirir, <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">veritabanınızı PowerShell kullanarak başka bir veri merkezine geri</a>.'
           - html: '(Önizleme) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Bırakılan PowerShell kullanarak veritabanlarını yeniden oluşturma</a>'
           - html: İle korumalı yönetilen örnekler <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">yerleşik güvenlik duvarı</a>.
           - html: '(Önizleme) <a href="https://aka.ms/managed-instance-tde-byok">Kendi şifreleme anahtarlarınızı Getir</a> geçirme saydam veri şifrelemesi (TDE) zaten etkinleştirilmiş olan şirket içi veritabanlarını sırada.'
           - html: '(Önizleme) Kullanım <a href="https://aka.ms/managed-instance-failover-groups">coğrafi olarak dağıtılmış bir yük devretme grupları</a> başka bir bölgede örneğinin bir kopyasını tutmak ve verilerinizi bile bölgesel bir olağanüstü durum senaryosunda kullanılabilir olmasını sağlamak için.'
           - html: '<a href="https://aka.ms/managed-instance-configurable-backup-retention">Yedek saklama 35 gün öncesine yapılandırma</a> -belirli bir noktaya geri yükleme. Unutmayın, kullanabilmeniz için uzun süreli yedek saklama (en fazla 10 yıl) hala etkinleştirilmedi <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">yalnızca kopya yedekleri</a> alternatif olarak.'
-          - html: '(Önizleme) Örneği oluşturma <a href="https://aka.ms/managed-instance-collation">tercih ettiğiniz sunucu düzeyinde harmanlama</a>.'
           - html: '(Önizleme) Oluşturma <a href="https://aka.ms/managed-instance-aadlogins">örnek düzeyi Azure AD sunucu sorumlusu (oturum açma bilgileri)</a> kullanarak <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">oluşturma oturum açma gelen dış sağlayıcı</a> .'
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
@@ -90,7 +90,7 @@ sections:
             title: Azure portal
           - image:
               src: media/index/cli.svg
-            title: Azure CLI
+            title: Azure CLI'si
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell
@@ -122,11 +122,29 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: '/powershell/module/az.sql/restore-azsqlinstancedatabase#examples'
               - href: null
+          - title: Veritabanı başka bir örneğine geri yükleyin.
+            values:
+              - href: null
+              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/'
+              - href: 'https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?view=azps-2.0.0#examples'
+              - href: null
           - title: Bırakılan veritabanı geri yükleme
             values:
               - href: null
               - href: null
               - href: 'https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285'
+              - href: null
+          - title: Coğrafi geri yükleme veritabanı
+            values:
+              - href: null
+              - href: null
+              - href: 'https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa'
+              - href: null
+          - title: Genel IP uç noktası ayarlama
+            values:
+              - href: 'sql-database-managed-instance-public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal'
+              - href: null
+              - href: 'sql-database-managed-instance-public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell'
               - href: null
   - title: Adım adım eğitim ve öğrenim malzemelerini
     items:
@@ -139,7 +157,7 @@ sections:
           - html: 'Hakkında bilgi edinin <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">donanım özellikleri ve sınırlamaları</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL dil farklılıkları</a>, ve <a href="/azure/sql-database/sql-database-managed-instance-create-manage">yönetilen örnekTransact-SQL,PowerShell,AzureCLIyapılandırmaAPI''si<a/>.'
           - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Yapılandırma</a> Azure Vnet''inize yönetilen örnek dağıtılacağı.'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Doğrulama</a> yönetilen örnekler, mevcut Azure sanal ağı dağıtmak için kullanılabilir.'
-          - html: 'Örneği kullanarak bağlanmak <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure sanal makine</a> veya <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">noktadan siteye bağlantı</a>, veya <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">uygulamaları</a>.'
+          - html: 'Örneği kullanarak bağlanmak <a href="sql-database-managed-instance-public-endpoint-securely">genel IP uç noktası</a>, <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure sanal makine</a> veya <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">noktadan siteye bağlantı</a>, veya <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">uygulamaları</a>.'
           - html: 'Veritabanınızı kullanılarak geçirilebileceğini doğrulayın <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Yardımcısı</a> veya <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">veritabanı deneme Yardımcısı</a>.'
           - html: Yönetilen örnek kullanarak veritabanlarınızı Getir <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">yerel geri yükleme</a> veya <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration hizmeti</a>.
           - html: 'SSIS paketlerinizi taşıma <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tablolu modellere <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, ve SSRS raporları için <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Powerbı Premium</a>.'

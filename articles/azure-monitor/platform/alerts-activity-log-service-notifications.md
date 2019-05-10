@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776921"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405689"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -36,6 +36,10 @@ Kimin uyarı göndermesi gerektiğini de yapılandırabilirsiniz:
 Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../../azure-monitor/platform/action-groups.md).
 
 Azure Resource Manager şablonları kullanarak hizmet durumu bildirimi uyarılarını yapılandırma hakkında daha fazla bilgi için bkz: [Resource Manager şablonları](alerts-activity-log.md).
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>İlk Azure hizmet durumu uyarısı ayarlama bir video izleyin
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>Azure portalını kullanarak uyarı ve yeni eylem grubu
 1. İçinde [portalı](https://portal.azure.com)seçin **hizmet durumu**.
@@ -195,6 +199,8 @@ Bir uyarı oluşturduktan sonra görünür **uyarılar** bölümünü **İzleyic
 * Geçici olarak durdurmak veya uyarı bildirimleri almaya devam etmek istiyorsanız, etkinleştirmek veya devre dışı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+- Hakkında bilgi edinin [Azure hizmet durumu uyarıları ayarlama için en iyi yöntemler](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Bilgi edinmek için nasıl [Kurulum mobil anında iletme bildirimleri için Azure hizmet durumu](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası bildirimleri yapılandırma](../../service-health/service-health-alert-webhook-guide.md).
 - Hakkında bilgi edinin [hizmet durumu bildirimlerini](../../azure-monitor/platform/service-notifications.md).
 - Hakkında bilgi edinin [bildirim hız sınırlaması](../../azure-monitor/platform/alerts-rate-limiting.md).

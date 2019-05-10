@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733309"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409277"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Bulut ve bölgelerde hangi Azure Media Services v3 var.
 
@@ -26,19 +26,16 @@ Azure Media Services v3, Azure Resource Manager bildiriminde genel Azure, Azure 
 
 | Özellik|Küresel Azure bölgeleri | Azure Kamu|Azure Almanya|Azure Çin 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Kullanılabilir | Kullanılamaz | Kullanılamaz | Kullanılamaz |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Kullanılamaz | Kullanılamaz | Kullanılamaz |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Kullanılamaz | Kullanılamaz | Kullanılamaz |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Kullanılabilir | Yok | Yok | Yok |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Yok | Yok | Yok |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Kullanılabilir | Yok | Yok | Yok |
 | [StandardEncoderPreset](encoding-concept.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
 | [LiveEvents](live-streaming-overview.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
 | [Akış](streaming-endpoint-concept.md) | Kullanılabilir | Kullanılabilir | Kullanılabilir | Kullanılabilir |
 
 ## <a name="regionsgeographieslocations"></a>Bölge/coğrafyalar/konumları
 
-* [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Ürün bölgeye göre](https://azure.microsoft.com/global-infrastructure/services/)
-* [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Azure konumları](https://azure.microsoft.com/global-infrastructure/locations/)
+[Azure Media Services hizmeti dağıtıldığı bölgeler](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Bölge kodu adı 
 
@@ -98,6 +95,12 @@ Aşağıdaki uç noktaların Media Services hesapları için farklı Ulusal Azur
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Kimlik Doğrulaması | `https://login.chinacloudapi.cn/` |
 | Belirteç hedef kitlesi |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+* [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure konumları](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

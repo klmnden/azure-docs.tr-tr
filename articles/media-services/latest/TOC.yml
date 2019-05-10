@@ -24,18 +24,13 @@
     - name: Canlı akış - .NET
       href: stream-live-tutorial-with-api.md
     - name: Videonuzu analiz etme - .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
     - name: AES-128 ile dinamik olarak şifreleme - .NET
       href: protect-with-aes128.md
     - name: DRM ile dinamik olarak şifreleme - .NET
+      displayName: 'PlayReady, Widevine'
       href: protect-with-drm.md
-- name: Örnekler
-  items:
-    - name: Azure kod örnekleri
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Kavramlar
   href: concepts-overview.md
   items:
@@ -52,6 +47,7 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Dönüşümler ve İşler
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: Media Encoder Standard biçimleri
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -75,7 +71,7 @@
         - name: Paketleme
           items:
             - name: Dinamik paketleme
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: Dinamik bildirimler
               href: filters-dynamic-manifest-overview.md
@@ -84,7 +80,7 @@
         - name: İçerik koruma
           items:
             - name: Akış protokolleri ve şifreleme türleri
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: Erişim denetimiyle çoklu DRM sistemi
               href: design-multi-drm-system-with-access-control.md
@@ -97,7 +93,7 @@
                 - name: FairPlay lisans gereksinimleri
                   href: fairplay-license-overview.md
         - name: Akış Uç Noktaları/Kaynak
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Akış Bulucuları
           displayName: URLs
@@ -106,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: İçerik Anahtar İlkeleri
           href: content-key-policy-concept.md
-        - name: Kaynak hata kodları
-          href: origin-error-codes.md
+        - name: Akış Uç Noktası hata kodları
+          href: streaming-endpoint-error-codes.md
     - name: Canlı akış
       items:
         - name: Genel Bakış
@@ -141,6 +137,7 @@
           href: use-azure-media-player.md
     - name: v3 API'leriyle geliştirme
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: 'Sayfa, filtre, düzen varlıkları'
           href: entities-overview.md
@@ -148,8 +145,8 @@
           href: rbac-overview.md
         - name: Hata kodları
           items:
-            - name: Kaynak hata kodları
-              href: origin-error-codes.md
+            - name: Akış Uç Noktası hata kodları
+              href: streaming-endpoint-error-codes.md
             - name: İş hata kodları
               href: job-error-codes.md
     - name: v2’den v3’e geçiş kılavuzu
@@ -160,10 +157,14 @@
       items:
         - name: Hesap oluşturma - CLI
           href: create-account-cli-how-to.md
+        - name: Hesap kimlik bilgilerini sıfırlama - CLI
+          href: cli-reset-account-credentials.md
         - name: API'lere erişim - CLI
           href: access-api-cli-how-to.md
         - name: Medya Ayrılmış Birimlerini Ölçeklendirme - CLI
           href: media-reserved-units-cli-how-to.md
+        - name: Varlık oluşturma - CLI
+          href: cli-create-asset.md
         - name: REST ile geliştirme
           items:
             - name: Postman ile bağlama
@@ -190,6 +191,14 @@
         - name: Yerel bir dosyadan - REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: Yerel bir dosyadan - CLI
+          href: cli-upload-file-asset.md
+    - name: Dönüşüm ve iş oluşturma
+      items:
+        - name: Dönüşüm oluşturma - CLI
+          href: cli-create-transform.md
+        - name: İş oluşturma - CLI
+          href: cli-create-jobs.md
     - name: İçerik kodlama
       items:
         - name: İş girişi olarak HTTPS - .NET
@@ -230,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: CLI ile
           href: filters-dynamic-manifest-cli-howto.md
+    - name: İçerik teslim etme
+      items:
+        - name: Varlık yayımlama - CLI
+          href: cli-publish-asset.md
 - name: Başvuru
   items:
     - name: OpenAPI Belirtimi (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: Azure CLI
@@ -254,8 +268,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Hata kodları
       items:
-        - name: Kaynak hata kodları
-          href: origin-error-codes.md
+        - name: Akış Uç Noktası hata kodları
+          href: streaming-endpoint-error-codes.md
         - name: İş hata kodları
           href: job-error-codes.md
 - name: Kaynaklar
@@ -285,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Azure Media Services Gezgini
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: Sürüm notları
       href: release-notes.md

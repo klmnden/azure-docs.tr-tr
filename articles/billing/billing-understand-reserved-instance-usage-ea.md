@@ -1,90 +1,155 @@
 ---
-title: Kuruluş için Azure ayırmaları kullanımını anlama | Microsoft Docs
+title: Kurumsal anlaşmalar için Azure ayırmaları kullanımını anlama
 description: Kurumsal kayıt için Azure ayırma nasıl uygulanacağını anlamak için kullanım okumayı öğrenin.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+author: bandersmsft
+manager: yashar
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370705"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415779"
 ---
-# <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Kurumsal kayıt için Azure ayırma kullanımını anlama
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kurumsal Anlaşma ayırma maliyetleri ve kullanım bilgilerini alma
 
-Kullanım **Reservationıd** gelen [ayırmaları sayfa](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) ve kullanım dosyasından [EA portal](https://ea.azure.com) ayırma kullanımınızı değerlendirilecek. Kullanımı Özet bölümünde ayırma kullanım atabilirsiniz [EA portal](https://ea.azure.com).
+Maliyet ayırma ve kullanım verileri, Kurumsal Anlaşma müşterileri için Azure portalı ve REST API'ler kullanılabilir. Bu makale size yardımcı olur:
 
-Bir Kullandıkça Öde faturalandırma bağlamında rezervasyon satın aldıysanız, bkz. [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlayın.](billing-understand-reserved-instance-usage.md)
+- Rezervasyon satın alma veri alma
+- Ayırma eksik kullanım verileri alın
+- Ayırma maliyetleri İtfası
+- Geri ödeme ayırma kullanımı
+- Ayırma tasarruf hesaplayın
 
-## <a name="usage-for-reserved-virtual-machines-instances"></a>Kullanım için ayrılmış sanal makine örnekleri
+Market ücretlerini, Kullanım verilerinin birleştirilir. Tek bir veri kaynağı gerçekleştirilen birinci taraf kullanım ve Market kullanım ücretleri görebilirsiniz.
 
-İçin aşağıdaki bölümlerde, Doğu ABD bölgesinde ve aşağıdaki tabloda, ayırma bilgileri görünür işler için standart_d1_v2 Windows VM çalıştığını varsayalım:
+## <a name="reservation-charges-in-azure-usage-data"></a>Azure kullanım verilerindeki rezervasyon ücreti
 
-| Alan | Değer |
-|---| --- |
-|Reservationıd |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
-|Miktar |1|
-|SKU | Standard_D1|
-|Bölge | eastus |
+Verileri iki ayrı veri kümeleri halinde ayrılmıştır: _Gerçek maliyet_ ve _amorti edilmiş maliyet_. Bu iki veri kümesi farkı:
 
-Dağıtılan VM ayırma öznitelikleri ile eşleştiği için sanal makinenin donanım bölümü ele alınmıştır. Hangi Windows yazılım rezervasyon kapsamında değildir görmek için bkz [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md).
+**Gerçek maliyet** -ile aylık faturanızı mutabık kılmak için veri sağlar. Bu veriler, rezervasyon satın almak maliyet vardır. Ayırma indirimi alınan kullanım için sıfır EffectivePrice var.
 
-### <a name="usage-in-csv-file-for-reserved-vm-instances"></a>Ayrılmış VM örnekleri için CSV dosyası kullanımı
+**Amorti edilmiş maliyet** -kaynak ayırma indirimi alır EffectiveCost ayrılmış örnek saatlere eşit olarak dağıtılmış maliyetidir. Veri kümesi de sahip kullanılmamış ayırma maliyetlerini. Toplam Maliyet ayırma ve kullanılmamış ayırma, ayırma günlük amorti edilmiş maliyetini sağlar.
 
-Enterprise Portal'da Kurumsal kullanım CSV dosyası indirebilirsiniz. CSV dosyasında filtre **ek bilgi** ve yazın, **Reservationıd**. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir:
+İki veri kümesi karşılaştırması:
 
-![Azure ayırma için Kurumsal Anlaşma (EA) csv](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+| Veriler | Gerçek maliyet veri kümesi | Amorti edilmiş maliyet veri kümesi |
+| --- | --- | --- |
+| Rezervasyon satın alma | Bu görünümde kullanılabilir.<br>  Bu veri filtresi ChargeType üzerinde almak için = &quot;satın alma&quot;. <br> Reservationıd veya ReservationName ücretlendirme yapılır hangi ayırma bilmesi için bakın.  | Bu görünüm için geçerli değildir. <br> Satın alma maliyetleri amorti edilmiş veri sağlanmayan. |
+| effectivePrice | Ayırma indirimi alır kullanım için sıfır değerdir. | Değer, rezervasyon ayırma indirimi olan kullanımlar için saatlik günlere eşit olarak dağıtılır maliyetidir. |
+| Kullanılmamış ayırma (ayırma bir gün içinde kullanılan değildi saat sayısı ve atık parasal değerini sağlar) | Bu görünümde geçerli değildir. | Bu görünümde kullanılabilir.<br> Bu verileri almak için filtre ChargeType üzerinde = &quot;UnusedReservation&quot;.<br>  Hangi ayırma potansiyelinden az kullanılmasına neden bilmek Reservationıd veya ReservationName başvurun. Rezervasyon ne kadar günün boşa budur.  |
+| UnitPrice (kaynak, fiyat fiyatı) | Kullanılabilir | Kullanılabilir |
 
-1. **Reservationıd** içinde **ek bilgi** alanını temsil eden sanal Makineye uygulanan ayırma.
-2. **ConsumptionMeter** VM için ölçüm kimliğidir.
-3. **Ölçüm kimliği** 0 ABD Doları maliyetle ayırma ölçer. Çalışan VM maliyeti, ayrılmış VM örneği tarafından ödenir.
-4. Olan bir vCPU işler için standart_d1 VM ve VM Azure hibrit avantajı dağıtılır. Bu nedenle bu ölçüm, Windows yazılım başka bir ücret kapsar. 1 çekirdek VM için D serisi karşılık gelen bir ölçüm bulmak için bkz: [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md).  Azure hibrit avantajı varsa, bu ek ücret uygulanmaz.
+Azure kullanım verilerinde başka bilgilerine değişmiştir:
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı ve Cosmos DB için ayrılmış
+- Daha önce yaptığınız gibi Azure Reservationıd ve ReservationName, ürün ve ölçüm bilgilerini - kaldırmayacağına başlangıçta tüketilen ölçer.
+- Reservationıd ve ReservationName - kendi veri alanları oldukları. Daha önce yalnızca Additionalınfo altında kullanılabilir olması için kullanılır.
+- Kendi alan olarak eklenen ProductOrderId - rezervasyon sipariş kimliği.
+- ProductOrderName - satın alınan ayırmanın ürün adı.
+- Terim - 12 ay içinde veya 36 ay.
+- RINormalizationRatio - Additionalınfo altında kullanılabilir. Bu rezervasyon kullanım kaydı uygulandığı oranıdır. Örneği boyutu esnekliği, ayırma için etkin değilse, diğer boyutları için uygulayabilirsiniz. Değer, ayırma için kullanım kaydı uygulandığından oranını gösterir.
 
-Aşağıdaki bölümlerde, kullanım raporu açıklamak için örnek olarak Azure SQL veritabanı kullanın. Azure Cosmos DB için de kullanımını almak için aynı adımları kullanabilirsiniz.
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>API kullanarak Azure tüketim ve ayırma kullanım veri alma
 
-Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Doğu ABD bölgesinde çalıştığını varsayalım:
+API'sini kullanarak veri alma veya Azure portalından indirin.
 
-| Alan | Değer |
-|---| --- |
-|Reservationıd |8244e673-83e9-45ad-b54b-3f5295d37cae|
-|Miktar |2|
-|Product| SQL veritabanı 4. nesil (2 Çekirdek)|
-|Bölge | eastus |
+Çağırmanızı [kullanım ayrıntılarını API'si](/rest/api/consumption/usagedetails/list) API sürümüyle &quot;2019-04-01-preview&quot; yeni verileri almak için. Terimler hakkında daha fazla ayrıntı için bkz: [kullanım koşulları](billing-understand-your-usage.md). Çağıran, Kurumsal Sözleşme kullanan bir kuruluş yöneticisi olmalıdır [EA portal](https://ea.azure.com). Kuruluş Yöneticileri salt okunur veri de alabilirsiniz.
 
-### <a name="usage-in-csv-file"></a>CSV dosyası kullanımı
+Veriler kullanılabilir değil [Kurumsal müşteriler - kullanım ayrıntıları için raporlama API'lerini](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**ve gerekli **ölçüm kategorisi** -Azure SQL veritabanı veya Azure Cosmos DB. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir.
+Bir örnek araması API'sine şu şekildedir:
 
-![SQL veritabanı için Kurumsal Anlaşma (EA) csv ayrılmış kapasite](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
+```
+https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+```
 
-1. **Reservationıd** içinde **ek bilgi** SQL veritabanı kaynağı uygulanan ayırma bir alandır.
-2. **ConsumptionMeter** SQL veritabanı kaynak için ölçüm kimliği.
-3. **Ölçüm kimliği** 0 ABD Doları maliyetle ayırma ölçer. Ayırma için uygun bir SQL veritabanı kaynak bu ölçüm kimliği CSV dosyasında gösterir.
+Daha fazla bilgi {Enrollmentıd} ve {billingPeriodId} için bakın [kullanım ayrıntıları – liste](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API makalesi.
 
-## <a name="usage-summary-page-in-enterprise-portal"></a>Enterprise Portal'da kullanım Özet sayfası
+Ölçüm ve filtre hakkında bilgi aşağıdaki tabloda, için ortak bir ayırma sorunlarını çözmenize yardımcı olabilir.
 
-Azure ayırma kullanımınızı da Enterprise portal'ın kullanımı Özeti bölümü gösterilir: ![Kurumsal Anlaşma (EA) Kullanım Özeti](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+| **API veri türü** | Eylem API çağrısı |
+| --- | --- |
+| **Tüm ücretler (kullanım ve satın alma)** | {Ölçümü} ActualCost ile değiştirin. |
+| **Ayırma indirimi alındı kullanımı** | {Ölçümü} ActualCost ile değiştirin.<br>{Filter} değiştirin: properties/reservationId%20ne%20 |
+| **Ayırma indirimi almadığını kullanımı** | {Ölçümü} ActualCost ile değiştirin.<br>{Filter} değiştirin: properties/reservationId%20eq%20 |
+| **Amorti edilmiş ücretleri (kullanım ve satın alma)** | {Ölçümü} AmortizedCost ile değiştirin. |
+| **Kullanılmamış ayırma raporu** | {Ölçümü} AmortizedCost ile değiştirin.<br>{Filter} değiştirin: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Rezervasyon satın alma** | {Ölçümü} ActualCostReplace {filter} ile değiştirin: properties/ChargeType%20eq%20'Purchase'  |
+| **Mahsup işlemleri** | {Ölçümü} ActualCost ile değiştirin.<br>{Filter} değiştirin: properties/ChargeType%20eq%20'Refund' |
 
-1. Rezervasyon anlatılan sanal makinenin donanım bileşeni için ücretlendirilmezsiniz. Bir SQL veritabanı ayırma için gördüğünüz bir çizgiyle **hizmet adı** kapasite kullanımı Azure SQL veritabanı ayrılmış.
-2. Bu örnekte, sanal makine ile kullanılan Windows yazılım için ücret ödersiniz için Azure hibrit teklifi yok.
+## <a name="download-the-usage-csv-file-with-new-data"></a>Yeni verilerle kullanım CSV dosyalarını indirme
+
+EA yöneticisinin, Azure portalından yeni kullanım verilerini içeren CSV dosyası indirebilirsiniz. Bu veriler kullanılabilir değil [EA portal](https://ea.azure.com).
+
+Azure portalında gidin [maliyet Yönetimi + faturalandırma](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+
+1. Fatura hesabı seçin.
+2. Tıklayın **kullanım ve Ücret**.
+3. **İndir**'e tıklayın.  
+![Azure portalında CSV kullanım verileri dosyasını indirmek nereye gösteren örnek](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. İçinde **kullanımı indir + ücretleri** altında **kullanım ayrıntılarını sürüm 2** seçin **(kullanım ve satın alma) tüm ücretleri** ve indir'e tıklayın. Yineleme için **ücretleri (kullanım ve satın alma) amorti edilmiş**.
+
+İndirdiğiniz CSV dosyaları fiili maliyet ve amorti edilmiş maliyet içerir.
+
+## <a name="common-cost-and-usage-tasks"></a>Maliyet ve kullanım ortak görevler
+
+Aşağıdaki bölümlerde ayırma maliyet ve kullanım verilerini görüntülemek için çoğu kişi kullanan ortak görevlerdir.
+
+### <a name="get-reservation-purchase-costs"></a>Rezervasyon satın alma maliyetleri alın
+
+Gerçek maliyet verileri, rezervasyon satın alma maliyetleri kullanılabilir. Filtre _ChargeType satın alma =_. Satın alma için hangi rezervasyon siparişi belirlemek için ProductOrderID bakın.
+
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Az kullanılan ayırma miktarını ve maliyetleri alın
+
+Amorti edilmiş maliyet veri almak ve filtre _ChargeType_ _UnusedReservation =_. Günlük kullanılmamış ayırma miktarını ve maliyet olursunuz. Verileri için bir ayırma veya rezervasyon siparişi kullanarak filtreleyebilirsiniz _Reservationıd_ ve _ProductOrderId_ alanlar, sırasıyla. Rezervasyon kullanılan % 100 idiyse, kaydı bir miktar 0 ' var.
+
+### <a name="amortize-reservation-costs"></a>Ayırma maliyetleri İtfası
+
+Amorti edilmiş maliyet verilerini ve kullanarak bir rezervasyon siparişi için filtre _ProductOrderID_ günlük amorti edilmiş maliyet almak için bir ayırma için.
+
+### <a name="chargeback-for-a-reservation"></a>Geri ödeme için bir ayırma
+
+Geri ödeme ayırma diğer kuruluşlar için abonelik, kaynak grupları veya etiketleri kullanabilirsiniz. Amorti edilmiş maliyet verilerini parasal değerini bir ayırma'nın kullanımı, aşağıdaki veri türlerini sağlar:
+
+- Kaynakları (örneğin, bir VM)
+- Kaynak grubu
+- Etiketler
+- Abonelik
+
+### <a name="get-the-blended-rate-for-chargeback"></a>Harmanlanmış oranı geri ödemeye Al
+
+Harmanlanmış oranını belirlemek için amorti edilmiş maliyet verileri alın ve toplam maliyeti toplama. VM'ler için Additionalınfo JSON verileri MeterName ya da ServiceType bilgiler kullanabilirsiniz. Toplam maliyeti Harmanlanmış oranı almak için kullanılan miktar bölün.
+
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Denetim optimum ayırma kullanma örneği için boyutu esneklik
+
+Birden fazla miktarla _RINormalizationRatio_, Additionalınfo öğesinden. Kaç saat ayırma kullanımı, kullanım kaydı uygulandığı sonuçları gösterir.
+
+### <a name="determine-reservation-savings"></a>Ayırma tasarruf belirleme
+
+Amortized maliyetleri veri almak ve ayrılmış örnek için verileri filtreleyin. Daha sonra:
+
+1. Kullandıkça Öde tahmini maliyetleri alın. Çarp _UnitPrice_ değerini _miktar_ değerleri almak için tahmini Kullandıkça Öde maliyetleri ayırma indirimi kullanım için geçerliyse kaydetmedi.
+2. Ayırma maliyetleri alın. Sum _maliyet_ ayrılmış örnek için ücretli parasal değerini almak için değerler. Bu rezervasyon kullanılan ve kullanılmayan maliyetlerini içerir.
+3. Tahmini tasarruf almak için Kullandıkça Öde Tahmini maliyetler ayırma maliyetlerden çıkarın.
+
+## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Rezervasyon satın alma ve Azure maliyet analizi itfa
+
+Ayrılmış örnek maliyeti kullanılabilir [Azure maliyet analizi Önizleme modunu](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Varsayılan olarak, maliyet veri görünümü için gerçek maliyetidir. Amorti edilmiş maliyet geçiş yapabilirsiniz. Bir örnek aşağıda verilmiştir.
+
+![Amorti edilmiş maliyet maliyet analizi seçmek nereye gösteren örnek](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+
+Bir ayırma veya ücret türüne göre ücretlerinizi görmek için filtre uygulayın. Ayırma adı ayırmaları tarafından ayrılmış maliyetleri görmek üzere gruplandırma.
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -97,4 +162,3 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
-

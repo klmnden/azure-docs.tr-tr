@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203942"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511190"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Ayrılmış Event Hubs'a genel bakış
 
@@ -54,27 +54,18 @@ Event Hubs Dedicated teklifi, bir aylık fiyatla, en az 4 saatlik kullanım ücr
 | --- |:---:|:---:|
 | Bant Genişliği | 20 işleme birimi (en fazla 40 işleme birimi) | 20 cu |
 | Ad Alanları |  1 | 50 CU başına |
-| Event Hubs |  10 | Sınırsız |
+| Event Hubs |  10 | Event hubs/konuları sınırlama yok |
 | Giriş olayları | Milyon olay başına ödeme yapın | Dahil |
 | İleti Boyutu | 1 milyon bayt | 1 milyon bayt |
-| Bölümler | ad alanı başına 40 | Olay hub'ı başına 1024 2000, CU başına |
+| Bölmeler | ad alanı başına 40 | CU başına 2000 |
 | Tüketici grupları | Olay hub'ı başına 20 | Sınır, CU başına 1000 olay hub'ı başına |
 | Aracılı bağlantılar | 1.000 dahil | 100 bin adet dahil |
-| İleti Saklama | 7 gün, dahil edilen işleme birimi 84 GB | 90 gün, CU dahil edilen 10 TB |
-| Capture | Saat başına ödeme yapın | Dahil |
+| Mesaj Bekletme | 7 gün, dahil edilen işleme birimi 84 GB | 90 gün, CU dahil edilen 10 TB |
+| Yakala | Saat başına ödeme yapın | Dahil |
 
 ## <a name="how-to-onboard"></a>Nasıl eklemek için
 
-Adanmış eklenmesi için Self Servis deneyimi oluşturabileceğiniz 1 önizlemeye sunuldu ve CU kümeleri aşağıdaki bölgelerde:
-  - Orta Kanada
-  - Batı Avrupa
-  - ABD Orta
-  - ABD Doğu
-  - ABD Doğu 2
-  - ABD Orta Kuzey
-  - ABD Batı
-
-Biz yeni bölgeler etkin olarak eklediğiniz, ancak bu sırada, tercih edilen bir bölgeye listede değilse, Lütfen bir destek isteği gönderin [Event Hubs ekibine](https://ms.portal.azure.com/#create/Microsoft.Support) altında *teknik > Event Hubs > kotasına > için istek SKU ayrılmış*. Özel planı, sizin için uygun olan esnek dağıtım almak için Event Hubs ürün ekibinden daha uygulamalı bir ekleme deneyimi açısından benzersizdir. 
+Lütfen eklemek için Event Hubs adanmış, başvurun [Event Hubs ekibine](mailto:askeventhubs@microsoft.com). Özel planı, sizin için uygun olan esnek dağıtım almak için Event Hubs ürün ekibinden daha uygulamalı bir ekleme deneyimi açısından benzersizdir. 
 
 ## <a name="faqs"></a>SSS
 
@@ -86,19 +77,15 @@ Aşağıdaki tabloda, bizim test sırasında alanımız Kıyaslama sonuçlar gö
 
 | Yükü şekli | Alıcılar | Giriş bant genişliği| Giriş iletileri | Çıkış bant genişliği | Çıkış iletileri | Toplam işleme birimi | CU başına işleme birimi |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| 100x1KB toplu | 2 | 400 MB/sn | 400 bin iletileri/sn | 800 MB/sn | 800 k iletileri/sn | 400 işleme birimi | 100 işleme birimi | 
-| 10x10KB toplu | 2 | 666 MB/sn | 66.6 k iletileri/sn | 1.33 GB/sn | 133 k iletileri/sn | 666 işleme birimi | 166 işleme birimi |
-| 6x32KB toplu | 1 | 1,05 GB/sn | 34 k iletileri / sn | 1,05 GB/sn | 34 k iletileri/sn | 1000 işleme birimi | 250 işleme birimi |
+| 100x1KB toplu | 2 | 400 MB/sn | 400 bin iletileri/sn | 800 MB/sn | 800 k ileti sayısı/sn | 400 işleme birimi | 100 işleme birimi | 
+| 10x10KB toplu | 2 | 666 MB/sn | 66.6 k ileti sayısı/sn | 1.33 GB/sn | 133 k ileti sayısı/sn | 666 işleme birimi | 166 işleme birimi |
+| 6x32KB toplu | 1 | 1,05 GB/sn | 34 k iletileri / sn | 1,05 GB/sn | 34 k ileti sayısı/sn | 1000 işleme birimi | 250 işleme birimi |
 
 Testinizde aşağıdaki ölçütleri izin kullanıldı:
 
 - Adanmış katmanı Event Hubs kümesi dört kapasite birimleri (cu) ile kullanıldı. 
 - Alma işlemi için kullanılan olay hub'ı 200 bölümler vardı. 
 - Tüm bölümleri alma iki alıcı uygulamalar tarafından alınan veri alındı.
-
-#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>Nasıl oluşturabilirim küme 1'den daha büyük CU?
-
-Self Servis deneyimi Önizleme sürümünde küme oluşturduktan sonra kümenizi ölçeklendirme isteğinde bulunabilirsiniz. 1 CU küme oluşturduktan sonra lütfen olay hub'ları desteğine tarafından dosyalama ulaşın bir [destek isteği](https://ms.portal.azure.com/#create/Microsoft.Support) altında *teknik > kotasına > Ölçek yukarı veya aşağı ayrılmış küme ölçeklendirme isteği*. GA sürümümüzü Portalı aracılığıyla doğrudan kümenizin ölçeğini mümkün olacaktır. 
 
 #### <a name="can-i-scale-down-my-cluster"></a>Ben kümem ölçeklendirebilir miyim?
 
@@ -107,7 +94,6 @@ Oluşturulduktan sonra küme en az 4 saatlik kullanım için faturalandırılır
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>Coğrafi-DR, kümem ile nasıl çalışır?
 
 Coğrafi bir ad alanı bir adanmış katmanı kümesi altında bir adanmış katmanı kümesi altında başka bir ad alanı ile çift kullanabilirsiniz. Bir adanmış katmanı ad aktarım hızı sınırı hatalara neden olabilecek uyumsuz olacağından, bizim standart, sunan bir ad alanıyla eşleştirildikten öneririz değil. 
-
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Adanmış katmanı kümeye ait standart my ad alanı geçişini sağlayabilir miyim?
 Şu anda bir geçiş işlemi, olay hub'ları verilerinizi standart bir ad alanındaki bir adanmış bir geçiş için desteklemiyoruz. Adanmış katmanı kümeye geçirmek için standart katman event hubs'ınız tüm iletileri sol boşaltma ve bağlantı uç noktaları, adanmış ad alanınız ile değiştirerek öneririz.

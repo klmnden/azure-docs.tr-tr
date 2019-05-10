@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454223"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234192"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure İzleyici günlük verilerini Power BI'a aktarma
 
@@ -60,7 +60,9 @@ Power BI Desktop, veri kümeleri ve Power BI'da yayımlanan raporlar oluşturman
 ## <a name="publish-to-power-bi"></a>Power BI'da yayımlama
 Power BI'da yayımladığınızda, bir veri kümesi ve bir rapor oluşturulur.  Ardından bu Power BI Desktop'ta bir rapor oluşturursanız, verilerinizle yayımlanır.  Aksi durumda, boş bir rapor oluşturulur.  Power BI raporu veya veri kümesini temel alan yeni bir tane oluşturun.
 
-1. Verilerinizi temel alan bir rapor oluşturun.  Kullanım [Power BI Desktop belgesine](https://docs.microsoft.com/power-bi/desktop-report-view) ile bilgi sahibi değilseniz.  Power BI için göndermeye hazır olduğunuzda, tıklayın **Yayımla**.  İstendiğinde, Power BI hesabınızda bir hedef seçin.  Belirli bir hedefe aklınızda yoksa kullanması **çalışma Alanım**.
+1. Verilerinizi temel alan bir rapor oluşturun.  Kullanım [Power BI Desktop belgesine](https://docs.microsoft.com/power-bi/desktop-report-view) ile bilgi sahibi değilseniz.  
+1. Power BI için göndermeye hazır olduğunuzda, tıklayın **Yayımla**.  
+1. İstendiğinde, Power BI hesabınızda bir hedef seçin.  Belirli bir hedefe aklınızda yoksa kullanması **çalışma Alanım**.
 
     ![Power BI Desktop yayımlama](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ Power BI'da yayımladığınızda, bir veri kümesi ve bir rapor oluşturulur.  
 ### <a name="configure-scheduled-refresh"></a>Zamanlanmış yenileme yapılandırma
 Power BI'da oluşturulan veri kümesini Power BI Desktop uygulamasında daha önce gördüğünüz aynı verilere sahip olur.  Düzenli aralıklarla sorguyu yeniden çalıştırın ve Azure İzleyicisi'nden en son verilerle doldurmak için veri kümesini yenilemek gerekir.  
 
-1. Yüklediğiniz seçin ve raporu çalışma alanına tıklayın **veri kümeleri** menüsü. Yeni, veri kümesinin yanındaki bağlam menüsünü seçip **ayarları**. Altında **veri kaynağı kimlik bilgileri** bir ileti kimlik bilgileri geçersiz olduğundan emin olmanız gerekir.  Verileri yenilediğinde kullanmak henüz veri kümesi için kimlik bilgilerini sağlamıyordu olmasıdır.  Tıklayın **kimlik bilgilerini Düzenle** ve Azure İzleyici'de Log Analytics çalışma alanına erişimi olan kimlik bilgilerini belirtin.
+1. Yüklediğiniz seçin ve raporu çalışma alanına tıklayın **veri kümeleri** menüsü. 
+1. Yeni, veri kümesinin yanındaki bağlam menüsünü seçip **ayarları**. 
+1. Altında **veri kaynağı kimlik bilgileri** bir ileti kimlik bilgileri geçersiz olduğundan emin olmanız gerekir.  Verileri yenilediğinde kullanmak henüz veri kümesi için kimlik bilgilerini sağlamıyordu olmasıdır.  
+1. Tıklayın **kimlik bilgilerini Düzenle** ve Azure İzleyici'de Log Analytics çalışma alanına erişimi olan kimlik bilgilerini belirtin. İki öğeli kimlik doğrulaması gerekiyorsa, seçin **OAuth2** için **kimlik doğrulama yöntemi** kimlik bilgilerinizle oturum açmanız istendiğinde.
 
     ![Power BI zamanlama](media/powerbi/powerbi-schedule.png)
 

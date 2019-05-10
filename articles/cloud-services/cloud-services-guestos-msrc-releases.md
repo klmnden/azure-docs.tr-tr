@@ -11,17 +11,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623077"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465546"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
+
+## <a name="april-2019-guest-os"></a>Nisan 2019 konuk işletim sistemi
+
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Windows 10 Güvenlik | 6.6 | 9 Nisan 2019 |
+| Rel 19-04 | [4493470] | Windows 10 Güvenlik | 5.30 | 9 Nisan 2019 |
+| Rel 19-04 | [4493467] | Windows Güvenlik | 4.65 | 9 Nisan 2019 |
+| Rel 19-04 | [4493450] | Windows Güvenlik | 3.72 | 9 Nisan 2019 |
+| Rel 19-04 | [4493448] | Windows Güvenlik | 2.85 | 9 Nisan 2019 |
+| Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | 9 Nisan 2019 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 Nisan 2019 |
+| Rel 19-04 | [KB4490628] | Hizmet yığını güncelleştirmesi | 2.85 | 12 Mart 2019 |
+| Rel 19-04 | [KB4474419] | SHA2 desteği | 2.85 | 12 Mart 2019 |
+| Rel 19-04 | [KB4489878] | Mart güvenlikle ilgili olmayan toplaması | 2.85 | 12 Mart 2019 |
+| Rel 19-04 | [KB4489891] | Mart güvenlikle ilgili olmayan toplaması | 3.72 | 12 Mart 2019 |
+| Rel 19-04 | [KB4489881] | Mart güvenlikle ilgili olmayan toplaması | 4.65 | 12 Mart 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>Mart 2019 konuk işletim sistemi
 
@@ -723,7 +753,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Güvenlik özelliği atlama adresi .NET Framework güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
-| Öneri |[3155527] |Güncelleştirme paketleri FalseStart için şifre. |4.33, 3.40 |14 Haziran 2016 |
+| Danışma |[3155527] |Güncelleştirme paketleri FalseStart için şifre. |4.33, 3.40 |14 Haziran 2016 |
 | MS16-063 |[3163649] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
 | MS16-069 |[3163640] |JScript ve VBScript için toplu güvenlik güncelleştirmesi |2.52 |14 Haziran 2016 |
 | MS16-071 |[3164065] |Microsoft Windows DNS sunucusu için güvenlik güncelleştirmesi |4.33, 3.40 |14 Haziran 2016 |

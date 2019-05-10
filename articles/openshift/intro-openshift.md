@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081048"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466163"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,9 +38,9 @@ Azure Red Hat OpenShift düğümleri Azure sanal makineler üzerinde çalıştı
 
 ## <a name="virtual-networks-and-ingress"></a>Sanal ağlar ve giriş
 
-Bir sanal ağınız bir Red Hat OpenShift Azure kümesine dağıtabilirsiniz. Bu yapılandırmada, kümedeki her bir pod sanal ağdaki bir IP adresi atanır ve kümedeki diğer pod'ları ve diğer düğümleri sanal ağ ile doğrudan iletişim kurabilir. Pod'ların de bağlanabilir eşlenen sanal ağdaki diğer hizmetlere ve şirket içi ağlara üzerinden [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) veya siteden siteye (S2S) VPN bağlantıları.
+Bir Azure Red Hat OpenShift kümesi mevcut bir sanal ağ eşlemesi aracılığıyla bağlanabilirsiniz. Bu yapılandırmada, pod'ların eşlenen sanal ağdaki diğer hizmetlere ve şirket içi ağlara üzerinden bağlanabilirsiniz [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) veya siteden siteye (S2S) VPN bağlantıları.
 
-Daha fazla bilgi için [Azure'da bir Microsoft Red Hat OpenShift küme oluşturma](tutorial-create-cluster.md).
+Bkz: [kümenin sanal ağ mevcut bir sanal ağa bağlama](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) Ayrıntılar için.
 
 ## <a name="kubernetes-certification"></a>Kubernetes sertifikası
 

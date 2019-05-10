@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730628"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408900"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Azure App Service'te PHP yapılandırma
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 
 Bu kılavuz, API uygulamaları, web uygulamaları ve mobil arka uçları için yerleşik PHP çalışma zamanı yapılandırma işlemini göstermektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)özel bir PHP çalışma zamanı sağlama ve genişletmeleri etkinleştirme. App Service'ı kullanmak için kaydolun [ücretsiz deneme sürümü]. Bu kılavuzu en almak için ilk App Service'te bir PHP uygulaması oluşturmanız gerekir.
 
@@ -55,7 +55,7 @@ PHP 7.0 ve PHP 7.2 sürümleri de kullanılabilir, ancak varsayılan olarak etki
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>Azure CLI'si 
 
 Azure komut satırı arabirimini kullanmak için şunları yapmalısınız [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) bilgisayarınızda.
 
@@ -181,9 +181,9 @@ Daha fazla bilgi için [PHP Geliştirici Merkezi](https://azure.microsoft.com/de
 [ücretsiz deneme sürümü]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[Php.ini yönergeleri listesi]: http://www.php.net/manual/en/ini.list.php
-[. user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[Php.ini yönergeleri listesi]: https://www.php.net/manual/en/ini.list.php
+[. user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

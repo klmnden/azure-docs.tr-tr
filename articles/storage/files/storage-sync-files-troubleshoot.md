@@ -2,20 +2,20 @@
 title: Azure dosya eşitleme sorunlarını giderme | Microsoft Docs
 description: Azure dosya eşitleme ile ilgili yaygın sorunları giderin.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190076"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510834"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
+# <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme'de sorun giderin
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
 
 Bu makalede, sorun giderme ve Azure dosya eşitleme dağıtımınıza karşılaşabileceğiniz sorunları çözmenize yardımcı olmak için tasarlanmıştır. Biz de sorunun daha kapsamlı bir araştırma gerekiyorsa sistemden önemli günlükleri toplamak nasıl açıklar. Sorunuzun yanıtını görmüyorsanız, aşağıdaki kanalları (sırayla yükselen) üzerinden bize başvurabilirsiniz:
@@ -90,7 +90,7 @@ Bulut uç noktası oluşturmak için kullanıcı hesabınızın aşağıdaki Mic
 * Yazma: Rol ataması oluştur
 
 Aşağıdaki yerleşik rolleri gerekli Microsoft Authorization izinlere sahip:  
-* Sahip
+* Sahibi
 * Kullanıcı Erişimi Yöneticisi
 
 Kullanıcı hesabı rolü gerekli izinlere sahip olup olmadığını belirlemek için:  
@@ -153,7 +153,7 @@ Sunucu uç noktası eşitleme etkinliği aşağıdaki nedenlerden dolayı kayded
 > [!Note]  
 > Kayıtlı sunucular dikey penceresinde sunucu durumu "Çevrimdışı olarak görünür" ise, konusunda belgelenen adımları [sunucu uç noktası olan bir sistem durumu "No etkinliği" veya "Bekliyor" ve "çevrimdışı görünüyor" kayıtlı sunucuları dikey penceresinde sunucu durumu ](#server-endpoint-noactivity) bölümü.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Eşitle
 <a id="afs-change-detection"></a>**Bir dosya my Azure dosya paylaşımı doğrudan portal üzerinden ya da SMB üzerinden oluşturduğum, ne kadar dosya sunucularına eşitleme grubundaki eşitleme zaman alır?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -730,7 +730,7 @@ if ($fileShare -eq $null) {
 
     Varsa **karma dosya eşitleme hizmeti** listede görüntülenmiyorsa, aşağıdaki adımları gerçekleştirin:
 
-    - **Ekle**'ye tıklayın.
+    - **Ekle**'yi tıklatın.
     - İçinde **rol** alanın, Seç **okuyucu ve veri erişimi**.
     - İçinde **seçin** alanına **karma dosya eşitleme hizmeti**, rolü seçin ve tıklayın **Kaydet**.
 

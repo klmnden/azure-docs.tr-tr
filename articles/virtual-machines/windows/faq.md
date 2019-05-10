@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095685"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466365"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows sanal makineleri hakkında sık sorulan sorular
-Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineleri hakkında bazı yaygın sorular ele alınmıştır. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan soruya](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineleri hakkında bazı yaygın sorular ele alınmıştır. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan soruya](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Azure sanal makinesinde ne çalıştırabilirim?
-Tüm aboneler bir Azure sanal makinesinde sunucu yazılımı çalıştırabilir. Azure'da çalışan Microsoft sunucu yazılımı için destek ilkesi hakkında daha fazla bilgi için bkz: [Azure sanal makineleri için Microsoft sunucu yazılım desteği](https://support.microsoft.com/kb/2721672)
+Tüm aboneler bir Azure sanal makinesinde sunucu yazılımı çalıştırabilir. Azure'da çalışan Microsoft sunucu yazılımı için destek ilkesi hakkında daha fazla bilgi için bkz: [Microsoft sunucu yazılımı desteği Azure sanal makineleri için](https://support.microsoft.com/kb/2721672).
 
 MSDN Azure avantajı aboneleri ve MSDN Geliştirme ve Test Kullandıkça Öde aboneleri geliştirme ve test görevleri belirli bir Windows 7, Windows 8.1 ve Windows 10 sürümleri kullanılabilir. Yönerge ve kısıtlamalar dahil olmak üzere ayrıntılı bilgi edinmek için bkz. [MSDN aboneleri için Windows İstemci görüntüleri](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
@@ -85,36 +85,26 @@ Evet. Kaynak grubu adı en fazla 90 karakter uzunluğunda olabilir. Bkz: [adland
 
 Kullanıcı adları en fazla 20 karakter uzunluğunda olabilir ve nokta ile bitemez ("."). 
 
-
 Aşağıdaki kullanıcı adlarını izin verilmez:
-<table>
-    <tr>
-        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">adm</td><td style="text-align:center">Yönetici</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
-    </tr>   <tr>
-        <td style="text-align:center">yönetici</td><td style="text-align:center">ASP.NET</td><td style="text-align:center">yedekleme</td><td style="text-align:center">console</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">David </td><td style="text-align:center">Konuk</td><td style="text-align:center">John</td><td style="text-align:center">sahip</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">kök</td><td style="text-align:center">sunucu</td><td style="text-align:center">SQL</td><td style="text-align:center">destek</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">Test1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">Test2</td><td style="text-align:center">test3</td><td style="text-align:center">kullanıcı</td><td style="text-align:center">user1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">Kullanıcı2</td><td style="text-align:center">KULLANICI3</td><td style="text-align:center">Kullanıcı4</td><td style="text-align:center">user5</td>
-    </tr>
-</table>
+
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
+
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Bir VM oluşturulurken parola gereksinimleri nelerdir?
-Parola 12-123 karakter uzunluğunda olmalı ve 3 şu 4 karmaşıklık gereksinimini karşılamak gerekir:
+
+Uzunluk gereksinimlerini, kullanmakta olduğunuz aracı bağlı olarak değişen parola vardır:
+ - Portalı - 12-72 karakter
+ - PowerShell - 8-123 karakter arasında
+ - 12-123 arasında - CLI
 
 * Daha düşük karakter içerebilir
 * Üst karakter içerebilir

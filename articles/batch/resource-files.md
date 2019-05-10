@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616560"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405650"
 ---
 # <a name="creating-and-using-resource-files"></a>Kaynak dosyaları oluşturma ve kullanma
 
@@ -38,7 +38,7 @@ Bir kaynak dosyası oluşturmak için seçenekleri:
 
 ### <a name="storage-container-url"></a>Depolama kapsayıcısı URL'si
 
-Bir depolama kapsayıcısı URL'si kullanarak tüm Azure depolama kapsayıcısında dosyalara erişebilir anlamına gelir. Doğru izinlere sahip
+Bir depolama kapsayıcısı URL'si kullanarak tüm Azure depolama kapsayıcısında doğru izinlere sahip dosyalara erişebilir anlamına gelir.
 
 Bu C# örnek, dosyaları için blob depolama alanı olarak Azure depolama kapsayıcısı zaten yüklenmiş. Bir kaynak dosyası oluşturmak için gerekli verilere erişmek için önce depolama kapsayıcısına erişmek ihtiyacımız var.
 

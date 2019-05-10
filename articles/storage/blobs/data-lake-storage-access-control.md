@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939558"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233970"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -37,7 +37,7 @@ RBAC rolü atamalarını kullanarak erişim izinlerini denetlemek için güçlü
 Bir güvenlik sorumlusu RBAC aracılığıyla veri izinleri verildi ne zaman bir [yerleşik rol](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ya da özel bir rol bu izinleri önce yetkilendirme isteği değerlendirilir. Yetkilendirme hemen çözümlenmiş ve hiç ise güvenlik sorumlusunun RBAC atamaları tarafından istenen işlem yetkiliyse ACL denetimleri yapılır. Alternatif olarak, güvenlik sorumlusu RBAC atama yok ya da istenen işlem atanan izni eşleşmiyor, ardından ACL denetimlerini güvenlik sorumlusu istenen işlemi gerçekleştirmek için yetkili olup olmadığını belirlemek için gerçekleştirilir.
 
 > [!NOTE]
-> Güvenlik sorumlusu atandıysa [depolama Blob verileri]() sahip yerleşik rol ataması ve ardından güvenlik sorumlusu olarak kabul edilir bir *süper kullanıcı* ve tüm diziyi için tam erişim izni verilir işlemler, dizinleri ve sahibi oldukları olmayan dosyaları için ACL'leri yanı sıra bir dizin veya dosya sahibini ayarlamak dahil. Süper kullanıcı, bir kaynağın sahibini değiştirmek için yalnızca yetkili şekilde erişimdir.
+> Depolama Blob verileri sahip yerleşik rol ataması güvenlik sorumlusu atanmış sonra güvenlik sorumlusu olarak kabul edilir bir *süper kullanıcı* ve ayarı dahil olmak üzere tüm mutating işlemleri için tam erişim izni dizinleri ve sahibi oldukları olmayan dosyaları için ACL'leri yanı sıra bir dizin veya dosya sahibini. Süper kullanıcı, bir kaynağın sahibini değiştirmek için yalnızca yetkili şekilde erişimdir.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Paylaşılan anahtar ve paylaşılan erişim imzası (SAS) kimlik doğrulaması
 

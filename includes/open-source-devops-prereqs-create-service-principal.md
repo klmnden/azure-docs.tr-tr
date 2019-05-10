@@ -2,13 +2,13 @@
 author: tomarchermsft
 ms.service: ansible
 ms.topic: include
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ms.author: tarcher
-ms.openlocfilehash: d7bb943a070497fad309ff7f888330cdeccb0404
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: 9b0e4842617a888ef953b1b16329ef035d3fd97e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766042"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65405029"
 ---
-**Azure hizmet sorumlusu** - [hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), aşağıdaki değerleri Not yapma: **AppID**, **displayName**, **parola**, ve **Kiracı**.
+- **Azure hizmet sorumlusu**: [Hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), aşağıdaki değerleri Not yapma: **AppID**, **displayName**, **parola**, ve **Kiracı**.

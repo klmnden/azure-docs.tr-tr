@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e84d97a4ef389981fa30aa08433fef1662367ae
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 06b4ecc151f8402bfb8f05968475b0305737ecd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935943"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406473"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Kullanıcılar oturum ve bir iOS uygulamasından Microsoft Graph'i çağırmaya
 
@@ -54,14 +54,14 @@ Bu örnek, kimlik doğrulaması uygulamak için Microsoft Authentication library
 
 Bu öğreticide, yeni bir proje oluşturur. Tamamlanan öğretici bunun yerine, karşıdan yüklemek isterseniz [kodu indirmek](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 1. Xcode açıp seçin **yeni bir Xcode projesi oluştur**.
 2. Seçin **iOS > tek görünüm uygulaması** seçip **sonraki**.
 3. Bir ürün adı verin ve seçin **sonraki**.
 4. Uygulamanızı oluşturun ve'ı tıklatın, bir klasör seçin *Oluştur*.
 
-## <a name="register-your-application"></a>Uygulamanızı kaydetme 
+## <a name="register-your-application"></a>Uygulamanızı kaydedin 
 
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
@@ -79,7 +79,7 @@ Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi ka
 
 #### <a name="cocoapods"></a>CocoaPods
 
-Kullanabileceğiniz [CocoaPods](http://cocoapods.org/) yüklemek için `MSAL` ekleyerek, `Podfile` hedef altında:
+Kullanabileceğiniz [CocoaPods](https://cocoapods.org/) yüklemek için `MSAL` ekleyerek, `Podfile` hedef altında:
 
 ```
 use_frameworks!
@@ -97,7 +97,7 @@ Kullanabileceğiniz [Carthage](https://github.com/Carthage/Carthage) yüklemek i
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
 ```
 
-#### <a name="manually"></a>El ile
+#### <a name="manually"></a>El İle
 
 Ayrıca Git alt modülüdür kullanın ya da en son sürüm denetleyin ve framework kullanmak.
 

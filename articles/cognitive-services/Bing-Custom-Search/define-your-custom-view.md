@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129653"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236248"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing özel arama deneyiminizi yapılandırın
 
@@ -27,7 +27,7 @@ Web uygulamanızın dilimleri tanımlarken aşağıdakileri kullanın:
 
 | Dilim adı | Açıklama                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | Bir etki alanı dilim bir internet etki alanı içinde bulunan tüm içerik içerir. Örneğin, `www.microsoft.com`. Atlama `www.` da etki alanının alt etki alanlarını arama yapmak için Bing neden olur. Örneğin, belirttiğiniz `microsoft.com`, Bing, ayrıca sonuçları döndürür `support.microsoft.com` veya `technet.microsoft.com`. |
+| Etki alanı     | Bir etki alanı dilim bir internet etki alanı içinde bulunan tüm içerik içerir. Örneğin, `www.microsoft.com`. Atlama `www.` da etki alanının alt etki alanlarını arama yapmak için Bing neden olur. Örneğin, belirttiğiniz `microsoft.com`, Bing, ayrıca sonuçları döndürür `support.microsoft.com` veya `technet.microsoft.com`. |
 | Alt sayfa    | Bir alt dilim aşağıdaki yolları ve alt bulunan tüm içeriği de bulunmaktadır. En fazla iki alt yolu belirtebilirsiniz. Örneğin, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Web sayfası    | Bir Web sayfası dilim yalnızca Web sayfası özel bir arama içerebilir. İsteğe bağlı olarak alt eklenip eklenmeyeceğini belirtebilirsiniz.                                                                                                                                                                                  |
 
@@ -44,7 +44,7 @@ Dahil etmek için hangi dilimlerin emin değilseniz Bing arama sorguları gönde
 
 1. "Bing" Önizleme bölmesinde aşağı açılan listeden seçin ve bir arama sorgusu girin
 
-2. Tıklayın **Ekle site** dahil etmek istediğiniz sonucun yanında. Daha sonra Tamam'a tıklayın.
+2. Tıklayın **Ekle site** dahil etmek istediğiniz sonucun yanında. Ardından Tamam'a tıklayın.
 
 >[!NOTE]
 > [!INCLUDE[publish or revert](./includes/publish-revert.md)]
@@ -118,9 +118,9 @@ Portal ayrıca sağlar kullanarak belirli bir arama terimleri, URL'ler arama son
 
 İki yolla bir Web sayfası en üstüne sabitleyebilirsiniz:
 
-* İçinde **Pinned** sekmesinde, üst ve alt karşılık gelen sorgu sabitlemek için Web sayfasının URL'sini girin.
+* İçinde **Pinned** sekmesinde, üst ve alt karşılık gelen sorgu sabitlemek için Web sayfasının URL'sini girin.
 
-* İçinde **Önizleme** bölmesinde arama sorgusu girin ve Ara'yı tıklatın. Sorgunuz için sabitleme ve istediğiniz Web bulmak **en üste Sabitle**. Sorgu ve Web sayfası eklenir **Pinned** listesi.
+* İçinde **Önizleme** bölmesinde arama sorgusu girin ve Ara'yı tıklatın. Sorgunuz için sabitleme ve istediğiniz Web bulmak **en üste Sabitle**. Sorgu ve Web sayfası eklenir **Pinned** listesi.
 
 ### <a name="specify-the-pins-match-condition"></a>PIN'in eşleşme koşulu belirtin
 
@@ -133,7 +133,7 @@ Bir kullanıcının sorgu dizesi tam olarak listelenen eşleştiğinde varsayıl
 |---------------|----------------------------------------------------------------------------------|
 | İle başlar | Kullanıcının sorgu dizesi PIN'in sorgu dizesi ile başlıyorsa PIN bir eşleşme olacak. |
 | İle biter   | Kullanıcının sorgu dizesi PIN'in sorgu dizesi ile bitiyorsa PIN bir eşleşmedir.  |
-| Contains    | Kullanıcının sorgu dizesi PIN'in sorgu dizesini içeriyorsa PIN bir eşleşmedir.   |
+| İçerir    | Kullanıcının sorgu dizesi PIN'in sorgu dizesini içeriyorsa PIN bir eşleşmedir.   |
 
 
 PIN'in eşleşme koşulu değiştirmek için PIN'in düzenleme simgesine tıklayın. İçinde **sorgu eşleşme koşulu** sütununda açılan listeye tıklayın ve kullanmak için yeni koşulu seçin. Kaydet'i tıklatın değişikliği kaydetmek için simge.

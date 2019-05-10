@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2bcb7d93361ccf3d83947222ab6a3937a7eedc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 2914d6b1f4a6c94d7e3d4456c8255c1563a71b3e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935970"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406647"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Bir Android uygulamasından Microsoft Graph'i çağırmaya ve kullanıcılarının oturumunu
 
@@ -56,13 +56,13 @@ Bu kılavuz, aşağıdaki kimlik doğrulama kitaplığı kullanır:
 
 |Kitaplık|Açıklama|
 |---|---|
-|[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft kimlik doğrulama kitaplığı (MSAL)|
+|[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft Authentication Library (MSAL)|
 
 ## <a name="set-up-your-project"></a>Projenizi ayarlama
 
 Bu öğreticide, yeni bir proje oluşturur. Tamamlanan öğretici bunun yerine, karşıdan yüklemek isterseniz [kodu indirmek](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 1. Android Studio'yu açın ve seçin **yeni bir Android Studio projesi Başlat**.
     - Android Studio açıksa seçin **dosya** > **yeni** > **yeni proje**.
@@ -70,7 +70,7 @@ Bu öğreticide, yeni bir proje oluşturur. Tamamlanan öğretici bunun yerine, 
 3. Uygulamanızı adlandırın, Ayarla `Minimum API level` için **19 ya da daha yeni bir API**, isabet **son**.
 5. İçinde `app/build.gradle`ayarlayın `targetedSdkVersion` 27 için. 
 
-## <a name="register-your-application"></a>Uygulamanızı kaydetme
+## <a name="register-your-application"></a>Uygulamanızı kaydedin
 
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363181"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410470"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Örnek 3: Ağları bir güvenlik duvarı, UDR ve Nsg'ler ile korunacak bir çevre ağı oluşturma
 
@@ -150,7 +150,7 @@ Bu örnekte, rota tablosunu, kullanıcı tanımlı bir yol ekleyin ve sonra yön
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>IP iletimi
+## <a name="ip-forwarding"></a>IP iletme
 
 IP iletimi UDR için yardımcı özelliğidir. Bu ayar bir sanal gereç üzerinde gerecine gönderilmeyen trafiği alma ve ardından bu trafiğin ultimate hedefine iletecek şekilde sağlar.
 
@@ -356,7 +356,7 @@ Bu örnekte tamamlamak için gereken her bir kural ayrıntılarını şunlardır
 
     Dört RDP kurallarını oluşturun:
 
-    | Kural Adı | Sunucu | Hizmet | Hedef listesi |
+    | Kural Adı | Sunucu  | Hizmet | Hedef listesi |
     | --- | --- | --- | --- |
     | RDP IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
     | RDP DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
@@ -635,7 +635,7 @@ Kullanıcı tanımlı değişkenler dosyaları gerektiği gibi değiştirin. Bet
 Kullanıcı tanımlı değişkenler ayarladıktan sonra bu komut dosyasını çalıştırın:
 
 1. Bir Azure aboneliğine Bağlanma
-1. Yeni depolama hesabı oluşturma
+1. Yeni depolama hesabı oluştur
 1. Yeni bir sanal ağ ve ağ yapılandırma dosyasında tanımlanan üç alt ağ oluşturma
 1. Beş sanal makine oluştur: bir güvenlik duvarı ve dört Windows Server Vm'leri
 1. UDR yapılandırın:
@@ -645,7 +645,7 @@ Kullanıcı tanımlı değişkenler ayarladıktan sonra bu komut dosyasını ça
 1. NVA üzerindeki IP iletmeyi etkinleştirin
 1. NSG yapılandırın:
    1. Bir NSG oluşturma
-   1. Kural ekleme
+   1. Kural ekle
    1. NSG için uygun alt ağları bağlama
 
 Bu PowerShell çalıştırma betiği yerel olarak bir internet üzerindeki bilgisayar veya sunucu bağlı.
@@ -989,7 +989,7 @@ Bu PowerShell çalıştırma betiği yerel olarak bir internet üzerindeki bilgi
 Bu XML dosyasını güncelleştirilmiş konumu ile kaydedin. Değişiklik `$NetworkConfigFile` kaydedilen ağ yapılandırma dosyasına bağlanmak için tam komut Yukarıdaki değişken.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

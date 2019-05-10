@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149837"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510626"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan
 
 Bir bulut tabanlı bir not defteri sunucusu oluşturmak ve ardından bunu kullanın.  Bu hızlı başlangıçta, değer'de oturum açması Python kodunu çalıştırma [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md). Çalışma alanı, denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır. 
 
 Bu hızlı başlangıçta Azure Machine Learning çalıştırmak için gereken Python ortamını ile yapılandırılmış bulut kaynağı, Azure Machine Learning çalışma alanı oluşturma işlemi gösterilmektedir. Bunun yerine ortamınızda kullanmak için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanmak](quickstart-run-local-notebook.md).  
- 
+
 Bu hızlı başlangıçta, aşağıdaki eylemleri gerçekleştirin:
 
 * Çalışma alanınızda yeni bir bulut tabanlı bir not defteri sunucusu oluşturun.
 * Jupyter web arabirimi başlatın.
 * Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
 * Not Defteri çalıştırma.
-* Oturum hata değerlerini çalışma alanınızda görüntüleyin. Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
+* Oturum hata değerlerini çalışma alanınızda görüntüleyin. Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir.
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
 
-- Azure Machine Learning çalışma alanı.  [Çalışma alanınızı oluşturma](setup-create-workspace.md#portal) , yoksa, şimdi.
+Bir Azure Machine Learning hizmeti çalışma alanı varsa, atlamak [sonraki bölümde](#create-a-cloud-based-notebook-server). Aksi takdirde, şimdi bir tane oluşturun.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Bulut tabanlı bir not defteri sunucusu oluşturma
 
@@ -57,7 +59,6 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
     ![Yeni VM oluşturma](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Yaklaşık 4-5 durum olana kadar dakika bekleyip **çalıştıran**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter web arabirimi başlatın
 
@@ -92,7 +93,7 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
 1. İkinci kod hücresini çalıştırmak. Kimlik doğrulaması yapmak için yönergeleri görürseniz, kodu kopyalayın ve oturum açmak için bağlantıyı izleyin. Oturum açtıktan sonra bu ayar, tarayıcınızın hatırlanır.  
 
-    ![Kimlik doğrulaması](media/quickstart-run-cloud-notebook/authenticate.png)
+    ![Kimlik Doğrula](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. Tamamlandığında, hücre sayısını __[2]__ görünür.  Oturum açmak olsaydı, kimlik doğrulaması başarılı durum iletisi görürsünüz.   Oturum açmak zorunda olmadığı, bu hücre için herhangi bir çıktı görmezsiniz, yalnızca sayı hücresi başarıyla çalıştığını göstermek için görünür.
 
@@ -102,10 +103,9 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
     En büyük kodu hücreyi gördüğünüz `run.log` birden fazla yerde kullanılır. Her `run.log` çalışma alanınıza değeri ekler.
 
-
 ## <a name="view-logged-values"></a>Günlüğe kaydedilen değerleri görüntüleme
 
-1. Çıkışı `run` hücre geri çalışma alanınızda deneme sonuçlarını görüntülemek için Azure portalına bir bağlantı içerir. 
+1. Çıkışı `run` hücre geri çalışma alanınızda deneme sonuçlarını görüntülemek için Azure portalına bir bağlantı içerir.
 
     ![Denemeleri görüntüleme](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
 Yaklaşık PI koda rastgele değerler kullandığından, çizimleri farklı değerler gösterilir.  
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 ### <a name="stop-the-notebook-vm"></a>Not defterini VM durdurma
 

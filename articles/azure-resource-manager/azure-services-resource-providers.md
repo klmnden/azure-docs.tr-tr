@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 057e8d78b531abc4ee6d1b16c25a1a6f3b382977
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64537471"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235580"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure Hizmetleri için kaynak sağlayıcıları
 
@@ -56,7 +56,7 @@ Bu makalede, kaynak sağlayıcı ad alanları için Azure hizmetleri nasıl eşl
 | Microsoft.Consumption | [Maliyet Yönetimi](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Kapsayıcı kayıt defteri](/azure/container-registry/) |
-| Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
+| Microsoft.ContainerService | [Azure Kubernetes Service'i (AKS)](/azure/aks/) |
 | Microsoft.ContentModerator | [Azure Content Moderator](../cognitive-services/content-moderator/index.yml) |
 | Microsoft.CostManagement | [Maliyet Yönetimi](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Customer Insights |
@@ -115,7 +115,7 @@ Bu makalede, kaynak sağlayıcı ad alanları için Azure hizmetleri nasıl eşl
 | Microsoft.Migrate | [Azure geçişi](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure uzamsal yer işaretleri](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp dosyaları](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Sanal Ağ](../virtual-network/index.yml)<br />[Yük Dengeleyici](../load-balancer/index.yml)<br />[Application Gateway](/application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Ağ İzleyicisi](../network-watcher/index.yml)<br />[Azure güvenlik duvarı](../firewall/index.yml)<br />[Azure ön kapısı hizmeti](../frontdoor/index.yml) |
+| Microsoft.Network | [Sanal Ağ](../virtual-network/index.yml)<br />[Yük Dengeleyici](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Ağ İzleyicisi](../network-watcher/index.yml)<br />[Azure güvenlik duvarı](../firewall/index.yml)<br />[Azure ön kapısı hizmeti](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [Notification Hubs](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure geçişi](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure İzleyici](../azure-monitor/index.yml) |

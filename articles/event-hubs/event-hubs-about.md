@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 80c98bea08018780ba1d439e369ab42343d1e615
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822646"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236233"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - Büyük veri akışı platformu ve olay alımı hizmeti
 Azure Event Hubs, büyük bir veri akışı platformu ve olay alma hizmetidir. Bu bildirimleri alabilen ve saniye başına milyonlarca olayı işleme. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir.
@@ -23,7 +23,7 @@ Azure Event Hubs, büyük bir veri akışı platformu ve olay alma hizmetidir. B
 Aşağıdaki senaryolarda, Event Hubs kullanabileceğiniz senaryolardan bazıları şunlardır:
 
 - Anomali algılama (sahte/aykırı değer)
-- Uygulama günlüğüne kaydetme
+- Uygulama günlüğü
 - Tıklama dizileri gibi analiz işlem hatları
 - Canlı pano oluşturma
 - Veri arşivleme
@@ -86,7 +86,8 @@ Event Hubs ile çalışmaya başlamak için bkz: **olayları alıp göndermek** 
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (yalnızca gönderme)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (yalnızca reecive)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (yalnızca alma)](event-hubs-storm-getstarted-receive.md)
+
 
 Event Hubs hakkında daha fazla bilgi edinmek için şu makalelere göz atın:
 

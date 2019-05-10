@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478796"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413900"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
 
@@ -123,12 +123,12 @@ Azure içeri/dışarı aktarma hizmeti, için ve tüm Azure depolama hesapların
 |---------|---------|---------|---------|
 |Doğu ABD    | Kuzey Avrupa        | Orta Hindistan        |US Gov Iowa         |
 |Batı ABD     |Batı Avrupa         | Güney Hindistan        | US DoD Doğu        |
-|Doğu ABD 2    | Doğu Asya        |  Batı Hindistan        | US DoD Orta        |
-|Batı ABD 2     | Güneydoğu Asya        | Orta Kanada        | Çin Doğu         |
-|Orta ABD     | Avustralya Doğu        | Doğu Kanada        | Çin Kuzey        |
-|Orta Kuzey ABD     |  Avustralya Güneydoğu       | Güney Brezilya        | Birleşik Krallık Güney        |
+|Doğu ABD 2    | Doğu Asya        |  Batı Hindistan        | US DoD Merkez        |
+|Batı ABD 2     | Güneydoğu Asya        | Kanada Orta        | Çin Doğu         |
+|Orta ABD     | Avustralya Doğu        | Kanada Doğu        | Çin Kuzey        |
+|Orta Kuzey ABD     |  Avustralya Güneydoğu       | Brezilya Güney        | BK Güney        |
 |Orta Güney ABD     | Japonya Batı        |Kore Orta         | Almanya Orta        |
-|Batı Orta ABD     |  Japonya Doğu       | ABD Devleti Virginia        | Almanya Kuzeydoğu        |
+|Orta Batı ABD     |  Japonya Doğu       | US Gov Virginia        | Almanya Kuzeydoğu        |
 
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
@@ -160,7 +160,7 @@ Diskleri Azure'a gönderin, Sevkiyat taşıyıcısı için sevkiyat ücreti öde
 
 **İşlem maliyetleri**
 
-Azure Depolama'ya veriler içeri aktarılırken standart depolama işlem maliyetleri yanı sıra işlem ücreti alınmaz vardır. Blob depolama alanından verileri dışarı aktarılırken standart çıkış ücretleri uygulanabilir. İşlem maliyetleri hakkında daha fazla bilgi için bkz. [veri aktarımı fiyatlandırması.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Standart depolama işlemi ücreti](https://azure.microsoft.com/pricing/details/storage/) verilerin dışarı aktarılmasını yanı sıra içeri aktarma sırasında uygulayın. Azure Depolama'dan veri dışarı aktarılırken standart çıkış ücretlerini yanı sıra depolama işlemi ücretleri de uygulanabilir. Kullanım maliyetleri, daha fazla bilgi için bkz. [veri aktarımı fiyatlandırması.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

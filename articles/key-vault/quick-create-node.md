@@ -2,19 +2,19 @@
 title: Hızlı Başlangıç - kümesi ve bir düğüm web uygulaması kullanarak Azure Key vault'tan gizli dizi alma | Microsoft Docs
 description: Bu hızlı başlangıçta, ayarlayın ve bir düğüm web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a9b92b691974eb9a14feaf97d760aa056ad21783
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696032"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236648"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Hızlı Başlangıç: Bir düğüm web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama 
 
@@ -49,7 +49,7 @@ Azure CLI'yi kullanarak Azure'da oturum açmak için, şunları girin:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 

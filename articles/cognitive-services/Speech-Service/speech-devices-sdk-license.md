@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 43f783617c36d30aa1fd65cce580bb5e666afed1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5973cfc955cfce0ec1b073ac96bd68f07f093087
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021470"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409120"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Konuşma cihaz SDK'sı Lisans Sözleşmesi
 
@@ -32,7 +32,7 @@ Bu lisans koşulları Microsoft Corporation arasındaki bir anlaşma (veya kurul
 
     Genel bir). Yükleyebilir ve istediğiniz sayıda kopyasını yazılım geliştirmek ve yalnızca yukarıda belirtilen ve aksi takdirde, dahili iş amaçlı amacı için uygulamalarınızı test etmek için kullanın.
 
-    (b) üçüncü taraf yazılım. Yazılım, size bu sözleşme kapsamında veya kendi koşullarına lisanslanan üçüncü taraf uygulamaları içerebilir. Lisans koşulları, bildirimler ve Katkıda Bulunanlar, varsa, üçüncü taraf uygulamaları için çevrimiçi en erişilebilir http://aka.ms/thirdpartynotices veya bir birlikte verilen bildirim dosyasından. Bu tür uygulamalar yönetilen yaptığınız diğer anlaşmaların, sorumluluk reddi, sınırlamalar ve tutmalar ilgili yasaların izin verdiği ölçüde için de geçerlidir. bile.
+    (b) üçüncü taraf yazılım. Yazılım, size bu sözleşme kapsamında veya kendi koşullarına lisanslanan üçüncü taraf uygulamaları içerebilir. Lisans koşulları, bildirimler ve Katkıda Bulunanlar, varsa, üçüncü taraf uygulamaları için çevrimiçi en erişilebilir https://aka.ms/thirdpartynotices veya bir birlikte verilen bildirim dosyasından. Bu tür uygulamalar yönetilen yaptığınız diğer anlaşmaların, sorumluluk reddi, sınırlamalar ve tutmalar ilgili yasaların izin verdiği ölçüde için de geçerlidir. bile.
 
     c) rekabetçi değerlendirmesi. Doğrudan rakibi olan ve erişmek veya yazılım rekabetçi değerlendirmesi, çözümleme veya toplama zeka amacıyla kullanmak, Microsoft, onun bağlı kuruluşlarının ve ilişkili şirketlerine (haklarınızda değişikliğe neden dahil) tehdidine ayları herhangi rekabetçi kullanın, erişim ve kullanım koşullarınızı olan azami ölçüde yazılım yöneten koşullarını test kısıtlamaları değerlendirmesi veya olması, Microsoft'un koşulları kısıtlayıcı veren kavramı garantilemez. Yazılımınızı yöneten koşullarını bulunduğu iddia edilen tür kısıtlamalar ayları değil, erişmek veya bu yazılımı kullanmak için izin verilmiyor ve bunu yapmaz.
 
@@ -74,13 +74,13 @@ Bu lisans koşulları Microsoft Corporation arasındaki bir anlaşma (veya kurul
 
     e) paylaşma, yayımlama, dağıtabilir, veya (dışında yukarıdaki koşullarına dağıtılabilir herhangi kod) yazılımı kiralamak, yazılımı başkalarının kullanması tek başına bir barındırılan çözümün olarak sağlayın veya yazılımı veya bu anlaşmayı bir üçüncü tarafa devretmek.
 
-1. İHRACAT SINIRLAMALARI. Tüm yurtiçi ve uluslararası ihracat yasalarına ve hedefler, son kullanıcılar ve son kullanım kısıtlamaları içeren, yazılımın geçerli düzenlemelere uymak zorundadır. Dışarı aktarma kısıtlamaları hakkında daha fazla bilgi için ziyaret http://aka.ms/exporting.
+1. İHRACAT SINIRLAMALARI. Tüm yurtiçi ve uluslararası ihracat yasalarına ve hedefler, son kullanıcılar ve son kullanım kısıtlamaları içeren, yazılımın geçerli düzenlemelere uymak zorundadır. Dışarı aktarma kısıtlamaları hakkında daha fazla bilgi için ziyaret https://aka.ms/exporting.
 
 1. DESTEK HİZMETLERİ. Microsoft yazılım için herhangi bir destek hizmeti sağlamak için işbu sözleşme yükümlülüğü yoktur. Sağlanan her türlü destek "olduğu gibi" olan, "tüm hatalarıyla" ve hiçbir garanti olmadan.
 
 1. GÜNCELLEŞTİRİR. Yazılım düzenli aralıklarla güncelleştirmeleri denetleyebilir ve indirin ve sizin için yükleyin. Yalnızca Microsoft'tan veya yetkili kaynaklardan güncelleştirme alabilirsiniz. Microsoft size güncelleştirmeleri sağlamak için sisteminizi güncelleştirmesi gerekebilir. Herhangi bir ek bildirimde bulunulmadan bu otomatik güncelleştirmeleri almayı kabul etmiş olursunuz. Güncelleştirmeleri içermeyebilir veya tüm var olan yazılım özellikleri, hizmetleri veya çevre birimi cihazları destekler.
 
-1. BAĞLAYICI TAHKİM VE TOPLU FERAGAT BİLDİRİMİ BAĞLAMA. Bu bölüm, yaşadığınız (veya bir işletme yaşayanlar iş içinde durumdaysa) geçerlidir Amerika Birleşik Devletleri.  Siz ve Microsoft anlaşmazlığı varsa, siz ve Microsoft içinde gayri resmi yollardan çözmeye 60 gün boyunca çözmeye çalışacağınızı kabul ediyorsunuz. Siz ve Microsoft çözemezseniz, siz ve Microsoft anlaşmazlığı Amerikan Tahkim Birliği Federal Tahkim Yasası ("FAA") altında ve yargı hakem veya bunu önünde çıkarmamayı kabul edersiniz. Bunun yerine, bir hakeme bırakılacaktır. Davalara, davalara, özel avukatlı genel davalara ve burada birisi temsili bir kapasitede davranır ilerlemeden izin verilmiyor; ya da bütün tarafların rızası tek tek yargılamaları birleştirmeye silinmez. Tahkim anlaşmasının tamamı daha fazla hüküm içerir ve en http://aka.ms/arb-agreement-1. Siz ve Microsoft bu hükümleri kabul etmiş olursunuz.
+1. BAĞLAYICI TAHKİM VE TOPLU FERAGAT BİLDİRİMİ BAĞLAMA. Bu bölüm, yaşadığınız (veya bir işletme yaşayanlar iş içinde durumdaysa) geçerlidir Amerika Birleşik Devletleri.  Siz ve Microsoft anlaşmazlığı varsa, siz ve Microsoft içinde gayri resmi yollardan çözmeye 60 gün boyunca çözmeye çalışacağınızı kabul ediyorsunuz. Siz ve Microsoft çözemezseniz, siz ve Microsoft anlaşmazlığı Amerikan Tahkim Birliği Federal Tahkim Yasası ("FAA") altında ve yargı hakem veya bunu önünde çıkarmamayı kabul edersiniz. Bunun yerine, bir hakeme bırakılacaktır. Davalara, davalara, özel avukatlı genel davalara ve burada birisi temsili bir kapasitede davranır ilerlemeden izin verilmiyor; ya da bütün tarafların rızası tek tek yargılamaları birleştirmeye silinmez. Tahkim anlaşmasının tamamı daha fazla hüküm içerir ve en https://aka.ms/arb-agreement-1. Siz ve Microsoft bu hükümleri kabul etmiş olursunuz.
 
 1. FESİH. Herhangi bir hakka halel, birini kendi hüküm ve koşullar ile uyum sağlamak başarısız olursa Microsoft işbu sözleşmeyi feshedebilir. Böyle bir durumda, tüm bileşen parçalarından ve bir yazılım tüm kopyalarını imha etmeniz gerekir.
 

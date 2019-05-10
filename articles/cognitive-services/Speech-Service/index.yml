@@ -18,7 +18,19 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 'Konuşma Tanıma Hizmetlerini ve Konuşma Tanıma SDK''sını kullanarak uygulamalarınıza konuşma özellikleri eklemeyi öğrenin. Konuşma Tanıma SDK''sını kullanarak uygulamalarınıza <i>konuşmayı metne dönüştürme</i> (konuşma tanıma/SR), <i>amaç</i>, <i>çeviri</i> ve <i>metni konuşmaya dönüştürme</i> (TTS) özellikleri katabilirsiniz. Ayrıca Konuşma Tanıma Hizmetleri, HTTP isteği oluşturabilen tüm programlama dilleriyle çalışan bir REST API’ye sahiptir.'
+  description: |
+    Uygulamalarınıza konuşma özellikleri eklemek için Konuşma Hizmetleri’ni REST API’lerle veya Konuşma SDK’mızla kullanmayı öğrenin. Konuşma SDK’sını kullanarak uygulamalarınıza aşağıdaki özellikleri ve daha fazlasını ekleyebilirsiniz&colon; 
+    <div class="row" style="font-size:16px"><div class="column"><ul>
+    <li><b><a href="speech-to-text.md">konuşmayı metne dönüştürme</a></b> (konuşma tanıma/SR)</li>
+    <li><b><a href="speech-devices-sdk-create-kws.md">özel uyandırma sözcüğü</a></b> (anahtar sözcük bulucu/KWS)</li>
+    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">amaç</a></b></li>
+    <li><b><a href="speech-translation.md">çeviri</a></b></li>
+    <li><b><a href="speech-container-howto.md">şirket içi kapsayıcı</a></b></li></ul></div><div class="column"><ul>
+    <li><b><a href="text-to-speech.md">metin okuma</a> </b> (TTS)</li>
+    <li><b><a href="conversation-transcription-service.md">konuşma transkripsiyonu</a></b> (CTS)</li>
+    <li><b><a href="how-to-phrase-lists.md">ifade listesi kişiselleştirme</a>/<a href="how-to-custom-speech.md">özel konuşma uyarlama</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">ses öncelikli sanal yardımcı</a></b></li>
+    <li><b><a href="call-center-transcription.md">çağrı merkezi transkripsiyonu</a></b></li></ul></div></div>
 sections:
   - items:
       - type: list
@@ -44,7 +56,7 @@ sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
-        text: 'Ok bağlantısı seçerek SDK’yı indirmeyi, yüklemeyi ve kullanmayı öğrenin <img src="media/index/link.jpg" height="15" width="15"></img>.'
+        text: 'Ok bağlantısı seçerek SDK’yı indirmeyi, yüklemeyi ve kullanmayı öğrenin <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>Tüm ok bağlantıları varsayılan olarak <img src="media/index/link.jpg" height="15" width="15"></img> konuşmadan metne dönüştürme hızlı başlangıcına yönlendirir. Burada, metin okuma veya ses öncelikli sanal yardımcı gibi diğer hızlı başlangıçları (<a href="scenario-availability.md">kullanılabiliyorsa</a>) seçebilirsiniz.'
       - type: table
         style: dataMatrix
         columns:

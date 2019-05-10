@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450315"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466448"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IOT başvuru mimarisi için giriş
 
@@ -38,7 +38,7 @@ Yüksek düzeyde, bir IOT çözümü, yapılan olarak görüntüleyebilirsiniz:
 
 Başvuru mimarisi Aşağıdaki diyagramda da görüldüğü temel alt sistemlerin tanımlar:
 
-![Çekirdek alt sistemler](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![Çekirdek alt sistemler](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 Aşağıdaki bölümlerde, Uzaktan izleme çözüm Hızlandırıcısını bileşenleri için temel alt sistemlerin nasıl eşleştiği açıklanmaktadır.
 

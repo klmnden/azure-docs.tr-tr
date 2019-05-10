@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143178"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511220"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında işlev uygulaması yönetme 
 
@@ -26,15 +26,23 @@ Başlamak için Git [Azure portalında](https://portal.azure.com) ve Azure hesab
 
 ![Azure portalında işlev uygulama genel bakış](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>İşlev uygulaması ayarları sekmesi
+İşlev uygulamanızı genel bakış sayfasından özellikle yönetmek için gereken her şey için gidebilirsiniz **[uygulama ayarları](#settings)** ve **[Platformözellikleri](#platform-features)**.
 
-![Azure portalında işlev uygulamasına genel bakış.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>Uygulama ayarları
 
-**Ayarları** sekmedir burada işlev uygulamanız tarafından kullanılan işlevler çalışma zamanı sürümünü güncelleştirebilirsiniz. Ayrıca, işlev uygulaması tarafından barındırılan tüm işlevleri HTTP erişimi kısıtlamak için kullanılan ana bilgisayar anahtarlarını yönettiğiniz bir hizmettir.
+**Uygulama ayarları** sekmesini işlev uygulamanız tarafından kullanılan ayarları bulundurur.
 
-Tüketim barındırma ve App Service planları barındırma işlevleri destekler. Daha fazla bilgi için [Azure işlevleri için doğru hizmet planını seçme](functions-scale.md). Tüketim planı, daha iyi öngörülebilirlik için işlevler sağlar platform kullanımını gigabayt-saniye içinde bir günlük kullanım kotası ayarlayarak sınırla. İşlev uygulaması günlük kullanım kotasına ulaşıldıktan sonra durdurulur. Harcama kotası ulaşması nedeniyle durduruldu bir işlev uygulaması, aynı bağlamından varlık oluşturma harcama kotası günlük olarak yeniden etkinleştirilebilir. Bkz: [Azure fiyatlandırma sayfasını işlevleri](https://azure.microsoft.com/pricing/details/functions/) faturalandırma hakkında ayrıntılı bilgi için.   
+![Azure portalında işlev uygulaması ayarları.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>Platform Özellikleri sekmesi
+Bu ayarları şifrelenmiş olarak depolanır ve seçmelisiniz **değerleri gösterir** portalında değerleri görmek için.
+
+Bir ayarı eklemek için seçin **yeni uygulama ayarı** ve yeni bir anahtar-değer çifti ekleyin.
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+Yerel bir işlev uygulaması geliştirdiğinizde, bu değerleri local.settings.json proje dosyasında saklanır.
+
+## <a name="platform-features"></a>Platform özellikleri
 
 ![İşlev uygulaması platformu Özellikleri sekmesi.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,12 +54,11 @@ Tüketim barındırma ve App Service planları barındırma işlevleri destekler
 Bu konunun geri kalanında Azure portalında işlevler için yararlı olan aşağıdaki bir App Service özelliklere odaklanır:
 
 + [App Service Düzenleyicisi](#editor)
-+ [Uygulama ayarları](#settings) 
 + [Console](#console)
 + [Gelişmiş araçlar (Kudu)](#kudu)
 + [Dağıtım seçenekleri](#deployment)
 + [CORS](#cors)
-+ [Kimlik doğrulaması](#auth)
++ [Kimlik Doğrulaması](#auth)
 + [API tanımı](#swagger)
 
 App Service ayarları ile çalışma hakkında daha fazla bilgi için bkz. [Azure App Service ayarlarını yapılandırma](../app-service/web-sites-configure.md).
@@ -63,14 +70,6 @@ App Service ayarları ile çalışma hakkında daha fazla bilgi için bkz. [Azur
 | ![İşlev uygulaması App Service Düzenleyicisi.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | App Service Düzenleyicisi, JSON yapılandırma dosyaları ve kod dosyaları aynı şekilde değiştirmek için kullanabileceğiniz Gelişmiş bir portal düzenleyicisidir. Bu seçeneğin belirlenmesi, ayrı bir tarayıcı sekmesinde temel düzenleyici ile başlatır. Bu, Git deposu ile tümleştirme, çalıştırmak ve kod hatalarını ayıklamak ve işlev uygulaması ayarlarını değiştirmek sağlar. Bu düzenleyici varsayılan işlevi uygulama dikey ile karşılaştırıldığında işlevleriniz için bir Gelişmiş geliştirme ortamı sağlar.    |
 
 ![App Service Düzenleyicisi](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>Uygulama ayarları
-
-| | |
-|-|-|
-| ![İşlev uygulaması uygulama ayarları.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **uygulama ayarları** dikey penceresinde, burada yapılandırın ve çerçeve sürümleri, uzaktan hata ayıklama, uygulama ayarları ve bağlantı dizelerini Yönet. İşlev uygulamanız diğer Azure ve üçüncü taraf hizmetleri ile tümleştirdiğinizde, burada bu ayarları değiştirebilirsiniz. Bir ayarı silmek için seçin ve sağ kaydırma **X** simgesine sağ satırın sonuna kadar (aşağıdaki görüntüde gösterilen değil).
-
-![Uygulama ayarlarını yapılandırma](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Konsolu
 

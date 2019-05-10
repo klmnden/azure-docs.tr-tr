@@ -59,7 +59,7 @@ sections:
       - type: paragraph
         text: 'Mürekkep Tanıma API’sini uygulamalarınızla nasıl tümleştirebileceğinizi görmek için bu örnek programları kullanın:'
       - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# Evrensel Windows Platformu (UWP)</a>'
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089503">C# Evrensel Windows Platformu (UWP)</a>'
       - type: paragraph
         text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# Windows Presentation Foundation (WPF)</a>'
       - type: paragraph

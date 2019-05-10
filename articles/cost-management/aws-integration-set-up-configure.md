@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205695"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409206"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Ayarlama ve AWS maliyet ve kullanım raporu tümleştirmeyi Yapılandır
 
@@ -38,7 +38,7 @@ Kullanım **raporları** faturalandırma ve maliyet Yönetimi aşağıdaki adım
 7. İçin **etkinleştirmek için destek**, hiçbir seçimi gereklidir.
 8. İçin **veri yenileme ayarları**seçin **maliyetinizi yenilemesini &amp; kullanım ücretleri ile önceki ay boyunca algılanan raporu faturalar kapalı**.
 9. **İleri**’ye tıklayın.
-10. İçin **Amazon S3 demetini**, raporlar teslim istediğiniz Amazon S3 demetini adını yazın ve tıklayın **doğrulama**. Demet geçerli olması için uygun izinlere sahip olmalıdır. İzinleri demetine ekleme hakkında daha fazla bilgi için bkz. [ayarı demet ve nesne erişim izinleri](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. İçin **Amazon S3 demetini**, raporlar teslim istediğiniz Amazon S3 demetini adını yazın ve tıklayın **doğrulama**. Demet geçerli olması için uygun izinlere sahip olmalıdır. İzinleri demetine ekleme hakkında daha fazla bilgi için bkz. [ayarı demet ve nesne erişim izinleri](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. İçin **rapor yol ön eki**, raporunuzun adına eklenmesini istediğiniz rapor yolu öneki yazın.
 12. İçin **sıkıştırma**seçin **GZIP**.
 13. **İleri**’ye tıklayın.

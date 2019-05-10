@@ -8,12 +8,12 @@
   items:
     - name: 1. Windows Sanal Masaüstü'nde kiracı oluşturma
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Azure Market ile ana bilgisayar havuzu oluşturma
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. Uygulama gruplarını yönetme
-      href: manage-app-groups.md
-    - name: 4. PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
+    - name: 2. PowerShell ile hizmet sorumluları ve rol atamaları oluşturma
       href: create-service-principal-role-powershell.md
+    - name: 3. Azure Market ile ana bilgisayar havuzu oluşturma
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. Uygulama gruplarını yönetme
+      href: manage-app-groups.md
 - name: Nasıl yapılır
   items:
     - name: Windows Sanal Masaüstü kaynaklarına bağlanma

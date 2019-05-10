@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924785"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410056"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
 
@@ -237,7 +237,7 @@ Etkin TCP ayarlarını bunlar `AutoTuningLevel`:
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Ölçeklendirme çarpanı**|**Ölçeklendirme çarpanı**|**Formülünü<br/>en fazla pencere boyutunu Hesapla**|
-|Devre dışı|None|None|Pencere boyutu|
+|Devre Dışı Bırakıldı|None|None|Pencere boyutu|
 |Kısıtlı|4|2^4|Pencere boyutu * (2 ^ 4)|
 |Yüksek oranda kısıtlanmış|2|2^2|Pencere boyutu * (2 ^ 2)|
 |Normal|8|2^8|Pencere boyutu * (2 ^ 8)|
@@ -256,7 +256,7 @@ Daha büyük bir MTU daha büyük bir MSS anlamına gelir çünkü MTU TCP perfo
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Hızlandırılmış ağ iletişimi ve Alma Tarafı Ölçeklendirmesi
 
-#### <a name="accelerated-networking"></a>Hızlandırılmış ağ iletişimi
+#### <a name="accelerated-networking"></a>Hızlandırılmış ağ
 
 Sanal makine ağ işlevleri, VM Konuk hem hiper yönetici/konak yoğun CPU geçmişte bırakılıyordu. Ana bilgisayar üzerinden transits her paket, CPU, tüm sanal ağ yalıtma ve kapsüllemeyi açma işlemi dahil olmak üzere ana bilgisayar tarafından yazılımda işlenir. Yüksek CPU, daha fazla trafik, ana bilgisayar üzerinden doğru şekilde yükleyin. Ve ana bilgisayar CPU diğer işlemleri ile meşgul ise, bu da ağ aktarım hızı ve gecikme süresini etkiler. Azure hızlandırılmış ağ ile bu sorunu giderir.
 
@@ -276,7 +276,7 @@ Hızlandırılmış ağ kullanmak için açık bir şekilde uygulanabilir her VM
 
 Alma Tarafı ölçeklendirme (RSS) dağıtarak, ağ trafiğinin alma daha verimli bir şekilde dağıtan bir ağ sürücüsü teknoloji alma işlemi birden çok CPU işlemcili bir sistemi olduğundan. Basit bir deyişle, RSS, tüm kullanılabilir CPU'ların yerine yalnızca bir tane kullandığından daha alınan trafiğini işlemek bir sistem sağlar. RSS daha fazla teknik bilgi için bkz. [Alma Tarafı Ölçeklendirmesi giriş](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Bir VM'de hızlandırılmış ağ etkin olduğunda en iyi performansı elde etmek, RSS etkinleştirmeniz gerekir. RSS accelerated networking kullanmayan Vm'leri üzerinde avantajları da sağlayabilir. RSS etkin olup olmadığını belirleme ve nasıl etkinleştirileceği konusunda genel bakış için bkz: [Azure sanal makineleri için ağ verimini en iyi duruma getir](http://aka.ms/FastVM).
+Bir VM'de hızlandırılmış ağ etkin olduğunda en iyi performansı elde etmek, RSS etkinleştirmeniz gerekir. RSS accelerated networking kullanmayan Vm'leri üzerinde avantajları da sağlayabilir. RSS etkin olup olmadığını belirleme ve nasıl etkinleştirileceği konusunda genel bakış için bkz: [Azure sanal makineleri için ağ verimini en iyi duruma getir](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT ve TIME_WAIT assassination
 
@@ -316,7 +316,7 @@ Aktarım hızı sınırı, sanal makine için geçerlidir. Aktarım hızı bu fa
 
 - **Protokol**: Tüm protokoller üzerinden giden tüm trafiği, sınırında sayılır.
 
-Daha fazla bilgi için [sanal makine ağ bant genişliği](http://aka.ms/AzureBandwidth).
+Daha fazla bilgi için [sanal makine ağ bant genişliği](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Internet performansla ilgili önemli noktalar
 

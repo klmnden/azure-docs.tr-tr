@@ -10,18 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 55b19a6cf71730858fcf42880f71a2c9c07a3b31
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683973"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406837"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Bir olay hub'ı kullanarak zaman serisi görüşleri ortamına olayları gönderme
 
-Bu makalede, oluşturma ve Azure olay hub'ları, bir olay hub'ı yapılandırın ve ardından olayları göndermek için örnek bir uygulama çalıştırma açıklanmaktadır. JSON biçiminde olaylar içeren mevcut bir olay hub'ı varsa, bu öğreticiyi atlayabilir ve ortamınızı görüntüleyebilirsiniz [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+Bu makalede, oluşturma ve Azure olay hub'ları, bir olay hub'ı yapılandırma açıklanmaktadır. Ayrıca, Event Hubs'dan olayları göndermek için örnek bir uygulama için Azure Time Series Insights çalışmasına nasıl açıklar. JSON biçiminde olaylar içeren mevcut bir olay hub'iniz varsa, bu öğreticiyi atlayabilir ve ortamınızı görüntüleyebilirsiniz [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
 ## <a name="configure-an-event-hub"></a>Olay hub’ını yapılandırma
 
@@ -30,14 +30,14 @@ Bu makalede, oluşturma ve Azure olay hub'ları, bir olay hub'ı yapılandırın
 1. Olay hub'ınızı seçin.
 1. Bir olay hub'ı oluşturduğunuzda, aslında bir olay hub'ı ad alanını oluşturuyorsunuz. Henüz bir olay hub'ı ad alanı içinde menüde altında oluşturmadıysanız **varlıkları**, bir olay hub'ı oluşturun.  
 
-    ![Olay hub'ları listesi][1]
+    [![Olay hub'ları listesi](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. Bir olay hub'ı oluşturduğunuzda, olay hub'ları listesinde seçin.
 1. Menüde altında **varlıkları**seçin **Event Hubs**.
 1. Olay hub'ı yapılandırmak için adını seçin.
 1. Altında **varlıkları**seçin **tüketici grupları**ve ardından **tüketici grubu**.
 
-    ![Bir tüketici grubu oluşturun][2]
+    [![Bir tüketici grubu oluşturun](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
 1. Özel olarak yalnızca Zaman Serisi Görüşleri olay kaynağınız tarafından kullanılan bir tüketici grubu oluşturduğunuzdan emin olun.
 
@@ -46,17 +46,17 @@ Bu makalede, oluşturma ve Azure olay hub'ları, bir olay hub'ı yapılandırın
 
 1. Menüde altında **ayarları**seçin **paylaşılan erişim ilkeleri**ve ardından **Ekle**.
 
-    ![Paylaşılan erişim ilkeleri'ni seçin ve ardından Ekle düğmesini seçin.][3]
+    [![Paylaşılan erişim ilkeleri'ni seçin ve ardından Ekle düğmesini seçin.](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
 1. İçinde **yeni paylaşılan erişim ilkesi ekleme** bölmesinde adlı bir paylaşılan erişim oluşturma **MySendPolicy**. Bu paylaşılan erişim ilkesi olayları göndermek için kullanacağınız C# bu makaledeki örnekler.
 
-    ![İlke adı kutusuna MySendPolicy girin][4]
+    [![İlke adı kutusuna MySendPolicy girin](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
 1. Altında **talep**seçin **Gönder** onay kutusu.
 
 ## <a name="add-a-time-series-insights-instance"></a>Time Series Insights örneği ekleme
 
-Time Series Insights güncelleştirme örnekleri bağlamsal veriler için gelen telemetri verilerini eklemek için kullanır. Verileri kullanarak sorgu zamanında birleştirilmiş bir **zaman serisi kimliği**. **Zaman serisi kimliği** örnek windmills için bu makalenin sonraki bölümlerinde kullandığımız projedir **kimliği**. Zaman serisi görüşleri örnekleri hakkında daha fazla bilgi edinmek ve **zaman serisi kimliği**, bkz: [zaman serisi modelleri](./time-series-insights-update-tsm.md).
+Time Series Insights güncelleştirme örnekleri bağlamsal veriler için gelen telemetri verilerini eklemek için kullanır. Verileri kullanarak sorgu zamanında birleştirilmiş bir **zaman serisi kimliği**. **Zaman serisi kimliği** örnek windmills için bu makalenin sonraki bölümlerinde kullandığımız projedir `id`. Zaman serisi görüşleri örnekleri hakkında daha fazla bilgi edinmek ve **zaman serisi kimliği**, bkz: [zaman serisi modelleri](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Zaman serisi görüşleri olay kaynağı oluşturma
 
@@ -72,78 +72,44 @@ Time Series Insights güncelleştirme örnekleri bağlamsal veriler için gelen 
 
 1. Git **paylaşılan erişim ilkeleri** > **RootManageSharedAccessKey**. Değeri kopyalamak **bağlantı dizesi-birincil anahtar**.
 
-    ![Birincil anahtar bağlantı dizesi değerini kopyalayın][5]
+    [![Birincil anahtar bağlantı dizesi değerini kopyalayın](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
 1. https://tsiclientsample.azurewebsites.net/windFarmGen.html kısmına gidin. URL sanal Yeldeğirmeni cihazları çalıştırır.
 1. İçinde **olay hub'ı bağlantı dizesi** kutusuna Web sayfası, içinde kopyaladığınız bağlantı dizesini yapıştırın [olayları gönderme](#push-events).
   
-    ![Olay hub'ı bağlantı dizesi kutusunda birincil anahtar bağlantı dizesini yapıştırın][6]
+    [![Olay hub'ı bağlantı dizesi kutusunda birincil anahtar bağlantı dizesini yapıştırın](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
 
 1. Seçin **başlatmak için tıklatın**. Simülatör doğrudan kullanabileceğiniz JSON örneği oluşturur.
 
-1. Azure portalında event hub'ınıza geri dönün. Üzerinde **genel bakış** sayfa, olay hub'ı tarafından alınan yeni olaylar görmelisiniz:
+1. Azure portalında event hub'ınıza geri dönün. Üzerinde **genel bakış** sayfa, olay hub'ı tarafından alınan yeni olaylar görmelisiniz.
 
-    ![Ölçümleri olay hub'ı gösteren bir olay hub'ı genel bakış sayfası][7]
+    [![Ölçümleri olay hub'ı gösteren bir olay hub'ı genel bakış sayfası](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 
-<a id="json"></a>
+## <a name="json"></a>Desteklenen JSON şekilleri
 
-## <a name="supported-json-shapes"></a>Desteklenen JSON şekilleri
+### <a name="example-one"></a>Bir örnek
 
-### <a name="sample-1"></a>Örnek 1
+* **Giriş**: Basit bir JSON nesnesi.
 
-#### <a name="input"></a>Girdi
-
-Basit bir JSON nesnesi:
-
-```json
-{
-    "id":"device1",
-    "timestamp":"2016-01-08T01:08:00Z"
-}
-```
-
-#### <a name="output-one-event"></a>Çıkış: Bir olay
-
-|id|timestamp|
-|--------|---------------|
-|cihaz1|2016-01-08T01:08:00Z|
-
-### <a name="sample-2"></a>Örnek 2
-
-#### <a name="input"></a>Girdi
-
-İki JSON nesnesi içeren JSON dizisi. Her bir JSON nesnesi bir olaya dönüştürülür.
-
-```json
-[
+    ```JSON
     {
         "id":"device1",
         "timestamp":"2016-01-08T01:08:00Z"
-    },
-    {
-        "id":"device2",
-        "timestamp":"2016-01-17T01:17:00Z"
     }
-]
-```
+    ```
 
-#### <a name="output-two-events"></a>Çıkış: İki olay
+* **Çıkış**: Bir olay.
 
-|id|timestamp|
-|--------|---------------|
-|cihaz1|2016-01-08T01:08:00Z|
-|cihaz2|2016-01-08T01:17:00Z|
+    |kimlik|timestamp|
+    |--------|---------------|
+    |cihaz1|2016-01-08T01:08:00Z|
 
-### <a name="sample-3"></a>Örnek 3
+### <a name="example-two"></a>İki örnek
 
-#### <a name="input"></a>Girdi
+* **Giriş**: İki JSON nesnesi içeren JSON dizisi. Her bir JSON nesnesi bir olaya dönüştürülür.
 
-İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi:
-
-```json
-{
-    "location":"WestUs",
-    "events":[
+    ```JSON
+    [
         {
             "id":"device1",
             "timestamp":"2016-01-08T01:08:00Z"
@@ -153,70 +119,83 @@ Basit bir JSON nesnesi:
             "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
-}
-```
+    ```
 
-#### <a name="output-two-events"></a>Çıkış: İki olay
+* **Çıkış**: İki olay.
 
-Özellik **konumu** üzerinden her olay için kopyalanır.
+    |kimlik|timestamp|
+    |--------|---------------|
+    |cihaz1|2016-01-08T01:08:00Z|
+    |cihaz2|2016-01-08T01:17:00Z|
 
-|location|events.id|events.timestamp|
-|--------|---------------|----------------------|
-|WestUs|cihaz1|2016-01-08T01:08:00Z|
-|WestUs|cihaz2|2016-01-08T01:17:00Z|
+### <a name="example-three"></a>Örnek üç
 
-### <a name="sample-4"></a>Örnek 4
+* **Giriş**: İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi.
 
-#### <a name="input"></a>Girdi
-
-İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi. Bu giriş, genel özellikleri karmaşık bir JSON nesnesi tarafından temsil edilebilir olduğunu gösterir.
-
-```json
-{
-    "location":"WestUs",
-    "manufacturer":{
-        "name":"manufacturer1",
-        "location":"EastUs"
-    },
-    "events":[
-        {
-            "id":"device1",
-            "timestamp":"2016-01-08T01:08:00Z",
-            "data":{
-                "type":"pressure",
-                "units":"psi",
-                "value":108.09
+    ```JSON
+    {
+        "location":"WestUs",
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z"
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z"
             }
+        ]
+    }
+    ```
+
+* **Çıkış**: İki olay. Özellik **konumu** üzerinden her olay için kopyalanır.
+
+    |location|events.id|events.timestamp|
+    |--------|---------------|----------------------|
+    |WestUs|cihaz1|2016-01-08T01:08:00Z|
+    |WestUs|cihaz2|2016-01-08T01:17:00Z|
+
+### <a name="example-four"></a>Dört örnek
+
+* **Giriş**: İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi. Bu giriş, genel özellikleri karmaşık bir JSON nesnesi tarafından temsil edilebilir olduğunu gösterir.
+
+    ```JSON
+    {
+        "location":"WestUs",
+        "manufacturer":{
+            "name":"manufacturer1",
+            "location":"EastUs"
         },
-        {
-            "id":"device2",
-            "timestamp":"2016-01-17T01:17:00Z",
-            "data":{
-                "type":"vibration",
-                "units":"abs G",
-                "value":217.09
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z",
+                "data":{
+                    "type":"pressure",
+                    "units":"psi",
+                    "value":108.09
+                }
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z",
+                "data":{
+                    "type":"vibration",
+                    "units":"abs G",
+                    "value":217.09
+                }
             }
-        }
-    ]
-}
-```
+        ]
+    }
+    ```
 
-#### <a name="output-two-events"></a>Çıkış: İki olay
+* **Çıkış**: İki olay.
 
-|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
-|---|---|---|---|---|---|---|---|
-|WestUs|üretici1|EastUs|cihaz1|2016-01-08T01:08:00Z|basınç|psi|108.09|
-|WestUs|üretici1|EastUs|cihaz2|2016-01-08T01:17:00Z|titreşim|abs G|217.09|
+    |konum|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |---|---|---|---|---|---|---|---|
+    |WestUs|üretici1|EastUs|cihaz1|2016-01-08T01:08:00Z|basınç|psi|108.09|
+    |WestUs|üretici1|EastUs|cihaz2|2016-01-08T01:17:00Z|titreşim|abs G|217.09|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Ortamınızı görüntülemek](https://insights.timeseries.azure.com) Time Series Insights Gezgininde.
-
-<!-- Images -->
-[1]: media/send-events/updated.png
-[2]: media/send-events/consumer-group.png
-[3]: media/send-events/shared-access-policy.png
-[4]: media/send-events/shared-access-policy-2.png
-[5]: media/send-events/sample-code-connection-string.png
-[6]: media/send-events/updated_two.png
-[7]: media/send-events/telemetry.png

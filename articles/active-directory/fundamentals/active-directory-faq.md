@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f29ab7b908184533885929040ca8eccf56cda92d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249562"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464408"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory hakkında sık sorulan sorular
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -210,4 +210,4 @@ Daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulamalarına kul
 - - -
 **S:  Azure AD ile güvenli bir LDAP bağlantısı ayarlayabilir miyim?**
 
-**C:**  Hayır. Azure AD, LDAP protokolünü desteklemez. Ancak, Azure AD Domain Services ile güvenli LDAP yapılandırabilirsiniz.
+**C:**  Hayır. Azure AD, Basit Dizin Erişim Protokolü (LDAP) protokolünü desteklemiyor. Ancak, LDAP bağlantısı elde etmek için Azure ağ üzerinden düzgün bir şekilde yapılandırılmış bir ağ güvenlik grupları ile Azure AD etki alanı Hizmetleri (Azure AD DS) kullanmak mümkündür. Daha fazla bilgi için bkz. https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

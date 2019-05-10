@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626851"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510715"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SQL API'si için .NET SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "60626851"
 |**Web uygulaması Öğreticisi**|[Azure Cosmos DB ile Web uygulaması geliştirme](sql-api-dotnet-application.md)|
 |**Geçerli desteklenen çerçevesi**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
-## <a name="release-notes"></a>Sürüm notları
+## <a name="release-notes"></a>Sürüm Notları
 
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
 * 1 önizlemesi [sürüm 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) genel önizlemesi için .NET SDK'sının.
@@ -47,6 +47,20 @@ ms.locfileid: "60626851"
 * Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
 * Akışları için destek. 
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* NuGet paketinde tanımlanan SDK'ın System.Net.Http sürümle eşleşen
+* LINQ sorguları için Ondalık Duyarlığı boyutu artar.
+* Yeni eklenen sınıflarda CompositePath CompositePathSortOrder, SpatialSpec SpatialType ve PartitionKeyDefinitionVersion
+* DocumentCollection için eklenen TimeToLivePropertyPath
+* Eklenen CompositeIndexes ve SpatialIndexes IndexPolicy için
+* Eklenen PartitionKeyDefinition sürümüne
+* PartitionKey Yok'a eklendi
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * Eklenen IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection ve MaxTcpConnectionsPerEndpoint ConnectionPolicy için.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -361,6 +375,8 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 | Version | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |05 Mayıs 2019 |--- |
+| [2.3.0](#2.3.0) |04 Nisan 2019 |--- |
 | [2.2.3](#2.2.3) |11 Şubat 2019 |--- |
 | [2.2.2](#2.2.2) |06 Şubat 2019 |--- |
 | [2.2.1](#2.2.1) |Aralık 24 Mayıs 2018 |--- |

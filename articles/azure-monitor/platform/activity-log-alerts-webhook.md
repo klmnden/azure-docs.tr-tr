@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688354"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409910"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarıları için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimleri almak için Web kancası uç noktaları yapılandırabilirsiniz. Web kancaları sayesinde işlem sonrası veya özel eylemler için diğer sistemlere bu bildirimleri yönlendirebilirsiniz. Bu makalede bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir.
@@ -32,7 +32,7 @@ Web kancası, isteğe bağlı olarak kimlik doğrulaması için belirteç tabanl
 ## <a name="payload-schema"></a>Yükü şeması
 POST işlemi içinde yer alan JSON yükü yükü'nın data.context.activityLog.eventSource alanı göre farklılık gösterir.
 
-### <a name="common"></a>Common
+### <a name="common"></a>Ortak
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -156,7 +156,7 @@ POST işlemi içinde yer alan JSON yükü yükü'nın data.context.activityLog.e
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }
@@ -175,8 +175,8 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | Bağlam |Olayın bağlamı. |
 | resourceProviderName |Etkilenen kaynak kaynak sağlayıcısı. |
 | Koşul türü |Her zaman "olay." |
-| ad |Uyarı kuralı adı. |
-| id |Uyarının kaynak kimliği. |
+| name |Uyarı kuralı adı. |
+| kimlik |Uyarının kaynak kimliği. |
 | açıklama |Uyarı açıklaması uyarı oluşturulduğunda ayarlayın. |
 | subscriptionId |Azure abonelik kimliği |
 | timestamp |Olay isteği işleyen Azure hizmeti tarafından oluşturulduğu zaman. |

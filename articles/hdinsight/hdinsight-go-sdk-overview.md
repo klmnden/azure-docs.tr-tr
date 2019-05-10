@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight Go SDK'sı
-description: Azure HDInsight Go SDK için başvuru
+title: Go için Azure HDInsight SDK
+description: Go için Azure HDInsight SDK başvurusu
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700613"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466216"
 ---
-# <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Git Yönetimi SDK önizlemesi
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK'sı için Git (Önizleme)
 
 ## <a name="overview"></a>Genel Bakış
-HDInsight Go SDK sınıfları ve işlevleri, HDInsight kümelerinizi yönetmenizi sağlar. Bu, oluşturma, silme, güncelleştirme, listesinde, yeniden boyutlandırma, betik eylemleri yürütmek, izlemek, HDInsight kümelerine ve daha özelliklerini alma işlemlerini içerir.
+Go için HDInsight SDK sınıfları ve işlevleri, HDInsight kümelerinizi yönetmenizi sağlar. Bu, oluşturma, silme, güncelleştirme, listesinde, yeniden boyutlandırma, betik eylemleri yürütmek, izlemek, HDInsight kümelerine ve daha özelliklerini alma işlemlerini içerir.
 
 > [!NOTE]  
 >Bu SDK için GoDoc başvuru malzemesi olduğunu da [buradan kullanılabilir](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
