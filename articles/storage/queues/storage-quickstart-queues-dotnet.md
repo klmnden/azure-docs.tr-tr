@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: c7edc64e6bacfc1ea9c2184e57a384152e02190a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142480"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232605"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Hızlı Başlangıç: Azure Depolama'da bir kuyruk oluşturmak için .NET kullanma
 
@@ -145,7 +145,7 @@ Ardından, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyin.
 
 ### <a name="try-parsing-the-connection-string"></a>Bağlantı dizesini ayrıştırmayı deneyin
 
-Örnek, ilk ortam değişkenini oluşturmak üzere ayrıştırılabilecek bir bağlantı dizesi içerip içermediğini denetler bir [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) depolama hesabına işaret eden bir nesne. Bağlantı dizesinin geçerli olup olmadığını denetlemek için örnek kullanır [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) yöntemi. **TryParse** başarılı olursa *storageAccount* değişkenini başlatır ve **true** değerini döndürür.
+Örnek, ilk ortam değişkenini oluşturmak üzere ayrıştırılabilecek bir bağlantı dizesi içerip içermediğini denetler bir [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) depolama hesabına işaret eden bir nesne. Bağlantı dizesinin geçerli olup olmadığını denetlemek için örnek kullanır [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) yöntemi. **TryParse** başarılı olursa *storageAccount* değişkenini başlatır ve **true** değerini döndürür.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored

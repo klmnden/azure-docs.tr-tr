@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622167"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442429"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Web kancası kullanarak mevcut sorun yönetim sistemleri için sistem durumu bildirimlerini yapılandırma
 
@@ -26,6 +26,10 @@ Bu belge, en önemli bölümleri Web kancası yükü ve hizmet sorunlardan etkil
 * [ServiceNow ile uyarıları yapılandırma](service-health-alert-webhook-servicenow.md)
 * [PagerDuty ile uyarıları yapılandırma](service-health-alert-webhook-pagerduty.md)
 * [OpsGenie ile uyarıları yapılandırma](service-health-alert-webhook-opsgenie.md)
+
+### <a name="watch-an-introductory-video"></a>Tanıtım videosunu izleyin
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Hizmet durumu Web kancası yükü kullanarak özel bir bildirim yapılandırma
 Kendi özel Web kancası tümleştirmesini ayarlamak istiyorsanız, hizmet durumu bildirimlerine sırasında gönderilen JSON yükü ayrıştırılamıyor gerekir.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098210"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228121"
 ---
 # <a name="video-moderation-with-human-review"></a>İnsan tarafından İnceleme ile video denetimi
 
@@ -28,52 +28,53 @@ Makine destekli video sınıflandırma ya da görüntü eğitilen modelleri veya
 ## <a name="shot-detection"></a>Çekim algılama
 
 Sınıflandırma ayrıntılarını alırken ek video zeka videoları analiz daha fazla esneklik yardımcı olur. Çerçeve çıktısı yerine, Microsoft'un video denetimi hizmeti çok görüntüsü düzeyi bilgileri sağlar. Şimdi, görüntüsü ve çerçeve düzeyindeki videolarınızı analiz seçeneğiniz de vardır.
- 
+
 ## <a name="key-frame-detection"></a>Anahtar kare algılama
 
 Çerçeve düzenli aralıklarla çıktısı, yerine video denetimi hizmeti tanımlar ve yalnızca büyük olasılıkla tamamlandı (iyi) çerçeve çıkarır. Bu özellik, çerçeve düzeyi yetişkinlere yönelik ve müstehcen analizi için etkin çerçeve oluşturma sağlar.
 
 Aşağıdaki Ayıkla kısmi yanıt olası görüntüleri, anahtar çerçeveler ve yetişkinlere yönelik ve müstehcen puanları gösterilmektedir:
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>İncelemelere için görselleştirme
 
@@ -101,10 +102,7 @@ Videoları genellikle ses üzerinden denetimi de uygunsuz konuşma gereken sahip
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanmaya başlama [video denetimi hızlı](video-moderation-api.md). 
-
-Nasıl oluşturacağınızı öğrenin [video incelemeleri](video-reviews-quickstart-dotnet.md) İnsan gözden geçirenler, denetlenen çıktısından için.
-
-Ekleme [video deşifre metni inceler](video-transcript-reviews-quickstart-dotnet.md) video, incelemeleri için.
-
-Ayrıntılı öğretici nasıl geliştirebileceğinizi kullanıma bir [tamamlamak video denetimi çözümü](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Kullanmaya başlama [video denetimi hızlı](video-moderation-api.md).
+- Nasıl oluşturacağınızı öğrenin [video incelemeleri](video-reviews-quickstart-dotnet.md) İnsan gözden geçirenler, denetlenen çıktısından için.
+- Ekleme [video deşifre metni inceler](video-transcript-reviews-quickstart-dotnet.md) video, incelemeleri için.
+- Ayrıntılı öğretici nasıl geliştirebileceğinizi kullanıma bir [tamamlamak video denetimi çözümü](video-transcript-moderation-review-tutorial-dotnet.md).

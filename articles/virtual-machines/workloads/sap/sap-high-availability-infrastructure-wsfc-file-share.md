@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637769"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409608"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapısını hazırlama
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637769"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -341,6 +342,16 @@ Depolama alanları doğrudan'ı ve Azure yönetilmeyen diskler ile ölçek geni�
 _**Şekil 2**: Kullanıcı Arabirimi ekranı için yönetilen diskleri olmayan genişleme dosya sunucusu Azure Resource Manager şablonu_
 
 İçinde **depolama hesabı türü** kutusunda **Premium depolama**. Diğer tüm ayarlar yönetilen disk ayarları ile aynıdır.
+
+## <a name="adjust-cluster-timeout-settings"></a>Küme zaman aşımı ayarları
+
+Windows ölçek genişletme dosya sunucusu kümesine başarıyla yükledikten sonra azure'da koşulları için yük devretme algılaması için zaman aşımı eşikleri uyarlayın. Değiştirilecek parametreleri bölümünde belgelendirilen [yük devretme kümesi ağ eşikleri ayarlarken][tuning-failover-cluster-network-thresholds]. Kümelenmiş sanal makineleriniz aynı alt ağdaki olduğu varsayılırsa, bu değerleri aşağıdaki parametreleri değiştirin:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+Bu ayarlar, müşterilerle test edilmiş ve iyi bir seçim sunar. Bunlar yeterince esnektir, ancak ayrıca hızlı gerçek hata koşulları veya VM hatası yeterli yük devretme sağlarlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

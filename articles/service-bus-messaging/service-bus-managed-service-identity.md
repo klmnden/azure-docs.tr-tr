@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317085"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228400"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus ile Azure kaynakları için yönetilen kimlikleri 
 
@@ -29,7 +29,7 @@ ms.locfileid: "61317085"
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus rolleri ve izinleri
 
-Bu gibi durumlarda, yönetilen bir kimlik yalnızca bir Service Bus ad alanı "Sahip" veya "Katılımcı" rolleri ekleyebilirsiniz. Ad alanındaki tüm varlıklar üzerinde kimlik tam denetim verir. Ancak, ad alanı topolojisini değiştirme işlemleri başlangıçta olan yönetim, ancak yalnızca Azure Resource Manager desteklenmiyor. Yerel bir Service Bus REST yönetim arabirimi aracılığıyla değil. Bu destek, ayrıca .NET Framework istemci kullanamazsınız gelir [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nesnesi içinde yönetilen bir kimlik.
+Bu gibi durumlarda, yönetilen bir kimlik yalnızca bir Service Bus ad alanı "Sahip" veya "Katılımcı" rolleri ekleyebilirsiniz. Ad alanındaki tüm varlıklar üzerinde kimlik tam denetim verir. Ancak, ad alanı topolojisini değiştirme işlemleri başlangıçta olan yönetim, ancak yalnızca Azure Resource Manager desteklenmiyor. Yerel bir Service Bus REST yönetim arabirimi aracılığıyla değil. Bu destek, ayrıca .NET Framework istemci kullanamazsınız gelir [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) veya .NET Standard istemci [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) nesnelerin yönetilen bir kimlik.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus yönetilen kimliklerle Azure kaynakları için kullanın.
 

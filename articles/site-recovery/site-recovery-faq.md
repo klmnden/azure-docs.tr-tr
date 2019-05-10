@@ -8,16 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
-ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278924"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413919"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
-Bu makalede, Azure Site Recovery hakkında sık sorulan sorular özetlenmektedir. 
+Bu makalede, Azure Site Recovery hakkında sık sorulan sorular özetlenmektedir.</br>
+Farklı ASR üzerindeki özel sorgular için senaryoları senaryo başvurun belirli SSS.<br>
 
+- [Azure VM'LERİNDE olağanüstü durum kurtarma için Azure](azure-to-azure-common-questions.md)
+- [Azure'a VMware VM olağanüstü durum kurtarma](vmware-azure-common-questions.md)
+- [Azure'a Hyper-V VM'LERİNDE olağanüstü durum kurtarma](hyper-v-azure-common-questions.md)
+ 
 ## <a name="general"></a>Genel
 
 ### <a name="what-does-site-recovery-do"></a>Site Recovery ne işe yarar?
@@ -191,7 +196,7 @@ Evet. Daha fazla bilgi Bu makaleler, bant genişliği azaltma hakkında:
 
 
 
-## <a name="failover"></a>Yük devretme
+## <a name="failover"></a>Yük devret
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Nasıl miyim üzerinden Azure'a geçemiyorum, yük devretme sonrasında Azure Vm'lerini erişim sağlanır?
 
 Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 934dfd3334b6f433c7acdf9816a3fb5e24f0430f
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872003"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233533"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Anomali algılama ve Azure veri Gezgini'nde tahmin
 
@@ -119,7 +119,7 @@ demo_make_series2
 
 ## <a name="summary"></a>Özet
 
-Bu belge, temel temel ayrıştırma model önemli ölçüde geliştiren zaman serisi anomali algılama ve tahmin etme özelliği için yerel bir Azure Veri Gezgini işlevleri ayrıntıları. Algılanan anomalileri özgün her zaman serisi ayrılmış ve tahmini gerçekleştirilir. Zaman serisi anomali algılama ve tahmin işlevlerini ve tahmin yük gerçek zamanlıya yakın izleme senaryolar, hata algılama, Tahmine dayalı Bakım ve isteğe bağlı gibi kullanılır.
+Bu belge, zaman serisi anomali algılama ve tahmin için yerel bir Azure Veri Gezgini işlevleri ayrıntıları. Özgün her zaman serisi, anomali algılama ve/veya tahmin Dönemsel, eğilim ve fazlalığı bileşenleri içinde ayrılmış. Bu işlevler için gerçek zamanlıya yakın izleme senaryolar, hata algılama, Tahmine dayalı Bakım ve isteğe bağlı gibi kullanılabilir ve tahmin yükleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

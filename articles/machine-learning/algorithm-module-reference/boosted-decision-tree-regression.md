@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b4ebf1740ec2b0288d8052cb075a61b720b031a2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 67e54f10074ee566ce974dbd27485904bfe0a653
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028343"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411540"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Artırmalı karar ağacı regresyonu Modülü
 
@@ -45,7 +45,7 @@ Ek bilgi için şu makalelere bakın:
 
     Gradyan artırma bu Wikipedia makalesi artırmalı ağaçları bazı arka plan bilgileri sağlar. 
   
--  [http://research.microsoft.com/apps/pubs/default.aspx?id=132652](http://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
+-  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
     Microsoft Research: LambdaRank LambdaMART için için RankNet: Genel bir bakış. J.C. tarafından Burges.
 

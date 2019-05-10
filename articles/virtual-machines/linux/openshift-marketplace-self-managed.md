@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773610"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233089"
 ---
 # <a name="configure-prerequisites"></a>Önkoşulları yapılandırma
 
@@ -39,8 +39,8 @@ Bu basit bir seçenektir, ancak özelleştirme özellikleri sınırlıdır. Mark
 - **Disk türü**: Yönetilen diskler kullanılır.
 - **Ağ**: Yeni veya var olan ağ ve özel CIDR aralığı desteği.
 - **CNS**: CNS etkinleştirilebilir.
-- **Ölçümleri**: Ölçümleri etkinleştirilebilir.
-- **Günlüğe kaydetme**: Günlüğe kaydetme etkinleştirilebilir.
+- **Ölçümleri**: Hawkular ölçümleri etkinleştirilebilir.
+- **Günlüğe kaydetme**: EFK günlüğe kaydetme etkinleştirilebilir.
 - **Azure bulut sağlayıcısı**: Varsayılan olarak etkin, devre dışı bırakılabilir.
 
 Azure portalının üst sol tıklayın **kaynak Oluştur**'openshift kapsayıcı platformu' arama kutusuna girin ve Enter tuşuna basın.
@@ -81,7 +81,7 @@ Giriş parametreleri için değerleri girin ve tıklayın **Tamam**.
 
 | Giriş parametresi | Parametre açıklaması |
 |-----------------------|-----------------|
-| OCP küme adı ön eki | Tüm VM örneklerine oluşturulması için yönetici kullanıcı |
+| OCP küme adı ön eki | Tüm düğümleri için konak adları yapılandırmak için kullanılan önek küme. 1 ila 20 karakter |
 | Ana düğüm boyutu | Varsayılan VM boyutu kabul edin veya **değiştirme boyutu** başka bir VM boyutu seçin.  İş yükünüz için uygun VM boyutunu seçin |
 | Altyapı düğüm boyutu | Varsayılan VM boyutu kabul edin veya **değiştirme boyutu** başka bir VM boyutu seçin.  İş yükünüz için uygun VM boyutunu seçin |
 | Uygulama düğüm sayısı | Varsayılan VM boyutu kabul edin veya **değiştirme boyutu** başka bir VM boyutu seçin.  İş yükünüz için uygun VM boyutunu seçin |

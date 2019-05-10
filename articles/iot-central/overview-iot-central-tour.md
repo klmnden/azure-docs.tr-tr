@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688642"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233452"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central Kullanıcı Arabirimi turuna katılın
 
@@ -32,7 +32,6 @@ _Operatör_ olarak, Azure IoT Central kullanıcı arabirimini kullanarak Azure I
 - Cihazlarınızı yapılandırma.
 - Cihazlarınızla ilgili sorunları giderme ve düzeltme.
 - Yeni cihazları hazırlama.
-
 
 ## <a name="use-the-left-navigation-menu"></a>Sol gezinti menüsünü kullanma
 
@@ -56,6 +55,9 @@ Sol gezinti menüsünde, uygulamanın farklı alanlara erişmek için kullanın.
 Kullanıcı arabirimi için açık renkli tema veya koyu renkli temayı seçebilirsiniz:
 
 ![Kullanıcı arabirimi için tema seçme](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> Açık ve koyu temalar arasında seçim yapma olanağı, uygulama için özel bir tema yöneticinize yapılandırdıysa kullanılamaz.
 
 ## <a name="dashboard"></a>Pano
 
@@ -84,7 +86,7 @@ _Cihaz kümeleri_ sayfası, oluşturucu tarafından oluşturulan cihaz kümeleri
 
 Analiz sayfasında, uygulamanıza bağlı cihazların nasıl davrandığını anlamanıza yardımcı olan grafikler gösterilir. Operatör bu sayfayı kullanarak bağlı cihazlarla ilgili sorunları izler ve araştırır. Oluşturucu, bu sayfada gösterilen grafikleri tanımlayabilir. Daha fazla bilgi almak için [Azure IoT Central uygulamanız için özel analizler oluşturma](howto-use-device-sets.md) makalesine bakın.
 
-## <a name="jobs"></a>İşler
+## <a name="jobs"></a>İşler (Job)
 
 ![İşler sayfası](media/overview-iot-central-tour/jobs.png)
 

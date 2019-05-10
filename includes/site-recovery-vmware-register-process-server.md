@@ -2,21 +2,29 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e18d0a6a01a86f844edc213fc95003cf4f4b46c9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164580"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925593"
 ---
-* Uzak Masaüstü Bağlantısı’nı kullanarak İşlem Sunucusu sanal makinesine bağlanın.
-* Masaüstündeki kısayola tıklayarak cspsconfigtool.exe aracını başlatabilirsiniz. (Bu ilk kez, işlem sunucusu oturum açıyorsanız araç otomatik olarak başlatılır).
-  - Yapılandırma Sunucusunun tam adı (FQDN) veya IP Adresi
-  - Yapılandırma sunucusunun dinleme yaptığı bağlantı noktası. Değer 443 olmalıdır
-  - Yapılandırma sunucusuna bağlanmak için bağlantı parolası.
-  - Bu İşlem Sunucusu için yapılandırılacak Veri Aktarımı bağlantı noktası. Varsayılan değeri ortamınızdaki farklı bir bağlantı noktası numarasıyla değiştirmediyseniz olduğu gibi bırakın.
+1. İşlem Sunucusu çalıştıran makineye Uzak Masaüstü bağlantısı kurun. 
+2. Azure Site kurtarma işlemi sunucu yapılandırma aracını başlatmak için cspsconfigtool.exe'yi çalıştırın.
+    - Araç, ilk işlem sunucusuna oturum açtığınızda otomatik olarak başlatılır.
+    - Otomatik olarak açılmazsa, yalnızca masaüstü kısayoluna tıklayın.
 
-    ![İşlem Sunucusunu Kaydetme](./media/site-recovery-vmware-register-process-server/register-ps.png)
-* Yapılandırmayı ve İşlem Sunucusunu kaydetmek için kaydet düğmesine tıklayın.
+3. İçinde **yapılandırma sunucusu FQDN veya IP**, işlem sunucusunu kaydetmek kullanılacak yapılandırma sunucusunun IP adresi veya adı belirtin.
+4. İçinde **yapılandırma sunucusu bağlantı noktası**, 443 belirtildiğinden emin olun. Bu yapılandırma sunucusunun istekleri dinlediği bağlantı noktasıdır.
+5. İçinde **bağlantı parolası**, yapılandırma sunucusunu ayarladıktan ayarlandığında belirttiğiniz parolayı belirtin. Parolayı bulmak için:
+    -  Yapılandırma sunucusunda Site Recovery yükleme klasörüne gidin **\home\svssystems\bin\**. 
+    - Bu komutu çalıştırın: **genpassphrase.exe.n**. Bu, daha sonra Not Parola konumunu gösterir.
+
+6. İçinde **veri aktarımı bağlantı noktası**, özel bir bağlantı noktası belirtmediyseniz, varsayılan değeri bırakın.
+
+7. Tıklayın **Kaydet** ayarları kaydedin ve işlem sunucusunu kaydetme.
+
+    
+    ![İşlem sunucusunu kaydetme](./media/site-recovery-vmware-register-process-server/register-ps.png)

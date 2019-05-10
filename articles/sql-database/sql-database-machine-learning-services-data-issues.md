@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 069a2a5b3b26bf517b57034f05ab7080ab392319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702529"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232617"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>R ve SQL Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) verileri ile çalışma
 
@@ -300,4 +300,4 @@ Kısa bile bu örneklerden SQL geçirme giriş olarak sorguladığında veri dö
 - İstenmeyen sürprizleri önleyin, girdi verilerini, hazırlanırken açık dönüştürmeleri gerekli olarak gerçekleştirin.
 - Hatalara neden ve modelleme için yararlı olmayan verileri (örneğin, GUID'leri veya güncelleştiremezsiniz) geçirme sütunlarının kaçının.
 
-Desteklenen ve desteklenmeyen R veri türleri hakkında daha fazla bilgi için bkz. [R kitaplıkları ve veri türleri](/sql/advanced-analytics/r/r-libraries-and-data-types.md).
+Desteklenen ve desteklenmeyen R veri türleri hakkında daha fazla bilgi için bkz. [R kitaplıkları ve veri türleri](/sql/advanced-analytics/r/r-libraries-and-data-types).

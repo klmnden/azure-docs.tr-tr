@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de4fba88784f41485b446f0f31cccb9a43092a3c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886128"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464329"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -31,19 +31,19 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
-    ![Henüz hiçbir kural](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
+    ![Henüz hiçbir kural](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
 1. Üzerinde **kuralları** sekmesinde **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
 1. Seçin **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
 
-    ![Kural türü](media/howto-create-telemetry-rules/Rule_Types.png)
+    ![Kural türü](media/howto-create-telemetry-rules/rule_types1.png)
 
 1. Bu cihaz şablonu kuralında tanımlamanıza yardımcı olacak bir ad girin.
 
 1. Bu şablon için oluşturulan tüm cihazlar için kuralın hemen etkinleştirmek için geçiş **Bu şablon için tüm cihazlar için etkinleştirme kuralı**.
 
-   ![Kural Ayrıntıları](media/howto-create-telemetry-rules/Rule_Detail.png)
+   ![Kural Ayrıntıları](media/howto-create-telemetry-rules/rule_detail1.png)
 
     Kural cihaz şablonu altındaki tüm cihazlara otomatik olarak uygulanır.
 
@@ -59,7 +59,7 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
    - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kural neredeyse anında sıcaklık 80 ise tetikleyici sonra kural Tetikleyiciler için yapılandırılmışsa, örneğin, ne zaman cihaz sıcaklık > 80 bildirir.
    - Bir toplama işlevi, ortalama, Min, maks gibi sayısı daha sonra seçilen kullanıcı sağlamalıdır bir **toplama zaman penceresi** üzerinden hangi koşulun değerlendirilmesi gerekir. Örneğin, ayarlarsanız "5 dakika" olarak döneme ve kural arar 80 ortalama sıcaklık en az 5 dakika boyunca 80 olduğunda kural tetiklendiğinde yukarıda ortalama sıcaklık. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir.
 
-     ![Koşul](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![Koşul](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >Birden fazla telemetri Ölçüm altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşulu, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
@@ -70,14 +70,14 @@ Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak i�
 
 1. Seçin **+** yanındaki **eylemleri**. Burada, kullanılabilir eylemler listesini görürsünüz.  
 
-    ![Eylem Ekle](media/howto-create-telemetry-rules/Add_Action.png)
+    ![Eylem Ekle](media/howto-create-telemetry-rules/add_action1.png)
 
 1. Seçin **e-posta** eylemi, bir geçerli e-posta adresi girerek **için** alan ve kural tetiklendiğinde e-postanın gövdesinde görüntülenen bir not girin.
 
     > [!NOTE]
     > E-postaları, yalnızca uygulamaya eklenen ve en az bir kez oturum kullanıcılara gönderilir. Daha fazla bilgi edinin [kullanıcı yönetimi](howto-administer.md) Azure IOT Central içinde.
 
-   ![Eylem yapılandırma](media/howto-create-telemetry-rules/Configure_Action.png)
+   ![Eylem yapılandırma](media/howto-create-telemetry-rules/configure_action1.png)
 
 1. Kuralı kaydetmek için seçin **Kaydet**. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen telemetri izlemeye başlar. Kuralda belirtilen koşul karşılandığında kural yapılandırılan e-posta eylemi tetikler.
 

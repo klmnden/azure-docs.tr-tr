@@ -4,7 +4,7 @@ description: Azure Gözcü için Windows Güvenlik Duvarı veri bağlanmayı ö�
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 0e41f896-8521-49b8-a244-71c78d469bc3
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9388e267c52ef53b59aacad844e964d3cfeb13d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714600"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233830"
 ---
 # <a name="connect-windows-firewall"></a>Windows güvenlik duvarını bağlama
 
@@ -37,7 +37,7 @@ Windows Güvenlik Duvarı Bağlayıcısı'nı Azure Gözcü çalışma alanını
 
 1. Gözcü Azure portalında **veri bağlayıcıları** ve ardından **Windows Güvenlik Duvarı** Döşe. 
 1. Akışı yapmak istediğiniz veri türlerini seçin.
-1. **Yükle**'ye tıklayın.
+1. **Yükle**'ye tıklatın.
 6. İlgili şema Log Analytics'te için Windows Güvenlik Duvarı'nı kullanmak için arama **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Bağlantıyı doğrula

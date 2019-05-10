@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870158"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233914"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Öğretici: Windows sanal masaüstü Önizleme için uygulama gruplarını yönetme
 
 Yeni bir Windows sanal masaüstü Önizleme ana makine havuzu için oluşturulan varsayılan uygulama grubu de tam masaüstü yayımlar. Ayrıca, bir veya daha fazla RemoteApp uygulama grupları konak havuz oluşturabilirsiniz. Tek başlangıç menüsünde uygulama RemoteApp uygulama grubu oluşturmak ve yayımlamak için bu öğreticiden yararlanın.
 
-Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * Bir RemoteApp grubu oluşturun.
@@ -73,7 +73,7 @@ Başlamadan önce [indirin ve Windows sanal masaüstü PowerShell modülünü i�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulama gruplarınızı oluşturduktan sonra hizmet sorumluları oluşturur ve kullanıcılarınıza roller atayabilirsiniz. Bunu öğrenmek için PowerShell ile hizmet sorumluları ve rol atamalarını oluşturmayı öğrenmek için bkz.
+Bu öğreticide, kullanıcıların uygulama grubuna atayın uygulama grupları oluşturma ve RemoteApps ile doldurmak öğrendiniz. Windows sanal masaüstü oturum açma hakkında daha fazla bilgi için Windows sanal masaüstü bilgi belgeleri Bağlan devam edin.
 
-> [!div class="nextstepaction"]
-> [PowerShell ile hizmet sorumluları ve rol atamaları oluşturma](create-service-principal-role-powershell.md)
+- [Uzak Masaüstü İstemcisi Windows 7 ve Windows 10 bağlanma](connect-windows-7-and-10.md)
+- [Windows sanal masaüstü Önizleme web istemcisi için Bağlan](connect-web.md)
