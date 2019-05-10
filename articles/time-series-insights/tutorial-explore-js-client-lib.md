@@ -6,15 +6,15 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: a91afdbeaa2ced37b237b4f2b80a8dbbe2c4a05c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cb1d06872f7eae04bac934220da9d58982d0f4b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717230"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233746"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Öğretici: Azure Time Series Insights JavaScript istemci kitaplığını keşfetme
 
@@ -32,6 +32,7 @@ Web geliştiricilerin Time Series Insights (TSI) içinde depolanan verileri sorg
 > [!NOTE]
 > * Ücretsiz bir öğreticide, barındırılan [Time Series Insights web tanıtım](https://insights.timeseries.azure.com/clientsample).
 > * Time Series Insights örnek uygulama kaynak dosyaları sağlanan [GitHub örnek deposundan](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * Okuma [TSI istemci başvuru belgeleri](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
 ## <a name="video"></a>Video
 
@@ -60,8 +61,6 @@ Bu öğretici boyunca ücretsiz, barındırılan bir zaman serisi görüşleri �
    [![Oturum açma sonrasında TSI istemci örnek ana sayfası](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### <a name="page-source-and-structure"></a>Sayfa kaynağı ve yapısı
-
-<div id="page-source-and-structure"></div>
 
 İlk olarak, şimdi görüntüleyin [HTML ve JavaScript kaynak kodu](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) disk belleğine alınan işlenmiş Web:
 
@@ -119,6 +118,9 @@ Bu basitleştirme geliştiricilerin TSI verilerle daha kolay desteklenir UI graf
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
+> [!TIP]
+> Microsoft tarafından desteklenen ADAL kitaplıkları hakkında daha fazla bilgi için bkz. [ADAL başvuru belgeleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+
 ### <a name="control-identification"></a>Denetim tanımlama
 
 Sağlanan örnekte `<div>` öğeleri üst düzenlenir `<body>` tüm sayfada işlenen grafik denetimleri için duyarlı Düzen sağlamak için öğesi.
@@ -163,7 +165,7 @@ Grafik denetimleri oluşturma ve doldurma genel bir desen izler. Bu genel model,
    | `splitByObject`   | Bölme ölçütü olarak kullanmak istediğiniz dize özelliği (isteğe bağlı; null olabilir). | `{property: 'Station', type: 'String'}` |
    | `color`         | İşlemek istediğiniz nesnelerin rengi. | `'pink'` |
    | `alias`           | Toplama ifadesinin kolay adı. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Görselleştirmede zaman serisi nesnelerine bağlı olacak eylem dizisi (isteğe bağlı). | Daha fazla bilgi için bkz [açılan bağlam menüleri](#contextMenu) |
+   | `contextMenuActions` | Görselleştirmede zaman serisi nesnelerine bağlı olacak eylem dizisi (isteğe bağlı). | Daha fazla bilgi için bkz [açılan bağlam menüleri](#pop-up-context-menus) |
 
 1. Toplama verilerini istemek için `TsiClient.Server` API'lerini kullanarak bir TSI sorgusu çağırın:
 
@@ -255,8 +257,6 @@ Görsel olarak, olayları belirtmek için baklava şeklinde işaretçiler/açıl
 
 ### <a name="pop-up-context-menus"></a>Açılır menüler
 
-<div id="contextMenu"></div>
-
 Başka bir Gelişmiş özel bağlam menüleri (sağ tıklama açılır menüler) oluşturma olanağı işlevdir. Özel açılır menüler, uygulamanızın kapsamı dahilinde sıradaki eylemleri ve mantıksal adımları etkinleştirmek için yararlıdır.
 
 Kod araştırın `// Example 13/14/15` açıklaması. Bu kod, başlangıçta bir çizgi grafik başlığı altında işler `"Line Chart with Context Menu to Create Pie/Bar Chart"` ve grafik bağlı `<div>` HTML öğesiyle `id` değer `chart13`.
@@ -321,3 +321,8 @@ Veya TSI örnek uygulama kaynak dosyaları görüntüleyin:
 
 > [!div class="nextstepaction"]
 > [TSI örnek uygulama deposunu](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+
+TSI istemci API başvuru belgeleri okuyun:
+
+> [!div class="nextstepaction"]
+> [TSI API başvuru belgeleri](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)

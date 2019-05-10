@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935747"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233936"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Data Factory fiyatlandırma örnekleri anlama
 
 Bu makalede açıklanır ve Azure Data Factory fiyatlandırma modeli ile ilgili ayrıntılı örnekler gösterilmektedir.
+
+> [!NOTE]
+> Bu örneklerde kullanılan fiyatların kuramsal ve gerçek fiyatlandırma yaptığından amaçlanmamıştır.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Azure Blob depolama alanına AWS S3'ten veri saatlik kopyalama
 
@@ -122,13 +125,13 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
   - İşlem hattı, etkinlik = $0.00003 (Prorated yürütme süresi 1 dakika için. Azure tümleştirme çalışma zamanı üzerinde $ 0,002/saat)
   - Dış işlem hattı etkinliği = $0.000041 (Prorated yürütme süresi 10 dakika. Azure tümleştirme çalışma zamanı üzerinde 0.00025$ / saat)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Eşleme veri akışı hata ayıklama için normal bir workday kullanma
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Eşleme veri akışı hata ayıklama normal iş günü için (Önizleme fiyatı) kullanma
 
 Bir veri mühendisi tasarlama, oluşturma ve her gün eşleme veri akışları test etme için sorumlu olursunuz. Sabah saatlerinde ADF kullanıcı Arabiriminde oturum açıp veri akışları için hata ayıklama modunu etkinleştirin. Hata ayıklama oturumları için varsayılan TTL değeri 60 dakikadır. Hata ayıklama oturumunuzu her zaman geçerli olsun için 10 saat, gün boyunca çalışır. Bu nedenle, gün için ücret şöyle olacaktır:
 
 **10 (saat) x 8 (çekirdek) x 0.112 $ $8.96 =**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Bir veri akışı eşleme ile blob deposu verileri dönüştürün
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Veri akışı (Önizleme fiyatı) eşleme ile blob deposu verileri dönüştürün
 
 Bu senaryoda, Blob Store ADF eşleme veri akışları saatlik bir zamanlamaya göre görsel olarak verileri dönüştürmek istersiniz.
 

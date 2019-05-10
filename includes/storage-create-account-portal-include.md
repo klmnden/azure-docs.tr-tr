@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/18/2018
+ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842201ee20ef2e13c5179ccb5992a1ed98d36a3e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392324"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237875"
 ---
 Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşağıdaki adımları izleyin:
 
@@ -33,7 +33,7 @@ Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşa�
    |Dağıtım modeli     |Resource Manager         |
    |Performans     |Standart         |
    |Hesap türü     |StorageV2 (genel amaçlı v2)         |
-   |Çoğaltma     |Yerel olarak yedekli depolama (LRS)         |
+   |Çoğaltma     |Okuma erişimli coğrafi olarak yedekli depolama (LRS)         |
    |Erişim katmanı     |Sık Erişimli         |
 
 1. Depolama hesabı ayarlarınızı gözden geçirmek ve hesabı oluşturmak için **Gözden Geçir + Oluştur**’u seçin.

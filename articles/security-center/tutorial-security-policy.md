@@ -3,7 +3,7 @@ title: Güvenlik ilkeleri ile çalışma | Microsoft Docs
 description: Bu makalede Azure Güvenlik Merkezi'nde güvenlik ilkeleri ile çalışmaya nasıl.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111519"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236310"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -110,6 +110,9 @@ Varsayılan güvenlik ilkesini, ortamınız için uygun değilse bir öneri olu�
    ![İlke yönetimi](./media/tutorial-security-policy/policy-management.png)
 
 2. Öneri devre dışı bırakmak istediğiniz abonelik veya yönetim grubuna tıklayın.
+
+   > [!Note]
+   > Bir yönetim grubu için kendi aboneliklerini ilkelerine uygulanacağını unutmayın. Bu nedenle, bir aboneliğin ilkeyi devre dışı bırakır ve abonelik hala aynı ilkeyi kullanan bir yönetim grubuna ait, ardından, ilke öneriler almaya devam eder. Yönetim düzeyden ilke uygulanır ve öneriler yine de oluşturulur.
 
 1. Atanan ilke'ye tıklayın.
 

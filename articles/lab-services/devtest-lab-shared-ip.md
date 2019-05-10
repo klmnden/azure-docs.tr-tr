@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/12/2019
 ms.author: spelluru
-ms.openlocfilehash: e7080901118dde33ed07c8a80f254b9b0d2e221c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7c9feedddab1aea031cb3a8879e868aae04df00
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623036"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236878"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Azure DevTest labs'deki paylaşılan IP adreslerini anlama
 
@@ -26,25 +26,25 @@ Azure DevTest Labs Laboratuvar Vm'leri aynı genel IP adresini tek tek laboratuv
 
 ## <a name="shared-ip-setting"></a>Paylaşılan IP ayarı
 
-Bir laboratuvar oluşturduğunuzda, bir sanal ağ alt ağında yer alıyor.  Varsayılan olarak, bu alt ağ ile oluşturulan **etkinleştir paylaşılan genel IP** kümesine *Evet*.  Bu yapılandırma tüm alt ağa bir genel IP adresi oluşturur.  Sanal ağlar ve alt ağları yapılandırma hakkında daha fazla bilgi için bkz. [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md).
+Bir laboratuvar oluşturma bir sanal ağ bir alt ağ oluşturulur.  Varsayılan olarak, bu alt ağ ile oluşturulan **etkinleştir paylaşılan genel IP** kümesine *Evet*.  Bu yapılandırma tüm alt ağa bir genel IP adresi oluşturur.  Sanal ağlar ve alt ağları yapılandırma hakkında daha fazla bilgi için bkz. [Azure DevTest Labs'de sanal ağ yapılandırma](devtest-lab-configure-vnet.md).
 
 ![Yeni Laboratuvar alt ağ](media/devtest-lab-shared-ip/lab-subnet.png)
 
 Varolan Laboratuvar için bu seçeneği belirleyerek etkinleştirebilirsiniz **yapılandırması ve ilkelerini > sanal ağlar**. Ardından, listeden bir sanal ağ seçin ve seçin **etkinleştirme genel IP paylaşılan** seçili bir alt ağ için. Genel bir IP adresi Laboratuvar VM'ler arasında paylaşmak istemiyorsanız, herhangi bir laboratuvar bu seçeneği devre dışı bırakabilirsiniz.
 
-Paylaşılan IP bu Laboratuvar varsayılan olarak oluşturulmuş tüm Vm'leri.  İçinde sanal makine oluştururken, bu ayar gösterilebilir **Gelişmiş ayarlar** altındaki dikey penceresinde **IP adresi yapılandırması**.
+Paylaşılan IP bu Laboratuvar varsayılan olarak oluşturulmuş tüm Vm'leri.  İçinde sanal makine oluştururken, bu ayar gösterilebilir **Gelişmiş ayarlar** altındaki **IP adresi yapılandırması**.
 
 ![Yeni VM](media/devtest-lab-shared-ip/new-vm.png)
 
 - **Paylaşılan:** Olarak oluşturulan tüm sanal makinelerin **paylaşılan** (RG) bir kaynak grubuna yerleştirilir. Bunun için RG ve tüm sanal makineler rg bu IP adresini kullanacak tek bir IP adresi atanır.
 - **Genel:** Oluşturduğunuz her VM kendi IP adresi vardır ve kendi kaynak grubunda oluşturulur.
-- **Özel:** Oluşturduğunuz her bir VM'nin özel IP adresi kullanır. Uzak Masaüstü ile internet'ten doğrudan bu VM'ye bağlanmak mümkün olmayacaktır.
+- **Özel:** Oluşturduğunuz her bir VM'nin özel IP adresi kullanır. Uzak Masaüstü ile internet'ten doğrudan bu VM'ye bağlanamıyor.
 
 Etkin paylaşılan ıp'li VM alt ağ ile eklendiğinde, DevTest Labs, otomatik olarak VM için yük dengeleyici ekler ve VM'de RDP bağlantı noktası iletme genel IP adresi üzerinde bir TCP bağlantı noktası numarası atar.  
 
 ## <a name="using-the-shared-ip"></a>Paylaşılan IP kullanma
 
-- **Linux kullanıcıları:** IP adresini veya tam etki alanı adını, bağlantı noktası tarafından üste, ardından kullanarak sanal Makineye SSH. Örneğin, aşağıdaki görüntüde, VM'ye bağlanmak için RDP adresidir `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
+- **Linux kullanıcıları:** IP adresini veya tam etki alanı adını, bağlantı noktası tarafından üste, ardından kullanarak sanal Makineye SSH. Örneğin, aşağıdaki görüntüde, VM'ye bağlanmak için RDP adresidir `mydevtestlab597975021002.eastus.cloudapp.azure.com:50661`.
 
   ![VM örneği](media/devtest-lab-shared-ip/vm-info.png)
 

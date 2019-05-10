@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587870"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236784"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -59,12 +59,12 @@ Parolalar tahmin kötü amaçlı yazılım çalınırsa ya da yeniden kullanıla
 
 Çoğu kuruluş (gerektiren özel karakterler, sayılar, büyük ve küçük harf) geleneksel karmaşıklığını ve parola süre sonu kuralları kullanır. [Microsoft research](https://aka.ms/passwordguidance) Bu ilkeler, kullanıcıların tahmin edilmesi kolaydır parolaları seçim neden göstermiştir.
 
-Azure AD'nin [dinamik yasaklı parola](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) özellik, kullanıcıların kolayca tahmin edilebilir parolaları ayarlama özelliğinden önlemek için geçerli bir saldırganın davranışı kullanır. Bu özellik, kullanıcıların bulutta oluşturulduğunda her zaman açık olan ancak dağıttıklarında ayrıca hibrit kuruluşlar için kullanıma sunuldu [Windows Server Active Directory için Azure AD parola koruması](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD parola koruması bu sık kullanılan parolaları seçme kullanıcıların engeller ve belirttiğiniz özel anahtar sözcükler içeren parola engelleyecek şekilde genişletilebilir. Örneğin, şirketinizin ürün adlarını veya bir yerel Spor takım içeren parolaları seçmesini kullanıcılarınızın engelleyebilirsiniz.
+Azure AD'nin [dinamik yasaklı parola](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) özellik, kullanıcıların kolayca tahmin edilebilir parolaları ayarlama özelliğinden önlemek için geçerli bir saldırganın davranışı kullanır. Bu özellik, kullanıcıların bulutta oluşturulduğunda her zaman açık olan ancak dağıttıklarında ayrıca hibrit kuruluşlar için kullanıma sunuldu [Windows Server Active Directory için Azure AD parola koruması](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD parola koruması bu sık kullanılan parolaları seçme kullanıcıların engeller ve belirttiğiniz özel anahtar sözcükler içeren parola engelleyecek şekilde genişletilebilir. Örneğin, şirketinizin ürün adlarını veya bir yerel Spor takım içeren parolaları seçmesini kullanıcılarınızın engelleyebilirsiniz.
 
 Microsoft öneriyor bağlı olarak aşağıdaki modern parola ilkesini benimseme [NIST kılavuzu](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Parolalar en az 8 karaktere sahip olması gerekir. Bunlar, kullanıcıların tahmin edilebilir bir parola seçin, parolaları dosyaları Kaydet veya bunları Not neden artık gerekmeyen daha iyi değildir.
-2. Gibi bir kolayca tahmin edilebilecek parolaları kullanıcılara sürücü süre sonu kurallarını devre dışı **Summer2018!**
+2. Gibi bir kolayca tahmin edilebilecek parolaları kullanıcılara sürücü süre sonu kurallarını devre dışı **Spring2019!**
 3. Karakter-birleştirme gereksinimleri devre dışı bırakın ve kullanıcıların parolalar tahmin edilebilir karakter değişimler seçmek neden olarak kullanıcıların yaygın olarak Saldırıya uğrayan parolaları seçmesini önleyerek.
 
 Kullanabileceğiniz [parola süresinin dolmasını engellemek için PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) doğrudan Azure AD'de kimlik oluşturursanız, kullanıcılar için. Hibrit kuruluşlar kullanarak bu ilkeleri uygulamanız gerekir [etki alanı Grup İlkesi ayarları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) veya [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -166,7 +166,7 @@ Azure AD kimlik koruması, günlük izlemeniz iki önemli raporları sağlar:
 
 ### <a name="audit-apps-and-consented-permissions"></a>Denetim uygulamalar ve onay verilmiş izinleri
 
-Kullanıcılar, güvenliği aşılmış bir web sitesi ya da, profil bilgileri ve kullanıcı verilerine erişim, kullanıcıların e-posta gibi tabanına uygulamalarda gezinme içine sağladı. Kötü amaçlı bir aktör, posta kutusu içeriklerinin şifrelemek ve posta kutusu verilerinizi yeniden elde etmek için bir ransom talep için alınan onay verilmiş izinleri kullanabilirsiniz. [Yöneticiler gözden geçirmeniz ve Denetim](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) kullanıcılar tarafından verilen izinler.
+Kullanıcılar, güvenliği aşılmış bir web sitesi ya da, profil bilgileri ve kullanıcı verilerine erişim, kullanıcıların e-posta gibi tabanına uygulamalarda gezinme içine sağladı. Kötü amaçlı bir aktör, posta kutusu içeriklerinin şifrelemek ve posta kutusu verilerinizi yeniden elde etmek için bir ransom talep için alınan onay verilmiş izinleri kullanabilirsiniz. [Yöneticiler gözden geçirmeniz ve Denetim](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) kullanıcılar tarafından verilen izinler.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Adım 5 - Enable son kullanıcı kendi kendine yardım
 

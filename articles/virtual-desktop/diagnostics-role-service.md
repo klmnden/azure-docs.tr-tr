@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870498"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234021"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Tanılama özelliğiyle sorunları belirleme
 
@@ -118,7 +118,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 Hata senaryolarını hizmete iç ve dış sanal Windows Masaüstü için ayrılır.
 
-* İç sorun: destek sorunu çözülmesi gerekir ve Kiracı Yöneticisi tarafından edilemeyecek senaryolar belirtir. Ne zaman bir bilet oluşturma sağlayan etkinlik kimliği, Kiracı adı ve yaklaşık zaman çerçevesini sorun oluştu.
+* İç sorun: bir destek sorunu çözülmesi gerekir ve Kiracı Yöneticisi tarafından edilemeyecek senaryolar belirtir. Geri bildirim sağlanırken [Windows sanal masaüstü teknoloji topluluğuna](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), etkinlik kimliği içerir ve yaklaşık, sorunun gerçekleştiği zaman çerçevesi.
 * Dış sorun: Sistem Yöneticisi tarafından azaltılabilir senaryolarda ilgilidir. Windows sanal masaüstüne dış şunlardır.
 
 Aşağıdaki tabloda, yöneticilerinize karşılaşabileceğiniz genel hatalar listelenmektedir.

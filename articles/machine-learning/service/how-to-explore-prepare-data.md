@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204960"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409835"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Keşfedin ve veri kümesi sınıfı (Önizleme) ile verileri hazırlama
 

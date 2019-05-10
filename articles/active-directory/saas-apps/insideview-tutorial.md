@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271891"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Öğretici: InsideView ile Azure Active Directory Tümleştirme
 
@@ -142,13 +142,13 @@ Azure AD çoklu oturum açma ile InsideView yapılandırmak için aşağıdaki a
 
     c. Azure Portalı'ndan yüklediğiniz, base-64 kodlanmış sertifika açın içeriğini sizin panoya kopyalayın ve yapıştırın kendisine **STS sertifikasını** metin.
 
-    d. İçinde **Crm kullanıcı eşleme kimliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. İçinde **Crm kullanıcı eşleme kimliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. İçinde **e-posta Crm eşleme** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. İçinde **e-posta Crm eşleme** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. İçinde **Crm ad eşleme** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    f. İçinde **Crm ad eşleme** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    g. İçinde **Crm lastName eşleme** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    g. İçinde **Crm lastName eşleme** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
     h. **Kaydet**’e tıklayın.
 

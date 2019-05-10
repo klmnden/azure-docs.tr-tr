@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f259d8438b7500d5d007bbb972f859e187ccd08a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1e9a48b114d328e0405a2f03764df4ce29b166
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081034"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407050"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET belirteç önbelleği serileştirme
 Sonra bir [belirteci alınan](msal-acquire-cache-tokens.md), Microsoft kimlik doğrulama kitaplığı (MSAL) tarafından önbelleğe alınır.  Uygulama kodu, başka bir yöntemle bir belirteç alınırken önce önbellekten bir belirteç almak üzere denemelisiniz.  Bu makalede, varsayılan ve özel serileştirilmesi MSAL.NET belirteç önbelleğe açıklanır.
@@ -290,5 +290,5 @@ Aşağıdaki örnekler, belirteç önbelleği serileştirme göstermektedir.
 
 | Örnek | Platform | Açıklama|
 | ------ | -------- | ----------- |
-|[Active-Directory-dotnet-Desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Masaüstü (WPF) | Windows Masaüstü .NET (WPF) uygulaması, Microsoft Graph API çağırma. ![Topoloji](media/msal-net-token-cache-serialization/topology.png)|
+|[Active-Directory-dotnet-Desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Masaüstü (WPF) | Windows Masaüstü .NET (WPF) uygulaması, Microsoft Graph API çağırma. ![Topoloji](media/msal-net-token-cache-serialization/topology.png)|
 |[Active-Directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Masaüstü (konsol) | Visual Studio çözümleri için Azure AD v2.0 uygulamaları olarak da adlandırılan, Azure AD v1.0 uygulamaları (ADAL.NET kullanarak) geçişini gösteren bir dizi yakınsanmış uygulamalar (MSAL.NET kullanarak), özellikle [belirteç önbelleği geçiş](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

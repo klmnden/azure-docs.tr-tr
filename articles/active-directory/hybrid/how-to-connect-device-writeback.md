@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ed6fd0a4a1de3fb02b3d8583c0e5c0cecac211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351837"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507965"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Cihaz geri yazma özelliğini etkinleştirme
 > [!NOTE]
@@ -31,6 +31,7 @@ ms.locfileid: "60351837"
 
 Aşağıdaki belgeler Azure AD CONNECT'te cihaz geri yazma özelliğini etkinleştirme hakkında bilgi sağlar. Cihaz geri yazma, aşağıdaki senaryolarda kullanılır:
 
+* Etkinleştirme [Windows iş için Hello karma sertifika güven dağıtımı kullanma](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * ADFS cihazlara dayalı koşullu erişimi etkinleştir (2012 R2 veya üzeri) korumalı uygulamaları (bağlı olan taraf güvenleri).
 
 Bu, ek güvenlik ve yalnızca güvenilen cihazlara verilen uygulamalara erişimi güvence sağlar. Koşullu erişim hakkında daha fazla bilgi için bkz. [koşullu erişim ile Risk yönetme](../active-directory-conditional-access-azure-portal.md) ve [şirket içi koşullu Azure Active Directory cihaz kaydı hizmetini kullanarak erişimi ayarlarken](../../active-directory/active-directory-device-registration-on-premises-setup.md).
@@ -124,7 +125,7 @@ Active Directory yapılandırmasını doğrulayın:
 
 ![Sorun giderme, cihaz kaydı yapılandırma üzerindeki izinleri doğrulayın](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Ek Bilgi
+## <a name="additional-information"></a>Ek Bilgiler
 * [Koşullu erişim ile risk yönetme](../active-directory-conditional-access-azure-portal.md)
 * [Azure Active Directory cihaz kaydı hizmetini kullanarak şirket içi koşullu erişim ayarlama](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

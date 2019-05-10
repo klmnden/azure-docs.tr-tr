@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695498"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410945"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Etkinleştirme ve Linux sanal makineleri bir laboratuar ortamında Azure Lab Services içinde için Uzak Masaüstü kullanma
 Bu makalede, aşağıdaki görevlerin nasıl yapılacağını gösterir:
@@ -64,7 +64,7 @@ Laboratuvar sahibi (Öğretmen/Profesör) bir öğrenci VM bağlanabilir geçiş
 ## <a name="students-connecting-to-the-student-vm"></a>Öğrenciler Öğrenci VM'ye bağlanma
 Laboratuvar sahibi (Öğretmen/Profesör) sonra Öğrenci için kendi Linux vm'lere RDP **yayımlar** şablon RDP ve GUI paketleri ile sanal makinede yüklü. Adımlar aşağıdaki gibidir: 
 
-1. Ne zaman bir öğrenci oturum açtığında Labs Portalı'na doğrudan (`http://labs.azure.com`) veya bir kayıt bağlantı kullanarak (`http://labs.azure.com/register/<registrationCode>`), her bir laboratuvar Öğrenci erişimi için bir kutucuk görüntülenir. 
+1. Ne zaman bir öğrenci oturum açtığında Labs Portalı'na doğrudan (`https://labs.azure.com`) veya bir kayıt bağlantı kullanarak (`https://labs.azure.com/register/<registrationCode>`), her bir laboratuvar Öğrenci erişimi için bir kutucuk görüntülenir. 
 2. Kutucuğa seçin **Başlat** VM durdurulduysa. 
 3. **Bağlan**’ı seçin. Bu eylem, makinenizde oturum açın ve RDP dosyasını indirir. Dosyayı kaydedin ve Linux makineye RDP aracılığıyla bağlanmak için açın. 
 
