@@ -42,11 +42,11 @@ HBase bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **HBase** | Evet |
-| konak | HBase sunucusunun IP adresi veya ana bilgisayar adı. (örn.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Evet |
+| host | HBase sunucusunun IP adresi veya ana bilgisayar adı. (örn.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Evet |
 | port | HBase örneği istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Varsayılan değer 9090'dır. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Hayır |
 | httpPath | HBase sunucuya, örneğin karşılık gelen kısmi URL `/hbaserest0` Hdınsights küme kullanılırken. | Hayır |
 | authenticationType | HBase sunucuya bağlanmak için kullanılacak kimlik doğrulama mekanizması. <br/>İzin verilen değerler şunlardır: **Anonim**, **temel** | Evet |
-| kullanıcı adı | HBase örneğine bağlanmak için kullanılan kullanıcı adı.  | Hayır |
+| username | HBase örneğine bağlanmak için kullanılan kullanıcı adı.  | Hayır |
 | password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
 | trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için güvenilen CA sertifikalarını içeren .pem dosyasının tam yolu. Bu özellik yalnızca şirket içinde barındırılan IR üzerinde SSL kullanılarak, ayarlanabilir Varsayılan değer IR ile yüklü cacerts.pem dosyasıdır  | Hayır |
@@ -152,7 +152,7 @@ HBase verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayar
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **HBaseSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

@@ -56,7 +56,7 @@ Google bulut depolama bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır **AmazonS3**. | Evet |
 | accessKeyId | Gizli erişim anahtarı kimliği. Erişim anahtarı ve gizli anahtarını bulmak için Git **Google bulut depolama** > **ayarları** > **birlikte çalışabilirlik**. |Evet |
 | secretAccessKey | Gizli erişim anahtarı kendisi. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
-| ServiceUrl | Özel S3 uç noktası olarak belirtmek **`https://storage.googleapis.com`**. | Evet |
+| serviceUrl | Özel S3 uç noktası olarak belirtmek **`https://storage.googleapis.com`**. | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 Örnek aşağıda verilmiştir:
