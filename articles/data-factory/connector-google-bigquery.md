@@ -46,7 +46,7 @@ Google BigQuery bağlı hizmeti için aşağıdaki özellikleri desteklenir.
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır **GoogleBigQuery**. | Evet |
-| Proje | Sorgulamanın yapılacağı varsayılan BigQuery projenin proje kimliği.  | Evet |
+| project | Sorgulamanın yapılacağı varsayılan BigQuery projenin proje kimliği.  | Evet |
 | additionalProjects | Genel proje kimliklerinin virgülle ayrılmış bir listesini, erişimi BigQuery yansıtıyor.  | Hayır |
 | requestGoogleDriveScope | Google drive'a erişim istenip istenmeyeceğini belirtir. Google Drive erişimine BigQuery veri Google Drive verilerle birleştirmek birleştirilmiş tablolar için destek sağlar. Varsayılan değer **false**.  | Hayır |
 | authenticationType | Kimlik doğrulaması için kullanılan OAuth 2.0 kimlik doğrulama mekanizması. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanını ServiceAuthentication kullanılabilir. <br/>İzin verilen değerler **UserAuthentication** ve **ServiceAuthentication**. Daha fazla özellik ve bu kimlik doğrulama türleri için JSON örnekleri bu tabloda aşağıdaki bölümlere sırasıyla bakın. | Evet |
@@ -57,8 +57,8 @@ Google BigQuery bağlı hizmeti için aşağıdaki özellikleri desteklenir.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| ClientID | Yenileme belirteci oluşturmak için kullanılan uygulama kimliği. | Hayır |
-| ClientSecret | Yenileme belirteci oluşturmak için kullanılan uygulama gizli anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
+| clientId | Yenileme belirteci oluşturmak için kullanılan uygulama kimliği. | Hayır |
+| clientSecret | Yenileme belirteci oluşturmak için kullanılan uygulama gizli anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | refreshToken | Google BigQuery erişim yetkisi vermek için kullanılan alınan yenileme belirteci. Birinden almayı öğrenme [alma OAuth 2.0 erişim belirteçleri](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) ve [Bu topluluk blogu](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59). Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 
 **Örnek:**
@@ -93,7 +93,7 @@ Google BigQuery bağlı hizmeti için aşağıdaki özellikleri desteklenir.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| e-posta | ServiceAuthentication için kullanılan hizmet hesabı e-posta kimliği. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde kullanılabilir.  | Hayır |
+| email | ServiceAuthentication için kullanılan hizmet hesabı e-posta kimliği. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde kullanılabilir.  | Hayır |
 | keyFilePath | Hizmet hesabı e-posta adresi kimliğini doğrulamak için kullanılan .p12 anahtar dosyasının tam yolu. | Hayır |
 | trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için kullanılan güvenilir CA sertifikaları içeren bir .pem dosyasının tam yolu. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanını SSL kullandığınızda, bu özelliği ayarlayabilirsiniz. Varsayılan değer tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |
 | useSystemTrustStore | Sistem güven deposundan veya bir belirtilen .pem dosyasından bir CA sertifikası kullanılıp kullanılmayacağını belirtir. Varsayılan değer **false**.  | Hayır |
@@ -158,7 +158,7 @@ Google Bigquery'den verileri kopyalamak için kopyalama etkinliği için kaynak 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **GoogleBigQuerySource**. | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. `"SELECT * FROM MyTable"` bunun bir örneğidir. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. `"SELECT * FROM MyTable"` bunun bir örneğidir. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
