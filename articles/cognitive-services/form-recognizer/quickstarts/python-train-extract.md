@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 98d1870105038c4314a6b038ec198342bb2ca1d0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bbc285c35c010c9c0a38e9b3d6938c5dd3b76fe4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027190"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544865"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verilerini ayıklama
 
@@ -24,9 +24,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
--  Form tanıyıcı sınırlı erişim Önizleme erişimi almanız gerekir. Önizleme erişim elde etmek için lütfen doldurun ve gönderme [Bilişsel Hizmetleri Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu. 
+- Form tanıyıcı sınırlı erişim Önizleme erişimi almanız gerekir. Önizleme erişim elde etmek için lütfen doldurun ve gönderme [Bilişsel Hizmetleri Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu. 
 - Örneği yerel olarak çalıştırmak istiyorsanız [Python](https://www.python.org/downloads/) yüklenmiş olmalıdır.
-- Form tanıyıcı için bir abonelik anahtarı olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Form tanıyıcı için bir abonelik anahtarı olması gerekir. Tek hizmet aboneliği yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) Form tanıyıcının abone ve anahtarınızı alın. Form tanıyıcı hizmet içermeyecek şekilde, çoklu hizmet aboneliğinizi kullanmayın.
 - Minimum düzeyde beş forms aynı türde olmalıdır. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için.
 
 ## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma

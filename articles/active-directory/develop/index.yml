@@ -6,7 +6,7 @@ metadata:
   description: 'Microsoft Identity Platform ile tüm Microsoft kimliklerinde kullanıcıların güvenli bir şekilde oturum açmasını sağlayan, Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemeyi öğrenin.'
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na

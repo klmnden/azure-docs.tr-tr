@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f5c87457f5d19b107f5722bc8c6a95174555332a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471897"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546360"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verilerini ayıklama
 
@@ -24,10 +24,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Form tanıyıcı sınırlı erişim Önizleme erişimi aldığınız. Önizleme erişim elde etmek için lütfen doldurun ve gönderme [Bilişsel Hizmetleri Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu. 
-* [cURL](https://curl.haxx.se/windows/)’niz olmalıdır.
-* Form tanıyıcı için bir abonelik anahtarı olması gerekir. Bölümündeki yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Form tanıyıcının abone ve anahtarınızı alın.
-* Minimum düzeyde beş forms aynı türde olmalıdır. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için.
+- Form tanıyıcı sınırlı erişim Önizleme erişimi aldığınız. Önizleme erişim elde etmek için lütfen doldurun ve gönderme [Bilişsel Hizmetleri Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu.
+- [cURL](https://curl.haxx.se/windows/)’niz olmalıdır.
+- Form tanıyıcı için bir abonelik anahtarı olması gerekir. Tek hizmet aboneliği yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) Form tanıyıcının abone ve anahtarınızı alın. Form tanıyıcı hizmet içermeyecek şekilde, çoklu hizmet aboneliğinizi kullanmayın.
+- Minimum düzeyde beş forms aynı türde olmalıdır. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için.
 
 ## <a name="train-a-form-recognizer-model"></a>Bir Form tanıyıcı modeli eğitme
 

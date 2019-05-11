@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153703"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540995"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Bilgi Bankası'na Chit sohbet Ekle
 
@@ -24,17 +24,19 @@ Botunuz için Sohbet chit ekleyerek daha damıtarak konuşma bağlamında kullan
 
 Bu veri kümesi, Professional, kolay ve Witty gibi çoklu kişilikler sesini chit sohbet yaklaşık 100 senaryoları sahiptir. Botunuzun ait ses en çok benzeyen bir kişi seçin. Kullanıcı sorgusu verildiğinde, soru-cevap Oluşturucu en yakın bilinen chit sohbet soru-cevap ile eşleştirmeye çalışır.  
 
-Farklı inancı bazı örnekleri aşağıda verilmiştir. İnancı ayrıntılarıyla birlikte tüm kişilik veri kümelerini görebilirsiniz [burada](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+Farklı inancı bazı örnekleri aşağıda verilmiştir. Kişilik gördüğünüz [veri kümeleri](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) inancı ayrıntılarıyla birlikte.
+
+Kullanıcı sorgusu için `When is your birthday?`, stil uygulanmış bir yanıt her kişilik vardır:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Kullanıcı sorgusu|Profesyonel|Kolay|Şakacısın|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|Kişilik|Örnek|
+|--|--|
+|Profesyonel|Yaş benim için gerçekten geçerli değildir.|
+|Kolay|Gerçekten de bir yaş sahip değilsiniz.|
+|Şakacısın|Ben yaş ücretsiz.|
+|Caring|Ben bir ömrü yoktur.|
+|Hevesli|Bir yaş zorunluluğunu bir bot ortağıyım.|
+||
 
 > [!NOTE]
 > Chit sohbet desteği yalnızca İngilizce dilinde şu anda kullanılabilir. 

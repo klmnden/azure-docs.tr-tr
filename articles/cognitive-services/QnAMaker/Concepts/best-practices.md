@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379259"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541503"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
 [Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
@@ -39,18 +39,20 @@ Gerekiyor ancak değişiklikleri basit tutmak çok diğer sorular ekleyin. Daha 
 En iyi cevapları basit yanıtlar olan ancak Evet ve hiçbir yanıtları gibi çok basit. Yanıtınız bağlamak için diğer kaynakları veya bağlantıları ve ortam ile zengin bir deneyim sağlamak, kullanın [etiketleme](../how-to/metadata-generateanswer-usage.md) beklediğiniz yanıt türü ayırt etmek için sonra bu etiketle doğru yanıtı sürümü almak için sorgu gönderin.
 
 ## <a name="chit-chat"></a>Chit sohbet
-Botunuzun daha damıtarak konuşma bağlamında kullanılabilen ve ilgi çekici, botunuzun yapmak için chit sohbet ekleme az çaba. Kolayca 3 önceden tanımlanmış inancı chit sohbet veri kümeleri, KB oluştururken ekleyin ve bunları dilediğiniz zaman değiştirin. Bilgi edinmek için nasıl [chit sohbet eklemek için KB](../How-To/chit-chat-knowledge-base.md). 
+Botunuzun daha damıtarak konuşma bağlamında kullanılabilen ve ilgi çekici, botunuzun yapmak için chit sohbet ekleme az çaba. Kolayca, KB oluştururken önceden tanımlanmış inancı chit sohbet veri kümeleri ekleme ve bunları dilediğiniz zaman değiştirin. Bilgi edinmek için nasıl [chit sohbet eklemek için KB](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Bir kişilik seçme
-Chit sohbet için 3 önceden tanımlanmış inancı desteklenir: 
+Chit sohbet için önceden tanımlanmış birkaç inancı desteklenir: 
 
-|İnancı|
-|--|
-|Professional|
-|Arkadaş|
-|Comic|
+|Kişilik |Soru-cevap Oluşturucu veri kümesi dosyası |
+|---------|-----|
+|Profesyonel |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Kolay |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Şakacısın |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Caring |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Hevesli |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-Yanıtları aralıktan biçimsel resmi olmayan ve saygısız. En yakın botunuz için istediğiniz sesi birlikte hizalanır kişilik seçmeniz gerekir. Veri kümelerini görüntüleme ve botunuza ilişkin temel olarak hizmet veren bir seçin ve sonra yanıtları özelleştirin. 
+Yanıtları aralıktan biçimsel resmi olmayan ve saygısız. En yakın botunuz için istediğiniz sesi birlikte hizalanır kişilik seçmeniz gerekir. Görüntüleyebileceğiniz [veri kümeleri](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), botunuza ilişkin temel olarak hizmet veren birini seçin ve sonra yanıtları özelleştirin. 
 
 ### <a name="edit-bot-specific-questions"></a>Bot özgü soruları Düzenle
 Sohbet chit veri kümesinin parçası olan ve genel yanıtlar oturum doldurulmuş bazı bot özgü soruları vardır. Bu yanıtlar, en iyi bot ayrıntılarınızı yansıtacak şekilde değiştirin. 

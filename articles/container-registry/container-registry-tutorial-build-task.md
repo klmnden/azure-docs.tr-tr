@@ -5,24 +5,26 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893019"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544975"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Öğretici: Kaynak kodu işlerseniz kapsayıcı görüntü bulutta oluşturmayı otomatikleştirme
 
-ACR Görevleri, [hızlı göreve](container-registry-tutorial-quick-task.md) ek olarak *derleme görevi* ile otomatik Docker kapsayıcı görüntüsü derlemesini destekler. Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde bulutta görüntü derlemelerini otomatik olarak tetikleyen bir görev oluşturmak için Azure CLI kullanacaksınız.
+Ek olarak bir [hızlı görev](container-registry-tutorial-quick-task.md), ACR görevlerini otomatik Docker kapsayıcı görüntüsü oluşturur bulutta bir Git deposu için kaynak kodu işlerseniz destekler.
 
-Bu öğreticide, serinin ikinci kısmı:
+Bu öğreticide, ACR göreviniz, yapılar ve kaynak kodu bir Git deposuna yürüttüğünüz sırada bir Dockerfile içinde belirtilen tek bir kapsayıcı görüntüsü gönderir. Oluşturmak için bir [çok adımlı görev](container-registry-tasks-multi-step.md) oluşturun, gönderin ve isteğe bağlı olarak birden çok kapsayıcı kod işlemesinde test, görmek için adımları tanımlamak için bir YAML dosyası kullanan [Öğreticisi: Kaynak kodu işlerseniz çok adımlı kapsayıcı iş akışı bulutta çalıştırma](container-registry-tutorial-multistep-task.md). ACR görevleri genel bakış için bkz. [otomatik işletim sistemi ve framework ACR görevlerle düzeltme eki uygulama](container-registry-tasks-overview.md)
+
+Bu öğreticide:
 
 > [!div class="checklist"]
-> * Görev oluşturma
+> * Görev oluştur
 > * Görevi test etme
 > * Görev durumunu görüntüleme
 > * Kod işlemesi ile görevi tetikleme
@@ -33,51 +35,13 @@ Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-task.m
 
 Azure CLI’yı yerel olarak kullanmak istiyorsanız [az login][az-login] ile Azure CLI **2.0.46** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
 
-## <a name="prerequisites"></a>Önkoşullar
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### <a name="get-sample-code"></a>Örnek kodu alma
-
-Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-task.md) yer alan adımları zaten tamamladığınız ve örnek deponun çatalını ve kopyasını oluşturduğunuz varsayılır. Henüz yapmadıysanız, devam etmeden önce önceki öğreticinin [Önkoşullar](container-registry-tutorial-quick-task.md#prerequisites) bölümündeki adımları tamamlayın.
-
-### <a name="container-registry"></a>Kapsayıcı kayıt defteri
-
-Bu öğreticiyi tamamlamak için Azure aboneliğinizde bir Azure kapsayıcı kayıt defteri olması gerekir. Bir kayıt defteri gerekirse bkz [önceki öğreticide](container-registry-tutorial-quick-task.md), veya [hızlı başlangıç: Azure CLI kullanarak bir kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md).
-
-## <a name="overview-of-acr-tasks"></a>ACR Görevlerine genel bakış
-
-Görev, kapsayıcı görüntüsü kaynak kodunun konumu ve derlemeyi tetikleyen olay gibi otomatik bir derlemenin özelliklerini tanımlar. Git deposuna işleme gibi görevde tanımlanan bir olay gerçekleştiğinde, ACR Görevleri bulutta bir kapsayıcı görüntüsü derlemesi başlatır. Varsayılan olarak, başarıyla derlenmiş bir görüntüyü daha sonra görevde belirtilen Azure kapsayıcı kayıt defterine gönderir.
-
-ACR Görevleri şu an için aşağıdaki tetikleyicileri desteklemektedir:
-
-* Git deposuna işleme
-* Temel görüntü güncelleştirme
-
-Bu öğreticide, ACR görev oluşturur ve bir Dockerfile içinde belirtilen tek bir kapsayıcı görüntüsü iter. ACR görevleri de çalıştırabilir [çok adımlı görevler](container-registry-tasks-multi-step.md), oluşturmak için adımları tanımlamak için bir YAML dosyası kullanarak anında iletme ve isteğe bağlı olarak birden çok kapsayıcı test edin.
-
-## <a name="create-a-build-task"></a>Derleme görevi oluşturma
-
-Bu bölümde ilk olarak ACR Görevleri ile birlikte kullanılacak bir GitHub kişisel erişim belirteci (PAT) oluşturacaksınız. Daha sonra, deponuzun çatalına kod işlendiğinde derlemeyi tetikleyen bir görev oluşturacaksınız.
-
-### <a name="create-a-github-personal-access-token"></a>GitHub kişisel erişim belirteci oluşturma
-
-Git deposuna işleme sonrasında bir derleme tetiklemek için, ACR Görevlerinin depoya erişmek üzere bir kişisel erişim belirtecine (PAT) sahip olması gerekir. Github'da bir PAT oluşturmak için aşağıdaki adımları izleyin:
-
-1. GitHub üzerinde https://github.com/settings/tokens/new adresindeki PAT oluşturma sayfasında gidin
-1. Belirteç için kısa bir **açıklama** girin; örneğin, "ACR Görevleri Tanıtımı"
-1. **Depo** altında **depo:durum** seçeneğini ve **genel_depo** seçeneklerini etkinleştirin
-
-   ![GitHub'da Kişisel Erişim Belirteci oluşturma sayfasının ekran görüntüsü][build-task-01-new-token]
-
-1. **Belirteç Oluştur** düğmesini seçin (parolanızı onaylamanız istenebilir)
-1. Oluşturulan belirteci kopyalayın ve **güvenli bir konuma** kaydedin (bu belirteci sonraki bölümde bir görev tanımlarken kullanacaksınız)
-
-   ![GitHub'da oluşturulan Kişisel Erişim Belirtecinin ekran görüntüsü][build-task-02-generated-token]
-
-### <a name="create-the-build-task"></a>Derleme görevi oluşturma
+## <a name="create-the-build-task"></a>Derleme görevi oluşturma
 
 ACR Görevlerinin işleme durumunu okumasını etkinleştirmek ve bir depoda web kancaları oluşturmak için gereken adımları tamamladıktan sonra, depoya işleme yapılması üzerine kapsayıcı görüntüsü derlemesini tetikleyen bir görev oluşturabilirsiniz.
 
-İlk olarak, bu kabuk ortam değişkenlerini ortamınıza uygun değerlerle doldurun. Bu adımın yapılması kesinlikle zorunlu değildir ancak bu öğreticideki çok satırlı Azure CLI komutlarını yürütmeyi biraz daha kolaylaştırır. Bu ortam değişkenlerini doldurmazsanız her değeri, örnek komutlarda her göründükleri durumda el ile değiştirmeniz gerekir.
+İlk olarak, bu kabuk ortam değişkenlerini ortamınıza uygun değerlerle doldurun. Bu adımın yapılması kesinlikle zorunlu değildir ancak bu öğreticideki çok satırlı Azure CLI komutlarını yürütmeyi biraz daha kolaylaştırır. Bu ortam değişkenleri doldurmak yoksa, örnek komutlar görünüşünde her değeri el ile değiştirmeniz gerekir.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -85,7 +49,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Şimdi aşağıdaki [az acr task create][az-acr-task-create] komutunu yürüterek görevi oluşturun:
+Şimdi aşağıdakini yürüterek görevi oluşturun [az acr görev oluşturma] [ az-acr-task-create] komutu:
 
 ```azurecli-interactive
 az acr task create \
@@ -106,14 +70,6 @@ Bu görev, `--context` ile belirtilen depodaki *ana* dala kod işlenen her durum
 Başarılı bir [az acr task create][az-acr-task-create] komutundaki çıktı aşağıdakilere benzer:
 
 ```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
 {
   "agentConfiguration": {
     "cpu": 2
@@ -326,12 +282,11 @@ Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde Azure’da kapsay�
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

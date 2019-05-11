@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202096"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541521"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Öğretici: Görüntü işleme, Azure Depolama'da görüntü meta verilerini oluşturmak için kullanın
 
@@ -40,17 +40,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-a-computer-vision-resource"></a>Görüntü işleme kaynak oluştur
 
-Azure hesabınız için bir görüntü işleme kaynağı oluşturmanız gerekir; Bu kaynak, Azure'un görüntü işleme hizmeti, erişimini yönetir.
+Azure hesabınız için bir görüntü işleme kaynağı oluşturmanız gerekir; Bu kaynak, Azure'un görüntü işleme hizmeti, erişimini yönetir. 
 
-1. Oturum [Azure portalı](https://ms.portal.azure.com) tıklatıp **kaynak Oluştur**çizgidir **yapay ZEKA + Machine Learning** ve **görüntü işleme**.
+1. Bölümündeki yönergeleri [Azure Bilişsel hizmetler kaynağı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) görüntü işleme kaynak oluşturmak için.
 
-    ![Yeni bir görüntü işleme API'si aboneliği oluşturuluyor](../Images/new-vision-api.png)
-
-1. "İşleme-api-key" iletişim kutusu penceresinde girin **adı** seçin ve alan **F0** olarak **fiyatlandırma katmanı**. Aynı seçin **konumu** Azure depolama hesabınızı ayarladığınızda, seçtiğiniz. Altında **kaynak grubu**seçin **var olanı kullan** ve de aynı kaynak grubunu seçin. Denetleme **onaylıyorum** kutusuna ve ardından **Oluştur**.
-
-    ![Görüntü işleme API'si abone olma](../Images/create-vision-api.png)
-
-1. Kaynak grubunuz için menüsüne geri dönün ve yeni oluşturduğunuz görüntü işleme API'si aboneliğe tıklayın. URL'nin altına kopyalayın **uç nokta** için bir yere, kolayca birazdan alabileceğiniz. Ardından **erişim anahtarlarını gösterme**.
+1. Ardından kaynak grubunuzun menüsüne gidin ve oluşturduğunuz görüntü işleme API'si aboneliğe tıklayın. URL'nin altına kopyalayın **uç nokta** için bir yere, kolayca birazdan alabileceğiniz. Ardından **erişim anahtarlarını gösterme**.
 
     ![Azure portal sayfasındaki ana hatlarıyla belirtilen uç nokta URL'si ve erişim anahtarları bağlantı](../Images/copy-vision-endpoint.png)
 
@@ -128,7 +122,7 @@ Ardından, görüntüleri için meta verileri oluşturmak için görüntü işle
     }
     ```
 
-## <a name="test-the-app"></a>Uygulamayı test edin
+## <a name="test-the-app"></a>Uygulamayı test etme
 
 Visual Studio ve ENTER tuşuna yaptığınız değişiklikleri kaydetmek **Ctrl + F5** tarayıcınızda uygulamayı başlatmak için. Laboratuvar kaynakları "fotoğrafları" klasöründen veya kendi klasöründen birkaç görüntüleri karşıya yüklemek için uygulama kullanın. İmleç görünümünde görüntülerden birini üzerine geldiğinizde, araç ipucu penceresi görünür ve bilgisayar tarafından oluşturulan açıklamalı alt yazı görüntü için görüntüleme.
 
