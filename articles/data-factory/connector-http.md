@@ -70,7 +70,7 @@ Ayarlama **authenticationType** özelliğini **temel**, **Özet**, veya **Window
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| Kullanıcı adı | HTTP uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
+| userName | HTTP uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
 | password | Kullanıcının parolasını ( **kullanıcıadı** değeri). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek**
@@ -104,7 +104,7 @@ ClientCertificate kimlik doğrulaması kullanacak şekilde ayarlama **authentica
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | embeddedCertData | Sertifikayı Base64 ile kodlanmış veriler. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt**. |
-| Certthumbprınt | Şirket içinde barındırılan tümleştirme çalışma zamanı makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanı türü olarak belirtildiğinde geçerlidir **connectVia** özelliği. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt**. |
+| certThumbprint | Şirket içinde barındırılan tümleştirme çalışma zamanı makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanı türü olarak belirtildiğinde geçerlidir **connectVia** özelliği. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt**. |
 | password | Sertifikayla ilişkili parola. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 
 Kullanırsanız **Certthumbprınt** yerel bilgisayarın kişisel depoda kimlik doğrulaması ve sertifika yüklü için okuma izni ver izinleri için şirket içinde barındırılan tümleştirme çalışma zamanı:
@@ -218,7 +218,7 @@ HTTP veri kopyalamak için **ORC/Avro/JSON/ikili biçimi**, aşağıdaki özelli
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
 | Includesearchresults: true | HTTP isteğinin gövdesi. | Hayır |
 | format | HTTP uç noktası olarak veri almak istiyorsanız-ayrıştırma olmadan ve verilerin bir dosya tabanlı depolama alanına kopyalayın atla **biçimi** girdi ve çıktı veri kümesi tanımları bölümünde.<br/><br/>Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Altında **biçimi**ayarlayın **türü** özelliğini şu değerlerden biri. Daha fazla bilgi için [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format). |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler:  **En iyi** ve **hızlı**. |Hayır |
+| compression | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler:  **En iyi** ve **hızlı**. |Hayır |
 
 > [!NOTE]
 > Desteklenen HTTP isteği yükü boyutu yaklaşık 500 KB'dir. Web uç noktanıza geçirmek istediğiniz yükü boyutu 500 KB boyutundan büyükse, yükü daha küçük öbekler halinde toplu işleme göz önünde bulundurun.
@@ -283,7 +283,7 @@ HTTP veri kopyalamak için **Parquet veya sınırlandırılmış metin biçimi**
 | requestMethod            | HTTP yöntemi. <br>İzin verilen değerler **alma** (varsayılan) ve **Post**. | Hayır       |
 | addtionalHeaders         | Ek HTTP isteği üstbilgileri.                             | Hayır       |
 | Includesearchresults: true              | HTTP isteğinin gövdesi.                               | Hayır       |
-| RequestTimeout           | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Bu değer, yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olur. Varsayılan değer **00:01:40**. | Hayır       |
+| requestTimeout           | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Bu değer, yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olur. Varsayılan değer **00:01:40**. | Hayır       |
 | maxConcurrentConnections | Depolama deposu bağlanmayan bağlantılarının sayısı. Yalnızca veri deposuna eş zamanlı bağlantı sınırlandırmak istediğinizde bu seçeneği belirtin. | Hayır       |
 
 > [!NOTE]
