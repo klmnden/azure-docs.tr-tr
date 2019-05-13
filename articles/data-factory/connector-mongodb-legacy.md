@@ -55,11 +55,11 @@ MongoDB bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type |Type özelliği ayarlanmalıdır: **MongoDb** |Evet |
-| sunucu |IP adresi veya ana bilgisayar adı MongoDB sunucusunun. |Evet |
+| server |IP adresi veya ana bilgisayar adı MongoDB sunucusunun. |Evet |
 | port |MongoDB sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |Hayır (varsayılan değer 27017) |
 | databaseName |Erişmek istediğiniz MongoDB veritabanının adı. |Evet |
 | authenticationType | MongoDB veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel**, ve **anonim**. |Evet |
-| kullanıcı adı |MongoDB erişmek için kullanıcı hesabı'nı tıklatın. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
+| username |MongoDB erişmek için kullanıcı hesabı'nı tıklatın. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | password |Kullanıcının parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | authSource |Kimlik doğrulaması için kimlik bilgilerinizi denetlemek için kullanmak istediğiniz MongoDB veritabanının adı. |Hayır. Temel kimlik doğrulaması için yönetici hesabı ve databaseName özelliği kullanılarak belirtilen veritabanı kullanmak için varsayılandır. |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
@@ -129,7 +129,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **MongoDbSource** | Evet |
-| sorgu |Verileri okumak için özel SQL 92 sorgu kullanın. Örneğin: seçin * MyTable öğesinden. |Yok (veri kümesinde "collectionName" belirtilmişse) |
+| query |Verileri okumak için özel SQL 92 sorgu kullanın. Örneğin: seçin * MyTable öğesinden. |Yok (veri kümesinde "collectionName" belirtilmişse) |
 
 **Örnek:**
 
@@ -176,14 +176,14 @@ Mongodb'deki verileri kopyalama, aşağıdaki eşlemeler MongoDB veri türlerind
 
 | MongoDB veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| binary |Byte[] |
+| Binary |Byte[] |
 | Boolean |Boolean |
-| Tarih |DateTime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| Dize |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalized içine sütunları içeren iç içe geçmiş ayırıcı olarak "_" düzleştirme |
 
