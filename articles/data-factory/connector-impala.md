@@ -45,10 +45,10 @@ Impala bağlı hizmeti için aşağıdaki özellikleri desteklenir.
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır **Impala**. | Evet |
-| konak | Impala sunucusu (diğer bir deyişle, 192.168.222.160) IP adresi veya ana bilgisayar adı.  | Evet |
+| host | Impala sunucusu (diğer bir deyişle, 192.168.222.160) IP adresi veya ana bilgisayar adı.  | Evet |
 | port | Impala sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. 21050 varsayılan değerdir.  | Hayır |
 | authenticationType | Kullanılacak kimlik doğrulaması türü. <br/>İzin verilen değerler **anonim**, **SASLUsername**, ve **UsernameAndPassword**. | Evet |
-| kullanıcı adı | Impala sunucusuna erişmek için kullanılan kullanıcı adı. Varsayılan değer SASLUsername kullandığınızda anonimdir.  | Hayır |
+| username | Impala sunucusuna erişmek için kullanılan kullanıcı adı. Varsayılan değer SASLUsername kullandığınızda anonimdir.  | Hayır |
 | password | UsernameAndPassword kullandığınızda, kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer **false**.  | Hayır |
 | trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için kullanılan güvenilir CA sertifikaları içeren bir .pem dosyasının tam yolu. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanını SSL kullandığınızda, bu özelliği ayarlayabilirsiniz. Varsayılan değer tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |
@@ -120,7 +120,7 @@ Impala verileri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **ImpalaSource**. | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. `"SELECT * FROM MyTable"` bunun bir örneğidir. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. `"SELECT * FROM MyTable"` bunun bir örneğidir. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
