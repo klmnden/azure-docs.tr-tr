@@ -45,8 +45,8 @@ Oracle hizmet bağlantılı bulut hizmeti için aşağıdaki özellikleri destek
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **OracleServiceCloud** | Evet |
-| konak | Oracle hizmet bulut örneğinin URL'si.  | Evet |
-| kullanıcı adı | Oracle hizmet Bulutu sunucusuna erişmek için kullandığınız kullanıcı adı.  | Evet |
+| host | Oracle hizmet bulut örneğinin URL'si.  | Evet |
+| username | Oracle hizmet Bulutu sunucusuna erişmek için kullandığınız kullanıcı adı.  | Evet |
 | password | Kullanıcı adı anahtarı sağlanan kullanıcı adı için karşılık gelen parola. Bu alanı ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretleyin ve veri kopyalama gerçekleştirirken buradan kopyalama etkinliği çekme - daha fazla bilgi ADF seçebileceğiniz [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | Ana bilgisayar adı sunucunun sertifikasında SSL üzerinden bağlanırken sunucu ana bilgisayar adıyla eşleşmesi gerekip gerekmediğini belirtir. Varsayılan değer true olur.  | Hayır |
@@ -114,7 +114,7 @@ Oracle hizmet Buluttan veri kopyalamak için kopyalama etkinliği için kaynak t
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **OracleServiceCloudSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
