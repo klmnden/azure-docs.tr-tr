@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services - Node.js ile video dosyaları Stream | Microsoft Docs
-description: Yeni bir Azure Media Services hesabı oluşturmak, bir dosyayı kodlamak ve Azure Media Player’da akışa almak için bu hızlı başlangıcın adımlarını izleyin.
+description: Yeni bir Azure Media Services hesabı oluşturma, bir dosya kodlama ve Azure Media Player ile akış için bu öğreticideki adımları izleyin.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,24 @@ editor: ''
 keywords: azure media services, akış
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e4172cd149726e28e0c7dff435ec1f7a59ee169
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61233186"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550164"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Hızlı Başlangıç: Video dosyalarını akışla aktarma - Node.js
+# <a name="tutorial-stream-video-files---nodejs"></a>Öğretici: Video dosyalarını akışla aktarma - Node.js
 
-Bu hızlı başlangıçta, Azure Media Services kullanarak çok çeşitli tarayıcı ve cihazda videoları kodlamanın akışa almaya başlamanın ne kadar kolay olduğu size gösterilmektedir. Azure Blob depolamada bulunan dosyaların yolları, SAS URL’leri veya HTTPS URL’leri kullanılarak girdi içeriği belirtilebilir.
-Bu konu başlığındaki örnek, bir HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri kodlar. AMS v3’ün şu anda HTTPS URL'leri üzerinden yığın halinde aktarım kodlamasını desteklemediğini unutmayın.
+Bu öğreticide, kodlamak ve çok çeşitli tarayıcılarda ve cihazlarla Azure Media Services kullanarak video akışını başlatmak için ne kadar kolay olduğunu gösterir. Azure Blob depolamada bulunan dosyaların yolları, SAS URL’leri veya HTTPS URL’leri kullanılarak girdi içeriği belirtilebilir.
 
-Hızlı başlangıcın sonunda bir videoyu akışa alabileceksiniz.  
+Bu makalede örnek bir HTTPS URL'si aracılığıyla erişilebilir duruma içerik kodlar. AMS v3’ün şu anda HTTPS URL'leri üzerinden yığın halinde aktarım kodlamasını desteklemediğini unutmayın.
+
+Öğreticinin sonunda bir video akışını yapmak mümkün olacaktır.  
 
 ![Videoyu yürütme](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -71,7 +72,7 @@ Açık [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutori
 
 İşlem tamamlandıktan sonra çalışan, benzer bir çıktı görmeniz gerekir:
 
-![Çalıştırın](./media/stream-files-nodejs-quickstart/run.png)
+![Çalıştır](./media/stream-files-nodejs-quickstart/run.png)
 
 ## <a name="test-with-azure-media-player"></a>Azure Media Player ile test etme
 
@@ -90,7 +91,7 @@ Azure Media Player, test için kullanılabilir, ancak üretim ortamında kullan�
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu Hızlı Başlangıçta oluşturduğunuz Media Services ve depolama hesapları dahil olmak üzere, kaynak grubunuzdaki hiçbir kaynağa artık ihtiyacınız yoksa kaynak grubunu silin.
+Artık herhangi bir kaynağa medya Hizmetleri ve Bu öğreticide, oluşturulan depolama hesapları dahil olmak üzere, kaynak grubundaki ihtiyacınız varsa, kaynak grubunu silin.
 
 Aşağıdaki CLI komutunu yürütün:
 

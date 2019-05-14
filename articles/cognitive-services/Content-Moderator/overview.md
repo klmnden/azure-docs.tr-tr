@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129443"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551300"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator nedir?
 
-Azure Content Moderator API'si rahatsız edici, riskli veya istenmeyen olabilecek öğeleri tespit etme amacıyla metin, görüntü ve video içeriğinde denetim gerçekleştiren bir bilişsel hizmettir. Hizmet, böyle bir öğeyle karşılaştığında içeriğe uygun etiketler (bayraklar) ekler. Uygulamanız da bu bayraklı içeriği dikkate alarak düzenlemelere uygunluk ya da kullanıcılar için istenen ortamın oluşturulması amacıyla işlem gerçekleştirebilir. Farklı içerik bayraklarının anlamları hakkında daha fazla bilgi edinmek için [Content Moderator API'leri](#content-moderator-apis) bölümüne bakın.
+Azure Content Moderator API'si rahatsız edici, riskli veya istenmeyen olabilecek öğeleri tespit etme amacıyla metin, görüntü ve video içeriğinde denetim gerçekleştiren bir bilişsel hizmettir. Hizmet, böyle bir öğeyle karşılaştığında içeriğe uygun etiketler (bayraklar) ekler. Uygulamanız da bu bayraklı içeriği dikkate alarak düzenlemelere uygunluk ya da kullanıcılar için istenen ortamın oluşturulması amacıyla işlem gerçekleştirebilir. Bkz: [yönetim API'leri](#moderation-apis) ne farklı içerik bayraklar hakkında daha fazla bilgi edinmek için bölüm belirtin.
 
 ## <a name="where-it-is-used"></a>Kullanıldığı yerler
 
@@ -35,11 +35,13 @@ Aşağıda bir yazılım geliştirme uzmanının veya ekibinin Content Moderator
 
 Content Moderator hizmeti hem REST çağrıları hem de .NET SDK'sı ile sunulan çeşitli web hizmeti API'lerinden oluşur. Ayrıca hizmete yardımcı olmak veya denetleme işlevinde ince ayar yapmak için insanlar tarafından gerçekleştirilen inceleme hizmeti de sunar.
 
-![Denetleme API'lerini, Gözden Geçirme API'lerini ve insan inceleme aracını gösteren Content Moderator blok diyagramı](images/content-moderator-block-diagram.png)
+## <a name="moderation-apis"></a>Yönetim API’leri
 
-### <a name="content-moderator-apis"></a>Content Moderator API'leri
+Content Moderator hizmeti, büyük olasılıkla uygun veya uygunsuz malzeme için içerik denetimi API'leri içerir.
 
-Content Moderator hizmeti aşağıdaki senaryolara hitap eden API'lere sahiptir.
+![Content Moderator denetimi API'leri için Blok Diyagramı](images/content-moderator-mod-api.png)
+
+Aşağıdaki tabloda, yönetim API'lerini farklı türleri açıklanmaktadır.
 
 | API grubu | Açıklama |
 | ------ | ----------- |
@@ -48,9 +50,17 @@ Content Moderator hizmeti aşağıdaki senaryolara hitap eden API'lere sahiptir.
 |[**Görüntü denetimi**](image-moderation-api.md)| Görüntülerde yetişkinlere yönelik veya müstehcen görüntü taraması yapar, Optik Karakter Tanıyıcı (OCR) ile görüntüdeki metinleri tanır ve yüzleri algılar.|
 |[**Özel görüntü listeleri**](try-image-list-api.md)| Görüntüleri özel görüntü listesine göre tarar. Özel görüntü listelerini kullanarak tekrar tekrar sınıflandırmak istemediğiniz yaygın içerik örneklerini filtreleyebilirsiniz.|
 |[**Video denetimi**](video-moderation-api.md)| Videolarda yetişkinlere yönelik veya müstehcen içerik taraması yapar ve bu içeriklerle ilgili zaman işaretçilerini döndürür.|
-|[**API'leri İnceleme**](try-review-api-job.md)| İnsan inceleme aracında döngüde insan araştırma iş akışları oluşturma ve otomatikleştirme için [İşler](try-review-api-job.md), [İncelemeler](try-review-api-review.md) ve [İş Akışı](try-review-api-workflow.md) işlemlerini kullanın. İş akışı API henüz .NET SDK'yı kullanılamıyor.|
 
-### <a name="review-tool"></a>Gözden geçirme aracı
+## <a name="review-apis"></a>API’leri inceleme
+
+İnceleme API'lerini denetimi işlem hattınızı İnsan geçirenlerle tümleştirmenize olanak tanır. Kullanım [işleri](review-api.md#jobs), [incelemeleri](review-api.md#reviews), ve [iş akışı](review-api.md#workflows) oluşturmak ve ile İnsan içinde--döngüsü iş akışlarını otomatikleştirmek için operations [gözden geçirme aracı](#the-review-tool) () Aşağıda).
+
+> [!NOTE]
+> İş akışı API .NET SDK'yı henüz kullanılamıyor, ancak REST uç noktası ile kullanılabilir.
+
+![Content Moderator için blok diyagramını API'leri gözden geçirin](images/content-moderator-rev-api.png)
+
+## <a name="the-review-tool"></a>Gözden geçirme aracı
 
 Content Moderator hizmet ayrıca web tabanlı içerir [gözden geçirme aracı](Review-Tool-User-Guide/human-in-the-loop.md), içeriği barındıran işlemek İnsan Moderatörler gözden geçirir. İnsan girişi hizmeti eğitmez ancak hizmetin ve insanlardan oluşan ekibin birlikte kullanılması, geliştiricilerin verimlilik ve doğruluk arasındaki doğru dengeyi yakalamasını sağlar. İnceleme aracını da kullanıcı dostu bir sağlayan çeşitli Content Moderator kaynaklar için ön uç.
 

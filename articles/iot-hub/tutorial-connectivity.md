@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077573"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595762"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Öğretici: IOT hub'ınızla bağlantıyı test etmek için sanal cihaz kullanma
 
@@ -39,7 +39,7 @@ Bu öğreticide çalıştırdığınız CLI betikleri [Azure CLI için Microsoft
 az extension add --name azure-cli-iot-ext
 ```
 
-Bu öğreticide çalıştırdığınız cihaz simülatörü uygulaması Node.js kullanarak yazılır. Geliştirme makinenizde Node.js v4.x.x veya sonraki bir sürüm olması gerekir.
+Bu öğreticide çalıştırdığınız cihaz simülatörü uygulaması Node.js kullanarak yazılır. Geliştirme makinenize Node.js v10.x.x veya sonraki bir sürümü gerekir.
 
 [nodejs.org](https://nodejs.org) adresinden birden fazla platform için Node.js’yi indirebilirsiniz.
 
@@ -154,7 +154,7 @@ SAS belirtecini kullanarak hub'ınıza bağlanmaya çalışılırken terminal pe
 
 Bir cihaz IOT hub'ınıza bağlanmak için aşağıdaki protokollerden birini kullanabilir:
 
-| Protokol | Giden bağlantı noktası |
+| Protocol | Giden bağlantı noktası |
 | --- | --- |
 | MQTT |8883 |
 | WebSockets üzerinden MQTT |443 |

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829710"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619761"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Öğretici: Azure Blockchain Workbench uygulamasında bir blok zinciri uygulaması oluşturma
 
@@ -213,7 +213,7 @@ Yapılandırma dosyasının başında, uygulama adı ve açıklaması gibi uygul
 
 Uygulama roller bölümünden kimin hareket veya blok zinciri uygulaması içinde katılmak kullanıcı rolleri tanımlar. İşlevselliğine dayalı farklı roller kümesi tanımlarsınız. İstek-yanıt senaryoda, bir istek sahibi istekleri oluşturan bir varlık olarak işlevlerini ve yanıt veren bir varlık olarak bir Yanıtlayıcı arasında bir ayrım yoktur.
 
-### <a name="workflows"></a>İş akışları
+### <a name="workflows"></a>İş Akışları
 
 İş akışları, bir veya daha fazla aşamaları ve sözleşmenin eylemleri tanımlayın. İstek-yanıt senaryoda, bir istek sahibi (Rol) (işlev) bir istek göndermek için bir eylem (geçiş) alır, iş akışının ilk aşama (durum) olur. Sonraki aşamaya (durum), bir Yanıtlayıcı (Rol) alır (işlev) yanıt göndermek için bir eylem (geçiş) ' dir. Bir uygulamanın iş akışı özellikleri, İşlevler, içerebilir ve bir sözleşme akışını gereken durumları tanımlar. 
 
@@ -271,7 +271,7 @@ Sözleşmede durumunu değişkenleri eklemek, `HelloBlockchain.sol` akıllı sö
 
 ### <a name="constructor"></a>Oluşturucusu
 
-Oluşturucu, bir iş akışının yeni bir akıllı sözleşme örneği için giriş parametrelerini tanımlar. Oluşturucu, sözleşme aynı ada sahip bir işlev olarak bildirilir. Gerekli Parametreler oluşturucusu için yapılandırma dosyasında Oluşturucu parametresi olarak tanımlanır. Her iki dosyada sayısı, sırası ve parametre türü eşleşmelidir.
+Oluşturucu, bir iş akışının yeni bir akıllı sözleşme örneği için giriş parametrelerini tanımlar. Gerekli Parametreler oluşturucusu için yapılandırma dosyasında Oluşturucu parametresi olarak tanımlanır. Her iki dosyada sayısı, sırası ve parametre türü eşleşmelidir.
 
 Oluşturucu işlevi iş mantığı sözleşme oluşturmadan önce gerçekleştirmek istediğiniz yazın. Örneğin, değerleri başlangıç durumu değişkenlerini başlatın.
 

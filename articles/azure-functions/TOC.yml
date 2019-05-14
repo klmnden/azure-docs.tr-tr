@@ -118,8 +118,8 @@
       href: functions-networking-options.md
     - name: IP adresleri
       href: ip-addresses.md
-    - name: Şirket içi işlevler
-      href: functions-runtime-overview.md
+    - name: Kubernetes’te İşlevler
+      href: functions-kubernetes-keda.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Geliştirme
@@ -142,6 +142,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: Yerel PowerShell işlevlerinin hatalarını ayıklama
           href: functions-debug-powershell-local.md
+        - name: Bağımlılık ekleme
+          href: functions-dotnet-dependency-injection.md
         - name: Bağlantıları yönetme
           href: manage-connections.md
         - name: Hata işleme
@@ -173,6 +175,7 @@
       items:
         - name: İşlev uygulaması yönetme
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: Çalıştırma sürümünü ayarlama
           href: set-runtime-version.md
         - name: Uzantıyı el ile kaydetme

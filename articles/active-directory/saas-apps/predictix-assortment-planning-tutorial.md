@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure Active Directory Tümleştirmesi Predictix Sınıflama planlama | Microsoft Docs'
-description: Azure Active Directory ve Sınıflama Predictix planlama arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+description: Bu öğreticide, Azure Active Directory ve Sınıflama Predictix planlama arasında çoklu oturum açmayı yapılandırma öğreneceksiniz.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,201 +15,199 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c5d2002393165eb734b80e0fbc3677915809ba8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c14362a220cc60b0b8956ca41950faecd0563b3e
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335326"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Öğretici: Azure Active Directory Tümleştirmesi Predictix Sınıflama planlama
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile tümleştirme Predictix Sınıflama planlama konusunda bilgi edinin.
-Azure AD ile tümleştirme Predictix Sınıflama planlama ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile tümleştirme Predictix Sınıflama planlama öğreneceksiniz.
+Bu tümleştirme aşağıdaki avantajları sağlar:
 
-* Predictix Sınıflama planlama erişimi, Azure AD'de kontrol edebilirsiniz.
-* Azure AD hesaplarına otomatik olarak Predictix Sınıflama planlama (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Azure AD Predictix Sınıflama planlama erişimi denetlemek için kullanabilirsiniz.
+* Kullanıcılarınızın Predictix Sınıflama planlama (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak imzalanmasını etkinleştirebilirsiniz.
+* Hesaplarınızı tek bir merkezi konumda yönetebilir: Azure portalı.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'de uygulamalar için çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Azure aboneliğiniz yoksa, [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirmesi Predictix Sınıflama planlama ile yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD tümleştirmesi Predictix Sınıflama planlama ile yapılandırmak için sahip olmanız gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/).
-* Abonelik Sınıflama Predictix planlama çoklu oturum açma etkin
+* Tekli etkin oturum sahip Sınıflama Predictix planlama abonelik.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* Predictix Sınıflama planlama destekler **SP** tarafından başlatılan
+* Predictix Sınıflama planlama SP tarafından başlatılan SSO'yu destekler.
 
-## <a name="adding-predictix-assortment-planning-from-the-gallery"></a>Galeriden Predictix Sınıflama planlama ekleme
+## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Galeriden Ekle Predictix Sınıflama planlama
 
-Azure AD'de Sınıflama Predictix planlama tümleştirmesini yapılandırmak için Predictix Sınıflama planlama Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de Sınıflama Predictix planlama tümleştirmeyi ayarlamak için Sınıflama Predictix planlama Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Predictix Sınıflama planlama eklemek için aşağıdaki adımları gerçekleştirin:**
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**:
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+    ![Azure Active Directory'yi seçin](common/select-azuread.png)
 
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
-
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
+2. Git **kurumsal uygulamalar** > **tüm uygulamaları**:
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Bir uygulama eklemek için seçin **yeni uygulama** pencerenin üst kısmındaki:
 
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
+    ![Yeni uygulama seçme](common/add-new-app.png)
 
-4. Arama kutusuna **Sınıflama Predictix planlama**seçin **Sınıflama Predictix planlama** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Sınıflama Predictix planlama**. Seçin **Sınıflama Predictix planlama** seçin ve arama sonuçlarını **Ekle**.
 
-     ![Sonuç listesinde Predictix Sınıflama planlama](common/search-new-app.png)
+     ![Arama sonuçları](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma adlı bir test kullanıcı tabanlı Sınıflama Predictix planlama ile test etme **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı Sınıflama Predictix planlama arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Sınıflama Predictix planlamayla Britta Simon adlı bir test kullanıcısı'ni kullanarak test.
+Çoklu oturum açmayı etkinleştirmek için bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir ilişki Sınıflama Predictix planlaması yapmanız gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Sınıflama Predictix planlama ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Sınıflama Predictix planlama ile test etmek için bu adımları tamamlamak gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Predictix Sınıflama planlama çoklu oturum açmayı yapılandırma](#configure-predictix-assortment-planning-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Predictix Sınıflama planlama test kullanıcısı oluşturma](#create-predictix-assortment-planning-test-user)**  - Predictix Sınıflama kullanıcı Azure AD gösterimini bağlı planlama Britta simon'un bir karşılığı vardır.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  kullanıcılarınız için özelliği etkinleştirmek için.
+2. **[Predictix Sınıflama planlama çoklu oturum açmayı yapılandırma](#configure-predictix-assortment-planning-single-sign-on)**  uygulama tarafında.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açmayı test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Azure AD çoklu oturum açma için kullanıcı etkinleştirmek için.
+5. **[Predictix Sınıflama planlama test kullanıcısı oluşturma](#create-a-predictix-assortment-planning-test-user)**  kullanıcı Azure AD gösterimini bağlı.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalındaki etkinleştirmeniz.
 
-Azure AD çoklu oturum açma Predictix Sınıflama planlama ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma Predictix Sınıflama planlama ile yapılandırmak için şu adımları uygulayın:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **Sınıflama Predictix planlama** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Sınıflama Predictix planlama** uygulama tümleştirme sayfasında **çoklu oturum açma**:
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
+    ![Çoklu oturum açma seçin](common/select-sso.png)
 
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
+2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
+    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
-    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+    ![Düzenle simgesi](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. İçinde **temel SAML yapılandırma** iletişim kutusunda, aşağıdaki adımları tamamlayın.
 
-    ![Predictix Sınıflama planlama etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![Temel SAML yapılandırma iletişim kutusu](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    1. İçinde **oturum açma URL'si** kutusuna, bu düzende bir URL girin:
 
-    | |
-    |--|
-    | `https://<sub-domain>.ap.predictix.com/sso/request`|
-    | `https://<sub-domain>.dev.ap.predictix.com/`|
-    | |
+       | |
+        |--|
+        | `https://<sub-domain>.ap.predictix.com/sso/request`|
+        | `https://<sub-domain>.dev.ap.predictix.com/`|
+        | |
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    1. İçinde **tanımlayıcı (varlık kimliği)** kutusuna, bu düzende bir URL girin:
 
-    | |
-    |--|
-    | `https://<sub-domain>.ap.predictix.com`|
-    | `https://<sub-domain>.dev.ap.predictix.com`|
-    | |
+        | |
+        |--|
+        | `https://<sub-domain>.ap.predictix.com`|
+        | `https://<sub-domain>.dev.ap.predictix.com`|
+        | |
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Predictix Sınıflama planlama istemci Destek ekibine](https://www.infor.com/support) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler yer tutuculardır. Gerçek oturum açma URL'si ve tanımlayıcı kullanmanız gerekir. Kişi [Sınıflama Predictix planlama Destek ekibine](https://www.infor.com/support) değerleri alabilirsiniz. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** Azure portalında iletişim kutusu.
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünden **indirme** yanındaki bağlantı **sertifika (Base64)** , gereksinimlerinize göre ve bilgisayarınızdaki sertifika Kaydet:
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-6. Üzerinde **Sınıflama Predictix planlama ayarlamak** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+6. İçinde **Sınıflama Predictix planlama ayarlamak** bölümünde, gereksinimlerinize göre uygun URL'ler kopyalayın:
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
+    1. **Oturum açma URL'si**.
 
-    b. Azure AD Tanımlayıcısı
+    1. **Azure AD tanımlayıcısı**.
 
-    c. Oturum Kapatma URL'si
+    1. **Oturum kapatma URL'si**.
 
-### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Çoklu oturum açma planlama Predictix Sınıflama yapılandırın
+### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Predictix Sınıflama planlama çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Sınıflama Predictix planlama** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve uygun Azure portalına kopyalanan URL'lerden [Predictix Sınıflama planlama Destek ekibine](https://www.infor.com/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açma Sınıflama Predictix planlama tarafında yapılandırmak için indirdiğiniz sertifika ve Azure için portaldan kopyaladığınız URL'leri Gönder gerekir [Sınıflama Predictix planlama Destek ekibine](https://www.infor.com/support). SAML SSO bağlantının her iki kenarı da düzgün ayarlandığından bu takım sağlar.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturacaksınız.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+1. Azure portalında **Azure Active Directory** seçin sol bölmede **kullanıcılar**ve ardından **tüm kullanıcılar**:
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
+    ![Tüm kullanıcıları seçin](common/users.png)
 
-2. Seçin **yeni kullanıcı** ekranın üstünde.
+2. Seçin **yeni kullanıcı** ekranın üst kısmındaki:
 
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
+    ![Yeni bir kullanıcı seçin](common/new-user.png)
 
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
+3. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın.
 
     ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    a. İçinde **adı** alana **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
+    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >**. (Örneğin, BrittaSimon@contoso.com.)
 
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    1. Seçin **Show parola**ve ardından içinde bir değer yazın **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’u seçin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma Predictix Sınıflama planlama için erişim izni verme kullanmak Britta Simon etkinleştirin.
+Bu bölümde, Sınıflama Predictix planlama erişim vererek, Azure AD çoklu oturum açma kullanılacak Britta Simon tıklatmalarını sağlarsınız.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Sınıflama Predictix planlama**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**ve ardından **Sınıflama Predictix planlama**.
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+    ![Kurumsal uygulamalar](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Sınıflama Predictix planlama**.
+2. Uygulamalar listesinde seçin **Sınıflama Predictix planlama**.
 
-    ![Uygulamalar listesinde Predictix Sınıflama planlama bağlantı](common/all-applications.png)
+    ![Uygulama listesi](common/all-applications.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+    ![Kullanıcıları ve grupları seçin](common/users-groups-blade.png)
 
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+4. Seçin **Kullanıcı Ekle**ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
 
-    ![Atama Ekle bölmesi](common/add-assign-user.png)
+    ![Kullanıcı Ekle seçeneğini belirleme](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıların listesini ve ardından **seçin** ekranın alt kısmındaki düğmesi.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+6. SAML onaylaması rol değeri de beklediğiniz **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin. Tıklayın **seçin** ekranın alt kısmındaki düğmesi.
 
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+7. İçinde **atama Ekle** iletişim kutusunda **atama**.
 
-### <a name="create-predictix-assortment-planning-test-user"></a>Predictix Sınıflama planlama test kullanıcısı oluşturma
+### <a name="create-a-predictix-assortment-planning-test-user"></a>Predictix Sınıflama planlama test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Sınıflama Predictix Planlanıyor adlı bir kullanıcı oluşturun. Çalışmak [Sınıflama Predictix planlama Destek ekibine](https://www.infor.com/support) Sınıflama Predictix planlama platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Sonra Britta Simon Sınıflama Predictix planlama adlı bir kullanıcı oluşturmanız gerekir. Çalışmak [Sınıflama Predictix planlama Destek ekibine](https://www.infor.com/support) kullanıcıları eklemek için. Kullanıcıların oluşturulabilir ve çoklu oturum açma kullanan önce etkinleştirmeniz gerekir.
 
 > [!NOTE]
-> Azure Active Directory hesap sahibinin e-posta alır ve etkin hale gelir önce hesabını onaylamak için bir bağlantı izler.
+> Azure AD hesap sahibinin e-posta alır ve etkin hale gelir önce hesabı onaylamak için bir bağlantı seçer.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Şimdi Azure AD çoklu oturum açma yapılandırmanızı erişim panelini kullanarak test gerekir.
 
-Erişim panelinde Predictix Sınıflama planlama kutucuğa tıkladığınızda, otomatik olarak SSO'yu ayarlama planlama Predictix Sınıflama oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim Paneli'nde Predictix Sınıflama planlama kutucuğu seçtiğinizde, otomatik olarak SSO'yu ayarlama Predictix Sınıflama planlama örneğine oturum açmanız. Daha fazla bilgi için [erişim ve kullanım uygulamaları uygulamalarım portalında](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

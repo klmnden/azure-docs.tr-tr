@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 659dfbec1f73ca713cf03a2945361b794b8aaea6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924934"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606237"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -23,7 +23,7 @@ Bu öğreticide şu gibi konular hakkında bilgi edineceksiniz:
 
 > [!div class="checklist"]
 > * Önkoşullar
-> * Göndermeye hazırlama
+> * Göndermeye Hazırlama
 > * Data Box'ı Microsoft'a gönderme
 > * Azure'a verilerin yüklendiğini doğrulama
 > * Data Box'tan verileri silme
@@ -35,7 +35,7 @@ Başlamadan önce emin olun:
 - Seçtiğiniz tamamladınız [Öğreticisi: Azure Data Box için verileri kopyalayıp doğrulayın](data-box-deploy-copy-data.md). 
 - Kopyası işleri tamamlandı. Göndermeye hazırlama kopyası işleri sürmekte olan çalıştıramazsınız.
 
-## <a name="prepare-to-ship"></a>Göndermeye hazırlama
+## <a name="prepare-to-ship"></a>Göndermeye Hazırlama
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
@@ -45,7 +45,7 @@ Başlamadan önce emin olun:
 2. E-ink ekranda gönderi etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiketin zarar görmüş veya kayıp veya E-mürekkep ekranda görüntülenen değil, Microsoft Support başvurun. Destek önerir sonra gidebilirsiniz **genel bakış > Sevkiyat Etiketi indirin** Azure portalında. Sevkiyat Etiketi indirin ve cihaza eklemesi. 
 3. UPS ile bir toplama cihaz döndüren, zamanlayın. Bir toplama zamanlamak için:
 
-    - Yerel UPS (ücretsiz ülkelere özgü arama numarası) çağırın.
+    - Yerel UPS (ücretsiz ülkeye/bölgeye özgü arama numarası) çağırın.
     - Çağrınızda, izleme E-mürekkep görüntülenmesini veya yazdırılan etiketinizin gösterildiği numarası ters sevkiyat teklif.
     - İzleme numarası tırnak içinde değil, UPS alımı sırasında ek bir ücret ödeme yapmanızı gerektirir.
 
@@ -91,7 +91,7 @@ Bu öğreticide aşağıdaki Azure Data Box konularını öğrendiniz:
 
 > [!div class="checklist"]
 > * Önkoşullar
-> * Göndermeye hazırlama
+> * Göndermeye Hazırlama
 > * Data Box'ı Microsoft'a gönderme
 > * Azure'a verilerin yüklendiğini doğrulama
 > * Data Box'tan verileri silme

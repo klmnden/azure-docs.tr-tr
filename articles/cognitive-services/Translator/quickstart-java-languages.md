@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 8847b5c6e7ceac5bec321ebcf6310a624f16e184
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c3b80e7aea9add143cf74a21b8023723a1142a9c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916740"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604319"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak desteklenen dillerin listesini almak için kullanın
 
@@ -172,7 +172,7 @@ gradle run
 
 ## <a name="sample-response"></a>Örnek yanıt
 
-Bu ülke kısaltması Bul [dillerin listesini](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Bu ülke/bölge kısaltması Bul [dillerin listesini](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 

@@ -465,7 +465,7 @@ Sunucu zaman aşımı daha fazla araştırma gerektiren depolama hizmeti bir sor
 Bu hatanın en yaygın nedeni, bir istemcidir depolama hizmeti zaman aşımı süresi dolmadan önce bağlantısı kesiliyor. Neden ve ne zaman istemci bağlantısını keser ve storage hizmetinden anlamak için istemci kodu inceleyin. İstemciden gelen ağ bağlantısı sorunları araştırmak için Wireshark, Microsoft ileti Çözümleyicisi'ni veya Telnet kullanabilirsiniz. Bu araçlar, şurada açıklanan [Ekler].
 
 ### <a name="the-client-is-receiving-403-messages"></a>İstemci, HTTP 403 (Yasak) iletilerini alma
-İstemci uygulamanızda HTTP 403 (Yasak) hataları oluşuyorsa büyük ihtimalle istemci depolama isteği gönderirken süresi dolmuş bir Paylaşılan Erişim İmzası kullandığı içindir (saat sapması, geçersiz anahtarlar ve boş üst bilgiler gibi başka olası nedenler de vardır). Sorun süresi dolmuş bir SAS anahtarından kaynaklanıyorsa sunucu tarafı Depolama Günlük Kaydı günlük verilerinde herhangi bir giriş görmezsiniz. Aşağıdaki tabloda, bu sorunun oluşmasını gösterir depolama istemcisi kitaplığı tarafından oluşturulan istemci tarafı günlük bir örnek gösterilmektedir:
+İstemci uygulamanızda HTTP 403 (Yasak) hataları oluşuyorsa büyük ihtimalle istemci depolama isteği gönderirken süresi dolmuş bir Paylaşılan Erişim İmzası (SAS) kullandığı içindir. (Saat sapması, geçersiz anahtarlar ve boş üst bilgiler gibi başka olası nedenler de vardır.) Sorun süresi dolmuş bir SAS anahtarından kaynaklanıyorsa sunucu tarafı Depolama Günlük Kaydı günlük verilerinde herhangi bir giriş görmezsiniz. Aşağıdaki tabloda, bu sorunun oluşmasını gösterir depolama istemcisi kitaplığı tarafından oluşturulan istemci tarafı günlük bir örnek gösterilmektedir:
 
 | Kaynak | Ayrıntı düzeyi | Ayrıntı düzeyi | İstemci istek kimliği | İşlem metin |
 | --- | --- | --- | --- | --- |
@@ -482,7 +482,7 @@ Bu hatanın en yaygın nedeni, bir istemcidir depolama hizmeti zaman aşımı s�
 Bu senaryoda, istemcinin sunucuya belirteç göndermeden önce SAS belirteci neden doluyor araştırmanız gerekir:
 
 * Genellikle bir istemcinin hemen kullanması için SAS oluştururken başlangıç zamanı ayarlamamalısınız. Geçerli zamanı kullanarak SAS belirtecini oluşturan konak ile depolama hizmeti arasında küçük saat farklılıkları varsa depolama hizmeti henüz geçerli olmayan bir SAS alabilir.
-* Bir SAS belirtecinin sona erme süresini çık kısa ayarlamayın. Ayrıca, SAS belirtecini oluşturan konakla depolama hizmeti arasındaki küçük saat farklılıkları, bir SAS belirtecinin süresinin beklenenden erken dolmuş gibi görünmesine de neden olabilir.
+* Bir SAS belirtecinin sona erme süresini çok kısa ayarlamayın. Ayrıca, SAS belirtecini oluşturan konakla depolama hizmeti arasındaki küçük saat farklılıkları, bir SAS belirtecinin süresinin beklenenden erken dolmuş gibi görünmesine de neden olabilir.
 * Sürüm parametresi SAS anahtarının mu (örneğin **sv = 2015-04-05**) kullandığınız depolama istemci kitaplığı sürümüyle eşleşen? Her zaman en son sürümünü kullanmanızı öneririz [depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/).
 * Depolama erişim anahtarlarınızı yeniden oluşturursanız mevcut SAS belirteçleri geçerliliğini kaybedebilir. İstemci uygulamalarının önbelleğe alması için sona erme süresi uzun olan SAS belirteçleri oluşturursanız bu sorunla karşılaşabilirsiniz.
 
@@ -635,7 +635,7 @@ Aşağıdaki tabloda, iki istemci işlemleri için sunucu tarafı günlüğünde
 
 İstemci uygulaması kodu siler ve ardından hemen aynı adı kullanarak bir blob kapsayıcısı oluşturur: **Createıfnotexists** yöntemi (istemci istek kimliği bc881924-...) sonunda HTTP 409 (Çakışma) hatasıyla başarısız olur. Bir istemci blob kapsayıcılarını, tabloları veya kuyrukları sildiğinde adın yeniden kullanılabilir hale gelmesi biraz zaman alır.
 
-Silme/yeniden oluşturma düzeni genelse istemci uygulaması yeni kapsayıcı oluştururken benzersiz kapsayıcı adları kullanmalıdır.
+Silme/yeniden oluşturma düzeni sık tekrarlanıyorsa istemci uygulaması yeni kapsayıcı oluştururken benzersiz kapsayıcı adları kullanmalıdır.
 
 ### <a name="metrics-show-low-percent-success"></a>Düşük PercentSuccess ölçümleri göster veya Analiz günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip
 **PercentSuccess** ölçüm başarılı oldu, HTTP durum koduna göre işlemleri yüzdesini yakalar. Durum kodları ile 2XX işlemleri sayısı aralıklarında 3XX, 4XX ve 5XX durum kodları ile işlemleri, başarısız ve daha düşük olarak değerlendirilir ancak olarak başarılı **PercentSuccess** ölçüm değeri. Sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla bu işlemleri kaydedilir **ClientOtherErrors**.

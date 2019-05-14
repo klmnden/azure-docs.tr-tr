@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463506"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Öğretici: BlueJeans ile Azure Active Directory Tümleştirme
 
@@ -108,7 +108,7 @@ Azure AD çoklu oturum açma ile BlueJeans yapılandırmak için aşağıdaki ad
 
     ![BlueJeans etki alanı ve URL'ler tek oturum açma bilgileri](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - İçinde **tanımlayıcı** metin kutusunda, aşağıdaki komutu yazın: `https://samlsp.bluejeans.com`
+   - İçinde **tanımlayıcı** metin kutusunda, aşağıdaki komutu yazın: `http://samlsp.bluejeans.com`
     
    - İçinde **oturum açma URL'si** metin kutusunda, size BlueJeans tarafından sağlanan giriş sayfası URL'sini yazın (Bu değer almak için sizinle iletişim [BlueJeans istemci Destek ekibine](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
     
@@ -160,9 +160,9 @@ Azure AD çoklu oturum açma ile BlueJeans yapılandırmak için aşağıdaki ad
 
     ![Değişiklikleri kaydetmek](./media/bluejeans-tutorial/ic785874.png "Değişiklikleri Kaydet")
 
-    a. İçinde **kullanıcı kimliği** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. İçinde **kullanıcı kimliği** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. İçinde **e-posta** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. İçinde **e-posta** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Tıklayın **değişiklikleri kaydetme**.
 

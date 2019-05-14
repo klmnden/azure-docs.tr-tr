@@ -9,12 +9,12 @@ ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728648"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606305"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Öğretici: Azure CLI ve Event Grid ile özel olayları Azure Relay Karma Bağlantılar’a yönlendirme
 
@@ -29,7 +29,7 @@ Bu makalede zaten bir karma bağlantınız ve dinleyici uygulamanız olduğu var
 > [!NOTE]
 > Yerel makinenizde Azure CLI kullanıyorsanız, Azure CLI Sürüm 2.0.56 kullanın veya daha büyük. Azure CLI'ın en son sürümü yükleme hakkında yönergeler için bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Event Grid konuları Azure kaynaklarıdır ve bir Azure kaynak grubuna yerleştirilmelidir. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal koleksiyondur.
 
@@ -80,7 +80,7 @@ Abonelik için bir [sona erme tarihi](concepts.md#event-subscription-expiration)
 
 Karma bağlantıdan olayları alabilecek bir uygulamaya ihtiyacınız vardır. [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination), bu işlemi gerçekleştirir. Önkoşul adımlarını tamamladınız.
 
-1. Visual Studio 2017 Sürüm 15.5 veya üzerine sahip olduğunuzdan emin olun.
+1. Visual Studio 2019 veya sonrası olduğundan emin olun.
 
 1. Depoyu yerel makinenize kopyalayın.
 

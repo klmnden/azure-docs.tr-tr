@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149920"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594156"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Öğretici: Soru-cevap Oluşturucu Portalı'ndan Bilgi Bankası oluşturma
 
@@ -68,7 +68,7 @@ Bu öğretici için var olan bir [Soru-Cevap Oluşturma hizmetini](../How-To/set
     |--|--|--|
     |URL'si|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |URL'deki SSS içeriği, soru-cevap şeklinde biçimlendirilir. Soru-Cevap Oluşturma hizmeti bu biçimi yorumlayarak soruları ve cevaplarını ayıklayabilir.|
     |Dosya |_bu öğreticide kullanılmayacaktır_|Bu işlem sorular ve cevaplar için gerekli dosyaları karşıya yükler. |
-    |Chit-chat personality (Konuşma kişiliği)|Kolay|Bu ayar yaygın sorulara ve cevaplara arkadaş canlısı ve günlük kullanım dilini kullanan bir kişilik ekler. Bu soruları ve cevapları daha sonra düzenleyebilirsiniz. |
+    |Chit-chat personality (Konuşma kişiliği)|Kolay|Bu, kolay ve normal verir [kişilik](../Concepts/best-practices.md#chit-chat) genel sorular ve yanıtlar. Bu soruları ve cevapları daha sonra düzenleyebilirsiniz. |
 
     ![KB oluşturma işleminin 4. adımı](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

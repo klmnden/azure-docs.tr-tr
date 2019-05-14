@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services ve Azure CLI ile video dosyaları Stream | Microsoft Docs
-description: Yeni bir Azure Media Services hesabı oluşturmak, bir dosyayı kodlamak ve Azure Media Player’da akışa almak için bu hızlı başlangıcın adımlarını izleyin.
+description: Yeni bir Azure Media Services hesabı oluşturma, bir dosya kodlama ve Azure Media Player ile akış için bu öğreticideki adımları izleyin.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: azure media services, akış
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205413"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550193"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Hızlı Başlangıç: Stream video dosyaları - CLI
+# <a name="tutorial-stream-video-files---cli"></a>Öğretici: Stream video dosyaları - CLI
 
-Bu hızlı başlangıçta, kolayca kodlayın ve bunların Azure Media Services ve Azure CLI kullanarak tarayıcılar ve cihazlar çeşitli videoların akışını gösterilmektedir. Azure Blob depolamadaki dosyaları, HTTPS veya SAS URL'lerini veya yolları kullanarak giriş içeriği belirtebilirsiniz.
+Bu öğreticide, kolayca kodlayın ve bunların Azure Media Services ve Azure CLI kullanarak tarayıcılar ve cihazlar çeşitli videoların akışını gösterilmektedir. Azure Blob depolamadaki dosyaları, HTTPS veya SAS URL'lerini veya yolları kullanarak giriş içeriği belirtebilirsiniz.
 
 Bu makalede örnek bir HTTPS URL'si aracılığıyla erişilebilir duruma içerik kodlar. Media Services v3 öbekli aktarım kodlamasını HTTPS URL'lerini şu anda desteklemiyor.
 
-Bu hızlı başlangıcın sonuna tarafından bir video akışını yapmak mümkün olacaktır.  
+Bu öğreticinin sonunda bir video akışını yapmak mümkün olacaktır.  
 
 ![Videoyu yürütme](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -342,7 +342,7 @@ Bir örneği aşağıda verilmiştir:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık herhangi bir kaynağa medya Hizmetleri ve bu hızlı başlangıçta oluşturulan depolama hesapları dahil olmak üzere, kaynak grubundaki ihtiyacınız varsa, kaynak grubunu silin.
+Artık herhangi bir kaynağa medya Hizmetleri ve Bu öğreticide, oluşturulan depolama hesapları dahil olmak üzere, kaynak grubundaki ihtiyacınız varsa, kaynak grubunu silin.
 
 Bu CLI komutunu çalıştırın:
 
@@ -350,10 +350,7 @@ Bu CLI komutunu çalıştırın:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Ayrıca bkz.
-
-Bkz: [hata kodlarına](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Media Services'e genel bakış](media-services-overview.md)
+

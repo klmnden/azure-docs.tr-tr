@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686513"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596098"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -40,7 +40,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 > - JSON belgeleri oluşturma
 > - Sorgu koleksiyonu
 > - Bir JSON belgesi güncelleştir
-> - Bir belgeyi silme
+> - Belge sil
 > - Veritabanını silme
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -68,7 +68,7 @@ Bu öğreticiyi tamamlamak veya yalnızca kod örneklerini istediğiniz zaman yo
 1. İçinde *App.config* dosyası, güncelleştirme `EndpointUrl` ve `PrimaryKey` değerleri açıklandığı [Azure Cosmos DB hesabına bağlanma](#Connect) bölümü.
 1. Seçin **hata ayıklama** > **hata ayıklama olmadan Başlat** veya basın **Ctrl**+**F5** oluşturun ve uygulamayı çalıştırın.
 
-## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
+## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturun
 
 Azure portalında bir Azure Cosmos DB hesabı oluşturmak için bu yönergeleri izleyin. Kullanılacak bir Azure Cosmos DB hesabı zaten varsa atlayın [Visual Studio çözümünü ayarlamak](#SetupVS). 
 
@@ -145,6 +145,20 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturmak için bu yönergeleri 
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   Azure Cosmos DB'ye bağlanmak için bir proxy nesnesi kullanıyorsanız DocumentClient nesneyi oluşturmak için bunun yerine aşağıdaki kod bloğu kullanmanız gerekir. Aşağıdaki örnekte, yalnızca başvuru için bu nedenle, bu belge örnek bir proxy nesnesi kullanmaz:
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. Aşağıdaki kodu ekleyin `Main` çalıştırılacak yöntemi `GetStartedDemo` görev. `Main` Yöntemi özel durumlarını yakalayan ve bunları konsola yazar.

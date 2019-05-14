@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/10/2019
 ms.author: diberry
-ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1411576d078115921cb04b41347264bccdc390f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914545"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593985"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Soru-Cevap Oluşturma bilgi bankanızı oluşturma, eğitme ve yayımlama
 
@@ -66,7 +66,7 @@ SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kulla
 
 1. Yanıtı daha ayrıntılı bir şekilde incelemek için **Inspect** (Denetle) öğesini seçin. Test penceresi, Bilgi Bankası değişikliklerinizi bunlar yayımlamadan önce test etmek için kullanılır.
 
-    ![Test Paneli](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Test Paneli](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. **Test**'i tekrar seçerek **Test** penceresini kapatın.
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605436"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550535"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Modelinizi kullanılmak ile mobil cihazları dışarı aktarma
 
@@ -69,10 +69,10 @@ Modeli yeniden eğitme sonra dışa aktarmak için aşağıdaki adımları kulla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dışarı aktarılan modelinizi bir uygulamayı tümleştirin. Birkaç örnek uygulamalar mevcuttur:
+Dışarı aktarılan modelinizi Aşağıdaki makaleler veya örneklerini inceleyerek uygulamaya tümleştirin:
 
-* Bir örnek için [dışarı aktarılan CoreML modelinizi kullanarak bir iOS uygulaması](https://go.microsoft.com/fwlink/?linkid=857726) Swift ile gerçek zamanlı görüntü sınıflandırma
-* İOS uygulaması için örnek [Xamarin ile verilen CoreML modelinizi kullanarak](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) gerçek zamanlı görüntü sınıflandırma 
-* İçin örnek [bir Android uygulaması dışarı aktarılan Tensorflow modelinizi kullanarak](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) gerçek zamanlı görüntü sınıflandırma 
-* [Tensorflow modelinizi Windows ile kullanma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
-* İçin örnek [dışarı aktarılan ONNX model Windows Machine Learning ile kullanarak](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/)
+* [Tensorflow modelinizi Python ile kullanma](export-model-python.md)
+* [Windows Machine Learning ile ONNX model kullanın](custom-vision-onnx-windows-ml.md)
+* Örnek için bkz. [CoreML modelinde bir iOS uygulamasına](https://go.microsoft.com/fwlink/?linkid=857726) Swift ile gerçek zamanlı görüntü sınıflandırma için.
+* Örnek için bkz. [bir Android uygulaması Tensorflow modelinde](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) android'de gerçek zamanlı görüntü sınıflandırması için.
+* Örnek için bkz. [Xamarin CoreML modeliyle](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) gerçek zamanlı görüntü sınıflandırma bir Xamarin iOS uygulaması.

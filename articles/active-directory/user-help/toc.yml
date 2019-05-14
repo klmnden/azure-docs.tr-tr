@@ -28,9 +28,10 @@
       href: user-help-auth-app-overview.md
     - name: Uygulamayı indirme ve yükleme
       href: user-help-auth-app-download-install.md
-    - name: Hesap eklemeye genel bakış
-      href: user-help-auth-app-add-account-overview.md
+    - name: Hesap ekleme
       items:
+        - name: Genel Bakış
+          href: user-help-auth-app-add-account-overview.md
         - name: İş veya okul hesabı ekleme
           href: user-help-auth-app-add-work-school-account.md
         - name: Kişisel Microsoft hesabı ekleme
@@ -63,9 +64,10 @@
       href: user-help-security-info-overview.md
     - name: Oturum açma sırasında güvenlik bilgileri ekleme
       href: security-info-setup-signin.md
-    - name: Güvenlik bilgilerini ekleme veya güncelleştirme yöntemlerine genel bakış
-      href: security-info-add-update-methods-overview.md
+    - name: Güvenlik bilgisi yöntemlerini ekleme veya güncelleştirme
       items:
+        - name: Genel Bakış
+          href: security-info-add-update-methods-overview.md
         - name: Authenticator uygulamasını ayarlama
           href: security-info-setup-auth-app.md
         - name: SMS mesajlaşmasını ayarlama

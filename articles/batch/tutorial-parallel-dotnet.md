@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c55839f7ec4e4c28086912c476a193e31561c3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e450ca0ff2578c4ec2ce95c14a17735860044b59
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65234136"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595249"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Öğretici: .NET API kullanarak Azure Batch ile paralel iş yükü çalıştırma
 
@@ -37,7 +37,7 @@ Bu öğreticide, [ffmpeg](https://ffmpeg.org/) açık kaynak aracını kullanara
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs) veya Linux, macOS ya da Windows için [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
+* [Visual Studio 2017 veya üstü](https://www.visualstudio.com/vs), veya [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) Linux, macOS veya Windows.
 
 * Bir Batch hesabı ve bağlı bir Azure Depolama hesabı. Bu hesapları oluşturmak için [Azure portalı](quick-create-portal.md) veya [Azure CLI](quick-create-cli.md) kullanan Batch hızlı başlangıçlarına bakın.
 

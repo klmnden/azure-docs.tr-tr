@@ -76,6 +76,8 @@
           href: overview-authentication-authorization.md
         - name: İşletim sistemi ve çalışma zamanı düzeltme eki uygulama
           href: overview-patch-os-runtime.md
+        - name: Güvenlik öznitelikleri
+          href: app-service-security-attributes.md
     - name: Gelen ve giden IP’ler
       href: overview-inbound-outbound-ips.md
     - name: Karma bağlantılar

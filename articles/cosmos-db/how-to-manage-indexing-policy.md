@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068667"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550899"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri yönetme
 
@@ -22,6 +22,9 @@ Azure Cosmos DB'de aşağıdaki veriler dizinlendikten [dizinleme ilkeleri](inde
 - Sdk'lardan birini kullanarak
 
 Bir [dizin oluşturma ilkesi güncelleştirme](index-policy.md#modifying-the-indexing-policy) bir dizin dönüşümü tetikler. Bu dönüşüm ilerlemesini de Sdk'lardan izlenebilir.
+
+> [!NOTE]
+> SDK ve portalı yükseltme işleminin bir parçası olarak, biz size yeni kapsayıcılar için piyasaya sunuluyor yeni bir dizin düzeni ile hizalamak için dizin ilke dönüştürüyoruz. Bu yeni düzen ile tüm basit veri türleri, tam duyarlıklı (-1) aralığı olarak dizinlenir. Bu nedenle, dizin türü ve duyarlık kullanıcıya artık gösterilmez. Gelecekte, kullanıcıların yalnızca yolları includedPaths bölümüne ekleyin ve indexKinds ve duyarlık yoksaymak gerekir. Bu değişiklik, performans üzerinde hiçbir etkisi yoktur ve aynı sözdizimini kullanarak dizin oluşturma ilkesini güncelleştirmeye devam edebilirsiniz. Dizin ilkesini güncelleştirmek için mevcut belgelerimizde tüm örnekleri kullanmaya devam edebilirsiniz.
 
 ## <a name="use-the-azure-portal"></a>Azure portalı kullanma
 

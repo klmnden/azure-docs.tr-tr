@@ -16,6 +16,8 @@
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Apache Spark kümesi oluşturma - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Apache Spark kümesi oluşturma - Azure CLI
+      href: apache-spark-create-cluster-cli.md
     - name: Apache Spark kümesi oluşturma - Resource Manager şablonu
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-spark-jupyter-spark-sql.md
@@ -250,7 +252,7 @@
             - name: cURL ve Azure REST API’si kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure Klasik CLI'yi kullanma
+            - name: Azure CLI kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: İsteğe bağlı kümeler oluşturma

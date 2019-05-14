@@ -9,52 +9,38 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Reports
-      items:
-        - name: Oturum açma raporunu indirme
-          href: quickstart-download-sign-in-report.md
-        - name: Denetim raporunu indirme
-          href: quickstart-download-audit-report.md
-        - name: Adlandırılmış konumları yapılandırma
-          href: quickstart-configure-named-locations.md
-        - name: Power BI içerik paketini yükleme
-          href: quickstart-install-power-bi-content-pack.md
-    - name: İzleme
-      items:
-        - name: Günlükleri depolama hesabına yönlendirme
-          href: quickstart-azure-monitor-route-logs-to-storage-account.md
+    - name: Oturum açma raporunu indirme
+      href: quickstart-download-sign-in-report.md
+    - name: Denetim raporunu indirme
+      href: quickstart-download-audit-report.md
+    - name: Adlandırılmış konumları yapılandırma
+      href: quickstart-configure-named-locations.md
+    - name: Power BI içerik paketini yükleme
+      href: quickstart-install-power-bi-content-pack.md
+    - name: Günlükleri depolama hesabına yönlendirme
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Öğreticiler
   items:
-    - name: Reports
-      items:
-        - name: Sertifikalı Raporlama API’sine erişme
-          href: tutorial-access-api-with-certificates.md
-    - name: İzleme
-      items:
-        - name: Günlükleri olay hub’ına aktarma
-          href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-        - name: Splunk ile etkinlik günlüklerini tümleştirme
-          href: tutorial-integrate-activity-logs-with-splunk.md
+    - name: Sertifikalı Raporlama API’sine erişme
+      href: tutorial-access-api-with-certificates.md
+    - name: Günlükleri olay hub’ına aktarma
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: Kavramlar
   items:
-    - name: Reports
-      items:
-        - name: Denetim günlükleri
-          href: concept-audit-logs.md
-        - name: Oturum açma günlükleri
-          href: concept-sign-ins.md
-        - name: Riskli oturum açma işlemleri
-          href: concept-risky-sign-ins.md
-        - name: Risk olayları
-          href: concept-risk-events.md
-        - name: Risk altındaki kullanıcılar
-          href: concept-user-at-risk.md
-        - name: Raporlama API’leri
-          href: concept-reporting-api.md
-    - name: İzleme
-      items:
-        - name: Azure İzleyici'deki Azure AD günlükleri
-          href: concept-activity-logs-azure-monitor.md
+    - name: Denetim günlükleri
+      href: concept-audit-logs.md
+    - name: Oturum açma günlükleri
+      href: concept-sign-ins.md
+    - name: Riskli oturum açma işlemleri
+      href: concept-risky-sign-ins.md
+    - name: Risk olayları
+      href: concept-risk-events.md
+    - name: Risk altındaki kullanıcılar
+      href: concept-user-at-risk.md
+    - name: Raporlama API’leri
+      href: concept-reporting-api.md
+    - name: Azure İzleyici'deki Azure AD günlükleri
+      href: concept-activity-logs-azure-monitor.md
 - name: Nasıl yapılır kılavuzları
   expanded: true
   items:
@@ -74,16 +60,18 @@
           href: howto-use-azure-monitor-workbooks.md
     - name: İzleme
       items:
-        - name: Azure İzleyici günlüklerini kullanarak etkinlik günlüklerini tümleştirme
-          href: howto-integrate-activity-logs-with-log-analytics.md
         - name: Azure İzleyici günlüklerindeki etkinlik günlüklerini analiz etme
           href: howto-analyze-activity-logs-log-analytics.md
         - name: Azure AD için Log Analytics görünümlerini yükleme ve kullanma
           href: howto-install-use-log-analytics-views.md
-        - name: SumoLogic ile etkinlik günlüklerini tümleştirme
-          href: howto-integrate-activity-logs-with-sumologic.md
+        - name: Azure İzleyici günlüklerini kullanarak etkinlik günlüklerini tümleştirme
+          href: howto-integrate-activity-logs-with-log-analytics.md
         - name: ArcSight ile etkinlik günlüklerini tümleştirme
           href: howto-integrate-activity-logs-with-arcsight.md
+        - name: Splunk ile etkinlik günlüklerini tümleştirme
+          href: howto-integrate-activity-logs-with-splunk.md
+        - name: SumoLogic ile etkinlik günlüklerini tümleştirme
+          href: howto-integrate-activity-logs-with-sumologic.md
     - name: Sorun giderme
       items:
         - name: Eksik denetim verileri
@@ -97,25 +85,21 @@
 - name: Başvuru
   expanded: true
   items:
-    - name: Reports
-      items:
-        - name: Denetim günlükleri API başvurusu
-          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
-        - name: Oturum açma günlükleri API başvurusu
-          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
-        - name: Etkinlikleri denetleme
-          href: reference-audit-activities.md
-        - name: Veri saklama ilkeleri
-          href: reference-reports-data-retention.md
-        - name: Raporlama gecikmeleri
-          href: reference-reports-latencies.md
-        - name: Oturum açma hata kodları
-          href: reference-sign-ins-error-codes.md
-        - name: Sık sorulan sorular
-          href: reports-faq.md
-    - name: İzleme
-      items:
-        - name: Denetim günlüğü şeması
-          href: reference-azure-monitor-audit-log-schema.md
-        - name: Oturum açma günlüğü şeması
-          href: reference-azure-monitor-sign-ins-log-schema.md
+    - name: Denetim günlükleri API başvurusu
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+    - name: Oturum açma günlükleri API başvurusu
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+    - name: Etkinlikleri denetleme
+      href: reference-audit-activities.md
+    - name: Veri saklama ilkeleri
+      href: reference-reports-data-retention.md
+    - name: Raporlama gecikmeleri
+      href: reference-reports-latencies.md
+    - name: Oturum açma hata kodları
+      href: reference-sign-ins-error-codes.md
+    - name: Sık sorulan sorular
+      href: reports-faq.md
+    - name: Denetim günlüğü şeması
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: Oturum açma günlüğü şeması
+      href: reference-azure-monitor-sign-ins-log-schema.md

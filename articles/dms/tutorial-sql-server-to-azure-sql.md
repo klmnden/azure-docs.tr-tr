@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 22e55379c79678a2792f439137e8d58d03cd8377
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 32d8bd528da2823907e4f992f977eef91e55b9b0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415088"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605478"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Öğretici: Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda SQL Server'ı geçirme DMS kullanarak çevrimdışı
 
@@ -24,6 +24,7 @@ Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneği
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
+>
 > - Data Migration Yardımcısı'nı kullanarak şirket içi veritabanınızı değerlendirme.
 > - Data Migration Yardımcısı'nı kullanarak örnek şemayı geçirme.
 > - Azure Veritabanı Geçiş Hizmeti örneği oluşturma.
@@ -63,7 +64,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 - Azure Veritabanı Geçiş Hizmeti'ne kaynak SQL Server erişimi sağlamak için Windows güvenlik duvarınızı açın. Varsayılan ayarlarda 1433 numaralı TCP bağlantı noktası kullanılır.
 - Dinamik bağlantı noktası kullanarak birden fazla adlandırılmış SQL Server örneği çalıştırıyorsanız Azure Veritabanı Geçiş Hizmeti'nin kaynak sunucunuzdaki adlandırılmış örneğe bağlanabilmesi için SQL Browser Hizmeti'ni etkinleştirebilir ve güvenlik duvarınızda 1434 numaralı UDP bağlantı noktasına erişim izni verebilirsiniz.
 - Kaynak veritabanlarınızın önünde bir güvenlik duvarı cihazı kullanıyorsanız, Azure Veritabanı Geçiş Hizmeti'nin geçiş amacıyla kaynak veritabanlarına erişmesi için güvenlik duvarı kuralları eklemeniz gerekebilir.
-- Sunucu düzeyinde IP oluşturma [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) için Azure veritabanı geçiş hizmeti hedef veritabanlarına erişim izni vermek Azure SQL veritabanı sunucusu. Azure Veritabanı Geçiş Hizmeti için kullanılan sanal ağın alt ağ aralığını belirtin.
+- Sunucu düzeyinde IP oluşturma [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) için Azure veritabanı geçiş hizmeti hedef veritabanlarına erişim izni vermek Azure SQL veritabanı sunucusu. Azure veritabanı geçiş hizmeti için kullanılan sanal ağ alt ağ aralığını belirtin.
 - SQL Server örneğine bağlanmak için kullanılan kimlik bilgilerinin [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) izinlerine sahip olduğundan emin olun.
 - Hedef Azure SQL Veritabanı örneğine bağlanmak için kullanılan kimlik bilgilerinin hedef Azure SQL veritabanlarında CONTROL DATABASE iznine sahip olduğundan emin olun.
 
@@ -79,7 +80,7 @@ Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda 
    - Veritabanı uyumluluğunu denetleyin
    - Özellik eşliğini denetle
 
-     İki rapor türü de varsayılan olarak seçilidir.
+    İki rapor türü de varsayılan olarak seçilidir.
 
 3. Data Migration Yardımcısı'nın **Seçenekler** ekranında **İleri**'yi seçin.
 4. **Kaynak seçin** ekranının **Sunucuya bağlan** iletişim kutusunda SQL Server bağlantı bilgilerini girin ve **Bağlan**'ı seçin.

@@ -314,8 +314,9 @@
                 - name: Durum İzleyicisi
                   href: app/monitor-performance-live-website-now.md
                 - name: Durum İzleyicisi v2
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: Genel Bakış
+                      href: app/status-monitor-v2-overview.md
                     - name: Başlarken
                       href: app/status-monitor-v2-get-started.md
                     - name: Ayrıntılı yönergeler
@@ -557,7 +558,7 @@
                   href: app/usage-workbooks.md
             - name: Web Uygulaması Analiz çözümü
               href: insights/azure-web-apps-analytics.md
-            - name: Kubernetes barındırılan uygulamaları
+            - name: Kubernetes uygulamalarını izleme
               href: app/kubernetes.md
         - name: Kapsayıcıları izleme
           items:
@@ -631,8 +632,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: SSS
                   href: insights/vminsights-faq.md
-                - name: Katılma
-                  href: insights/vminsights-onboard.md
+                - name: İzlemeyi etkinleştirme
+                  items:
+                    - name: İzlemeyi etkinleştirmeye genel bakış
+                      href: insights/vminsights-enable-overview.md
+                    - name: Tek bir Azure VM için etkinleştirme
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Azure İlkesi’ni kullanarak etkinleştirme
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Azure PowerShell kullanarak etkinleştirme
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Hibrit ortam için etkinleştirme
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: Sistem durumunu izleme
                   href: insights/vminsights-health.md
                 - name: Bağımlılıkları eşleme

@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: Bir modeli eğitmek ve Python ile - Form tanıyıcı REST API kullanarak form verilerini ayıklama'
+title: 'Hızlı Başlangıç: Bir modeli eğitmek ve Python ile - Form tanıyıcı REST API kullanarak form verileri ayıklayın.'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, bir model eğitip ve formlardaki verileri ayıklamak için Python ile Form tanıyıcı REST API kullanır.
+description: Bu hızlı başlangıçta, modeli eğitmek ve formlardaki verileri ayıklamak için Form tanıyıcı REST API ile Python kullanacaksınız.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,34 +9,32 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bbc285c35c010c9c0a38e9b3d6938c5dd3b76fe4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 39ff12a853b38b843a73f4a87a24db0292d1accd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544865"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601602"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verilerini ayıklama
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verileri ayıklayın
 
-Bu hızlı başlangıçta, eğitmek ve anahtar-değer çiftleri ve tabloları ayıklanacak forms puanlamak için Python ile Form tanıyıcının REST API kullanır.
+Bu hızlı başlangıçta, eğitmek ve anahtar-değer çiftleri ve tabloları ayıklanacak forms puanlamak için Python ile Azure Form tanıyıcı REST API kullanacaksınız.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
-
-- Form tanıyıcı sınırlı erişim Önizleme erişimi almanız gerekir. Önizleme erişim elde etmek için lütfen doldurun ve gönderme [Bilişsel Hizmetleri Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu. 
-- Örneği yerel olarak çalıştırmak istiyorsanız [Python](https://www.python.org/downloads/) yüklenmiş olmalıdır.
-- Form tanıyıcı için bir abonelik anahtarı olması gerekir. Tek hizmet aboneliği yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) Form tanıyıcının abone ve anahtarınızı alın. Form tanıyıcı hizmet içermeyecek şekilde, çoklu hizmet aboneliğinizi kullanmayın.
-- Minimum düzeyde beş forms aynı türde olmalıdır. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için.
+Bu hızlı başlangıcı tamamlamak için şunlara sahip olmalısınız:
+- Form tanıyıcı sınırlı erişim önizlemesine erişebilirsiniz. Önizleme erişim elde etmek için doldurun ve gönderme [Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu.
+- [Python](https://www.python.org/downloads/) (örnek yerel olarak çalıştırmak istiyorsanız) yüklü.
+- Form tanıyıcı bir abonelik anahtarı. Tek hizmet aboneliği yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) Form tanıyıcının abone ve anahtarınızı alın. Form tanıyıcı hizmet içermeyeceğinden, çoklu hizmet aboneliği kullanmayın.
+- En az beş forms aynı türde bir dizi. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için.
 
 ## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-Oluşturma ve çalıştırma örneği için aşağıdaki kod parçacığında aşağıdaki değişiklikleri yapın:
-
-1. `<subscription_key>` değerini abonelik anahtarınızla değiştirin.
+Oluşturma ve çalıştırma örneği için aşağıdaki kod parçacığı şu değişiklikleri yapın:
 1. Değiştirin `<Endpoint>` Form tanıyıcı kaynak abonelik anahtarlarınızın aldığınız burada bir Azure bölgesinde uç nokta URL'si ile.
-1. Değiştirin `<SAS URL>` imzası (SAS) URL'si eğitim verileri bulunduğu bir Azure Blob Depolama kapsayıcısında paylaşılan erişim.  
-
+1. Değiştirin `<SAS URL>` eğitim verilerin konumu URL'sini imzası (SAS) bir Azure Blob Depolama kapsayıcısına paylaşılan erişim.  
+1. `<Subscription Key>` değerini abonelik anahtarınızla değiştirin.
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -58,11 +56,11 @@ Oluşturma ve çalıştırma örneği için aşağıdaki kod parçacığında a�
     except Exception as e:
         print(str(e))
     ```
-1. Kodu, `.py` uzantısıyla bir dosya olarak kaydedin. Örneğin, `form-recognize-train.py`.
+1. Kod bir dosyayı .py uzantısıyla kaydedin. Örneğin, *form tanımak train.py*.
 1. Bir komut istemi penceresi açın.
 1. İstemde, örneği çalıştırmak için `python` komutunu kullanın. Örneğin, `python form-recognize-train.py`.
 
-Size gönderilecek bir `200 (Success)` aşağıdaki JSON çıkışını Yanıtla:
+Size gönderilecektir bir `200 (Success)` bu JSON çıkışını Yanıtla:
 
 ```json
 {
@@ -103,16 +101,16 @@ Size gönderilecek bir `200 (Success)` aşağıdaki JSON çıkışını Yanıtla
 }
 ```
 
-Not `"modelId"` değeri; için aşağıdaki adımları gerekir.
+Not `"modelId"` değeri. İçin aşağıdaki adımları gerekir.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Anahtar-değer çiftleri ve tabloları formlardan ayıklayın
 
-Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları buradan ayıklamak. Çağrı **Model - analiz** Python komut dosyası tarafından API. Komutu çalıştırmadan önce aşağıdaki değişiklikleri yapın:
+Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları buradan ayıklamak. Çağrı **Model - analiz** Python betiğini çalıştırarak API izler. Komutu çalıştırmadan önce şu değişiklikleri yapın:
 
-1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınız ile elde ettiğiniz uç noktası ile. Bu, formu tanıyıcı kaynak genel bakış sekmesinde bulabilirsiniz.
-1. Değiştirin `<File Path>` dosya yolu veya verileri ayıklamak için formun bulunduğu URL.
-1. Değiştirin `<modelID>` modeli eğitmek, önceki adımda aldığınız model kimliği.
-1. Değiştirin `<file type>` - desteklenen türler: pdf, görüntü/jpeg, görüntü/png dosya türüne sahip.
+1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınız ile elde ettiğiniz uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
+1. Değiştirin `<File Path>` dosya yolu veya URL biçiminde veri ayıklanacağı konumunun.
+1. Değiştirin `<modelID>` önceki bölümde aldığınız model kimliği.
+1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: pdf, görüntü/jpeg, görüntü/png.
 1. `<subscription key>` değerini abonelik anahtarınızla değiştirin.
 
     ```python
@@ -140,13 +138,13 @@ Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları bur
         print(str(e))
     ```
 
-1. Kodu, `.py` uzantısıyla bir dosya olarak kaydedin. Örneğin, `form-recognize-analyze.py`.
+1. Kod bir dosyayı .py uzantısıyla kaydedin. Örneğin, *form tanımak analyze.py*.
 1. Bir komut istemi penceresi açın.
 1. İstemde, örneği çalıştırmak için `python` komutunu kullanın. Örneğin, `python form-recognize-analyze.py`.
 
 ### <a name="examine-the-response"></a>Yanıtı inceleme
 
-Başarılı yanıt, JSON biçiminde döndürülür ve formu ayıklanan tablo ve ayıklanan anahtar-değer çiftleri temsil eder.
+Başarılı yanıtı JSON biçiminde döndürülür. Formdan ayıklanan tablo ve anahtar-değer çiftleri temsil eder:
 
 ```bash
 {
@@ -471,7 +469,7 @@ Başarılı yanıt, JSON biçiminde döndürülür ve formu ayıklanan tablo ve 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu kılavuzda, tanıyıcı REST API'leri ile Python bir modeli eğitmek ve bir örnek durumda çalıştırmak için kullanılır. Ardından, daha fazla ayrıntılı Form tanıyıcı API'sini keşfetmek için başvuru belgelerine bakın.
+Bu hızlı başlangıçta, Form tanıyıcı REST API ile Python bir modeli eğitmek ve bir örnek senaryosunda çalıştırmak için kullanılır. Ardından, daha fazla ayrıntılı Form tanıyıcı API'sini keşfetmek için başvuru belgelerine bakın.
 
 > [!div class="nextstepaction"]
 > [REST API başvuru belgeleri](https://aka.ms/form-recognizer/api)

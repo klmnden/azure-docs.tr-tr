@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Ana VHD görüntüsünü hazırlama ve özelleştirme
       href: set-up-customize-master-image.md
+    - name: Ana VHD görüntüsü üzerinde Office yükleme
+      href: install-office-on-wvd-master-image.md
     - name: Windows Sanal Masaüstü için GPU'yu yapılandırma
       href: configure-vm-gpu.md
     - name: Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme

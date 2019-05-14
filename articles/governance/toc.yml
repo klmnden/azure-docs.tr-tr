@@ -22,25 +22,12 @@
       href: policy/overview.md
     - name: Şemalar
       href: blueprints/overview.md
-- name: Uygulamalar
-  expanded: true
+- name: Bulut Benimseme Çerçevesi
   items:
-    - name: Kurumsal Bulut Benimsemesi
-      items:
-        - name: Bulut kaynak idaresi nedir?
-          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-        - name: Azure’da kaynak erişim idaresi
-          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-        - name: Tek bir ekibe yönelik idare tasarımı
-          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-        - name: Birden çok ekibe yönelik idare tasarımı
-          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-    - name: Azure Kurumsal İskelesi
-      items:
-        - name: Öngörücü Abonelik İdaresi
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-        - name: Azure Kurumsal İskelesini Uygulama
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+    - name: Genel Bakış
+      href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+    - name: İdareye Genel Bakış
+      href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
 - name: Kaynaklar
   items:
     - name: Azure yol haritası

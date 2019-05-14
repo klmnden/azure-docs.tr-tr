@@ -1,12 +1,17 @@
 - name: Azure HDInsight Belgeleri
   href: /azure/hdinsight
-- name: HDInsight'ta Interactive Query
+- name: Genel Bakış
   items:
     - name: HDInsight üzerindeki Apache Hadoop bileşenleri
       href: ../hdinsight-component-versioning.md
       maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+      maintainContext: true
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Apache Hive sorguları yürütme - Apache Zeppelin
+      href: ../hdinsight-connect-hive-zeppelin.md
       maintainContext: true
 - name: başlarken
   items:
@@ -37,9 +42,6 @@
           href: ../hadoop/hdinsight-use-hive.md
           maintainContext: true
           items:
-            - name: Apache Zeppelin kullanma
-              href: ../hdinsight-connect-hive-zeppelin.md
-              maintainContext: true
             - name: Visual Studio Araçları
               href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
               maintainContext: true
@@ -180,7 +182,7 @@
             - name: cURL ve Azure REST API’si kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure Klasik CLI'yi kullanma
+            - name: Azure CLI kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: İsteğe bağlı kümeler oluşturma

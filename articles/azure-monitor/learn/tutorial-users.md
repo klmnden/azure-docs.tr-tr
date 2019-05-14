@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61367481"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601565"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Müşterilerin uygulamanızı nasıl kullandığını anlamak için Azure Application Insights’ı kullanın
 
@@ -35,7 +35,7 @@ Azure Application Insights, kullanıcıların uygulamanızla nasıl etkileşim k
 
 Bu öğreticiyi tamamlamak için:
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
+- Yükleme [Visual Studio 2019](https://www.visualstudio.com/downloads/) aşağıdaki iş yükleri ile:
     - ASP.NET ve web geliştirme
     - Azure geliştirme
 - [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger)’ı indirin ve yükleyin.
@@ -59,11 +59,11 @@ Bu öğreticiyi tamamlamak için:
 
     ![Zaman aralığını değiştirme](media/tutorial-users/TimeRange.png)
 
-4. **Bölme ölçütü** açılan menüsüne tıklayarak grafiğe kullanıcı özelliğine göre bir döküm ekleyin.  **Ülke veya bölge**'yi seçin.  Grafikte aynı veriler yer alır ancak her ülkedeki kullanıcı sayısı dökümünü görüntülemenizi sağlar.
+4. **Bölme ölçütü** açılan menüsüne tıklayarak grafiğe kullanıcı özelliğine göre bir döküm ekleyin.  **Ülke veya bölge**'yi seçin.  Grafik aynı verileri içerir, ancak her bir ülke/bölge için kullanıcı sayısını dökümünü görüntülemenize olanak sağlar.
 
     ![Ülke veya bölge grafiği](media/tutorial-users/CountryorRegion.png)
 
-5. İmleci grafikteki çubukların üzerinde gezdirdiğinizde her bir ülkeye ait sayının yalnızca ilgili çubuğun gösterdiği zaman aralığını yansıttığını görebilirsiniz.
+5. Grafikteki farklı çubukların üzerine imleci getirin ve sayısı her bir ülke/bölge için yalnızca bu çubuğu tarafından temsil edilen zaman penceresi gösterdiğine dikkat edin.
 6. Sağ taraftaki kullanıcı verilerinizle analiz gerçekleştiren **İçgörüler** sütununa bakın.  Burada zaman içindeki benzersiz oturum sayısı ve kullanıcı verilerinin önemli bir kısmını oluşturan ortak özellikleri içeren kayıtlar gibi bilgiler sunulur 
 
     ![İçgörüler sütunu](media/tutorial-users/insights.png)

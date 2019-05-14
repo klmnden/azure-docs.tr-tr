@@ -23,8 +23,10 @@
       items:
         - name: 1 - Azure’da görüntü oluşturma
           href: container-registry-tutorial-quick-task.md
-        - name: 2 - Görüntü oluşturmayı otomatikleştirme
+        - name: 2a - commit kodu üzerinde otomatik derleme
           href: container-registry-tutorial-build-task.md
+        - name: 2B - commit kodu üzerinde çok adımlı görev
+          href: container-registry-tutorial-multistep-task.md
         - name: 3 - Temel görüntü güncelleştirme derlemeleri
           href: container-registry-tutorial-base-image-update.md
     - name: Kayıt defterini coğrafi olarak çoğaltma
@@ -84,7 +86,7 @@
               href: container-registry-auth-aci.md
             - name: Azure Kubernetes Hizmeti'nden (AKS) kimliği doğrulama
               href: container-registry-auth-aks.md
-        - name: İçerik güveni (önizleme)
+        - name: İçerik güveni
           href: container-registry-content-trust.md
     - name: Derleme ve yama yapma
       items:

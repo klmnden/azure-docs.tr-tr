@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176625"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603448"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Öğretici: Büyük verileri bir veri ambarına akışla aktarma
 Azure [Event Grid](overview.md) uygulama ve hizmetlerden (olayları) bildirimler için react olanak tanıyan bir akıllı bir olay yönlendirme hizmetidir. Örneğin, bir Azure Blob Depolama veya Azure Data Lake Storage yakalanan Event Hubs verilerini işlemek için bir Azure işlevi tetikleyin ve verileri diğer veri depolarına geçirin. Bu [Event Hubs ve Event Grid tümleştirmesi örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) Event Hubs Event Grid ile sorunsuz bir şekilde yakalanan Event Hubs verilerini blob depolamadan SQL veri ambarı'na geçirmek için nasıl kullanılacağını gösterir.
@@ -45,7 +45,7 @@ Bu makalede, aşağıdaki adımları uygulayın:
 Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
-* [Visual Studio 2017 Sürüm 15.3.2 veya üzeri](https://www.visualstudio.com/vs/) ile şunlar için iş yükleri: .NET masaüstü geliştirme, Azure geliştirme, ASP.NET ve web geliştirme, Node.js geliştirme ve Python geliştirme.
+* [Visual studio 2019](https://www.visualstudio.com/vs/) ile iş yükleri için: .NET Masaüstü uygulama geliştirme, Azure geliştirme, ASP.NET ve web geliştirme, Node.js geliştirme ve Python geliştirme.
 * İndirme [EventHubsCaptureEventGridDemo kodunuzla](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) bilgisayarınıza.
 
 ## <a name="deploy-the-infrastructure"></a>Altyapıyı dağıtma
@@ -196,7 +196,7 @@ Cloud shell seçerek kapatmak **Cloud Shell** Portalı'nda düğme (veya) **X** 
 
 ## <a name="publish-the-azure-functions-app"></a>Azure İşlevleri uygulamasını yayımlama
 
-1. Visual Studio 2017'yi başlatın. 
+1. Visual Studio'yu başlatın.
 2. Açık **EventHubsCaptureEventGridDemo.sln** yüklediğiniz çözüm [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) ön koşulların bir parçası olarak.
 3. Çözüm Gezgini’nde **FunctionEGDWDumper**’a sağ tıklayın ve **Yayımla**’yı seçin.
 

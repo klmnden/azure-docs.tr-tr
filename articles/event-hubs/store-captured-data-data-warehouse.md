@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 234febe92727e5a47d4cfc5b836cd5593e99b5b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369106"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604301"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid ve Azure işlevleri'ni kullanarak bir SQL veri ambarı yakalanan Event Hubs verilerini geçirme
 
@@ -39,7 +39,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Visual Studio 2017 15.3.2 veya sonraki bir sürümü](https://www.visualstudio.com/vs/). Yükleme işlemi sırasında şu iş yüklerini de yüklediğinizden emin olun: .NET masaüstü geliştirme, Azure geliştirme, ASP.NET ve web geliştirme, Node.js geliştirme ve Python geliştirme
+- [Visual studio 2019](https://www.visualstudio.com/vs/). Yükleme işlemi sırasında şu iş yüklerini de yüklediğinizden emin olun: .NET masaüstü geliştirme, Azure geliştirme, ASP.NET ve web geliştirme, Node.js geliştirme ve Python geliştirme
 - [Git örneğini](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) indirin. Örnek çözümde şu bileşenler yer almaktadır:
     - *WindTurbineDataGenerator* - Capture özelliğinin etkin olduğu bir olay hub'ına örnek rüzgar türbini verisi gönderen basit bir yayımcı
     - *FunctionDWDumper* - Azure Depolama blobunda bir Avro dosyası yakalandığında Event Grid bildirimi alan Azure İşlevi. Blobun URI yolunu alır, içeriğini okur ve bu verileri bir SQL Veri Ambarı'na gönderir.
@@ -106,7 +106,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Kodu İşlevler Uygulamasında yayımlama
 
-1. Visual Studio 2017'de (15.3.2 veya sonraki bir sürümü) *EventHubsCaptureEventGridDemo.sln* çözümünü açın. 
+1. Çözümü açın *EventHubsCaptureEventGridDemo.sln* Visual Studio 2019 içinde.
 
 1. Çözüm Gezgini’nde *FunctionEGDWDumper*’a sağ tıklayın ve **Yayımla**’yı seçin.
 

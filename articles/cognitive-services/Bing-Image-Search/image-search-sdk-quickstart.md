@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa009ed99b2067b5a3cbde910a7265f42ea478f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 395172fc77ff0c2e07658386ba827022af1ad26c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60917589"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595491"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Hızlı Başlangıç: Bing resim arama için SDK'sı ile görüntüleri için arama yapınC#
 
@@ -25,10 +25,10 @@ Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren B
 Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch)’da bulunabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/)’nin herhangi bir sürümü.
+* Herhangi bir sürümünü [Visual Studio 2017 veya üstü](https://visualstudio.microsoft.com/vs/whatsnew/).
 * [Bilişsel Görüntü Arama NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-Visual Studio’da Bing Resim Arama SDK’sını yüklemek için Visual Studio’da Çözüm Gezgini’nden `Manage NuGet Packages` seçeneğini kullanın.
+Visual Studio'da Bing resim arama SDK'sını yüklemek için kullanın **NuGet paketlerini Yönet** seçeneğini **Çözüm Gezgini**.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

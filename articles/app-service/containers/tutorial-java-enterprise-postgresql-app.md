@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769998"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603192"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Öğretici: Azure'da bir Java EE ve Postgres web uygulaması oluşturma
 
@@ -95,7 +95,7 @@ Dağıtım tamamlandığında, sonraki adıma devam edin.
 
 ### <a name="create-a-record"></a>Bir kayıt oluşturun
 
-Bir tarayıcıyı açın ve `https://<your_app_name>.azurewebsites.net/` dizinine gidin. Tebrikler, Azure App Service'e bir Java EE uygulama dağıttığınız!
+Bir tarayıcı açın ve gidin `https://<your_app_name>.azurewebsites.net/`. Tebrikler, Azure App Service'e bir Java EE uygulama dağıttığınız!
 
 Bu noktada, uygulamayı bir bellek içi H2 veritabanını kullanıyor. Gezinti çubuğunda bulunan "Yönetici"'ye tıklayın ve yeni bir kategori oluşturun. App Service örneğinizin yeniden başlatırsanız, bellek içi veritabanı kaydı kaybolur. Aşağıdaki adımlarda, Azure üzerinde Postgres veritabanı sağlayarak bu sorunu gidermek ve kullanılacağını WildFly yapılandırın.
 
@@ -158,7 +158,7 @@ Ardından, böylece daha önce kullandığımız bellek içi H2 veritabanı yeri
 
 ## <a name="configure-the-wildfly-application-server"></a>WildFly uygulama sunucusunu yapılandırma
 
-Yeniden yapılandırılan uygulamamız dağıtmadan önce biz WildFly uygulama sunucusu Postgres modülü ve bağımlılıkları ile güncelleştirmeniz gerekir. Daha fazla yapılandırma bilgileri şu adreste bulunabilir: [WildFly yapılandırma sunucusu](configure-language-java.md#configure-wildfly-server).
+Yeniden yapılandırılan uygulamamız dağıtmadan önce biz WildFly uygulama sunucusu Postgres modülü ve bağımlılıkları ile güncelleştirmeniz gerekir. Daha fazla yapılandırma bilgileri şu adreste bulunabilir: [WildFly yapılandırma sunucusu](configure-language-java.md#configure-java-ee-wildfly).
 
 Sunucuyu yapılandırmak için şu dört dosyalarında gerekir `wildfly_config/` dizini:
 

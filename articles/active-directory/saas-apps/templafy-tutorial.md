@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ea2ead29ba1945213871ab76a65e33a4d7b27cc
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 843a4ef36d633b8b72453ba5eb2b969af4649531
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441517"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Öğretici: Templafy ile Azure Active Directory Tümleştirme
 
@@ -120,20 +120,20 @@ Azure AD çoklu oturum açma ile Templafy yapılandırmak için aşağıdaki ad�
 
     | Ad | Kaynak özniteliği| Ad alanı  |
     | ---------------| --------------- | --------- |
-    | givenName | User.givenName | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | Soyadı | User.surname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | emailaddress | User.Mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`
-    | streetAddress | User.streetAddress | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | city | User.City | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | posta kodu | User.postalcode | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | Eyaletveİl | User.State | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | Ülke | Resource.country | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | İş Unvanı | user.jobtitle | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | Bölüm | User.Department | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | Telefon numarası | User.telephoneNumber | `https://schemas.templafy.com/2016/06/identity/claims` |
-    | facsimilenumber | User.facsimiletelephonenumber | `https://schemas.templafy.com/2016/06/identity/claims`|
-    | UPN | User.userPrincipalName | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | NameIdentifier | User.Mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | givenName | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | Soyadı | User.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | emailaddress | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`
+    | streetAddress | User.streetAddress | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | city | User.City | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | posta kodu | User.postalcode | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | Eyaletveİl | User.State | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | Ülke | Resource.country | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | İş Unvanı | user.jobtitle | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | Bölüm | User.Department | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | Telefon numarası | User.telephoneNumber | `http://schemas.templafy.com/2016/06/identity/claims` |
+    | facsimilenumber | User.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
+    | UPN | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | NameIdentifier | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

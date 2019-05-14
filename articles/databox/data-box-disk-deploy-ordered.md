@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ad11dba43e7e1561a74e04cd4f05b26569cc10d9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924929"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603172"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Öğretici: Bir Azure Data Box Disk sipariş
 
@@ -65,7 +65,7 @@ Data Box Disk sipariş etmek için [Azure portalda](https://aka.ms/azuredataboxf
     |---|---|
     |Abonelik|Data Box hizmetinin etkinleştirildiği aboneliği seçin.<br> Abonelik fatura hesabınıza bağlıdır. |
     |Aktarım türü| Azure'e İçeri Aktarma|
-    |Kaynak ülke | Verilerinizin bulunduğu ülkeyi seçin.|
+    |Kaynak ülke | Verileriniz şu anda bulunduğu ülke/bölge seçin.|
     |Hedef Azure bölgesi|Verileri aktarmak istediğiniz Azure bölgesini seçin.|
 
   

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 05d522550b96813c6b8326d83f09d7028466c835
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926225"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604098"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Öğretici: Azure Data Box'ı sırası
 
@@ -66,7 +66,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
     |---------|---------|
     |Abonelik     | Data Box hizmeti için bir kurumsal Anlaşma, CSP veya Azure sponsorluğu aboneliği seçin. <br> Abonelik fatura hesabınıza bağlıdır.       |
     |Aktarım türü     | **Azure’a içeri aktar**’ı seçin.        |
-    |Kaynak ülke     |   Verilerinizin bulunduğu ülkeyi seçin.         |
+    |Kaynak ülke     |   Verileriniz şu anda bulunduğu ülke/bölge seçin.         |
     |Hedef Azure bölgesi     |     Verileri aktarmak istediğiniz Azure bölgesini seçin.        |
 
 5. **Data Box**'ı seçin. Tek bir sipariş için en fazla kullanılabilir kapasite 80 TB'dir. Daha büyük veri boyutları için birden fazla sipariş oluşturabilirsiniz.

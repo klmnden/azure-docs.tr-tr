@@ -276,10 +276,10 @@ Aşağıdaki tabloda belirleme konusunda örnekler **tableName** veri kümesi JS
 
 | DB şema | Tablo adı | tableName JSON özelliği |
 | --- | --- | --- |
-| dbo |MyTable |MyTable ya da dbo. MyTable veya [dbo]. [MyTable] |
-| dbo1 |MyTable |dbo1. MyTable veya [dbo1]. [MyTable] |
-| dbo |My.Table |[My.Table] veya [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo |MyTable |MyTable ya da dbo. MyTable veya [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1. MyTable veya [dbo1].[MyTable] |
+| dbo |My.Table |[My.Table] veya [dbo].[My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Aşağıdaki hatayı görürseniz, tableName özelliği için belirtilen değer ile ilgili bir sorun olabilir. TableName JSON özellik değerlerini belirtmek doğru şekilde tabloya bakın.
 

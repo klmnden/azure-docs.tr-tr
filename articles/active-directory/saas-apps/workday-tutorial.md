@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 26a9aa4c32cff17dd157d65dce062309e73eb41f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 36773fce18abe5e91f393e2e82e0fb5eb44bb3b4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407890"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Workday ile Azure Active Directory Tümleştirme
 
@@ -116,7 +116,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. Yanıt URL'si, örneğin bir alt etki alanı olmalıdır: www, wd2, wd3, wd3 Impl, wd5 wd5 Impl).
-    > Aşağıdaki gibi kullanarak `http://www.myworkday.com` çalışır ancak `https://myworkday.com` desteklemez. İlgili kişi [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Aşağıdaki gibi kullanarak `https://www.myworkday.com` çalışır ancak `https://myworkday.com` desteklemez. İlgili kişi [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 6. Workday uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Workday uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**, **UPN** vb. tıklayarak özellik eşlemesi düzenlemek gereken şekilde **Düzenle**  simgesi ve değişiklik öznitelik eşlemesi.
 
@@ -229,7 +229,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     ![Kimlik doğrulaması istek imzası yöntemi](./media/workday-tutorial/WorkdaySSOConfiguration.png "kimlik doğrulaması istek imzası yöntemi") 
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**'ı tıklatın.
 
     ![TAMAM](./media/workday-tutorial/IC782933.png "TAMAM")
 

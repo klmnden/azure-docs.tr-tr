@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7bd97d6ab197a061a33620b590e41acb486d934
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480479"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606850"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics ile telefon araması verileri analiz etmek ve Power BI panosunda sonuçlarını Görselleştirme
 
@@ -118,7 +118,7 @@ TelcoGenerator uygulamasını başlatmadan önce bunu, daha önce oluşturduğun
    |**Kayıt**  |**Tanım**  |
    |---------|---------|
    |CallrecTime    |  Arama başlangıç zamanı için zaman damgası.       |
-   |SwitchNum     |  Aramayı bağlamak için kullanılan telefon anahtarı. Bu örnekte, anahtarlar kaynak ülkeyi (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizelerdir.       |
+   |SwitchNum     |  Aramayı bağlamak için kullanılan telefon anahtarı. Bu örnekte, ülke/bölge kaynağı (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizeleri anahtarlar şunlardır.       |
    |CallingNum     |  Arayanın telefon numarası.       |
    |CallingIMSI     |  Uluslararası Mobil Abone Kimliği (IMSI). Bu, arayanın benzersiz tanımlayıcısıdır.       |
    |CalledNum     |   Arama alıcısının telefon numarası.      |
@@ -212,7 +212,7 @@ Bu örnekte sahte aramalar, aynı kullanıcı tarafından beş saniye içinde an
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Sahte aramaları denetlemek için `CallRecTime` değerine göre akış verilerinde iç birleşim uygulayabilirsiniz. Böylece `CallingIMSI` değerinin (kaynak numara) aynı olduğu ancak `SwitchNum` değerinin (kaynak ülke) farklı olduğu arama kayıtlarını bulabilirsiniz. Akış verileriyle bir JOIN işlemi kullandığınızda birleştirme, eşleşen satırların zaman içinde ne kadar ayrılabildiğine ilişkin bazı sınırlar sağlamalıdır. Veri akışı sonsuz olduğundan ilişki için zaman sınırları, birleştirme işleminin **ON** yan tümcesi içinde [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) işlevi kullanılarak belirtilir.
+   Sahte aramaları denetlemek için `CallRecTime` değerine göre akış verilerinde iç birleşim uygulayabilirsiniz. Çağrısının ardından bakabilirsiniz kayıtları `CallingIMSI` değerini (kaynak numara) aynı olduğu ancak `SwitchNum` değeri (ülke/bölge kaynağı) farklıdır. Akış verileriyle bir JOIN işlemi kullandığınızda birleştirme, eşleşen satırların zaman içinde ne kadar ayrılabildiğine ilişkin bazı sınırlar sağlamalıdır. Veri akışı sonsuz olduğundan ilişki için zaman sınırları, birleştirme işleminin **ON** yan tümcesi içinde [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) işlevi kullanılarak belirtilir.
 
    Bu sorgu, **DATEDIFF** işlevi dışında yalnızca normal bir SQL birleştirme işlemi gibidir. Bu sorguda kullanılan **DATEDIFF** işlevi Stream Analytics’e özeldir ve `ON...BETWEEN` yan tümcesi içinde görünmelidir.
 

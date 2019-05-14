@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150756"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603095"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -56,7 +56,7 @@ ABD veya Kanada cihaz döndüren, aşağıdaki adımları uygulayın.
 2. Sevkiyat kutusunu mühürleyin ve iade sevkiyat etiketinin görünür olduğundan emin olun.
 3. UPS ile bir toplama zamanlayın. Bir toplama zamanlamak için:
 
-    - Yerel UPS (ücretsiz ülkelere özgü arama numarası) çağırın.
+    - Yerel UPS (ücretsiz ülkeye/bölgeye özgü arama numarası) çağırın.
     - Çağrınızda, izleme yazdırılan etiketinizin gösterildiği numarası ters sevkiyat teklif.
     - İzleme numarası tırnak içinde değil, UPS alımı sırasında ek bir ücret ödeme yapmanızı gerektirir.
     - Toplama zamanlama yerine, ayrıca en yakın bırakma konumu Data Box Disk devre dışı bırakabilir.
@@ -78,13 +78,13 @@ Cihaz Avrupa'da döndüren, aşağıdaki adımları uygulayın.
 
 2. Sevkiyat kutusunu mühürleyin ve iade sevkiyat etiketinin görünür olduğundan emin olun.
 3. Cihazı Avrupa'da DHL ile iade ediyorsanız, DHL'in web sitesini ziyaret edip bir havayolu fatura numarası belirterek toplama isteğinde bulunun.
-4. Ülkenin DHL Ekspres web sitesine gidin ve **Kurye Çağırma Rezervasyonu > eİade Sevkiyatı**'nı seçin.
+4. Ülke/bölge DHL Express Web sitesine gidin ve seçin **Courier koleksiyonu kitap > sevkiyat eReturn**.
 
     ![İade Sevk irsaliyesi DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
 3. Konşimento numarasını belirtin ve toplama ayarlaması yapmak için **Toplama Zamanlama**'ya tıklayın.
 
-      ![Toplamayı zamanlama](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
+      ![Toplamayı zamanla](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Asya Pasifik bölgesinde öğrenilip
 

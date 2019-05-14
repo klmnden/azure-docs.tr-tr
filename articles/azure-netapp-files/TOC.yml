@@ -21,6 +21,10 @@
       href: azure-netapp-files-metrics.md
     - name: Azure NetApp Files için performans kıyaslamaları
       href: azure-netapp-files-performance-benchmarks.md
+    - name: Azure NetApp Files için maliyet modeli
+      href: azure-netapp-files-cost-model.md
+    - name: Azure NetApp Files ağ planlaması yönergeleri
+      href: azure-netapp-files-network-topologies.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure NetApp Files için kaydolma

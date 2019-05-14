@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0390ef5b9364aaa54c4d46abf3164728b3a4126a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708415"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595828"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Bing varlık arama SDK ile arama isteği gönderC#
 
@@ -24,7 +24,7 @@ Bing varlık arama için SDK'sı ile varlıkları için aramaya başlamak için 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
+* Herhangi bir sürümünü [Visual Studio 2017 veya üstü](https://www.visualstudio.com/downloads/).
 * NuGet paketi olarak kullanılabilen [Json.NET](https://www.newtonsoft.com/json) çerçevesi.
 * Linux/MacOS kullanıyorsanız bu uygulama, [Mono](https://www.mono-project.com/) kullanılarak çalıştırılabilir.
 * [Bing haber arama SDK'sı NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Bu paketi yüklerken Ayrıca aşağıdakileri yükler:
@@ -32,7 +32,7 @@ Bing varlık arama için SDK'sı ile varlıkları için aramaya başlamak için 
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Bing varlık arama SDK'sı, Visual Studio projenize eklemek için `Manage NuGet Packages` seçeneği Çözüm Gezgini'nden ve ekleme `Microsoft.Azure.CognitiveServices.Search.EntitySearch` paket.
+Bing varlık arama SDK'sı, Visual Studio projenize eklemek için **NuGet paketlerini Yönet** seçeneğini **Çözüm Gezgini**ve ekleme `Microsoft.Azure.CognitiveServices.Search.EntitySearch` paket.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

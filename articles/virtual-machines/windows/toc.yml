@@ -59,6 +59,8 @@
     - name: VM türleri ve boyutları
       href: sizes.md
       items:
+        - name: 2. Nesil VM’ler
+          href: generation-2.md
         - name: Genel amaçlı
           href: sizes-general.md
           displayName: Dsv3 Dv3 DSv2 Dv2 Av2

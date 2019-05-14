@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470278"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604482"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
@@ -38,7 +38,7 @@ Bu öğreticide şunları yaptınız:
 Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuyun veya not defterini alma ve Azure not defterleri veya kendi notebook sunucusu üzerinde çalıştırmak için aşağıdaki yönergeleri kullanın. İhtiyacınız olacak not defteri çalıştırmak için:
 
 * Aşağıdakilerin yüklü olan bir Python 3.6 Not Defteri sunucusu:
-    * Azure Machine Learning Python için veri hazırlığı SDK'sı
+    *  Python için Azure Machine Learning SDK paketinden azureml dataprep
 * Öğretici not defteri
 
 * Kullanım bir [çalışma alanınızdaki bulut not defteri sunucusu](#azure) 
@@ -56,8 +56,8 @@ Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kol
 
 Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.  Adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** dizüstü bilgisayar.
 
-1. Tam yükleme adımları [ [Azure Machine Learning Python hızlı](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) Miniconda ortamı oluşturmak için.  Atlayabilirsiniz **çalışma alanı oluşturma** istediğiniz, ancak bunun için ihtiyacınız olacak bölümünde [2. bölüm](tutorial-auto-train-models.md) Bu öğretici serisinin.
-1. Veri hazırlığı SDK'yı kullanarak ortamınıza yükleyin `pip install azureml-dataprep`.
+1. Tam yükleme adımları [Azure Machine Learning Python hızlı](setup-create-workspace.md#sdk) Miniconda ortamı oluşturmak için.  Atlayabilirsiniz **çalışma alanı oluşturma** istediğiniz, ancak bunun için ihtiyacınız olacak bölümünde [2. bölüm](tutorial-auto-train-models.md) Bu öğretici serisinin.
+1. Azureml dataprep kullanarak ortamınıza yükleyin `pip install azureml-dataprep`.
 1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
 
     ```
