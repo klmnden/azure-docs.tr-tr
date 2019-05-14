@@ -51,14 +51,14 @@ Bir OData bağlı hizmeti için aşağıdaki özellikler desteklenir:
 | type | **Türü** özelliği ayarlanmalıdır **OData**. |Evet |
 | url | OData hizmet kök URL'si. |Evet |
 | authenticationType | OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü. İzin verilen değerler **anonim**, **temel**, **Windows**, **AadServicePrincipal**, ve **ManagedServiceIdentity** . Kullanıcı tabanlı OAuth desteklenmiyor. | Evet |
-| Kullanıcı adı | Belirtin **kullanıcıadı** temel veya Windows kimlik doğrulamasını kullanır. | Hayır |
+| userName | Belirtin **kullanıcıadı** temel veya Windows kimlik doğrulamasını kullanır. | Hayır |
 | password | Belirtin **parola** , belirtilen kullanıcı için hesap **userName**. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | servicePrincipalId | Azure Active Directory Uygulama istemci kimliği belirtin. | Hayır |
 | aadServicePrincipalCredentialType | Hizmet sorumlusu kimlik doğrulaması için kullanılacak kimlik bilgisi türü belirtin. İzin verilen değerler: `ServicePrincipalKey` veya `ServicePrincipalCert`. | Hayır |
 | serviceprincipalkey değerleri | Azure Active Directory Uygulama anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | servicePrincipalEmbeddedCert | Uygulamanızın Azure Active Directory'de kayıtlı base64 olarak kodlanmış sertifika belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | servicePrincipalEmbeddedCertPassword | Sertifikanızı bir parolayla korunuyorsa, sertifika parolasını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md).  | Hayır|
-| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Hayır |
+| tenant | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Hayır |
 | aadResourceId | İçin yetkilendirmesi AAD kaynağı belirtin.| Hayır |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı seçebilirsiniz. Belirtilmezse, varsayılan Azure tümleştirme çalışma zamanı kullanılır. |Hayır |
 
@@ -198,7 +198,7 @@ OData veri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kümesinin özelliği ayarlanmalıdır **ODataResource**. | Evet |
-| yol | OData kaynağı yolu. | Evet |
+| path | OData kaynağı yolu. | Evet |
 
 **Örnek**
 
@@ -233,7 +233,7 @@ OData veri kopyalamak için ayarlanmış **kaynak** türü için kopyalama etkin
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **RelationalSource**. | Evet |
-| sorgu | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"?$select=Name,Description&$top=5"`.<br/><br/>**Not**: OData Bağlayıcısı verileri birleşik URL'den kopyalar: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
+| query | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"?$select=Name,Description&$top=5"`.<br/><br/>**Not**: OData Bağlayıcısı verileri birleşik URL'den kopyalar: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
 
 **Örnek**
 
