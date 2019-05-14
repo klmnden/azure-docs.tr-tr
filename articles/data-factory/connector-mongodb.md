@@ -51,7 +51,7 @@ MongoDB bağlı hizmeti için aşağıdaki özellikleri destekler:
 |:--- |:--- |:--- |
 | type |Type özelliği ayarlanmalıdır: **MongoDbV2** |Evet |
 | connectionString |Örneğin, MongoDB bağlantı dizesini belirtin `mongodb://[username:password@]host[:port][/[database][?options]]`. Başvurmak [MongoDB bağlantı dizesi el ile](https://docs.mongodb.com/manual/reference/connection-string/) daha fazla ayrıntı için. <br/><br />Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
-| veritabanı | Erişmek istediğiniz veritabanının adı. | Evet |
+| database | Erişmek istediğiniz veritabanının adı. | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 **Örnek:**
@@ -114,7 +114,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **MongoDbV2Source** | Evet |
-| filtre | Sorgu işleçlerini kullanma seçimi filtresini belirtir. Bir koleksiyondaki tüm belgeleri döndürmek için bu parametreyi atlarsanız veya boş bir belge geçirin ({}). | Hayır |
+| filter | Sorgu işleçlerini kullanma seçimi filtresini belirtir. Bir koleksiyondaki tüm belgeleri döndürmek için bu parametreyi atlarsanız veya boş bir belge geçirin ({}). | Hayır |
 | cursorMethods.project | Belgelerde yansıtma için döndürülecek alanları belirtir. Tüm alanları eşleşen belgeleri döndürmek için bu parametreyi atlayın. | Hayır |
 | cursorMethods.sort | Sorgu eşleşen belgelerin döndüren sırasını belirtir. Başvurmak [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Hayır |
 | cursorMethods.limit | Sunucu belgeleri maksimum sayısını belirtir. Başvurmak [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Hayır |
