@@ -46,7 +46,7 @@ Aşağıdaki özellikler, Oracle Eloqua bağlı hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Eloqua** | Evet |
 | endpoint | Eloqua sunucu uç noktası. Eloqua desteklediği uç noktanızı, oturum açma belirlemek için birden çok veri merkezinde https://login.eloqua.com bilginizle, ardından kopyalama **ana URL** desenini ile yeniden yönlendirilen URL'de bölümü `xxx.xxx.eloqua.com`. | Evet |
-| kullanıcı adı | Eloqua hesabınızın biçiminde kullanıcı adını ve site adı: `SiteName\Username` örn `Eloqua\Alice`.  | Evet |
+| username | Eloqua hesabınızın biçiminde kullanıcı adını ve site adı: `SiteName\Username` örn `Eloqua\Alice`.  | Evet |
 | password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | Ana bilgisayar adı sunucunun sertifikasında SSL üzerinden bağlanırken sunucu ana bilgisayar adıyla eşleşmesi gerekip gerekmediğini belirtir. Varsayılan değer true olur.  | Hayır |
@@ -109,7 +109,7 @@ Oracle Eloqua verileri kopyalamak için kopyalama etkinliği için kaynak türü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **EloquaSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
