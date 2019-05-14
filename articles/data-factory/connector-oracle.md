@@ -58,7 +58,7 @@ Aşağıdaki özellikler Oracle bağlı hizmeti için desteklenir.
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır **Oracle**. | Evet |
-| bağlantı dizesi | Oracle veritabanına bağlanmak için gereken bilgileri belirtir. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Parola Azure anahtar kasası ve çekme koyabilirsiniz `password` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. <br><br>**Bağlantı türü desteklenen**: Kullanabileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID'ı kullanıyorsanız: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanıyorsanız: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Evet |
+| connectionString | Oracle veritabanına bağlanmak için gereken bilgileri belirtir. <br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Parola Azure anahtar kasası ve çekme koyabilirsiniz `password` yapılandırma bağlantı dizesini dışında. Aşağıdaki örneklere bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. <br><br>**Bağlantı türü desteklenen**: Kullanabileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID'ı kullanıyorsanız: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanıyorsanız: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 >[!TIP]
@@ -279,25 +279,25 @@ Oracle için veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarla
 
 | Oracle veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| BDOSYA |Byte[] |
+| BFILE |Byte[] |
 | BLOB |Byte[]<br/>(yalnızca Oracle 10 g desteklenir ve üzeri) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| KAYAN NOKTA |Ondalık, dize (olursa hassasiyet > 28) |
-| INTEGER |Ondalık, dize (olursa hassasiyet > 28) |
-| UZUN |String |
+| FLOAT |Decimal, String (olursa hassasiyet > 28) |
+| INTEGER |Decimal, String (olursa hassasiyet > 28) |
+| LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| SAYI |Ondalık, dize (olursa hassasiyet > 28) |
+| NUMBER |Decimal, String (olursa hassasiyet > 28) |
 | NVARCHAR2 |String |
-| HAM |Byte[] |
-| SATIR KİMLİĞİ |String |
-| ZAMAN DAMGASI |DateTime |
-| YEREL SAAT DİLİMİ İLE ZAMAN DAMGASI |String |
-| SAAT DİLİMİ İLE ZAMAN DAMGASI |String |
-| İŞARETSİZ TAMSAYI |Sayı |
+| RAW |Byte[] |
+| ROWID |String |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 
