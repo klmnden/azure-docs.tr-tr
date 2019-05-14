@@ -82,7 +82,7 @@ Office 365 bağlı hizmeti için aşağıdaki özellikleri destekler:
 | office365TenantId | Office 365 hesabına ait olduğu azure Kiracı kimliği. | Evet |
 | servicePrincipalTenantId | Azure AD web uygulamanızı altında bulunduğu Kiracı bilgilerini belirtin. | Evet |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet |
-| serviceprincipalkey değerleri | Uygulama anahtarını belirtin. Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. | Evet |
+| servicePrincipalKey | Uygulama anahtarını belirtin. Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. | Evet |
 | connectVia | Veri deposuna bağlanmak için kullanılacak Integration Runtime.  Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır |
 
 >[!NOTE]
