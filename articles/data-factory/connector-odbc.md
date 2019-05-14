@@ -54,9 +54,9 @@ ODBC bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır: **ODBC** | Evet |
 | connectionString | Kimlik bilgisi bölümü hariç olmak üzere bağlantı dizesi. Desen gibi ile bağlantı dizesini belirtin `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, veya sistem DSN ayarladığınız Integration Runtime makinede (veri kaynağı adı) kullanmak `"DSN=<name of the DSN on IR machine>;"` (hala kimlik bilgisi bölümü bağlı hizmette uygun şekilde belirttiğiniz).<br>Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md).| Evet |
 | authenticationType | ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel** ve **anonim**. | Evet |
-| Kullanıcı adı | Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. | Hayır |
+| userName | Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. | Hayır |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
-| kimlik bilgisi | Erişim kimlik bilgisi sürücüye özel özellik-değer biçiminde belirtilen bağlantı dizesi kısmı. Örnek: `"RefreshToken=<secret refresh token>;"`. Bu alanı bir SecureString işaretleyin. | Hayır |
+| credential | Erişim kimlik bilgisi sürücüye özel özellik-değer biçiminde belirtilen bağlantı dizesi kısmı. Örnek: `"RefreshToken=<secret refresh token>;"`. Bu alanı bir SecureString işaretleyin. | Hayır |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
 
 **Örnek 1: Temel kimlik doğrulaması kullanma**
@@ -152,7 +152,7 @@ ODBC uyumlu veri deposundan veri kopyalamak için kopyalama etkinliği için kay
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
