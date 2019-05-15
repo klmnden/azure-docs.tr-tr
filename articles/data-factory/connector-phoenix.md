@@ -43,11 +43,11 @@ Phoenix bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Phoenix** | Evet |
-| konak | Phoenix sunucusunun IP adresi veya ana bilgisayar adı. (diğer bir deyişle, 192.168.222.160)  | Evet |
+| host | Phoenix sunucusunun IP adresi veya ana bilgisayar adı. (diğer bir deyişle, 192.168.222.160)  | Evet |
 | port | Phoenix sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. 8765 varsayılan değerdir. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Hayır |
 | httpPath | Phoenix sunucuya karşılık gelen kısmi URL. (diğer bir deyişle, /gateway/sandbox/phoenix/version). Belirtin `/hbasephoenix0` Hdınsights küme kullanıyorsanız.  | Hayır |
 | authenticationType | Phoenix sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler şunlardır: **Anonim**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
-| kullanıcı adı | Phoenix sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
+| username | Phoenix sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
 | password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
 | trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için güvenilen CA sertifikalarını içeren .pem dosyasının tam yolu. Bu özellik yalnızca şirket içinde barındırılan IR üzerinde SSL kullanılarak, ayarlanabilir Varsayılan değer IR ile yüklü cacerts.pem dosyasıdır  | Hayır |
@@ -119,7 +119,7 @@ Phoenix verileri kopyalamak için kopyalama etkinliği için kaynak türünü ay
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **PhoenixSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
