@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/13/2019
 ms.author: jhakulin
-ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 80ec606fee30c239d47bca94188d3b9cbb7c82d5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190143"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604421"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Çok katılımcılı sohbet Speech SDK'sı özelliği
 
@@ -24,45 +24,56 @@ Konuşma SDK'ın **ConversationTranscriber** API toplantıları/konuşmalar ekle
 ## <a name="limitations"></a>Sınırlamalar
 
 * Konuşma uyarlayıcı için desteklenen C++, C#ve Windows, Linux ve Android üzerinde Java.
-* ROOBO DevKit sağlayan verimli bir şekilde Konuşmacı tanıma için konuşma tanıma hizmeti tarafından yararlanılabilir döngüsel çok mikrofon dizisi olarak konuşmalar oluşturma için desteklenen donanım ortamdır. [Daha fazla bilgi için bkz: konuşma cihazları SDK](speech-devices-sdk.md).
-* Ses çekme'si ve anında iletilen PCM ses sekiz kanalları modu akışlarla konuşma SDK desteği sınırlıdır.
+* ROOBO DevKit yararlanılabilir döngüsel çok mikrofon dizisi Konuşmacı tanıma için verimli bir şekilde sağlayan olarak konuşma döküm oluşturma için desteklenen donanımlar ortamıdır. [Daha fazla bilgi için bkz: konuşma cihazları SDK](speech-devices-sdk.md).
+* Konuşma SDK desteği için konuşma tanıma ses çekme kullanın ve 16-bit 16 kHz PCM ses sekiz kanallar modu akışları göndermek için sınırlıdır.
+* Konuşma Transkripsiyonu şu anda aşağıdaki bölgelerde "en-US" ve "zh-CN" dillerde: centralus ve ping'in ekran.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Konuşmayı metne Speech SDK'sı ile kullanmayı öğrenin.](quickstart-csharp-dotnet-windows.md)
 * [Konuşma deneme aboneliğinizi alın.](https://azure.microsoft.com/try/cognitive-services/)
+* Konuşma SDK'sı sürüm 1.5.1 veya üstü gereklidir.
 
 ## <a name="create-voice-signatures-for-participants"></a>Katılımcıların ses imzalar oluşturma
 
 İlk adım, konuşma katılımcılarını ses imzaları oluşturmaktır. Ses imzalarını oluşturmak, etkili Konuşmacı tanıma için gereklidir.
-Aşağıdaki örnekte, geçeriz [ses imza almak için REST API'yi kullanın.](https://aka.ms/cts/signaturegenservice)
 
-Aşağıdaki örnekte, sesli imzaları oluşturmanın iki farklı yolu gösterilmektedir:
+### <a name="requirements-for-input-wave-file"></a>Giriş ses dosyası için gereksinimler
+
+* Ses imzalarını oluşturmak için giriş ses wave dosyasını 16-bit örnekleri, 16 kHz örnekleme hızı ve tek bir kanal (tekli) biçiminde olmalıdır.
+* Önerilen ses her örnek için iki dakika 30 saniye arasında uzunluğudur.
+
+Aşağıdaki örnek ses imzası [REST API'sini kullanarak.] oluşturmak için iki farklı yol gösterir. (https://aka.ms/cts/signaturegenservice) gelen C#:
+
 ```csharp
 class Program
 {
     static async Task CreateVoiceSignatureByUsingFormData()
     {
+        var region = "YourServiceRegion";
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var form = new MultipartFormDataContent();
         var content = new ByteArrayContent(fileBytes);
         form.Add(content, "file", "file");
         var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
-        var response = await client.PostAsync($"https://{region}.signature.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
-        // A voice signature can be extracted from the jsonData
+        var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
+        // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
+        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
     static async Task CreateVoiceSignatureByUsingBody()
     {
+        var region = "YourServiceRegion";
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var content = new ByteArrayContent(fileBytes);
 
         var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
-        var response = await client.PostAsync($"https://{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
-        // A voice signature can be extracted from the jsonData
+        var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
+        // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
+        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -87,13 +98,11 @@ using Microsoft.CognitiveServices.Speech.Conversation;
 
 public class MyConversationTranscriber
 {
-    private static string endpoint = "YourOwnEndpoint";
-
     public static async Task ConversationWithPullAudioStreamAsync()
     {
         // Creates an instance of a speech config with specified subscription key and service region.
-        // Replace with your own endpoint and subscription key.
-        var config = SpeechConfig.FromEndpoint(new Uri(endpoint), "YourSubScriptionKey");
+        // Replace with your own subscription key and region.
+        var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
@@ -113,7 +122,7 @@ public class MyConversationTranscriber
                 {
                     if (e.Result.Reason == ResultReason.RecognizedSpeech)
                     {
-                        Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}, SpeakerID={e.Result.SpeakerId}");
+                        Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}, UserID={e.Result.UserId}");
                     }
                     else if (e.Result.Reason == ResultReason.NoMatch)
                     {
@@ -121,12 +130,38 @@ public class MyConversationTranscriber
                     }
                 };
 
+                transcriber.Canceled += (s, e) =>
+                {
+                    Console.WriteLine($"CANCELED: Reason={e.Reason}");
+
+                    if (e.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        stopTranscription.TrySetResult(0);
+                    }
+                };
+
+                transcriber.SessionStarted += (s, e) =>
+                {
+                    Console.WriteLine("\nSession started event.");
+                };
+
+                transcriber.SessionStopped += (s, e) =>
+                {
+                    Console.WriteLine("\nSession stopped event.");
+                    Console.WriteLine("\nStop recognition.");
+                    stopTranscription.TrySetResult(0);
+                };
+
                 // Sets a conversation Id.
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // Create data for voice signatures using REST API described in the earlier section in this document.
-                // How to create voice signatureA, signatureB & signatureC variables, please check the SDK API samples.
+                // Create voice signatures using REST API described in the earlier section in this document. 
+                // Voice signature needs to be in the following format:
+                // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
 
                 var speakerA = Participant.From("Speaker_A", "en-us", signatureA);
                 var speakerB = Participant.From("Speaker_B", "en-us", signatureB);

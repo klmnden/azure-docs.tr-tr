@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 90e7abf229e0ee1ca396150fee0c1f0970d257aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372482"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605675"
 ---
 # <a name="create-a-qna-maker-service"></a>Soru-cevap Oluşturucu hizmeti oluşturma
 
@@ -26,11 +26,7 @@ Herhangi bir soru-cevap Oluşturucu bilgi bankalarından oluşturabilmeniz için
 
 Bu yordam, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bilgi Bankası içeriği yönetmek ve bir uç nokta ancak soru-yanıt özellikleri sağlar.
 
-1. [Azure Portal](<https://portal.azure.com>) oturum açın.
-
-1. Seçin **yeni kaynağı ekleyin**, arama "soru-cevap Oluşturucu" yazın ve soru-cevap Oluşturucu kaynağı seçin
-
-    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma - yeni kaynak ekleme](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+1. Azure portalında oturum açın ve [soru-cevap Oluşturucu Oluşturma](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) kaynak.
 
 1. Seçin **Oluştur** hüküm ve koşulları okuma sonra.
 
@@ -42,8 +38,9 @@ Bu yordam, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bilg
 
     * Dolgu **adı** Bu soru-cevap Oluşturucu hizmetini tanımlamak için benzersiz bir ada sahip. Bu ad Ayrıca, bilgi bankalarından ilişkili edileceği soru-cevap Oluşturucu uç nokta tanımlar.
     * Seçin **abonelik** soru-cevap Oluşturucu kaynağın dağıtılacağı.
-    * Seçin **Yönetimi fiyatlandırma katmanı** soru-cevap Oluşturucu Yönetim Hizmetleri (portal ve API Yönetimi). Bkz: [burada](https://aka.ms/qnamaker-pricing) SKU'ları fiyatlandırması hakkında ayrıntılı bilgi için.
+    * Seçin **fiyatlandırma katmanı** soru-cevap Oluşturucu Yönetim Hizmetleri (portal ve API Yönetimi). Bkz: [burada](https://aka.ms/qnamaker-pricing) SKU'ları fiyatlandırması hakkında ayrıntılı bilgi için.
     * Yeni bir **kaynak grubu** (önerilir) veya bu soru-cevap Oluşturucu kaynak dağıtacağınız var olanı kullanın. Soru-cevap Oluşturucu, çeşitli Azure kaynakları oluşturur. oluşturduğunuzda bu kaynakları saklamak için bir kaynak grubu kolayca bulabilirsiniz, yönetmek ve kaynak grubu adına göre bu kaynakları silin.
+    * Seçin bir **kaynak grubu konumu**.
     * Seçin **arama fiyatlandırma katmanı** Azure Search hizmeti. Gri ücretsiz katmanı seçeneğini görürseniz, aboneliğinizde bir ücretsiz Azure arama katmanı zaten sahip olduğunuz anlamına gelir. Bu durumda Azure arama temel katman ile başlatmanız gerekir. Azure arama fiyatlandırma ayrıntılarına [burada](https://azure.microsoft.com/pricing/details/search/).
     * Seçin **arama konumu** dağıtılacak Azure Search veri istediğiniz. Müşteri verilerinin nerede depolanacağını gerekir, kısıtlamaları, Azure arama için seçtiğiniz konumu bilgilendirecektir.
     * App service içinde bir ad verin **uygulama adı**.

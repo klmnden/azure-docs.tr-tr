@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7a60ea934c6bb9008889992726ddca5dad21a640
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510275"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595620"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Bing özel arama örneğinizin portalından çağırın
 
@@ -26,7 +26,7 @@ ms.locfileid: "65510275"
 
 Bing özel arama açtıktan sonra [portalı](https://customsearch.ai), arama örneğinizi seçin ve tıklayın **üretim** sekmesi. Altında **uç noktaları**, bir API uç noktası (örneğin, Web API'si) seçin. Aboneliğiniz, hangi uç noktaları gösterileceğini belirler.
 
-Bir arama sorgusu oluşturmak için uç noktanız için parametre değerlerini girin. Seçtiğiniz uç nokta bağlı olarak gösterilmesi parametreleri değişebileceğini unutmayın. Bkz:[özel arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) daha fazla bilgi için. İçin arama örneğinizin kullandığı aboneliğinizi değiştirmek, uygun bir abonelik anahtarı ekleyin ve uygun dil ve/veya market parametreleri güncelleştirin.
+Bir arama sorgusu oluşturmak için uç noktanız için parametre değerlerini girin. Seçtiğiniz uç nokta bağlı olarak gösterilmesi parametreleri değişebileceğini unutmayın. Bkz: [özel arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) daha fazla bilgi için. İçin arama örneğinizin kullandığı aboneliğinizi değiştirmek, uygun bir abonelik anahtarı ekleyin ve uygun dil ve/veya market parametreleri güncelleştirin.
 
 Önemli bazı parametreler aşağıda verilmiştir:
 
@@ -48,6 +48,10 @@ Tıklayarak **ek parametreler** aşağıdaki parametreleri gösterir:
 |Offset    | Sonuç döndürülmeden önce atlamak için arama sonuçları sayısı. Yalnızca Web, görüntü ve Video uç noktaları için kullanılabilir.        |
     
 Gerekli tüm seçenekler belirttikten sonra tıklayın **çağrı** JSON yanıtı sağ bölmede görüntülemek için. UI barındırılan uç noktayı seçin, arama deneyimini alt bölmede test edebilirsiniz.
+
+## <a name="change-your-bing-custom-search-subscription"></a>Bing özel arama aboneliğinizi değiştirme
+
+Yeni bir örneği oluşturulmadan Bing özel arama örneğinizin ile ilişkili aboneliği değiştirebilirsiniz. Gönderilen ve yeni bir abonelik için ücret API çağrıları için Azure portalında yeni bir Bing özel arama kaynağı oluşturun. Yeni bir abonelik anahtarı API isteklerinizin örneğinizin özel yapılandırma kimliği ile birlikte kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

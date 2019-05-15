@@ -8,17 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465612"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606360"
 ---
 # <a name="release-notes"></a>Sürüm Notları
+
+## <a name="speech-sdk-151"></a>SDK'sı 1.5.1 konuşma
+
+Bir hata düzeltmesi sürüm ve yalnızca yerel ve yönetilen SDK'yı etkileyen budur. JavaScript SDK'sı sürümünü etkilemiyor.
+
+**Hata düzeltmeleri**
+
+* Konuşma Transkripsiyonu ile kullanıldığında FromSubscription düzeltin.
+* Anahtar sözcüğü için ses öncelikli sanal asistan kapsamlı hata düzeltildi.
+
 
 ## <a name="speech-sdk-150-2019-may-release"></a>SDK'sı 1.5.0 konuşma: Mayıs 2019 sürüm
 

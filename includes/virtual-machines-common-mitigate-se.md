@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/14/2018
+ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: cbd86571cbdcd600ef3acdea3833568a34657931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337956"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620239"
 ---
-**En son Güncelleştirmesi'ni belge**: 14 Ağustos 2018 10: 00'te Pasifik saati.
+**En son Güncelleştirmesi'ni belge**: 14 Mayıs 2019 10: 00'te Pasifik saati.
 
 Açıklanması bir [CPU güvenlik açıklarından yeni sınıf](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kurgusal yürütme yan kanal saldırıları olarak bilinen daha fazla netlik dağıtımınızla müşterilerden gelen soruları sonuçlandı.  
 
@@ -28,11 +28,17 @@ Güvenlik her yönüyle Azure ile nasıl tümleştirildiği hakkında daha fazla
 > [!NOTE] 
 > Bu belge ilk kez yayınlandığı bu güvenlik açığı sınıfın birden çok çeşitleri duyurulmuştur. Microsoft, müşterilerimizin koruma ve rehberlik sağlama yatırım yoğun devam eder. Yayın başka düzeltmeleri devam ederken bu sayfa güncelleştirilir. 
 > 
-> 14 Ağustos 2018 tarihinde sektör olarak bilinen yeni bir kurgusal yürütme yan kanal güvenlik açığını duyurulmuş [L1 Terminal hata](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) atanmış olan birden çok CVEs ([CVE-2018-3615, CVE-2018-3620 ve CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). Bu güvenlik açığını Intel Core® işlemcileri ve Intel® Xeon® İşlemci etkiler. Microsoft azaltmaları güçlendirmek müşteriler arasında yalıtım müşterilerimize bulut hizmetlerimizle arasında Dağıttı. Lütfen aşağıda L1TF ve önceki güvenlik açıklarına karşı korumaya yönelik ek yönergeler için okuma ([Spectre değişken 2 CVE-2017-5715 ve Meltdown değişken 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
->  
-
-
-
+> 14 Mayıs 2019 tarihinde [duyurulmuş Intel](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) kurgusal yürütme yan kanal güvenlik açığı mikro mimari veri örnekleme bilinen yeni bir dizi (MDS bkz. Microsoft Güvenlik rehberi [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), birden çok CVEs atandı: 
+> - CVE-2018-11091 - mikro mimari (MDSUM) Uncacheable bellek örnekleme verileri
+> - CVE-2018-12126 - mikro mimari Store verilerini arabelleğe (MSBDS) örnekleme 
+> - CVE-2018-12127 - mikro mimari yük bağlantı noktası verileri (MLPDS) örnekleme
+> - CVE-2018-12130 - mikro mimari dolgu verilerini arabelleğe (MFBDS) örnekleme
+>
+> Bu güvenlik açığını Intel Core® işlemcileri ve Intel® Xeon® İşlemci etkiler.  Microsoft Azure, Intel tarafından müşterilerimizi bu yeni güvenlik açıklarına karşı korumak için sunduğumuz Filo boyunca kullanılabilir olarak yeni mikro kod dağıtıyor ve işletim sistemi güncelleştirmeleri yayımladı.   Azure, test ve yeni mikro kodun platformunda, resmi sürümden önce doğrulamak için Intel ile yakından çalışmaktadır. 
+>
+> **Güvenilmeyen çalıştıran müşteriler, VM içinde kod** tüm kurgusal yürütme yan kanal güvenlik açıklarına (Microsoft önerileri ADV hakkında ek yönergeler için aşağıdaki okuyarak bu güvenlik açıklarına karşı korumak için işlem yapması gerekmez [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), ve [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+>
+> Diğer müşteriler, bu güvenlik açıklarından derinliği perspektifinde savunma değerlendirmek ve kendi seçtiğiniz yapılandırma, güvenlik ve performans etkilerini göz önünde bulundurun.
 
 
 
@@ -64,56 +70,115 @@ Müşteriler güvenilmeyen kod içeren bir senaryo kullanılmaz, bu ek güvenlik
 
 ## <a name="enabling-additional-security"></a>Ek güvenlik etkinleştirme 
 
-Sanal makine veya Bulut hizmeti içinde ek güvenlik özellikleri etkinleştirebilirsiniz.
+Güvenilmeyen kod çalıştırıyorsanız VM veya Bulut hizmeti içinde ek güvenlik özellikleri etkinleştirebilirsiniz. Paralel olarak, işletim sisteminin sanal makine veya Bulut hizmeti içindeki güvenlik özelliklerini etkinleştirmek için güncel olduğundan emin olun.
 
 ### <a name="windows"></a>Windows 
 
 Hedef işletim sisteminiz bu ek güvenlik özelliklerini etkinleştirmek için güncel olması gerekir. Çok sayıda kurgusal yürütme yan kanal azaltmaları varsayılan olarak etkindir ancak aşağıda açıklanan ek özellikler el ile etkinleştirilmelidir ve performans düşüşüne neden olabilir. 
 
-**1. adım**: [Azure Destek ekibiyle iletişime geçin](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) güncelleştirilmiş sunmaya bellenimi (mikro kod), sanal makinelere için. 
 
-**2. adım**: Çekirdek sanal adres gölgeleme (KVAS) ve dal hedef ekleme (BTI) işletim sistemi desteğini etkinleştirin. Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları aracılığıyla etkinleştirmek için `Session Manager` kayıt defteri anahtarları. Bir yeniden başlatma gerekiyor. 
+**1. adım: Sanal makine hiper iş parçacığı devre dışı** - VM gerekir hiper iş parçacığı devre dışı bırakın veya hiper iş parçacıklı olmayan VM boyutu için taşımak için bir hiper iş parçacıklı güvenilmeyen kod çalıştırmaya müşteriler. Sanal makinenizin hiper iş parçacıklı olup olmadığını denetlemek için lütfen başvurmak aşağıdaki betiği kullanarak Windows komut satırından VM içinde.
 
-**3. adım**: Kullanan dağıtımlar için [iç içe sanallaştırma](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 ve yalnızca E3): Bir Hyper-V konağı olarak kullandığınız VM'nin içindeki bu yönergeleri uygulayın. 
+Tür `wmic` etkileşimli arabirimi girmek için. Ardından fiziksel miktarını görüntülemek için aşağıdaki ve mantıksal yazın VM üzerindeki.
 
-1. Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları aracılığıyla etkinleştirmek için `MinVmVersionForCpuBasedMitigations` kayıt defteri anahtarları.  
- 
-1. Hiper yönetici Zamanlayıcı türü kümesine **çekirdek** yönergeleri izleyerek [burada](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+```console
+CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
+```
 
-**4. adım**: Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları etkin kullanarak doğrulamak için [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell modülü. 
+Mantıksal işlemci sayısı fiziksel işlemcilerin (çekirdek) büyük ise, hiper iş parçacıklı etkinleştirilir.  Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) devre dışı bir hiper iş parçacıklı alınamıyor.  Hiper iş parçacığı devre dışı bırakıldıktan sonra **desteği tam VM yeniden başlatma gerektiren**. 
+
+
+**2. adım**: 1. adım için paralel olarak yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları etkin kullanarak doğrulamak için [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell modülü.
 
 > [!NOTE]
 > Bu modülün daha önce indirdiyseniz, en yeni sürümünü yüklemeniz gerekir.
 >
 
-Tüm VM'lerin göstermelidir:
+
+PowerShell betiğinin çıktısı olması doğrulamak için değerleri bu güvenlik açıklarına karşı koruma etkin:
 
 ```
-branch target injection mitigation is enabled: True
-
-kernel VA shadow is enabled: True  
-
-L1TFWindowsSupportEnabled: True
+Windows OS support for branch target injection mitigation is enabled: True
+Windows OS support for kernel VA shadow is enabled: True
+Windows OS support for speculative store bypass disable is enabled system-wide: False
+Windows OS support for L1 terminal fault mitigation is enabled: True
+Windows OS support for MDS mitigation is enabled: True
 ```
+
+Çıkış gösteriliyorsa `MDS mitigation is enabled: False`, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) kullanılabilir azaltma seçenekleri.
+
+
+
+**3. adım**: Çekirdek sanal adres gölgeleme (KVAS) ve dal hedef ekleme (BTI) işletim sistemi desteğini etkinleştirmek için yönergeleri izleyin. [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları kullanarak etkinleştirmek için `Session Manager` kayıt defteri anahtarları. Bir yeniden başlatma gerekiyor.
+
+
+**4. adım**: Kullanan dağıtımlar için [iç içe sanallaştırma](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 ve yalnızca E3): Bir Hyper-V konağı olarak kullandığınız VM'nin içindeki bu yönergeleri uygulayın.
+
+1.  Bölümündeki yönergeleri [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) korumaları kullanarak etkinleştirmek için `MinVmVersionForCpuBasedMitigations` kayıt defteri anahtarları.
+2.  Hiper yönetici Zamanlayıcı türü kümesine `Core` yönergeleri izleyerek [burada](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
 
 <a name="linux"></a>Kümesi içinde ek güvenlik özelliklerini etkinleştirme, hedef işletim sistemini tam olarak güncel olmasını gerektirir. Bazı risk azaltma işlemleri varsayılan olarak etkinleştirilir. Aşağıdaki bölümde, varsayılan olarak ve/veya donanım desteği (mikro kod) sayfalarında devre dışı olan özellikleri açıklar. Bu özellikleri etkinleştirmek, performans düşüşüne neden olabilir. Daha fazla yönerge için işletim sistemi sağlayıcınızın belgeleri başvurusu
- 
-**1. adım**: [Azure Destek ekibiyle iletişime geçin](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) güncelleştirilmiş sunmaya bellenimi (mikro kod), sanal makinelere için.
- 
-**2. adım**: CVE-2017-5715 (Spectre değişken 2), işletim sistemi sağlayıcının belgelerine izleyerek azaltmak dal hedef ekleme (BTI) işletim sistemi desteğini etkinleştirin. 
- 
-**3. adım**: CVE-2017-5754 (Meltdown değişken 3) azaltmak için çekirdek sayfası tablosu yalıtım (KPTI), işletim sistemi sağlayıcının belgelerine izleyerek etkinleştirin. 
- 
-Daha fazla bilgi işletim sisteminizin sağlayıcıdan kullanılabilir:  
- 
-- [RedHat ve CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
-- [SuSE](https://www.suse.com/support/kb/doc/?id=7022512) 
-- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
+
+**1. adım: Sanal makine hiper iş parçacığı devre dışı** - VM hiper iş parçacığı devre dışı bırakma veya hiper iş parçacıklı olmayan VM'ye taşıma gerekir bir hiper iş parçacıklı güvenilmeyen kod çalıştırmaya müşteriler.  Hiper iş parçacıklı VM çalıştırıyorsanız denetlemek için çalıştırın `lspcu` Linux VM'de komutu. 
+
+Varsa `Thread(s) per core = 2`, hiper iş parçacıklı etkinleştirilirse. 
+
+Varsa `Thread(s) per core = 1`, sonra da hiper iş parçacığı devre dışı bırakıldı. 
+
+ 
+Hiper izleğin etkin bir VM için çıktı örneği: 
+
+```console
+CPU Architecture:      x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0,2,4,6
+Off-line CPU(s) list:  1,3,5,7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+
+```
+
+Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) devre dışı bir hiper iş parçacıklı alınamıyor.  Not: Hiper iş parçacığı devre dışı bırakıldıktan sonra **desteği tam VM yeniden başlatma gerektiren**.
+
+
+**2. adım**: Herhangi bir karşı azaltmak için kurgusal yürütme yan kanal güvenlik açıkları, işletim sistemi sağlayıcının belgelerine bakın:   
+ 
+- [RedHat ve CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi için bkz. [Azure müşterilerini CPU Güvenlik Açığı](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
+Bu makale için kılavuzluk sağlar. çok sayıda modern işlemciye etkileyen kurgusal yürütme yan kanal saldırıları aşağıda:
+
+[Spectre ve Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+- CVE-2017-5715 - dal hedef ekleme (BTI)  
+- CVE-2017-5754 - çekirdek sayfa tablosu yalıtım (KPTI)
+- CVE-2018-3639 – kurgusal Store atlama (KPTI) 
+ 
+[L1 Terminal hata (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+- CVE-2018-3615 - Intel yazılım koruma Uzantıları (Intel SGX)
+- CVE-2018-işletim sistemlerini (OS) ve sistem yönetim modu (SMM) 3620-
+- CVE-2018-3646 – Virtual Machine Manager (VMM) etkiler
+
+[Mikro mimari veri örnekleme](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
+- CVE-2018-11091 - mikro mimari (MDSUM) Uncacheable bellek örnekleme verileri
+- CVE-2018-12126 - mikro mimari Store verilerini arabelleğe (MSBDS) örnekleme
+- CVE-2018-12127 - mikro mimari yük bağlantı noktası verileri (MLPDS) örnekleme
+- CVE-2018-12130 - mikro mimari dolgu verilerini arabelleğe (MFBDS) örnekleme
+
+
+
+
+
+
+
+

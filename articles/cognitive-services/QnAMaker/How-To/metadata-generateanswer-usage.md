@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727319"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594034"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Bir Bilgi Bankası yanıt GenerateAnswer API ve meta verileri alma
 
@@ -148,7 +148,7 @@ Başarılı bir yanıt durumu 200 ve bir JSON yanıtı döndürür.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Meta verileri kullanarak, yanıtları özel meta verileri etiketlere göre filtrelemenize izin verir
 
-Meta veri eklemek, yanıtları bu meta veri etiketlerine göre filtrelemeyi sağlar. Göz önünde bulundurun SSS veri altında. Meta verileri, meta verileri simgesine tıklayarak, Bilgi Bankası'na ekleyin.
+Meta veri eklemek, yanıtları bu meta veri etiketlerine göre filtrelemeyi sağlar. Meta veri sütunu Ekle **görüntüleme seçenekleri** menüsü. Meta verileri, meta veri tıklayarak Bilgi Bankası'na eklemek **+** meta verileri çifte eklemek için simge. Bir anahtarı ve tek bir değer bu çifti oluşur.
 
 ![meta veri ekleme](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642835"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606696"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web araması API'si yanıt yapısı ve yanıt türleri  
 
@@ -296,7 +296,7 @@ Matematik ifadesi şu simgeleri içerebilir:
 |*|Çarpma|
 |^|Güç|
 |!|Faktöriyelini|
-|.|Decimal|
+|:|Decimal|
 |()|Öncelik gruplandırma|
 |[]|İşlev|
 
@@ -330,7 +330,7 @@ Kullanıcının bir tarih ya da sorgu girerse, yanıt içerebilir bir [saat dili
 
 `timeZone` Yanıt konumu, geçerli UTC tarihi ve saati adı belirtilen konumda sağlar ve UTC'ye uzaklık. Konum sınırları içinde birden fazla saat dilimlerini ise, geçerli UTC tarih ve saat, tüm saat dilimlerini sınırları içinde yanıt içerir. Örneğin, Florida durumu içinde iki saat dilimlerini kaldığından, yanıt yerel tarih ve saat, her iki saat dilimlerini içerir.  
 
-Sorgu bir eyalet veya ülke süresini isterse, Bing konumun coğrafi sınırları içinde birincil Şehir belirler ve bunu döndürür `primaryCityTime` alan. Sınır birden fazla saat dilimlerini içeriyorsa, kalan saat dilimlerini döndürülür `otherCityTimes` alan.
+Sorgu bir eyalet veya ülke/bölge süresini isterse, Bing konumun coğrafi sınırları içinde birincil Şehir belirler ve bunu döndürür `primaryCityTime` alan. Sınır birden fazla saat dilimlerini içeriyorsa, kalan saat dilimlerini döndürülür `otherCityTimes` alan.
 
 Aşağıdaki örnekte gösterildiği döndüren sorgular `timeZone` yanıt.
 

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144988"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594095"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Etkin öğrenme bilgi bankanızı geliştirmek için kullanın
 
@@ -46,7 +46,7 @@ Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra gözden geçirip kab
 
 Etkin öğrenme, çalışma zamanı sürümü 4.4.0 ve sonraki sürümlerde desteklenir. Bilgi bankanızı bir önceki sürümünde oluşturulduysa [, çalışma zamanını yükseltme](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) bu özelliği kullanmak için. 
 
-## <a name="best-practices"></a>En iyi uygulamalar
+## <a name="best-practices"></a>En iyi yöntemler
 
 Etkin öğrenme kullanırken en iyi yöntemler için bkz: [en iyi uygulamalar](../Concepts/best-practices.md#active-learning).
 
@@ -62,7 +62,7 @@ Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Bu önerilen bu sorular
 
 1. Seçin **Yayımla** Bilgi Bankası yayımlama. Etkin öğrenme sorguları GenerateAnswer API tahmin uç noktasından yalnızca toplanır. Soru-cevap Oluşturucu Portalı'nda Test bölmesine sorgular, etkin öğrenim etkilemez.
 
-1. Üzerinde öğrenme etkin açmak için tıklayın, **adı**Git [ **hizmet ayarları** ](https://www.qnamaker.ai/UserSettings) sağ üst köşedeki soru-cevap Oluşturucu Portalı'nda.  
+1. Üzerinde öğrenme etkin açmak için tıklayın, **adı**Git [ **hizmet ayarları** ](https://www.qnamaker.ai/UserSettings) soru-cevap Oluşturucu portalında, sağ üst köşedeki.  
 
     ![Etkin öğrenme'nin önerilen soru alternatifleri hizmet ayarları sayfasından etkinleştirin. Sağ üst köşedeki menüden kullanıcı adınızı seçin, sonra hizmet ayarlarını seçin.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -208,7 +208,7 @@ Başarılı bir yanıt 204 ve JSON yanıt gövdesine durumunu döndürür.
 
 Uygulamanız etkin olarak öğrenmeye etkin olan ve uygulamayı dışarı aktarma `SuggestedQuestions` tsv dosyası sütununda etkin olarak öğrenmeye verilerini korur. 
 
-`SuggestedQuestions` Sütundur bilgileri örtük bir JSON nesnesi (`autosuggested`) ve açık (`usersuggested`) geri bildirim. Bu JSON nesnesinin tek bir kullanıcı tarafından gönderilen soru için örneği `help` olan:
+`SuggestedQuestions` Sütundur örtük, bilgileri bir JSON nesnesi `autosuggested`ve açık, `usersuggested` geri bildirim. Bu JSON nesnesinin tek bir kullanıcı tarafından gönderilen soru için örneği `help` olan:
 
 ```JSON
 [

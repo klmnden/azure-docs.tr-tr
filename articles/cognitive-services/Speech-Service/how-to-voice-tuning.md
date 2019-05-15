@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508400"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593878"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Metin okuma çıkışı için hassas ayar yapma
 
@@ -35,7 +35,7 @@ Metin okuma çıkış ses ayarlama aracıyla ince ayar başlamadan önce bu adı
    >Azure portalında bir konuşma kaynağı oluşturduğunuzda, Azure konum bilgileri TTS ses bölgeyle ile eşleşmesi gerekir. Sinir TTS ses Azure konumları bir alt kümesini destekler. Destek tam bir listesi için bkz. [bölgeleri](regions.md#text-to-speech).
 
    >[!NOTE]
-   >Bir F0 veya hizmetini kullanabilmeniz için önce Azure portalında oluşturulan S0 anahtarı olması gerekir. Sesli ayarlama **değil** Destek [30 günlük ücretsiz deneme sürümü anahtarı](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >Bir F0 veya hizmetini kullanabilmeniz için önce Azure portalında oluşturulan S0 anahtarı olması gerekir. Sesli ayarlama **değil** Destek [30 günlük ücretsiz deneme sürümü anahtarı](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
 4. Oturum [ses ayarlama](https://aka.ms/voicetuning) portal ve konuşma Hizmetleri aboneliğinize bağlanın. Tek bir konuşma Hizmetleri aboneliği seçin ve ardından bir proje oluşturun.
 5. Seçin **yeni ayarlama**. Ardından aşağıdaki adımları izleyin:
@@ -43,7 +43,7 @@ Metin okuma çıkış ses ayarlama aracıyla ince ayar başlamadan önce bu adı
    * Bulun ve seçin **tüm abonelikleri**.  
    * Seçin **mevcut aboneliğe bağlanma**.  
      ![Mevcut bir aboneliğe bağlanma](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Konuşma Hizmetleri Azure abonelik anahtarınızı girin ve ardından **Ekle**. Abonelik anahtarlarınızın konuşma özelleştirme Portalı'nda kullanılabilir [abonelik sayfasını](https://go.microsoft.com/fwlink/?linkid=2090458). Kaynak Yönetimi bölmesinde anahtarlar alabilir [Azure portalında](https://portal.azure.com/). 
+   * Konuşma Hizmetleri Azure abonelik anahtarınızı girin ve ardından **Ekle**. Abonelik anahtarlarınızın konuşma özelleştirme Portalı'nda kullanılabilir [abonelik sayfasını](https://go.microsoft.com/fwlink/?linkid=2090458). Kaynak Yönetimi bölmesinde anahtarlar alabilir [Azure portalında](https://portal.azure.com/).
    * Kullanmayı planladığınız konuşma Hizmetleri birden fazla aboneliğiniz varsa, her abonelik için bu adımları yineleyin.
 
 ## <a name="customize-the-text-to-speech-output"></a>Metin okuma çıkış özelleştirme

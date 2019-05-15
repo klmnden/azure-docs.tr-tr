@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523486"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603472"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Özel ses öncelikli sanal Yardımcıları önizleme hakkında
 
@@ -24,7 +24,9 @@ Azure konuşma Hizmetleri kullanarak özel sanal Yardımcıları, geliştiricile
 
    ![Doğrudan hat konuşma düzenleme hizmeti flow kavramsal diyagramı](media/voice-first-virtual-assistants/overview.png "konuşma kanal akış")
 
-Doğrudan satır konuşma ve özel ses öncelikli sanal Yardımcıları için ilişkili işlevselliği olan için ideal bir ek [sanal Yardımcısı çözüm](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) ve [Kurumsal şablon](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Doğrudan satır konuşma uyumlu herhangi bir bot ile çalışabilir ancak bu kaynakları damıtarak konuşma bağlamında kullanılabilen yüksek kaliteli deneyimler yanı sıra ortak destekleyici becerileri ve hızlı başlangıç için modelleri için yeniden kullanılabilir bir temel sağlar.
+
+Doğrudan satır konuşma ve özel ses öncelikli sanal Yardımcıları için ilişkili işlevselliği olan için ideal bir ek [sanal Yardımcısı çözüm ve kurumsal şablon](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Doğrudan satır konuşma uyumlu herhangi bir bot ile çalışabilir ancak bu kaynakları damıtarak konuşma bağlamında kullanılabilen yüksek kaliteli deneyimler yanı sıra ortak destekleyici becerileri ve hızlı başlangıç için modelleri için yeniden kullanılabilir bir temel sağlar.
+
 
 ## <a name="core-features"></a>Temel özellikleri
 
