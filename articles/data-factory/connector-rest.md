@@ -67,7 +67,7 @@ Ayarlama **authenticationType** özelliğini **temel**. Önceki bölümde açık
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| Kullanıcı adı | REST uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
+| userName adı | REST uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
 | password | Kullanıcının parolasını ( **kullanıcıadı** değeri). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek**
@@ -101,8 +101,8 @@ Ayarlama **authenticationType** özelliğini **AadServicePrincipal**. Önceki b�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory Uygulama istemci kimliği belirtin. | Evet |
-| serviceprincipalkey değerleri | Azure Active Directory Uygulama anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
-| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Evet |
+| servicePrincipalKey | Azure Active Directory Uygulama anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| tek | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Evet |
 | aadResourceId | Belirtmek istediğiniz yetkilendirme için örneğin AAD kaynak `https://management.core.windows.net`.| Evet |
 
 **Örnek**
