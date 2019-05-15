@@ -280,6 +280,9 @@
     - name: Uyumlu olmayan kaynakları düzeltme
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: VM’ler için Azure İzleyici’yi etkinleştirme (önizleme)
+      displayName: 'insights, log analytics, builtin'
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Başvuru
   items:
     - name: Azure CLI

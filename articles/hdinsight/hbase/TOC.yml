@@ -12,6 +12,8 @@
       maintainContext: true
 - name: Hızlı Başlangıçlar
   items:
+    - name: Apache HBase’i sorgulama - Apache Phoenix
+      href: apache-hbase-phoenix-squirrel-linux.md
     - name: Apache HBase’i Sorgulama - HBase Kabuğu
       href: ./query-hbase-with-hbase-shell.md
 - name: başlarken
@@ -52,8 +54,6 @@
         - name: HDInsight üzerinde Apache Phoenix
           href: ../hdinsight-phoenix-in-hdinsight.md
           maintainContext: true
-        - name: Apache Phoenix ve SQLLine kullanma
-          href: apache-hbase-phoenix-squirrel-linux.md
         - name: Apache Phoenix Sorgu Sunucusu REST SDK'sını kullanma
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Büyük verileri çözümleme
@@ -115,7 +115,7 @@
             - name: cURL ve Azure REST API’si kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure Klasik CLI'yi kullanma
+            - name: Azure CLI kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: İsteğe bağlı kümeler oluşturma

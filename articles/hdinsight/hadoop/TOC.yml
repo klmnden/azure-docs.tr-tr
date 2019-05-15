@@ -270,7 +270,7 @@
             - name: cURL ve Azure REST API’si kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Azure Klasik CLI'yi kullanma
+            - name: Azure CLI kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
         - name: HDInsight kümelerini yönetme
@@ -422,7 +422,8 @@
       items:
         - name: HDInsight sanal ağ mimarisi
           href: ../hdinsight-virtual-network-architecture.md
-          maintainContext: true
+        - name: HDInsight giden trafiği kısıtlama
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet’te HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
           maintainContext: true

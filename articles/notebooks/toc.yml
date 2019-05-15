@@ -44,5 +44,7 @@
       href: work-with-project-data-files.md
     - name: Veri kaynaklarına erişme
       href: access-data-resources-jupyter-notebooks.md
+    - name: Veri Bilimi Sanal Makineleri’ni kullanma
+      href: use-data-science-virtual-machine.md
     - name: Azure Machine Learning Services'i kullanma
       href: use-machine-learning-services-jupyter-notebooks.md

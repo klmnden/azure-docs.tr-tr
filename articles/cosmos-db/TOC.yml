@@ -512,6 +512,8 @@
           href: data-explorer.md
         - name: Dizinleme ilkelerini yönetme
           href: how-to-manage-indexing-policy.md
+        - name: Benzersiz anahtarlar tanımlama
+          href: how-to-define-unique-keys.md
         - name: SQL alt sorgu örnekleri
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md

@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: Kiracılar arasında kimlik doğrulaması
           href: authenticate-multi-tenant.md
-    - name: Dağıtımları denetleme
+    - name: Denetim değişiklikleri
       items:
         - name: Etkinlik günlüklerini görüntüleme
           href: resource-group-audit.md

@@ -175,6 +175,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: Etkinlik ve tanılama günlükleri
           href: stream-analytics-job-diagnostic-logs.md
+        - name: Veri hataları
+          href: data-errors.md
     - name: Makine öğrenimiyle tümleştirme
       items:
         - name: ML modelleriyle yaklaşım analizi
