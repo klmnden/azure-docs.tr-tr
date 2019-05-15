@@ -45,19 +45,19 @@ Presto bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Presto** | Evet |
-| konak | Presto sunucusunun IP adresi veya ana bilgisayar adı. (yani 192.168.222.160)  | Evet |
+| host | Presto sunucusunun IP adresi veya ana bilgisayar adı. (yani 192.168.222.160)  | Evet |
 | serverVersion | Presto sunucu sürümü. (yani 0.148-t)  | Evet |
-| katalog | Katalog sunucusuna yönelik tüm istek bağlamı.  | Evet |
+| catalog | Katalog sunucusuna yönelik tüm istek bağlamı.  | Evet |
 | port | Presto sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Varsayılan değer 8080'dir.  | Hayır |
 | authenticationType | Presto sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler şunlardır: **Anonim**, **LDAP** | Evet |
-| kullanıcı adı | Presto sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
+| username | Presto sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
 | password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
 | trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için güvenilen CA sertifikalarını içeren .pem dosyasının tam yolu. Bu özellik yalnızca şirket içinde barındırılan IR üzerinde SSL kullanılarak, ayarlanabilir Varsayılan değer IR ile yüklü cacerts.pem dosyasıdır  | Hayır |
 | useSystemTrustStore | Bir CA sertifikası sistem güven deposu veya belirtilen bir PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer false'tur.  | Hayır |
 | allowHostNameCNMismatch | SSL üzerinden bağlanırken sunucu ana bilgisayar adını eşleştirmek için bir CA tarafından verilen SSL sertifika adı gerekip gerekmediğini belirtir. Varsayılan değer false'tur.  | Hayır |
 | allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |
-| saat dilimi kimliği | Bağlantı tarafından kullanılan yerel saat dilimi. Bu seçeneği için geçerli değerler IANA saat dilimi veritabanında belirtilir. Sistem saat dilimi varsayılan değerdir.  | Hayır |
+| timeZoneID | Bağlantı tarafından kullanılan yerel saat dilimi. Bu seçeneği için geçerli değerler IANA saat dilimi veritabanında belirtilir. Sistem saat dilimi varsayılan değerdir.  | Hayır |
 
 **Örnek:**
 
@@ -121,7 +121,7 @@ Presto verileri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **PrestoSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
