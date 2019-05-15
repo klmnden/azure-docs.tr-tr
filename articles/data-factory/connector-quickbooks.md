@@ -48,7 +48,7 @@ QuickBooks bağlı hizmeti için aşağıdaki özellikleri destekler:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **QuickBooks** | Evet |
 | endpoint | QuickBooks Online sunucu uç noktası. (diğer bir deyişle, quickbooks.api.intuit.com)  | Evet |
-| Companyıd | Yetkilendirmek için QuickBooks şirket şirket kimliği. Şirket kodu bulma hakkında daha fazla bilgi için bkz. [şirket Kimliğimi nasıl bulabilirim?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Evet |
+| companyId | Yetkilendirmek için QuickBooks şirket şirket kimliği. Şirket kodu bulma hakkında daha fazla bilgi için bkz. [şirket Kimliğimi nasıl bulabilirim?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Evet |
 | consumerKey | OAuth 1.0 kimlik doğrulaması için tüketici anahtarı. | Evet |
 | consumerSecret | OAuth 1.0 kimlik doğrulaması için tüketici gizli bilgisi. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | accessToken | OAuth 1.0 kimlik doğrulaması için erişim belirteci. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
@@ -122,7 +122,7 @@ QuickBooks Online'dan veri kopyalamak için kopyalama etkinliği için kaynak t�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **QuickBooksSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
