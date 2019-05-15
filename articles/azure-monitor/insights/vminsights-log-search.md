@@ -15,7 +15,7 @@ ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64702516"
@@ -50,7 +50,7 @@ Aşağıdaki alanlar ve kuralları VMConnection hem VMBoundPort için geçerlidi
 
 Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlantıları bağlantısı kayıtlarını göstermez. Birden fazla fiziksel ağ bağlantıları, ardından ilgili tablodaki yansıtılır mantıksal bir bağlantı içinde gruplandırılır.  Yani kayıt içinde *VMConnection* mantıksal bir gruplandırmasını ve uyulması gereken değil ayrı ayrı fiziksel bağlantılar tablosunu temsil eder. Aşağıdaki öznitelikler için aynı değeri belirli bir dakikalık aralık sırasında paylaşımı fiziksel ağ bağlantısı tek bir mantıksal kayıt içine toplanan *VMConnection*. 
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
 |Direction |Yön bağlantının değerdir *gelen* veya *giden* |
 |Makine |FQDN bilgisayar |
@@ -62,7 +62,7 @@ Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlant
 
 Gruplandırma etkisini için hesap için kaydın şu özelliklerde gruplanmış bir fiziksel bağlantı sayısı hakkında bilgi sağlanır:
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
 |LinksEstablished |Raporlama zaman penceresi boyunca kurulmuş fiziksel ağ bağlantısı sayısı |
 |LinksTerminated |Raporlama zaman penceresi boyunca sonlandırıldı fiziksel ağ bağlantısı sayısı |
@@ -73,7 +73,7 @@ Gruplandırma etkisini için hesap için kaydın şu özelliklerde gruplanmış 
 
 Bağlantı sayısı ölçümü yanı sıra alınıp verilen bir mantıksal bağlantı üzerinde gönderilen veri hacmi hakkında bilgi veya ağ bağlantı noktası kaydın şu özelliklerde de dahil edilir:
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
 |BytesSent |Raporlama zaman penceresi boyunca gönderilen bayt sayısı |
 |BytesReceived |Raporlama zaman penceresi boyunca alınan bayt sayısı |
@@ -99,7 +99,7 @@ Kolaylık olması için bir bağlantı uzak bitiş IP adresi RemoteIp özelliği
 #### <a name="geolocation"></a>Coğrafi Konum
 *VMConnection* coğrafi konum bilgilerini ve uzak uç her bağlantı kaydın kaydın şu özelliklerde de içerir: 
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
 |RemoteCountry |RemoteIp barındırma ülke adı.  Örneğin, *Amerika Birleşik Devletleri* |
 |RemoteLatitude |Coğrafi konum enlem. Örneğin, *47.68* |
@@ -108,13 +108,13 @@ Kolaylık olması için bir bağlantı uzak bitiş IP adresi RemoteIp özelliği
 #### <a name="malicious-ip"></a>Kötü amaçlı IP
 Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinliği ile bir dizi IP'ler karşı denetlenir. Aşağıdaki özellikler RemoteIp kötü amaçlı olarak tanımlanması durumunda doldurulur (IP kötü amaçlı olarak kabul edilmez, boş oldukları) kaydın aşağıdaki özellikleri:
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
 |MaliciousIp |Uzak IP adresi |
 |IndicatorThreadType |Algılanan tehdit göstergesidir şu değerlerden birini *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *kötü amaçlı yazılım*, *kimlik avı*, *Proxy*, *PUA*, *İzleme*.   |
-|Açıklama |Gözlemlenen tehdit açıklaması. |
+|Description |Gözlemlenen tehdit açıklaması. |
 |TLPLevel |Trafik ışığı Protokolü (TLP) düzeyi tanımlanmış değerlerden biridir *beyaz*, *yeşil*, *Amber*, *kırmızı*. |
-|Güven |Değerler *0-100*. |
+|Confidence |Değerler *0-100*. |
 |Severity |Değerler *0 – 5*burada *5* en ciddi ve *0* hiç önemli değil. Varsayılan değer *3*.  |
 |FirstReportedDateTime |İlk kez sağlayıcısı göstergesi bildirdi. |
 |LastReportedDateTime |Son zaman göstergesi tarafından Interflow görüldü. |
@@ -134,9 +134,9 @@ Etkin olarak gelen trafiği kabul veya potansiyel olarak trafiği kabul edebilec
 
 Her kayıtta VMBoundPort aşağıdaki alanlara göre tanımlanır: 
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
-|İşlem | Bağlantı noktası ile ilişkili olduğu işlem (veya gruplar işlemlerin) kimliği.|
+|Process | Bağlantı noktası ile ilişkili olduğu işlem (veya gruplar işlemlerin) kimliği.|
 |IP | Bağlantı noktası, IP adresi (joker karakter IP olabilir *0.0.0.0*) |
 |Bağlantı noktası |Bağlantı noktası numarası |
 |Protokol | Protokol.  Örneğin, *tcp* veya *udp* (yalnızca *tcp* desteklenmektedir).|
@@ -160,7 +160,7 @@ Dikkate alınması gereken bazı önemli noktalar şunlardır:
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL kayıtları
 Kayıt türü ile *ServiceMapComputer_CL* Envanter verileri için bağımlılık Aracısı'nı sunucularıyla sahip. Bu kayıtlar aşağıdaki tabloda özelliklere sahiptir:
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
 | Tür | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -185,7 +185,7 @@ Kayıt türü ile *ServiceMapComputer_CL* Envanter verileri için bağımlılık
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL türü kayıtları
 Kayıt türü ile *ServiceMapProcess_CL* Envanter verileri TCP bağlantılı işlemleri için bağımlılık Aracısı'nı sunucularıyla vardır. Bu kayıtlar aşağıdaki tabloda özelliklere sahiptir:
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--|:--|
 | Tür | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
