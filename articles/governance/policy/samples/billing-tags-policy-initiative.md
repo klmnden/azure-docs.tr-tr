@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545274"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758367"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Örnek - İlkesi girişimi fatura etiketleri
 
@@ -24,11 +24,7 @@ Bu ilke kümesi, maliyet merkezi ve ürün adı için belirtilen etiket değerle
 
 [!code-json[main](../../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-[Azure portalı](#deploy-with-the-portal) veya [PowerShell](#deploy-with-powershell) kullanarak bu şablonu dağıtabilirsiniz.
-
-## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
-
-[![İlke örneği Azure'a dağıtma](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+Bu şablonu kullanarak dağıtabileceğiniz [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 

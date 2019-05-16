@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024710"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522831"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search Dizin Oluşturucu kullanarak Cosmos DB dizinleme
+
+
+> [!Note]
+> MongoDB API'si desteği Önizleme ve üretim kullanımı için değil amaçlayan bileşenidir. [2019-05-06-Önizleme REST API sürümü](search-api-preview.md) bu özelliği sağlar. Portalı veya .NET SDK'sı desteği şu anda yoktur.
+>
+> SQL API'si genel kullanıma sunulmuştur.
 
 Bu makalede bir Azure Cosmos DB yapılandırma işlemi gösterilmektedir [dizin oluşturucu](search-indexer-overview.md) içeriği ayıklama ve Azure Search aranabilir hale getirin. Bu iş akışı, bir Azure Search dizini oluşturur ve Azure Cosmos DB'den ayıklanan mevcut metinle yükler. 
 
@@ -26,7 +32,7 @@ Terimleri kafanızı karıştırabilir olduğundan, hatalarının ayıklanabilec
 Kullanabileceğiniz [portalı](#cosmos-indexer-portal), Cosmos içeriği dizini oluşturmak için REST API'leri veya .NET SDK'sı. Azure Search'te Cosmos DB dizinleyici gezinebileceği [Azure Cosmos öğeleri](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) bu protokolleri aracılığıyla erişilebilir:
 
 * [SQL API'Sİ](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [MongoDB API'si](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (genel Önizleme modundadır bu API için Azure arama desteği)  
+* [MongoDB API'si (Önizleme)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > Uservoice ek API desteği için var olan öğeler içeriyor. Cosmos görmek için desteklenen Azure Search'te istediğiniz API'ları için oy çevirebilirsiniz: [Tablo API'si](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API'si](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
@@ -118,7 +124,7 @@ Dizin oluşturma tamamlandığında, kullanabileceğiniz [arama Gezgini](search-
 
 Azure Search'te tüm dizin oluşturucular için üç bölümü iş akışı ortak aşağıdaki REST API ile dizin Azure Cosmos DB verilere kullanabilirsiniz: bir veri kaynağı oluşturun, dizin oluşturma, dizin oluşturucu oluşturma. Dizin Oluşturucu oluşturma isteği gönderdiğinizde veri ayıklama Cosmos depolamadan oluşur. Bu istek tamamlandıktan sonra sorgulanabilir bir dizine sahip. 
 
-MongoDB değerlendiriyorsanız veri kaynağını oluşturmak için REST API'sini kullanmanız gerekir.
+MongoDB değerlendiriyorsanız REST kullanmalısınız `api-version=2019-05-06-Preview` veri kaynağını oluşturmak için.
 
 Cosmos DB hesabınızdaki tüm belgelerin otomatik olarak dizinini koleksiyonu isteyip istemediğinizi seçebilirsiniz. Varsayılan olarak, tüm belgelerin otomatik olarak dizine alınır, ancak otomatik dizin oluşturma devre dışı kapatabilirsiniz. Dizin oluşturmayı devre dışı bırakıldığında, belgelerin yalnızca aracılığıyla erişilebilen kendi kendine bağlantılar veya belge kullanarak sorgular tarafından kimliği Azure arama, Cosmos DB, Azure Search tarafından dizine koleksiyonda açık dizin otomatik gerektirir. 
 
@@ -279,7 +285,7 @@ Dizin Oluşturucu Oluşturma API'si hakkında daha fazla ayrıntı için kullan�
 
 ## <a name="use-net"></a>.NET’i kullanma
 
-.NET SDK'sı, tam olarak REST API ile eşlik vardır. Kavramlar ve iş akışı gereksinimlerini öğrenmek için önceki REST API bölümde gözden geçirmenizi öneririz. Yönetilen kodda bir JSON dizin oluşturucu uygulamak için aşağıdaki .NET API başvuru belgelerine başvurabilirsiniz.
+Genel olarak kullanılabilir .NET SDK'sı genel kullanıma sunulan REST API'si ile tam eşlik vardır. Kavramlar ve iş akışı gereksinimlerini öğrenmek için önceki REST API bölümde gözden geçirmenizi öneririz. Yönetilen kodda bir JSON dizin oluşturucu uygulamak için aşağıdaki .NET API başvuru belgelerine başvurabilirsiniz.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ Aşağıdaki örnek, bir veri kaynağı bir geçici silme ilkesi oluşturur:
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>Bu videoyu izleyin
-
-Biraz daha eski bu 7 dakikalık videoda, Azure Cosmos DB Program Yöneticisi Manager Andrew Liu nasıl bir Azure Cosmos DB kapsayıcısı için bir Azure Search dizini ekleneceğini gösterir. Portal sayfalarına videoda gösterilen güncel olmayan, ancak bilgilerin hala geçerlidir.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Sonraki adımlar
 

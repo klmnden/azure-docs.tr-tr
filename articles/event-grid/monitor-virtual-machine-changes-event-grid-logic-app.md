@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 791e38f3d15801166f07234648909e03d800f5c0
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: 33634773b436114f4a5f2942028710ae50e0e703
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604499"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65737091"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Öğretici: Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
 
@@ -101,9 +101,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    | Özellik | Gereklidir | Value | Açıklama |
    | -------- | -------- | ----- | ----------- |
    | **Abonelik** | Evet | <*Olay-publisher-Azure-abonelik-name*> | Olay yayımcısı ile ilişkili Azure aboneliği için bir ad seçin. Bu öğreticide, sanal makineniz için Azure abonelik adını seçin. |
-   | **Kaynak Türü** | Evet | <*Olay-publisher-Azure-resource-type*> | Olay yayımcısı için kaynak türünü seçin. Mantıksal uygulamanız yalnızca kaynak gruplarını izler. böylece Bu öğretici için bu değeri seçin: <p><p>**Microsoft.Resources.resourceGroups** |
-   | **Kaynak Adı** |  Evet | <*Olay-publisher-Azure-resource-name*> | Olay yayımcısı ile ilişkili Azure kaynak adını seçin. Örneğin, bu kaynak bir Event Grid konusu olabilir. Bu öğreticide, sanal makineniz için ilişkili Azure kaynak grubu adını seçin. |
-   | **Olay türü öğesi** |  Hayır | <*olay türleri*> | İzlemek istediğiniz bir veya daha fazla belirli olay türleri seçin. Bu öğreticide, bu özelliği boş bırakın. |
+   | **Kaynak Türü** | Evet | <*Olay-publisher-Azure-resource-type*> | Olay yayımcısı için Azure kaynak türü seçin. Bu öğreticide, Azure kaynak grupları izlemek için bu değeri seçin: <p><p>**Microsoft.Resources.ResourceGroups** |
+   | **Kaynak Adı** |  Evet | <*Olay-publisher-Azure-resource-name*> | Olay yayımcısı için Azure kaynak adını seçin. Bu liste, seçtiğiniz kaynak türüne göre değişir. Bu öğreticide, sanal makineniz için Azure kaynak grubu adını seçin. |
+   | **Olay türü öğesi** |  Hayır | <*olay türleri*> | Filtrelemek ve, event grid'e göndermek için bir veya daha fazla belirli olay türleri seçin. Örneğin, isteğe bağlı olarak kaynakları okunduklarında veya değiştirildiklerinde algılamak için bu olay türlerini ekleyebilirsiniz: <p><p>- **Microsoft.Resources.ResourceActionSuccess** <br>- **Microsoft.Resources.ResourceDeleteSuccess** <br>- **Microsoft.Resources.ResourceWriteSuccess** <p>Daha fazla bilgi için şu konulara bakın: <p><p>- [Olay filtrelemeyi anlama](../event-grid/event-filtering.md) <br>- [Event Grid için olayları filtreleyin](../event-grid/how-to-filter-events.md) <br>- [Kaynak grupları için Azure Event Grid olay şeması](../event-grid/event-schema-resource-groups.md) |
    | **Abonelik adı** | Hayır | <*Olay aboneliği adı*> | Olay aboneliğiniz için benzersiz bir ad girin. |
    | İsteğe bağlı ayarları seçin **yeni parametre Ekle**. | Hayır | {açıklamalarına bakın} | * **Önek filtresi**: Bu öğreticide, bu özelliği boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak filtre olarak bir ön ek dizesi (örneğin belirli bir kaynak için bir yol ve bir parametre) belirtebilirsiniz. <p>* **Sonek filtresi**: Bu öğreticide, bu özelliği boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak yalnızca belirli dosya türlerini istediğinizde filtre olarak bir sonek dizesi (örneğin dosya adı uzantısı) belirtebilirsiniz. |
    |||
@@ -164,6 +164,10 @@ Mantıksal uygulama iş akışınızı yalnızca belirli bir olay gerçekleşti�
 
    ![Tamamlanmış koşul](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
+   Koşul içinde belirtilen ifade Tasarım görünümünden görüntüleyin ve Tasarım görünümüne geri kod arasında geçiş yaptığınızda, çözümler **data.operationName** belirteci:
+
+   ![Çözümlenen koşulu](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+
 1. Mantıksal uygulamanızı kaydedin.
 
 ## <a name="send-email-notifications"></a>E-posta bildirimleri gönderme
@@ -189,7 +193,7 @@ Mantıksal uygulama iş akışınızı yalnızca belirli bir olay gerçekleşti�
 
 1. E-posta sağlayıcınız için zaten bir bağlantınız yoksa, kimliğinizi doğrulamanız istendiğinde e-posta hesabınızda oturum açın.
 
-1. Bu konu başlığı gönderme e-posta başlığına yeniden adlandır: `Send email when virtual machine updated`. 
+1. Bu konu başlığı gönderme e-posta başlığına yeniden adlandırın: `Send email when virtual machine updated`
 
 1. Aşağıdaki tabloda belirtildiği gibi e-posta için ayrıntıları sağlayın:
 
@@ -202,10 +206,10 @@ Mantıksal uygulama iş akışınızı yalnızca belirli bir olay gerçekleşti�
    | -------- | -------- | ----- | ----------- |
    | **Alıcı** | Evet | <*Alıcı\@etki alanı*> | Alıcının e-posta adresi girin. Test için kendi e-posta adresinizi kullanabilirsiniz. |
    | **Konu** | Evet | Güncelleştirilen kaynağı: **Konu** | E-posta konusunun içeriğini girin. Bu öğretici için belirtilen metin girin ve seçin olayın **konu** alan. Burada, e-postanızın konusu güncelleştirilen kaynağın (sanal makine) adını içerir. |
-   | **Gövde** | Evet | Kaynak grubu: **Konu** <p>Olay türü: **Olay türü**<p>Olay Kimliği: **ID**<p>Zaman: **Olay saati** | E-posta gövdesinin içeriğini girin. Bu öğretici için belirtilen metin girin ve seçin olayın **konu**, **olay türü**, **kimliği**, ve **olay saati** alanları için e-posta, kaynak grubu adı, olay türü, olay zaman damgası ve güncelleştirmesi olay Kimliğini içerir. <p>İçeriğinize boş satır eklemek için Shift + Enter tuşlarını kullanın. |
+   | **Gövde** | Evet | Kaynak: **Konu** <p>Olay türü: **Olay türü**<p>Olay Kimliği: **ID**<p>Zaman: **Olay saati** | E-posta gövdesinin içeriğini girin. Bu öğretici için belirtilen metin girin ve seçin olayın **konu**, **olay türü**, **kimliği**, ve **olay saati** alanları için e-posta olay, olay türü, olay zaman damgası ve olay kimliği güncelleştirmesi için kaynak içerir. Bu öğreticide, tetikleyici seçili Azure kaynak grubu bir kaynaktır. <p>İçeriğinize boş satır eklemek için Shift + Enter tuşlarını kullanın. |
    ||||
 
-   > [!NOTE] 
+   > [!NOTE]
    > Bir diziyi temsil eden bir alan seçerseniz, tasarımcı eyleme otomatik olarak diziye başvuran bir **For each** döngüsü ekler. Bu şekilde mantıksal uygulamanız ilgili eylemi dizideki tüm öğeler için gerçekleştirir.
 
    Şimdi, e-posta eyleminiz bu örnekteki gibi görünebilir:

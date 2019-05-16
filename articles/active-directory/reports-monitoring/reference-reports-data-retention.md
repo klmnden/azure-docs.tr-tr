@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory rapor saklama ilkeleri | Microsoft Docs
-description: Azure Active Directory rapor verilerini bekletme ilkeleri
+title: Azure AD raporlama verileri ne kadar süreyle depoluyor mu? | Microsoft Docs
+description: Azure'nın raporlama verilerini çeşitli türleri ne kadar süreyle depolar öğrenin.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437065"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781055"
 ---
-# <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory rapor saklama ilkeleri
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD raporlama verileri ne kadar süreyle depoluyor mu?
 
 Bu makalede, Azure Active Directory'de farklı bir etkinlik raporları için veri saklama ilkeleri hakkında bilgi edinin. 
 

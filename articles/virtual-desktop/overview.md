@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0d606a489a069c4265088d8e07301693dc2f1c83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694267"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606400"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemesi nedir? 
 
@@ -90,10 +90,10 @@ Windows sanal masaüstü, Windows Masaüstü ve uygulamaları kullanıcılara ve
 En iyi performans için ağınıza aşağıdaki gereksinimleri karşıladığından emin olun:
 
 * Konak havuzları dağıtıldığı Azure bölgesi için istemcinin ağ üzerinden gidiş dönüş (RTT) gecikmesi 150 MS'den az olmalıdır.
-* Masaüstü ve uygulamaları barındıran VM'ler yönetim hizmetine bağlanırken ağ trafiğini dış ülke Kenarlıklar akış.
+* Masaüstü ve uygulamaları barındıran VM'ler yönetim hizmetine bağlanırken ağ trafiğini dış ülke/bölge Kenarlıklar akış.
 * Ağ performansı için en iyi duruma getirmek için yönetim hizmeti ile aynı Azure bölgesinde üzere bu oturumu konağın VM'lerin birlikte öneririz.
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 
 Ziyaret [Windows sanal masaüstü teknoloji topluluğuna](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) etkin topluluk üyeleri ve ürün ekibine Windows sanal masaüstü hizmetiyle tartışmak için. Windows sanal masaüstü Önizleme aşamasındayken biz şu anda destek alma değildir.
 

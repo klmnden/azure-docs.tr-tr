@@ -7,23 +7,23 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1bf9c0b1393abfcad6646624301c4f131c8790a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320950"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752692"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Hızlı Başlangıçlar: Azure SQL veritabanı bağlanma ve sorgulama
 
 Aşağıdaki tabloda, Azure SQL veritabanına nasıl bağlanılacağını ve Azure SQL veritabanının nasıl sorgulanacağını gösteren Azure örneklerinin bağlantıları yer almaktadır. Ayrıca Taşıma Düzeyi Güvenliği için bazı öneriler sunar.
 
-## <a name="quickstarts"></a>Hızlı Başlangıçlar
+## <a name="quickstarts"></a>Hızlı girişler
 
 | |  |
 |---|---|
@@ -59,7 +59,7 @@ Azure SQL veritabanı'na bağlanmak için çeşitli kitaplıkları ve çerçevel
 
 Aşağıdaki tabloda bağlantı kitaplıkları listeler veya *sürücüleri* istemci uygulamalarını değişik bağlanmak ve şirket içinde çalışan SQL Server kullanmak için dilleri içinde veya bulutta kullanabilirsiniz. Linux, Windows veya Docker kullanın ve Azure SQL veritabanı ve Azure SQL veri ambarı bağlanmak için bunları kullanın. 
 
-| Dil | Platform | Ek kaynaklar | İndirme | başlarken |
+| Dil | Platform | Ek kaynaklar | Karşıdan Yükle | başlarken |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [SQL Server için Microsoft ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [İndir](https://www.microsoft.com/net/download/) | [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [SQL Server için Microsoft JDBC sürücüsü](https://msdn.microsoft.com/library/mt484311.aspx) | [İndir](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)

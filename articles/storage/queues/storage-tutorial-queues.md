@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233856"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65759227"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Öğretici: Azure depolama kuyrukları ile çalışma
 
@@ -129,18 +129,19 @@ Kod, uygulamanın bulut kaynaklarını kullandığından, zaman uyumsuz olarak �
 
 ## <a name="create-a-queue"></a>Kuyruk oluştur
 
-1. Yükleme **WindowsAzure. Depolama** projeye sahip paket `dotnet add package` komutu. Konsol penceresinde proje klasöründen aşağıdaki dotnet komutu yürütün.
+1. Yükleme **Microsoft.Azure.Storage.Common** ve **Microsoft.Azure.Storage.Queue** projeye sahip paketler `dotnet add package` komutu. Konsol penceresinde proje klasöründen aşağıdaki dotnet komutları yürütün.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. Üst kısmındaki **Program.cs** dosyasında, aşağıdaki ad alanlarını ekleyin hemen sonra `using System;` deyimi. Bu uygulama, Azure Depolama'ya Bağlan ve kuyrukları ile çalışmak için bu ad alanlarında türleri kullanır.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Kaydet **Program.cs** dosya.
@@ -206,7 +207,7 @@ Depolama hesabına erişebilmesi için bu bağlantı dizesini uygulamaya ekleyin
 
 ## <a name="insert-messages-into-the-queue"></a>İletilerin Kuyruğa Ekle
 
-Kuyruğa ileti göndermek için yeni bir yöntem oluşturun. Aşağıdaki yöntemi ekleyin, **Program** sınıfı. Bu yöntem bir sıra başvuru alır ve ardından çağırarak zaten yoksa yeni bir sıra oluşturur [Createıfnotexistsasync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Daha sonra bu iletiyi çağırarak eklediğinde kuyruğun [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Kuyruğa ileti göndermek için yeni bir yöntem oluşturun. Aşağıdaki yöntemi ekleyin, **Program** sınıfı. Bu yöntem bir sıra başvuru alır ve ardından çağırarak zaten yoksa yeni bir sıra oluşturur [Createıfnotexistsasync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Daha sonra bu iletiyi çağırarak eklediğinde kuyruğun [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 1. Aşağıdaki **SendMessageAsync** yönteme, **Program** sınıfı.
 
@@ -229,7 +230,7 @@ Kuyruğa ileti göndermek için yeni bir yöntem oluşturun. Aşağıdaki yönte
 
 ## <a name="dequeue-messages"></a>İletileri sıradan çıkarma
 
-Adlı yeni bir yöntem oluşturma **ReceiveMessageAsync**. Bu yöntem çağırarak iletiyi kuyruktan alır [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). İletinin başarıyla alındığında, birden çok kez işlenen olmayan şekilde kuyruktan silmek önemlidir. İleti alındıktan sonra çağırarak kuyruktan Sil [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Adlı yeni bir yöntem oluşturma **ReceiveMessageAsync**. Bu yöntem çağırarak iletiyi kuyruktan alır [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). İletinin başarıyla alındığında, birden çok kez işlenen olmayan şekilde kuyruktan silmek önemlidir. İleti alındıktan sonra çağırarak kuyruktan Sil [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
 1. Aşağıdaki **ReceiveMessageAsync** yönteme, **Program** sınıfı.
 
@@ -343,8 +344,8 @@ Aşağıda, bu proje için tam kodu verilmiştir.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

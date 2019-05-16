@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402250"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522185"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure sanal makinelerinizin durumunu anlama
 
@@ -28,7 +28,7 @@ Azure VM genel sistem durumunu görüntüleme ve işletim sistemi temel Vm'leri 
 
 Bu makalede hızlı bir şekilde değerlendirmek, araştırmanıza ve algılanan sistem durumu sorunları gidermek nasıl anlamanıza yardımcı olur.
 
-VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-onboard.md).
+VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-enable-overview.md).
 
 ## <a name="monitoring-configuration-details"></a>İzleme Yapılandırma Ayrıntıları
 
@@ -97,7 +97,7 @@ Bir VM için tanımlanan sistem durumları aşağıdaki tabloda açıklanmışt�
 
 |Simge |Sağlık durumu |Anlamı |
 |-----|-------------|------------|
-| |Sorunsuz |VM için algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ve gerektiği gibi çalıştığını sistem durumunu iyi durumda. Üst döküm İzleyicisi ile sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
+| |İyi Durumda |VM için algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ve gerektiği gibi çalıştığını sistem durumunu iyi durumda. Üst döküm İzleyicisi ile sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
 | |Kritik |Sistem durumu, bir veya daha fazla kritik sorunlar, normal işlevlerin geri yüklenmesi için ele alınması gereken göstergelerinin algılandığını belirten tanımlanan sistem durumu koşulu içinde değilse önemlidir. Üst döküm İzleyicisi ile sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
 | |Uyarı |Sistem durumu uyarı burada gösterir tanımlanan sistem durumu koşulu, iki eşikleri arasında olup olmadığını bir *uyarı* durumu ve diğer gösteren bir *kritik* (üç sağlık durumu eşikleri için durumu yapılandırılabilir), veya ne zaman kritik olmayan bir sorun algılandığında çözümlenmedi, kritik sorunlarına neden. İle bir üst döküm İzleyicisi, bir veya daha alt bir uyarı durumunda, ardından üst yansıtır *uyarı* durumu. İçinde bir alt varsa bir *kritik* ve başka bir alt bir *uyarı* durumu, üst toplama sistem durumu gösterilir *kritik*.|
 | |Bilinmeyen |Sistem durumu konusu bir *bilinmeyen* pek çok nedenden dolayı sistem durumu gibi hesaplanamıyor olduğunda durumu verileri, hizmeti başlatılmamış toplamak kullanabilirsiniz. Bu sistem durumu yapılandırılabilir değildir.| 
@@ -178,7 +178,7 @@ Durumu ölçütlerini durumunu tanımlanan dört durumun – biri tarafından *k
 Sistem durumu tanılama sayfası üç ana bölümü vardır:
 
 * Bileşen Modeli 
-* Durum Ölçütleri
+* İşlevsel Durum Ölçütleri
 * Durum Değişiklikleri 
 
 ![Sistem durumu tanılama sayfası bölümleri](./media/vminsights-health/health-diagnostics-page-02.png)
@@ -251,10 +251,10 @@ Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçe
 
 |Sütun |Açıklama | 
 |-------|------------| 
-|Abonelik |Bir Azure aboneliği seçin. Yalnızca seçili Abonelikteki uyarılar görünümünde dahil edilir. | 
+|Abonelik |Azure aboneliği seçin. Yalnızca seçili Abonelikteki uyarılar görünümünde dahil edilir. | 
 |Kaynak Grubu |Tek bir kaynak grubu seçin. Yalnızca seçilen kaynak grubunun hedefleri olan uyarılar görünümünde dahil edilir. | 
 |Kaynak türü |Bir veya daha fazla kaynak türlerini seçin. Varsayılan olarak, yalnızca hedef uyarıları **sanal makineler** seçilir ve bu görünüme dahil. Bu sütun, yalnızca bir kaynak grubu belirttikten sonra kullanılabilir. | 
-|Kaynak |Bir kaynak seçin. Yalnızca bu kaynak bir hedef olarak uyarılarla Görünümü'nde dahil edilir. Bu sütun, yalnızca bir kaynak türünü belirttikten sonra kullanılabilir. | 
+|Resource |Bir kaynak seçin. Yalnızca bu kaynak bir hedef olarak uyarılarla Görünümü'nde dahil edilir. Bu sütun, yalnızca bir kaynak türünü belirttikten sonra kullanılabilir. | 
 |Severity |Uyarı önem seçmeniz ya da seçin *tüm* her türlü önem derecesi, uyarı eklenecek. | 
 |İzleme Koşulu |Uyarıları filtrelemek için bir izleme koşulu verilmiş olması durumunda seçin *Fired* sistem tarafından veya *çözümlenmiş* koşul artık etkin olduğunda sistem tarafından. Veya *tüm* tüm koşulların uyarıları eklemek için. | 
 |Uyarı durumu |Bir uyarı durumu seçin *yeni*, *kabul*, *kapalı*, ya da seçin *tüm* tüm durumların uyarıları eklemek için. | 

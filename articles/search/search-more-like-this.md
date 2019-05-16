@@ -10,21 +10,23 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d18069335bb20f78a5bcda85eb6fcb2a5abe75f7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5723f1ab7258a9e0d672b5c0fd9fd0b9c4dc8721
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024664"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522918"
 ---
-# <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis Azure Search (Önizleme)
+# <a name="morelikethis-in-azure-search"></a>Azure Search'te moreLikeThis
+
+> [!Note]
+> moreLikeThis önizlemesi ve değil amaçlayan üretim kullanımı için kullanılıyor. [2019-05-06-Önizleme REST API sürümü](search-api-preview.md) bu özelliği sağlar. .NET SDK'sı desteği şu anda yoktur.
 
 `moreLikeThis=[key]` bir sorgu parametresidir [arama belgeleri API](https://docs.microsoft.com/rest/api/searchservice/search-documents) , bulduğu belgeleri belge anahtarını tarafından belirtilen belge benzer. Ne zaman bir arama isteği yapıldığında ile `moreLikeThis`, belge en iyi şekilde açıklayan verilen belgedeki ayıklanan arama terimlerini bir sorgu oluşturulur. Oluşturulan sorgu daha sonra arama istekte bulunmak için kullanılır. Varsayılan olarak, tüm aranabilir alanları içeriğini, kullanarak belirtilen kısıtlı alanları değerlendirilir `searchFields` parametresi. `moreLikeThis` Parametresi kullanılamaz arama parametresi ile `search=[string]`.
 
 Varsayılan olarak, tüm üst düzey aranabilir alanları içeriği olarak kabul edilir. Bunun yerine belirli alanları belirtmek istiyorsanız, kullanabileceğiniz `searchFields` parametresi. 
 
-> [!NOTE]
-> `moreLikeThis` Önizleme aranabilir alt alanlar üzerinde çalışmıyor bir [karmaşık tür](search-howto-complex-data-types.md).
+MoreLikeThis alt aranabilir alanları kullanamazsınız bir [karmaşık tür](search-howto-complex-data-types.md).
 
 ## <a name="examples"></a>Örnekler 
 
@@ -42,9 +44,6 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
     }
 ```
 
-## <a name="feature-availability"></a>Özellik kullanılabilirliği
-
-`moreLikeThis` Parametresi yalnızca önizleme REST API'leri kullanılabilir (`api-version=2019-05-06-Preview`).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: fc95ce4aad4e8597b02b9c862be33bfcf6185541
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 12565d2b8004a5119add25473e5b088c9162035f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073796"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780492"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Yükleme ve Istio Azure Kubernetes Service (AKS) kullanma
 
@@ -40,7 +40,7 @@ Bu makalede şunları öğreneceksiniz:
 
 Bu makalede ayrıntılı adımlarda bir AKS kümesi oluşturduğunuz varsayılır (Kubernetes `1.11` ve yukarıdaki RBAC ile etkin) ve yerleşik olduğu bir `kubectl` kümeyle bağlantı. Bu öğelerden herhangi birinin yardıma ihtiyacınız varsa bkz [AKS hızlı başlangıçları][aks-quickstart].
 
-İhtiyacınız olacak [Helm] [ helm] Istio yükleyip bu yönergeleri izleyin. Sürümüne sahip önerilir `2.12.2` veya daha sonra doğru yüklendiğinden ve kümenizde yapılandırılmış. Helm yükleme yardıma ihtiyacınız varsa bkz [AKS Helm yükleme yönergeleri][helm-install]. Tüm Istio pod'ları, ayrıca Linux düğümleri üzerinde çalışmak için zamanlanmalıdır.
+İhtiyacınız olacak [Helm] [ helm] Istio yükleyip bu yönergeleri izleyin. Sürümüne sahip önerilir `2.12.2` veya daha sonra doğru yüklendiğinden ve kümenizde yapılandırılmış. Helm yükleme yardıma ihtiyacınız varsa bkz [AKS Helm yükleme yönergeleri][helm-install].
 
 Bu makalede, çeşitli ayrı adımlara Istio yükleme yönergeleri ayırır. Sonuç resmi Istio yükleme yapısındaki aynıdır [Kılavuzu][istio-install-helm].
 
@@ -195,7 +195,7 @@ Bash
 kubectl get crds | grep 'istio.io' | wc -l
 ```
 
-PowerShell
+Powershell
 
 ```powershell
 (kubectl get crds | Select-String -Pattern 'istio.io').Count
@@ -324,7 +324,7 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
   --set kiali.enabled=true
 ```
 
-PowerShell
+Powershell
 
 ```powershell
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system `
@@ -336,9 +336,6 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 `istio` Helm grafiği, çok sayıda nesneleri dağıtır. Listeden çıktısını görebilirsiniz, `helm install` yukarıdaki komutu. Istio bileşenlerin dağıtımına ilişkin küme ortamınıza bağlı olarak tamamlanması 4 ila 5 dakika sürebilir.
-
-> [!NOTE]
-> Tüm Istio pod'ları, Linux düğümleri üzerinde çalışmak için zamanlanmalıdır. Kümenizde Linux düğüm havuzları yanı sıra Windows Server düğüm havuzları varsa, tüm Istio pod'ların Linux düğümleri üzerinde çalışmak üzere zamanlanmış olduğunu doğrulayın.
 
 Bu noktada, AKS kümenizi Istio dağıttınız. Biz Istio dağıtımının başarılı olmasını sağlamak için için sonraki bölüme geçelim [Istio yüklemesini doğrulamak](#validate-the-istio-installation).
 
@@ -517,7 +514,7 @@ Bash
 kubectl get crds -o name | grep 'istio.io' | xargs -n1 kubectl delete
 ```
 
-PowerShell
+Powershell
 ```powershell
 kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete $_ }
 ```
@@ -535,6 +532,9 @@ Daha fazla yükleme ve yapılandırma seçeneklerini Istio için keşfetmek içi
 - [Istio - Helm yükleme seçenekleri][istio-install-helm-options]
 
 Ayrıca ek senaryoları kullanarak izleyebileceğiniz [Istio Bookinfo uygulama örneği][istio-bookinfo-example].
+
+Application Insights ile Istio AKS uygulamanızı izlemek öğrenmek için aşağıdaki Azure İzleyici belgelere bakın:
+- [Barındırılan uygulamalarını sıfır izleme uygulama için Kubernetes izleme][app-insights]
 
 <!-- LINKS - external -->
 [istio]: https://istio.io
@@ -561,6 +561,8 @@ Ayrıca ek senaryoları kullanarak izleyebileceğiniz [Istio Bookinfo uygulama �
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
+
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/kubernetes
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467071"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539328"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür. Sorgu yürütme işlemi, kullanıcı tarafından tanımlanan bir dizine göre gerçekleştirilir.
@@ -44,7 +44,7 @@ Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](
 | Yapay ZEKA&nbsp;zenginleştirme&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Özellikler |
 |-------------------|----------|
 |Zenginleştirilmiş AI belgeleri | [**Bilişsel arama** ](cognitive-search-concept-intro.md) için resim ve metin analizi, metin bilgileri ham içeriği ayıklamak için bir dizini oluşturma ardışık düzeni için uygulanabilir. [Yerleşik yeteneklere](cognitive-search-predefined-skills.md) örnek olarak optik karakter tanıma (taranmış JPEG'leri aranabilir duruma getirme), varlık tanıma (bir kuruluşu, adı veya konumu tanıma) ve anahtar ifade tanıma verilebilir. İşlem hattına ekleme yapmak için [özel yetenek kodu da yazabilirsiniz](cognitive-search-create-custom-skill-example.md). |
-| Analiz ve tüketimi için saklı zenginleştirmelerinin| [**Bilgi Bankası Store (Önizleme)** ](knowledge-store-concept-intro.md) yapay ZEKA tabanlı dizinleme uzantısıdır. Bir arka uç olarak Azure depolama ile dizin oluşturma sırasında oluşturulan zenginleştirmelerinin kaydedebilirsiniz. Bu yapılar, daha iyi uzmanlık becerileri tasarlayın veya şekil oluşturup biçimsiz veya belirsiz verilerinizden yapısı yardımcı olması için kullanılabilir. Bu hedef belirli iş yükleri veya kullanıcıların bu yapıları projeksiyonlar oluşturabilirsiniz. Ayrıca doğrudan, ayıklanan verileri analiz etmek veya diğer uygulamalarda yük.<br/><br/> |
+| Analiz ve tüketimi için saklı zenginleştirmelerinin| [**Bilgi Bankası store (Önizleme)** ](knowledge-store-concept-intro.md) yapay ZEKA tabanlı dizinleme uzantısıdır. Bir arka uç olarak Azure depolama ile dizin oluşturma sırasında oluşturulan zenginleştirmelerinin kaydedebilirsiniz. Bu yapılar, daha iyi uzmanlık becerileri tasarlayın veya şekil oluşturup biçimsiz veya belirsiz verilerinizden yapısı yardımcı olması için kullanılabilir. Bu hedef belirli iş yükleri veya kullanıcıların bu yapıları projeksiyonlar oluşturabilirsiniz. Ayrıca doğrudan, ayıklanan verileri analiz etmek veya diğer uygulamalarda yük.<br/><br/> |
 
 | Veri&nbsp;içeri aktarma ve dizin | Özellikler |
 |----------------------------------|----------|

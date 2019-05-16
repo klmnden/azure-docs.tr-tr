@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 05/03/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3880a62d58b15ef07e524d69c38ba723ea56178f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441731"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781083"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için son kullanıcı deneyimleri
 Azure Active Directory (Azure AD), kuruluşunuzdaki son kullanıcılar uygulamaları dağıtmak için çeşitli özelleştirilebilir yol sağlar:
@@ -53,7 +53,9 @@ SAML 2.0, WS-Federation ve Openıd destekleyen en Federasyon uygulamaları, kull
 ## <a name="direct-sign-on-links"></a>Oturum açma doğrudan bağlantılar
 Azure AD çoklu oturum açma uygulamalar için doğrudan bağlantılar parola tabanlı çoklu oturum açma, bağlantılı çoklu oturum açma ve herhangi bir biçimde Federasyon çoklu oturum açmayı destekleyen tek tek de destekler.
 
-Bu bağlantılar bir kullanıcı belirli bir uygulama için Azure AD oturum açma işlemi aracılığıyla bunları Azure ad erişim paneli veya Office 365 kullanıcı başlatma gerek kalmadan gönderme özel olarak hazırlanmış URL'leri verilmiştir. Bunlar **kullanıcı erişim URL'leri** özelliklerini Azure portalında Azure Active Directory bölümünde kullanılabilir kurumsal uygulamalar altında bulunabilir.
+Bu bağlantılar bir kullanıcı belirli bir uygulama için Azure AD oturum açma işlemi aracılığıyla bunları Azure ad erişim paneli veya Office 365 kullanıcı başlatma gerek kalmadan gönderme özel olarak hazırlanmış URL'leri verilmiştir. Bunlar **kullanıcı erişim URL'leri** mevcut kurumsal uygulamalar özelliklerini altında bulunabilir. Azure portalında **Azure Active Directory** > **kurumsal uygulamalar**. Uygulamayı seçin ve ardından **özellikleri**.
+
+![Kullanıcı erişim URL'SİNDEN Twitter özelliklerinde örneği](media/end-user-experiences/direct-sign-on-link.png)
 
 Bu bağlantıları kopyalanır ve seçilen uygulamanın oturum açma bağlantı sağlamak için istediğiniz yere yapıştırılan. Bu e-posta ya da kullanıcı uygulama erişimi için ayarladığınız tüm özel web tabanlı portal olabilir. Bir Azure AD doğrudan çoklu oturum açma URL'si için Twitter'ın bir örnek aşağıda verilmiştir:
 

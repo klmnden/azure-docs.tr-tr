@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: ab5cbf6e24d6e7b5530addcee655e1cc4621d042
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875979"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522138"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile ilgili bilinen sorunlar
 
 Bu makalede, bir çözümde bir sistem durumu, uygulama bileşenleri bulma ve Azure VM işletim sistemi performans izleme bir araya getiren Azure VM'ler için Azure İzleyici ile ilgili bilinen sorunlar ele alınmıştır. 
 
-## <a name="health"></a>Durum 
+## <a name="health"></a>Sağlık 
 Aşağıda sistem durumu özelliğinin geçerli sürümle bilinen sorunlar verilmiştir:
 
 - Bir Azure VM kaldırılması veya silinmesi durumunda süre için VM liste görünümünde görüntülenir. Ayrıca, kaldırıldı veya silinmiş bir VM'nin durumunu'ı tıklatarak açılır **sistem tanılama** görüntüleyin ve sonra bir yükleme döngüsü başlatır. Silinen sanal Makinenin adını seçerek, bir VM silinip silinmediğini belirten ileti ile bir bölme açılır.
@@ -35,4 +35,4 @@ Aşağıda sistem durumu özelliğinin geçerli sürümle bilinen sorunlar veril
 - Çözüm bileşenleri çalışma alanınızdan kaldırdıktan sonra Azure sanal makinelerinize sistem durumunu görmek devam edebilirsiniz; portalında ya da görünümüne gidin, özellikle performans ve harita verileri. Veri, performans ve harita görünümü süre sonra görünen sonunda durur; ancak durum görünümün Vm'leriniz için sistem durumu göstermeye devam eder. **Şimdi deneyin** seçeneği sunulacaktır re ekleme yalnızca performans ve harita görünümleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sanal makinelerinizi izlemeyi etkinleştirme yöntemlerini ve gereksinimleri hakkında bilgilere [VM'ler için Azure İzleyici'ı Dağıtma](vminsights-onboard.md).
+Sanal makinelerinizi izlemeyi etkinleştirme yöntemlerini ve gereksinimleri hakkında bilgilere [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-enable-overview.md).

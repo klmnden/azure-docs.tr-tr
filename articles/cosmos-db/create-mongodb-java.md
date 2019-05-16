@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2017
 ms.author: rimman
-ms.openlocfilehash: 2fcd5f9e68d7f8bfa15cd596407c78af7fc8976b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ae4c5f64ad834e27db219fac8d30ff5250c3286
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890887"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519070"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Hızlı Başlangıç: MongoDB ve Java SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme
 
@@ -33,7 +33,7 @@ Bu Hızlı Başlangıç ile bir Cosmos hesabının nasıl oluşturulacağını g
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
-* JDK 1.7+ (JDK yoksa `apt-get install default-jdk` komutunu çalıştırın)
+* [Azure ve Azure Stack JDK sürüm 8 JDK yükleme] (https://aka.ms/azure-jdks)
 * Maven (Maven yoksa `apt-get install maven` komutunu çalıştırın)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -43,7 +43,7 @@ Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız ge
 
 [!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="add-a-collection"></a>Koleksiyon ekleme
+## <a name="add-a-collection"></a>Koleksiyon ekleyin
 
 Yeni veritabanınıza **db**, yeni koleksiyonunuza da **coll** adını verin.
 

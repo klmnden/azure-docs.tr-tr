@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471497"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606188"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Hızlı Başlangıç: Office 365 grupları Azure Active Directory'de dolmak üzere
 
@@ -35,11 +35,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisite"></a>Önkoşul
 
-Bir genel yönetici veya Kullanıcı Yöneticisi grubu süre sonlarını ayarlama kuruluştaki olması gerekir.
+ Grubun sona erme tarihi için gerekli en az ayrıcalıklı rol, kuruluş içindeki kullanıcı yöneticisidir.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Kullanıcılar için grup oluşturma özelliğini açma
 
-1. Oturum [Azure portalında](https://portal.azure.com) bir genel yönetici veya Kullanıcı Yöneticisi kuruluş için olan bir hesapla.
+1. Oturum [Azure portalında](https://portal.azure.com) kullanıcı yönetici hesabıyla.
 
 2. **Gruplar**'ı ve ardından **Genel**'i seçin.
   
@@ -80,7 +80,7 @@ Bir genel yönetici veya Kullanıcı Yöneticisi grubu süre sonlarını ayarlam
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Teknik kısıtlamalar, özel engellenen sözcük listesi ekleme ve Office 365 uygulamalarında son kullanıcı deneyimi dahil olmak üzere süre sonu hakkında daha fazla bilgi edinmek için aşağıdaki süre sonu ilkesi makalesini inceleyin:
+PowerShell yönergeleri ve teknik kısıtlamalar dahil olmak üzere son kullanma hakkında daha fazla bilgi için şu makaleye bakın:
 
 > [!div class="nextstepaction"]
-> [Süre sonu ilkesiyle ilgili tüm ayrıntılar](groups-lifecycle.md)
+> [Süre sonu ilkesi PowerShell](groups-lifecycle.md)

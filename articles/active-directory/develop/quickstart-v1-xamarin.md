@@ -3,8 +3,8 @@ title: Azure AD Xamarin kullanmaya başlama | Microsoft Docs
 description: Oturum açma için Azure AD ile tümleştirin ve OAuth kullanarak Azure AD ile korunan API'leri çağırmak Xamarin uygulamaları oluşturun.
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb3de88fde2fbc7ec2aaffdb7d82433845db34b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298861"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545939"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Hızlı Başlangıç: Microsoft oturum açma tümleşik bir Xamarin uygulaması derleme
 
@@ -66,7 +66,7 @@ Belirteçlerini almak sağlamak amacıyla, ilk Azure AD kiracınıza kaydetme ve
 8. Seçin **Microsoft Graph** API olarak. Altında **Temsilcili izinler**, ekleme **dizin verilerini okuma** izni. 
    Bu eylem, kullanıcılar için Graph API sorgulamak uygulamayı etkinleştirir.
 
-## <a name="step-3-install-and-configure-adal"></a>3. Adım: Yükleme ve ADAL'ı yapılandırma
+## <a name="step-3-install-and-configure-adal"></a>3. adım: Yükleme ve ADAL'ı yapılandırma
 
 Azure AD'de bir uygulama edindikten sonra ADAL'ı yükleyebilir ve kimlikle ilgili kodunuzu yazın. Azure AD ile iletişim kurmak ADAL'ı etkinleştirmek için uygulama kaydı hakkında bazı bilgiler verir.
 

@@ -1,5 +1,5 @@
 ---
-title: Bekleyen şifreleme müşteri tarafından yönetilen anahtarları Azure Key Vault'ta - Azure Search kullanma
+title: Bekleyen şifreleme müşteri tarafından yönetilen anahtarları Azure Key Vault'ta (Önizleme) - Azure Search kullanma
 description: Dizinleri ve oluşturduğunuz ve Azure anahtar Kasası'nda yönetme anahtarlar aracılığıyla Azure Search'te eş anlamlı eşlemeleri üzerinden ek sunucu tarafı şifreleme.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029183"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523088"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanarak azure Search şifreleme
+
+> [!Note]
+> Müşteri tarafından yönetilen anahtarlarla şifreleme olduğunu Önizleme ve amaçlayan üretim kullanımı için değildir. [2019-05-06-Önizleme REST API sürümü](search-api-preview.md) bu özelliği sağlar. .NET SDK'sı sürüm 8.0 Önizleme de kullanabilirsiniz.
+>
+> Bu özellik, ücretsiz hizmetler için kullanılabilir değil. Veya 2019-01-01 işleminden sonra oluşturulan bir Faturalanabilir arama hizmeti kullanmanız gerekir. Şu anda portalı desteği yoktur.
 
 Varsayılan olarak, Azure Search rest ile kullanıcı içeriği şifreler [hizmet tarafından yönetilen anahtarlar](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Varsayılan şifreleme, oluşturduğunuz ve Azure anahtar Kasası'nda yönetme tuşlarını kullanarak bir ek şifreleme katmanı ile destekleyebilirsiniz. Bu makalede adım adım gösterilmektedir.
 
@@ -26,20 +31,17 @@ Müşteri tarafından yönetilen anahtarlarla şifreleme, dizin veya eş anlaml�
 
 Farklı anahtar kasaları farklı anahtarlarından kullanabilirsiniz. Başka bir deyişle, her potansiyel olarak farklı bir müşteri tarafından yönetilen anahtar, müşteri tarafından yönetilen anahtarlar kullanılarak şifrelenmemiş indexes\synonym eşlemeleri ile birlikte kullanılarak şifrelenmiş birden çok şifrelenmiş indexes\synonym eşlemesi tek bir arama hizmeti barındırabilir. 
 
->[!Note]
-> **Özellik kullanılabilirliği**: Müşteri tarafından yönetilen anahtarlarla şifreleme için ücretsiz hizmetler kullanılabilir olmayan bir önizleme özelliğidir. Ücretli bir hizmetse, yalnızca arama hizmetleri veya 2019-01-en son Önizleme api-version'ı kullanarak 01, işleminden sonra oluşturulan kullanılabilir (api sürümü = 2019-05-06-Önizleme). Şu anda bu özellik için portal desteği yoktur.
-
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu örnekte aşağıdaki hizmetler kullanılır. 
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
 
-[Bir Azure anahtar kasası kaynak oluşturma](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) veya aboneliğiniz kapsamındaki mevcut bir kasayı bulun.
++ [Bir Azure anahtar kasası kaynak oluşturma](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) veya aboneliğiniz kapsamındaki mevcut bir kasayı bulun.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) yapılandırma görevleri için kullanılır.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) yapılandırma görevleri için kullanılır.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) ve [Azure Search SDK'sı](https://aka.ms/search-sdk-preview) Önizleme REST API'sini çağırmak için kullanılabilir. Portalı veya .NET SDK'sı şu anda, müşteri tarafından yönetilen şifreleme desteği yoktur.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) ve [Azure Search SDK'sı](https://aka.ms/search-sdk-preview) Önizleme REST API'sini çağırmak için kullanılabilir. Portalı veya .NET SDK'sı şu anda, müşteri tarafından yönetilen şifreleme desteği yoktur.
 
 ## <a name="1---enable-key-recovery"></a>1 - anahtar kurtarma etkinleştirin
 

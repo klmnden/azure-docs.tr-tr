@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: d1f4996bd389a1c792f8dd7966dde6ccdfddbcc1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873001"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755086"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -66,7 +66,7 @@ HDInsight küme sürümleri ile ilişkili Hadoop ekosistemi bileşen sürümü, 
 > [!IMPORTANT]    
 > Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight üzerinde Windows emeklilik](#hdinsight-windows-retirement).
 
-### <a name="release-notes"></a>Sürüm notları
+### <a name="release-notes"></a>Sürüm Notları
 
 Bkz: [HDInsight sürüm notları](hdinsight-release-notes.md) HDInsight'ın en son sürümlerinde ek sürüm notları.
 
@@ -78,12 +78,11 @@ HDInsight sürümleri aşağıdaki tablolarda listelenmiştir. HDInsight her sü
 
 Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yöntemleri yanı sıra, Azure portalında kullanılabilen HDInsight sürümleri listelenmiştir.
 
-| HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
+| HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek oranda kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 Eylül 2018 | | |Evet |Evet |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 Nisan 2017 | | |Evet |Evet |
 
-*&ast; Spark küme türleri için yalnızca HDInsight 3.5 desteği genişletildi*
 
 > [!NOTE]  
 > Bir sürümünün süresi doldu için destek sonra onu Microsoft Azure Portalı aracılığıyla kullanılabilir olmayabilir. Ancak, küme sürümleri kullanılabilir kullanarak devam `Version` Windows PowerShell parametresi [yeni AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) komut ve .NET SDK'sı sürüm devre dışı bırakılacağı tarihten kadar.
@@ -93,7 +92,7 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yönteml
 
 Aşağıdaki tabloda, HDInsight sürümleri listelenmiştir **değil** Azure portalında kullanılabilir.
 
-| HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
+| HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek oranda kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 <br> (Spark olmayan) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 Eylül 2016 |5 Eylül 2017 |28 Haziran 2018 |Evet |Hayır |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
@@ -140,7 +139,7 @@ Kurumsal güvenlik HDInsight kümenizi oluşturma küme iş akışının parças
 
 - Hadoop (yalnızca HDInsight 3.6)
 - Spark
-- Interactive Query
+- Etkileşimli Sorgu
 
 ### <a name="support-for-azure-data-lake-storage"></a>Azure Data Lake depolama desteği
 
@@ -244,7 +243,7 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
 
 * Brezilya Güney ve Japonya Batı dışındaki tüm desteklenen bölgeler:
 
-|Küme türü|Hadoop|HBase|Interactive Query|Storm|Spark|ML Server|Kafka|
+|Küme türü|Hadoop|HBase|Etkileşimli Sorgu|Storm|Spark|ML Server|Kafka|
 |---|---|---|---|---|---|---|---|
 |HEAD: varsayılan VM boyutu|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
 |HEAD: Önerilen VM boyutları|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
@@ -276,7 +275,7 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
 
 * Brezilya Güney ve yalnızca Japonya Batı (v2 boyutları):
 
-  | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
+  | Küme türü | Hadoop | HBase | Etkileşimli Sorgu |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: varsayılan VM boyutu |D12 |D12  | D13 |A3 |D12 |D12 |
   | HEAD: Önerilen VM boyutları |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |

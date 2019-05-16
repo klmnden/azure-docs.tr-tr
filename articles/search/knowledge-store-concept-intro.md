@@ -1,5 +1,5 @@
 ---
-title: Bilgi Bankası Store giriş ve genel bakış - Azure Search
+title: Bilgi deposunu giriş ve genel bakış (Önizleme) - Azure Search
 description: Burada, görüntüleyebilir, yeniden şekillendirmek ve zenginleştirilmiş belgeleri Azure Search'te ve diğer uygulamalarda kullanmak için Azure depolama zenginleştirilmiş belgeleri gönderin.
 manager: cgronlun
 author: HeidiSteen
@@ -9,32 +9,36 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027001"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540744"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Bilgi Bankası Store Azure Search nedir?
+# <a name="what-is-knowledge-store-in-azure-search"></a>Bilgi deposunu Azure Search nedir?
 
-Bilgi Bankası Store zenginleştirilmiş belgeleri ve bir yapay ZEKA tabanlı dizini oluşturma ardışık düzeni tarafından oluşturulan meta veri kaydeder, şu anda genel önizlemede Azure Search, isteğe bağlı bir özellik olan [(bilişsel arama)](cognitive-search-concept-intro.md). Bilgi Bankası Store, işlem hattının bir parçası yapılandırdığınız Azure depolama hesabı tarafından desteklenir. Etkin olduğunda, arama hizmeti zenginleştirilmiş her belgenin gösterimini önbelleğe almak için bu depolama hesabı kullanır. 
+> [!Note]
+> Bilgi Bankası preview ve üretim kullanımı için değil amaçlayan deposudur. [2019-05-06-Önizleme REST API sürümü](search-api-preview.md) bu özelliği sağlar. .NET SDK'sı desteği şu anda yoktur.
+>
+
+Bilgi deposudur zenginleştirilmiş belgeleri ve bir yapay ZEKA tabanlı dizini oluşturma ardışık düzeni tarafından oluşturulan meta veri kaydeder Azure Search'ün isteğe bağlı bir özellik [(bilişsel arama)](cognitive-search-concept-intro.md). Bilgi deposunu, işlem hattının bir parçası yapılandırdığınız Azure depolama hesabı tarafından desteklenir. Etkin olduğunda, arama hizmeti zenginleştirilmiş her belgenin gösterimini önbelleğe almak için bu depolama hesabı kullanır. 
 
 Bilişsel arama daha önce kullanmadıysanız, uzmanlık becerileri zenginleştirmelerinin bir dizi aracılığıyla bir belge taşımak için kullanılabilir biliyorsunuzdur. Bir Azure Search dizini sonucu olabilir veya (yeni bu önizlemeye) Computers.csv'deki bilgi deposu.
 
 Verileri bir aşağı akış uygulaması tüketim yapılandırılması için mekanizmanızı projeksiyonlardır. Kullanabileceğiniz [Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) Azure depolama veya Azure Depolama'ya bağlanan herhangi bir uygulama için oluşturulan belgeleri zenginleştirilmiş tüketim için yeni olanaklar sunar açılır. Veri bilimi işlem hatları ve özel analiz bazı örnekler verilmiştir.
 
-![İşlem hattı diyagramdaki bilgi Store](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "bilgi Store, işlem hattı diyagramı")
+![Bilgi işlem hattı diyagramı deposunda](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "bilgi deposundaki işlem hattı diyagramı")
 
-Bilgi Bankası Store kullanmak için ekleme bir `knowledgeStore` öğesi için bir dizin oluşturma işlem hattında tarafınızdaki işlemleri tanımlayan bir beceri kümesi. Yürütme sırasında Azure Search, Azure depolama hesabınızdaki bir alanı oluşturur ve tanımları ve işlem hattı tarafından oluşturulan içeriği ile doldurur.
+Bilgi deposunu kullanmak üzere ekleme bir `knowledgeStore` öğesi için bir dizin oluşturma işlem hattında tarafınızdaki işlemleri tanımlayan bir beceri kümesi. Yürütme sırasında Azure Search, Azure depolama hesabınızdaki bir alanı oluşturur ve tanımları ve işlem hattı tarafından oluşturulan içeriği ile doldurur.
 
-## <a name="benefits-of-knowledge-store"></a>Bilgi Bankası Store avantajları
+## <a name="benefits-of-knowledge-store"></a>Bilgi deposunu avantajları
 
 Bir bilgi depolamak, yapısı, içerik ve gerçek içerik - BLOB'ları, analiz, yapılmıştır görüntü dosyaları gibi yapılandırılmamış ve yarı yapılandırılmış veri dosyalarından öğrendiğiniz kayıtlar veya hatta yeni formlarına yeniden şekillendirilebilir veri yapılandırılmış sağlar. İçinde bir [adım adım](knowledge-store-howto.md) Bu önizleme için yazılan, birinci elden nasıl yoğun bir JSON belgesi substructures yeni yapılara yeniden oluşturulur, içine ayrıldıktan ve aksi takdirde aşağı yönde için kullanılabilir duruma görebilirsiniz işlemler, makine öğrenimi ve veri bilimi iş yükleri ister.
 
-Yapay ZEKA tabanlı bir dizin oluşturma ardışık ne üretebilir görmek kullanışlı olsa da, Bilgi Bankası Store gerçek gücünü, verileri şekillendirmek yeteneğidir. Temel bir beceri kümesi ile başlatın ve ardından yeni yapılar, Azure Search yanı sıra diğer uygulamalarda tüketilebilir ardından birleştirebilirsiniz yapısı, artan düzeyleri eklemek için gezinilen.
+Ne yapay ZEKA tabanlı bir dizin oluşturma ardışık üretebilir görmek kullanışlı olsa da, Bilgi Bankası deposunun gerçek gücü, verileri şekillendirmek yeteneğidir. Temel bir beceri kümesi ile başlatın ve ardından yeni yapılar, Azure Search yanı sıra diğer uygulamalarda tüketilebilir ardından birleştirebilirsiniz yapısı, artan düzeyleri eklemek için gezinilen.
 
-Numaralandırılan, Bilgi Bankası Store avantajları şunları içerir:
+Numaralandırılan, Bilgi Bankası deposu avantajları şunları içerir:
 
 + Zenginleştirilmiş belgelerinde kullanma [analiz ve Raporlama araçları](#tools-and-apps) arama dışında. Power Query ile Power BI ilgi çekici bir seçimdir, ancak herhangi bir aracı veya Azure depolama alanına bağlanan bir uygulama, oluşturduğunuz bir Bilgi Bankası deposundan çekebilirsiniz.
 
@@ -235,11 +239,11 @@ Birden çok hizmeti kullanırken, tüm hizmetlerinizi aynı bölgede en iyi perf
 
 **4. adım: [Portal ile çalışmaya başlama](cognitive-search-quickstart-blob.md) - veya - [REST ve Postman kullanarak örnek verilerle çalışmaya başlama](knowledge-store-howto.md)** 
 
-REST kullanarak `api-version=2019-05-06-Preview` Store bilgi içeren bir yapay ZEKA tabanlı bir işlem hattı oluşturmak için. En yeni önizleme sürümünde API standartlarındaki şu nesneyi sağlar `knowledgeStore` tanımı.
+REST kullanarak `api-version=2019-05-06-Preview` bilgi deposu içeren bir yapay ZEKA tabanlı bir işlem hattı oluşturmak için. En yeni önizleme sürümünde API standartlarındaki şu nesneyi sağlar `knowledgeStore` tanımı.
 
 ## <a name="takeaways"></a>Paketler
 
-Bilgi Bankası Store avantajları dahil olmak üzere çeşitli sunar ancak arama dışında senaryolarda zenginleştirilmiş belgelerin kullanımı etkinleştirme ile sınırlı değildir, maliyet denetimleri ve zenginleştirme işleminizin kaymaları yönetme. Bu özellikler yalnızca standartlarındaki şu bir depolama hesabı ekleme ve güncelleştirilmiş ifade dili makalesinde açıklanan şekilde kullanarak tarafından kullanılacak tüm kullanılabilir [bilgi Store ile çalışmaya başlama konusunda](knowledge-store-howto.md). 
+Bilgi deposunu avantajları dahil olmak üzere çeşitli sunar ancak arama dışında senaryolarda zenginleştirilmiş belgelerin kullanımı etkinleştirme ile sınırlı değildir, maliyet denetimleri ve zenginleştirme işleminizin kaymaları yönetme. Bu özellikler yalnızca standartlarındaki şu bir depolama hesabı ekleme ve güncelleştirilmiş ifade dili makalesinde açıklanan şekilde kullanarak tarafından kullanılacak tüm kullanılabilir [bilgi store ile çalışmaya başlama konusunda](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

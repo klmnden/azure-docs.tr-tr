@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c5a67e22c301a2afc73a46a6def9a514426c497f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928055"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522937"
 ---
-# <a name="remote-desktop-client-connections"></a>Uzak Masaüstü istemci bağlantıları
+# <a name="remote-desktop-client-connections"></a>Uzak Masaüstü istemcisi bağlantıları
 
 Windows sanal masaüstü istemci bağlantıları ile ilgili sorunları gidermek için bu makaleyi kullanın.
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 
 Windows sanal masaüstü Önizleme aşamasındayken biz şu anda destek alma değildir. Ziyaret [Windows sanal masaüstü teknoloji topluluğuna](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) etkin topluluk üyeleri ve ürün ekibine Windows sanal masaüstü hizmetiyle tartışmak için.
 
@@ -108,22 +108,21 @@ Bu istemci bağlantısı hata kodları için genel sorun giderme yönergeleri iz
 1. Kullanıcı adı ve saat sorun ne zaman karşılaşılmıştır onaylayın.
 2. Açık **PowerShell** ve bağlantı sorunu olduğu bildirildi Windows sanal masaüstü kiracıya oluşturmaktır.
 3. Doğru Kiracı için bağlantıyı doğrulamanız **Get-RdsTenant.**
-4. Gerekirse, Kiracı grubu bağlamını ayarlayın **kümesi RdsContext – TenantGroupt\<TenantGroup\>**.
-5. Kullanarak **Get-RdsHostPool** ve **Get-RdsSessionHost** cmdlet'leri, sorun giderme doğru konak havuzunda yapıldığını onaylayın.
-6. Belirtilen zaman penceresi için bağlantı türü tüm başarısız etkinlikler listesini almak için aşağıdaki komutu yürütün:
+4. Kullanarak **Get-RdsHostPool** ve **Get-RdsSessionHost** cmdlet'leri, sorun giderme doğru konak havuzunda yapıldığını onaylayın.
+5. Belirtilen zaman penceresi için bağlantı türü tüm başarısız etkinlikler listesini almak için aşağıdaki komutu yürütün:
 
     ```cmd
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. Kullanarak **ActivityID** önceki cmdlet'inin çıktısı, aşağıdaki komutu çalıştırın:
+6. Kullanarak **ActivityID** önceki cmdlet'inin çıktısı, aşağıdaki komutu çalıştırın:
 
     ```
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. Komutu, aşağıda gösterilen çıktıya benzer bir çıktı üretir. Kullanım **ErrorCodeSymbolic** ve **ErrorMessage** kökenini giderilir.
+7. Komutu, aşağıda gösterilen çıktıya benzer bir çıktı üretir. Kullanım **ErrorCodeSymbolic** ve **ErrorMessage** kökenini giderilir.
 
     ```
     ErrorSource       : <Source>

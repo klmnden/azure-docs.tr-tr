@@ -4,7 +4,7 @@ description: Hatalar ve özel durumları işlemek nasıl koşullu erişim ve tal
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 43c98181c926410bea2acf64bf1ed4d588c12616
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f1972a870ac15e1ca8dde963eef6cf7f1caf3039
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138963"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544177"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Özel durum ve MSAL kullanarak hataları işleme
 Microsoft Authentication Library (MSAL) özel durum sorunlarını gidermek uygulama geliştiricileri için ve son kullanıcılara görüntülenemiyor içindir. Özel durum iletileri yerelleştirilmiş değil.
@@ -38,7 +38,7 @@ Varsa [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceex
 ### <a name="common-exceptions"></a>Sık karşılaşılan özel durumlar
 Harekete geçirilebilirse ortak özel durumları ve bazı olası risk azaltmaları aşağıda verilmiştir.
 
-| Özel durum | Hata kodu | Risk azaltma|
+| Özel Durum | Hata kodu | Azaltma|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: Kullanıcı veya yönetici Kimliğine sahip '{AppID}', '{appName}' adlı uygulamayı kullanmak için izin verilmez. Bu kullanıcı ve kaynak için bir etkileşimli yetkilendirme isteği gönderin.| Kullanıcı onayı'nın ilk almanız gerekir. (Bu, herhangi bir Web UI olmayan) bir .NET Core kullanmıyorsanız (yalnızca bir kez) çağrı `AcquireTokeninteractive`. .NET core kullanarak veya yapmak istemediğiniz bir `AcquireTokenInteractive`, kullanıcı izni vermek için bir URL'ye gidebilir: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . Çağrılacak `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: Kullanıcı, çok faktörlü kimlik doğrulaması kullanmak için gereklidir.| MFA kiracınız için yapılandırılmışsa, risk azaltma - olduğundan ve AAD karar bunu zorlamak, geri dönüş için etkileşimli bir akış aşağıdaki gibi ihtiyacınız `AcquireTokenInteractive` veya `AcquireTokenByDeviceCode`.|

@@ -13,12 +13,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcıl
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 74bf83626ffcbf1625ab24cd9a4b8151b1cce8b0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707217"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597012"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Hızlı Başlangıç: Azure geliştirme alanları (Visual Studio 2017) ile Kubernetes üzerinde .NET Core ile geliştirin
 
@@ -56,12 +56,12 @@ Azure portalında AKS kümenizin gelin ve tıklayın *geliştirme alanları*. De
 ## <a name="create-a-new-aspnet-web-app"></a>Yeni bir ASP.NET web uygulaması oluşturma
 
 1. Visual Studio 2017'yi açın.
-1. Yeni bir proje oluşturma.
+1. Yeni bir proje oluşturun.
 1. Seçin *ASP.NET Core Web uygulaması* ve projenizi adlandırın *webfrontend*.
-1. *Tamam* düğmesine tıklayın.
+1. *Tamam*'ı tıklatın.
 1. İstendiğinde, *Web uygulaması (Model-View-Controller)* şablonu için.
 1. Seçin *.NET Core* ve *ASP.NET Core 2.0* en üstünde.
-1. *Tamam* düğmesine tıklayın.
+1. *Tamam*'ı tıklatın.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Geliştirme alanınıza projenizi bağlama
 
@@ -69,7 +69,7 @@ Projenizde, seçin **Azure geliştirme alanları** aşağıda gösterildiği gib
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam* düğmesine tıklayın.
+Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam*'ı tıklatın.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
@@ -96,6 +96,8 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
 Yukarıdaki örnekte, genel URL'dir http://webfrontend.1234567890abcdef1234.eus.azds.io/. Hizmetinizin genel URL'ye gidin ve geliştirme alanınız hizmetiyle etkileşim kurabilirsiniz.
+
+Bu işlem genel erişim hizmetiniz devre dışı bırakmış olabilir. Genel erişimi etkinleştirmek için güncelleştirebilirsiniz [giriş değeri *values.yaml*][ingress-update].
 
 ## <a name="update-code"></a>Kodu güncelleştirme
 
@@ -131,3 +133,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Birden çok kapsayıcı ve takım geliştirme ile çalışma](multi-service-netcore-visualstudio.md)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured

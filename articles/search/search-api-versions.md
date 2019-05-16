@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 21374e20a2ba2c9134ed12e4b1072ff5c320c75e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d72901653e995e811a1d3e89cef8a5f77a9ea8bd
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149775"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523801"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search API sürümleri
 Azure arama özelliği güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri API geriye dönük uyumluluğu korumak için yeni bir sürümü gerektirir. Yeni bir sürüm yayımlama, ne zaman ve nasıl kodunuzda arama hizmet güncelleştirmelerini tümleştirme denetlemenizi sağlar.
@@ -33,9 +33,9 @@ Aşağıda tüm geçerli sürümlerinde anlık görüntüsünü Azure Search iç
 | Arabirimler | En son ana sürüm | Durum |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |Genel olarak kullanılabilir, yayımlanan Mayıs 2019 |
-| [.NET SDK'sı Önizleme](https://aka.ms/search-sdk-preview) |8.0.0-Preview |Nisan 2019 yayımlanan Önizleme |
+| [.NET SDK'sı Önizleme](https://aka.ms/search-sdk-preview) |8.0-Önizleme |Nisan 2019 yayımlanan Önizleme |
 | [Hizmet REST API'si](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Genel Kullanıma Sunuldu |
-| [Hizmet REST API 2019-05-06-Önizleme](search-api-preview.md) |2019-05-06-Önizleme |Önizleme |
+| [Hizmet REST API 2019-05-06-Önizleme](search-api-preview.md) |2019-05-06-Önizleme |Preview |
 | [.NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk) |3.0 |Genel Kullanıma Sunuldu |
 | [Yönetim REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Genel Kullanıma Sunuldu |
 

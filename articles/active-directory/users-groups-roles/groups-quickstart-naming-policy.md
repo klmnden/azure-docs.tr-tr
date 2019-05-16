@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4105fa17041c7cefd1387d1ee50c177b8c55fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0e600204479bc54a590df6bf1bbcd634eaac7fc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471221"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605631"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de gruplar için adlandırma ilkesi
 
@@ -31,121 +31,43 @@ Bu hızlı başlangıçta kiracınızın gruplarını sıralama ve arama konusun
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet'lerini yükleme
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Azure portalını (Önizleme) kullanarak bir kiracı için adlandırma ilkesinin grubu yapılandırma
 
-PowerShell komutlarını çalıştırmadan önce Windows PowerShell Graph için Azure Active Directory PowerShell Modülünün eski sürümlerini kaldırın ve [Graph için Azure Active Directory PowerShell - Genel Önizleme Sürümünü 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) yükleyin. 
+1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanıcı yönetici hesabıyla.
+1. Seçin **grupları**, ardından **adlandırma ilkesinin** adlandırma ilkesi sayfasını açın.
 
-1. Windows PowerShell uygulamasını yönetici olarak açın.
-2. Eski AzureADPreview sürümlerini kaldırın.
-  
+    ![Yönetim merkezinde adlandırma ilkesi sayfasını açın](./media/groups-naming-policy/policy-preview.png)
 
-   ```powershell
-   Uninstall-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Görüntülemek veya önek sonek adlandırma ilkesini Düzenle
 
-3. En son AzureADPreview sürümünü yükleyin.
-  
+1. Üzerinde **adlandırma ilkesinin** sayfasında **Grup adlandırma ilkesi**.
+1. Görüntüleyebilir veya geçerli bir önek veya sonek ilkeleri tek tek öznitelikler veya adlandırma ilkesinin bir parçası uygulamak istediğiniz dizeleri seçerek adlandırma düzenleyin.
+1. Bir önek veya sonek listeden kaldırmak için önek veya sonek seçin ve sonra seçin **Sil**. Aynı anda birden çok öğe silinebilir.
+1. Seçin **Kaydet** değişikliklerinizi yürürlüğe ilkesi için.
 
-   ```powershell
-   Install-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-custom-blocked-words"></a>Görüntüleyin ya da özel engellenen sözcük düzenleyin
 
-   Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna basın. Yeni modülün yüklenmesi birkaç dakika sürebilir.
+1. Üzerinde **adlandırma ilkesinin** sayfasında **engellenen sözcük**.
 
-## <a name="set-up-naming-policy"></a>Adlandırma ilkesini ayarlama
+    ![Düzenle ve adlandırma ilkesi için engellenen sözcük listesi karşıya yükleyin](./media/groups-naming-policy/blockedwords-preview.png)
 
-### <a name="step-1-sign-in-using-powershell-cmdlets"></a>1. Adım: PowerShell cmdlet'lerini kullanarak oturum açın
+1. Görüntülemek veya seçerek özel engellenen sözcük geçerli listesini düzenleyin **indirme**.
+1. Yeni özel engellenen sözcüklerin listesi dosyası simgesini seçerek karşıya yükleyin.
+1. Seçin **Kaydet** değişikliklerinizi yürürlüğe ilkesi için.
 
-1. Windows PowerShell uygulamasını açın. Yükseltilmiş ayrıcalık gerekmez.
-
-2. Ortamı cmdlet'leri çalıştırmaya hazır hale getirmek için aşağıdaki komutları çalıştırın.
-  
-
-   ```powershell
-   Import-Module AzureADPreview
-   Connect-AzureAD
-   ```
-
-   Açılan **Hesabınızda oturum açın** ekranında hizmetinizle bağlantı kurmak için yönetici hesabınızın adını ve parolasını girin **Oturum aç**'ı seçin.
-
-3. Bu kiracının grup ayarlarını oluşturmak için [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](groups-settings-cmdlets.md) adımlarını izleyin.
-
-### <a name="step-2-view-the-current-settings"></a>2. Adım: Geçerli ayarları görüntüleyebilir
-
-1. Geçerli adlandırma ilkesi ayarlarını görüntüleyin.
-  
-
-   ```powershell
-   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id
-   ```
-
-  
-2. Geçerli grup ayarlarını görüntüleyin.
-  
-
-   ```powershell
-   $Setting.Values
-   ```
-
-  
-
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3. Adım: Adlandırma ilkesini ve herhangi bir özel engellenen sözcük ayarlayın
-
-1. Azure AD PowerShell'de grup adı ön ve son eklerini ayarlayın. Düzgün bir şekilde çalışması için özelliği için [GroupName] ayarı eklenmesi gerekir.
-  
-
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-   ```
-
-  
-2. Sınırlamak istediğiniz özel engellenen sözcükleri belirleyin. Aşağıdaki örnekte kendi özel sözcüklerinizi ekleme adımları gösterilmektedir.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-   ```
-
-  
-3. Yeni ilkenin etkili olması için aşağıdaki örnekte gösterilen şekilde ayarları kaydedin.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
-
-  
 İşte bu kadar. Adlandırma ilkenizi ayarladınız ve özel engellenen sözcüklerinizi eklediniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-1. Grup adı önek ve sonek Azure AD PowerShell'de boş.
-  
+### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Azure portalını (Önizleme) kullanarak bir adlandırma ilkesini Kaldır
 
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =""
-   ```
-
-  
-2. Özel engellenen sözcük boş.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=""
-   ```
-
-  
-3. Ayarları kaydedin.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
+1. Üzerinde **adlandırma ilkesinin** sayfasında **silme ilkesi**.
+1. Silme işlemini onayladıktan sonra adlandırma ilkesi, tüm ön eki soneki dahil olmak üzere kaldırılır adlandırma ilkesi ve özel engellenen sözcük.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure AD kiracınız için adlandırma ilkesini ayarlama amacıyla PowerShell cmdlet'lerini kullanmayı öğrendiniz.
+Bu hızlı başlangıçta, Azure portalından Azure AD kuruluşunuz için adlandırma ilkesi ayarlama öğrendiniz.
 
-Teknik kısıtlamalar, özel engellenen sözcük listesi ekleme veya Office 365 uygulamalarındaki son kullanıcı deneyimleri hakkında daha fazla bilgi için adlandırma ilkesiyle ilgili ayrıntılı bilgilerin verildiği bir sonraki makaleye geçin.
+Adlandırma ilkesi için PowerShell cmdlet'leri listesini özel engellenen sözcükler ve son kullanıcı deneyimi Office 365 uygulamalarını ekleme, teknik kısıtlamalar dahil olmak üzere daha fazla bilgi için sonraki makaleye ilerleyin.
 > [!div class="nextstepaction"]
-> [Adlandırma ilkesiyle ilgili tüm ayrıntılar](groups-naming-policy.md)
+> [Adlandırma ilkesinin PowerShell](groups-naming-policy.md)

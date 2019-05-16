@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874674"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758845"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>Blueprint örnekten bir ortam oluşturun
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Öğretici: Blueprint örnekten bir ortam oluşturun
 
 Örnek şemaları ne yapılabilir örnekleri sağlayan Azure şemaları kullanma. Her bir örnek ile belirli bir amaç veya amaçlı ancak eksiksiz bir ortam başlarına oluşturmaz. Her Azure şemaları çeşitli birleşimlerini dahil yapıtlar, tasarım ve parametreleri kullanarak keşfetmek için başlangıç noktası olarak yöneliktir.
 
@@ -82,7 +82,7 @@ Blueprint kopyasını başarıyla silindikten sonra **yayımlanan**, yönetim gr
 
 1. Blueprint ataması için parametre değerlerini sağlayın:
 
-   - Temel Bilgiler
+   - Temel
 
      - **Abonelikler**: Bir veya daha fazla yönetim grubuna olduğunuz abonelikleri için şema örnek kopyanızın kaydedilen seçin. Birden fazla aboneliğiniz seçerseniz, bir atama için her girdiğiniz parametreleri kullanarak oluşturulur.
      - **Ödev adı**: Şema tanımını adını temel alarak, önceden doldurulmuş adıdır.
@@ -109,7 +109,7 @@ Blueprint kopyasını başarıyla silindikten sonra **yayımlanan**, yönetim gr
      |Katılımcı|Rol ataması|Kullanıcı veya Grup|{ID}|Hangi kullanıcı veya grup vermek tanımlar _katkıda bulunan_ ilk kaynak grubu içinde rol ataması.|
      |PreProdRG kaynak grubu|Kaynak grubu|Ad|PreProductionRG|İkinci kaynak grubunun adını tanımlar.|
      |PreProdRG kaynak grubu|Kaynak grubu|Location|Batı ABD|İkinci kaynak grubunun konumunu ayarlar.|
-     |Sahip|Rol ataması|Kullanıcı veya Grup|{ID}|Hangi kullanıcı veya grup vermek tanımlar _sahibi_ ikinci kaynak grubu içinde rol ataması.|
+     |Sahibi|Rol ataması|Kullanıcı veya Grup|{ID}|Hangi kullanıcı veya grup vermek tanımlar _sahibi_ ikinci kaynak grubu içinde rol ataması.|
      |Okuyucular|Rol ataması|Kullanıcı veya Grup|{ID}|Hangi kullanıcı veya grup vermek tanımlar _okuyucular_ ikinci kaynak grubu içinde rol ataması.|
 
 1. Tüm parametreler girildikten sonra seçin **atama** sayfanın alt kısmındaki.

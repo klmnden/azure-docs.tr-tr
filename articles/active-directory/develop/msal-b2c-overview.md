@@ -4,7 +4,7 @@ description: Microsoft Authentication Library (MSAL), Azure AD B2C ile tümleşt
 services: active-directory
 documentationcenter: dev-center-name
 author: negoe
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87bd8834f840c2246bf3adc1d1f9cd9b8f635915
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6af78a593fb8fadb836d2dc4c02115d95a7f2712
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191012"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546029"
 ---
 # <a name="integrate-microsoft-authentication-library-msal-with-azure-active-directory-b2c"></a>Microsoft kimlik doğrulama kitaplığı (MSAL) Azure Active Directory B2C ile tümleştirin
 
@@ -41,7 +41,7 @@ Henüz kendi oluşturmadıysanız [Azure AD B2C Kiracısı](https://docs.microso
 
 Aşağıdaki adımları nasıl bir tek sayfalı uygulama Azure AD B2C kullanıcı kaydolma, oturum açma ve kullanabileceğiniz korumalı web API'si çağırma gösterilmektedir.
 
-### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
+### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydedin
 
 Kimlik doğrulaması uygulamak için öncelikle uygulamanızı kaydetmeniz gerekir. Uygulamanızı kaydetmek için izleyin [uygulamanızı kaydetmeniz](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c) ayrıntılı adımlar için.
 
@@ -113,7 +113,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdakiler hakkında daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 - [Özel ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Kullanıcı arabirimi özelleştirme](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-overview)

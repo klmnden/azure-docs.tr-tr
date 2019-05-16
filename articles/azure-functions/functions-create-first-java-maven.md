@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 287cab034079c54c027e0dc7b84564458d31fc31
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d9f1cbff0dd79d6c2932428708eb1d097b6d9d63
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696151"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601494"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java ve Maven ile ilk işlevinizi oluşturma
 
@@ -29,7 +29,7 @@ Bu makalede, derleme ve Azure işlevleri için Java işlevi yayımlamak için Ma
 
 Java kullanarak işlevleri geliştirmek için aşağıdakilerin yüklü olması gerekir:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), sürüm 8
+- [Java Developer Kit](https://aka.ms/azure-jdks), sürüm 8
 - [Apache Maven](https://maven.apache.org), sürüm 3.0 veya üzeri
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 - [Azure işlevleri temel araçları](./functions-run-local.md#v2) 2.6.666 sürümü veya üzeri
@@ -202,7 +202,7 @@ return request.createResponse(200, "Hello, " + name);
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Önceki gibi terminalden `azure-functions:deploy` komutunu çalıştırarak değişiklikleri kaydedin ve yeniden dağıtın. İşlev uygulaması güncelleştirilir ve bu isteğin:
+Değişiklikleri kaydedin. Temiz çalışma mvn paket ve çalıştırarak yeniden dağıtma `azure-functions:deploy` terminalden önceki gibi. İşlev uygulaması güncelleştirilir ve bu isteğin:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

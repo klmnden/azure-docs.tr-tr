@@ -11,8 +11,7 @@
 - name: Hızlı Başlangıçlar
   items:
     - name: Apache Hive sorguları yürütme - Apache Zeppelin
-      href: ../hdinsight-connect-hive-zeppelin.md
-      maintainContext: true
+      href: ./hdinsight-connect-hive-zeppelin.md
 - name: başlarken
   items:
     - name: Interactive Query’yi kullanmaya başlama

@@ -4,7 +4,7 @@ description: Microsoft Authentication Library (MSAL), uygulama geliştiricilerin
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2198a5efe276ce872487cde7b2ddb5cb00c58c50
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bf7aaa0de87ffa8280a6db34c5497779a5ded41c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080901"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545861"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Microsoft kimlik doğrulama kitaplığı (MSAL) genel bakış
 Microsoft Authentication Library (MSAL), geliştiricilerin almaya sağlar [belirteçleri](developer-glossary.md#security-token) Microsoft kimlik platformu endpoint erişmek için Web API'leri güvenli. Bu Web API'leri, Microsoft Graph, diğer Microsoft APIS, üçüncü taraf Web API'leri veya kendi Web API'nizi olabilir. MSAL, .NET, JavaScript, Android ve iOS, birçok farklı uygulama mimarileri ve platformları destekler için kullanılabilir.

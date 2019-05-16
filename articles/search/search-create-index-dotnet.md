@@ -9,19 +9,20 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/08/2019
-ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 05/16/2019
+ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516569"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758451"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Hızlı Başlangıç: 1 - Azure Search dizini oluşturmaC#
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Python](search-get-started-python.md)
 > * [Postman](search-fiddler.md)
 >*
 
@@ -36,11 +37,11 @@ Bu makalede oluşturma işleminde size kılavuzluk eder [Azure Search dizini](se
 
 Bu hızlı başlangıçta, aşağıdaki hizmetleri, araçları ve verileri kullanılır. 
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz.
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), herhangi bir sürümü. Örnek kodu ve yönergeleri ücretsiz Community edition üzerinde test edilmiştir.
++ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), herhangi bir sürümü. Örnek kodu ve yönergeleri ücretsiz Community edition üzerinde test edilmiştir.
 
-[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) örnek çözüm, yazılan bir .NET Core konsol uygulaması sağlar C#, Azure örnekleri GitHub deposunda bulunur. İndirin ve çözüm ayıklayın. Varsayılan olarak, çözümleri salt okunurdur. Çözüme sağ tıklayın ve dosyalarda değişiklik yapabilir, böylece salt okunur özniteliğini kaldırın. Verilerin çözümde dahil edilir.
++ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) örnek çözüm, yazılan bir .NET Core konsol uygulaması sağlar C#, Azure örnekleri GitHub deposunda bulunur. İndirin ve çözüm ayıklayın. Varsayılan olarak, çözümleri salt okunurdur. Çözüme sağ tıklayın ve dosyalarda değişiklik yapabilir, böylece salt okunur özniteliğini kaldırın. Verilerin çözümde dahil edilir.
 
 ## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 

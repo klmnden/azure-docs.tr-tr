@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 093f749ac29dc2bd341712d87b404de769d0b7bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61427216"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752215"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob depolamaya giriş
 
@@ -65,7 +65,7 @@ BLOB'ları farklı türleri hakkında daha fazla bilgi için bkz. [anlama blok B
 Blob depolama alanına geçirme var olan veriler için birkaç çözüm mevcuttur:
 
 - **AzCopy** Windows ve Linux kapsayıcılar arasında veya depolama hesaplarınız arasında verileri ve Blob depolama alanından kopyalar kullanımı kolay bir komut satırı aracı içindir. AzCopy hakkında daha fazla bilgi için bkz: [AzCopy v10 ile veri aktarma (Önizleme)](../common/storage-use-azcopy-v10.md). 
-- **Azure depolama veri taşıma Kitaplığı** Azure depolama hizmetleri arasında verileri taşımak için bir .NET kitaplığı. AzCopy yardımcı programı ile veri taşıma kitaplığı yerleşik olarak bulunur. Daha fazla bilgi için [başvuru belgeleri](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement) veri taşıma kitaplığı. 
+- **Azure depolama veri taşıma Kitaplığı** Azure depolama hizmetleri arasında verileri taşımak için bir .NET kitaplığı. AzCopy yardımcı programı ile veri taşıma kitaplığı yerleşik olarak bulunur. Daha fazla bilgi için [başvuru belgeleri](/dotnet/api/microsoft.azure.storage.datamovement) veri taşıma kitaplığı. 
 - **Azure Data Factory** paylaşılan erişim imzası hesap anahtarını kullanarak verileri ve Blob depolama alanından kopyalama destekler hizmet sorumlusu veya yönetilen kimliklerini Azure kaynaklarında kimlik doğrulama için. Daha fazla bilgi için [veri kopyalama ya da Azure Blob depolamadan Azure Data Factory kullanarak](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** bir Azure Blob Depolama için sanal dosya sistemi sürücüsüdür. Blobfuse mevcut blok blobu verileriniz depolama hesabınızda Linux dosya sistemi üzerinden erişmek için kullanabilirsiniz. Daha fazla bilgi için [bağlama Blob depolamaya bir dosya sistemi ile blobfuse olarak nasıl](storage-how-to-mount-container-linux.md).
 - **Azure Data Box Disk** aktarma verileri Blob Depolama için büyük veri kümeleri veya ağ kısıtlamaları veri yüklemeyi kablo üzerinden kullanışsız değişiklik yaptığınızda şirket için bir hizmettir. Microsoft’tan katı hal sürücüleri (SSD’ler) istemek için [Azure Data Box Disk](../../databox/data-box-disk-overview.md)’i kullanabilirsiniz. Daha sonra verilerinizi bu disklere kopyalayabilir ve Blob depolama alanında yüklenmelerini sağlamak için Microsoft’a geri gönderebilirsiniz.

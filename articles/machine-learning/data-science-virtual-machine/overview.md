@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/27/2017
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578445"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596569"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
 
@@ -45,6 +45,10 @@ Veri bilimi dersleri veren kurumsal eğitmenler genellikle öğrencilerinin tuta
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Büyük ölçekli projeler için isteğe bağlı esnek kapasite
 Veri bilimi yazılım yarışmaları/müsabakaları veya büyük ölçekli veri modelleme ve araştırmaları, genellikle kısa süreler için ölçeği genişletilmiş donanım kapasitesi gerektirir. Veri Bilimi Sanal Makinesi, yüksek güçlü bilgi işlem kaynakları gerektiren denemelerin yapılmasına izin veren ölçeği genişletilmiş sunucular üzerinde talep üzerine hızlıca veri bilimi ortamını çoğaltmaya yardımcı olabilir.
+
+### <a name="custom-compute-power-for-azure-notebooks"></a>Özel işlem gücü için Azure Not Defterleri
+
+[Azure not defterleri](/azure/notebooks/azure-notebooks-overview.md) geliştirin, çalıştırın ve bulutta Jupyter not defterleri ile yükleme paylaşmak için ücretsiz bir barındırılan hizmet. Ücretsiz bir hizmet katmanı, ancak veri 1 GB ile 4 GB bellek ile sınırlıdır. Tüm sınırları serbest bırakmak için ardından not defterlerini proje bir veri bilimi sanal makinesi veya Jupyter server çalıştıran başka bir VM ekleyebilirsiniz. Azure Active Directory (bir kurumsal hesap gibi) kullanarak bir hesapla Azure not defterleri ile oturum açarsanız, dizüstü bilgisayarlar otomatik olarak gösterir veri bilimi Vm'lerini ilgili hesapla ilişkili tüm Aboneliklerdeki. Daha fazla bilgi için [yönetme ve projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Kısa süreli deneme ve değerlendirme
 Veri Bilimi Sanal Makinesi; Microsoft ML Server, SQL Server, Visual Studio araçları, Jupyter, derin öğrenme / ML araç setleri gibi araçları ve toplulukta popüler olan yeni araçları çok az kurulum çabasıyla değerlendirmek veya öğrenmek için kullanılabilir. Veri Bilimi Sanal Makinesi hızlıca kurulabildiğinden, yayımlanmış denemeleri çoğaltma, tanıtımları uygulama, çevrimiçi oturumlarda ve konferans öğreticilerinde kılavuzları takip etme gibi diğer kısa süreli kullanım senaryolarında uygulanabilir.

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65744741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Öğretici: SmartDraw ile Azure Active Directory Tümleştirme
 
@@ -126,7 +126,7 @@ Azure AD çoklu oturum açma ile SmartDraw yapılandırmak için aşağıdaki ad
     | ---------------| --------------- |
     | FirstName | User.givenName |
     | LastName | User.surname |
-    | Email | User.Mail |
+    | E-posta | User.Mail |
     | Gruplar | User.groups |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: a957ac3536bff06f990e60da90df7235b6917dfe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33a90f876f5ce35b52bb2d5625fa9d91a0a33dee
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730561"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522987"
 ---
-# <a name="what-is-azure-netapp-files"></a>Azure NetApp dosyaları nedir
-Azure NetApp Files hizmeti kurumsal sınıf, yüksek performanslı, tarifeli bir depolama hizmetidir. Azure NetApp Files tüm iş yükü türlerini destekler ve varsayılan olarak yüksek kullanılabilirliğe sahiptir. Garantili hizmet ve performans düzeylerini seçebilir ve hizmet aracılığıyla anlık görüntüler ayarlayabilirsiniz. 
+# <a name="what-is-azure-netapp-files"></a>Azure NetApp Files nedir?
+
+Azure NetApp Files hizmeti kurumsal sınıf, yüksek performanslı, tarifeli bir depolama hizmetidir. Azure NetApp Files tüm iş yükü türlerini destekler ve varsayılan olarak yüksek kullanılabilirliğe sahiptir. Hizmet ve performans düzeylerini seçin ve anlık görüntüleri hizmeti aracılığıyla ayarlayın. 
+
+## <a name="learn-how-to-use-azure-netapp-files"></a>Azure NetApp dosyaları kullanmayı öğrenin
 
 Azure NetApp Files belgelerinde, Azure NetApp Files kullanarak birim oluşturma ve yönetme yönergeleri sağlanır. 
 
 > [!IMPORTANT] 
-> Bu belgelerde açıklanan tüm görevler için, Genel Önizleme programına katılmanız ve Microsoft.NetApp Azure Kaynak Sağlayıcısı'na erişim için beyaz listede yer almanız gerekir. Genel Önizleme programına katılma isteğinde bulunmak için bkz. [Azure NetApp Files için kaydolma](azure-netapp-files-register.md). 
+> Bu belgede açıklanan tüm görevleri, Azure NetApp dosyaları hizmetine erişim verilmiş gerekir. Hizmet erişim istemek için bkz: [hizmete erişim için waitlist talebinizi](azure-netapp-files-register.md#waitlist).
 
-**Sonraki adımlar** 
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [NetApp dosyaları Azure depolama hiyerarşisini anlama](azure-netapp-files-understand-storage-hierarchy.md) 
 * [Hızlı Başlangıç: Azure NetApp dosyalarını ve bir NFS birimini oluşturma](azure-netapp-files-quickstart-set-up-account-create-volumes.md)

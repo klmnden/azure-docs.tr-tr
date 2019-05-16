@@ -3,8 +3,8 @@ title: Microsoft kimlik platformu - Azure evrimi
 description: Microsoft kimlik platformu, bir Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformu evrimi hakkında bilgi edinin.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,18 +13,18 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b912b6f3fe42c724468347f9b3a7f0b4efa054
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 03a4702ac0f70e3fc280501cd9524ccbfb528678
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067966"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546259"
 ---
-# <a name="evolution-of-microsoft-identity-platform"></a>Microsoft kimlik platformu evrimi
+# <a name="evolution-of-microsoft-identity-platform"></a>Microsoft Identity Platform'un gelişimi
 
 Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Kullanıcılar oturum, gibi Microsoft Graph API'leri veya geliştiricilerin geliştirdim API'leri çağırmak için belirteçleri almak uygulamalar oluşturmalarını sağlar. Bir kimlik doğrulama hizmeti, açık kaynak kitaplıkları, uygulama kaydı ve yapılandırması (aracılığıyla bir geliştirici portal ve API uygulaması) oluşan tam bir geliştirici belgeleri, hızlı başlangıç örnekleri, kod örnekleri, öğreticiler, nasıl yapılır kılavuzları, ve diğer Geliştirici içeriği. Microsoft Identity Platform OAuth 2.0 ve OpenID Connect gibi sektör standardı protokolleri destekler.
 

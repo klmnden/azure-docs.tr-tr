@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61385956"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522083"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Nasıl yapılır Azure İzleyici ile grafik performansı için Vm'leri (Önizleme)
 VM'ler için Azure İzleyici, birkaç ana performans göstergelerini (KPI'lar) bir sanal makineye ne kadar iyi belirlemenize yardımcı olmak için şu gerçekleştiriyor hedefleyen bir dizi performans grafiklerini içerir. Performans sorunlarını, anormallikleri belirlemek ya da seçili ölçüme göre kaynak kullanımını görüntülemek için her bir makine listeleyen bir perspektif geçiş grafikleri bir süre boyunca kaynak kullanımını gösterir. Performans ile işlem yapılırken dikkate alınması gereken çok sayıda öğe olsa da, Azure İzleyici Vm'leri izleyiciler anahtar işletim sistemi performans göstergeleri için işlemci, bellek, ağ bağdaştırıcısı ve disk kullanımı için ilgili. Performans sistem durumu izleme özelliğini tamamlar ve bir olası sistem bileşeni hatası, destek ayarlama ve iyileştirme verimlilik elde etmek için gösteren sorunları ortaya veya kapasite planlamasını desteklemek yardımcı olur.  
@@ -105,6 +105,21 @@ Aşağıdaki kapasite kullanımı grafikleri sağlanır:
 Raptiye simgesini sağ üst köşede grafikleri PIN'ler herhangi birinin en son Azure panosuna seçili grafiğe tıklayarak görüntülediğiniz. Panodan, yeniden boyutlandırabilir ve grafiği yeniden konumlandırın. Grafik panodan seçme VM'ler için Azure İzleyici yeniden yönlendirir ve sanal makine için ayrıntılı performans görünümü yükler.  
 
 ![VM'den VM ınsights performans doğrudan görüntüleyin](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="view-performance-directly-from-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesi doğrudan performans görünümü
+Bir Azure sanal makine ölçek kümesine doğrudan erişmek için aşağıdaki adımları gerçekleştirin.
+
+1. Azure portalında **sanal makine ölçek kümeleri**.
+2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)** görüntülemek için **performans** sekmesi.
+
+Bu sayfa seçilen ölçek kümesine kapsamlı Azure İzleyici performans görünümü yükler. Bu, izlenen ölçüm kümesi arasında ölçek kümesindeki üst N örnekleri görmek için toplam performans, Ölçek kümesi arasında görüntülemek ve eğilimleri seçilen ölçümler için ayrı ayrı örnekleri n arasında bkz ölçeği sağlar ayarlayın. Bir örnek liste görünümünde seçerek onun haritayı yükleyin ya da bu örneği için ayrıntılı performans görünümü gidin olanak tanır.
+
+Raptiye simgesini sağ üst köşede grafikleri PIN'ler herhangi birinin en son Azure panosuna seçili grafiğe tıklayarak görüntülediğiniz. Panodan, yeniden boyutlandırabilir ve grafiği yeniden konumlandırın. Grafik panodan seçme VM'ler için Azure İzleyici yeniden yönlendirir ve sanal makine için ayrıntılı performans görünümü yükler.  
+
+![Sanal makine ölçek doğrudan VM ınsights performans görünümü ayarlama](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>Belirli bir örneği için ayrıntılı performans görünümü örneği görünümden ölçek kümeniz için de erişebilirsiniz. Gidin **örnekleri** altında **ayarları** bölümüne ve ardından **Insights (Önizleme)**.
 
 ## <a name="alerts"></a>Uyarılar  
 Önceden yapılandırılmış uyarı kuralları performans ölçümleri özellikli VM'ler için Azure İzleyici bir parçası olarak dahil değildir. Vardır [sistem durumu uyarılarını](vminsights-health.md#alerts) düşük bellek kullanılabilir, düşük disk alanı, yüksek CPU kullanımı gibi performans sorunlarını Azure sanal makinenizde tespit karşılık gelen, vs.  Ancak, bu sistem durumu uyarıları yalnızca VM'ler için Azure İzleyici için etkinleştirilmiş tüm vm'lere uygulanır. 

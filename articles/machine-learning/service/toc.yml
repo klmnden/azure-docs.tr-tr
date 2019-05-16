@@ -61,19 +61,19 @@
     - name: Görsel arabirim denemeleri
       items:
         - name: Fiyat tahmini
-          displayName: 'Sample 1, training, regression'
+          displayName: 'Basic Sample, training, regression, sample 1'
           href: ui-sample-regression-predict-automobile-price-basic.md
         - name: Fiyat tahmini (gelişmiş)
-          displayName: 'Sample 2, training, regression'
+          displayName: 'Advanced Sample, training, regression, sample 2'
           href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
         - name: Kredi riski tahmini
-          displayName: 'Sample 3, training, classification'
+          displayName: 'Basic Sample, training, classification, sample 3'
           href: ui-sample-classification-predict-credit-risk-basic.md
         - name: Kredi riski tahmini (gelişmiş)
-          displayName: 'Sample 4, training, classification'
+          displayName: 'Advanced Sample, training, classification, sample 4'
           href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
         - name: Değişim sıklığı tahmini
-          displayName: 'Sample 5, training, CRM, classification'
+          displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
 - name: Kavramlar
   items:

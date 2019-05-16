@@ -11,21 +11,21 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115783"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522169"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Azure İzleyicisi'ni (Önizleme) Map uygulama bileşenleri anlamak için VM'ler için kullanma
 Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 
 
-Bu makalede, iki perspektiften arasındaki eşleme özelliğini kullanma deneyimi anlamanıza yardımcı olur. VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-onboard.md).
+Bu makalede, iki perspektiften arasındaki eşleme özelliğini kullanma deneyimi anlamanıza yardımcı olur. VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-enable-overview.md).
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="introduction-to-map-experience"></a>Harita deneyimi giriş
@@ -97,6 +97,21 @@ Harita işlem gruplarının ve işlemler belirtilen zaman aralığı üzerinde e
 
 ![Doğrudan VM eşlemesi genel bakış](./media/vminsights-maps/map-direct-vm-01.png)
 
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Haritayı görüntüleme doğrudan bir sanal makine ölçek kümesinden ayarlayın
+
+Azure İzleyici VM'ler için doğrudan bir sanal makine ölçek kümesinden erişmek için aşağıdakileri gerçekleştirin.
+
+1. Azure portalında **sanal makine ölçek kümeleri**.
+2. Listeden VM'yi seçin ve **izleme** bölümü seçin **Insights (Önizleme)**.  
+3. Seçin **harita** sekmesi.
+
+Harita Grup bağımlılıklarını yanı sıra bir grup düğümü olarak ölçek tüm görselleştirir. Genişletilmiş düğüm örnekleri aynı anda on aracılığıyla kaydırma ölçek kümesindeki listeler. Belirli bir örneği için bir harita yüklemek için harita üzerinde örnek ve bu üç noktaya tıklayın doğru seçip seçin **sunucu haritasını Yükle**. Bu işlem gruplarının ve etkin ağ bağlantılarıyla işlemler belirtilen zaman aralığı üzerinde görmenize olanak sağlayan, bu örnek için harita yükler. Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Kullanarak **TimeRange** Seçici için geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat sorgulayabilir.  
+
+![Doğrudan VM eşlemesi genel bakış](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>Belirli bir örneği için bir harita örneği görünümden, sanal makine ölçek kümesi için de erişebilirsiniz. Gidin **örnekleri** altında **ayarları** bölümüne ve ardından **Insights (Önizleme)**.
+
 ## <a name="view-map-from-azure-monitor"></a>Azure İzleyicisi'nden haritayı görüntüleme
 Azure İzleyici'den eşleme özelliğini sanal makinelerinizi ve bunların bağımlılıklarını genel bir görünümünü sağlar.  Azure İzleyici'den harita özelliğe erişmek için aşağıdakileri gerçekleştirin. 
 
@@ -106,7 +121,7 @@ Azure İzleyici'den eşleme özelliğini sanal makinelerinizi ve bunların bağ�
 
 ![Azure İzleyici çok VM'li eşlemesi genel bakış](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Gelen **çalışma** sayfanın üst kısmındaki seçiciyi birden fazla Log Analytics çalışma alanı varsa Çözümle etkin olduğundan ve kendisine rapor veren sanal makinelerin bulunduğu çalışma alanını seçin. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../../azure-monitor/platform/computer-groups.md)ve VM ölçek kümeleri seçilen çalışma alanına ilgili bilgisayar. Seçiminiz yalnızca eşleme özelliğini uygular ve performans ya da harita taşımaz.
+Gelen **çalışma** sayfanın üst kısmındaki seçiciyi birden fazla Log Analytics çalışma alanı varsa Çözümle etkin olduğundan ve kendisine rapor veren sanal makinelerin bulunduğu çalışma alanını seçin. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../../azure-monitor/platform/computer-groups.md)ve sanal makine ölçek kümeleri seçilen çalışma alanına ilgili bilgisayar. Seçiminiz yalnızca eşleme özelliğini uygular ve performans ya da harita taşımaz.
 
 Varsayılan olarak, son 30 dakika eşlemeyi gösterir. Kullanarak **TimeRange** Seçici, geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat için sorgulayabilir.   
 

@@ -2,23 +2,24 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/22/2019
 ms.author: sngun
-ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572844"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546775"
 ---
-Hesabınızdaki kaynakların aktarım hızı, depolaması, kullanılabilirliği, gecikme süresi ve tutarlılığı Azure portalda izlenir. Bu ölçümlere hızlıca bir göz atalım. 
+Azure portalı, Cosmos DB hesabı aktarım hızını, depolama, kullanılabilirlik, gecikme süresi ve tutarlılık izler. Grafikler ile ilgili ölçümler için bir [Azure Cosmos DB hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) gerçek performans karşılaştırıldığında SLA değeri gösterir. Bu paketi ölçümleri saydam, SLA izleme sağlar.
 
-1. Gezinti menüsünde **Ölçümler**’e tıklayın.
+Ölçümler ve SLA'ları gözden geçirmek için: 
 
-   ![Azure portalında ölçümler](./media/cosmos-db-tutorial-review-slas/metrics.png)
-
-2. Azure Cosmos DB’nin sağladığı ölçümlerin farkında olmanız için sekmelerin her birine tıklayın. 
-
-    [Azure Cosmos DB Hizmet Düzeyi Sözleşmeleri (SLA'lar)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) ile ilişkili her grafik, SLA’lardan birinin ihlal edilip edilmediğini gösteren bir satır sağlar. Azure Cosmos DB, bu ölçüm paketi ile SLA’larınızı izlemeyi şeffaf hale getirir. 
-
+1. Seçin **ölçümleri** Cosmos DB hesabınızın Gezinti menüsünde.
+   
+2. Bir sekme gibi seçin **gecikme**, sağ taraftaki bir zaman çerçevesi'ni seçin. Karşılaştırma **gerçek** ve **SLA** grafikleri satırlarda.
+   
    ![Azure Cosmos DB ölçüm paketi](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   
+3. Diğer sekmelerdeki ölçümleri gözden geçirin. 
+

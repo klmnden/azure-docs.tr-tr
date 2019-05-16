@@ -8,31 +8,31 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 57407606214d8d3a305476cfbfdabca9eee937e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28d003e123069c47d87d81570b4a5b69b3b9d64b
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690323"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560692"
 ---
-1. Yeni bir Azure SignalR Service kaynağı oluşturmak için ilk olarak [Azure portal](https://portal.azure.com) oturumu açın. Sayfanın sol üst kısmında **+ Kaynak oluştur**'a tıklayın. **Market içinde ara** metin kutusuna **SignalR Service** yazın ve **Enter**'a basın.
+1. Azure SignalR hizmeti kaynak oluşturmak için ilk kez oturum için [Azure portalında](https://portal.azure.com). Sayfanın sol tarafındaki seçin **+ kaynak Oluştur**. İçinde **markette Ara** metin kutusuna **SignalR hizmeti**.
 
-2. Sonuçlarda **SignalR Service**'e ve **Oluştur**'a tıklayın.
+2. Seçin **SignalR hizmeti** seçin ve sonuçları **Oluştur**.
 
-3. Yeni açılan **SignalR** ayarları sayfasında yeni SignalR kaynağınız için aşağıdaki ayarları girin:
+3. Yeni **SignalR** Ayarları sayfasında, yeni SignalR kaynağınız için aşağıdaki ayarları ekleyin:
 
     | Ad | Önerilen değer | Açıklama |
     | ---- | ----------------- | ----------- |
-    | Kaynak Adı | *testsignalr* | SignalR kaynağı için kullanılacak benzersiz kaynak adını girin. Ad 1 - 63 karakter arasında bir dize olmalı ve yalnızca rakam, harf ve `-` karakterini içermelidir. Ad `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmaz.|
-    | Abonelik | Aboneliğinizi seçin |  SignalR testi için kullanmak istediğiniz Azure aboneliğini seçin. Hesabınızda yalnızca bir abonelik varsa bu otomatik olarak seçilir ve **Abonelik** açılan penceresi görüntülenmez.|
-    | Kaynak grubu | *SignalRTestResources* adlı yeni bir kaynak grubu oluşturun| SignalR kaynağınız için bir kaynak grubu seçin veya oluşturun. Bu grup, kaynak grubunu silerek aynı anda silmek isteyebileceğiniz birden fazla kaynağı düzenlemek için kullanışlıdır. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-overview.md). |
+    | Kaynak adı | *testsignalr* | SignalR kaynağı için kullanılacak benzersiz kaynak adını girin. Adı 1 ila 63 karakter dizesi olması ve yalnızca sayı, harf ve kısa çizgi içermelidir (`-`) karakter. Adı başlayamaz veya kısa çizgi karakteri ile bitemez ve art arda tire karakterler geçerli değildir.|
+    | Abonelik | Aboneliğinizi seçin |  SignalR testi için kullanmak istediğiniz Azure aboneliğini seçin. Hesabınızda yalnızca bir aboneliğiniz varsa, otomatik olarak seçilir ve **abonelik** açılan görüntülenmiyorsa.|
+    | Kaynak grubu | Adlı bir kaynak grubu oluşturma *SignalRTestResources*| SignalR kaynağınız için bir kaynak grubu seçin veya oluşturun. Bu grup, kaynak grubunu silerek aynı anda silmek isteyebilirsiniz birden fazla kaynak düzenlemek için kullanışlıdır. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-overview.md). |
     | Location | *Doğu ABD* | SignalR kaynağınızın barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. En iyi performans için kaynağınızı uygulamanızın diğer bileşenleriyle aynı bölgede oluşturmanızı öneririz. |
-    | Fiyatlandırma katmanı | *Ücretsiz* | Şu anda **Ücretsiz** ve **Standart** seçenekleri mevcuttur. |
-    | Panoya sabitle | ✔ | Kaynağın daha kolay bulunması amacıyla panonuza sabitlenmesi için bu kutuyu işaretleyin. |
+    | Fiyatlandırma katmanı | *Ücretsiz* | Şu anda **ücretsiz** ve **standart** seçenekleri kullanılabilir. |
+    | Panoya sabitle | ✔ | Daha kolay bulmak için bu nedenle, panoya sabitlenmiş kaynak için bu kutuyu seçin. |
 
-4. **Oluştur**’a tıklayın. Dağıtımın tamamlanması birkaç dakika sürebilir.
+4. **Oluştur**’u seçin. Dağıtımın tamamlanması birkaç dakika sürebilir.
 
-5. Dağıtım tamamlandıktan sonra **AYARLAR** bölümünde **Anahtarlar**'a tıklayın. Birincil anahtar bağlantı dizenizi kopyalayın. Bunu daha sonra uygulamanızı Azure SignalR Service kaynağını kullanacak şekilde yapılandırmak için kullanacaksınız.
+5. Dağıtım tamamlandıktan sonra seçin **anahtarları** altında **ayarları**. Birincil anahtar bağlantı dizesini kopyalayın. Azure SignalR hizmeti kaynağı kullanacak şekilde yapılandırmak için bu dize daha sonra kullanacaksınız.
 
     Bağlantı dizesi aşağıdaki şekildedir:
     

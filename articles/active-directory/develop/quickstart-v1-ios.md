@@ -3,8 +3,8 @@ title: Oturum açma için Azure AD ile tümleştirilen ve OAuth 2.0 kullanarak k
 description: iOS uygulamanızdan kullanıcıların oturumunu açmayı ve Microsoft Graph API'sini çağırmayı öğrenin.
 services: active-directory
 documentationcenter: ios
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01a0f30063b5d98d23bb25fdc7f610158b92cd78
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299048"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545617"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir iOS uygulamasından Microsoft Graph API çağırma
 
@@ -83,7 +83,7 @@ Uygulamanızı belirteçleri alacak şekilde ayarlamak için, uygulamayı Azure 
 6. Kaydı tamamladıktan sonra, Azure AD uygulamanıza benzersiz bir uygulama kimliği atar. Bu değeri sonraki bölümlerde kullanacağınız için, uygulama sekmesinden kopyalayın.
 7. **Ayarlar** sayfasında **Gerekli izinler > Ekle > Microsoft Graph**'ı seçin ve **Temsilcili izinler**'in altına **Dizin verilerini okuma** iznini ekleyin. Bu izin, uygulamanızı Azure AD Graph API'sini kullanıcılar için sorgulayacak şekilde ayarlar.
 
-## <a name="step-3-install-and-configure-adal"></a>3. Adım: Yükleme ve ADAL'ı yapılandırma
+## <a name="step-3-install-and-configure-adal"></a>3. adım: Yükleme ve ADAL'ı yapılandırma
 
 Artık Azure AD'de bir uygulamanız olduğuna göre, ADAL'ı yükleyebilir ve kimlikle ilgili kodunuzu yazabilirsiniz. ADAL'ın Azure AD ile iletişim kurabilmesi için, ona uygulama kaydınız hakkında bazı bilgiler sağlamanız gerekir.
 

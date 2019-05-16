@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: 78aed4fceab83d942927486cd7ae46a32dd6ca09
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927560"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523556"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Site Recovery bileşenleri hakkında (yapılandırma, işlem, ana hedef)
 
@@ -28,7 +28,7 @@ Bu makalede yapılandırma, işlem ve ana hedef sunucuları VMware Vm'lerini ve 
 **Rol** | Yapılandırma sunucusu yerinde bileşenler ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir. | Mimarisi hakkında daha fazla bilgi [VMware](vmware-azure-architecture.md) ve [fiziksel sunucu](physical-azure-architecture.md) azure'a olağanüstü durum kurtarma.
 **VMware gereksinimlerini** | Şirket içi VMware vm'lerinin olağanüstü durum kurtarma için yükleme ve yapılandırma sunucusuna bir şirket içi, yüksek oranda kullanılabilir bir VMware sanal makinesi çalıştırın. | [Hakkında bilgi edinin](vmware-azure-deploy-configuration-server.md#prerequisites) önkoşulları.
 **VMware dağıtım** | İndirilen OVA şablon kullanarak yapılandırma sunucusu dağıtmanızı öneririz. Bu yöntem sağlayan bir yalnızca tüm gereksinimleri ve önkoşullar uyumlu bir yapılandırma sunucusu kurma olanağı.<br/><br/> OVA şablonu kullanarak bir VMware VM dağıtmak için herhangi bir nedenden dolayı yapılandırma sunucusu makineleri fiziksel makine olağanüstü durum kurtarma için aşağıda açıklandığı gibi el ile ayarlayabilirsiniz. | [Dağıtma](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) OVA şablonuyla.
-**Fiziksel sunucu gereksinimleri** | Şirket içi fiziksel sunucularda olağanüstü durum kurtarma için yapılandırma sunucusunu el ile dağıtın. | [Hakkında bilgi edinin](/physical-azure-set-up-source.md#prerequisites) önkoşulları.
+**Fiziksel sunucu gereksinimleri** | Şirket içi fiziksel sunucularda olağanüstü durum kurtarma için yapılandırma sunucusunu el ile dağıtın. | [Hakkında bilgi edinin](physical-azure-set-up-source.md#prerequisites) önkoşulları.
 **Fiziksel sunucu dağıtımı** | VMware VM olarak yüklenemez, bir fiziksel sunucuya yükleyebilirsiniz. | [Dağıtma](physical-azure-set-up-source.md#set-up-the-source-environment) yapılandırma sunucusunu el ile.
 
 
@@ -51,5 +51,5 @@ Ana hedef sunucu, Azure'dan yeniden çalışma sırasında çoğaltma verilerini
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Gözden geçirme [mimarisi](/vmware-azure-architecture.md) VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için.
+- Gözden geçirme [mimarisi](vmware-azure-architecture.md) VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için.
 - Gözden geçirme [gereksinimler ve Önkoşullar](vmware-physical-azure-support-matrix.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için. 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 12/04/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765858"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523995"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Yönetme ve Azure kaynakları için kota isteği
 
@@ -52,9 +52,9 @@ Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kot
 Azure Machine Learning işlemi için çekirdek sayısı ve bir abonelikte bölge başına izin verilen benzersiz işlem kaynaklarının sayısını varsayılan bir kota sınırı yoktur. Bu kota yukarıdaki VM çekirdek kotası ayrıdır ve çekirdek sınırları arasında iki kaynak türleri şu anda paylaşılmaz.
 
 Kullanılabilir kaynaklar:
-+ Bölge başına adanmış çekirdekler 10-24'ın varsayılan bir sınırı vardır.  Abonelik başına adanmış çekirdekler sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
++ Bölge başına adanmış çekirdekler 24-300 abonelik teklif türünüz bağlı olarak, varsayılan bir sınırı vardır.  Abonelik başına adanmış çekirdekler sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
 
-+ Bölge başına düşük öncelikli çekirdekler 10-24'ın varsayılan bir sınırı vardır.  Abonelik başına düşük öncelikli çekirdek sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
++ Bölge başına düşük öncelikli çekirdekler abonelik teklif türünüz bağlı olarak 24-300 varsayılan bir sınırı vardır.  Abonelik başına düşük öncelikli çekirdek sayısı artırılabilir. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
 
 + Bölge başına 100 varsayılan bir sınırı ve 200 üst sınırına sahip. Bu sınırı aşan bir artırım talebinde bulunmak isterseniz Azure desteğine başvurun.
 
@@ -66,10 +66,12 @@ Kullanılabilir kaynaklar:
 | Azure Machine Learning işlem (AmlCompute) tek bir kaynak en fazla düğüm | 100 düğüm |
 | Düğüm başına en fazla GPU MPI işler | 1-4 |
 | Düğüm başına en fazla GPU çalışanları | 1-4 |
-| En fazla iş yaşam süresi | 7 gün<sup>1</sup> |
+| En fazla iş yaşam süresi | 90 gün<sup>1</sup> |
+| Düşük öncelikli düğüm üzerinde en fazla iş yaşam süresi | 1 gün<sup>2</sup> |
 | Düğüm başına en fazla parametre sunucuları | 1 |
 
 <sup>1</sup> maksimum ömrü çalıştırma başlatılması ve bittiğinde saati gösterir. Tamamlanan çalıştırmalar süresiz olarak kalır; Veri maksimum yaşam süresi içinde tamamlanmamış çalıştırmalar için erişilebilir değil.
+<sup>2</sup> işler düşük öncelikli işler için düğümde bir kapasite kısıtlaması yoktur. istediğiniz zaman pre-empted. Denetim noktası oluşturma, işinizin uygulamak için önerilir.
 
 ### <a name="container-instances"></a>Kapsayıcı örnekleri
 
@@ -80,20 +82,20 @@ Kullanılabilir kaynaklar:
 Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kota makale onay [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Depolama
-Depolama hesabı da belirli bir abonelikte bölge başına sayısına bir sınır yoktur. Varsayılan sınır 200'dür ve standart ve Premium depolama hesapları içerir. Belirli bir bölgede 200'den fazla depolama hesabı gerekiyorsa, bir istekte aracılığıyla [Azure Destek](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure depolama ekibi, işinizin durumunu inceler ve 250 depolama hesapları için belirli bir bölgeye kadar onaylayabilir.
+Depolama hesabı da belirli bir abonelikte bölge başına sayısına bir sınır yoktur. Varsayılan sınır 200'dür ve standart ve Premium depolama hesapları içerir. Belirli bir bölgede 200'den fazla depolama hesabı gerekiyorsa, bir istekte aracılığıyla [Azure Destek](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure depolama ekibi, işinizin durumunu inceler ve 250 depolama hesapları için belirli bir bölgeye kadar onaylayabilir.
 
 
 ## <a name="find-your-quotas"></a>Kotanızı Bul
 
 Sanal makineler, depolama, ağ, gibi çeşitli kaynaklar için kota görüntüleme Azure portalı üzerinden kolay bir işlemdir.
 
-1. Sol bölmeden **tüm hizmetleri** seçip **abonelikleri** genel kategori altında.
+1. Sol bölmeden **tüm hizmetleri** seçip **abonelikleri** genel kategori altında.
 
 1. Abonelikler listesinden kota aradığınız aboneliği seçin.
 
    **Bir uyarı yok**, özellikle Azure Machine Learning işlem kotası görüntülemek için. Yukarıda belirtildiği gibi kota aboneliğinizde işlem kotası ayrıdır.
 
-1. Sol bölmeden **Machine Learning hizmeti** ve ardından gösterilen listeden herhangi bir çalışma alanı seçin
+1. Sol bölmeden **Machine Learning hizmeti** ve ardından gösterilen listeden herhangi bir çalışma alanı seçin
 
 1. Sonraki dikey penceresinde, altında **destek + sorun giderme bölümüne** seçin **kullanım ve kotalar** geçerli kotası ve kullanımı görüntülemek için.
 
@@ -102,7 +104,7 @@ Sanal makineler, depolama, ağ, gibi çeşitli kaynaklar için kota görüntüle
 
 ## <a name="request-quota-increases"></a>Kota artırımlarına iste
 
-Yukarıda belirtilen varsayılan sınırı, kotası ve sınırı artırmak istiyorsanız [bir çevrimiçi müşteri destek isteği açın](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) ücret olmadan.
+Yukarıda belirtilen varsayılan sınırı, kotası ve sınırı artırmak istiyorsanız [bir çevrimiçi müşteri destek isteği açın](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) ücret olmadan.
 
 Sınırları, yukarıdaki tabloda gösterilen üst sınırı değeri yükseltilemez. Maksimum sınır varsa, kaynak sınırları ayarlanabilir sahip değil. [Bu](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) makalede kota artışı işlem daha ayrıntılı ele alınmıştır.
 

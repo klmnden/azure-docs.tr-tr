@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119886"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65739594"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -53,7 +53,7 @@ Hizmet (Iaas) sanal makineler Azure altyapı bir bölgeden diğerine güvenilirl
     - Böylece tüm güvenilen kök sertifikaların tamamı makinede mevcut Windows Vm'leri için en son Windows güncelleştirmelerini yükleyin. Bağlantısı kesilmiş bir ortamda, kuruluşunuz için standart Windows Update ve sertifika güncelleştirme işlemlerini uygulayın.
     - Linux VM'ler için en son güvenilir kök sertifikaları ve sertifika iptal listesini almak için Linux dağıtıcınız yönergeleri izleyin.
 2. Taşımayı planlıyorsanız VM'ler için ağ bağlantısını denetlemek için bir kimlik doğrulaması Ara sunucusu kullanmadığınızdan emin olun.
-3. Taşımak istediğiniz bir VM internet erişimi yok ve bir güvenlik duvarı proxy'si giden erişimi denetlemek, onay kullanılıyorsa [gereksinimleri](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Taşımak istediğiniz bir VM internet erişimi yok ve bir güvenlik duvarı proxy'si giden erişimi denetlemek, onay kullanılıyorsa [gereksinimleri](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Kaynak ağ düzeni ve şu anda, (ancak bunlarla sınırlı olmamak üzere) kullandığınız tüm kaynakları belge yük Dengeleyiciler, ağ güvenlik grupları ve genel IP adresleri için doğrulama.
 
 ## <a name="prepare-the-target-region"></a>Hedef bölge hazırlama

@@ -3,8 +3,8 @@ title: Web API'leri - Microsoft kimlik platformu kullanıma sunmak için uygulam
 description: Yeni bir izni/kapsamı ve rolü kullanıma sunmak ve uygulamayı istemci uygulamaları için kullanılabilir hale getirmek üzere bir uygulamayı yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1148fb221e82963ea39ece3e18598e38d633238d
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 04838c1dbc9a524d04998f4d6c851037e43c9d90
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413966"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545783"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Hızlı Başlangıç: Web API'leri kullanıma sunmak için uygulama yapılandırma
 

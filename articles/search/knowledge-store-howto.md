@@ -1,5 +1,5 @@
 ---
-title: Nasıl bilgi Store ile (Önizleme) - Azure Search kullanmaya başlayın
+title: Nasıl bilgi deposuyla (Önizleme) - Azure Search kullanmaya başlayın
 description: Azure Search işlem hatlarında Azure depolama hesabınızdaki bir Bilgi Bankası deposuna dizin yapay ZEKA tarafından oluşturulan zenginleştirilmiş belgeleri gönderme adımlarını öğrenin. Buradan, görüntülemek, şekillendirmeyi ve Azure Search'te ve diğer uygulamalarda zenginleştirilmiş belgeleri kullanma.
 manager: cgronlun
 author: HeidiSteen
@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471751"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540720"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>Nasıl bilgi Store ile çalışmaya başlama
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Nasıl bilgi deposunu Azure Search ile çalışmaya başlama
 
-[Bilgi Bankası Store](knowledge-store-concept-intro.md) Azure Search'te, diğer uygulamalarda bilgi araştırma için dizin oluşturma bir işlem hattı oluşturdunuz AI zenginleştirmelerinin kaydeder yeni bir önizleme özelliğidir. Kaydedilen zenginleştirmelerinin, anlamak ve bir Azure Search dizini oluşturma ardışık düzeni geliştirmek için de kullanabilirsiniz.
+> [!Note]
+> Bilgi Bankası preview ve üretim kullanımı için değil amaçlayan deposudur. [2019-05-06-Önizleme REST API sürümü](search-api-preview.md) bu özelliği sağlar. .NET SDK'sı desteği şu anda yoktur.
+>
+
+[Bilgi deposunu](knowledge-store-concept-intro.md) Azure depolama hesabınıza diğer uygulamalarda aşağı akış bilgi araştırma için dizin oluşturma sırasında oluşturulan yapay ZEKA zenginleştirmelerinin kaydeder. Kaydedilen zenginleştirmelerinin, anlamak ve bir Azure Search dizini oluşturma ardışık düzeni geliştirmek için de kullanabilirsiniz.
 
 Bilgi deposunu bir beceri kümesi tarafından tanımlanır. Normal Azure arama tam metin araması senaryolar için yapay ZEKA zenginleştirmelerinin içerik daha aranabilir yapmak için bir beceri kümesi amacı sunuyor. Bilgi Bankası araştırma senaryoları için bir beceri kümesi rolü oluşturma, doldurma ve analiz için birden çok veri yapılarını depolamak veya diğer uygulamalar ve işlemler modelleme.
 

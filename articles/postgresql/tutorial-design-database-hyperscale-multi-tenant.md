@@ -8,13 +8,13 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: b135baf73e21cd524b6e8fad35452362f36cf0c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: 73d7aebf3dbff59320e0ef92cbd54811503c71b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080810"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757623"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Öğretici: Azure veritabanını PostgreSQL hiper ölçekli (Citus) (Önizleme) kullanarak çok kiracılı veritabanı tasarlama
 
@@ -31,72 +31,7 @@ Bu öğreticide, PostgreSQL - öğrenmek için hiper ölçekli (Citus) (Önizlem
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
-
-## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
-
-[Azure Portal](https://portal.azure.com) oturum açın.
-
-## <a name="create-an-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı oluşturma
-
-PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uygulayın:
-1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
-2. **Yeni** sayfasından **Veritabanları**’nı seçin ve **Veritabanları** sayfasından **PostgreSQL için Azure Veritabanı**’nı seçin.
-3. Dağıtım seçeneği için tıklatın **Oluştur** düğmesini **hiper ölçekli (Citus) sunucu grubu - Önizleme.**
-4. Yeni sunucu ayrıntıları formunu aşağıdaki bilgilerle doldurun:
-   - Kaynak grubu: tıklayın **Yeni Oluştur** Bu alan için metin kutusunun altında bağlantı. Gibi bir ad girin **myresourcegroup**.
-   - Sunucu grubu adı: sunucu alt etki alanı için kullanılacak yeni bir sunucu grubu için benzersiz bir ad girin.
-   - Yönetici kullanıcı adı: benzersiz bir kullanıcı adı girin, veritabanına bağlanmak için daha sonra kullanılacak.
-   - Parola: en az sekiz karakter uzunluğunda olmalıdır ve – İngilizce büyük harfler, İngilizce küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakter şu kategorilerin üçünden karakterler içermelidir (!, $, #, %, vs.)
-   - Konum: bunları verilere en hızlı erişim sağlamak için kullanıcılarınıza en yakın konumu kullanın.
-
-   > [!IMPORTANT]
-   > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu öğreticinin sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
-
-5. Tıklayın **yapılandırma sunucusu grubunu**. Ayarları içeren bölüm değiştirmeden bırakın ve tıklayın **Kaydet**.
-6. Tıklayın **gözden geçir + Oluştur** ardından **Oluştur** sunucuyu sağlamak için. Sağlama birkaç dakika sürer.
-7. Sayfa dağıtımını izlemek için yönlendirir. Canlı durumu değiştiğinde **devam ettiği dağıtımıdır** için **dağıtımınız tamamlandıktan**, tıklayın **çıkışları** sayfasının sol menü öğesi.
-8. Çıkış sayfası değeri panoya kopyalamak için yanında bir düğme olan bir düzenleyici ana bilgisayar adı içerir. Daha sonra kullanmak için bu bilgileri kaydedin.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
-
-PostgreSQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı kullanır. Varsayılan olarak, sunucuya ve sunucu üzerindeki herhangi bir veritabanına bağlanmasını tüm dış uygulama ve araçların güvenlik duvarı engeller. Biz, belirli bir IP adresi aralığı için güvenlik duvarını açmak üzere bir kural eklemeniz gerekir.
-
-1. Gelen **çıkışları** daha önce kopyaladığınız Düzenleyici düğüm ana bilgisayar bölümü tıklatın geri **genel bakış** menü öğesi.
-
-2. Ölçeklendirme grubu dağıtımınız kaynakları için listede bulun ve tıklatın. (Adı "sg-" ile önek alacaktır.)
-
-3. Tıklayın **Güvenlik Duvarı** altında **güvenlik** sol menüdeki.
-
-4. Bağlantıya tıklayın **+ geçerli istemci IP adresi için Güvenlik Duvarı Kuralı Ekle**. Son olarak, tıklayın **Kaydet** düğmesi.
-
-5. **Kaydet**’e tıklayın.
-
-   > [!NOTE]
-   > Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 5432 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Cloud Shell'de psql kullanarak veritabanına bağlanma
-
-Şimdi PostgreSQL sunucusu için Azure Veritabanına bağlanmak üzere [psql](https://www.postgresql.org/docs/current/app-psql.html) komut satırı yardımcı programını kullanalım.
-1. Sol gezinme bölmesindeki terminal simgesiyle Azure Cloud Shell’i başlatın.
-
-   ![PostgreSQL için Azure Veritabanı - Azure Cloud Shell terminal simgesi](./media/tutorial-design-database-hyperscale-multi-tenant/psql-cloud-shell.png)
-
-2. Azure Cloud Shell, tarayıcınızda açılarak bash komutları yazmanıza imkan tanır.
-
-   ![PostgreSQL için Azure Veritabanı - Azure Shell Bash İstemi](./media/tutorial-design-database-hyperscale-multi-tenant/psql-bash.png)
-
-3. Cloud Shell isteminde, psql komutlarını kullanarak PostgreSQL için Azure Veritabanı sunucunuza bağlanın. Aşağıdaki biçim, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programıyla PostgreSQL için Azure Veritabanı sunucusuna bağlanmak amacıyla kullanılır:
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Örneğin, aşağıdaki komut adlı varsayılan veritabanına bağlanır **citus** PostgreSQL sunucunuzda **demosunucum.postgres.Database.Azure.com** erişim kimlik bilgilerini kullanarak. İstendiğinde sunucu yönetici parolanızı girin.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Bir şema oluşturmak için psql yardımcı programı kullanın.
 
@@ -250,7 +185,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 Şimdiye kadar tüm tabloları tarafından dağıtılmış `company_id`, ancak bazı veriler doğal olarak "tüm özellikle kiracıda değil" ve paylaşılabilir. Örneğin, örnek ad platformu tüm şirketlerin IP adreslerine göre kendi hedef kitle için coğrafi bilgi almak isteyebilirsiniz.
 
-Paylaşılan coğrafi bilgileri tutmak için bir tablo oluşturun. Bu, psql çalıştırın:
+Paylaşılan coğrafi bilgileri tutmak için bir tablo oluşturun. Psql aşağıdaki komutları çalıştırın:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -268,7 +203,7 @@ Sonraki olun `geo_ips` "başvuru tablosu" her çalışan düğümü üzerinde bi
 SELECT create_reference_table('geo_ips');
 ```
 
-Bu örnek verilerle yükleyin. Bu dizin içinde psql içinde veri kümesi indirdiğiniz çalıştırmayı unutmayın.
+Bu örnek verilerle yükleyin. Veri kümesi indirdiğiniz psql dizini içinde bu komutu çalıştırmak unutmayın.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv

@@ -3,19 +3,21 @@ title: Azure Cosmos DB'de Apache Spark ile yerleşik işlem analizi giriş
 description: Nasıl yerleşik desteği Azure Cosmos DB'de Apache Spark için işlem analizi ve yapay ZEKA çalıştırmak için kullanabileceğiniz öğrenin
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 504f463f55edf1a22f99e1ba02449121e8bf5efc
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: HT
+ms.openlocfilehash: c62639feed7ced9d92e29715e350b952465a94a1
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472252"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517715"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Azure Cosmos DB'de Apache Spark (Önizleme) ile yerleşik işlem analizi 
 
 Azure Cosmos DB'de Apache Spark için yerleşik destek, bir Azure Cosmos hesabında depolanan verileriniz Apache Spark'tan analiz çalıştırmanıza olanak tanır. Global olarak dağıtılmış, Cosmos veritabanlarını doğrudan yürütmek Apache Spark işleri için yerel destek sağlar. Bu özellikler sayesinde geliştiriciler, veri mühendisleri ve veri uzmanları Azure Cosmos DB esnek kullanabilirsiniz, ölçeklenebilir ve yüksek performanslı bir veri platformu hem de çalıştırılacak **OLTP ve OLAP/HTAP** iş yükleri. 
+
+Spark işlem otomatik olarak kullanılabilir tüm Azure bölgelerinde Azure Cosmos hesabınızla ilişkili olan. Spark işlerinde Azure Cosmos DB'nin çok yöneticili özelliğini kullanın ve yazma veya her bölgede yerel kopya karşı sorgu. 
 
 > [!NOTE]
 > Azure Cosmos DB'de Apache Spark için yerleşik destek, şu anda sınırlı Önizleme aşamasındadır. Önizleme için kaydolma, gitmek [Önizleme için kaydolun](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) sayfası. 
@@ -72,6 +74,12 @@ Apache Spark işleri gibi sektör lideri kapsamlı Azure Cosmos DB avantajları 
 ### <a name="mixed-workloads"></a>Karma iş yükleri
 
 Küresel ölçekte bulutta çalışan uygulamalar oluştururken büyük müşterilerin yaşadıkları biri olan işlem ve analiz ayrımı tümleştirmesini Apache Spark Azure Cosmos DB köprüsü. 
+
+## <a name="built-in-jupyter-notebooks-support"></a>Jupyter not defterleri için yerleşik destek
+
+Azure Cosmos DB Cassandra, MongoDB, SQL, Gremlin ve tablo gibi tüm API'leri için Jupyter not defterleri destekler. Jupyter not defterlerini içinde Azure Cosmos DB hesapları çalıştırın ve bunlar Geliştirici deneyimini geliştirin. Tüm Azure Cosmos DB API ve veri modelleri için yerleşik not defteri destek etkileşimli sorguları çalıştırmak sağlar. Makine öğrenimi modelleri yürütün ve Azure Cosmos veritabanınızda depolanan verileri analiz edin. Jupyter not defteri deneyimi kullanarak depolanan verileri analiz etmek, derleme ve makine öğrenimi modellerini eğitmenize ve aşağıdaki görüntüde gösterildiği gibi Azure portalında veri çubuğunda çıkarım gerçekleştirin:
+
+![Azure Cosmos DB'de Jupyter not defterleri desteği](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

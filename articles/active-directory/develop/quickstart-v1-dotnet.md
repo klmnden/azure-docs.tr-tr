@@ -3,8 +3,8 @@ title: Kullanıcılar oturum ve bir .NET Masaüstü (WPF) uygulaması Microsoft 
 description: Oturum açma için Azure AD ile tümleşen bir .NET Windows masaüstü uygulaması oluşturmayı öğrenin ve OAuth 2.0 kullanarak API çağrıları Azure AD'ye korumalı.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: beccd3f28cd3f5de3ef777b80c53651c76017619
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298987"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545647"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir .NET Masaüstü (WPF) uygulamasından Microsoft Graph API çağırma
 
@@ -81,7 +81,7 @@ Artık Azure AD'de bir uygulamanız olduğuna göre, ADAL'ı yükleyebilir ve ki
    * `ida:ClientId` Portaldan kopyaladığınız uygulamanızın istemci kimliği.
    * `ida:RedirectUri` Portalı'nda kayıtlı yeniden yönlendirme URL'si.
 
-## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>3. Adım: Azure AD belirteçlerini almak için ADAL'ı kullanın
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>3. adım: Azure AD belirteçlerini almak için ADAL'ı kullanın
 
 Uygulamanızı bir erişim belirteci gerektiğinde uygulamanızı yalnızca çağrı yaptığını ADAL ardındaki temel buradaki prensip şudur: `authContext.AcquireTokenAsync(...)`, ve ADAL geri kalanını yapar.
 

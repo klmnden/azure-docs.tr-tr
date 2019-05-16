@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0ad9986c2d4d9e44d13f37fe2aa1629373f4841a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006443"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595142"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Node.js IOT Hub cihaz akışları (Önizleme) ile bir cihaz uygulaması için iletişim
 
@@ -44,7 +44,7 @@ Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki b
   - **Orta ABD**
   - **Orta ABD EUAP**
 
-Bu hızlı başlangıçta Hizmet tarafı uygulamayı çalıştırmak için geliştirme makinenizi Node.js v4.x.x veya sonraki bir sürümü gerekir.
+Bu hızlı başlangıçta Hizmet tarafı uygulamayı çalıştırmak için geliştirme makinenizi Node.js v10.x.x veya sonraki bir sürümü gerekir.
 
 Node.js için birden çok platformdan indirebileceğiniz [Node.js.org](https://nodejs.org).
 

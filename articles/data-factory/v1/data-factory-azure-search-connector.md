@@ -60,7 +60,7 @@ Aşağıdaki tabloda, Azure Search bağlantılı hizmete özgü JSON öğelerini
 | -------- | ----------- | -------- |
 | type | Type özelliği ayarlanmalıdır: **AzureSearch**. | Evet |
 | url | Azure Search hizmeti için URL. | Evet |
-| anahtar | Azure Search hizmeti için yönetici anahtarı. | Evet |
+| key | Azure Search hizmeti için yönetici anahtarı. | Evet |
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 

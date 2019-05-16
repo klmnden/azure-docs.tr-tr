@@ -1,39 +1,32 @@
 ---
-title: "Hızlı Başlangıç: Postman'deki - Azure Search REST API'lerini keşfetme"
-description: Azure Search için HTTP istekleri ve REST API için Postman kullanmayı çağırır.
+title: "Hızlı Başlangıç: Postman ve REST API'ler - Azure Search'ü"
+description: Postman, örnek verilerini ve tanımlarını kullanarak Azure Search REST API'lerini çağırma hakkında bilgi edinin.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024803"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758520"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Hızlı Başlangıç: Postman kullanarak Azure Search REST API'lerini keşfetme
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Araştırılacak kolay yollarından biri [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice) HTTP isteklerini oluşturmak ve yanıtları için Postman veya başka bir web testi araç kullanarak. Doğru araçlar ve bu yönergelerden yararlanarak herhangi bir kod yazmadan önce istek gönderebilir ve yanıtları görüntüleyebilirsiniz.
-
-> [!div class="checklist"]
-> * Web API'si test aracı indirme
-> * Arama hizmetiniz için bir anahtarı ve URL alma
-> * Azure Search'e Bağlan
-> * Dizin oluşturma
-> * Dizin yükleme
-> * Dizin arama
+Araştırılacak kolay yollarından biri [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice) HTTP isteklerini oluşturmak ve yanıtları için Postman veya başka bir web testi araç kullanarak. Doğru araçlar ve bu yönergelerden yararlanarak herhangi bir kod yazmadan önce istek gönderebilir ve yanıtları görüntüleyebilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun ve [Azure Search hizmetine kaydolun](search-create-service-portal.md).
 
@@ -41,9 +34,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıçta, aşağıdaki hizmetler ve Araçlar kullanılır. 
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
 
-[Postman masaüstü uygulaması](https://www.getpostman.com/) veya [Telerik Fiddler](https://www.telerik.com/fiddler) istek Azure Search'e göndermek için kullanılır.
++ [Postman masaüstü uygulaması](https://www.getpostman.com/) veya [Telerik Fiddler](https://www.telerik.com/fiddler) istek Azure Search'e göndermek için kullanılır.
 
 ## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
@@ -61,15 +54,15 @@ Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İs
 
 Bu bölümde, Azure Search bağlantı kurmak için tercih ettiğiniz web aracı kullanın. Her araç yalnızca api anahtarını ve Content-Type bir kez girmeniz gerektiği anlamına gelir oturum için istek üst bilgisini devam ettirir.
 
-Araçtan için (GET, POST, PUT ve benzeri) bir komut seçmek için bir URL uç noktası sağlar ve bazı görevler için isteğin gövdesindeki JSON sağlar. Tam URL aşağıdaki gibi görünür:
+Araçtan için (GET, POST, PUT ve benzeri) bir komut seçmek için bir URL uç noktası sağlar ve bazı görevler için isteğin gövdesindeki JSON sağlar. Arama hizmeti adı (YOUR-SEARCH-hizmet-adı), geçerli bir değerle değiştirin. 
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06
 
 HTTPS ön ekini, hizmetin adı (Bu durumda, dizinler koleksiyonu), bir nesnenin adını dikkat edin ve [api sürümü](search-api-versions.md). Gerekli, küçük harf dize olarak belirtilen api-version değeri `?api-version=2019-05-06` geçerli sürümü için. API sürümleri düzenli olarak güncelleştirilir. api-version parametresini her isteğe dahil etmeniz hangisinin kullanıldığıyla ilgili tam denetim sahibi olmanızı sağlar.  
 
-İstek üst bilgisi oluşturma, iki öğe, içerik türü ve Azure Search için kimliğini doğrulamak için kullanılan api anahtarını içerir:
+İstek üst bilgisi oluşturma, iki öğe, içerik türü ve Azure Search için kimliğini doğrulamak için kullanılan api anahtarını içerir. Yönetici API anahtarını (YOUR-ADMIN-API-KEY) geçerli bir değerle değiştirin. 
 
-    api-key: <placeholder-api-key-for-your-service>
+    api-key: <YOUR-ADMIN-API-KEY>
     Content-Type: application/json
 
 Postman içinde aşağıdaki ekran görüntüsü gibi görünen bir istek düzenleyin. Seçin **alma** fiili olarak bir URL girin ve tıklatın **Gönder**. Bu komut Azure Search'e bağlanan dizinler koleksiyonu okur ve başarılı bir bağlantı üzerinde 200 HTTP durum kodunu döndürür. Hizmetinizi dizinleri zaten varsa, yanıtı de dizin tanımlarını içerir.
@@ -78,16 +71,19 @@ Postman içinde aşağıdaki ekran görüntüsü gibi görünen bir istek düzen
 
 ## <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
-Azure Search'te verileri yüklemeden önce dizini genellikle oluşturun. [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API, bu görev için kullanılır. 
+Azure Search'te verileri yüklemeden önce dizini genellikle oluşturun. [Dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) bu görev için kullanılır. 
 
 URL içerecek şekilde Genişletilmiş `hotel` dizin adı.
 
 Postman içinde Bunu yapmak için:
 
-1. Değiştirmek için fiil **yerleştirin**
-2. Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
-3. (Aşağıda istek gövdesinde gösterilmiştir) dizin tanımını belirtin
-4. Tıklayın **Gönder**
+1. Değiştirmek için fiil **PUT**.
+
+2. Bu URL'yi kopyalayın `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+
+3. (Aşağıda istek gövdesinde gösterilmiştir) dizin tanımını sağlar.
+
+4. Tıklayın **Gönder**.
 
 ![Postman isteği gövdesi][8]
 
@@ -122,16 +118,19 @@ Bu isteği gönderdiğinizde dizinin başarıyla oluşturulduğunu belirten HTTP
 
 ## <a name="2---load-documents"></a>2 - belge yükleme
 
-Dizini oluşturma ve dizini doldurma ayrı adımlardır. Azure Search'te dizin, arama yapılabilecek ve JSON belgeleri olarak iletebileceğiniz tüm verileri içerir. [Ekleme, güncelleştirme veya silme belgeleri](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST API, bu görev için kullanılır. 
+Dizini oluşturma ve dizini doldurma ayrı adımlardır. Azure Search'te dizin, arama yapılabilecek ve JSON belgeleri olarak iletebileceğiniz tüm verileri içerir. [Ekleme, güncelleştirme veya silme belgeleri REST API'sini](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) bu görev için kullanılır. 
 
 URL içerecek şekilde Genişletilmiş `docs` koleksiyonları ve `index` işlemi.
 
 Postman içinde Bunu yapmak için:
 
-1. Değiştirmek için fiil **sonrası**
-2. Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
-3. JSON belgelerini (aşağıdaki istek gövdesinde gösterilmiştir) sağlayın
-4. Tıklayın **Gönder**
+1. Fiili **POST** olarak değiştirin.
+
+2. Bu URL'yi kopyalayın `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`.
+
+3. JSON belgelerini (aşağıdaki istek gövdesinde gösterilmiştir) sağlayın.
+
+4. Tıklayın **Gönder**.
 
 ![Postman isteği yükü][10]
 
@@ -212,15 +211,17 @@ Birkaç saniye içinde, oturum listesinde bir HTTP 200 yanıtı görmeniz gereki
 
 ## <a name="3---search-an-index"></a>3 - Dizin arama
 
-Dizin ve belgeler yüklenir, bunlara karşı sorgu iletebilirsiniz kullanarak [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
+Dizin ve belgeler yüklenir, bunlara karşı sorgu iletebilirsiniz kullanarak [arama belgeleri REST API'si](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 URL, arama işleci kullanılarak belirtilen bir sorgu dizesi dahil etmek için genişletilir.
 
 Postman içinde Bunu yapmak için:
 
-+ Değiştirmek için fiil **Al**
-+ Bu URL'yi kopyalayın `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
-+ Tıklayın **Gönder**
+1. Değiştirmek için fiil **alma**.
+
+2. Bu URL'yi kopyalayın `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`.
+
+3. Tıklayın **Gönder**.
 
 Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını döndürür. Tıkladıktan sonra istek ve yanıt için Postman aşağıdaki ekran görüntüsüne benzer görünmelidir **Gönder**. Durum kodu 200 olmalıdır.
 
@@ -228,7 +229,7 @@ Bu sorgu "motel" terimini arar ve arama sonuçlarındaki belgelerin sayısını 
 
 
 ## <a name="get-index-properties"></a>Dizin özelliklerini alma
-Ayrıca, belge sayısını ve depolama tüketimini almak için sistem bilgilerini sorgulayabilirsiniz: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
+Ayrıca, belge sayısını ve depolama tüketimini almak için sistem bilgilerini sorgulayabilirsiniz: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 Postman uygulamasında isteğinizin aşağıdakine benzer olması ve yanıtta belge sayısı ile kullanılan alanın bayt cinsinden değerinin belirtilmesi gerekir.
 
@@ -236,7 +237,7 @@ Postman uygulamasında isteğinizin aşağıdakine benzer olması ve yanıtta be
 
 api-version söz diziminin farklı olduğuna dikkat edin. Bu istek için api-version parametresine `?` ekleyin. `?` URL yolunu Sorgu dizesinden ayırırken & işareti ' ad = değer ' sorgu dizesinde çifti. Bu sorgu için api-version, sorgu dizesindeki ilk ve tek öğedir.
 
-Bu API hakkında daha fazla bilgi için bkz. [Dizin İstatistiklerini Alma (REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics).
+Bu API hakkında daha fazla bilgi için bkz. [alma dizin istatistiklerini REST API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics).
 
 
 ## <a name="use-fiddler"></a>Fiddler'ı kullanma
@@ -247,7 +248,7 @@ Bu bölümde, önceki bölümlerde, Fiddler ekran görüntüleri ve yönergeleri
 
 Aşağıdaki ekran görüntüsü gibi görünen bir istek düzenleyin. Seçin **alma** fiili olarak. Fiddler `User-Agent=Fiddler` ekler. Altındaki yeni satırlara iki ek istek üst bilgisi yapıştırabilirsiniz. Hizmetinize ait yönetici erişim anahtarını kullanarak hizmetinizin içerik türünü ve API anahtarını dahil edin.
 
-Hedef için bu URL'yi değiştirilmiş bir sürümünü kopyalayın: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
+Hedef için bu URL'yi değiştirilmiş bir sürümünü kopyalayın: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Fiddler isteği üst bilgisi][1]
 
@@ -256,7 +257,7 @@ Hedef için bu URL'yi değiştirilmiş bir sürümünü kopyalayın: `https://<p
 
 ### <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
-Değiştirmek için fiil **PUT**. Bu URL'yi değiştirilmiş bir sürümünü kopyasında: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Dizin tanımını istek gövdesine yukarıda sağlanan kopyalayın. Sayfanız aşağıdaki ekran görüntüsüne benzer görünmelidir. Tıklayın **yürütme** üst sağ tamamlanan isteği gönderin.
+Değiştirmek için fiil **PUT**. Bu URL'yi değiştirilmiş bir sürümünü kopyasında: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Dizin tanımını istek gövdesine yukarıda sağlanan kopyalayın. Sayfanız aşağıdaki ekran görüntüsüne benzer görünmelidir. Tıklayın **yürütme** üst sağ tamamlanan isteği gönderin.
 
 ![Fiddler isteği gövdesi][7]
 
@@ -268,7 +269,7 @@ Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değ
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Örnek sorgularımızı Fiddler'da çalıştırma ipuçları
 
-Aşağıdaki örnek sorgu MSDN'de [Search Dizin işlemi (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) makalesinde yer alır. Bu makaledeki örnek sorguların çoğu, Fiddler'da izin verilmeyen boşluklar içerir. Sorgu dizesini yapıştırmadan ve Fiddler'da sorguyu denemeden önce, her bir boşluğu + karakteri ile değiştirin.
+Aşağıdaki örnek sorgu [arama belgeleri REST API'si](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) makalesi. Bu makaledeki örnek sorguların çoğu, Fiddler'da izin verilmeyen boşluklar içerir. Sorgu dizesini yapıştırmadan ve Fiddler'da sorguyu denemeden önce, her bir boşluğu + karakteri ile değiştirin.
 
 **Boşluklar değiştirilmeden önce (in lastRenovationDate desc):**
 

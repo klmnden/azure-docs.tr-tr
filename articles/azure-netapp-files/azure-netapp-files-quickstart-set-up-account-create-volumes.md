@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: f0f3dea1c30790bb109d7cb7af07abd8fbb1ace4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702870"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523020"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Hızlı Başlangıç: Azure NetApp dosyalarını ve bir NFS birimini oluşturma 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Hızlı Başlangıç: Azure NetApp Files’ı ayarlama ve NFS birimi oluşturma 
 
 Bu makalede Azure NetApp dosyaları hızlı bir şekilde ve birim oluşturma gösterilmektedir. 
 
@@ -36,7 +36,8 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="before-you-begin"></a>Başlamadan önce 
 
-Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişmek için izin verilenler listesinde bir parçası olmanız gerekir. Genel Önizleme programına katılma hakkındaki ayrıntılar için bkz. [Azure NetApp Files Genel Önizleme kayıt sayfası](https://aka.ms/nfspublicpreview). 
+> [!IMPORTANT] 
+> Azure NetApp dosyaları hizmetine erişim verilmesi gerekir.  Hizmet erişim istemek için bkz: [Azure NetApp dosyaları waitlist gönderim sayfasını](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Devam etmeden NetApp dosyaları Azure ekibinden bir resmi onay e-posta için beklemeniz gerekir. 
 
 ## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Azure NetApp dosya ve NetApp kaynak sağlayıcısı için kaydolun
 
@@ -155,13 +156,13 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
 
 3. Kaynak grubu sayfasındaki tıklayın **kaynak grubunu Sil**.
 
-    ![Kaynak grubunu silme](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Kaynak grubunu sil](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     Bir pencere açılır ve kaynak grubuyla birlikte silinecek kaynaklar hakkında bir uyarı görüntüler.
 
 4. Kaynak grubunu ve tüm kaynaklarla birlikte kalıcı olarak silmek ve ardından istediğinizi onaylamak için kaynak grubu (myRG1) adını **Sil**.
 
-    ![Kaynak grubunu silme](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Kaynak grubunu sil](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 

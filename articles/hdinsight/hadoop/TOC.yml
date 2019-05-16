@@ -4,6 +4,7 @@
   items:
     - name: HDInsight üzerindeki Apache Hadoop hakkında
       href: apache-hadoop-introduction.md
+      maintainContext: true
     - name: HDInsight’ta Apache Hadoop mimarisi
       href: ../hdinsight-hadoop-architecture.md
       maintainContext: true

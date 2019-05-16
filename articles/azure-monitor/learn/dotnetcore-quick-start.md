@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6deb3ac0869ba7d8dfb41cc6fac8c30fb035b5a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7700efb7bfdb60c8f8f82b442cf01aae691f2fc3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572716"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595593"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıçta, Application Insights SDK'sını var olan bir ASP.NET 
 
 Bu hızlı başlangıcı tamamlamak için:
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
+- [Visual Studio 2019 yükleme](https://www.visualstudio.com/downloads/) aşağıdaki iş yükleri ile:
   - ASP.NET ve web geliştirme
   - Azure geliştirme
 - [.NET Core 2.0 SDK yükleme](https://www.microsoft.com/net/core)
@@ -41,7 +41,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 [Azure Portal](https://portal.azure.com/) oturum açın.
 
-## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
+## <a name="enable-application-insights"></a>Application Insights'ı Etkinleştir
 
 Application Insights, şirket içinde veya bulutta çalışmasından bağımsız olarak İnternet’e bağlı herhangi bir uygulamadan telemetri verilerini toplayabilir. Bu verileri görüntülemeyi başlatmak için aşağıdaki adımları kullanın.
 
@@ -85,7 +85,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzeni için **Uygulama haritası**’na tıklayın. Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-   ![Uygulama Eşlemesi](./media/dotnetcore-quick-start/5appmap.png)
+   ![Uygulama Haritası](./media/dotnetcore-quick-start/5appmap.png)
 
 3. Tıklayarak **uygulama analizi** simgesi ![Uygulama Haritası simgesi](./media/dotnetcore-quick-start/006.png) **analytics'te görüntüle**. Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 

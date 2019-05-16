@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61386453"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522130"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Sanal makinelerinizi (Önizleme) VM'ler için Azure İzleyici ile izleme devre dışı bırakma
 
@@ -56,7 +56,7 @@ Aşağıdaki adımlar, Log Analytics çalışma alanı yine de gerekliyse VM'ler
 5. Çözüm listesinde seçin **InfrastructureInsights (çalışma alanı adı)** ve ardından **genel bakış** sayfasında çözüm için **Sil**.  Onaylamak için sorulduğunda **Evet**.  
 6. Çözümleri listesinden seçin **ServiceMap (çalışma alanı adı)** ve ardından **genel bakış** sayfasında çözüm **Sil**.  Onaylamak için sorulduğunda **Evet**.  
 
-VM'ler için Azure İzleyici ekleme önce yokmuş [etkin performans sayaçlarını toplamayı](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) açıklanan adımlarıizleyerekbukurallarıdevredışıbırakmakgereksinimWindowsveyaLinuxtabanlıVM'lerçalışmaalanınızdakiiçin[burada](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) Windows ve Linux için.
+VM'ler için Azure İzleyici ekleme önce yokmuş [etkin performans sayaçlarını toplamayı](vminsights-enable-overview.md#performance-counters-enabled) açıklanan adımlarıizleyerekbukurallarıdevredışıbırakmakgereksinimWindowsveyaLinuxtabanlıVM'lerçalışmaalanınızdakiiçin[burada](../platform/data-sources-performance-counters.md#configuring-performance-counters) Windows ve Linux için.
 
 ## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Bir Azure sanal makinesi için izlemeyi devre dışı bırak ve çalışma alanı koru  
 

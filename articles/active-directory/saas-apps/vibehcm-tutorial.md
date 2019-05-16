@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: cf414f9dd0f3a7ab638dc72e50aa8f3997308cc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65744178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Öğretici: Vibe HCM ile Azure Active Directory Tümleştirme
 

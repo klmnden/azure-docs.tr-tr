@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/13/2019
-ms.openlocfilehash: dda5df0e5b9b9509482cb6dcdcda242b4daa230f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: a85397dae67eb06fecbf5e2410f56e2aad808dc8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596356"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65750087"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Öğretici: Azure Red Hat OpenShift kümesi oluşturun
 
@@ -33,7 +33,9 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
-> Bu öğretici, Azure CLI'yı 2.0.65 sürümünü gerektirir
+> Bu öğretici, Azure CLI'yı 2.0.65 sürümünü gerektirir.
+>    
+> Azure Red Hat Openshift kullanabilmeniz için önce anlatıldığı gibi ayrılmış Azure sanal makine örnekleri satın almanız [Azure Red Hat Openshift geliştirme ortamınızı ayarlama](howto-setup-environment.md#purchase-azure-virtual-machine-reserved-instances).
 
 Bu öğreticiye başlamadan önce:
 

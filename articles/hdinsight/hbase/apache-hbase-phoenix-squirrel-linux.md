@@ -1,81 +1,135 @@
 ---
-title: Kullanma Apache Phoenix ve SQLLine Azure HDInsight içinde HBase ile
+title: 'Hızlı Başlangıç: Azure HDInsight - Apache Phoenix sorgu Apache HBase'
 description: HDInsight Apache Phoenix kullanmayı öğrenin. Ayrıca, yükleme ve SQLLine HDInsight içinde HBase kümesi bağlanmak için bilgisayarınızda ayarlama konusunda bilgi edinin.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 01/03/2018
+ms.topic: quickstart
+ms.date: 05/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 46606a991ce878a3335c2c605a4040c9520d5128
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722693"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596193"
 ---
-# <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>HDInsight kümelerinde Linux tabanlı Apache HBase ile Apache Phoenix kullanma
-Nasıl kullanacağınızı öğrenin [Apache Phoenix](https://phoenix.apache.org/) Azure HDInsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Apache Phoenix 15 dakika veya daha az](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Hızlı Başlangıç: Apache Phoenix ile Azure HDInsight, Apache HBase sorgu
 
-> [!NOTE]  
-> Phoenix sürüm HDInsight hakkında bilgi için [HDInsight tarafından sağlanan Apache Hadoop küme sürümlerindeki yenilikler](../hdinsight-component-versioning.md).
->
->
+Bu hızlı başlangıçta, Azure HDInsight içinde HBase sorguları çalıştırmak için Apache Phoenix kullanmayı öğrenin. Apache Phoenix, Apache HBase için bir SQL sorgusu altyapısıdır. Buna JDBC sürücüsü olarak erişilir ve bu SQL kullanarak HBase tablolarını sorgulamayı ve yönetmeyi sağlar. [SQLLine](http://sqlline.sourceforge.net/) SQL yürütmek için bir komut satırı yardımcı programıdır.
 
-## <a name="use-sqlline"></a>SQLLine kullanma
-[SQLLine](http://sqlline.sourceforge.net/) SQL yürütmek için bir komut satırı yardımcı programıdır.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-### <a name="prerequisites"></a>Önkoşullar
-SQLLine kullanabilmeniz için önce aşağıdaki öğelere sahip olmanız gerekir:
+## <a name="prerequisites"></a>Önkoşullar
 
-* **HDInsight, Apache HBase kümesi**. Oluşturmak için bkz: [HDInsight, Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md).
+* Bir Apache HBase kümesi. Bkz: [küme oluştur](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) bir HDInsight kümesi oluşturma.  Seçtiğiniz olun **HBase** küme türü.
 
-Bir HBase kümesi için bağlandığınızda birine bağlanması gereken [Apache ZooKeeper](https://zookeeper.apache.org/) VM'ler. Üç ZooKeeper Vm'leri her HDInsight kümesi vardır.
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-**ZooKeeper konak adını almak için**
+## <a name="identify-a-zookeeper-node"></a>ZooKeeper düğümü belirle
 
-1. Açık [Apache Ambari](https://ambari.apache.org/) atarak **https://\<küme adı\>. azurehdinsight.net**.
-2. Oturum açmak için HTTP (küme) kullanıcı adını ve parolasını girin.
-3. Sol menüde **ZooKeeper**. Üç **ZooKeeper sunucusu** örnekleri listelenir.
-4. Birini **ZooKeeper sunucusu** örnekleri. Üzerinde **özeti** bölmesinde Bul **Hostname**. Benzer şekilde görünüyor *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+Bir HBase kümesi için bağlandığınızda, Apache ZooKeeper düğümleri birine bağlanması gerekir. HDInsight kümesi her üç ZooKeeper düğümü vardır. Curl ZooKeeper düğümü hızlı bir şekilde tanımlamak için kullanılabilir. Değiştirerek aşağıdaki curl komutunu düzenleyin `PASSWORD` ve `CLUSTERNAME` ilgili değerleri içeren ve ardından bir komut istemi'nde komutu girin:
 
-**SQLLine kullanmak için**
+```cmd
+curl -u admin:PASSWORD -sS -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER
+```
 
-1. SSH kullanarak kümeye bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Çıktı bir kısmını benzer şekilde görünür:
 
-2. SSH SQLLine çalıştırmak için aşağıdaki komutları kullanın:
+```output
+    {
+      "href" : "http://hn1-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net:8080/api/v1/clusters/myCluster/hosts/zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net/host_components/ZOOKEEPER_SERVER",
+      "HostRoles" : {
+        "cluster_name" : "myCluster",
+        "component_name" : "ZOOKEEPER_SERVER",
+        "host_name" : "zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net"
+      }
+```
 
-        cd /usr/hdp/current/phoenix-client/bin
-        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
-3. Bir HBase tablosu oluşturmayı ve bazı verileri eklemek için aşağıdaki komutları çalıştırın:
+Değeri Not `host_name` daha sonra kullanmak için.
 
-        CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+## <a name="create-a-table-and-manipulate-data"></a>Bir tablo oluşturun ve veri işleme
 
-        !tables
+HBase kümelerine bağlanmak için SSH kullanın ve Apache Phoenix kullanarak HBase tabloları oluşturmak, eklemek ve verileri sorgulamak için.
 
-        UPSERT INTO Company VALUES(1, 'Microsoft');
+1. Kullanım `ssh` HBase kümenize bağlanmak için komutu. Değiştirerek aşağıdaki komutu düzenleyin `CLUSTERNAME` , kümenizin adını ve ardından komutu girin:
 
-        SELECT * FROM Company;
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-        !quit
+2. Phoenix istemciye dizini değiştirin. Aşağıdaki komutu girin:
 
-Daha fazla bilgi için [SQLLine el ile](http://sqlline.sourceforge.net/#manual) ve [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).
+    ```bash
+    cd /usr/hdp/current/phoenix-client/bin
+    ```
+
+3. Başlatma [SQLLine](http://sqlline.sourceforge.net/). Aşağıdaki komutta değiştirerek Düzenle `ZOOKEEPER` daha önce tanımlanan ZooKeeper düğümü ile sonra komutu girin:
+
+    ```bash
+    ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
+    ```
+
+4. Bir HBase tablosu oluşturun. Aşağıdaki komutu girin:
+
+    ```sql
+    CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
+    ```
+
+5. SQLLine kullanma `!tables` HBase tüm tablolarda listelemek için komutu. Aşağıdaki komutu girin:
+
+    ```sqlline
+    !tables
+    ```
+
+6. Tablodaki değerleri ekleyin. Aşağıdaki komutu girin:
+
+    ```sql
+    UPSERT INTO Company VALUES(1, 'Microsoft');
+    UPSERT INTO Company VALUES(2, 'Apache');
+    ```
+
+7. Tablo sorgusu. Aşağıdaki komutu girin:
+
+    ```sql
+    SELECT * FROM Company;
+    ```
+
+8. Bir kaydı silin. Aşağıdaki komutu girin:
+
+    ```sql
+    DELETE FROM Company WHERE COMPANY_ID=1;
+    ```
+
+9. Tabloyu bırakabilirsiniz. Aşağıdaki komutu girin:
+
+    ```hbase
+    DROP TABLE Company;
+    ```
+
+10. SQLLine kullanma `!quit` SQLLine çıkmak için komutu. Aşağıdaki komutu girin:
+
+    ```sqlline
+    !quit
+    ```
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Hızlı başlangıcı tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır.
+
+Bir kümeyi silmek için bkz: [tarayıcınız, PowerShell veya Azure CLI kullanarak bir HDInsight kümesi silme](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, HDInsight Apache Phoenix kullanmayı öğrendiniz. Daha fazla bilgi için şu makalelere bakın:
 
-* [HDInsight Hbase'e genel bakış][hdinsight-hbase-overview].
-  Apache HBase, büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan, Apache Hadoop üzerinde kurulu bir Apache, açık kaynaklı NoSQL veritabanıdır.
-* [Azure sanal ağında sağlama Apache HBase kümeleri][hdinsight-hbase-provision-vnet].
-  Uygulamaların Hbase'le doğrudan iletişim kurabilmesi sanal ağ ile tümleştirme, uygulamalarınızı, aynı sanal ağ için Apache HBase kümelerine dağıtılabilir.
-* [HDInsight Apache HBase çoğaltmayı yapılandırma](apache-hbase-replication.md). İki Azure veri merkezleri arasında Apache HBase çoğaltma işlemini ayarlama konusunda bilgi edinin.
+Bu hızlı başlangıçta, Azure HDInsight içinde HBase sorguları çalıştırmak için Apache Phoenix kullanmayı öğrendiniz. Apache Phoenix hakkında daha fazla bilgi edinmek için sonraki makaleye daha derin bir incelemesini sağlar.
 
+> [!div class="nextstepaction"]
+> [HDInsight üzerinde Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
 
-[azure-portal]: https://portal.azure.com
-[vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
+## <a name="see-also"></a>Ayrıca Bkz.
 
-[hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
-[hdinsight-hbase-overview]:apache-hbase-overview.md
-
-
+* [SQLLine el ile](http://sqlline.sourceforge.net/#manual).
+* [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).
+* [Apache Phoenix 15 dakika veya daha az](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)
+* [HDInsight Hbase'e genel bakış](./apache-hbase-overview.md)

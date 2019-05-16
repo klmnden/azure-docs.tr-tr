@@ -3,8 +3,8 @@ title: Web API'leri - Microsoft kimlik platformu erişmek için bir uygulama yap
 description: Microsoft kimlik platformuyla kaydedilen uygulamaları yeniden yönlendirme URI’leri, kimlik bilgileri veya web API’lerine erişmek için izinleri içerecek şekilde yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b2f5331b22f6292b00c367c6abb8cd4f439a70c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 3b434e5b0c4524af642eb1255597cd3e7674571c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413976"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545812"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Hızlı Başlangıç: Bir istemci uygulamasını web API'lerine erişecek şekilde yapılandırma
 

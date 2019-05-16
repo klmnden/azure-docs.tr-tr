@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Kapsayıcılar ve azure'da mikro hizmetler ile Kubernetes geliştirme ekibi
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1414cc56809263a90a4bfea16db332e2f6a5e0bc
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
-ms.translationtype: MT
+ms.openlocfilehash: 437c6284c563f85e25d2c5b81734ea3bc0507701
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514085"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596989"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Hızlı Başlangıç: Azure geliştirme alanları kullanarak Kubernetes üzerinde takım geliştirme
 
@@ -25,7 +25,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 - Birden fazla mikro hizmetin bulunan büyük uygulamaları geliştirme boşlukla dağıtın.
 - Tek bir mikro hizmet, bir yalıtılmış geliştirme alanında tam uygulamasının bağlam içinde test edin.
 
-![Azure geliştirme alanları bisiklet paylaşımı örnek uygulaması](media/quickstart-team-development/bikeshare.png)
+![Azure geliştirme alanları takım geliştirme](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -125,7 +125,9 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Gidin *bikesharingweb* genel URL'den açarak hizmet `azds list-uris` komutu. Yukarıdaki örnekte, genel URL'si *bikesharingweb* hizmeti *http://dev.bikesharingweb.fedcab0987.eus.azds.io/*. Seçin *Aurelia Briggs (müşteri)* kullanıcı. Metin gördüğünüz doğrulayın *yüksek Aurelia Briggs | Oturum kapatma* en üstünde.
+Gidin *bikesharingweb* genel URL'den açarak hizmet `azds list-uris` komutu. Yukarıdaki örnekte, genel URL'si *bikesharingweb* hizmetidir `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Seçin *Aurelia Briggs (müşteri)* kullanıcı. Metin gördüğünüz doğrulayın *yüksek Aurelia Briggs | Oturum kapatma* en üstünde.
+
+![Azure geliştirme alanları bisiklet paylaşımı örnek uygulaması](media/quickstart-team-development/bikeshare.png)
 
 ## <a name="create-child-dev-spaces"></a>Alt geliştirme alanları oluşturma
 
@@ -162,7 +164,7 @@ http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 
 URL'leri tarafından görüntülenen onaylayın `azds list-uris` komut *azureuser2.s.dev* önek. Bu ön ek, seçilen geçerli alan olduğunu onaylar *azureuser2*, bir alt öğesi olan *geliştirme*.
 
-Gidin *bikesharingweb* hizmetine *dev/azureuser2* genel URL'den açarak geliştirme alanı `azds list-uris` komutu. Yukarıdaki örnekte, genel URL'si *bikesharingweb* hizmeti *http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/*. Seçin *Aurelia Briggs (müşteri)* kullanıcı. Metin gördüğünüz doğrulayın *yüksek Aurelia Briggs | Oturumu Kapat* en üstünde.
+Gidin *bikesharingweb* hizmetine *dev/azureuser2* genel URL'den açarak geliştirme alanı `azds list-uris` komutu. Yukarıdaki örnekte, genel URL'si *bikesharingweb* hizmetidir `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Seçin *Aurelia Briggs (müşteri)* kullanıcı. Metin gördüğünüz doğrulayın *yüksek Aurelia Briggs | Oturumu Kapat* en üstünde.
 
 ## <a name="update-code"></a>Kodu güncelleştirme
 

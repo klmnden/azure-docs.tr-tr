@@ -3,8 +3,8 @@ title: Azure Active Directory ile oturum açmak ve oturum kapatmak için Angular
 description: Oturum açma işlemi için Azure AD ile tümleştirilen ve OAuth kullanarak Azure AD korumalı API'leri çağıran bir AngularJS tek sayfalı uygulaması oluşturmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f526ea3d1a53ef2ae80f36c863e7a19797e9142
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299218"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545999"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Hızlı Başlangıç: Oturum açma ve Azure Active Directory ile oturum kapatma için AngularJS tek sayfalı uygulama oluşturma
 
@@ -105,7 +105,7 @@ Tek sayfalı uygulamanın arka uç To Do List API'sinin tarayıcıdan belirteçl
    * `ida:Tenant`, Azure AD kiracınızın etki alanıdır (örneğin, contoso.onmicrosoft.com).
    * `ida:Audience`, portaldan kopyaladığınız uygulamanızın istemci kimliğidir.
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>3. Adım: Tek sayfalı uygulama güvenli sayfalarında yardımcı olması için ADAL'ı kullanın
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>3. adım: Tek sayfalı uygulama güvenli sayfalarında yardımcı olması için ADAL'ı kullanın
 
 Adal.js AngularJS yoluyla ve HTTP sağlayıcılarıyla tümleştirildiğinden, tek sayfalı uygulamanızda tek tek görünümleri güvenlik altına almaya yardımcı olabilirsiniz.
 

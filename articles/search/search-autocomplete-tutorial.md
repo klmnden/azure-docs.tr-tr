@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466427"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524020"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Önerileriniz veya otomatik tamamlama, Azure Search uygulamanıza ekleyin
 
@@ -164,7 +164,7 @@ Açık **HomeController.cs** denetleyicileri dizin altında dosya.
 
 İlk şey yapabilirsiniz adlı sınıfı üst kısmındaki bir yöntemdir `InitSearch`. Bu, Azure Search hizmeti için kimliği doğrulanmış bir HTTP dizini istemcisi oluşturur. Daha fazla bilgi için [bir .NET uygulamasından Azure Search kullanma](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-41 satırında Öner işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Suggest yöntemi](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+41 satırında Öner işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Suggest yöntemi](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -198,7 +198,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 Suggest işlevi, arama terimi girişine ek olarak isabet vurgularının veya benzer öğe eşleştirme özelliğinin kullanılıp kullanılmadığını belirleyen iki parametre alır. Yöntemi oluşturur bir [SuggestParameters nesne](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), hangi sonra geçirilen Öner API için. Ardından alınan sonuç istemcide gösterilebilmesi için JSON biçimine dönüştürülür.
 
-69. satırda, Otomatik Tamamlama işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Autocomplete yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview).
+69. satırda, Otomatik Tamamlama işlevi dikkat edin. Dayanır [DocumentsOperationsExtensions.Autocomplete yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
 ```csharp
 public ActionResult AutoComplete(string term)

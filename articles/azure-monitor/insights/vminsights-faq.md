@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596597"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522203"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure İzleyici VM'ler (Önizleme) hakkında sık sorulan sorular için
 Bu Microsoft FAQ VM'ler için Azure İzleyici hakkında sık sorulan soruların bir listesidir. Çözümü hakkında ek sorularınız varsa, Git [tartışma forumuna](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>Alabilirim yerleşik mevcut bir çalışma alanına?
-Sanal makinelerinizi bir Log Analytics çalışma alanınıza bağlıysa, ekleme, sağlanan VM'ler için Azure İzleyici için listelenen desteklenen bölgelerden birinde olduğunda, o çalışma uygulamasını kullanmaya devam edebilir [burada](vminsights-onboard.md#prerequisites).
+Sanal makinelerinizi bir Log Analytics çalışma alanınıza bağlıysa, ekleme, sağlanan VM'ler için Azure İzleyici için listelenen desteklenen bölgelerden birinde olduğunda, o çalışma uygulamasını kullanmaya devam edebilir [burada](vminsights-enable-overview.md#prerequisites).
 
 Ne zaman ekleme, tüm VM'lerin VM'ler için görüntüleme ve analiz Azure İzleyici'de, bu bilgileri toplamaya başlamak için çalışma alanına raporlama verilerini neden olacak bir çalışma alanı için performans sayaçları yapılandırıyoruz.  Sonuç olarak, seçilen çalışma alanına bağlı sanal makinelerin tüm performans verileri görürsünüz.  Sistem durumu ve harita özellikleri, yalnızca belirttiğiniz için yerleşik VM'ler için etkinleştirilir.
 
-Hangi performans sayaçlarını etkinleştirilmiş daha fazla bilgi için müşterilerimize [ekleme](vminsights-onboard.md) makalesi.
+Hangi performans sayaçlarını etkinleştirilmiş daha fazla bilgi için bizim [genel bakış etkinleştir](vminsights-enable-overview.md#performance-counters-enabled) makalesi.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>Alabilirim eklemek için yeni bir çalışma alanı? 
-Sanal makinelerinizi şu anda mevcut bir Log Analytics çalışma alanına bağlı değil, verilerinizi depolamak için yeni bir çalışma alanı oluşturmanız gerekir.  Yeni bir varsayılan çalışma alanı oluşturma, otomatik olarak tek bir Azure VM için Azure İzleyici VM'ler için Azure Portalı aracılığıyla yapılandırırsanız yapılır.
+Sanal makinelerinizi şu anda mevcut bir Log Analytics çalışma alanına bağlı değil, verilerinizi depolamak için yeni bir çalışma alanı oluşturmanız gerekir. Yeni bir varsayılan çalışma alanı oluşturma, otomatik olarak tek bir Azure VM için Azure İzleyici VM'ler için Azure Portalı aracılığıyla yapılandırırsanız yapılır.
 
-Betik tabanlı bir yöntemini kullanmayı tercih ederseniz, bu adımları ele alınmaktadır [ekleme](vminsights-onboard.md) makalesi. 
+Betik tabanlı bir yöntemini kullanmayı tercih ederseniz, bu adımları ele alınmaktadır [Azure Azure PowerShell veya Resource Manager şablonu kullanarak İzleyici Etkinleştir ' VM'ler (Önizleme) için](vminsights-enable-at-scale-powershell.md) makalesi. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Sanal Makinem zaten mevcut bir çalışma alanına raporlama varsa ne yapmalıyım?
 Zaten sanal makinelerinizden veri topluyorsanız, zaten mevcut bir Log Analytics çalışma alanına rapor verilerine yapılandırmadığınız.  Bu çalışma alanı, desteklenen bölgelerden birinde olduğu sürece, Azure İzleyici önceden mevcut olan bu çalışma alanına VM'ler için etkinleştirebilirsiniz.  Zaten kullanmakta olduğunuz çalışma alanı, desteklenen bölgelerden birinde değilse, şu anda sanal makineleri için Azure İzleyici ekleneceği mümkün olmayacaktır.  Etkin bir şekilde ek bölgeler desteklemek için çalışıyoruz.
 
 >[!NOTE]
->Çalışma alanına rapor veren tüm sanal makineler eklemek için bunları Azure İzleyici VM'ler için seçtiğiniz olup olmadığını etkileyen çalışma alanı için performans sayaçlarını yapılandırıyoruz. Performans sayaçları için bir çalışma alanı nasıl yapılandırılacağı hakkında ayrıntılı bilgi için bkz bizim [belgeleri](../../azure-monitor/platform/data-sources-performance-counters.md). VM'ler için Azure İzleyici için yapılandırılmış sayaçları hakkında daha fazla bilgi için bkz bizim [ekleme belgeleri](vminsights-onboard.md#performance-counters-enabled).  
+>Çalışma alanına rapor veren tüm sanal makineler eklemek için bunları Azure İzleyici VM'ler için seçtiğiniz olup olmadığını etkileyen çalışma alanı için performans sayaçlarını yapılandırıyoruz. Performans sayaçları için bir çalışma alanı nasıl yapılandırılacağı hakkında ayrıntılı bilgi için bkz bizim [belgeleri](../../azure-monitor/platform/data-sources-performance-counters.md). VM'ler için Azure İzleyici için yapılandırılmış sayaçları hakkında daha fazla bilgi için bkz bizim [VM'ler için Azure İzleyicisi'ni etkinleştirme](vminsights-enable-overview.md#performance-counters-enabled) makalesi.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Neden sanal Makinem ekleme başarısız oldu?
 Azure portalında bir Azure VM'den ekleme, aşağıdaki adımları olduğunda:
 
 * Varsayılan Log Analytics çalışma alanı, seçenek seçilen oluşturulur.
-* Performans sayaçları, seçilen çalışma alanı için yapılandırılır. Bu adım başarısız olursa, bazı performans grafikleri ve tabloları veri VM için gösteren olmayan olduğunu fark, eklenmedi. Belgelenen PowerShell betiğini çalıştırarak bunu düzeltebilirsiniz [burada](vminsights-onboard.md#enable-with-powershell).
+* Performans sayaçları, seçilen çalışma alanı için yapılandırılır. Bu adım başarısız olursa, bazı performans grafikleri ve tabloları veri VM için gösteren olmayan olduğunu fark, eklenmedi. Belgelenen PowerShell betiğini çalıştırarak bunu düzeltebilirsiniz [burada](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * Log Analytics aracısını gerekli belirlenir bir VM uzantısı kullanarak Azure Vm'lerinde yüklenir.  
 * Azure İzleyici Vm'leri harita bağımlılık aracısı için gerekli olduğunu belirledi bir uzantısını kullanarak Azure Vm'lerinde yüklenir.  
 * Gerekirse sağlığı özelliğini destekleyen azure İzleyici bileşenlerini yapılandırılır ve VM için rapor sistem durumu verilerini yapılandırılır.
@@ -89,7 +89,7 @@ Sistem durumu zaten ayarlandığından aşağıdaki Linux durumu ölçütlerini 
 Her sistem durumu ölçütü için tanımlanan uyarı kuralları, Azure portalında görüntülenmez. Etkinleştirebilir veya sistem durumu uyarısı devre dışı yalnızca kural [iş yükü İzleyicisi API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Ayrıca, atanamaz bir [Azure İzleyici'eylem grubu](../../azure-monitor/platform/action-groups.md) Azure portalındaki sistem durumu uyarıları için. Bildirim ayarı API yalnızca her bir sistem durumu uyarısı tetiklendiğinde tetiklenmesi için bir eylem grubu yapılandırmak için de kullanabilirsiniz. Şu anda, bir VM'ye karşı Eylem grupları atayabilirsiniz böylece tüm *sistem durumu uyarılarını* aynı Eylem grupları karşı VM tetikleyici tetiklendi. Geleneksel Azure uyarıları ayrı bir eylem grubu her sistem durumu uyarı kuralının kavramı yoktur. Ayrıca, sistem durumu uyarı tetiklendiğinde e-posta veya SMS bildirimleri sağlamak için yapılandırılmış olan eylem grupları desteklenir. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Sanal Makinem için performans grafikleri bazı veya tüm veriler göremiyorum
-Disk tablodaki veya performans grafiklerini bazı performans verileri görmüyorsanız, ardından, performans sayaçları çalışma alanındaki yapılandırılmamış olabilir. Çözmek için aşağıdaki komutu çalıştırın. [PowerShell Betiği](vminsights-onboard.md#enable-with-powershell).
+Disk tablodaki veya performans grafiklerini bazı performans verileri görmüyorsanız, ardından, performans sayaçları çalışma alanındaki yapılandırılmamış olabilir. Çözmek için aşağıdaki komutu çalıştırın. [PowerShell Betiği](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Nasıl Vm'leri Haritası özelliği için Azure İzleyici hizmeti eşlemesinden fark nedir?
 Vm'leri Haritası özelliği için Azure İzleyici, hizmet eşlemesinde bağlıdır, ancak aşağıdaki farklılıklar vardır:
@@ -138,4 +138,4 @@ Log Analytics çalışma alanını kullanma ile Azure İzleyici yapılandırdıy
 Bu koşul altında ile istenir **şimdi deneyin** seçeneği VM açıp seçin **Insights (Önizleme)** sol bölmesinden sonra bile, sanal makinede yüklü.  Ancak, bu VM VM'ler için Azure İzleyici'na eklediğinizden yokmuş normal olarak ortaya çıkabilecek gibi seçeneklerle istenmez. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gözden geçirme [sanal makineler için yerleşik Azure İzleyici](vminsights-onboard.md) gereksinimleri ve yöntemler, sanal makinelerin izlemeyi etkinleştirmek için anlamak için.
+Gözden geçirme [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-enable-overview.md) gereksinimleri ve yöntemler, sanal makinelerin izlemeyi etkinleştirmek için anlamak için.

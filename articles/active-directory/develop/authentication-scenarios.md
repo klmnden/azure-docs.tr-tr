@@ -3,8 +3,8 @@ title: Microsoft kimlik platformu kimlik doğrulaması | Azure
 description: Microsoft kimlik platformu, uygulama kimlik doğrulaması hakkında bilgi edinin, sağlama, API, model ve söz konusu Microsoft kimlik platformu en yaygın kimlik doğrulama senaryoları destekler.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299898"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540177"
 ---
 # <a name="what-is-authentication"></a>Kimlik doğrulaması nedir?
 
@@ -109,7 +109,7 @@ Herhangi bir güvenlik belirtecindeki talepler belirteç türüne, kullanıcın�
 
 Aşağıdaki tabloda her Microsoft kimlik platformu tarafından yayılan talep türünü kısa bir açıklaması sağlanmaktadır. Daha ayrıntılı bilgi için bkz. [erişim belirteçlerini](access-tokens.md) ve [kimlik belirteçlerini](id-tokens.md) Microsoft kimlik platformu tarafından verilmiş.
 
-| İste | Açıklama |
+| Talep | Açıklama |
 | --- | --- |
 | Uygulama Kimliği | Belirteci kullanan uygulamayı tanımlar. |
 | Hedef kitle | Belirtecin gönderileceği alıcı kaynağını tanımlar. |
@@ -125,7 +125,7 @@ Aşağıdaki tabloda her Microsoft kimlik platformu tarafından yayılan talep t
 | Ad | Belirtecin konusunu tanımlayan ve okunabilir bir değer sunar. |
 | Nesne Kimliği | Öznenin Azure AD'deki değişmez ve benzersiz tanıtıcısını içerir. |
 | Roller | Kullanıcıya verilmiş olan Azure AD Uygulama Rollerinin kolay adlarını içerir. |
-| Kapsam | İstemci uygulamasına verilmiş olan izinleri belirtir. |
+| `Scope` | İstemci uygulamasına verilmiş olan izinleri belirtir. |
 | Özne | Belirtecin bilgi verdiği sorumluyu belirtir. |
 | Kiracı Kimliği | Belirteci düzenleyen dizin kiracısının değişmez ve benzersiz tanıtıcısını içerir. |
 | Belirteç Ömrü | Belirtecin geçerli olduğu zaman aralığını tanımlar. |

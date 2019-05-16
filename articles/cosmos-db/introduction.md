@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc14f654af80cf599a797b8f16b0e98fe4b3a209
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61042976"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550994"
 ---
-# <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
+# <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB'ye hoş geldiniz
 
 Günümüzün uygulamaları yüksek derecede yanıt veren ve her zaman çevrimiçi olması gerekir. Düşük gecikme süresi ve yüksek kullanılabilirlik elde etmek için bu uygulamaların örnekleri kendi kullanıcılara yakın olan veri merkezlerinde dağıtılması gerekir. Uygulamaları yoğun saatlerde kullanım büyük değişiklikleri gerçek zamanlı olarak yanıt hacimlerinin veri depolamak ve bu verileri milisaniye cinsinden kullanıcılar için kullanılabilir hale.
 
@@ -34,7 +34,7 @@ Cosmos DB, hızlı yanıt veren katı oluşturmanızı ve dünya çapında yüks
 
 Cosmos DB veya Cosmos hesabınıza Azure bölgelerinden birini bir düğmeye tıklayarak herhangi bir zamanda kaldırılamıyor sağlar. Cosmos DB sorunsuz bir şekilde bir çoğaltılacağını verilerinizi uygulamanızı yararlanabilirsiniz için yüksek oranda kullanılabilir olmaya devam ederken, Cosmos hesabınızla ilişkili tüm bölgelere *çoklu yönlendirmeyi* hizmetinin özellikleri. Daha fazla bilgi için [genel dağıtım](distribute-data-globally.md) makalesi.
 
-### <a name="always-on"></a>Her Zaman Açık
+### <a name="always-on"></a>Daima Açık
 
 Azure altyapısıyla kapsamlı tümleştirme sayesinde ve [saydam çok yöneticili çoğaltma](global-dist-under-the-hood.md), Cosmos DB sağlar [% 99,999 yüksek kullanılabilirlik](high-availability.md) hem okur ve yazar. Cosmos DB ayrıca programlı olarak (veya Portal aracılığıyla) Cosmos hesabınızın bölgesel yük devretme çağırma yeteneği sağlar. Bu özellik, uygulamanızın bölgesel bir olağanüstü durum olması durumunda yük devretme için tasarlandığından emin olun yardımcı olur.
 
@@ -44,7 +44,7 @@ Cosmos DB saydam yatay bölümleme ve çok yöneticili çoğaltma ile tasarlanm�
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Dünya çapında 99. yüzdebirlik dilimde düşük gecikme süresi garanti edilir
 
-Oluşturabileceğinizi Cosmos DB'yi kullanarak yüksek derecede yanıt veren, çok büyük ölçekli uygulamalar. Yeni çok yöneticili çoğaltma protokolü ve Mandal ve [yazma için iyileştirilmiş veritabanı altyapısı](index-policy.md), Cosmos DB her ikisi için de 10 MS'den, yazmalarda sayısından az garanti okur ve (dizini oluşturulmuş yazmalar, tüm dünyada 99. yüzdebirlik) . Bu özellik, veri ve İnanılmaz derecede hızlı sorgular yüksek derecede yanıt veren uygulamalar için sürekli alımı sağlar.
+Oluşturabileceğinizi Cosmos DB'yi kullanarak yüksek derecede yanıt veren, çok büyük ölçekli uygulamalar. Yeni çok yöneticili çoğaltma protokolü ve Mandal ve [yazma için iyileştirilmiş veritabanı altyapısı](index-policy.md), Cosmos DB her ikisi için de 10 MS'den, yazmalarda sayısından az garanti (dizinlenmiş) okur ve yazar, tüm dünyada 99. yüzdebirlik . Bu özellik, veri ve İnanılmaz derecede hızlı sorgular yüksek derecede yanıt veren uygulamalar için sürekli alımı sağlar.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Tam olarak tanımlı, birden çok tutarlılık seçenekleri
 
