@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508016"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780363"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Azure CNI ağı yapılandırma
 
@@ -58,7 +58,7 @@ IP adresi planı bir AKS kümesi bir sanal oluşur için ağ, düğümler, pod'l
 
 ## <a name="maximum-pods-per-node"></a>Düğüm başına en fazla pod'ları
 
-Pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını 110 ' dir. *Varsayılan* pod'ların düğüm başına en fazla sayısını arasında değişir *kubernetes* ve *Azure CNI* ağ ve küme dağıtım yöntemi.
+Pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını 250'dir. *Varsayılan* pod'ların düğüm başına en fazla sayısını arasında değişir *kubernetes* ve *Azure CNI* ağ ve küme dağıtım yöntemi.
 
 | Dağıtım yöntemi | Kubernetes varsayılan | Azure CNI varsayılan | Dağıtım sırasında yapılandırılabilir |
 | -- | :--: | :--: | -- |

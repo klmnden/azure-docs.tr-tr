@@ -6,12 +6,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 530730dcf303a54803816e6f2af8787298c1c658
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926134"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65753748"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS nedir?
 
@@ -39,7 +39,7 @@ Daha fazla bilgi için bkz. [DNS bölgelerini ve kayıtlarını koruma](dns-prot
 
 ## <a name="dnssec"></a>DNSSEC
 
-Azure DNS, DNSSEC şu anda desteklemiyor. Çoğu durumda, tutarlı bir şekilde HTTPS/TLS size uygulamaları kullanarak DNSSEC gereksinimini azaltabilir. DNSSEC DNS bölgeleriniz için kritik bir gereksinimse üçüncü taraf DNS barındırma sağlayıcıları ile bu bölgelerde barındırabilir.
+Azure DNS, DNSSEC şu anda desteklemiyor. Çoğu durumda, uygulamalarınızı sürekli olarak HTTPS/TLS kullanarak DNSSEC gereksinimini azaltabilir. DNSSEC DNS bölgeleriniz için kritik bir gereksinimse üçüncü taraf DNS barındırma sağlayıcıları ile bu bölgelerde barındırabilir.
 
 ## <a name="ease-of-use"></a>Kullanım kolaylığı
 

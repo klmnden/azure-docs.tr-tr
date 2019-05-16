@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683516"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755946"
 ---
-# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Tanımlama ve Portalı'nda bir şema Ata
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Hızlı Başlangıç: Tanımlama ve Portalı'nda bir şema Ata
 
 Planlar oluşturup öğrenin, Azure Resource Manager şablonları, ilke, güvenlik ve daha fazla bağlı yeniden kullanılabilir ve hızlı bir şekilde dağıtılabilen yapılandırmaları geliştirmek için ortak desenler tanımlayabilirsiniz. Bu öğreticide, bazı atama kuruluşunuz içindeki bir şema oluşturma ve yayımlama ile ilgili genel görevleri yapmak için Azure şemaları kullanmayı öğrenin. Bu görevler aşağıdakileri içerir:
 
@@ -29,7 +29,7 @@ Planlar oluşturup öğrenin, Azure Resource Manager şablonları, ilke, güvenl
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
 
-## <a name="create-a-blueprint"></a>Şema oluşturma
+## <a name="create-a-blueprint"></a>Şema oluşturun
 
 Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumdaki kaynaklardan bir şema oluşturmaktır. Bu örnekte, adlı yeni bir şema oluşturmak **MyBlueprint** abonelik için rol ve ilke atamaları yapılandırmak için. Ardından yeni bir kaynak grubu ekleyin ve yeni bir kaynak grubu üzerinde bir Resource Manager şablonu ve rol ataması oluşturun.
 

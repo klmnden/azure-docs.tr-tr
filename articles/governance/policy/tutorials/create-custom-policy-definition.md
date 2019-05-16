@@ -7,14 +7,14 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e808bd18e2b23c211f1c5257881fc8a8b72271fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: f9dc6e98e184e6eeeca3a56ff4a28739369a3d24
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705921"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65736293"
 ---
-# <a name="create-a-custom-policy-definition"></a>Özel ilke tanımı oluşturma
+# <a name="tutorial-create-a-custom-policy-definition"></a>Öğretici: Özel ilke tanımı oluşturma
 
 Özel bir ilke tanımı, müşterilerin Azure'ı kullanarak kendi kuralları tanımlamak olanak tanır. Genellikle, bu kurallar uygular:
 
@@ -162,11 +162,11 @@ Kaynak özelliği belirledik, ancak bu özelliğe eşlemek ihtiyacımız bir [di
 
 Bir Azure kaynağı için diğer adlar belirlemek için birkaç yolu vardır. Bu öğretici için her şu konuları inceleyeceğiz:
 
-- Azure CLI
+- Azure CLI'si
 - Azure PowerShell
-- Azure Kaynak Grafiği
+- Azure Kaynak Grafı
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Azure CLI'de `az provider` kaynak diğer adları aramak için kullanılan komut grubu. İçin filtreleyeceğiz **Microsoft.Storage** ad alanı temel aldık Azure kaynak hakkında daha önce ayrıntıları.
 
@@ -193,7 +193,7 @@ Azure PowerShell'de `Get-AzPolicyAlias` cmdlet'i, kaynak diğer adları aramak i
 
 Azure CLI gibi adlı depolama hesabı tarafından desteklenen bir diğer ad sonuçlarını göster **supportsHttpsTrafficOnly**.
 
-### <a name="azure-resource-graph"></a>Azure Kaynak Grafiği
+### <a name="azure-resource-graph"></a>Azure Kaynak Grafı
 
 [Azure Kaynak Grafiği](../../resource-graph/overview.md) önizlemede yeni bir hizmettir. Bu, Azure kaynaklarını özelliklerini bulmak için başka bir yöntem sağlar. Aşağıda, bir tek bir depolama hesabı kaynak grafiği ile arama için örnek sorgu verilmiştir:
 
@@ -341,7 +341,7 @@ Artık özellik ayrıntılarını ve yönetmek planlıyoruz için diğer ad sahi
 }
 ```
 
-### <a name="metadata"></a>Meta Veriler
+### <a name="metadata"></a>Meta veriler
 
 İlk üç ilke meta verilerini bileşenlerdir. Kural ne oluşturuyoruz bildiğiniz için değerler sağlamak bu bileşenlerin kolaydır. [Modu](../concepts/definition-structure.md#mode) öncelikle etiketleri ve kaynak konumu hakkında. Değerlendirme etiketleri destekleyen kaynaklara sınırlamak gerekmez bu yana kullanacağız _tüm_ değerini **modu**.
 
@@ -446,7 +446,7 @@ Tüm üç bölümden tanımlanan ilke ile tamamlanmış bizim tanımı aşağıd
 
 Tamamlanma tanımı, yeni bir ilke oluşturmak için kullanılabilir. Portal ve her bir SDK (Azure CLI, Azure PowerShell ve REST API'si) tanımı farklı şekillerde kabul edin, böylece her doğru kullanım doğrulamak için komutları gözden geçirin. Ardından, depolama hesaplarınızın güvenliğini yönetmek için uygun kaynaklara parametreli efekt kullanarak atayın.
 
-## <a name="review"></a>Gözden geçirme
+## <a name="review"></a>İncele
 
 Bu öğreticide, aşağıdaki görevleri başarıyla gerçekleştirdiniz:
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539911"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595740"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET Web Uygulamanızı izlemeye başlama
 
@@ -26,16 +26,16 @@ Bu hızlı başlangıç, var olan bir ASP.NET web uygulamasına Application Insi
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıcı tamamlamak için:
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
+- Yükleme [Visual Studio 2019](https://www.visualstudio.com/downloads/) aşağıdaki iş yükleri ile:
     - ASP.NET ve web geliştirme
     - Azure geliştirme
 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
+## <a name="enable-application-insights"></a>Application Insights'ı Etkinleştir
 
-1. Projenizi Visual Studio 2017'de açın.
+1. Projenizi Visual Studio 2019 ' açın.
 2. Proje menüsünden **Application Insights’ı Yapılandır**’ı seçin. Visual Studio, uygulamanıza Application Insights SDK'sını ekler.
 
     > [!IMPORTANT]
@@ -63,11 +63,11 @@ Artık Application Insights’ı Azure portalında açarak çalışan uygulaman�
 
 1. Genişletin **bağlı hizmetler** Çözüm Gezgini'nde klasörü (Bulut ve Tak simgesi) sonra sağ **Application Insights** klasörü ve tıklatın **Application Insights portalını Aç** .  Uygulamanıza ilişkin bazı bilgiler ve çeşitli seçenekler görürsünüz.
 
-    ![Uygulama Eşlemesi](media/quick-monitor-portal/4overview.png)
+    ![Uygulama Haritası](media/quick-monitor-portal/4overview.png)
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzenini almak için **Uygulama haritası**’na tıklayın.  Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-    ![Uygulama Eşlemesi](media/quick-monitor-portal/5appmap.png)
+    ![Uygulama Haritası](media/quick-monitor-portal/5appmap.png)
 
 3. Tıklayarak **uygulama analizi** simgesi ![Uygulama Haritası](media/quick-monitor-portal/app-analytics-icon.png) **analytics'te görüntüle** Uygulama bileşenlerinden birinde. Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar.  Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 

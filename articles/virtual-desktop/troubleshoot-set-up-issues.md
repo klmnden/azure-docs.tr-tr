@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 9f52d1b949310792ffedc6e4723fbfb423fb5dfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928505"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523324"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Kiracı ve ana makine havuzu oluşturma
+# <a name="tenant-and-host-pool-creation"></a>Kiracı ve ana bilgisayar havuzu oluşturma
 
 Bu makalede, Windows sanal masaüstü Kiracı ve ilgili oturumu konak havuzu altyapısının ilk kurulum sırasında sorunları ele alır.
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 
 Windows sanal masaüstü Önizleme aşamasındayken biz şu anda destek alma değildir. Ziyaret [Windows sanal masaüstü teknoloji topluluğuna](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) etkin topluluk üyeleri ve ürün ekibine Windows sanal masaüstü hizmetiyle tartışmak için.
 
@@ -300,7 +300,6 @@ The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d2
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-Set-RdsContext -Name <Windows Virtual Desktop tenant group name>
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
 ```
 

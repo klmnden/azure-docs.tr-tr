@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 99be0cee9c939ed200bd74c94e88c3fcd989e25b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 15885137b9559bf34fb2b985398401af09caa629
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722886"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602987"
 ---
 # <a name="configure-the-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Karma bir ortamda, Windows bilgisayarlar için Log Analytics aracısını yapılandırma
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) verileri doğrudan fiziksel veya sanal Windows bilgisayarlarınızdan ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir. Bir veri merkezine ya da başka bir bulut ortamında, log Analytics'e veri toplayabilirsiniz. Bu hızlı başlangıçta birkaç kolay adımda Windows bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Windows sanal makineleri hakkında daha fazla bilgi için bkz: [Azure sanal makineleri hakkında veri toplama](../../azure-monitor/learn/quick-collect-azurevm.md).  
@@ -98,7 +98,7 @@ Log Analytics uzun süreli analiz ve raporlama için performans sayaçları ve W
 7. Seçin **Windows performans sayaçları** bir Windows bilgisayarda performans sayaçlarını toplamayı etkinleştirmek için.
 8. Yeni bir Log Analytics çalışma alanı için Windows performans sayaçlarını ilk kez yapılandırırken, birkaç ortak sayacı hızlı bir şekilde oluşturmak için bu seçeneği verilir. Yanında bir onay kutusu her seçeneği listelenir:
 
-    ![Windows performans sayaçları](media/quick-collect-windows-computer/windows-perfcounters-default.png).
+    ![Windows performans sayaçları](media/quick-collect-windows-computer/windows-perfcounters-default.png):
     
     Seçin **Seçili performans sayaçlarını Ekle**. Sayaçları eklenir ve on saniye koleksiyon örnek aralığı ile ayarlanır.
 
@@ -107,8 +107,8 @@ Log Analytics uzun süreli analiz ve raporlama için performans sayaçları ve W
 ## <a name="view-collected-data"></a>Toplanan verileri görüntüleme
 Veri toplama etkinleştirdikten sonra hedef bilgisayardan verileri görmek için basit bir günlük araması çalıştıralım.  
 
-1. Azure portalında, seçilen çalışma alanı seçin **günlük araması** Döşe.  
-2. Üzerinde **günlük araması** bölmesinde sorgu kutusu girin **Perf** ve ardından Enter tuşuna basın veya sorgu kutusunun sağındaki arama düğmesine seçin:
+1. Azure portalında, seçilen çalışma alanı seçin **günlükleri** Döşe.  
+2. Üzerinde **günlük araması** bölmesinde sorgu kutusu girin **Perf** tıklatıp **çalıştırma** sorgu kutusunun üst kısmındaki:
  
     ![Log Analytics günlük araması](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 

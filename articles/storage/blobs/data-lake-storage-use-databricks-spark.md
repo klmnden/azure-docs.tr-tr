@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939170"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65745151"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 
@@ -110,6 +110,32 @@ Bu bölümde, Azure portalını kullanarak bir Azure Databricks hizmeti oluştur
 
     * **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleme ve Spark işleri çalıştırabilirsiniz.
 
+## <a name="ingest-data"></a>Veriyi çekme
+
+### <a name="copy-source-data-into-the-storage-account"></a>Kaynak verilerini depolama hesabına kopyalama
+
+Veri kopyalamak için AzCopy kullanın, *.csv* Data Lake depolama Gen2 hesabınızı dosyasına.
+
+1. Bir komut istemi penceresi açın ve depolama hesabınızda oturum açın aşağıdaki komutu girin.
+
+   ```bash
+   azcopy login
+   ```
+
+   Kullanıcı hesabınızın kimliğini doğrulamak için komut istemi penceresinde görüntülenen yönergeleri izleyin.
+
+2. Verileri kopyalamak için *.csv* hesap, aşağıdaki komutu girin.
+
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   ```
+
+   * Değiştirin `<csv-folder-path>` yolu ile yer tutucu değerini *.csv* dosya.
+
+   * Değiştirin `<storage-account-name>` yer tutucu değerini, depolama hesabınızın adı.
+
+   * Değiştirin `<file-system-name>` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
+
 ## <a name="create-a-file-system-and-mount-it"></a>Bir dosya sistemi oluşturun ve bunu bağlama
 
 Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacaksınız.
@@ -129,9 +155,9 @@ Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacak
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
@@ -140,13 +166,17 @@ Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacak
     extra_configs = configs)
     ```
 
-18. Bu kod bloğunda değiştirin `application-id`, `authentication-id`, `tenant-id`, ve `storage-account-name` Bu kod bloğu içinde yer tutucu değerlerini Bu öğretici önkoşulları tamamlanırken toplanan değerlere sahip. Değiştirin `file-system-name` yer tutucu değerini, ad ile istediğiniz dosya sistemi sağlar.
+18. Bu kod bloğunda değiştirin `appId`, `password`, `tenant`, ve `storage-account-name` Bu kod bloğu içinde yer tutucu değerlerini Bu öğretici önkoşulları tamamlanırken toplanan değerlere sahip. Değiştirin `file-system-name` yer tutucu değerini önceki adımda ADLS dosya sistemine verdiğiniz ada sahip.
 
-   * `application-id`, Ve `authentication-id` uygulamasından active Directory Hizmet sorumlusu oluşturma işleminin parçası olarak kayıtlı olduğunuz.
+Belirtilen yer tutucuları değiştirmek için bu değerleri kullanırsınız.
+
+   * `appId`, Ve `password` uygulamasından active Directory Hizmet sorumlusu oluşturma işleminin parçası olarak kayıtlı olduğunuz.
 
    * `tenant-id` Aboneliğinizden olduğu.
 
    * `storage-account-name` Azure Data Lake depolama Gen2'ye depolama hesabınızın adıdır.
+
+   * Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
 
    > [!NOTE]
    > Bir üretim ayarında, Azure Databricks'te, kimlik doğrulama anahtarı depolamayı düşünün. Ardından, kimlik doğrulama anahtarı yerine, kod bloğu için bir arama anahtarı ekleyin. Bu hızlı başlangıcı tamamladıktan sonra bkz [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makalede bu yaklaşım örneklerini görmek için Azure Databricks Web sitesinde.
@@ -154,32 +184,6 @@ Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacak
 19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 
    Buna daha sonra komutları ekleyeceksiniz gibi bu not defteri, açık tutun.
-
-## <a name="ingest-data"></a>Veriyi çekme
-
-### <a name="copy-source-data-into-the-storage-account"></a>Kaynak verilerini depolama hesabına kopyalama
-
-Veri kopyalamak için AzCopy kullanın, *.csv* Data Lake depolama Gen2 hesabınızı dosyasına.
-
-1. Bir komut istemi penceresi açın ve depolama hesabınızda oturum açın aşağıdaki komutu girin.
-
-   ```bash
-   azcopy login
-   ```
-
-   Kullanıcı hesabınızın kimlik doğrulaması için komut istemi penceresinde görünmesi yönergeleri izleyin.
-
-2. Verileri kopyalamak için *.csv* hesap, aşağıdaki komutu girin.
-
-   ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
-   ```
-
-   * Değiştirin `<csv-folder-path>` yolu ile yer tutucu değerini *.csv* dosya.
-
-   * Değiştirin `storage-account-name` yer tutucu değerini, depolama hesabınızın adı.
-
-   * Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Not Defteri'ni kullanarak CSV'yi Parquet biçimine dönüştürme
 

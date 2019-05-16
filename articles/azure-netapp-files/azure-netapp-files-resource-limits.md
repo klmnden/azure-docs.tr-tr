@@ -12,28 +12,66 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 897ca26bcbb05287d33a4fb8e731ca959e39e271
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d55e11ace4ca306c3d3ec8c0094a751966289db6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452645"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523059"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files için kaynak sınırları
 
 Azure için NetApp dosyaları kaynak sınırları anlama birimlerinizi yönetmenize yardımcı olur.
 
-- Her Azure aboneliği, en fazla 10 NetApp hesabı olabilir.
-- NetApp her hesap en çok 25 kapasitesi havuzu olabilir.
-- Her kapasitesi havuzu, yalnızca bir NetApp hesabına ait olabilir.  
-- Tek kapasitesi havuzu için en düşük Boyut 4 TiB, ve en büyük boyutu 500 TiB. 
-- En fazla 500 birimlerin her kapasitesi havuzu olabilir.
-- En küçük boyut tek bir birim için 100 GiB, ve en büyük boyutu 92 TiB.
-- Her birim, en fazla 255 anlık görüntü olabilir.
-- Her Azure sanal ağı (Vnet), Azure için NetApp dosyaları temsilci yalnızca bir alt ağa sahip olabilir.
+## <a name="resource-limits"></a>Kaynak sınırları
 
-**Sonraki adımlar**
+Aşağıdaki tabloda, Azure NetApp dosyaları için kaynak sınırları açıklanmaktadır:
 
-[NetApp dosyaları Azure depolama hiyerarşisini anlama](azure-netapp-files-understand-storage-hierarchy.md)
+|  Resource  |  Varsayılan limit  |  Destek isteği aracılığıyla ayarlanabilir  |
+|----------------|---------------------|--------------------------------------|
+|  Azure aboneliği başına NetApp hesabı sayısı   |  10    |  Evet   |
+|  NetApp hesap başına kapasitesi havuzu sayısı   |    25     |   Evet   |
+|  Birim kapasitesi havuzu başına sayısı     |    500   |    Evet     |
+|  Birim başına anlık görüntü sayısı       |    255     |    Hayır        |
+|  Azure sanal ağ başına Azure NetApp dosyaları (Microsoft.NetApp/volumes) temsilci alt ağ sayısını    |   1   |    Hayır    |
+|  En küçük boyut tek kapasitesi havuzu   |  4 TiB     |    Hayır  |
+|  En büyük boyutunu tek kapasitesi havuzu    |  500 TiB   |   Hayır   |
+|  Tek bir birim, en küçük boyut    |    100 GiB    |    Hayır    |
+|  Maksimum atanan kota, bir tek birim *   |   92 TiB   |    Hayır   |
+|  Bir tek birim * en büyük boyutu     |    100 TiB    |    Hayır       |
+
+* Bir birim el ile oluşturulan veya maximally 92 TiB olarak yeniden boyutlandırıldı. Ancak, bir birim, en fazla 100 tib'a kadar fazla kullanım bir senaryoda büyüyebilir. Bkz: [Azure NetApp dosyaları için maliyet modeli](azure-netapp-files-cost-model.md) kapasite fazla kullanım hakkında ayrıntılı bilgi için. 
+
+## <a name="request-limit-increase"></a>Sınır artırma isteğinde 
+
+Yukarıdaki tablodaki ayarlanabilir sınırları artırmak için Azure destek isteği oluşturabilirsiniz. 
+
+Azure portalında gezinme düzleminde: 
+
+1. Tıklayın **Yardım + Destek**.
+2. Tıklayın **+ yeni destek isteği**.
+3. Temel bilgiler sekmesinde, aşağıdaki bilgileri sağlayın: 
+    1. Sorun türü: Seçin **hizmet ve abonelik sınırlarını (kotalar)**.
+    2. Abonelikler: İlişkin kotayı gereken kaynak için abonelik seçin.
+    3. Kota türü: Seçin **Depolama: Azure NetApp dosyaları sınırlar**.
+    4. Tıklayın **sonraki: Çözümleri**.
+4. Ayrıntılar sekmesi üzerinde:
+    1. Açıklama kutusunda, ilgili kaynak türü için aşağıdaki bilgileri belirtin:
+
+        |  Resource  |    Üst kaynak      |    İstenen yeni sınırları     |    Kota artışı nedeni       |
+        |----------------|------------------------------|---------------------------------|------------------------------------------|
+        |  Hesap |  *Abonelik kimliği*   |  *İstenen yeni maksimum **hesabı** numarası*    |  *Hangi senaryo veya kullanım örneği isteği istenir?*  |
+        |  Havuz    |  *Abonelik kimliği, hesap URI'si*  |  *İstenen yeni maksimum **havuzu** numarası*   |  *Hangi senaryo veya kullanım örneği isteği istenir?*  |
+        |  Birim  |  *Abonelik kimliği, hesabı URI'si, havuzu URI'si*   |  *İstenen yeni maksimum **birim** numarası*     |  *Hangi senaryo veya kullanım örneği isteği istenir?*  |
+
+    2. Uygun yöntemini desteklemezler ve sözleşme bilgilerinizi belirtin.
+
+    3. Tıklayın **sonraki: Gözden geçir + Oluştur** isteği oluşturmak için. 
+
+
+## <a name="next-steps"></a>Sonraki adımlar  
+
+- [NetApp dosyaları Azure depolama hiyerarşisini anlama](azure-netapp-files-understand-storage-hierarchy.md)
+- [Azure NetApp dosyaları için maliyet modeli](azure-netapp-files-cost-model.md)

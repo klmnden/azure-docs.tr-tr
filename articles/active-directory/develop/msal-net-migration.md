@@ -4,7 +4,7 @@ description: Microsoft kimlik doğrulama kitaplığı için .NET (MSAL.NET) ve A
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576121bfc945b90ce8ec0260ea30ec110e14dd8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 028c7f5d42587a6b2129bba07831b0e799d607f4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138836"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544228"
 ---
 # <a name="migrating-applications-to-msalnet"></a>MSAL.NET uygulamalarını geçirme
 
@@ -65,7 +65,7 @@ MSAL.NET 2.x artık hesap kavramını (IAccount arabiriminden) tanımlar. Bu de�
 
 Iuser IAccount arasındaki farklar hakkında daha fazla bilgi için bkz. [MSAL.NET 2.x](https://aka.ms/msal-net-2-released).
 
-### <a name="exceptions"></a>Özel durumlar
+### <a name="exceptions"></a>Özel Durumlar
 
 #### <a name="interaction-required-exceptions"></a>Etkileşim gerekli özel durumları
 
@@ -128,7 +128,7 @@ Web uygulamaları, Web API'leri ve arka plan programı uygulamaları için ADAL.
 Uygulama türü | Erişim İzni Verme | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Web uygulaması, Web API'si, arka plan programı | İstemci kimlik bilgileri | [İstemci kimlik bilgisi ADAL.NET akışlarında](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [İstemci kimlik bilgisi akan MSAL.NET](msal-authentication-flows.md#client-credentials))
-Web API | Şu kişi adına: | [Hizmetten hizmete çağrılar kullanıcı adına ADAL.NET ile](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [Adına, MSAL.NET](msal-authentication-flows.md#on-behalf-of)
+Web API'si | Şu kişi adına: | [Hizmetten hizmete çağrılar kullanıcı adına ADAL.NET ile](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [Adına, MSAL.NET](msal-authentication-flows.md#on-behalf-of)
 Web Uygulaması | Kimlik doğrulama kodu | [Yetkilendirme kodları ADAL.NET ile web apps üzerinde belirteçleriyle alınıyor](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Yetkilendirme kodları A MSAL.NET ile web apps üzerinde belirteçleriyle alınıyor](msal-authentication-flows.md#authorization-code)
 
 ### <a name="cache-persistence"></a>Önbellek kalıcılığı

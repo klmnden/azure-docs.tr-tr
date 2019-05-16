@@ -3,8 +3,8 @@ title: Android uygulamasından kullanıcıların oturumunu açma ve Microsoft Gr
 description: Android uygulamanızdan kullanıcıların oturumunu açmayı ve Microsoft Graph API'sini çağırmayı öğrenin.
 services: active-directory
 documentationcenter: android
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9537748f8dd3ee027236c73e9587ff6b78ded7f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 288581ed3ca339ad9126336556e7b0b565fbbafa
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299450"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545696"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
 
@@ -111,7 +111,7 @@ mAuthResult.getAccessToken()
 2. Örneği Android Studio’da açın.
     - **Var olan Android Studio projesini aç**'ı seçin.
 
-## <a name="step-3-configure-your-code"></a>3. Adım: Kodunuzu yapılandırın
+## <a name="step-3-configure-your-code"></a>3. adım: Kodunuzu yapılandırın
 
 Bu kod örneğinin tüm yapılandırmasını ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosyasında bulabilirsiniz.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: cd10c503c6e65f68d063deb5f8a537fc9f3c9f0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2cdde2f9dbba9676ba8a4d35ed6b79940668d684
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794160"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521786"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Windows için Azure İzleyici bağımlılık sanal makine uzantısı
 
@@ -32,7 +32,7 @@ Vm'leri Haritası özelliği için Azure İzleyici verilerini Microsoft Dependen
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Windows için Azure VM bağımlılık Aracısı uzantısı listelenen desteklenen işletim sistemlerine karşı çalıştırabilirsiniz [desteklenen işletim sistemleri](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) Vm'leri dağıtma makalesi için Azure İzleyici bölümü.
+Windows için Azure VM bağımlılık Aracısı uzantısı listelenen desteklenen işletim sistemlerine karşı çalıştırabilirsiniz [desteklenen işletim sistemleri](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) Vm'leri dağıtma makalesi için Azure İzleyici bölümü.
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
@@ -147,7 +147,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
-### <a name="troubleshoot"></a>Sorun giderme
+### <a name="troubleshoot"></a>Sorun gider
 
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için Azure PowerShell modülü kullanarak şu komutu çalıştırın.
 

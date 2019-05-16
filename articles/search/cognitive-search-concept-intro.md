@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023643"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540894"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>"Bilişsel arama" Azure Search nedir?
 
@@ -61,9 +61,9 @@ Dahili olarak, işlem hattı bir zenginleştirilmiş bir belge koleksiyonu oluş
 
 [Arama hizmeti REST API-version = 2019-05-06](search-api-preview.md) uzmanlık becerileri ile bir Azure depolama bağlantı ve zenginleştirmelerinin nasıl depolandığını anlatan tahminleri sağlayan bir knowledgeStore tanımı genişletir. 
 
-Bir beceri kümesi için bir Bilgi Bankası depolama ekleme senaryoları dışında tam metin araması, zenginleştirmelerinin gösterimini proje olanağı sağlar. Daha fazla bilgi için [bilgi Store nedir](knowledge-store-concept-intro.md).
+Bir beceri kümesi için bir Bilgi Bankası depolama ekleme senaryoları dışında tam metin araması, zenginleştirmelerinin gösterimini proje olanağı sağlar. Daha fazla bilgi için [ne bilgi deposudur](knowledge-store-concept-intro.md).
 
-### <a name="step-3-search-index-and-query-based-access"></a>3. Adım: Arama dizini ve sorgu tabanlı erişim
+### <a name="step-3-search-index-and-query-based-access"></a>3. adım: Arama dizini ve sorgu tabanlı erişim
 
 İşleme tamamlandığında, zenginleştirilmiş belgeler, metin-Azure Search'te arama yapılabilen oluşan bir arama dizini sahip. [Dizini sorgulama](search-query-overview.md) geliştiriciler ve kullanıcılar nasıl işlem hattı tarafından oluşturulan zenginleştirilmiş içeriğin eriştiği. 
 
@@ -87,9 +87,9 @@ Dizinler, alanların özniteliklerini tanımlayan bir dizin şemasını oluştur
 | Belge çözme | Ayıklama veya dizin oluşturma sırasında metin olmayan kaynaklardan gelen metin içeriğini oluşturma işlemi. Optik karakter tanıma (OCR) bir örnek verilmiştir, ancak genellikle dizin oluşturucu uygulama dosyalarından içeriği ayıklar gibi için çekirdek dizin oluşturucu işlevi başvuruyor. Kaynak dosya konumu ve alan eşlemelerini sağlama dizin oluşturucu tanımı sağlayarak veri kaynağı çözme belgedeki her iki anahtar etkenler şunlardır. | Bkz: [dizin oluşturucular](search-indexer-overview.md) |
 | Şekillendirme | Metin parçaları daha büyük bir yapısına birleştirmek veya tersine daha da aşağı akış işleme için yönetilebilir bir boyutu daha büyük metin parçalara ayırmanız. | [Shaper beceri](cognitive-search-skill-shaper.md), [metin birleşme beceri](cognitive-search-skill-textmerger.md), [beceri metni Böl](cognitive-search-skill-textsplit.md) |
 | Zenginleştirilmiş belgeleri | Bir hatanın iç yapısı, kod içinde doğrudan erişilebilir değil. Zenginleştirilmiş belgeleri işleme sırasında oluşturulur ancak yalnızca son çıktı için bir arama dizinini kalıcıdır. Alan eşlemelerini hangi veri öğeleri dizine eklenen belirleyin. | Bkz: [zenginleştirilmiş eriştiğini](cognitive-search-tutorial-blob.md#access-enriched-document). |
-| Dizinleyici |  Bir dış veri kaynağından aranabilir verileri ve meta verileri ayıklayan ve dizin ve belge çözme ve veri kaynağı arasındaki alan alan eşlemeleri göre bir dizini dolduran bir Gezgin. Bilişsel arama zenginleştirmelerinin için dizin oluşturucu bir beceri kümesi çağırır ve zenginleştirme çıkış dizini hedef alanlara ilişkilendirme alan eşlemeleri içerir. Dizin Oluşturucu tanımı tüm yönergeleri ve işlem hattı işlemleri için başvurular içerir ve dizin oluşturucu programını çalıştırdığınızda, işlem hattı çağrılır. | [Dizin Oluşturucular](search-indexer-overview.md) |
+| Dizin Oluşturucu |  Bir dış veri kaynağından aranabilir verileri ve meta verileri ayıklayan ve dizin ve belge çözme ve veri kaynağı arasındaki alan alan eşlemeleri göre bir dizini dolduran bir Gezgin. Bilişsel arama zenginleştirmelerinin için dizin oluşturucu bir beceri kümesi çağırır ve zenginleştirme çıkış dizini hedef alanlara ilişkilendirme alan eşlemeleri içerir. Dizin Oluşturucu tanımı tüm yönergeleri ve işlem hattı işlemleri için başvurular içerir ve dizin oluşturucu programını çalıştırdığınızda, işlem hattı çağrılır. | [Dizin Oluşturucular](search-indexer-overview.md) |
 | Veri Kaynağı  | Azure'da desteklenen türlerin bir dış veri kaynağına bağlanmak için bir dizin oluşturucu tarafından kullanılan nesne. | Bkz: [dizin oluşturucular](search-indexer-overview.md) |
-| Dizin oluşturma | Azure Search, alan yapısı ve kullanım tanımlayan bir dizin şemasını yerleşik bir kalıcı arama dizin. | [Azure Search'te dizinler](search-what-is-an-index.md) | 
+| Dizin | Azure Search, alan yapısı ve kullanım tanımlayan bir dizin şemasını yerleşik bir kalıcı arama dizin. | [Azure Search'te dizinler](search-what-is-an-index.md) | 
 
 <a name="where-do-i-start"></a>
 
@@ -145,5 +145,5 @@ Belirli bir soru veya sorunlarınız hakkında daha fazla bilgi için bkz. [soru
 + [Bilişsel arama belgeleri](cognitive-search-resources-documentation.md)
 + [Hızlı Başlangıç: Portal Kılavuzu'nda bilişsel aramayı deneme](cognitive-search-quickstart-blob.md)
 + [Öğretici: Bilişsel arama API'leri öğrenin](cognitive-search-tutorial-blob.md)
-+ [Bilgi Bankası Store genel bakış](knowledge-store-concept-intro.md)
-+ [Bilgi Bankası Store gözden geçirme](knowledge-store-howto.md)
++ [Bilgi Bankası deposuna genel bakış](knowledge-store-concept-intro.md)
++ [Bilgi Bankası store gözden geçirme](knowledge-store-howto.md)

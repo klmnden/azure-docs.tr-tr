@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: e0ad1e85a4cd47de823bc4f224b5a8834b1068b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459326"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523632"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Azure PowerShell kullanarak web uygulaması güvenlik duvarı oranı sınırı kuralı yapılandırma
 Azure web uygulaması Güvenlik Duvarı (WAF) oranı sınırı kuralı için Azure ön kapısı, bir dakikalık süre bir tek istemci IP izin istekleri sayısını denetler.
@@ -55,17 +55,17 @@ Install-Module -Name Az.FrontDoor
 Açıklanan yönergeleri izleyerek bir ön kapısı profili oluşturma [hızlı başlangıç: Bir ön kapısı profili oluşturma](quickstart-create-front-door.md)
 
 ## <a name="define-url-match-conditions"></a>URL eşleştirme koşulları tanımlayın
-(URL /promo içerir) bir URL eşleşme koşulu tanımla kullanarak [yeni AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject).
+(URL /promo içerir) bir URL eşleşme koşulu tanımla kullanarak [yeni AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 Aşağıdaki örnek eşleşir */promo* değeri olarak *RequestUri* değişkeni:
 
 ```powershell-interactive
-   $promoMatchCondition = New-AzFrontDoorMatchConditionObject `
+   $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      -MatchVariable RequestUri `
      -OperatorProperty Contains `
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>Bir özel oranı sınırı kuralı oluşturma
-Hızı sınırı kullanılarak ayarlanan [yeni AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject). Aşağıdaki örnekte, sınırı 1000'e ayarlanır. Herhangi bir istemciden istekleri 1000 aşan bir dakika promosyon sayfasına, sonraki bir dakika başlatana kadar engellenir.
+Hızı sınırı kullanılarak ayarlanan [yeni AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). Aşağıdaki örnekte, sınırı 1000'e ayarlanır. Herhangi bir istemciden istekleri 1000 aşan bir dakika promosyon sayfasına, sonraki bir dakika başlatana kadar engellenir.
 
 ```powershell-interactive
    $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
@@ -79,14 +79,14 @@ Hızı sınırı kullanılarak ayarlanan [yeni AzFrontDoorCustomRuleObject](/pow
 
 ## <a name="configure-a-security-policy"></a>Güvenlik İlkesi yapılandırma
 
-Ön kapısı profili kullanılarak içeren kaynak grubunun adını bulma `Get-AzureRmResourceGroup`. Ardından, özel oranı sınırı kuralı kullanarak bir güvenlik ilkesi yapılandırma [yeni AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) ön kapısı profilini içerir belirtilen kaynak grubunda.
+Ön kapısı profili kullanılarak içeren kaynak grubunun adını bulma `Get-AzureRmResourceGroup`. Ardından, özel oranı sınırı kuralı kullanarak bir güvenlik ilkesi yapılandırma [yeni AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) ön kapısı profilini içerir belirtilen kaynak grubunda.
 
 Aşağıdaki örnekte kaynak grubu adı kullanan *myResourceGroupFD1* ön kapısı oluşturduğunuz varsayımıyla, sağlanan yönergeleri kullanarak profil [hızlı başlangıç: Bir ön kapı oluşturmak](quickstart-create-front-door.md) makalesi.
 
- kullanarak [yeni AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+ kullanarak [yeni AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
-   $ratePolicy = New-AzFrontDoorFireWallPolicy `
+   $ratePolicy = New-AzFrontDoorWafPolicy `
      -Name "RateLimitPolicyExamplePS" `
      -resourceGroupName myResourceGroupFD1 `
      -Customrule $promoRateLimitRule `

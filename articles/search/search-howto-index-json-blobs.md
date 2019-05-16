@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024938"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523081"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob Dizin Oluşturucu kullanarak JSON bloblarını dizinleme
 Bu makalede bir Azure Search blob yapılandırma işlemi gösterilmektedir [dizin oluşturucu](search-indexer-overview.md) JSON belgeleri olarak Azure Blob depolama alanından yapılandırılmış içeriği ayıklamak ve Azure Search aranabilir hale getirin. Bu iş akışı, bir Azure Search dizini oluşturur ve JSON bloblarından ayıklanan mevcut metinle yükler. 
@@ -279,7 +279,7 @@ Azure Search'te dizin oluşturucuyu oluşturma, veri alma işlemi tetikler. Bir 
 
 ## <a name="use-net-sdk"></a>.NET SDK kullanma
 
-.NET SDK'sı, tam olarak REST API ile eşlik vardır. Kavramlar ve iş akışı gereksinimlerini öğrenmek için önceki REST API bölümde gözden geçirmenizi öneririz. Yönetilen kodda bir JSON dizin oluşturucu uygulamak için aşağıdaki .NET API başvuru belgelerine başvurabilirsiniz.
+.NET SDK, REST API'si ile tam eşlik vardır. Kavramlar ve iş akışı gereksinimlerini öğrenmek için önceki REST API bölümde gözden geçirmenizi öneririz. Yönetilen kodda bir JSON dizin oluşturucu uygulamak için aşağıdaki .NET API başvuru belgelerine başvurabilirsiniz.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 

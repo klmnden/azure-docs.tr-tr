@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773336"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65751020"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure Vm'leri için olağanüstü durum kurtarmayı ayarlayın
 
@@ -25,7 +25,7 @@ Bu öğreticide, bunları bir Azure bölgesinden diğerine çoğaltılması yolu
 > [!div class="checklist"]
 > * Kurtarma Hizmetleri kasası oluşturma
 > * Hedef kaynak ayarlarını doğrulama
-> * VM’ler için giden erişim ayarlama
+> * VM'ler için giden ağ bağlantısı ayarlayın
 > * VM için çoğaltmayı etkinleştirme
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Bu öğreticiyi tamamlamak için:
 - [Senaryo mimarisini ve bileşenlerini ](concepts-azure-to-azure-architecture.md) anladığınızdan emin olun.
 - Gözden geçirme [destek gereksinimlerini](site-recovery-support-matrix-azure-to-azure.md) başlamadan önce.
 
-## <a name="create-a-vault"></a>Kasa oluşturma
+## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
 Kasayı, kaynak bölgesi dışında herhangi bir bölgede oluşturun.
 
@@ -52,12 +52,12 @@ Kasayı, kaynak bölgesi dışında herhangi bir bölgede oluşturun.
 
    Yeni kasa, **Pano**’da **Tüm kaynaklar** bölümüne ve ana **Kurtarma Hizmetleri kasaları** sayfasına eklenir.
 
-## <a name="verify-target-resources"></a>Hedef kaynaklarını doğrulama
+## <a name="verify-target-resource-settings"></a>Hedef kaynak ayarlarını doğrulama
 
 1. Azure aboneliğinizi hedef bölgede VM'ler oluşturmanıza izin verdiğinden emin olun. Gerekli kotayı sağlamak için desteğe başvurun.
 2. Aboneliğinizin kaynak VM'lerin aynı VM boyutlarını desteklemek için yeterli kaynakları içerdiğinden emin olun. Site Recovery, aynı boyutta veya hedef sanal makine için en yakın olası boyutu seçer.
 
-## <a name="configure-outbound-network-connectivity"></a>Giden ağ bağlantısını yapılandırma
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>VM'ler için giden ağ bağlantısı ayarlayın
 
 Site Recovery'nın beklendiği şekilde çalışması, çoğaltmak istediğiniz vm'lerden giden ağ bağlantısını değiştirmeniz gerekir.
 
@@ -107,7 +107,7 @@ Azure Site Recovery, Site Recovery yönetim işlemlerini denetlemek için üç y
 
 Daha fazla bilgi edinin [Azure RBAC yerleşik rolleri](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
+## <a name="enable-replication-for-a-vm"></a>VM için çoğaltmayı etkinleştirme
 
 ### <a name="select-the-source"></a>Kaynağı seçme
 
@@ -124,7 +124,7 @@ Daha fazla bilgi edinin [Azure RBAC yerleşik rolleri](../role-based-access-cont
 Site Recovery, abonelik ve kaynak grup/bulut hizmeti ile ilişkili VM’lerin listesini alır.
 
 1. **Sanal Makineler** bölümünde çoğaltmak istediğiniz VM’leri seçin.
-2. **Tamam** düğmesine tıklayın.
+2. **Tamam**'ı tıklatın.
 
 ### <a name="configure-replication-settings"></a>Çoğaltma ayarlarını yapılandırma
 
@@ -133,7 +133,7 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
 1. Hedef ve çoğaltma ayarlarını görüntülemek için **Ayarlar**’a tıklayın.
 2. Varsayılan hedef ayarlarını geçersiz kılmak için tıklayın **Özelleştir** yanındaki **kaynak grubu, ağ, depolama ve kullanılabilirlik**.
 
-   ![Ayarları yapılandırma](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Ayarları yapılandır](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 3. Hedef ayarlarını tabloda özetlendiği gibi özelleştirin.
@@ -146,7 +146,7 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
     **Hedef sanal ağ** | Yük devretme işleminden sonra VM'lerin bulunduğu hedef bölgedeki ağ.<br/><br/> Site Recovery varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir sanal ağ (ve alt ağlarını) oluşturur.
     **Önbellek depolama hesapları** | Site Recovery kaynak bölgede bir depolama hesabı kullanır. Kaynak VM’lere yönelik değişiklikler, hedef konuma çoğaltılmadan önce bu hesaba gönderilir.<br/><br/> Bir güvenlik duvarı etkin önbellek depolama hesabı kullanıyorsanız, etkinleştirdiğinizden emin olun **izin güvenilen Microsoft Hizmetleri**. [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
     **Hedef depolama hesapları (kaynak VM, yönetilmeyen diskler kullanır)** | Varsayılan olarak, Site Recovery, kaynak VM depolama hesabını yansıtmak için hedef bölgede yeni bir depolama hesabı oluşturur.<br/><br/> Etkinleştirme **izin güvenilen Microsoft Hizmetleri** bir güvenlik duvarı etkin önbellek depolama hesabı kullanıyorsanız.
-    **Yönetilen çoğaltma diskleri (kaynak kullanan sanal makine yönetilen diskleri kullanmıyorsa)** | Varsayılan olarak, Site Recovery kaynak sanal makinenin yönetilen disklerle aynı depolama türüne (standart veya premium) kaynağın VM'ye yönetilen disk olarak yansıtmak için hedef bölgede yönetilen çoğaltma diskleri oluşturur.
+    **Yönetilen çoğaltma diskleri (kaynak kullanan sanal makine yönetilen diskleri kullanmıyorsa)** | Varsayılan olarak, Site Recovery kaynak sanal makinenin yönetilen disklerle aynı depolama türüne (standart veya premium) kaynağın VM'ye yönetilen disk olarak yansıtmak için hedef bölgede yönetilen çoğaltma diskleri oluşturur. Yalnızca Disk türü özelleştirebilirsiniz 
     **Hedef kullanılabilirlik kümeleri** | Varsayılan olarak, Azure Site Recovery, yeni bir kullanılabilirlik Vm'leri bir kullanılabilirlik kümesi kaynak bölgede bir parçası için "asr" sonekine sahip adı ile hedef bölgede kümesi oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut durumda yeniden kullanılır.
     **Hedef kullanılabilirlik alanları** | Kullanılabilirlik alanları hedef bölge destekliyorsa, varsayılan olarak, Site Recovery hedef bölge kaynak bölgede aynı bölge sayısına atar.<br/><br/> Hedef bölge kullanılabilirlik desteklemiyorsa, hedef Vm'leri varsayılan olarak tek örnekleri olarak yapılandırılır.<br/><br/> Tıklayın **Özelleştir** Vm'leri bir kullanılabilirlik kümesi hedef bölgede bir parçası olarak yapılandırılır.<br/><br/> (Tek örnek, kullanılabilirlik kümesi veya kullanılabilirlik alanı) kullanılabilirlik türü değiştirilemiyor. çoğaltmayı etkinleştirdikten sonra. Devre dışı bırakın ve çoğaltma kullanılabilirlik türünü değiştirmek etkinleştirmeniz gerekir.
 

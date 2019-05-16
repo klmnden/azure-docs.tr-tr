@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: fec9e22b15eca3f95be606776066cf573046b5fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687490"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522877"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>NetApp dosyaları Azure depolama hiyerarşisini nedir
 
@@ -40,14 +40,16 @@ Azure NetApp Files’da birim oluşturmadan önce, sağlanan kapasite için bir 
 - Her kapasitesi havuzu, yalnızca bir NetApp hesabına ait olabilir. Ancak, bir NetApp hesabında birden fazla kapasitesi havuzu olabilir.  
 - Kapasite havuzu NetApp hesapları arasında taşınamaz.   
   Örneğin, aşağıdaki [Depolama hiyerarşisi kavramsal diyagramında](#conceptual_diagram_of_storage_hierarchy) Capacity Pool 1 adlı kapasite havuzu US East NetApp hesabından US West 2 NetApp hesabına taşınamaz.  
+- Kapasitesi havuzu kapasitesi havuzu içindeki tüm birimler silinene kadar silinemez.
 
 ## <a name="volumes"></a>Birimler
 
 - Bir birimi mantıksal kapasite tüketimini ölçülür ve ölçeklenebilir. 
 - Birimin kapasite kullanımı, havuzunun sağlanan kapasitesinden sayılır.
 - Her birim tek bir havuza ait olsa da, bir havuzda birden çok birim olabilir. 
-- Aynı NetApp hesabı içinde, birimi havuzlar arasında taşıyabilirsiniz.    
-  Örneğin, aşağıdaki [Depolama hiyerarşisinin kavramsal diyagramında](#conceptual_diagram_of_storage_hierarchy) birimleri Capacity Pool 1'den Capacity Pool 2'ye taşıyabilirsiniz.
+- Birim kapasitesi havuzu genelinde taşınamaz. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  Örneğin, [depolama hiyerarşisi kavramsal diyagramı](#conceptual_diagram_of_storage_hierarchy) Aşağıda, birim kapasitesi havuzu 1'den kapasitesi havuzu 2'ye taşıyamazsınız.
+- Bir birimi, tüm anlık görüntüleri silinene kadar silinemez.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Depolama hiyerarşisinin kavramsal diyagramı 
 Aşağıdaki örnekte Azure aboneliği, NetApp hesapları, kapasite havuzları ve birimlerin birbirleriyle ilişkileri gösterilir.   

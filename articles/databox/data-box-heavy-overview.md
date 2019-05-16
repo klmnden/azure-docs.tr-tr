@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 780a50d9d470e8904e066459f97aa00d34ba1d3c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306198"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603493"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>Azure Data Box Heavy nedir? (Önizleme)
 
@@ -109,7 +109,7 @@ Bu işlem boyunca tüm durum değişiklikleri e-posta ile bildirilir.
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Data Box Heavy, hizmetin dağıtıldığı bölge, cihazın gönderildiği ülke ve verileri aktardığınız hedef Azure depolama hesabı temelinde verileri aktarabilir. 
+Veri kutusu ağır hizmet dağıtılan bölgeye göre veri aktarabilir cihazı sevk ülke/bölge ve ' % s'hedef Azure depolama hesabı veri aktarma burada. 
 
 - **Hizmet kullanılabilirliği** - Bu sürümde, Data Box Heavy şu bölgelerde kullanılabilir:
     - Birleşik Devletler'deki tüm genel bulut bölgeleri: Orta Batı ABD, Batı ABD2, Batı ABD, Orta Güney ABD, Orta ABD, Orta Kuzey ABD, Doğu ABD ve Doğu ABD2.
@@ -119,7 +119,7 @@ Data Box Heavy, hizmetin dağıtıldığı bölge, cihazın gönderildiği ülke
 
 - **Hedef Depolama hesapları**: Verilerin depolandığı depolama hesapları, hizmetin kullanılabildiği tüm Azure bölgelerinde sağlanır. 
 
-## <a name="sign-up"></a>Kaydolma
+## <a name="sign-up"></a>Kaydolun
 
 Data Box Heavy önizleme aşamasındadır ve kaydolmanız gerekir. Data Box Heavy'ye kaydolmak için aşağıdaki adımları izleyin:
 
@@ -136,7 +136,7 @@ Data Box Heavy önizleme aşamasındadır ve kaydolmanız gerekir. Data Box Heav
 
    <!--![The Data Box Heavy sign up 3]()-->
 
-5. Verilerin bulunduğu ülke, zaman aralığı ve veri aktarımı için hedef Azure hizmeti, ağ bant genişliği ve veri aktarım sıklığı hakkındaki soruları yanıtlayın. Gizlilik ve koşulları gözden geçirdikten sonra, Microsoft sizinle iletişim kurmak için e-posta adresinizi kullanabilir onay kutusunu seçin.
+5. Veri ile ilgili sorularını ikametgahınızda ülke/bölge, zaman çerçevesini, hedef Azure hizmeti için veri aktarımı, ağ bant genişliği ve veri aktarım sıklığı. Gizlilik ve koşulları gözden geçirdikten sonra, Microsoft sizinle iletişim kurmak için e-posta adresinizi kullanabilir onay kutusunu seçin.
 
     <!--![The Data Box Heavy sign up 4]()-->
 

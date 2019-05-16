@@ -9,12 +9,12 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440940"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545074"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Hızlı Başlangıç: Hazırlama ve Azure Machine Learning'de kod yazmaya gerek kalmadan verileri görselleştirin
 
@@ -99,13 +99,13 @@ Machine learning için gereken ilk şey verilerdir. Bu arabirimde kullanabilece�
    
 1. Seçin **kümesindeki sütunları seçme** modülü.
 
-1. İçinde **özellikleri** select tuvalinin sağ bölmeye **Sütun seçiciyi Başlat**.
+1. İçinde **özellikleri** select tuvalinin sağ bölmeye **sütunları Düzenle**.
 
     İçinde **sütunları seçme** iletişim kutusunda, **tüm sütunları** ve **tüm özellikleri**. İletişim kutusu şu şekilde görünmelidir:
 
      ![Sütun Seçici](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. Alt sağ tarafta sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesini seçin.
+1. Alt sağ tarafta seçin **Tamam** Sütun seçiciyi kapatmak için.
 
 ## <a name="run-the-experiment"></a>Denemeyi çalıştırma
 
@@ -146,13 +146,13 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ç
 
 1. Seçin **kümesindeki sütunları seçme** modülü.
 
-1. İçinde **özellikleri** select tuvalinin sağ bölmeye **Sütun seçiciyi Başlat**.
+1. İçinde **özellikleri** select tuvalinin sağ bölmeye **sütunları Düzenle**.
 
     * Bırakın **kurallarla** ve **tüm sütunları** seçili.
 
     * Açılan menülerden **Hariç Tut** ve **sütun adlarını** seçerek metin kutusuna tıklayın. Tür **normalized-losses**.
 
-    * Alt sağ tarafta sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesini seçin.
+    * Alt sağ tarafta seçin **Tamam** Sütun seçiciyi kapatmak için.
 
     ![Bir sütununu hariç tutun](./media/ui-quickstart-run-experiment/exclude-column.png)
         

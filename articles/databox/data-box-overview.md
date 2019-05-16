@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930838"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603467"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box nedir?
 
@@ -109,7 +109,7 @@ Bu işlem boyunca tüm durum değişiklikleri e-posta ile bildirilir. Ayrıntıl
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Data Box, hizmetin dağıtıldığı bölge, cihazın gönderildiği ülke ve verileri aktardığınız hedef Azure depolama hesabı temelinde verileri aktarabilir. 
+Veri kutusu hizmeti dağıtılan bölgeye göre veri aktarma cihazı sevk ülke/bölge ve ' % s'hedef Azure depolama hesabı veri aktarma burada. 
 
 - **Hizmet kullanılabilirliği** - Bu sürümde, Data Box hizmeti şu bölgelerde kullanılabilir:
     - Birleşik Devletler'deki tüm bölgeler: Orta Batı ABD, Batı ABD2, Batı ABD, Orta Güney ABD, Orta ABD, Orta Kuzey ABD, Doğu ABD ve Doğu ABD2.

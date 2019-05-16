@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742724"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523269"
 ---
 # <a name="virtual-network--business-continuity"></a>Sanal ağ – iş sürekliliği
 
 ## <a name="overview"></a>Genel Bakış
 Bir sanal ağın (VNet) buluttaki ağınızın mantıksal bir gösterimidir. Kendi özel IP adres alanı tanımlayın ve ağ alt ağlar biçiminde segmentlere olanak tanır. Sanal ağlar, işlem kaynaklarınızı Azure Virtual Machines ve Cloud Services (web/çalışan rolleri) gibi barındırmak için bir güven sınırı görevi görür. Bir sanal ağ içinde bulunan kaynaklar arasında doğrudan özel IP iletişim sağlar. Bir şirket içi ağınıza bir VPN ağ geçidi veya ExpressRoute aracılığıyla bir sanal ağa bağlayabilirsiniz.
 
-Bir sanal ağ bir bölge kapsamında oluşturulur. Sanal ağlar aynı adres alanında iki farklı bölge (örneğin, ABD Doğu ve Batı ABD) ile oluşturabilirsiniz, ancak birlikte bağlanamıyor. 
+Bir sanal ağ bir bölge kapsamında oluşturulur. Yapabilecekleriniz *oluşturma* aynı Vnet adres alanı iki farklı bölgelerde (örneğin, ABD Doğu ve ABD Batı), ancak aynı adres alanına sahip oldukları için bunları birbirine bağlanamaz. 
 
 ## <a name="business-continuity"></a>İş Sürekliliği
 

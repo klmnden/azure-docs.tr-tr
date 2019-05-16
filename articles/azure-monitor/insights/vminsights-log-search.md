@@ -53,11 +53,11 @@ Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlant
 | Özellik | Description |
 |:--|:--|
 |Direction |Yön bağlantının değerdir *gelen* veya *giden* |
-|Makine |FQDN bilgisayar |
-|İşlem |İşlem ya da işlemleri, bağlantıyı başlatan/kabul grupları kimliği |
-|Sourceıp |Kaynak IP adresi |
+|Machine |FQDN bilgisayar |
+|Process |İşlem ya da işlemleri, bağlantıyı başlatan/kabul grupları kimliği |
+|SourceIp |Kaynak IP adresi |
 |DestinationIp |Hedef IP adresi |
-|Trafficdirection |Hedef bağlantı noktası numarası |
+|protocolDestinationPort |Hedef bağlantı noktası numarası |
 |Protocol |Bağlantı için kullanılan protokol.  Değerler *tcp*. |
 
 Gruplandırma etkisini için hesap için kaydın şu özelliklerde gruplanmış bir fiziksel bağlantı sayısı hakkında bilgi sağlanır:
@@ -77,7 +77,7 @@ Bağlantı sayısı ölçümü yanı sıra alınıp verilen bir mantıksal bağl
 |:--|:--|
 |BytesSent |Raporlama zaman penceresi boyunca gönderilen bayt sayısı |
 |BytesReceived |Raporlama zaman penceresi boyunca alınan bayt sayısı |
-|Yanıtlar |Raporlama zaman penceresi boyunca gözlemlenen yanıtlarının sayısı. 
+|Responses |Raporlama zaman penceresi boyunca gözlemlenen yanıtlarının sayısı. 
 |ResponseTimeMax |Raporlama zaman penceresi boyunca gözlemlenen en büyük yanıt süresi (milisaniye). Değer, boş bir özelliktir.|
 |ResponseTimeMin |Raporlama zaman penceresi boyunca gözlemlenen en küçük yanıt süresi (milisaniye). Değer, boş bir özelliktir.|
 |ResponseTimeSum |Tüm yanıt süreleri toplamı gözlemlenen Raporlama zaman penceresi boyunca (milisaniye). Değer, boş bir özelliktir.|

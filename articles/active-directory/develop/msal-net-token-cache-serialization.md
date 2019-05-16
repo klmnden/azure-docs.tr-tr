@@ -4,7 +4,7 @@ description: Serileştirme ve müşteri serileştirilmesi Microsoft kimlik doğr
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1e9a48b114d328e0405a2f03764df4ce29b166
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e4a4c4ca1925a501b10cb86a2cf60646af1e5b57
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407050"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544259"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET belirteç önbelleği serileştirme
 Sonra bir [belirteci alınan](msal-acquire-cache-tokens.md), Microsoft kimlik doğrulama kitaplığı (MSAL) tarafından önbelleğe alınır.  Uygulama kodu, başka bir yöntemle bir belirteç alınırken önce önbellekten bir belirteç almak üzere denemelisiniz.  Bu makalede, varsayılan ve özel serileştirilmesi MSAL.NET belirteç önbelleğe açıklanır.

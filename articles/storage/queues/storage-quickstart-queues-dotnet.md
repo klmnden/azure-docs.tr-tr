@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 7b80394fbad403be93413069b8f88be6041743d4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232605"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758899"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Hızlı Başlangıç: Azure Depolama'da bir kuyruk oluşturmak için .NET kullanma
 
@@ -257,7 +257,9 @@ Azure kuyrukları ile .NET geliştirmeye yönelik şu ek kaynaklara bakın:
 
 ### <a name="binaries-and-source-code"></a>İkili dosyalar ve kaynak kodu
 
-- Azure Storage için [.NET istemci kitaplığının](https://www.nuget.org/packages/WindowsAzure.Storage/) en son sürümüne yönelik NuGet paketini indirin. 
+- En son sürümüne yönelik NuGet paketlerini indirin [.NET için Azure depolama istemci kitaplığı](/dotnet/api/overview/azure/storage/client)
+    - [Ortak](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [Kuyruklar](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queues/)
 - GitHub üzerinde [.NET istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-net) görüntüleyin.
 
 ### <a name="client-library-reference-and-samples"></a>İstemci kitaplığı başvurusu ve örnekleri
