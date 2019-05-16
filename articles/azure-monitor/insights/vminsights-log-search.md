@@ -58,7 +58,7 @@ Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlant
 |Sourceıp |Kaynak IP adresi |
 |DestinationIp |Hedef IP adresi |
 |Trafficdirection |Hedef bağlantı noktası numarası |
-|Protokol |Bağlantı için kullanılan protokol.  Değerler *tcp*. |
+|Protocol |Bağlantı için kullanılan protokol.  Değerler *tcp*. |
 
 Gruplandırma etkisini için hesap için kaydın şu özelliklerde gruplanmış bir fiziksel bağlantı sayısı hakkında bilgi sağlanır:
 
@@ -137,9 +137,9 @@ Her kayıtta VMBoundPort aşağıdaki alanlara göre tanımlanır:
 | Özellik | Description |
 |:--|:--|
 |Process | Bağlantı noktası ile ilişkili olduğu işlem (veya gruplar işlemlerin) kimliği.|
-|IP | Bağlantı noktası, IP adresi (joker karakter IP olabilir *0.0.0.0*) |
-|Bağlantı noktası |Bağlantı noktası numarası |
-|Protokol | Protokol.  Örneğin, *tcp* veya *udp* (yalnızca *tcp* desteklenmektedir).|
+|Ip | Bağlantı noktası, IP adresi (joker karakter IP olabilir *0.0.0.0*) |
+|Port |Bağlantı noktası numarası |
+|Protocol | Protokol.  Örneğin, *tcp* veya *udp* (yalnızca *tcp* desteklenmektedir).|
  
 Kimlik bir bağlantı noktası yukarıdaki beş alanları türetilir ve Portıd özelliğinde depolanıyor. Bu özellik, kayıtları için belirli bir bağlantı noktası zaman hızlı bir şekilde bulmak için kullanılabilir. 
 
