@@ -64,7 +64,7 @@ Aşağıdaki özellikler Salesforce bağlı hizmeti için desteklenir.
 |:--- |:--- |:--- |
 | type |Type özelliği ayarlanmalıdır **Salesforce**. |Evet |
 | environmentUrl | Salesforce örneği URL'sini belirtin. <br> -Varsayılan `"https://login.salesforce.com"`. <br> Korumalı alan ' veri kopyalamak için belirtin `"https://test.salesforce.com"`. <br> Özel etki alanından veri kopyalamak için örneğin, belirlediğiniz `"https://[domain].my.salesforce.com"`. |Hayır |
-| kullanıcı adı |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
+| username |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
 | password |Kullanıcı hesabı için bir parola belirtin.<br/><br/>Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
 | securityToken |Kullanıcı hesabı için güvenlik belirtecini belirtin. Sıfırla ve bir güvenlik belirteci almak yönergeler için bkz: [bir güvenlik belirteci alma](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Kaynak bağlı Hayır kaynağı için Evet havuz için hizmet Integration runtime yok |
@@ -185,7 +185,7 @@ Salesforce veri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **SalesforceSource**. | Evet |
-| sorgu |Verileri okumak için özel sorgu kullanın. Kullanabileceğiniz [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgusu veya 92 SQL sorgusu. Daha fazla ipuçlarını bkz [sorgu ipuçları](#query-tips) bölümü. Sorgu belirtilmezse, veri kümesi "objectApiName" belirtilen Salesforce nesnesi tüm veriler alınır. | Yok (veri kümesinde "objectApiName" belirtilmişse) |
+| query |Verileri okumak için özel sorgu kullanın. Kullanabileceğiniz [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgusu veya 92 SQL sorgusu. Daha fazla ipuçlarını bkz [sorgu ipuçları](#query-tips) bölümü. Sorgu belirtilmezse, veri kümesi "objectApiName" belirtilen Salesforce nesnesi tüm veriler alınır. | Yok (veri kümesinde "objectApiName" belirtilmişse) |
 | readBehavior | Var olan kayıtların sorgu veya sorgu tüm kayıtları silinen olanlar da dahil olmak üzere görüntülenip görüntülenmeyeceğini gösterir. Belirtilmezse, varsayılan davranışı eski olur. <br>İzin verilen değerler: **sorgu** (varsayılan), **queryAll**.  | Hayır |
 
 > [!IMPORTANT]
@@ -315,25 +315,25 @@ Salesforce veri kopyaladığınızda, aşağıdaki eşlemeler Salesforce veri t�
 
 | Salesforce veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| Otomatik numarası |String |
-| Onay kutusu |Boolean |
-| Para birimi |Decimal |
-| Tarih |DateTime |
-| Tarih/Saat |DateTime |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
 | Email |String |
-| Kimlik |String |
-| Arama ilişkisi |String |
-| Çoklu seçim yapılabilen seçim listesi |String |
-| Sayı |Decimal |
-| Yüzde |Decimal |
-| Telefon |String |
-| Seçim listesi |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
+| Number |Decimal |
+| Percent |Decimal |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| Metin alanı |String |
-| Metin alanı (uzun) |String |
-| Metin alanı (zengin) |String |
-| Metin (şifrelenmiş) |String |
-| URL'si |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri fabrikasında kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
