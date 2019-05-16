@@ -205,7 +205,7 @@ Kayıt türü ile *ServiceMapProcess_CL* Envanter verileri TCP bağlantılı iş
 | ExecutablePath_s | Yürütülebilir dosya yolu |
 | WorkingDirectory_s | Çalışma dizini |
 | UserName | Hesabın altında işlemi yürütülüyor |
-| USERDOMAIN | Etki alanı altında işlemi yürütülüyor |
+| UserDomain | Etki alanı altında işlemi yürütülüyor |
 
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 
