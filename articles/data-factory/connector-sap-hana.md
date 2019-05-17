@@ -59,9 +59,9 @@ SAP HANA bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapHana** | Evet |
-| sunucu | SAP HANA örneği yer aldığı sunucunun adı. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa, belirtin `server:port`. | Evet |
+| server | SAP HANA örneği yer aldığı sunucunun adı. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa, belirtin `server:port`. | Evet |
 | authenticationType | SAP HANA veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel**, ve **Windows** | Evet |
-| Kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
+| userName | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
 | password | Kullanıcının parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
 
@@ -122,7 +122,7 @@ SAP HANA'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü a
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| sorgu | SAP HANA örneği verileri okumak için SQL sorgusu belirtir. | Evet |
+| query | SAP HANA örneği verileri okumak için SQL sorgusu belirtir. | Evet |
 
 **Örnek:**
 
@@ -165,19 +165,19 @@ SAP HANA'dan veri kopyalama işlemi sırasında aşağıdaki eşlemeler SAP HANA
 | ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
-| BOOLE DEĞERİ | Byte |
+| BOOLEAN | Byte |
 | CLOB | Byte[] |
 | DATE | DateTime |
 | DECIMAL | Decimal |
-| ÇİFT | Single |
+| DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | String |
-| GERÇEK | Single |
+| REAL | Single |
 | SECONDDATE | DateTime |
-| TAMSAYI | Int16 |
+| SMALLINT | Int16 |
 | TIME | TimeSpan |
-| ZAMAN DAMGASI | DateTime |
-| MİNİ TAMSAYI | Byte |
+| TIMESTAMP | DateTime |
+| TINYINT | Byte |
 | VARCHAR | String |
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
