@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685283"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768003"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Talep Ekle ve Azure Active Directory B2C'de özel ilkeler kullanarak kullanıcı girişi özelleştirme
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, Azure Active Directory (Azure AD) B2C, kayıt kullanıcı yolculuğunda için yeni bir kullanıcı tarafından sağlanan giriş (talep) ekleyin.  Giriş bir açılan yapılandırmak ve gerekli olup olmadığını tanımlar.
+Bu makalede, Azure Active Directory (Azure AD) B2C, kayıt kullanıcı yolculuğunda için yeni bir kullanıcı tarafından sağlanan giriş (talep) ekleyin.  Giriş bir açılan yapılandırın ve zorunlu olup olmadığını tanımlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,12 +29,12 @@ Makaledeki adımları tamamlayabilmeniz [özel ilkeleri ile çalışmaya başlam
 
 ## <a name="add-claims"></a>Talep Ekle
 
-Kullanıcılarınızdan gelen ilk veri toplama kaydolma veya oturum açma kullanıcı yolculuğu kullanılarak gerçekleştirilir. Ek talep, daha sonra bir profil düzenleme kullanıcı yolculuğu kullanılarak toplanabilir. Kimlik deneyimi çerçevesi, doğrudan kullanıcıdan bilgi Azure AD B2C etkileşimli olarak toplayan zaman selfasserted sağlayıcısını kullanır.
+Kullanıcılarınızdan gelen ilk veri toplama kaydolma veya oturum açma kullanıcı yolculuğu kullanılarak gerçekleştirilir. Ek talep, daha sonra bir profil düzenleme kullanıcı yolculuğu kullanılarak toplanabilir. Etkileşimli kullanıcı doğrudan Azure AD B2C bilgi toplayan zaman kimlik deneyimi çerçevesi otomatik olarak onaylanan sağlayıcısını kullanır.
 
 
 ### <a name="define-the-claim"></a>Talep tanımlayın
 
-Kullanıcıdan kendi şehri olanak tanır. Şu öğeye eklemek **ClaimsSchema** TrustFrameworkBase ilkesi dosyasında öğe:
+Şimdi kendi şehir için kullanıcıya sor. Şu öğeye eklemek **ClaimsSchema** TrustFrameworkBase ilkesi dosyasında öğe:
 
 ```xml
 <ClaimType Id="city">
@@ -51,7 +51,7 @@ Aşağıdaki öğeler, talep tanımlamak için kullanılır:
 - **UserHelpText** -kullanıcının gerektiğini anlamak yardımcı olur.
 - **UserInputType** -metin kutusu, radyo seçim, aşağı açılan liste veya çoklu seçim olabilir.
 
-#### <a name="textbox"></a>TextBox
+#### <a name="textbox"></a>Metin Kutusu
 
 ```xml
 <ClaimType Id="city">

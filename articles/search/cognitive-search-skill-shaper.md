@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023705"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540824"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper bilişsel beceri
 
@@ -29,7 +29,7 @@ API sürümü, şekillendirme derinliği elde edebilirsiniz belirler.
 | REST API 2019-05-06-önizleme sürümünü (.NET SDK'sı desteklenmiyor) | Karmaşık nesneler, birden çok düzey derinlikte, birinde **Shaper** beceri tanımı. |
 | 2019-05-06 ** (genel kullanıma sunuldu) 2017-11-11-Önizleme| Karmaşık nesneler, derin bir düzey. Çok düzeyli bir şekil shaper adımları birbirine zincirleme gerektirir.|
 
-Önizleme **Shaper** yetenek, gösterilen [Senaryo 3](#nested-complex-types), yeni bir ekler isteğe bağlı *sourceContext* giriş özelliği. *Kaynak* ve *sourceContext* özelliklerini karşılıklı olarak birbirini dışlar. Yetenek bağlamında Giriş ise kullanmanız yeterlidir *kaynak*. Giriş sırasında ise bir *farklı* bağlamını anlamaktan kullanın beceri bağlamı *sourceContext*. *SourceContext* kaynağı olarak ele alıyor belirli bir öğe ile iç içe geçmiş girişi tanımlamanızı gerektirir. 
+Tarafından sağlanan `api-version=2019-05-06-Preview`, **Shaper** beceri gösterilen içinde [Senaryo 3](#nested-complex-types) yeni ekler isteğe bağlı *sourceContext* giriş özelliği. *Kaynak* ve *sourceContext* özelliklerini karşılıklı olarak birbirini dışlar. Yetenek bağlamında Giriş ise kullanmanız yeterlidir *kaynak*. Giriş sırasında ise bir *farklı* bağlamını anlamaktan kullanın beceri bağlamı *sourceContext*. *SourceContext* kaynağı olarak ele alıyor belirli bir öğe ile iç içe geçmiş girişi tanımlamanızı gerektirir. 
 
 Yanıtta, tüm API sürümleri için çıkış adı her zaman "çıkış". Dahili olarak, işlem hattı "analyzedText" gibi farklı bir ad aşağıdaki örnekte gösterildiği gibi eşleyebilirsiniz ancak **Shaper** yetenek kendi yanıtta "çıkış" döndürür. Özel bir yetenek oluşturun ve yanıt kendiniz yapılandırılması bu zenginleştirilmiş belgeleri hata ayıklaması yapıyorsanız ve adlandırma tutarsızlık dikkat edin veya önemli olabilir.
 
@@ -196,7 +196,7 @@ Bu durumda, **Shaper** tek bir dizi oluşturmak için tüm bölüm başlıkları
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Senaryo 3: iç içe geçmiş bağlamları gelen giriş birleştirme
 
 > [!NOTE]
-> İç içe yapılar desteklenen api-version = 2019-05-06-Önizleme kullanılabilir bir [bilgi deposu](knowledge-store-concept-intro.md) veya bir Azure Search dizini.
+> Desteklenen yapılarını iç içe geçmiş [2019-05-06-Önizleme REST API sürümü](search-api-preview.md) kullanılabilir bir [bilgi deposu](knowledge-store-concept-intro.md) veya bir Azure Search dizini.
 
 Sütun başlık, bölümler ve bir kitap içeriğini, varlık tanıma ve anahtar tümcecikleri içeriklerine çalıştırdıktan ve şimdi toplama sonuçlarına bölüm adı, varlıklar ve anahtar ifadeleri tek bir şekil içine farklı becerileri gerekir düşünün.
 
@@ -265,4 +265,4 @@ Bu durumda, **Shaper** bir karmaşık türü oluşturur. Bu yapı, bellek içi b
 + [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
 + [Karmaşık türler kullanma](search-howto-complex-data-types.md)
 + [Bilgi Bankası deposuna genel bakış](knowledge-store-concept-intro.md)
-+ [Nasıl bilgi Store ile çalışmaya başlama](knowledge-store-howto.md)
++ [Nasıl bilgi store ile çalışmaya başlama](knowledge-store-howto.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021780"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540870"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Bir zenginleştirme işlem hattı, bir beceri kümesi oluşturma
 
@@ -249,7 +249,7 @@ Büyük olasılıkla bir sonucu oluşturulan yapı aşağıdaki çizime benzer o
 
 ## <a name="add-a-knowledge-store"></a>Bilgi Bankası deposu ekleme
 
-[Bilgi Bankası Store](knowledge-store-concept-intro.md) zenginleştirilmiş belgenizi kaydetmek için Azure Search'te bir önizleme özelliğidir. Oluşturduğunuz bir Bilgi Bankası store bir Azure depolama hesabı tarafından desteklenen zenginleştirilmiş verilerinizi burada gölünüzdeki depodur. 
+[Bilgi deposunu](knowledge-store-concept-intro.md) zenginleştirilmiş belgenizi kaydetmek için Azure Search'te bir önizleme özelliğidir. Oluşturduğunuz bir Bilgi Bankası store bir Azure depolama hesabı tarafından desteklenen zenginleştirilmiş verilerinizi burada gölünüzdeki depodur. 
 
 Bilgi deposunu tanımı için bir beceri kümesi eklenir. Bir işlem kılavuzu için bkz. [bilgi store ile çalışmaya başlama konusunda](knowledge-store-howto.md).
 

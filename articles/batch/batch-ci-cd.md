@@ -7,12 +7,12 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880956"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541737"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>HPC çözümleri oluşturma ve dağıtma için Azure işlem hatlarını kullanın
 
@@ -363,7 +363,7 @@ Bu örnekte, odaklanacağız **hpc uygulaması** klasör. **Hpc uygulaması** Az
 
 ## <a name="continuous-deployment"></a>Sürekli dağıtım
 
-Azure işlem hatları, temel alınan altyapı ve uygulama dağıtmak için de kullanılır. [Yayın işlem hatları](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) sürekli dağıtımı sağlar ve sürüm işlemini otomatikleştiren bileşendir.
+Azure işlem hatları, temel alınan altyapı ve uygulama dağıtmak için de kullanılır. [Yayın işlem hatları](https://docs.microsoft.com/azure/devops/pipelines/release) sürekli dağıtımı sağlar ve sürüm işlemini otomatikleştiren bileşendir.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Uygulamanızı dağıtmak ve temel altyapıyı
 

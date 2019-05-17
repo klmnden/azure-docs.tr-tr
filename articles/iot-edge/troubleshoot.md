@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142856"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797618"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -351,7 +351,7 @@ Azure IOT Edge, IOT hub'ı Desteklenen protokoller kullanarak Azure bulut bir ş
 
 IOT Edge modülleri dağıtılır ve Azure IOT Edge çalışma zamanı güvenliğini sağlamak için Gelişmiş yapılandırma sağlar, ancak temel alınan makine ve ağ yapılandırmasına yine de bağlıdır. Bu nedenle, uygun bir ağ sağlamak zorunludur ve güvenlik duvarı kuralları iletişim buluta güvenli edge için ayarlanır. Temel alınan sunucuları için yapılandırma güvenlik duvarı kuralları, Azure IOT Edge çalışma zamanı barındırıldığı bir kılavuz olarak aşağıdaki tabloda kullanılabilir:
 
-|Protokol|Bağlantı noktası|gelen|Giden|Rehber|
+|Protocol|Bağlantı noktası|gelen|Giden|Rehber|
 |--|--|--|--|--|
 |MQTT|8883|ENGELLENEN (varsayılan)|ENGELLENEN (varsayılan)|<ul> <li>Giden (giden) MQTT iletişim protokolü olarak kullanılırken açık olacak şekilde yapılandırın.<li>MQTT için 1883 IOT Edge tarafından desteklenmiyor. <li>Gelen (gelen) bağlantıları engellenmesi gerekir.</ul>|
 |AMQP|5671|ENGELLENEN (varsayılan)|Açık (varsayılan)|<ul> <li>IOT Edge için varsayılan iletişim protokolü. <li> Azure IOT Edge, diğer Desteklenen protokoller için yapılandırılmadı veya AMQP istenen iletişim protokolü açık olarak yapılandırılmış olmalıdır.<li>AMQP için 5672, IOT Edge tarafından desteklenmiyor.<li>Azure IOT Edge kullanan farklı bir IOT Hub protokol desteklendiğinde, bu bağlantı noktası engelleyin.<li>Gelen (gelen) bağlantıları engellenmesi gerekir.</ul></ul>|
@@ -383,7 +383,7 @@ Bir yerde `daemon.json` platformunuz için doğru konumda:
 | Platform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows kapsayıcıları ile Windows konağı | `C:\ProgramData\iotedge-moby-data\config` |
+| Windows kapsayıcıları ile Windows konağı | `C:\ProgramData\iotedge-moby\config` |
 
 Konum zaten varsa `daemon.json` ekleyin **dns** için anahtar ve dosyayı kaydedin.
 

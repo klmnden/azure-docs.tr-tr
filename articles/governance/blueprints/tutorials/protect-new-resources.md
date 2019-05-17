@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874538"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779580"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Yeni kaynaklar Azure Blueprint kaynak kilitleri ile koruma
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Öğretici: Yeni kaynaklar Azure Blueprint kaynak kilitleri ile koruma
 
 Azure bir Blueprint'i [kaynak kilitleri](../concepts/resource-locking.md) , hatta sahip bir hesap tarafından değiştirilmiş gelen yeni dağıtılan kaynakları korumak mümkün kılar _sahibi_ rol. Bu koruma, bir Resource Manager şablonu yapıt şema tanımı tarafından oluşturulan kaynakları eklenebilir.
 
@@ -129,7 +129,7 @@ Bir kez **yayımlama başarılı tanımı blueprint** portal bildirimi görünü
 
 1. Blueprint ataması için parametre değerlerini sağlayın:
 
-   - Temel Bilgiler
+   - Temel
 
      - **Abonelikler**: Bir veya daha fazla yönetim grubuna olduğunuz Abonelikleri, şema tanımına kaydedilmiş seçin. Birden fazla aboneliğiniz seçerseniz, bir atama için her girdiğiniz parametreleri kullanarak oluşturulur.
      - **Ödev adı**: Şema tanımını adını temel alarak, önceden doldurulmuş adıdır. Bu atama kilitleme yeni kaynak grubunu temsil etmek için bu nedenle atama adı değiştirmek istiyoruz _atama kilitli storageaccount TestingBPLocks_.

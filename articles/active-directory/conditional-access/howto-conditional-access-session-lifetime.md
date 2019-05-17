@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190215"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766865"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Kimlik doğrulaması oturum yönetimi ile koşullu erişimi yapılandırma
 
@@ -80,7 +80,7 @@ Aynı tarayıcı oturumunda çalışan farklı web apps için farklı oturum aç
 1. Tüm gerekli koşulları seçin.
 
    > [!NOTE]
-   > Bu denetim "Tüm bulut uygulamaları" seçmek için bir koşul olarak gerektiğini lütfen unutmayın
+   > Lütfen bu denetimi "Tüm bulut uygulamaları" seçmek için bir koşul olarak gerektiğini unutmayın. Tarayıcı oturum kalıcılığını kimlik doğrulaması Oturum belirteci tarafından denetlenir. Tek Oturum belirteci bir tarayıcı oturumu'deki tüm sekmeler paylaşabilir ve bu nedenle tüm Kalıcılık durumu paylaşmanız gerekir.
 
 1. Git **erişim denetimleri** > **oturumu** tıklatıp **kalıcı tarayıcı oturumu**
 1. Açılan listeden bir değer seçin

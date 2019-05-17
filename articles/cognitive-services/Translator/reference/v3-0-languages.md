@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915773"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797291"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator metin çevirisi API'si 3.0: Languages
 
@@ -40,7 +40,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli parametre</em>.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>kapsam</td>
     <td>*İsteğe bağlı parametre*.<br/>Döndürülecek dil grubunu tanımlama adlarının virgülle ayrılmış listesi. Grup adları izin verilir: `translation`, `transliteration` ve `dictionary`. Kapsam verilen sonra geçişine eşdeğer olduğu tüm grupları döndürülür `scope=translation,transliteration,dictionary`. Desteklenen diller hangi kümesini senaryonuz için uygun olduğuna karar vermek için açıklamasını görmek [yanıt nesnesi](#response-body).</td>
   </tr>
 </table> 
@@ -263,7 +263,7 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>429</td>
-    <td>Çağıran, çok fazla istek gönderiyor.</td>
+    <td>İstemci istek sınırları aştığı için sunucu isteği reddetti.</td>
   </tr>
   <tr>
     <td>500</td>

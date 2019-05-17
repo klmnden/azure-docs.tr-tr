@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798594"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541689"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management erişim kısıtlama ilkeleri
 
@@ -89,6 +89,9 @@ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.micro
 >
 > [İlke ifadeleri](api-management-policy-expressions.md) herhangi bir ilke özniteliği bu ilke için kullanılamaz.
 
+> [!CAUTION]
+> Mimari azaltma dağıtılmış doğası nedeniyle, oran sınırlandırma hiçbir zaman tamamen doğru değildir. Arasındaki fark yapılandırılmış ve gerçek sayısını istek hacmi ve oranı, arka uç gecikme süresi ve diğer etkenlere göre izin istekleri farklılık gösterir.
+
 ### <a name="policy-statement"></a>İlke bildirimi
 
 ```xml
@@ -125,7 +128,7 @@ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.micro
 
 | Ad           | Açıklama                                                                                           | Gerekli | Varsayılan |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| ad           | Hız sınırını uygulanacağı API adı.                                                | Evet      | Yok     |
+| name           | Hız sınırını uygulanacağı API adı.                                                | Evet      | Yok     |
 | çağrı          | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Evet      | Yok     |
 | yenileme dönemi | Kota sonra sıfırlayan saniye cinsinden süre.                                              | Evet      | Yok     |
 
@@ -145,6 +148,9 @@ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.micro
 `rate-limit-by-key` İlke, belirtilen bir sayıya belirtilen zaman süresi başına çağrı hızını sınırlama tarafından API anahtarı başına temelinde ani engeller. Anahtar, rastgele bir dize olabilir ve genellikle bir ilke ifadesi kullanılarak sağlanır. Hangi istekleri sınırında sayılması belirtmek için isteğe bağlı increment koşul eklenebilir. Bu ilke tetiklenir çağıranın alır bir `429 Too Many Requests` yanıt durum kodu.
 
 Daha fazla bilgi ve işbu politikaya ilişkin örnekler için bkz. [Gelişmiş istek azaltma ile Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+
+> [!CAUTION]
+> Mimari azaltma dağıtılmış doğası nedeniyle, oran sınırlandırma hiçbir zaman tamamen doğru değildir. Arasındaki fark yapılandırılmış ve gerçek sayısını istek hacmi ve oranı, arka uç gecikme süresi ve diğer etkenlere göre izin istekleri farklılık gösterir.
 
 ### <a name="policy-statement"></a>İlke bildirimi
 
@@ -289,7 +295,7 @@ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.micro
 
 | Ad           | Açıklama                                                                                               | Gerekli                                                         | Varsayılan |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| ad           | API veya kota geçerli olduğu için işlem adıdır.                                             | Evet                                                              | Yok     |
+| name           | API veya kota geçerli olduğu için işlem adıdır.                                             | Evet                                                              | Yok     |
 | bant genişliği      | Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`. | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
 | çağrı          | Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.     | Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir. | Yok     |
 | yenileme dönemi | Kota sonra sıfırlayan saniye cinsinden süre.                                                  | Evet                                                              | Yok     |
@@ -535,7 +541,7 @@ Bu örnek nasıl kullanılacağını gösterir [doğrulamak için JWT](api-manag
 | üst bilgi adı                     | Belirteci tutarak HTTP üstbilgisinin adı.                                                                                                                                                                                                                                                                                                                                                                                                         | Aşağıdakilerden birini `header-name`, `query-parameter-name` veya `token-value` belirtilmesi gerekir. | Yok                                                                               |
 | sorgu parametresi adı            | Belirteci tutarak sorgu parametresinin adı.                                                                                                                                                                                                                                                                                                                                                                                                     | Aşağıdakilerden birini `header-name`, `query-parameter-name` veya `token-value` belirtilmesi gerekir. | Yok                                                                               |
 | Belirteç değeri                     | JWT belirteci içeren bir dize döndüren bir ifade                                                                                                                                                                                                                                                                                                                                                                                                     | Aşağıdakilerden birini `header-name`, `query-parameter-name` veya `token-value` belirtilmesi gerekir. | Yok                                                                               |
-| id                              | `id` Özniteliği `key` öğesi karşı eşleşen dizeyi belirtmenize olanak verir `kid` belirteçteki imza doğrulaması için kullanılacak uygun anahtarı bulmak (varsa) talep.                                                                                                                                                                                                                                           | Hayır                                                                               | Yok                                                                               |
+| kimlik                              | `id` Özniteliği `key` öğesi karşı eşleşen dizeyi belirtmenize olanak verir `kid` belirteçteki imza doğrulaması için kullanılacak uygun anahtarı bulmak (varsa) talep.                                                                                                                                                                                                                                           | Hayır                                                                               | Yok                                                                               |
 | eşleşme                           | `match` Özniteliği `claim` öğesi ilkesindeki her talep değeri doğrulamanın başarılı olması için belirteçteki mevcut olması gerekip gerekmediğini belirtir. Olası değerler şunlardır:<br /><br /> - `all` -her talep değeri ilkesinde doğrulamanın başarılı olması için belirteci mevcut olmalıdır.<br /><br /> - `any` -en az bir talep değeri başarılı olması doğrulama için belirteçteki mevcut olmalıdır.                                                       | Hayır                                                                               | tümü                                                                               |
 | gerekli-sona erme-saati         | Boole değeri. Belirteç süre sonu talebi gerekip gerekmediğini belirtir.                                                                                                                                                                                                                                                                                                                                                                               | Hayır                                                                               | true                                                                              |
 | gerekli düzeni                  | Belirteç adı şeması, örneğin "Bearer". Bu öznitelik ayarlandığında, yetkilendirme üst bilgisi değeri, belirtilen şema varsa ilkeyi sağlayacaktır.                                                                                                                                                                                                                                                                                    | Hayır                                                                               | Yok                                                                               |

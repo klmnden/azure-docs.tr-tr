@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703380"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791491"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı'nda, tek ve havuza alınmış veritabanlarını yönetme
 
@@ -107,7 +107,7 @@ Elinizin altında uygulamanız için en iyi bağlantı kuruluş elde etmek için
 - Sanal ağ hizmet uç noktaları
 - Ayrılmış IP’ler
 
-#### <a name="firewall"></a>Güvenlik duvarı
+#### <a name="firewall"></a>Güvenlik Duvarı
 
 Bir güvenlik duvarı erişimi sunucunuza bir dış varlık SQL veritabanı sunucunuza yalnızca belirli varlıklara erişimi vererek engeller. Varsayılan olarak, tüm bağlantılar ve SQL veritabanı sunucu içindeki veritabanlarına, diğer Azure hizmetlerinden gelen bağlantılar dışında izin verilmez. Bir güvenlik duvarı kuralı, bu bilgisayarın IP adresini güvenlik duvarı üzerinden izin vererek onayladığınız yalnızca varlıklara (örneğin, bir geliştirici makine), sunucunuza erişim açabilirsiniz. Ayrıca, SQL veritabanı sunucusuna erişmesine izin vermek istediğiniz IP aralığı belirtmenize olanak sağlar. Örneğin, geliştirici Makine IP adresleri kuruluşunuzdaki tek seferde Güvenlik Duvarı ayarları sayfasındaki bir aralığı belirterek eklenebilir.
 
@@ -127,7 +127,7 @@ Başka bir seçenek sağlamak, [ayrılmış IP'ler](../virtual-network/virtual-n
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Hangi bağlantı noktası için SQL veritabanı üzerinde bağlanabilirim
 
-Bağlantı noktası 1433'tür. SQL veritabanı, bu bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmak için kuruluşunuzun güvenlik duvarı ayarlarında bir giden kuralı eklemeniz gerekir. Bir kural olarak, Azure sınırının dışında 1433 numaralı bağlantı noktasını kullanıma sunma kaçının. SSMS kullanarak azure'da çalıştırabileceğiniz [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Bu, 1433 numaralı bağlantı noktasına giden bağlantıları açmayı gerektirmez, IP DB RemoteApp yalnızca açık olabilir ve çok faktörlü kimlik doğrulaması (MFA) destekler statik.
+Bağlantı noktası 1433'tür. SQL veritabanı, bu bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmak için kuruluşunuzun güvenlik duvarı ayarlarında bir giden kuralı eklemeniz gerekir. Bir kural olarak, Azure sınırının dışında 1433 numaralı bağlantı noktasını kullanıma sunma kaçının.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Nasıl izleyebilir ve etkinlik my server ve SQL veritabanı üzerinde düzenleyen mi
 

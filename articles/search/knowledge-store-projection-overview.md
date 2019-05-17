@@ -1,5 +1,5 @@
 ---
-title: Bilgi Bankası deposu - Azure Search Computers.csv'deki ile çalışma
+title: Projeksiyonlar deposundaki bir Bilgi Bankası (Önizleme) - Azure Search ile çalışma
 description: Kaydet ve zenginleştirilmiş arama dışında senaryolarında kullanım için yapay ZEKA dizinleme işlem hattına verilerinizden Şekil
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028373"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540819"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Azure Search'te bir Bilgi Bankası deposunda projeksiyonlar ile çalışma
 
+> [!Note]
+> Bilgi Bankası preview ve üretim kullanımı için değil amaçlayan deposudur. [2019-05-06-Önizleme REST API sürümü](search-api-preview.md) bu özelliği sağlar. .NET SDK'sı desteği şu anda yoktur.
+>
+
 Azure arama, yapay ZEKA bilişsel beceriler ve dizin oluşturma işleminin parçası olarak özel beceriler aracılığıyla içerik iyileştirmesini sağlar. Zenginleştirmelerinin yapısı belgelerinize eklemek ve daha etkili hale aranıyor. Çoğu durumda, zenginleştirilmiş belgeleri arama, örneğin bilgi araştırma dışındaki senaryolar için kullanışlıdır.
 
-Tahminleri, bir bileşeninin [bilgi store (Önizleme)](knowledge-store-concept-intro.md), araştırma amacıyla bilgi fiziksel depolama alanına kaydedildi zenginleştirilmiş belgeleri görünümleridir. Bir projeksiyon "ile Power BI gibi araçlarla veri ek çaba ile okuyabilmeniz için ilişkileri koruma gereksinimlerine uygun bir şeklin içinde verilerinizi proje" sağlar. 
+Tahminleri, bir bileşeninin [bilgi deposu](knowledge-store-concept-intro.md), araştırma amacıyla bilgi fiziksel depolama alanına kaydedildi zenginleştirilmiş belgeleri görünümleridir. Bir projeksiyon "ile Power BI gibi araçlarla veri ek çaba ile okuyabilmeniz için ilişkileri koruma gereksinimlerine uygun bir şeklin içinde verilerinizi proje" sağlar. 
 
 Projeksiyonlar satırları ve sütunları Azure tablo depolamada depolanan veriler ya da JSON nesneleri Azure Blob depolamada depolanan tablo, olabilir. Bunu zenginleştirilmiş verilerinizin birden çok projeksiyonlar tanımlayabilirsiniz. Bireysel kullanım durumları için farklı şeklinde aynı verileri istediğinizde bu kullanışlıdır. 
 

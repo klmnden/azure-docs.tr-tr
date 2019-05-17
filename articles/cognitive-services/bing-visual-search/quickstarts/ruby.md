@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Bing görsel arama REST API'si ve Ruby kullanarak 
 titleSuffix: Azure Cognitive Services
 description: Bing görsel arama API'sine bir görüntüyü karşıya yükleme ve ilgili Öngörüler alma hakkında bilgi edinin.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 563c0d39eb5c057aef9b9c7cdcba798dc6ee4cbb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510471"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796509"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Hızlı Başlangıç: Bing görsel arama REST API'si ve Ruby kullanarak görüntü Öngörüler elde edin
 

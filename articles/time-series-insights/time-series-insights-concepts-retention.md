@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406367"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790422"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Zaman serisi görüşleri'nde veri saklamayı anlama
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde veri saklamayı anlama
 
-Bu makalede, zaman serisi öngörüleri (TSI) ortamınızda veri bekletme etkileyen iki ayarları açıklanır.
+Bu makalede, Azure zaman serisi görüşleri ortamınıza veri tutma etkileyen iki ayarları açıklanır.
 
 ## <a name="video"></a>Video
 
@@ -36,7 +36,7 @@ Ayrıca, Azure Time Series ortamınızda olduğundan bir **depolama sınırı a�
 - **Duraklatma giriş**
 
 > [!NOTE]
-> Yeni ortam oluşturulurken varsayılan olarak, bekletme için yapılandırılmış **eski veri temizleme**. Bu ayar, Azure portalını kullanarak oluşturma zamanı sonra gerektiği şekilde açılıp kapatılabilir **yapılandırma** TSI ortamın sayfası.
+> Yeni ortam oluşturulurken varsayılan olarak, bekletme için yapılandırılmış **eski veri temizleme**. Bu ayar, Azure portalını kullanarak oluşturma zamanı sonra gerektiği şekilde açılıp kapatılabilir **yapılandırma** zaman serisi görüşleri ortamına sayfası.
 
 Bekletme davranışları geçiş hakkında daha fazla bilgi için gözden [bekletme zaman serisi Öngörülerinde yapılandırma](time-series-insights-how-to-configure-retention.md).
 
@@ -44,8 +44,8 @@ Veri saklama davranışını karşılaştırın:
 
 ## <a name="purge-old-data"></a>Eski verileri temizleme
 
-- Bu davranış TSI ortamları ve aynı davranışı TSI ortamları olduğundan, genel Önizleme için başlatılan sergilenen sergiler varsayılan davranışıdır.  
-- Kullanıcıların her zaman görmek istediğinizde bu davranışı tercih edilir, *en son verileri* TSI ortamlarında. 
+- Bu davranış zaman serisi görüşleri ortamları için varsayılan davranıştır.  
+- Kullanıcıların her zaman görmek istediğinizde bu davranışı tercih edilir, *en son verileri* Time Series Insights ortamlarında.
 - Bu davranış *temizler* veri ortamı (elde tutma süresi, boyut veya count, hangisi önce gerçekleşirse) sınırlara ulaştı. Bekletme, varsayılan olarak 30 gün olarak ayarlanır.
 - En eski alınan verilerin ilk (FIFO yaklaşım) temizlenir.
 
@@ -75,7 +75,7 @@ Bu ortamın günlük giriş oranı günde 0.166 GB aştığında, bazı veriler 
 
 ### <a name="example-three"></a>Örnek üç
 
-Bir ortam için yapılandırılmış bekletme davranışı göz önünde bulundurun **giriş duraklatma**. Bu örnekte, **veri saklama süresi** 60 gün için yapılandırılmıştır. **Kapasite** 3 S1 birimi için ayarlanır. Bu ortamda, her gün 2 GB'lık veri girişi sahip olduğunu varsayın. Bu ortamda, kapasite üst sınırı aşıldığında giriş duraklatıldı.
+Bir ortam için yapılandırılmış bekletme davranışı göz önünde bulundurun **giriş duraklatma**. Bu örnekte, **veri saklama süresi** 60 gün için yapılandırılmıştır. **Kapasite** üç (3) S1 birimi için ayarlanır. Bu ortamda, her gün 2 GB'lık veri girişi sahip olduğunu varsayın. Bu ortamda, kapasite üst sınırı aşıldığında giriş duraklatıldı.
 
 O anda giriş sürdürür kadar veya kadar ortamı aynı veri kümesi gösterir **giriş devam** etkinleştirilir (hangi temizleme yeni veriler için yer açmak için eski verileri).
 
@@ -91,7 +91,7 @@ Etkilenen Event Hubs, ayarlamayı göz önünde bulundurun **ileti bekletme** du
 
 [![Olay hub'ı ileti bekletme.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Hiçbir özellik olay kaynağında yapılandırılmış olması halinde (`timeStampPropertyName`), TSI varsayılanlara x ekseni olarak sıem'e olay hub'ı, zaman damgası. Varsa `timeStampPropertyName` başka bir ortam arar yapılandırılmış olarak yapılandırılan `timeStampPropertyName` olayları ayıklanırken veri paketindeki.
+Hiçbir özellik olay kaynağında yapılandırılmış olması halinde (`timeStampPropertyName`), zaman serisi görüşleri Varsayılanları x ekseni olarak sıem'e olay hub'ı, zaman damgası. Varsa `timeStampPropertyName` başka bir ortam arar yapılandırılmış olarak yapılandırılan `timeStampPropertyName` olayları ayıklanırken veri paketindeki.
 
 Ek kapasite uyum veya bekletme, uzunluğunu artırmak için ortamınızın ölçeğini gerekiyorsa [Time Series Insights ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md) daha fazla bilgi için.  
 

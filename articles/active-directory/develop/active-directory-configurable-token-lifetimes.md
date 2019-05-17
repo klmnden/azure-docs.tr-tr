@@ -3,8 +3,8 @@ title: Azure Active Directory'de yapılandırılabilir belirteç ömrünü | Mic
 description: Azure AD tarafından verilen belirteçlere yaşam süreleri ayarlama konusunda bilgi edinin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.custom: aaddev
+ms.date: 04/13/2019
+ms.author: ryanwi
+ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411377"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545380"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory'de (Önizleme) yapılandırılabilir belirteç ömürleri
 
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrünü belirtebilirsiniz. Kuruluşunuzda, kuruluşunuzdaki tüm uygulamalar, çok kiracılı (çok kuruluşlu) bir uygulama veya belirli bir hizmet sorumlusu için belirteç ömrünü ayarlayabilirsiniz.
 
 > [!IMPORTANT]
-> Önizleme sırasında müşterilerden işitme sonra yeni bir özellik, Azure Active Directory koşullu erişim bu işlevselliği değiştirilecek planlıyoruz.  Bu işlev, sonunda yeni özellik tamamlandığında bildirim döneminden sonra kullanımdan kaldırılacaktır.  Yapılandırılabilir belirteç ömrü ilkesi kullanırsanız, kullanılabilir olduğunda yeni koşullu erişim özelliği için geçiş yapmak için hazır olun. 
+> Önizleme sırasında müşterilerden işitme sonra biz yapılandırılabilir belirteç ömrünü özelliğiyle değiştirilmiştir [kimlik doğrulama oturumu yönetim özellikleri](https://go.microsoft.com/fwlink/?linkid=2083106) Azure AD koşullu erişim. Bu özellik, 1 Kasım 2019 üzerinde kullanımdan kaldırılacaktır. Yapılandırılabilir belirteç ömrü ilkesi kullanıyorsanız, yeni koşullu erişim özelliğini geçin. 
 
 Azure AD'de, ayrı ayrı uygulamaların veya kuruluştaki tüm uygulamalar uygulanan bir kurallar kümesi İlkesi nesnesini temsil eder. Her ilke türü, atanmış olan nesnelere uygulanan özellik kümesi ile benzersiz bir yapıya sahiptir.
 
@@ -88,7 +88,7 @@ Bir belirteç ömrü ilkesi belirteç ömrü kuralları içeren ilke nesne tür�
 
 * <sup>1</sup>365 gün olduğu bu öznitelikler için ayarlanabilen en fazla açık uzunluğu.
 
-### <a name="exceptions"></a>Özel durumlar
+### <a name="exceptions"></a>Özel Durumlar
 | Özellik | Etkiler | Varsayılan |
 | --- | --- | --- |
 | Yenileme belirteci Maksimum yaş (yetersiz iptal bilgilerini federe kullanıcılar için verilen<sup>1</sup>) |Yenileme belirteçlerini (yetersiz iptal bilgilerini federe kullanıcılar için verilen<sup>1</sup>) |12 saat |

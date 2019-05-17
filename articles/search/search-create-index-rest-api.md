@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı Başlangıç: PowerShell ve REST API - Azure Search kullanarak dizin sorgulama oluşturma ve yükleme'
+title: "Hızlı Başlangıç: PowerShell ve REST API'ler - Azure Search'ü"
 description: PowerShell'in kullanarak dizin sorgulama oluşturma ve yükleme Invoke-RestMethod ve Azure Search REST API'si.
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,30 +10,33 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9459ab44f366c87660297a8564534156a56777bd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a82ee51a168a018a4df537c05d987974e775b6cc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024152"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795931"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Hızlı Başlangıç: PowerShell ve REST API kullanarak Azure Search dizini oluşturma
+# <a name="quickstart-create-an-azure-search-index-using-powershell"></a>Hızlı Başlangıç: PowerShell kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-fiddler.md)
+> * [Python](search-get-started-python.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bu makalede size bir Azure Search sorgulama oluşturma ve yükleme işleminde size [dizin](search-what-is-an-index.md) PowerShell kullanarak ve [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/). Dizin tanımını ve aranabilir içeriği sağlanan istek gövdesinde doğru biçimlendirilmiş JSON içeriği.
+Bu makalede size bir Azure Search sorgulama oluşturma ve yükleme işleminde size [dizin](search-what-is-an-index.md) PowerShell kullanarak ve [Azure arama hizmeti REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Dizin tanımını ve aranabilir içeriği doğru biçimlendirilmiş JSON içeriği istek gövdesinde sağlanır.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun ve [Azure Search hizmetine kaydolun](search-create-service-portal.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıçta, aşağıdaki hizmetler ve Araçlar kullanılır. 
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
 
-[PowerShell 5.1 veya üstü](https://github.com/PowerShell/PowerShell)kullanarak [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sıralı ve etkileşimli adımlar.
++ [PowerShell 5.1 veya üstü](https://github.com/PowerShell/PowerShell)kullanarak [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sıralı ve etkileşimli adımlar.
 
 ## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
@@ -49,123 +52,124 @@ Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İs
 
 ## <a name="connect-to-azure-search"></a>Azure Search'e Bağlan
 
-PowerShell'de, oluşturma bir **$headers** content-type ve API anahtarı depolamak için nesne. Yalnızca bu başlığı oturum süresi boyunca ayarlamalı gerekir, ancak her istek için ekleyeceksiniz. 
+1. PowerShell'de, oluşturma bir **$headers** content-type ve API anahtarı depolamak için nesne. Yönetici API anahtarını (YOUR-ADMIN-API-KEY) arama hizmetiniz için geçerli bir anahtarla değiştirin. Yalnızca bu başlığı oturum süresi boyunca ayarlamalı gerekir, ancak her istek için ekleyeceksiniz. 
 
-```powershell
-$headers = @{
-   'api-key' = '<your-admin-api-key>'
-   'Content-Type' = 'application/json' 
-   'Accept' = 'application/json' }
-```
+    ```powershell
+    $headers = @{
+    'api-key' = '<YOUR-ADMIN-API-KEY>'
+    'Content-Type' = 'application/json' 
+    'Accept' = 'application/json' }
+    ```
 
-Oluşturma bir **$url** hizmetin belirten nesne dizinler koleksiyonu. `mydemo` Hizmet adı, bir yer tutucu olarak tasarlanmıştır. Bu örnekte boyunca geçerli bir abonelikte bir geçerli arama hizmeti ile değiştirin.
+2. Oluşturma bir **$url** hizmetin belirten nesne dizinler koleksiyonu. Hizmet adı (YOUR-SEARCH-hizmet-adı), geçerli bir arama hizmeti ile değiştirin.
 
-```powershell
-$url = "https://mydemo.search.windows.net/indexes?api-version=2019-05-06"
-```
+    ```powershell
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    ```
 
-Çalıştırma **Invoke-RestMethod** hizmetine bir GET isteği gönderir ve bağlantıyı doğrulamak için. Ekleme **ConvertTo-Json** böylece gönderilen geri hizmetinden yanıtları görüntüleyebilirsiniz.
+3. Çalıştırma **Invoke-RestMethod** hizmetine bir GET isteği gönderir ve bağlantıyı doğrulamak için. Ekleme **ConvertTo-Json** böylece gönderilen geri hizmetinden yanıtları görüntüleyebilirsiniz.
 
-```powershell
-Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
-```
+    ```powershell
+    Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+    ```
 
-Hizmet boştur ve dizin varsa sonuçları aşağıdaki örneğe benzerdir. Aksi takdirde, dizin tanımlarını JSON temsili görürsünüz.
+   Hizmet boştur ve dizin varsa sonuçları aşağıdaki örneğe benzerdir. Aksi takdirde, dizin tanımlarını JSON temsili görürsünüz.
 
-```
-{
-    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes",
-    "value":  [
+    ```
+    {
+        "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes",
+        "value":  [
 
-              ]
-}
-```
+                ]
+    }
+    ```
 
 ## <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
-Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut olması gerekir. Bu adım, dizini tanımlayan ve hizmetine gönderir. [Dizin oluşturma (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/create-index) Bu adım için kullanılır.
+Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut olması gerekir. Bu adım, dizini tanımlayan ve hizmetine gönderir. [Dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) Bu adım için kullanılır.
 
 Bir dizinin gerekli öğeler, bir ad ve bir alanlar koleksiyonu içerir. Alanlar koleksiyonu yapısını tanımlayan bir *belge*. Her alanın bir adı, türü ve nasıl kullanıldığını belirleyen özniteliklere sahip (örneğin, tam metin olup aranabilir, filtrelenebilir veya arama sonuçlarında alınabilir). Bir dizinin türü alanlardan biri içinde `Edm.String` olarak belirlenmesi gerekir *anahtar* belge kimliği.
 
-Bu dizin, "hotels" adlı ve aşağıda gördüğünüz alan tanımı yok. Dizin tanımını belirtir bir [dil Çözümleyicisi](index-add-language-analyzers.md) için `description_fr` bir sonraki örnekte ekleyeceğiz Fransızca metin depolamaya yönelik tasarlandığından alan.
+Bu dizin "powershell hotels" adlı ve aşağıda gördüğünüz alan tanımı yok. Daha büyük bir alt kümesidir [Oteller dizinini](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) diğer izlenecek yollarında kullanılır. Biz, bu hızlı başlangıçta kısaltma kırpılır.
 
-Bu örnek oluşturmak için PowerShell içinde yapıştırın bir **$body** dizin şemasını içeren nesne.
+1. Bu örnek oluşturmak için PowerShell içinde yapıştırın bir **$body** dizin şemasını içeren nesne.
 
-```powershell
-$body = @"
-{
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String"},
-        {"name": "tags", "type": "Collection(Edm.String)"},
-        {"name": "parkingIncluded", "type": "Edm.Boolean", "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32"},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
-}
-"@
-```
+    ```powershell
+    $body = @"
+    {
+        "name": "hotels-powershell",  
+        "fields": [
+            {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
+            {"name": "baseRate", "type": "Edm.Double"},
+            {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+            {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
+            {"name": "hotelName", "type": "Edm.String", "facetable": false},
+            {"name": "category", "type": "Edm.String"},
+            {"name": "tags", "type": "Collection(Edm.String)"},
+            {"name": "parkingIncluded", "type": "Edm.Boolean", "sortable": false},
+            {"name": "smokingAllowed", "type": "Edm.Boolean", "sortable": false},
+            {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+            {"name": "rating", "type": "Edm.Int32"},
+            {"name": "location", "type": "Edm.GeographyPoint"}
+        ]
+    }
+    "@
+    ```
 
-Hizmetinizde dizinler koleksiyonu için URI ayarlayın ve *hotels* dizini.
+2. Hizmetinizde dizinler koleksiyonu için URI ayarlayın ve *hotels powershell* dizini.
 
-```powershell
-$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2019-05-06"
-```
+    ```powershell
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell?api-version=2019-05-06"
+    ```
 
-Komutla çalıştırın **$url**, **$headers**, ve **$body** hizmette dizini oluşturmak için. 
+3. Komutla çalıştırın **$url**, **$headers**, ve **$body** hizmette dizini oluşturmak için. 
 
-```powershell
-Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
-```
-Sonuçlar (ilk iki alanı kısaltma kesilmiş) şuna benzer görünmelidir:
+    ```powershell
+    Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
+    ```
 
-```
-{
-    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
-    "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
-    "name":  "hotels",
-    "defaultScoringProfile":  null,
-    "fields":  [
-                   {
-                       "name":  "hotelId",
-                       "type":  "Edm.String",
-                       "searchable":  false,
-                       "filterable":  true,
-                       "retrievable":  true,
-                       "sortable":  false,
-                       "facetable":  false,
-                       "key":  true,
-                       "indexAnalyzer":  null,
-                       "searchAnalyzer":  null,
-                       "analyzer":  null,
-                       "synonymMaps":  ""
-                   },
-                   {
-                       "name":  "baseRate",
-                       "type":  "Edm.Double",
-                       "searchable":  false,
-                       "filterable":  true,
-                       "retrievable":  true,
-                       "sortable":  true,
-                       "facetable":  true,
-                       "key":  false,
-                       "indexAnalyzer":  null,
-                       "searchAnalyzer":  null,
-                       "analyzer":  null,
-                       "synonymMaps":  ""
-                   },
-. . .
-```
+    Sonuçlar (ilk iki alanı kısaltma kesilmiş) şuna benzer görünmelidir:
+
+    ```
+    {
+        "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
+        "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
+        "name":  "hotels-powershell",
+        "defaultScoringProfile":  null,
+        "fields":  [
+                    {
+                        "name":  "hotelId",
+                        "type":  "Edm.String",
+                        "searchable":  false,
+                        "filterable":  true,
+                        "retrievable":  true,
+                        "sortable":  false,
+                        "facetable":  false,
+                        "key":  true,
+                        "indexAnalyzer":  null,
+                        "searchAnalyzer":  null,
+                        "analyzer":  null,
+                        "synonymMaps":  ""
+                    },
+                    {
+                        "name":  "baseRate",
+                        "type":  "Edm.Double",
+                        "searchable":  false,
+                        "filterable":  true,
+                        "retrievable":  true,
+                        "sortable":  true,
+                        "facetable":  true,
+                        "key":  false,
+                        "indexAnalyzer":  null,
+                        "searchAnalyzer":  null,
+                        "analyzer":  null,
+                        "synonymMaps":  ""
+                    },
+    . . .
+    ```
 
 > [!Tip]
-> Doğrulama için ayrıca Portalı'nda dizinleri listeyi kontrol edin, veya görmek için hizmet bağlantı doğrulamak için kullanılan komutu yeniden çalıştırın *hotels* dizin dizinler koleksiyonu içinde listelenen.
+> Doğrulama için ayrıca Portalı'nda dizinleri listeyi kontrol edin, veya görmek için hizmet bağlantı doğrulamak için kullanılan komutu yeniden çalıştırın *hotels powershell* dizin dizinler koleksiyonu içinde listelenen.
 
 <a name="load-documents"></a>
 
@@ -173,162 +177,162 @@ Sonuçlar (ilk iki alanı kısaltma kesilmiş) şuna benzer görünmelidir:
 
 Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği kullanın. Bu görev için REST API [ekleme, güncelleştirme veya silme belgeleri](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-Bu örnek oluşturmak için PowerShell içinde yapıştırın bir **$body** karşıya yüklemek istediğiniz belgeleri içeren nesne. 
+1. Bu örnek oluşturmak için PowerShell içinde yapıştırın bir **$body** karşıya yüklemek istediğiniz belgeleri içeren nesne. 
 
-Bu istek, iki tam ve kısmi bir kayıt içerir. Eksik belgeler karşıya kısmi kaydı gösterir. `@search.action` Parametresi, dizin oluşturma nasıl yapıldığını belirtir. Geçerli değerler, karşıya yükleme, birleştirme, mergeOrUpload ve silmeyi içerir. MergeOrUpload davranışı hotelId için yeni bir belge ya da oluşturur = 3 veya zaten varsa, içeriği güncelleştirir.
+    Bu istek, iki tam ve kısmi bir kayıt içerir. Eksik belgeler karşıya kısmi kaydı gösterir. `@search.action` Parametresi, dizin oluşturma nasıl yapıldığını belirtir. Geçerli değerler, karşıya yükleme, birleştirme, mergeOrUpload ve silmeyi içerir. MergeOrUpload davranışı hotelId için yeni bir belge ya da oluşturur = 3 veya zaten varsa, içeriği güncelleştirir.
 
-```powershell
-$body = @"
-{
-    "value": [
-        {
-            "@search.action": "upload",
-            "hotelId": "1",
-            "baseRate": 199.0,
-            "description": "Best hotel in town",
-            "hotelName": "Fancy Stay",
-            "category": "Luxury",
-            "tags": ["pool", "view", "wifi", "concierge"],
-            "parkingIncluded": false,
-            "smokingAllowed": false,
-            "lastRenovationDate": "2010-06-27T00:00:00Z",
-            "rating": 5,
-            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-        },
-        {
-            "@search.action": "upload",
-            "hotelId": "2",
-            "baseRate": 79.99,
-            "description": "Cheapest hotel in town",
-            "hotelName": "Roach Motel",
-            "category": "Budget",
-            "tags": ["motel", "budget"],
-            "parkingIncluded": true,
-            "smokingAllowed": true,
-            "lastRenovationDate": "1982-04-28T00:00:00Z",
-            "rating": 1,
-            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-        },
-        {
-            "@search.action": "mergeOrUpload",
-            "hotelId": "3",
-            "baseRate": 129.99,
-            "description": "Close to town hall and the river"
-        }
-    ]
-}
-"@
-```
+    ```powershell
+    $body = @"
+    {
+        "value": [
+            {
+                "@search.action": "upload",
+                "hotelId": "1",
+                "baseRate": 199.0,
+                "description": "Best hotel in town",
+                "hotelName": "Fancy Stay",
+                "category": "Luxury",
+                "tags": ["pool", "view", "wifi", "concierge"],
+                "parkingIncluded": false,
+                "smokingAllowed": false,
+                "lastRenovationDate": "2010-06-27T00:00:00Z",
+                "rating": 5,
+                "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+            },
+            {
+                "@search.action": "upload",
+                "hotelId": "2",
+                "baseRate": 79.99,
+                "description": "Cheapest hotel in town",
+                "hotelName": "Roach Motel",
+                "category": "Budget",
+                "tags": ["motel", "budget"],
+                "parkingIncluded": true,
+                "smokingAllowed": true,
+                "lastRenovationDate": "1982-04-28T00:00:00Z",
+                "rating": 1,
+                "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+            },
+            {
+                "@search.action": "mergeOrUpload",
+                "hotelId": "3",
+                "baseRate": 129.99,
+                "description": "Close to town hall and the river"
+            }
+        ]
+    }
+    "@
+    ```
 
-Uç nokta kümesine *hotels* docs koleksiyonu ve dizin işlemi (dizinleri/hotels/docs/dizin) içerir.
+1. Uç nokta kümesine *hotels powershell* docs koleksiyonu ve dizin işlemi (dizinleri/hotels-powershell/docs/index) içerir.
 
-```powershell
-$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06"
-```
+    ```powershell
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs/index?api-version=2019-05-06"
+    ```
 
-Komutla çalıştırın **$url**, **$headers**, ve **$body** belgeleri Oteller dizinine yüklenemiyor.
+1. Komutla çalıştırın **$url**, **$headers**, ve **$body** belgeleri hotels powershell dizine yüklenecek.
 
-```powershell
-Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
-```
-Sonuçları şu örneğe benzemelidir. Durum kodu 201 görmeniz gerekir. Tüm durum kodları açıklaması için bkz: [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    ```powershell
+    Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
+    ```
+    Sonuçları şu örneğe benzemelidir. Durum kodu 201 görmeniz gerekir. Tüm durum kodları açıklaması için bkz: [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-```
-{
-    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
-    "value":  [
-                  {
-                      "key":  "1",
-                      "status":  true,
-                      "errorMessage":  null,
-                      "statusCode":  201
-                  },
-                  {
-                      "key":  "2",
-                      "status":  true,
-                      "errorMessage":  null,
-                      "statusCode":  201
-                  },
-                  {
-                      "key":  "3",
-                      "status":  true,
-                      "errorMessage":  null,
-                      "statusCode":  201
-                  }
-              ]
-}
-```
+    ```
+    {
+        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-powershell/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
+        "value":  [
+                    {
+                        "key":  "1",
+                        "status":  true,
+                        "errorMessage":  null,
+                        "statusCode":  201
+                    },
+                    {
+                        "key":  "2",
+                        "status":  true,
+                        "errorMessage":  null,
+                        "statusCode":  201
+                    },
+                    {
+                        "key":  "3",
+                        "status":  true,
+                        "errorMessage":  null,
+                        "statusCode":  201
+                    }
+                ]
+    }
+    ```
 
 ## <a name="3---search-an-index"></a>3 - Dizin arama
 
 Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgeleri API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Uç nokta kümesine *hotels* docs koleksiyonu ve ekleme bir **arama** parametresini kullanarak sorgu dizelerini içerir. Bu dize boş bir aramadır ve tüm belgelerin unranked bir listesini döndürür.
+1. Uç nokta kümesine *hotels powershell* docs koleksiyonu ve ekleme bir **arama** parametresini kullanarak sorgu dizelerini içerir. Bu dize boş bir aramadır ve tüm belgelerin unranked bir listesini döndürür.
 
-```powershell
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*'
-```
+    ```powershell
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=*'
+    ```
 
-Göndermek için kullanılan komut çalıştırma **$url** hizmeti.
+1. Göndermek için kullanılan komut çalıştırma **$url** hizmeti.
 
-```powershell
-Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
-```
+    ```powershell
+    Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+    ```
 
-Sonuç aşağıdaki çıktıya benzer olmalıdır.
+    Sonuç aşağıdaki çıktıya benzer olmalıdır.
 
-```
-{
-    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#docs(*)",
-    "value":  [
-                  {
-                      "@search.score":  1.0,
-                      "hotelId":  "1",
-                      "baseRate":  199.0,
-                      "description":  "Best hotel in town",
-                      "description_fr":  null,
-                      "hotelName":  "Fancy Stay",
-                      "category":  "Luxury",
-                      "tags":  "pool view wifi concierge",
-                      "parkingIncluded":  false,
-                      "smokingAllowed":  false,
-                      "lastRenovationDate":  "2010-06-27T00:00:00Z",
-                      "rating":  5,
-                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
-                  },
-                  {
-                      "@search.score":  1.0,
-                      "hotelId":  "2",
-                      "baseRate":  79.99,
-                      "description":  "Cheapest hotel in town",
-                      "description_fr":  null,
-                      "hotelName":  "Roach Motel",
-                      "category":  "Budget",
-                      "tags":  "motel budget",
-                      "parkingIncluded":  true,
-                      "smokingAllowed":  true,
-                      "lastRenovationDate":  "1982-04-28T00:00:00Z",
-                      "rating":  1,
-                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
-                  },
-                  {
-                      "@search.score":  1.0,
-                      "hotelId":  "3",
-                      "baseRate":  129.99,
-                      "description":  "Close to town hall and the river",
-                      "description_fr":  null,
-                      "hotelName":  null,
-                      "category":  null,
-                      "tags":  "",
-                      "parkingIncluded":  null,
-                      "smokingAllowed":  null,
-                      "lastRenovationDate":  null,
-                      "rating":  null,
-                      "location":  null
-                  }
-              ]
-}
-```
+    ```
+    {
+        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-powershell/$metadata#docs(*)",
+        "value":  [
+                    {
+                        "@search.score":  1.0,
+                        "hotelId":  "1",
+                        "baseRate":  199.0,
+                        "description":  "Best hotel in town",
+                        "description_fr":  null,
+                        "hotelName":  "Fancy Stay",
+                        "category":  "Luxury",
+                        "tags":  "pool view wifi concierge",
+                        "parkingIncluded":  false,
+                        "smokingAllowed":  false,
+                        "lastRenovationDate":  "2010-06-27T00:00:00Z",
+                        "rating":  5,
+                        "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                    },
+                    {
+                        "@search.score":  1.0,
+                        "hotelId":  "2",
+                        "baseRate":  79.99,
+                        "description":  "Cheapest hotel in town",
+                        "description_fr":  null,
+                        "hotelName":  "Roach Motel",
+                        "category":  "Budget",
+                        "tags":  "motel budget",
+                        "parkingIncluded":  true,
+                        "smokingAllowed":  true,
+                        "lastRenovationDate":  "1982-04-28T00:00:00Z",
+                        "rating":  1,
+                        "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                    },
+                    {
+                        "@search.score":  1.0,
+                        "hotelId":  "3",
+                        "baseRate":  129.99,
+                        "description":  "Close to town hall and the river",
+                        "description_fr":  null,
+                        "hotelName":  null,
+                        "category":  null,
+                        "tags":  "",
+                        "parkingIncluded":  null,
+                        "smokingAllowed":  null,
+                        "lastRenovationDate":  null,
+                        "rating":  null,
+                        "location":  null
+                    }
+                ]
+    }
+    ```
 
 Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. Verbatim $filter sorgular bir dize arama yapın, kapsam belirli alanları ve daha fazlası için arama sonuçları kümesini sınırlamak.
 
@@ -336,17 +340,17 @@ Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri dene
 # Query example 1
 # Search the entire index for the term 'budget'
 # Return only the `hotelName` field, "Roach hotel"
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=budget&$select=hotelName'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=budget&$select=hotelName'
 
 # Query example 2 
 # Apply a filter to the index to find hotels cheaper than $150 per night
 # Returns the `hotelId` and `description`. Two documents match.
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=*&$filter=baseRate lt 150&$select=hotelId,description'
 
 # Query example 3
 # Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
 # Take the top two results, and show only `hotelName` and `lastRenovationDate`
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
 ```
 ## <a name="clean-up"></a>Temizleme 
 
@@ -354,7 +358,7 @@ Artık ihtiyacınız kalmadığında, dizin silmeniz gerekir. Ücretsiz bir hizm
 
 ```powershell
 # Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2019-05-06'
+$url = 'https://mydemo.search.windows.net/indexes/hotels-powershell?api-version=2019-05-06'
 
 # Delete the index
 Invoke-RestMethod -Uri $url -Headers $headers -Method Delete

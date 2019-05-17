@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Bing yazım denetlemek için SDK ile yazım deneti
 titlesuffix: Azure Cognitive Services
 description: Bing yazım denetimi REST API'si yazım ve dilbilgisi denetimini kullanmaya başlayın.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: v-gedod
-ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766028"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798373"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Hızlı Başlangıç: Bing yazım denetlemek için SDK ile yazım denetimiC#
 
@@ -23,10 +23,10 @@ Bing yazım denetlemek için SDK ile yazım başlamak için bu hızlı başlang�
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)’nin herhangi bir sürümü.
+* Herhangi bir sürümünü [Visual Studio 2017 veya üstü](https://visualstudio.microsoft.com/downloads/).
 * Bing yazım denetimi [NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck)
 
-Bing yazım denetleme SDK'sını projenize eklemek için tıklatın `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden. `Microsoft.Azure.CognitiveServices.Language.SpellCheck` paketini ekleyin. Paket, aşağıdaki bağımlılıkları da yükler:
+Bing yazım denetleme SDK'sını projenize eklemek için seçin **NuGet paketlerini Yönet** gelen **Çözüm Gezgini** Visual Studio'da. `Microsoft.Azure.CognitiveServices.Language.SpellCheck` paketini ekleyin. Paket, aşağıdaki bağımlılıkları da yükler:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure

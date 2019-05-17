@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82e8936a888cbc99088ab18423e55dd57a3c2e77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850997"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604172"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Bir Windows yapılandırma Azure App Service için Java uygulaması
 
@@ -27,7 +27,7 @@ Azure App Service Java geliştiricilerinin kolayca oluşturmanızı, dağıtman�
 Bu kılavuzu temel kavramları ve App Service içinde Java geliştiricileri için yönergeler sağlar. Azure App Service daha önce kullanmadıysanız okumanız gereken [Java Hızlı Başlangıç](app-service-web-get-started-java.md) ilk. Java geliştirme belirli olmayan App Service'ı kullanma hakkında genel soruları [App Service Windows SSS](faq-configuration-and-management.md).
 
 > [!NOTE]
-> Aradığınızı bulamadınız mı? Lütfen [Windows OSS SSS](faq-configuration-and-management.md) veya [Java Linux Yapılandırma Kılavuzu](containers/app-service-linux-java.md) dağıtma ve Java uygulamanızı güvenli hale getirme hakkında bilgi.
+> Aradığınızı bulamadınız mı? Lütfen [Windows OSS SSS](faq-configuration-and-management.md) veya [Java Linux Yapılandırma Kılavuzu](containers/configure-language-java.md) dağıtma ve Java uygulamanızı güvenli hale getirme hakkında bilgi.
 
 ## <a name="configuring-tomcat"></a>Tomcat yapılandırma
 

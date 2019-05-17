@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e657c4678c76e8ff667c1a3f30409fc157f52d16
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430928"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798254"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web araması API'si için dil ve bölge desteği
 
@@ -30,7 +30,7 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Ülke/bölge|Kod|
 |-------|----|
 |Arjantin|AR|
-|Avustralya|AU|
+|Avustralya|Otomatik Olarak Güncelleştir|
 |Avusturya|AT|
 |Belçika|BE|
 |Brezilya|BR|
@@ -43,14 +43,14 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Hong Kong Çin ÖİB|HK|
 |Hindistan|IN|
 |Endonezya|Kimlik|
-|İtalya|BT|
+|İtalya|IT|
 |Japonya|JP|
 |Güney Kore|KR|
 |Malezya|MY|
 |Meksika|MX|
 |Hollanda|NL|
 |Yeni Zelanda|NZ|
-|Norveç|NO|
+|Norveç|HAYIR|
 |Çin|CN|
 |Polonya|PL|
 |Portekiz|PT|
@@ -71,12 +71,12 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
 |Arjantin|İspanyolca |es-AR|
-|Avustralya|Türkçe|tr-AU|
+|Avustralya|İngilizce|tr-AU|
 |Avusturya|Almanca |de-AT|
 |Belçika|Felemenkçe|NL-olabilir|
 |Belçika|Fransızca |FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
-|Kanada|Türkçe|CA tr|
+|Kanada|İngilizce|CA tr|
 |Kanada|Fransızca |fr-CA|
 |Şili|İspanyolca |ES-CL|
 |Danimarka|Danca|v-DK|
@@ -84,29 +84,33 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Fransa|Fransızca |fr-FR|
 |Almanya|Almanca |de-DE|
 |Hong Kong Çin ÖİB|Geleneksel Çince|zh-HK|
-|Hindistan|Türkçe|tr-giriş|
-|Endonezya|Türkçe|tr kimliği|
-|İtalya|İtalyanca|İt-IT|
+|Hindistan|İngilizce|tr-giriş|
+|Endonezya|İngilizce|tr kimliği|
+|İtalya|İtalyanca |İt-IT|
 |Japonya|Japonca|ja-JP|
 |Güney Kore|Korece|ko-KR|
-|Malezya|Türkçe|MY tr|
+|Malezya|İngilizce|MY tr|
 |Meksika|İspanyolca |es-MX|
 |Hollanda|Felemenkçe|NL-NL|
-|Yeni Zelanda|Türkçe|tr NZ|
+|Yeni Zelanda|İngilizce|tr NZ|
 |Norveç|Norveççe|no-NO|
 |Çin|Çince|zh-CN|
 |Polonya|Lehçe|pl-PL|
 |Portekiz|Portekizce|pt-PT|
-|Filipinler|Türkçe|tr PH|
+|Filipinler|İngilizce|tr PH|
 |Rusya|Rusça|ru-RU|
 |Suudi Arabistan|Arapça|ar-SA|
-|Güney Afrika|Türkçe|tr-ZA|
+|Güney Afrika|İngilizce|tr-ZA|
 |İspanya|İspanyolca |es-ES|
 |İsveç|İsveççe|sv-SE|
 |İsviçre|Fransızca |FR-CH|
 |İsviçre|Almanca |de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
-|Birleşik Krallık|Türkçe|en-GB|
-|Amerika Birleşik Devletleri|Türkçe|en-US|
+|Birleşik Krallık|İngilizce|en-GB|
+|Amerika Birleşik Devletleri|İngilizce|en-US|
 |Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* [Bing Resim Arama API’si başvurusu](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

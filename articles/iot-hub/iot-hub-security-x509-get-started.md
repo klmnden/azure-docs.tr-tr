@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: 5795cde35d53a64620c4fdb6c3af99a7f56b12d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440811"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779923"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IOT hub'ınızdaki X.509 güvenliği
 
@@ -37,6 +37,9 @@ Sertifikalarınızı almak için aşağıdaki yollardan birini seçebilirsiniz:
 
 * Gibi bir üçüncü taraf araç kullanarak kendi X.509 sertifikaları oluşturma [OpenSSL](https://www.openssl.org/). Bu, test ve geliştirme amacıyla yeterli olur. Bkz: [yönetme test CA sertifikaları için örnekler ve öğreticiler](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) oluşturma hakkında bilgi için CA sertifikalarını PowerShell veya Bash kullanarak test edin. Bu öğreticinin geri kalanını yönergelerini takip ederek oluşturulan test CA sertifikaları kullanan [yönetme test CA sertifikaları için örnekler ve öğreticiler](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
+* Oluşturmak bir [X.509 ara CA sertifikası](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) var olan bir kök CA sertifikası tarafından imzalanmış ve IOT Hub'ına yükleyin. Ara Sertifika yüklenmiş ve doğrulanmış, aşağıda belirtildiği gibi sonra aşağıda belirtilen bir kök CA sertifikası yerine kullanılabilir. OpenSSL gibi araçlar ([openssl isteği](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) ve [openssl ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) oluşturmak ve bir ara CA sertifikasını imzalamak için kullanılabilir.
+
+
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>X.509 CA sertifikalarını IOT hub'ınıza kaydedin
 
 Bu adımlar Portalı aracılığıyla IOT hub'ınıza yeni bir sertifika yetkilisi ekleme gösterir.
@@ -49,7 +52,7 @@ Bu adımlar Portalı aracılığıyla IOT hub'ınıza yeni bir sertifika yetkili
 
 4. Sertifikanızı başarıyla karşıya yüklendiğini bir bildirim alırsınız bitince **Kaydet**.
 
-    ![Sertifikayı karşıya yükleme](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
+    ![Karşıya sertifika yükleme](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
 
    Bu, sertifikanızın gösterir **sertifika Gezgini** listesi. Not **durumu** Bu sertifika *doğrulanmamış*.
 

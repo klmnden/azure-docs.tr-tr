@@ -3,8 +3,8 @@ title: Microsoft kimlik platformu kimlik belirteci başvurusu | Microsoft Docs
 description: Microsoft kimlik Platformu (v2.0) uç noktaları ve Azure AD v1.0 yayılan id_tokens kullanmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2c99caa46522f9b1e5d6334da8f10a0f4039899
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410051"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540304"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft kimlik platformu kimlik belirteci
 
@@ -55,7 +55,7 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 
 ### <a name="header-claims"></a>Üst bilgi talep
 
-|İste | Biçimlendir | Açıklama |
+|Talep | Biçim | Açıklama |
 |-----|--------|-------------|
 |`typ` | Dize - her zaman "JWT" | JWT belirteci olduğunu gösterir.|
 |`alg` | String | Belirteç imzalamak için kullanılan algoritmayı belirtir. Örnek: "RS256" |
@@ -66,7 +66,7 @@ Bu v2.0 örnek belirtecinde görüntülemek [jwt.ms](https://jwt.ms/#id_token=ey
 
 Bu liste, çoğu id_tokens (belirtilenler dışında) varsayılan olarak bulunan talepleri görüntüler.  Ancak, uygulamanız kullanabilir [isteğe bağlı bir talep](active-directory-optional-claims.md) id_token ek Taleplerde istemek için.  Bunlar arasında değişebilir `groups` kullanıcının adı hakkındaki bilgiler için talep.
 
-|İste | Biçimlendir | Açıklama |
+|Talep | Biçim | Açıklama |
 |-----|--------|-------------|
 |`aud` |  Dize, bir uygulama kimliği URI'si | Amaçladığınız alıcının belirtecin tanımlar. İçinde `id_tokens`, uygulamanızın uygulama kimliği, Azure portalında uygulamanıza atanan İzleyici olduğu. Uygulamanız bu değeri doğrulamak ve değer eşleşmiyorsa belirteci reddetme. |
 |`iss` |  Dize, bir STS URI | Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndürür güvenlik belirteci hizmeti (STS) tanımlar. Belirteç v2.0 uç noktası tarafından verildiyse, URI içinde sona erecek `/v2.0`.  Kullanıcının bir Microsoft hesabı tüketici kullanıcıdan olduğunu gösteren GUID `9188040d-6c67-4c5b-b112-36a304b66dad`. Uygulamanız varsa, uygulamaya oturum açabilirsiniz kiracılar kümesini sınırlandırmak için talep GUID kısmını kullanmanız gerekir. |

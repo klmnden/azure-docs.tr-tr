@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 4406789e3f9a10ff814aca0c2fd114de8a2abb69
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572673"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794401"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek bir veritabanı nedir
 
@@ -30,7 +30,7 @@ Tek veritabanı dağıtım seçeneği, kendi kaynak kümesi ile Azure SQL verita
 
 ## <a name="dynamic-scalability"></a>Dinamik ölçeklenebilirlik
 
-Düşük bir maliyetle düşük fiyat/performansından hizmet katmanda aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturabilir ve ardından [Hizmet katmanını değiştirebilirsiniz](sql-database-single-database-scale.md) el ile veya programlama yoluyla thehigher fiyat/performansından hizmeti dilediğiniz zaman çözümünüzün gereksinimlerini karşılayacak şekilde katmanı. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
+Düşük maliyet (Önizleme) sunucusuz bilgi işlem Katmanı'nı veya sağlanan işlem katmanında bir küçük bilgi işlem boyutu küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturabilirsiniz. Değiştirdiğiniz [işlem veya hizmet katmanı](sql-database-single-database-scale.md) el ile veya programlama yoluyla, çözümünüzün gereksinimlerini karşılamak için herhangi bir zamanda. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
 ## <a name="single-databases-and-elastic-pools"></a>Tek veritabanları ve elastik havuzlar
 

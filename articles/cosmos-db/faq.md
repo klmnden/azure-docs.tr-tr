@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e4ae9b7c96677ce494bea31a49b8db83d6bcb3c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890552"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793798"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -222,7 +222,7 @@ Azure Cosmos DB, katı güvenlik gereksinimleri ve standartları zorunlu kılar.
 
 Daha fazla bilgi için [Azure Cosmos DB'nin MongoDB API'si ile Cosmos veritabanınıza bağlanma](connect-mongodb-account.md).
 
-Ek hata kodları, MongoDB için Azure Cosmos DB'nin API'sini kullanarak çıkılacağını ihtiyacım var mı?
+### <a name="are-there-additional-error-codes-that-i-need-to-deal-with-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Ek hata kodları, MongoDB için Azure Cosmos DB'nin API'sini kullanarak çıkılacağını ihtiyacım var mı?
 
 Ortak MongoDB hata kodlarıyla birlikte Azure Cosmos DB MongoDB API'si, kendi belirli hata kodlarıyla sahiptir:
 

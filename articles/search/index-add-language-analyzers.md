@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121801"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790896"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Dil Çözümleyicileri için bir Azure Search dizini Ekle
 
@@ -45,9 +45,6 @@ Varsayılan çözümleyici için İngilizce, ancak belki de değil yanı sıra L
 + Lucene'nın İngilizce Çözümleyicisi standart Çözümleyicisi genişletir. Sözcük (ın sondaki) iyelik kaldırır, bağlantısı dallanma algoritması göre dallanma uygular ve İngilizce durdurma sözcükleri kaldırır.  
 
 + Microsoft'un İngilizce Çözümleyicisi dallanma yerine başsözcüğe gerçekleştirir. Bu çok daha iyi ne daha ilgili arama sonuçlarında sonuçları bükümlü ve düzensiz sözcük biçimlerini işleyebileceği anlamına gelir. 
-
-  > [!Tip]
-  > [Arama Çözümleyicisi Tanıtımı](https://alice.unearth.ai/) standart olarak Lucene Çözümleyici, Lucene'nın İngilizce dil Çözümleyicisi ve Microsoft'un doğal dil İngilizce işlemci tarafından üretilen sonuçlar yan yana karşılaştırmasını sağlar. Her bir arama giriş sağlamanız, her çözümleyici sonuçları bitişik bölmelerinde görüntülenir.
 
 ## <a name="configuring-analyzers"></a>Çözümleyicilerini yapılandırma
 
@@ -76,7 +73,7 @@ Dizin özellikleri hakkında daha fazla bilgi için bkz: [Create Index &#40;Azur
 |Çekçe|cs.microsoft|cs.lucene|  
 |Danca|da.microsoft|da.lucene|  
 |Felemenkçe|nl.microsoft|NL.lucene|  
-|Türkçe|en.microsoft|en.lucene|  
+|İngilizce|en.microsoft|en.lucene|  
 |Estonca|et.microsoft||  
 |Fince|fi.microsoft|Fi.lucene|  
 |Fransızca |fr.microsoft|fr.lucene|  
@@ -90,7 +87,7 @@ Dizin özellikleri hakkında daha fazla bilgi için bkz: [Create Index &#40;Azur
 |İzlanda dili|is.microsoft||  
 |Endonezya dili (Bahasa)|id.microsoft|id.lucene|  
 |İrlanda dili||GA.lucene|  
-|İtalyanca|it.microsoft|it.lucene|  
+|İtalyanca |it.microsoft|it.lucene|  
 |Japonca|ja.microsoft|ja.lucene|  
 |Kannada dili|kn.microsoft||  
 |Korece|ko.microsoft|Ko.lucene|  

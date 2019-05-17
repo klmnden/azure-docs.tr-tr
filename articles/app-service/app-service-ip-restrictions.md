@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728707"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541679"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service'e erişim kısıtlamaları #
 
@@ -32,7 +32,7 @@ Uygulamanız için bir istek yapıldığında, Kimden adresinin, erişim kısıt
 
 Erişim kısıtlamaları özelliği, kodunuzun çalıştığı çalışan ana Yukarı Akış olan App Service ön uç rollerinde gerçekleştirilir. Bu nedenle, erişim kısıtlamaları etkili bir şekilde ağ ACL'leri altındadır.
 
-Bir Azure sanal ağdan (VNet), web uygulamanıza erişimi kısıtlama olanağı adlı [hizmet uç noktalarını][serviceendpoints]. Hizmet uç noktaları, çok kiracılı bir hizmet için Seçili alt ağdan erişimi sağlar. Hem ağ tarafı, hem de ile etkin bir hizmet üzerinde etkinleştirilmesi gerekir. 
+Bir Azure sanal ağdan (VNet), web uygulamanıza erişimi kısıtlama olanağı adlı [hizmet uç noktalarını][serviceendpoints]. Hizmet uç noktaları, çok kiracılı bir hizmet için Seçili alt ağdan erişimi sağlar. Hem ağ tarafı, hem de ile etkin bir hizmet üzerinde etkinleştirilmesi gerekir. Bir App Service Ortamı'nda barındırılan uygulamalar için trafiği kısıtlamak için çalışmaz.  Bir App Service Ortamı'nda varsa, IP adresi kuralları ile uygulamanıza erişimi denetleyebilirsiniz.
 
 ![erişim kısıtlamaları akışı](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Bir IP adresi ayarlamak için kural tabanlı, bir IPv4 veya IPv6 türünü seçi
 ![bir sanal ağ erişimini kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Seçilen alt ağa erişimini kısıtlamak için bir sanal ağ türü seçin. , Abonelik, VNet ve alt ağı izin verdiğini veya reddettiğini erişim ile istediğiniz çekme kurmaya devam eder. Hizmet uç noktaları zaten Microsoft.Web ile seçtiğiniz bir alt ağ için etkin değilse, bunu yapmak soran kutuyu sürece bu otomatik olarak sizin için etkinleştirilecek. Veya alt ağdaki hizmet uç noktalarını etkinleştirmek için izinleriniz varsa uygulama ancak alt etkinleştirmek istediğiniz durum için büyük ölçüde ilişkilidir. Alt ağdaki hizmet uç noktalarının etkinleştirilmesi başkası almanız gerekirse, onay kutusunu işaretleyin ve uygulamanızı, daha sonra alt ağda etkinleştiriliyor olasılığına hizmet uç noktaları için yapılandırılmış olması. 
+
+Hizmet uç noktaları, bir App Service ortamında çalışan uygulamalar için erişimi kısıtlamak için kullanılamaz. Uygulamanızı bir App Service Ortamı'nda olduğunda, IP erişim kuralları ile uygulamanıza erişimi denetleyebilirsiniz. 
 
 Mevcut bir erişim kısıtlama kuralı düzenlemek için herhangi bir satıra tıklayabilirsiniz. Düzenlemeler hemen öncelik sıralamada değişiklikleri içeren son derece etkilidir.
 

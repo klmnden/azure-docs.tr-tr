@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021564"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792882"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Oluşturma ve dışarı aktarılan verileri yönetme
 
 Maliyet Analizi öğreticisini okuduysanız, Maliyet Yönetimi verilerinizi el ile indirme konusunda bilgi sahibisiniz. Ancak, günlük, haftalık veya aylık olarak Azure depolama için maliyet Yönetimi verilerinizi otomatik olarak dışarı aktarır, yinelenen bir görev oluşturun. Dışarı aktarılan veriler CSV biçimindedir ve Maliyet Yönetimi tarafından toplanan tüm bilgileri içerir. Daha sonra Azure depolama alanındaki dışarı aktarılan verileri dış sistemlerle kullanabilir ve kendi özel verilerinizle birleştirebilirsiniz. Ayrıca dışarı aktarılan verilerinizi pano gibi bir dış sistemde veya diğer mali sistemde kullanabilirsiniz.
+
+İzleme [depolama Azure maliyet yönetimi ile nasıl zamanlanacağını verir](https://www.youtube.com/watch?v=rWa_xI1aRzo) verilerini Azure Depolama'da, Azure'nın zamanlanmış bir dışarı aktarma oluşturma hakkında video maliyeti.
 
 Bu öğreticideki örnek, maliyet yönetimi verilerinizi dışarı aktarmada ve ardından verilerin başarılı bir şekilde dışarı aktarıldığını doğrulamada size yol gösterir.
 
@@ -49,8 +51,8 @@ Oluşturmak veya bir veri dışarı aktarma görüntülemek için veya verme zam
 
 > [!NOTE]
 > Abonelikleri yanı sıra, kaynak grupları, hesaplar, bölümler ve kayıtları üzerinde dışarı aktarma oluşturabilirsiniz. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
-> 
-> 
+>
+>
 
 
 Tıklayın **Ekle**dışarı aktarma için bir ad yazın ve ardından **günlük ay başından bu yana maliyetleri verilmesini** seçeneği. **İleri**’ye tıklayın.

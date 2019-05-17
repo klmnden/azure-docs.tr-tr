@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467078"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796252"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (genel Önizleme) için sistem tümleştirme piyasaya tanıtmak
 
@@ -32,7 +32,7 @@ Sistem durumu tümleştirme mümkün olduğunca kolaylaştırmak için Microsoft
 
 ## <a name="how-service-health-is-determined"></a>Hizmet durumu belirleme
 
-[Sistem durumu izleme sağlayıcılarını](#health-monitoring-providers) Hizmetleri izleme ve uyarı, hizmet sistem durumu sorunları için çeşitli mekanizmalar sunar. [Azure İzleyici](/services/monitor/) söz konusu teklifle bir örneğidir. Azure İzleyici, belirli eşikleri aştığında uyarılar oluşturmak için kullanılabilir. Örneğin, hizmetiniz için yeni bir güncelleştirme dağıttığınızda, bellek ve CPU kullanımı beklenen düzeyleri dışında sağlayabilirsiniz. Bildirildiğinde, düzeltici eylemleri gerçekleştirebilirsiniz.
+[Sistem durumu izleme sağlayıcılarını](#health-monitoring-providers) Hizmetleri izleme ve uyarı, hizmet sistem durumu sorunları için çeşitli mekanizmalar sunar. [Azure İzleyici](../azure-monitor/overview.md) söz konusu teklifle bir örneğidir. Azure İzleyici, belirli eşikleri aştığında uyarılar oluşturmak için kullanılabilir. Örneğin, hizmetiniz için yeni bir güncelleştirme dağıttığınızda, bellek ve CPU kullanımı beklenen düzeyleri dışında sağlayabilirsiniz. Bildirildiğinde, düzeltici eylemleri gerçekleştirebilirsiniz.
 
 Bu sistem durumu sağlayıcıları, genellikle hizmetinizin İzleyici durumunu programlı bir şekilde incelenmesi böylece REST API'leri sunar. REST API ya da geri (HTTP yanıt koduna göre belirlenir) basit ve sorunsuz ve düzgün çalışmayan bir sinyali ve/veya sinyaller hakkında ayrıntılı bilgileri iletiyi almasını dönebilirsiniz.
 

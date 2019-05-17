@@ -3,8 +3,8 @@ title: İçin özel olarak geliştirilmiş bir uygulamada belirli alanları dold
 description: Azure AD ile özel olarak geliştirilen bir uygulama kaydı sırasında belirli alanları doldurun hakkında yönergeler
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299065"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545492"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Nasıl için özel olarak geliştirilmiş bir uygulamada belirli alanları doldurun
 
@@ -44,7 +44,7 @@ Bu makalede, kullanılabilir tüm alanları uygulama kayıt formunda kısa bir a
 | Ad             | Uygulamanın adı. Bu, en az dört karakter olmalıdır.                |
 | Uygulama Türü | **Web uygulaması/Web API'si**: Bir web uygulaması, bir web API'sini veya her ikisini temsil eden bir uygulama 
 | |**Yerel**: Bir kullanıcının cihazına veya bilgisayarına yüklenebilen bir uygulama           |
-| Oturum açma URL'si      | Kullanıcıların uygulamanızı kullanmak için oturum içinde URL'si                                  |
+| Oturum Açma URL'si      | Kullanıcıların uygulamanızı kullanmak için oturum içinde URL'si                                  |
 
 Yukarıdaki alanları doldurduktan sonra Azure portalında uygulama kaydedilir ve uygulama sayfasına yönlendirilirsiniz. **Ayarları** uygulama bölmesinde düğmesine uygulamanızı özelleştirmek size daha fazla alan olan ayarları sayfası açılır. Aşağıdaki tabloda Ayarları sayfasında tüm alanlar açıklanır. Not, bir web uygulaması veya yerel bir uygulama oluşturduğunuz bağlı olarak, bu alanların bir alt kümesini yalnızca görür.
 

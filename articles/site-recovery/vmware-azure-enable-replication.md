@@ -3,15 +3,15 @@ title: Azure Site Recovery ile azure'a olağanüstü durum kurtarma için VMware
 description: Bu makalede, Azure Site Recovery kullanarak VMware Vm'lerini azure'a çoğaltma, olağanüstü durum kurtarma için etkinleştirmek açıklar.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922823"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540784"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -43,16 +43,17 @@ Bu bölümdeki adımları izlemeden önce aşağıdaki bilgileri unutmayın:
 * Yeni bir sanal makine için depolama hesaplarına çoğaltma, yalnızca bir temsili durum aktarımı (REST) API ve Powershell kullanılabilir. Depolama hesapları için çoğaltmak için Azure REST API sürümü 2016-08-10 veya 2018-01-10 kullanın.
 
 1. Git **2. adım: Uygulama çoğaltma** > **kaynak**. Çoğaltmayı ilk kez etkinleştirdikten sonra seçin **+ Çoğalt** ek sanal makineler için çoğaltma işlemini etkinleştirmek istiyorsanız kasada.
-1. İçinde **kaynak** sayfası > **kaynak**, yapılandırma sunucusunu seçin.
-1. İçin **makine türü**seçin **sanal makineler** veya **fiziksel makineler**.
-1. **vCenter/vSphere Hypervisor** bölümünde vSphere konağını yöneten vCenter sunucusunu veya konağı seçin. Bu ayar, fiziksel bilgisayarları çoğaltıyorsanız geçerli değildir.
-1. Yapılandırma sunucusu herhangi bir ek işlem sunucularının oluşturmadıysanız olacağı işlem sunucusunu seçin. Sonra **Tamam**’ı seçin.
+2. İçinde **kaynak** sayfası > **kaynak**, yapılandırma sunucusunu seçin.
+3. İçin **makine türü**seçin **sanal makineler** veya **fiziksel makineler**.
+4. **vCenter/vSphere Hypervisor** bölümünde vSphere konağını yöneten vCenter sunucusunu veya konağı seçin. Bu ayar, fiziksel bilgisayarları çoğaltıyorsanız geçerli değildir.
+5. İşlem sunucusunu seçin. Oluşturulan hiçbir ek işlem sunucularının varsa, açılır menüde yerleşik işlem sunucusunun yapılandırma sunucusu kullanılabilir. Her işlem sunucusunun sistem durumunu, önerilen sınırları ve diğer parametrelere göre belirtilir. Sağlıklı işlem sunucusunu seçin. A [kritik](vmware-physical-azure-monitor-process-server.md#process-server-alerts) işlem sunucusu olamaz seçilebilir. Yapabilirsiniz veya [giderileceği ve çözüleceği](vmware-physical-azure-troubleshoot-process-server.md) hataları **veya** ayarlanmış bir [genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md).
+    ![Çoğaltma kaynağı pencereyi etkinleştir](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Çoğaltma kaynağı pencereyi etkinleştir](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> Gelen [9.24 sürümleri](service-updates-how-to.md#links-to-currently-supported-update-rollups), başka bir uyarı sistem durumu uyarılarını işlem sunucusunun geliştirmek için kullanıma sunulmuştur. Site Recovery bileşenlerini 9.24 sürümleri veya üzeri için tüm uyarılar oluşturulacak yükseltin.
 
-1. İçin **hedef**, devredilen sanal makineler oluşturmak istediğiniz aboneliği ve kaynak grubunu seçin. Devredilen VM'ler için Azure'da kullanmak istediğiniz dağıtım modelini seçin.
-
-1. Azure ağ ve yük devretme sonrasında Azure Vm'lerinin bağlanacağı alt ağı seçin. Ağ sitesi kurtarma Hizmetleri kasası ile aynı bölgede olması gerekir.
+6. İçin **hedef**, devredilen sanal makineler oluşturmak istediğiniz aboneliği ve kaynak grubunu seçin. Devredilen VM'ler için Azure'da kullanmak istediğiniz dağıtım modelini seçin.
+2. Azure ağ ve yük devretme sonrasında Azure Vm'lerinin bağlanacağı alt ağı seçin. Ağ sitesi kurtarma Hizmetleri kasası ile aynı bölgede olması gerekir.
 
    Seçin **seçili makineler için Şimdi Yapılandır** koruma için seçtiğiniz tüm sanal makinelere ağ ayarını uygulamak için. Seçin **daha sonra yapılandırma** sanal makine başına Azure ağını seçin. Bir ağ yoksa, oluşturmanız gerekir. Azure Resource Manager'ı kullanarak bir ağ oluşturmak için Seç **Yeni Oluştur**. Varsa bir alt ağ seçin ve ardından **Tamam**.
    

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025194"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540688"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API sürümüne yükseltme
 Önceki bir sürümünü kullanıyorsanız, [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/), bu makalede 2019-05-06 en sunuldu API sürümünü kullanmak için uygulamanızı yükseltmenize yardımcı olur.
@@ -39,7 +39,7 @@ Sürüm 2019-05-06 en yeni genel kullanıma sunulan Azure arama hizmeti REST API
 
 Birkaç Önizleme özellik sürümlerine genel kullanıma sunulan bu güncelleştirme ile çakışacak. Yeni Önizleme özellikleri listesini gözden geçirmek için bkz: [arama REST API sürümü 2019-05-06-Preview](search-api-preview.md).
 
-## <a name="breaking-changes"></a>Yeni değişiklikler
+## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
 
 Varolan kodu aşağıdaki işlevler içeren, api-version üzerinde bozar 2019-05-06 =.
 
@@ -72,7 +72,9 @@ Bu durumlarda ya da sizin için geçerliyse, kodunuzu buna göre değiştirmeniz
 
 Bir önizleme API sürümüne yükseltme yapıyorsanız, yukarıdaki de geçerlidir, ancak ayrıca bazı Önizleme özellikleri 2019-05-06 sürümünde mevcut olmayan farkında olmalıdır:
 
-* ["Daha böyle" sorguları](search-more-like-this.md) yalnızca önizleme özelliği devam etmektedir.
+* ["Bu gibi daha fazla" sorguları](search-more-like-this.md)
+* [CSV blob dizin oluşturma](search-howto-index-csv-blobs.md)
+* [Cosmos DB dizin oluşturucular için MongoDB API'si desteği](search-howto-index-cosmosdb.md)
 
 Kodunuzu bu özellikleri kullanıyorsa, bunların kullanım kaldırmadan API sürümü 2019-05-06 yükseltmek mümkün olmayacaktır.
 

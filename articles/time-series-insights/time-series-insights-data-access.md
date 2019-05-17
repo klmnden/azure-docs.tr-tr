@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6853637ba23e17f3a7ca5420bdd84425c81a67be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236383"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791018"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bir ortam için veri erişim izni verme
 
 Bu makalede, iki tür erişim ilkeleri Azure zaman serisi öngörüleri önizlemesi açıklanmaktadır.
 
-## <a name="sign-in-to-tsi"></a>TSI için oturum açın
+## <a name="sign-in-to-time-series-insights"></a>Time Series Insights için oturum açın
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 1. Time Series Insights ortamınızı bulun. Girin `Time Series` içinde **arama** kutusu. Seçin **zaman serisi ortamı** arama sonuçlarında.

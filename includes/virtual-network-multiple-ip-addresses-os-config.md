@@ -5,15 +5,15 @@ services: virtual-network
 author: jimdial
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/09/2018
-ms.author: jdial
+ms.date: 05/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 0a877dde5602553cb98d440a860c3eb8bb30487e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929466"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546779"
 ---
 ## <a name="os-config"></a>Bir VM işletim sistemine IP adresleri ekleme
 
@@ -52,6 +52,7 @@ ping -S 10.0.0.5 hotmail.com
 >Yapılandırma ile ilişkili bir genel IP adresi varsa, ikincil IP yapılandırmaları için yalnızca Internet'e ping atabilirsiniz. Birincil IP yapılandırması için genel bir IP adresi, Internet'e ping işlemi yapmak için gerekli değildir.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
+Son Linux dağıtımınız için belgelere bakarak öneririz. 
 
 1. Bir terminal penceresi açın.
 2. Kök kullanıcı olduğunuzdan emin olun. Kök kullanıcı değilseniz aşağıdaki komutu girin:

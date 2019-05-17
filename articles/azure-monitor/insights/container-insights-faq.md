@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494685"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780000"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure İzleyici kapsayıcılar hakkında sık sorulan sorular için
 
@@ -76,6 +76,12 @@ Sorunun ayrıntılı bilgi için aşağıdakileri gözden geçirin [github bağl
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Neden ı ekledikten sonra küme yükseltemiyorum?
 
 Bir AKS kümesi için kapsayıcılar için Azure İzleyici'ı etkinleştirdikten sonra Log Analytics çalışma alanını silerseniz Küme verilerini gönderme olduğu için kümeyi yükseltmeye çalışırken başarısız olur. Bu sorunu çözmek için izlemeyi devre dışı bırakın ve başka bir geçerli çalışma alanına aboneliğinizdeki başvuran yeniden etkinleştirmeniz gerekir. Küme yükseltme yeniden gerçekleştirmeye çalıştığınızda, işlem ve başarıyla tamamlanması gerekir.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Hangi bağlantı noktaları ve etki alanları Aç/beyaz listeye aracı için ihtiyacım var?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

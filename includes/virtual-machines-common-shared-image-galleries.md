@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192383"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546756"
 ---
 Paylaşılan görüntü Galerisi yapısı ve kendi özel VM görüntülerinizi yönetilen etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan resim galerileri sağlar:
 
@@ -49,11 +49,11 @@ Görüntü tanımları, görüntü sürümleri için mantıksal gruplardır. Gö
 
 -Birlikte kullanılan her görüntü tanımı için üç parametre **yayımcı**, **teklif** ve **SKU**. Bunlar, bir özel görüntü tanımı bulmak için kullanılır. Bir veya iki, ancak tüm üç değerden paylaşan görüntü sürümleri olabilir.  Örneğin, üç görüntü tanımlar ve değerleri şunlardır:
 
-|Görüntü Tanımı|Yayımcı|Sunduğu|Sku|
+|Görüntü Tanımı|Yayımcı|Teklif|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finans|Arka uç|
 |myImage2|Contoso|Finans|Ön uç|
-|myImage3|Test Etme|Finans|Ön uç|
+|myImage3|Test ediliyor|Finans|Ön uç|
 
 Bu üç benzersiz değerler vardır. Biçimi nasıl şu anda yayımcı, teklif ve SKU için belirtebileceğiniz için benzer [Azure Market görüntüleri](../articles/virtual-machines/windows/cli-ps-findimage.md) Market görüntüsü en son sürümünü almak için Azure PowerShell'de. Her görüntü tanımı bu değerler benzersiz bir dizi olmalıdır.
 
@@ -77,15 +77,15 @@ Kaynak bölgeleri aşağıdaki tabloda listelenmiştir. Tüm genel bölgelerde h
 
 | Kaynak bölge |
 |---------------------|-----------------|------------------|-----------------|
-| Avustralya Orta   | Orta ABD EUAP | Kore Orta    | UK Güney 2      |
-| Avustralya Orta 2 | Doğu Asya       | Kore Güney      | Birleşik Krallık Batı         |
-| Avustralya Doğu      | Doğu ABD         | Orta Kuzey ABD | Batı Orta ABD |
+| Avustralya Orta   | Orta ABD EUAP | Kore Orta    | BK Güney 2      |
+| Avustralya Orta 2 | Doğu Asya       | Kore Güney      | BK Batı         |
+| Avustralya Doğu      | Doğu ABD         | Orta Kuzey ABD | Orta Batı ABD |
 | Avustralya Güneydoğu | Doğu ABD 2       | Kuzey Avrupa     | Batı Avrupa     |
-| Güney Brezilya        | Orta ABD 2 EUAP  | Orta Güney ABD | Batı Hindistan      |
-| Orta Kanada      | Fransa Orta  | Güney Hindistan      | Batı ABD         |
-| Doğu Kanada         | Fransa Güney    | Güneydoğu Asya   | Batı ABD         |
-| Orta Hindistan       | Japonya Doğu      | UK Kuzey         | Batı ABD 2       |
-| Orta ABD          | Japonya Batı      | Birleşik Krallık Güney         |                 |
+| Brezilya Güney        | Orta ABD 2 EUAP  | Orta Güney ABD | Batı Hindistan      |
+| Kanada Orta      | Fransa Orta  | Güney Hindistan      | Batı ABD         |
+| Kanada Doğu         | Fransa Güney    | Güneydoğu Asya   | Batı ABD         |
+| Orta Hindistan       | Japonya Doğu      | BK Kuzey         | Batı ABD 2       |
+| Orta ABD          | Japonya Batı      | BK Güney         |                 |
 
 
 
@@ -113,13 +113,13 @@ Paylaşılan görüntü sürümü çoğaltılır bölgeleri oluşturma zamanınd
 ![Görüntüleri nasıl çoğaltabilirsiniz gösteren grafik](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Access
+## <a name="access"></a>Erişim
 
 Paylaşılan görüntü Galerisi, paylaşılan bir görüntü ve paylaşılan görüntü sürümü tüm kaynaklar olduğundan yerel Azure RBAC denetimleri yerleşik kullanarak paylaşılabilir. RBAC kullanarak bu kaynakları diğer kullanıcılara, hizmet sorumluları ve grupları paylaşabilir. Hatta, içinde oluşturuldukları Kiracı dışındaki kişilere erişim paylaşabilirsiniz. Paylaşılan görüntü sürümü bir kullanıcının erişebileceği sonra bir sanal makine veya sanal makine ölçek kümesi dağıtabilirsiniz.  Hangi kullanıcı erişimi alır anlamanıza yardımcı olur. paylaşım matris şu şekildedir:
 
-| Kullanıcıyla paylaşılan     | Paylaşılan Görüntü Galerisi | Paylaşılan görüntü | Paylaşılan görüntü sürümü |
+| Kullanıcıyla paylaşılan     | Paylaşılan görüntü galerisi | Paylaşılan görüntü | Paylaşılan görüntü sürümü |
 |----------------------|----------------------|--------------|----------------------|
-| Paylaşılan Görüntü Galerisi | Evet                  | Evet          | Evet                  |
+| Paylaşılan görüntü galerisi | Evet                  | Evet          | Evet                  |
 | Paylaşılan görüntü         | Hayır                   | Evet          | Evet                  |
 | Paylaşılan görüntü sürümü | Hayır                   | Hayır           | Evet                  |
 
@@ -127,7 +127,7 @@ En iyi deneyim için Galeri düzeyinde paylaşımı öneririz. RBAC hakkında da
 
 Görüntüleri Ayrıca, uygun ölçekte, çok kiracılı uygulama kaydı kullanılarak kiracılar genelinde paylaşılabilir. Kiracılar genelinde görüntülerini paylaşma hakkında daha fazla bilgi için bkz. [galeri VM görüntüleri Azure kiracılar arasında paylaşmak](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 Paylaşılan görüntü Galerisi bu hizmeti kullanmak için fazladan bir ücret yoktur. Aşağıdaki kaynaklar için ücretlendirilirsiniz:
 - Depolama maliyetini paylaşılan görüntü sürümlerini depolamak için. Çoğaltma görüntü sürümü sayısı ve sürüm çoğaltılır bölge sayısı maliyeti bağlıdır. Örneğin, 2 görüntüler varsa ve her ikisi de 3 bölgeye çoğaltılır, ardından, kendi boyutunu temel alan 6 yönetilen diskler için değiştirilecek. Daha fazla bilgi için [yönetilen diskler fiyatlandırması](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Çıkış ücretlerini kaynak bölgesinden ilk görüntü sürümü çoğaltılmış bölgelere çoğaltma için ağ. Herhangi bir ek ücret olduklarından izleyen yinelemeler bölge içinde işlenir. 
@@ -266,4 +266,4 @@ CLI'daki yaygın çoğaltma sayısını belirtmek için kullanın **--yineleme s
 
 **S.** Paylaşılan görüntü Galerisi, görüntü tanımı, görüntü sürümü ve görüntü sürümü dışında VM/VMSS oluşturma için API sürümü'ne kullanmalıyım?
 
- A. API sürümü 2018-04-01 kullanmanızı tavsiye ederiz görüntü sürümünü kullanarak VM ve sanal makine ölçek kümesi dağıtımları için ya da daha yüksek. Paylaşılan resim galerileri, görüntü tanımları ve yansıma sürümü ile çalışmak için API sürümü 2018-06-01 kullanmanızı öneririz. 
+ A. API sürümü 2018-04-01 kullanmanızı tavsiye ederiz görüntü sürümünü kullanarak VM ve sanal makine ölçek kümesi dağıtımları için ya da daha yüksek. Paylaşılan resim galerileri, görüntü tanımları ve yansıma sürümü ile çalışmak için API sürümü 2018-06-01 kullanmanızı öneririz. Bölgesel olarak yedekli depolama (ZRS) gerektiren 2019-03-01 sürümü veya üzeri.

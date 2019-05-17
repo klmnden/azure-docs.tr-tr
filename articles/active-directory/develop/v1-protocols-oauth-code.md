@@ -3,8 +3,8 @@ title: Azure AD'de OAuth 2.0 yetkilendirme kod akışı anlama
 description: Bu makalede, web uygulamaları ve web API'leri, kiracınızın Azure Active Directory ve OAuth 2.0 kullanarak erişim yetkisi vermek için HTTP iletilerini kullanmayı açıklar.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/5/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e9177f91f016ffc64d542b9fad89d147b96f6d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297063"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545144"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 kodu verme akışı kullanarak Azure Active Directory web uygulamalarına erişim yetkisi verme
 
@@ -56,14 +56,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| kiracı |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| tenant |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
 | client_id |gerekli |Azure AD ile kaydettiğinizde, uygulamanıza atanan uygulama kimliği. Bunu Azure Portal'da bulabilirsiniz. Tıklayın **Azure Active Directory** Hizmetleri Kenar çubuğunda tıklatın **uygulama kayıtları**, uygulamayı seçin. |
 | response_type |gerekli |İçermelidir `code` yetkilendirme kod akışı için. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |isteğe bağlı |Uygulamanıza elde edilen belirteç geri göndermek için kullanılması gereken yöntemini belirtir. Olabilir `query`, `fragment`, veya `form_post`. `query` kod, yeniden yönlendirme URI'si üzerinde bir sorgu dizesi parametresi olarak sağlar. Örtük akışını kullanarak bir kimlik belirteci istediği, kullanamazsınız `query` belirtilmiş [Openıd spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Yalnızca kodum istediği, kullanabileceğiniz `query`, `fragment`, veya `form_post`. `form_post` kodu, yeniden yönlendirme URI'sini içeren bir GÖNDERİ yürütür. Varsayılan değer `query` kod akış.  |
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen isteğinde bulunan bir değer. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](https://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
 | kaynak | Önerilen |Hedef web API (kaynak güvenli) uygulama kimliği URI'si. Uygulama Kimliği URI'si, Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamanın açın **ayarları** sayfasında ve 'ıtıklatın. **Özellikleri**. Gibi bir dış kaynağa olabilir `https://graph.microsoft.com`. Bu, yetkilendirme veya belirteç isteklerini birinde gereklidir. Daha az kimlik doğrulaması sağlamak için istemleri onay kullanıcıdan alınan emin olmak için yetkilendirme isteği yerleştirin. |
-| scope | **yoksayıldı** | V1 Azure AD uygulamaları için kapsamları uygulamaları altında Azure portalında statik olarak yapılandırılmalıdır **ayarları**, **gerekli izinler**. |
+| kapsam | **yoksayıldı** | V1 Azure AD uygulamaları için kapsamları uygulamaları altında Azure portalında statik olarak yapılandırılmalıdır **ayarları**, **gerekli izinler**. |
 | istemi |isteğe bağlı |Gerekli olan kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *Oturum açma*: Kullanıcının yeniden kimlik doğrulamaya zorlayabilir sorulması gerekir. <p> *select_account*: Kullanıcıdan bir hesap seçmek için çoklu oturum açma üzerinde kesintiye uğratma istenir. Kullanıcının, var olan bir oturum açma hesabını seçin, hatırlanan bir hesabın kimlik bilgilerini girin veya tamamen farklı bir hesap kullanmak için seçin. <p> *Onay*: Kullanıcı onayı verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcı onayı istenir. <p> *admin_consent*: Bir yönetici, kuruluş içindeki tüm kullanıcılar adına kabul sorulması gerekir |
 | login_hint |isteğe bağlı |Önceden, kullanıcı adını biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir. Uygulamalar genellikle kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametreyi kullanın `preferred_username` talep. |
 | domain_hint |isteğe bağlı |Kiracı veya kullanıcı, oturum açmak için kullanması gereken etki alanı ile ilgili bir ipucu sağlar. Kaydedilmiş bir etki alanı kiracının domain_hint değeridir. AAD Kiracı için bir şirket içi dizin birleştiriliyorsa belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
@@ -103,7 +103,7 @@ error=access_denied
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Bir hata kodu değeri bölüm 5.2 içinde tanımlanan [OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). Sonraki tabloda, Azure AD'ye verir hata kodları açıklanmaktadır. |
+| hata |Bir hata kodu değeri bölüm 5.2 içinde tanımlanan [OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). Sonraki tabloda, Azure AD'ye verir hata kodları açıklanmaktadır. |
 | error_description |Hatanın ayrıntılı bir açıklaması. Bu ileti olacak şekilde tasarlanmamıştır son kullanıcı dostu. |
 | durum |İstekte gönderilen ve siteler arası istek sahteciliği (CSRF) saldırılarını önlemek için yanıtta döndürülen rastgele oluşturulmuş yeniden olmayan değeri durumu değerdir. |
 
@@ -141,7 +141,7 @@ grant_type=authorization_code
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| kiracı |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| tenant |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
 | client_id |gerekli |Azure AD ile kaydettiğinizde, uygulamanıza atanan uygulama kimliği. Bunu Azure portalında bulabilirsiniz. Uygulama Kimliği uygulama kaydını ayarlarında görüntülenir. |
 | grant_type değeri |gerekli |Olmalıdır `authorization_code` yetkilendirme kod akışı için. |
 | kod |gerekli |`authorization_code` Önceki bölümde aldığınız |
@@ -180,7 +180,7 @@ Başarılı bir yanıt şöyle görünebilir:
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
 | kaynak |Uygulama Kimliği URI'si, web API (kaynak güvenli). |
-| scope |Kimliğe bürünme, istemci uygulamaya verilen izinler. Varsayılan izin `user_impersonation`. Güvenli kaynağın sahibi ek değerler Azure AD'ye kaydedebilir. |
+| kapsam |Kimliğe bürünme, istemci uygulamaya verilen izinler. Varsayılan izin `user_impersonation`. Güvenli kaynağın sahibi ek değerler Azure AD'ye kaydedebilir. |
 | refresh_token |OAuth 2.0 yenileme belirteci. Uygulama geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak için bu belirteci kullanabilirsiniz. Yenileme belirteçleri uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. |
 | id_token |JSON Web Token (JWT) işaretsiz bir temsil eden bir [kimlik belirteci](id-tokens.md). Uygulama can base64Url isteğini açan kullanıcı hakkında bilgi için bu belirteci parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. |
 
@@ -206,7 +206,7 @@ Bir örnek hata yanıtı şuna benzer:
 ```
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
+| hata |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
 | error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
 | error_codes |Tanılama'da yardımcı olabilecek özel STS hata kodlarının listesi. |
 | timestamp |Hatanın gerçekleştiği zaman. |
@@ -259,7 +259,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | Parametre | Açıklama |
 | --- | --- |
 | authorization_uri |URI'si (fiziksel uç nokta) yetkilendirme sunucusu. Bu değer, bulma uç noktasından sunucusu hakkında daha fazla bilgi almak için arama anahtarı olarak da kullanılır. <p><p> İstemci, yetkilendirme sunucusunun güvenilir olduğunu doğrulamanız gerekir. Kaynak Azure AD tarafından korunmaya başladıktan sonra URL ile başlayan doğrulamak yeterli https://login.microsoftonline.com veya Azure AD destekleyen başka bir ana bilgisayar adı. Bir kiracıya özgü kaynak her zaman bir kiracıya özgü yetkilendirme URI döndürmelidir. |
-| error |Bir hata kodu değeri bölüm 5.2 içinde tanımlanan [OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). |
+| hata |Bir hata kodu değeri bölüm 5.2 içinde tanımlanan [OAuth 2.0 yetkilendirme Framework](https://tools.ietf.org/html/rfc6749). |
 | error_description |Hatanın ayrıntılı bir açıklaması. Bu ileti olacak şekilde tasarlanmamıştır son kullanıcı dostu. |
 | resource_id |Kaynağın benzersiz tanımlayıcısını döndürür. İstemci uygulaması bu tanıtıcıyı değeri olarak kullanabilirsiniz `resource` kaynak için bir belirteç isteğinde bulunduğunda parametre. <p><p> Bu değeri doğrulamak istemci uygulaması için önemlidir, aksi takdirde, kötü amaçlı bir hizmete anlamına mümkün olabilir bir **ayrıcalıklar yükseltme** saldırı <p><p> Doğrulamak için bir saldırı engelleme için önerilen strateji olduğunu `resource_id` , erişilen web API URL'si temeli eşleşir. Örneğin, varsa https://service.contoso.com/data erişiliyor, `resource_id` htttps://service.contoso.com/ olabilir. İstemci uygulaması Reddet gerekir bir `resource_id` , değil başlamak temel URL ile olmadığı sürece kimliğini doğrulamak için güvenilir bir alternatif yolu. |
 
@@ -316,7 +316,7 @@ Başarılı bir token yanıt şöyle görünecektir:
 | expires_in |Belirteç kalan kullanım ömrünü saniye. 3600 (bir saat) buna tipik bir değerdir. |
 | expires_on |Tarih ve saat, belirtecin süresi dolar. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. |
 | kaynak |Erişim belirteci olabilir güvenli kaynağı tanımlayan erişimi için kullanıldı. |
-| scope |Yerel istemci uygulaması için kimliğe bürünme izinler. Varsayılan izin **user_impersonation**. Diğer değerleri, hedef kaynağın sahibi Azure AD'de kaydedebilirsiniz. |
+| kapsam |Yerel istemci uygulaması için kimliğe bürünme izinler. Varsayılan izin **user_impersonation**. Diğer değerleri, hedef kaynağın sahibi Azure AD'de kaydedebilirsiniz. |
 | access_token |İstenen yeni bir erişim belirteci. |
 | refresh_token |Bu yanıt süresi dolduğunda yeni erişim belirteçlerini istemek için kullanılan yeni bir OAuth 2.0 refresh_token. |
 
@@ -338,7 +338,7 @@ Bir örnek hata yanıtı şuna benzer:
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
+| hata |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
 | error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
 | error_codes |Tanılama'da yardımcı olabilecek özel STS hata kodlarının listesi. |
 | timestamp |Hatanın gerçekleştiği zaman. |

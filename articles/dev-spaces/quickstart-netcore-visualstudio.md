@@ -13,12 +13,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcıl
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 74bf83626ffcbf1625ab24cd9a4b8151b1cce8b0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: HT
+ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597012"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65765313"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Hızlı Başlangıç: Azure geliştirme alanları (Visual Studio 2017) ile Kubernetes üzerinde .NET Core ile geliştirin
 
@@ -58,7 +58,7 @@ Azure portalında AKS kümenizin gelin ve tıklayın *geliştirme alanları*. De
 1. Visual Studio 2017'yi açın.
 1. Yeni bir proje oluşturun.
 1. Seçin *ASP.NET Core Web uygulaması* ve projenizi adlandırın *webfrontend*.
-1. *Tamam*'ı tıklatın.
+1. *Tamam* düğmesine tıklayın.
 1. İstendiğinde, *Web uygulaması (Model-View-Controller)* şablonu için.
 1. Seçin *.NET Core* ve *ASP.NET Core 2.0* en üstünde.
 1. *Tamam*'ı tıklatın.
@@ -69,11 +69,11 @@ Projenizde, seçin **Azure geliştirme alanları** aşağıda gösterildiği gib
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam*'ı tıklatın.
+Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam* düğmesine tıklayın.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Bu işlem, hizmetinize dağıtır *varsayılan* genel olarak erişilebilir bir URL ile geliştirme alanı. Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz. *Tamam* düğmesine tıklayın.
+Bu işlem, hizmetinize dağıtır *varsayılan* genel olarak erişilebilir bir URL ile geliştirme alanı. Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz. *Tamam*'ı tıklatın.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12c68a268b901f3525c2af9cd381dc277d6d8167
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441521"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770901"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrın
 | [Openıd Connect ve OAuth](#openid-connect-and-oauth) | Yalnızca bulut | Openıd Connect ve OAuth yeni bir uygulama geliştirirken kullanın. Bu protokol, uygulama yapılandırmasını basitleştiren, kullanımı kolay SDK'lar sahip ve MS Graph kullanmak için uygulamanızı sağlar.
 | [SAML](#saml-sso) | Bulut ve şirket içi | Mümkün olduğunda, Openıd Connect veya OAuth kullanan değil mevcut uygulamalar için SAML seçin. SAML SAML protokollerden birini kullanarak kimlik doğrulaması uygulamaları için çalışır.|
 | [Parola tabanlı](#password-based-sso) | Bulut ve şirket içi | Uygulama, kullanıcı adı ve parola ile kimlik doğrulamasını gerçekleştirdiğinde parola tabanlı seçin. Parola tabanlı çoklu oturum açma güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Bu yöntem, uygulama tarafından sağlanan mevcut oturum açma işlemi kullanır, ancak yönetici parolaları yönetmek etkinleştirir. |
-| [Bağlı](#linked-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı başka bir kimlik sağlayıcı hizmetine de yapılandırıldığında bağlı çoklu oturum açma seçin. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
+| [Bağlı](#linked-sign-on) | Bulut ve şirket içi | Bağlantılı oturum açma uygulama içinde başka bir kimlik sağlayıcı hizmetine çoklu oturum açma için yapılandırıldığında'ı seçin. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
 | [Devre dışı](#disabled-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı yapılandırılmaya hazır değilken, devre dışı çoklu oturum açma seçin. Kullanıcıların, bunlar bu uygulamayı başlatmak her seferinde kullanıcı adı ve parola girmeniz gerekir.|
 | [Tümleşik Windows kimlik doğrulaması (IWA)](#integrated-windows-authentication-iwa-sso) | yalnızca şirket içi | IWA çoklu oturum açma kullanan uygulamalar için seçin [tümleşik Windows kimlik doğrulaması (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), veya talep kullanan uygulamalar. IWA için uygulama kullanıcıların kimliğini doğrulamak için Kerberos Kısıtlı temsilci (KCD) uygulama ara sunucusu bağlayıcıları kullanın. | 
 | [Üst bilgi tabanlı](#header-based-sso) | yalnızca şirket içi | Uygulama için kimlik doğrulama üst bilgileri kullandığında üst bilgi tabanlı çoklu oturum açma kullanın. Üst bilgi tabanlı çoklu oturum açma Azure AD için PingAccess gerektirir. Uygulama Ara sunucusu kullanıcının kimliğini doğrulamak için Azure AD kullanır ve ardından bağlayıcı hizmetini üzerinden geçen trafik geçirir.  | 
@@ -122,12 +122,12 @@ Ne zaman son kullanıcı kimlik bilgilerini yönetir:
 - Yöneticiler uygulama için yeni kimlik bilgilerini ayarlamak hala mümkün.
 
 
-## <a name="linked-sso"></a>Bağlantılı SSO
+## <a name="linked-sign-on"></a>Bağlantılı oturum açma
 Bağlantılı oturum açma için çoklu oturum açmayı başka bir hizmet olarak zaten yapılandırılmış bir uygulama için çoklu oturum açma sağlamak için Azure AD'deki sağlar. Bağlı uygulama Office 365 portalında veya Azure AD MyApps portalında son kullanıcılara görünür. Örneğin, bir kullanıcı çoklu oturum açma Active Directory Federasyon Hizmetleri 2.0 (AD FS), Office 365 portalından için yapılandırılmış bir uygulama başlatabilirsiniz. Ek raporlama da Office 365 portalında veya Azure AD MyApps portalından başlatılan bağlantılı uygulamalar için kullanılabilir. 
 
-### <a name="linked-sso-for-application-migration"></a>Uygulama geçiş için bağlantılı SSO
+### <a name="linked-sign-on-for-application-migration"></a>Bağlantılı oturum açma için uygulama geçişi
 
-Uygulamaları bir süre geçirirken bağlı SSO tutarlı bir kullanıcı deneyimi sağlar. Uygulamaları Azure Active Directory'ye geçiriyorsanız, bağlantılar, geçirmek istediğiniz tüm uygulamalar için hızlı bir şekilde yayımlamak için bağlantılı çoklu oturum açma kullanabilirsiniz.  Kullanıcılar, tüm bağlantıları bulabilirsiniz [MyApps portalında](../user-help/active-directory-saas-access-panel-introduction.md) veya [Office 365 uygulama başlatıcısında](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Kullanıcılar, bağlı bir uygulama veya geçirilmiş bir uygulamayı eriştiğiniz bilemezsiniz.  
+Bağlantılı oturum açma uygulamaları bir süre geçirirken tutarlı kullanıcı deneyimi sağlayabilirsiniz. Uygulamaları Azure Active Directory'ye geçiriyorsanız, bağlantılar, geçirmek istediğiniz tüm uygulamalar için hızlı bir şekilde yayımlamak için bağlantılı oturum açma kullanabilirsiniz.  Kullanıcılar, tüm bağlantıları bulabilirsiniz [MyApps portalında](../user-help/active-directory-saas-access-panel-introduction.md) veya [Office 365 uygulama başlatıcısında](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Kullanıcılar, bağlı bir uygulama veya geçirilmiş bir uygulamayı eriştiğiniz bilemezsiniz.  
 
 Bir kullanıcı ile bağlantılı bir uygulamaya kimlik doğrulaması yapıldıktan sonra hesap kaydı son kullanıcı çoklu oturum açma erişimi sağlanan önce oluşturulması gerekir. Bu hesap kaydı sağlama ya da otomatik olarak gerçekleşebileceği ya da bir yönetici tarafından el ile ortaya çıkabilir.
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/09/2019
-ms.openlocfilehash: 7b470c20397aac456d34d5e3b877c7d4126d8279
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/14/2019
+ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465103"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604430"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Yaygın Azure veritabanı geçiş hizmeti sorunlarını ve hatalarını giderme
 
@@ -24,7 +24,7 @@ Bu makalede, bazı yaygın sorunlar ve Azure veritabanı geçiş hizmeti kullan�
 
 ## <a name="migration-activity-in-queued-state"></a>Kuyruğa alınmış durumda geçiş etkinliği
 
-Azure veritabanı geçiş hizmeti projede yeni etkinlikler oluşturun, etkinlikleri, kuyruğa alınmış durumda kalır.
+Bir Azure veritabanı geçiş hizmeti projede yeni etkinlikler oluşturun, etkinlikleri bir kuyruğa alınmış durumda kalır.
 
 | Nedeni         | Çözüm |
 | ------------- | ------------- |
@@ -44,13 +44,13 @@ Yönetilen örnek için Azure SQL veritabanı veya bir Azure SQL veritabanına t
 
 Azure veritabanı geçiş hizmetini kullanarak MySQL için Azure veritabanı'na Mysql'i geçirdiğinizde, geçiş etkinliğini şu hatayla başarısız olur:
 
-* **Hata**: Hata: Veritabanı geçiş hatası - görev 'TaskID' [n] kurtarma art arda hatalar nedeniyle askıya alındı.
+* **Hata**: Veritabanı geçiş hatası - görev 'TaskID' [n] kurtarma art arda hatalar nedeniyle askıya alındı.
 
 | Nedeni         | Çözüm |
 | ------------- | ------------- |
-| Geçiş işlemi gerçekleştiren kullanıcı ReplicationAdmin rolüne ve/veya çoğaltma istemci, çoğaltma ve Süper (MySQL 5.6.6 öncesi'den önceki sürümler) ayrıcalıkları eksik olduğunda bu hata oluşabilir.<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Emin [önkoşul ayrıcalıkları](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) kullanıcı için hesap yapılandırılmış olan doğru bir şekilde Azure MySQL örneği üzerinde. Örneğin, gerekli ayrıcalıklara sahip ' migrateuser' adlı bir kullanıcı oluşturmak için aşağıdaki adımlar izlenebilir:<br>1. Kullanıcı oluştur migrateuser@'%' tarafından TANIMLANAN 'gizli'; <br>2. db_name.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için tüm ayrıcalıkları verin Daha fazla veritabanı erişimi vermek için bu adımı yineleyin <br>3. verme çoğaltma ikincil üzerinde *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>4. verme çoğaltma istemcide *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>5. ayrıcalıklar temizleme; |
+| Geçiş işlemi gerçekleştiren kullanıcı ReplicationAdmin rolüne ve/veya çoğaltma istemci, çoğaltma ve Süper (MySQL 5.6.6 öncesi'den önceki sürümler) ayrıcalıkları eksik olduğunda bu hata oluşabilir.<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Emin [önkoşul ayrıcalıkları](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) kullanıcı için hesap yapılandırılmış olan doğru MySQL örneği için Azure veritabanı. Örneğin, gerekli ayrıcalıklara sahip ' migrateuser' adlı bir kullanıcı oluşturmak için aşağıdaki adımlar izlenebilir:<br>1. Kullanıcı oluştur migrateuser@'%' tarafından TANIMLANAN 'gizli'; <br>2. Db_name.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için tüm ayrıcalıkları verin Daha fazla veritabanı erişimi vermek için bu adımı yineleyin <br>3. GRANT çoğaltma ikincil üzerinde *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>4. GRANT çoğaltma istemcide *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>5. Flush ayrıcalıkları; |
 
-## <a name="error-when-attempting-to-stop-the-azure-database-migration-service-instance"></a>Azure veritabanı geçiş hizmeti örneği durdurulmaya çalışılırken hata oluştu
+## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti durdurulmaya çalışılırken hata oluştu
 
 Azure veritabanı geçiş hizmeti örneği durdururken, şu hatayı alırsınız:
 
@@ -60,7 +60,7 @@ Azure veritabanı geçiş hizmeti örneği durdururken, şu hatayı alırsınız
 | ------------- | ------------- |
 | Durdurma işlemi deneniyor hizmet örneği, hala çalışmakta olan veya mevcut etkinlikler geçiş projeleri içerir. Bu hata görüntüler. <br><br><br><br><br><br> | Azure veritabanı geçiş Hizmeti Durdur çalıştığınız örneğinde çalışan hiçbir etkinlik olduğundan emin olun. Hizmeti durdurmak denemeden önce etkinlikler veya projeleri de silebilirsiniz. Aşağıdaki adımlar, tüm çalışan görevlerin silerek geçiş hizmeti örneği temizlemek için projeleri kaldırma göstermektedir:<br>1. Install-Module-AzureRM.DataMigration adı <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription - SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject-adı <projectName> - ResourceGroupName <rgName> - ServiceName <serviceName> - DeleteRunningTask |
 
-## <a name="error-restoring-database-while-migrating-from-sql-server-to-an-azure-sql-database-managed-instance"></a>SQL Server'dan Azure SQL veritabanı'na geçirme örneği tarafından yönetilen veritabanı geri yüklenirken hata oluştu
+## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Azure SQL DB'ye geçirme SQL örneği tarafından yönetilen veritabanı geri yüklenirken hata oluştu
 
 SQL Server'dan Azure SQL veritabanı yönetilen örneği için çevrimiçi bir geçiş gerçekleştirdiğinizde, şu hata ile tam geçiş başarısız olur:
 
@@ -88,11 +88,11 @@ Azure veritabanı geçişi hizmeti projesi Sihirbazı kaynağına bağlanmaya ç
 | ------------- | ------------- |
 | Kullanırken [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure veritabanı geçiş hizmeti [gerektirir](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) sağlama hizmeti ile ilişkilendirilen sanal ağ alt ağda üç hizmet uç noktaları:<br> --Service Bus uç noktası<br> --Depolama uç noktası<br> --Hedef veritabanı uç noktası (örneğin, SQL uç noktası, Cosmos DB uç noktası)<br><br><br><br> | [Etkinleştirme](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) gerekli hizmet uç noktaları için Azure veritabanı geçiş hizmeti ile kaynak arasında ExpressRoute bağlantısı. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-database-for-mysql"></a>Bir MySQL veritabanına, MySQL için Azure veritabanı'na geçirme sırasında zaman aşımı hatası
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Bir MySQL veritabanı için Azure MySQL geçişi sırasında zaman aşımı hatası
 
 Bir MySQL veritabanı için Azure veritabanı geçiş hizmeti aracılığıyla MySQL örneği için Azure veritabanı geçiş yaptığınızda, geçiş işlemi aşağıdaki zaman aşımı hatası ile başarısız olur:
 
-    * **Hata**: Hata: Veritabanı geçişi hata - dosya - yüklenemedi dosyası için yükleme işlemi başlatılamadı 'n' RetCode: SQL_ERROR hatası SqlState: HY000 NativeError: 1205 iletisi: [MySQL] [ODBC sürücüsü] [mysqld] kilit zaman aşımı aşıldı; bekleyin İşlem yeniden başlatmayı deneyin
+* **Hata**: Veritabanı geçişi hata - dosya - yüklenemedi dosyası için yükleme işlemi başlatılamadı 'n' RetCode: SQL_ERROR hatası SqlState: HY000 NativeError: 1205 iletisi: [MySQL] [ODBC sürücüsü] [mysqld] kilit zaman aşımı aşıldı; bekleyin İşlem yeniden başlatmayı deneyin
 
 | Nedeni         | Çözüm    |
 | ------------- | ------------- |
@@ -100,13 +100,13 @@ Bir MySQL veritabanı için Azure veritabanı geçiş hizmeti aracılığıyla M
 
 ## <a name="additional-known-issues"></a>Bilinen diğer sorunlar
 
-* [Azure SQL DB'ye çevrimiçi geçişlerle ilgili bilinen sorunlar/geçiş sınırlamaları](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [MySQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [PostgreSQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Bilinen sorunları/geçiş sınırlamalarıyla birlikte Azure SQL veritabanı çevrimiçi geçişleri](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
+* [MySQL için Azure veritabanı çevrimiçi geçişleri ile bilinen sorunları/geçiş sınırlamaları](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
+* [PostgreSQL için Azure veritabanı çevrimiçi geçişleri ile bilinen sorunları/geçiş sınırlamaları](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure veritabanı geçiş hizmeti PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)
-* [Nasıl MySQL için Azure veritabanı'nda Azure portalını kullanarak sunucu parametrelerini yapılandırma](https://docs.microsoft.com/azure/mysql/howto-server-parameters)
-* [Azure veritabanı geçiş hizmeti kullanma önkoşulları genel bakış](https://docs.microsoft.com/azure/dms/pre-reqs)
-* [Azure veritabanı geçiş hizmeti kullanma hakkında SSS](https://docs.microsoft.com/azure/dms/faq)
+* Makaleyi görüntüleyin [Azure veritabanı geçiş hizmeti PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Makaleyi görüntüleyin [nasıl MySQL için Azure veritabanı'nda Azure portalını kullanarak sunucu parametrelerini yapılandırma](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
+* Makaleyi görüntüleyin [için Azure veritabanı geçiş hizmetini kullanarak önkoşullara genel bakış](https://docs.microsoft.com/azure/dms/pre-reqs).
+* Bkz: [kullanarak Azure veritabanı geçiş hizmeti hakkında SSS](https://docs.microsoft.com/azure/dms/faq).

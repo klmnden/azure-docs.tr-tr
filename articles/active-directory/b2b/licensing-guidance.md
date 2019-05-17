@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fa01a6bf522061e54e9622cb9201f81c699a8ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d208e981f46bd5cc156dd7f764de64638c91efb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412446"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768186"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B işbirliği lisanslama kılavuzu
 
@@ -27,7 +27,7 @@ B2B Konuk kullanıcı lisanslama otomatik olarak hesaplanır ve 1:5 oranını ta
 Ayrıca, konuk kullanıcıların kullanabileceği ek lisans gereksinimi ile Azure AD özellikleri boşaltın. Konuk kullanıcıların erişiminin bile sizde yoksa, Azure AD özellikleri boşaltmak için ücretli Azure AD lisansı. 
 
 ## <a name="examples-calculating-guest-user-licenses"></a>Örnekler: Konuk kullanıcı lisanslarını hesaplanıyor
-Konuk kullanıcı, ücretli erişmesi gereken belirledikten sonra Azure AD Hizmetleri, gerekli 1:5 oranı, konuk kullanıcıların kapsanması için yeterince Azure AD lisansları Ücretli sahip olduğunuzdan emin olun. İşte bazı örnekler:
+Konuk kullanıcı, ücretli erişmesi gereken belirledikten sonra Azure AD Hizmetleri, gerekli 1:5 oranı, konuk kullanıcıların kapsanması için yeterince Azure AD lisansları Ücretli sahip olduğunuzdan emin olun. Bazı örnekler şunlardır:
 
 - Azure AD uygulamaları veya hizmetleri için 100 Konuk kullanıcıları davet etmek istediğiniz ve erişim yönetimi ve tüm Konuk kullanıcılar için sağlama atamak istediğiniz. Ayrıca, 50 bu Konuk kullanıcılar için mfa'yı ve koşullu erişim gerektiren istiyorsunuz. Bu birleşim karşılamak üzere 10 Azure AD temel lisansı ve 10 Azure AD Premium P1 lisansı gerekir. Konuk Kullanıcılarınızla kimlik koruma özelliklerini kullanmayı planlıyorsanız, konuk kullanıcıların kapsanması için aynı 1:5 oranı, Azure AD Premium P2 lisansı gerekir.
 - Bu nedenle en az 12 Azure AD Premium P1 lisansı olması gerekir isteyen tüm MFA'yı 60 Konuk kullanıcılar davet etmek istediğiniz. 1:5 oranı lisansı altında 50 adede kadar Konuk kullanıcı izin Azure AD Premium P1 lisansı ile 10 kişiden var. 10 ek konuk kullanıcıların kapsanması için iki ek Premium P1 lisansı satın almanız gerekir.

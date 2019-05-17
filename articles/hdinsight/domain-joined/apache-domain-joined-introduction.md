@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: deff2aa3cd475a3ed37adc4408a133ed1fd0757e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716668"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793561"
 ---
-# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş
+# <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Azure HDInsight, Kurumsal güvenlik paketi nedir
 
 Geçmişte, Azure HDInsight yalnızca tek bir kullanıcı desteklenen: yerel yönetici Bu durum küçük çaplı uygulama ekipleri veya departmanları için idealdi. Active Directory tabanlı kimlik doğrulaması, çok kullanıcılı gibi Kurumsal düzeydeki özellikleri desteği ve rol tabanlı erişim denetimi gittikçe daha önemli hale geldi gereken Kurumsal sektörde daha popüler Apache Hadoop tabanlı iş yüklerini kazanılan gibi. 
 
@@ -28,7 +28,7 @@ Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache
 
 Kuruluş güvenliği dört temel yapı taşları içerir: çevre güvenliği, kimlik doğrulaması, yetkilendirme ve şifreleme.
 
-![Kurumsal güvenlik paketi HDInsight kümeleri Kuruluş güvenliği dört yapı taşları avantajları](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
+![Kurumsal güvenlik paketi HDInsight kümeleri Kuruluş güvenliği dört yapı taşları avantajları](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png):
 
 ## <a name="perimeter-security"></a>Çevre güvenliği
 HDInsight çevre güvenliği sanal ağlar ve Azure VPN ağ geçidi hizmeti sağlanır. Kuruluş Yöneticileri sanal ağ içindeki bir ESP kümesi oluşturabilir ve sanal ağa erişimi kısıtlamak için ağ güvenlik grupları (güvenlik duvarı kuralları) kullanın. Yalnızca gelen güvenlik duvarı kurallarında tanımlana IP adresleri HDInsight kümesiyle iletişim kurabilir. Bu yapılandırma, çevre güvenliği sağlar.

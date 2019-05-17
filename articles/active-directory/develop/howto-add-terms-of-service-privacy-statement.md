@@ -3,8 +3,8 @@ title: Uygulamalar için hizmet ve gizlilik bildirimini koşulları | Azure
 description: Azure AD kullanmak için kayıtlı uygulamalar için hizmet ve gizlilik bildirimini koşullarını nasıl yapılandıracağınızı öğrenin.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410573"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540203"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Nasıl yapılır: Hizmet ve gizlilik bildirimini bir uygulama için koşulları yapılandırma
 
@@ -46,7 +46,7 @@ Uygulamanızın koşullarını hizmet ve gizlilik bildirimi belgelerin bağlant�
 
 | Yönerge     | Açıklama                           |
 |---------------|---------------------------------------|
-| Biçimlendir        | Geçerli bir URL                             |
+| Biçim        | Geçerli bir URL                             |
 | Geçerli şemalar | HTTP ve HTTPS<br/>HTTPS öneririz. |
 | En büyük uzunluk    | 2048 karakter                       |
 

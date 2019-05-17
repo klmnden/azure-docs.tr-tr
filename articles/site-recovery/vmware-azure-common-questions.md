@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925511"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540618"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -251,13 +251,13 @@ Kurtarma Hizmetleri Kasası'nda tıklatın **Configuration Servers** içinde **S
 
 ## <a name="process-server"></a>Process Server
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>Çoğaltmayı etkinleştirme sırasında işlem sunucusunu seçin yapılamıyor
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>Neden 'M sırasında işlem sunucusu seçemiyorsa etkinleştirebilirim çoğaltma?
 
-9.24 sürümünden geliştirmeleri sağlamak için yapılan [işlem sunucu uyarılarını](vmware-physical-azure-monitor-process-server.md#process-server-alerts) ne zaman bir genişleme işlem sunucusu kurma hakkında. Bu işlem sunucu azaltmayı önlemek ve iyi durumda olmayan işlem sunucusu kullanımını önlemek için yapılır.
+9.24 sürümünden görüntülemek için geliştirmeler yapılan [çoğaltmayı etkinleştirme sırasında işlem sunucusunun sistem durumunu](vmware-azure-enable-replication.md#enable-replication). İşlem sunucusu azaltmayı önlemek ve iyi durumda olmayan işlem sunucularının kullanımını en aza indirmek için budur.
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>İşlem sunucusu doğru sistem durumunu almak için ne yapmalıyım?
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>Hangi 9.24 veya üzeri sürümleri için doğru sistem durumu için işlem sunucusu yükselterek amacı nedir?
 
-Site Recovery bileşenlerini yükseltmek [en son sürümleri](service-updates-how-to.md#links-to-currently-supported-update-rollups) (en az 9.24 veya üzeri).
+Gelen [9.24 sürümleri](service-updates-how-to.md#links-to-currently-supported-update-rollups), başka bir uyarı sistem durumu uyarılarını işlem sunucusunun geliştirmek için kullanıma sunulmuştur. Site Recovery bileşenlerini 9.24 sürümleri veya üzeri için tüm uyarılar oluşturulacak yükseltin.
 
 ## <a name="failover-and-failback"></a>Yük devretme ve yeniden çalışma
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>İşlem sunucusu şirket içi yeniden çalışma için kullanabilir miyim?
@@ -273,7 +273,7 @@ Evet, türe veya dilediğiniz zaman yük devretmeden önce şirket Portalı'nda,
 VMware-Azure arası için kullanabileceğiniz en eski kurtarma noktası değer 72 saattir.
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Yük devretme sonrasında Azure Vm'lerini nasıl erişebilirim?
-Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>Dayanıklı veriler üzerinde başarısız oldu?
 

@@ -9,17 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 1cb533348236905b7c4e9b58968041745af0e71b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028448"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785831"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>5 - sınıflandırma. örnek: Değişim sıklığı, deneyde ve yukarı satış tahmin edin 
 
-Bu görsel arabirim örnek deneyde, ikili dosya sınıflandırıcı tahmin değişim sıklığı, deneyde ve yukarı-satış, müşteri ilişkileri yönetimi (CRM) için ortak bir görevi gösterir.
+Tek satırlık bir görsel arabirim kullanarak kod yazmadan karmaşık machine learning denemesi oluşturmayı öğrenin.
+
+Bu deneyde, üç eğitir **iki sınıflı artırmalı karar ağacı** Müşteri İlişkileri Yönetimi (CRM) sistemleri için ortak görevler tahmin etmek için sınıflandırıcılar: değişim sıklığı, deneyde ve yukarı satış. Etiketleri ve veri değerleri birden çok veri kaynağında bölme ve müşteri bilgilerinin anonimleştirmek için karıştırılmış, ancak yine de görsel arabirim karıştırılmış değerleri kullanarak bir model eğitip ve veri kümeleri birleştirmek için kullanabiliriz.
+
+"Hangisinin?" sorusunu deniyoruz nedeni Bu, bir sınıflandırma problemi olarak adlandırılır. Ancak, bu deneme regresyon, Sınıflandırma, kümeleme ve benzeri oluşmasından herhangi bir türde machine learning sorun gidermek için aynı adımları uygulayabilirsiniz.
+
+Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
+
+![Deneme grafiğini](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -31,13 +39,11 @@ Bu görsel arabirim örnek deneyde, ikili dosya sınıflandırıcı tahmin deği
 
 ## <a name="data"></a>Veriler
 
-Bu deneme için kullandığımız KDD Kupası 2009 ' verilerdir. 50.000 satırları ve 230 özellik sütunları bir veri kümesine sahiptir. Değişim sıklığı, deneyde ve bu özellikleri kullanan müşteriler için yukarı satış tahmin etmek için bir görevdir. Bkz: [KDD Web sitesi](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) veri ve görev hakkında daha fazla ayrıntı için.
+Bu deneme için kullandığımız KDD Kupası 2009 ' verilerdir. 50.000 satırları ve 230 özellik sütunları bir veri kümesine sahiptir. Değişim sıklığı, deneyde ve bu özellikleri kullanan müşteriler için yukarı satış tahmin etmek için bir görevdir. Veri ve görev hakkında daha fazla bilgi için bkz: [KDD Web sitesi](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## <a name="experiment-summary"></a>Deneme özeti
 
-Eksiksiz bir deneme grafiğini şu şekildedir:
-
-![Deneme grafiğini](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+Bu görsel arabirim örnek deneyde, ikili dosya sınıflandırıcı tahmin değişim sıklığı, deneyde ve yukarı-satış, müşteri ilişkileri yönetimi (CRM) için ortak bir görevi gösterir.
 
 İlk olarak, bazı basit veri işleme desteklemiyoruz.
 
@@ -46,11 +52,10 @@ Eksiksiz bir deneme grafiğini şu şekildedir:
     ![Veri kümesi Temizle](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
 - Özellikleri ve karşılık gelen, deneyde, karmaşıklığı ve farklı veri kümelerini olan yukarı satış etiketleri. Kullandığımız **Sütun Ekle** modülü için özellik sütunları etiket sütunlar eklenecek. İlk sütun **Col1**, etiket sütundur. Sütunlara rest **Var1**, **Var2**ve benzeri özellik sütunlarıdır.
- 
+
     ![Sütun veri kümesi Ekle](./media/ui-sample-classification-predict-churn/added-column1.png)
 
 - Kullandığımız **verileri bölme** train veri kümesi bölünemiyor ve kümeleri test etmek için modül.
-
 
     Ardından artırılmış karar ağacı ikili dosya sınıflandırıcı varsayılan parametreleri tahmin modellerini oluşturmak için kullanıyoruz. Her görev, diğer bir deyişle, bir model yukarı satış, deneyde ve karmaşıklığı tahmin etmek için her bir model ekleriz.
 

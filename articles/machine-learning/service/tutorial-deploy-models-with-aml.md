@@ -12,10 +12,10 @@ ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: f2984ed9a7edd36b166c0dff9aa87d86c6d2ab45
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65755029"
+ms.locfileid: "65800730"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Öğretici: Azure Container ınstances'da bir görüntü sınıflandırma model dağıtma
 

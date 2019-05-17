@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935714"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800964"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanımı ilişkilendirmesi
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapor
 
-İş ortağı merkezi analiz Panonuzda müşteri kullanım attribution için raporu bulabilirsiniz. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+İş ortağı merkezi analiz Panonuzda müşteri kullanım attribution için raporu bulabilirsiniz. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Raporu görmek için oturum açmak için iş ortağı merkezi kimlik bilgilerinizi kullanmanız gerekir. Tüm sorunlarla raporla ya da oturum açın, Get destek bölümde izleyerek bir destek isteği oluşturun.
 
 İzlenen şablonu raporu görmek için iş ortağı ilişkilendirme türü açılan listesinde seçin.
 
@@ -267,6 +267,10 @@ Dağıtırken \<iş ortağı > yazılım, Microsoft yüklenmesini tanımlayamaya
 
 ## <a name="get-support"></a>Destek alın
 
+Rapor veya iş ortağı merkezi için oturum açma ile herhangi bir sorunla karşılaşırsanız, iş ortağı merkezi destek ekibi ile burada bir destek isteği oluşturun: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+
 Market ekleme ve/veya müşteri kullanım attribution yardıma ihtiyacınız varsa, bu adımları izleyin.
 
 1. Git [destek sayfasını](https://go.microsoft.com/fwlink/?linkid=844975).
@@ -282,7 +286,7 @@ Market ekleme ve/veya müşteri kullanım attribution yardıma ihtiyacınız var
 
 1. Seçin **isteği Başlat**.
 
-1. Sonraki sayfada, gerekli değerleri girin. **Devam**'ı seçin.
+1. Sonraki sayfada, gerekli değerleri girin. Seçin **devam**.
 
 1. Sonraki sayfada, gerekli değerleri girin.
 

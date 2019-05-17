@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371164"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605573"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure aboneliğinin sahipliğini başka bir hesaba aktarma
 
@@ -90,7 +90,7 @@ Self Servis abonelik aktarımı, aşağıdaki tabloda listelenen abonelik türle
 | Teklif Adı                                                                             | Teklif Numarası |
 |----------------------------------------------------------------------------------------|--------------|
 | [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
-| [Microsoft İş Ortağı Ağı](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
 | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
 | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
 | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
@@ -119,7 +119,7 @@ Yeni sahip Web siteleri aktarımı, disk ve VM'lerin tüm kaynaklarınızı iste
 
 ### <a id="no-button"></a> "Abonelik aktarımı" düğmesini neden göremiyorum?
 
-Ne yazık ki, Self Servis abonelik aktarımı teklifine veya ülke için kullanılamaz. Aboneliğinizin aktarılmasına yönelik [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Ne yazık ki, Self Servis abonelik aktarımı teklifine veya ülke/bölge için kullanılamaz. Aboneliğinizin aktarılmasına yönelik [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Abonelik aktarımı, hizmet kapalı kalma süresi içinde sonuç vermez?
 
@@ -156,9 +156,9 @@ Gönderen, transfer tamamlandıktan noktaya kadar bildirilen herhangi bir kullan
 
 Teklif aynı kalmalıdır. Teklifinizi değiştirmek için bkz [Azure aboneliğinizi başka bir teklife geç](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>Başka bir ülkede bir kullanıcı hesabı için abonelik aktarabilirim?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>Bir kullanıcı hesabı başka bir ülke/bölge için bir abonelik aktarabilirim?
 
-Hayır, bir kullanıcı hesabına başka bir ülkede bir aboneliğin aktarılması desteklenmez. Alıcının kullanıcı hesabı, aynı ülkede olmalıdır.
+Hayır, bir kullanıcı hesabına başka bir ülke/bölge, bir aboneliğin aktarılması desteklenmez. Aynı ülke/bölge alıcının kullanıcı hesabı olmalıdır.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>Alıcı, farklı bir ödeme yöntemi kullanabilir miyim?
 

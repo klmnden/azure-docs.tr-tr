@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506704"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779284"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -238,7 +238,7 @@ Bir koşulu değerlendirir olup olmadığını bir **alan** veya **değer** eri�
 Kullanırken **gibi** ve **notLike** koşullar, sağladığınız bir joker karakter `*` değerindeki değişikliği belirtir.
 Birden fazla joker karakter değeri olmamalıdır `*`.
 
-Kullanırken **eşleşen** ve **notMatch** koşulları sağlayan `#` bir rakam, eşleştirilecek `?` bir harfi için `.` tüm karakterleri ve aynı diğer herhangi bir karakterle eşleştirmek için Bu gerçek bir karakter.
+Kullanırken **eşleşen** ve **notMatch** koşulları sağlayan `#` bir rakam, eşleştirilecek `?` bir harfi için `.` herhangi bir karakter ve aynı diğer herhangi bir karakterle eşleştirmek için Bu gerçek bir karakter.
 **eşleşen** ve **notMatch** büyük küçük harfe duyarlıdır. Büyük küçük harf duyarsız alternatifleri kullanılabilir **matchInsensitively** ve **notMatchInsensitively**. Örnekler için bkz [birkaç adı desenlerinin izin](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Alanlar

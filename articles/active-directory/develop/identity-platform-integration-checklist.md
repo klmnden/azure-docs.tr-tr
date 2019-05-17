@@ -3,8 +3,8 @@ title: Microsoft kimlik platformu ile tümleştirme | Azure
 description: En iyi yöntemler ve ortak oversights Microsoft identity platformuna (v2.0) ile tümleştirdiğinizde öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076413"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540142"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft kimlik platformu tümleştirme denetim listesi
 
@@ -33,7 +33,7 @@ Yeni başlıyorsanız, kullanıma [belgeleri](index.yml) kimlik doğrulaması te
 
 Uygulamanız ile etkili bir şekilde tümleşiktir emin olmak için aşağıdaki denetim listesini kullanın [Microsoft kimlik platformu](https://docs.microsoft.com/legal/mdsa).
 
-### <a name="basics"></a>Temel Bilgiler
+### <a name="basics"></a>Temel
 
 |   |   |
 |---|---|
@@ -89,7 +89,7 @@ Uygulamanız ile etkili bir şekilde tümleşiktir emin olmak için aşağıdaki
 | ![Onay kutusu](./media/active-directory-integration-checklist/checkbox-two.svg) | Yöneticiler için kendi Kiracı kolayca onay verebilir böylece uygulamanız için gerekli izinler kümesini kaydedin. Kullanım [artımlı onay](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) ilgilendiriyor veya ilk Başlat menüsünde istendiğinde kullanıcı işlemlerini birbirine karıştırmaktadır izinleri isteyen kullanıcıların nedenini anlamasına yardımcı olmak için çalışma zamanında uygulamanızı. |
 | ![Onay kutusu](./media/active-directory-integration-checklist/checkbox-two.svg) | Uygulama bir [temiz çoklu oturum kapatma deneyimi](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Gizlilik ve güvenlik gereksinimi ve bir iyi kullanıcı deneyimi sağlar. |
 
-### <a name="testing"></a>Test Etme
+### <a name="testing"></a>Test ediliyor
 
 |   |   |
 |---|---|

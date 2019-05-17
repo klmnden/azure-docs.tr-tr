@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/12/2019
+ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db397ae43d1c134823abfc7004f1f3490addeb06
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731779"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550606"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için stratejisi yüklenirken PolyBase veri tasarlama
 
@@ -49,8 +49,32 @@ Kaynak sisteminiz dışında veri alma, depolama konumuna bağlıdır.  Sınırl
 
 ### <a name="polybase-external-file-formats"></a>PolyBase dış dosya biçimleri
 
-PolyBase UTF-8'den verileri yükler ve UTF-16 kodlamalı sınırlandırılmış metin dosyaları. Sınırlandırılmış metin dosyalarının yanı sıra Hadoop dosyası biçimlerinden RC dosyası ORC ve Parquet yükler. PolyBase Ayrıca, Gzip ve Snappy sıkıştırılmış dosyalar veri yükleyebilirsiniz. PolyBase, genişletilmiş ASCII, sabit genişlikli biçimi ve iç içe geçmiş biçimleri WinZip, JSON ve XML gibi şu anda desteklemiyor. SQL Server'dan dışarı aktarıyorsanız, kullanabileceğiniz [bcp komut satırı aracını](/sql/tools/bcp-utility) verileri sınırlandırılmış metin dosyalarına veri aktarmak için.
+PolyBase UTF-8'den verileri yükler ve UTF-16 kodlamalı sınırlandırılmış metin dosyaları. Sınırlandırılmış metin dosyalarının yanı sıra Hadoop dosyası biçimlerinden RC dosyası ORC ve Parquet yükler. PolyBase Ayrıca, Gzip ve Snappy sıkıştırılmış dosyalar veri yükleyebilirsiniz. PolyBase, genişletilmiş ASCII, sabit genişlikli biçimi ve iç içe geçmiş biçimleri WinZip, JSON ve XML gibi şu anda desteklemiyor. SQL Server'dan dışarı aktarıyorsanız, kullanabileceğiniz [bcp komut satırı aracını](/sql/tools/bcp-utility) verileri sınırlandırılmış metin dosyalarına veri aktarmak için. SQL DW veri türü eşlemesi Parquet aşağıda verilmiştir:
 
+| **Parquet veri türü** |                      **SQL veri türü**                       |
+| :-------------------: | :----------------------------------------------------------: |
+|        tinyint        |                           tinyint                            |
+|       smallint        |                           smallint                           |
+|          int          |                             int                              |
+|        bigint         |                            bigint                            |
+|        boole        |                             bit                              |
+|        double         |                            float                             |
+|         float         |                             real                             |
+|        double         |                            money                             |
+|        double         |                          küçük para                          |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
+|        binary         |                            binary                            |
+|        binary         |                          Varbinary                           |
+|       timestamp       |                             date                             |
+|       timestamp       |                        smalldatetime                         |
+|       timestamp       |                          datetime2                           |
+|       timestamp       |                           datetime                           |
+|       timestamp       |                             time                             |
+|       date        | İnt ve atama tarihi (1) yükleme </br> (2) [da Azure Databricks SQL DW bağlayıcı](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) ile </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**yakında güncelleştirme**) |
+|        decimal        | [Azure Databricks SQL DW bağlayıcı kullanma](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) ile </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**yakında güncelleştirme**) |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Verileri Azure Blob Depolama veya Azure Data Lake Store gelirsiniz.
 

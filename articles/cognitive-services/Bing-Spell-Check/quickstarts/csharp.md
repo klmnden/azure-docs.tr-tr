@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a80f0feec6985129f78ee0b034746aa77f2e271
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 102fd27c25052f4f5b3c3c469447b8488171f644
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876626"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798491"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Hızlı Başlangıç: Bing yazım denetimi REST API'si ile yazım denetimi veC#
 
@@ -23,9 +23,9 @@ Bu hızlı başlangıçta, Bing yazım denetimi REST API'si, ilk çağrı yapmak
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
+* Herhangi bir sürümünü [Visual Studio 2017 veya üstü](https://www.visualstudio.com/downloads/).
 * Yüklenecek `Newtonsoft.Json` Visual Studio'da bir NuGet paketi olarak:
-    1. Çözüm Gezgininizde çözüm dosyayı sağ tıklayın.
+    1. İçinde **Çözüm Gezgini**, çözüme sağ tıklayın.
     1. Seçin **çözüm için NuGet paketlerini Yönet**.
     1. Arama `Newtonsoft.Json` paketini ve yükleme.
 * Linux/MacOS kullanıyorsanız, bu uygulamanın kullanılarak çalıştırılabilir [Mono](https://www.mono-project.com/).

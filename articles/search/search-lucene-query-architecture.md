@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024614"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797474"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Metin arama Azure Search'te tam nasıl çalışır
 
@@ -253,7 +253,7 @@ Bu ortak, ancak gerekli değildir, arama ve böylece sorgu terimleriyle dizini i
 
 İçin Örneğimiz için döndüren **başlık** alanı, ters dizinini aşağıdaki gibi görünür:
 
-| Sözleşme Dönemi | Belge listesi |
+| Dönem | Belge listesi |
 |------|---------------|
 | atman | 1 |
 | Plaj | 2 |
@@ -267,7 +267,7 @@ Yalnızca başlık alanında *otel* iki belgelerde gösterilir: 1, 3.
 
 İçin **açıklama** alanı dizini şu şekildedir:
 
-| Sözleşme Dönemi | Belge listesi |
+| Dönem | Belge listesi |
 |------|---------------|
 | Air | 3
 | ve | 4
@@ -288,8 +288,8 @@ Yalnızca başlık alanında *otel* iki belgelerde gösterilir: 1, 3.
 | Deniz Kıyısı | 2
 | spacious | 1
 | , | 1, 2
-| - | 1
-| görünüm | 1, 2, 3
+| bitiş | 1
+| görüntüle | 1, 2, 3
 | Yürüyen | 1
 | ile | 3
 
@@ -392,8 +392,6 @@ Bu makalede, Azure Search bağlamında tam metin araması incelediniz. Olası ne
 + Nasıl uygulayabileceğinizi öğrenin [dile özel sözcük temelli çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Özel çözümleyiciler yapılandırma](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) için en az işleme ya da belirli alanlarda özel işleme.
-
-+ [Standart ve İngilizce Çözümleyicileri karşılaştırma](https://alice.unearth.ai/)) yan yana bu demo web sitesinde. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

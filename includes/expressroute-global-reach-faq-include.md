@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305165"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "65753931"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global erişim nedir?
 
@@ -29,19 +29,19 @@ Birbirine bağlamak, ExpressRoute Premium, ExpressRoute devreleri aynı jeopolit
 
 ### <a name="how-will-i-be-charged-for-expressroute-global-reach"></a>Nasıl ExpressRoute genel ulaşmak için ücret öder miyim?
 
-ExpressRoute, Microsoft bulut Hizmetleri için şirket içi ağınızdan bağlantısı sağlar. ExpressRoute Global erişim global Microsoft ağının yararlanarak, var olan ExpressRoute bağlantı hatları ile kendi şirket içi ağlar arasında bağlantı sağlar. ExpressRoute Global erişim mevcut bir ExpressRoute hizmetinden ayrı olarak faturalandırılır. Her ExpressRoute bağlantı hattı üzerinde bu özelliği etkinleştirmek için bir ek ücreti yoktur. ExpressRoute Global erişim tarafından etkin, şirket içi ağlar arasındaki trafik, bir giriş fiyatı üzerinden hedef ve kaynak bir çıkış fiyatı için faturalandırılırsınız. Ücretler devreler bulunduğu olduğu bölgeye göre belirlenir. Bkz: <pricing page>
+ExpressRoute, Microsoft bulut Hizmetleri için şirket içi ağınızdan bağlantısı sağlar. ExpressRoute Global erişim global Microsoft ağının yararlanarak, var olan ExpressRoute bağlantı hatları ile kendi şirket içi ağlar arasında bağlantı sağlar. ExpressRoute Global erişim mevcut bir ExpressRoute hizmetinden ayrı olarak faturalandırılır. Her ExpressRoute bağlantı hattı üzerinde bu özelliği etkinleştirmek için bir ek ücreti yoktur. ExpressRoute Global erişim tarafından etkin, şirket içi ağlar arasındaki trafik, bir giriş fiyatı üzerinden hedef ve kaynak bir çıkış fiyatı için faturalandırılırsınız. Ücretler devreler bulunduğu olduğu bölgeye göre belirlenir.
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Burada ExpressRoute Global erişim desteklenir?
 
-ExpressRoute Global erişim içerisinde desteklendiği [seçin ülke veya basamak](../articles/expressroute/expressroute-global-reach.md). ExpressRoute bağlantı hatları, söz konusu ülke veya basamak eşleme adreslerde oluşturulmalıdır.
+ExpressRoute Global erişim içerisinde desteklendiği [ülkeler/bölgeler veya basamak](../articles/expressroute/expressroute-global-reach.md). Bu ülkeler/bölgeler veya basamak eşleme adreslerde ExpressRoute bağlantı hatları yeniden oluşturulması gerekir.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>İkiden fazla şirket içi ağlar sahibim, her bir ExpressRoute bağlantı hattına bağlı. ExpressRoute tüm şirket içi ağlarımı birbirine bağlamak Global erişim etkinleştirebilir miyim?
 
-Desteklenen ülkeler devreler olduğu sürece Evet, kullanabilirsiniz. Aynı anda iki ExpressRoute bağlantı hatları bağlanmanız gerekmez. Örgü tam olarak bir ağ oluşturmak için tüm devre çiftinin listeleme ve yapılandırmayı yinelemeniz gerekir. 
+Desteklenen ülkeler/bölgeler devreler olduğu sürece Evet, kullanabilirsiniz. Aynı anda iki ExpressRoute bağlantı hatları bağlanmanız gerekmez. Örgü tam olarak bir ağ oluşturmak için tüm devre çiftinin listeleme ve yapılandırmayı yinelemeniz gerekir. 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>ExpressRoute genel erişim eşlemesi aynı konumda iki ExpressRoute bağlantı hatları arasında etkinleştirebilirim?
 
-Hayır. İki bağlantı hatlarının eşleme farklı konumlardan olması gerekir. Birden fazla ExpressRoute eşleme konumuna bir metro desteklenen bir ülkede varsa, metro eşleme farklı konumlarda oluşturulma ExpressRoute bağlantı hatları birbirine bağlayabilirsiniz. 
+Hayır. İki bağlantı hatlarının eşleme farklı konumlardan olması gerekir. Bir metro desteklenen ülke/bölge içinde birden fazla ExpressRoute eşleme konumu varsa, o metro eşleme farklı konumlarda oluşturulma ExpressRoute bağlantı hatları birbirine bağlayabilirsiniz. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Bağlantı hattı X ve Y Bağlantı hattı arasında ve bağlantı hattı Y ve Z devre ExpressRoute Global erişim etkinse, şirket içi ağlarımı X işlem hattına bağlı ve bağlantı hattı Z konuşmak birbirine Microsoft'un ağ üzerinden olacak mı?
 
