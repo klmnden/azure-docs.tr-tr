@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471772"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522371"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
 > 
 > [!IMPORTANT]
 > Uygulama sürümü 1.2. * desteği 30 Nisan 2019 tarihinde geçiyor. Lütfen en son sürüme yükseltin.
-
-> 
-> [!IMPORTANT]
-> Linux üzerinde düzeltme ekini düzenlemeyi uygulaması kullanım dışı bırakıldı. Lütfen [Azure sanal makine ölçek kümesinin otomatik işletim sistemi görüntüsü yükseltmeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) güncelleştirmeleri linux üzerinde tümleştirmeye.
 
 
 [Azure sanal makine ölçek kümesinin otomatik işletim sistemi görüntüsü yükseltmeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) tutma, işletim sistemleri, Azure'da düzeltme eki için en iyi yöntem ve düzeltme eki düzenleme uygulaması (POA) hizmeti dokularını RepairManager sistemler hizmeti çevresinde bir sarmalayıcı Bu, yapılandırma temel işletim sistemi düzeltme eki Azure dışı barındırılan kümeler için zamanlama sağlar. POA Azure dışı barındırılan kümeleri için gerekli değildir, ancak yükseltme etki alanları, düzeltme eki yüklemesiyle zamanlama Service Fabric kümeleri konakları kapalı kalma süresi olmadan düzeltme için gereklidir.
@@ -241,7 +237,7 @@ RebootRequired | TRUE - yeniden başlatma gerekli<br> false - yeniden başlatma 
 
 Hiçbir güncelleştirme henüz zamanlanmış, JSON sonuç boş olur.
 
-Sorgu Windows Update kümeye sonuçları oturum açın. Ardından Coordinator hizmetinin birincil çoğaltması adresini öğrenmek ve tarayıcı URL'den isabet: http://&lt;çoğaltma IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1 / GetWindowsUpdateResults.
+Windows Update Sorgulanacak kümeye sonuçları oturum açın. Ardından Coordinator hizmetinin birincil çoğaltması adresini öğrenmek ve tarayıcı URL'den isabet: http://&lt;çoğaltma IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1 / GetWindowsUpdateResults.
 
 REST uç noktasını Koordinatör hizmeti için dinamik bir bağlantı noktası var. Tam URL'yi kontrol etmek için Service Fabric Explorer'a bakın. Örneğin, sonuçları kullanılabilir `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
 
@@ -263,7 +259,7 @@ Ters proxy küme üzerinde etkinleştirmek için adımları [ters proxy Azure Se
 
 Düzeltme eki düzenleme uygulama günlükleri, Service Fabric çalışma zamanı günlüklerini bir parçası olarak toplanır.
 
-Tanılama Aracı/ardışık seçtiğiniz aracılığıyla günlükleri tutmak istemeniz durumunda. Düzeltme eki düzenleme uygulaması aracılığıyla olaylarını günlüğe kaydedecek şekilde sabit sağlayıcısını kimlikleri kullanır [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Tanılama Aracı/ardışık seçtiğiniz aracılığıyla günlükleri tutmak istemeniz durumunda. Düzeltme eki düzenleme uygulaması aracılığıyla olaylarını günlüğe kaydedecek şekilde sabit sağlayıcısını kimlikleri kullanır [olay kaynağı](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -312,7 +308,7 @@ S. **Kümem sağlıksız olduğunu ve Acil işletim sistemi güncelleştirme yap
 
 A. Küme sağlıksız durumdayken düzeltme eki düzenleme uygulama güncelleştirmelerini yüklemez. Kümenizi düzenleme düzeltme eki uygulama iş akışı engelini kaldırmak için sağlıklı bir duruma getirmek deneyin.
 
-S. **İ kümem için TaskApprovalPolicy 'NodeWise' veya 'UpgradeDomainWise' olarak ayarlamalı mıyım?**
+S. **Ben TaskApprovalPolicy 'NodeWise' veya 'UpgradeDomainWise' olarak kümem için ayarlamalı mıyım?**
 
 A. 'UpgradeDomainWise' genel küme daha hızlı bir şekilde paralel bir yükseltme etki alanına ait olan tüm düğümleri düzeltme eki uygulama düzeltme eki uygulama sağlar. Bu tüm bir yükseltme etki alanına ait düğümleri kullanılabilir olacağı anlamına gelir (içinde [devre dışı](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) durumu) düzeltme eki uygulama işlemi sırasında.
 
@@ -346,6 +342,10 @@ A. Bazı ürün güncelleştirmeleri, yalnızca ilgili güncelleştirme/düzeltm
 S. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
 
 A. Hayır, düzeltme eki düzenleme uygulama düzeltme eki tek düğümlü küme için kullanılamaz. Bu tasarım gereği, olarak sınırlamasıdır [service fabric sistem hizmetlerinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) veya herhangi bir müşteri uygulama kapalı kalma süresi karşılaşır ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onaylanan.
+
+S. **Linux küme düğümlerinde nasıl düzeltme eki?**
+
+A. Bkz: [Azure sanal makine ölçek kümesinin otomatik işletim sistemi görüntüsü yükseltmeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) güncelleştirmeleri linux üzerinde tümleştirmeye.
 
 ## <a name="disclaimers"></a>Bildirimler
 
@@ -413,7 +413,7 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 
 - False olarak InstallWindowsOSOnlyUpdates ayarı artık kullanılabilir tüm güncelleştirmeleri yükler.
 - Otomatik Güncelleştirmeler devre dışı bırakma mantığı değiştirildi. Bu, burada otomatik güncelleştirmeler Server 2016 ve üzeri devre dışı değil bir hatayı düzeltir.
-- Her iki Gelişmiş usecases için POA, mikro hizmetler için parametreli yerleştirme kısıtlaması.
+- Her iki Gelişmiş kullanım örnekleri için POA, mikro hizmetler için parametreli yerleştirme kısıtlaması.
 
 ### <a name="version-131"></a>Sürüm 1.3.1
 - Regresyon, Windows Server 2012 R2 ya da otomatik güncelleştirmeler devre dışı bırakma hatası nedeniyle daha düşük POA 1.3.0 nerede çalışmaz düzeltiliyor. 

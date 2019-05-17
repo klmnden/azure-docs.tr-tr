@@ -13,19 +13,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
-ms.openlocfilehash: 236bb39125ec03a9652a57f9cd4aaa5da2695452
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554230"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787612"
 ---
-| Kaynak | Varsayılan limit | Üst sınır | 
+| Resource | Varsayılan limit | Üst sınır | 
 | --- | --- | --- |
 | Azure SignalR hizmeti birimleri örnek başına ücretsiz katmanı |1 |1 |
 | Azure SignalR hizmeti birimleri standart katmanı için örnek başına |100 |100 |
 | Azure SignalR hizmeti birimleri bölge başına abonelik başına ücretsiz katmanı|5 |5 |
-| Bölge başına abonelik başına toplam Azure SignalR hizmeti birim sayısı |50 |Sınırsız |
+| Bölge başına abonelik başına toplam Azure SignalR hizmeti birim sayısı |150 |Sınırsız |
 | Günlük birim başına bağlantılar ücretsiz katmanı |20 |20 |
 | Standart katman için günde birim başına bağlantılar |1000 |1000|
 | Günlük birim başına dahil edilen iletileri ücretsiz katmanı|20.000 |20.000 |

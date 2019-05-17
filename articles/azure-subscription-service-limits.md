@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233694"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787633"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -55,6 +55,7 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [Azure DNS](#azure-dns-limits)
 * [Azure güvenlik duvarı](#azure-firewall-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning hizmeti](#azure-machine-learning-service-limits)
 * [Azure Haritalar](#azure-maps-limits)
 * [Azure İzleyici](#monitor-limits)
 * [Azure İlkesi](#azure-policy-limits)
@@ -77,15 +78,22 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [IoT Hub’ı](#iot-hub-limits)
 * [IoT Hub Cihazı Sağlama Hizmeti](#iot-hub-device-provisioning-service-limits)
 * [Anahtar Kasası](#key-vault-limits)
-* [Yük Dengeleyici](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobil hizmetler](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Ağ](#networking-limits)
-* [Ağ İzleyicisi](#network-watcher-limits)
+  * [Application Gateway](#application-gateway-limits)
+  * [Azure DNS](#azure-dns-limits)
+  * [Azure ön kapısı hizmeti](#azure-front-door-service-limits)
+  * [Azure güvenlik duvarı](#azure-firewall-limits)
+  * [ExpressRoute](#expressroute-limits)
+  * [Yük Dengeleyici](#load-balancer)
+  * [Genel IP adresi](#publicip-address)
+  * [Ağ İzleyicisi](#network-watcher-limits)
+  * [Traffic Manager](#traffic-manager-limits)
+  * [Sanal Ağ](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
-* [Genel IP adresi](#publicip-address)
 * [Kaynak grubu](#resource-group-limits)
 * [Rol tabanlı erişim denetimi](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -97,7 +105,6 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [StorSimple sistemi](#storsimple-system-limits)
 * [Akış Analizi](#stream-analytics-limits)
 * [Abonelik](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
 * [Sanal Makineler](#virtual-machines-limits)
 * [Sanal makine ölçek kümeleri](#virtual-machine-scale-sets-limits)
 
@@ -144,6 +151,11 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 
 ### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes hizmeti limitleri
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning hizmeti limitleri
+Azure Machine Learning işlem kotası için en son değerleri bulunabilir [Azure Machine Learning kota sayfası](../articles/machine-learning/service/how-to-manage-quotas.md)
+
+[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>Ağ limitleri
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

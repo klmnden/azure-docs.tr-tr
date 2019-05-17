@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/1/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abe9cba604100a42a4cd29ccd5af47e8898ea409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358098"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812914"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Birleştirilmiş etkinleştir güvenlik bilgileri kayıt (Önizleme)
 
@@ -51,6 +51,37 @@ Internet Explorer'da siteyi bölgeye ataması Listesi'ni yapılandırdıysanız,
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
+## <a name="conditional-access-policies-for-combined-registration"></a>Birleşik kayıt için koşullu erişim ilkeleri
+
+Ne zaman ve kullanıcıların kaydolmak için Azure multi-Factor Authentication ve Self Servis parola sıfırlama artık koşullu erişim ilkesi kullanıcı eylemleri ile mümkündür nasıl güvenli hale getirme. Bu önizleme özelliğini etkinleştirdiniz kuruluşlar için kullanılabilir [kayıt Önizleme birleştirilmiş](../authentication/concept-registration-mfa-sspr-combined.md). Bu işlev, ik ekleme sırasında Azure multi-Factor Authentication ve güvenilir ağ konumu gibi merkezi bir konumdan SSPR kaydolmak için kullanıcıların istedikleri kuruluşlardaki etkinleştirilebilir. Koşullu erişim güvenilen konumları oluşturma hakkında daha fazla bilgi için bkz [konum koşulu Azure Active Directory koşullu erişim nedir?](../conditional-access/location-condition.md#named-locations)
+
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Güvenilen bir konumdan kayıt gerektiren bir ilkeniz oluşturma
+
+Güvenilen ağ işaretlenmiş bir konumdan bağlanıyorsanız sürece erişimi engeller ve birleşik kayıt deneyimi kullanarak kaydolmaya tüm seçili kullanıcılar, aşağıdaki ilke uygulanır.
+
+![Güvenlik bilgileri kayıt denetlemek için bir CA ilkesi oluşturma](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+
+1. İçinde **Azure portalında**, Gözat **Azure Active Directory** > **koşullu erişim**
+1. **Yeni ilke**'yi seçin
+1. Adı, bu ilke için bir ad girin. Örneğin, **birleştirilmiş güvenlik bilgileri kayıt güvenilen ağlarda**
+1. Altında **atamaları**, tıklayın **kullanıcılar ve gruplar**, kullanıcıları ve bu ilkenin uygulanmasını istediğiniz grupları seçin
+
+   > [!WARNING]
+   > Kullanıcılar için etkinleştirilmesi gerekir [kayıt Önizleme birleştirilmiş](../authentication/howto-registration-mfa-sspr-combined.md).
+
+1. Altında **bulut uygulamaları veya Eylemler**seçin **kullanıcı eylemlerini**, kontrol **kaydetme güvenlik bilgilerini (Önizleme)**
+1. Altında **koşullar** > **konumları**
+   1. Yapılandırma **Evet**
+   1. Dahil **herhangi bir yerde**
+   1. Dışlama **tüm Güvenilen Konumlar**
+   1. Tıklayın **Bitti** konumları dikey
+   1. Tıklayın **Bitti** koşullar dikey
+1. Altında **erişim denetimleri** > **verin**
+   1. Tıklayın **erişimi engelle**
+   1. Ardından **seçin**
+1. Ayarlama **ilkesini etkinleştir** için **üzerinde**
+1. Ardından **oluştur**
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Çok faktörlü kimlik doğrulaması ve SSPR için kullanılabilen yöntemler](concept-authentication-methods.md)
@@ -60,3 +91,5 @@ Internet Explorer'da siteyi bölgeye ataması Listesi'ni yapılandırdıysanız,
 [Azure çok faktörlü kimlik doğrulamasını yapılandırma](howto-mfa-getstarted.md)
 
 [Güvenlik bilgileri kayıt birleştirilmiş sorunlarını giderme](howto-registration-mfa-sspr-combined-troubleshoot.md)
+
+[Konum koşulu Azure Active Directory koşullu erişim nedir?](../conditional-access/location-condition.md)

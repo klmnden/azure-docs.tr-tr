@@ -8,18 +8,20 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708324"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518155"
 ---
 # <a name="automation-with-service-principals"></a>Hizmet sorumlularıyla otomasyon
 
 Hizmet sorumluları, katılımsız kaynak ve hizmet düzeyinde işlemler gerçekleştirmek için kiracınızın içinde oluşturduğunuz bir Azure Active Directory uygulama kaynağıdır. Benzersiz türde oldukları *kullanıcı kimliğini* bir uygulama kimliği ve parola veya sertifika ile. Bir hizmet sorumlusu yalnızca kendisi için atanan izinleri ve rolleri tarafından tanımlanan görevleri gerçekleştirmek gerekli izinleri vardır. 
 
 Analysis Services hizmet sorumluları Azure Otomasyonu, PowerShell katılımsız modda, özel istemci uygulamaları ve web uygulamaları ile ortak görevleri otomatik hale getirmek için kullanılır. Örneğin, sağlama sunucular, dağıtma, modelleri, veri yenileme, Ölçek artırma/azaltma ve VM'yi duraklatabilir/sürdürebilirsiniz tüm hizmet sorumlularını kullanma tarafından otomatik olarak yapılabilir. Normal bir Azure AD UPN'sini hesaplarına çok benzer, rol üyeliğini hizmet sorumlularının izinlerini atanır.
+
+Analysis Services tarafından yönetilen kimlikleri hizmet sorumlusu kullanarak gerçekleştirilen işlemleri de destekler. Daha fazla bilgi için bkz. [kimliklerini Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/overview.md) ve [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Hizmet sorumlusu oluşturma
  

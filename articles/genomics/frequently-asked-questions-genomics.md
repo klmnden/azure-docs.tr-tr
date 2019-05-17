@@ -9,26 +9,26 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445558"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792629"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomiks: Sık sorulan sorular
 
 Bu makalede, Microsoft Genomics ilgili en sık kullanılan sorgular listelenir. Microsoft Genomics hizmeti hakkında daha fazla bilgi için bkz. [Microsoft Genomics nedir?](overview-what-is-genomics.md). Sorun giderme hakkında daha fazla bilgi için bkz. bizim [sorun giderme kılavuzu](troubleshooting-guide-genomics.md). 
 
 ## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Microsoft Genomics hizmet GATK 4 Yükseltme nedir?
-Takvim yılı, 2018 sonuna kadar hiçbir ücret ödemeden 20 WGS çalıştırmaları GATK4 ile Microsoft Genomics hizmeti sunmaktadır. Bu teklif kayıttaki katılmak [burada](https://aka.ms/msgatk4). 
+30 Haziran 2019 kadar hiçbir ücret ödemeden 20 WGS çalıştırmaları GATK4 ile Microsoft Genomics hizmeti sunmaktadır. Bu teklif kayıttaki katılmak [burada](https://aka.ms/msgatk4). 
 
 ### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Microsoft Genomics çalışırken karşılaşabileceğiniz genel sorunları nelerdir hizmet GATK4 yükseltme
 Karşılaşabileceğiniz genel hatalar ve bunların önerilen çözümü listesi aşağıda verilmiştir:
 
 | **İleti**                                                                                                                                                                                    | **Bunun nedeni**                                                                                                    | **Çözümleme**                                                                                                                                                                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo` hesabınız için etkin değil. Daha fazla bilgi için bkz. https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | Etkinleştirilmekte olan olmadan Microsoft Genomics hizmetiyle GATK4 iş akışlarını çalıştırmak çalışıyorsunuz.       | Lütfen [burada](https://aka.ms/msgatk4) hesabınızı etkinleştirmek için. Deneme 2018 Takvim yılının sonunda sona erdiğine dikkat edin. Bu tarihten sonra hesabınızı promosyon çalıştırmalar için etkinleştirmeniz mümkün olmayacaktır. |
+| `gatk4-promo` hesabınız için etkin değil. Daha fazla bilgi için bkz. https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | Etkinleştirilmekte olan olmadan Microsoft Genomics hizmetiyle GATK4 iş akışlarını çalıştırmak çalışıyorsunuz.       | Lütfen [burada](https://aka.ms/msgatk4) hesabınızı etkinleştirmek için. Deneme süresi 30 Haziran 2019 sona erdiğine dikkat edin. Bu tarihten sonra hesabınızı promosyon çalıştırmalar için etkinleştirmeniz mümkün olmayacaktır. |
 | Çalışan için teşekkür ederiz `gatk4-promo`. Deneme süreniz sona erdi. Daha fazla bilgi için https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                  | Takvim yılı sonunda GATK4 deneme süresi doldu ve çağırmaya çalışırken `gatk4-promo` işlem_adı.  | İşlem_adı parametreye geçiş `gatk4`, yerine `gatk4-promo`. Bu resmi gatk4 sürümüdür ve bu parametreyi kullanırsanız, iş akışınızı faturalandırılır.                                         |
 | Çalışan için teşekkür ederiz `gatk4-promo` tüm ayrılmış çalıştırmalarınızın kullandınız. Daha fazla bilgi için bkz. https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics | Ayrıca, tüm promosyon, 20 çalıştırır GATK4 için başarıyla gönderdiniz.                               | Tüm yeni gatk4 çalıştıran kümesine işlem_adı bağımsız değişkeniyle gönderme `gatk4` yerine `gatk4-promo`. Bu parametreyi kullanırken, iş akışınızı faturalandırılır.                                                          |        
 
@@ -51,7 +51,7 @@ Evet, Microsoft Genomics hizmetin config.txt dosyasında için işlem_adı belir
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Komutlarında kullanılan en yaygın olarak nelerdir `msgen` istemci?
 En sık kullanılan komutlar için bağımsız değişkenleri olan `msgen` istemcisi içerir: 
 
- |**Komut**          |  **Alan açıklaması** |
+ |**Komutu**          |  **Alan açıklaması** |
  |:--------------------|:-------------         |
  |`list`               |Size gönderilen işlerin bir listesini döndürür. Bağımsız değişkenler için bkz. `msgen help list`.  |
  |`submit`             |Hizmetine bir iş akışı isteği gönderir. Bağımsız değişkenler için bkz. `msgen help submit`.|

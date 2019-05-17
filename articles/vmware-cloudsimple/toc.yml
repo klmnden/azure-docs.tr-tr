@@ -138,18 +138,16 @@
               href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
             - name: VMware sanal makineleriyle Azure Application Gateway
               href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
-            - name: VMware sanal makineleriyle Azure Genel Load Balancer
-              href: 'https://docs.azure.cloudsimple.com/load-balancers/'
             - name: Özel bulut vCenter sunucusunu vRealize otomasyon uç noktası olarak yapılandırma
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
             - name: İş yükü sanal makinelerini özel buluta geçirme
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Azure'da VMware içinde Uygulama yüksek kullanılabilirliğini sağlama
-              href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
+              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
         - name: VMware ekosistemi
           items:
             - name: İş yükü sanal makinelerini yedekleme
-              href: 'https://docs.azure.cloudsimple.com/veeam/'
+              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
             - name: VMware Horizon çözüm kılavuzu
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Özel bulutunuz için vSAN şifrelemesini yapılandırma
@@ -161,6 +159,6 @@
             - name: Özel Bulut vCenter üzerinde Azure AD kimlik kaynağı
               href: 'https://docs.azure.cloudsimple.com/azure-ad/'
             - name: ExpressRoute ile şirket içi ağ bağlantısı
-              href: 'https://docs.azure.cloudsimple.com/er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
             - name: ExpressRoute ile Azure Sanal ağ bağlantısı
-              href: 'https://docs.azure.cloudsimple.com/azure-er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'

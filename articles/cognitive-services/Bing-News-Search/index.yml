@@ -6,15 +6,15 @@ metadata:
   title: 'Bing Haber Arama API''si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs'
   description: Web’de haber aramak için Bing Haber Arama API'sinin nasıl kullanılacağını öğrenin.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Bing Haber Arama API''si Bing''in haber arama özelliklerini uygulamalarınıza tümleştirmenize olanak tanır. API''yle arama sorguları göndererek, bing.com/news benzeri çeşitli kategoriler ve kaynaklardan uygun haber makalelerini alabilirsiniz.'
 sections:

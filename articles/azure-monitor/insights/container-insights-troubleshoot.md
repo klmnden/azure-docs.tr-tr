@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f9fc128af4e89788e648fcfc238da300ff91724
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068762"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521763"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici sorunlarını giderme
 
@@ -80,7 +80,7 @@ Kapsayıcılar için Azure İzleyici başarıyla etkinleştirildikten ve yapıla
 
 4. Aracı günlüklerini denetleyin. Kapsayıcı Aracısı dağıtıldığında OMI komutları çalıştırarak hızlı bir denetim çalıştırır ve sağlayıcı ve aracı sürümünü gösterir. 
 
-5. Aracıyı eklenen başarıyla sağlandığını doğrulamak için komutu çalıştırın: `kubectl logs omsagent-484hw --namespace=kube-system`
+5. Aracı başarıyla dağıtıldığını doğrulamak için komutu çalıştırın: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     Durum, aşağıdaki örneğe benzemelidir:
 
@@ -113,7 +113,7 @@ Kapsayıcılar için Azure İzleyicisi'ni kullanırken karşılaşabileceğiniz 
 | ---- | --- |  
 | Hata iletisi `No data for selected filters`  | Bu, yeni oluşturulan kümeleri için izleme veri akışı oluşturmak için biraz zaman alabilir. En az veri kümeniz için görüntülenecek 10-15 dakika bekleyin. |   
 | Hata iletisi `Error retrieving data` | Azure Kubenetes Service küme sistem durumu ve performans izlemesi için devam ederken, küme ve Azure Log Analytics çalışma alanı arasında bir bağlantı kurulur. Bir Log Analytics çalışma alanı, kümeniz için tüm izleme verilerini depolamak için kullanılır. Log Analytics çalışma alanınızın silindi veya kayıp sahip olduğunda bu hata oluşabilir. Gözden geçirerek, çalışma alanınızı kullanılabilir olup olmadığını denetleyin [erişimini yönetme](../platform/manage-access.md#view-workspace-details). Çalışma alanı eksikse, kümenizi kapsayıcılar için Azure İzleyici ile izleme yeniden etkinleştirmeniz gerekecektir. Yeniden etkinleştirmek amacıyla şunu yapmanız gerekir [devre dışı](container-insights-optout.md) küme için izleme ve [etkinleştirme](container-insights-enable-new-cluster.md) yeniden kapsayıcılar için Azure İzleyici. |  
-| `Error retrieving data` az aks CLI aracılığıyla kapsayıcılar için Azure İzleyici ekledikten sonra | Kullanarak izlemeyi etkinleştirdiğinizde `az aks cli`, kapsayıcılar için Azure İzleyici eklenen doğru olmayabilir. Eklenen çözüm olup olmadığını denetleyin. Bunu yapmak için Log Analytics çalışma alanınıza gidin ve seçerek çözüm kullanılabilir olup olmadığını **çözümleri** sol tarafındaki bölmeden. Bu sorunu çözmek için çözüm yönergeleri izleyerek tekrar dağıtmanız gerekecektir [kapsayıcılar için Azure İzleyici dağıtma](container-insights-onboard.md) |  
+| `Error retrieving data` az aks CLI aracılığıyla kapsayıcılar için Azure İzleyici ekledikten sonra | Kullanarak izlemeyi etkinleştirdiğinizde `az aks cli`, kapsayıcılar için Azure İzleyici düzgün dağıtılamaz. Çözüm dağıtılabilir olup olmadığını denetleyin. Bunu yapmak için Log Analytics çalışma alanınıza gidin ve seçerek çözüm kullanılabilir olup olmadığını **çözümleri** sol tarafındaki bölmeden. Bu sorunu çözmek için çözüm yönergeleri izleyerek tekrar dağıtmanız gerekecektir [kapsayıcılar için Azure İzleyici dağıtma](container-insights-onboard.md) |  
 
 Sorunun tanılanmasına yardımcı olmak için kullanılabilir bir sorun giderme betik sağladık [burada](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 

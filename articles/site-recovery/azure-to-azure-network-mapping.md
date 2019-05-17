@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791107"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521749"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Ağ eşlemesini ve sanal ağlar için IP adresini ayarlama
 
@@ -58,7 +58,7 @@ VM Seçilen hedefin alt ağ kaynak VM alt ağ adını temel alarak.
 
 - Hedef ağ ile kaynak VM alt ağı ile aynı ada sahip bir alt ağ varsa, bu alt hedef sanal makine için ayarlanır.
 - Alfabetik sırada ilk alt ağ, aynı ada sahip bir alt ağı hedef ağ mevcut değilse hedef alt ağ ayarlanır.
-- Değiştirebileceğiniz içinde **işlem ve ağ** VM için ayarlar.
+- Hedef alt ağdaki değiştirebileceğiniz **işlem ve ağ** VM için ayarlar.
 
     ![İşlem ve ağ işlem Özellikler penceresi](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

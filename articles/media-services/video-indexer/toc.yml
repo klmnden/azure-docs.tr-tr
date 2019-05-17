@@ -46,8 +46,6 @@
       href: video-indexer-view-edit.md
     - name: Proje oluşturmak için düzenleyici kullanma
       href: use-editor-create-project.md
-    - name: Mevcut videolardan video içgörüleri oluşturma
-      href: video-indexer-create-new.md
     - name: Uygulamanıza pencere öğeleri ekleme
       href: video-indexer-embed-widgets.md
     - name: İçerik modellerini özelleştirme

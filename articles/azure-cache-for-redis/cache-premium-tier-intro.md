@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829829"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786074"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure önbelleği için Redis Premium katmanına giriş
 Redis için Azure Cache, verilerinize çok hızlı erişim sağlayarak üst düzeyde ölçeklenebilir ve hızlı yanıt veren uygulamalar geliştirmenize yardımcı olan dağıtılmış, yönetilen bir önbellektir. 
@@ -50,7 +50,7 @@ Temel veya standart katmanında oluşturduğunuzu önbellekler, genel internet't
 
 Daha fazla bilgi için [Redis için bir Premium Azure Cache için sanal ağ desteğini yapılandırma](cache-how-to-premium-vnet.md).
 
-## <a name="importexport"></a>İçeri/Dışarı Aktarma
+## <a name="importexport"></a>İçeri/Dışarı Aktar
 İçeri/dışarı aktarma olan Azure önbelleği için Redis içine veri aktarmak veya Azure önbelleği için Redis içeri ve dışarı aktarma bir Azure önbelleği için Redis veritabanı (RDB) anlık görüntü için bir premium önbelleğinden tarafından verileri dışarı aktarma olanak tanıyan Redis veri yönetimi işlemi için bir Azure önbelleği bir bir Azure depolama hesabındaki sayfa blobu. Bu, farklı Azure önbelleği için Redis örneği arasında geçirmek veya önbellek kullanılmadan önce veri ile doldurmak sağlar.
 
 İçeri aktarma, herhangi bir bulut veya ortam, Linux, Windows ya da herhangi bir bulut sağlayıcısı Amazon Web Hizmetleri ve diğerleri gibi çalışan bir Redis dahil olmak üzere çalışan herhangi bir Redis sunucudan Redis uyumlu RDB dosyaları getirmek için kullanılabilir. Verileri içeri aktarma ile önceden doldurulmuş veri önbellek oluşturmak için kolay bir yoludur. İçeri aktarma işlemi sırasında Azure önbelleği için Redis RDB dosyaları Azure Storage'dan belleğine yükler ve ardından anahtarları önbelleğe ekler.
@@ -64,8 +64,8 @@ Premium katmanı önbellek steğe bağlı bir veya daha fazla düğümü yeniden
 
 * Önbelleğinizin ana düğümü
 * İkincil düğüm önbelleğinizin
-* Önbelleğinizin hem ana hem de ikincil düğümleri
-* Premium önbellek Kümeleme ile kullanırken, asıl, bağımlı veya ayrı ayrı parçalarda önbellek için her iki düğüm yeniden başlatılabilir
+* Birincil ve ikincil düğüm önbelleğinizin
+* Premium önbellek Kümeleme ile kullanırken, birincil, ikincil veya ayrı ayrı parçalarda önbellek için her iki düğüm yeniden başlatılabilir
 
 Daha fazla bilgi için [yeniden](cache-administration.md#reboot) ve [yeniden SSS](cache-administration.md#reboot-faq).
 
@@ -74,7 +74,7 @@ Daha fazla bilgi için [yeniden](cache-administration.md#reboot) ve [yeniden SSS
 >
 >
 
-## <a name="schedule-updates"></a>Güncelleştirmeleri zamanlama
+## <a name="schedule-updates"></a>Güncelleştirmeleri zamanla
 Zamanlanan güncelleştirmeler özelliği, bir bakım penceresi için önbelleğinizi belirlemek sağlar. Bakım penceresi belirtildiğinde, herhangi bir Redis sunucu güncelleştirme sırasında bu pencereyi yapılır. Pencere bir bakım penceresi atamak istediğiniz günleri seçin ve Bakım belirtmek için her gün saat başlatın. Bakım penceresi saati UTC biçiminde olduğunu unutmayın. 
 
 Daha fazla bilgi için [güncelleştirmeleri zamanla](cache-administration.md#schedule-updates) ve [güncelleştirmeleri SSS zamanlaması](cache-administration.md#schedule-updates-faq).
