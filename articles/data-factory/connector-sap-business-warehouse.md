@@ -61,10 +61,10 @@ SAP Business Warehouse (BW) bağlı hizmeti için aşağıdaki özellikleri dest
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapBw** | Evet |
-| sunucu | SAP BW örneği yer aldığı sunucunun adı. | Evet |
+| server | SAP BW örneği yer aldığı sunucunun adı. | Evet |
 | systemNumber | SAP BW sisteminin sistem numarası.<br/>İzin verilen değer: bir dize olarak temsil edilen iki basamaklı ondalık sayı. | Evet |
-| ClientID | SAP W sisteminde istemcinin istemci kimliği.<br/>İzin verilen değer: bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet |
-| Kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
+| clientId | SAP W sisteminde istemcinin istemci kimliği.<br/>İzin verilen değer: bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet |
+| userName | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
 | password | Kullanıcının parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
 
@@ -126,7 +126,7 @@ SAP BW verileri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| sorgu | SAP BW örneğinden verileri okumak için MDX Sorgusu belirtir. | Evet |
+| query | SAP BW örneğinden verileri okumak için MDX Sorgusu belirtir. | Evet |
 
 **Örnek:**
 
@@ -176,15 +176,15 @@ SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemeler SAP BW veri t�
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| DİL | String |
+| LANG | String |
 | LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| HAM | Byte[] |
+| RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| DİZE | String |
-| BİRİM | String |
+| STRING | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
