@@ -65,7 +65,7 @@ Temel kimlik doğrulaması kullanmak için "authenticationType" özelliğini aya
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
+| userName | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
 | password | (Kullanıcı adı) kullanıcı parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek:**
@@ -102,10 +102,10 @@ SSH ortak anahtar kimlik doğrulamasını kullanmak için "authenticationType" �
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı |Evet |
+| userName | SFTP sunucusuna erişimi olan kullanıcı |Evet |
 | privateKeyPath | Integration Runtime'nın erişebileceği özel anahtar dosyasının mutlak yolu belirtin. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanının türünü "connectVia içinde" belirtildiğinde geçerlidir. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`.  |
 | privateKeyContent | SSH özel anahtar içeriğini Base64 ile kodlanmış. SSH özel anahtarı, OpenSSH biçiminde olmalıdır. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. |
-| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Özel anahtar dosyasını bir parola deyimi tarafından korunuyorsa, Evet. |
+| passPhrase | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Özel anahtar dosyasını bir parola deyimi tarafından korunuyorsa, Evet. |
 
 > [!NOTE]
 > SFTP Bağlayıcısı RSA/DSA OpenSSH anahtarını destekler. "---Başlangıç RSA/DSA özel ANAHTARA sahip---" anahtar dosyası içeriğinizi başlar emin olun. Özel anahtar dosyası ppk-format dosyası ise, .ppk OpenSSH biçimine dönüştürmek için Putty aracını kullanın. 
