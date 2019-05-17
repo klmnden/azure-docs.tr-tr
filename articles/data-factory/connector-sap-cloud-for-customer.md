@@ -44,7 +44,7 @@ Aşağıdaki özellikler için SAP Cloud bağlı müşteri hizmetleri için dest
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapCloudForCustomer**. | Evet |
 | url | SAP C4C OData hizmeti URL'si. | Evet |
-| kullanıcı adı | İçin SAP C4C bağlanmak için kullanıcı adı belirtin. | Evet |
+| username | İçin SAP C4C bağlanmak için kullanıcı adı belirtin. | Evet |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Kaynak, havuz için Evet Hayır |
 
@@ -114,7 +114,7 @@ Müşteri için SAP Buluttan veri kopyalamak için kopyalama etkinliği için ka
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapCloudForCustomerSource**  | Evet |
-| sorgu | Verileri okumak için özel OData sorgusu belirtin. | Hayır |
+| query | Verileri okumak için özel OData sorgusu belirtin. | Hayır |
 
 Belirli bir gün için verileri almak için örnek sorgu: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
