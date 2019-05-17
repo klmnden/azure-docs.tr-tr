@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d1783890ba1b304ab658e827bfd24091e208fda4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699245"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794147"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux sanal makinesi yönetilmeyen disklerden yönetilen disklere dönüştürme
 
@@ -98,5 +98,18 @@ Kullanılabilirlik kümesi dönüştürmeden önce kullanılabilirlik kümesinde
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## <a name="convert-using-the-azure-portal"></a>Azure portalını kullanarak dönüştürme
+
+Yönetilmeyen diskler için yönetilen diskler Azure portalını kullanarak da dönüştürebilirsiniz.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Portalda sanal makinelerinin listeden VM'yi seçin.
+3. VM dikey penceresinde, seçin **diskleri** menüsünde.
+4. Üst kısmındaki **diskleri** dikey penceresinde **yönetilen disklere geçirme**.
+5. Bir kullanılabilirlik kümesindeki sanal makinenizin ise olacaktır uyarı üzerinde **yönetilen disklere geçirme** dikey kullanılabilirlik kümesini önce dönüştürmeniz gerekir. Uyarı kullanılabilirlik kümesini dönüştürmek için tıklayabileceği bir bağlantı olması gerekir. Kullanılabilirlik kümesi dönüştürüldükten sonra veya sanal makinenize bir kullanılabilirlik kümesine değilse tıklayın **geçirme** , diskleri yönetilen disklere geçirme işlemini başlatmak için.
+
+Sanal makine durdurulacak ve geçiş tamamlandıktan sonra yeniden başlatılacak.
+
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Depolama seçenekleri hakkında daha fazla bilgi için bkz. [Azure yönetilen disklere genel bakış](../windows/managed-disks-overview.md).

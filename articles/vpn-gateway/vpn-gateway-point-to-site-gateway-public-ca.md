@@ -2,18 +2,17 @@
 title: P2S ağ geçitleri için ortak CA sertifikaları için geçiş | Azure VPN ağ geçidi | Microsoft Docs
 description: Bu makale P2S ağ geçitleri için yeni ortak CA sertifikaları için başarılı bir şekilde geçiş yardımcı olur.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/15/2019
+ms.author: cherylmc
+ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859656"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786738"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>P2S için genel CA ağ geçidi sertifikasına geçiş
 
@@ -30,6 +29,8 @@ Daha önce (arka planda, Azure tarafından verilen) ağ geçidi için kendinden 
 Yalnızca eski ağ geçitleri bu değişiklikten etkilenmez. Ağ geçidi sertifikanızı geçmiş olması gerekiyorsa, Azure portalında iletişimi veya bildirim alırsınız. Ağ geçidiniz bu makaledeki adımları kullanarak etkilenir bakabilirsiniz.
 
 > [!IMPORTANT]
+> **12 Mayıs 2019 üzerinde bu geçişi tamamlandı.**
+>
 > Geçiş, 12 Mart 18:00 UTC'de başlangıç 2019 için zamanlandı. Farklı zaman penceresi tercih ederseniz bir destek talebi oluşturabilirsiniz. Yapın ve en az 24 saat önceden isteğiniz sonlandır.  Aşağıdaki windows isteyebilirsiniz:
 >
 > * 25 Şubat 06:00 UTC
@@ -37,7 +38,7 @@ Yalnızca eski ağ geçitleri bu değişiklikten etkilenmez. Ağ geçidi sertifi
 > * 1 Mart 06:00 UTC
 > * 1 Mart 18:00 UTC
 >
-> **Kalan tüm ağ geçitleri 12 Mart 18:00 UTC'de başlangıç 2019 tarihinde geçeceğiyle**.
+> Kalan tüm ağ geçidi, 12 Mart 18:00 UTC'de başlangıç 2019 tarihinde geçirilecektir.
 >
 > Müşteriler, kendi ağ geçidi geçiş işlemi tamamlandığında bir e-posta alırsınız.
 > 

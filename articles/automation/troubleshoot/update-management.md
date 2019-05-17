@@ -4,16 +4,16 @@ description: Güncelleştirme yönetimi ile ilgili sorunları giderme hakkında 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597614"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787704"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -160,6 +160,38 @@ Karma Runbook çalışanı otomatik olarak imzalanan bir sertifika oluşturmak m
 
 Sistem hesabı, klasöre okuma erişimi olduğunu doğrulayın **C:\ProgramData\Microsoft\Crypto\RSA** ve yeniden deneyin.
 
+### <a name="failed-to-start"></a>Senaryo: Başarısız bir güncelleştirme dağıtımına başlamak için bir makine gösterir
+
+#### <a name="issue"></a>Sorun
+
+Bir makine durumunda **başlatılamadı** bir makine. Makine için belirli ayrıntılarını görüntülediğinizde, aşağıdaki hatayı görürsünüz:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu hata, aşağıdakilerden biri nedeniyle oluşabilir:
+
+* Makine artık yok.
+* Makine kapalı ve ulaşılamaz çevrilir.
+* Makine bir ağ bağlantısı sorunu vardır ve karma çalışanı makineye ulaşılamıyor.
+* Değiştirilen SourceComputerId Microsoft İzleme Aracısı için bir güncelleştirme oluştu
+* Bir Otomasyon hesabında 2.000 eş zamanlı iş sınırını ulaşırsanız, güncelleştirme çalışması kısıtlandı. Her dağıtım bir iş ve bir güncelleştirme dağıtım sayısı her makinede bir iş olarak kabul edilir. Otomasyon hesabı sayınız eş zamanlı iş sınırını doğrultusunda şu anda çalışan tüm diğer Otomasyon işi veya güncelleştirme dağıtımı.
+
+#### <a name="resolution"></a>Çözüm
+
+Zaman geçerli kullanım [dinamik gruplar](../automation-update-management.md#using-dynamic-groups) güncelleştirme dağıtımlarınız için.
+
+* Makine hala var ve erişilebilir olduğunu doğrulayın. Yoksa, dağıtımınıza düzenleyin ve makineyi kaldırın.
+* Bölümüne [ağ planlaması](../automation-update-management.md#ports) bağlantı noktaları ve güncelleştirme yönetimi için gereklidir ve makinenizin bu gereksinimleri karşıladığını doğrulayın adresleri listesi.
+* Log Analytics'te aşağıdaki sorguyu çalıştırın bulmak için ortamınızda ayarlanmış makineleri `SourceComputerId` değiştirildi. Aynı sahip bilgisayarlar için konum `Computer` değeri, ancak farklı `SourceComputerId` değeri. Etkilenen makineler bulduktan sonra bu makineler hedef ve kaldırın ve yeniden makineleri eklemek güncelleştirme dağıtımlarını düzenlemeniz gerekir böylece `SourceComputerId` doğru değeri yansıtır.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
 ### <a name="hresult"></a>Senaryo: Makine değerlendirilmeyen ve bir HResult özel durum gösterir gösterir.
 
 #### <a name="issue"></a>Sorun
@@ -174,10 +206,12 @@ Windows Update veya WSUS makinede doğru şekilde yapılandırılmamış. Günce
 
 Tüm özel durum iletisi görmek için kırmızı renkte gösterilen özel durumu çift tıklayın. Aşağıdaki tabloda olası çözümleri veya gerçekleştirilecek eylemleri gözden geçirin:
 
-|Özel durum  |Çözüm veya eylem  |
+|Özel Durum  |Çözüm veya eylem  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | İlgili hata kodunu arama [Windows güncelleştirme hatası kodu listesi](https://support.microsoft.com/help/938205/windows-update-error-code-list) özel durumun nedeni hakkında ek ayrıntıları bulmak için.        |
-|`0x8024402C` veya `0x8024401C`     | Bu hatalar, ağ bağlantısı sorunları var. Makinenizde güncelleştirme yönetimi için uygun ağ bağlantısı olduğundan emin olun. Bölümüne [ağ planlaması](../automation-update-management.md#ports) bağlantı noktaları ve gerekli olan adresleri listesi.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Bu hatalar, ağ bağlantısı sorunları var. Makinenizde güncelleştirme yönetimi için uygun ağ bağlantısı olduğundan emin olun. Bölümüne [ağ planlaması](../automation-update-management.md#ports) bağlantı noktaları ve gerekli olan adresleri listesi.        |
+|`0x8024001E`| Hizmet veya sistem kapatılmakta olduğundan güncelleştirme işlemi tamamlanamadı.|
+|`0x8024002E`| Windows Update hizmeti devre dışı bırakıldı.|
 |`0x8024402C`     | Bir WSUS sunucusu kullanıyorsanız, kayıt defteri değerlerini emin `WUServer` ve `WUStatusServer` kayıt defteri anahtarı altında `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` doğru WSUS sunucusu vardır.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Windows Güncelleştirme Hizmeti (wuauserv) çalıştığından ve devre dışı emin olun.        |
 |Herhangi bir genel durum     | Bir arama olası çözümler için internet ve yerel BT desteği ile çalışır.         |

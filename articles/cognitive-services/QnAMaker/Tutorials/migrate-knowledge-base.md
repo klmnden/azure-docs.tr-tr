@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431251"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794878"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>İçeri dışarı aktarma kullanarak Bilgi Bankası geçirme
 
@@ -56,7 +56,7 @@ Bilgi Bankası geçiş, bir Bilgi Bankası dışarı aktarma ve ardından başka
     Bu noktada, tüm Bilgi Bankası içerikleri - soruları yanıtlar ve kaynak dosyaları ve URL'leri adlarını yanı sıra meta veri yeni Bilgi Bankası'na aktarılır. 
 
 ## <a name="chat-logs-and-alterations"></a>Sohbet günlükleri ve değişiklikleri
-Büyük küçük harf duyarsız değişiklikleri (eş anlamlılar) otomatik olarak içeri aktarılmaz. Kullanım [V2 API](https://aka.ms/qnamaker-v2-apis) eski bilgilerden değişiklikleri aktarmak ve [V4 API'leri](https://aka.ms/qnamaker-v4-apis) değişiklikleri yeni Bilgi Bankası'ndaki taşımak için.
+Büyük küçük harf duyarsız değişiklikleri (eş anlamlılar) otomatik olarak içeri aktarılmaz. Kullanım [V4 API'leri](https://go.microsoft.com/fwlink/?linkid=2092179) değişiklikleri yeni Bilgi Bankası'ndaki taşınır.
 
 Sohbet günlükleri, yeni Bilgi Bankası sohbet günlükleri depolamak için Application Insights kullandığından geçirmek için hiçbir yolu yoktur. 
 

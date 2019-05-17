@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548655"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791961"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -44,7 +44,7 @@ Etkinleştirin ve aşağıdaki yöntemlerden birini kullanarak, ölçümleri ve 
 
 - Azure portal
 - PowerShell
-- Azure CLI
+- Azure CLI'si
 - Azure İzleyici REST API
 - Azure Resource Manager şablonu
 
@@ -64,7 +64,7 @@ Aşağıdaki tanılama telemetrisi toplamak için Azure SQL veritabanı ve örne
 
 | Veritabanları için telemetri izleme | Tek veritabanı ve havuza veritabanı desteği | Örnek veritabanı desteği |
 | :------------------- | ----- | ----- |
-| [Tüm ölçümleri](#all-metrics): DTU/CPU yüzdesi, DTU/CPU sınırı, fiziksel içeren veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi. | Evet | Hayır |
+| [Temel ölçümler](#basic-metrics): DTU/CPU yüzdesi, DTU/CPU sınırı, fiziksel içeren veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi. | Evet | Hayır |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU kullanımı gibi çalışma zamanı istatistikleri sorgu ve sorgu süresi istatistikleri hakkında bilgi içerir. | Evet | Evet |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Sorgu bekleme istatistikleri (ne sorgularınızın beklenen) hakkında bilgi içeren gibi CPU, günlük ve KİLİTLEME olan. | Evet | Evet |
 | [Hataları](#errors-dataset): Bir veritabanında SQL hatalar hakkında bilgi içerir. | Evet | Evet |
@@ -91,9 +91,9 @@ Kullanabileceğiniz **tanılama ayarları** menüsünü her, havuza alınmış, 
 
 Aşağıdaki tanılama telemetrisi toplamak için bir elastik havuz kaynağını ayarlayabilirsiniz:
 
-| Kaynak | Telemetri izleme |
+| Resource | Telemetri izleme |
 | :------------------- | ------------------- |
-| **Elastik havuz** | [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics) içeren eDTU/CPU yüzdesi, eDTU/CPU sınırı, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırına ve XTP depolama yüzdesi. |
+| **Elastik havuz** | [Temel ölçümler](sql-database-metrics-diag-logging.md#basic-metrics) içeren eDTU/CPU yüzdesi, eDTU/CPU sınırı, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırına ve XTP depolama yüzdesi. |
 
 Elastik havuzlar ve elastik havuzlardaki veritabanları için tanılama telemetrisi akışını yapılandırmak için ayrı ayrı yapılandırmanız gerekecektir **hem** biri:
 
@@ -113,7 +113,7 @@ Bir elastik havuz kaynak için tanılama telemetrisi akışını etkinleştirmek
 1. Kendi başvuru için bir ayar adı girin.
 1. Tanılama veri akışı için bir hedef kaynak seçin: **Depolama hesabında arşivle**, **Stream olay hub'ına**, veya **Log Analytics'e gönderme**.
 1. Log analytics için seçin **yapılandırma** ve seçerek yeni bir çalışma alanı oluşturma **+ oluştur yeni çalışma alanı**, ya da mevcut bir çalışma alanını seçin.
-1. Elastik havuz tanılama telemetrisi için onay kutusunu seçin: **AllMetrics**.
+1. Elastik havuz tanılama telemetrisi için onay kutusunu seçin: **Temel** ölçümleri.
    ![Elastik havuzlar için tanılamayı yapılandırmak](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. **Kaydet**’i seçin.
 1. Ayrıca, sonraki bölümde açıklanan adımları uygulayarak izlemek istediğiniz elastik havuz içindeki her bir veritabanı için tanılama telemetrisi akışını yapılandırın.
@@ -137,7 +137,7 @@ Tek veya havuza alınmış veritabanları için tanılama telemetrisi akışın�
 1. Kendi başvuru için bir ayar adı girin.
 1. Tanılama veri akışı için bir hedef kaynak seçin: **Depolama hesabında arşivle**, **Stream olay hub'ına**, veya **Log Analytics'e gönderme**.
 1. Standart, olay tabanlı izleme deneyimi için veritabanı tanılama günlük telemetrisi için aşağıdaki onay kutularını işaretleyin: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **hataları** , **DatabaseWaitStatistics**, **zaman aşımları**, **blokları**, ve **kilitlenmeleri**.
-1. Bir Gelişmiş, bir dakika-tabanlı izleme deneyimi için onay kutusunu seçin **AllMetrics**.
+1. Bir Gelişmiş, bir dakika-tabanlı izleme deneyimi için onay kutusunu seçin **temel** ölçümleri.
    ![Tek tanılamayı yapılandırmak, havuza alınmış veya örnek veritabanları](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. **Kaydet**’i seçin.
 1. İzlemek istediğiniz her veritabanı için bu adımları yineleyin.
@@ -153,7 +153,7 @@ Tek veya havuza alınmış veritabanları için tanılama telemetrisi akışın�
 
 Aşağıdaki tanılama telemetrisi toplamak için bir yönetilen örnek kaynağı ayarlayabilirsiniz:
 
-| Kaynak | Telemetri izleme |
+| Resource | Telemetri izleme |
 | :------------------- | ------------------- |
 | **Yönetilen örnek** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, bayt okunan/yazılan, ayrılmış depolama alanı içerir ve kullanılan depolama alanı. |
 
@@ -263,7 +263,7 @@ Birden çok abonelik desteklemek için PowerShell betiğini kullanın. [kaynak �
     ```
    Değiştirin \<Subıd\> abonelik kimliği ile \<RG_NAME\> kaynak grubu adı ile ve \<WS_NAME\> çalışma alanı adı ile.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Azure CLI kullanarak, ölçümleri ve tanılama günlük kaydını etkinleştirebilirsiniz.
 
@@ -385,7 +385,7 @@ Veya daha basit:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Örneğin, tüm ölçümler için bir blob adı aşağıdaki gibi olabilir:
+Örneğin, bir blob adı için temel ölçümleri olabilir:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Azure SQL Analytics kullanıyorsanız, veri alımı tüketiminiz çözümdeki se
 
 Azure SQL veritabanı için kullanılabilen telemetri izleme, elastik havuzları ve yönetilen örnek belgelenen aşağıda. Kendi özel analiz ve uygulama geliştirme kullanmak için SQL Analytics içinde toplanan izleme telemetri kullanılabilir [Azure İzleyici günlük sorguları](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) dili.
 
-## <a name="all-metrics"></a>Tüm ölçümleri
+## <a name="basic-metrics"></a>Temel ölçümler
 
-Kaynak tarafından tüm ölçümler hakkında ayrıntılar için aşağıdaki tablolara bakın.
+Kaynak tarafından temel ölçümler hakkında ayrıntılar için aşağıdaki tablolara bakın.
 
-### <a name="all-metrics-for-elastic-pools"></a>Elastik havuzlar için tüm ölçümleri
+> [!NOTE]
+> Temel ölçümler seçeneği, daha önce tüm ölçümler olarak biliniyordu. İzlenen ölçümler değişiklik yoktu ve yalnızca adlandırma için yaptığınız değişikliği oluştu. Bu değişiklik, gelecekte ek ölçüm kategorisi tanıtılması için izin verecek şekilde başlatıldı.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Elastik havuzlar için temel ölçümler
 
 |**Kaynak**|**Ölçümler**|
 |---|---|
 |Elastik havuz|eDTU yüzdesi eDTU kullanıldığında, eDTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırı, XTP depolama yüzdesi |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Azure SQL veritabanları için tüm ölçümleri
+### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL veritabanları için temel ölçümler
 
 |**Kaynak**|**Ölçümler**|
 |---|---|
 |Azure SQL veritabanı|DTU yüzdesi DTU kullanıldığında, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, XTP depolama yüzdesi ve kilitlenmeler |
 
-## <a name="all-logs"></a>Tüm günlükler
+## <a name="basic-logs"></a>Temel günlükleri
 
 Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tabloda belirtilmiştir. Lütfen [tanılama günlüğüne kaydetme desteklenen](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) havuza, hangi günlüklerin belirli veritabanı flavor için - Azure SQL tek desteklenen anlamak veya veritabanı örneği.
 
@@ -438,11 +441,11 @@ Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tab
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: ResourceUsageStats |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES |
+|Category|Kategori adı. Her zaman: ResourceUsageStats |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Yönetilen örnek adı |
@@ -463,12 +466,12 @@ Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tab
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: QueryStoreRuntimeStatistics |
+|Category|Kategori adı. Her zaman: QueryStoreRuntimeStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreRuntimeStatisticsEvent |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -514,12 +517,12 @@ Daha fazla bilgi edinin [Query Store çalışma zamanı istatistik verileri](htt
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: QueryStoreWaitStatistics |
+|Category|Kategori adı. Her zaman: QueryStoreWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreWaitStatisticsEvent |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -552,19 +555,19 @@ Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.m
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQ |
-|Kategori|Kategori adı. Her zaman: Hatalar |
+|Category|Kategori adı. Her zaman: Hatalar |
 |OperationName|İşlemin adı. Her zaman: ErrorEvent |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
 |ElasticPoolName_s|Varsa veritabanı için elastik havuz adı |
 |DatabaseName_s|Veritabanının adı |
 |ResourceId|Kaynak URI'si |
-|İleti|Hata iletisi düz metin |
+|`Message`|Hata iletisi düz metin |
 |user_defined_b|Hata kullanıcı tanımlı bit |
 |error_number_d|Hata kodu |
 |Severity|Hata önem derecesi |
@@ -581,12 +584,12 @@ Daha fazla bilgi edinin [SQL Server hata iletileri](https://msdn.microsoft.com/l
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: DatabaseWaitStatistics |
+|Category|Kategori adı. Her zaman: DatabaseWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: DatabaseWaitStatisticsEvent |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -610,12 +613,12 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: Zaman aşımları |
+|Category|Kategori adı. Her zaman: Zaman Aşımları |
 |OperationName|İşlemin adı. Her zaman: TimeoutEvent |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -633,12 +636,12 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: blokları |
+|Category|Kategori adı. Her zaman: blokları |
 |OperationName|İşlemin adı. Her zaman: BlockEvent |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -657,12 +660,12 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC] |Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: Kilitlenmeler |
+|Category|Kategori adı. Her zaman: Kilitlenmeler |
 |OperationName|İşlemin adı. Her zaman: DeadlockEvent |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |
@@ -678,11 +681,11 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Type|Her zaman: AzureDiagnostics |
+|Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: AutomaticTuning |
-|Kaynak|Kaynağın adı |
-|ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
+|Category|Kategori adı. Her zaman: AutomaticTuning |
+|Resource|Kaynağın adı |
+|KaynakTürü|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
 |ResourceGroup|Veritabanı için kaynak grubunun adı |
 |LogicalServerName_s|Veritabanı sunucusunun adı |

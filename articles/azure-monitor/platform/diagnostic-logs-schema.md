@@ -1,19 +1,19 @@
 ---
 title: Azure tanılama günlükleri, hizmetler ve şemalar desteklenir
 description: Azure tanılama günlükleri için desteklenen hizmet ve olay şema anlayın.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
 ms.date: 10/11/2018
-ms.author: johnkem
+ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236171"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789315"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -39,7 +39,7 @@ Kaynak türü bileşimi (kullanılabilir `resourceId` özelliği) ve `category` 
 | correlationId | İsteğe bağlı | Bir dizi ilgili olayları gruplamak için kullanılan bir GUID. Genellikle, iki olay iki farklı durumları ancak aynı operationName (örn. varsa "Başlangıç" ve "Başarılı"), bunlar aynı bağıntı kimliği paylaşıyor. Bu, ayrıca diğer olayları ilişkilerini temsil edebilir. |
 | identity | İsteğe bağlı | İşlemi gerçekleştiren uygulama ve kullanıcı kimliğini açıklayan bir JSON blob. Genellikle bu yetkilendirme ve talep içerecektir / active Directory JWT belirteci. |
 | Düzey | İsteğe bağlı | Olay önem derecesi. Bilgi, uyarı, hata veya kritik biri olmalıdır. |
-| location | İsteğe bağlı | Örneğin olay yayma Kaynak bölgesi. "Doğu ABD" veya "Fransa Güney" |
+| konum | İsteğe bağlı | Örneğin olay yayma Kaynak bölgesi. "Doğu ABD" veya "Fransa Güney" |
 | properties | İsteğe bağlı | Herhangi bir genişletilmiş bu belirli olayları kategorisine ilgili özellikler. Tüm özel/benzersiz özellikler bu "bölümü B" şeması yerleştirmeniz gerekir. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Kaynak tanılama günlükleri için hizmete özel şemalar
@@ -66,12 +66,12 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 | Azure Güvenlik Duvarı | Şema kullanılabilir değil. |
 | IoT Hub | [IOT Hub işlemlerini](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Anahtar Kasası Günlüğü](../../key-vault/key-vault-logging.md) |
-| Load Balancer |[Azure Load Balancer için Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
+| Yük Dengeleyici |[Azure Load Balancer için Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B özel izleme şeması](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Ağ Güvenlik Grupları |[Ağ güvenlik grupları (NSG’ler) için Log Analytics](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Koruması | [Azure DDoS koruma standardını yönetme](../../virtual-network/manage-ddos-protection.md) |
 | Power BI ayrılmış | [Azure'da Power BI Embedded için tanılama günlüğüne kaydetme](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| Kurtarma Hizmetleri | [Azure yedekleme için veri modeli](../../backup/backup-azure-reports-data-model.md)|
+| Recovery Services | [Azure yedekleme için veri modeli](../../backup/backup-azure-reports-data-model.md)|
 | Arama |[Etkinleştirme ve arama trafiği analizi kullanma](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus tanılama günlükleri](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Veritabanı | [Azure SQL veritabanı tanılama günlüğüne kaydetme](../../sql-database/sql-database-metrics-diag-logging.md) |
@@ -81,7 +81,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 | Sanal Ağ Geçitleri | Şema kullanılabilir değil. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Desteklenen kaynak türü başına günlük kategorileri
-|Kaynak Türü|Kategori|Kategori görünen adı|
+|Kaynak Türü|Category|Kategori görünen adı|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Altyapı|Altyapı|
 |Microsoft.AnalysisServices/servers|Hizmet|Hizmet|
@@ -114,7 +114,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.Devices/ıothubs|C2DCommands|C2D komutları|
 |Microsoft.Devices/ıothubs|DeviceIdentityOperations|Cihaz kimlik işlemleri|
 |Microsoft.Devices/ıothubs|FileUploadOperations|Dosya karşıya yükleme işlemleri|
-|Microsoft.Devices/ıothubs|Yollar|Yollar|
+|Microsoft.Devices/ıothubs|Rotalar|Rotalar|
 |Microsoft.Devices/ıothubs|D2CTwinOperations|D2CTwinOperations|
 |Microsoft.Devices/ıothubs|C2DTwinOperations|C2D İkizi işlemleri|
 |Microsoft.Devices/ıothubs|TwinQueries|Çifti sorguları|
@@ -182,7 +182,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store bekleme istatistikleri|
 |Microsoft.Sql/servers/databases|Hatalar|Hatalar|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Veritabanı bekleme istatistikleri|
-|Microsoft.Sql/servers/databases|Zaman aşımları|Zaman aşımları|
+|Microsoft.Sql/servers/databases|Zaman Aşımları|Zaman Aşımları|
 |Microsoft.Sql/servers/databases|blokları|blokları|
 |Microsoft.Sql/servers/databases|Kilitlenmeler|Kilitlenmeler|
 |Microsoft.Sql/servers/databases|Denetim|Denetim Günlükleri|

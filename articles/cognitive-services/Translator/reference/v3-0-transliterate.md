@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605091"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796953"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator metin çevirisi API'si 3.0: Transliterate
 
@@ -41,7 +41,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td>*Gerekli parametre*.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
   <tr>
-    <td>language</td>
+    <td>dil</td>
     <td>*Gerekli parametre*.<br/>Bir komut dosyasından diğerine dönüştürmek için metin dilini belirtir. Olası diller listelenmiştir `transliteration` kapsam alınan hizmet için sorgulama yaparak kendi [desteklenen diller](./v3-0-languages.md).</td>
   </tr>
   <tr>
@@ -147,7 +147,7 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>429</td>
-    <td>Çağıran, çok fazla istek gönderiyor.</td>
+    <td>İstemci istek sınırları aştığı için sunucu isteği reddetti.</td>
   </tr>
   <tr>
     <td>500</td>

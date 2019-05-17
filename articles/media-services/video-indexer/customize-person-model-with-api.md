@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553717"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799465"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Video Indexer API ile bir kişi modeli özelleştirme
 
@@ -56,9 +57,9 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Ad**|**Tür**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
-|location|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
+|konum|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|string|Evet|Hesap için genel benzersiz tanıtıcısı|
-|ad|string|Evet|Kişi model adı|
+|name|string|Evet|Kişi model adı|
 |accessToken|string|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 
 ### <a name="request-body"></a>İstek gövdesi
@@ -101,9 +102,9 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Ad**|**Tür**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
-|location|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
+|konum|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|string|Evet|Hesap için genel benzersiz tanıtıcısı|
-|id|string|Evet|Kişi model kimliği (kişi modeli oluşturduğunuzda oluşturulur)|
+|kimlik|string|Evet|Kişi model kimliği (kişi modeli oluşturduğunuzda oluşturulur)|
 |accessToken|string|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 
 ### <a name="request-body"></a>İstek gövdesi
@@ -138,7 +139,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Ad**|**Tür**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
-|location|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
+|konum|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|string|Evet|Hesap için genel benzersiz tanıtıcısı|
 |accessToken|string|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
 
@@ -193,12 +194,12 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 |**Ad**|**Tür**|**Gerekli**|**Açıklama**|
 |---|---|---|---|
-|location|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
+|konum|string|Evet|Çağrı yönlendirileceğini Azure bölgesi. Daha fazla bilgi için [Azure bölgeleri ve Video Indexer](regions.md).|
 |Hesap Kimliği|string|Evet|Hesap için genel benzersiz tanıtıcısı|
 |videoId|string|Evet|Güncelleştirmek istediğiniz yüzü göründüğü videonun kimliği. Bu video karşıya yüklendi ve dizini oluşturulur.|
 |Faceıd|integer|Evet|Güncelleştirilecek yüz kimliği. Video dizinden Faceıd alabilirsiniz|
 |accessToken|string|Evet|Erişim belirteci (kapsamı olmalıdır [hesap erişim belirteci](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) karşı çağrı kimliğini doğrulamak için. Erişim belirteci 1 saat içinde süresi dolar.|
-|ad|string|Evet|Yüz tanıma güncelleştirmek için yeni adı.|
+|name|string|Evet|Yüz tanıma güncelleştirmek için yeni adı.|
 
 İki farklı verirseniz aynı kişinin yüzlerini aynı modellemek için adları kişi modelleri için benzersiz **adı** parametre değeri, Video Indexer'ın aynı kişi yüzleri görünümleri ve videonuzu yeniden sonra bunları uygun sonuç verir. 
 

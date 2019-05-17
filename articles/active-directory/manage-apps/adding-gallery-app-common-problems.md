@@ -3,8 +3,8 @@ title: Azure AD galeri uygulaması eklenirken sorun | Microsoft Docs
 description: Azure AD galeri uygulamaları ve bunların çözülmesine yönelik yapabilecekleriniz eklerken ortak sorunları insanların yüz anlama
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438804"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784437"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması eklenirken sorun oluştu
 
@@ -40,7 +40,7 @@ Tıklandığında bir hatayla karşılaşırsanız **Ekle** düğmesi, gördüğ
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Bunu ekledikten sonra Uygulamam ayarlama bilmiyorum
 
-Öğrenimi uygulamaları hakkında yardıma ihtiyacınız olursa [nasıl Azure Active Directory ile SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) makale başlatmak için iyi bir yerdir.
+Uygulamaları hakkında daha fazla bilgi yardıma ihtiyacınız olursa [nasıl Azure Active Directory ile SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) makale başlatmak için iyi bir yerdir.
 
 Bu, ek olarak [Azure AD uygulamaları belge kitaplığı](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) , Azure AD ile çoklu oturum açma ve nasıl çalıştığı hakkında daha fazla bilgi edinmek için yardımcı olur.
 
@@ -48,7 +48,7 @@ Bu, ek olarak [Azure AD uygulamaları belge kitaplığı](https://docs.microsoft
 
 Aşağıdaki adımları izleyerek, herhangi bir portal bildirim ayrıntılarını görebilirsiniz:
 
-1.  Seçin **bildirimleri** simgesine (zil) Azure portalının sağ üst
+1.  Seçin **bildirimleri** Azure portalının sağ üst kısımdaki simgesine (zil)
 
 2.  Herhangi bir bildirim seçin bir **hata** durumu (yanında bir kırmızı (!) sahip olanlar).
 
@@ -93,7 +93,7 @@ Aşağıdaki açıklamalar bildirimleri hakkında daha fazla ayrıntı için bkz
 
   -   Örneğin, **2017-03-23T19:50:43.7583681Z**
 
-- **İç işlem kimliği** – iç kimliği kullanabiliriz sistemlerimizde hata aramak için
+- **İç işlem kimliği** – hata sistemlerimizde aramak için kullanabileceğiniz iç kimliği
 
   -   Örneğin, **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

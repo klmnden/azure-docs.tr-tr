@@ -1,25 +1,18 @@
 ---
 title: İstek sınırları ve azaltma - Azure Resource Manager
 description: Abonelik sınırlarına ulaşıldı, Azure Resource Manager istekleri azaltma kullanmayı açıklar.
-services: azure-resource-manager
-documentationcenter: na
-author: rockboyfor
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
+author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/05/2019
-ms.date: 03/18/2019
-ms.author: v-yeche
+ms.date: 05/14/2019
+ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791355"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager istekleri azaltma
 
@@ -33,7 +26,7 @@ Bu limitler ulaşırsa, uygulama veya betik, istek kısıtlama gerekir. Bu makal
 
 Sınıra ulaştığınızda, HTTP durum kodu alma **429 çok fazla istek**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Kaynak Grafiği işlemlerini isteklerinin sayısını sınırlar. Kalan istekler ve nasıl sınırına ulaşıldığında yanıtlanacağını belirlemek için bu makaledeki adımlarda, kaynak grafiği için de geçerlidir. Ancak, kaynak grafiği kendi sınırı ve sıfırlama hızı ayarlar. Daha fazla bilgi için [kısıtlama Azure kaynak grafikte](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Kalan istekler
 Yanıt üst bilgilerini inceleyerek, kalan istek sayısını belirleyebilirsiniz. Okuma istekleri, kalan okuma isteklerinin sayısı için üst bilgisindeki bir değer döndürür. İstekler dahil kalan yazma isteklerinin sayısı'için bir değer yazın. Aşağıdaki tabloda, bu değerler için inceleyebilirsiniz yanıt üstbilgilerini açıklanmaktadır:
@@ -61,7 +54,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 İçinde **PowerShell**, üst bilgi değeri bir Invoke-WebRequest işlemden alın.
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -89,7 +82,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 Yazma sınırları almak için bir yazma işlemi kullanın: 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Aşağıdaki değerleri dahil olmak üzere birçok değer döndürür:
@@ -128,7 +121,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 Yazma sınırları almak için bir yazma işlemi kullanın: 
 
 ```azurecli
-az group create -n myresourcegroup --location chinanorth --verbose --debug
+az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
 Aşağıdaki değerleri dahil olmak üzere birçok değer döndürür:
@@ -152,5 +145,3 @@ Resource Manager istek sınırına ulaştığında döndürür **429** HTTP duru
 * Tam bir PowerShell örnek için bkz: [bir abonelik için Resource Manager sınırları denetle](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Limitler ve kotalar hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 * Zaman uyumsuz REST istekleri işleme hakkında bilgi edinmek için [Azure zaman uyumsuz işlemleri izleme](resource-manager-async-operations.md).
-
-<!--Update_Description: update meta properties, update cmdlet -->

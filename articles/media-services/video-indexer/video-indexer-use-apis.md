@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560597"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799257"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Öğretici: Video Indexer API'sini kullanma
 
@@ -28,7 +29,7 @@ Bu makalede geliştiricilerin [Video Indexer API’sinden](https://api-portal.vi
 
 1. [Video Indexer Geliştirici Portalı](https://api-portal.videoindexer.ai/)’nda oturum açın.
     
-    ![Oturum aç](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Oturum Aç](./media/video-indexer-use-apis/video-indexer-api01.png)
 
    > [!Important]
    > * Video Indexer için kaydolurken kullandığınız sağlayıcıyı kullanmanız gerekir.
@@ -39,14 +40,14 @@ Bu makalede geliştiricilerin [Video Indexer API’sinden](https://api-portal.vi
 
     [Ürünler](https://api-portal.videoindexer.ai/products) sekmesini seçin. Ardından Yetkilendirme’yi seçip abone olun. 
     
-    ![Kaydolma](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Kaydolun](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Yeni kullanıcılar otomatik olarak Yetkilendirme’ye abone edilir.
     
     Abone olduktan sonra aboneliğinizi, birincil ve ikincil anahtarlarınızı görebilirsiniz. Anahtarlar korunmalıdır. Anahtarlar yalnızca sunucu kodunuz tarafından kullanılmalıdır. Bu anahtarlar istemci tarafında (.js, .html vb.) mevcut olmamalıdır.
 
-    ![Kaydolma](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Kaydolun](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > Video Indexer kullanıcısı, tek bir abonelik anahtarını kullanarak birden çok Video Indexer hesabına bağlanabilir. Daha sonra bu Video Indexer hesaplarını farklı Media Services hesaplarına bağlayabilirsiniz.

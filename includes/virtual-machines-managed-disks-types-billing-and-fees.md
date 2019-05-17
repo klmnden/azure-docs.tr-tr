@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744656"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538371"
 ---
 **Giden veri aktarımları**: [Giden veri aktarımları](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
 
-**İşlem**: Standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılırsınız. Standart SSD için g/ç birim boyutu 256 KiB işlem sayısı hesap için kullanılır. Daha büyük g/ç boyutları olarak birden çok g/ç boyutu 256 sayılır KiB. Standart HDD için her bir GÇ işlemi g/ç boyutundan bağımsız olarak tek bir işlem olarak kabul edilir.
+**İşlem**: Standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılırsınız. Standart SSD için her g/ç işlemi daha az veya eşit 256 tek bir g/ç işleme aktarım hızının KiB olarak kabul edilir. Aktarım hızı 256 KiB daha büyük g/ç işlemleri birden çok g/ç boyutu 256 değerlendirilir KiB. Standart HDD için her bir GÇ işlemi g/ç boyutundan bağımsız olarak tek bir işlem olarak kabul edilir.
 
 Yönetilen işlem maliyetleri dahil diskler için fiyatlandırma hakkında ayrıntılı bilgi için bkz. [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 

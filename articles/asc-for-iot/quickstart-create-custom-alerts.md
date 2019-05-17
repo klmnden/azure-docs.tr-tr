@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192476"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786176"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Hızlı Başlangıç: Özel uyarılar oluşturabilirsiniz
 
@@ -50,13 +50,12 @@ Cihazlarınızı mantıksal kategoriler altında gruplandırmak için güvenlik 
 ## <a name="customize-an-alert"></a>Bir uyarı özelleştirme
 
 1. IOT Hub'ınızı açın. 
-2. Seçin **güvenlik**, ardından **özel uyarıları**. 
-3. Özelleştirme için uygulanmasını istediğiniz güvenlik gruplarını seçin. 
-4. Tıklayın **özel uyarı Ekle**
-5. Bir uyarı adı (Not. Uyarı adları oluşturulduktan sonra değiştirilemez) girin. 
-6. Özel bir uyarı davranışı, açılır listeden seçin. 
-7. Gerekli özellikleri Düzenle'ye tıklayın **Tamam**.
-8. Tıkladığınızdan emin olun **Kaydet**. Yeni uyarı kaydetmeden uyarı IOT hub'ı kapatın başlatıldığında silinir.
+2. Tıklayın **özel uyarıları** içinde **güvenlik** bölümü. 
+3. Özelleştirme için uygulanmasını istediğiniz bir güvenlik grubu seçin. 
+4. Tıklayın **özel uyarı Ekle** 
+5. Özel bir uyarı davranışı, açılır listeden seçin. 
+6. Gerekli özellikleri Düzenle'ye tıklayın **Tamam**.
+7. Tıkladığınızdan emin olun **Kaydet**. Yeni uyarı kaydetmeden uyarı IOT hub'ı kapatın başlatıldığında silinir.
 
  
 ## <a name="alerts-available-for-customization"></a>Uyarıları özelleştirme için kullanılabilir

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941568"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606443"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
 
@@ -382,7 +382,7 @@ Aksi takdirde, Azure Active Directory'de yeni bir kiracı oluşturun.
 
 ![Azure Active Directory listesi Kiracı](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Azure AD kiracınız için kuruluş, etki alanı ve ülke tanımlayın](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Azure AD kiracınız için kuruluş, etki alanı ve ülke/bölge tanımlayın](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Seçimi onaylayın](./media/azure-resource-manager-test-drive/subdetails6.png)
 

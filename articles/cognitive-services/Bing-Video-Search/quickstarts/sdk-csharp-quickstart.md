@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Bing Video arama için SDK'sı kullanarak video ar
 titleSuffix: Azure Cognitive Services
 description: Bing Video arama için SDK'sı kullanarak video arama istekleri göndermek için bu hızlı başlangıçta kullanmak C#.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e10d9088f6de3b7a3a638cdbe18f51425d206b7b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473289"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798175"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Hızlı Başlangıç: Bing Video arama için SDK ile video aramasıC#
 
@@ -23,10 +23,10 @@ Bing Video arama için SDK'sı ile haberler için aramaya başlamak için bu hı
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)’nin herhangi bir sürümü.
+* Herhangi bir sürümünü [Visual Studio 2017 veya üstü](https://visualstudio.microsoft.com/downloads/).
 * Kullanılabilir Json.NET framework [bir NuGet paketi olarak](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-Bing Video arama SDK'sını projenize eklemek için Gözat `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  `Microsoft.Azure.CognitiveServices.Search.VideoSearch` paketini ekleyin.
+Bing Video arama SDK'sını projenize eklemek için seçin **NuGet paketlerini Yönet** gelen **Çözüm Gezgini** Visual Studio'da. `Microsoft.Azure.CognitiveServices.Search.VideoSearch` paketini ekleyin.
 
 Yükleme [[videoyu Search SDK'sı NuGet paketi]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) de aşağıdaki bağımlılıkları yükler:
 

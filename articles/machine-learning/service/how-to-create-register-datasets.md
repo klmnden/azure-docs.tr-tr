@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510501"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800823"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Oluşturma ve Azure Machine Learning veri kümeleri (Önizleme) kaydetme
 
@@ -33,6 +33,9 @@ Oluşturma ve veri kümeleri kaydetmek için ihtiyacınız vardır:
 * Bir Azure Machine Learning hizmeti çalışma alanı. Bkz: [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
 * Azure Machine için Python SDK'sı Learning. Yüklemek veya SDK'sının en son sürüme güncelleştirmek için bkz: [yükleme veya SDK'sı güncelleştirme](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+
+> [!Note]
+> Bazı veri kümesi sınıfları (Önizleme) bağımlılıklara sahip [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paket (GA). Linux kullanıcıları için bu sınıflar üzerinde yalnızca aşağıdaki dağıtımlar desteklenir:  Red Hat Enterprise Linux, Ubuntu, Fedora ve CentOS.
 
 ## <a name="create-datasets-from-local-files"></a>Yerel veri kümeleri oluşturun
 

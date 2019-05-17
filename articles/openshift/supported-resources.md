@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 22cc195b7808ad4a9111aafcf883a68c51f3709f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/15/2019
+ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076113"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788707"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Azure Red Hat OpenShift kaynakları
 
@@ -21,17 +21,7 @@ Bu konu, Azure bölgeleri ve Microsoft Azure Red Hat OpenShift hizmeti tarafınd
 
 ## <a name="azure-regions"></a>Azure bölgeleri
 
-Aşağıdaki Azure bölgeleri dünya çapındaki Azure Red Hat OpenShift kümeleri dağıtabilirsiniz:
-
-|Bölge|CLI kod|
-|-|-|
-|🇦🇺 Avustralya Doğu|`australiaeast`|
-|🇨🇦 Kanada Orta|`canadacentral`|
-|🇨🇦 Kanada Doğu|`canadaeast`|
-|🇺🇸 Doğu ABD|`eastus`|
-|🇺🇸 Batı ABD|`westus`|
-|🇪🇺 Batı Avrupa|`westeurope`|
-|🇪🇺 Kuzey Avrupa|`northeurope`|
+Bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) geçerli bir Azure Red Hat OpenShift dağıtabileceğiniz bölgelerin listesi için kümeleri.
 
 ## <a name="virtual-machine-sizes"></a>Sanal makine boyutları
 
@@ -46,7 +36,7 @@ Azure Red Hat OpenShift kümenizde işlem düğümleri için belirtebileceğiniz
 
 Aşağıdaki işlem düğümü boyutları Azure Red Hat OpenShift REST API'si tarafından desteklenir:
 
-|Boyut|Sanal işlemci|RAM|
+|Boyutlandır|vCPU|RAM|
 |-|-|-|
 |Standart D4s v3|4|16 GB|
 |Standart D8s v3|8|32 GB|
@@ -66,7 +56,7 @@ Aşağıdaki işlem düğümü boyutları Azure Red Hat OpenShift REST API'si ta
 
 Aşağıdaki ana / alt yapı düğümü boyutları, Azure Red Hat OpenShift REST API'si tarafından desteklenir:
 
-|Boyut|Sanal işlemci|RAM|
+|Boyutlandır|vCPU|RAM|
 |-|-|-|
 |Standart D4s v3|4|16 GB|
 |Standart D8s v3|8|32 GB|

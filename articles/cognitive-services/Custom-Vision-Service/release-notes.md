@@ -9,14 +9,32 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 2b0d8b8a86c3105b1bda7fb0d72cbcb72ed82995
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60816376"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787946"
 ---
 # <a name="custom-vision-service-release-notes"></a>Özel görüntü işleme hizmeti sürüm notları
+
+## <a name="may-2-2019-and-may-10-2019"></a>2 Mayıs 2019 ve 10 Mayıs 2019
+
+- Hata düzeltmeleri ve arka uç geliştirmeleri
+
+## <a name="may-23-2019"></a>23 Mayıs 2019
+
+- Azure dizinlerinizi seçin kolaylaştıran Azure abonelikleri için geliştirilmiş portal deneyimi UX ilgili.
+
+## <a name="april-18-2019"></a>18 Nisan 2019 
+
+- İşleme yapay ZEKA Geliştirme Seti için eklenen nesne algılama dışarı aktarma.
+- Kullanıcı Arabirimi, proje arama gibi ince ayarlar.
+
+## <a name="april-3-2019"></a>3 Nisan 2019
+
+- Sınırlayıcı kutu başına 200 için görüntü sayısı sınırı artar. 
+- Hata düzeltmeleri, TensorFlow için önemli performans güncelleştirmesi modelleri için de dahil olmak üzere dışarı aktarılan. 
 
 ## <a name="march-26-2019"></a>26 Mart 2019
 

@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dd61ae9298a03ce0cbb9e9a5b143229c15ea9bb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61222241"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786386"
 ---
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web Apps için uygulama performansı ile ilgili SSS
+
 > [!NOTE]
 > Bazı yönergeleri yalnızca Windows veya Linux uygulama hizmetleri üzerinde çalışabilir. Örneğin, Linux uygulama Hizmetleri çalıştıran 64 bit modunda varsayılan olarak.
 >
-
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web Apps için uygulama performansı ile ilgili SSS
 
 Bu makalede, uygulama performans sorunları hakkında sık sorulan sorular (SSS) yanıtlarını bulunur. [Azure App Service'in Web Apps özelliği](https://azure.microsoft.com/services/app-service/web/).
 

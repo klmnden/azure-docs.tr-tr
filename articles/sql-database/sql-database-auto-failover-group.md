@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415925"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522848"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
@@ -42,7 +42,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Yük devretme grubu (SİS)**
 
-  Bir yük devretme grubu, tek bir SQL veritabanı sunucusu ya da tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, başka bir bölgede bir birim olarak yük devredebilir tek bir yönetilen örnek içinde yönetilen bir veritabanı için kullanılan bir gruptur. Yönetilen örnek için rdoc, tüm kullanıcı veritabanlarına örneğinde bir yük devretme grubu içerir ve bu nedenle bir örneği üzerinde yalnızca bir yük devretme grupları yapılandırılabilir.
+  Bir yük devretme grubu, tek bir SQL veritabanı sunucusu ya da tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, başka bir bölgede bir birim olarak yük devredebilir tek bir yönetilen örnek içinde yönetilen bir veritabanı için kullanılan bir gruptur. Oluşturulan yönetilen örnekler için bir yük devretme grubu örneğindeki tüm kullanıcı veritabanlarını içerir ve bu nedenle bir örneği üzerinde yalnızca bir yük devretme grubu yapılandırılabilir.
 
 - **SQL veritabanı sunucuları**
 

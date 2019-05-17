@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467505"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787521"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Parametreli URL'yi kullanarak özel görünümü paylaşma
 
@@ -86,11 +86,11 @@ Değerler, Time Series Insights Gezgini karşılık gelen kabul **hızlı süres
 | `multiChartStack=false` | `true` Varsayılan olarak etkin şekilde geçirin `false` yığın için. |
 | `multiChartStack=false&multiChartSameScale=true` | Terimler arasında aynı Y ekseni ölçeğini kullanmak için yığın oluşturmanın etkinleştirilmesi gerekir.  Sahip `false` varsayılan olarak, bu nedenle 'true' geçirerek bu işlevi etkinleştirir. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Birimler = gün, saat, dakika, saniye, milisaniye.  Her zaman birimin ilk harfini büyük yapın. </br> timeBucketSize için istediğiniz tamsayıyı geçererek birim sayısını tanımlayın.  En fazla 7 güne kadar düzleştirebilirsiniz.  |
-| `timezoneOffset=-<integer>` | Bu tamsayı her zaman milisaniye cinsindendir. </br> Bu işlevsellik, TSI gezgininde etkinleştirdiğimiz ve yerel (tarayıcı saati) ya da UTC saat dilimini seçmenize olanak tanıdığımız işlevden biraz farklıdır. |
+| `timezoneOffset=-<integer>` | Bu tamsayı her zaman milisaniye cinsindendir. </br> Bu işlevsellik, ne biz yerel (tarayıcı saati) ya da UTC seçmenizi etkinleştiririz burada Time Series Insights Gezgininde etkinleştirdiğimiz değerinden biraz farklıdır. |
 
 ### <a name="examples"></a>Örnekler
 
-TSI bir ortama bir URL parametresi olarak zaman serisi tanımları eklemek için aşağıdakileri ekleyin:
+Bir zaman serisi görüşleri ortamına bir URL parametresi olarak zaman serisi tanımları eklemek için aşağıdakileri ekleyin:
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > Canlı gezginini görebilirsiniz [URL'yi kullanarak](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-Yukarıdaki URL'yi açıklar ve TSI Gezgini görünümü oluşturur:
+Yukarıdaki URL'yi açıklar ve Time Series Insights Gezgini görünümü oluşturur:
 
 [![Zaman serisi görüşleri Gezgini dönemler](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

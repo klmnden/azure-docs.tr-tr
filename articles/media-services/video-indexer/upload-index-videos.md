@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719650"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799202"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
@@ -61,7 +62,7 @@ Müşterinin (bir POST isteği kullanılarak) aşağıdaki olaylar hakkında bil
     
         |Ad|Açıklama|
         |---|---|
-        |id|Video kimliği|
+        |kimlik|Video kimliği|
         |durum|Video durumu|  
     - Örnek: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Videoda tanımlanan kişi:
@@ -69,7 +70,7 @@ Müşterinin (bir POST isteği kullanılarak) aşağıdaki olaylar hakkında bil
     
       |Ad|Açıklama|
       |---|---|
-      |id| Video kimliği|
+      |kimlik| Video kimliği|
       |Faceıd|Video dizinde görünür face ID|
       |knownPersonId|Yüz tanıma model içinde benzersiz olan kişinin kimliği|
       |PersonName|Kişinin adı|

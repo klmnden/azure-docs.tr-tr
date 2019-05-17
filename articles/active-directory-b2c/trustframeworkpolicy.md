@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684139"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812942"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -43,7 +43,7 @@ ms.locfileid: "64684139"
 | PolicySchemaVersion | Evet | İlke yürütmek için kullanılacak olan şema sürümü. Değer olmalıdır `0.3.0.0` |
 | TenantObjectId | Hayır | Azure Active Directory (Azure AD) B2C kiracısının benzersiz nesne tanımlayıcısı. |
 | TenantId | Evet | Bu ilkenin ait olduğu kiracının benzersiz tanımlayıcısı. |
-| PolicyId | Evet | İlke için benzersiz tanımlayıcı. Bu tanımlayıcı getirilmeli *B2C_1A_* |
+| `PolicyId` | Evet | İlke için benzersiz tanımlayıcı. Bu tanımlayıcı getirilmeli *B2C_1A_* |
 | PublicPolicyUri | Evet | Kiracı kimliği ve ilke kimliğinin birleşimi İlkesi URI'si |
 | DeploymentMode | Hayır | Olası değerler: `Production`, `Debugging`, veya `Development`. `Production` varsayılan değerdir. İlkenizi hata ayıklamak için bu özelliği kullanın. Daha fazla bilgi için [günlüklerini toplama](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Hayır | Uç noktası yüklendiğinde **DeploymentMode** ayarlanır `Development`. Değer olmalıdır `urn:journeyrecorder:applicationinsights`. Daha fazla bilgi için [günlüklerini toplama](active-directory-b2c-troubleshoot-custom.md). |
@@ -91,7 +91,7 @@ Bir ilke başka bir ilkeden devralmak için bir **BasePolicy** öğesi bildirilm
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C kiracınızı tanımlayıcısı. |
-| PolicyId | 1:1 | Üst ilke tanımlayıcısı. |
+| `PolicyId` | 1:1 | Üst ilke tanımlayıcısı. |
 
 
 Aşağıdaki örnek, temel bir ilke belirtmek gösterilmektedir. Bu **B2C_1A_TrustFrameworkExtensions** İlkesi türetilen **B2C_1A_TrustFrameworkBase** ilkesi. 
@@ -116,7 +116,7 @@ Aşağıdaki örnek, temel bir ilke belirtmek gösterilmektedir. Bu **B2C_1A_Tru
 
 ## <a name="policy-execution"></a>Yürütme İlkesi
 
-Bir web, mobil veya masaüstü uygulaması gibi bir bağlı taraf uygulaması çağırır [bağlı olan taraf (RP) İlkesi](relyingparty.md). RP ilke dosyasını açarken, parola sıfırlama veya bir profil düzenleme gibi belirli bir görevi yürütür. RP ilke bağlı taraf uygulaması alan talepler listesinin verilen belirtecinin bir parçası yapılandırır. Birden çok uygulama aynı ilkesini kullanabilirsiniz. Tüm uygulamaları talepleri ile aynı belirteci alan ve aynı kullanıcı gezintisinde kullanıcı geçer. Tek bir uygulama birden çok ilke kullanabilirsiniz.
+Bir web, mobil veya masaüstü uygulaması gibi bir bağlı taraf uygulaması çağırır [bağlı olan taraf (RP) İlkesi](relyingparty.md). RP ilke dosyasını açarken, parola sıfırlama veya bir profil düzenleme gibi belirli bir görevi yürütür. RP ilke bağlı taraf uygulaması alan talepler listesinin verilen belirtecinin bir parçası yapılandırır. Birden çok uygulama aynı ilkesini kullanabilirsiniz. Tüm uygulamaları talepleri ile aynı belirteci alan ve kullanıcı aynı kullanıcı gezintisinde geçer. Tek bir uygulama birden çok ilke kullanabilirsiniz.
 
 RP ilke dosyası içinde belirttiğiniz **DefaultUserJourney** işaret öğesi [UserJourney](userjourneys.md). Kullanıcı yolculuğu genellikle temel veya uzantıları ilkesinde tanımlanır.
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase veya B2C_1A_TrustFrameworkExtensionPolicy:
 
 Kullanıcı yolculuğu bir kullanıcı geçer, iş mantığı tanımlar. Her kullanıcı yolculuğu kimlik doğrulaması ve bilgi toplama açısından dizisindeki bir eylemler dizisi gerçekleştirir düzenleme adımlarının kümesidir. 
 
-**SocialAndLocalAccounts** ilke dosyasında [başlangıç paketi](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) SignUpOrSignIn, ProfileEdit, PasswordReset kullanıcı yolculuklarından içerir. Bir e-posta adresini değiştirmek gibi başka bir senaryo için daha fazla kullanıcı yolculuklarından bağlamak ve bir sosyal hesap veya parola sıfırlama bağlantısını ekleyebilirsiniz. 
+**SocialAndLocalAccounts** ilke dosyasında [başlangıç paketi](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) SignUpOrSignIn, ProfileEdit, PasswordReset kullanıcı yolculuklarından içerir. Bir e-posta adresini değiştirmek veya bağlama ve bir sosyal hesap kapatılmaz gibi diğer senaryolar için daha fazla kullanıcı yolculuklarından ekleyebilirsiniz. 
 
 Düzenleme adımlarının çağırabilir bir [teknik profil](technicalprofiles.md). Teknik profili, farklı türlerde taraflar ile iletişim kurmak için yerleşik bir mekanizma ile bir çerçeve sunar. Örneğin, bir teknik profili, diğerlerinin yanı sıra bu eylemleri gerçekleştirebilirsiniz:
 
@@ -157,4 +157,3 @@ Düzenleme adımlarının çağırabilir bir [teknik profil](technicalprofiles.m
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

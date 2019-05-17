@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025890"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785767"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Özel konuşma için verileri hazırlama
 
@@ -56,7 +56,7 @@ Ses verisi, Microsoft'un temel konuşma metin model veya özel bir model doğrul
 |----------|-------|
 | Dosya biçimi | RIFF (WAV) |
 | Örnek hızı | 8000 Hz veya 16.000 Hz |
-| Kanallar | 1 (mono) |
+| Kanal Sayısı | 1 (mono) |
 | Ses başına en fazla uzunluk | 2 saat |
 | Örnek Biçim | PCM, 16-bit |
 | Arşiv biçimi | .zip |
@@ -77,7 +77,7 @@ Ses dosyaları işlenirken Microsoft'un Konuşmayı metne doğruluğu doğruluğ
 |----------|-------|
 | Dosya biçimi | RIFF (WAV) |
 | Örnek hızı | 8000 Hz veya 16.000 Hz |
-| Kanallar | 1 (mono) |
+| Kanal Sayısı | 1 (mono) |
 | Ses başına en fazla uzunluk | 60 s |
 | Örnek Biçim | PCM, 16-bit |
 | Arşiv biçimi | .zip |
@@ -142,15 +142,15 @@ Bu konuşmada geçen bir utterance ve özel telaffuz örnekleri her biri için i
 |--------------|--------------------------|
 | üç c p o | 3CPO |  
 | c n t k | CNTK |
-| i Üçlü e | IEE |
+| i Üçlü e | IEEE |
 
 İl fonetik sıra konuşulan biçimidir. Harf, sözcük, hece veya bir birleşiminde oluşabilir.
 
 Özelleştirilmiş telaffuz Almanca (de-DE) ve İngilizce (en-US) ile kullanılabilir. Bu tabloda dili tarafından desteklenen karakter gösterilmektedir:
 
-| Dil | Yerel Ayar | Karakterler |
+| Dil | Yerel ayar | Karakterler |
 |----------|--------|------------|
-| Türkçe | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| İngilizce | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Almanca  | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 İlgili verileri dosyanız Söyleniş doğru biçimlendirildiğinden emin olmak için bu tabloyu kullanın. Söyleniş dosyaları, küçük ve birkaç KB'leri aşmamalıdır.

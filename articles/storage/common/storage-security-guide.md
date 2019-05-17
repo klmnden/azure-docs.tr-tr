@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154389"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789954"
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
 Azure depolama, kapsamlı birlikte güvenli uygulamalar oluşturmalarını sağlayan güvenlik özellikleri sağlar:
 
-- Azure Depolama'ya yazılan tüm veriler, kullanılarak otomatik olarak şifrelenir [depolama hizmeti şifrelemesi (SSE)](storage-service-encryption.md). Daha fazla bilgi için [Azure Blobları, dosyalar, tablo ve kuyruk depolama için varsayılan şifreleme Duyurusu](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Azure Depolama'ya yazılan tüm veriler (meta veriler dahil), kullanılarak otomatik olarak şifrelenir [depolama hizmeti şifrelemesi (SSE)](storage-service-encryption.md). Daha fazla bilgi için [Azure Blobları, dosyalar, tablo ve kuyruk depolama için varsayılan şifreleme Duyurusu](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) ve rol tabanlı Access Control (RBAC) desteklenen Azure depolama için kaynak yönetimi işlemleri ve veri işlemleri için şu şekilde:   
     - Güvenlik ilkeleri ve Azure AD kullanım anahtar yönetimi gibi yönetim işlemlerini kaynak yetkilendirmek için depolama hesabına kapsamına RBAC rolleri atayabilirsiniz.
     - Azure AD tümleştirmesi, blob ve kuyruk veri işlemleri için desteklenir. Bir abonelik, kaynak grubu, depolama hesabı veya bir tek kapsayıcı veya bir güvenlik sorumlusu veya Azure kaynakları için yönetilen bir kimlik kuyruğuna kapsamına RBAC rolleri atayabilirsiniz. Daha fazla bilgi için [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](storage-auth-aad.md).   
@@ -238,10 +238,9 @@ Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini örnekleri ile
     Bu makalede, BLOB, kuyruk iletileri, tablo aralıkları ve dosyaları ile hizmet düzeyi SAS kullanarak örnekler sağlar.
   * [Hizmet SAS oluşturma](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Bir hesap SAS oluşturma](https://msdn.microsoft.com/library/mt584140.aspx)
-* Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini oluşturmak için .NET istemci kitaplığını kullanma öğreticileri şunlardır.
 
+* Bu paylaşılan erişim imzalarını ve depolanan erişim ilkelerini oluşturmak için .NET istemci kitaplığını kullanmaya yönelik bir öğreticidir.
   * [Paylaşılan erişim imzaları (SAS) kullanma](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Paylaşılan erişim imzaları, bölüm 2: Oluşturma ve Blob hizmetiyle SAS kullanma](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Bu makale, SAS Modeli'ni veya paylaşılan erişim imzaları örnekleri bir açıklama içerir ve SAS'ın en iyi yöntem önerileri kullanın. De ele izni iptal olur.
 

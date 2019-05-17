@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061585"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606379"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon'dan alınan çekirdek raporlar
 
@@ -119,7 +119,7 @@ Raporu aşağıdaki bilgileri sağlar:
 
 Rapor içermez:
 
-* Filtreleme seçeneklerini ülke nedeniyle reddedildi istekler.
+* Ülke/filtreleme seçeneklerini bölge nedeniyle reddedildi istekler.
 * Bunlar değil konumlandırılmalıdır başlıklarını belirtmek varlıklar için istekler. Örneğin, `Cache-Control: private`, `Cache-Control: no-cache`, veya `Pragma: no-cache` üstbilgileri bir varlık önbelleğe alınmasını engellemek.
 * Kısmen önbelleğe alınmış içeriği için bayt aralığı isteklerini.
 

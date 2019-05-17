@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: b3d53b7d5fceb303259823198731b5198cfce82c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: fcd6fc95adc892885fd8471e622ce3b04258d8b5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508246"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800549"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Öğretici: Azure veri kutusu Blob Depolama REST API'leri aracılığıyla veri kopyalama  
 
@@ -152,6 +152,7 @@ Veri kutusu Blob depolama alanına bağlandıktan sonra sonraki adıma veri kopy
 - Data Box tarafından karşıya yüklenen, veri, Data Box dışında başka uygulamalar tarafından eşzamanlı olarak yüklenirse, bu durum karşıya yükleme işi hataları ve veri bozulmasına neden olabilir.
 
 Bu öğreticide, veri kutusu Blob depolama alanına veri kopyalamak için AzCopy kullanılır. Verileri kopyalamak için Azure Depolama Gezgini (GUI tabanlı bir araç tercih ederseniz) veya bir iş ortağı yazılım kullanabilirsiniz.
+
 Kopyalama yordam aşağıdaki adımı vardır:
 
 - Bir kapsayıcı oluşturma
@@ -215,6 +216,8 @@ Yalnızca hedefte bulunmayan çıkış kaynaklarını kopyalamak istiyorsanız, 
 #### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+
+Connect ya da kopyalama işlemi sırasında herhangi bir hata varsa, bkz. [veri kutusu Blob Depolama ile sorun giderme](data-box-troubleshoot-rest.md).
 
 Sonraki adım, cihazı göndermeye hazırlayın sağlamaktır.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 66b3e68ff2199c6a8bf4da9e02caaf93ee69342b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414585"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812826"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure portalında Azure Active Directory B2B işbirliği kullanıcıları ekleme
 
@@ -27,11 +27,15 @@ Dizinine Konuk kullanıcı ekledikten sonra ya da Konuk kullanıcı doğrudan ba
 > [!IMPORTANT]
 > Adımları izlemelidir [nasıl yapılır: Azure Active Directory'de, kuruluşunuzun gizlilik bilgisi eklemek](https://aka.ms/adprivacystatement) kuruluşunuzun gizlilik bildirimi URL'si eklemek için. İlk zaman davet alma işleminin bir parçası olarak, devam etmek için gizlilik koşullarını bir davet edilen kullanıcının onaylaması gerekir. 
 
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Konuklar davet izin verilmez, kuruluşunuzun dış işbirliği ayarlarını yapılandırıldığından emin olun. Varsayılan olarak, tüm kullanıcıların ve yöneticilerin Konuk davet edebilirsiniz. Ancak, kuruluşunuzun dış işbirliği ilkeleri belirli kullanıcılar veya konuklar davet eden yöneticilerinden türlerini engellemek için yapılandırılabilir. Görüntüleme ve bu ilkeler ayarlama konusunda bilgi edinmek için bkz: [dış B2B işbirliği etkinleştirip Konukları davet edebileceği yönetme](delegate-invitations.md).
+
 ## <a name="add-guest-users-to-the-directory"></a>Konuk kullanıcıları dizine ekleme
 
 B2B işbirliği kullanıcıları dizine eklemek için aşağıdaki adımları izleyin:
 
-1. Oturum [Azure portalında](https://portal.azure.com) herhangi birini sınırlı yönetici olan bir kullanıcı dizin rolleri atanmış olarak.
+1. Oturum [Azure portalında](https://portal.azure.com) sınırlı yönetici dizin rolü veya konuk davet eden rolü atanan bir kullanıcı olarak.
 2. Gezinti bölmesinde seçin **Azure Active Directory**.
 3. **Yönet** bölümünde **Kullanıcılar**’ı seçin.
 4. **Yeni konuk kullanıcı**’yı seçin.
@@ -56,7 +60,7 @@ Daveti göndermenizin ardından kullanıcı hesabı otomatik olarak dizine konuk
 ![B2B kullanıcı Konuk kullanıcı türü ile gösterir](./media/add-users-administrator/GuestUserType.png)  
 
 ## <a name="add-guest-users-to-a-group"></a>Konuk kullanıcıları gruba ekleyin.
-B2B işbirliği kullanıcıları el ile bir grup Azure AD Yöneticisi olarak eklemek gerekiyorsa, aşağıdaki adımları izleyin:
+B2B işbirliği kullanıcıları gruba el ile eklemeniz gerekiyorsa, aşağıdaki adımları izleyin:
 
 1. [Azure portalda](https://portal.azure.com) Azure AD yöneticisi olarak oturum açın.
 2. Gezinti bölmesinde seçin **Azure Active Directory**.
@@ -73,7 +77,7 @@ Bu gibi durumlarda, dinamik gruplar da Azure AD B2B işbirliği ile kullanabilir
 
 ## <a name="add-guest-users-to-an-application"></a>Konuk kullanıcılar için uygulama ekleme
 
-B2B işbirliği kullanıcıları Azure AD yönetici olarak bir uygulama eklemek için aşağıdaki adımları izleyin:
+B2B işbirliği kullanıcıları için bir uygulama eklemek için aşağıdaki adımları izleyin:
 
 1. [Azure portalda](https://portal.azure.com) Azure AD yöneticisi olarak oturum açın.
 2. Gezinti bölmesinde seçin **Azure Active Directory**.

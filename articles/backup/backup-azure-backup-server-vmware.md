@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650156"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789614"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup sunucusu ile VMware sanal makinelerini yedekleme
 
@@ -39,7 +39,7 @@ Varsayılan olarak, Azure Backup sunucusu VMware sunucularıyla HTTPS üzerinden
 
 ### <a name="before-you-start"></a>Başlamadan önce
 
-- HTTPS kullanmak istemiyorsanız yapabilecekleriniz [varsayılan ayarı devre dışı](backup-azure-backup-server-vmware.md).
+- HTTPS kullanmak istemiyorsanız yapabilecekleriniz [tüm VMware sunucuları için HTTPS sertifikası doğrulamasını devre dışı bırakmak](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Genellikle Azure Backup sunucusu makinesindeki bir tarayıcıdan vSphere Web istemcisi kullanarak vCenter/ESXi sunucusuna bağlanırsınız. Bağlantı bunu ilk kez güvenli değildir ve şunu verecektir.
 - Azure Backup sunucusu yedekleme nasıl işlediğini anlamanız önemlidir.
     - İlk adım olarak, Azure Backup sunucusu yerel disk depolama alanına verileri yedekler. Azure Backup sunucusu, bir depolama havuzu, diskler ve birimlerle Azure Backup sunucusu, korunan verilerin kurtarma noktalarını disk depoladığı kümesi kullanır. Depolama havuzu, doğrudan bağlı depolama (DAS), bir fiber kanal SAN veya iSCSI depolama cihazı veya SAN olabilir. Yerel arka için yeterli depolama alanı VMware VM verilerinizi sağlamak önemlidir.
@@ -101,7 +101,7 @@ Güvenli bir kanalı aşağıdaki gibi ayarlayın:
 
 
 
-### <a name="disable-default-https"></a>Varsayılan HTTPS devre dışı bırak
+### <a name="disable-https-certificate-validation"></a>HTTPS sertifika doğrulaması devre dışı bırak
 
 Kuruluşunuzun içinde güvenli sınırları olan ve VMware sunucularını ve Azure Backup sunucusu makine arasında HTTPS protokolünü kullanmak istemiyorsanız, aşağıdaki gibi HTTPS'yi devre dışı: u
 1. Kopyalayıp bir .txt dosyasına aşağıdaki metni yapıştırın.
@@ -290,7 +290,7 @@ VMware Vm'leri için yedekleme ekleyin. Koruma grupları, birden çok VM toplay�
 1. İçinde **grup üyelerini seçin** > Vm'leri seçin (veya VM klasörler), yedeklemek istediğiniz. Ardından **İleri**'ye tıklayın.
 
     - Ne zaman bir klasör seçin veya sanal makineleri veya klasör bu klasörün içinde yedekleme için seçilir. Klasörleri veya yedekleme istemediğiniz Vm'leri işaretini kaldırabilirsiniz.
-1. Bir VM veya klasör zaten yedeklenen, seçemezsiniz. Bu garanti yinelenen kurtarma noktaları bir VM'nin oluşturulmayacak. .
+1. Bir VM veya klasör zaten yedeklenen, seçemezsiniz. Bu garanti yinelenen kurtarma noktaları bir VM'nin oluşturulmayacak. :
 
      ![Grup üyelerini seçin](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 

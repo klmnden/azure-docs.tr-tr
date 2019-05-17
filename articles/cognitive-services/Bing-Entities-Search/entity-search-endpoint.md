@@ -3,19 +3,19 @@ title: Bing varlık arama API'si uç noktası
 titlesuffix: Azure Cognitive Services
 description: Bing varlık arama API'si uç noktası hakkında bilgi edinin ve istekleri göndermek.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: 3c2aa4b22c8e679f73692978d9e1f8009f11a46b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: aahi
+ms.openlocfilehash: b29e568d6b3b1382b5be434500014f10740b58f8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875238"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788556"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Bing varlık arama API'si uç noktası
 

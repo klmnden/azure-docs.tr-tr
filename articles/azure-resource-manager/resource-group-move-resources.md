@@ -1,23 +1,17 @@
 ---
 title: Azure kaynakları için yeni abonelik veya kaynak grubu taşıma | Microsoft Docs
 description: Kaynakları yeni kaynak grubuna veya aboneliğe taşıma için Azure Resource Manager'ı kullanın.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698483"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792693"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -25,7 +19,7 @@ Bu makalede, başka bir Azure aboneliğine veya başka bir kaynak grubuna aynı 
 
 Kaynak grubu hem de hedef grubu taşıma işlemi sırasında kilitlenir. Yazma ve silme işlemleri taşıma işlemi tamamlanana kadar kaynak gruplarında engellenir. Bu kilit ekleyemez, güncelleştirme veya kaynak gruplarındaki kaynakları silin, ancak kaynakları dondurulmuş gelmez anlamına gelir. Örneğin, bir SQL Server ve veritabanı yeni bir kaynak grubuna taşırsanız, veritabanı kullanan bir uygulama kapalı kalma süresi olmadan karşılaşır. Bunu hala okuyabilir ve veritabanına yazma.
 
-Bir kaynağı taşıdığınızda yalnızca onu yeni bir kaynak grubuna taşımış olursunuz. Taşıma işlemi, kaynağın konumunu değiştirmez. Yeni kaynak grubu farklı bir konuma sahip olabilir, ancak, kaynak konumunu değiştirmez.
+Bir kaynak taşıma yalnızca bu yeni bir kaynak grubuna taşınır. Taşıma işlemi, kaynağın konumunu değiştirmez. Yeni kaynak grubu farklı bir konuma sahip olabilir, ancak, kaynak konumunu değiştirmez.
 
 > [!NOTE]
 > Bu makalede, kaynakları var olan Azure abonelikler arasında taşıma açıklar. Gerçekte Azure aboneliğiniz (örneğin, boş, Kullandıkça Öde aboneliğine geçiş) yükseltmek istiyorsanız, aboneliğinizin dönüştürmeniz gerekir.
@@ -74,7 +68,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * CDN
 * Bulut Hizmetleri - bkz [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Bilişsel Hizmetler
-* Container Kayıt Defteri
+* Container Registry
 * Content Moderator
 * Maliyet Yönetimi
 * Customer Insights
@@ -95,7 +89,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
 * Yönetilen diskler - yönetilen diskler kullanılabilirlik alanlarında, farklı bir aboneliğe taşınamaz
 * Yönetilen kimlik - kullanıcı tarafından atanan
-* Media Services
+* Medya Hizmetleri
 * İzleyici - değil emin olmak için yeni abonelik taşıma yapma aşan [abonelik kotaları](../azure-subscription-service-limits.md#monitor-limits)
 * Notification Hubs
 * Operasyonel İçgörüler
@@ -104,7 +98,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - temel SKU ortak IP'sine taşınabilir. Standart SKU ortak IP'sine taşınamaz.
 * Kurtarma Hizmetleri kasası - kaydolun bir [Önizleme](#recovery-services-limitations).
-* Azure’da SAP HANA
+* Azure'da SAP HANA
 * Scheduler
 * Arama - tek bir işlemde farklı bölgelerdeki birden çok arama kaynaklar taşınamıyor. Bunun yerine, bunları ayrı işlemlerde taşıyın.
 * Service Bus
@@ -113,6 +107,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * SignalR Service
 * Depolama - depolama hesapları farklı bölgelerde, aynı işlem içinde taşınamaz. Bunun yerine, her bölge için ayrı işlem kullanın.
 * Depolama alanı (Klasik) - [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
+* Depolama Eşitleme Hizmeti
 * Stream Analytics - Stream Analytics işleri çalıştırırken buna taşınamaz durumu.
 * SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda olmalıdır. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu davranış, Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için geçerlidir.
 * Time Series Insights
@@ -138,7 +133,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Azure NetApp Files
 * Sertifikalar - App Service sertifikaları taşınabilir, ancak karşıya yüklenen Sertifikalar [sınırlamaları](#app-service-limitations).
 * Klasik uygulamaları
-* Container Instances
+* Kapsayıcı Örnekleri
 * Kapsayıcı Hizmeti
 * Data Box
 * Geliştirme alanları

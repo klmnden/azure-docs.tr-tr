@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 963769315302ba4e7d1600253b617c7cb0f02bc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736946"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794254"
 ---
 # <a name="what-is-qna-maker"></a>Soru-Cevap Oluşturma nedir?
 
@@ -57,7 +57,7 @@ Soru-Cevap Oluşturma, verileriniz için iki temel hizmet sunar:
 
 Soru-Cevap Oluşturma mimarisi aşağıdaki iki bileşenden oluşur:
 
-1. **Soru-cevap Oluşturucu Yönetim Hizmetleri**: Soru-cevap Oluşturucu güncelleştiriliyor, eğitim ve yayımlama ilk oluşturma içeren Bilgi Bankası için yönetim deneyimini yaşayın. Bu etkinlikler [portal](https://qnamaker.ai) veya [yönetim API'leri](https://aka.ms/qnamaker-v4-apis) üzerinden gerçekleştirilebilir. 
+1. **Soru-cevap Oluşturucu Yönetim Hizmetleri**: Soru-cevap Oluşturucu güncelleştiriliyor, eğitim ve yayımlama ilk oluşturma içeren Bilgi Bankası için yönetim deneyimini yaşayın. Bu etkinlikler [portal](https://qnamaker.ai) veya [yönetim API'leri](https://go.microsoft.com/fwlink/?linkid=2092179) üzerinden gerçekleştirilebilir. 
 
 2. **Soru-cevap Oluşturucu veri ve çalışma zamanı**: Bu, Azure aboneliğinizdeki, belirtilen bölgede dağıtılır. KB içeriğiniz [Azure Search](https://azure.microsoft.com/services/search/) içinde depolanır ve uç nokta bir [App service](https://azure.microsoft.com/services/app-service/) olarak dağıtılır. Analiz için [Application Insights](https://azure.microsoft.com/services/application-insights/) kaynağı olarak dağıtmayı da seçebilirsiniz.
 

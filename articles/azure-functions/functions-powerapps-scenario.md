@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026008"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786134"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps’ten bir işlev çağırma
 [PowerApps](https://powerapps.microsoft.com) platform, geleneksel uygulama kodu olmadan uygulamalar oluşturmak, iş uzmanları için tasarlanmıştır. Profesyonel Geliştiriciler, Azure işlevleri, PowerApps uygulama derleyicileri from teknik ayrıntıları koruma sırasında PowerApps, yeteneklerini genişletmek için kullanabilirsiniz.
@@ -39,8 +39,7 @@ Bu konu başlığında, şunların nasıl yapılır:
 > * İşlev çağrısı ve verileri görüntülemek için denetimler ekleme.
 > * Bir onarım uygun maliyetli olup olmadığını belirlemek için uygulamayı çalıştırın.
 
-> [!IMPORTANT]
-> Openapı özelliği şu anda Önizleme aşamasındadır ve yalnızca sürüm için kullanılabilir Azure işlevleri çalışma zamanının 1.x.
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -101,13 +100,13 @@ Artık Powerapps'te uygulama oluşturma ve uygulama için veri kaynağı olarak 
 
     1. Üzerinde **veri** panelinde, tıklayın **uygulamanıza statik veriler ekleyin**.
 
-        ![Veri kaynağı ekleme](media/functions-powerapps-scenario/add-static-data.png)
+        ![Veri kaynağı ekle](media/functions-powerapps-scenario/add-static-data.png)
 
         Normalde okuma ve bir dış kaynaktan veri yazma, ancak bu bir örnek olduğundan statik verileri olarak Excel verilerini ekliyoruz.
 
     1. Kaydettiğiniz Excel dosyasına gidin, seçin **Turbines** tablosuna sağ tıklayıp tıklayın **Connect**.
 
-        ![Veri kaynağı ekleme](media/functions-powerapps-scenario/choose-table.png)
+        ![Veri kaynağı ekle](media/functions-powerapps-scenario/choose-table.png)
 
 
 1. Özel API'yi bir veri kaynağı olarak ekleyin.
@@ -137,7 +136,7 @@ Mevcut veri kaynakları, türbinin verileri görüntülemek için uygulamanıza 
 
 1. İçinde **veri** paneli, select **Turbines** listeden.
 
-    ![Veri kaynağı seçme](media/functions-powerapps-scenario/select-data-source.png)
+    ![Veri kaynağı seç](media/functions-powerapps-scenario/select-data-source.png)
 
     Veri kümesi bu nedenle sonraki verileri daha iyi uyum sağlamak için düzeni değiştirin bir görüntü içermiyor. 
 
@@ -210,7 +209,7 @@ Oluşturduğunuz işlevini çağırır ve döndürülen verileri görüntüleyen
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 Sahip olduğunuz bütün bir uygulama! Artık çalıştırın ve eylem işlev çağrıları görmek için zamanı geldi.
 
-1. PowerApps Studio sağ alt köşesinde, çalıştırma düğmesine tıklayın: ![Uygulama Çalıştırma düğmesine](media/functions-powerapps-scenario/f5-arrow-sm.png).
+1. PowerApps Studio sağ alt köşesinde, çalıştırma düğmesine tıklayın: ![Uygulama Çalıştırma düğmesine](media/functions-powerapps-scenario/f5-arrow-sm.png):
 
 1. Değerini Türbin seçin `Yes` için **ServiceRequired**, ardından **maliyetleri hesaplamak** düğmesi. Aşağıdaki görüntü gibi bir sonuç görmeniz gerekir.
 

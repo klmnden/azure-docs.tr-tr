@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506676"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786470"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Destek ilkeleri için Azure Kubernetes hizmeti
 
@@ -146,7 +146,7 @@ Microsoft, özellikler ve genişletilmiş test edilmesini gerektirir işlevselli
 
 Bu özellikler Önizleme aşamasındadır değil üretim için geliyordu ve yalnızca çalışma saatleri sırasında AKS teknik destek ekipleri tarafından desteklenen genel önizlemeye sunuldu 'en yüksek çaba' destek kapsamında fall özellikleridir. Lütfen ek bilgi için bkz:
 
-* [Azure desteği SSS](https://azure.microsoft.com/en-us/support/faq/)
+* [Azure desteği SSS](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Önizleme özellikleri Azure göre etkili *abonelik* düzeyi. Önizleme özellikleri, bir üretim abonelikte yüklemeyin. Bir üretim abonelikte Önizleme özellikleri varsayılan API davranışı değiştirmek ve düzenli işlemleri etkiler.

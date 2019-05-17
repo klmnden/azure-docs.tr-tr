@@ -3,8 +3,8 @@ title: Azure AD'de Openıd Connect kimlik doğrulaması kod akışını anlayın
 description: Bu makalede, web uygulamalarına ve Azure Active Directory ve Openıd Connect kullanarak kiracınızda web API'lerine erişim yetkisi vermek için HTTP iletilerini kullanmayı açıklar.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/4/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d3faf5cea24e33f1e6560abc2d039c1059c91
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251647"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784975"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Openıd Connect ile Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 
@@ -92,10 +92,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| kiracı |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| tenant |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
 | client_id |gerekli |Azure AD ile kaydettiğinizde, uygulamanıza atanan uygulama kimliği. Bunu Azure portalında bulabilirsiniz. Tıklayın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamayı seçin ve uygulama sayfasında uygulama Kimliğini bulun. |
 | response_type |gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Diğer response_types gibi de dahil `code` veya `token`. |
-| scope | Önerilen | Openıd Connect belirtimi kapsamı gerektirir `openid`, onay için UI "oturumunuzu açma" izni çevirir. Bu ve diğer OIDC kapsamları v1.0 uç noktada göz ardı edilir, ancak yine de standartlarıyla uyumlu istemciler için en iyi uygulama. |
+| kapsam | Önerilen | Openıd Connect belirtimi kapsamı gerektirir `openid`, onay için UI "oturumunuzu açma" izni çevirir. Bu ve diğer OIDC kapsamları v1.0 uç noktada göz ardı edilir, ancak yine de standartlarıyla uyumlu istemciler için en iyi uygulama. |
 | nonce |gerekli |Ortaya çıkan dahil olan ve uygulama tarafından oluşturulan isteğinde bulunan bir değer `id_token` talep olarak. Uygulama, belirteç yeniden yürütme saldırıları azaltmak için bu değer daha sonra doğrulayabilirsiniz. Genellikle bir rastgele, benzersiz bir dize veya isteğinin kaynağı tanımlamak için kullanılan GUID değeridir. |
 | redirect_uri | Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. Eksikse, kullanıcı aracısı geri bir URI'leri rastgele bir uygulama için kayıtlı yeniden yönlendirme gönderilir. En fazla uzunluk 255 bayttır |
 | response_mode |isteğe bağlı |Sonuçta elde edilen authorization_code uygulamanıza geri göndermek için kullanılması gereken yöntemini belirtir. Desteklenen değerler şunlardır: `form_post` için *HTTP form post* ve `fragment` için *URL parçası belirtmesini*. Web uygulamaları için kullanılması önerilir `response_mode=form_post` belirteçleri, uygulamanızın en güvenli aktarımı emin olmak için. Bir id_token dahil olmak üzere herhangi bir akış için varsayılan değer `fragment`.|
@@ -107,7 +107,7 @@ Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tama
 
 ### <a name="sample-response"></a>Örnek yanıt
 
-Kullanıcı kimliğini doğrulamasından sonra bir örnek yanıt şöyle görünebilir:
+Gönderilen bir örnek yanıt `redirect_uri` kullanıcı kimliğini doğrulamasından, şöyle görünebilir sonra oturum açma isteğinde belirtilen:
 
 ```
 POST / HTTP/1.1
@@ -136,7 +136,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
+| hata |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
 | error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Yetkilendirme uç noktası hataları için hata kodları
@@ -216,7 +216,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 ### <a name="successful-response"></a>Başarılı yanıt
 
-Başarılı yanıt kullanarak bir `response_mode=form_post` gibi görünür:
+Gönderilen başarılı bir yanıt `redirect_uri` kullanarak `response_mode=form_post`, gibi görünür:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -246,7 +246,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
+| hata |Oluşan hataları türlerini sınıflandırmak için kullanılabilir ve hatalara tepki vermek için kullanılan bir hata kodu dizesi. |
 | error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
 
 Olası hata kodları ve bunların önerilen istemci eylemi açıklaması için bkz: [yetkilendirme uç noktası hataları için hata kodlarını](#error-codes-for-authorization-endpoint-errors).

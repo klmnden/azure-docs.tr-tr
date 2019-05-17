@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355783"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785390"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
 
@@ -57,29 +57,23 @@ Olduğunda, **kullanıcıları ve grupları seçin**, aşağıdaki seçenekleri 
 
 * **Kullanıcılar ve gruplar** belirli kullanıcıların kümesini hedefler. Örneğin, bulut uygulaması ik uygulama seçildiğinde tüm çözümler. ik departmanı üyeleri içeren bir grup seçebilirsiniz. Bir grup, dinamik veya atanan güvenlik ve dağıtım grupları dahil olmak üzere, Azure AD'de Grup herhangi bir türde olabilir.
 
-Belirli kullanıcılar veya gruplar bir ilkeden dışlayabilirsiniz. Bir ortak kullanım örneği hizmet hesapları ise ilkenizde, çok faktörlü kimlik doğrulaması (MFA) zorunlu kılar. 
+Belirli kullanıcılar veya gruplar bir ilkeden dışlayabilirsiniz. Bir ortak kullanım örneği hizmet hesapları ise ilkenizde, çok faktörlü kimlik doğrulaması (MFA) zorunlu kılar.
 
-Kullanıcılar belirli kümelerini hedefleyen yeni bir ilke dağıtımı için kullanışlıdır. Yeni bir ilke yalnızca ilk kümesi ilkesi davranışını doğrulamak için kullanıcı hedeflemelidir. 
+Kullanıcılar belirli kümelerini hedefleyen yeni bir ilke dağıtımı için kullanışlıdır. Yeni bir ilke yalnızca ilk kümesi ilkesi davranışını doğrulamak için kullanıcı hedeflemelidir.
 
+## <a name="cloud-apps-and-actions"></a>Bulut uygulamaları ve eylemleri
 
+Bulut uygulaması, bir Web sitesi, hizmeti veya Azure AD uygulama ara sunucusu tarafından korunan bir uç nokta ' dir. Desteklenen bulut uygulamalarının ayrıntılı bir açıklaması için bkz. [bulut uygulamaları atamaları](technical-reference.md#cloud-apps-assignments). **Bulut uygulamaları veya Eylemler** koşulu bir koşullu erişim ilkesinde zorunludur. İlkenizde, yi yapabilecekleriniz **tüm bulut uygulamaları** veya uygulamalarla belirtin **uygulamaları Seç**.
 
-## <a name="cloud-apps"></a>Bulut uygulamaları 
+Kuruluşlar, aşağıdaki seçeneklerden birini seçebilirsiniz:
 
-Bulut uygulaması, bir Web sitesi veya hizmet örneğidir. Azure AD uygulama ara sunucusu tarafından korunan Web siteleri, bulut uygulamaları da taşır. Desteklenen bulut uygulamalarının ayrıntılı bir açıklaması için bkz. [bulut uygulamaları atamaları](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Tüm bulut uygulamaları** kuruluş genelinde uygulamak için temel ilkeleri uygularken. Oturum açma riski algılandığında herhangi bir bulut uygulamasında için çok faktörlü kimlik doğrulaması gerektiren ilkeleri için bu seçimi kullanın. Tüm bulut uygulamaları için uygulanan bir ilke erişimi için geçerlidir. tüm Web siteleri ve Hizmetleri. Bu ayar Select uygulamalar listesinde görünen bulut uygulamalarına sınırlı değildir.
+* **Uygulamaları seçin** ilkeniz tarafından hedef belirli hizmetler için. Örneğin, SharePoint Online'a erişmek için uyumlu bir cihaz kullanıcılarının gerektirebilir. SharePoint içeriği eriştiklerinde Bu ilke, diğer hizmetlere de uygulanır. Microsoft Teams buna bir örnektir.
 
-**Bulut uygulamaları** koşulu bir koşullu erişim ilkesinde zorunludur. İlkenizde, yi yapabilecekleriniz **tüm bulut uygulamaları** veya belirli uygulamalar seçin.
+> [!NOTE]
+> Bir ilkenin belirli uygulamaları hariç tutabilirsiniz. Ancak, bu uygulamalar yine de erişim hizmetleri için uygulanan ilkelerle tabidir.
 
-![Bulut uygulamaları içerir](./media/conditions/03.png)
-
-Seçin:
-
-- **Tüm bulut uygulamaları** kuruluş genelinde uygulamak için temel ilkeleri. Oturum açma riski algılandığında herhangi bir bulut uygulamasında için çok faktörlü kimlik doğrulaması gerektiren ilkeleri için bu seçimi kullanın. Uygulanan bir ilke **tüm bulut uygulamaları** erişim için geçerli tüm Web siteleri ve Hizmetleri. Bu ayar görünen bulut uygulamalarına sınırlı değildir **uygulamaları Seç** listesi. 
-
-- **Uygulamaları seçin** ilkeniz tarafından hedef belirli hizmetler için. Örneğin, kullanıcıların gerektirebilir bir [uyumlu cihaz](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) SharePoint Online'a erişmek için. SharePoint içeriği eriştiklerinde Bu ilke, diğer hizmetlere de uygulanır. Microsoft Teams buna bir örnektir. 
-
-Bir ilkenin belirli uygulamaları hariç tutabilirsiniz. Ancak, bu uygulamalar yine de erişim hizmetleri için uygulanan ilkelerle tabidir. 
-
-
+**Kullanıcı eylemlerini** bir kullanıcı tarafından gerçekleştirilen görevlerdir. Yalnızca şu anda desteklenen eylemi **kaydetme güvenlik bilgilerini (Önizleme)**, bir kullanıcı kendi güvenlik bilgileri kayıt olurkenki zorlamak koşullu erişim ilkesi sağlar.
 
 ## <a name="sign-in-risk"></a>Oturum açma riski
 

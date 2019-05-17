@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730716"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787297"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -104,7 +104,7 @@ Sonraki birkaç bölümlerde HTTP API'lerini uzantı tarafından desteklenen öz
 
 Belirtilen orchestration örneğinin durumunu alır.
 
-#### <a name="request"></a>İstek
+#### <a name="request"></a>İste
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -134,7 +134,7 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan                   | Parametre türü  | Açıklama |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**        | URL             | Orchestration örneği kimliği. |
 | **`showInput`**         | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `false`, işlev giriş dahil edilmeyecek yanıt yükünde.|
 | **`showHistory`**       | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.|
 | **`showHistoryOutput`** | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, çıkışları işlevi dahil edilecek düzenleme yürütme geçmişi.|
@@ -228,7 +228,7 @@ Ayrıca, kaldırarak tüm örnekleri durumunu sorgulayabilirsiniz `instanceId` '
 Unutmayın, bir şey olduğunu `connection` ve `code` isteğe bağlıdır. İşlev anonim kimlik doğrulaması varsa kod gerekli değildir.
 AzureWebJobsStorage uygulama ayarı dışında tanımlanmış bir farklı depolama bağlantı dizesini kullanmak istemiyorsanız, bağlantı sorgu dizesi parametresi güvenle yoksayabilirsiniz.
 
-#### <a name="request"></a>İstek
+#### <a name="request"></a>İste
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -262,7 +262,7 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan                   | Parametre türü  | Açıklama |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**        | URL             | Orchestration örneği kimliği. |
 | **`showInput`**         | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `false`, işlev giriş dahil edilmeyecek yanıt yükünde.|
 | **`showHistory`**       | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.|
 | **`showHistoryOutput`** | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, çıkışları işlevi dahil edilecek düzenleme yürütme geçmişi.|
@@ -336,7 +336,7 @@ Sonraki istek üst bilgisinde devamlılık belirteci değeri ayarlarsanız, sonr
 
 Geçmiş ve ilgili yapıtlardan belirtilen orchestration örneği için siler.
 
-#### <a name="request"></a>İstek
+#### <a name="request"></a>İste
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -360,7 +360,7 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan             | Parametre türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
 
 #### <a name="response"></a>Yanıt
 
@@ -387,7 +387,7 @@ Bir örnek yanıt yükünde (okunabilmesi için biçimlendirilmiştir) şu şeki
 
 Kaldırarak geçmişi ve ilgili yapıtlardan görev hub içinde birden çok örnek için de silebilirsiniz `{instanceId}` 'tek örnek geçmişini Temizle' istek. Örnek geçmişi seçmeli olarak temizlemek için 'tüm örneklerinin durumunu Al' istekte açıklanan aynı filtreler kullanın.
 
-#### <a name="request"></a>İstek
+#### <a name="request"></a>İste
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -417,11 +417,9 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan                 | Parametre türü  | Açıklama |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından sonra oluşturulan Temizlenen örneklerinin listesini filtreler.|
+| **`createdTimeFrom`** | Sorgu dizesi    | Sırasında veya belirtilen ISO8601 zaman damgasından sonra oluşturulan Temizlenen örneklerinin listesini filtreler.|
 | **`createdTimeTo`**   | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından önce oluşturulan Temizlenen örneklerinin listesini filtreler.|
 | **`runtimeStatus`**   | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, filtreleri Temizlenen örneklerinin listesini çalışma zamanı durumlarına göre. Olası çalışma zamanı durum değerlerinin listesini görmek için bkz: [örnekleri sorgulama](durable-functions-instance-management.md) konu. |
-
-Parametre belirtilmezse, görev hub'ındaki tüm örnekleri temizlenecek.
 
 > [!NOTE]
 > Varsa çok bu işlem Azure depolama g/ç açısından çok pahalı olabilir satır örnekleri ve/veya geçmişi tabloları. Bu tablolar hakkında daha fazla ayrıntı bulunabilir [performansı ve ölçeği dayanıklı işlevler (Azure işlevleri) içinde](durable-functions-perf-and-scale.md#instances-table) belgeleri.
@@ -451,7 +449,7 @@ Bir örnek yanıt yükünde (okunabilmesi için biçimlendirilmiştir) şu şeki
 
 Çalışan bir düzenleme örneği için bir olay bildirim iletisi gönderir.
 
-#### <a name="request"></a>İstek
+#### <a name="request"></a>İste
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -475,8 +473,8 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan             | Parametre türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
-| **`eventName`**   | URL'si             | Hedef düzenleme örneği bekleniyor olayın adı. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
+| **`eventName`**   | URL             | Hedef düzenleme örneği bekleniyor olayın adı. |
 | **`{content}`**   | İstek içeriği | JSON biçimli bir olay yükü. |
 
 #### <a name="response"></a>Yanıt
@@ -504,7 +502,7 @@ Bu API için yanıtlar herhangi bir içerik içermez.
 
 Çalışan bir düzenleme örneği sonlandırır.
 
-#### <a name="request"></a>İstek
+#### <a name="request"></a>İste
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -530,7 +528,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 | Alan             | Parametre Türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
 | **`reason`**      | Sorgu dizesi    | İsteğe bağlı. Orchestration örneği sonlandırılıyor nedeni. |
 
 #### <a name="response"></a>Yanıt
@@ -553,7 +551,7 @@ Bu API için yanıtlar herhangi bir içerik içermez.
 
 En son başarısız işlemleri yeniden yürüterek çalışır duruma başarısız düzenleme örneğine yükler.
 
-### <a name="request"></a>İstek
+### <a name="request"></a>İste
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -579,7 +577,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 | Alan             | Parametre Türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
 | **`reason`**      | Sorgu dizesi    | İsteğe bağlı. Orchestration örneği geri sarma nedeni. |
 
 ### <a name="response"></a>Yanıt

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e8148e3a26a236039736dede5a7fbc79075731ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938139"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799941"
 ---
 # <a name="virtual-machine-skus-tab"></a>Sanal makine SKU'ları sekmesi
 
@@ -55,7 +55,7 @@ Amaç, içeriği, aşağıdaki tabloda açıklanmıştır ve bu alanlar biçimle
 | **İşletim sistemi ailesi\*** | Windows veya Linux tabanlı VM çözümü olup olmadığını gösterir. |
 | **İşletim sistemi türünü seçin** | Belirli bir satıcı veya belirtilen işletim sistemi sürümü. |
 | **İşletim sistemi kolay adı\*** | Müşterilere görüntülenecek işletim sistemi adı.  |
-| **Önerilen VM boyutları\*** | Önerilen VM boyutları en fazla altı standartlaştırılmış bir listeden seçim sağlar.  Bu öneriler, potansiyel müşteriye dikkat çekecek şekilde gösterilir ancak çözüm görüntü ile uyumlu olan herhangi bir VM boyutunu belirtebilirsiniz. | 
+| **Önerilen VM boyutları\*** | Önerilen VM boyutları en fazla altı standartlaştırılmış bir listeden seçim sağlar.  Bu liste, boyunca Azure portalı ve Microsoft marketleri geçirilir.  (Bu müşteri abonelik, bölge, bölge, vb. için) geçerli olduğundan, bu listedeki ilk VM boyutu, potansiyel müşteriye ait varsayılan olarak ayarlanır.  Kullanıcı, tüm uyumlu çözüm görüntü için bu boyutunu değiştirebilirsiniz. | 
 | **Bağlantı noktalarını Aç**| Açın ve SKU için desteklemek için protokolü için bağlantı noktaları.  Bu yapılandırmalar, ' % s'çözüm VM ağı için yapılandırdığınız sanal ağ ile eşleşmesi gerekir. Bu ayarlar, sanal makine dağıtımı sırasında etkin hale gelir. Ancak, bağlantı noktası ayarlarını, bir SKU yayımladıktan sonra değiştirilebilir. Daha fazla bilgi için [Azure portalıyla bir sanal makineye bağlantı noktaları açma](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Aşağıdaki varsayılan ağ eşlemeleri, tüm sanal makinelere eklenir. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22, 22, TCP (SSH) -&GT;. |
 | **Disk sürümü**  | Disk URL'si ve disk sürüm numarası ile belirtilen ilişkili bir çözüm VM. Disk sürümü olmalıdır [semantik sürüm](https://semver.org/) biçimi: `<major>.<minor>.<patch>`.  Paylaşılan erişim imzası URI'si işletim sistemi VHD'si için oluşturulan URL'dir.  Yalnızca en yüksek disk sürüm numarasını bir SKU için SKU başına en fazla sekiz disk sürümleri ekleyebilirsiniz, ancak, Azure Market'te görünür. Diğer sürümler yalnızca API görünür olur.  <!--TD: Add more specific link to API --> <br/> **Yeni veri diski** accordion bölümü, VM'ye veri diskleri en fazla 15 olanak sağlar.  Belirli bir sanal makine sürümünü ve ilişkili veri diskleri ile bir SKU yayımladıktan sonra bu yapılandırma değiştirilemez.  Ek VM sürümlerini için SKU eklenin, ayrıca veri diskleri aynı sayıda desteklemesi gerekir. <br/> Uygulamanızın Azure tabanlı VM görüntülerini oluşturmadıysanız ekleyebileceğiniz daha sonra bu alanı güncelleştirin.  İlişkili VM kaynak oluşturma hakkında daha fazla bilgi için konudaki [VM Oluştur teknik varlıkları](./cpp-create-technical-assets.md).  
 |  |  |

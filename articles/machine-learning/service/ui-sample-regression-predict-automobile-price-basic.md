@@ -1,7 +1,7 @@
 ---
-title: 'Regresyon: Tahmin'
+title: 'Regresyon: Fiyat tahmini'
 titleSuffix: Azure Machine Learning service
-description: Bu görsel arabirim örnek deneyde otomobilin fiyatını tahmin etmek için bir regresyon modeli derler gösterilmektedir. İşlem, eğitim, test ve değerlendirme otomobil fiyat verileri (ham) veri modeli içerir.
+description: Bir machine learning tek satırlık bir kod yazmadan otomobilin fiyatını tahmin modeli oluşturmayı öğrenin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,30 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: fa9b9179cda767d69d08dcd357a03123bde901cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028898"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787852"
 ---
-# <a name="sample-1---regression-predict-price"></a>Örnek 1 - regresyon: Tahmin
+# <a name="sample-1---regression-predict-price"></a>Örnek 1 - regresyon: Fiyat tahmini
 
-Bu görsel arabirim örnek deneyde, otomobilin fiyatını tahmin etmek için regresyon modeli oluşturma işlemi gösterilmektedir. Kullanarak model değerlendirme eğitim ve sınama işlemi içerir **otomobil fiyat verileri (ham)** veri kümesi.
+Bir machine learning tek satırlık bir görsel arabirim kullanarak kod yazmadan regresyon modeli oluşturmayı öğrenin.
+
+Bu deneme tren bir **orman regresörü karar** bir araba tahmin etmek için fiyat üreticisi, modeli, beygir gücü ve boyutu gibi teknik özellikleri temel kullanıcının. "Ne kadar?" sorusunu deniyoruz nedeni Bu, regresyon problemi olarak adlandırılır. Ancak, bu deneme regresyon, Sınıflandırma, kümeleme ve benzeri oluşmasından herhangi bir türde machine learning sorun gidermek için aynı temel adımları uygulayabilirsiniz.
+
+Bir eğitim machine learning modeli temel adımları şunlardır:
+
+1. Verileri alma
+1. Verileri önceden işleme
+1. Modeli eğitme
+1. Modeli değerlendirme
+
+Biz üzerinde yoğun şekilde kullanacağınız denemeyi son, tamamlanan grafiği aşağıda verilmiştir. Benzer kararlar kendi kendinize yapabileceğiniz şekilde tüm modüller için stratejinin sağlarız.
+
+![Denemeyi grafiği](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,23 +41,6 @@ Bu görsel arabirim örnek deneyde, otomobilin fiyatını tahmin etmek için reg
 4. Seçin **açık** örnek 1 denemeyi düğmesi:
 
     ![Denemeyi açın](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## <a name="related-sample"></a>İlgili örnek
-
-[2 - regresyon. örnek: Otomobil fiyat tahmini (algoritmaları karşılaştırın)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) iki farklı bir regresyon modeli kullanarak bu deney olarak aynı sorunu çözdü daha karmaşık bir örnek denemeyi sağlar. Bu hızlı bir şekilde farklı algoritmayı karşılaştırmak nasıl gösterir. Daha gelişmiş bir örnek arıyorsanız gözden geçirin.
-
-## <a name="experiment-summary"></a>Deneme özeti
-
-Bir deneme oluşturmak için aşağıdaki adımları kullanın:
-
-1. Verileri elde edersiniz.
-1. Verileri önceden işleme.
-1. Modeli eğitme.
-1. Test, değerlendirin ve modelleri karşılaştırın.
-
-Denemeyi tam grafiği aşağıda verilmiştir:
-
-![Denemeyi grafiği](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="get-the-data"></a>Verileri alma
 
@@ -59,6 +55,7 @@ Kullandığımız **kümesindeki sütunları seçme** normalleştirilmiş birço
 ![Veri ön işleme](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Modeli eğitme
+
 Machine learning sorunları farklılık gösterir. Sınıflandırma, kümeleme, regresyon ve her biri farklı bir algoritma gerektirebilir öneren sistemleri, ortak makine öğrenimi görevlerini içerir. Tercih ettiğiniz algoritması, genellikle kullanım örneği gereksinimlerine bağlıdır. Bir algoritma seçin sonra daha doğru bir model eğitip parametrelerini ayarlamak gerekir. Ardından tüm modellerin doğruluğu anlaşılabilirliği ve verimliliği gibi ölçümleri temel değerlendirmesi gerekir.
 
 Bu deneyde amaç, otomobil fiyatlarını tahmin etmek için olduğundan ve gerçek sayılar (Fiyat) etiketi sütun içerdiği için bir regresyon modeli iyi bir seçimdir. Birçok özellik (daha az en az 100) görece küçük olduğunu ve bu özellikleri seyrek olduğunu dikkate alarak, karar sınır doğrusal olması olasıdır. Kullanacağız **karar ormanı regresyon** bu deneme için.

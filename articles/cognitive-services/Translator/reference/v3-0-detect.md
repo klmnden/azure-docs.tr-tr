@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: ea8fe989dd0ef7026957153fb5c9836742d008dd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578666"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797504"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator metin çevirisi API'si 3.0: Detect
 
@@ -158,7 +158,7 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>429</td>
-    <td>Çağıran, çok fazla istek gönderiyor.</td>
+    <td>İstemci istek sınırları aştığı için sunucu isteği reddetti.</td>
   </tr>
   <tr>
     <td>500</td>

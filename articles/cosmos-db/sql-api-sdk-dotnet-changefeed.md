@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627055"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793001"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>İşlemci SDK'sı .NET değişiklik akışı: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -37,9 +37,14 @@ ms.locfileid: "60627055"
 |**Kullanmaya başlama**|[Değişiklik akışı işlemci .NET SDK ile çalışmaya başlama](change-feed.md)|
 |**Geçerli desteklenen çerçevesi**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
-## <a name="release-notes"></a>Sürüm notları
+## <a name="release-notes"></a>Sürüm Notları
 
 ### <a name="v2-builds"></a>v2 oluşturur.
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* Senaryo için strateji tüm kiraları alırken geliştirilmiş yük dengelemeyi kira sona erme aralığını, örneğin ağ sorunları nedeniyle uzun sürer:
+  * Bu senaryoda yük çalarak kiraları etkin sahipleri neden Dengeleme algoritması yanlışlıkla kiralama süresi dolmuş olarak dikkate alınması gereken kullanılır. Bu, gereksiz kiraları birçok yeniden Dengeleme tetikleyebilir.
+  * Bu sorunu hangi sahibi değişmediğinden süresi dolmuş kiralama gerçekleştirmesi ve posponing alınırken sonraki Yük Dengeleme yineleme için kira süresi dolmuş olsa yeniden deneme sırasında çakışma önleyerek bu sürümde giderilen.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gözlemci özel durumları işleme İyileştirildi.
@@ -163,6 +168,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |14 Mayıs 2019 |--- |
 | [2.2.6](#2.2.6) |29 Ocak 2019 |--- |
 | [2.2.5](#2.2.5) |13 Aralık 2018'e |--- |
 | [2.2.4](#2.2.4) |29 Kasım 2018 |--- |

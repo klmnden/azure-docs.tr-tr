@@ -16,16 +16,14 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 23003186aa413e313578c57616ae03c435f140e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190855"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785393"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Hızlı Başlangıç: Kullanıcılar oturum ve JavaScript tek sayfalı uygulama (SPA) bir erişim belirteci alma
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Bu hızlı başlangıçta, nasıl bir JavaScript tek sayfalı uygulama (SPA) kişisel hesaplarında oturum, iş ve Okul hesapları ve Microsoft Graph API'sini veya herhangi bir web API'sini çağırmak için erişim belirteci almak gösteren bir kod örneğini nasıl kullanacağınızı öğreneceksiniz.
 
@@ -55,7 +53,7 @@ Bu Hızlı Başlangıç için aşağıdaki Kurulum gerekir:
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
 >
-> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
+> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydedin
 >
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 > 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
@@ -87,7 +85,7 @@ Geliştirme ortamınız için uygun olan bu seçeneklerden birini seçebilirsini
 
 
 
-#### <a name="step-3-configure-your-javascript-app"></a>3. Adım: JavaScript uygulamanızı yapılandırın
+#### <a name="step-3-configure-your-javascript-app"></a>3. adım: JavaScript uygulamanızı yapılandırın
 
 > [!div renderon="docs"]
 > Klasörü altında *JavaScriptSPA*, Düzenle `index.html` ayarlayıp `clientID` ve `authority` altındaki değerler `msalConfig`.
@@ -140,7 +138,7 @@ var msalConfig = {
 
 Tarayıcıda uygulama yüklendikten sonra tıklayın **oturum**.  İlk kez oturum açarken, profilinizi erişmek ve oturum açmak için uygulama izin vermek için onay vermeniz istenir. Üzerinde başarılı oturum açma sayfasında gösterilen kullanıcı profili bilgilerinize görmeniz gerekir.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Ek bilgiler
 
 ### <a name="msaljs"></a>*msal.js*
 

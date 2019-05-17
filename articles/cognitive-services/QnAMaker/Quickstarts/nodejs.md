@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d41f1b61345d365bb315a7a5c5570f729f140324
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913536"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791097"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Node.js ile soru-cevap Oluşturucu REST API'si kullanma 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerek
 
 ## <a name="create-knowledge-base"></a>Bilgi bankası oluşturma
 
-Aşağıdaki kod, [Oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) yöntemini kullanarak yeni bir bilgi bankası oluşturur.
+Aşağıdaki kod, [Oluşturma](https://go.microsoft.com/fwlink/?linkid=2092179) yöntemini kullanarak yeni bir bilgi bankası oluşturur.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -162,7 +162,7 @@ let req = {
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -246,7 +246,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="update-knowledge-base"></a>Bilgi bankası güncelleştirme
 
-Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
+Aşağıdaki kod, [Güncelleştirme](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -361,7 +361,7 @@ let req = {
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -439,7 +439,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>İstek alma durumu
 
-Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu denetlemek için [İşlem](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) yöntemini çağırabilirsiniz. Bu yöntemin nasıl kullanıldığını görmek için lütfen [Oluşturma](#Create) veya [Güncelleştirme](#Update) yönteminin örnek koduna bakın.
+Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu denetlemek için [İşlem](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) yöntemini çağırabilirsiniz. Bu yöntemin nasıl kullanıldığını görmek için lütfen [Oluşturma](#Create) veya [Güncelleştirme](#Update) yönteminin örnek koduna bakın.
 
 [Başa dön](#HOLTop)
 
@@ -447,7 +447,7 @@ Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu denetlemek i
 
 ## <a name="publish-knowledge-base"></a>Bilgi bankası yayımlama
 
-Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
+Aşağıdaki kod, [Yayımla](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -559,7 +559,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="replace-knowledge-base"></a>Bilgi bankasını değiştirme
 
-Aşağıdaki kod [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) metodunu kullanarak belirtilen bilgi bankasının içeriğini değiştirir.
+Aşağıdaki kod [Replace](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace) metodunu kullanarak belirtilen bilgi bankasının içeriğini değiştirir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -653,7 +653,7 @@ let req = {
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -692,7 +692,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>Bilgi bankasının içeriğini indirme
 
-Aşağıdaki kod [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) metodunu kullanarak belirtilen bilgi bankasının içeriğini indirir.
+Aşağıdaki kod [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) metodunu kullanarak belirtilen bilgi bankasının içeriğini indirir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -791,7 +791,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -954,7 +954,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="get-information-about-a-knowledge-base"></a>Bir bilgi bankası hakkında bilgi alma
 
-Aşağıdaki kod [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) metodunu kullanarak belirtilen bilgi bankasıyla ilgili bilgileri alır.
+Aşağıdaki kod [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) metodunu kullanarak belirtilen bilgi bankasıyla ilgili bilgileri alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1069,7 +1069,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Bir kullanıcının tüm bilgi bankalarını alma
 
-Aşağıdaki kod [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) metodunu kullanarak belirtilen bir kullanıcının tüm bilgi bankalarıyla ilgili bilgileri alır.
+Aşağıdaki kod [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) metodunu kullanarak belirtilen bir kullanıcının tüm bilgi bankalarıyla ilgili bilgileri alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1197,7 +1197,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Bilgi bankasını silme
 
-Aşağıdaki kod [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) metodunu kullanarak belirtilen bilgi bankasını siler.
+Aşağıdaki kod [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) metodunu kullanarak belirtilen bilgi bankasını siler.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1309,7 +1309,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="get-endpoint-keys"></a>Uç nokta anahtarlarını alma
 
-Aşağıdaki kod [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) metodunu kullanarak geçerli uç nokta anahtarlarını alır.
+Aşağıdaki kod [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) metodunu kullanarak geçerli uç nokta anahtarlarını alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1410,7 +1410,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="refresh-endpoint-keys"></a>Uç nokta anahtarlarını yenileme
 
-Aşağıdaki kod [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) metodunu kullanarak geçerli uç nokta anahtarlarını yeniden üretir.
+Aşağıdaki kod [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) metodunu kullanarak geçerli uç nokta anahtarlarını yeniden üretir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1536,7 +1536,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="get-word-alterations"></a>Sözcük değişikliklerini alma
 
-Aşağıdaki kod [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) metodunu kullanarak geçerli sözcük değişikliklerini alır.
+Aşağıdaki kod [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) metodunu kullanarak geçerli sözcük değişikliklerini alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1643,7 +1643,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="replace-word-alterations"></a>Sözcük değişikliklerini değiştirme
 
-Aşağıdaki kod [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) metodunu kullanarak geçerli sözcük değişikliklerini değiştirir.
+Aşağıdaki kod [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) metodunu kullanarak geçerli sözcük değişikliklerini değiştirir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1764,7 +1764,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Soru-Cevap Oluşturma (V4) REST API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Soru-Cevap Oluşturma (V4) REST API Başvurusu](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 

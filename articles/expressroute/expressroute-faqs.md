@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924665"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794765"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -79,7 +79,7 @@ ExpressRoute destekler [üç yönlendirme etki alanı](expressroute-circuit-peer
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI
+* Power BI - Azure bölgesel topluluğu kullanılabilir bkz [burada](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) için Power BI kiracınızın bölgeyi bulma. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure küresel hizmetler community)
 * Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br><br>**Aşağıdaki hizmetler desteklenmez**:
@@ -152,7 +152,7 @@ Hizmet sağlayıcınız ExpressRoute iki sitelerdeki sunuyorsa, sağlayıcınız
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Birden çok ExpressRoute bağlantı hatları aynı metro olabilir mi? Ben bunları aynı sanal ağa bağlayabilir miyim?
 
-Evet. Aynı veya farklı hizmet sağlayıcıları ile birden çok ExpressRoute bağlantı hattına sahip olabilir. Birden fazla ExpressRoute eşleme konumlarına metro varsa ve bağlantı hatlarının eşleme farklı konumlarda oluşturulur, aynı sanal ağa bağlayabilirsiniz. Eşleme aynı konumda devreler oluşturduysanız, yine de bunları aynı sanal ağ, ancak yalnızca en fazla 4 ExpressRoute bağlantı hatları her eşleme konumunda bağlantı oluşturabilirsiniz. Örneğin, "Singapur" ve "Singapur2" eşleme konumları seçin ve her aynı sanal ağa bağlantı hatları bağlanın. 
+Evet. Aynı veya farklı hizmet sağlayıcıları ile birden çok ExpressRoute bağlantı hattına sahip olabilir. Birden fazla ExpressRoute eşleme konumlarına metro varsa ve bağlantı hatlarının eşleme farklı konumlarda oluşturulur, aynı sanal ağa bağlayabilirsiniz. Bağlantı hatlarının aynı eşleme konumunda oluşturduysanız, en fazla 4 bağlantı hatları aynı sanal ağa bağlayabilirsiniz.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>My sanal ağları ExpressRoute devresine nasıl bağlanabilirim
 
@@ -190,7 +190,7 @@ Hayır. Bir yönlendirme açısından aynı ExpressRoute bağlantı hattına ba�
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Birden fazla ExpressRoute bağlantı hattına bağlı bir sanal ağa sahip olabilir miyim?
 
-Evet. Tek bir sanal ağ ile en fazla dört ExpressRoute bağlantı hattına bağlayabilirsiniz. Bunlar dört farklı sıralanmalıdır [ExpressRoute konumları](expressroute-locations.md).
+Evet. Tek bir sanal ağ da aynı veya farklı eşleme konumlarda en fazla dört ExpressRoute bağlantı hatları ile bağlayabilirsiniz. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>ExpressRoute bağlantı hatlarına bağlı my sanal ağlardan İnternet'e erişebilir miyim?
 

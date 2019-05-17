@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 32d0fb2ba17d322c0a273ebaf0a21d2b3ca0668f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cfd5a99144af1120afbf06fe6222228a9332bb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830696"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787420"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure önbelleği için Redis izleme
 Azure önbelleği için Redis kullandığı [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) önbelleği örneklerinizin izlemek için çeşitli seçenekler sağlayacak. Ölçümleri görüntüleyin, ölçüm grafikleri başlangıç panosuna sabitlemek, tarih ve saat aralığı grafikleri izleme özelleştirme, ekleyin ve ölçümleri grafikten kaldırabileceğiniz ve belirli koşullar karşılandığında uyarılar ayarlayın. Bu araçlar, Azure önbelleği için Redis örneği ve önbelleğe alma uygulamalarınızı yönetmenize yardımcı durumunu izlemenize olanak tanır.
@@ -105,7 +105,7 @@ Her ölçüm iki sürümünü içerir. Bir ölçüm ölçer performans kullanan 
 | Önbellek Yazması |Önbelleğin megabayt (MB/sn) belirtilen sırasında saniye başına yazılan veri miktarı aralığı raporlama. Bu değer, önbellek barındıran ve Redis belirli değil sanal makineyi destekleyen ağ arabirim kartlarından elde edilir. Bu değer, ağ bant genişliğini önbelleğe istemciden gönderilen veri karşılık gelir. |
 | Bağlı İstemciler |Belirtilen raporlama aralığı boyunca önbelleğe istemci bağlantılarının sayısı. Bu eşlendiği `connected_clients` Redis bilgisi komutu. Bir kez [bağlantı sınırı](cache-configure.md#default-redis-server-configuration) ulaşıldığında sonraki bağlantı denemelerinde önbellek için başarısız olan. Hiçbir etkin istemci uygulaması olsa bile, yine de olabilir bağlı istemciler dahili süreçleri ve bağlantıları nedeniyle birkaç örneklerini unutmayın. |
 | CPU |CPU kullanım yüzdesini Azure önbelleği için Redis sunucusu bir yüzdesi olarak belirtilen raporlama aralığı sırasında. Bu değer işletim sistemine eşler `\Processor(_Total)\% Processor Time` performans sayacı. |
-| Hatalar | Belirli hataları ve performans sorunları, önbelleğin bir belirtilen zaman aralığı boyunca yaşıyor olabilir. Bu ölçüm, sekiz boyutları farklı hata türleri temsil eden sahiptir, ancak daha sonra eklediğiniz. Şu anda temsil hata türleri aşağıdaki gibidir: <br/><ul><li>**Yük devretme** – bir önbellek yük devrettiğinde (ikincil asıl teşvik eder)</li><li>**Kilitlenme** – önbellek beklenmedik bir şekilde düğümlerden birini kilitlendiğinde</li><li>**Dataloss** – önbellekte dataloss olduğunda</li><li>**UnresponsiveClients** – istemcilerin veri sunucudan yeterince hızlı değil okurken</li><li>**AOF** – AOF Kalıcılık için ilgili bir sorun oluştuğunda</li><li>**RDB** – RDB Kalıcılık için ilgili bir sorun oluştuğunda</li><li>**İçeri aktarma** – içeri aktarma RDB için ilgili bir sorun oluştuğunda</li><li>**Dışarı aktarma** – RDB dışarı aktarma için ilgili bir sorun oluştuğunda</li></ul> |
+| Hatalar | Belirli hataları ve performans sorunları, önbelleğin bir belirtilen zaman aralığı boyunca yaşıyor olabilir. Bu ölçüm, sekiz boyutları farklı hata türleri temsil eden sahiptir, ancak daha sonra eklediğiniz. Şu anda temsil hata türleri aşağıdaki gibidir: <br/><ul><li>**Yük devretme** – bir önbellek yük devrettiğinde (alt yükseltir asıl)</li><li>**Kilitlenme** – önbellek beklenmedik bir şekilde düğümlerden birini kilitlendiğinde</li><li>**Dataloss** – önbellekte dataloss olduğunda</li><li>**UnresponsiveClients** – istemcilerin veri sunucudan yeterince hızlı değil okurken</li><li>**AOF** – AOF Kalıcılık için ilgili bir sorun oluştuğunda</li><li>**RDB** – RDB Kalıcılık için ilgili bir sorun oluştuğunda</li><li>**İçeri aktarma** – içeri aktarma RDB için ilgili bir sorun oluştuğunda</li><li>**Dışarı aktarma** – RDB dışarı aktarma için ilgili bir sorun oluştuğunda</li></ul> |
 | Çıkarılan Anahtarlar |Öğe için belirtilen raporlama aralığı sırasında önbellekten çıkarılmasına `maxmemory` sınırı. Bu eşlendiği `evicted_keys` Redis bilgisi komutu. |
 | Süresi Dolan Anahtarlar |Öğe sayısı, belirtilen zaman aralığı boyunca önbellekten süresi doldu. Bu değer eşlendiği `expired_keys` Redis bilgisi komutu.|
 | Alınanlar |Belirtilen raporlama aralığı sırasında önbellekten get işlemleri sayısı. Toplam aşağıdaki tüm komut Redis bilgisi değerleri değerdir: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, ve `cmdstat_getrange`ve Önbelleği İsabetli ve isabetsiz toplamına eşittir Raporlama zaman aralığı boyunca. |

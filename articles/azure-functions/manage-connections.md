@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020494"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785954"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure işlevleri'nde bağlantıları yönetme
 
@@ -21,7 +21,7 @@ Bir işlev uygulaması işlevlerde kaynakları paylaşır. Bu paylaşılan kayna
 
 ## <a name="connection-limit"></a>Bağlantı sınırı
 
-Bir işlev uygulaması kısmen çalıştığı için kullanılabilir bağlantı sayısı sınırlı bir [korumalı ortamda](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Korumalı alan kodunuza uygular kısıtlamaları biri bir [(şu anda 600 etkin bağlantıları ve 1.200 toplam bağlantıları) bağlantı sayısı için üst sınır](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) örnek başına. Bu sınıra ulaştığınızda, İşlevler çalışma zamanı şu iletiyle bir günlük oluşturur: `Host thresholds exceeded: Connections`.
+Bir işlev uygulaması kısmen çalıştığı için kullanılabilir bağlantı sayısı sınırlı bir [korumalı ortamda](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Korumalı alan kodunuza uygular kısıtlamaları (şu anda 600 etkin bağlantıları ve 1.200 toplam bağlantıları) bağlantı sayısı için üst sınır örnek başına biridir. Bu sınıra ulaştığınızda, İşlevler çalışma zamanı şu iletiyle bir günlük oluşturur: `Host thresholds exceeded: Connections`.
 
 Örnek başına sınırdır.  Zaman [ölçek denetleyicisi ekler işlevi uygulama örneği](functions-scale.md#how-the-consumption-and-premium-plans-work) daha fazla isteklerini işlemek için her örnek, bir bağımsız bağlantı sınırı vardır. Genel bağlantı sınırı yoktur ve tüm etkin örnekler arasında 600'den çok fazla etkin bağlantılar olabilir anlamına gelir.
 

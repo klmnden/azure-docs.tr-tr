@@ -5,27 +5,48 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/10/2019
+ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917239"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792424"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL veri ambarı sürüm notları
 
 Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Azure SQL veri ambarı](sql-data-warehouse-overview-what-is.md). Makalede ayrıca, doğrudan sürüme ilgili değildir ancak aynı zaman çerçevesinde yayımlanan önemli içerik güncelleştirmeleri listelenir. Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates).
 
+## <a name="check-your-azure-sql-data-warehouse-version"></a>Azure SQL veri ambarı sürümünüzü kontrol edin
+
+Veri ambarınız SQL Server Management Studio (SSMS) üzerinden bağlanmak ve SQL veri ambarı'nın geçerli sürümü döndürmek için aşağıdaki söz dizimini çalıştırın.
+
+```sql
+SELECT @@VERSION AS 'SQL Data Warehouse';
+```
+
+Örnek çıktı: ![SQL veri ambarı sürümü](./media/release-notes/sql_data_warehouse_version.png)
+
+Azure SQL veri ambarınızın kullanın, yayın onaylamak için belirlenen tarih uygulanmıştır.
+
+## <a name="may-2019"></a>Mayıs 2019
+
+| Hizmet geliştirmeleri | Ayrıntılar |
+| --- | --- |
+|**Dinamik veri maskeleme (Önizleme)**|Dinamik veri maskeleme (DDM), bunu üzerinde halindeyken tanımladığınız maskeleme kurallara göre sorgu sonuçlarında obfuscating hassas verileriniz, veri ambarı'nda yetkisiz erişimi engeller. Daha fazla bilgi için [SQL veritabanı dinamik veri maskeleme](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**İş yükü önem artık kullanıma sunuldu**|İş yükü yönetimi sınıflandırma ve önem sorgular çalıştırma sırasını etkilemek için olanağı sunar. İş yükü önemi hakkında daha fazla bilgi için bkz. [sınıflandırma](sql-data-warehouse-workload-classification.md) ve [önem](sql-data-warehouse-workload-importance.md) genel bakış makalelerini belgelerinde. Kullanıma [iş YÜKÜ SINIFLANDIRICI oluşturma](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) belge de.<br/><br/>İş yükü önem nasıl gerçekleştirildiğini görmek videoları aşağıda:<br/> -[İş yükü yönetimi kavramları](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[İş yükü yönetimi senaryoları](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**Ek T-SQL desteği**|SQL veri ambarı için T-SQL dil yüzey alanı için destek içerecek şekilde genişletildi: </br> - [SAAT DİLİMİ,](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [KIRPMA](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**JSON işlevleri**|İş analistleri, tanıdık T-SQL dil sorgu ve Azure veri ambarı'nda aşağıdaki yeni JSON işlevlerini kullanarak JSON verilerini olarak biçimlendirilmiş belgeleri işlemek için artık kullanabilirsiniz:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
+|**Sonuç kümesi (Önizleme) önbelleğe alma**|Sonuç kümesi önbelleğe alma yararlanırken iş analistleri için zaman Insight de kullanıcıların raporlama anlık sorgu yanıt süreleri sağlar. Daha fazla bilgi için bkz.</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [Veritabanı seçeneklerini ayarlama (SQL üzerinde işlem yapma) değiştirme](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [KÜMESİ sonuç KÜMESİ (Transact-SQL) önbelleğe alma](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET Statement (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+
 ## <a name="march-2019"></a>Mart 2019
 
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
-|**İş yükü önem Gen2 Önizleme için kullanıma sunuldu**|İş yükü önem, veri mühendisleri istekleri sınıflandırmak için önem kullanma olanağı sunar. Yüksek önem derecesi isteklerle Sla'lara uymaya yardımcı olan Hızlı kaynaklarına erişimi sağlanır.  Daha az kaynak ile paylaşılan bir ortamda SLA gereksinimlerini karşılamak yüksek iş değerini iş iş yükü önem verir.<br/><br/>9 Nisan 2019 veya sonraki bir sürüm tarihi yapılarla Önizleme iş yükü yönetimi sınıflandırma ve önem derecesi içindir. Kullanıcılar, iş yükü yönetimi için test derlemeleri bu tarihten önceki kullanmaktan kaçınmanız gerekir. Derleme iş yükü yönetimi özelliğine sahip olup olmadığını belirlemek için çalıştırma `select @@version` SQL veri ambarı Örneğinize bağlandığında.</br></br>İş yükü önemi hakkında daha fazla bilgi için bkz. [sınıflandırma](sql-data-warehouse-workload-classification.md) ve [önem](sql-data-warehouse-workload-importance.md) genel bakış makalelerini belgelerinde. Kullanıma [iş YÜKÜ SINIFLANDIRICI oluşturma](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) belge de.<br/><br/>İş yükü önem nasıl gerçekleştirildiğini görmek videoları aşağıda:<br/>[İş yükü yönetimi kavramları](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[İş yükü yönetimi senaryoları](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Veri bulma & sınıflandırma**|Veri Bulma ve Sınıflandırma şimdi Azure SQL Veri Ambarı için genel önizleme aşamasında kullanıma sunuldu. Hassas verileri ve müşterilerinizin gizliliğini korumak için önemlidir. İş ve müşteri veri varlıklarını büyüdükçe, bulma, sınıflandırmak ve korumak için yönetilemeyen olur. Azure SQL veri ambarı ile yerel olarak kullanıma sunduğumuz veri bulma ve sınıflandırma özelliğini daha kolay yönetilebilir verilerinizi korumaya yardımcı olur. Bu özelliğin genel avantajları arasında şunlar bulunur:<br/>&bull; &nbsp; Toplantı veri gizliliği standartlarını ve yasal uyumluluk gereksinimlerini.<br/>&bull; &nbsp; İçeren son derece hassas verilere erişimi kısıtlayarak ve verilerinin güvenliğini artırma warehouses.<br/>&bull; &nbsp; İzleme ve anormal hassas verilere erişimi üzerinde uyarı.<br/>&bull; &nbsp; Azure portalında merkezi bir Panoda hassas verileri görselleştirme. </br></br>Veri bulma & Sınıflandırma, Azure SQL veri ambarı, tüm Azure bölgelerinde kullanılabilir gelişmiş veri güvenlik açığı değerlendirmesi ve tehdit algılama gibi güvenlik parçasıdır. Veri bulma & sınıflandırma hakkında daha fazla bilgi için bkz: [blog gönderisi](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) ve çevrimiçi [belgeleri](/azure/sql-database/sql-database-data-discovery-and-classification).|
 |**TOPLAMA GÖRE GRUPLANDIR**|PAKETİ bir desteklenen GROUP BY seçeneği Azure veri ambarı'nda sunulmuştur.   Grup tarafından dökümü her bir sütun ifadeleri bileşimi için bir grup oluşturur. GROUP BY ayrıca "sonuçları alt toplamları ve genel toplamları toplanan". Sağdan sola sütun ifadeleri üzerinde gruplar ve aggregation(s) oluşturduğu sayısını azaltarak, GROUP BY işlevi işler.  Sütun sırasını toplama çıkış etkiler ve sonuç kümesinde satır sayısını etkileyebilir.<br/><br/>Grup tarafından toplama hakkında daha fazla bilgi için bkz. [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**Kullanılan DWU ve CPU portal ölçümleri için geliştirilmiş doğruluğuna**|SQL veri ambarı, Azure portalında ölçüm doğruluğu önemli ölçüde geliştirir.  Bu sürüm, iş yükünüz tüm işlem düğümleri arasında düzgün bir şekilde yansıtmak için CPU ve kullanılan DWU ölçüm tanımı için bir düzeltme içerir. Bu düzeltme önce ölçüm değerleri undereported. Kullanılan DWU artış ve Azure portalda CPU ölçümlerini görmek bekler. |

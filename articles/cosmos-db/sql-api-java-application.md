@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e276980235494f7f808510889bda91761cb76544
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870135"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794598"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 
@@ -50,9 +50,9 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
 * [Java EE Geliştiricileri için Eclipse IDE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java çalışma zamanı ortamı (ör. Tomcat veya Jetty) etkin bir Azure Web Sitesi.](../app-service/app-service-web-get-started-java.md)
 
-Bu araçları ilk kez yüklüyorsanız coreservlets.com hızlı başlangıç bölümünde yükleme işleminin bir kılavuz sağlar. kendi [Öğreticisi: Tomcat7'yi yükleme ve Eclipse ile kullanma](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesi.
+Bu araçları ilk kez yüklüyorsanız coreservlets.com hızlı başlangıç bölümünde yükleme işleminin bir kılavuz sağlar. kendi [Öğreticisi: Tomcat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesi.
 
-## <a id="CreateDB"></a>1. adım: Azure Cosmos DB hesabı oluşturma
+## <a id="CreateDB"></a>1. adım: Azure Cosmos DB hesabı oluşturun
 İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, adımına atlayabilirsiniz [2. adım: Java JSP uygulaması oluşturma](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]

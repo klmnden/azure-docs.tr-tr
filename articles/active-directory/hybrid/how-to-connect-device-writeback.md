@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507965"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785725"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Cihaz geri yazma özelliğini etkinleştirme
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "65507965"
 
 Aşağıdaki belgeler Azure AD CONNECT'te cihaz geri yazma özelliğini etkinleştirme hakkında bilgi sağlar. Cihaz geri yazma, aşağıdaki senaryolarda kullanılır:
 
-* Etkinleştirme [Windows iş için Hello karma sertifika güven dağıtımı kullanma](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Etkinleştirme [Windows iş için Hello karma sertifika güven dağıtımı kullanma](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * ADFS cihazlara dayalı koşullu erişimi etkinleştir (2012 R2 veya üzeri) korumalı uygulamaları (bağlı olan taraf güvenleri).
 
 Bu, ek güvenlik ve yalnızca güvenilen cihazlara verilen uygulamalara erişimi güvence sağlar. Koşullu erişim hakkında daha fazla bilgi için bkz. [koşullu erişim ile Risk yönetme](../active-directory-conditional-access-azure-portal.md) ve [şirket içi koşullu Azure Active Directory cihaz kaydı hizmetini kullanarak erişimi ayarlarken](../../active-directory/active-directory-device-registration-on-premises-setup.md).

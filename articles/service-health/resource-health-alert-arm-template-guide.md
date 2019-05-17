@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 71856f9de3d67590d524fa8bb1119a384d156d2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700154"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788465"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak kaynak sistem durumu uyarılarını yapılandırma
 
@@ -43,7 +43,7 @@ Bu sayfadaki yönergeleri izleyerek için birkaç önceden ayarlamalar yapmanız
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Oluşturmak ve kaydetmek için kaynak durumu uyarı olarak Resource Manager şablonu `resourcehealthalert.json` ([aşağıdaki ayrıntılara göz atın](#resource-manager-template-for-resource-health-alerts))
+3. Oluşturmak ve kaydetmek için kaynak durumu uyarı olarak Resource Manager şablonu `resourcehealthalert.json` ([aşağıdaki ayrıntılara göz atın](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Bu şablonu kullanarak yeni bir Azure Resource Manager dağıtım oluştur
 
@@ -76,7 +76,7 @@ Bu sayfadaki yönergeleri izleyerek için birkaç önceden ayarlamalar yapmanız
 
 Bu işlemi tamamen otomatik bir hale getirme planlıyorsanız, yalnızca 5. adım değerlerinin istemez için Resource Manager şablonu Düzen gerektiğini unutmayın.
 
-## <a name="resource-manager-template-for-resource-health-alerts"></a>Kaynak sistem durumu uyarıları için Resource Manager şablonu
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Kaynak sistem durumu uyarıları için Resource Manager şablonu seçenekleri
 
 Kaynak durumu uyarı oluşturmak için başlangıç noktası olarak bu temel şablonu kullanabilirsiniz. Bu şablon, yazıldığı gibi çalışır ve bir Abonelikteki tüm kaynaklar genelinde tüm yeni etkinleştirilen kaynak sistem durumu olayları uyarıları almak için kaydolduktan.
 
@@ -284,7 +284,9 @@ Bir kaynak, "Bilinmeyen" bildirdiğinde, ancak sistem durumunun son doğru rapor
 },
 ```
 
-Bu örnekte biz yalnızca burada geçerli ve önceki sistem durumunu "Bilinmeyen" yok olayları bildirme. Bu değişikliği doğrudan, cep telefonu veya e-posta uyarıları gönderilen yararlı bir toplama olabilir.
+Bu örnekte biz yalnızca burada geçerli ve önceki sistem durumunu "Bilinmeyen" yok olayları bildirme. Bu değişikliği doğrudan, cep telefonu veya e-posta uyarıları gönderilen yararlı bir toplama olabilir. 
+
+Bazı olaylar null olacak şekilde currentHealthStatus ve previousHealthStatus özelliklerini mümkün olduğunu unutmayın. Örneğin, güncelleştirilmiş bir olay gerçekleştiğinde bu ek olay bilgileri yalnızca kaynak sistem durumu son raporun bu yana değişmemiştir olası olduğu (örneğin neden). Properties.currentHealthStatus ve properties.previousHealthStatus değerlerin ayarlandığından bu nedenle, yukarıdaki yan tümcesini tetiklenen değil, bazı uyarıların görüntülenmesine neden null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Kullanıcı tarafından başlatılan olayları önlemek için uyarı ayarlama
 
@@ -304,12 +306,12 @@ Yalnızca bu tür olaylar için filtre uygulamak için uyarınızı yapılandır
     ]
 }
 ```
+Bazı olaylar null olacak neden alanı mümkün olduğunu unutmayın. Diğer bir deyişle, bir sistem durumu geçişi (kullanılamaz örneğin kullanılabilir) gerçekleşir ve bildirim önlemek için geciktirir hemen olay günlüğe kaydedilir. Properties.clause özellik değerinin ayarlandığından bu nedenle, yukarıdaki yan tümcesini tetiklenen değil, bir uyarıya neden olabilir null.
 
-## <a name="recommended-resource-health-alert-template"></a>Önerilen kaynak durumu uyarı şablonu
+## <a name="complete-resource-health-alert-template"></a>Tam kaynak durumu uyarı şablonu
 
-Önceki bölümde açıklanan farklı ayarlamaları kullanarak sinyal/gürültü oranına en üst düzeye çıkarmak üzere yapılandırıldığı kapsamlı bir uyarı şablonu oluşturabilirsiniz.
+Önceki bölümde açıklanan farklı ayarlamaları kullanarak sinyal/gürültü oranına en üst düzeye çıkarmak için yapılandırılmış bir örnek şablonu aşağıda verilmiştir. Aklınızda burada currentHealthStatus previousHealthStatus ve neden özellik değerlerini bazı olayları null olabilir yukarıda belirtilen uyarılar size aittir.
 
-İşte ne kullanmanızı öneririz:
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

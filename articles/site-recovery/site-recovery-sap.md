@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471612"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793682"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Çok katmanlı SAP NetWeaver uygulama dağıtımı için olağanüstü durum kurtarmayı ayarlama
 
@@ -166,5 +166,5 @@ Daha fazla bilgi için [Azure Site recovery'de yük devretme testi](site-recover
 Daha fazla bilgi için [Site recovery'de yük devretme](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Site RECOVERY'yi kullanarak SAP NetWeaver dağıtımlar için bir olağanüstü durum kurtarma çözümü oluşturma hakkında daha fazla bilgi edinmek için indirilebilir teknik incelemesine bakın [SAP NetWeaver: Azure Site Recovery ile bir olağanüstü durum kurtarma çözümü oluşturma](https://aka.ms/asr-sap). Beyaz Kağıt, çeşitli SAP mimarileri için öneriler ele alınmaktadır, Azure üzerinde SAP için desteklenen uygulamalar ve VM türleri listeler ve olağanüstü durum kurtarma çözümünüzü test planı seçenekleri açıklar.
+* Site RECOVERY'yi kullanarak SAP NetWeaver dağıtımlar için bir olağanüstü durum kurtarma çözümü oluşturma hakkında daha fazla bilgi edinmek için indirilebilir teknik incelemesine bakın [SAP NetWeaver: Azure Site Recovery ile bir olağanüstü durum kurtarma çözümü oluşturma](https://aka.ms/asr_sap). Beyaz Kağıt, çeşitli SAP mimarileri için öneriler ele alınmaktadır, Azure üzerinde SAP için desteklenen uygulamalar ve VM türleri listeler ve olağanüstü durum kurtarma çözümünüzü test planı seçenekleri açıklar.
 * Daha fazla bilgi edinin [diğer iş yükleri çoğaltma](site-recovery-workload.md) Site Recovery kullanarak.

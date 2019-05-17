@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 32002f8b88a2fbeba29f15b3b9289ecf3d7560d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942725"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794336"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Teknik varlıkları kapsayıcınızı hazırlama
 
@@ -53,9 +53,10 @@ Ayrıca araçlar da gözden geçirme öneririz [Azure Geliştirici Araçları](h
 
 ## <a name="create-the-container-image"></a>Kapsayıcı görüntüsü oluşturma
 
-- Oluşturma ve kapsayıcı sanal makinenize (VM) için sanal sabit disk (VHD) yapılandırın. Bu VHD kapsayıcısı için işletim sistemi (Windows, Linux ve Ubuntu) içerir. Ek veri diskleri gerekli olabilir.
-- VM işletim sistemi, VM boyutu, bağlantı noktalarını açmak ve tüm bağlı veri diskleri yapılandırın.
-- Uygulama ve teklifiniz için gerekli olan diğer yazılımlar yükleyin. Örneğin: veritabanı yazılımı, üçüncü taraf yazılım veya özel bir uygulama.
+Daha fazla bilgi için aşağıdakilere bakın:
+
+* [Öğretici: Azure Container Instances'a dağıtılacak için kapsayıcı görüntüsü oluşturma](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Öğretici: Oluşturun ve kapsayıcı görüntülerini Azure Container kayıt defteri görevler ile bulutta dağıtın](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

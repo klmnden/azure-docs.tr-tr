@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461331"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212061"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Anahtar işlemleri (10 saniye içinde başına izin verilen en fazla işlem sayısı, bölge başına kasası<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Anahtar işlemleri (10 saniye içinde başına izin verilen en fazla işlem sayısı, bölge başına kasası<sup>1</sup>):
 
 |Anahtar türü|HSM anahtarı<br>Anahtar oluşturma|HSM anahtarı<br>Diğer tüm işlemler|Yazılım anahtarı<br>Anahtar oluşturma|Yazılım anahtarı<br>Diğer tüm işlemler|
 |:---|---:|---:|---:|---:|
@@ -34,7 +34,7 @@ ms.locfileid: "60461331"
 > - 125 RSA 4.096 bit HSM anahtarı GET işlemleri
 > - 124 RSA 4.096 bit HSM anahtar GET işlemleri ve 8 bit RSA 2.048 HSM anahtarı GET işlemleri
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Gizli diziler, yönetilen depolama hesabı anahtarlarını ve kasa işlemleri:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Gizli diziler, yönetilen depolama hesabı anahtarlarını ve kasa işlemleri:
 | İşlem türü | 10 saniye içinde başına izin verilen en fazla işlem sayısı, bölge başına kasası<sup>1</sup> |
 | --- | --- |
 | Tüm işlemler |2,000 |

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574073"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790403"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL veritabanı Premium RS hizmet Katmanı (Önizleme) kullanımdan - geçiş seçenekleri
 
@@ -27,7 +27,7 @@ Geçiş hedefler ve Premium RS müşteriler için uygun bir fiyatlandırma seçe
 
 - Sanal çekirdek hizmet katmanları
 
-  **Genel amaçlı** ve **iş açısından kritik** hizmet katmanlarında [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bu iki hizmet katmanı, genel kullanım aşamasındadır. Sanal çekirdek tabanlı satın alma modeli de sunar **hiper ölçekli** isteğe bağlı veritabanı başına en fazla 100 TB otomatik ölçeklendirme ile İş yükünüzün gereksinimlerine uyum sağlayan bir hizmet katmanındaki (genel Önizleme). G/ç performansı için Premium hizmet katmanında karşılaştırılabilir hiper ölçekli hizmet katmanı sunar [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) fiyattan daha yakın Premium RS hizmet katmanı için.
+  **Genel amaçlı** ve **iş açısından kritik** hizmet katmanlarında [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bu iki hizmet katmanı, genel kullanım aşamasındadır. Sanal çekirdek tabanlı satın alma modeli de sunar **hiper ölçekli** uyum sağlayan isteğe bağlı veritabanı başına en fazla 100 TB otomatik ölçeklendirme ile İş yükünüzün gereksinimlerini hizmet katmanı. G/ç performansı için Premium hizmet katmanında karşılaştırılabilir hiper ölçekli hizmet katmanı sunar [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) fiyattan daha yakın Premium RS hizmet katmanı için.
 - Geliştirme ve Test fiyatlandırması
 
   [Geliştirme ve test fiyatlandırması](https://azure.microsoft.com/pricing/dev-test/) Visual Studio aboneliğinizle %55 lisansın dahil edildiği oranları karşı varan tasarruf sağlar.
@@ -70,10 +70,10 @@ Bizim sanal çekirdek tabanlı hiper ölçekli katmanında, şu anda Önizleme v
 
 |**Şu anda...**|**Benzer şekilde, sanal çekirdek tabanlı geçirme...**|**Karşılaştırılabilir için DTU tabanlı geçirme...**|
 |---|---|---|
-|Premium RS 1|(Önizleme) Hiper ölçekli 1 sanal çekirdek (4. nesil) veya kritik iş 1 sanal çekirdek (4. nesil)|Premium 1|
-|Premium RS 2|(Önizleme) Hiper ölçekli 2 sanal çekirdek (4. nesil) veya kritik iş 2 sanal çekirdek (4. nesil|Premium 2|
-|Premium RS 4|(Önizleme) Hiper ölçekli 4 sanal çekirdek (4. nesil) ya da iş kritik 4 sanal çekirdek (4. nesil)|Premium 4
-|Premium RS 6|(Önizleme) Hiper ölçekli 6 sanal çekirdek (4. nesil) ya da iş kritik 6 sanal çekirdek (4. nesil)|Premium 6|
+|Premium RS 1| Hiper ölçekli 1 sanal çekirdek (4. nesil) veya kritik iş 1 sanal çekirdek (4. nesil)|Premium 1|
+|Premium RS 2| Hiper ölçekli 2 sanal çekirdek (4. nesil) veya kritik iş 2 sanal çekirdek (4. nesil|Premium 2|
+|Premium RS 4| Hiper ölçekli 4 sanal çekirdek (4. nesil) ya da iş kritik 4 sanal çekirdek (4. nesil)|Premium 4
+|Premium RS 6| Hiper ölçekli 6 sanal çekirdek (4. nesil) ya da iş kritik 6 sanal çekirdek (4. nesil)|Premium 6|
 
 |**Şu anda...**|**Benzer şekilde, sanal çekirdek tabanlı geçirme...**|**Karşılaştırılabilir için DTU tabanlı geçirme...**|
 |---|---|---|

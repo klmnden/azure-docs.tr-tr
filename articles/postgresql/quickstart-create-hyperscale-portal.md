@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: efc3801ab03f739761a41bec754f975fe43dcd8e
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65757495"
+ms.locfileid: "65792016"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Hızlı Başlangıç: PostgreSQL - Azure portalında hiper ölçekli (Citus) (Önizleme) için Azure veritabanı oluşturma
 

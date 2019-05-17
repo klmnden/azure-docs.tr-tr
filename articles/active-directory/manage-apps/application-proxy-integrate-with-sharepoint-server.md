@@ -3,8 +3,8 @@ title: Azure AD uygulama ara sunucusu ile SharePoint için uzaktan erişimi etki
 description: Şirket içi SharePoint server, Azure AD uygulama proxy'si ile tümleştirme hakkında temel kavramları kapsar.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dc80b78bbba369e0ddb5c2c1e9fd90834dc0148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293226"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783438"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -117,7 +117,7 @@ KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya h
 1. Aşağıdaki ayarlar ile SharePoint sitenizi yayımlayın. Adım adım yönergeler için bkz: [Azure AD uygulama proxy'si kullanarak uygulamaları yayımlama](application-proxy-publish-azure-portal.md).
    * **İç URL**: Daha önce seçilen SharePoint İç URL gibi **<https://SharePoint/>**.
    * **Ön kimlik doğrulama yöntemi**: Azure Active Directory
-   * **Bilgilerde URL'yi çevir**: NO
+   * **Bilgilerde URL'yi çevir**: HAYIR
 
    >[!TIP]
    >SharePoint kullanan _ana bilgisayar üst bilgisini_ siteyi aramak için değer. Ayrıca bu değere göre bağlantılar oluşturur. Net etkisiyle SharePoint oluşturan herhangi bir bağlantıyı dış URL'sini kullanmak üzere doğru şekilde yayımlanmış bir URL olmasıdır. Değerini **Evet** Ayrıca arka uç uygulaması isteği iletmek bağlayıcıyı etkinleştirir. Ancak, ayar değeri **Hayır** bağlayıcı iç ana bilgisayar adını göndermez anlamına gelir. Bunun yerine, bağlayıcıyı arka uç uygulaması için yayımlanan URL olarak ana bilgisayar üst bilgisi gönderir.
@@ -135,7 +135,7 @@ KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya h
 
 3. Uygulamanızı ayarlama işlemini sonlandırmak için şuraya gidin: **kullanıcılar ve gruplar** bölümünde ve bu uygulamaya erişmek için kullanıcı atama. 
 
-## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3. Adım: Kerberos ve Azure AD Proxy URL'ler kullanmak için SharePoint'i yapılandırma
+## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3. adım: Kerberos ve Azure AD Proxy URL'ler kullanmak için SharePoint'i yapılandırma
 
 Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istekleri işlemek için Kerberos ve uygun bir alternatif erişim eşlemeyi SharePoint izin verecek şekilde yapılandırılmış yeni bir bölge için genişletme ve bağlantılar için dış URL'yi yerleşik yanıt sağlamaktır.
 

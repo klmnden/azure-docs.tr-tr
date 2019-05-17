@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271069"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813322"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Öğretici: İPass SmartConnect ile Azure Active Directory Tümleştirme
 
@@ -122,8 +122,8 @@ Azure AD çoklu oturum açma SmartConnect iPass ile yapılandırmak için aşağ
     | ---------------| ----------|
     | FirstName | User.givenName |
     | Soyadı | User.surname |
-    | e-posta | User.userPrincipalName |
-    | kullanıcı adı | User.userPrincipalName |
+    | email | User.userPrincipalName |
+    | username | User.userPrincipalName |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

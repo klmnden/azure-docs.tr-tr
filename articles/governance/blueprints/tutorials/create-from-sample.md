@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65758845"
+ms.locfileid: "65798306"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Öğretici: Blueprint örnekten bir ortam oluşturun
 

@@ -9,12 +9,12 @@ ms.date: 11/03/2017
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 69d2eb1627d42c12a0af024bf1c80e787ed5eca7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c15a7bc3295a26b004a32a8a464b41ac8c0a4b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130492"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787238"
 ---
 # <a name="azure-table-storage-overview"></a>Azure Tablo depolamaya genel bakış
 
@@ -30,7 +30,7 @@ Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri 
 
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 
-* [.NET’te Azure Tablo Depolama Kullanmaya Başlama](table-storage-how-to-use-dotnet.md)
+* [.NET SDK kullanarak Azure Cosmos DB tablo API'si ve Azure tablo depolama ile çalışmaya başlama](table-storage-how-to-use-dotnet.md)
 
 * Kullanılabilir API’ler ile ilgili eksiksiz bilgiler için Tablo hizmeti başvuru belgelerini görüntüleyin:
 

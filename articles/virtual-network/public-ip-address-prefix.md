@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154477"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799116"
 ---
 # <a name="public-ip-address-prefix"></a>Genel IP adresi ön eki
 
@@ -55,7 +55,7 @@ Aşağıdaki kaynaklar için bir statik genel IP adresi bir önekten ilişkilend
 ## <a name="constraints"></a>Kısıtlamalar
 
 - IP adreslerini ön eki belirtemezsiniz. Azure, belirttiğiniz boyutuna göre ön eki, IP adresi ayırır.
-- Bir önek varsayılan boyutu/28 ya da 16 genel IP adresleri.
+- En fazla 16 IP adresini veya/28 öneki oluşturabilirsiniz. Daha fazla bilgi için [Azure sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Önek oluşturduktan sonra aralığını değiştiremezsiniz.
 - Yalnızca IPv4 adresleri aralığıdır. IPv6 adresleri aralığını içermiyor.
 - Standart SKU ile oluşturulan yalnızca statik genel IP adresi ön eki'nın aralığından atanabilir. SKU'ları adresi genel IP hakkında daha fazla bilgi edinmek için [genel IP adresi](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

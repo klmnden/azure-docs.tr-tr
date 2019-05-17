@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414360"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65811937"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>SaaS uygulamalarını B2B işbirliği için yapılandırma
 
@@ -72,7 +72,7 @@ Kendi kuruluş hesabını kullanarak oturum açmasına etkinleştirmek için bir
 
 Dropbox uygulamada konuk veya üye kullanıcı ayarlanan sonra Dropbox'tan ayrı bir davet alırsınız. Dropbox çoklu oturum açmayı kullanmak için davetlilerin daveti bir bağlantıya tıklayarak kabul etmeniz gerekir.
 
-## <a name="box"></a>Box
+## <a name="box"></a>Kutu
 SAML Protokolü temelinde Federasyon kutusuna Konuk kullanıcıları Azure AD hesabıyla kimliğini açabileceğinizi bilirsiniz. Bu yordamda, meta verileri için Box.com yükleyin.
 
 1. Box uygulamasına Kurumsal uygulamaları ekleyin.

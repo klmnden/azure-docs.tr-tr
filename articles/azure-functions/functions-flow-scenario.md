@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106979"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787682"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow’dan işlev çağırma
 
@@ -36,6 +36,8 @@ Bu konu başlığında, şunların nasıl yapılır:
 > * Bir onarım uygun maliyetli olması durumunda e-posta göndermek için bir akış oluşturun.
 > * Akışı çalıştırın.
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 + Etkin bir [Microsoft Flow hesabı](https://flow.microsoft.com/documentation/sign-up-sign-in/) Azure hesabınızla oturum açma kimlik ile. 
@@ -48,7 +50,7 @@ Akış veri kaynağı olarak kullanan bir liste oluşturarak başlayın. Listesi
 | Liste sütunu     | Veri Türü           | Notlar                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Başlık**           | Tek metin satırı | Türbinin adı                      |
-| **LastServiceDate** | Tarih                |                                          |
+| **LastServiceDate** | Date                |                                          |
 | **MaxOutput**       | Sayı              | Kwh türbinin çıktısı            |
 | **ServiceRequired** | Evet/Hayır              |                                          |
 | **EstimatedEffort** | Sayı              | Saat cinsinden onarım için tahmini süre |
@@ -156,7 +158,7 @@ Artık Azure'da işlevi çağıran özel bağlayıcıyı ekleyin. Flow standart 
 
 1. İçinde **Evet ise** dal, tıklayın **Eylem Ekle**.
 
-    ![Eylem ekleme](media/functions-flow-scenario/condition1-yes-add-action.png)
+    ![Eylem ekle](media/functions-flow-scenario/condition1-yes-add-action.png)
 
 2. İçinde **eylem seçin** iletişim kutusu, arama `Turbine Repair`, eylemin ardından **Türbin onarımı - maliyetleri hesaplar**.
 
@@ -196,7 +198,7 @@ Bu noktada, işlevi flow'da döndürdü bir **ileti** değerini `Yes` veya `No` 
 
 1. İçinde **Evet ise** dal ikinci koşulu, tıklayın **Eylem Ekle**.
 
-    ![Eylem ekleme](media/functions-flow-scenario/condition2-yes-add-action.png)
+    ![Eylem ekle](media/functions-flow-scenario/condition2-yes-add-action.png)
 
 2. İçinde **eylem seçin** iletişim kutusu, arama `email`, ardından (Bu durum Outlook'ta) e-posta sistemine dayalı bir gönderme e-posta eylemini seçin.
 
@@ -244,7 +246,7 @@ Akış tamamlandı, SharePoint listesine bir satır ekleyin ve akışın nasıl 
 
 5. Altında **ÇALIŞTIRMA GEÇMİŞİ**, akış çalıştırması tıklayın.
 
-    ![Çalıştırma geçmişi](media/functions-flow-scenario/run-history.png)
+    ![Çalışt. geçm.](media/functions-flow-scenario/run-history.png)
 
     Çalıştırma başarılı olduysa, akış işlemleri bir sonraki sayfada inceleyebilirsiniz. Çalıştırma için herhangi bir nedenle başarısız olursa, sonraki sayfaya sorun giderme bilgileri sağlar.
 

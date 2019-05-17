@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880273"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786203"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Otomasyonu değişken varlıkları
 
@@ -42,7 +42,7 @@ Bir dizi ya da karma tablosu oluşturuluyor ve değişkenine kaydederek birden �
 Otomasyon'da kullanılabilir değişken türlerinin bir listesi aşağıda verilmiştir:
 
 * String
-* Tamsayı
+* Integer
 * DateTime
 * Boolean
 * Null
@@ -135,45 +135,6 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
 Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
-```
-
-#### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Karmaşık bir nesne bir değişken, alma ve ayarlama
-
-Aşağıdaki örnek kod, bir değişken değerinin metinsel bir runbook'ta karmaşık bir değerle güncelleştirmek gösterilmektedir. Bu örnekte, bir Azure sanal makinesi ile alınan **Get-AzureVM** ve mevcut bir Otomasyon değişken için kaydedildi.  İçinde anlatıldığı gibi [değişken türleri](#variable-types), bu bir PSCustomObject depolanır.
-
-```powershell
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
-
-Aşağıdaki kodda, değeri değişkenin alınan ve sanal makineyi başlatmak için kullanılır.
-
-```powershell
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-    Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
-
-#### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>Bir değişken koleksiyonunda alma ve ayarlama
-
-Aşağıdaki örnek kod, metinsel bir runbook'ta karmaşık değerler koleksiyonu ile bir değişken kullanmayı gösterir. Bu örnekte, birden fazla Azure sanal makineleri ile alınan **Get-AzureVM** ve mevcut bir Otomasyon değişken için kaydedildi. İçinde anlatıldığı gibi [değişken türleri](#variable-types), bu PSCustomObjects koleksiyonu olarak depolanır.
-
-```powershell
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
-
-Aşağıdaki kodda, koleksiyon değişkeninden alınır ve her bir sanal makineyi başlatmak için kullanılan.
-
-```powershell
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-    if ($vmValue.PowerState -eq 'Stopped') {
-        Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-    }
-}
 ```
 
 #### <a name="setting-and-retrieving-a-variable-in-python2"></a>Bir değişkende Python2 alma ve ayarlama

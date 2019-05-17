@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f697c91851e7ddc95f84239987bb4378bafd094
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680303"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798631"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Öğretici: Bing haber arama API'si Visual Studio'da bağlı hizmetler ile bağlanın veC#
 
@@ -26,7 +26,7 @@ Bu makalede Bing Haber Arama hizmeti için Visual Studio Bağlı Hizmet özelli�
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-- Web Geliştirme iş yükünün yüklendiği Visual Studio 2017 sürüm 15.7. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2017 sürüm 15.7 veya üzeri yüklü Web geliştirme iş yüküyle. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

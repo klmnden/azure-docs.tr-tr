@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618065"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538385"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure'da hangi disk türleri mevcuttur?
 
@@ -44,6 +44,7 @@ Ultra yüksek SSD, bazı temel işlevler şunlardır:
 - Disk kapasitesi: Ultra yüksek SSD kapasitesi aralıkları 4'ten en fazla 64 TiB GiB.
 - Disk IOPS: Ultra yüksek SSD 300 IOPS/GiB, 160 K IOPS disk başına en fazla IOPS sınırları destekler. Sağladığınız IOPS elde etmek için seçili Disk IOPS VM IOPS değerinden küçük olmasını sağlayın. Minimum disk IOPS olan 100 IOPS.
 - Disk aktarım hızı: Her 2000 MB disk başına en fazla IOPS sağlanması için Ultra yüksek SSD ile tek bir disk aktarım hızı sınırı 256 KiB/sn olan (burada MB/sn = 10 ^ 6 bayt / saniye). Minimum disk aktarım hızı 1 MiB ' dir.
+- Ultra yüksek SSD disk performans öznitelikleri (IOPS ve aktarım hızı) ayarlama, çalışma zamanında'diski sanal makineden ayırmayı olmadan destekler. Disk performansı yeniden boyutlandırma işlemi bir diskte verildikten sonra bu değişikliğin gerçekten etkili bir saate kadar sürebilir.
 
 ### <a name="disk-size"></a>Disk boyutu
 
@@ -58,6 +59,10 @@ Ultra yüksek SSD, bazı temel işlevler şunlardır:
 |256     |76,800         |2,000         |
 |512     |80,000         |2,000         |
 |1024-65.536 (boyutları 1 TiB artışlarla artan bu aralıkta)     |160,000         |2,000         |
+
+### <a name="transactions"></a>İşlemler
+
+Ultra yüksek SSD için her g/ç işlemi daha az veya eşit 256 tek bir g/ç işleme aktarım hızının KiB olarak kabul edilir. Aktarım hızı 256 KiB daha büyük g/ç işlemleri birden çok g/ç boyutu 256 değerlendirilir KiB.
 
 ### <a name="preview-scope-and-limitations"></a>Önizleme kapsamı ve sınırlamalar
 

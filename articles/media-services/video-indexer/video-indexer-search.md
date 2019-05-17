@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560372"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799104"
 ---
 # <a name="find-exact-moments-within-videos"></a>Videoların içinde belirli anları bulma
 
@@ -49,7 +50,7 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
 
 Birlikte çalışmak istediğiniz videoyu bulun, sonra aşağıdaki konulardan birine açıklandığı şekilde video işleme geçebilirsiniz: 
 
-- [Mevcut video dayalı yeni video öngörüleri oluşturma](video-indexer-create-new.md)
+- [Videolarınızın ayrıntılı Öngörüler kullanın](use-editor-create-project.md)
 - [Video Indexer REST API'si ile içerik işleme](video-indexer-use-apis.md)
 - [Görsel pencere öğelerini uygulamanıza ekleme](video-indexer-embed-widgets.md)
 

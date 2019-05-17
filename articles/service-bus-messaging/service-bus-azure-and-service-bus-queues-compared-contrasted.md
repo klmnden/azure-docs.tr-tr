@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714583"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799346"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
 Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları analiz eder: Depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 Azure, sıra mekanizmalar iki türlerini destekler: **Depolama kuyrukları** ve **Service Bus kuyruklarını**.
 
 **Depolama kuyrukları**, parçası olduğu [Azure depolama](https://azure.microsoft.com/services/storage/) altyapısı özelliği içinde ve hizmetler arasında güvenilir ve kalıcı Mesajlaşma sağlayan basit bir GET/PUT/GÖZLEM REST tabanlı arabirim.
@@ -74,8 +74,8 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel
 | Anında iletme stili API |**Hayır** |**Evet**<br/><br/>[Pushhandlerservice](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) ve **Onmessageoptions** oturumlarının .NET API. |
 | Modu alır |**Özet & kiralama** |**Özet & Kilitle**<br/><br/>**Alma ve silme** |
 | Özel erişim modu |**Kira tabanlı** |**Kilit tabanlı** |
-| Kira/kilit süresi |**30 saniye (varsayılan)**<br/><br/>**7 gün (maksimum)** (yenileyin veya ileti kullanarak kira serbest [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API.) |**60 saniye (varsayılan)**<br/><br/>Kullanarak bir ileti kilidi yenileme [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
-| Duyarlık kira/kilitleme |**İleti düzeyi**<br/><br/>(her ileti, ardından gerektiği kullanarak ileti işlenirken güncelleştirebilirsiniz bir farklı zaman aşımı değeri olabilir [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API) |**Kuyruk düzeyi**<br/><br/>(her kuyruk iletileri tümüne uygulanan kilit kesinliği var, ancak kilit kullanarak yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
+| Kira/kilit süresi |**30 saniye (varsayılan)**<br/><br/>**7 gün (maksimum)** (yenileyin veya ileti kullanarak kira serbest [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**60 saniye (varsayılan)**<br/><br/>Kullanarak bir ileti kilidi yenileme [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
+| Duyarlık kira/kilitleme |**İleti düzeyi**<br/><br/>(her ileti, ardından gerektiği kullanarak ileti işlenirken güncelleştirebilirsiniz bir farklı zaman aşımı değeri olabilir [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API) |**Kuyruk düzeyi**<br/><br/>(her kuyruk iletileri tümüne uygulanan kilit kesinliği var, ancak kilit kullanarak yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
 | Toplu olarak alma |**Evet**<br/><br/>(açıkça ileti sayısı en fazla 32 ileti kadar ileti alınırken belirtme) |**Evet**<br/><br/>(örtük olarak getirme öncesi özellik etkinleştirme veya işlemleri kullanarak açıkça) |
 | Toplu gönderme |**Hayır** |**Evet**<br/><br/>(işlem veya istemci tarafı işlem grubu oluşturma kullanılarak) |
 
@@ -121,7 +121,7 @@ Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından sağla
 * Kuyruk otomatik iletme otomatik iletme kendi kendisinden alıcı uygulamanın iletiyi tüketir, tek bir kuyruk iletileri için kuyrukları binlerce sağlar. Bu mekanizma kullanarak güvenliği sağlamak, akışını denetlemek için ve her ileti yayımcı arasında depolama alanı ayır.
 * Depolama kuyruklarına ileti içeriği güncelleştirmek için destek sağlar. Böylece sıfırdan başlıyor yerine en son bilinen kontrol noktasından işlenebilir bu işlevselliği sürüyor durumu bilgileri ve artımlı ilerleme güncelleştirmeleri için iletiye kullanabilirsiniz. Service Bus kuyrukları ile aynı senaryo ileti oturumları kullanarak etkinleştirebilirsiniz. Oturumları etkinleştir, kaydetme ve uygulama işleme durumunu almak (kullanarak [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) ve [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
 * [Kullanılmayan lettering](service-bus-dead-letter-queues.md), olduğu yalnızca hizmet veri yolu kuyrukları tarafından desteklenen, işlenemiyor başarıyla alıcı uygulama tarafından veya ne zaman iletileri ulaşamıyor hedeflerine süresi dolmuş bir yaşam süresi (nedeniyle ileti yalıtmak için yararlı olabilir TTL) özelliği. TTL değeri ne kadar bir ileti kuyruğunda kalır belirtir. Service Bus ile TTL süresi sona erdiğinde $DeadLetterQueue adlı özel bir kuyruğa ileti taşınır.
-* "Zehirli" iletileri depolama kuyruğunda bir ileti kuyruktan çıkarma işlemlerini zaman uygulama bulmak için inceler [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) iletinin özelliği. Varsa **DequeueCount** belirli bir eşikten büyük uygulama, bir uygulama tarafından tanımlanan "geçersiz" sırasına iletiyi taşır.
+* "Zehirli" iletileri depolama kuyruğunda bir ileti kuyruktan çıkarma işlemlerini zaman uygulama bulmak için inceler [DequeueCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.dequeuecount) iletinin özelliği. Varsa **DequeueCount** belirli bir eşikten büyük uygulama, bir uygulama tarafından tanımlanan "geçersiz" sırasına iletiyi taşır.
 * Depolama kuyrukları tüm düzgün olarak toplanan ölçümler olarak sıranın karşı yürütülen işlemlerin ayrıntılı günlüğü almak için etkinleştirin. Bu iki seçenek, hata ayıklama ve uygulamanızın depolama kuyrukları nasıl kullandığı anlamak için kullanışlıdır. Ayrıca, uygulamanızın performans ayarlama ve kuyrukları kullanma maliyetini azaltmak için yararlıdır.
 * İletiler içeren ve bunların ilgili alıcılar arasında oturum benzeri bir benzeşim sırayla oluşturan belirli bir alıcı ile ilişkilendirilecek belirli bir mantıksal gruba ait iletileri "Service Bus tarafından desteklenen mesaj oturumları" kavramı sağlar. Bu hizmet veri yolu işlevselliğini ayarlayarak Gelişmiş etkinleştirebilirsiniz [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) bir ileti özelliği. Alıcılar daha sonra belirli bir oturum Kimliğinde belirtilen oturum tanımlayıcısını paylaşan ileti dinleyip almak.
 * Bir kuyruk veya konuda değerine göre gönderilen yinelenen iletileri otomatik olarak Service Bus kuyrukları ile desteklenen yineleme algılama işlevi kaldırır [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) özelliği.

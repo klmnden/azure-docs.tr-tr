@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393048"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788606"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric olayları listesi 
 
@@ -40,7 +40,7 @@ Varlık tarafından düzenlenen bu Service Fabric olaylarının bir listesi aşa
 
 Küme yükseltme hakkında daha fazla ayrıntı bulunabilir [burada](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| EventID | Ad | Category | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Yükseltme | Bir küme yükseltmesi başlatıldı | CM | Bilgilendirici |
 | 29628 | ClusterUpgradeCompleted | Yükseltme | Bir küme yükseltmesi tamamlandı | CM | Bilgilendirici | 
@@ -52,7 +52,7 @@ Küme yükseltme hakkında daha fazla ayrıntı bulunabilir [burada](service-fab
 
 **Düğüm yaşam döngüsü olayları** 
 
-| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey |
+| EventID | Ad | Category | Açıklama |Kaynak (görev) | Düzey |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | Bir düğüm devre dışı bırakma tamamlandı | FM | Bilgilendirici | 
 | 18603 | NodeUp | StateTransition | Kümenin bir düğümü başlatıldı algıladı. | FM | Bilgilendirici | 
@@ -69,7 +69,7 @@ Küme yükseltme hakkında daha fazla ayrıntı bulunabilir [burada](service-fab
 
 **Uygulama yaşam döngüsü olayları**
 
-| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| EventID | Ad | Category | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | Yaşam döngüsü | Yeni bir uygulama oluşturuldu | CM | Bilgilendirici | 
 | 29625 | ApplicationDeleted | Yaşam döngüsü | Var olan bir uygulamayı silindi | CM | Bilgilendirici | 
@@ -79,7 +79,7 @@ Küme yükseltme hakkında daha fazla ayrıntı bulunabilir [burada](service-fab
 
 Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](service-fabric-application-upgrade.md).
 
-| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| EventID | Ad | Category | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Yükseltme | Uygulama yükseltmesi başlatıldı | CM | Bilgilendirici | 
 | 29622 | ApplicationUpgradeCompleted | Yükseltme | Uygulama yükseltme tamamlandı | CM | Bilgilendirici | 
@@ -91,7 +91,7 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Hizmet yaşam döngüsü olayları**
 
-| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| EventID | Ad | Category | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | Yaşam döngüsü | Yeni bir hizmet oluşturuldu | FM | Bilgilendirici | 
 | 18658 | ServiceDeleted | Yaşam döngüsü | Var olan bir hizmeti silindi | FM | Bilgilendirici | 
@@ -100,9 +100,43 @@ Uygulama yükseltmeleri hakkında daha fazla ayrıntı bulunabilir [burada](serv
 
 **Bölüm taşıma olayları**
 
-| EventID | Ad | Kategori | Açıklama |Kaynak (görev) | Düzey | 
+| EventID | Ad | Category | Açıklama |Kaynak (görev) | Düzey | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | Yaşam döngüsü | Bölümü yeniden yapılandırma işlemi tamamlandı | RA | Bilgilendirici | 
+
+## <a name="replica-events"></a>Çoğaltma olayları
+
+**Çoğaltma yaşam döngüsü olayları**
+
+| EventID | Ad | Category | Açıklama |Kaynak (görev) | Düzey |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | Yaşam döngüsü | Güvenilir bir sözlük açtı | DistributedDictionary | Bilgilendirici |
+| 61702 | ReliableDictionaryClosed | Yaşam döngüsü | Güvenilir bir sözlük kapattı | DistributedDictionary | Bilgilendirici |
+| 61703 | ReliableDictionaryCheckpointRecovered | Yaşam döngüsü | Güvenilir bir sözlük, kontrol noktası kurtarıldı | DistributedDictionary | Bilgilendirici |
+| 61704 | ReliableDictionaryCheckpointFilesSent | Yaşam döngüsü | Çoğaltma güvenilir sözlüğün denetim noktası dosyaları gönderdi | DistributedDictionary | Bilgilendirici |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | Yaşam döngüsü | Çoğaltma güvenilir sözlüğün denetim noktası dosyaları aldı | DistributedDictionary | Bilgilendirici |
+| 61963 | ReliableQueueOpened | Yaşam döngüsü | Güvenilir kuyruk açtı | DistributedQueue | Bilgilendirici |
+| 61964 | ReliableQueueClosed | Yaşam döngüsü | Güvenilir kuyruk kapattı | DistributedQueue | Bilgilendirici |
+| 61965 | ReliableQueueCheckpointRecovered | Yaşam döngüsü | Güvenilir bir kuyruk, kontrol noktası kurtarıldı | DistributedQueue | Bilgilendirici |
+| 61966 | ReliableQueueCheckpointFilesSent | Yaşam döngüsü | Çoğaltma güvenilir sıra denetim noktası dosyaları gönderdi | DistributedQueue | Bilgilendirici |
+| 63647 | ReliableQueueCheckpointFilesReceived | Yaşam döngüsü | Çoğaltma güvenilir sıra denetim noktası dosyaları aldı | DistributedQueue | Bilgilendirici |
+| 63648 | ReliableConcurrentQueueOpened | Yaşam döngüsü | Güvenilir eşzamanlı kuyruk açtı | ReliableConcurrentQueue | Bilgilendirici |
+| 63649 | ReliableConcurrentQueueClosed | Yaşam döngüsü | Güvenilir eşzamanlı kuyruk kapattı | ReliableConcurrentQueue | Bilgilendirici |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | Yaşam döngüsü | Güvenilir eşzamanlı kuyruk, kontrol noktası kurtarıldı | ReliableConcurrentQueue | Bilgilendirici |
+| 61687 | TStoreError | Hata | Güvenilir koleksiyon beklenmeyen bir hata aldı | TStore | Hata |
+| 63831 | PrimaryFullCopyInitiated | Yaşam döngüsü | Birincil çoğaltma tam bir kopyasını başlattı | TReplicator | Bilgilendirici |
+| 63832 | PrimaryPartialCopyInitiated | Yaşam döngüsü | Kısmi bir kopya birincil çoğaltma başlattı | TReplicator | Bilgilendirici |
+| 16831 | BuildIdleReplicaStarted | Yaşam döngüsü | Birincil çoğaltma boşta çoğaltma oluşturma başladı | Çoğaltma | Bilgilendirici |
+| 16832 | BuildIdleReplicaCompleted | Yaşam döngüsü | Birincil çoğaltma boşta çoğaltma oluşturma tamamlandı | Çoğaltma | Bilgilendirici |
+| 16833 | BuildIdleReplicaFailed | Yaşam döngüsü | Birincil çoğaltma boşta çoğaltma oluşturma başarısız oldu | Çoğaltma | Uyarı |
+| 16834 | PrimaryReplicationQueueFull | Sağlık | Birincil çoğaltma'nın çoğaltma kuyruğu dolu | Çoğaltma | Uyarı |
+| 16835 | PrimaryReplicationQueueWarning | Sağlık | Birincil çoğaltma'nın çoğaltma kuyruğu dolu | Çoğaltma | Uyarı |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Sağlık | Birincil çoğaltma'nın çoğaltma kuyruğu uygundur | Çoğaltma | Bilgilendirici |
+| 16837 | SecondaryReplicationQueueFull | Sağlık | İkincil çoğaltma'nın çoğaltma kuyruğu dolu | Çoğaltma | Uyarı |
+| 16838 | SecondaryReplicationQueueWarning | Sağlık | İkincil çoğaltma'nın çoğaltma kuyruğu dolu | Çoğaltma | Uyarı |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Sağlık | İkincil çoğaltma'nın çoğaltma kuyruğu uygundur | Çoğaltma | Bilgilendirici |
+| 16840 | PrimaryFaultedSlowSecondary | Sağlık | Yavaş bir ikincil çoğaltma birincil çoğaltmaya hatalı | Çoğaltma | Uyarı |
+| 16841 | ReplicatorFaulted | Sağlık | Çoğaltma hatalı | Çoğaltma | Uyarı |
 
 ## <a name="container-events"></a>Kapsayıcı olayları
 

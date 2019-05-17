@@ -3,19 +3,19 @@ title: Dil desteği - Bing haber arama API'si
 titleSuffix: Azure Cognitive Services
 description: Doğal dil, ülke ve Bing haber arama API'si tarafından desteklenen bölgeler listesi.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201423"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799342"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing haber arama API'si için dil ve bölge desteği
 
@@ -37,20 +37,20 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Avusturya|Almanca |de-AT|
 |İsviçre|Almanca |de-CH|
 |Almanya|Almanca |de-DE|
-|Avustralya|Türkçe|tr-AU|
-|Kanada|Türkçe|CA tr|
-|Birleşik Krallık|Türkçe|en-GB|
-|Endonezya|Türkçe|tr kimliği|
-|İrlanda|Türkçe|IE tr|
-|Hindistan|Türkçe|tr-giriş|
-|Malezya|Türkçe|MY tr|
-|Yeni Zelanda|Türkçe|tr NZ|
-|Filipinler Cumhuriyeti|Türkçe|tr PH|
-|Singapur|Türkçe|tr SG|
-|Amerika Birleşik Devletleri|Türkçe|en-US|
-|Türkçe|Genel|tr WW|
-|Türkçe|Genel|XA tr|
-|Güney Afrika|Türkçe|tr-ZA|
+|Avustralya|İngilizce|tr-AU|
+|Kanada|İngilizce|CA tr|
+|Birleşik Krallık|İngilizce|en-GB|
+|Endonezya|İngilizce|tr kimliği|
+|İrlanda|İngilizce|IE tr|
+|Hindistan|İngilizce|tr-giriş|
+|Malezya|İngilizce|MY tr|
+|Yeni Zelanda|İngilizce|tr NZ|
+|Filipinler Cumhuriyeti|İngilizce|tr PH|
+|Singapur|İngilizce|tr SG|
+|Amerika Birleşik Devletleri|İngilizce|en-US|
+|İngilizce|Genel|tr WW|
+|İngilizce|Genel|XA tr|
+|Güney Afrika|İngilizce|tr-ZA|
 |Arjantin|İspanyolca |es-AR|
 |Şili|İspanyolca |ES-CL|
 |İspanya|İspanyolca |es-ES|
@@ -63,7 +63,7 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Belçika|Felemenkçe|NL-olabilir|
 |İsviçre|Fransızca |FR-CH|
 |Fransa|Fransızca |fr-FR|  
-|İtalya|İtalyanca|İt-IT|
+|İtalya|İtalyanca |İt-IT|
 |Hong Kong Çin ÖİB|Geleneksel Çince|zh-HK|  
 |Tayvan|Geleneksel Çince|zh-TW|
 |Japonya|Japonca|ja-JP|  
@@ -84,17 +84,17 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |---------------------|--------------|-----------------|
 |Danimarka|Danca|v-DK|
 |Almanya|Almanca |de-DE|
-|Avustralya|Türkçe|tr-AU|
-|Birleşik Krallık|Türkçe|en-GB|
-|Amerika Birleşik Devletleri|Türkçe|en-US|
-|Türkçe|Genel|tr WW|
+|Avustralya|İngilizce|tr-AU|
+|Birleşik Krallık|İngilizce|en-GB|
+|Amerika Birleşik Devletleri|İngilizce|en-US|
+|İngilizce|Genel|tr WW|
 |Şili|İspanyolca |ES-CL|
 |Meksika|İspanyolca |es-MX|
 |Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
 |Finlandiya|Fince|FI-FI|  
 |Kanada|Fransızca |fr-CA|
 |Fransa|Fransızca |fr-FR|  
-|İtalya|İtalyanca|İt-IT|
+|İtalya|İtalyanca |İt-IT|
 |Brezilya|Portekizce|pt-BR|
 |Çin Halk Cumhuriyeti|Çince|zh-CN|
 
@@ -106,11 +106,11 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Ülke/bölge|Dil|Pazar kod|  
 |---------------------|--------------|-----------------|
 |Almanya|Almanca |de-DE|
-|Avustralya|Türkçe|tr-AU|
-|Birleşik Krallık|Türkçe|en-GB|
-|Amerika Birleşik Devletleri|Türkçe|en-US|
-|Kanada|Türkçe|CA tr|
-|Hindistan|Türkçe|tr-giriş|
+|Avustralya|İngilizce|tr-AU|
+|Birleşik Krallık|İngilizce|en-GB|
+|Amerika Birleşik Devletleri|İngilizce|en-US|
+|Kanada|İngilizce|CA tr|
+|Hindistan|İngilizce|tr-giriş|
 |Fransa|Fransızca |fr-FR|
 |Kanada|Fransızca |fr-CA|
 |Brezilya|Portekizce|pt-BR|
@@ -125,7 +125,7 @@ Belirttiğiniz ülke/bölge kodları şunlardır `cc` sorgu parametresi. Değiş
 |Ülke/bölge|Ülke kodu|  
 |---------------------|------------------|  
 |Arjantin|AR|  
-|Avustralya|AU|  
+|Avustralya|Otomatik Olarak Güncelleştir|  
 |Avusturya|AT|  
 |Belçika|BE|  
 |Brezilya|BR|  
@@ -138,14 +138,14 @@ Belirttiğiniz ülke/bölge kodları şunlardır `cc` sorgu parametresi. Değiş
 |Hong Kong Çin ÖİB|HK|  
 |Hindistan|IN|  
 |Endonezya|Kimlik|  
-|İtalya|BT|  
+|İtalya|IT|  
 |Japonya|JP|  
 |Güney Kore|KR|  
 |Malezya|MY|  
 |Meksika|MX|  
 |Hollanda|NL|  
 |Yeni Zelanda|NZ|  
-|Norveç|NO|  
+|Norveç|HAYIR|  
 |Çin Halk Cumhuriyeti|CN|  
 |Polonya|PL|  
 |Portekiz|PT|  

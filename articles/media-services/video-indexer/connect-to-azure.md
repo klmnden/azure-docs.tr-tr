@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715106"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799839"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -140,7 +141,7 @@ Bir Azure bağlantısı başarısız olursa, el ile bağlanarak sorunu gidermek 
 |---|---|
 |Video Indexer hesabının bölgesi|Video Indexer hesap bölgesi adı. Daha iyi performans ve düşük maliyetlerden için Azure Media Services kaynağınız ve Azure depolama hesabının bulunduğu bölge adını belirtmek için önemle tavsiye edilir. |
 |Azure Active Directory (AAD) kiracısı|Azure AD kiracısı, örneğin "contoso.onmicrosoft.com" adı. Kiracı bilgileri, Azure portalından alınabilir. Sağ üst köşedeki oturum açan kullanıcı adının üzerine imleci yerleştirin. Sağındaki adını bulma **etki alanı**.|
-|Abonelik Kimliği|Azure aboneliği altında bu bağlantının oluşturulması. Abonelik kimliği, Azure portalından alınabilir. Tıklayarak **tüm hizmetleri** sol bölme ve "abonelikler" arayın. Seçin **abonelikleri** ve istenen kimliği aboneliklerinizi listesinden seçin.|
+|Abonelik kimliği|Azure aboneliği altında bu bağlantının oluşturulması. Abonelik kimliği, Azure portalından alınabilir. Tıklayarak **tüm hizmetleri** sol bölme ve "abonelikler" arayın. Seçin **abonelikleri** ve istenen kimliği aboneliklerinizi listesinden seçin.|
 |Azure Media Services kaynak grubu adı|Media Services hesabı oluşturduğunuz kaynak grubunun adı.|
 |Medya hizmeti kaynak adı|Önceki bölümde oluşturduğunuz Azure Media Services hesabı adı.|
 |Uygulama Kimliği|Önceki bölümde oluşturduğunuz Azure AD uygulama kimliği (ile belirtilen Media Services hesabı için izinler).|

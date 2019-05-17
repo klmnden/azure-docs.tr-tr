@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dedef2d22df9c8c81410296bdb0c4814bd98b80
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507124"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785066"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>Web API çağrıları web API'leri - kod yapılandırma
 
 Web API'nizi kaydettikten sonra uygulama kodunu yapılandırabilirsiniz.
 
-Bir web API projesi için kullanılan kod üzerinde web API'nizi Aşağı Akış web API'leri çağıran şekilde yapılandırmak için kod oluşturur. Daha fazla bilgi için bkz. [korumalı web API'si - uygulama yapılandırma](scenario-protected-web-api-app-configuration.md).
+Bir web API'sini korumak için kullanılan kod üzerinde web API'nizi Aşağı Akış web API'leri çağıran şekilde yapılandırmak için kod oluşturur. Daha fazla bilgi için bkz. [korumalı web API'si - uygulama yapılandırma](scenario-protected-web-api-app-configuration.md).
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>Kod için OnTokenValidated abone
 
@@ -74,7 +74,7 @@ AddAccountToCacheFromJwt() yöntemi gerekir:
 
 ### <a name="instantiate-a-confidential-client-application"></a>Gizli bir istemci uygulaması örneği
 
-Korumalı web API'si için istemci kimlik bilgileri (istemci parolası veya sertifika) sağlar. böylece bu akışı yalnızca gizli istemci akışı kullanılabilir [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) aracılığıyla `WithClientSecret` veya `WithCertificate`yöntemleri, sırasıyla.
+Korumalı web API'si için istemci kimlik bilgileri (istemci parolası veya sertifika) sağlar. böylece bu akışı yalnızca gizli istemci akışı kullanılabilir [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) aracılığıyla `WithClientSecret` veya `WithCertificate`yöntemleri, sırasıyla.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -96,7 +96,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### <a name="how-to-call-on-behalf-of"></a>On-behalf-of çağırma
 
-On-behalf-of (OBO) çağrı çağrılarak gerçekleştirilir [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) metodunda `IConfidentialClientApplication` arabirimi.
+On-behalf-of (OBO) çağrı çağrılarak gerçekleştirilir [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) metodunda `IConfidentialClientApplication` arabirimi.
 
 `ClientAssertion` Kendi istemcilerden gelen web API'si tarafından alınan taşıyıcı belirteç oluşturulur. Vardır [iki Oluşturucu](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), bir JWT taşıyıcı belirteci alır ve kullanıcı onayı herhangi bir türden alır (başka bir tür güvenlik belirteci, hangi türü adlı ek bir parametre içinde belirtilen ardından `assertionType`).
 
@@ -138,7 +138,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-## <a name="protocol"></a>Protokol
+## <a name="protocol"></a>Protocol
 
 On-behalf-of protokolü hakkında daha fazla bilgi için bkz. [Microsoft kimlik platformu ve OAuth 2.0 On-Behalf-Of akış](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 

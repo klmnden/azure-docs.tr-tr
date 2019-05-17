@@ -2,21 +2,23 @@
 title: Program aracılığıyla Azure Enterprise abonelikleri oluşturma | Microsoft Docs
 description: Ek Azure Enterprise veya Kurumsal geliştirme ve Test abonelikleri program aracılığıyla oluşturmayı öğrenin.
 services: azure-resource-manager
-author: tfitzmac
+author: jureid
+manager: jureid
+editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/10/2019
+ms.author: jureid
+ms.openlocfilehash: 7985451eb2bb5e9fd4fbcfb3d2fcf35149122c15
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256932"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796071"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma
 
@@ -40,9 +42,9 @@ Azure hesap kaydını ilişki için bir hesap sahibi olarak bir Azure EA kayıt 
 
 Aşağıdaki komutları çalıştırmak için hesap sahibinin için oturum açmanız gerekir *giriş dizini*, varsayılan olarak abonelik oluşturduğunuz dizine olduğu.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+## <a name="resttabrest"></a>[REST](#tab/rest)
 
-Tüm kayıt hesaplarını listelemek için istek:
+Erişiminiz olan tüm kayıt hesaplarını listelemek için istek:
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
@@ -73,7 +75,11 @@ Azure, erişiminiz olan tüm kayıt hesaplarının listesi ile yanıt verir:
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Kullanım `principalName` özelliği için faturalandırılmaya abonelikleri istediğiniz hesabı belirleyin. Kopyalama `name` o hesabın. Örneğin, abonelikler oluşturmak istiyorsanız SignUpEngineering@contoso.com kayıt hesabı kopyalayın ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Kayıt hesabı nesne kimliğidir. Bu değer bir sonraki adımda kullanmak yere yapıştırın `enrollmentAccountObjectId`.
+
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Açık [Azure Cloud Shell](https://shell.azure.com/) ve PowerShell seçin.
 
 Kullanım [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) erişiminiz olan tüm kayıt hesaplarını listelemek için kullanın.
 
@@ -81,15 +87,16 @@ Kullanım [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollme
 Get-AzEnrollmentAccount
 ```
 
-Azure hesabı nesne kimlikleri ve e-posta adresleri listesi ile yanıt verir.
+Azure erişiminiz kayıt hesaplarının listesi ile yanıt verir:
 
 ```azurepowershell
 ObjectId                               | PrincipalName
 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
+Kullanım `principalName` özelliği için faturalandırılmaya abonelikleri istediğiniz hesabı belirleyin. Kopyalama `ObjectId` o hesabın. Örneğin, abonelikler oluşturmak istiyorsanız SignUpEngineering@contoso.com kayıt hesabı kopyalayın ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Bu nesne kimliği bir sonraki adımda kullanmak bir yere yapıştırmak `enrollmentAccountObjectId`.
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Kullanım [az fatura kayıt hesabı listesi](https://aka.ms/EASubCreationPublicPreviewCLI) erişiminiz olan tüm kayıt hesaplarını listelemek için komutu.
 
@@ -97,45 +104,39 @@ Kullanım [az fatura kayıt hesabı listesi](https://aka.ms/EASubCreationPublicP
 az billing enrollment-account list
 ```
 
-Azure hesabı nesne kimlikleri ve e-posta adresleri listesi ile yanıt verir.
+Azure erişiminiz kayıt hesaplarının listesi ile yanıt verir:
 
 ```json
-{
-  "value": [
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "SignUpEngineering@contoso.com"
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "BillingPlatformTeam@contoso.com"
-      }
-    }
-  ]
-}
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
 ```
+
+Kullanım `principalName` özelliği için faturalandırılmaya abonelikleri istediğiniz hesabı belirleyin. Kopyalama `name` o hesabın. Örneğin, abonelikler oluşturmak istiyorsanız SignUpEngineering@contoso.com kayıt hesabı kopyalayın ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Kayıt hesabı nesne kimliğidir. Bu değer bir sonraki adımda kullanmak yere yapıştırın `enrollmentAccountObjectId`.
 
 ---
 
-Kullanım `principalName` özelliği için faturalandırılmaya abonelikleri istediğiniz hesabı belirleyin. Kullanma `id` olarak `enrollmentAccount` sonraki adımda abonelik oluşturmak için kullandığınız değer.
+## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Belirli kayıt hesabı altında abonelikleri oluşturma
 
-## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Belirli kayıt hesabı altında abonelikleri oluşturma 
-
-Aşağıdaki örnekte adlı abonelik oluşturma isteği oluşturur *geliştirme ekibi abonelik* ve abonelik teklifi *MS-AZR - 0017P* (normal EA). Kayıt hesabı `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (yer tutucu değerini, bu değeri olduğu bir GUID), kayıt hesabı olduğu için SignUpEngineering@contoso.com. Ayrıca isteğe bağlı olarak iki kullanıcı abonelik için RBAC sahip olarak ekler.
+Aşağıdaki örnekte adlı bir abonelik oluşturur *geliştirme ekibi abonelik* önceki adımda seçtiğiniz kayıt hesabı. Abonelik teklif *MS-AZR - 0017P* (Normal Microsoft Kurumsal anlaşması). Ayrıca isteğe bağlı olarak iki kullanıcı abonelik için RBAC sahip olarak ekler.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
-Kullanım `id` , `enrollmentAccount` yolunda abonelik oluşturma isteği.
+Aşağıdaki isteği yapmak, değiştirme `<enrollmentAccountObjectId>` ile `name` ilk adımda kopyaladığınız (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Sahipleri belirtmek istiyorsanız, bilgi [kullanıcı nesne kimliklerini almak nasıl](grant-access-to-create-subscription.md#userObjectId).
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -161,12 +162,12 @@ Yanıtta ulaşırsınız bir `subscriptionOperation` izleme nesnesi. Abonelik ol
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Bu önizleme modülü kullanmak için çalıştırarak yükleyin `Install-Module Az.Subscription -AllowPrerelease` ilk. Emin olmak için `-AllowPrerelease` çalıştığı PowerShellGet yeni bir sürümünü yükleme [PowerShellGet modülü Al](/powershell/gallery/installing-psget).
+İlk olarak, bu Önizleme modülü çalıştırarak yükleyin `Install-Module Az.Subscription -AllowPrerelease`. Emin olmak için `-AllowPrerelease` çalıştığı PowerShellGet yeni bir sürümünü yükleme [PowerShellGet modülü Al](/powershell/gallery/installing-psget).
 
-Kullanım [yeni AzSubscription](/powershell/module/az.subscription) ile birlikte `enrollmentAccount` nesne kimliği olarak `EnrollmentAccountObjectId` parametresini kullanarak yeni bir abonelik oluşturun. 
+Çalıştırma [yeni AzSubscription](/powershell/module/az.subscription) altındaki değiştirme komutu `<enrollmentAccountObjectId>` ile `ObjectId` ilk adımda toplanan (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Sahipleri belirtmek istiyorsanız, bilgi [kullanıcı nesne kimliklerini almak nasıl](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurepowershell-interactive
-New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
 | Öğe adı  | Gerekli | Tür   | Açıklama                                                                                               |
@@ -182,12 +183,12 @@ Tüm parametreler tam listesini görmek için bkz: [yeni AzSubscription](/powers
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Bu önizleme uzantısını kullanacak şekilde çalıştırarak yükleyin `az extension add --name subscription` ilk.
+İlk olarak, bu Önizleme uzantısı çalıştırarak yükleyin `az extension add --name subscription`.
 
-Kullanım [az hesabı oluşturma](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) ile birlikte `enrollmentAccount` nesne kimliği olarak `enrollment-account-object-id` parametresini kullanarak yeni bir abonelik oluşturun.
+Çalıştırma [az hesabı oluşturma](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) altındaki değiştirme komutu `<enrollmentAccountObjectId>` ile `name` ilk adımda kopyaladığınız (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Sahipleri belirtmek istiyorsanız, bilgi [kullanıcı nesne kimliklerini almak nasıl](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Öğe adı  | Gerekli | Tür   | Açıklama                                                                                               |
@@ -206,7 +207,7 @@ Tüm parametreler tam listesini görmek için bkz: [az hesabı oluşturma](/cli/
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Azure Kurumsal abonelik oluşturma API sınırlamaları
 
 - Yalnızca Azure Enterprise abonelikleri bu API'si kullanılarak oluşturulabilir.
-- Hesap başına 50 abonelik limiti yoktur. Bundan sonra abonelik yalnızca hesap merkezi aracılığıyla oluşturulabilir.
+- Kayıt hesabı başına 50 aboneliklerinin ilk bir sınır yoktur ancak yapabilecekleriniz [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 200 sayısı sınırını artırmak için. Bundan sonra abonelik yalnızca hesap merkezi oluşturulabilir.
 - Var. en az bir kurumsal Anlaşma veya EA geliştirme/Test abonelik hesap sahibi el ile kayıt en az bir kez geçti anlamına gelir hesabı altında olması gerekir.
 - Hesap sahipleri değildir, ancak bir kayıt hesabı, RBAC aracılığıyla eklenen kullanıcılar kullanan hesap Merkezi'nde abonelikleri oluşturulamıyor.
 - Oluşturulması için Kiracı aboneliği için seçemezsiniz. Abonelik hesap sahibi giriş kiracısında her zaman oluşturulur. Abonelik farklı bir kiracıya taşımak için bkz: [abonelik kiracısını değiştirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594034"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792230"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Bir Bilgi Bankası yanıt GenerateAnswer API ve meta verileri alma
 
@@ -43,7 +43,7 @@ Soru/yanıt kümesinden en iyi eşleşmeyi almak için bir kullanıcı soru ile 
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer uç noktası almak için yayımlama 
 
-Bilgi Bankası ' nden ya da yayımladıktan sonra [soru-cevap Oluşturucu portalı](https://www.qnamaker.ai), veya bu adı kullanıyor [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), GenerateAnswer uç noktanızı ayrıntılarını alabilirsiniz.
+Bilgi Bankası ' nden ya da yayımladıktan sonra [soru-cevap Oluşturucu portalı](https://www.qnamaker.ai), veya bu adı kullanıyor [API](https://go.microsoft.com/fwlink/?linkid=2092179), GenerateAnswer uç noktanızı ayrıntılarını alabilirsiniz.
 
 Uç nokta ayrıntılarını almak için:
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai) adresinde oturum açın.

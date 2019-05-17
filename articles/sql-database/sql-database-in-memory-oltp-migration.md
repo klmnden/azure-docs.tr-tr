@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: ad66253d33b2e99f0be79bfaddc86b3274f5cab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03e5540e34cd99d2b201bc763f13b42c7fa20bf7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337799"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785310"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>SQL veritabanı'nda, uygulama performansını artırmak için kullanım bellek içi OLTP
 
@@ -51,7 +51,7 @@ SSMS'de, raporu oluşturmak için şunu yazın:
 
 Daha fazla bilgi için [belirleme bir tablo veya saklı yordam gereken olması Unity'nin bellek içi OLTP için](https://msdn.microsoft.com/library/dn205133.aspx).
 
-## <a name="step-3-create-a-comparable-test-database"></a>3. Adım: Karşılaştırılabilir test veritabanı oluşturma
+## <a name="step-3-create-a-comparable-test-database"></a>3. adım: Karşılaştırılabilir test veritabanı oluşturma
 Veritabanı bellek için iyileştirilmiş bir tabloya dönüştürülür avantaj elde edecektir tablolu raporu gösterir varsayalım. İlk test ederek göstergesi onaylamak için test etmenizi öneririz.
 
 Size, üretim veritabanınızı test bir kopyasına ihtiyacınız vardır. Test veritabanı, üretim veritabanınız olarak aynı hizmet katmanında düzeyinde olması gerekir.

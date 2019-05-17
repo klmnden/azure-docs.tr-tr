@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025033"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800865"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
@@ -34,11 +34,14 @@ Her adım, bağımsız olarak veya tek bir komutun parçası olarak gerçekleşt
 
 [!['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>1. Adım: Modeli kaydetme
 
 Model kaydı, depolamanızı ve sürüm Modellerinizi çalışma alanınızda Azure bulutunda sağlar. Model kayıt defterini düzenlemek ve eğitilen Modellerinizi izlemek kolaylaştırır.
+
+> [!TIP]
+> Azure Machine Learning hizmetinin dışında eğitilen modelleri de kaydedebilirsiniz.
  
 Kayıtlı modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz. Azure Machine Learning hizmeti yüklenen Python 3.5.2 kullanarak ya da daha yüksek olabilir herhangi bir modelini destekler.
 
@@ -77,7 +80,7 @@ Daha fazla bilgi için [modelleri dağıtma](how-to-deploy-and-where.md).
 
 Microsoft Power BI, verileri analiz için makine öğrenimi modelleri kullanarak destekler. Daha fazla bilgi için [Power BI (Önizleme) Azure Machine Learning tümleştirme](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## <a name="step-3-monitor-models-and-collect-data"></a>3. Adım: İzleyici modeller ve veri toplama
+## <a name="step-3-monitor-models-and-collect-data"></a>3. adım: İzleyici modeller ve veri toplama
 
 İzleme, hangi veri modeliniz ve döndürdüğü Öngörüler gönderildiğini anlamanıza olanak tanır.
 
@@ -92,5 +95,7 @@ Dağıtımları açıkça güncelleştirilmesi gerekir. Daha fazla bilgi için g
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi edinin [nasıl ve nerede modelleri dağıtma](how-to-deploy-and-where.md) Azure Machine Learning hizmeti ile. Dağıtım örneği için bkz: [Öğreticisi: Azure Container ınstances'da bir görüntü sınıflandırma modeli dağıtma](tutorial-deploy-models-with-aml.md).
+
+Oluşturmayı [sürekli tümleştirme ve dağıtım ML modelleri Azure işlem hatları ile](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 İstemci uygulamaları oluşturmayı öğrenin ve Hizmetleri [bir web hizmeti olarak modeli kullanma](how-to-consume-web-service.md).

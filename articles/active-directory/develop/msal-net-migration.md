@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 028c7f5d42587a6b2129bba07831b0e799d607f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544228"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785215"
 ---
 # <a name="migrating-applications-to-msalnet"></a>MSAL.NET uygulamalarını geçirme
 
@@ -192,7 +192,7 @@ Resource Manager API'si bir eğik çizgi, İzleyici talebi bekliyor olmasıdır 
 Azure AD tarafından kullanılan mantıksal aşağıda verilmiştir:
 - Bir v1.0 erişim belirteci (tek olası) aud ile ADAL (v1.0) uç noktası için kaynak =
 - MSAL aud v2.0 belirteç kabul eden bir kaynak için bir erişim belirteci isteyen (v2.0 uç noktası) için kaynak =. Uygulama Kimliği
-- Azure AD, bir erişim belirteci (yukarıdaki söz konusu olduğu) v1.0 bir erişim belirteci kabul eden bir kaynak için soran MSAL için (v2.0 uç noktası), son eğik çizgiden önce her şeyi alma ve kaynak tanımlayıcısı kullanılarak istenen hedef istenen kapsamından ayrıştırır. Bu nedenle, https://database.windows.net hedef kitlesine bekliyor "https://database.windows.net/", istek bir kapsam gerekir https://database.windows.net//.default. Bkz: #'de sorun[747 ABD Doları](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql kimlik doğrulaması hatası #747 durdurulmasına kaynak URL'nin sonunda eğik çizgi atlanır
+- Azure AD, bir erişim belirteci (yukarıdaki söz konusu olduğu) v1.0 bir erişim belirteci kabul eden bir kaynak için soran MSAL için (v2.0 uç noktası), son eğik çizgiden önce her şeyi alma ve kaynak tanımlayıcısı kullanılarak istenen hedef istenen kapsamından ayrıştırır. Bu nedenle, https:\//database.windows.net hedef kitlesine bekliyor "https://database.windows.net/", bir kapsam HTTPS isteği ihtiyacınız olacak:\//database.windows.net//.default. Bkz: #'de sorun[747 ABD Doları](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Sql kimlik doğrulaması hatası #747 durdurulmasına kaynak URL'nin sonunda eğik çizgi atlanır
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>V1.0 uygulamasının tüm izinleri erişim istemek için kapsamları

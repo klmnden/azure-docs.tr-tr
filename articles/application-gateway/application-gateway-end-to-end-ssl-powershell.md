@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198569"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786277"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Application Gateway ve PowerShell kullanarak uçtan uca SSL'yi yapılandırma
 
@@ -231,6 +231,69 @@ Yukarıdaki adımları kullanarak, uygulama ağ geçidi oluşturun. Ağ geçidi 
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Arka uç sertifikanın süresi doldu, yeni bir sertifika Uygula
+
+Arka uç sertifikanın süresi doldu, yeni bir sertifika uygulamak için bu yordamı kullanın.
+
+1. Güncelleştirmek için uygulama ağ geçidini alın.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Sertifikanın ortak anahtarı içeren .cer dosyasını, yeni sertifika kaynağı ekleyin ve application Gateway SSL sonlandırma için dinleyicisi eklenen aynı sertifikayı da olabilir.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. Yeni kimlik doğrulama sertifikası nesnesini bir değişkene Al (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. Yeni sertifikayı ata **BackendHttp** ayarı ve $AuthCert değişkenle bakın. (Değiştirmek istediğiniz HTTP ayarı adı belirtin.)
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Uygulama ağ geçidine değişikliği kaydetmek ve $out değişkene bulunan yeni yapılandırma geçişi.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Kullanılmayan süresi dolmuş bir sertifika HTTP kaldırın
+
+Kullanılmayan süresi dolmuş bir sertifika HTTP ayarlarından kaldırmak için bu yordamı kullanın.
+
+1. Güncelleştirmek için uygulama ağ geçidini alın.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Kaldırmak istediğiniz kimlik doğrulama sertifikası adını listeler.
+
+   ```powershell
+   Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
+   ```
+    
+3. Bir uygulama ağ geçidinden kimlik doğrulaması sertifikayı kaldırın.
+
+   ```powershell
+   $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
+   ```
+ 
+ 4. Değişikliği işleyin.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw
+   ```
+
+   
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Var olan bir uygulama ağ geçidinde SSL protokolü sürümlerini sınırlama
 
 Önceki adımlarda uçtan uca SSL ile bir uygulama oluşturma ve belirli SSL protokolü sürümlerini devre dışı bırakma sürdü. Aşağıdaki örnekte mevcut bir uygulama ağ geçidi üzerinde belirli SSL ilkeler devre dışı bırakır.

@@ -5,15 +5,15 @@ metadata:
   title: 'Bing Varlık Arama API''si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs'
   description: 'Kişiler, yerler veya tanımlanan diğer konularla ilgili bilgiler edinmek için Bing Varlık Arama API’si nasıl kullanılır? Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği açıklanmaktadır.'
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/01/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Bing Varlık Arama API''si uygulamalarınızın arama sorgularında algılanan varlıklar hakkında bilgi almasını sağlar. Bunlar kişiler, yerler ve medya başlıkları gibi varlıklar olabilir.'
 sections:

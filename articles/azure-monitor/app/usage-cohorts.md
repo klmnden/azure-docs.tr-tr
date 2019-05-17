@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785123"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604112"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohortlar
 
@@ -123,13 +123,13 @@ Olayların kohortlar de yapabilirsiniz. Bu bölümde, tanımladığınız bir ko
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Seçin **sorgusu**. Kullanıcı kimliklerini tablosunda görünür görmüyorsanız, uygulamanız kullanıcıların sahip olduğu bir ülke için değiştirin.
+3. Seçin **sorgusu**. Kullanıcı kimliklerini tablosunda görünür görmüyorsanız, uygulamanız kullanıcıların bulunduğu ülke/bölge için değiştirin.
 
 4. Kaydet ve kohort adı.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-_Ben bir ülkeden kullanıcılar kohortu tanımladınız. Ben bir filtre söz konusu ülkeye göre ayarlamak için kullanıcıların aracında bu kohort karşılaştırdığınızda, farklı sonuçlar konusuna bakın. Neden?_
+_Ben bir belirli ülke/bölgeden kullanıcıların kohortu tanımladınız. Ben bu ülke/bölge üzerinde bir filtre ayarlamak için kullanıcıların aracında bu kohort karşılaştırdığınızda, farklı sonuçlar konusuna bakın. Neden?_
 
 Kohortlar ve filtreleri farklıdır. Birleşik Krallık (önceki örnekteki gibi tanımlanır) kullanıcıların kohortu sahip ve filtre ayarı için sonuçları karşılaştırma varsayalım "ülke veya bölge Birleşik Krallık =."
 

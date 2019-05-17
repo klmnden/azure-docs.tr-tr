@@ -18,12 +18,12 @@ ms.date: 12/07/2017
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294532"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784351"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory kimlik koruması bildirimleri
 
@@ -39,6 +39,8 @@ Bu makalede her iki bildirim e-postaları bir bakış sağlar.
 
 Algılanan bir hesap risk altında yanıt olarak, Azure AD kimlik koruması olan bir e-posta uyarı oluşturur. **algılanan risk altındaki kullanıcılar** nesnesi. E-posta bağlantısını içeren **[risk için işaretlenen kullanıcılar](../reports-monitoring/concept-user-at-risk.md)** rapor. En iyi uygulama, risk altındaki kullanıcılar hemen araştırmanız gerekir.
 
+Bu uyarı için bir yapılandırma oluşturulacak uyarı istediğiniz hangi kullanıcı risk düzeyinde belirtmenizi sağlar. Kullanıcının risk düzeyi belirtmiş olduğunuz ulaştığında e-posta oluşturulur; Ancak, bunlar bu kullanıcı risk düzeyi için taşıma işlemi sonrasında yeni kullanıcıları bu kullanıcı için e-posta uyarıları algılanan risk almamayı. Örneğin, Orta kullanıcı riski ve John taşır için orta düzeyde riskli kullanıcı uyarmak için ilke ayarlarsanız, John için kullanıcıları algılanan risk e-posta alırsınız. Ancak, John sonra yüksek risk taşır veya ek risk olayları sahip ikinci bir risk algılandı uyarısı kullanıcıları almazsınız.
+
 ![Risk altındaki kullanıcılar e-posta algılandı](./media/notifications/01.png)
 
 
@@ -46,7 +48,7 @@ Algılanan bir hesap risk altında yanıt olarak, Azure AD kimlik koruması olan
 
 Bir yönetici olarak ayarlayabilirsiniz:
 
-- **Bu e-posta oluşturulmasını tetikler risk düzeyi** -varsayılan olarak, "Yüksek" risk risk düzeyi ayarlanır.
+- **Bu e-posta oluşturulmasını tetikler kullanıcı risk düzeyi** -varsayılan olarak, "Yüksek" risk risk düzeyi ayarlanır.
 - **Bu e-posta alıcılarını** -varsayılan olarak, tüm genel yöneticilere alıcılar içerir. Genel Yöneticiler, diğer genel Yöneticiler, güvenlik yöneticileri, güvenlik okuyucuları alıcı da ekleyebilirsiniz.  
 
 

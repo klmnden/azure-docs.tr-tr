@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690280"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789255"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Olay hub'ları hakkında sık sorulan sorular
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690280"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Bir Event Hubs ad alanı nedir?
 Bir ad alanı için olay hub'ı / Kafka konularını kapsayan bir kapsayıcıdır. Bu, benzersiz bir veren [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Bir ad alanı, birden çok olay hub'ı / Kafka konularını barındırmak bir uygulama kapsayıcısı görev yapar. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Mevcut bir ad alanı, yeni bir ad kullanın ve oluşturulsun mu?
+Kapasite ayırma ([aktarım hızı birimlerini (işleme birimi)](#throughput-units)) ad alanı düzeyinde faturalandırılır. Bir ad alanı da bir bölge ile ilişkilidir.
+
+Mevcut bir içinde bir aşağıdaki senaryolardan kullanmak yerine yeni bir ad alanı oluşturmak isteyebilirsiniz: 
+
+- Yeni bir bölgeyle ilişkili bir olay hub'ı ihtiyacınız vardır.
+- Farklı bir abonelikle ilişkili bir olay Hub'ı gerekir.
+- Bir olay hub'ı ayrı kapasite ayırma ile gerekir (diğer bir deyişle, kapasiteye ihtiyaç eklenen olay hub'ı ad 40 işleme birimi eşiği aşabilir ve ayrılmış bir küme için Git istemediğiniz için)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Event Hubs temel ve standart katmanları arasındaki fark nedir?
 
@@ -60,7 +69,7 @@ Azure Service Bus ile aşağıdaki protokolleri, ileti göndermek ve almak için
 
 Azure Event Hubs ile iletişim kurmak için bu protokolleri kullanmak için açmanız giden bağlantı noktaları için aşağıdaki tabloya bakın. 
 
-| Protokol | Bağlantı Noktaları | Ayrıntılar | 
+| Protocol | Bağlantı Noktaları | Ayrıntılar | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 ve 5672 | Bkz: [AMQP protokol Kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |

@@ -9,12 +9,12 @@ ms.date: 09/14/2017
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: dbaaade278073613a62eaf350146360651350244
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510221"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797765"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure kuyruk depolama işlemleri
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti ekleyin
 
-Gerçek iletileri etkileyen işlemleri .NET depolama istemci kitaplığı, PowerShell'de gösterilen kullanın. Bir kuyruğa ileti eklemek için yeni bir ileti nesnesi örneğini oluşturma [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) sınıfı. Ardından [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) yöntemini çağırın. Bir dizeden (UTF-8 biçiminde) veya bir bayt dizisine bir CloudQueueMessage oluşturulabilir.
+Gerçek iletileri etkileyen işlemleri .NET depolama istemci kitaplığı, PowerShell'de gösterilen kullanın. Bir kuyruğa ileti eklemek için yeni bir ileti nesnesi örneğini oluşturma [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) sınıfı. Ardından [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) yöntemini çağırın. Bir dizeden (UTF-8 biçiminde) veya bir bayt dizisine bir CloudQueueMessage oluşturulabilir.
 
 Aşağıdaki örnek, bir ileti kuyruğuna eklemek gösterilmiştir.
 
@@ -131,7 +131,7 @@ En iyi deneme ilk-giren ilk çıkar sırayla ileti okunur. Bu garanti edilmez. K
 
 Bu **görünmezlik zaman aşımı** yeniden işleme için kullanılabilir olmadan önce ileti ne kadar süreyle görünmez kalır tanımlar. Varsayılan değer 30 saniyedir. 
 
-Kodunuzun bir iletiyi kuyruktan iki adımda okur. Çağırdığınızda [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) kuyrukta sonraki iletiyi elde yöntemi. **GetMessage**’dan dönen bir ileti bu kuyruktaki kod okuyan iletilere karşı görünmez olur. İletiyi kuyruktan kaldırmayı tamamlamak için çağrı [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) yöntemi. 
+Kodunuzun bir iletiyi kuyruktan iki adımda okur. Çağırdığınızda [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) kuyrukta sonraki iletiyi elde yöntemi. **GetMessage**’dan dönen bir ileti bu kuyruktaki kod okuyan iletilere karşı görünmez olur. İletiyi kuyruktan kaldırmayı tamamlamak için çağrı [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) yöntemi. 
 
 Aşağıdaki örnekte, üç kuyruk iletileri okumak ardından 10 saniye bekleyin (görünmezlik zaman aşımı). Çağırarak okuduğunuzda iletilerini silme yeniden üç iletileri okumak sonra **DeleteMessage**. Kuyruk iletileri silindikten sonra okumak çalışırsanız $queueMessage NULL olarak döndürülür.
 

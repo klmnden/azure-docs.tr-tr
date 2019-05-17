@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26eb43060a0a2b564a7274bb1579151e66b2bfee
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888678"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604204"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API hesabı ile Jeo-uzamsal ve GeoJSON konum verileri kullanın
 
@@ -142,7 +142,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Enlem ve boylam bilgilerine sahip değilseniz, ancak fiziksel adres veya şehir veya ülkede gibi konum adı, Bing Haritalar REST Hizmetleri gibi bir coğrafi kodlama hizmetini kullanarak gerçek koordinatları bakabilirsiniz. Bing Haritalar ile coğrafi kodlama hakkında daha fazla bilgi [burada](https://msdn.microsoft.com/library/ff701713.aspx).
+Enlem ve boylam bilgilerine sahip değilseniz, ancak fiziksel adres veya şehir veya ülkede/bölgede gibi konum adı, Bing Haritalar REST Hizmetleri gibi bir coğrafi kodlama hizmetini kullanarak gerçek koordinatları bakabilirsiniz. Bing Haritalar ile coğrafi kodlama hakkında daha fazla bilgi [burada](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## <a name="querying-spatial-types"></a>Uzamsal türler sorgulanıyor
 Biz Jeo-uzamsal veriler ekleme işlemini Anlamadıysanız ayırdıktan sonra SQL ve LINQ kullanarak Azure Cosmos DB kullanarak bu verileri sorgulamak nasıl bir göz atalım.

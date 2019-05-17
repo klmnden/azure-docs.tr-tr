@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399304"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602928"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL ve Python kullanarak SQL Server’daki verilerin özelliklerini oluşturma
 Bu belge, daha verimli bir şekilde verilerden bilgi algoritmaları yardımcı olan bir SQL Server VM'si, azure'da depolanan verilerin özelliklerini oluşturma adımları anlatılmaktadır. Bu görevi gerçekleştirmek için SQL veya Python gibi bir programlama dili kullanabilirsiniz. Her iki yaklaşım burada gösterilmiştir.
@@ -68,7 +68,7 @@ Enlem/boylam konumu veri kısa öncü İşte (stackoverflow kaynak var `https://
 * Oturum, biz Kuzey olup veya Güney, Doğu veya Batı dünya üzerindeki gösterir.
 * Sıfır olmayan bir yüz basamağı belirtir boylam, enlem değil kullanılıyor.
 * Onlarca basamaklı bir konuma yaklaşık 1.000 kilometre sağlar. Bu, hangi Kıta veya üzerinde duyuyoruz Okyanusu hakkında yararlı bilgiler verir.
-* Birimleri basamak (bir ondalık derece) 111 kilometre (60 Deniz mili, yaklaşık 69 mil) bir konum sağlar. Bu, kabaca, hangi büyük eyalet veya ülke duyuyoruz gösterir.
+* Birimleri basamak (bir ondalık derece) 111 kilometre (60 Deniz mili, yaklaşık 69 mil) bir konum sağlar. Bu, kabaca, hangi büyük eyalet veya ülke/bölge duyuyoruz gösterir.
 * En fazla 11.1 km ilk ondalık yerdir: komşu büyük Şehir'dan büyük bir şehir konumunu ayırt edebilir.
 * En fazla 1.1 km ikinci ondalık yerdir: sonraki bir village ayırabilirsiniz.
 * Üçüncü ondalık en fazla 110 m: büyük Tarım alan veya Kurumsal kampüs tanımlayabilirsiniz yerdir.

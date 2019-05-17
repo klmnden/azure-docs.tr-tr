@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316838"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795793"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
@@ -40,7 +40,7 @@ Ayrıca, her aranabilir alan üzerinde otomatik olarak kullanılır. Alan alanl�
 
 Aşağıdaki liste, Azure Search'te çözümleyiciler hangi kullanılabilir açıklar.
 
-| Kategori | Açıklama |
+| Category | Açıklama |
 |----------|-------------|
 | [Standart olarak Lucene çözümleyici](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Varsayılan. Belirtiminin ya da yapılandırma gereklidir. Bu genel amaçlı Çözümleyicisi çoğu diller ve senaryoları için iyi gerçekleştirir.|
 | Önceden tanımlanmış çözümleyiciler | Tamamlanmış bir ürün olarak kullanılmaya yönelik olarak sunulan-olduğu. <br/>İki tür vardır: özelleştirilmiş ve dili. Bunları "önceden tanımlanmış" kılan, bunları bir yapılandırma veya özelleştirme ile adıyla başvurduğunu olduğu. <br/><br/>[Özelleştirilmiş (dilden) Çözümleyicileri](index-add-custom-analyzers.md#AnalyzerTable) metin girişleri özel işleme ya da en az işleme gerektirdiğinde kullanılır. Önceden tanımlı olmayan dil Çözümleyicileri dahil **Asciifolding**, **anahtar sözcüğü**, **deseni**, **basit**, **Durdur**, **Boşluk**.<br/><br/>[Dil Çözümleyicileri](index-add-language-analyzers.md) , zengin dil desteği için tek tek dillerin gerektiğinde kullanılır. Azure Search, Lucene dil çözümleyicilerini 35 ve 50 Microsoft doğal dil işleme Çözümleyicileri destekler. |
@@ -92,10 +92,6 @@ Standart Çözümleyicisi geçersiz kılan bir dizini yeniden derleme gerektirir
 ### <a name="inspect-tokenized-terms"></a>Parçalanmış koşullarını inceleyin
 
 Beklenen sonuçları döndürmek bir arama başarısız olursa, büyük olasılıkla terim giriş sorguda ve dizindeki parçalanmış hüküm arasında belirteç tutarsızlıklar senaryodur. Belirteçler aynı olmayan iyileştirilene eşleşme başarısız. Simgeleştirici çıkış incelemek için kullanmanızı öneririz [analiz API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) araştırma aracı olarak. Yanıt belirteçleri, belirli bir çözümleyici tarafından oluşturulan oluşur.
-
-### <a name="compare-english-analyzers"></a>İngilizce Çözümleyicileri karşılaştırın
-
-[Arama Çözümleyicisi Tanıtımı](https://alice.unearth.ai/) standart olarak Lucene Çözümleyici, Lucene'nın İngilizce dil Çözümleyicisi ve Microsoft'un doğal dil İngilizce işlemci yan yana karşılaştırmasını gösteren bir üçüncü taraf tanıtım uygulaması. Dizin sabittir; Bu yaygın bir hikaye metni içerir. İçin her bir arama giriş sağlarsanız, her çözümleyici sonuçları bitişik bölmelerinde görüntülenen her Çözümleyicisi aynı dize nasıl işlediği hakkında bir fikir verir. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ Oluşturma bir [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 + Nasıl uygulayabileceğinizi öğrenin [dile özel sözcük temelli çözümleyiciler](index-add-language-analyzers.md).
 
 + [Özel çözümleyiciler yapılandırma](index-add-custom-analyzers.md) için en az işleme ya da tek tek alanlarda özel işleme.
-
-+ [Standart ve İngilizce Çözümleyicileri karşılaştırma](https://alice.unearth.ai/) bitişik bölmelerindeki bu demo web sitesinde. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

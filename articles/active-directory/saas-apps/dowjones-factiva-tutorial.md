@@ -16,11 +16,11 @@ ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0fbc4dd9ea596f32c0cd38ba04ccba5619207fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280367"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Öğretici: Pencere Jones Factiva ile Azure Active Directory Tümleştirme
 

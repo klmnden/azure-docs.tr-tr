@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e09435b09811ef31057f4dc257fc55fa72909d83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5e56d4953eecdb488d5dadd4497b1c42b932f35
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714912"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812573"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -23,7 +23,7 @@ ms.locfileid: "64714912"
 
 Kullanıcı yolculuklarından bir ilke bir kullanıcı için istenen talep elde etmek bir bağlı taraf uygulaması olanak tanıyan açık yollarını belirtin. Kullanıcının bağlı olan taraf için sunulacak olan talepleri almak için bu yollar alınır. Diğer bir deyişle, bir son kullanıcı Azure AD B2C kimlik deneyimi çerçevesi işlemleri isteği geçer, iş mantığı kullanıcı yolculuklarından tanımlayın.
 
-Bu kullanıcı yolculuklarından ilgi topluluğuna çeşitli yanıtlama tarafların çekirdek gereksinimini karşılamak kullanılabilir şablonları kabul edilebilir. Kullanıcı yolculuklardan, bağlı olan taraf bölümü bir ilke tanımı kolaylaştırır. Bir ilke birden çok kullanıcı yolculuklarından tanımlayabilirsiniz. Her kullanıcı yolculuğunda düzenleme adımlarının dizisidir.
+Bu kullanıcı yolculuklarından ilgi topluluğuna çeşitli bağlı olan tarafların çekirdek gereksinimini karşılamak kullanılabilir şablonları kabul edilebilir. Kullanıcı yolculuklardan, bağlı olan taraf parçası olan bir ilke tanımı kolaylaştırır. Bir ilke birden çok kullanıcı yolculuklarından tanımlayabilirsiniz. Her kullanıcı yolculuğunda düzenleme adımlarının dizisidir.
 
 İlke tarafından desteklenen kullanıcı yolculuklarından tanımlamak için bir **UserJourneys** öğesi ilkesi dosyasının üst düzey öğesi altında eklenir. 
 
@@ -49,7 +49,7 @@ Bu kullanıcı yolculuklarından ilgi topluluğuna çeşitli yanıtlama taraflar
 
 Kullanıcı yolculuğu için başarılı bir işlem gelmelidir düzenleme dizisi olarak temsil edilir. Herhangi bir adım başarısız olursa, işlem başarısız olur. Yapı taşlarını düzenleme adımları başvurabilir ve ilke dosyasında talep sağlayıcıları izin. Göstermek veya bir kullanıcı deneyimi oluşturmak için sorumludur herhangi bir düzenleme adımı, ayrıca ilgili içerik tanımı tanımlayıcısı bir başvuru içeriyor.
 
-Düzenleme adımlarının koşullu olarak, orchestration adım öğesinde tanımlanan önkoşullara göre çalıştırılabilir. Örneğin, yalnızca belirli bir talep varsa veya bir talebi eşitse veya belirtilen değer için bir düzenleme adımı gerçekleştirmek için denetleyebilirsiniz. 
+Düzenleme adımlarının düzenleme adımı öğesinde tanımlanan önkoşullara göre koşullu olarak yürütülebilir. Örneğin, yalnızca belirli bir talep varsa veya bir talebi eşitse veya belirtilen değer için bir düzenleme adımı gerçekleştirmek için kontrol edebilirsiniz. 
 
 Düzenleme adımlarının sıralanmış listesini belirtmek için bir **OrchestrationSteps** öğesi ilkesinin bir parçası eklenir. Bu öğe gereklidir.
 
@@ -65,7 +65,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 | --------- | -------- | ----------- |
 | `Order` | Evet | Düzenleme adımlarının sırası. | 
 | `Type` | Evet | Düzenleme adımı türü. Olası değerler: <ul><li>**ClaimsProviderSelection** -düzenleme adımı birini seçmek için kullanıcıya çeşitli talep sağlayıcıları sunan gösterir.</li><li>**CombinedSignInAndSignUp** -düzenleme adımı oturum açma ve yerel hesap kaydolma sayfası birleşik sosyal sağlayıcılar sunar gösterir.</li><li>**ClaimsExchange** -düzenleme adımı talepler bir talep sağlayıcı ile değiştirir gösterir.</li><li>**SendClaims** -düzenleme adımı, bir talep veren tarafından verilmiş bir belirteç ile bağlı olan tarafa talep gönderdiğini belirtir.</li></ul> | 
-| ContentDefinitionReferenceId | Hayır | Tanımlayıcısını [içerik tanımı](contentdefinitions.md) bu düzenleme adımı ile ilişkili. Çoğunlukla içerik tanım başvurusu tanımlayıcısını otomatik olarak onaylanan teknik profili içinde tanımlanır. Ancak, teknik bir profili olmayan bir şey görüntülemek Azure AD B2C ihtiyacı olduğunda bazı durumlar vardır. Düzenleme adımı türü aşağıdakilerden biri ise iki örnekler verilmiştir: `ClaimsProviderSelection` veya `CombinedSignInAndSignUp`. Teknik profil gerek kalmadan kimlik sağlayıcısı seçim görüntülemek Azure AD B2C gerekir. | 
+| ContentDefinitionReferenceId | Hayır | Tanımlayıcısını [içerik tanımı](contentdefinitions.md) bu düzenleme adımı ile ilişkili. Çoğunlukla içerik tanım başvurusu tanımlayıcısını otomatik olarak onaylanan teknik profili içinde tanımlanır. Ancak, teknik bir profili olmayan bir şey görüntülemek Azure AD B2C ihtiyacı olduğunda bazı durumlar vardır. İki örnekleri vardır - düzenleme adımı türü aşağıdakilerden biri ise: `ClaimsProviderSelection` veya `CombinedSignInAndSignUp`, Azure AD B2C kimlik sağlayıcısı seçim teknik profil zorunda kalmadan görüntülemek gerekiyor. | 
 | CpimIssuerTechnicalProfileReferenceId | Hayır | Düzenleme adımı türü `SendClaims`. Bu özellik, bağlı olan taraf için belirteç veren talep sağlayıcısı teknik profil tanımlayıcısını tanımlar.  Yoksa, bağlı olan taraf belirteci olmadan oluşturulduysa. |
 
 
@@ -88,7 +88,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 #### <a name="precondition"></a>Önkoşulu
 
-**Önkoşulu** öğesi aşağıdaki öznitelik içeriyor:
+**Önkoşulu** öğesi aşağıdaki öznitelikler içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
@@ -121,7 +121,7 @@ Aşağıdaki önkoşullara kullanıcının objectID var olup olmadığını dene
 </OrchestrationStep>
 ```
 
-Aşağıdaki önkoşullara kullanıcı sosyal hesabınızla oturum olup olmadığını denetler. Dizindeki kullanıcı hesabı bulunacak girişiminde yapılır. Kullanıcı oturum açtığında ya da yerel bir hesap ile kaydolduğunda bu düzenleme adımı atlayın.
+Aşağıdaki önkoşullara kullanıcı sosyal hesabınızla oturum olup olmadığını denetler. Dizindeki kullanıcı hesabı bulunacak girişiminde yapılır. Kullanıcı oturum açtığında veya bir yerel hesabıyla kaydolursa, bu düzenleme adımı atlayın.
 
 ```XML
 <OrchestrationStep Order="3" Type="ClaimsExchange">
@@ -177,7 +177,7 @@ Bir düzenleme adımı türü `ClaimsProviderSelection` veya `CombinedSignInAndS
 
 ### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection örneği
 
-Aşağıdaki düzenleme adımı, Facebook, LinkedIn, Twitter, Google veya yerel bir hesap açın, oturum açmak kullanıcı seçebilir. Kullanıcı sosyal kimlik sağlayıcıları seçerse, belirtilen seçili talep değişimi ile ikinci düzenleme adımı yürütür `TargetClaimsExchangeId` özniteliği. İkinci düzenleme adımı kullanıcıyı oturum açma işlemini tamamlamak için sosyal kimlik sağlayıcısı yönlendirir. Kullanıcının yerel hesabı ile oturum açmayı seçerse, Azure AD B2C aynı düzenleme adımı (aynı kaydolma sayfası veya oturum açma sayfası) kalır ve ikinci düzenleme adımı atlar.
+Aşağıdaki düzenleme adımı, Facebook, LinkedIn, Twitter, Google veya yerel bir hesap ile oturum açmanız kullanıcı seçebilir. Kullanıcı sosyal kimlik sağlayıcıları seçerse, belirtilen seçili talep değişimi ile ikinci düzenleme adımı yürütür `TargetClaimsExchangeId` özniteliği. İkinci düzenleme adımı kullanıcıyı oturum açma işlemini tamamlamak için sosyal kimlik sağlayıcısı yönlendirir. Kullanıcının yerel hesabı ile oturum açmayı seçerse, Azure AD B2C aynı düzenleme adımı (aynı kaydolma sayfası veya oturum açma sayfası) kalır ve ikinci düzenleme adımı atlar.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">

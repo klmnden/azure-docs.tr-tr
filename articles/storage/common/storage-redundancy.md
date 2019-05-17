@@ -9,12 +9,12 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150067"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789991"
 ---
 # <a name="azure-storage-redundancy"></a>Azure depolama yedekliliği
 
@@ -52,7 +52,7 @@ Azure depolama hakkında bilgi için dayanıklılık ve kullanılabilirlik garan
 > Premium depolama yalnızca yerel olarak yedekli depolama (LRS) destekler.
 
 ## <a name="changing-replication-strategy"></a>Çoğaltma stratejisi değiştirme
-Kullanarak, depolama hesabınızın çoğaltma stratejinizi değiştirebilirsiniz [Azure portalında](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veya biri [Azure istemcisi kitaplıkları](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Depolama hesabınızın çoğaltma türünü değiştirme, süresini sonuçlanmaz.
+Kullanarak, depolama hesabınızın çoğaltma stratejinizi değiştirebilirsiniz [Azure portalında](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veya biri [Azure istemcisi kitaplıkları](https://docs.microsoft.com/azure/index#pivot=sdkstools). Depolama hesabınızın çoğaltma türünü değiştirme, süresini sonuçlanmaz.
 
    > [!NOTE]
    > Şu anda ZRS için hesabınızı dönüştürün için portalı veya API kullanamazsınız. Hesabınızın çoğaltma için ZRS dönüştürmek istiyorsanız, bkz. [bölgesel olarak yedekli depolama (ZRS)](storage-redundancy-zrs.md) Ayrıntılar için.

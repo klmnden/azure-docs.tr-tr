@@ -1,23 +1,17 @@
 ---
 title: Değişiklikleri önlemek için Azure kaynakları kilitleme | Microsoft Docs
 description: Kullanıcının güncelleştiriliyor veya tüm kullanıcılar ve roller için bir kilit uygulayarak kritik Azure kaynakları silmesini engeller.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360448"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813396"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
 
@@ -36,7 +30,13 @@ Rol tabanlı erişim denetimi, tüm kullanıcılar ve roller bir kısıtlama uyg
 
 Resource Manager kilitleri uygulamak gönderilen operations oluşan yönetim düzlemi gerçekleşen işlemlere `https://management.azure.com`. Kilitler nasıl kaynakları kendi işlevleri gerçekleştiren kısıtlama. Kaynak değişiklikleri kısıtlıdır, ancak kaynak işlemleri sınırlı değildir. Örneğin, bir salt okunur kilidi SQL veritabanı, veritabanı silmesini veya engeller. Oluşturma, güncelleştirme ya da veritabanı verilerini silme engellemez. Bu işlemlerin gönderildiği değildir çünkü veri hareketlerini verilen `https://management.azure.com`.
 
-Uygulama **salt okunur** gibi görünen bazı işlemleri operations gerçekten gerekli ek eylemler okunur beklenmeyen sonuçlara neden olabilir. Örneğin, yerleştirme bir **salt okunur** bir depolama hesabı üzerindeki kilidi anahtarları listeleme gelen tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir. Başka bir örnek için yerleştirme bir **salt okunur** bir App Service kaynak kilidi, o etkileşime yazma erişim gerektirdiğinden kaynak dosyalarını görüntüleme Visual Studio sunucu Gezgini'nde engeller.
+Uygulama **salt okunur** kaynağı değiştirme görülüyor bazı işlemler kilit tarafından engellenmiş Eylemler gerçekten gerektirdiğinden beklenmeyen sonuçlara neden olabilir. **Salt okunur** kaynak veya kaynak içeren kaynak grubunu, kilit uygulanabilir. Sık karşılaşılan örneklerden bazıları tarafından engellenen işlemlerin bir **salt okunur** kilit şunlardır:
+
+* A **salt okunur** bir depolama hesabı üzerindeki kilidi anahtarları listeleme gelen tüm kullanıcıları engeller. Yazma işlemlerini listenin döndürülen anahtarları için kullanılabilir olmadığından anahtarları işlemi bir POST isteği gerçekleştirilir.
+
+* A **salt okunur** bir App Service kaynak kilidi, o etkileşime yazma erişim gerektirdiğinden kaynak dosyalarını görüntüleme Visual Studio sunucu Gezgini'nde engeller.
+
+* A **salt okunur** kilit bir sanal makine içeren bir kaynak grubundaki tüm kullanıcıların başlatılıyor veya sanal makinenin yeniden başlatılması engeller. Bu işlemler, bir POST isteği gerektirir.
 
 ## <a name="who-can-create-or-delete-locks"></a>Kimin oluşturabilir veya kilitlerini Sil
 Yönetim kilitlerini Sil ya da oluşturmak için erişimi olmalıdır. `Microsoft.Authorization/*` veya `Microsoft.Authorization/locks/*` eylemler. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.
@@ -177,7 +177,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure CLI'si
 
 Kilit dağıtılan kaynaklar ile Azure CLI kullanarak [az lock oluşturma](/cli/azure/lock#az-lock-create) komutu.
 

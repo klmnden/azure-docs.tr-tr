@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918816"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796870"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -49,7 +49,7 @@ Belirli bir veri merkezi tarafından işlenmek üzere istek zorlamak için isten
 |Azure|Asya Pasifik|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Translator metin çevirisi API'si için abone veya [Bilişsel hizmetler çok hizmet](https://azure.microsoft.com/pricing/details/cognitive-services/) Microsoft Bilişsel hizmetler ve aboneliğinizi anahtar (Azure portalında kullanılabilir) kimliğini doğrulamak için kullanın. 
 
@@ -161,7 +161,7 @@ Standart hata yanıtı ile ad/değer çifti adlı bir JSON nesnesidir `error`. A
 | 405000| İstenen kaynak için istek yöntemi desteklenmiyor.|
 | 408001| İstenen özel çeviri sistemi henüz kullanılamıyor. Lütfen birkaç dakika sonra yeniden deneyin.|
 | 415000| Content-Type üst bilgisi eksik veya geçersiz.|
-| 429000, 429001, 429002| İstemci çok fazla istek gönderdiği için sunucu isteği reddetti. Azaltmayı önlemek için istekleri sıklığını azaltın.|
+| 429000, 429001, 429002| İstemci istek sınırları aştığı için sunucu isteği reddetti.|
 | 500000| Beklenmeyen bir hata oluştu. Hata devam ederse, hatanın tarih/saat ile rapor istek tanımlayıcısı yanıt üst bilgisi X-RequestId ve istek üst bilgisi X-ClientTraceId alınan istemci tanımlayıcısı.|
 | 503000| Hizmet geçici olarak kullanılamıyor. Lütfen yeniden deneyin. Hata devam ederse, hatanın tarih/saat ile rapor istek tanımlayıcısı yanıt üst bilgisi X-RequestId ve istek üst bilgisi X-ClientTraceId alınan istemci tanımlayıcısı.|
 

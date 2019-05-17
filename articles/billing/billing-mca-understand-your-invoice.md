@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371436"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604047"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft Müşteri sözleşmesi faturanızla ilgili koşulları anlama
 
@@ -41,7 +41,7 @@ Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları gördüğü
 
 ![Fatura Özeti bölümü](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Sözleşme Dönemi | Açıklama |
+| Dönem | Açıklama |
 | --- | --- |
 | Kime Satıldı |Faturalama hesabı özellikleri bulunan varlığınız yasal adresi|
 | Fatura adresi |Faturayı almadan fatura profilinin adresi faturalandırma, profil özelliklerini faturalama bulunamadı|
@@ -57,13 +57,13 @@ Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları gördüğü
 
 ![Fatura Özeti bölümü](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Sözleşme Dönemi | Açıklama |
+| Dönem | Açıklama |
 | --- | --- |
 | Ücretler|Bu faturalandırma profili son fatura döneminden itibaren Microsoft ücretlendirir toplam sayısı |
 | Jenerik |İadelerini aldığınız KREDİLERİ |
 | Uygulanan azure kredisine sahip olun | Azure ücretlerine her fatura döneminde otomatik olarak uygulanan azure kredisine sahip olun |
-| Ara toplam |Vergi öncesi tutarın |
-| Vergi |Fatura profilinizin ülke bağlı olarak ödeme vergi tutarı ve türü. Ardından Vergi ödenecek yoksa faturası vergisi görmezsiniz. |
+| Alt toplam |Vergi öncesi tutarın |
+| Vergi |Profilinizi faturalandırma ülke/bölge bağlı olarak ödeme vergi tutarı ve türü. Ardından Vergi ödenecek yoksa faturası vergisi görmezsiniz. |
 | Tahmini Toplam tasarruf |Etkili indirimlere kaydettiğiniz tahmini toplam tutar. Varsa, geçerli İndirim oranları ayrıntılarında satın alma satır öğeleri altında fatura bölümünde listelenir. |
 
 ### <a name="invoice-sections"></a>Fatura bölümleri
@@ -82,13 +82,13 @@ Kalan ödenmemiş toplam tutar her hizmet ailesi çıkarılmasıyla hesaplanır 
 
 ![Fatura bölümünde ayrıntıları](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Sözleşme Dönemi |Açıklama |
+| Dönem |Açıklama |
 | --- | --- |
 | Birim fiyatı | Geçerli birim fiyatı olan (para birimi fiyatlandırma) hizmeti kullanım oranı için kullanılır. Bu ürün, hizmet ailesi, ölçüm ve teklif için benzersizdir. |
 | Miktar | Satın alınan ya da fatura dönemi boyunca Tüketilen Miktar |
 | Ücret/KREDİLERİ | Krediler/para iadesi uygulandıktan sonra ücretleri net tutar |
 | Azure Kredisi | Ücret/KREDİLERİ uygulanan Azure kredisi miktarı|
-| Vergi oranı | Ülkeye göre Vergi oranı |
+| Vergi oranı | Ülke/bölge bağlı olarak Vergi oranı |
 | Vergi tutarı | Satın almak için uygulanan vergi tutarı Vergi hızınıza göre |
 | Toplam | Kalan ödenmemiş toplam tutar için satın alma |
 
@@ -103,7 +103,7 @@ Fatura sayfanın en faturanızın ödeme yapmak için yönergeler de vardır. On
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bize ulaşın
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

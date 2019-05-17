@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41f867e2700c7b3f5d70d76c78a32e0fa3361d56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278579"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Öğretici: Folloze ile Azure Active Directory Tümleştirme
 
@@ -114,7 +114,7 @@ Azure AD çoklu oturum açma ile Folloze yapılandırmak için aşağıdaki adı
 
     | Ad |  Kaynak özniteliği|
     | ---------------| --------- |
-    | Email | User.othermail |
+    | E-posta | User.othermail |
     | Nameasemail | User.userPrincipalName |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

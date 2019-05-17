@@ -1,7 +1,7 @@
 ---
 title: 'Sınıflandırma: (Maliyet hassas) kredi riskini tahmin'
 titleSuffix: Azure Machine Learning service
-description: Bu görsel arabirim örnek deneyde maliyete duyarlı ikili sınıflandırma gerçekleştirmek için özelleştirilmiş bir Python betiğini nasıl yapılacağı açıklanır. Kredi riski kredi uygulamasında sağlanan bilgilere dayanarak tahmin eder.
+description: Bu makalede bir karmaşık makine öğrenimi denemesi görsel bir arabirim kullanarak yapı gösterilmektedir. Özel bir Python betiklerini uygulamak ve en iyi seçeneği belirlemek için birden çok modeli karşılaştırma öğreneceksiniz.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440967"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787812"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>4 - sınıflandırma. örnek: (Maliyet hassas) kredi riskini tahmin
 
-Bu görsel arabirim örnek deneyde maliyete duyarlı ikili sınıflandırma gerçekleştirmek için özelleştirilmiş bir Python komut dosyası kullanmayı gösterir. Pozitif örnekleri misclassifying maliyeti negatif örnekleri misclassifying beş kez maliyeti.
+Bu makalede bir karmaşık makine öğrenimi denemesi görsel bir arabirim kullanarak yapı gösterilmektedir. Python betiklerini kullanan özel mantığı uygulamak ve en iyi seçeneği belirlemek için birden çok modeli karşılaştırma öğreneceksiniz.
 
-Bu örnek, bilgilere dayanarak kredi riskini misclassification maliyetleri dikkate alarak, bir kredi uygulamasında sağlanan tahmin eder.
+Bu örnek, bir sınıflandırıcı kredi geçmişi yaş ve kredi kartı numarası gibi kredi uygulama bilgilerini kullanarak kredi riskini tahmin etmeniz eğitir. Ancak, kendi makine öğrenme sorunlarını gidermek için bu makaledeki kavramları uygulayabilirsiniz.
 
-Bu deneyde Biz bu sorunu çözmek için modeller oluşturmak için iki farklı yaklaşım karşılaştırın:
+Yalnızca machine Learning'i kullanmaya başlıyorsanız, göz atın [temel sınıflandırıcı örnek](ui-sample-classification-predict-credit-risk-basic.md) ilk.
 
-- Özgün veri kümesi ile eğitim.
-- Çoğaltılmış bir veri kümesiyle eğitim.
+Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
 
-Her iki yaklaşım ile biz sonuçları Maliyet işleviyle hizalandığından emin olmak için çoğaltma ile test veri kümesini kullanarak modeli değerlendirin. Her iki yaklaşım ile iki sınıflandırıcı test ederiz: **İki sınıflı destekli vektör makinesi** ve **iki sınıflı Artırmalı karar ağacı**.
+[![Denemeyi grafiği](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,15 +37,18 @@ Her iki yaklaşım ile biz sonuçları Maliyet işleviyle hizalandığından emi
 
     ![Denemeyi açın](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>İlgili örnek
-
-Bkz: [3 - sınıflandırma örneği: Kredi riski tahmini (Temel)](ui-sample-classification-predict-churn.md) Bu deney olarak aynı sorunu çözebilecek temel bir deneme için misclassification maliyetleri olmadan ayarlama.
-
 ## <a name="data"></a>Veriler
 
 UC Irvine depodan Almanca kredi kartı veri kümesi kullanıyoruz. Bu veri kümesi 20 özellikleri ve 1 etiket 1.000 örnekleri içerir. Her örnek, bir kişiyi temsil eder. 20 özellikler, sayısal ve kategorik özelliklerini içerir. Bkz: [UCI Web sitesi](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) veri kümesi hakkında daha fazla bilgi. Kredi riski gösterir ve yalnızca iki olası değerler içeren etiket son sütundur: yüksek kredi riski = 2 ve düşük kredi riski = 1.
 
 ## <a name="experiment-summary"></a>Deneme özeti
+
+Bu deneyde Biz bu sorunu çözmek için modeller oluşturmak için iki farklı yaklaşım karşılaştırın:
+
+- Özgün veri kümesi ile eğitim.
+- Çoğaltılmış bir veri kümesiyle eğitim.
+
+Her iki yaklaşım ile biz sonuçları Maliyet işleviyle hizalandığından emin olmak için çoğaltma ile test veri kümesini kullanarak modeli değerlendirin. Her iki yaklaşım ile iki sınıflandırıcı test ederiz: **İki sınıflı destekli vektör makinesi** ve **iki sınıflı Artırmalı karar ağacı**.
 
 1 düşük riskli Örneğin yüksek misclassifying maliyeti, yüksek riskli bir örnek olarak düşük misclassifying maliyeti 5'tir. Kullandığımız bir **Python betiği yürütme** maliyet bu misclassification için hesap modülü.
 
@@ -71,7 +73,7 @@ Bu maliyet işlevi yansıtmak için size yeni bir veri kümesi oluşturur. Yeni 
 
 Yüksek riskli veri çoğaltmak için Biz bu Python kodu içine koyun bir **Python betiği yürütme** Modülü:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ Standart Deneysel iş akışı oluşturmak, eğitmek ve modelleri test etmek iç
 
 1. Kullanarak öğrenimi algoritmalarını başlatmak **iki sınıflı destekli vektör makinesi** ve **iki sınıflı artırılmış karar ağacı**.
 1. Kullanım **modeli eğitme** algoritma verilere uygulamak ve gerçek model oluşturmak için.
-3. Kullanım **Score Model** puanları test örnekleri kullanarak oluşturmak için.
+1. Kullanım **Score Model** puanları test örnekleri kullanarak oluşturmak için.
 
 Aşağıdaki diyagramda, özgün ve çoğaltılan eğitim kümeleri iki farklı SVM modeli eğitmek için kullanılan bu deneyde, bir bölümü gösterilmektedir. **Modeli eğitme** eğitim kümesine bağlı olduğu ve **Score Model** test kümesine bağlıdır.
 
 ![Deneme grafiğini](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 Deneme değerlendirme aşamasında size her biri olan dört model doğruluğunu işlem. Bu deneme için kullandığımız **Evaluate Model** aynı misclassification sahip örnekler karşılaştırmak için maliyet.
 
@@ -121,7 +122,7 @@ Yinelenen test veri kümesi için giriş olarak kullanıldığını fark **Score
 
 **Evaluate Model** modül çeşitli ölçümleri içeren tek bir satır içeren bir tablo oluşturur. Tek bir doğruluk sonuç kümesini oluşturmak için önce kullandığımız **Add Rows** tek bir tabloda birleştirme sonuçları için. Ardından, aşağıdaki Python betiğini kullanıyoruz **Python betiği yürütme** modülü sonuç tablosunda her satır için eğitim yaklaşım ve model adını eklemek için:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>Sonuçlar
 

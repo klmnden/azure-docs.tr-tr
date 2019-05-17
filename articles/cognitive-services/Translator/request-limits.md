@@ -10,38 +10,49 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861579"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796904"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator metin çevirisi için istek sınırları
 
 Bu makalede, Translator metin API'si azaltma sınırları sağlar. Çeviri, harf çevirisi, cümle uzunluğu algılama, dil algılama ve diğer çevirileri hizmetleri içerir.
 
-## <a name="character-limits-per-request"></a>İstek başına karakter sınırları
+## <a name="character-and-array-limits-per-request"></a>İstek başına karakter ve dizi sınırları
 
-Her isteğin 5000 karakter ile sınırlıdır. Karakter değil istek sayısına göre ücretlendirilirsiniz. Daha kısa istekleri göndermek için ve belirli bir zamanda bekleyen bazı istekleri için önerilir.
+Her çeviri isteği 5000 karakter ile sınırlıdır. Karakter değil istek sayısına göre ücretlendirilirsiniz. Daha kısa istekleri göndermek için önerilir.
 
-Translator metin çevirisi API'si Bekleyen isteklerin sayısına bir sınır yoktur.
+Aşağıdaki tablo listeleri dizi öğesi ve karakter sınırları Translator metin çevirisi API'si, her işlem için.
+
+| İşlem | Dizi öğesi en büyük boyutu |   Dizi öğelerinin üst limiti |  En fazla istek boyutu (karakter) |
+|:----|:----|:----|:----|
+| Translate | 5,000 | 100   | 5,000 |
+| Transliterate | 5,000 | 10    | 5,000 |
+| Detect | 10,000 | 100 |   50,000 |
+| BreakSentence | 10,000    | 100 | 5,0000 |
+| Sözlük Arama| 100 |  10  | 1000 |
+| Sözlük Örnekleri | 100 metin ve 100 çeviri (toplam 200)| 10|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>Saat başına karakter sınırları
 
-Saatlik, karakter sınırı, Translator metin çevirisi abonelik katmanına göre belirlenir. Ulaşın veya bu sınırları aşan büyük olasılıkla yetersiz kota yanıt alırsınız:
+Saatlik, karakter sınırı, Translator metin çevirisi abonelik katmanına göre belirlenir. Saatlik kota saat eşit olarak kullanılması. Ulaşın veya bu sınırları aşan ya da kısa bir süre içinde kotasının bir bölümü çok büyük göndermek, büyük olasılıkla yetersiz kota yanıt alırsınız. 
 
 | Katman | Karakter sınırı |
 |------|-----------------|
 | F0 | saat başına 2 milyon karakter |
 | S1 | saat başına 40 milyon karakter |
-| S2 | saat başına 40 milyon karakter |
-| S3 | saat başına 120 milyon karakter |
-| S4 | saat başına 200 milyon karakter |
+| S2 / C2 | saat başına 40 milyon karakter |
+| S3 / C3 | saat başına 120 milyon karakter |
+| S4 / C4 | saat başına 200 milyon karakter |
 
-Bu sınırlar, Microsoft'un genel sistemlerine kısıtlanır. Microsoft Translator hub'ı kullanan özel çevirisi sistemleri saniyede 1.800 karakterle sınırlıdır.
+İçin sınırlar [hizmetli abonelikleri](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) S1 katmanı ile aynıdır.
 
-## <a name="latency"></a>Gecikme süresi
+Bu sınırlar, Microsoft'un standart çeviri modellerini için kısıtlanır. Özel Translator kullanan özel çeviri modellerini saniyede 1.800 karakterle sınırlıdır.
+
+## <a name="latency"></a>Gecikme
 
 Translator metin çevirisi API'si standart modelleri kullanarak 15 saniyede en fazla bir gecikme vardır. Özel modelleri kullanarak çeviri 25 saniye en fazla bir gecikme vardır. Bu zamana kadar bir sonuç ya da bir zaman aşımı yanıt aldığınız. Genellikle, yanıtları için 300 milisaniye 150 milisaniye olarak döndürülür. Yanıt süreleri, istek ve dil çiftin boyutuna bağlı olarak değişir. Bir çeviri almazsanız veya bir [hata yanıtı](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) bu süre içinde size ağ bağlantınızı denetleyin ve yeniden deneyin.
 
@@ -53,11 +64,11 @@ Kullanırken [BreakSentence](https://docs.microsoft.com/azure/cognitive-services
 |----------|------|-----------------|
 | Çince | zh | 132 |
 | Almanca  | de | 290 |
-| İtalyanca | it | 280 |
+| İtalyanca  | it | 280 |
 | Japonca | ja | 150 |
 | Portekizce | PT | 290 |
 | İspanyolca  | es | 280 |
-| İtalyanca | it | 280 |
+| İtalyanca  | it | 280 |
 | Tay Dili | . | 258 |
 
 > [!NOTE]

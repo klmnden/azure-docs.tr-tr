@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287583"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602480"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>PIM'de erişim gözden geçirmesi gerçekleştirmek için bir kaynak Panosu'nu kullanın
 
@@ -31,9 +31,9 @@ Kaynak Pano, Azure Active Directory (Azure AD) Privileged Identity Management (P
 - Rol atamaları atamaya göre dağılımını gösteren iki grafik türü.
 - Yeni rol atamaları için ilgili bir veri alanı.
 
-![Yönetici görünümü Pano graflar ve grafikler gösteren ekran görüntüsü](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Yönetici görünümü Pano graflar ve grafikler gösteren ekran görüntüsü](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![Yönetici görünümü panosunun ekran görüntüsü, gösteren veriler listelenir.](media/azure-pim-resource-rbac/role-settings.png)
+![Yönetici görünümü panosunun ekran görüntüsü, gösteren veriler listelenir.](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 Kaynak rol etkinleştirmeleri grafik gösterimi son yedi gün kapsar. Bu veriler, seçili kaynak için kapsamlı ve en sık kullanılan rolleri (sahibi, katkıda bulunan, kullanıcı erişimi Yöneticisi) ve birleşik tüm roller için etkinleştirme görüntüler.
 

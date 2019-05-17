@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452917"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794623"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Kapasitesi havuzunu veya birimi yeniden boyutlandırma
 Kapasitesi havuzu ya da gerektiği gibi bir birim boyutunu değiştirebilirsiniz. 
 
 ## <a name="resize-the-capacity-pool"></a>Kapasitesi havuzu yeniden boyutlandırma 
 
-4 TiB artırır veya azaltır kapasitesi havuzu boyutu değiştirebilirsiniz. Kapasitesi havuzu yeniden boyutlandırmayı, satın alınan Azure NetApp dosyaları kapasite değiştirir.
+1 TiB artırır veya azaltır kapasitesi havuzu boyutu değiştirebilirsiniz. Ancak, kapasitesi havuzu boyutu 4 TiB küçük olamaz. Kapasitesi havuzu yeniden boyutlandırmayı, satın alınan Azure NetApp dosyaları kapasite değiştirir.
 
 1. NetApp hesabı yönet dikey penceresinden, yeniden boyutlandırmak istediğiniz kapasitesi havuzu tıklayın. 
 2. Kapasitesi havuzu adına sağ tıklayın veya bağlam menüsünü görüntülemek için kapasite havuzun satırın sonunda "..." simgesine tıklayın. 

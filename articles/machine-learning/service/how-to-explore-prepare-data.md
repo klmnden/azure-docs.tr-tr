@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409835"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603162"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Keşfedin ve veri kümesi sınıfı (Önizleme) ile verileri hazırlama
 
 Keşfedin ve ile verileri hazırlama hakkında bilgi edinin [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). [Veri kümesi](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) sınıfı (Önizleme) keşfedin ve işlevleri gibi sağlayarak verilerinizi hazırlamanız olanak tanır: örnekleme, Özet istatistikleri ve akıllı dönüşümler. Dönüştürme adımı kaydedilir [veri kümesi tanımları](how-to-manage-dataset-definitions.md) farklı şemalar birden çok daha büyük dosyaları yüksek düzeyde ölçeklenebilir bir şekilde işleme yeteneğine sahip.
 
 > [!Important]
-> Bazı veri kümesi sınıfları (Önizleme), veri hazırlığı SDK'sı (GA) üzerinde bağımlılıkları vardır. Dönüştürme işlevleri doğrudan GA'ed ile gerçekleştirilebilir ancak [veri hazırlığı SDK işlevlerinin](how-to-transform-data.md), yeni bir çözüm oluşturuyorsanız bu makalede açıklanan veri kümesi paket sarmalayıcıları öneririz. Azure Machine Learning veri kümeleri (Önizleme), yalnızca, verilerinizi dönüştürmenizi izin ver aynı zamanda [veri anlık görüntü](how-to-create-dataset-snapshots.md) ve depolamak [tutulan veri kümesi tanımları](how-to-manage-dataset-definitions.md). Veri kümeleri, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan veri hazırlığı SDK ' nın sonraki sürümüdür.
+> Bazı veri kümesi sınıfları (Önizleme) bağımlılıklara sahip [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paket (GA). Dönüştürme işlevleri doğrudan GA'ed ile gerçekleştirilebilir ancak [Data Prep işlevleri](how-to-transform-data.md), yeni bir çözüm oluşturuyorsanız bu makalede açıklanan veri kümesi paket sarmalayıcıları öneririz. Azure Machine Learning veri kümeleri (Önizleme), yalnızca, verilerinizi dönüştürmenizi izin ver aynı zamanda [veri anlık görüntü](how-to-create-dataset-snapshots.md) ve depolamak [tutulan veri kümesi tanımları](how-to-manage-dataset-definitions.md). Veri kümeleri, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan veri hazırlığı SDK ' nın sonraki sürümüdür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -121,7 +121,7 @@ dataset.get_profile()
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 Kimlik|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Büyük/küçük harf numarası|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Tarih|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Engelle|FieldType.STRING|004XX S KILBOURN KAYDET|113XX S PRAIRIE KAYDET|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Birincil tür|FieldType.STRING|YANILTICI YÖNTEMİ|HIRSIZLIĞI|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 Aşağıdaki tabloda, yeni bir sütun kayıtları belirtilen biçimde Date_Time_Range içerdiğine dikkat edin.
 
-||Kimlik|Tarih|Date_Time_Range
+||Kimlik|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10 PM-12 AM'DEN
 1|10516598|2016-04-15 17:00:00|2016-04-15 4 PM - 18: 00

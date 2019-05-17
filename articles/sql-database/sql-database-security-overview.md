@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867658"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790155"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -125,17 +125,11 @@ Azure'da yeni oluşturulan tüm SQL veritabanları, varsayılan olarak şifrelen
 
 [Her zaman şifreli](/sql/relational-databases/security/encryption/always-encrypted-database-engine) erişimden belirli veritabanı sütunlarda depolanan hassas verileri korumak için tasarlanan bir özelliktir (örneğin, kredi kartı numaraları, Ulusal Kimlik numaraları veya veri çubuğunda bir _bilmeniz gereken_ olarak). Bu, Veritabanı Yöneticileri veya yönetim görevlerini gerçekleştirebilirsiniz, ancak şifreli sütunlarda belirli verilere erişim gerektiren iş veritabanına erişmek için yetkiniz ayrıcalıklı diğer kullanıcıları içerir. Veriler her zaman şifrelenir, şifrelenmiş veriler için şifreleme anahtarına erişim ile istemci uygulamalar tarafından işlenmek üzere şifresi çözülür anlamına gelir.  Şifreleme anahtarını SQL hiçbir zaman sunulur ve olabilir ya da depolanan [Windows sertifika Store](sql-database-always-encrypted.md) veya [Azure anahtar kasası](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="masking"></a>Maskeleme
+### <a name="dynamic-data-masking"></a>Dinamik veri maskeleme
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>Dinamik veri maskeleme
-
 SQL veritabanı dinamik veri maskeleme, hassas verilerin görünürlüğünü ayrıcalık sahibi ayrıcalıklı olmayan kullanıcılara gizleyerek sınırlar. Dinamik veri maskeleme otomatik olarak Azure SQL veritabanı'nda hassas olabilecek verileri keşfeder ve uygulama katmanı üzerinde en az etki ile bu alanlar maskelemek için gerçekleştirilebilecek öneriler sunar. Bu özellik, hassas verileri belirlenen veritabanı alanlarına yapılan sorgunun sonuç kümesinde karartır ancak veritabanındaki veriler değişmez. Daha fazla bilgi için [ile SQL veritabanı dinamik veri maskelemeyi kullanmaya başlayın](sql-database-dynamic-data-masking-get-started.md).
-
-#### <a name="static-data-masking"></a>Statik veri maskeleme
-
-[Statik veri maskeleme](/sql/relational-databases/security/static-data-masking) istemci-tarafı aracı [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18,0 preview 5 ve üzeri.  Statik veri maskeleme, burada seçili olan sütunlardaki verileri kalıcı olarak maskelenmiş bir veritabanının bir kopyasını oluşturmak kullanıcıların sağlar. Kullanılabilir maskeleme işlevlerine NULL maskeleme, tek bir değer maskeleme, karışık ve maskeleme grubu karışık ve bileşik maskeleme dize. Veritabanı maskelenmiş kopyası ile kuruluşlar ayrı üretim ve test ortamları maskelenmiş kopyalama paylaşarak olanağına sahip olursunuz. Hassas verileri yeterince korunuyorsa ve tüm veritabanı özelliklerine korunur. Üçüncü taraf veritabanlarına erişmek için gerekli olduğu veritabanları maskeleme önerilir.
 
 ## <a name="security-management"></a>Güvenlik yönetimi
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: de600770b35922d35f1d9066489f582aa61aec59
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205082"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794244"
 ---
 # <a name="create-a-blob-snapshot"></a>Blob anlık görüntüsü oluşturma
 
@@ -34,7 +34,7 @@ Temel blob ile ilişkili herhangi bir kira anlık görüntü etkilemez. Bir kira
 Bir VHD dosyasını geçerli bilgileri ve sanal makine diskini için durumu depolamak için kullanılır. VM içinde bir diski kullanımdan çıkarın veya VM'yi kapatın ve ardından, VHD dosyasının anlık görüntüsünü alın. Daha sonra o noktasında VHD dosyasını almak ve VM yeniden bu anlık görüntü dosyası kullanabilirsiniz.
 
 ## <a name="create-a-snapshot"></a>Anlık görüntü oluşturma
-Aşağıdaki kod örneği kullanarak bir anlık görüntü oluşturma işlemi gösterilmektedir [.NET için Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/). Bu örnek, oluşturulduğu sırada ek meta veriler anlık görüntü belirtir.
+Aşağıdaki kod örneği kullanarak bir anlık görüntü oluşturma işlemi gösterilmektedir [.NET için Azure depolama istemci Kitaplığı](/dotnet/api/overview/azure/storage/client). Bu örnek, oluşturulduğu sırada ek meta veriler anlık görüntü belirtir.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -174,9 +174,9 @@ Senaryo 4, temel blob tamamen güncelleştirildi ve kendi özgün blokların hi�
 [dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
 [dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.generatedblobs.createsnapshotasync
 [dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
-[dotnet_PutBlockList]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
-[dotnet_PutBlock]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock
+[dotnet_PutBlockList]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
+[dotnet_PutBlock]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock
 [dotnet_UploadFromByteArray]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfrombytearray
 [dotnet_UploadFromFile]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfromfile
-[dotnet_UploadFromStream]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadfromstream
-[dotnet_UploadText]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadtext
+[dotnet_UploadFromStream]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadfromstream
+[dotnet_UploadText]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadtext

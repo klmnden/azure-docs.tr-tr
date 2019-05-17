@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/24/2019
-ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707005"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800945"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive iş yükleri için HDInsight 4.0 geçirme
 
@@ -29,8 +29,8 @@ Bu makalede, aşağıdaki konuları içerir:
 
 Hive bir avantajı (Hive meta veri deposu olarak adlandırılır) bir dış veritabanı için meta verileri dışarı aktarmak için yeteneğidir. **Hive meta veri deposu** tablo istatistikleri, tablo depolama konumu, sütun adlarının ve tablo dizin bilgileri dahil olmak üzere depolamak için sorumludur. Meta veri deposu veritabanı şemasını Hive sürümleri arasında farklılık gösterir. HDInsight 4.0 ile uyumlu olması, HDInsight 3.6 Hive meta veri deposu yükseltmek için aşağıdakileri yapın.
 
-1. Uygulamanızın dış meta depo yeni bir kopyasını oluşturun. HDInsight 3.6 ve HDInsight 4.0 farklı meta veri deposu şemaları gerektirir ve tek bir meta veri deposu paylaşamazsınız.
-1. Meta veri deposu yeni kopyasını bir) var olan HDInsight 4.0 kümesine veya ilk kez oluşturuyorsanız b) bir küme ekleyin. Bkz: [Azure HDInsight, harici meta veri depolarını kullanma](../hdinsight-use-external-metadata-stores.md) dış meta depo bir HDInsight kümesine ekleme hakkında daha fazla bilgi için. Meta veri deposu bağlandıktan sonra otomatik olarak 4.0 uyumlu meta veri deposu dönüştürülür.
+1. Uygulamanızın dış meta depo yeni bir kopyasını oluşturun. HDInsight 3.6 ve HDInsight 4.0 farklı meta veri deposu şemaları gerektirir ve tek bir meta veri deposu paylaşamazsınız. Bkz: [Azure HDInsight, harici meta veri depolarını kullanma](../hdinsight-use-external-metadata-stores.md) dış meta depo bir HDInsight kümesine ekleme hakkında daha fazla bilgi için. 
+2. Yürütme için düğüm türü olarak "Baş düğüm" ile HDI 3.6 kümesine göre bir betik eylemini başlatın. Metin kutusu içine aşağıdaki URI Yapıştır "Bash betiği URI'si" olarak işaretlenmiş: https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. "Bağımsız değişkenler" olarak işaretlenmiş metin kutusunda, servername, veritabanı, kullanıcı adı ve parolasını girin **kopyalanan** Hive meta veri deposu, boşluk tarafından ayrılmış. Ekleme ". database.windows.net" servername belirtirken.
 
 > [!Warning]
 > HDInsight 4.0 şeması, HDInsight 3.6 meta veri şema dönüştüren yükseltme ters olamaz.

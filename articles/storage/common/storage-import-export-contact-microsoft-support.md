@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483322"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604232"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>İçeri/dışarı aktarma işi için bir destek bileti açın
 
@@ -22,13 +22,13 @@ ms.locfileid: "61483322"
 * Bir destek isteği oluşturma
 * Nasıl bir destek isteği döngüsü portalında yönetilir.
 
-## <a name="create-a-support-request"></a>Destek isteği oluşturma
+## <a name="create-a-support-request"></a>Destek isteği oluşturun
 
 Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 
 1. İçeri/dışarı aktarma işinize gidin. Gidin **destek + sorun giderme** bölümüne ve ardından **yeni destek isteği**.
      
-    ![Temel Bilgiler](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Temel](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. İçinde **yeni destek isteği**seçin **Temelleri**. İçinde **Temelleri**, aşağıdaki adımları uygulayın:
     
@@ -58,7 +58,7 @@ Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 4. İçinde **yeni destek isteği**, tıklayın **adım 3 irtibat bilgileri**. İçinde **iletişim bilgilerini**, aşağıdaki adımları uygulayın:
 
    1. İçinde **başvurun seçenekleri**, tercih ettiğiniz iletişim yöntemi (telefon veya e-posta) ve dil sağlar. Yanıt süresi, abonelik planınıza göre otomatik olarak seçilir.
-   2. Kişi bilgileri, ad, e-posta, isteğe bağlı bir kişi, ülke sağlar. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri** onay kutusu.
+   2. Kişi bilgileri, ad, e-posta, isteğe bağlı bir kişi, ülke/bölge belirtin. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri** onay kutusu.
    3. **Oluştur**’a tıklayın.
    
        ![İletişim bilgileri](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

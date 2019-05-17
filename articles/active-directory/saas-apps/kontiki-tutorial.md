@@ -16,184 +16,181 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f764d0d4d36af9cf4054a5fe9eb21ed4f2411a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bee7454942b9214eeb1253339446df370e20fe01
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261893"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Öğretici: Kontiki ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Kontiki tümleştirme konusunda bilgi edinin.
-Azure AD ile Kontiki tümleştirme ile aşağıdaki avantajları sağlar:
 
-* Kontiki erişimi, Azure AD'de kontrol edebilirsiniz.
-* Otomatik olarak (çoklu oturum açma) Kontiki için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+Kontiki Azure AD ile tümleştirme, aşağıdaki avantajları sunar:
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+* Azure AD Kontiki erişimi denetlemek için kullanabilirsiniz.
+* Kullanıcıları otomatik olarak Kontiki için kendi Azure AD hesapları (çoklu oturum açma) ile oturum açmanız.
+* Hesaplarınız bir merkezi konumda, Azure portalında yönetebilir.
+
+Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hakkında daha fazla bilgi için bkz. [Azure Active Directory'de uygulamalar için çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Kontiki yapılandırmak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
-* Abonelik Kontiki çoklu oturum açma etkin
+* Azure AD aboneliğiniz. Bir Azure AD aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
+* Çoklu oturum etkin açma Kontiki abonelik.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin ve Kontiki Azure AD ile tümleştirme yapılandırın.
 
-* Kontiki destekler **SP** tarafından başlatılan
-* Kontiki destekler **zamanında** kullanıcı sağlama
+Kontiki aşağıdaki özellikleri destekler:
 
-## <a name="adding-kontiki-from-the-gallery"></a>Galeriden Kontiki ekleme
+* **SP tarafından başlatılan çoklu oturum açma**
+* **Just-ın-time kullanıcı sağlama**
 
-Azure AD'de Kontiki tümleştirmesini yapılandırmak için Kontiki Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+## <a name="add-kontiki-in-the-azure-portal"></a>Azure portalında Kontiki Ekle
 
-**Galeriden Kontiki eklemek için aşağıdaki adımları gerçekleştirin:**
+Kontiki Azure AD ile tümleştirmek için Kontiki yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
+1. Sol menüde **Azure Active Directory**.
 
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
+    ![Azure Active Directory seçeneği](common/select-azuread.png)
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+1. Seçin **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar bölmesi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
+1. Bir uygulama eklemek için seçin **yeni uygulama**.
 
-4. Arama kutusuna **Kontiki**seçin **Kontiki** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni uygulama seçeneği](common/add-new-app.png)
+
+1. Arama kutusuna **Kontiki**. Arama sonuçlarında seçin **Kontiki**ve ardından **Ekle**.
 
     ![Sonuç listesinde Kontiki](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Kontiki adlı bir test kullanıcı tabanlı test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısının Kontiki ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Kontiki adlı bir test kullanıcı tabanlı test **Britta Simon**. Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bağlı bir ilişki içinde Kontiki oluşturmanız gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Kontiki ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Kontiki ile test etmek için aşağıdaki yapı taşlarını tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Kontiki çoklu oturum açmayı yapılandırma](#configure-kontiki-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Kontiki test kullanıcısı oluşturma](#create-kontiki-test-user)**  - kullanıcı Azure AD gösterimini bağlı Kontiki Britta simon'un bir karşılığı vardır.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+| Görev | Açıklama |
+| --- | --- |
+| **[Azure AD çoklu oturum açmayı yapılandırın](#configure-azure-ad-single-sign-on)** | Bu özelliği kullanmak olanak sağlar. |
+| **[Kontiki çoklu oturum açmayı yapılandırın](#configure-kontiki-single-sign-on)** | Uygulamada çoklu oturum açma ayarları yapılandırır. |
+| **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)** | Testleri Azure AD çoklu oturum açma kullanıcı Britta Simon adı. |
+| **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)** | Azure AD çoklu oturum açmayı kullanmak Britta Simon sağlar. |
+| **[Kontiki test kullanıcısı oluşturma](#create-a-kontiki-test-user)** | Kullanıcı Azure AD gösterimini bağlı Kontiki içinde bir karşılığı Britta simon'un oluşturur. |
+| **[Çoklu oturum açma testi](#test-single-sign-on)** | Yapılandırma çalıştığını doğrular. |
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
+Bu bölümde, Azure AD çoklu oturum açma ile Kontiki Azure portalında yapılandırın.
 
-Azure AD çoklu oturum açma ile Kontiki yapılandırmak için aşağıdaki adımları gerçekleştirin:
+1. İçinde [Azure portalında](https://portal.azure.com/), **Kontiki** uygulama tümleştirme bölmesinde **çoklu oturum açma**.
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **Kontiki** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+    ![Çoklu oturum açma seçeneği yapılandırın](common/select-sso.png)
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
-
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
+1. İçinde **tek bir oturum açma yönteminizi seçmeniz** bölmesinde seçin **SAML** veya **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
     ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+1. İçinde **yukarı çoklu oturum açma SAML ile ayarlayın** bölmesinde **Düzenle** (açmak için kalem simgesi) **temel SAML yapılandırma** bölmesi.
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **temel SAML yapılandırma** bölmesinde, **oturum açma URL'si** metin kutusunda, aşağıdaki desenin bir URL girin: `https://<companyname>.mc.eval.kontiki.com`
 
     ![Kontiki etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<companyname>.mc.eval.kontiki.com`
-
     > [!NOTE]
-    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Kontiki istemci Destek ekibine](https://customersupport.kontiki.com/enterprise/contactsupport.html) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > İlgili kişi [Kontiki istemci Destek ekibine](https://customersupport.kontiki.com/enterprise/contactsupport.html) kullanmak için doğru değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+1. İçinde **yukarı çoklu oturum açma SAML ile ayarlanmış** bölmesinde, **SAML imzalama sertifikası** bölümünden **indirme** yanındaki **Federasyon meta verileri XML**. Gereksinimlerinize göre bir indirme seçeneğini seçin. Sertifika bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](common/metadataxml.png)
+    ![Federasyon meta verileri XML sertifika yükleme seçeneği](common/metadataxml.png)
 
-6. Üzerinde **Kontiki kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+1. İçinde **Kontiki kümesi** bölümünde, gereksinimlerinize göre aşağıdaki URL'ler kopyalayın:
+
+    * Oturum Açma URL'si:
+    * Azure AD Tanımlayıcısı
+    * Oturum Kapatma URL'si
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
+### <a name="configure-kontiki-single-sign-on"></a>Kontiki çoklu oturum açmayı yapılandırın
 
-    b. Azure AD Tanımlayıcısı
-
-    c. Oturum Kapatma URL'si
-
-### <a name="configure-kontiki-single-sign-on"></a>Kontiki tek oturum açmayı yapılandırın
-
-Çoklu oturum açmayı yapılandırma **Kontiki** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Kontiki Destek ekibine](https://customersupport.kontiki.com/enterprise/contactsupport.html). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açma Kontiki tarafında yapılandırmak için indirilen Federasyon meta veri XML dosyasını ve için Azure Portalı'ndan kopyaladığınız ilgili URL'leri Gönder [Kontiki Destek ekibine](https://customersupport.kontiki.com/enterprise/contactsupport.html). Oturum açma SAML tek bağlantısı her iki kenarı da düzgün ayarlandığından emin olmak için bunları gönderdiğiniz bilgiler Kontiki Destek ekibine kullanır.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+1. Azure portalında **Azure Active Directory** > **kullanıcılar** > **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
+    ![Kullanıcılar ve tüm kullanıcılar seçenekleri](common/users.png)
 
-2. Seçin **yeni kullanıcı** ekranın üstünde.
+1. Seçin **yeni kullanıcı**.
 
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
+    ![Yeni kullanıcı seçeneği](common/new-user.png)
 
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
+1. İçinde **kullanıcı** bölmesinde, aşağıdaki adımları tamamlayın:
 
-    ![Kullanıcı iletişim kutusu](common/user-properties.png)
-
-    a. İçinde **adı** alana **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com
+    1. İçinde **kullanıcı adı** kutusuna **brittasimon\@\<your-şirket etki alanı >.\< Uzantı >**. Örneğin, **brittasimon\@contoso.com**.
 
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    1. Seçin **Show parola** onay kutusu. Görüntülenen değer azaltma **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’u seçin.
+
+    ![Kullanıcı bölmesi](common/user-properties.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için Kontiki erişim vererek Britta Simon etkinleştirin.
+Filiz Azure çoklu oturum açma kullanabilmeniz için bu bölümde, Britta Simon Kontiki için erişim.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Kontiki**.
+1. Azure portalında **kurumsal uygulamalar** > **tüm uygulamaları** > **Kontiki**.
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+    ![Kurumsal uygulamalar bölmesi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Kontiki**.
+1. Uygulamalar listesinde **Kontiki**.
 
-    ![Uygulamalar listesinde Kontiki bağlantı](common/all-applications.png)
+    ![Uygulamalar listesinde Kontiki](common/all-applications.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+    ![Kullanıcılar ve gruplar seçeneği](common/users-groups-blade.png)
 
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+1. Seçin **Kullanıcı Ekle**. Ardından **ataması ekleme** bölmesinde **kullanıcılar ve gruplar**.
 
-    ![Atama Ekle bölmesi](common/add-assign-user.png)
+    ![Ekle atama bölmesi](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+1. İçinde **kullanıcılar ve gruplar** bölmesinde **Britta Simon** kullanıcılar listesinde. **Seç**’i seçin.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+1. SAML onaylaması rol değeri de beklediğiniz varsa **rol seçme** bölmesinde, listeden kullanıcı için uygun rolü seçin. **Seç**’i seçin.
 
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+1. İçinde **atama Ekle** bölmesinde **atama**.
 
-### <a name="create-kontiki-test-user"></a>Kontiki test kullanıcısı oluşturma
+### <a name="create-a-kontiki-test-user"></a>Kontiki test kullanıcısı oluşturma
 
-Kullanıcı için Kontiki sağlama yapılandırmanız için hiçbir eylem öğesini yoktur. Atanmış bir kullanıcısı için erişim panelini kullanarak Kontiki oturum açmak çalıştığında Kontiki kullanıcının var olup olmadığını denetler. Varsa kullanıcı hesabı kullanılabilir henüz Kontiki tarafından otomatik olarak oluşturulur.
+Kullanıcı hazırlama Kontiki yapılandırmanız için hiçbir eylem öğesini yoktur. Uygulamalarım portalını kullanarak Kontiki için oturum açmak atanmış bir kullanıcısı çalıştığında Kontiki kullanıcının var olup olmadığını denetler. Kullanıcı hesabı bulursa, Kontiki kullanıcı hesabına otomatik olarak oluşturur.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, uygulamalarım portalını kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-Erişim paneli Kontiki kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Kontiki için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Çoklu oturum açma, getirdiğinizde seçtiğinizde **Kontiki** uygulamalarım portalında, otomatik olarak Kontiki için oturum açtınız. Uygulamalarım portal hakkında daha fazla bilgi için bkz. [erişim ve kullanım uygulamaları uygulamalarım portalında](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="next-steps"></a>Sonraki adımlar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+Daha fazla bilgi için bu makaleleri gözden geçirin:
 
-- [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
+- [İçin Azure Active Directory ile SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory'de uygulamalar için çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

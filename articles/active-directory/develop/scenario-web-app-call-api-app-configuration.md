@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a5e1ed89b6330a0b6a49cb20d8bf0ef3587d48
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074748"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784935"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web uygulaması web API'leri - kod yapılandırma çağrıları
 
@@ -184,7 +184,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>(Temel) ASP.NET Web uygulaması için MSAL.NET belirteç önbelleği
 
-Web apps (veya web API sağlasa da, olgu olarak), belirteç önbelleği Masaüstü uygulamaları belirteç önbelleği uygulamalarının farklı uygulamasıdır (genellikle olduğu [dosya tabanlı](scenario-desktop-acquire-token.md#file-based-token-cache). ASP.NET/ASP.NET çekirdek oturumu veya bir Redis önbelleği veya bir veritabanı veya hatta Azure blogu depolama kullanabilirsiniz. Kod parçacığı bunun üzerinde nesnesidir `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` bağlanan Azure önbellek hizmeti yöntemi araması. Ayrıntı ne İşte senaryo bu kılavuzun kapsamı dışındadır, ancak aşağıda bağlantıları verilen'olmuyor.
+Web apps (veya web API sağlasa da, olgu olarak), belirteç önbelleği Masaüstü uygulamaları belirteç önbelleği uygulamalarının farklı uygulamasıdır (genellikle olduğu [dosya tabanlı](scenario-desktop-acquire-token.md#file-based-token-cache). ASP.NET/ASP.NET çekirdek oturumu veya bir Redis önbelleği veya bir veritabanı veya hatta Azure Blob Depolama kullanabilirsiniz. Kod parçacığı bunun üzerinde nesnesidir `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` bağlanan Azure önbellek hizmeti yöntemi araması. Ayrıntı ne İşte senaryo bu kılavuzun kapsamı dışındadır, ancak aşağıda bağlantıları verilen'olmuyor.
 
 > [!IMPORTANT]
 > Hayata geçirmek için çok önemli bir şey, web uygulamaları ve web API'leri için olması gereken bir belirteç önbelleği kullanıcı (başına hesabı) olabilir. Her hesap için belirteç önbelleği serileştirmek gerekir.

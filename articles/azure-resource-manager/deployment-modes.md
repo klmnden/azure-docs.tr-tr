@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550589"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789264"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager dağıtım modları
 
@@ -46,7 +46,9 @@ Kaynak grubu olup olmadığının [kilitli](resource-group-lock-resources.md), t
 
 ## <a name="incremental-mode"></a>Artımlı modu
 
-Artımlı modda, Resource Manager **değişmeden kalır** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Artımlı modda bir kaynak dağıtarak, yalnızca güncelleştirmekte olanlara kaynak için tüm özellik değerlerini belirtin. Bazı özellikler belirtmezseniz, Resource Manager güncelleştirme bu değerlerin üzerine yazar olarak yorumlar.
+Artımlı modda, Resource Manager **değişmeden kalır** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları.
+
+Bununla birlikte, mevcut bir kaynağı artımlı modda dağıtarak, sonucu bir farklıdır. Yalnızca güncelleştirmekte olanlara kaynak tüm özelliklerini belirtin. Yaygın bir yanlış anlama belirtilmeyen özellikleri olduğunu düşündüğünüz olmaktır değiştirilmez. Bazı özellikler belirtmezseniz, Resource Manager güncelleştirme bu değerlerin üzerine yazar olarak yorumlar.
 
 ## <a name="example-result"></a>Örnek sonucu
 

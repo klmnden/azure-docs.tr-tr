@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128830"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606277"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure cosmos DB'de uyumluluk 
 
@@ -28,7 +28,7 @@ Azure Cosmos DB, tüm Azure bölgelerinde kullanılabilir. Microsoft beş farkl�
 
 * **Savunma Bakanlığı için Azure kamu** ABD ABD Savunma Bakanlığı için iki bölgede kullanılabilir.
 
-Düzenlenen sektör ve dünya çapındaki pazarlara arasında kendi uyumluluk sorumlulukları karşılamak müşterilere yardımcı olmak için Azure, hem avantajlarına (teklifleri toplam sayısı) hem de derinliği (müşteriye dönük sayısı bakımından sektördeki en büyük uyumluluk Portföyüne sahiptir Hizmetleri değerlendirmesi kapsamında).  Azure uyumluluk teklifleri, dört segmentleri - genel olarak geçerli, US Government, sektöre özgü ve bölge veya ülke belirli gruplanır.  Uyumluluk teklifi Güvenceleri biçimsel sertifikaları, karşıladığımızı, doğrulama, yetkilendirme ve bağımsız üçüncü taraf denetim firmaları yanı sıra tarafından sözleşmeye dayalı tarihli amendments üretilen değerlendirmeleri gibi çeşitli türlerde dayanır, kendi kendine yapılan değerlendirmelerin ve Microsoft tarafından üretilen müşteri Kılavuzu belgeleri.
+Düzenlenen sektör ve dünya çapındaki pazarlara arasında kendi uyumluluk sorumlulukları karşılamak müşterilere yardımcı olmak için Azure, hem avantajlarına (teklifleri toplam sayısı) hem de derinliği (müşteriye dönük sayısı bakımından sektördeki en büyük uyumluluk Portföyüne sahiptir Hizmetleri değerlendirmesi kapsamında).  Azure uyumluluk teklifleri, dört segmentleri - genel olarak geçerli, US Government, sektöre özgü ve bölge veya ülke belirli gruplandırılır.  Uyumluluk teklifi Güvenceleri biçimsel sertifikaları, karşıladığımızı, doğrulama, yetkilendirme ve bağımsız üçüncü taraf denetim firmaları yanı sıra tarafından sözleşmeye dayalı tarihli amendments üretilen değerlendirmeleri gibi çeşitli türlerde dayanır, kendi kendine yapılan değerlendirmelerin ve Microsoft tarafından üretilen müşteri Kılavuzu belgeleri.
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB sertifikaları  
 

@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411994"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791386"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Alt ağ siliniyor Azure SQL veritabanı yönetilen örneği sonra Sil
 
 Bu makalede, alt ağ siliniyor son Azure SQL veritabanı yönetilen örneği içinde bulunan sonra el ile silmeniz konusunda kılavuz bilgiler verilmektedir.
 
-[Sanal küme](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) silinen içermiştir yönetilen örnek saklanır 12 saat boyunca örneği silme. Sanal küme, aynı alt ağdaki yönetilen örnekleri daha hızlı oluşturulmasını etkinleştirmek için tasarım canlı olarak tutulur. Bu süre boyunca sanal kümeyle ilişkili alt ağ silinemiyor.
+[Sanal küme](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) silinen içermiştir yönetilen örnek saklanır 12 saat boyunca örneği silme. Sanal küme, aynı alt ağdaki yönetilen örnekleri daha hızlı oluşturulmasını etkinleştirmek için tasarım canlı olarak tutulur. Boş bir sanal küme tutma ücretsizdir. Bu süre boyunca sanal kümeyle ilişkili alt ağ silinemiyor.
 
 Boş bir sanal küme tarafından kullanılan alt ağın yayınlanmak el ile silinmesini sanal küme ile mümkündür. Sanal küme silme işlemi, Azure portal veya sanal Küme API ile gerçekleştirilebilir.
 

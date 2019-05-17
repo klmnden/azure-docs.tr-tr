@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 881abf48a1dda3b008e5946096cdcadb1f157d25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b4302713188237b97ffbe8473f6a37edd6741b36
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682621"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793086"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet Analizi ile maliyetleri analiz
 
@@ -45,7 +45,7 @@ Maliyet analizi, Azure hesap türleri için farklı türde destekler. Desteklene
 
 Maliyet Yönetimi verilerine erişim atama hakkında daha fazla bilgi için bkz. [verilerine erişim atama](assign-access-acm-data.md).
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 - https://portal.azure.com adresinden Azure portalında oturum açın.
 
@@ -69,7 +69,7 @@ Seçtiğiniz kapsam maliyet yönetimi, veri birleştirme sağlamak ve maliyet bi
 
 ## <a name="customize-cost-views"></a>Maliyet görünümlerini özelleştirme
 
-Maliyet analizi en yaygın hedefler için en iyi duruma getirilmiş dört yerleşik görünümleri sahiptir: 
+Maliyet analizi en yaygın hedefler için en iyi duruma getirilmiş dört yerleşik görünümleri sahiptir:
 
 Görünüm | Aşağıdaki gibi sorulara yanıt...
 --- | ---
@@ -96,7 +96,7 @@ Genel olarak, veri ya da bildirimler tüketilen kaynaklar için 8-12 saat içind
 
 **Gruplandırma ölçütü** maliyetleri de azaltın Kes ve tanımlamak için ortak özellikler, Katkıda Bulunanlar üst. Kaynak etiketlerine göre gruplandırmak için örneği için gruplandırma ölçütü istediğiniz etiket anahtarı seçin. Maliyetleri uygulanan bir etiketi olmayan kaynaklar için ek bir segment ile her bir etiket değeri tarafından ayrılır.
 
-Çoğu [destek Azure kaynakları etiketleme](../azure-resource-manager/tag-support.md), ancak bazı etiketler, faturalandırma ve maliyet Yönetimi'nde kullanılabilir değildir. Ayrıca, kaynak grubu etiketleri desteklenmez. Maliyet yönetimi, etiketler kaynağa doğrudan uygulanan tarihten itibaren kaynak etiketleri yalnızca destekler.
+Çoğu [destek Azure kaynakları etiketleme](../azure-resource-manager/tag-support.md), ancak bazı etiketler, faturalandırma ve maliyet Yönetimi'nde kullanılabilir değildir. Ayrıca, kaynak grubu etiketleri desteklenmez. Maliyet yönetimi, etiketler kaynağa doğrudan uygulanan tarihten itibaren kaynak etiketleri yalnızca destekler. İzleme [Azure maliyet yönetimi ile etiketi ilkeleri gözden geçirmek nasıl](https://www.youtube.com/watch?v=nHQYcYGKuyw) video maliyet veri görünürlüğünü artırmak için Azure etiketi ilke kullanma hakkında bilgi edinin.
 
 Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görünümü yer alır.
 

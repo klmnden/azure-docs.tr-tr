@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ea74dbd6cffa34e4462433cdfc51e7d5abac9a41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619699"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796662"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
@@ -100,6 +100,13 @@ Kapsayıcılara sunucu ve bellek ayırma gereksinimleri dahil olmak üzere kendi
 ## <a name="developer-samples"></a>Geliştirici örnekleri
 
 Geliştirici Örnekleri kullanıma sunduğumuz [GitHub deposu](https://github.com/Azure-Samples/cognitive-services-containers-samples).
+
+## <a name="view-webinar"></a>Web seminerini izleyin 
+
+Birleştirme [Web Semineri](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) hakkında bilgi edinmek için:
+
+* Bilişsel hizmetler, Docker kullanan herhangi bir makineye dağıtma
+* Bilişsel hizmetler AKS'ye dağıtma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

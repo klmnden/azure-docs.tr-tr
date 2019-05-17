@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: 657f8df959ccda5d51748ef5fbfc2e280f7d2c2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714805"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65801004"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Doğrudan sorgu kullanarak Azure HDInsight Microsoft Power BI ile etkileşimli sorgu Apache Hive verileri Görselleştirme
 
@@ -49,7 +49,7 @@ Bu makalede geçmeden önce aşağıdaki öğelere sahip olmanız gerekir:
 
     |Özellik | Değer |
     |---|---|
-    |Sunucu |Küme adını girin, örneğin *myiqcluster.azurehdinsight.net*.|
+    |Sunucu  |Küme adını girin, örneğin *myiqcluster.azurehdinsight.net*.|
     |Database |Girin **varsayılan** Bu makale için.|
     |Veri bağlantısı modu |Seçin **DirectQuery** Bu makale için.|
 
@@ -79,7 +79,7 @@ Son yordama devam edin.
 Bu makalede, Microsoft Power BI'ı kullanarak HDInsight verilerini görselleştirmek öğrendiniz.  Veri görselleştirme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [ODBC kullanarak Azure HDInsight Microsoft Power BI ile Apache Hive verileri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
-* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma](./../hdinsight-connect-hive-zeppelin.md).
+* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Excel'i Microsoft Hive ODBC sürücüsü ile HDInsight bağlama](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel'i Power Query kullanarak Apache Hadoop'a bağlama](../hadoop/apache-hadoop-connect-excel-power-query.md).
 * [Azure HDInsight için bağlanın ve Visual Studio için Data Lake Araçları'nı kullanarak Apache Hive sorguları çalıştırma](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
