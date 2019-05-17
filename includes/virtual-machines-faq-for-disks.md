@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199536"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65607029"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -201,7 +201,7 @@ Standart SSD disk Hayır, yalnızca yönetilen diskler olarak kullanılabilir.
 **Standart SSD disk "Tek Örnekli sanal makine SLA" destekliyor musunuz?**
 Hayır, standart SSD'ler Tek Örnekli sanal makine SLA'sı yoktur. Premium SSD diskleri tek örnek sanal makine SLA'sını kullanın.
 
-## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme
+## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçin
 
 **Yönetilen diskler performans üzerindeki geçişin herhangi bir etkisi var mı?**
 
@@ -365,7 +365,7 @@ Ya da durdurabilir ve disk bağlı olduğu VM başlatmak veya ayırma ve yeniden
 
 **Yönetilen disk boyutu 8 TiB, TiB 16 ve 32 TiB desteklenen bölgeleri nelerdir?**
 
-8 TiB, TiB 16 ve 32 TiB disk SKU'ları tüm bölgelerde genel Azure altında desteklenir. Microsoft Azure kamu ve Azure Çin 21Vianet için destek henüz kullanılamıyor.
+8 TiB, TiB 16 ve 32 TiB disk SKU'ları tüm bölgelerde genel Azure, Microsoft Azure kamu ve Azure Çin 21Vianet altında desteklenir.
 
 **Ana bilgisayar önbelleğe almayı etkinleştirme tüm disk boyutları destekler mi?**
 

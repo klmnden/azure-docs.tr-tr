@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61273095"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619729"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service için bir özel etki alanı adı satın alma
 
-App Service etki alanları (Önizleme) doğrudan Azure'da yönetilen üst düzey etki alanları bulunur. Bunlar için özel etki alanlarını yönet daha kolay hale [Azure App Service](overview.md). Bu öğreticide, bir App Service etki alanı satın alma ve Azure App Service'e DNS adları atama işlemini göstermektedir.
+App Service etki alanları doğrudan Azure'da yönetilen üst düzey etki alanları bulunur. Bunlar için özel etki alanlarını yönet daha kolay hale [Azure App Service](overview.md). Bu öğreticide, bir App Service etki alanı satın alma ve Azure App Service'e DNS adları atama işlemini göstermektedir.
 
 Azure VM veya Azure depolama için bkz: [atama App Service etki alanı için Azure VM veya Azure depolama](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Bulut Hizmetleri için bkz: [Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -41,7 +41,7 @@ Bu öğreticiyi tamamlamak için:
 
 Azure App Service'in, uygulamanızın özel etki alanlarında kullanılacak [App Service planı](https://azure.microsoft.com/pricing/details/app-service/) Ücretli katmanı olmalıdır (**paylaşılan**, **temel**, **standart**, veya  **Premium**). Bu adımda, uygulamayı desteklenen bir fiyatlandırma katmanında olduğundan emin olun.
 
-### <a name="sign-in-to-azure"></a>Azure'da oturum açma
+### <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 [Azure Portal](https://portal.azure.com)'ı açın ve Azure hesabınızla oturum açın.
 
@@ -80,9 +80,9 @@ Aşağıdaki bildirimi gördüğünüzde, ölçeklendirme işlemi tamamlanmışt
 ## <a name="buy-the-domain"></a>Etki alanı satın alma
 
 ### <a name="pricing-information"></a>Fiyatlandırma Bilgileri
-Azure App Service etki alanları hakkında bilgi fiyatlandırması için lütfen [App Service Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/app-service/windows/) ve App Service etki alanı kaydırın.
+Azure App Service etki alanları hakkında bilgi fiyatlandırma sayfasını ziyaret edin [App Service Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/app-service/windows/) ve App Service etki alanı kaydırın.
 
-### <a name="sign-in-to-azure"></a>Azure'da oturum açma
+### <a name="sign-in-to-azure"></a>Oturum açın: Azure
 [Azure Portal](https://portal.azure.com/)'ı açın ve Azure hesabınızla oturum açın.
 
 ### <a name="launch-buy-domains"></a>Satın alma etki alanları'nı başlatın
@@ -150,7 +150,7 @@ Ana bilgisayar adları test etmek için tarayıcıda listelenen ana bilgisayar a
 
 ## <a name="assign-hostnames-to-app"></a>Uygulama için konak adları atayın
 
-Satın alma işlemi sırasında bir veya daha fazla varsayılan konak adları uygulamanıza atamamayı seçerseniz veya listede olmayan bir ana bilgisayar adı atamak istiyorsanız, bir ana bilgisayar adı, dilediğiniz zaman atayabilirsiniz.
+Satın alma işlemi sırasında bir veya daha fazla varsayılan konak adları uygulamanıza atamamayı seçerseniz veya listede olmayan bir ana bilgisayar adı atamak istiyorsanız, bir ana bilgisayar adı dilediğiniz zaman atayabilirsiniz.
 
 App Service etki alanı konak adı için herhangi bir uygulama da atayabilirsiniz. Adımlar olup App Service etki alanı ve uygulama aynı aboneliğe ait üzerinde bağlıdır.
 
@@ -278,7 +278,3 @@ Satın alınan etki alanında iptal süresi geçen değil, seçin **satın alma 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Varsayılan URL'yi özel bir dizine yönlendirme
 
 Varsayılan olarak, App Service web isteklerini uygulama kodunuzun kök dizinine yönlendirir. Gibi bir alt dizinine yönlendirmek için `public`, bkz: [doğrudan varsayılan URL'yi özel bir dizine](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Diğer kaynaklar
-
-[SSS: App Service etki alanı (Önizleme) ve özel etki alanları](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 6882c46ec0e4925c42de86c87225e9509c84df84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45738476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65757941"
 ---
 ## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
 Ardından, geliştirme ortamınızı Visual Studio’da ayarlayın; böylece bu kılavuzdaki kod örneklerini denemeye hazır olursunuz.
@@ -36,8 +36,8 @@ Azure bulut hizmeti veya web uygulaması ile masaüstü ve mobil uygulamaları d
 ### <a name="use-nuget-to-install-the-required-packages"></a>Gereken paketleri yüklemek için NuGet kullanma
 Bu öğreticiyi tamamlamak için projenizde başvurmanız gereken iki paket vardır:
 
-* [.NET için Microsoft Azure Storage İstemcisi Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/): Bu paket depolama hesabınızdaki veri kaynaklarına programlı erişim sağlar.
-* [.NET için Microsoft Azure Configuration Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Bu paket, uygulamanızın nerede çalıştığına bakmaksızın yapılandırma dosyasından bağlantı dizesini ayrıştırmak için bir sınıf sağlar.
+* [.NET için Microsoft Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/): Bu paket depolama hesabınızdaki veri kaynaklarına programlı erişim sağlar.
+* [.NET için Microsoft Azure Yapılandırma Yöneticisi Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Bu paket, uygulamanızın nerede çalıştığına bakmaksızın yapılandırma dosyasındaki bağlantı dizesini ayrıştırmak için bir sınıf sağlar.
 
 Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın:
 

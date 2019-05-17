@@ -11,22 +11,21 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/07/2019
-ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.date: 05/11/2019
+ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235749"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620156"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL veritabanı sunucusuz (Önizleme)
 
 ## <a name="what-is-the-serverless-compute-tier"></a>Sunucusuz bilgi işlem katmanı nedir
 
-Sunucusuz SQL veritabanı (Önizleme) saniye başına temelinde tek bir veritabanı tarafından kullanılan süre boyunca faturalar hesaplayan bir işlem katmandır. Sunucusuz işlem Isınma bazı gecikme boşta kullanım dönemlerini gücünüze yükselen kullanım düzenlerini ile tek veritabanları için en iyi duruma getirilmiş fiyat-performans ' dir.
-Buna karşılık, genel kullanıma sunar, SQL veritabanı süre boyunca bugün faturada saatlik olarak sağlanan işlem. Bu sağlanan işlem katmanı fiyat-performans tek veritabanı veya elastik için iyileştirilmiş olduğundan işlem Isınma kurtarmadaki gecikmeyi Aboneliklerde daha yüksek bir ortalama kullanım havuzlarıyla.
+Sunucusuz SQL veritabanı (Önizleme) saniye başına temelinde tek bir veritabanı tarafından kullanılan süre boyunca faturalar hesaplayan bir işlem katmandır. Sunucusuz işlem Isınma bazı gecikme boşta kullanım dönemlerini gücünüze aralıklı, öngörülemeyen kullanım düzenlerine sahip tek veritabanları için en iyi duruma getirilmiş fiyat-performans ' dir.
 
-Sunucusuz bilgisayar katmanındaki bir veritabanı, işlem aralığın kullanabilmesi ve autopause gecikme tarafından parametreli olup.
+Sunucusuz bilgi işlem katmanı veritabanında kullanabilmeniz için işlem aralığı ve autopause gecikme tarafından parametreli olup.
 
 ![sunucusuz faturalandırma](./media/sql-database-serverless/serverless-billing.png)
 
@@ -44,22 +43,11 @@ Sunucusuz bilgisayar katmanındaki bir veritabanı, işlem aralığın kullanabi
 
 ## <a name="scenarios"></a>Senaryolar
 
-Sunucusuz işlem Isınma bazı gecikme boşta kullanım dönemlerini gücünüze yükselen kullanım düzenlerini ile tek veritabanları için en iyi duruma getirilmiş fiyat-performans ' dir. Sağlanan işlem, fiyat-performans işlem Isınma kurtarmadaki gecikmeyi Aboneliklerde daha yüksek bir ortalama kullanım ile tek veya havuza alınmış veritabanları için en iyi duruma getirilmiş katmandır.
-
-Aşağıdaki tabloda sağlanan işlem katmanı ile sunucusuz bilgi işlem katmanı karşılaştırılır:
-
-||Sunucusuz işlem|Sağlanan işlem|
-|---|---|---|
-|**Tipik kullanım senaryosu**|Etkin nokta ile interspersed yükselen, tahmin edilemeyen kullanım veritabanlarıyla|Veritabanları ya da daha fazla normal kullanım ile elastik havuzları|
-|**Performans yönetim çabası**|Daha düşük|Daha yüksek|
-|**Ölçeklendirme işlem**|Otomatik|El ile|
-|**İşlem yanıt hızı**|Etkin nokta sonra daha düşük|Hemen|
-|**Faturalandırma ayrıntı düzeyi**|Saniye başına|Saatlik|
-|
+Sunucusuz işlem Isınma bazı gecikme boşta kullanım dönemlerini gücünüze aralıklı, öngörülemeyen kullanım düzenlerine sahip tek veritabanları için en iyi duruma getirilmiş fiyat-performans ' dir. Buna karşılık, sağlanan işlem katmanı, işlem Isınma kurtarmadaki gecikmeyi Aboneliklerde daha yüksek bir ortalama kullanım ile tek veya havuza alınmış veritabanları için en iyi duruma getirilmiş fiyat-performans gösterir.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Sunucusuz bilgi işlem için uygun olan senaryoları
 
-- Tek veritabanlarını etkin olmadığı dönemler ile interspersed yükselen kullanım düzenlerini kullanılan işlem miktarı saniye başına faturalandırma göre fiyat tasarrufu yararlanabilir.
+- Tek veritabanlarını desenleri etkin olmadığı dönemler ile interspersed aralıklı, tahmin edilemeyen kullanım miktarı, kullanılan işlem saniye başına faturalandırma göre fiyat tasarrufu yararlanabilir.
 - Kaynak talebi tahmin etmek zordur ve işlem boyutlandırma hizmetine temsilci atamak tercih eden müşteriler ile tek veritabanları.
 - Sağlanan işlem katmanında tek veritabanları, performans düzeyleri sık değiştirin.
 
@@ -67,8 +55,19 @@ Aşağıdaki tabloda sağlanan işlem katmanı ile sunucusuz bilgi işlem katman
 
 - Daha fazla normal ve daha fazla önemli ile tek veritabanları, kullanımın zaman işlem.
 - Hakkında daha fazla kaynaklanan performans dengelemeler genişliğinin kullanılmasını veritabanları kırpma bellek sık veya duraklatılmış duruma gelen autoresuming içinde gecikme.
-- Tek bir sunucu birleştirilebilir ve elastik havuzlar için daha iyi fiyat iyileştirme kullanan yükselen kullanım düzenlerine sahip birden çok veritabanı.
+- Tek bir sunucu birleştirilebilir ve elastik havuzlar için daha iyi fiyat iyileştirme kullanan aralıklı, öngörülemeyen kullanım düzenlerine sahip birden çok veritabanı.
 
+## <a name="comparison-with-provisioned-compute-tier"></a>Sağlanan işlem katmanı ile karşılaştırma
+
+Aşağıdaki tabloda, sunucusuz bilgi işlem katmanı ve sağlanan işlem katmanı arasındaki farklılıklar özetlenmiştir:
+
+| | **Sunucusuz bilgi işlem** | **Sağlanan işlem** |
+|:---|:---|:---|
+|**Tipik kullanım senaryosu**| Etkin nokta ile interspersed aralıklı, tahmin edilemeyen kullanım veritabanlarıyla. | Veritabanı veya elastik havuzlar sayesinde daha fazla normal kullanım.|
+| **Performans yönetim çabası** |Daha düşük|Daha yüksek|
+|**Ölçeklendirme işlem**|Otomatik|El ile|
+|**İşlem yanıt hızı**|Etkin nokta sonra daha düşük|Hemen|
+|**Faturalandırma ayrıntı düzeyi**|Saniye başına|Saatlik|
 
 ## <a name="purchasing-model-and-service-tier"></a>Model ve hizmet katmanı satın alma
 
@@ -116,7 +115,7 @@ Aşağıdaki koşullardan herhangi biri herhangi bir zamanda doğruysa Autoresum
 
 ### <a name="connectivity"></a>Bağlantı
 
-Sunucusuz bir veritabanları duraklatıldı durumunda ilk oturum açma veritabanını sürdürmeniz ve veritabanı kullanılamaz olduğunu bildiren bir hata döndürür. Veritabanı sürdürülüyor sonra oturum açma bağlantısı kurmak için yeniden denenmelidir. Veritabanı bağlantısı yeniden deneme mantığı istemcilerle değiştirilmesi gerekmez.
+Sunucusuz bir veritabanları duraklatıldı durumunda ilk oturum açma veritabanını sürdürmeniz ve veritabanı hata kodu 40613 kullanılamaz olduğunu bildiren bir hata döndürür. Veritabanı sürdürülüyor sonra oturum açma bağlantısı kurmak için yeniden denenmelidir. Veritabanı bağlantısı yeniden deneme mantığı istemcilerle değiştirilmesi gerekmez.
 
 ### <a name="latency"></a>Gecikme
 
@@ -135,13 +134,13 @@ Aşağıdaki özellikler autopausing ve autoresuming desteklemez. Aşağıdaki �
 
 Yeni bir veritabanı oluşturmak veya bir sunucusuz bilgi işlem katmanı varolan bir veritabanını yeni bir veritabanı oluşturma olarak aynı deseni izler taşıma bilgi işlem katmanı sağlanan ve aşağıdaki iki adımdan oluşur:
 
-1. Hizmet hedef adı belirtin. Aşağıdaki tabloda, şu anda genel Önizleme sürümünde kullanılabilir bilgi işlem boyutlarına ve kullanılabilir bir hizmet katmanı gösterir.
+1. Hizmet hedef adı belirtin. Hizmet hedefi bir hizmet katmanı, donanım oluşturma ve en yüksek Vcore önerir. Aşağıdaki tabloda hizmet hedefi seçenekleri gösterir:
 
-   |Hizmet katmanı|İşlem boyutu|
-   |---|---|
-   |Genel Amaçlı|GP_S_Gen5_1|
-   |Genel Amaçlı|GP_S_Gen5_2|
-   |Genel Amaçlı|GP_S_Gen5_4|
+   |Hizmet hedef adı|Hizmet katmanı|Donanım oluşturma|En yüksek sanal çekirdekler|
+   |---|---|---|---|
+   |GP_S_Gen5_1|Genel Amaçlı|Gen5|1|
+   |GP_S_Gen5_2|Genel Amaçlı|Gen5|2|
+   |GP_S_Gen5_4|Genel Amaçlı|Gen5|4|
 
 2. İsteğe bağlı olarak, varsayılan değerleri değiştirmek için en düşük Vcore ve autopause gecikme belirtin. Aşağıdaki tabloda kullanılabilir değerleri bu parametrelerin gösterilmektedir.
 
@@ -178,7 +177,7 @@ New-AzSqlDatabase `
 
 ### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Sunucusuz bilgi işlem katmanı var olan veritabanına taşıma
 
-Aşağıdaki örnekte mevcut bir tek veritabanı sağlanan işlem katmanından sunucusuz bilgi işlem Katmanı taşır. Bu örnekte, en düşük Vcore, en çok sanal çekirdek ve autopause gecikme için varsayılan değerleri kullanır.
+Aşağıdaki örnekte mevcut bir tek veritabanı sağlanan işlem katmanından sunucusuz bilgi işlem Katmanı taşır. Bu örnekte, en düşük Vcore, en çok sanal çekirdek ve autopause gecikme açıkça belirtir.
 
 ```powershell
 Set-AzSqlDatabase
@@ -205,11 +204,11 @@ En yüksek sanal çekirdekler değiştirme işlemi gerçekleştirildiğinde kull
 
 ### <a name="minimum-vcores"></a>En Az vCore
 
-En yüksek sanal çekirdekler değiştirme işlemi gerçekleştirildiğinde kullanarak [kümesi AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell kullanarak komut `MinVcore` bağımsız değişken.
+En düşük Vcore değiştirme işlemi gerçekleştirildiğinde kullanarak [kümesi AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell kullanarak komut `MinVcore` bağımsız değişken.
 
 ### <a name="autopause-delay"></a>Autopause gecikmesi
 
-En yüksek sanal çekirdekler değiştirme işlemi gerçekleştirildiğinde kullanarak [kümesi AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell kullanarak komut `AutoPauseDelay` bağımsız değişken.
+Autopause gecikmesini değiştirme işlemi gerçekleştirildiğinde kullanarak [kümesi AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) PowerShell kullanarak komut `AutoPauseDelay` bağımsız değişken.
 
 ## <a name="monitor-serverless-database"></a>Sunucusuz veritabanı İzleyicisi
 
@@ -230,7 +229,7 @@ Kullanıcı kaynak havuzuna iç veritabanı sunucusuz veya sağlanan işlem katm
 |Varlık|Ölçüm|Açıklama|Birimler|
 |---|---|---|---|
 |Uygulama paketi|app_cpu_percent|Uygulama için izin verilen en yüksek Vcore göre uygulama tarafından kullanılan çekirdek yüzdesi.|Yüzde|
-|Uygulama paketi|app_cpu_billed|İşlem için uygulama raporlama döneminde faturalandırılır miktarı. Bu süre boyunca ödeme tutarı, bu ölçüm ve sanal çekirdek birim fiyatı ürünüdür.<br>Bu ölçüm değerleri en fazla CPU kullanılan zaman içinde toplayarak belirlenir ve saniyede bellek kullanılır.<br>Kullanılan tutar en az bellek ve en düşük Vcore kümesi olarak sağlanan en düşük miktar altındaysa, sağlanan en düşük miktar ücreti alınır.  CPU ile bellek faturalandırma için karşılaştırmak için bellek, sanal çekirdekler birimlerine bellek miktarı GB olarak 3 GB sanal çekirdek ölçeklendirme tarafından normalleştirilmiştir.|Sanal çekirdek saniye|
+|Uygulama paketi|app_cpu_billed|İşlem için uygulama raporlama döneminde faturalandırılır miktarı. Bu süre boyunca ödeme tutarı, bu ölçüm ve sanal çekirdek birim fiyatı ürünüdür. <br><br>Bu ölçüm değerleri en fazla CPU kullanılan zaman içinde toplayarak belirlenir ve saniyede bellek kullanılır. Kullanılan tutar en az bellek ve en düşük Vcore kümesi olarak sağlanan en düşük miktar altındaysa, sağlanan en düşük miktar ücreti alınır. CPU ile bellek faturalandırma için karşılaştırmak için bellek, sanal çekirdekler birimlerine bellek miktarı GB olarak 3 GB sanal çekirdek ölçeklendirme tarafından normalleştirilmiştir.|Sanal çekirdek saniye|
 |Uygulama paketi|app_memory_percent|Uygulama için izin verilen en fazla bellek göre uygulama tarafından kullanılan bellek yüzdesi.|Yüzde|
 |Kullanıcı havuzu|cpu_percent|Kullanıcı iş yükü için izin verilen en yüksek Vcore göre kullanıcı iş yükü tarafından kullanılan çekirdek yüzdesi.|Yüzde|
 |Kullanıcı havuzu|data_IO_percent|Kullanıcı iş yükü için veri maks. IOPS veri göre kullanıcı iş yükü tarafından kullanılan IOPS yüzdesi izin.|Yüzde|
@@ -262,20 +261,21 @@ Kaynak limitleri için bkz. [sunucusuz bilgi işlem katmanı](sql-database-vCore
 
 ## <a name="billing"></a>Faturalama
 
-Saniyede faturalandırılan işlem en fazla kullanılan CPU ve saniyede kullanılan bellek miktarıdır. Kullanılan CPU miktarını ve her biri için sağlanan en düşük miktar daha az kullanılan bellek miktarı sağlanan faturalandırılır. CPU ile bellek faturalandırma için karşılaştırmak için bellek, sanal çekirdekler birimlerine bellek miktarı GB olarak 3 GB sanal çekirdek ölçeklendirme tarafından normalleştirilmiştir.
+Faturalandırılan işlem en fazla kullanılan CPU ve saniyede kullanılan bellek miktarıdır. Kullanılan CPU miktarını ve her biri için sağlanan en düşük miktar daha az kullanılan bellek miktarı sağlanan faturalandırılır. CPU ile bellek faturalandırma için karşılaştırmak için bellek, sanal çekirdekler birimlerine bellek miktarı GB olarak 3 GB sanal çekirdek ölçeklendirme tarafından normalleştirilmiştir.
 
 - **Kaynak faturalandırılır**: CPU ve bellek
 - **Tutarı üzerinden faturalandırılırsınız ($)**: sanal çekirdek birim fiyatı * max (en düşük Vcore, kullanılan sanal çekirdek, en düşük bellek GB * 1/3 bellek kullanılan GB * 1/3) 
 - **Faturalama sıklığı**: Saniye başına
 
+Saniye başına sanal çekirdek başına maliyet sanal çekirdek birim fiyatı. Başvurmak [Azure SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/single/) belirli birimi fiyatlar belirli bir bölge için.
+
 Faturalandırılan işlem miktarını tarafından aşağıdaki ölçüm sunulur:
 
 - **Ölçüm**: app_cpu_billed (sanal çekirdek saniye)
-- **Tanımı**: en fazla (en düşük Vcore, kullanılan sanal çekirdek, en düşük bellek GB * 1/3 bellek kullanılan GB * 1/3) *
+- **Tanımı**: en fazla (en düşük Vcore, kullanılan sanal çekirdek, en düşük bellek GB * 1/3 bellek kullanılan GB * 1/3)
 - **Raporlama sıklığını**: Dakika başına
 
-> [!NOTE]
-> \* Bu miktar saniyede hesaplanır ve 1 dakika içinde toplanır.
+Bu miktar saniyede hesaplanır ve 1 dakika içinde toplanır.
 
 **Örnek**: GP_S_Gen5_4 ile aşağıdaki kullanımı bir saat diliminde kullanarak veritabanı göz önünde bulundurun:
 
@@ -289,7 +289,7 @@ Faturalandırılan işlem miktarını tarafından aşağıdaki ölçüm sunulur:
 |0:06 - 1:00|1255|
 ||Toplam: 1631|
 
-İşlem birim fiyatı $0.2609/vCore/hour olduğunu varsayın. Sonra da bu bir saatlik süre için faturalandırılırsınız işlem aşağıdaki formül kullanılarak belirlenir: **$0.2609/vCore/hour * 1631 sanal çekirdek saniye * 1 saat/3600 saniye $0.1232 =**
+İşlem birim fiyatı $0.000073/vCore/second olduğunu varsayın. Sonra da bu bir saatlik süre için faturalandırılırsınız işlem aşağıdaki formül kullanılarak belirlenir: **$0.000073/vCore/second * $0.1191 1631 sanal çekirdek saniye =**
 
 ## <a name="available-regions"></a>Kullanılabilen bölgeler
 
@@ -297,4 +297,5 @@ Sunucusuz bilgi işlem katmanı şu bölgeler dışındaki tüm bölgelerde kull
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kaynak limitleri için bkz. [sunucusuz bilgi işlem katmanı kaynak sınırları](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- Başlamak için bkz: [hızlı başlangıç: Azure portalını kullanarak Azure SQL veritabanı tek veritabanı oluşturma](sql-database-single-database-get-started.md).
+- Kaynak limitleri için bkz. [sunucusuz bilgi işlem katmanı kaynak sınırları](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).

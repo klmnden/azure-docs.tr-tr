@@ -1,23 +1,22 @@
 ---
 title: SaaS yerine getirme API V2 | Azure Market
-description: Bir SaaS teklifi ilişkili yerine getirme V2 API kullanarak Azure Marketi'nde oluşturma açıklanır.
+description: Bir SaaS teklifi ilişkili yerine getirme V2 API kullanarak Azure Market ve AppSource üzerinde oluşturma açıklanır.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762280"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823531"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS yerine getirme API sürüm 2 
 
-Bu makalede, bağımsız yazılım satıcıları (ISV'ler) SaaS uygulamalarını tümleştirme sağlayan Azure Marketi'nde API'SİYLE ayrıntıları. Bu API, tüm etkin ticaret kanallarında katılmak ISV uygulamaları sağlar: doğrudan, iş ortağı destekli (satıcı) ve alan öncülüğünde.  Bu API, Azure Marketi'nde transactable SaaS sunar olmasa listeleme için gereklidir.
-
+Bu makalede, Azure Market ve AppSource bağımsız yazılım satıcıları (ISV'ler) SaaS uygulamalarına satmak sağlayan API ayrıntıları. Bu API, Azure Market ve AppSource üzerinde listeleme SaaS bir gereksinim sunar ' dir.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>SaaS abonelik yaşam döngüsü yönetimi
 

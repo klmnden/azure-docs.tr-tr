@@ -2,20 +2,20 @@
 title: Azure SQL Veri Ambarı için en iyi uygulamalar | Microsoft Belgeleri
 description: Azure SQL Veri Ambarı için çözüm geliştirirken bilmeniz gerekenlerle ilgili öneriler ve en iyi yöntemler.
 services: sql-data-warehouse
-author: ronortloff
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: design
 ms.date: 11/26/2018
-ms.author: rortloff
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 519eae012db30d772a388865380e4909d91b711a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e7fe0f7630e59be231f2513cdb7e38f8c15a68f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476864"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762646"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için en iyi yöntemler
 Bu makalede, Azure SQL veri ambarı en iyi performans elde etmenize yardımcı olması için en iyi bir koleksiyonudur.  Bu makalede, temel ve kolay anlaşılır kavramların yanı sıra ileri düzey kavramlarla ilgili özet bilgilere yer verilmektedir.  Bu makalenin amacı, veri ambarınızı oluşturmanız sırasında size temel noktalarda rehberlik yapmak ve odaklanmanız gereken önemli noktalara dikkat çekmektir.  Her bölümde bir kavram tanıtılmakta ve ardından ilgili kavramı ayrıntılı bir şekilde açıklayan ileri düzey makalelere bağlantı verilmektedir.

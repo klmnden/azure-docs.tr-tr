@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757999"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785807"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>İşlem, Azure veri kutusu edge'de yönetme
 
 Bu makalede, Azure veri kutusu Edge üzerinde işlem yönetme. İşlem Azure portal aracılığıyla yönetmenize veya yerel web kullanıcı Arabirimi. Modüller, Tetikleyiciler, yönetmek için Azure portalını kullanın ve işlem yapılandırması ve yerel web kullanıcı Arabirimi, işlem ayarlarını yönetmek için.
-
-> [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
-
 
 Bu makalede şunları öğreneceksiniz:
 

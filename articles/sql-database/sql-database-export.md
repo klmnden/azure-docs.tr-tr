@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: 27a65a871264fa13a42acfb5be2d4b5f99d31adc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c87979760730cbe8f57d8f65463c94d08888aa2b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483902"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762747"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
@@ -51,7 +51,7 @@ Arşivleme veya başka bir platformuna geçmek için bir veritabanı dışarı a
 
     ![Veritabanı dışarı aktarma](./media/sql-database-export/database-export2.png)
 
-3. **Tamam** düğmesine tıklayın.
+3. **Tamam**'ı tıklatın.
 
 4. Dışarı aktarma işleminin ilerleme durumunu izlemek için dışarı aktarılan veritabanını içeren SQL veritabanı sunucusu için sayfayı açın. Altında için **ayarları** ve ardından **içeri/dışarı aktarma geçmişi**.
 

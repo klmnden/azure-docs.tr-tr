@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227976"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620005"
 ---
 # <a name="action-rules-preview"></a>Eylem kuralları (Önizleme)
 
-Bu makalede, Eylem kuralları nelerdir ve nasıl yapılandırılacağı ve yönetileceğine açıklanmaktadır.
-
-## <a name="what-are-action-rules"></a>Eylem kuralları nelerdir?
-
 Eylem kuralları eylemleri (veya eylemleri gizleme) tüm Resource Manager kapsam (abonelik, kaynak grubu, veya kaynak) tanımlamanızı sağlar. Belirli alt uygulamak istediğiniz uyarı örneklerinin daraltmak olanak tanıyan filtreler çeşitli sahiptirler. 
 
-Eylem kuralları ile şunları yapabilirsiniz:
+## <a name="why-and-when-should-you-use-action-rules"></a>Neden ve ne zaman eylem kurallarını kullanmalısınız?
 
-* Bakım pencereleri planladığınızdan veya hafta sonu/tatiller için her devre dışı bırakmak zorunda yerine tek tek uyarı kuralı eylemleri ve bildirimleri gösterme.
-* Eylemler ve uygun ölçekte bildirimleri tanımlayın: Her uyarı kuralı için ayrı ayrı bir eylem grubu tanımlamak zorunda kalmak yerine, herhangi bir kapsamda oluşturulan uyarılar için tetiklemek için bir eylem grubu artık tanımlayabilirsiniz. Örneğin, Aboneliğim dahilindeki oluşturulan her uyarı için eylem grubu 'ContosoActionGroup' tetiklemesini sağlamak tercih edebilirsiniz.
+### <a name="suppression-of-alerts"></a>Uyarı gizleme
+
+Genellikle burada bu planlı bakım penceresi sırasında gizleme gizleme iş saatleri dışında da uyarıları tarafından oluşturulan bildirimleri göstermemeye yararlı olacaktır birçok senaryo daha vardır. Örneğin, 'ContosoVM için' sorumlu ekip 'ContosoVM' planlı bakımda olduğundan gelecek hafta için uyarı bildirimleri göstermemeye ister. Kullanıcılar sırada her uyarı 'Üzerinde ContosoVM' el ile yapılandırılmış bir kural (ve Bakım sonrası yeniden etkinleştirme) devre dışı bırakmak, basit bir deneyim değil. Eylem kuralları uyarı gizleme uygun ölçekte esnek bir şekilde gizleme yapılandırın olanağı tanımlamanızı sağlar. Takım, önceki örneğe geri dönerseniz, artık 'hafta için tüm uyarı bildirimleri bastırır ContosoVM' bir eylem kuralı tanımlayabilirsiniz.
+
+
+### <a name="actions-at-scale"></a>Uygun ölçekte eylemleri
+
+Uyarı kuralları bir uyarı oluşturulduğunda tetikleyen bir eylem grubu tanımlamanıza izin verse de, müşteriler genellikle operations kapsamlarına arasında ortak bir eylem grubu için eğilimindedir. Örneğin, kaynak grubu için 'ContosoRG' sorumlu bir ekip büyük olasılıkla 'ContosoRG' içinde tanımlanan tüm uyarı kuralları için aynı eylem grubunu tanımlarsınız. İşlem kuralları, böylece bir eylem grubu için yapılandırılmış kapsamda oluşturulan herhangi bir uyarı tetiklenebilir, uygun ölçekte, eylemleri tanımlamak olanak tanıyarak bu işlemi basitleştireceksiniz olanak tanır. Takım, önceki örneğe geri dönerseniz, artık 'içinde oluşturulan tüm uyarılar için aynı eylem grubu tetikleyecek ContosoRG' bir eylem kuralı tanımlayabilirsiniz.
+
 
 ## <a name="configuring-an-action-rule"></a>Bir eylem kuralı yapılandırma
 

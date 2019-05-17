@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730150"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605709"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Ağ İzleyicisi ve açık kaynak araçlarla ağ izinsiz giriş algılaması gerçekleştirme
 
@@ -255,7 +255,7 @@ Ayrıca, kendi görselleştirmeler ve kendi ilgilendiğiniz ölçümleri uyarlan
 
 Örnek Pano Suricata uyarı günlükler çeşitli görselleştirmeler sağlar:
 
-1. GeoIP – uyarılar, coğrafi konum (IP tarafından belirlenir) göre kaynak ülkeye göre dağılımını gösteren bir harita göre uyarıları
+1. GeoIP – kaynak coğrafi konum (IP tarafından belirlenir) göre ülke/bölgeye göre uyarıları dağılımını gösteren bir harita göre uyarıları
 
     ![coğrafi IP][3]
 

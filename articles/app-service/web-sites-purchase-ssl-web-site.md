@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202934"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786333"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -113,7 +113,7 @@ Bağlamasında yapılandırmanıza yardımcı olması için aşağıdaki tabloyu
 
 | Ayar | Açıklama |
 |-|-|
-| Ana Bilgisayar Adı | SSL bağlaması için eklemek için etki alanı adı. |
+| Konak adı | SSL bağlaması için eklemek için etki alanı adı. |
 | Özel Sertifika Parmak İzi | Bağlama sertifikası. |
 | SSL Türü | <ul><li>**SNI SSL** -birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).</li><li>**IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Bağlama yapılandırdıktan sonra adımları [kayıt yeniden eşlemek için IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
@@ -153,7 +153,7 @@ Yenileme işlemi tamamlandıktan sonra tıklayın **eşitleme**. Eşitleme işle
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -161,9 +161,9 @@ Yenileme işlemi tamamlandıktan sonra tıklayın **eşitleme**. Eşitleme işle
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
-## <a name="more-resources"></a>Diğer kaynaklar
+## <a name="more-resources"></a>Daha fazla kaynak
 
 * [HTTPS zorlama](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [TLS 1.1/1.2 zorlama](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Azure App Service'teki uygulama kodunuzda SSL sertifikası kullanma](app-service-web-ssl-cert-load.md)
-* [SSS: App Service sertifikaları](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [SSS: App Service sertifikaları](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)

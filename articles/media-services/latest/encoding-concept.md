@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472448"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761905"
 ---
 # <a name="encoding-with-media-services"></a>Media Services ile kodlama
 
-Azure Media Services, içeriğinizi çok çeşitli tarayıcılar ve cihazlar üzerinde çalınabilir şekilde yüksek kaliteli dijital medya dosyalarınızın Uyarlamalı bit hızı MP4 dosyaları olarak kodlayın sağlar. Başarılı bir Media Services kodlama işinin bir çıktı oluşturur Uyarlamalı bit hızlı MP4'ler göndermenizi ve yapılandırma dosyalarını akış kümesi ile varlık. Yapılandırma dosyalarını .ism, .ismc, .mpi ve değiştirmemeniz gereken diğer dosyaları içerir. Kodlama işi tamamlandıktan sonra avantajlarından yararlanabilirsiniz [dinamik paketleme](dynamic-packaging-overview.md) ve akış'ı başlatın.
+Terim kodlama Media Services'de dijital video ve/veya ses standart bir biçimden diğerine (a) dosyalarının boyutunu azaltır ve/veya (b) ile uyumlu bir biçimde oluşturan kullanılabilir olmasını sağlamak amacıyla içeren dosyaları dönüştürme işlemi uygular. bir cihazlar ve uygulamaların kapsamlı'yi tıklatın. Bu işlem ayrıca görüntü sıkıştırma veya biçim dönüştürme adlandırılır. Bkz: [veri sıkıştırma](https://en.wikipedia.org/wiki/Data_compression) ve [kodlama ve kodlama dönüştürme nedir?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) kavramları daha fazla açıklama için.
 
-Video çıkış yapmak için varlık kayıttan yürütme için istemciler tarafından kullanılabilir, sahip olduğunuz oluşturmak bir **akış Bulucu** ve akış URL'lerini oluşturun. Ardından, bildirimde belirtilen biçime bağlı olarak, istemcilerinizin seçmiş oldukları protokolünde akış alırsınız.
+Cihazları ve uygulamaları tarafından genellikle videoları uyarıların [aşamalı indirme](https://en.wikipedia.org/wiki/Progressive_download) aracılığıyla veya [bit hızı Uyarlamalı akış](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
+* Aşamalı indirme ile teslim etme için Azure Media Services dönüştürmek için kullanabileceğiniz bir dijital medya dosyanıza (Ara) bir [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) ile kodlanmış bir video içeren dosya [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec ve ile kodlanmış bir ses [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec bileşeni. Depolama hesabınızdaki bir varlığa bu MP4 dosyasına yazılır. Azure depolama API veya SDK'larını kullanabilirsiniz (örneğin, [depolama REST API'si](../../storage/common/storage-rest-api-auth.md), [JAVA SDK'sı](../../storage/blobs/storage-quickstart-blobs-java-v10.md), veya [.NET SDK'sı](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) dosyasını doğrudan karşıdan yüklemek için. Çıkış oluşturduysanız, depolama, belirli bir kapsayıcı adına bir varlıkla bu konumu kullanın. Aksi takdirde, Media Services için kullanabileceğiniz [varlık kapsayıcı URL'lerin listesi](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* İçerik, bit hızı Uyarlamalı akış ile teslim edilmek üzere hazırlamak için çoklu bit hızlarında (düşük olarak yüksek) adresindeki kodlanacak Ara dosyayı gerekir. Bit hızını azaltıldığı gibi normal kalitesi, geçişin, bu nedenle görüntü çözünürlüğünü sağlamaktır. Bu bir sözde kodlama Merdiveni içinde – çözünürlüklerine ve bit hızlarına dönüştürme tablosu olur (bkz [otomatik olarak oluşturulan Uyarlamalı bit hızı Merdiveni](autogen-bitrate-ladder.md)). Bunun yapılması, Çoklu bit hızlarında – mezzanine dosyalarınızın kodlama için Media Services kullanabilirsiniz, bir dizi MP4 dosyaları ve ilişkili akış yapılandırma dosyaları depolama hesabınızdaki bir varlık için yazılan, alırsınız. Ardından [dinamik paketleme](dynamic-packaging-overview.md) Media Services akış gibi protokolleri aracılığıyla video teslim özelliği [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) ve [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Bu oluşturmanızı gerektiren bir [akış Bulucu](streaming-locators-concept.md) ve akış URL'lerini sonra cihazlar/uygulamalar kendi özelliklerine göre devredilebilir Desteklenen protokoller karşılık gelen derleme.
 
-![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+İsteğe bağlı dinamik paketleme ile kodlama iş akışı aşağıdaki diyagramda gösterilmiştir.
+
+![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Bu konuda içeriğinizi Media Services v3 ile kodlama konusunda rehberlik sağlar.
 
 ## <a name="transforms-and-jobs"></a>Dönüşümler ve işler
 
-Media Services v3 ile kodlanacak oluşturmak gereken bir [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) ve [iş](https://docs.microsoft.com/rest/api/media/jobs). Dönüşüm kodlama ayarları ve çıktılar için tarif tanımlar ve iş tarif örneğidir. Daha fazla bilgi için [dönüşümler ve işler](transforms-jobs-concept.md)
+Media Services v3 ile kodlanacak oluşturmak gereken bir [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms) ve [iş](https://docs.microsoft.com/rest/api/media/jobs). Dönüştürme bir tarif kodlama ayarları ve çıktılar için tanımlar; İş tarif örneğidir. Daha fazla bilgi için [dönüşümler ve işler](transforms-jobs-concept.md)
 
 Media Services ile kodlarken Kodlayıcı giriş medya dosyalarını nasıl işlenmesi gerektiğini söylemek için hazır kullanın. Örneğin, kodlanmış içeriği görüntü çözünürlüğünü ve/veya istediğiniz ses kanal sayısını belirtebilirsiniz. 
 

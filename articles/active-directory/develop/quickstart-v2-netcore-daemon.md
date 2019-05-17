@@ -17,16 +17,14 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44161e689645c3feb2efbd80b825b9285c1bdfc9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918587"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784950"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: Bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Bu hızlı başlangıçta, uygulamanın kendi kimliğini kullanarak bir erişim belirteci alabilen ve ardından görüntülemek için Microsoft Graph API'sini çağırmak bir .NET Core uygulaması yazma öğreneceksiniz bir [kullanıcıların listesini](https://docs.microsoft.com/graph/api/user-list) dizinde. Bu senaryo, gözetimsiz, katılımsız iş ya da bir windows hizmeti, bir kullanıcının kimliği yerine uygulama kimliği ile çalıştırmak için gereken yere durumlarda yararlıdır.
 
@@ -54,7 +52,7 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
 
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
+> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydedin
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile eklemek için şu adımları izleyin:
 >
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
@@ -84,7 +82,7 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
 
 [Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
+#### <a name="step-3-configure-your-visual-studio-project"></a>3. adım: Visual Studio projenizi yapılandırın
 
 1. Zip dosyasını diskin köküne yakın bir yerel klasöre (örneğin **C:\Azure-Samples**) ayıklayın.
 1. Visual Studio'da - çözümü açın **arka plan programı console.sln** (isteğe bağlı).

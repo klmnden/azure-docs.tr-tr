@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e992aae17f1217803b411a49c5d942efc501fbdc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386831"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606986"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -41,7 +41,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |CrlCheckingFlag|uint, varsayılan 0x40000000 olduğu |Dinamik| Uygulama/hizmet sertifika zinciri doğrulaması bayrakları; Örneğin CRL 0x10000000 denetleme CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY ayarı 0 devre dışı bırakır CRL denetimi tam listesini desteklenen değerler tarafından CertGetCertificateChain, CertOpenStore belgelenmiştir: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Saniye cinsinden süre. Varsayılan 120'dir |Dinamik|Saniye cinsinden zaman aralığı belirtin.  Http uygulama ağ geçidi işlenmekte olan http isteği için varsayılan isteği zaman aşımı sağlar. |
 |ForwardClientCertificate|bool, varsayılan FALSE olur.|Dinamik|Ne zaman yanlış, ters proxy kümesine için istemci sertifikası istemez. Doğru geriye doğru ara sunucu kümesine SSL el sıkışması sırasında için istemci sertifikası isteyin ve base64 olarak kodlanmış iletmek PEM biçimi dize X istemci Certificate.The hizmeti adlı bir üst bilgi hizmeti isteği uygun durum koduyla başarısız olabilir Sertifika verileri inceleyerek sonra. Bu true ise ve istemci bir sertifika sunması değil, ters proxy, boş bir üst bilgi iletmek ve durumu işlemek service gerisini halleder. Ters proxy saydam bir katman olarak görür. Daha fazla bilgi için bkz. [istemci sertifikası kimlik doğrulamasını ayarlama](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
-|GatewayAuthCredentialType |dize, "None" varsayılan |Statik| Http uygulama ağ geçidi uç noktası geçerli değerlere kullanılacak güvenlik kimlik bilgileri türünü gösterir "hiçbiri / X 509. |
+|GatewayAuthCredentialType |dize, "None" varsayılan |Statik| Http uygulama ağ geçidi uç noktası geçerli değerlere kullanılacak güvenlik kimlik bilgileri türünü hiçbiri gösterir / X 509. |
 |GatewayX509CertificateFindType |"FindByThumbprint" varsayılan bir dize ise |Dinamik| GatewayX509CertificateStoreName desteklenen değeri tarafından belirtilen deposundaki sertifikayı aramak nasıl gösterir: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | Varsayılan bir dize ise "" |Dinamik| Http uygulama ağ geçidi sertifikası bulmak için kullanılan arama filtre değeri. Bu sertifika, https uç noktasında yapılandırılmış ve hizmetler tarafından gerekli olursa uygulamanın kimliğini doğrulamak için de kullanılabilir. FindValue ilk baktığı; ve yoksa; FindValueSecondary aranır. |
 |GatewayX509CertificateFindValueSecondary | Varsayılan bir dize ise "" |Dinamik|Http uygulama ağ geçidi sertifikası bulmak için kullanılan arama filtre değeri. Bu sertifika, https uç noktasında yapılandırılmış ve hizmetler tarafından gerekli olursa uygulamanın kimliğini doğrulamak için de kullanılabilir. FindValue ilk baktığı; ve yoksa; FindValueSecondary aranır.|
@@ -100,7 +100,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |UpgradeHealthCheckInterval |Zaman içinde varsayılan 60 saniyedir |Dinamik|İzlenen uygulama yükseltmeleri sırasında sıklığı sistem durumunu denetler |
 |UpgradeStatusPollInterval |Zaman içinde varsayılan 60 saniyedir |Dinamik|Uygulama yükseltme durumu için yoklama sıklığı. Bu değer herhangi bir GetApplicationUpgradeProgress çağrısına güncelleştirmesi oranını belirler. |
 
-## <a name="common"></a>Common
+## <a name="common"></a>Ortak
 
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
@@ -533,7 +533,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |PlacementConstraintValidationCacheSize | Int, varsayılan 10000'dir |Dinamik| Tabloyu hızlı doğrulama için kullanılan ve yerleşim kısıtlaması ifadeleri önbellek boyutunu sınırlar. |
 |PlacementSearchTimeout | Zamanı saniye cinsinden 0,5 varsayılandır |Dinamik| Saniye cinsinden zaman aralığı belirtin. Hizmetleri yerleştirirken; Bu süre için en fazla bir sonuç döndürmeden önce arayın. |
 |PLBRefreshGap | Zamanı saniye olarak varsayılan 1'dir |Dinamik| Saniye cinsinden zaman aralığı belirtin. PLB durumu yeniden yenilenmeden önce geçmesi gereken en düşük süreyi tanımlar. |
-|PreferredLocationConstraintPriority | Varsayılan Int, 2'dir| Dinamik|Tercih edilen konum kısıtlaması önceliğini belirler: 0: Sabit; 1: Soft; 2: İyileştirme; Negatif: Yoksayma |
+|PreferredLocationConstraintPriority | Varsayılan Int, 2'dir| Dinamik|Tercih edilen konum kısıtlaması önceliğini belirler: 0: Sabit; 1: Soft; 2: İyileştirme; Negatif: Yoksay |
 |PreferUpgradedUDs|bool, varsayılan true'dur.|Dinamik|Açma ve kapatma zaten geçmeyi tercih eden mantığını etkinleştirir, UD yükseltildi.|
 |PreventTransientOvercommit | Bool, varsayılan değer false'tur | Dinamik|PLB tarafından başlatılan taşıma yukarı boşaltılacak kaynakları hemen güvenebilirsiniz belirler. Varsayılan olarak; PLB dışarı taşıma başlatabilir ve hangi geçici oluşturabilirsiniz aynı düğümde taşıma fazla kullanma. Bu parametre, doğru olarak ayarlanması bu tür engeller, overcommits ve devre dışı üzerine birleştirme (diğer adıyla placementWithMove) olacaktır. |
 |ScaleoutCountConstraintPriority | int, varsayılan 0'dır |Dinamik| Genişletme sayısı kısıtlaması önceliğini belirler: 0: Sabit; 1: Geçici; Negatif: Yoksayın. |

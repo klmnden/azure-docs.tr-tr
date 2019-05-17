@@ -2,21 +2,21 @@
 title: Azure Active Directory kiracınıza uygulama ekleme | Microsoft Docs
 description: Bu hızlı başlangıçta Azure portal kullanılarak Azure Active Directory (Azure AD) kiracınıza bir galeri uygulaması eklenmektedir.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/09/2019
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15842d7157e8e5a691f37f846dd424bf308eae3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d3e79b00545f76dff9442a11864701d6d61f057
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294173"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784561"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Hızlı Başlangıç: Azure Active Directory kiracınız için uygulama ekleme
 
@@ -58,7 +58,7 @@ Azure AD kiracınıza galeri uygulaması eklemek için:
 
 1. Bir uygulama için altında aranacak **Galeriden Ekle**, eklemek istediğiniz uygulamanın adını girin. Uygulama sonuçları ve select seçin **Ekle**. Aşağıdaki örnekte gösterildiği **uygulama Ekle** github.com için aradıktan sonra görünen form.
 
-    ![Uygulama ekleme](media/add-application-portal/add-an-application.png)
+    ![Uygulama ekle](media/add-application-portal/add-an-application.png)
 
 1. Uygulamaya özgü formda özellik bilgilerini değiştirebilirsiniz. Örneğin uygulamanızın adını kuruluşunuzun gereksinimlerine göre düzenleyebilirsiniz. Bu örnekte **GitHub-test** adı kullanılmıştır.
 

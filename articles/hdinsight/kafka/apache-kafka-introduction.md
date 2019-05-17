@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
-ms.openlocfilehash: 50a67ca5c7d1fa3165889b1e59565d1a1030690d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: be2195092cf3890f754f875ea7bccc1f717eb95b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712149"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762344"
 ---
-# <a name="what-is-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka nedir?
+# <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight, Apache Kafka nedir
 
 [Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Kafka ayrıca, adlandırılmış veri akışları yayımlayıp abone olabileceğiniz bir ileti kuyruğuna benzer aracı işlevselliği sağlar. 
 

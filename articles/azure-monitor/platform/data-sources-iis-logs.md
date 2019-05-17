@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614498"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604366"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure İzleyici'de toplama IIS Günlükler
 Internet Information Services (IIS), Azure İzleyici tarafından toplanan ve depolanan günlük dosyalarında kullanıcı etkinliğini depolar [günlük verilerini](data-platform.md).
@@ -51,7 +51,7 @@ IIS günlük kayıtları sahip bir tür **w3cııslog** ve aşağıdaki tabloda 
 | csUriStem |İsteği gibi bir web sayfası hedefi. |
 | csUriQuery |Sorgu, varsa istemcinin gerçekleştirmeye çalıştığı. |
 | ManagementGroupName |Operations Manager aracıları için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
-| RemoteIPCountry |İstemci IP adresini ülke. |
+| RemoteIPCountry |İstemci IP adresini ülke/bölge. |
 | RemoteIPLatitude |İstemci IP adresi bulunduğu enlem. |
 | RemoteIPLongitude |İstemci IP adresi bulunduğu boylam. |
 | scStatus |HTTP durum kodu. |

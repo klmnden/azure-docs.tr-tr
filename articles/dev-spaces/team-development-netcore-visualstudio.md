@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 58807aa5a540de6eaa9a337caa0c34fee9408296
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3a988a831ad1069e5988f9c67e92a85a7a44840
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60706874"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65765199"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile ekip geliştirmesi
 
@@ -94,7 +94,7 @@ Yeni bir alan oluşturmak için aşağıdakileri yapın:
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. İçinde **alanı Ekle** iletişim kutusunda, üst alan kümesine **geliştirme**ve yeni alanınız için bir ad girin. İş arkadaşlarınızın hangi alanda çalıştığınızı tanımlayabilmesi adına yeni alan için adınızı kullanabilirsiniz (örneğin, "scott"). **Tamam** düğmesine tıklayın.
+6. İçinde **alanı Ekle** iletişim kutusunda, üst alan kümesine **geliştirme**ve yeni alanınız için bir ad girin. İş arkadaşlarınızın hangi alanda çalıştığınızı tanımlayabilmesi adına yeni alan için adınızı kullanabilirsiniz (örneğin, "scott"). **Tamam**'ı tıklatın.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 

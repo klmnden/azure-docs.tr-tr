@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346858"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606748"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Bağlayıcısı yönetim çözümü (kullanım dışı)
 
@@ -181,7 +181,7 @@ Bir kayıt bir *türü* , *Applicationınsights* her giriş veri türü için ol
 
 ### <a name="generic-fields"></a>Genel alanlar
 
-| Özellik | Açıklama |
+| Özellik | Description |
 | --- | --- |
 | Tür | ApplicationInsights |
 | Clientıp |   |
@@ -192,7 +192,7 @@ Bir kayıt bir *türü* , *Applicationınsights* her giriş veri türü için ol
 | deviceType | İstemci cihazı |
 | ScreenResolution |   |
 | Kıta | İsteğin geldiği kıta |
-| Ülke | İsteğin geldiği ülke |
+| Ülke | İsteğin geldiği ülke/bölge |
 | İl | Bölge, eyalet veya yerel ayar isteği geldiği |
 | Şehir | Şehir veya isteğin geldiği Şehir |
 | isSynthetic | İstek bir kullanıcı veya otomatikleştirilmiş bir yöntem tarafından oluşturulup oluşturulmadığını belirtir. Oluşturulan kullanıcı = true veya false = otomatik yöntemi |
@@ -249,7 +249,7 @@ Bir kayıt bir *türü* , *Applicationınsights* her giriş veri türü için ol
 
 ### <a name="request-specific-fields"></a>İstek özgü alanlar
 
-| Özellik | Açıklama |
+| Özellik | Description |
 | --- | --- |
 | Tür | ApplicationInsights |
 | TelemetryType | İstek |

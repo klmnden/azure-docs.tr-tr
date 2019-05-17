@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 91db42a003bdbb7614faba2122c30826b62ee20f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698653"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65767986"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -35,7 +35,7 @@ Azure AD B2C kiracınızda sertifikanızın depolanacağı gerekir.
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
-4. Genel bakış sayfasında **kimlik deneyimi çerçevesi - PREVIEW**.
+4. Genel bakış sayfasında **kimlik deneyimi çerçevesi**.
 5. Seçin **ilke anahtarları** seçip **Ekle**.
 6. İçin **seçenekleri**, seçin `Upload`.
 7. Girin bir **adı** ilke anahtarı. Örneğin, `SamlCert`. Önek `B2C_1A_` anahtarınızı adına otomatik olarak eklenir.
@@ -172,8 +172,8 @@ Bir tarayıcı açın ve URL'ye gidin. Doğru URL'yi yazın ve XML meta veri dos
     | Kullanıcı asıl adı | userPrincipalName |
     | Soyadı | family_name |
     | Verilen ad | given_name |
-    | E-posta adresi | e-posta |
-    | Görünen ad | ad |
+    | E-posta adresi | email |
+    | Görünen ad | name |
     
 12.  Sertifika türüne bağlı olarak, KARMA algoritması ayarlamanız gerekebilir. Bağlı olan taraf güveni (B2C Demo) Özellikler penceresinde, seçin **Gelişmiş** sekmesini ve değiştirme **güvenli karma algoritması** için `SHA-256`, tıklatıp **Tamam**.  
 13. Sunucu Yöneticisi'nde **Araçları**ve ardından **ADFS Yönetim**.

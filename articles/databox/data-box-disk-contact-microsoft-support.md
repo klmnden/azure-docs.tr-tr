@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462394"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604448"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box için bir destek bileti açın 
 
@@ -22,7 +22,7 @@ Bu makale, Azure Data Box ve ikisi için de Azure Data Box hizmeti tarafından y
 * Bir destek isteği oluşturma
 * Nasıl bir destek isteği döngüsü portalında yönetilir.
 
-## <a name="create-a-support-request"></a>Destek isteği oluşturma
+## <a name="create-a-support-request"></a>Destek isteği oluşturun
 
 Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -38,7 +38,7 @@ Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
     4. Belirtin, **destek planı**.
     5. **İleri**’ye tıklayın.
 
-        ![Temel Bilgiler](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Temel](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. İçinde **yeni destek isteği**seçin **adım 2 sorun**. İçinde **sorun**, aşağıdaki adımları uygulayın:
     
@@ -56,7 +56,7 @@ Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 4. İçinde **yeni destek isteği**, tıklayın **adım 3 irtibat bilgileri**. İçinde **iletişim bilgilerini**, aşağıdaki adımları uygulayın:
 
    1. İçinde **başvurun seçenekleri**, tercih ettiğiniz iletişim yöntemi (telefon veya e-posta) ve dil sağlar. Yanıt süresi, abonelik planınıza göre otomatik olarak seçilir.
-   2. İçinde **iletişim bilgilerini**, ad, e-posta, isteğe bağlı bir kişi, ülke sağlayın. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri**.
+   2. İçinde **iletişim bilgilerini**, adı, e-posta, isteğe bağlı bir kişi ve ülke/bölge. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri**.
    3. **Oluştur**’a tıklayın.
    
        ![İletişim bilgileri](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   

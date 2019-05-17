@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/15/2018
+ms.date: 05/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17ba15ea12efc80dcc830f6338a837d1abb77a71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0b9db05effe42880465310f6eb5c38e3e832266
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708855"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606890"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure portalını kullanarak zaman serisi görüşleri ortamınıza başvuru veri kümesi oluşturma
 
@@ -24,11 +24,11 @@ Bu makalede, Azure zaman serisi görüşleri ortamınıza başvuru veri kümesi 
 
 Başvuru veri kümesi, olaylar, olay kaynağınızdan büyütmek öğeleri koleksiyonudur. Zaman serisi görüşleri giriş altyapısı, başvuru veri kümenizdeki her olay, olay kaynağınızdan karşılık gelen veri satırı ile birleştirir. Bu genişletilmiş olay daha sonra sorgu için kullanılabilir. Bu birleşim, başvuru veri kümenizde tanımlı birincil anahtar sütunları dayanır.
 
-Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut ve gelecekteki giriş verileri eşleşen ve yapılandırılmış ve karşıya sonra başvuru tarih kümesine katılmış anlamına gelir.
+Başvuru verileri geriye dönük olarak birleştirilmedi. Bu nedenle, yalnızca mevcut ve gelecekteki giriş verileri eşleşen ve yapılandırılmış ve karşıya sonra başvuru tarih kümesine katılmış.
 
-## <a name="video"></a>Video: 
+## <a name="video"></a>Video
 
-### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>Bu videoda, zaman serisi görüşleri'nin başvuru veri modeli ele.</br>
+### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Zaman serisi görüşleri'nin başvuru veri modeli hakkında bilgi edinin.</br>
 
 > [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
@@ -36,63 +36,63 @@ Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut v
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Mevcut Time Series Insights ortamınızı bulun. Tıklayın **tüm kaynakları** Azure portalının sol tarafındaki menüde. Zaman Serisi Görüşleri ortamınızı seçin.
+1. Mevcut Time Series Insights ortamınızı bulun. Tıklayın **tüm kaynakları** Azure portalının sol tarafındaki menüde. Zaman Serisi Görüşleri ortamınızı seçin.
 
-3. Seçin **genel bakış** sayfası. Bulun **Time Series Insights Gezgini URL** ve bağlantıyı açın.  
+1. Seçin **genel bakış** sayfası. Bulun **Time Series Insights Gezgini URL** ve bağlantıyı açın.  
 
    TSI ortamınız için Gezgini görüntüleyin.
 
-4. Ortam Seçici TSI Gezgininde genişletin. Etkin bir ortam seçin. Başvuru veri simgesi sağ üst köşedeki Gezgini sayfasında seçin.
+1. Ortam Seçici TSI Gezgininde genişletin. Etkin bir ortam seçin. Başvuru veri simgesi sağ üst köşedeki Gezgini sayfasında seçin.
 
-   ![Başvuru veri ekleme](media/add-reference-data-set/add_reference_data.png)
+   [![Başvuru veri ekleme](media/add-reference-data-set/add_reference_data.png)](media/add-reference-data-set/add_reference_data.png#lightbox)
 
-5. Seçin **+ bir veri kümesi Ekle** yeni veri kümesi eklemeye başlamak için düğme.
+1. Seçin **+ bir veri kümesi Ekle** yeni veri kümesi eklemeye başlamak için düğme.
 
-   ![Veri kümesi Ekle](media/add-reference-data-set/add_data_set.png)
+   [![Veri kümesi Ekle](media/add-reference-data-set/add_data_set.png)](media/add-reference-data-set/add_data_set.png#lightbox)
 
-6. Üzerinde **yeni başvuru veri kümesi** sayfasında, verilerin biçimini seçin: 
-   - Seçin **CSV** virgülle ayrılmış veri için. İlk satırı üst bilgi satırı kabul edilir. 
+1. Üzerinde **yeni başvuru veri kümesi** sayfasında, verilerin biçimini seçin:
+   - Seçin **CSV** virgülle ayrılmış veri için. İlk satırı üst bilgi satırı kabul edilir.
    - Seçin **JSON dizisi** için javascript nesne gösterimi (JSON) biçimlendirilmiş verileri.
 
-   ![Veri biçimi seçin.](media/add-reference-data-set/add_data.png)
+   [![Veri biçimi seçin.](media/add-reference-data-set/add_data.png)](media/add-reference-data-set/add_data.png#lightbox)
 
-7. İki yöntemden birini kullanarak verileri sağlayın:
+1. İki yöntemden birini kullanarak verileri sağlayın:
    - Verileri bir metin düzenleyiciye yapıştırın. Ardından, **ayrıştırma başvuru verilerini** düğmesi.
-   - Seçin **Dosya Seç** düğmesini bir yerel metin dosyasından veri ekleyin. 
+   - Seçin **Dosya Seç** düğmesini bir yerel metin dosyasından veri ekleyin.
 
-   Örneğin, CSV veri yapıştırın: ![Yapıştırılan CSV verileri](media/add-reference-data-set/csv_data_pasted.png)
+   Örneğin, CSV veri yapıştırın: [![Yapıştırılan CSV verileri](media/add-reference-data-set/csv_data_pasted.png)](media/add-reference-data-set/csv_data_pasted.png#lightbox)
 
-   Örneğin, JSON dizisi veri yapıştırın: ![JSON verilerini yapıştırın](media/add-reference-data-set/json_data_pasted.png)
+   Örneğin, JSON dizisi veri yapıştırın: [![JSON verilerini yapıştırın](media/add-reference-data-set/json_data_pasted.png)](media/add-reference-data-set/json_data_pasted.png#lightbox)
 
    Veri değerleri ayrıştırılırken bir hata varsa, hata sayfanın alt kısmındaki kırmızı gibi görünür `CSV parsing error, no rows extracted`.
 
-8. Veri başarıyla ayrıştırıldı sonra veri kılavuzu sütunları ve verileri temsil eden satırlar görüntüleme gösterilir.  Doğruluk emin olmak için veri kılavuzu gözden geçirin.
+1. Veri başarıyla ayrıştırıldı sonra veri kılavuzu sütunları ve verileri temsil eden satırlar görüntüleme gösterilir.  Doğruluk emin olmak için veri kılavuzu gözden geçirin.
 
-   ![Başvuru veri ekleme](media/add-reference-data-set/parse_data.png)
+   [![Başvuru veri ekleme](media/add-reference-data-set/parse_data.png)](media/add-reference-data-set/parse_data.png#lightbox)
 
-9. Her bir sütunun veri türü varsayıldı görmek için gözden geçirin ve gerekirse veri türünü değiştirin.  Sütun başlığı veri türü simgesini seçin: **#** çift (sayısal veriler) için **T | F** Boole için veya **Abc** dizesi.
+1. Her bir sütunun veri türü varsayıldı görmek için gözden geçirin ve gerekirse veri türünü değiştirin.  Sütun başlığı veri türü simgesini seçin: **#** çift (sayısal veriler) için **T | F** Boole için veya **Abc** dizesi.
 
-   ![Veri türlerinde sütun başlıklarını seçin.](media/add-reference-data-set/choose_datatypes.png)
+   [![Veri türlerinde sütun başlıklarını seçin.](media/add-reference-data-set/choose_datatypes.png)](media/add-reference-data-set/choose_datatypes.png#lightbox)
 
-10. Sütun başlıkları, gerekirse yeniden adlandırın. Olay kaynağınızı karşılık gelen özelliğine katılmayı anahtar sütun adı gereklidir. Başvuru veri anahtar sütun adlarını büyük küçük harf duyarlılığı dahil olmak üzere verilerinize gelen olay adı için tam olarak eşleştiğinden emin olun. Anahtar olmayan sütun adları, gelen veri karşılık gelen başvuru veri değerleri ile genişletmek için kullanılır.
+1. Sütun başlıkları, gerekirse yeniden adlandırın. Olay kaynağınızı karşılık gelen özelliğine katılmayı anahtar sütun adı gereklidir. Başvuru veri anahtar sütun adlarını büyük küçük harf duyarlılığı dahil olmak üzere verilerinize gelen olay adı için tam olarak eşleştiğinden emin olun. Anahtar olmayan sütun adları, gelen veri karşılık gelen başvuru veri değerleri ile genişletmek için kullanılır.
 
-11. Tıklayın **bir satır ekleyin** veya **sütun ekleme** gerektiğinde daha fazla başvuru veri değerleri eklemek için.
+1. Tıklayın **bir satır ekleyin** veya **sütun ekleme** gerektiğinde daha fazla başvuru veri değerleri eklemek için.
 
-12. Bir değer yazın **satırları filtrele...**  alanı gerektiği gibi belirli satırlar gözden geçirin. Filtre verileri gözden geçirmek için yararlıdır, ancak veriler karşıya yüklenirken uygulanmaz.
- 
-13. Veri kümesi doldurarak ad **veri kümesi adı** veri kılavuzu yukarıda alan.
+1. Bir değer yazın **satırları filtrele...**  alanı gerektiği gibi belirli satırlar gözden geçirin. Filtre verileri gözden geçirmek için yararlıdır, ancak veriler karşıya yüklenirken uygulanmaz.
 
-    ![Veri kümesi adı.](media/add-reference-data-set/name_reference_dataset.png)
+1. Veri kümesi doldurarak ad **veri kümesi adı** veri kılavuzu yukarıda alan.
 
-14. Sağlamak **birincil anahtar** veri kılavuzu Yukarıdaki açılan seçerek veri kümesinde sütun.
+    [![Veri kümesi adı.](media/add-reference-data-set/name_reference_dataset.png)](media/add-reference-data-set/name_reference_dataset.png#lightbox)
 
-    ![Anahtar sütunları seçin.](media/add-reference-data-set/set_primary_key.png)
+1. Sağlamak **birincil anahtar** veri kılavuzu Yukarıdaki açılan seçerek veri kümesinde sütun.
+
+    [![Anahtar sütunları seçin.](media/add-reference-data-set/set_primary_key.png)](media/add-reference-data-set/set_primary_key.png#lightbox)
 
     İsteğe bağlı olarak **+** düğmesini bileşik bir birincil anahtar olarak ikincil bir anahtar sütunu ekleyin. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
 
-15. Verileri yüklemek için seçin **karşıya satırları** düğmesi.
+1. Verileri yüklemek için seçin **karşıya satırları** düğmesi.
 
-    ![Karşıya Yükle](media/add-reference-data-set/upload_rows.png)
+    [![Karşıya yükleme](media/add-reference-data-set/upload_rows.png)](media/add-reference-data-set/upload_rows.png#lightbox)
 
     Tamamlanan bir karşıya yükleme ve iletisini görüntüler sayfa onaylar **başarıyla veri kümesi'ni karşıya**.
 

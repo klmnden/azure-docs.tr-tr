@@ -9,12 +9,12 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507888"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787971"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure kaynakları için erişim BLOB'lar ve Kuyruklar ile Azure Active Directory ve yönetilen kimlikleri için kimlik doğrulaması
 
@@ -48,12 +48,12 @@ Blob ve kuyruk depolama ile bir yönetilen kimlik istekler yetkilendirmek için 
 
 Uygulama kimlik doğrulaması istemci kitaplığı, kimlik doğrulama otomatik olarak yönetir. Kitaplığı, yerel geliştirme sırasında kimlik doğrulaması yapmak için Geliştirici kimlik bilgilerini kullanır. Azure AD kimlik bilgileri oluşturun veya paylaşım geliştiricileri arasında kimlik bilgileri gerekmez çünkü, yerel geliştirme sırasında Geliştirici kimlik bilgilerinizi kullanarak daha güvenlidir. Çözüm, daha sonra Azure'a dağıtıldığında kitaplığı uygulama kimlik bilgilerini kullanarak otomatik olarak geçer.
 
-Uygulama kimlik doğrulaması Kitaplığı'nda bir Azure Storage uygulamasını kullanmak için en son Önizleme paketinden yüklemek [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), en son sürümünü yanı sıra [.NET için Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/). Aşağıdaki **kullanarak** kodunuzda ifadeleri:
+Uygulama kimlik doğrulaması Kitaplığı'nda bir Azure Storage uygulamasını kullanmak için en son Önizleme paketinden yüklemek [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), en son sürümünü yanı sıra [.NET için Azure depolama ortak istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) ve [.NET için Azure Blob Depolama istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Aşağıdaki **kullanarak** kodunuzda ifadeleri:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
 
 Uygulama kimlik doğrulama kitaplığını sağlar **AzureServiceTokenProvider** sınıfı. Bu sınıfın bir örneği, bir belirteç alır ve ardından süresi dolmadan önce belirtecini yeniler. bir geri çağırma için geçirilebilir.
