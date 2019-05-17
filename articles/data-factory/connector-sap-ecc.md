@@ -56,7 +56,7 @@ SAP ECC bağlı hizmeti için aşağıdaki özellikleri destekler:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapEcc** | Evet |
 | url | SAP ECC OData hizmeti URL'si. | Evet |
-| kullanıcı adı | SAP ECC için bağlanmak için kullanılan kullanıcı adı. | Hayır |
+| username | SAP ECC için bağlanmak için kullanılan kullanıcı adı. | Hayır |
 | password | SAP ECC için bağlanmak için kullanılan düz metin parolası. | Hayır |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
@@ -122,7 +122,7 @@ SAP ECC verileri kopyalamak için kopyalama etkinliği için kaynak türünü ay
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SapEccSource** | Evet |
-| sorgu | Verilere filtre uygulamak için OData sorgu seçenekleri. Örnek: "$select adı, açıklama ve $top = 10 =".<br/><br/>SAP ECC bağlayıcı birleşik URL'den veri kopyalar: (bağlı hizmette belirtilen url) / (veri kümesinde belirtilen yol)? (sorgu) kopyalama etkinliği kaynağı belirtildi. Başvurmak [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
+| query | Verilere filtre uygulamak için OData sorgu seçenekleri. Örnek: "$select adı, açıklama ve $top = 10 =".<br/><br/>SAP ECC bağlayıcı birleşik URL'den veri kopyalar: (bağlı hizmette belirtilen url) / (veri kümesinde belirtilen yol)? (sorgu) kopyalama etkinliği kaynağı belirtildi. Başvurmak [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
 
 **Örnek:**
 
