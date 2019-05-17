@@ -3,22 +3,22 @@ title: Azure Active Directory'yi kullanmak için uygulamanızı kaydetme | Micro
 description: BT uzmanı için yazılan, uygulamaları Azure Active Directory ile tümleştirme için bu makaleyi kılavuz bilgiler verilmektedir.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd51bfd377aed2a7edd8c64d2f3dc99c3388e45a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440241"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824682"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory için satır iş kolu uygulamaları geliştirme
 Bu kılavuz, satır iş kolu (LoB) uygulamaları için Azure Active Directory (AD) geliştirmeye genel bakış sağlar. Hedef kitlesi, Active Directory/Office 365 genel yöneticileri olur.

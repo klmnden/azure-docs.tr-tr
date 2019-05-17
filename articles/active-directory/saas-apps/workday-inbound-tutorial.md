@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2019
+ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407919"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827285"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
-Bu öğreticinin amacı, çalışan profilleri Workday'den hem Active Directory hem de Azure Active Directory, isteğe bağlı geri yazma özelliğiyle Workday e-posta adresinin içeri aktarmak için gerçekleştirmeniz gereken adımlar göstermektir.
+Bu öğreticinin amacı, çalışan profilleri isteğe bağlı geri yazma özelliğiyle Workday kullanıcı adına e-posta adresi ve Active Directory ve Azure Active Directory içinde Workday'den almak için gerçekleştirmeniz gereken adımlar göstermektir.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -34,7 +34,7 @@ Bu öğreticinin amacı, çalışan profilleri Workday'den hem Active Directory 
 
 * **Yalnızca bulutta yer alan kullanıcılar Azure Active Directory'ye sağlama** - senaryolarında olduğu Active Directory kullanılmaz, şirket içinde kullanıcıların sağlanabilir Workday'den doğrudan Azure sağlama hizmetini Azure AD kullanıcısını kullanarak Active Directory için.
 
-* **Workday için e-posta adreslerini arkasına yazma** -Azure AD kullanıcı sağlama hizmeti Azure AD kullanıcılarını e-posta adresleri için Workday yazabilirsiniz.
+* **E-posta adresi ve kullanıcı adı için Workday geri yazma** -sağlama hizmetini Azure AD kullanıcısının kullanıcı adı ve e-posta adreslerini Azure AD'den geri için Workday yazabilirsiniz.
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>Hangi İnsan Kaynakları senaryoları kapsıyor mu?
 
@@ -67,7 +67,7 @@ Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıc�
 Bu bölümde, ortak karma ortamlar için çözüm mimarisi sağlayan uçtan uca kullanıcı açıklanmaktadır. İki ilişkili akışlar vardır:
 
 * **Yetkili ik veri akışından – şirket içi Active Directory'ye Workday:** Bu akışta alt olaylar (örneğin, New Hires aktarımları Sonlandırmalar) ilk Workday ik Kiracı bulutta oluşur ve ardından olay veri akışları Azure AD üzerinden şirket içi Active Directory ve aracı sağlama. Olay bağlı olarak, AD'de oluşturma/güncelleştirme/etkinleştirme/devre dışı işlemlerine neden olabilir.
-* **E-posta geri yazma akıştan – şirket içi Active Directory'ye Workday:** Active Directory'deki hesap oluşturma tamamlandıktan sonra Azure AD Connect ile Azure AD ile eşitlenen ve Active Directory'den kaynaklanan e-posta özniteliği için Workday yeniden yazılabilir.
+* **E-posta ve kullanıcı geri yazma – şirket içi Active Directory'den Workday akış:** Active Directory'deki hesap oluşturma tamamlandıktan sonra Azure AD Connect ile Azure AD ile eşitlenir ve e-posta ve kullanıcı adı özniteliği için Workday yeniden yazılabilir.
 
 ![Genel Bakış](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -79,7 +79,7 @@ Bu bölümde, ortak karma ortamlar için çözüm mimarisi sağlayan uçtan uca 
 4. Azure AD Connect aracı sağlama AD hesabı veri ekleme/güncelleştirme için bir hizmet hesabı kullanır.
 5. Azure AD Connect / AD eşitleme Altyapısı güncelleştirmeleri AD'de çekmek için delta eşitleme çalıştırır.
 6. Active Directory güncelleştirmeleri, Azure Active Directory ile eşitlenir.
-7. Workday geri yazma bağlayıcısını yapılandırdıysanız, sonradan yazma e-posta özniteliği Workday için kullanılan eşleşen özniteliğine dayanarak işlemlerini.
+7. Workday geri yazma Bağlayıcısı yapılandırdıysanız, bu geri e-posta özniteliği ve kullanıcı adı Workday için kullanılan eşleşen özniteliğine dayanarak yazar.
 
 ## <a name="planning-your-deployment"></a>Dağıtımınızı planlama
 
@@ -285,7 +285,8 @@ Bu adımda, "etki alanı güvenliği" çalışan verileri güvenlik grubuna ilke
    * *Çalışan verileri: Tüm Konumlar*
    * *Çalışan verileri: Geçerli portalınıza bilgileri*
    * *Çalışan verileri: Çalışan profilindeki iş başlığı*
-
+   * *Workday hesapları*
+   
      ![Etki alanı güvenlik ilkeleri](./media/workday-inbound-tutorial/wd_isu_07.png "etki alanı güvenlik ilkeleri")  
 
      ![Etki alanı güvenlik ilkeleri](./media/workday-inbound-tutorial/wd_isu_08.png "etki alanı güvenlik ilkeleri") 
@@ -313,6 +314,7 @@ Bu adımda, "etki alanı güvenliği" çalışan verileri güvenlik grubuna ilke
    | Al | Çalışan verileri: Tüm Konumlar |
    | Al | Çalışan verileri: Geçerli portalınıza bilgileri |
    | Al | Çalışan verileri: Çalışan profilindeki iş başlığı |
+   | GET ve Put | Workday hesapları |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>İş işlemi Güvenlik İlkesi izinleri yapılandırma
 
@@ -369,18 +371,21 @@ Bu bölümde kullanıcı hesabı Workday'den tümleştirmenizi kapsamındaki her
 .NET 4.7.1+ dağıttıktan sonra indirebileceğiniz **[şirket burada sağlama aracı](https://go.microsoft.com/fwlink/?linkid=847801)** ve aracı yapılandırmasını tamamlamak için aşağıda verilen adımları izleyin.
 
 1. Yeni aracıyı yüklemek istediğiniz Windows sunucusuna oturum açın.
-2. Sağlama Aracısı Yükleyicisi'ni başlatın ve koşulları kabul tıklayın **yükleme** düğmesi.
+
+1. Sağlama Aracısı Yükleyicisi'ni başlatın, koşulları kabul ve tıklayarak **yükleme** düğmesi.
 
    ![Ekran yükleme](./media/workday-inbound-tutorial/pa_install_screen_1.png "yükleme ekranı")
-3. Yükleme tamamlandığında, Sihirbazı başlatılır ve göreceğiniz sonra **Azure AD Connect** ekran. Tıklayarak **doğrulaması** Azure AD Örneğinize bağlanmak için düğme.
+   
+1. Yükleme tamamlandığında, Sihirbazı başlatılır ve göreceğiniz sonra **Azure AD Connect** ekran. Tıklayarak **doğrulaması** Azure AD Örneğinize bağlanmak için düğme.
 
    ![Azure AD connect](./media/workday-inbound-tutorial/pa_install_screen_2.png "Azure AD'ye bağlanma")
+   
 1. Azure AD Örneğinize genel yönetici kimlik bilgilerini kullanarak kimlik doğrulaması.
 
    ![Yönetici kimlik doğrulama](./media/workday-inbound-tutorial/pa_install_screen_3.png "yönetici kimlik doğrulama")
 
-> [!NOTE]
-> Azure AD yönetici kimlik bilgilerini yalnızca Azure AD kiracınıza bağlamak için kullanılır. Aracı kimlik bilgileri yerel olarak sunucuda depolamaz.
+   > [!NOTE]
+   > Azure AD yönetici kimlik bilgilerini yalnızca Azure AD kiracınıza bağlamak için kullanılır. Aracı kimlik bilgileri yerel olarak sunucuda depolamaz.
 
 1. Azure AD ile başarılı kimlik doğrulamadan sonra göreceğiniz **Active Directory'ye bağlanın** ekran. Bu adımda, AD etki alanı adınızı girin ve tıklayın **Dizin Ekle** düğmesi.
 
@@ -389,21 +394,27 @@ Bu bölümde kullanıcı hesabı Workday'den tümleştirmenizi kapsamındaki her
 1. Şimdi AD etki alanına bağlanmak için gereken kimlik bilgilerini girmeniz istenir. Aynı ekranda kullanabilirsiniz **seçin etki alanı denetleyicisi öncelik** aracı sağlama isteği göndermek için kullanacağı bir etki alanı denetleyicileri belirtmek için.
 
    ![Etki alanı kimlik bilgileri](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   
 1. Etki alanı yapılandırdıktan sonra yükleyici yapılandırılmış etki alanlarının bir listesini görüntüler. Bu ekranda yineleyin #5 ve daha fazlasını eklemek için #6. adım etki alanları veya tıklayarak **sonraki** aracı kaydı devam etmek için.
 
    ![Etki alanı yapılandırılmış](./media/workday-inbound-tutorial/pa_install_screen_6.png "yapılandırılmış etki alanları")
 
    > [!NOTE]
-   > Birden çok AD etki alanına (örneğin, na.contoso.com, emea.contoso.com) ve ardından her bir etki alanı ayrı ayrı listeye eklemek Lütfen durumunda. Yalnızca üst etki alanını (örneğin, contoso.com) eklemek, yeterli değildir. Her alt etki alanı aracıyla kaydetmeniz gerekir.
+   > Birden çok AD etki alanına (örneğin, na.contoso.com, emea.contoso.com) ve ardından her bir etki alanı ayrı ayrı listeye eklemek Lütfen durumunda.
+   > Yalnızca üst etki alanını (örneğin, contoso.com) eklemek, yeterli değildir. Her alt etki alanı aracıyla kaydetmeniz gerekir.
+   
 1. Yapılandırma ayrıntılarını gözden geçirin ve tıklayın **Onayla** aracıyı kaydetmek için.
   
    ![Ekran onaylayın](./media/workday-inbound-tutorial/pa_install_screen_7.png "ekran onaylayın")
+   
 1. Yapılandırma Sihirbazı'nı aracı kaydını ilerlemesini görüntüler.
   
    ![Aracı kaydı](./media/workday-inbound-tutorial/pa_install_screen_8.png "aracı kaydı")
+   
 1. Aracı kaydı başarılı olduktan sonra tıklayabilirsiniz **çıkmak** sihirbazdan çıkmak için.
   
    ![Çıkış ekranı](./media/workday-inbound-tutorial/pa_install_screen_9.png "çıkış ekranı")
+   
 1. Aracı yüklemesini doğrulayın, "Hizmetler" ek bileşenini açarak çalıştığından emin olun ve "Microsoft Azure AD Connect'i Hazırlama aracı" adlı hizmet için Ara
   
    ![Hizmetler](./media/workday-inbound-tutorial/services.png)
@@ -438,13 +449,14 @@ Bu bölümde kullanıcı hesabı Workday'den tümleştirmenizi kapsamındaki her
 
    * **Active Directory kapsayıcısı -** DN kapsayıcı Aracısı varsayılan olarak kullanıcı hesaplarını burada oluşturmalısınız girin.
         Örnek: *OU standart kullanıcılar, OU = Kullanıcılar, DC = contoso, DC = test =*
+        
      > [!NOTE]
      > Bu ayar yalnızca yürütme için kullanıcı hesabı oluşturma, salesforce'taki *parentDistinguishedName* öznitelik öznitelik eşlemelerini yapılandırılmadı. Bu ayar kullanılmaz kullanıcı arama veya güncelleştirme işlemleri. Tüm etki alanı alt ağacı, arama işlemi kapsamında döner.
 
    * **Bildirim e-posta –** e-posta adresinizi girin ve "hatası oluşursa, e-posta Gönder" onay kutusunu işaretleyin.
 
-> [!NOTE]
-> İçine sağlama işi aşması durumunda Azure AD sağlama hizmeti, e-posta bildirimi gönderir. bir [karantina](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) durumu.
+     > [!NOTE]
+     > İçine sağlama işi aşması durumunda Azure AD sağlama hizmeti, e-posta bildirimi gönderir. bir [karantina](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) durumu.
 
    * Tıklayın **Test Bağlantısı** düğmesi. Bağlantı testi başarılı olursa tıklayın **Kaydet** üstünde düğme. Başarısız olursa, Workday kimlik bilgilerini ve aracı kurulumu üzerinde yapılandırılmış AD kimlik bilgileri geçerli olduğunu denetleyin.
 
@@ -458,7 +470,7 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 
 1. Sağlama sekmesinde **eşlemeleri**, tıklayın **şirket içi Active Directory eşitleme Workday'deki çalışanları**.
 
-2. İçinde **kaynak nesne kapsamı** alan, kullanıcıların hangi kümesi workday'deki AD için öznitelik tabanlı bir filtre kümesi tanımlayarak sağlama kapsamında olmalıdır seçebilirsiniz. Varsayılan "iş günü içinde tüm kullanıcılar" kapsamıdır. Örnek filtreler:
+1. İçinde **kaynak nesne kapsamı** alan, kullanıcıların hangi kümesi workday'deki AD için öznitelik tabanlı bir filtre kümesi tanımlayarak sağlama kapsamında olmalıdır seçebilirsiniz. Varsayılan "iş günü içinde tüm kullanıcılar" kapsamıdır. Örnek filtreler:
 
    * Örnek: Çalışan kimlikleri kullanıcılarla 1000000 2000000 (2000000 hariç) arasındaki kapsama
 
@@ -474,8 +486,8 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 
       * İşleç: NULL DEĞİL
 
-> [!TIP]
-> Sağlama uygulamayı ilk kez yapılandırırken, test edin ve bu, istenen sonucu veriyor emin olmak için ifadeleri ve öznitelik eşlemelerini doğrulayın gerekecektir. Microsoft öneriyor kapsam belirleme filtrelerini altında **kaynak nesne kapsamı** eşlemelerinizi birkaç test workday'deki kullanıcıları ayıklayıp sorgulayabilecek ile test etmek için. Bir kez eşlemeleri çalışır ve ardından filtreyi kaldırın veya aşamalı olarak daha fazla kullanıcı içerecek şekilde genişletin doğrulanmıştır.
+   > [!TIP]
+   > Sağlama uygulamayı ilk kez yapılandırırken, test edin ve bu, istenen sonucu veriyor emin olmak için ifadeleri ve öznitelik eşlemelerini doğrulayın gerekecektir. Microsoft öneriyor kapsam belirleme filtrelerini altında **kaynak nesne kapsamı** eşlemelerinizi birkaç test workday'deki kullanıcıları ayıklayıp sorgulayabilecek ile test etmek için. Bir kez eşlemeleri çalışır ve ardından filtreyi kaldırın veya aşamalı olarak daha fazla kullanıcı içerecek şekilde genişletin doğrulanmıştır.
 
 1. İçinde **hedef nesne eylemleri** alan, küresel olarak filtreleyebilirsiniz hangi eylemleri Active Directory üzerinde gerçekleştirilir. **Oluşturma** ve **güncelleştirme** en yaygın olarak.
 
@@ -649,9 +661,9 @@ Bu bölümde, kullanıcı verilerini Workday'den Azure Active Directory'ye yaln�
 
 Öznitelik eşlemesi Yapılandırma tamamlandıktan sonra artık [etkinleştirme ve kullanıcı sağlama hizmeti başlatma](#enable-and-launch-user-provisioning).
 
-## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Workday e-posta adreslerinin geri yazmayı yapılandırma
+## <a name="configuring-azure-ad-attribute-writeback-to-workday"></a>Azure AD özniteliği geri yazma için Workday yapılandırma
 
-Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma yapılandırmak için bu yönergeleri izleyin.
+Kullanıcı e-posta adreslerini ve Azure Active Directory'den Workday kullanıcı adı için geri yazma yapılandırmak için bu yönergeleri izleyin.
 
 * [Geri yazma bağlayıcı uygulama ekleme ve Workday bağlantısı oluşturma](#part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday)
 * [Geri yazma öznitelik eşlemelerini yapılandırma](#part-2-configure-writeback-attribute-mappings)
@@ -689,7 +701,7 @@ Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma ya
 
 ### <a name="part-2-configure-writeback-attribute-mappings"></a>2. Bölüm: Geri yazma öznitelik eşlemelerini yapılandırma
 
-Bu bölümde, nasıl Azure AD'den geri yazma öznitelikleri için Workday akış yapılandıracaksınız.
+Bu bölümde, nasıl Azure AD'den geri yazma öznitelikleri için Workday akış yapılandıracaksınız. Şu anda bağlayıcı yalnızca e-posta adresi ve Workday kullanıcı adını geri yazmayı destekler.
 
 1. Sağlama sekmesinde **eşlemeleri**, tıklayın **eşitleme Azure Active Directory Kullanıcıları için Workday**.
 
@@ -697,9 +709,9 @@ Bu bölümde, nasıl Azure AD'den geri yazma öznitelikleri için Workday akış
 
 3. İçinde **öznitelik eşlemelerini** bölümünde, Azure Active Directory'de Workday'deki çalışan kimliği veya çalışan kimliği depolandığı özniteliğini belirtmek için eşleşen kodunu güncelleştirin. Popüler eşleşen yöntemi Workday'deki çalışan kimliği veya extensionAttribute1 15 çalışan kimliği, Azure AD'de eşitlemek ve ardından bu özniteliği Azure AD'de geri Workday'de kullanıcıları eşleştirmek için sağlamaktır.
 
-4. Eşlemelerinizi kaydetmek için tıklatın **Kaydet** öznitelik eşlemesi bölümün üst kısmındaki.
+4. Azure AD genellikle eşlemeniz *userPrincipalName* özniteliği için Workday *UserID* özniteliği ve Azure AD eşleme *posta* özniteliği için Workday  *EmailAddress* özniteliği. Eşlemelerinizi kaydetmek için tıklatın **Kaydet** öznitelik eşlemesi bölümün üst kısmındaki.
 
-Öznitelik eşlemesi Yapılandırma tamamlandıktan sonra artık [etkinleştirme ve kullanıcı sağlama hizmeti başlatma](#enable-and-launch-user-provisioning). 
+Öznitelik eşlemesi Yapılandırma tamamlandıktan sonra artık [etkinleştirme ve kullanıcı sağlama hizmeti başlatma](#enable-and-launch-user-provisioning).
 
 ## <a name="enable-and-launch-user-provisioning"></a>Etkinleştirme ve kullanıcı sağlamayı başlatın
 
@@ -782,6 +794,7 @@ Bu işlevsellik şu anda desteklenmiyor. Önerilen geçici çözüm, Azure AD Gr
 
 * Çalışan bilgileri getiriliyor için Get_Workers (v21.1)
 * İş e-posta geri yazma özelliğinin Maintain_Contact_Information (v26.1)
+* Kullanıcı geri yazma özelliğinin Update_Workday_Account (v31.2)
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>İki Azure AD kiracılarıyla paylaştığında Workday HCM kiracımı yapılandırabilir miyim?
 
@@ -952,7 +965,6 @@ Yapılandırmak için ortak bir gereksinimdir *displayName* özniteliği AD'de k
 
 * Her iş günü özniteliği içinde yapılandırılabilir bir temel alınan API XPATH ifadesi kullanarak alınır **-> Gelişmiş bölümü eşleme özniteliği için Workday öznitelik listesini Düzenle ->**. Workday varsayılan API XPATH ifadesi işte *PreferredFirstName*, *PreferredLastName*, *şirket* ve *SupervisoryOrganization* öznitelikleri.
 
-     [!div class="mx-tdCol2BreakAll"]
      | Workday özniteliği | API XPATH ifadesi |
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
@@ -1008,7 +1020,7 @@ Benzersiz değerleri oluşturmak istediğinizi varsayalım *samAccountName* bir 
 SelectUniqueValue(
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,1), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,2), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
-    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
+    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )
 )
 ```
 
@@ -1236,7 +1248,7 @@ Bu değişikliği yapmak için kullanmanız gerekir [Workday Studio](https://com
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">

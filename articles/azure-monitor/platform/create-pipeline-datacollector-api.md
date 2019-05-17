@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205956"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603242"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Veri Toplayıcı API'si ile veri işlem hattı oluşturma
 
@@ -27,7 +27,7 @@ ms.locfileid: "65205956"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Örnek sorun
-Bu makalenin geri kalanında için sayfa görüntüleme verilerini Application ınsights'da inceleyeceğiz. Coğrafi bilgiler nerede biz en çok harcama belirlemek amacıyla dünyanın her ülkesinde popülasyonunu içeren özel verileri için varsayılan olarak Application Insights SDK'sı tarafından toplanan ilişkilendirmek istediğimiz kuramsal senaryomuzdaki ise Pazarlama dolar. 
+Bu makalenin geri kalanında için sayfa görüntüleme verilerini Application ınsights'da inceleyeceğiz. Özel verilere dünyanın her ülke/bölge popülasyonu burada biz harcama belirlemek amacıyla içeren Application Insights SDK'sı tarafından varsayılan olarak toplanan coğrafi bilgileri ilişkilendirmek istediğimiz kuramsal senaryomuzdaki ise en pazarlama dolar. 
 
 Genel veri kaynağı gibi kullandığımız [kaldırma dünya popülasyon yaklaşımları](https://esa.un.org/unpd/wpp/) bu amaç için. Veriler aşağıdaki basit şema olacaktır:
 

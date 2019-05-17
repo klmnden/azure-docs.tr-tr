@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d51eaf71e449301415195e409bec9e944d16e0b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 592b2c611888623c2753d7c4abc9fe57c28af30e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800466"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823159"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak ilk Kaynak Grafiği sorgunuzu çalıştırma
 
@@ -81,7 +81,7 @@ Azure CLI uzantısının seçtiğiniz ortamınıza eklenmesiyle birlikte şimdi 
 
 Son sorgu birkaç kere çalıştırıldığında, ortamınızda hiçbir şeyin değişmediği varsayılarak döndürülen sonuçlar tutarlı ve beklendiği gibi olur, yani **Ad** özelliğine göre düzenlenir ama yine de en iyi beş sonuçla sınırlıdır.
 
-## <a name="cleanup-resources"></a>Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Kaynak Grafiği uzantısını Azure CLI ortamınızdan kaldırmak isterseniz, aşağıdaki komutu kullanarak bunu yapabilirsiniz:
 

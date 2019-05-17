@@ -7,15 +7,15 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 108dd80aa90772eb01fe3c7f0176ddd37e27acaa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024448"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595907"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>"Tam" Lucene arama söz dizimi (Azure Search Gelişmiş sorgular) kullanarak sorgu örnekleri
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Tüm bu makaledeki örneklerde belirtin **queryType = full** arama parametresi, gösteren tam sözdizimini Lucene sorgu ayrıştırıcı tarafından işlenir. 
 
-## <a name="example-1-field-scoped-query"></a>Örnek 1: Alan kapsamlı sorgu
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Örnek 1: Kapsamlı alanların listesi için sorgu
 
-Bu ilk örnekte Lucene özgü değildir, ancak ilk sorgu temel kavramı tanıtmak için Biz bu ile neden: kapsama. Bu örnek, sorgu yürütme ve yalnızca birkaç belirli alanları yanıta kapsamlar. Postman veya arama Gezgini araç olduğunda, okunabilir bir JSON yanıtı nasıl haberdar olmak önemlidir. 
+Bu ilk örnekte Lucene özgü değildir, ancak ilk sorgu temel kavramı tanıtmak için Biz bu ile neden: kapsam alan. Bu örnekte, tüm sorgu ve yanıt yalnızca birkaç belirli alan kapsamlar. Postman veya arama Gezgini araç olduğunda, okunabilir bir JSON yanıtı nasıl haberdar olmak önemlidir. 
 
-Konuyu uzatmamak amacıyla, sorgu hedefleyen yalnızca *business_title* alan ve yalnızca iş başlıkları döndürülür belirtir. Söz dizimi **searchFields** business_title alan yalnızca, sorgu yürütme kısıtlamak için ve **seçin** yanıt olarak hangi alanların ekleneceğini belirlemek için.
+Konuyu uzatmamak amacıyla, sorgu hedefleyen yalnızca *business_title* alan ve yalnızca iş başlıkları döndürülür belirtir. **SearchFields** parametresi yalnızca business_title alan, sorgu yürütme sınırlar ve **seçin** yanıt olarak hangi alanların ekleneceğini belirtir.
 
 ### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
 
@@ -99,6 +99,11 @@ Virgülle ayrılmış bir liste içinde birden çok alan ile aynı sorgu aşağ�
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
+Virgüller sonra boşluk isteğe bağlıdır.
+
+> [!Tip]
+> URL kodlaması parametreleri gibi uygulama kodunuzdan REST API kullanırken unutmayın `$select` ve `searchFields`.
+
 ### <a name="full-url"></a>Tam URL
 
 ```http
@@ -111,39 +116,42 @@ Bu sorgu için yanıt, aşağıdaki ekran görüntüsüne benzer görünmelidir.
 
 Yanıt arama puanı fark etmiş olabilirsiniz. 1 Tekdüzen puanları olduğunda hiçbir sıralama veya arama değil, tam metin araması olduğundan veya hiçbir ölçüt uygulandığı nedeniyle oluşur. Hiçbir ölçüt null arama için satırlar rastgele sırayla geri dönün. Gerçek bir ölçüt eklediğinizde, arama puanları anlamlı değerlere evrim Geçiren görürsünüz.
 
-## <a name="example-2-intra-field-filtering"></a>Örnek 2: İçi alan filtreleme
+## <a name="example-2-fielded-search"></a>Örnek 2: Fielded arama
 
-Tam Lucene sözdizimi bir alandaki ifadeleri destekler. Bu örnekte, iş başlıkları terim Kıdemli bunları ancak değil çırak arar.
+Tam Lucene sözdizimi, belirli bir alan için kapsam belirleme tek tek arama ifadeleri destekler. Bu örnekte, iş başlıkları terim Kıdemli bunları ancak değil çırak arar.
 
 ### <a name="partial-query-string"></a>Kısmi bir sorgu dizesi
 
 ```http
-searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+$select=business_title&search=business_title:(senior NOT junior)
 ```
 
 Birden çok alan ile aynı sorgu aşağıdadır.
 
 ```http
-searchFields=business_title, posting_type&$select=business_title, posting_type&search=business_title:senior+NOT+junior AND posting_type:external
+$select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
 ```
 
 ### <a name="full-url"></a>Tam URL
 
 ```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:senior+NOT+junior
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
   ![Postman örnek yanıt](media/search-query-lucene-examples/intrafieldfilter.png)
 
-Belirterek bir **fieldname:searchterm** oluşturma, burada tek bir sözcük alanıdır ve arama terimini de tek bir sözcük veya tümcecik, Boole işleçleri ile isteğe bağlı olarak bir fielded sorgu işlemi tanımlayabilirsiniz. Bazı örnekler şunlardır:
+İle bir fielded arama işlemi tanımlayabileceğiniz **fieldName:searchExpression** sözdizimi, nereye arama ifadesi olabilir tek bir sözcük veya tümcecik ya da Boole işleçleri ile isteğe bağlı olarak daha karmaşık bir ifadeyi parantez içinde. Bazı örnekler şunlardır:
 
-* business_title:(senior NOT junior)
-* Durum: ("New York" ve "Yeni Jersey")
-* business_title:(senior NOT junior) ve posting_type:external
+- `business_title:(senior NOT junior)`
+- `state:("New York" OR "New Jersey")`
+- `business_title:(senior NOT junior) AND posting_type:external`
 
-Konum alanında iki farklı şehirleri arama bu örnekte olduğu gibi tek bir varlık olarak değerlendirilebilmesi için her iki dize istiyorsanız birden çok dizeyi tırnak işaretleri içinde emin olun. Ayrıca, işleç NOT ile gördüğünüz gibi büyük emin olun ve and
+Bu durumda iki ayrı konumda arama olarak tek bir varlık olarak değerlendirilebilmesi için her iki dize istiyorsanız birden çok dizeyi tırnak işaretleri içinde yerleştirdiğinizden emin olun `state` alan. Ayrıca, işleç NOT ile gördüğünüz gibi büyük emin olun ve and
 
-Belirtilen alan **fieldname:searchterm** aranabilir bir alanı olmalıdır. Bkz: [dizin oluşturma (Azure Search Hizmeti REST API'si)](https://docs.microsoft.com/rest/api/searchservice/create-index) dizin özniteliklerini alan tanımlarını nasıl kullanıldığı hakkında ayrıntılar için.
+Belirtilen alan **fieldName:searchExpression** aranabilir bir alanı olmalıdır. Bkz: [dizin oluşturma (Azure Search Hizmeti REST API'si)](https://docs.microsoft.com/rest/api/searchservice/create-index) dizin özniteliklerini alan tanımlarını nasıl kullanıldığı hakkında ayrıntılar için.
+
+> [!NOTE]
+> Yukarıdaki örnekte, biz kullanılacak gerekmeyen `searchFields` parametresi sorgunun her bölümü açıkça belirtilen bir alan adı olduğundan. Ancak, kullanmaya devam edebilirsiniz `searchFields` burada bazı bölümleri için belirli bir alan belirlenir ve rest birkaç alanlarına uygulanabilir bir sorgu çalıştırmak istiyorsanız parametresi. Örneğin, sorgu `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` BC `senior NOT junior` yalnızca `business_title` "dış" ile eşleşir ancak alan `posting_type` alan. Sağlanan alan adı **fieldName:searchExpression** her zaman önceliklidir `searchFields` Bu örnekte neden olan bir parametre değil dahil etmemiz gerektiğini `business_title` içinde `searchFields` parametresi.
 
 ## <a name="example-3-fuzzy-search"></a>Örnek 3: Belirsiz arama
 

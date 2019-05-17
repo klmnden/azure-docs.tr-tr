@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524243"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826481"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files ağ planlaması yönergeleri
 
@@ -42,7 +42,7 @@ Aşağıdaki özellikler, Azure için NetApp dosyaları şu anda desteklenmiyor:
 
 Azure için NetApp dosyaları aşağıdaki ağ kısıtlamalar uygulanır:
 
-* Sayı (eşlenmiş Vnet'ler içerir) VNet Ip'lerden, bir birimde bir sanal ağa bağlanma 1000 aşamaz.
+* Bir birime (bir sanal ağ ile veya eşlenmiş sanal ağlarda) bağlanabilen bir sanal makine sayısı 1000 aşamaz.
 * Her Azure sanal ağı (VNet), yalnızca bir alt ağ, Azure için NetApp dosyaları atanabilir.
 
 

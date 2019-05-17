@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413900"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603099"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
 
@@ -74,9 +74,9 @@ Azure içeri/dışarı aktarma hizmeti işleri oluşturarak Azure Blobları ve A
 8. Sürücüleri içeri aktarma işinin sağlanan dönüş adresi taşıyıcı hesabınızı kullanarak aktarılır.
 
 > [!NOTE]
-> Yerel (içinde veri merkezi ülke) sevk irsaliyesi için lütfen bir yurt dışı taşıyıcı hesap paylaşın 
+> Yerel (içinde veri merkezi ülke/bölge) sevk irsaliyesi için lütfen bir yurt dışı taşıyıcı hesap paylaşın 
 >
-> (Ülke dışında bir veri merkezi) abroad sevk irsaliyesi için lütfen bir uluslararası taşıyıcı hesap paylaşın
+> (Dışında veri merkezi ülke/bölge) abroad sevk irsaliyesi için lütfen bir uluslararası taşıyıcı hesap paylaşın
 
  ![Şekil 1:Import iş akışı](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Dışarı aktarma işi, yüksek düzeyde, aşağıdaki adımları içerir:
 10. Sürücüleri içeri aktarma işinin sağlanan dönüş adresi taşıyıcı hesabınızı kullanarak aktarılır.
 
 > [!NOTE]
-> Yerel (içinde veri merkezi ülke) sevk irsaliyesi için lütfen bir yurt dışı taşıyıcı hesap paylaşın 
+> Yerel (içinde veri merkezi ülke/bölge) sevk irsaliyesi için lütfen bir yurt dışı taşıyıcı hesap paylaşın 
 >
-> (Ülke dışında bir veri merkezi) abroad sevk irsaliyesi için lütfen bir uluslararası taşıyıcı hesap paylaşın
+> (Dışında veri merkezi ülke/bölge) abroad sevk irsaliyesi için lütfen bir uluslararası taşıyıcı hesap paylaşın
   
  ![Şekil 2:Export iş akışı](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ Azure içeri/dışarı aktarma hizmeti, için ve tüm Azure depolama hesapların
 ### <a name="supported-shipping-locations"></a>Desteklenen sevkiyat konumları
 
 
-|Ülke  |Ülke  |Ülke  |Ülke  |
+|Ülke/Bölge  |Ülke/Bölge  |Ülke/Bölge  |Ülke/Bölge  |
 |---------|---------|---------|---------|
 |Doğu ABD    | Kuzey Avrupa        | Orta Hindistan        |US Gov Iowa         |
 |Batı ABD     |Batı Avrupa         | Güney Hindistan        | US DoD Doğu        |

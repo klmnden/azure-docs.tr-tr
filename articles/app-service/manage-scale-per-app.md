@@ -1,5 +1,5 @@
 ---
-title: Uygulama başına kullanarak yüksek yoğunluklu barındırma ölçeklendirme - Azure App Service | Microsoft Docs
+title: Uygulama başına kullanarak bir yüksek yoğunluklu barındırma ölçeklendirme - Azure App Service | Microsoft Docs
 description: Azure App Service üzerinde yüksek yoğunluklu barındırma
 author: btardif
 manager: erikre
@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104578"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602337"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Azure App Service uygulama içi ölçeklendirme kullanarak yüksek yoğunluklu barındırma
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Varsayılan olarak, App Service uygulamalarını ölçeklendirerek ölçeği [App Service planı](overview-hosting-plans.md) zaman çalışır. Aynı App Service planında birden fazla uygulama çalıştırıldığında, her genişletilmiş örneği plandaki tüm uygulamaları çalışır.
+App Service kullanırken ölçeklendirerek uygulamalarınızı ölçeklendirebilirsiniz [App Service planı](overview-hosting-plans.md) zaman çalışır. Aynı App Service planında birden fazla uygulama çalıştırıldığında, her genişletilmiş örneği plandaki tüm uygulamaları çalışır.
 
-Etkinleştirebilirsiniz *uygulama başına ölçeklendirme* App Service planı düzeyi. Bir uygulamadan bağımsız olarak onu barındıran App Service planı ölçeklendirir. Bu şekilde, bir App Service planı 10 örnek için ölçeklendirilebilir, ancak uygulama yalnızca beş kullanmak için ayarlanabilir.
+*Uygulama başına ölçeklendirme* App Service planı düzeyinde bir uygulamadan bağımsız olarak barındırdığı App Service planını ölçeklendirme için izin vermek için etkinleştirilebilir. Bu şekilde, bir App Service planı 10 örnek için ölçeklendirilebilir, ancak uygulama yalnızca beş kullanmak için ayarlanabilir.
 
 > [!NOTE]
 > Uygulama başına ölçeklendirme, yalnızca kullanılabilir **standart**, **Premium**, **Premium V2** ve **yalıtılmış** fiyatlandırma katmanları.
 >
+
+Uygulamalar için bir en iyi çaba yaklaşım örnekleri arasında eşit bir dağıtım için kullanarak mevcut App Service planı ayrılır. Bir dağılımı garanti edilmez, ancak platform iki örneği aynı uygulama aynı App Service planı örneğinde barındırılan değil sağlayacaktır.
+
+Platform çalışan ayırma hakkında karar vermek için ölçümleri bağımlı kalmayacak. Uygulamaları yeniden Dengelenecek örnekleri yalnızca eklendiğinde veya App Service planından kaldırıldı.
 
 ## <a name="per-app-scaling-using-powershell"></a>Ölçeklendirmeyi PowerShell kullanarak uygulama
 
@@ -60,10 +64,10 @@ Aşağıdaki örnekte, uygulama için kullanıma temel alınan app service plan�
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -128,19 +132,20 @@ App Service planı ayarı **PerSiteScaling** özelliği true `"perSiteScaling": 
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Yüksek yoğunluklu barındırma için önerilen yapılandırma
-Uygulama ölçeklendirme başına iki genel Azure bölgelerinde etkin olan bir özelliktir ve [App Service ortamları](environment/app-service-app-service-environment-intro.md). Ancak, önerilen strateji App Service ortamları kullanmak, Gelişmiş özelliklerden ve daha büyük havuzlar kapasite sağlamaktır.  
 
-Yüksek yoğunluklu barındırma, uygulamalarınız için yapılandırmak için aşağıdaki adımları izleyin:
+Uygulama ölçeklendirme başına iki genel Azure bölgelerinde etkin olan bir özelliktir ve [App Service ortamları](environment/app-service-app-service-environment-intro.md). Ancak, önerilen strateji App Service ortamları gelişmiş özelliklerine ve daha büyük bir App Service planı kapasitesine yararlanmak için kullanmaktır.  
 
-1. App Service ortamını yapılandırın ve yüksek yoğunluklu barındırma senaryo için adanmış bir çalışan havuzu seçin.
-2. Tek bir App Service planı oluşturun ve tüm kullanılabilir kapasiteyi çalışan havuzunda kullanacak şekilde ölçeklendirin.
-3. Ayarlama `PerSiteScaling` bayrağı true olarak App Service planı.
-4. Yeni uygulamalar oluşturulur ve bu App Service planı ile atanan **numberOfWorkers** özelliğini **1**. Bu yapılandırmayı kullanarak bu çalışan havuzunda olası en yüksek yoğunluklu verir.
-5. Çalışanların sayısını gerektiği gibi ek kaynaklara erişim izni için uygulama bağımsız olarak yapılandırılabilir. Örneğin:
-    - Yüksek kullanım uygulama ayarlayabilirsiniz **numberOfWorkers** için **3** bu uygulama için daha fazla işlem kapasitesi için. 
-    - Düşük kullanımlı uygulamalar ayarlamak **numberOfWorkers** için **1**.
+Uygulamalarınız için yüksek yoğunluklu barındırma yapılandırmak için aşağıdaki adımları izleyin:
 
-## <a name="next-steps"></a>Sonraki Adımlar
+1. Bir App Service planı yüksek yoğunluklu planı belirlemek ve genişletmek için istenen kapasite ölçeklendirin.
+1. Ayarlama `PerSiteScaling` bayrağı true olarak App Service planı.
+1. Yeni uygulamalar oluşturulur ve bu App Service planı ile atanan **numberOfWorkers** özelliğini **1**.
+   - Bu yapılandırmayla, mümkün olan en yüksek yoğunluklu verir.
+1. Çalışanların sayısını gerektiği gibi ek kaynaklara erişim izni için uygulama bağımsız olarak yapılandırılabilir. Örneğin:
+   - Yüksek kullanım uygulama ayarlayabilirsiniz **numberOfWorkers** için **3** bu uygulama için daha fazla işlem kapasitesi için.
+   - Düşük kullanımlı uygulamalar ayarlamak **numberOfWorkers** için **1**.
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure App Service planlarına ayrıntılı genel bakış](overview-hosting-plans.md)
 - [App Service Ortamı’na giriş](environment/app-service-app-service-environment-intro.md)

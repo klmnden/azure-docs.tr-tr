@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195717"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603201"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Power BI'ı kullanarak Azure Data Lake depolama Gen1 verileri çözümleme
 Bu makalede çözümlemek ve Azure Data Lake depolama Gen1 depolanan verileri görselleştirmek için Power BI Desktop kullanmayı öğreneceksiniz.
@@ -74,23 +74,23 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 14. Sorgu güncelleştirildikten sonra **alanları** sekmesi, görselleştirme için kullanılabilir yeni alanları gösterilir.
     
     ![Alanlar](./media/data-lake-store-power-bi/updated-query-fields.png "alanlar")
-15. Bize her şehir için belirli bir ülke sürücüleri temsil etmek için bir pasta grafik oluşturun. Bunu yapmak için aşağıdaki seçimleri yapın.
+15. Bize her şehir için belirli bir ülke/bölge sürücüleri temsil etmek için bir pasta grafik oluşturun. Bunu yapmak için aşağıdaki seçimleri yapın.
     
     1. Görsel öğeler sekmesinde, pasta grafiği simgesini tıklayın.
        
         ![Pasta grafiği oluşturma](./media/data-lake-store-power-bi/create-pie-chart.png "pasta grafiği oluşturma")
-    2. Kullanılacak kullanacağız sütunlar **sütun 4** (Şehir adı) ve **sütun 7** (ülke adı). Bu sütunları sürükleyin **alanları** için sekmesinde **görselleştirmeler** sekmesine aşağıda gösterildiği gibi.
+    2. Kullanılacak kullanacağız sütunlar **sütun 4** (Şehir adı) ve **sütun 7** (ülke/bölge adı). Bu sütunları sürükleyin **alanları** için sekmesinde **görselleştirmeler** sekmesine aşağıda gösterildiği gibi.
        
         ![Görselleştirmeler oluşturma](./media/data-lake-store-power-bi/create-visualizations.png "görselleştirmeler oluşturma")
     3. Pasta grafiği, aşağıda gösterilene benzer artık benzemelidir.
        
         ![Pasta grafiği](./media/data-lake-store-power-bi/pie-chart.png "görselleştirmeler oluşturma")
-16. Sayfa düzeyi filtreleri belirli bir ülke seçerek artık sürücüler seçilen ülke, her şehirde sayısını görebilirsiniz. Örneğin, altında **görselleştirmeler** sekmesindeki **sayfa düzeyi filtreleri**seçin **Brezilya**.
+16. Sayfa düzeyi filtreleri belirli bir ülke/bölge seçerek artık sürücüler seçilen ülke/bölge, her şehirde sayısını görebilirsiniz. Örneğin, altında **görselleştirmeler** sekmesindeki **sayfa düzeyi filtreleri**seçin **Brezilya**.
     
-    ![Ülke seçin](./media/data-lake-store-power-bi/select-country.png "bir ülke seçin")
+    ![Ülke seçin](./media/data-lake-store-power-bi/select-country.png "bir ülke/bölge seçin")
 17. Pasta grafiği, Brezilya şehirlerin sürücüleri görüntülemek için otomatik olarak güncelleştirilir.
     
-    ![Sürücüleri bir ülkede](./media/data-lake-store-power-bi/driver-per-country.png "ülke başına sürücüleri")
+    ![Sürücüleri bir ülkede](./media/data-lake-store-power-bi/driver-per-country.png "ülke/bölge başına sürücüleri")
 18. Gelen **dosya** menüsünde tıklatın **Kaydet** görselleştirmeyi Power BI Desktop dosyası olarak kaydetmek için.
 
 ## <a name="publish-report-to-power-bi-service"></a>Raporu Power BI hizmetinde yayımlayın

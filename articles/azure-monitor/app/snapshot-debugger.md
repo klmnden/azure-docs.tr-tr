@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205596"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595575"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
 Bir özel durum oluştuğunda, hata ayıklama anlık görüntüsünü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. Anlık görüntü, özel durumun oluştuğu şu anda kaynak kodu ve değişkenleri durumunu gösterir. Snapshot Debugger (Önizleme) içinde [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) web uygulamanızdan özel telemetri izler. Böylece, üretim sorunlarını tanılamak ihtiyacınız olan bilgileri sahip anlık görüntüleri, üst özel durum atma özel durumları toplar. Dahil [Snapshot collector NuGet paketini](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Anlık görüntüler görüntülenerek [özel durumları](../../azure-monitor/app/asp-net-exceptions.md) Application Insights portalında.
 
-Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Kaynak koduyla birlikte daha güçlü bir hata ayıklama deneyimi elde etmek için Visual Studio 2017 Enterprise ile anlık görüntüleri açmak. Visual Studio'da ayrıca [etkileşimli anlık görüntülerini almak için anlık görüntü noktaları ayarlamak](https://aka.ms/snappoint) olmadan için bir özel durum bekleniyor.
+Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Kaynak koduyla birlikte daha güçlü bir hata ayıklama deneyimi elde etmek için Visual Studio 2019 Enterprise ile anlık görüntüleri açmak. Visual Studio'da ayrıca [etkileşimli anlık görüntülerini almak için anlık görüntü noktaları ayarlamak](https://aka.ms/snappoint) olmadan için bir özel durum bekleniyor.
 
 Hata ayıklama anlık görüntüleri yedi gün boyunca saklanır. Bu bekletme ilkesi, bir uygulama başına temelinde ayarlanır. Bu değeri arttırmak gerekiyorsa, Azure portalında bir destek talebi açarak artışı isteyebilirsiniz.
 
@@ -33,7 +33,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 Şu ortamlarda desteklenir:
 
-* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure uygulama hizmeti](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure bulut Hizmetleri](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) işletim sistemi ailesi 4 veya sonraki sürümlerini çalıştırıyor
 * [Azure Service Fabric Hizmetleri](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) Windows Server 2012 R2 veya sonraki sürümlerde çalışan
 * [Azure sanal makineler ve sanal makine ölçek kümeleri](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) çalıştıran Windows Server 2012 R2 veya üzeri
@@ -44,7 +44,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 Snapshot Debugger etkinleştirildi, ancak anlık görüntüleri görmüyorsanız, kontrol bizim [sorun giderme kılavuzu](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
-## <a name="grant-permissions"></a>İzinleri verme
+## <a name="grant-permissions"></a>İzin ver
 
 Anlık görüntüleri erişim, rol tabanlı erişim denetimi (RBAC) tarafından korunur. Bir anlık görüntü incelemek için önce gerekli rol için bir abonelik sahibi tarafından eklenmelidir.
 
@@ -81,9 +81,9 @@ Anlık görüntü hata ayıklama Görünümü'nde, çağrı yığını ve deği�
 Anlık görüntüler, hassas bilgiler içerebilir ve görüntülenebilir olmayan varsayılan olarak. Anlık görüntüleri görüntülemek için olmalıdır `Application Insights Snapshot Debugger` size atanan rol.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Anlık görüntüleri Göster Visual Studio 2017 Enterprise veya üzeri
-1. Tıklayın **anlık görüntüyü indir** indirmek için düğmeye bir `.diagsession` dosyasını Visual Studio 2017 Enterprise tarafından açılabilir.
+1. Tıklayın **anlık görüntüyü indir** indirmek için düğmeye bir `.diagsession` dosyasını Visual Studio Enterprise tarafından açılabilir.
 
-2. Açmak için `.diagsession` dosya anlık görüntü hata ayıklayıcısı VS bileşeninin yüklü olması gerekir. Anlık görüntü hata ayıklayıcı bileşeni ASP.net iş yükünü VS gerekli bir bileşenidir ve VS yükleyici tek tek bileşenler listesinden seçilebilir. Bir Visual Studio 2017 sürüm 15.5 önce kullanıyorsanız uzantısını yüklemeniz gerekir [VS Market'te](https://aka.ms/snapshotdebugger).
+2. Açmak için `.diagsession` dosya anlık görüntü hata ayıklayıcısı Visual Studio bileşeninin yüklü olması gerekir. Anlık görüntü hata ayıklayıcı bileşeni Visual Studio'da ASP.net iş yükü, gerekli bir bileşenidir ve Visual Studio yükleyicisi tek tek bileşenler listesinden seçilebilir. Visual Studio 2017 sürüm 15.5 önce Visual Studio sürümünü kullanıyorsanız, uzantısını yüklemeniz gerekir [Visual Studio Market](https://aka.ms/snapshotdebugger).
 
 3. Anlık görüntü dosyası açtıktan sonra Visual Studio'da mini döküm hata ayıklama sayfası görüntülenir. Tıklayın **hata ayıklama yönetilen kodu** anlık görüntü hata ayıklama başlatılamıyor. Anlık görüntü geçerli işlemin durumunu ayıklayabilirsiniz, burada özel durumun oluştuğu kod satırına açılır.
 
@@ -134,7 +134,7 @@ Ancak, Azure uygulama hizmetleri, anlık görüntü toplayıcının koleksiyon p
 ## <a name="next-steps"></a>Sonraki adımlar
 Uygulamanız için Application Insights Snapshot Debugger etkinleştir:
 
-* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure uygulama hizmeti](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric Hizmetleri](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure sanal makineler ve sanal makine ölçek kümeleri](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

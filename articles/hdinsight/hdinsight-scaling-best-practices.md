@@ -1,19 +1,18 @@
 ---
 title: Ölçek kümesi boyutları - Azure HDInsight
-description: İş yükünüz için bir HDInsight kümesini ölçeklendirin.
+description: Esnek bir şekilde, iş yüküyle eşleşmesi için bir Azure HDInsight kümesini ölçeklendirin.
 author: ashishthaps
+ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: ashish
-ms.openlocfilehash: a172024e4662e647b39fe999f1be3cfcef04b5ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/13/2019
+ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698243"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595859"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight kümeleri ölçeklendirme
 
@@ -21,6 +20,7 @@ HDInsight, ölçeğini ve, kümede çalışan düğümleri sayısını ölçeği
 
 Örneğin, bazı toplu işlem varsa, günde bir kez veya ayda bir kez gerçekleşir, HDInsight kümesi zamanlanmış olay önce birkaç dakika'kurmak için yeterli bellek olacaktır ve CPU işlem gücü ölçeklendirilebilir.  Daha sonra işlem tamamlandı ve yeniden kullanımı arıza sonra HDInsight kümesine daha az çalışan düğümü aşağı ölçeklendirebilirsiniz.
 
+Aşağıda açıklanan yöntemlerden birini kullanarak el ile bir kümenin ölçeğini veya kullanın [otomatik ölçeklendirme](hdinsight-autoscale-clusters.md) seçenekleri sistemin otomatik olarak sağlamak için ölçeği yukarı ve aşağı yanıt CPU, bellek ve diğer ölçümleri.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,11 +32,11 @@ Microsoft kümeleri ölçeklendirmek için aşağıdaki yardımcı programların
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<küme adı > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<küme adı > - TargetInstanceCount \<NewSize >|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdınsight yeniden boyutlandırma](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<kaynak grubu >--ad \<küme adı >--hedef örnek sayısı \<NewSize >|
-|[Klasik Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdınsight küme boyutlandırma \<clusterName > \<hedef örnek sayısı >|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdınsight yeniden boyutlandırma](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<kaynak grubu >--ad \<küme adı >--hedef örnek sayısı \<NewSize >|
+|[Klasik Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdınsight küme boyutlandırma \<clusterName > \<hedef örnek sayısı > |
 |[Azure portal](https://portal.azure.com)|HDInsight kümesi bölmenizi açın, **küme boyutu** sol taraftaki menüden, sonra küme boyutu bölmesinde, çalışan düğümlerinin sayısını yazın ve Kaydet'i seçin.|  
 
-![Küme ölçeklendirme](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Kümeyi ölçeklendirin](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Bu yöntemlerden birini kullanarak, HDInsight kümenizin ölçeğini artırıp dakika içinde ölçeklendirebilirsiniz.
 
@@ -326,6 +326,6 @@ Son seçenek, HDFS güvenli moda girer nadir durumlarda için izlemek için ard�
     
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [Azure HDInsight kümeleri otomatik olarak ölçeklendirme](hdinsight-autoscale-clusters.md)
 * [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md)
 * [Ölçek kümeleri](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [HDInsight kümelerini Apache Ambari Web arabiriminden yönetme](hdinsight-hadoop-manage-ambari.md)

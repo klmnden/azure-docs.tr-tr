@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716277"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561375"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri çıktığı kümedeki tüm varlıklarda sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıkları siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -57,7 +57,7 @@ Rapor yaşam süresi (TTL) kira genel zaman aşımını belirtir. Koşul etkin k
 * **Özellik**: İle başlayan **Komşuları** ve düğüm bilgileri içerir.
 * **Sonraki adımlar**: Komşu kaybı neden olduğunu araştırın. Örneğin, küme düğümler arasında iletişim bakın.
 
-### <a name="rebuild"></a>Yeniden derleme
+### <a name="rebuild"></a>Yeniden derle
 
 Yük Devretme Yöneticisi'ni (FM) hizmeti, küme düğümleri hakkında bilgi yönetir. FM verilerini kaybeder ve veri kaybı gider, küme düğümleri hakkında en güncel bilgilere sahip olmasını garanti edemez. Bu durumda, sistem yeniden geçer, ve System.FM veri kümedeki tüm düğümlerden durumunu yeniden derlemek için toplar. Bazı durumlarda, ağ veya düğüm sorunları nedeniyle yeniden takılı durmuş veya. Aynı durum, Yük Devretme Yöneticisi ana (FMM) hizmetiyle meydana gelebilir. FMM FMs kümede olduğu, izleme tutan bir durum bilgisi olmayan sistemi hizmetidir. FMM'ın birincil her zaman 0 olarak en yakın kimlikli düğümüdür. Bu düğüm bırakılan, yeniden derleme tetiklenir.
 Önceki koşullardan biri gerçekleştiğinde **System.FM** veya **System.FMM** bir hata raporu işaretler. Yeniden iki aşama birinde takılmış olabilir:
@@ -128,7 +128,7 @@ System.Hosting kaynak İdaresi ölçümleri (bellek ve CPU çekirdeği) için ge
 ## <a name="application-system-health-reports"></a>Uygulama sistem durumu raporlarını
 Küme Yöneticisi hizmeti temsil eden System.CM yöneten bir uygulamayla ilgili bilgileri yetkilisidir.
 
-### <a name="state"></a>Durum
+### <a name="state"></a>Eyalet
 Uygulama oluşturulduğunda veya güncelleştirildiğinde System.CM olarak Tamam bildirir. Uygulama Mağazası'ndan kaldırılır, böylece silindiğinde sistem durumu deposu bildirir.
 
 * **SourceId**: System.CM
@@ -161,7 +161,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Hizmet sistem durumu raporlarını
 Yük Devretme Yöneticisi hizmeti temsil eden System.FM hizmetleri hakkında bilgi yöneten yetkilisidir.
 
-### <a name="state"></a>Durum
+### <a name="state"></a>Eyalet
 Hizmet oluşturulduğunda System.FM olarak Tamam bildirir. Hizmet silindiğinde bir varlık health Store'dan siler.
 
 * **SourceId**: System.FM
@@ -203,7 +203,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Bölüm sistem durumu raporlarını
 Yük Devretme Yöneticisi hizmeti temsil eden System.FM yöneten hizmet bölümleri hakkında bilgi yetkilisidir.
 
-### <a name="state"></a>Durum
+### <a name="state"></a>Eyalet
 Bölüm oluşturuldu ve iyi durumda olduğunda System.FM olarak Tamam bildirir. Bölüm silindiğinde bir varlık health Store'dan siler.
 
 En az yineleme sayısı bölümü bir hata bildirir. Bölümü altında en az çoğaltma sayısı değil, ancak hedef çoğaltma sayısı olduğu, bir uyarı bildirir. Bölüm çekirdek kaybında System.FM, bir hata bildirir.
@@ -380,7 +380,7 @@ Her çoğaltma için sistem durumu raporu içerir:
 ## <a name="replica-system-health-reports"></a>Çoğaltma sistem durumu raporlarını
 **System.RA**, yeniden yapılandırma aracı bileşeni temsil eden çoğaltma durumu için yetkili olan.
 
-### <a name="state"></a>Durum
+### <a name="state"></a>Eyalet
 Çoğaltma oluşturduğunuzda System.RA Tamam bildirir.
 
 * **SourceId**: System.RA
@@ -632,7 +632,7 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.Close** ve **IStatefulServiceReplica.Abort**: En yaygın çalışması için geçirilen iptal belirteci uygularken değil bir hizmettir `RunAsync`. Ayrıca, olabilir `ICommunicationListener.CloseAsync`, veya kılınırsa, `OnCloseAsync` takıldı.
 
-- **IStatefulServiceReplica.ChangeRole (S)** ve **IStatefulServiceReplica.ChangeRole(N)**: En yaygın çalışması için geçirilen iptal belirteci uygularken değil bir hizmettir `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole (S)** ve **IStatefulServiceReplica.ChangeRole(N)**: En yaygın çalışması için geçirilen iptal belirteci uygularken değil bir hizmettir `RunAsync`. Bu senaryoda, çoğaltmayı yeniden en iyi çözümdür.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: En yaygın durumda hizmeti bir görevden döndürmedi `RunAsync`.
 
@@ -762,7 +762,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndirme
+### <a name="download"></a>Karşıdan Yükle
 Uygulama paket indirmesi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting
@@ -840,7 +840,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>İndirme
+### <a name="download"></a>Karşıdan Yükle
 Hizmet paketin indirmesi başarısız olursa System.Hosting bir hata bildirir.
 
 * **SourceId**: System.Hosting

@@ -2,28 +2,28 @@
 title: Kaynakları geçirmek için Azure Active Directory uygulamaları | Microsoft Docs
 description: Uygulama erişimi ve kimlik doğrulaması Azure Active Directory (Azure AD) geçirmenize yardımcı olacak kaynaklar'ı tıklatın.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ce62d745bfb0299dc8f3eb401f5a66e38580f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12370d54500dbc1fcd6f812206fdfea3e5298112
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440671"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826089"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Kaynakları geçirmek için Azure Active Directory uygulamaları
 
 Uygulama erişimi ve kimlik doğrulaması Azure Active Directory (Azure AD) geçirmenize yardımcı olacak kaynaklar'ı tıklatın. Bu kısa ankete katılın (https://aka.ms/AppsMigrationFeedback) deneyimi geçirme uygulamalarınızı Azure AD'ye geri bildirim sağlamak (geçiş engelleyiciler dahil olmak üzere gereken araçları için / ya da şirket içi IDP'nizi tutma nedenleri). 
 
-| Kaynak  | Açıklama  |
+| Resource  | Açıklama  |
 |:-----------|:-------------|
 |[Uygulamalarınızı Azure AD'ye geçirme](https://aka.ms/migrateapps/whitepaper) | Bu teknik incelemeyi geçişin yararları sunar ve net bir şekilde açıklanan dört aşamaya geçiş planlama açıklar: bulma, Sınıflandırma, geçiş ve devam eden yönetimi. İşlemleri hakkında düşünmek ve projenize kolayca kullanma parçalara ayırmanız nasıl destekli. Belge, süreç boyunca size yardımcı olacak önemli kaynakların bağlantılarını bağlıdır. |
 |[Çözüm Kılavuzu: Azure AD'ye geçirme uygulamalardan Active Directory Federasyon Hizmetleri (AD FS)](https://aka.ms/migrateapps/adfssolutionguide) | Bu çözüm kılavuzunda, planlama ve uygulama, geçiş teknik incelemeyi daha yüksek bir düzeyde tanımlanan bir geçiş projesi yürütme aynı dört aşaması gösterilmektedir. Bu kılavuzda, belirli bir uygulamayı Azure Directory Federasyon Hizmetleri'nde (AD FS) Azure AD'ye taşınıyor amacı bu aşamaları uygulamak öğreneceksiniz.|

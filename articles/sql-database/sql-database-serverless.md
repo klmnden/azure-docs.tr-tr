@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620156"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823310"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL veritabanı sunucusuz (Önizleme)
 
@@ -277,19 +277,21 @@ Faturalandırılan işlem miktarını tarafından aşağıdaki ölçüm sunulur:
 
 Bu miktar saniyede hesaplanır ve 1 dakika içinde toplanır.
 
-**Örnek**: GP_S_Gen5_4 ile aşağıdaki kullanımı bir saat diliminde kullanarak veritabanı göz önünde bulundurun:
+1 dakika sanal çekirdek ve en fazla 4 sanal çekirdek ile yapılandırılmış bir sunucusuz veritabanı göz önünde bulundurun.  Bu, yaklaşık 3 GB en düşük bellek ve en fazla 12 GB bellek karşılık gelir.  Otomatik duraklatma gecikme 6 saat olarak ayarlanır ve veritabanı iş yükünüzü 24 saatlik bir dönemde ilk 2 saat boyunca etkin ve etkin olmayan aksi varsayalım.    
 
-|Süre (saat: dakika)|app_cpu_billed (sanal çekirdek saniye)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Toplam: 1631|
+Bu durumda, veritabanı işlem ve depolama için sırasında ilk 8 saat olarak faturalandırılır.  Veritabanı devre dışı sonra 2 saatten itibaren olsa da, veritabanı çevrimiçi durumdayken sağlanan en düşük işlem üzerinde göre sonraki 6 saat içindeki işlem yine de faturalandırılır.  Veritabanı duraklatıldığında yalnızca depolama 24 saatlik bir dönemde geri kalanı faturalandırılır.
 
-İşlem birim fiyatı $0.000073/vCore/second olduğunu varsayın. Sonra da bu bir saatlik süre için faturalandırılırsınız işlem aşağıdaki formül kullanılarak belirlenir: **$0.000073/vCore/second * $0.1191 1631 sanal çekirdek saniye =**
+Bu örnekteki işlem faturada daha kesin bir şekilde aşağıdaki gibi hesaplanır:
+
+|Zaman Aralığı|saniyede kullanılan sanal çekirdekler|Saniyede kullanılan GB|İşlem boyutu faturalandırılır|Sanal çekirdek saniye süre faturalandırılır|
+|---|---|---|---|---|
+|0:00-1:00|4|9|kullanılan sanal çekirdekler|4 sanal çekirdek * 3600 saniye = 14400 sanal çekirdek saniye|
+|1:00-2:00|1|12|Kullanılan bellek|12 Gb * 1/3 * 14400 sanal çekirdek saniye = 3600 saniye|
+|2:00-8:00|0|0|Sağlanan en düşük bellek|3 Gb * 1/3 * 21600 saniye = 21600 sanal çekirdek saniye|
+|8:00-24:00|0|0|Duraklatılmış faturalandırılırken işlem yok|0 sanal çekirdek saniye|
+|Toplam sanal çekirdek saniye içinde 24 saat olarak faturalandırılır||||50400 sanal çekirdek saniye|
+
+İşlem birim fiyatı $0.000073/vCore/second olduğunu varsayın.  Sonra bu 24 saat boyunca faturalandırılan işlem ürün işlem birim fiyatı ve sanal çekirdek saniyelik olarak faturalandırılır: $0.000073/vCore/second * $3.68 50400 sanal çekirdek saniye =
 
 ## <a name="available-regions"></a>Kullanılabilen bölgeler
 

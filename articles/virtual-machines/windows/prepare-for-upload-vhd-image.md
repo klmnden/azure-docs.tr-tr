@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/13/2018
+ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ae0e7855db6bec9f48d2b9511f0d0626d883111
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460058"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561349"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
-Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+
+Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure hem 1. nesil ve 2. kuşak Vm'lerde VHD dosya biçiminde destekler ve sabit disk boyutu vardır. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için bkz [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) ve [nesil 2 sanal makineleri azure'da](generation-2.md).
 
 Azure VM destek ilkesi hakkında daha fazla bilgi için bkz. [Microsoft Azure sanal makineler için Microsoft sunucu yazılımı desteği](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -324,7 +325,7 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 
      Aşağıdaki gruplar bu ilkeye bağlı olarak listelenmesi gerekir:
 
-   - Yöneticiler
+   - yöneticiler
    - Yedekleme işleçleri
    - Herkes
    - Kullanıcılar
@@ -338,7 +339,7 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 ### <a name="install-windows-updates"></a>Windows güncelleştirmeleri yükle
 İdeal Yapılandırması **makineyi en son düzeltme eki düzeyine sahip**. Bu mümkün değilse, aşağıdaki güncelleştirmelerinin yüklendiğinden emin olun:
 
-| Bileşen               | binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8,Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 sürüm 1607'ye Windows Server 2016 sürüm 1607'ye | Windows 10 Sürüm 1703    | Windows 10 1709 Windows Server 2016 sürüm 1709 | Windows 10, 1803 Windows Server 2016 sürümü 1803 |
+| Bileşen               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8,Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 sürüm 1607'ye Windows Server 2016 sürüm 1607'ye | Windows 10 Sürüm 1703    | Windows 10 1709 Windows Server 2016 sürüm 1709 | Windows 10, 1803 Windows Server 2016 sürümü 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Depolama                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | Storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -403,7 +404,7 @@ Bu Genelleştirme, her rol ya da Windows tabanlı bir bilgisayarda yüklü uygul
 
     ![Sistem hazırlığı aracı](media/prepare-for-upload-vhd-image/syspre.png)
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 6. Sysprep tamamlandığında, VM'yi kapatın. Kullanmayın **yeniden** sanal makineyi.
 7. Artık VHD yüklenmek hazırdır. Genelleştirilmiş bir diskten VM oluşturma hakkında daha fazla bilgi için bkz. [genelleştirilmiş VHD yükleme ve Azure'da yeni bir VM oluşturmak için bunu kullanın](sa-upload-generalized.md).
 

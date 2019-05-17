@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549861"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595389"
 ---
+> [!NOTE] 
+> Bu makalede ele alınan kullanıcı hesaplarını kullanıcılardan farklı güvenlik nedenleriyle, Uzak Masaüstü Protokolü (RDP) veya güvenli Kabuk (SSH) için kullanılan hesaplar. 
+>
+> Linux sanal makine yapılandırması SSH üzerinden çalışan bir düğüme bağlanmak için bkz: [azure'da bir Linux sanal makinesi için Uzak Masaüstü kullanım](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Windows RDP aracılığıyla çalışan düğümlerine bağlanmak için bkz: [Windows Server VM'sine bağlanma](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Bulut hizmeti yapılandırmasını çalıştıran RDP aracılığıyla bir düğüme bağlanmak için bkz: [Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kullanıcı hesaplarını görevleri Batch'de çalıştırma
 
 Azure Batch görevinde, her zaman bir kullanıcı hesabı altında çalışır. Varsayılan olarak, görevler, yönetici izinleri olmayan standart kullanıcı hesapları altında çalışır. Bu varsayılan kullanıcı hesabının ayarlarını genellikle yeterli. Belirli senaryolar için ancak kullanıcı hesabı altında çalıştırılacak bir görev istediğiniz yapılandırabilmesi kullanışlıdır. Bu makalede, kullanıcı hesaplarını ve nasıl senaryonuz için yapılandırabilirsiniz türleri açıklanmaktadır.
@@ -36,14 +45,6 @@ Azure Batch, görevleri çalıştırmak için iki tür kullanıcı hesapları sa
 
 > [!IMPORTANT] 
 > Batch hizmeti sürüm 2017-01-01.4.0 bu sürümü çağırmak için kodunuzu güncelleştirmenizi gerektiren bir değişiklik sunuyor. Batch daha eski bir sürümünden geçirme kodu varsa, dikkat **runElevated** özelliği, REST API veya Batch istemci kitaplıkları artık desteklenmiyor. Yeni **Userıdentity** özelliği ayrıcalık düzeyini belirtmek için bir görev. Başlıklı bölüme bakın [son Batch istemci kitaplığını için kodunuzu güncelleştirin](#update-your-code-to-the-latest-batch-client-library) istemci kitaplıklarından birini kullanıyorsanız, Batch kodunuzu güncelleme için hızlı yönergeler için.
->
->
-
-> [!NOTE] 
-> Bu makalede ele alınan kullanıcı hesaplarına Uzak Masaüstü Protokolü (RDP) veya güvenli Kabuk (SSH), güvenlikle ilgili nedenlerle desteklemez. 
->
-> Linux sanal makine yapılandırması SSH üzerinden çalışan bir düğüme bağlanmak için bkz: [azure'da bir Linux sanal makinesi için Uzak Masaüstü kullanım](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Windows RDP aracılığıyla çalışan düğümlerine bağlanmak için bkz: [Windows Server VM'sine bağlanma](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Bulut hizmeti yapılandırmasını çalıştıran RDP aracılığıyla bir düğüme bağlanmak için bkz: [Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 

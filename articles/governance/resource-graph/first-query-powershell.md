@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9215cac6fe4e4ec8bac3fac773c919c6e13cf05
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 17003864c7bcc5f8be6acf17d40ce2039f031313
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790020"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823239"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak ilk Kaynak Grafiği sorgunuzu çalıştırma
 
@@ -90,7 +90,7 @@ Azure PowerShell modülünün seçtiğiniz ortamınıza eklenmesiyle birlikte ş
 
 Son sorgu birkaç kere çalıştırıldığında, ortamınızda hiçbir şeyin değişmediği varsayılarak döndürülen sonuçlar tutarlı ve beklendiği gibi olur, yani **Ad** özelliğine göre düzenlenir ama yine de en iyi beş sonuçla sınırlıdır.
 
-## <a name="cleanup-resources"></a>Kaynakları temizleme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Kaynak Grafiği modülünü Azure PowerShell ortamınızdan kaldırmak isterseniz, aşağıdaki komutu kullanarak bunu yapabilirsiniz:
 

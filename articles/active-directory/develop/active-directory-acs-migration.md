@@ -3,8 +3,8 @@ title: Azure erişim denetimi Hizmeti'nden geçiş | Microsoft Docs
 description: Uygulamaları ve Hizmetleri Azure Access Control Service (ACS) öğesinden taşıma seçenekleri hakkında bilgi edinin.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301082"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546230"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure Access Control Service'ten geçiş yapma
 
@@ -129,7 +129,7 @@ Aşağıdaki bölümlerde, diğer Microsoft teknolojileri için erişim denetimi
 
 Access Control tarafından artık verilen belirteçleri kabul eden her bir Microsoft bulut hizmeti, en az bir alternatif kimlik doğrulama biçimi destekler. Her hizmet için doğru kimlik doğrulama mekanizması değişir. Resmi rehberlik için her bir hizmet için belirli belgelere başvurmak öneririz. Kolaylık olması için her bir belge kümesi verilmiştir:
 
-| Hizmet | Rehber |
+| Hizmet | Rehberlik |
 | ------- | -------- |
 | Azure Service Bus | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus geçişi | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -150,7 +150,7 @@ Access Control tarafından artık verilen belirteçleri kabul eden her bir Micro
 
 SharePoint 2013, 2016 ve SharePoint Online müşterilerine uzun ACS kimlik doğrulaması amacıyla kullanılan bulut, şirket içi ve karma senaryoları. Bazıları taşınmaz sırasında bazı SharePoint özelliklerini ve kullanım örnekleri tarafından ACS devre dışı bırakılması, etkilenecek. En popüler SharePoint bazıları bu Dengeleme ACS özellik için Geçiş Kılavuzu aşağıdaki tabloda özetlenmiştir:
 
-| Özellik | Rehber |
+| Özellik | Rehberlik |
 | ------- | -------- |
 | Azure ad kullanıcıların kimliklerinin doğrulanması | Daha önce Azure AD kimlik doğrulaması için SharePoint'e gereken SAML 1.1 belirteçleri desteklemiyor ve ACS SharePoint ile Azure AD belirteç biçimlerini uyumlu olarak yapılan bir aracı olarak kullanıldı. Artık, [SharePoint şirket içi uygulama Azure AD uygulama galerisinde SharePoint kullanarak doğrudan Azure AD'ye bağlama](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Uygulama kimlik doğrulaması ve SharePoint şirket içi sunucudan sunucuya kimlik doğrulaması](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. | 
@@ -204,7 +204,7 @@ Yüksek bir düzeyde *Azure Active Directory büyük olasılıkla en iyi seçene
 | WS-Güven | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
 | JWT | Beta sürümünde desteklenir | Desteklenen |
-| SAML 1.1 | Desteklenen | Önizleme |
+| SAML 1.1 | Desteklenen | Preview |
 | SAML 2.0 | Desteklenen | Desteklenen |
 | SWT | Desteklenen | Desteklenmiyor |
 | **Özelleştirmeleri** | | |

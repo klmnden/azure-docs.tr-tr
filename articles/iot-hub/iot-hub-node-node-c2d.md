@@ -9,17 +9,17 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: baefd05b562d688b662bf988c7b36a0e9cd154b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2c3c3988193242cd0afe0135b019c7e6f73b59c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61441857"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596728"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>IOT hub'ı (Node) ile bulut buluttan cihaza iletileri gönderme
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) öğretici, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir sanal cihaz uygulamasının kodu nasıl gösterir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -44,7 +44,7 @@ Bu öğreticinin sonunda iki Node.js konsol uygulaması çalıştırın:
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Node.js 4.0.x sürümü veya sonraki bir sürüm.
+* Node.js sürümü 10.0.x veya üzeri.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) yalnızca birkaç dakika içinde.)
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Sanal cihaz uygulamasında ileti alma

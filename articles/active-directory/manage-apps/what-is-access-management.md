@@ -3,8 +3,8 @@ title: Azure AD kullanarak uygulamalara erişimi yönetme | Microsoft Docs
 description: Azure Active Directory kuruluşlar her kullanıcının erişimi olan uygulamaları belirtmek nasıl sağladığını açıklar.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440739"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825998"
 ---
 # <a name="managing-access-to-apps"></a>Uygulamalara erişimi yönetme
 Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama, kuruluşunuzun kimlik sistemine tümleştirildikten sonra bir mücadele haline devam edin. Çoğu durumda, BT yöneticileri veya Yardım Masası sahip devam eden etkin bir rol, uygulamalara erişimi yönetme gerçekleştirilecek. Bazı durumlarda, atama, genel veya bölümsel BT ekibi tarafından gerçekleştirilir. Atama karar BT kolaylaştırır önce onay gerektiren iş karar mercii Devredilmiş olması sık yöneliktir atama.  Tümleştirme mevcut otomatik kimlik ve erişim yönetimi sistemi kullanarak, rol tabanlı erişim denetimi (RBAC) veya öznitelik tabanlı erişim denetimi (ABAC) gibi diğer kuruluşlar yaparlar. Tümleştirme ve kural geliştirme özelleştirilmiş ve pahalı olma eğilimindedir. İzleme veya her iki Yönetim yaklaşımını üzerinde raporlama kendi ayrı, yüksek maliyetli ve karmaşık bir yatırımdır.

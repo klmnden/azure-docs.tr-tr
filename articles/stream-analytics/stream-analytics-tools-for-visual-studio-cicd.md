@@ -1,26 +1,26 @@
 ---
-title: Sürekli tümleştirme ve Stream Analytics araçları ile geliştirme
-description: Bu makalede, bir sürekli tümleştirme ve dağıtım işlemi ayarlamak için Azure Stream Analytics için Visual Studio Araçları kullanmayı açıklar.
+title: Sürekli tümleştirme ve Azure Stream Analytics CI/CD NuGet paketi ile geliştirin
+description: Bu makalede, bir sürekli tümleştirme ve dağıtım işlemi ayarlamak için Azure Stream Analytics CI/CD NuGet paketini kullanmayı açıklar.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761514"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827305"
 ---
-# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Sürekli tümleştirme ve Stream Analytics araçları ile geliştirme
-Bu makalede, Visual Studio için Azure Stream Analytics araçları bir sürekli tümleştirme ve dağıtım sürecini kullanmayı kullanmayı açıklar.
+# <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>Sürekli tümleştirme ve Azure Stream Analytics CI/CD NuGet paketi ile geliştirin
+Bu makalede, bir sürekli tümleştirme ve dağıtım işlemi ayarlamak için Azure Stream Analytics CI/CD NuGet paketini kullanmayı açıklar.
 
 2.3.0000.0 sürümünü kullanın veya üstü, [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) MSBuild için destek alma.
 
-Bir NuGet paketi kullanılabilir: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Bu, Stream Analytics Visual Studio projelerinin sürekli tümleştirme ve dağıtım işlemini destekleyen MSBuild, yerel çalıştırma ve dağıtım araçlarını sağlar. 
+Bir NuGet paketi kullanılabilir: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). MSBuild, yerel çalıştırma ve sürekli tümleştirme ve dağıtım işlemini destekleyen bir dağıtım araçları sağlayan [Stream Analytics Visual Studio projeleri](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > Visual Studio için NuGet paketini yalnızca 2.3.0000.0 veya Stream Analytics Araçları'nın sürümünden sonraki bir sürümü kullanılabilir. Visual Studio Araçları'nın önceki sürümlerinde oluşturulmuş projeleri varsa 2.3.0000.0 veya sürümünden sonraki bir sürümü yalnızca açın ve kaydedin. Ardından, yeni özellikler etkinleştirilir. 
 
@@ -46,7 +46,7 @@ Stream Analytics Visual Studio Proje başarıyla oluşturulursa, altında aşağ
 Visual Studio projenize ayarlarında parameters.json dosyasındaki varsayılan parametreleri arasındadır. Parametreleri, başka bir ortama dağıtmak istiyorsanız, uygun şekilde değiştirin.
 
 > [!NOTE]
-> Tüm kimlik bilgilerini varsayılan değerlerin ayarlandığından null. İşiniz *gerekli* buluta dağıtmadan önce değerleri ayarlamak için.
+> Tüm kimlik bilgilerini varsayılan değerlerin ayarlandığından null. İşiniz **gerekli** buluta dağıtmadan önce değerleri ayarlamak için.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -60,7 +60,7 @@ Yönetilen kimliği çıkış havuzu olarak Azure Data Lake Store Gen1 kullanmak
 
 ## <a name="command-line-tool"></a>Komut satırı aracı
 
-### <a name="build-the-project"></a>Projeyi derleme
+### <a name="build-the-project"></a>Proje derleme
 NuGet paketi olarak adlandırılan bir komut satırı aracı olan **SA.exe**. Bu, Proje yapı ve sürekli tümleştirme ve sürekli teslim işlem içinde kullanabileceğiniz rastgele bir makinede yerel test destekler. 
 
 Dağıtım dosyaları varsayılan olarak geçerli dizininin altına yerleştirilir. Çıkış yolu aşağıdaki - OutputPath parametresini kullanarak belirtebilirsiniz:
@@ -90,3 +90,9 @@ arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-O
 ```
 
 
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* [Hızlı Başlangıç: Visual Studio'da bir Azure Stream Analytics bulut iş oluşturma](stream-analytics-quick-create-vs.md)
+* [Stream Analytics sorguları Visual Studio ile yerel olarak test etme](stream-analytics-vs-tools-local-run.md)
+* [Visual Studio ile Azure Stream Analytics işleri keşfedin](stream-analytics-vs-tools.md)

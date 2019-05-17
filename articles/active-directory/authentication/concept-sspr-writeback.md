@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190723"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823289"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
@@ -42,9 +42,8 @@ Parola geri yazma sağlar:
 * **Bunları Azure portalından bir yönetici sıfırlar parola geri yazmayı destekler**: Her bir yönetici bir kullanıcının parolasını sıfırlar [Azure portalında](https://portal.azure.com), kullanıcının Federasyon ya da parola karması eşitlenmiş, parolayı yeniden şirket içine yazılır. Bu işlevsellik şu anda Office Yönetim Portalı'nda desteklenmiyor.
 * **Herhangi bir gelen güvenlik duvarı kuralları gerektirmeyen**: Parola geri yazma, temel alınan bir iletişim kanalı bir Azure Service Bus geçişini kullanır. Tüm iletişim bağlantı noktası 443 üzerinden giden.
 
-> [!Note]
+> [!NOTE]
 > Parola geri yazma ile şirket içi Active Directory'de korumalı gruplardaki mevcut kullanıcı hesapları kullanılamaz. İçinde mevcut yönetici hesapları, grupları korumalı şirket içi AD parola geri yazma ile kullanılabilir. Korunan grupları hakkında daha fazla bilgi için bkz. [korumalı hesaplar ve gruplar Active Directory'de](https://technet.microsoft.com/library/dn535499.aspx).
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Parola geri yazma için lisans gereksinimleri
 
@@ -63,7 +62,6 @@ Parola geri yazma özelliğini kullanmak için kiracınızda atanan aşağıdaki
 
 > [!WARNING]
 > Tek başına Office 365 planları lisanslama *"Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile" desteklemeyen* ve çalışmak bu işlev için önceki planlardan birine sahip olması gerekir.
->
 
 ## <a name="how-password-writeback-works"></a>Parola geri yazma nasıl çalışır?
 
@@ -90,7 +88,6 @@ Federe veya parola karma sıfırlama veya buluttaki parolalarını değiştirme 
 1. Parola ayarlama işlemi başarılı olursa, kullanıcının parolasını değiştirdiğinden bildirilir.
    > [!NOTE]
    > Kullanıcının parola karmasını Azure AD'ye parola karması eşitleme kullanılarak eşitlenmişse şirket içi parola ilkesini bulut parola ilkesini zayıf bir fırsat yoktur. Bu durumda, şirket içi ilke uygulanmaz. Bu ilke, çoklu oturum açma sağlamak için parola karması eşitleme veya Federasyon kullanıyorsanız şirket içi ilkenizi bulutta olursa olsun uygulanmasını sağlar.
-   >
 
 1. Parola ayarlama işleminin başarısız olması, bir hata yeniden denemek için kullanıcıya sorar. İşlemi nedeniyle başarısız olabilir:
     * Hizmet oldu.
@@ -155,6 +152,7 @@ Parolalar, aşağıdaki durumlarda geri yazılır:
    * Tüm yönetici zorla Self Servis parola işlemi, örneğin, parola sona erme değiştirme
    * Bir yönetici Self Servis parola sıfırlama kaynaklanan [parola sıfırlama portalı](https://passwordreset.microsoftonline.com)
    * Tüm son kullanıcı yönetici tarafından başlatılan parola gelen sıfırlama [Azure portalı](https://portal.azure.com)
+   * Tüm son kullanıcı yönetici tarafından başlatılan parola gelen sıfırlama [Microsoft 365 Yönetim Merkezi](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Desteklenmeyen geri yazma işlemleri
 
@@ -163,11 +161,10 @@ Parolalar *değil* aşağıdaki durumlarda hiçbirinde yazılır:
 * **Desteklenmeyen son kullanıcı işlemleri**
    * PowerShell sürüm 1, sürüm 2 veya Azure AD Graph API'yi kullanarak kendi parolasını sıfırlama herhangi bir son kullanıcı
 * **Desteklenmeyen yönetici işlemleri**
-   * Tüm son kullanıcı yönetici tarafından başlatılan parola gelen sıfırlama [Office Yönetim Portalı](https://portal.office.com)
    * PowerShell sürüm 1, sürüm 2 veya Azure AD Graph API'si sıfırlama herhangi bir son kullanıcı yönetici tarafından başlatılan parola
 
 > [!WARNING]
-> Onay kutusu "kullanıcı sonraki oturumda parola değiştirmelidir Active Directory Kullanıcıları ve Bilgisayarları veya Active Directory Yönetim Merkezi gibi şirket içi Active Directory Yönetimsel Araçlar'daki değiştirmeli" kullanımı desteklenmiyor. Şirket içi, bir parola değiştirirken bu seçeneği işaretlemeyin. 
+> Onay kutusu "kullanıcı sonraki oturumda parola değiştirmelidir Active Directory Kullanıcıları ve Bilgisayarları veya Active Directory Yönetim Merkezi gibi şirket içi Active Directory Yönetimsel Araçlar'daki değiştirmeli" kullanımı desteklenmiyor. Şirket içi, bir parola değiştirirken bu seçeneği işaretlemeyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

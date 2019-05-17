@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554720"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595284"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch hizmeti API'si ile Azure depolama için görev verileri kalıcı hale
 
@@ -180,7 +180,7 @@ C# dışındaki bir dilde geliştiriyorsanız, dosya kuralları standart kendini
 
 [PersistOutputs] [ github_persistoutputs] örnek proje, biridir [Azure Batch kod örnekleri] [ github_samples] GitHub üzerinde. Bu Visual Studio çözüm görev çıktısını kalıcı depolama devam ettirmek için .NET için Batch istemci kitaplığını kullanma işlemini gösterir. Örneği çalıştırmak için aşağıdaki adımları izleyin:
 
-1. Projeyi **Visual Studio 2017**.
+1. Projeyi **Visual Studio 2019**.
 2. Batch ve Storage ekleme **hesap kimlik bilgileri** için **AccountSettings.settings** Microsoft.Azure.Batch.Samples.Common projedeki.
 3. **Derleme** (ancak çalıştırılmadı) çözümü. Herhangi bir NuGet paketinin istenirse geri yükleyin.
 4. Karşıya yüklemek için Azure portalını kullanın. bir [uygulama paketini](batch-application-packages.md) için **PersistOutputsTask**. Dahil `PersistOutputsTask.exe` ve bunların bağımlı derlemeleri .zip paketindeki "PersistOutputsTask" için uygulama kimliği ve "1.0" için uygulama paketi sürümünü ayarlama.
