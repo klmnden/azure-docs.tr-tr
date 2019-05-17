@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919960"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594270"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -39,13 +39,15 @@ Tüm Docker dosyaları bulabilirsiniz [GitHub](https://github.com/azure-app-serv
 
 **Çalışma zamanı yığını yapılandırabilirim, başlangıç dosyasını bölümü için beklenen değerler nelerdir?**
 
-| Yığın     | Beklenen değer                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | başlatmak için bir komut, `.jar` uygulama                                    |
-| Tomcat    | Uygulamanız için tüm yapılandırmaları yürütülecek bir betik konumu          |
-| Node.js   | PM2 yapılandırma dosyasının veya komut dosyanızı                                |
-| .Net Core | olarak derlenen DLL'nin adıdır `dotnet <myapp>.dll`                                 |
-| Ruby      | uygulamanızı başlatmak istediğiniz Ruby betiğini                     |
+| Yığın           | Beklenen değer                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | JAR uygulamanızı başlatmak için komutu (örneğin, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | Tüm gerekli yapılandırmaları gerçekleştirmek için bir komut dosyasının konumunu (örneğin, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | PM2 yapılandırma dosyasının veya komut dosyanızı                                |
+| .Net Core       | olarak derlenen DLL'nin adıdır `dotnet <myapp>.dll`                                 |
+| Ruby            | uygulamanızı başlatmak istediğiniz Ruby betiğini                     |
+
+Bu komutları veya betikleri yerleşik Docker kapsayıcısında başlatıldı, ancak önce uygulamanızın kod başlatıldığında sonra yürütülür.
 
 ## <a name="management"></a>Yönetim
 
@@ -202,5 +204,5 @@ Fikrinizi, gönderdiğiniz [Web Apps geri bildirim Forumu](https://aka.ms/webapp
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Linux üzerinde Azure App Service nedir?](app-service-linux-intro.md)
-- [Azure App Service’te hazırlık ortamları ayarlama](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Azure App Service ortamlarında hazırlık ayarlama](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Kapsayıcılar için Web App ile sürekli dağıtım](./app-service-linux-ci-cd.md)

@@ -4,16 +4,15 @@ description: Bu makale, web uygulaması güvenlik duvarı istek boyutu sınırla
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.workload: infrastructure-services
-ms.date: 1/29/2019
+ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791769"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620281"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri
 
@@ -25,7 +24,7 @@ Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamal
 
 Web uygulaması güvenlik duvarı, istek boyutu sınırları içinde alt ve üst sınırlarını yapılandırmanıza olanak sağlar. Aşağıdaki iki boyutu sınırlarını yapılandırma kullanılabilir:
 
-- En fazla istek gövdesi boyutu alanı KB'leri ve denetimler genel istek boyutu sınırı dışında herhangi bir dosya yükler belirtilir. Bu alanın 128 KB'lık maksimum değerine 1 KB'lık minimumdan değişebilir. 128 KB istek gövdesi boyutu için varsayılan değerdir.
+- En fazla istek gövdesi boyutu alanı kilobayt ve denetimler genel istek boyutu sınırı dışında herhangi bir dosya yükler belirtilir. Bu alanın 128 KB'lık maksimum değerine 1 KB'lık minimumdan değişebilir. 128 KB istek gövdesi boyutu için varsayılan değerdir.
 - Dosya karşıya yükleme sınırı alanı MB olarak belirtilir ve izin verilen en büyük dosya yükleme boyutunu yönetir. Orta SKU en fazla 100 MB'ın olsa Bu alan 1 MB en düşük değerini ve en fazla 500 MB büyük SKU örnekleri için sahip olabilir. Dosya karşıya yükleme sınırı için varsayılan değer 100 MB'dir.
 
 Ayrıca, WAF istek gövdesi İnceleme açıp kapatmak için yapılandırılabilir bir düğme sunar. İstek gövdesi İnceleme varsayılan olarak etkinleştirilir. İstek gövdesi İnceleme kapalıysa, WAF HTTP ileti gövdesi içeriğini değerlendirmez. Böyle durumlarda, üst bilgiler, tanımlama bilgileri ve URI WAF kurallarını zorunlu tutmak WAF devam eder. İstek gövdesi İnceleme kapalıysa, en büyük istek gövdesi boyutu alan geçerli değildir ve ayarlanamaz. İletiler için istek gövdesi İnceleme kapatmak için WAF gönderilecek 128 KB'tan büyük sağlar, ancak ileti gövdesi güvenlik açıklarına karşı inceledi değil.
@@ -40,11 +39,12 @@ Hariç tutma listeleri aşağıdaki öznitelikleri eklenebilir:
 
 * İstek üst bilgileri
 * İstek tanımlama bilgileri
-* İstek Gövdesi
+* İstek özniteliği adı (argumenty)
 
    * Çok bölümlü form verilerinin
    * XML
    * JSON
+   * URL sorgu değişkenleri
 
 Belirtin tam istek üst bilgisi, gövdesi, tanımlama bilgisi veya sorgu dizesi özniteliği eşleşme.  Veya kısmi eşleşmeler isteğe bağlı olarak belirtebilirsiniz. Dışlama hiçbir zaman değeri üzerinde bir üstbilgi alanı her zaman açıktır. Hariç tutma kuralları kapsamı geneldir ve tüm sayfaları ve tüm kurallar için.
 
@@ -62,37 +62,36 @@ Her durumda eşleştirme büyük küçük harfe duyarlı değildir ve normal ifa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Aşağıdaki Azure PowerShell kod parçacığı dışlamaları kullanımını gösterir:
+Aşağıdaki örnekler dışlamaları kullanımını göstermektedir.
+
+### <a name="example-1"></a>Örnek 1
+
+Bu örnekte, user-agent üstbilgisi dışlamak istediğiniz. User-agent isteği üstbilgisi, uygulama türü, işletim sistemi, yazılım satıcısı veya istekte bulunan yazılım kullanıcı aracısı yazılım sürümünü belirlemek ağ protokolü eşleri izin veren özellik dizeyi içerir. Daha fazla bilgi için [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+
+Herhangi bir sayıda bu üst bilgiyi değerlendirirken devre dışı bırakmak için neden olabilir. WAF görür ve kötü amaçlı olduğu varsayılır bir dize olabilir. Örneğin, Klasik SQL saldırı "x = x" bir dize. Bazı durumlarda, bu yasal trafik olabilir. Bu nedenle bu başlığı WAF değerlendirmesinden gelen hariç gerekebilir.
+
+Aşağıdaki Azure PowerShell cmdlet'i, user-agent üstbilgisi değerlendirmesinden gelen dışlar:
 
 ```azurepowershell
-// exclusion 1: exclude request head start with xyz
-// exclusion 2: exclude request args equals a
-
-$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
-
-$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
-
-// add exclusion lists to the firewall config
-
-$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestHeaderNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "User-Agent"
 ```
 
-Aşağıdaki json kod parçacığında dışlamaları kullanımını gösterir:
+### <a name="example-2"></a>Örnek 2
 
-```json
-"webApplicationFirewallConfiguration": {
-          "enabled": "[parameters('wafEnabled')]",
-          "firewallMode": "[parameters('wafMode')]",
-          "ruleSetType": "[parameters('wafRuleSetType')]",
-          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
-          "disabledRuleGroups": [],
-          "exclusions": [
-            {
-                "matchVariable": "RequestArgNames",
-                "selectorMatchOperator": "StartsWith",
-                "selector": "a^bc"
-            }
+Bu örnek değeri hariç *kullanıcı* istekte URL yoluyla geçirilen parametre. Örneğin, bir kullanıcı alanı, onu engellediğinde, WAF kötü amaçlı içerik görüntüleyen bir dize içermesi ortamınızdaki ortak varsayalım.  WAF alanındaki herhangi bir şey değerlendirmez. böylece, bu durumda kullanıcı parametresi hariç tutabilirsiniz.
+
+Aşağıdaki Azure PowerShell cmdlet'i kullanıcı parametresi değerlendirmesinden gelen dışlar:
+
+```azurepowershell
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestArgNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "user"
 ```
+Dolayısıyla URL **http://www.contoso.com/?user=fdafdasfda** geçirilen WAF için dize değerlendirmek olmaz **fdafdasfda**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

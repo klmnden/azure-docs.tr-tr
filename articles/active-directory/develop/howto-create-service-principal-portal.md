@@ -3,25 +3,25 @@ title: Portalda Azure uygulama kimliği oluşturma | Microsoft Docs
 description: Yeni Azure Active Directory uygulaması ve Azure Resource Manager rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılan hizmet sorumlusu oluşturmayı açıklar.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300997"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764810"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Nasıl yapılır: Bir Azure AD uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
@@ -58,7 +58,7 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
 1. Uygulamayı atamak istediğiniz kapsam düzeyine gidin. Örneğin abonelik kapsamında bir rol atamak için seçin **tüm hizmetleri** ve **abonelikleri**.
 
-   ![Abonelik seçme](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Abonelik seçin](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Uygulamaya atamak için belirli bir abonelik seçin.
 
@@ -66,14 +66,14 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
    Aradığınız bir abonelik görmüyorsanız seçin **genel abonelik filtresi**. Seçili için portalda istediğiniz aboneliği olduğundan emin olun. 
 
-1. **Erişim denetimi (IAM)** öğesini seçin.
+1. Seçin **erişim denetimi (IAM)**.
 1. Seçin **rol ataması Ekle**.
 
    ![Rol ataması Ekle'yi seçin](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Uygulamayı atamak istediğiniz rolü seçin. Gibi eylemleri yürütmek uygulama izin vermek için **yeniden**, **Başlat** ve **Durdur** örnekleri, select **katkıda bulunan** rol. Varsayılan olarak, Azure AD uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için adını arayın ve seçin.
 
-   ![Rol seç](./media/howto-create-service-principal-portal/select-role.png)
+   ![Rol seçin](./media/howto-create-service-principal-portal/select-role.png)
 
 1. Seçin **Kaydet** rol atama tamamlanması. Bu kapsam için bir role atanmış kullanıcı listesinde uygulamanızı görürsünüz.
 
@@ -106,18 +106,18 @@ Ayrıca, uygulamanızın ve kimlik doğrulama anahtarı için kimliği gerekir. 
 
    ![İstemci Kimliği](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Seçin **ayarları**.
+1. Seçin **sertifikaları ve parolaları**.
 
-   ![ayarları seçin](./media/howto-create-service-principal-portal/select-settings.png)
+   ![ayarları seçin](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. **Anahtarlar**’ı seçin.
-1. Anahtar için bir açıklama ve süre sağlayın. İşiniz bittiğinde **Kaydet**’i seçin.
+1. Seçin **istemci gizli -> Yeni gizli**.
+1. Gizli dizi süre ve bir açıklama sağlayın. İşiniz bittiğinde, seçin **Ekle**.
 
-   ![anahtarı kaydetme](./media/howto-create-service-principal-portal/save-key.png)
+   ![Gizli dizi Kaydet](./media/howto-create-service-principal-portal/save-secret.png)
 
-   Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Daha sonra anahtarı alamazsınız mümkün olmadığından, bu değeri kopyalayın. Uygulama kimliği ile bir uygulama olarak oturum açmak için anahtar değerini sağlayın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
+   İstemci gizli anahtarı kaydettikten sonra istemci gizli dizisinin değeri görüntülenir. Daha sonra anahtarı alamazsınız mümkün olmadığından, bu değeri kopyalayın. Uygulama kimliği ile bir uygulama olarak oturum açmak için anahtar değerini sağlayın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
 
-   ![kaydedilen anahtar](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Gizli dizesini Kopyala](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Gerekli izinler
 
@@ -146,7 +146,7 @@ Azure aboneliğinizde, hesabınızın olması gerekir `Microsoft.Authorization/*
 
 Abonelik izinlerinizi denetlemek için:
 
-1. Sağ üst köşedeki hesabınızı seçin ve seçin **İzinlerim**.
+1. Sağ üst köşedeki hesabınızı seçin ve seçin **... -> İzinlerim**.
 
    ![Kullanıcı izinleri seçin](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Abonelik izinlerinizi denetlemek için:
 
    ![Kullanıcı Bul](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Atanmış olan rolleri görüntülemek ve bir AD uygulamasını bir role atamak için yeterli izinlere sahip olup olmadığını belirler. Aksi durumda, kullanıcı erişimi yöneticisi rolü eklemek için abonelik yöneticinize başvurun. Aşağıdaki görüntüde, kullanıcının kullanıcı yeterli izne sahip olduğu anlamına gelir sahip rolü atanır.
+1. Seçin **rol atamaları** atanmış olan rolleri görüntülemek ve bir AD uygulamasını bir role atamak için yeterli izinlere sahip olup olmadığınızı belirlemeniz için. Aksi durumda, kullanıcı erişimi yöneticisi rolü eklemek için abonelik yöneticinize başvurun. Aşağıdaki görüntüde, kullanıcının kullanıcı yeterli izne sahip olduğu anlamına gelir sahip rolü atanır.
 
    ![izinleri göster](./media/howto-create-service-principal-portal/view-user-role.png)
 

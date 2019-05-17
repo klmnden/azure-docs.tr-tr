@@ -1,7 +1,7 @@
 ---
 title: 'Regresyon: Tahmin ve algoritmaları karşılaştırın'
 titleSuffix: Azure Machine Learning service
-description: Bu görsel arabirim örnek deneyde otomobilin fiyatını tahmin iki regresyon modelleri performansını karşılaştırmak nasıl gösterir. İşlem, eğitim, test ve değerlendirme otomobil fiyat verileri (ham) veri modeli içerir.
+description: Bu makalede tek satırlık bir görsel arabirim kullanarak kod yazmadan karmaşık machine learning denemesi oluşturma gösterilmektedir. Eğitim ve teknik özelliklerini temel alarak bir arabanın fiyatını tahmin etmek için birden çok regresyon modeli hakkında bilgi edinin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442143"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787807"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>2 - regresyon. örnek: Tahmin ve algoritmaları karşılaştırın
 
-Bu görsel arabirim örnek deneyde, otomobilin fiyatını tahmin iki regresyon modeli performansını karşılaştırmak nasıl gösterir. Kullanarak model değerlendirme eğitim ve sınama işlemi içerir **otomobil fiyat verileri (ham)** veri kümesi.
+Tek satırlık bir görsel arabirim kullanarak kod yazmadan karmaşık machine learning denemesi oluşturmayı öğrenin. Bu örnek eğitir ve teknik özelliklerini alarak bir arabanın fiyatını tahmin etmek için birden fazla regresyon modeli karşılaştırır. Bu deneme kullanarak kendi makine öğrenimi sorunlarını gidermek şekilde yapılan seçimleri için stratejinin sağlarız.
+
+Yalnızca machine Learning'i kullanmaya başlıyorsanız, göz atın [temel sürümü](ui-sample-regression-predict-automobile-price-basic.md) deneme temel bir regresyon görmek için bu deneyde.
+
+Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
+
+[![Denemeyi grafiği](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,10 +35,6 @@ Bu görsel arabirim örnek deneyde, otomobilin fiyatını tahmin iki regresyon m
 
     ![Denemeyi açın](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>İlgili örnek
-
-[Örnek 1 - regresyon: Otomobil fiyat tahmini (Temel)](ui-sample-regression-predict-automobile-price-basic.md) Bu deney olarak aynı sorunu çözüp ancak yalnızca bir regresyon modeli kullanan basit bir deneme sunar. Gerileme için temel bir örnek arıyorsanız, ona başvuran.
-
 ## <a name="experiment-summary"></a>Deneme özeti
 
 Bir deneme oluşturmak için aşağıdaki adımları kullanın:
@@ -41,11 +43,6 @@ Bir deneme oluşturmak için aşağıdaki adımları kullanın:
 1. Verileri önceden işleme.
 1. Modeli eğitme.
 1. Test, değerlendirin ve modelleri karşılaştırın.
-
-Denemeyi tam grafiği aşağıda verilmiştir:
-
-[![Denemeyi grafiği](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>Verileri alma
 

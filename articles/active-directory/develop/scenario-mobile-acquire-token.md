@@ -1,6 +1,6 @@
 ---
-title: Mobil uygulama çağrıları API uygulaması için bir belirteç alınırken - web | Microsoft kimlik platformu
-description: Web API'ları (uygulama için bir belirteç alınırken) çağıran bir mobil uygulama oluşturmayı öğrenin
+title: Mobil uygulama çağrıları API'leri uygulama için bir belirteç alma - web | Microsoft kimlik platformu
+description: Web API'ları (uygulama için bir belirteç alma) çağıran bir mobil uygulama oluşturmayı öğrenin
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -15,43 +15,43 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6933bfbbff574495655ef9065a786fa313b02bd6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 88c9215ed221e24099eeb219a4db599a1955920a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075183"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550336"
 ---
-# <a name="mobile-app-that-calls-web-apis---acquire-a-token"></a>Web API - çağıran mobil uygulama bir belirteç Al
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Web API - çağıran mobil uygulama belirteci Al
 
-Korumalı çağırma başlamadan önce web API'leri, uygulamanıza bir erişim belirteci gerekir. Bu bölümde Microsoft kimlik doğrulama kitaplığı (MSAL) kullanarak bir belirteç almak üzere sürecinde yardımcı olur.
+Korumalı çağırma başlamadan önce web API'leri, uygulamanıza bir erişim belirteci gerekir. Bu makalede, Microsoft kimlik doğrulama kitaplığı (MSAL) kullanarak bir belirteç alma işleminde size yol gösterir.
 
 ## <a name="scopes-to-request"></a>İstek için kapsamları
 
-Bir kapsam, her zaman için belirteç isterken gereklidir. Uygulamanıza erişmek hangi verilerin kapsamı belirler.  
+Bir belirteç isteğinde bulunduğunuzda bir kapsam tanımlama gerekir. Uygulamanıza erişmek hangi verilerin kapsamı belirler.  
 
-Birleştirmek istediğiniz web API'nin en basit yaklaşımdır `App ID URI` kapsamlı `.default`. Bu, Microsoft Identity uygulamanız için gerekli tüm kapsamlar portalında bildirir.
+En kolay yaklaşım istenen web API'SİNİN birleştirmek, `App ID URI` kapsamlı `.default`. Bunun yapılması, uygulamanız portalda tüm kapsamlar ayarlamak için gerekli olan Microsoft kimlik platformu söyler.
 
-Android
+#### <a name="android"></a>Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-iOS
+#### <a name="ios"></a>iOS
 ```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
-Xamarin
+#### <a name="xamarin"></a>Xamarin
 ```CSharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="acquiring-tokens"></a>Belirteç alınırken
+## <a name="get-tokens"></a>Belirteç Al
 
-### <a name="via-msal"></a>MSAL
+### <a name="via-msal"></a>Via MSAL
 
-MSAL uygulamaları sessizce ve etkileşimli olarak belirteçlerini almak sağlar. Yalnızca bu yöntemleri çağırmak ve MSAL istenen kapsamlar için erişim belirteci geri döndürür. Sessiz isteği ve geri dönüş için etkileşimli bir isteği gerçekleştirmek için doğru desendir bakın.
+MSAL uygulamaları sessizce ve etkileşimli olarak belirteçlerini almak sağlar. Yalnızca bu yöntemleri çağırmak ve MSAL istenen kapsamlar için erişim belirteci döndürür. Doğru sessiz bir isteği gerçekleştirmek ve etkileşimli bir isteği dönmesi modelidir.
 
 #### <a name="android"></a>Android
 
@@ -61,32 +61,32 @@ PublicClientApplication sampleApp = new PublicClientApplication(
                     this.getApplicationContext(),
                     R.raw.auth_config);
 
-// Check if there are any accounts we can sign in silently
-// Result is in our silent callback (success or error)
+// Check if there are any accounts we can sign in silently.
+// Result is in the silent callback (success or error).
 sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     @Override
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
-            // TODO: Create a silent callback to catch successful or failed request
+            // TODO: Create a silent callback to catch successful or failed request.
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
-            /* No accounts or >1 account */
+            /* No accounts or > 1 account. */
         }
     }
 });    
 
 [...]
 
-// No accounts found, interactively request a token 
-// TODO: Create an interactive callback to catch successful or failed request
+// No accounts found. Interactively request a token.
+// TODO: Create an interactive callback to catch successful or failed request.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### <a name="ios"></a>iOS
 
 ```swift
-// Initialize our app 
+// Initialize the app.
 guard let authorityURL = URL(string: kAuthority) else {
     self.loggingText.text = "Unable to create authority URL"
     return
@@ -95,14 +95,14 @@ let authority = try MSALAADAuthority(url: authorityURL)
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens
+// Get tokens.
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     if let error = error {
         let nsError = error as NSError
 
-        // interactionRequired means we need to ask the user to sign-in. This usually happens
-        // when the user's Refresh Token is expired or if the user has changed their password
+        // interactionRequired means you need to ask the user to sign in. This usually happens
+        // when the user's refresh token is expired or when the user has changed the password,
         // among other possible reasons.
         if (nsError.domain == MSALErrorDomain) {
             if (nsError.code == MSALError.interactionRequired.rawValue) {    
@@ -136,7 +136,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
         return
     }
 
-    // Token is ready via silent acquisition 
+    // Token is ready via silent acquisition.
     self.accessToken = result.accessToken
 }
 ```
@@ -160,13 +160,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-protocol"></a>Protokolü aracılığıyla
+### <a name="via-the-protocol"></a>Protokol üzerinden
 
-Biz geçmeden doğrudan protokole göre öneri yok. Uygulamanız çok sayıda tek oturum açma (SSO) senaryoları özelliğine sahip olmayacaktır ve tüm cihaz yönetimi ve koşullu erişim senaryoları destekleyecek şekilde mümkün olmayacaktır.
+Protokolü kullanarak doğrudan önerilmemektedir. Bunu yaparsanız, uygulamanın bazı çoklu oturum açma (SSO), cihaz yönetimi ve koşullu erişim senaryoları desteklemesi gerekmez.
 
-Belirteçleri protokolü kullanarak mobil uygulamalar için alırken 2 isteklerde gerekir: bir yetkilendirme kodu alın ve için bir belirteç değişimi. 
+Belirteçlerini almak için mobil uygulamalar için protokol kullandığınızda, iki isteği yapmanız gerekir: bir yetkilendirme kodu alın ve için bir belirteç değişimi.
 
-#### <a name="getting-authorization-code"></a>Yetkilendirme kodu alma
+#### <a name="get-authorization-code"></a>Yetkilendirme kodu alın
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -178,7 +178,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="getting-access-and-refresh-token"></a>Erişim ve yenileme belirteci alma
+#### <a name="get-access-and-refresh-token"></a>Erişim ve yenileme belirteci alma
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

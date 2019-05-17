@@ -4,7 +4,7 @@ description: Azure Active Directory'de kayıtlı bir uygulamada uygulama rolleri
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138348"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593919"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Nasıl yapılır: Uygulama rolleri uygulamanıza ekleyin ve bunları belirteci alma
 
@@ -62,7 +62,7 @@ Bu uygulama rolleri tanımlanan [Azure portalında](https://portal.azure.com) uy
 Aşağıdaki örnekte gösterildiği `appRoles` için atayabileceğiniz `users`.
 
 > [!NOTE]
->  `id` Benzersiz bir GUID olması gerekir.
+>`id` Benzersiz bir GUID olması gerekir.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -80,6 +80,9 @@ Aşağıdaki örnekte gösterildiği `appRoles` için atayabileceğiniz `users`.
   ],
 "availableToOtherTenants": false,
 ```
+
+> [!NOTE]
+>`displayName` Boşluk içeremez.
 
 Hedef uygulama rolleri tanımlayabilirsiniz `users`, `applications`, veya her ikisini de. Kullanılabilir olduğunda `applications`, uygulama izinlerini uygulama rolleri görülür **gerekli izinler** dikey penceresi. Doğru hedefleyen bir uygulama rolü aşağıdaki örnekte bir `Application`.
 
@@ -99,6 +102,8 @@ Hedef uygulama rolleri tanımlayabilirsiniz `users`, `applications`, veya her ik
   ],
 "availableToOtherTenants": false,
 ```
+
+Uygulama bildirimi sahip sınırları tanımlanmış rollerinin sayısını etkiler. Bunlar ayrıntılı olarak üzerinde ele alınmayan [bildirim sınırları](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) sayfası.
 
 ### <a name="assign-users-and-groups-to-roles"></a>Kullanıcılar ve gruplar rollerine atama
 

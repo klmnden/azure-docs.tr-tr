@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399445"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596010"
 ---
 # <a name="get-started-with-device-management-java"></a>Cihaz yönetimini (Java) kullanmaya başlama
 
@@ -57,7 +57,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Maven 3.  <br/> [Geliştirme ortamınızı hazırlama](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) nasıl yüklendiğini açıklar [Maven](https://maven.apache.org/what-is-maven.html) Windows veya Linux üzerinde Bu öğretici için.
 
-* [Node.js sürümü: 0.10.0 veya üzeri](https://nodejs.org).
+* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 

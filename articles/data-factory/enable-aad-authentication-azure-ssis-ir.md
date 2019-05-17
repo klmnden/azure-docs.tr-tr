@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848737"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593808"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
@@ -60,7 +60,7 @@ Mevcut bir Azure AD grubunu kullanın veya Azure AD PowerShell kullanarak yeni b
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Yönetilen kimlik bilgilerinizi ADF için grubuna ekleyin. Makale izleyebilirsiniz [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) asıl hizmet kimliği almak için (örneğin 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ancak hizmet kimliği uygulama kimliği, bu amaç için kullanmayın).
+3.  Yönetilen kimlik bilgilerinizi ADF için grubuna ekleyin. Makale izleyebilirsiniz [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) birincil yönetilen kimlik nesne Kimliğini almak için (örneğin 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ancak yönetilen Identity Application kimliği bu amaç için kullanmayın).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
 
 4.  Sağ **ana** seçin ve veritabanı **yeni sorgu**.
 
-5.  Yönetilen kimlik bilgilerinizi ADF için alın. Makale izleyebilirsiniz [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) için asıl hizmet kimliği uygulama kimliği alma (ancak hizmet kimliği Tanımlayıcısı bu amaç için kullanmayın).
+5.  Yönetilen kimlik bilgilerinizi ADF için alın. Makale izleyebilirsiniz [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) için birincil yönetilen kimlik uygulama kimliği alma (ancak yönetilen kimlik nesne kimliği bu amaç için kullanmayın).
 
 6.  Sorgu penceresinde, yönetilen kimlik bilgilerinizi ADF ikili türe dönüştürmek için aşağıdaki T-SQL betiğini yürütün:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
 7.  Sorgu penceresine temizleyin ve bir kullanıcı olarak, ADF için yönetilen kimlik eklemek için aşağıdaki T-SQL betiğini yürütün
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

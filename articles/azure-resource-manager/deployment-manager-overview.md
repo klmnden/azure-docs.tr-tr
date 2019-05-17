@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466550"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595794"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (genel Önizleme) ile güvenli dağıtım uygulamalarını etkinleştirme
 
@@ -38,15 +38,11 @@ Topoloji şablon, dağıtım şablonu dağıtmadan önce dağıtın.
 
 Azure Deployment Manager REST API Başvurusu bulunabilir [burada](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## <a name="supported-locations"></a>Desteklenen konumlar
-
-Orta ABD ve Doğu ABD 2, Önizleme için Deployment Manager kaynakları desteklenir. Hizmet Birimi, yapıt kaynakları ve bu makalede açıklanan piyasaya çıkarma gibi topoloji ve sunum şablonlarındaki kaynakları tanımlarken konumu için bu bölgelerinden birini belirtmeniz gerekir. Ancak, sanal makineler, depolama hesapları ve web uygulamaları gibi bir hizmet oluşturmak için dağıttığınız kaynakların tümünde desteklenmektedir kendi [standart olmayan konumlara](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## <a name="identity-and-access"></a>Kimlik ve erişim
 
 Dağıtım Yöneticisi ile bir [yönetilen kullanıcı tarafından atanan kimliği](../active-directory/managed-identities-azure-resources/overview.md) dağıtım eylemleri gerçekleştirir. Bu kimlik, dağıtımınıza başlamadan önce oluşturun. Bu abonelik için hizmet dağıtıyorsanız ve dağıtımı tamamlamak için yeterli izne erişiminiz olmalıdır. Rolleri verilen eylemler hakkında daha fazla bilgi için bkz: [Azure kaynakları için yerleşik roller](../role-based-access-control/built-in-roles.md).
 
-Kimlik, Dağıtım Yöneticisi için desteklenen konumlardan birinde bulunmalıdır ve dağıtımı ile aynı konumda bulunması gerekir.
+Kimlik, sunum ile aynı konumda bulunmalıdır.
 
 ## <a name="topology-template"></a>Topoloji şablonu
 
@@ -221,7 +217,9 @@ Devam etmeden önce dağıtım bekleme adım duraklatır. Hizmetiniz bir sonraki
 
 Süresi özelliği kullanan [ISO 8601 standardına](https://en.wikipedia.org/wiki/ISO_8601#Durations). Yukarıdaki örnekte, bir dakikalık bekleme belirtir.
 
-Sistem durumu onay adımı hakkında daha fazla bilgi için bkz. [ ]() ve [ ]() daha fazla bilgi için [adımları şablon başvurusu](/azure/templates/Microsoft.DeploymentManager/steps).
+Sistem durumu onay adımı hakkında daha fazla bilgi için bkz. [Azure Deployment Manager için sistem tümleştirme piyasaya tanıtmak](./deployment-manager-health-check.md) ve [Öğreticisi: Azure Dağıtım Yöneticisi'nde sistem durumu denetimi kullanın](./deployment-manager-tutorial-health-check.md).
+
+Daha fazla bilgi için [adımları şablon başvurusu](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Piyasaya çıkarmalar
 

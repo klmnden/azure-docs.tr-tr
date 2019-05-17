@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285174"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594024"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory raporlama gecikmeleri
 
@@ -41,10 +41,10 @@ Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
 > **Gecikme süresi (yüzde 95'lik dilim)** olarak %95 günlükler bildirilir, süresi başvurur ve **gecikme (99. yüzdebirlik dilimde)** olarak %99 günlükler bildirilir süresini gösterir. 
 >
 
-| Rapor | Gecikme süresi (yüzde 95'lik dilim) |Gecikme (99. yüzdebirlik dilimde)|Zaman aralığı içinde günlükleri raporlanır.|
-| :-- | --- | --- | --- |
-| Denetim günlükleri | 2 dk.  | 5 dk.  | 2-60 dakika |
-| Oturum açma işlemleri | 2 dk.  | 5 dk. | 2-120 dakika |
+| Rapor | Gecikme süresi (yüzde 95'lik dilim) |Gecikme (99. yüzdebirlik dilimde)|
+| :-- | --- | --- |
+| Denetim günlükleri | 2 dk.  | 5 dk.  |
+| Oturum açma işlemleri | 2 dk.  | 5 dk. |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Etkinlikler verileri bir premium lisansı aldıktan sonra en kısa sürede nasıl görebilirim?
 

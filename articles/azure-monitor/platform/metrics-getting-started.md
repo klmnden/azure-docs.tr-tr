@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254108"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595444"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure ölçüm Gezgini ile çalışmaya başlama
 
@@ -24,7 +24,7 @@ Azure İzleyici ölçüm Gezgini'ni çizim grafikleri, görsel olarak eğilimler
 
 1. Deneyin [boyut filtreleri uygulayarak ve bölme](#apply-dimension-filters-and-splitting). Filtreler ve hangi segmentlerin ölçümün genel ölçüm değerine katkıda analiz etmenize izin vermek ve olası aykırı değerleri tanımlamayı bölme.
 
-1. Kullanım [Gelişmiş ayarlar](#advanced-chart-settings-and-next-steps) panolara sabitlemeden önce grafiği özelleştirme. [Uyarıları Yapılandır](alerts-metric-overview.md) ölçüm değeri aşarsa veya bir eşiğin altına düşünceye bildirimleri almak için.
+1. Kullanım [Gelişmiş ayarlar](#advanced-chart-settings) panolara sabitlemeden önce grafiği özelleştirme. [Uyarıları Yapılandır](alerts-metric-overview.md) ölçüm değeri aşarsa veya bir eşiğin altına düşünceye bildirimleri almak için.
 
 ## <a name="create-your-first-metric-chart"></a>Ölçüm ilk grafiğinizi oluşturun
 
@@ -61,12 +61,13 @@ Varsayılan olarak, en son 24 saat ölçümlerini veri grafik gösterir. Kullan�
 
 Bkz: [grafikleri örnekleri](metric-chart-samples.md) filtreleme ve bölme uyguladınız. Makalede grafikleri yapılandırmak için kullanılan adımları gösterilmektedir.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>Gelişmiş grafik ayarları ve sonraki adımlar
+## <a name="advanced-chart-settings"></a>Gelişmiş grafik ayarları
 
 Grafik stili, başlık, özelleştirebilir ve Gelişmiş grafik ayarlarını değiştirin. Özelleştirme ile işiniz bittiğinde, çalışmanızı kaydetmek için bir panoya sabitleyebilirsiniz. Ölçüm uyarıları da yapılandırabilirsiniz. İzleyin [ürün belgelerine](metrics-charts.md) bu ve diğer hakkında bilgi edinmek için Azure İzleyici ölçüm Gezgini'ni özelliklerinin Gelişmiş.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [Ölçüm Gezgini gelişmiş özellikler hakkında bilgi edinin](metrics-charts.md)
+* [Ölçüm Gezgini sorunlarını giderme](metrics-troubleshoot.md)
 * [Azure Hizmetleri için kullanılabilir ölçümleri bakın](metrics-supported.md)
-* [Ölçüm Gezgini'nde gelişmiş özellikler hakkında bilgi edinin](metrics-charts.md)
 * [Yapılandırılmış grafiklerin örneklerine bakın](metric-chart-samples.md)

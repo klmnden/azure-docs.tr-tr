@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 04/30/2018
-ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60845751"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596752"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil Şeması Başvurusu
 
-Bir mantıksal uygulama çalıştırmasında oluşturduğunuzda [Azure Logic Apps](../logic-apps/logic-apps-overview.md), mantıksal uygulamanızın mantıksal uygulamanızda çalışan gerçek mantığı tanımlayan bir temel alınan bir iş akışı tanımı içeriyor. Bu iş akışı tanımı kullanan [JSON](https://www.json.org/) ve iş akışı tanımı dil şeması tarafından doğrulanmış bir yapıyı izler. Bu başvuru, bu yapı nasıl şema öğeleri ve iş akışı tanımınızı tanımlar hakkında genel bir bakış sağlar.
+Bir mantıksal uygulama çalıştırmasında oluşturduğunuzda [Azure Logic Apps](../logic-apps/logic-apps-overview.md), mantıksal uygulamanızın mantıksal uygulamanızda çalışan gerçek mantığı tanımlayan bir temel alınan bir iş akışı tanımı içeriyor. Bu iş akışı tanımı kullanan [JSON](https://www.json.org/) ve iş akışı tanımı dil şeması tarafından doğrulanmış bir yapıyı izler. Bu başvuru, bu yapı ve şema öznitelikler, iş akışı tanımında nasıl tanımlar hakkında genel bir bakış sağlar.
 
 ## <a name="workflow-definition-structure"></a>İş akışı tanım yapısı
 
@@ -29,24 +29,63 @@ Bir iş akışı tanımı için üst düzey yapısı şu şekildedir:
 ```json
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
-  "contentVersion": "<workflow-definition-version-number>",
-  "parameters": { "<workflow-parameter-definitions>" },
-  "triggers": { "<workflow-trigger-definitions>" },
   "actions": { "<workflow-action-definitions>" },
-  "outputs": { "<workflow-output-definitions>" }
+  "contentVersion": "<workflow-definition-version-number>",
+  "outputs": { "<workflow-output-definitions>" },
+  "parameters": { "<workflow-parameter-definitions>" },
+  "staticResults": { "<static-results-definitions>" },
+  "triggers": { "<workflow-trigger-definitions>" }
 }
 ```
 
-| Öğe | Gerekli | Açıklama |
-|---------|----------|-------------|
-| tanım | Evet | Başlangıç öğesi, iş akışı tanımı |
-| $schema | Yalnızca bir iş akışı tanımı dışarıdan başvurma sırasında | Burada bulabilirsiniz iş akışı tanımı dil sürümü tanımlayan JSON şema dosyası için konumu: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| contentVersion | Hayır | Varsayılan "1.0.0.0" olan, iş akışı tanımı sürüm numarası. Tanımlamak ve doğru tanımı bir iş akışı dağıtırken doğrulamak için kullanılacak bir değer belirtin. |
-| parametreler | Hayır | Veri, iş akışınıza aktarmak bir veya daha fazla parametre tanımları <p><p>En fazla Parametreler: 50 |
-| tetikleyiciler | Hayır | Tanımları, iş akışı örneği bir veya daha fazla tetikleyici. Ancak yalnızca iş akışı tanımlama dili ile Logic Apps Tasarımcısı ile görsel olarak değil birden fazla tetikleyici tanımlayabilirsiniz. <p><p>En fazla Tetikleyicileri: 10 |
-| Eylemler | Hayır | İş akışı çalışma zamanında yürütmek bir veya daha fazla eylem için tanımları <p><p>En fazla eylemler: 250 |
-| çıkışlar | Hayır | Döndüren bir iş akışından çıkış tanımları <p><p>En fazla çıktı: 10 |
+| Öznitelik | Gerekli | Açıklama |
+|-----------|----------|-------------|
+| `definition` | Evet | Başlangıç öğesi, iş akışı tanımı |
+| `$schema` | Yalnızca bir iş akışı tanımı dışarıdan başvurma sırasında | Burada bulabilirsiniz iş akışı tanımı dil sürümü tanımlayan JSON şema dosyası için konumu: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
+| `actions` | Hayır | İş akışı çalışma zamanında yürütmek bir veya daha fazla eylem tanımları. Daha fazla bilgi için [tetikleyiciler ve Eylemler](#triggers-actions). <p><p>En fazla eylemler: 250 |
+| `contentVersion` | Hayır | Varsayılan "1.0.0.0" olan, iş akışı tanımı sürüm numarası. Tanımlamak ve doğru tanımı bir iş akışı dağıtırken doğrulamak için kullanılacak bir değer belirtin. |
+| `outputs` | Hayır | Döndüren bir iş akışından çıkış tanımları. Daha fazla bilgi için [çıkışları](#outputs). <p><p>En fazla çıktı: 10 |
+| `parameters` | Hayır | Veri, iş akışınıza aktarmak bir veya daha fazla parametre tanımları. Daha fazla bilgi için [parametreleri](#parameters). <p><p>En fazla Parametreler: 50 |
+| `staticResults` | Hayır | Bu eylemler statik sonuçları etkinleştirildiğinde sahte çıkışları eylemleri tarafından döndürülen bir veya daha fazla statik sonuçları tanımları. Her eylem tanımındaki `runtimeConfiguration.staticResult.name` özniteliği başvuruda içinde karşılık gelen tanımını `staticResults`. Daha fazla bilgi için [statik sonuçları](#static-results). |
+| `triggers` | Hayır | Tanımları, iş akışı örneği bir veya daha fazla tetikleyici. Ancak yalnızca iş akışı tanımlama dili ile Logic Apps Tasarımcısı ile görsel olarak değil birden fazla tetikleyici tanımlayabilirsiniz. Daha fazla bilgi için [tetikleyiciler ve Eylemler](#triggers-actions). <p><p>En fazla Tetikleyicileri: 10 |
 ||||
+
+<a name="triggers-actions"></a>
+
+## <a name="triggers-and-actions"></a>Tetikleyiciler ve eylemler
+
+Bir iş akışı tanımı `triggers` ve `actions` iş akışının yürütme sırasında gerçekleşen çağrıları bölümleri tanımlar. Söz dizimi ve bu bölümleri hakkında daha fazla bilgi için bkz: [iş akışı tetikleyici ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+<a name="outputs"></a>
+
+## <a name="outputs"></a>Çıkışlar
+
+İçinde `outputs` bölümünde, iş akışınızı bittiğinde döndürebilir verileri tanımlar çalışıyor. Örneğin, bir özel durum veya değer, her bir çalıştırmanın izlemek için iş akışı çıkışı verileri döndürür belirtin.
+
+> [!NOTE]
+> Bir hizmetin REST API'SİNDEN gelen isteklere yanıt zaman kullanmayın `outputs`. Bunun yerine, `Response` eylem türü. Daha fazla bilgi için [iş akışı tetikleyici ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+Bir çıkış tanımı için genel yapısı şu şekildedir:
+
+```json
+"outputs": {
+  "<key-name>": {
+    "type": "<key-type>",
+    "value": "<key-value>"
+  }
+}
+```
+
+| Öznitelik | Gerekli | Tür | Açıklama |
+|-----------|----------|------|-------------|
+| <*anahtar adı*> | Evet | String | Anahtar adı çıkışı için dönüş değeri |
+| <*anahtar türü*> | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi | Çıkış döndürülen değerin türü |
+| <*anahtar-değer*> | Evet | Aynı <*anahtar türü*> | Çıkış dönüş değeri |
+|||||
+
+Bir iş akışından işlemin çıktısını almak için mantıksal uygulamanızın çalıştırma geçmişi ve Azure portalında ayrıntılarını gözden geçirebilir veya [iş akışı REST API](https://docs.microsoft.com/rest/api/logic/workflows). Böylece panolar oluşturabilir, çıkış harici sistemlere, örneğin, Power BI geçirebilirsiniz.
+
+<a name="parameters"></a>
 
 ## <a name="parameters"></a>Parametreler
 
@@ -69,44 +108,94 @@ Bir parametre tanımında genel yapısı şu şekildedir:
 },
 ```
 
-| Öğe | Gerekli | Tür | Açıklama |
-|---------|----------|------|-------------|
-| type | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi, secureobject <p><p>**Not**: Tüm parolalar, anahtarlar ve gizli dizileri için kullanmak `securestring` ve `secureobject` çünkü `GET` işlemi, bu tür döndürmez. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Parametresinin türü |
-| defaultValue | Evet | Aynı `type` | İş akışı örneğini oluşturduğunda hiçbir değer belirtilmemişse varsayılan parametre değeri |
-| izin verilen değerler | Hayır | Aynı `type` | Bir dizi parametre kabul edebilen değerlerle |
-| meta veriler | Hayır | JSON nesnesi | Diğer parametre ayrıntıları, örneğin, ad veya mantıksal uygulama, akış veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı veri için okunabilir bir açıklaması |
+| Öznitelik | Gerekli | Tür | Açıklama |
+|-----------|----------|------|-------------|
+| <*parametre türü*> | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi, secureobject <p><p>**Not**: Tüm parolalar, anahtarlar ve gizli dizileri için kullanmak `securestring` ve `secureobject` çünkü `GET` işlemi, bu tür döndürmez. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [mantıksal uygulamanızı güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Parametresinin türü |
+| <*Varsayılan parametre değerleri*> | Evet | Aynı `type` | İş akışı örneğini oluşturduğunda hiçbir değer belirtilmemişse varsayılan parametre değeri |
+| <*dizi-ile-izin verilen-parametre-değerleri*> | Hayır | Dizi | Bir dizi parametre kabul edebilen değerlerle |
+| `metadata` | Hayır | JSON nesnesi | Diğer parametre ayrıntıları, örneğin, ad veya mantıksal uygulama, akış veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı veri için okunabilir bir açıklaması |
 ||||
 
-## <a name="triggers-and-actions"></a>Tetikleyiciler ve eylemler
+<a name="static-results"></a>
 
-Bir iş akışı tanımı `triggers` ve `actions` iş akışının yürütme sırasında gerçekleşen çağrıları bölümleri tanımlar. Söz dizimi ve bu bölümleri hakkında daha fazla bilgi için bkz: [iş akışı tetikleyici ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
+## <a name="static-results"></a>Statik sonuçları
 
-## <a name="outputs"></a>Çıkışlar
-
-İçinde `outputs` bölümünde, iş akışınızı bittiğinde döndürebilir verileri tanımlar çalışıyor. Örneğin, bir özel durum veya değer, her bir çalıştırmanın izlemek için iş akışı çıkışı verileri döndürür belirtin.
-
-> [!NOTE]
-> Bir hizmetin REST API'SİNDEN gelen isteklere yanıt zaman kullanmayın `outputs`. Bunun yerine, `Response` eylem türü. Daha fazla bilgi için [iş akışı tetikleyici ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md).
-
-Bir çıkış tanımı için genel yapısı şu şekildedir:
+İçinde `staticResults` öznitelik, bir eylemin sahte tanımlama `outputs` ve `status` eylemin statik sonucu ayarı etkin olduğunda, bir eylem döndürür. Eylemin tanımındaki `runtimeConfiguration.staticResult.name` özniteliği başvuruda statik sonucu tanımının içinde adı `staticResults`. Öğrenin [logic apps ile sahte veri statik sonuçlarını ayarlayarak test](../logic-apps/test-logic-apps-mock-data-static-results.md).
 
 ```json
-"outputs": {
-  "<key-name>": {
-    "type": "<key-type>",
-    "value": "<key-value>"
-  }
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "<static-result-definition-name>": {
+         "outputs": {
+            <output-attributes-and-values-returned>,
+            "headers": { <header-values> },
+            "statusCode": "<status-code-returned>"
+         },
+         "status": "<action-status>"
+      }
+   },
+   "triggers": { "<...>" }
 }
 ```
 
-| Öğe | Gerekli | Tür | Açıklama |
-|---------|----------|------|-------------|
-| <*anahtar adı*> | Evet | String | Anahtar adı çıkışı için dönüş değeri |
-| type | Evet | int, kayan noktalı sayı, dize, securestring, bool, dizi, JSON nesnesi | Çıkış döndürülen değerin türü |
-| value | Evet | Aynı `type` | Çıkış dönüş değeri |
+| Öznitelik | Gerekli | Tür | Açıklama |
+|-----------|----------|------|-------------|
+| <*statik sonucu tanımı adı*> | Evet | String | Bir eylem tanımı aracılığıyla başvurabilirsiniz bir statik sonucu tanımı adı bir `runtimeConfiguration.staticResult` nesne. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>İstediğiniz herhangi bir benzersiz ad kullanabilirsiniz. Varsayılan olarak, bu benzersiz bir ad gerekirse artırılır bir sayı ile eklenir. |
+| <*Çıkış öznitelikleri-ve-değerleri-döndürülen*> | Evet | Değişir | Bu öznitelikler için gereksinimleri farklı koşullara göre farklılık gösterir. Örneğin, `status` olduğu `Succeeded`, `outputs` öznitelik içeren öznitelikler ve değerler olarak sahte çıkışları eylem tarafından döndürülen. Varsa `status` olduğu `Failed`, `outputs` özniteliği içeren `errors` bir veya daha fazla hata ile dizisi özniteliği `message` hata bilgilerini sahip nesneleri. |
+| <*Üstbilgi değerleri*> | Hayır | JSON | Eylem tarafından döndürülen herhangi bir üstbilgi değeri |
+| <*durum kodunu döndürdü*> | Evet | String | Eylem tarafından döndürülen durum kodu |
+| <*Eylem durumu*> | Evet | String | Örneğin, eylemin durumu `Succeeded` veya `Failed` |
 |||||
 
-Bir iş akışından işlemin çıktısını almak için mantıksal uygulamanızın çalıştırma geçmişi ve Azure portalında ayrıntılarını gözden geçirebilir veya [iş akışı REST API](https://docs.microsoft.com/rest/api/logic/workflows). Böylece panolar oluşturabilir, çıkış harici sistemlere, örneğin, Power BI geçirebilirsiniz.
+Örneğin, bu HTTP eylemi tanımı'ndaki `runtimeConfiguration.staticResult.name` başvuruları öznitelik `HTTP0` içinde `staticResults` eylemi için sahte çıkışları tanımlandığı özniteliği. `runtimeConfiguration.staticResult.staticResultOptions` Özniteliği belirtir statik sonucu ayarının olduğunu `Enabled` HTTP eylemi.
+
+```json
+"actions": {
+   "HTTP": {
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.microsoft.com"
+      },
+      "runAfter": {},
+      "runtimeConfiguration": {
+         "staticResult": {
+            "name": "HTTP0",
+            "staticResultOptions": "Enabled"
+         }
+      },
+      "type": "Http"
+   }
+},
+```
+
+HTTP eylem çıkışları döndürür `HTTP0` tanımının içinde `staticResults`. Bu örnekte, durum kodu için sahte çıktıdır `OK`. Üstbilgi değerleri için sahte bir çıktıdır `"Content-Type": "application/JSON"`. Eylemin durumu için sahte bir çıktıdır `Succeeded`.
+
+```json
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "HTTP0": {
+         "outputs": {
+            "headers": {
+               "Content-Type": "application/JSON"
+            },
+            "statusCode": "OK"
+         },
+         "status": "Succeeded"
+      }
+   },
+   "triggers": { "<...>" }
+},
+```
 
 <a name="expressions"></a>
 
@@ -207,7 +296,7 @@ Logic Apps Tasarımcısı'nda görsel olarak çalışırken, ifadeleri ifade olu
 |----------|------|
 | ' | Kaydırma gibi yalnızca tek tırnak işareti, dizenin bir dize sabit değeri giriş olarak veya ifade ve işlevleri kullanmak için `'<myString>'`. Çift tırnak işareti kullanmayın (""), JSON biçimlendirme geçici olarak tüm bir ifade ile çakışıyor. Örneğin: <p>**Evet**: length('Hello') </br>**Hayır**: length("Hello") <p>Diziler veya rakam geçirdiğinizde, noktalama sarmalama gerekmez. Örneğin: <p>**Evet**: uzunluğu ([1, 2, 3]) </br>**Hayır**: uzunluğu ("[1, 2, 3]") |
 | [] | Bir dizideki belirli bir konuma (dizin) değerinde başvurmak için köşeli ayraç kullanın. Örneğin, bir dizi içinde ikinci öğeyi almak için şunu yazın: <p>`myArray[1]` |
-| . | Bir nesneyi bir özelliği başvuru için nokta işlecini kullanın. Örneğin, almak için `name` özelliği için bir `customer` JSON nesnesi: <p>`"@parameters('customer').name"` |
+| : | Bir nesneyi bir özelliği başvuru için nokta işlecini kullanın. Örneğin, almak için `name` özelliği için bir `customer` JSON nesnesi: <p>`"@parameters('customer').name"` |
 | ? | Bir çalışma zamanı hatası olmadan bir nesne null özelliklerinde başvurmak için soru işareti işleci kullanın. Örneğin, bir tetikleyici null çıkışları işlemek için bu ifade kullanabilirsiniz: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |
 |||
 

@@ -13,36 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477187"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787506"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server Azure sanal makine sürüm notları
 
 Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza olanak tanır. Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Azure sanal makineler'de SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). Makale ayrıca doğrudan ilgili sürüme ancak aynı zaman çerçevesinde yayımlanan önemli içerik güncelleştirmeleri listelenir. Diğer Azure Hizmetleri için geliştirmeler için bkz. [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates)
 
-## <a name="march-2019"></a>Mart 2019
+## <a name="april-2019"></a>Nisan 2019
 
 ### <a name="service-improvements"></a>Hizmet geliştirmeleri
 
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |
-| **Özel görüntü desteklenebilirliği** | Şimdi yükleyebilirsiniz [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) özel işletim sistemi ve SQL görüntüleri için sunan sınırlı işlevselliğini [esnek lisanslama](virtual-machines-windows-sql-ahb.md). SQL kaynak sağlayıcısı ile özel görüntünüzü kayıt olarak belirttiğinizde lisans türü 'AHUB' Aksi durumda kayıt başarısız olur.  | 
-| **Adlandırılmış örnek desteklenebilirliği** | Artık kullanabilir [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) varsayılan örnek düzgün kaldırılmışsa adlandırılmış bir örnek ile. | 
-| **Portal geliştirme** | Kullanılabilirliği iyileştirmek için SQL Server VM'SİNİN dağıtımı için Azure portalı deneyiminde yenilenmiştir. Daha fazla bilgi için bkz: kısa [Hızlı Başlangıç](quickstart-sql-vm-create-portal.md) ve daha kapsamlı [nasıl yapılır](virtual-machines-windows-portal-sql-server-provision.md) kılavuzda bir SQL Server VM'SİNİN dağıtımı için. |
+| **SQL Server 2008/2008R2 desteğini genişletme** | [Desteğini genişletmek](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server 2008 ve SQL Server 2008 R2 geçirerek *olarak-olan* Azure VM'ye. | 
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Belgeleri geliştirmeleri
 
 None
 
+## <a name="march-2019"></a>Mart 2019
+
+| Hizmet geliştirmeleri | Ayrıntılar |
+| --- | --- |
+| **Özel görüntü desteklenebilirliği** | Şimdi yükleyebilirsiniz [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) özel işletim sistemi ve SQL görüntüleri için sunan sınırlı işlevselliğini [esnek lisanslama](virtual-machines-windows-sql-ahb.md). SQL kaynak sağlayıcısı ile özel görüntünüzü kayıt olarak belirttiğinizde lisans türü 'AHUB' Aksi durumda kayıt başarısız olur.  | 
+| **Adlandırılmış örnek desteklenebilirliği** | Artık kullanabilir [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md#installation) varsayılan örnek düzgün kaldırılmışsa adlandırılmış bir örnek ile. | 
+| **Portal geliştirme** | Kullanılabilirliği iyileştirmek için SQL Server VM'SİNİN dağıtımı için Azure portalı deneyiminde yenilenmiştir. Daha fazla bilgi için bkz: kısa [Hızlı Başlangıç](quickstart-sql-vm-create-portal.md) ve daha kapsamlı [nasıl yapılır](virtual-machines-windows-portal-sql-server-provision.md) kılavuzda bir SQL Server VM'SİNİN dağıtımı için.|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="february-2019"></a>Şubat 2019
-
-### <a name="service-improvements"></a>Hizmet geliştirmeleri
 
 | Hizmet geliştirmeleri | Ayrıntılar |
 | --- | --- |

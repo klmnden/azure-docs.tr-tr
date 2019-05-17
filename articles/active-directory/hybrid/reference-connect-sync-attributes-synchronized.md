@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508105"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784290"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: Azure Active Directory ile eşitlenen öznitelikler
 Bu konuda, Azure AD Connect eşitlemesi ile eşitlenen öznitelikler listelenir.  
@@ -256,7 +256,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | userPrincipalName |X | | |UPN kullanıcının oturum açma kimliğidir. En sık [adres] olarak aynı değeri. |
 | wWWHomePage |X |X | | |
 
-## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (daha sonra Skype Kurumsal'a olarak bilinir)
+## <a name="teams-and-skype-for-business-online"></a>Takımlar ve Skype Kurumsal çevrimiçi
 | Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinse tanımlar. |

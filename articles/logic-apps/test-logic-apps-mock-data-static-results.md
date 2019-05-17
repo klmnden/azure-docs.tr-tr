@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511932"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597202"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Logic apps ile sahte veri statik sonuçlarını ayarlayarak test edin.
 
@@ -48,9 +48,9 @@ Mantıksal uygulamanızı test ederken gerçekten arayın veya çeşitli nedenle
 
       | Özellik | Açıklama |
       |----------|-------------|
-      | **Durum** | Döndürülecek eylem durumu |
-      | **Durum kodu** | Özel durum kodunu döndürmek için |
-      | **Üst Bilgiler** | Geri dönmek için üst bilgi içeriği |
+      | **Durumu** | Döndürülecek eylem durumu |
+      | **Durum Kodu** | Özel durum kodunu döndürmek için |
+      | **Üst bilgileri** | Geri dönmek için üst bilgi içeriği |
       |||
 
       !["Statik sonucu etkinleştir" seçeneğini belirleyin](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
@@ -137,11 +137,9 @@ Statik sonuçların kapatma hemen değerleri, son Kurulum'dan oluşturmaz. Bu ne
 
    ![Statik sonuçları devre dışı bırak](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>Destek alın
+## <a name="reference"></a>Başvuru
 
-* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
+Bu ayarda, temel alınan iş akışı tanımları hakkında daha fazla bilgi için bkz. [statik sonuçları - iş akışı tanımı dil şeması başvurusu](../logic-apps/logic-apps-workflow-definition-language.md#static-results) ve [runtimeConfiguration.staticResult - çalışma zamanı yapılandırma ayarları](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

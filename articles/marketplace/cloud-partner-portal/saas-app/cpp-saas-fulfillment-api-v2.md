@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 433059dc1b1567c5cbcb1091f2d616001d1dbf44
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941988"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762280"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS yerine getirme API sürüm 2 
 
@@ -30,13 +30,13 @@ Microsoft SaaS Service SaaS aboneliği satın aldığınız tüm yaşam döngüs
 
 Aşağıdaki tablo, bir açıklama ve sıralı diyagramı her biri için (varsa) da dahil olmak üzere bir SaaS abonelik için sağlama durumları listeler. 
 
-#### <a name="provisioning"></a>Sağlama
+#### <a name="provisioning"></a>Sağlanıyor
 
 Bir müşteri satın başlattığında, ISV bu bilgileri bir müşteri etkileşimli bir URL parametresi kullanarak web sayfası üzerinde bir kimlik doğrulama kodu alır. Örneğin: `https://contoso.com/signup?token=..`, iş ortağı Merkezi giriş sayfası URL sağlayıcısında `https://contoso.com/signup`. Kimlik doğrulama kodu doğrulanır ve gidermek API'sini çağırarak sağlanması için gerekenler ilişkin ayrıntılar için değiştirilen.  SaaS hizmeti sağlama tamamlandığında, bir etkinleştirme çağrı yerine getirme tamamlandıktan ve müşteri faturalandırılır sinyal gönderir.  Aşağıdaki diyagramda bir sağlama senaryosu için API çağrıları dizisini gösterir.  
 
 ![Bir SaaS hizmet sağlanması için API çağrısı.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Sağlanan
+#### <a name="provisioned"></a>Sağlandı
 
 Bu durum sağlanan bir hizmet kararlı durumudur.
 
@@ -176,7 +176,7 @@ Bir yayımcı tüm SaaS abonelikleri listeler.
 
 *Yanıt kodları:*
 
-Kod: 200<br>
+Kod: 200 <br/>
 Kimlik doğrulama belirteci temel alınarak, yayımcı ve yayımcının tüm teklifler için karşılık gelen abonelikler alın.<br> Yanıt yükü:<br>
 
 ```json
@@ -207,7 +207,6 @@ Kimlik doğrulama belirteci temel alınarak, yayımcı ve yayımcının tüm tek
 ```
 
 Devamlılık belirteci yalnızca alınacak planları, ek "sayfalar" mevcut olacaktır. 
-
 
 Kod: 403 <br>
 Yetkilendirilmedi. Kimlik doğrulama belirteci sağlanmadı, geçersiz veya istek geçerli yayımcıya ait olmayan bir alım erişmeye çalışıyor. 
@@ -374,7 +373,7 @@ Kod: 500<br>
 
 *Yanıt kodları:*
 
-Kod: 202<br>
+Kod: 200<br>
 Abonelik etkinleştirir.<br>
 
 Kod: 404<br>
@@ -554,7 +553,7 @@ Aboneliği iptal et ve belirtilen abonelik silin.
 
 *Yanıt kodları:*
 
-Kod: 200<br>
+Kod: 202<br>
 ISV tarafından başlatılan çağrı belirtmek için bir SaaS abonelikte aboneliği.<br>
 
 Kod: 404<br>
@@ -786,25 +785,29 @@ Yayımcı, Web kancası proaktif olarak kendi hizmetindeki değişiklikler kulla
     "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
-
-Where action can be one of these: 
-       Subscribe, (When the resource has been activated)
-       Unsubscribe, (When the resource has been deleted)
-       ChangePlan, (When the change plan operation has completed)
-       ChangeQuantity, (When the change quantity operation has completed),
-       Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
 ```
+
+Burada eylem bunlardan biri olabilir: 
+- `Subscribe`  (Kaynak ne zaman etkinleştirildi)
+- `Unsubscribe` (Kaynak ne zaman silinmiş)
+- `ChangePlan` (Değişiklik planı işlemi tamamlandığında)
+- `ChangeQuantity` (Değişiklik miktar işlemi tamamlandığında)
+- `Suspend` (Zaman kaynak askıya alındı)
+- `Reinstate` (Zaman kaynak sonra askıya alma uzatılamaz)
 
 
 ## <a name="mock-api"></a>Sahte API
 
 Özellikle prototip oluşturma, geliştirme ile çalışmaya başlamanıza yardımcı olmak için sahte Apı'lerimizi kullanın ve test projeleri. 
 
-Konak uç noktası: `https://marketplaceapi.microsoft.com/api` API sürümü: `2018-09-15` Kimlik doğrulaması yok örnek URI gerekli: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
+Konak uç noktası: `https://marketplaceapi.microsoft.com/api` <br/>
+API sürümü: `2018-09-15` <br/>
+Kimlik doğrulama gerekmiyor <br/>
+Örnek URI: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Herhangi bir API çağrısı bu makalede sahte konak uç noktaya yapılabilir. Sahte verileri yanıt olarak geri almak bekleyebilirsiniz.
+Sahne ve gerçek API'ler API uç nokta yolları aynıdır, ancak API sürümlerini farklıdır. Sahte için 2018-09-15 ve uygulamanın üretim sürümü için 2018-08-31 sürümüdür. 
 
+Herhangi bir API çağrısı bu makalede sahte konak uç noktaya yapılabilir. Sahte verileri yanıt olarak geri almak bekleyebilirsiniz. Genel olarak sahte veri yanıt olarak geri almak bekleyebilirsiniz. Sahte API üzerinde güncelleştirme abonelik yöntemlere yapılan çağrılar, her zaman 500 döndürür. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868374"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603432"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Örnek 2: Bir güvenlik duvarı ve Nsg'ler ile uygulamaları korumak için bir çevre ağı oluşturma
 [Microsoft bulut Hizmetleri ve ağ güvenlik Sayfası'na dönmek][HOME]
@@ -242,7 +242,7 @@ Kullanıcı tanımlı-değişkenleri gerektiği gibi değiştirin. Betiği çal�
 Kullanıcı tanımlı değişkenleri esas alarak, bu betik, aşağıdaki adımları tamamlayacaksınız:
 
 1. Bir Azure aboneliğine bağlanın.
-2. Depolama hesabı oluşturma.
+2. Bir depolama hesabı oluşturun.
 3. Bir sanal ağ ve iki alt ağ yapılandırma dosyasında tanımlanan oluşturun.
 4. Dört Windows Server sanal makineleri oluşturun.
 5. NSG yapılandırın. Yapılandırma adımları gerçekleştirir:
@@ -550,7 +550,7 @@ Bu PowerShell Betiği, bir İnternet'e bağlı bir bilgisayara veya sunucuya yer
 Güncelleştirilmiş konumlarla bu XML dosyasını kaydedin ve daha sonra bu dosyayı önceki komut $NetworkConfigFile değişkeninde bir bağlantı ekleyin.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

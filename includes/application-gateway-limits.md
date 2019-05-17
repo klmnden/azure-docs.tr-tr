@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58495213"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65754107"
 ---
-| Kaynak | Varsayılan limit | Not |
+| Resource | Varsayılan/üst sınır | Not |
 | --- | --- | --- |
 | Azure Application Gateway |Abonelik başına 1.000 | |
 | Ön uç IP yapılandırmaları |2 |1 ortak ve 1 özel |

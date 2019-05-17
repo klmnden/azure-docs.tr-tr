@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f540bc304920073bcd823adcf6c9dd47cb2cf93b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159758"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541756"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-9"></a>Azure Search .NET SDK sürüm 9 yükseltme
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Azure Search .NET SDK sürüm 9 yükseltme
 
 Önizleme 7.0 ya da'nın eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı sürüm 9 kullanacak şekilde yükseltin yardımcı olur.
 
@@ -70,7 +70,7 @@ Sürüm 9, uygulamanızı yeniden ek olarak, kod değişiklikleri yapılmasını
 > [!NOTE]
 > Aşağıdaki değişiklikleri listesi kapsamlı değildir. Bazı değişiklikler büyük olasılıkla derleme hataları neden olmaz, ancak ikili uyumluluğu ile Azure Search .NET SDK bütünleştirilmiş kodları önceki sürümlerinde bağımlı derlemeleri kesintiye beri teknik ayırırsınız. Bu tür değişiklikler aşağıda listelenen değil. Lütfen ikili uyumluluğu sorunlardan kaçınmak için 9 sürümüne yükseltirken uygulamanızı yeniden oluşturun.
 
-### <a name="making-properties-immutable"></a>Sabit hale getirmeden özellikleri
+### <a name="immutable-properties"></a>Sabit özellikler
 
 Birden fazla model sınıfları genel özelliklerini artık sabittir. Özel test etmek için bu sınıfların örnekleri oluşturmak için ihtiyacınız varsa yeni parametreli yapıcıları kullanabilirsiniz:
 
@@ -103,7 +103,7 @@ Bu özellikler artık olması gerektiğinden budur `null` karmaşık alanları s
 
 Parametresiz oluşturucusu `Field` yapılmadığını `internal`. Şu andan itibaren her `Field` oluşturma zamanında açık bir ad ve veri türü gerektirir.
 
-### <a name="simplification-of-batch-and-results-types"></a>Batch ve sonuçları türlerinin basitleştirme
+### <a name="simplified-batch-and-results-types"></a>Basitleştirilmiş toplu ve sonuç türleri
 
 Sürüm 7.0 Önizleme ve önceki, belgelerin gruplarını kapsayan çeşitli sınıfları paralel sınıf Hiyerarşiler yapılandırılmış:
 
@@ -118,7 +118,7 @@ Genel tür parametresi olmadan türetilen türler için "dinamik olarak yazılm�
 
 Sürüm 8.0-preview ile başlayarak, temel sınıflar ve genel olmayan türetilmiş sınıfları tüm kaldırıldı. Dinamik tür belirtilmiş senaryolar için kullanabileceğiniz `IndexBatch<Document>`, `DocumentSearchResult<Document>`ve benzeri.
  
-### <a name="removal-of-extensibleenum"></a>ExtensibleEnum kaldırma
+### <a name="removed-extensibleenum"></a>Kaldırılan ExtensibleEnum
 
 `ExtensibleEnum` Temel sınıf kaldırıldı. Ondan türetilen tüm sınıflar, yapılar gibi sunulmuştur `AnalyzerName`, `DataType`, ve `DataSourceType` örneğin. Kendi `Create` yöntemleri kaldırılmıştır. Çağrı yalnızca kaldırabilirsiniz `Create` olduğundan bu tür dizelerden örtük olarak dönüştürülebilir. Bu derleyici hata ile sonuçlanırsa, açıkça türleri belirsizliğini ortadan kaldırmak için dönüştürme işleci atama aracılığıyla çağırabilirsiniz. Örneğin, bu kodu değiştirebilirsiniz:
 
@@ -134,7 +134,7 @@ var index = new Index()
 }
 ```
 
-şu şekilde:
+Şu şekilde:
 
 ```csharp
 var index = new Index()
@@ -150,7 +150,7 @@ var index = new Index()
 
 İsteğe bağlı olarak devam etmek için bu tür isteğe bağlı değerler tutulan özellikleri artık açıkça null yazılmalıdır.
 
-### <a name="removal-of-facetresults-and-hithighlights"></a>FacetResults HitHighlights ve kaldırma
+### <a name="removed-facetresults-and-hithighlights"></a>Kaldırılan FacetResults ve HitHighlights
 
 `FacetResults` Ve `HitHighlights` sınıfları kaldırıldı. Modeli sonuçları artık olarak yazılan `IDictionary<string, IList<FacetResult>>` ve isabet vurguları olarak `IDictionary<string, IList<string>>`. Bu değişiklikten tanıtılan derleme hataları gidermek için hızlı bir şekilde eklemektir `using` kaldırılan türlerini kullanan her dosya üst kısmındaki diğer adları. Örneğin:
 

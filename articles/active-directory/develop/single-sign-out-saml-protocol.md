@@ -3,8 +3,8 @@ title: Azure çoklu oturum açma SAML Protokolü | Microsoft Docs
 description: Bu makalede Azure Active Directory çoklu oturum kapatma SAML Protokolü
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297790"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545955"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Çoklu oturum kapatma SAML Protokolü
 
@@ -50,7 +50,7 @@ Bulut hizmeti gönderen bir `LogoutRequest` bir oturum sonlandırıldı gösterm
 * `Version` -Ayarlamak için bu öğenin değeri **2.0**. Bu değer gereklidir.
 * `IssueInstant` -Bu, bir `DateTime` dize koordine Evrensel Saat (UTC) değeriyle ve [gidiş dönüş biçim ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD, bu türde bir değer Bekliyor, ancak zorunlu değildir.
 
-### <a name="issuer"></a>Veren
+### <a name="issuer"></a>Sertifikayı Veren
 `Issuer` Öğesinde bir `LogoutRequest` biriyle tam olarak eşleşmelidir **ServicePrincipalNames** Azure ad'deki bulut hizmetinde. Genellikle, bu ayar **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
 
 ### <a name="nameid"></a>Nameıd
@@ -71,7 +71,7 @@ Azure AD gönderen bir `LogoutResponse` yanıt olarak bir `LogoutRequest` öğes
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD kümeleri `ID`, `Version` ve `IssueInstant` değerler `LogoutResponse` öğesi. Ayrıca ayarlar `InResponseTo` değerini öğesine `ID` özniteliği `LogoutRequest` yanıt elicited.
 
-### <a name="issuer"></a>Veren
+### <a name="issuer"></a>Sertifikayı Veren
 Azure AD bu değeri ayarlar `https://login.microsoftonline.com/<TenantIdGUID>/` burada \<TenantIdGUID > Azure AD kiracısını Kiracı Kimliğini gösterir.
 
 Değerini değerlendirmek için `Issuer` öğesi, değerini kullanın **uygulama kimliği URI'si** uygulama kayıt sırasında sağlanan.

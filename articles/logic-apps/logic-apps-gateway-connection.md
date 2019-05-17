@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304201"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546268"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps'ten şirket içi veri kaynaklarına bağlanın
 
@@ -36,7 +36,7 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 
 * Ağ geçidi yüklemenizi zaten bir Azure ağ geçidi kaynağı ile ilişkili değil. Ağ geçidi kaynağı oluşturmak ve ağ geçidi yüklemenizi seçtiğinizde gerçekleşen yalnızca bir ağ geçidi kaynağına, ağ geçidi yüklemenizi bağlayabilirsiniz. Bu bağlantı ağ geçidi yüklemesi diğer kaynaklar için kullanılamaz hale getirir.
 
-* Azure portalında oturum açın ve ağ geçidi kaynağı oluşturmak için önceden kullanılmış olan aynı oturum açma hesabı kullandığınızdan emin olun [şirket içi veri ağ geçidi yükleme](../logic-apps/logic-apps-gateway-install.md#requirements) aynı birlikte [Azure aboneliği ](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) ağ geçidi yüklemek için kullanıldı. Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
+* Azure portalında oturum açın ve ağ geçidi kaynağı oluşturmak için önceden kullanılmış olan aynı oturum açma hesabı kullandığınızdan emin olun [şirket içi veri ağ geçidi yükleme](../logic-apps/logic-apps-gateway-install.md#requirements) aynı birlikte [Azure aboneliği ](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) ağ geçidi yüklemek için kullanıldı. Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
 * Oluşturma ve Azure portalında, ağ geçidi kaynağı korumak için [Windows hizmet hesabı](../logic-apps/logic-apps-gateway-install.md#windows-service-account) için en az **katkıda bulunan** izinleri. Şirket içi veri ağ geçidi Windows hizmeti olarak çalışır ve kullanacak şekilde ayarlanmış `NT SERVICE\PBIEgwService` için Windows hizmeti oturum açma kimlik bilgileri. 
 

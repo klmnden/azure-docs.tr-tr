@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922948"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604259"
 ---
 # <a name="change-your-azure-account-profile-information"></a>Azure hesap profili bilgilerinizi değiştirin
 
@@ -51,9 +51,9 @@ Profili e-posta adresi güncelleştiriliyor, oturum açma e-posta adresinizi gü
 
 Ödeme bilgilerinizi güncelleştirme hakkında bilgi edinmek için bkz: [bir Azure aboneliği ödemesi için kullanılan kredi kartını değiştirme](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-country"></a>Ülkenizi güncelleştirilemiyor
+### <a name="you-cant-update-your-countryregion"></a>Ülkenizi/bölgenizi güncelleştirilemiyor
 
-Teknik kısıtlamalar nedeniyle, biz varolan bir hesap için ülke değiştiremezsiniz. Ancak, istediğiniz ülkeyi içinde bir hesap oluşturun ve ardından ilgili hesabı hizmetlerinizi taşımak için Azure desteğine başvurun.
+Teknik kısıtlamalar nedeniyle, biz varolan bir hesap için ülke/bölge değiştiremezsiniz. Ancak, istenen ülkesinde/bölgesinde bir hesap oluşturun ve ardından ilgili hesabı hizmetlerinizi taşımak için Azure desteğine başvurun.
 
 ## <a name="service-and-marketing-emails"></a>Hizmet ve e-posta pazarlama
 

@@ -15,16 +15,16 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb0acd1534bab11eb57a7aa0e695f192b5999ed2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: d9978905f8ae0719f6a77ca2351f2c43bbf94ee0
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076503"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550355"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Senaryo: Mobil uygulama web API'leri çağrıları
 
-Web API'leri çağıran bir mobil uygulama oluşturmak için gereken her şeyi öğrenin.
+Web API'leri çağıran bir mobil uygulama oluşturmak için bilmeniz gereken her şeyi öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,23 +43,23 @@ Web API'leri çağıran bir mobil uygulama oluşturmak için gereken her şeyi �
 
 ## <a name="overview"></a>Genel Bakış
 
-Kişiselleştirilmiş ve sorunsuz son kullanıcı deneyimi, bir mobil uygulama oluştururken gereklidir.  Microsoft kimlik platformu, iOS ve Android kullanıcıları için tam olarak bunu yapmak mobil uygulama geliştiricileri sağlar. Uygulamanızı Azure AD'de, kişisel Microsoft hesabı oturum açabilirsiniz ve Azure AD B2C kullanıcıları ve onların adına bir web API'sini çağırmak için belirteçlerini almak. Bu akışları uygulamak için Microsoft kimlik doğrulama kitaplığı (endüstri standardı uygulayan MSAL) kullanacağız [OAuth2.0 yetkilendirme kod akışı](v2-oauth2-auth-code-flow.md).
+Kişiselleştirilmiş ve sorunsuz bir kullanıcı deneyimi, mobil uygulamalar için gereklidir.  Microsoft kimlik platformu, iOS ve Android kullanıcıları için bu deneyimi oluşturmak üzere mobil geliştiricilerin sağlar. Uygulamanızı Azure Active Directory (Azure AD) kullanıcılarını, kişisel Microsoft hesabı kullanıcılarını ve Azure AD B2C kullanıcıları oturum ve onların adına bir web API'sini çağırmak için belirteçlerini almak. Bu akışları uygulamak için endüstri standardı uygulayan Microsoft kimlik doğrulama Kitaplığı'ne (MSAL) kullanacağız [OAuth2.0 yetkilendirme kod akışı](v2-oauth2-auth-code-flow.md).
 
 ![Daemon uygulamaları](./media/scenarios/mobile-app.svg)
 
-Mobil uygulama dikkate alınacak noktalar:
+Mobil uygulamalar için dikkate alınacak noktalar:
 
-- ***Kullanıcı deneyimi anahtarıdır***: Kullanıcıların oturum açmak için soran önce uygulamanızı değerini görmek ve yalnızca gerekli izinlere ilişkin istek.
-- ***Tüm kullanıcı yapılandırmalarını destekler***: Birçok mobil iş kullanıcıları, koşullu erişim ve cihaz uyumluluk ilkeleri kapsamında değildir. Bu anahtar senaryolarını desteklemek üzere emin olun.
-- ***Çoklu oturum açma (SSO) uygulayan***: MSAL ve Microsoft kimlik platformu çoklu oturum açmayı etkinleştirme cihazın tarayıcı veya Microsoft Authenticator (ve android'de Intune Şirket portalı) aracılığıyla basit hale getirir.
+- **Kullanıcı deneyimi anahtarıdır**: Kullanıcıların oturum açmak için soran önce uygulamanızı değerini görmek ve yalnızca gerekli izinlere ilişkin istek.
+- **Tüm kullanıcı yapılandırmalarını destekler**: Birçok mobil iş kullanıcıları, koşullu erişim ve cihaz uyumluluk ilkeleri kapsamında değildir. Bu anahtar senaryolarını desteklemek üzere emin olun.
+- **Çoklu oturum açma (SSO) uygulayan**: MSAL ve Microsoft kimlik platformu çoklu oturum açmayı etkinleştirme cihazın tarayıcı veya Microsoft Authenticator (ve android'de Intune Şirket portalı) aracılığıyla basit hale getirir.
 
 ## <a name="specifics"></a>Özellikleri
 
-Microsoft kimlik platformu üzerinde bir mobil uygulama oluştururken, uçtan uca deneyim bazı önemli noktalar vardır:
+Microsoft kimlik platformu üzerinde mobil bir uygulama oluşturduğunuzda bu noktalar göz önünde bulundurun:
 
-- Platforma bağlı olarak, herhangi bir etkileşim oturum açarken ilk oturum açma mümkün olmayabilir. iOS, örneğin, Microsoft Authenticator'ı (ve android'de Intune Şirket portalı) üzerinden SSO ilk zaman alırken kullanıcı etkileşimi göstermek için uygulamalar gerektirir.
-- İOS ve Android üzerinde MSAL kullanıcılarının oturumunu açmak (Bu, uygulamanızın üzerinde görünebilir) bir dış tarayıcı kullanabilir. Uygulama içi görünümlerinden kullanacak şekilde özelleştirilebilir.
-- Hiçbir zaman bir mobil uygulama gizli anahtarı kullanmak, tüm kullanıcılar için erişilebilir olacaktır.
+- Platforma bağlı olarak, kullanıcı etkileşimi kullanıcılar oturum ilk kez gerekli olabilir. Örneğin, iOS uygulamaları SSO Microsoft Authenticator'ı (ve android'de Intune Şirket portalı) üzerinden ilk kez kullanırken kullanıcı etkileşimi göstermek üzere gerektirir.
+- İOS ve Android üzerinde MSAL kullanıcılarının oturumunu açmak (Bu, uygulamanızın üzerinde görünebilir) bir dış tarayıcı kullanabilir. Uygulama içi görünümlerinden kullanmayı yapılandırmasını özelleştirebilirsiniz.
+- Hiçbir zaman bir mobil uygulama gizli anahtarı kullanın. Tüm kullanıcılar için erişilebilir olacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

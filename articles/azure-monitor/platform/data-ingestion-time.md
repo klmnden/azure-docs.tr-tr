@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093975"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605610"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure İzleyici'de günlük veri alım zamanı
 Azure İzleyici binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir büyük ölçekli veri hizmetidir. Çoğunlukla için günlük verileri toplandıktan sonra kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-Bunlar, kendi IP adresine göre bulunur bilgisayar alma süresi ülkeye göre göstermek için aşağıdaki sorguyu kullanın: 
+Bunlar, kendi IP adresine göre bulunur ülke/bölge tarafından bilgisayar alımı saatini göstermek için aşağıdaki sorguyu kullanın: 
 
 ``` Kusto
 Heartbeat 

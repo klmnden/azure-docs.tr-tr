@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026812"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777338"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Öğretici: Azure Blockchain hizmetini kullanarak işlemleri Gönder
 
@@ -128,7 +128,7 @@ Her işlem düğümü, bir ortak anahtar vardır. Ortak anahtarı bir özel işl
 ### <a name="transaction-node-endpoint-addresses"></a>İşlem düğümü uç nokta adresleri
 
 1. Azure portalında her işlem düğümüne gidin ve seçin **işlem düğümleri > bağlantı dizeleri**.
-1. Kopyalayın ve uç nokta URL'NİZDEN kaydedin ** her işlem düğümü için HTTPS (erişim anahtarı: 1). Uç nokta adresleri öğreticinin ilerleyen bölümlerinde akıllı sözleşme yapılandırma dosyası gerekir.
+1. Kopyalayın ve uç nokta URL'NİZDEN kaydedin **HTTPS (erişim anahtarı: 1)** her işlem düğümü için. Uç nokta adresleri öğreticinin ilerleyen bölümlerinde akıllı sözleşme yapılandırma dosyası gerekir.
 
     ![İşlem uç nokta adresi](./media/send-transaction/endpoint.png)
 

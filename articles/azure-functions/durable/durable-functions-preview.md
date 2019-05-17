@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077748"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596084"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Dayanıklı işlevler 2.0 Önizleme (Azure işlevleri)
 
@@ -26,7 +26,7 @@ Dayanıklı İşlevler, Azure işlevleri, genel kullanım (genel kullanıma sunu
 > [!NOTE]
 > Bu önizleme özellikleri şu anda bir dayanıklı işlevler 2.0 sürümünün bir parçası olan bir **alfa kalite yayın** ile çeşitli önemli değişiklikler. Azure işlevleri uzantı paketi derlemeleri kalıcı biçiminde sürümleriyle nuget.org bulunabilir **2.0.0-alpha**. Bu yapılar, tüm üretim iş yükleri için uygun değildir ve sonraki sürümlerde ek bozucu değişiklikleri içerebilir.
 
-## <a name="breaking-changes"></a>Yeni değişiklikler
+## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
 
 Birkaç önemli değişiklikler dayanıklı işlevler 2.0 sürümünde kullanıma sunulmuştur. Mevcut uygulamaları kod değişikliği yapmadan dayanıklı işlevler 2.0 ile uyumlu olması beklenmez. Bu bölümde, bazı değişiklikler listelenmiştir:
 
@@ -36,7 +36,7 @@ Birkaç önemli değişiklikler dayanıklı işlevler 2.0 sürümünde kullanım
 
 ### <a name="hostjson-schema"></a>Host.JSON şeması
 
-Aşağıdaki kod parçacığında, yeni şema host.json için gösterir. Bizi haberdar olmasını ana değişiklik yeni `"storageProvider"` bölümünde ve `"azureStorage"` bölümü altındaki. Desteklemek için bu değişiklik yapıldı [alternatif depolama sağlayıcıları](durable-functions-preview.md#alternate-storage-providers).
+Aşağıdaki kod parçacığında, yeni şema host.json için gösterir. Dikkat edilmesi gereken ana değişiklik yenilikler `"storageProvider"` bölümünde ve `"azureStorage"` bölümü altındaki. Desteklemek için bu değişiklik yapıldı [alternatif depolama sağlayıcıları](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -93,11 +93,12 @@ Soyut bir temel sınıf sanal yöntemler bulunduğu durumlarda, bu sanal yöntem
 
 Varlık işlevleri tanımlayın okuma ve küçük parçaları olarak bilinen durumunu güncelleştirmek için işlemleri *dayanıklı varlıkları*. Bir özel tetikleyici türü işlevleriyle orchestrator işlevler gibi varlık işlevlerdir *varlık tetikleyici*. Orchestrator işlevleri farklı olarak, belirli bir kod kısıtlamalardan varlık işlevleri yoktur. Varlık işlevlerini de yönetmek durumu açıkça örtük olarak durumu aracılığıyla denetim akışını temsil eden yerine.
 
-Aşağıdaki kodu tanımlayan bir varlığın işlev örneğidir bir *sayacı* varlık. İşlev üç operations tanımlar `add`, `remove`, ve `reset`, her hangi bir tamsayı değeri güncelleştirmesi `currentValue`.
+Aşağıdaki kodu tanımlayan bir varlığın işlev örneğidir bir *sayacı* varlık. İşlev üç operations tanımlar `add`, `subtract`, ve `reset`, her hangi bir tamsayı değeri güncelleştirmesi `currentValue`.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -200,21 +201,25 @@ Kritik bölüm sona erer ve tüm kilitleri yayımlandığında, orchestration so
 Örneğin, iki oyuncuların kullanılabilir olup olmadığını test etmek için gereken düzenleme göz önünde bulundurun ve bunları hem de oyun atayabilirsiniz. Bu görevi, kullanarak aşağıdaki gibi kritik bir bölüm uygulanabilir:
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

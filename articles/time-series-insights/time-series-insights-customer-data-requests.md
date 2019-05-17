@@ -4,17 +4,17 @@ description: Azure Time Series Insights müşteri verilerini talep özelliklerin
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880717"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546384"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Müşteri verilerini talep özelliklerin özeti
 
@@ -65,3 +65,11 @@ Daha fazla bilgi için [Azure Time Series Insights gezgininin](time-series-insig
 Şu anda, zaman serisi görüşleri veri ayrıntılı olarak silinmesini desteklemez. Ancak, zaman serisi görüşleri bekletme ilkeleri yapılandırarak Time Series Insights içinde depolanan müşteri verileri kaldırma özelliği sağlar. Herhangi bir sayıda gün silme gereksinimlerinizi desteklemek için tüm Time Series Insights ortamınızı saklama süresini ayarlayabilirsiniz.
 
 Daha fazla bilgi için [bekletme zaman serisi Öngörülerinde yapılandırma](time-series-insights-how-to-configure-retention.md).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Daha fazla bilgi edinin [TSI ortamına veri erişimi verme](./time-series-insights-data-access.md).
+
+* Görünüm [Azure Time Series Insights gezgininin](time-series-insights-explorer.md).
+
+* Hakkında bilgi edinin [bekletme zaman serisi Öngörülerinde yapılandırma](time-series-insights-how-to-configure-retention.md).

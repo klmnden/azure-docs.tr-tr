@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409957"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595417"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Azure için Avere vFXT hakkında SSS
 
@@ -204,7 +204,7 @@ Hayır, en iyi yöntemler güvenli bir ağ ortamında yapılacak Avere vFXT yön
 
 Genel olarak, ek güvenlik gerektiğinde sanal ağınızda yapılandırabilirsiniz, ancak bazı kısıtlamalar ile küme işlemi engelleyebilir.
 
-Açıkça AzureConnectors ve AzureCloud erişim izin veren kuralları da eklemediğiniz sürece, ağınızdan giden internet erişimi kısıtlama sorunlara küme için neden olur. Bu durumda açıklanan [ek belgeleri github'da](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Açıkça AzureCloud erişmesine izin veren bir kuralı da eklemediğiniz sürece, ağınızdan giden internet erişimi kısıtlama sorunlara küme için neden olur. Bu durumda açıklanan [ek belgeleri github'da](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 Bölümünde anlatıldığı gibi özelleştirilmiş güvenlik konusunda yardım için desteğe başvurun [sisteminizle Yardım Al](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 

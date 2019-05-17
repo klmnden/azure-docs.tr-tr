@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373241"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604184"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights ile Etkisi Analizi
 
@@ -63,7 +63,7 @@ Etkisi, standart ve özel özellikler ve ölçümler destekler. İstediğiniz ku
 2. "Ülke veya bölge" seçin **analiz nasıl kendi** açılan kutusu
 3. İçin **kullanımını etkiler** sayfa görünümü kullanıcı Arabirimi öğesine karşılık gelen bir özel olay, 1. adımda seçtiğiniz açılır penceresinde seçin.
 
-Bu durumda, sonuçları, artık ilk örnekte olduğu gibi bir sürekli x ekseni modele uyar. Bunun yerine, bir görselleştirme için bölümlenmiş bir huniye benzer sunulur. Sıralama ölçütü **kullanım** ülkeye göre özel olay dönüştürme çeşitlemesi görüntülemek için.
+Bu durumda, sonuçları, artık ilk örnekte olduğu gibi bir sürekli x ekseni modele uyar. Bunun yerine, bir görselleştirme için bölümlenmiş bir huniye benzer sunulur. Sıralama ölçütü **kullanım** ülke/bölgeye göre özel olay dönüştürme çeşitlemesi görüntülemek için.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Bu dönüşüm oranlarını etkisi Aracı'nı nasıl hesaplar?

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152642"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762303"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
 
@@ -26,7 +26,7 @@ Bu konu Azure Media Services terimleri ve kavramları kısa bir genel bakış sa
 Bu konularda açıklandığı gibi temel kavramları, geliştirme başlatılmadan önce incelenmelidir.
 
 > [!NOTE]
-> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](media-services-apis-overview.md#sdks) birini kullanın.
 
 ## <a name="terminology"></a>Terminoloji
 
@@ -51,13 +51,13 @@ Yönetme, şifreleme, kodlama, çözümleme ve azure'da medya içeriği akışı
 - [Bulutta karşıya yükleme ve depolama](storage-account-concept.md)
 - [Varlıklar kavramı](assets-concept.md)
 
-## <a name="encoding"></a>Encoding
+## <a name="encoding"></a>Kodlama
 
 Yüksek kaliteli dijital medya dosyalarınızın varlıklarına karşıya yükledikten sonra çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlere şifreleyebilirsiniz. 
 
 Media Services v3 ile kodlanacak oluşturmanız gerekir **dönüştüren** ve **işleri**.
 
-![Dönüştürmeler](./media/encoding/transforms-jobs.png)
+![Dönüşümler](./media/encoding/transforms-jobs.png)
 
 - [Dönüşümler ve işler](transforms-jobs-concept.md)
 - [Media Services ile kodlama](encoding-concept.md)
@@ -76,7 +76,7 @@ Oluştururken **akış Bulucu**, varlığın adı ek olarak belirtmeniz gerekir.
 
 Dinamik paketleme, Canlı veya isteğe bağlı içerik akışı olmadığını kullanılır. Aşağıdaki diyagram, talep üzerine akış dinamik paketleme iş akışıyla gösterir.
 
-![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dinamik paketleme](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Media Services ile dinamik olarak Gelişmiş Şifreleme Standardı ile (AES-128) şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz veya / ve üç ana dijital hak yönetimi (DRM) sistemlerinden: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.
 
@@ -114,7 +114,7 @@ Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 
 ## <a name="monitoring"></a>İzleme
 
-### <a name="event-grid"></a>Event Grid
+### <a name="event-grid"></a>Olay Kılavuzu
 
 İşinin ilerleme durumunu görmek için kullanmalısınız **Event Grid**. Media Services, canlı olay türleri de gösterir. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. 
 

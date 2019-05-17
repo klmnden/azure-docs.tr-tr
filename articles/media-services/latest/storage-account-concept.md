@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466825"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550162"
 ---
 # <a name="cloud-upload-and-storage"></a>Bulutta karşıya yükleme ve depolama
 
@@ -51,6 +51,17 @@ Bekleyen veri varlıklarınızı korumanın varlıklar tarafından depolama tara
 |[Depolama istemci tarafı şifreleme](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure depolama, anahtar Kasası'nda müşteri tarafından yönetilen bir kiracı anahtarı tarafından sunulan istemci tarafı şifreleme|Desteklenmiyor|
 
 <sup>1</sup> , Media Services v3 (AES-256 şifreleme) depolama şifrelemesi, yalnızca varlıklarınızı Media Services v2 ile oluşturulduğunda için geriye dönük uyumluluk desteklenir. Var olan depolama ile v3 çalışır anlamı varlıklar şifreli ancak yenilerini oluşturulmasına izin vermez.
+
+## <a name="storage-account-errors"></a>Depolama hesabı hataları
+
+Media Services hesabı için "Bağlantı kesildi" durumu, hesap erişim için bir veya daha fazla bağlı depolama hesabını bir değişiklikten dolayı depolama erişim anahtarlarını artık sahip olduğunu gösterir. Güncel depolama erişim anahtarlarını, Media Services tarafından hesabında çok sayıda görevi gerçekleştirmek için gereklidir.
+
+Bir Media Services hesabında bağlı depolama hesaplarına erişim olmaması ortaya çıkabilecek birincil senaryolar aşağıda verilmiştir. 
+
+|Sorun|Çözüm|
+|---|---|
+|Media Services hesabı ya da bağlı depolama hesapları, abonelikleri ayırmak için geçirildi. |Tümü aynı abonelikte olmasını sağlamak ve depolama hesapları Media Services hesabına geçirin. |
+|Burada destekleniyordu erken bir Media Services hesabı olduğu gibi Media Services hesabı farklı bir abonelikte bağlı depolama hesabını kullanıyor. Tüm erken Media Services hesapları modern Azure Kaynak Yöneticisi (ARM) tabanlı hesaplarına dönüştürüldü ve bağlantı kesildi durumunda olacaktır. |Tümü aynı abonelikte olmasını sağlamak, Media Services hesabı ve depolama hesabını geçirin.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712423"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596511"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure'da Windows veri bilimi sanal makinesi sağlama
 
@@ -106,6 +106,8 @@ DSVM örneği oluşturmak için:
 
 Sanal makine oluşturulup sağlanan sonra Uzak Masaüstü uygulamasına önceki yapılandırdığınız yönetici hesabının kimlik bilgilerini kullanarak yapabilecekleriniz **Temelleri** bölümü. Yüklenmiş ve yapılandırılmış VM'de araçları kullanmaya başlamak hazırsınız demektir. Çok sayıda araçla Başlat menüsü kutucukları ve masaüstü simgelerini aracılığıyla erişilebilir.
 
+Ayrıca, Azure VM üzerinde Jupyter not defterlerini çalıştırmak ve ücretsiz bir hizmet katmanının kısıtlamaları atlama için not defterleri için veri bilimi sanal makinesi ekleyebilirsiniz. Daha fazla bilgi için [yönetme ve Not Defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makinede yüklü araçları
 
 DSVM'nin yüklü gelen araçları hakkında daha fazla bilgi edinin:
@@ -157,7 +159,7 @@ De mevcuttur bir eklenti olarak adlandırılan **Visual Studio Code için Azure 
 > [!NOTE]
 > Değerlendirme süreniz doldu bir ileti alabilirsiniz. Microsoft hesabı kimlik bilgilerinizi girin. Veya Visual Studio Community erişim elde etmek için yeni bir ücretsiz hesap oluşturun.
 
-### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer sürümü
+### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer edition
 
 DSVM, Machine Learning Hizmetleri ile SQL Server 2017 developer sürümü ile birlikte gelir. Bu SQL Server sürümü, R veya Python ile gelir ve veritabanı içi analiz çalıştırabilirsiniz. Machine Learning Hizmetleri akıllı uygulama geliştirme ve dağıtma için bir platform sunar. Bu diller ve topluluktan gelen çok sayıda paketleri, modeller oluşturun ve SQL Server verilerinizi Öngörüler oluşturmak için kullanabilirsiniz. Machine Learning Hizmetleri veritabanında, SQL Server R ve Python dilleri tümleşir çünkü verilere yaklaştırılmasıyla analytics tutabilirsiniz. Bu tümleştirme, maliyet ve veri taşıma ile ilişkili güvenlik riskleri ortadan kaldırır.
 

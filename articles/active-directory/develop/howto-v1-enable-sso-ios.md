@@ -2,8 +2,8 @@
 title: İOS ADAL kullanarak uygulamalar arası SSO'yu nasıl | Microsoft Docs
 description: Uygulamalarınızda çoklu oturum açmayı etkinleştirmek için ADAL SDK'ın özelliklerini kullanma
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d543df842464f1b69fa287c89e777a7e1512ae09
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190198"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540259"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Nasıl yapılır: İOS ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -288,7 +288,7 @@ Bu, proje yapılandırmasında görüntülenme şeklini bir örnek aşağıdadı
 </array>
 ```
 
-#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3. Adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
+#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3. adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
 
 Her zaman doğru uygulama için kimlik bilgisi belirteçleri biz döndürdüğünden emin olmak için biz iOS işletim sistemi doğrulayabilirsiniz şekilde uygulamanıza geri arama emin olmak gerekiyor. İOS işletim sistemi bunu çağırma uygulamanın paket Kimliğini Microsoft Aracısı uygulamalarına bildirir. Bu, standart dışı bir uygulama tarafından sahte olamaz. Bu nedenle, ki bu belirteçleri doğru uygulama döndürüldüğünden emin olmak için aracı uygulamamız URI'si ile birlikte yararlanın. Bu benzersiz yeniden yönlendirme URI'si her iki uygulamanızda kurmak ve bizim Geliştirici Portalı'nda bir yeniden yönlendirme URI'si olarak ayarlamak gerekli.
 

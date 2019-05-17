@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687222"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605417"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -29,7 +29,7 @@ Bu makalede, işlemler, güç Azure geliştirme alanları ve bu işlemleri Azure
 
 * [CLI ve Visual Studio Code ile Java](quickstart-java.md)
 * [.NET core CLI ve Visual Studio Code ile](quickstart-netcore.md)
-* [Visual Studio 2017 ile .NET core](quickstart-netcore-visualstudio.md)
+* [Visual Studio ile .NET core](quickstart-netcore-visualstudio.md)
 * [CLI ve Visual Studio Code ile node.js](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>Azure geliştirme alanları nasıl çalışır?
@@ -66,7 +66,7 @@ Uygulamanız, istemci tarafı araçları ayrıca çalışırken:
 İstemci tarafı komut satırından bir parçası olarak tooling kullanabileceğiniz `azds` komutu. İstemci tarafı ile araçları da kullanabilirsiniz:
 
 * Visual Studio Code kullanarak [Azure geliştirme alanları uzantısı](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio 2017 ile [Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools).
+* Visual Studio ile [Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools).
 
 Ayarlama ve Azure Dev boşluklarla temel akışı şu şekildedir:
 1. AKS kümenizi Azure geliştirme alanları için hazırlama
@@ -337,7 +337,7 @@ Kullanarak *install.values* özelliği, değiştirilen Helm grafiği değerleri 
 
 Yukarıdaki örnekte, *install.set.replicaCount* özellik geliştirme alanınızda çalışması için uygulamanızı kaç örneklerini denetleyici söyler. Kendi senaryonuza bağlı olarak bu değeri artırabilirsiniz, ancak bir Haya ayıklayıcı için uygulamanızın pod üzerinde bir etkisi olacaktır. Daha fazla bilgi için [sorunlarını giderme makalesine](troubleshooting.md).
 
-Kapsayıcı görüntüsünü oluşturulan Helm grafiği kümesine *{{. Values.image.Repository}} :{{. Values.image.Tag}}*. `azds.yaml` Dosyası tanımlar *install.set.image.tag* özelliği olarak *$(tag)* varsayılan olarak kullanılan değeri olarak *{{. Values.image.Tag}}*. Ayarlayarak *install.set.image.tag* özelliği bu şekilde, ayrı bir şekilde Azure geliştirme alanları çalıştırırken etiketlenmesine izin uygulamanız için kapsayıcı görüntüsü sağlar. Bu belirli durumda görüntü olarak etiketlenmiş  *<value from image.repository>: $(tag)*. Kullanmalısınız *$(tag)* değeri olarak değişken *install.set.image.tag* geliştirme alanları için sırayla tanımak ve AKS kümesinde kapsayıcıyı bulun.
+Kapsayıcı görüntüsünü oluşturulan Helm grafiği kümesine *{{. Values.image.Repository}} :{{. Values.image.Tag}}*. `azds.yaml` Dosyası tanımlar *install.set.image.tag* özelliği olarak *$(tag)* varsayılan olarak kullanılan değeri olarak *{{. Values.image.Tag}}*. Ayarlayarak *install.set.image.tag* özelliği bu şekilde, ayrı bir şekilde Azure geliştirme alanları çalıştırırken etiketlenmesine izin uygulamanız için kapsayıcı görüntüsü sağlar. Bu belirli durumda görüntü olarak etiketlenmiş  *\<image.repository değerden >: $(tag)*. Kullanmalısınız *$(tag)* değeri olarak değişken *install.set.image.tag* geliştirme alanları için sırayla tanımak ve AKS kümesinde kapsayıcıyı bulun.
 
 Yukarıdaki örnekte, `azds.yaml` tanımlar *install.set.ingress.hosts*. *İnstall.set.ingress.hosts* özelliği genel uç noktaları için bir konak adı biçimi tanımlar. Ayrıca bu özelliği kullanan *$(spacePrefix)*, *$(rootSpacePrefix)*, ve *$(hostSuffix)*, denetleyici tarafından sağlanan değerleri şunlardır. 
 
@@ -404,11 +404,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>Kodunuzdaki hataları ayıklamanıza
 
-Java, .NET ve Node.js uygulamaları için doğrudan Visual Studio Code veya Visual Studio 2017'yi kullanarak, geliştirme alanında çalışan uygulamanızın hatalarını ayıklayabilirsiniz. Visual Studio Code ve Visual Studio 2017 araç geliştirme alanınızı bağlamak, uygulamanızı başlatın ve bir hata ayıklayıcının sağlar. Çalıştırdıktan sonra `azds prep`, Visual Studio Code veya Visual Studio 2017 ' projenizi açın. Visual Studio Code veya Visual Studio 2017 çalışmasını ayrıdır bağlanmak için kendi yapılandırma dosyaları oluşturacağını `azds prep`. Gelen Visual Studio Code veya Visual Studio 2017 içinde kesme noktaları ayarlayabilir ve uygulamanızı geliştirme alanınızı başlatın.
+Java, .NET ve Node.js uygulamaları için doğrudan Visual Studio Code veya Visual Studio kullanarak, geliştirme alanında çalışan uygulamanızın hatalarını ayıklayabilirsiniz. Visual Studio Code ve Visual Studio geliştirme alanınızı bağlamak, uygulamanızı başlatın ve bir hata ayıklayıcının için araçlar sağlar. Çalıştırdıktan sonra `azds prep`, projenizi Visual Studio Code veya Visual Studio'da açabilirsiniz. Visual Studio Code veya Visual Studio çalışmasını ayrıdır bağlanmak için kendi yapılandırma dosyaları oluşturacağını `azds prep`. Gelen Visual Studio Code veya Visual Studio içinde kesme noktaları ayarlayabilir ve uygulamanızı geliştirme alanınızı başlatın.
 
 ![Kodunuzun hatalarını ayıklama](media/get-started-node/debug-configuration-nodejs2.png)
 
-Başlatma ve çalışan aynı şekilde geliştirme alanınıza bağlanarak uygulamanızı hata ayıklama için Visual Studio Code veya Visual Studio 2017 kullanarak başlattığında, işledikleri `azds up`. İstemci tarafı araçları Visual Studio Code ve Visual Studio 2017, ek bir parametre ile hata ayıklama için belirli bilgi de sağlar. Parametresi, hata ayıklayıcı görüntü hata ayıklayıcısı içinde hata ayıklayıcı'nın görüntüdeki konumunu ve hata ayıklayıcı klasörü bağlamak için uygulamanın kapsayıcı içindeki hedef konum adı içerir. 
+Başlatma ve çalışan aynı şekilde geliştirme alanınıza bağlanarak hata ayıklamak için Visual Studio Code veya Visual Studio kullanarak, uygulamanız başlatıldığında, işledikleri `azds up`. Visual Studio Code ve Visual Studio içinde istemci tarafı araçları da ek bir parametre ile hata ayıklama için belirli bilgi sağlar. Parametresi, hata ayıklayıcı görüntü hata ayıklayıcısı içinde hata ayıklayıcı'nın görüntüdeki konumunu ve hata ayıklayıcı klasörü bağlamak için uygulamanın kapsayıcı içindeki hedef konum adı içerir. 
 
 Hata ayıklayıcı görüntü otomatik olarak istemci tarafı araçları tarafından belirlenir. Dockerfile sırasında kullanılan benzer bir yöntem kullanır ve Helm grafiği çalıştırırken oluşturmak `azds prep`. Hata ayıklayıcının uygulamanın görüntüde takılı sonra kullanarak çalıştırılan `azds exec`.
 
@@ -433,12 +433,12 @@ Azure geliştirme alanları ile çalışmaya başlamak için şu hızlı başlan
 
 * [CLI ve Visual Studio Code ile Java](quickstart-java.md)
 * [.NET core CLI ve Visual Studio Code ile](quickstart-netcore.md)
-* [Visual Studio 2017 ile .NET core](quickstart-netcore-visualstudio.md)
+* [Visual Studio ile .NET core](quickstart-netcore-visualstudio.md)
 * [CLI ve Visual Studio Code ile node.js](quickstart-nodejs.md)
 
 Takım geliştirme ile çalışmaya başlamak için aşağıdaki yapılır makalelerine bakın:
 
 * [Takım geliştirme - CLI ve Visual Studio Code ile Java](team-development-java.md)
 * [Takım geliştirme - ile .NET Core CLI ve Visual Studio kodu](team-development-netcore.md)
-* [Takım geliştirme - Visual Studio 2017 ile .NET Core](team-development-netcore-visualstudio.md)
+* [Takım geliştirme - Visual Studio ile .NET Core](team-development-netcore-visualstudio.md)
 * [Takım geliştirme - CLI ve Visual Studio Code ile Node.js](team-development-nodejs.md)

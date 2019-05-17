@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 1f357ed60e9d9f020d5a80ac9349eb65577521e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a42b590fc83b89cd9f90998f835fc58f84ea960
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442758"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597405"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Zamanlama ve yayınlama işleri (Node)
 
@@ -50,7 +50,7 @@ Bu öğreticinin sonunda iki Node.js uygulamaları vardır:
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Node.js sürümü 4.0.x sürümü veya üzeri [geliştirme ortamınızı hazırlama](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) Node.js Bu öğretici için Windows veya Linux'ta nasıl yükleneceğini açıklar.
+* Node.js sürümü 10.0.x veya üzeri [geliştirme ortamınızı hazırlama](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) Node.js Bu öğretici için Windows veya Linux'ta nasıl yükleneceğini açıklar.
 
 * Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 

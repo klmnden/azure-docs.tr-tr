@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238070"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761986"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics çözüm desenleri
 
@@ -58,7 +58,7 @@ Azure Stream Analytics ve Azure SignalR hizmeti kullanılarak harita görselleş
 
 Bugün çoğu web hizmetleri ve web uygulamaları istek/yanıt deseni sunu katmanını hizmet vermek için kullanın. İstek/yanıt desendir kolay bir şekilde oluşturun ve durum bilgisi olmayan bir ön uç ve Cosmos DB gibi ölçeklenebilir depolarını kullanarak düşük yanıt süresi ile kolayca ölçeklendirilebilir.
 
-Yüksek veri hacmi, performans sorunlarını CRUD tabanlı bir sistemde genellikle oluşturur. [Olay kaynağını belirleme modeli çözüm](/azure/architecture/patterns/event-sourcing.md) performans sorunlarını gidermek için kullanılır. Zamana bağlı desenleri ve öngörüleri da zor ve geleneksel veri deposundaki verileri ayıklamak için yetersiz. Uygulamalar genellikle temelli Modern yüksek hacimli verileri bir veri akışı tabanlı mimari benimseyin. Azure Stream Analytics, Hareket halindeki veriler için işlem altyapısı olarak mimarideki bir numaralı ' dir.
+Yüksek veri hacmi, performans sorunlarını CRUD tabanlı bir sistemde genellikle oluşturur. [Olay kaynağını belirleme modeli çözüm](/azure/architecture/patterns/event-sourcing) performans sorunlarını gidermek için kullanılır. Zamana bağlı desenleri ve öngörüleri da zor ve geleneksel veri deposundaki verileri ayıklamak için yetersiz. Uygulamalar genellikle temelli Modern yüksek hacimli verileri bir veri akışı tabanlı mimari benimseyin. Azure Stream Analytics, Hareket halindeki veriler için işlem altyapısı olarak mimarideki bir numaralı ' dir.
 
 ![ASA olay kaynağını uygulama](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

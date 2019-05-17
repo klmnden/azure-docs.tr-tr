@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546325"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560648"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Lake depolama Gen1 verileri Azure Data Factory ile Gen2'ye kopyalayın
 
@@ -130,14 +130,49 @@ Bu makalede Data Factory-veri kopyalama aracını veri kopyalamak için nasıl k
 
 16. Verileri Data Lake depolama Gen2 hesabınızda kopyalandığını doğrulayın.
 
-## <a name="best-practices"></a>En iyi uygulamalar
+## <a name="best-practices"></a>En iyi yöntemler
 
-Büyük bir birim kopyaladığınızda dosya tabanlı veri deposundan verileri için önerilir:
+Azure Data Lake Storage (ADLS) Gen1 genel için Gen2'ye yükseltme değerlendirmek için başvurmak [büyük veri analiz çözümlerinizi Azure Data Lake depolama 2. nesil için Azure Data Lake depolama Gen1 ' yükseltme](../storage/blobs/data-lake-storage-upgrade.md). Aşağıdaki bölümlerde Gen2 Gen1 veri yükseltme için ADF kullanmanın en iyi yöntemleri tanıtır.
 
-- Dosyalar 10 TB 30 TB fileset için her bölüm.
-- Kaynak veya havuz veri depolarına azaltmayı önlemek için çok fazla eşzamanlı kopyalama çalıştırmaları tetiklemez. Bir kopya çalıştırmak ve aktarım hızı İzleyicisi ile başlayın, ardından kademeli olarak daha fazla gerektiği gibi ekleyin.
+### <a name="data-partition-for-historical-data-copy"></a>Veri bölümü için geçmiş veri kopyalama
+
+- ADLS Gen1, toplam veri boyutu ise kısa **30TB** ve dosya sayısını küçüktür **1 milyon**, tüm veriler tek kopyalama etkinliği çalıştırma kopyalayabilirsiniz.
+- Büyük veri kopyalamak için sahip olduğunuz veya toplu veri geçişi yönetmek ve her birinin belirli zamanlama pencereleri içinde tamamlandı esnekliği istediğiniz, verileri bölümlemek için önerilir, bu durumda, ayrıca herhangi bir beklenmeyen ISS riskini azaltabilir UE.
+
+Bir PoC (kavram kanıtı) uçtan uca çözüm doğrulayın ve kopyalama aktarım hızı, ortamınızda test etmek için önerilir. PoC yapmanın ana adımlar: 
+
+1. ADLS Gen1 ADLS Gen2'ile başlayan bir kopyalama performansı temel almak için birkaç TB'a veri kopyalamak için tek bir kopyalama etkinliği ile bir ADF işlem hattı oluşturma [veri tümleştirme birimleri (DIUs)](copy-activity-performance.md#data-integration-units) 128 olarak. 
+2. #1. adımda aldığınız kopyalama işleme bağlı olarak, tüm veri geçişi için gereken tahmini süre hesaplayın. 
+3. (İsteğe bağlı) Bir denetim tablo oluşturun ve dosyaları geçirilmesi bölümlemek için dosya filtresi tanımlayın. Aşağıdakilere dosyalarla bölüm yolu: 
+
+    - Klasör adı veya klasör adı (önerilen) joker karakter Filtresi ile bölümlenmiş 
+    - Dosyanın son değiştirme zamanına göre bölümlenir 
+
+### <a name="network-bandwidth-and-storage-io"></a>Ağ bant genişliği ve depolama g/ç 
+
+Geçiş sırasında ADLS Gen1 normal iş çalışma etkisi olmayan için depolama g/ç kullanımı yönetebilmesi ADLS Gen1 verileri okumak ve veri ADLS Gen2'için yazma ADF kopyası işleri uyumluluğunu denetleyebilirsiniz.
+
+### <a name="permissions"></a>İzinler 
+
+Data factory'de [ADLS Gen1 bağlayıcı](connector-azure-data-lake-store.md) Azure kaynak kimlik doğrulamaları için hizmet sorumlusu ve yönetilen kimliği destekleyen [ADLS Gen2 bağlayıcı](connector-azure-data-lake-storage.md) hizmet sorumlusu ve yönetilen kimliği Azure kaynak kimlik doğrulama için hesap anahtarı destekler. Gidebilirsiniz Data Factory ve kopyalama, gereksinim duyduğunuz kadar tüm dosyalar/ACL yüksek hesabı için yeterli izinleri vermeniz emin olun/okuma/yazma erişimi için tüm dosyaları sağlar ve isterseniz ACL'leri ayarlayın. Geçiş dönemi boyunca super kullanıcıya/sahip rolü olarak vermek için önerilir. 
+
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Data Lake depolama Gen1 ACL'sinden koru
+
+ACL veri dosyaları ile birlikte Data Lake depolama Gen1 için Gen2'ye yükseltirken çoğaltmak istiyorsanız, başvurmak [Data Lake depolama Gen1 korumak ACL'sinden](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+
+### <a name="incremental-copy"></a>Artımlı kopyalama 
+
+ADLS Gen1 yalnızca yeni veya güncelleştirilmiş dosyaları yüklemek için çeşitli yaklaşımlar kullanılabilir:
+
+- Yeni veya güncelleştirilmiş dosyaları yükleme zaman bölümlenmiş klasör veya dosya adı tarafından örn/2019/05/13 / *;
+- Yeni veya güncelleştirilmiş dosyaları LastModifiedDate tarafından yük;
+- Herhangi 3 taraf araç/çözümü tarafından yeni veya güncelleştirilmiş dosyaları tanımlayın ve ardından dosya veya klasör adı için ADF işlem hattı parametresi veya bir tablo/dosyası geçirin.  
+
+Artımlı yükleme yapmak için uygun sıklığı ADLS Gen1 dosyalarında toplam sayısı ve her seferinde yüklenecek yeni veya güncelleştirilmiş dosya hacmine bağlıdır.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kopyalama etkinliği'ne genel bakış](copy-activity-overview.md)
-* [Azure Data Lake depolama Gen2 Bağlayıcısı](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [Kopyalama etkinliği'ne genel bakış](copy-activity-overview.md)
+> [Azure Data Lake depolama Gen1 bağlayıcı](connector-azure-data-lake-store.md)
+> [Azure Data Lake depolama Gen2 Bağlayıcısı](connector-azure-data-lake-storage.md)

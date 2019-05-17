@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301173"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595691"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -37,6 +37,9 @@ Farklı Çalıştır hesapları iki tür vardır:
   
   > [!NOTE]
   > Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. CSP aboneliklerini kullanırken Azure Klasik farklı çalıştır hesabı oluşturulmamış. Azure farklı çalıştır hesabını yine de oluşturulur. CSP abonelikleri hakkında daha fazla bilgi edinmek için [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+
+  > [!NOTE]
+  > Bir farklı çalıştır hesabı için hizmet sorumlusu, varsayılan olarak Azure Active Directory Okuma izinlerine sahip değil. Okumak veya Azure Active Directory'yi yönetmek için izinler eklemek istiyorsanız, hizmet sorumlusu altında bu izni gerekir **API izinleri**. Daha fazla bilgi için bkz. [web API'lerine erişim izni ekleyin](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="permissions"></a>Farklı Çalıştır hesaplarını yapılandırmak için izinler
 

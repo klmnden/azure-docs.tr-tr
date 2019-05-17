@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7030ae1c3a28cdd74671dc95dce59cf86cacf4c9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192484"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786171"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Hızlı Başlangıç: IOT hub hizmetini etkinleştirme
 
@@ -30,7 +30,7 @@ ms.locfileid: "65192484"
 Bu makalede, IOT Hub'ınızın IOT Önizleme hizmeti için Azure Güvenlik Merkezi (ASC) etkinleştirmek bir açıklama sağlar.  
 
 > [!NOTE]
-> Şu anda IOT için Azure Güvenlik Merkezi standart katmanı ve daha yüksek IOT hub'ları yalnızca destekler.
+> Şu anda IOT için Azure Güvenlik Merkezi, yalnızca standart katman IOT hub'larını destekler.
 > IOT için Azure Güvenlik Merkezi tek bir hub çözümüdür. Birden çok hub'a ihtiyacınız varsa birden çok çözümü gereklidir. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Hizmetini etkinleştirmek için Önkoşullar
@@ -38,8 +38,12 @@ Bu makalede, IOT Hub'ınızın IOT Önizleme hizmeti için Azure Güvenlik Merke
 - Log Analytics çalışma alanı
   - İki tür bilgi varsayılan olarak, IOT için Log Analytics çalışma alanınızda ASC tarafından varsayılan olarak depolanır; **güvenlik uyarıları** ve **önerileri**. 
   - Bir ek bilgi türü depolama alanı eklemek seçebileceğiniz **ham olaylar**. Bu depolama Not **ham olaylar** Log Analytics'e ek depolama maliyetlerini taşır. 
-- IOT hub'ı (standart katmana veya üzeri)
-- Tümüne uyan [hizmet prerequities](service-prerequisites.md) 
+- IOT hub'ı (standart katman)
+- Tümüne uyan [hizmet önkoşulları](service-prerequisites.md) 
+- Desteklenen hizmet bölgeleri
+  - Orta ABD
+  - Kuzey Avrupa
+  - Güneydoğu Asya
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>IOT Hub'ınızın IOT için ASC etkinleştir 
 

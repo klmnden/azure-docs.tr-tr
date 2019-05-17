@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425920"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560837"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure İzleyici günlüklerinde arama sorguları
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Kullanırsanız `==` yerine `:`, sonuçları, kayıtları içerir *kaynak* tam değeri "error" sütununun tam bu durumda. Kullanarak ':' kayıt içermez burada *kaynak* "hata kodu 404" veya "Error" gibi değerler vardır.
+> Kullanırsanız `==` yerine `:`, sonuçları, kayıtları içerir *kaynak* tam değeri "error" sütununun tam bu durumda. Kullanarak ':' kayıtları içerecek burada *kaynak* "hata kodu 404" veya "Error" gibi değerler vardır.
 
 ## <a name="case-sensitivity"></a>Büyük küçük harf duyarlılığı
 "Dns" arama "DNS", "dns" veya "Dns" gibi sonuçlar böylece varsayılan olarak, arama terimi, duyarlıdır. Büyük küçük harfe duyarlı arama yapmak için `kind` seçeneği:

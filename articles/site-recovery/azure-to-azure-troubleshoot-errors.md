@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699090"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796419"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -232,10 +232,10 @@ Diskleri korumak veya sanal Makinenin çoğaltma durumu yeniden sağlam hale get
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Uyarıyı kapatmak için. Çoğaltılan öğeler gidin > VM > Genel Bakış bölümünde Kapat uyarıyı tıklatın.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Azure VM için "çoğaltmayı etkinleştir" seçimi görülemiyor
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Azure VM veya kaynak grubu için "çoğaltmayı etkinleştir" seçimi görülemiyor
 
  **1. neden:  Kaynak grubu ve kaynak sanal makine farklı konumlarda** <br>
-Azure Site Recovery şu anda kaynak bölge kaynak grubunu ve sanal makineler aynı konumda olması gerektiğini uygulanan. Böyle değilse, ardından, koruma süresi sırasında sanal makineyi bulamadı olmaz.
+Azure Site Recovery, şu anda kaynak bölge kaynak grubunu ve sanal makineler mandates aynı konumda olmalıdır. Böyle değilse, ardından, koruma süresi sırasında sanal makineyi bulamadı olmaz. Geçici çözüm olarak, Kurtarma Hizmetleri kasası yerine VM'den çoğaltmayı etkinleştirebilirsiniz. Sourece VM gidin > Özellikler > olağanüstü durum kurtarma ve çoğaltmayı etkinleştirin.
 
 **2. neden: Kaynak grubu, seçili abonelik parçası değil** <br>
 Belirtilen abonelik bir parçası değilse, kaynak grubunu koruma süresi bulmak mümkün olmayabilir. Kaynak grubu kullanılıyor aboneliğe ait olduğundan emin olun.
@@ -252,7 +252,7 @@ VM için çoğaltmayı etkinleştirmek istediğiniz görmüyorsanız, Azure sana
 >
 >"" AzureRM.Resources"" modülü kullanmadan önce güncelleştirdiğinizden emin olun aşağıdaki betiği.
 
-Kullanabileceğiniz [kaldırmak eski ASR yapılandırma betiğini](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) ve Azure sanal makinesinde eski Site Recovery yapılandırmayı kaldırmak. Eski yapılandırmayı kaldırdıktan sonra VM görüyor olması gerekir.
+Kullanabileceğiniz [kaldırmak eski ASR yapılandırma betiğini](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) ve Azure sanal makinesinde eski Site Recovery yapılandırmayı kaldırmak. Eski yapılandırmayı kaldırdıktan sonra VM görüyor olması gerekir.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Sanal makine koruma için işaretleyin yapılamıyor
  **1. neden:  Sanal makine başarısız veya yanıt vermeyen bir durumda yüklü bazı uzantılı** <br>

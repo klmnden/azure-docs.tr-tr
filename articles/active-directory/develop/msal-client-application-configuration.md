@@ -4,7 +4,7 @@ description: Uygulamaları Microsoft Authentication Library (MSAL) genel istemci
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138544"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546021"
 ---
 # <a name="application-configuration-options"></a>Uygulama yapılandırma seçenekleri
 
@@ -124,7 +124,7 @@ Web apps için yeniden yönlendirme URI'si (veya yanıt URI'si), hangi Azure AD 
 
 Arka plan programı uygulamaları için bir yeniden yönlendirme URI'si belirtmeniz gerekmez.
 
-## <a name="client-secret"></a>Gizli anahtar
+## <a name="client-secret"></a>İstemci parolası
 Gizli bir istemci uygulama istemci gizli anahtarı. Bu gizli dizi (uygulama parola), uygulama kayıt portalı tarafından sağlanan veya uygulama kaydı sırasında Azure AD PowerShell AzureAD, PowerShell AzureRM veya Azure CLI ile sağlanan.
 
 ## <a name="logging"></a>Günlüğe kaydetme

@@ -4,7 +4,7 @@ description: Azure Search ile kullanılan tam Lucene sözdizimi için başvuru.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024237"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596561"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search'te Lucene sorgu sözdizimi
 Azure arama sorguları dayalı zengin üzerinde yazma [Lucene sorgu ayrıştırıcısına](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) özel sorgu formları için söz dizimi: joker karakter, belirsiz arama, yakınlık araması, normal ifadeler birkaç örnek verilmiştir. Lucene sorgu ayrıştırıcısına sözdizimi çok [bozulmadan Azure Search'te uygulanan](search-lucene-query-architecture.md), dışında *aralığı aramaları* Azure Search ile oluşturulmuş `$filter` ifadeler. 
@@ -121,16 +121,19 @@ Kullanarak `searchMode=all` daha az sonuç ekleyerek ve varsayılan değer sorgu
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Joker karakter ve normal ifade sorguları Puanlama
  Azure Search kullanan sıklığa dayalı Puanlama ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) metin sorguları için. Bununla birlikte, burada koşulları kapsamında potansiyel olarak geniş olabilir joker karakter ve normal ifade sorgular için eşleşmeler arasından nadir koşulları doğrultusunda biasing gelen sıralaması önlemek için sıklığı çarpanı yoksayılır. Tüm eşleşmeleri için joker karakter ve normal ifade eşit olarak kabul edilir arar.
 
-##  <a name="bkmk_fields"></a> Alan kapsamlı sorgular  
- Belirtebileceğiniz bir `fieldname:searchterm` burada tek bir sözcük alanıdır ve arama terimini de tek bir sözcük veya tümcecik, Boole işleçleri ile isteğe bağlı olarak bir fielded sorgu işlemi tanımlamak için yapı. Bazı örnekler şunlardır:  
+##  <a name="bkmk_fields"></a> Fielded arama  
+İle bir fielded arama işlemi tanımlayabileceğiniz `fieldName:searchExpression` sözdizimi, nereye arama ifadesi olabilir tek bir sözcük veya tümcecik ya da Boole işleçleri ile isteğe bağlı olarak daha karmaşık bir ifadeyi parantez içinde. Bazı örnekler şunlardır:  
 
 - genre:jazz NOT history  
 
 - sanatçıların: ("mil Davis" "John Coltrane")
 
-  Bu durumda iki ayrı Sanatçılar arama tek bir varlık olarak değerlendirilebilmesi için her iki dize istiyorsanız birden çok dizeyi tırnak işaretleri içinde yerleştirdiğinizden emin olun `artists` alan.  
+Bu durumda iki ayrı Sanatçılar arama tek bir varlık olarak değerlendirilebilmesi için her iki dize istiyorsanız birden çok dizeyi tırnak işaretleri içinde yerleştirdiğinizden emin olun `artists` alan.  
 
-  Belirtilen alan `fieldname:searchterm` olmalıdır bir `searchable` alan.  Bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) dizin özniteliklerini alan tanımlarını nasıl kullanıldığı hakkında ayrıntılar için.  
+Belirtilen alan `fieldName:searchExpression` olmalıdır bir `searchable` alan.  Bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) dizin özniteliklerini alan tanımlarını nasıl kullanıldığı hakkında ayrıntılar için.  
+
+> [!NOTE]
+> Arama ifadeleri kullanarak fielded, kullanın gerekmez `searchFields` parametresinin her arama ifade fielded çünkü açıkça belirtilen bir alan adı. Ancak, kullanmaya devam edebilirsiniz `searchFields` burada bazı bölümleri için belirli bir alan belirlenir ve rest birkaç alanlarına uygulanabilir bir sorgu çalıştırmak istiyorsanız parametresi. Örneğin, sorgu `search=genre:jazz NOT history&searchFields=description` BC `jazz` yalnızca `genre` eşleşmesi ancak alan `NOT history` ile `description` alan. Sağlanan alan adı `fieldName:searchExpression` her zaman önceliklidir `searchFields` Bu örnekte neden olan bir parametre değil dahil etmemiz gerektiğini `genre` içinde `searchFields` parametresi.
 
 ##  <a name="bkmk_fuzzy"></a> Belirsiz arama  
  Belirsiz arama eşleşme bulur benzer bir yapı olması koşuluyla. Başına [Lucene belgeleri](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), belirsiz arama temel [Damerau Levenshtein uzaklık](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Belirsiz arama, en yüksek uzaklığı ölçütleri karşılayan 50 koşulları kadar bir terim genişletebilirsiniz. 

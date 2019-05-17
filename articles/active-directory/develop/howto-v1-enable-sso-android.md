@@ -3,8 +3,8 @@ title: Android ADAL kullanarak uygulamalar arası SSO'yu nasıl | Microsoft Docs
 description: Uygulamalarınızda çoklu oturum açmayı etkinleştirmek için ADAL SDK'ın özelliklerini kullanma
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c11bf943adcacc39518ba0f290156761be0b78aa
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917264"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540381"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Nasıl yapılır: Android ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -129,7 +129,7 @@ Uygulamanızın yeniden yönlendirme URI'si düzgün biçimde olmalıdır:
 
 Bu yeniden yönlendirme URI'sini kullanarak, uygulama kayıt kaydedebilirsiniz [Azure portalında](https://portal.azure.com/). Azure AD uygulama kaydı hakkında daha fazla bilgi için bkz. [Azure Active Directory ile tümleştirme](active-directory-how-to-integrate.md).
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3. Adım: Uygulamanızdaki doğru izinleri ayarla
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3. adım: Uygulamanızdaki doğru izinleri ayarla
 
 Android Aracısı uygulama, uygulamalar arasında kimlik bilgilerini yönetmek için Android işletim sistemi Hesap Yöneticisi özelliğini kullanır. Android'de aracı kullanmak için uygulama bildiriminizi Accountmanager'a hesaplarını kullanmak için izinleri olmalıdır. Bu izinleri ayrıntılı olarak ele alınmıştır [burada Google belgeler için Hesap Yöneticisi](https://developer.android.com/reference/android/accounts/AccountManager.html)
 

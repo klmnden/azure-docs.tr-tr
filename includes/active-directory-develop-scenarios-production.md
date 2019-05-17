@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 6d4db402142441ed9b2bf62da48caa637195ad37
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 08d1f69294c4e330db79a1b5fecdb259dffe33cb
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074538"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550409"
 ---
 Uygulamanızın harika kılar:
 
-- Etkinleştirme [günlüğü](../articles/active-directory/develop/msal-logging.md) uygulamanızdaki.
-- Uygulamanızda telemetriyi etkinleştirin.
+- Etkinleştirme [günlüğü](../articles/active-directory/develop/msal-logging.md).
+- Telemetri etkinleştirin.
 - Etkinleştirme [proxy'leri ve HTTP istemcilerini özelleştirme](../articles/active-directory/develop/msal-net-provide-httpclient.md).
 
 Tümleştirmenizi test edin:
 
-- İzleyin [Microsoft kimlik platformu tümleştirme denetim](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+- Kullanım [Microsoft kimlik platformu tümleştirme denetim](../articles/active-directory/develop/identity-platform-integration-checklist.md).

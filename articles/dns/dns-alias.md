@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790547"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596709"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
@@ -25,7 +25,7 @@ Bir diğer ad kayıt kümesi, aşağıdaki kayıt türlerinin bir Azure DNS böl
 - CNAME
 
 > [!NOTE]
-> İşaret etmek için bir diğer ad kaydı A veya AAAA kayıt türleri için kullanmak istiyorsanız bir [Azure Traffic Manager profilini](../traffic-manager/quickstart-create-traffic-manager-profile.md) , Traffic Manager profilini yalnızca olduğundan emin olun [dış uç noktalar](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Dış Traffic Manager'da uç noktaları için IPv4 veya IPv6 adresi sağlamanız gerekir. İdeal olarak, statik IP adresleri kullanın.
+> İşaret etmek için bir diğer ad kaydı A veya AAAA kayıt türleri için kullanmak istiyorsanız bir [Azure Traffic Manager profilini](../traffic-manager/quickstart-create-traffic-manager-profile.md) , Traffic Manager profilini yalnızca olduğundan emin olun [dış uç noktalar](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Dış Traffic Manager'da uç noktaları için IPv4 veya IPv6 adresi sağlamanız gerekir. Uç noktaların tam etki alanı adlarını (FQDN) kullanamazsınız. İdeal olarak, statik IP adresleri kullanın.
 
 ## <a name="capabilities"></a>Özellikler
 

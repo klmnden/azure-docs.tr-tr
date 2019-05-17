@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399906"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606702"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake araçları kullanarak veri dengesizliği sorunları çözün
 
@@ -36,7 +36,7 @@ Visual Studio için Azure Data Lake araçları, işinizi veri dengesizliği ile 
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>2. seçenek: Farklı bir dağıtım ve bölüm anahtarı seçin
 
-Önceki örnekte, yalnızca ülke karşısında denetim vergi iş yükü denetlemek istiyorsanız, anahtar olarak kimlik numarasını seçerek veri dağıtım artırabilir. Farklı bir bölüm veya dağıtım anahtarı çekme bazen verileri daha eşit dağıtabilirsiniz, ancak bu seçenek iş mantığınızı etkilemediğinden emin emin olmanız gerekir. Örneğin, her durum için vergi toplamı hesaplamak için belirtmek istediğiniz _durumu_ bölüm anahtarı olarak. Bu sorunla karşılaşmaya devam ederseniz seçeneği 3'ü kullanarak deneyin.
+Önceki örnekte, yalnızca tüm ülke/bölge, vergi denetim iş yükü denetlemek istiyorsanız, anahtar olarak kimlik numarasını seçerek veri dağıtım artırabilir. Farklı bir bölüm veya dağıtım anahtarı çekme bazen verileri daha eşit dağıtabilirsiniz, ancak bu seçenek iş mantığınızı etkilemediğinden emin emin olmanız gerekir. Örneğin, her durum için vergi toplamı hesaplamak için belirtmek istediğiniz _durumu_ bölüm anahtarı olarak. Bu sorunla karşılaşmaya devam ederseniz seçeneği 3'ü kullanarak deneyin.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Seçenek 3: Daha fazla bölüm veya dağıtım anahtarları Ekle
 

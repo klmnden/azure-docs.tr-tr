@@ -1,5 +1,5 @@
 ---
-title: Derin öğrenme modeli için çıkarım GPU ile dağıtma
+title: Çıkarım gpu'su için model dağıtma
 titleSuffix: Azure Machine Learning service
 description: Derin öğrenme modeli için çıkarım bir GPU kullanan bir web hizmeti olarak dağıtmayı öğrenin. Bu makalede, Tensorflow modeli için Azure Kubernetes hizmeti kümesi dağıtılır. Küme, GPU özellikli bir sanal makine konak web hizmeti ve puan çıkarım isteklerini kullanır.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515182"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595688"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>GPU çıkarım yapma
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Çıkarım gpu'su için ayrıntılı öğrenme model dağıtma
 
 Bir machine learning web hizmeti olarak modeli için GPU çıkarım kullanmayı öğrenin. Bu makalede, Azure Machine Learning hizmeti örneği Tensorflow derin öğrenme modeli dağıtmak için nasıl kullanılacağını öğrenin. Model hizmeti barındırmak için GPU özellikli bir VM kullanan bir Azure Kubernetes Service (AKS) kümesine dağıtılır. Hizmete istek gönderildiğinde, çıkarım gerçekleştirmek için GPU modelini kullanır.
 
 GPU üzerinde yüksek oranda paralelleştirilebilir hesaplama CPU performans avantajları sunar. Eğitim ve çıkarım derin öğrenme modelleri (özellikle de büyük toplu istekleri) GPU'ları için mükemmel bir kullanım örnekleridir.  
 
-Bu örnek, Azure Machine Learning için kaydedilen TensorFlow model dağıtma gösterilmektedir. 
+Bu örnek, Azure Machine Learning tarafından kaydedilen TensorFlow model dağıtma gösterilmektedir:
+* GPU özellikli bir AKS kümesi oluşturma
+* Tensorflow GPU'ya sahip bir model dağıtma
 
-## <a name="goals-and-prerequisites"></a>Hedefleri ve Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Yönergeleri izleyin:
-* GPU etkin oluşturma AKS kümesi
-* Tensorflow GPU ile model dağıtma
-
-Önkoşullar:
 * Azure Machine Learning services çalışma alanı
 * Python
 * Tensorflow SavedModel kayıtlı. Modelleri nasıl kaydedeceğinizi öğrenmek için bkz [modelleri dağıtma](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-Bu makalede dayanır [aks'ye dağıtma Tensorflow modelleri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), kaydedilen TensorFlow kullanan modeller ve AKS kümesini dağıtır. Ancak, Puanlama dosyasını ve ortam dosyası yapılan küçük değişikliklerle, Gpu'lar destekleyen tüm makine öğrenmesi çerçeveleri için geçerlidir.  
+Bu makale, Jupyter Not Defteri, temel [aks'ye dağıtma Tensorflow modelleri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), kaydedilen TensorFlow kullanan modeller ve AKS kümesini dağıtır. Ancak, Puanlama dosyasını ve ortam dosyası yapılan küçük değişikliklerle, Gpu'lar destekleyen tüm makine öğrenmesi çerçeveleri için geçerlidir.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>Gpu'lar ile AKS kümesi sağlama
 Azure, her biri için çıkarım kullanılabilir, birçok farklı GPU seçenekleri vardır. Bkz: [N serisi listesini](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) tam dökümünü ve maliyetleri için. 

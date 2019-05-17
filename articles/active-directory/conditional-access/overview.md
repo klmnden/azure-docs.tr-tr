@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23c88857c877440be724ddea0bdb239768621c8c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354613"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764798"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim nedir?
 
@@ -64,7 +64,7 @@ Koşullu erişim ilkesi, aşağıdaki modeli kullanan bir erişim senaryosunun t
 
 - **[Kullanıcılar](conditions.md#users-and-groups)**: Erişim denemesi gerçekleştiren kullanıcıları (**kimin**).
 
-- **[Bulut uygulamaları](conditions.md#cloud-apps)**: Erişim denemesi hedefleri (**ne**).
+- **[Bulut uygulamaları](conditions.md#cloud-apps-and-actions)**: Erişim denemesi hedefleri (**ne**).
 
 Bu iki koşulun, koşullu erişim ilkesinde kullanılması zorunludur. Bu iki zorunlu koşula ek olarak, erişim girişiminin gerçekleştirilme şeklini açıklayan ek koşullar da kullanabilirsiniz. Mobil cihazların veya kuruluş ağınızın dışındaki konumların kullanılması, yaygın örnekler arasında sayılabilir. Daha fazla bilgi için bkz. [Azure Active Directory koşullu erişim özelliğindeki koşullar](conditions.md).
 

@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920164"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604389"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
-Office 365 grupları yaşam döngüsü için süre sonu ilkesi ayarı artık yönetebilirsiniz. Azure Active Directory'de (Azure AD), yalnızca Office 365 gruplarının süre sonu ilkesi ayarlayabilirsiniz. 
+Office 365 grupları yaşam döngüsü için süre sonu ilkesi ayarı artık yönetebilirsiniz. Azure Active Directory'de (Azure AD), yalnızca Office 365 gruplarının süre sonu ilkesi ayarlayabilirsiniz.
 
 Bir grubu süresi dolacak şekilde ayarladıktan sonra:
 
@@ -66,8 +66,8 @@ Silinen bir grubu geri yüklemek için izinler hakkında daha fazla bilgi için 
   * Seçerek işiniz bittiğinde, ayarlarınızı kaydetmek **Kaydet**.
 
 > [!NOTE]
-> * İlk süre sonlarını ayarlama, zaman aşımı aralığından daha eski olan tüm gruplar dolmasına 30 gün için ayarlanır. Bir gün içinde ilk yenileme bildirim e-posta gönderilir. Örneğin, A grubunun 400 gün önce oluşturuldu ve sona erme aralığını 180 gün olarak ayarlanır. Sona erme tarihi geçerli olduğunda, sahibi, yeniler sürece gruba silinmeden önce 30 gün vardır.
-> * Bir dinamik grup silinip geri yüklendiğinde yeni bir grup olarak kabul edilir ve kurala göre yeniden doldurulur. Bu işlem 24 saat kadar sürebilir.
+> İlk süre sonlarını ayarlama, zaman aşımı aralığından daha eski olan tüm gruplar dolmasına 30 gün için ayarlanır. Bir gün içinde ilk yenileme bildirim e-posta gönderilir. Örneğin, A grubunun 400 gün önce oluşturuldu ve sona erme aralığını 180 gün olarak ayarlanır. Süre sonu ilkesini uyguladığında, sahibi, yeniler sürece gruba silinmeden önce 30 gün vardır.
+> Dinamik bir grup silinir ve geri yeni bir grup olarak görülen ve yeniden kuralına göre doldurulur. Bu işlem, 24 saate kadar sürebilir.
 
 ## <a name="email-notifications"></a>E-posta bildirimleri
 

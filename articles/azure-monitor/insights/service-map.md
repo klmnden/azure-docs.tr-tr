@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404642"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606497"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet Eşlemesi ile, sunucularınızı planladığınız şekilde kullanabilirsiniz: kritik hizmetler sunabilen birbirine bağlı sistemler. Sunucu Eşlemesi, aracının yüklenmesi dışında herhangi bir yapılandırma gerektirmeden sunucular, işlemler, gelen ve giden bağlantıların gecikme süresi ile TCP aracılığıyla bağlı mimarilerdeki bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -29,7 +29,7 @@ Bu makalede, ekleme ve hizmet eşlemesi kullanarak ayrıntılarını açıklar. 
 >Hizmet eşlemesi zaten dağıttıysanız, artık Ayrıca, maps Azure İzleyici'de VM'ler için VM durumunu ve performansını izlemek için ek özellikler içeren görüntüleyebilirsiniz. Daha fazla bilgi için bkz. [Vm'lere genel bakış için Azure İzleyici](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="enable-service-map"></a>Hizmet eşlemesini etkinleştir
@@ -348,7 +348,7 @@ Kolaylık olması için bir bağlantı uzak bitiş IP adresi RemoteIp özelliği
 
 | Özellik | Açıklama |
 |:--|:--|
-| `RemoteCountry` |RemoteIp barındırma ülke adı.  Örneğin, *Amerika Birleşik Devletleri* |
+| `RemoteCountry` |RemoteIp barındırma ülke/bölge adı.  Örneğin, *Amerika Birleşik Devletleri* |
 | `RemoteLatitude` |Coğrafi konum enlem.  Örneğin, *47.68* |
 | `RemoteLongitude` |Coğrafi konum boylam.  Örneğin, *-122.12* |
 

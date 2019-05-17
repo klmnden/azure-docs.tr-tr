@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db7cc556525ab57f14984232bf1797764865fca3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330355"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606239"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablosu .NET API'si: İndirme ve sürüm notları
 
@@ -33,10 +33,12 @@ ms.locfileid: "60330355"
 |**Geçerli desteklenen çerçevesi**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
+> .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) olduğunu Bakım modu ve yakında kullanımdan kaldırılacak. Lütfen yeni .NET Standard Kitaplığı'na yükseltme [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) tablo API'sı tarafından desteklenen en son özellikler almaya devam etmek.
+
 > Önizleme sırasında bir Tablo API hesabı oluşturduysanız, genel kullanıma açık Tablo API SDK’ları ile çalışmak için lütfen [yeni Tablo API hesabı](create-table-dotnet.md#create-a-database-account) oluşturun.
 >
 
-## <a name="release-notes"></a>Sürüm notları
+## <a name="release-notes"></a>Sürüm Notları
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 
@@ -75,22 +77,22 @@ ms.locfileid: "60330355"
 
 Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş hafifletmek için bir SDK'yı devre dışı bırakmadan önce.
 
-[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) Önizleme paket kullanım dışı ve yerine [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paket. WindowsAzure.Storage-PremiumTable SDK'sı 15 Kasım 2018'de kullanımdan kaldırılacaktır, hangi zaman isteklerini devre dışı bırakılan SDK'sını değil izin verilir. `Microsoft.Azure.CosmosDB.Table` Kitaplığı kullanılabilir .NET Standard için şu anda yalnızca, henüz .NET Core için kullanılabilir değil.
+`Microsoft.Azure.CosmosDB.Table` Kitaplığı yalnızca, .NET Framework için şu anda kullanılabilir ve Bakım modunda ve yakında kullanımdan kaldırılacak. Yeni özellikler ve İşlevler ve en iyi duruma getirme .NET Standard Kitaplığı'na eklendi yalnızca [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)gibi BT için yükseltmeniz kesinlikle önerilir gibi [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-Geçerli SDK'sı yalnızca eklenen yeni özellikler ve işlevsellik ve en iyi duruma getirme, bu nedenle, her zaman en son SDK sürümüne erken mümkün olduğunca yükseltmeniz önerilir. 
+[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) Önizleme paketini kullanımdan kaldırıldı. WindowsAzure.Storage-PremiumTable SDK'sı 15 Kasım 2018'de kullanımdan kaldırılacaktır, hangi zaman isteklerini devre dışı bırakılan SDK'sını değil izin verilir. 
 
 Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm isteklere hizmet tarafından reddedilir.
 <br/>
 
 | Version | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [2.1.0](#2.1.0) |22 Ocak 2019|--- |
-| [2.0.0](#2.0.0) |26 Eylül 2018'den|--- |
-| [1.1.3](#1.1.3) |17 Temmuz 2018|--- |
-| [1.1.1](#1.1.1) |26 Mart 2018|--- |
-| [1.1.0](#1.1.0) |21 Şubat 2018|--- |
-| [1.0.0](#1.0.0) |15 Kasım 2017|--- |
-| 0.9.0-Preview |11 Kasım 2017 |--- |
+| [2.1.0](#2.1.0) |22 Ocak 2019|01 Nisan 2020 |
+| [2.0.0](#2.0.0) |26 Eylül 2018'den|01 Mart 2020 |
+| [1.1.3](#1.1.3) |17 Temmuz 2018|01 aralık 2019 |
+| [1.1.1](#1.1.1) |26 Mart 2018|01 aralık 2019 |
+| [1.1.0](#1.1.0) |21 Şubat 2018|01 aralık 2019 |
+| [1.0.0](#1.0.0) |15 Kasım 2017|15 Kasım 2019 |
+| 0.9.0-Preview |11 Kasım 2017 |11 Kasım 2019 |
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

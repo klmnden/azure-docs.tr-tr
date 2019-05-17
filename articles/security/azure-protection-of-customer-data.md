@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589069"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603139"
 ---
 # <a name="azure-customer-data-protection"></a>Azure müşteri verilerini koruma   
 Microsoft Operasyon ve destek personelinin müşteri verilerine erişimi varsayılan olarak reddedilir. Müşteri verilerine erişim verildiğinde liderlik onay gereklidir ve ardından erişim dikkatli bir şekilde yönetilir ve günlüğe kaydedilen. Erişim denetimi gereksinimleri aşağıdaki Azure güvenlik ilkesi tarafından oluşturulur:
@@ -48,8 +48,8 @@ Azure müşterileri ile güçlü veri güvenliği, hem varsayılan hem de müşt
 
 **Veri yedekliği**: Microsoft, cyberattack veya bir veri merkezinin fiziksel zarar olması durumunda verilerin korunduğundan emin olun yardımcı olur. Müşterilerin tercih:
 
-- Uyumluluk veya gecikme süresi konuları için ülke içinde depolama.
-- Güvenlik ve olağanüstü durum kurtarma amacıyla ülke dışı depolama.
+- Uyumluluk veya gecikme süresi konuları için depolama alanı içinde-ülke/bölge.
+- Güvenlik ve olağanüstü durum kurtarma amacıyla depolama out-,-ülke/out-,-bölge.
 
 Veri yedekleme için seçilen bir coğrafi alanda çoğaltılabilir ancak dışında iletilemedi. Müşteriler, kopyalar ve sayısı ve konumu çoğaltma veri merkezlerinin sayısı dahil olmak üzere, veri çoğaltmak için birden çok seçeneğiniz vardır.
 

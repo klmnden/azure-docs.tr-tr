@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6caecde3e90f7113f60286e95cdaeb996003f7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437754"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784033"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantıları yeniden yönlendirin
 
@@ -59,13 +59,14 @@ MyApps tarayıcı uzantısı ile uygulama ara sunucusu ile yayımlanan tüm iç 
 
 Bu özelliği kullanmak için kullanıcının uzantısını indirin ve oturum açmış olmanız gerekir. Yöneticiler veya kullanıcılar için gerekli herhangi bir yapılandırma yoktur. 
 
- 
+Bu seçenek, yapılandırma dahil olmak üzere daha fazla bilgi için lütfen bkz [MyApps tarayıcı uzantısı](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) belgeleri.
 
 ### <a name="option-3-link-translation-setting"></a>Seçenek 3: Bağlantı çeviri ayarı 
 
-Bağlantı çeviri etkinleştirildiğinde, uygulama proxy'si hizmeti HTML ve CSS yayımlanan iç bağlantıları arar ve kullanıcılarınız kesintisiz bir deneyim elde şekilde çevirir. 
+Bağlantı çeviri etkinleştirildiğinde, uygulama proxy'si hizmeti HTML ve CSS yayımlanan iç bağlantıları arar ve kullanıcılarınız kesintisiz bir deneyim elde şekilde çevirir. Kullanıcılara bir daha yüksek performanslı deneyim sağlandığından MyApps tarayıcı uzantısını kullanırken bağlantı çeviri ayarı tercih edilir.
 
-
+> [!NOTE]
+> 2 veya 3 seçenek kullanıyorsanız, aynı anda bunlardan yalnızca biri etkinleştirilmelidir.
 
 ## <a name="how-link-translation-works"></a>Çeviri works nasıl bağlantı
 
@@ -99,7 +100,7 @@ Uygulama proxy'si için ekleme bağlantısı çeviri destekler HTML kod etiketle
 * bağlantı
 * MenuItem
 * Meta
-* object
+* nesne
 * script
 * source
 * İzleme

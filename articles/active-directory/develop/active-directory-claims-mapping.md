@@ -2,23 +2,23 @@
 title: Belirli bir uygulamayı Azure AD kiracısı (genel Önizleme) içinde belirteçlerinde yayılan talep özelleştirme
 description: Bu sayfa, Azure Active Directory'de talep eşlemesi açıklar.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300487"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546199"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Nasıl yapılır: Bir kiracıdaki (Önizleme) belirli bir uygulamayı belirteçlerinde yayılan talep özelleştirme
 
@@ -97,7 +97,7 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| e-posta |
+| email |
 | endpoint |
 | enfpolids |
 | exp |
@@ -158,8 +158,8 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 | request_nonce |
 | kaynak |
 | rol |
-| roles |
-| scope |
+| rol |
+| kapsam |
 | SCP |
 | SID |
 | İmza |
@@ -177,7 +177,7 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 | unique_name |
 | UPN |
 | user_setting_sync_url |
-| kullanıcı adı |
+| username |
 | utı |
 | ver |
 | verified_primary_email |
@@ -287,12 +287,12 @@ Kaynak hangi özelliğinin değeri için talep sağlar. kimlik öğesi tanımlar
 | Kaynak | Kimlik | Açıklama |
 |-----|-----|-----|
 | Kullanıcı | Soyadı | Aile adı |
-| Kullanıcı | givenName | Verilen Ad |
-| Kullanıcı | DisplayName | Görünen Ad |
+| Kullanıcı | givenName | Ad |
+| Kullanıcı | DisplayName | Görünen ad |
 | Kullanıcı | Nesne Kimliği | ObjectID |
 | Kullanıcı | posta | E-posta adresi |
 | Kullanıcı | userPrincipalName | Kullanıcı Asıl Adı |
-| Kullanıcı | Bölüm|Bölüm|
+| Kullanıcı | Bölüm|Departman|
 | Kullanıcı | onpremisessamaccountname | Şirket içi SAM hesabı adı |
 | Kullanıcı | netbiosname| NetBIOS adı |
 | Kullanıcı | dnsdomainname | DNS Etki Alanı Adı |
@@ -321,13 +321,13 @@ Kaynak hangi özelliğinin değeri için talep sağlar. kimlik öğesi tanımlar
 | Kullanıcı | othermail | Diğer e-posta |
 | Kullanıcı | Ülke | Ülke |
 | Kullanıcı | city | Şehir |
-| Kullanıcı | durum | Durum |
+| Kullanıcı | durum | Eyalet |
 | Kullanıcı | İş Unvanı | İş Unvanı |
 | Kullanıcı | EmployeeID | Çalışan Kimliği |
 | Kullanıcı | facsimiletelephonenumber | Faks telefon numarası |
-| Uygulama, kaynak, hedef kitle | DisplayName | Görünen Ad |
+| Uygulama, kaynak, hedef kitle | DisplayName | Görünen ad |
 | Uygulama, kaynak, hedef kitle | eşitlemek | ObjectID |
-| Uygulama, kaynak, hedef kitle | etiketler | Hizmet sorumlusu etiketi |
+| Uygulama, kaynak, hedef kitle | tags | Hizmet sorumlusu etiketi |
 | Şirket | tenantcountry | Kiracının ülke |
 
 **TransformationID:** Yalnızca kaynak öğesi "Dönüşümü" olarak ayarlanırsa TransformationID öğesi sağlanmalıdır.
@@ -360,7 +360,7 @@ Seçtiğiniz yönteme bağlı olarak, bir dizi giriş ve çıkışları bekleniy
 
 |TransformationMethod|Beklenen Giriş|Beklenen çıktı|Açıklama|
 |-----|-----|-----|-----|
-|Birleştir|dize1 dize2, ayırıcı|outputClaim|Birleştirmeler arasında bir ayırıcı kullanarak dizeleri girin. Örneğin: Dize1: "foo@bar.com", dize2: "korumalı alan", ayırıcı: "." outputClaim sonuçları: "foo@bar.com.sandbox"|
+|Katıl|dize1 dize2, ayırıcı|outputClaim|Birleştirmeler arasında bir ayırıcı kullanarak dizeleri girin. Örneğin: Dize1: "foo@bar.com", dize2: "korumalı alan", ayırıcı: "." outputClaim sonuçları: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|posta|outputClaim|Yerel bir e-posta adresi bölümünü ayıklar. Örneğin: posta: "foo@bar.com" outputClaim sonuçları: "foo". Hayır ise \@ oturum varsa ve ardından özgün giriş dizesi olarak döndürülür.|
 
 **InputClaims:** Veri dönüştürme için bir talep şema girdisinden geçirmek için bir InputClaims öğesini kullanın. Bu iki öznitelikleri: **ClaimTypeReferenceId** ve **TransformationClaimType**.
@@ -411,7 +411,7 @@ Seçtiğiniz yönteme bağlı olarak, bir dizi giriş ve çıkışları bekleniy
 | TransformationMethod | Kısıtlamalar |
 | ----- | ----- |
 | ExtractMailPrefix | None |
-| Birleştir | Birleştirilen soneki kaynak kiracının doğrulanmış bir etki alanı olmalıdır. |
+| Katıl | Birleştirilen soneki kaynak kiracının doğrulanmış bir etki alanı olmalıdır. |
 
 ### <a name="custom-signing-key"></a>Özel anahtar imzalama
 

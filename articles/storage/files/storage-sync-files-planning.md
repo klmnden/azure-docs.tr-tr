@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696511"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597082"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -235,17 +235,17 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 
 | Bölge | Veri merkezi konumu |
 |--------|---------------------|
-| Avustralya Doğu | New South Wales |
+| Avustralya Doğu | Yeni Güney Galler |
 | Avustralya Güneydoğu | Victoria |
-| Güney Brezilya | Sao Paolo durumu |
-| Orta Kanada | Toronto |
-| Doğu Kanada | Quebec City |
+| Brezilya Güney | Sao Paolo durumu |
+| Kanada Orta | Toronto |
+| Kanada Doğu | Quebec City |
 | Orta Hindistan | Pune |
 | Orta ABD | Iowa |
 | Doğu Asya | Hong Kong Çin ÖİB |
 | Doğu ABD | Virginia |
 | Doğu ABD 2 | Virginia |
-| Kore Orta| Seul |
+| Kore Orta| Seoul |
 | Kore Güney| Busan |
 | Japonya Doğu | Tokyo, Saitama |
 | Japonya Batı | Osaka |
@@ -254,12 +254,20 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Orta Güney ABD | Texas |
 | Güney Hindistan | Chennai |
 | Güneydoğu Asya | Singapur |
-| Birleşik Krallık Güney | Londra |
-| Birleşik Krallık Batı | Cardiff |
+| BK Güney | Londra |
+| BK Batı | Cardiff |
+| ABD Devleti Arizona (Önizleme) | Arizona |
+| ABD Devleti Texas (Önizleme) | Texas |
+| ABD Devleti Virginia (Önizleme) | Virginia |
 | Batı Avrupa | Hollanda |
-| Batı ABD | Kaliforniya |
+| Orta Batı ABD | Wyoming |
+| Batı ABD | California |
+| Batı ABD 2 | Washington |
 
 Azure dosya eşitleme depolama eşitleme hizmeti ile aynı bölgede olan bir Azure dosya paylaşımı ile eşitlemeyi destekler.
+
+> [!Note]  
+> Azure dosya eşitleme şu anda yalnızca kamu bölgeleri için özel önizleme modunda kullanılabilir. Bkz. bizim [sürüm notları](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) Önizleme programına kaydolma ile ilgili yönergeler için.
 
 ### <a name="azure-disaster-recovery"></a>Azure olağanüstü durum kurtarma
 Bir Azure bölgesi kaybına karşı korumak için Azure dosya eşitleme ile entegre olur [coğrafi olarak yedekli depolama yedekliliği](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) seçeneği. GRS depolama çoğaltmasını birincil bölgedeki normal şekilde etkileşime, depolama ve depolama arasında zaman uyumsuz engelle eşleştirilmiş ikincil bölge'de faydalanır. Geçici veya kalıcı olarak çevrimdışı yapılacak Azure bölgesini neden olağanüstü bir durumda, Microsoft tarafından eşleştirilen bölgeye yük devretme depolama. 
@@ -271,25 +279,34 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 
 | Birincil bölge      | Eşleştirilmiş bölge      |
 |---------------------|--------------------|
-| Avustralya Doğu      | Avustralya Güneydoğu |
+| Avustralya Doğu      | Avustralya Güneydoğu|
 | Avustralya Güneydoğu | Avustralya Doğu     |
-| Orta Kanada      | Doğu Kanada        |
-| Doğu Kanada         | Orta Kanada     |
+| Brezilya Güney        | Orta Güney ABD   |
+| Kanada Orta      | Kanada Doğu        |
+| Kanada Doğu         | Kanada Orta     |
 | Orta Hindistan       | Güney Hindistan        |
 | Orta ABD          | Doğu ABD 2          |
 | Doğu Asya           | Güneydoğu Asya     |
 | Doğu ABD             | Batı ABD            |
 | Doğu ABD 2           | Orta ABD         |
+| Japonya Doğu          | Japonya Batı         |
+| Japonya Batı          | Japonya Doğu         |
 | Kore Orta       | Kore Güney        |
 | Kore Güney         | Kore Orta      |
 | Kuzey Avrupa        | Batı Avrupa        |
 | Orta Kuzey ABD    | Orta Güney ABD   |
+| Orta Güney ABD    | Orta Kuzey ABD   |
 | Güney Hindistan         | Orta Hindistan      |
 | Güneydoğu Asya      | Doğu Asya          |
-| Birleşik Krallık Güney            | Birleşik Krallık Batı            |
-| Birleşik Krallık Batı             | Birleşik Krallık Güney           |
+| BK Güney            | BK Batı            |
+| BK Batı             | BK Güney           |
+| US Gov Arizona      | US Gov Texas       |
+| US Gov Iowa         | US Gov Virginia    |
+| ABD Devleti Virgini      | US Gov Texas       |
 | Batı Avrupa         | Kuzey Avrupa       |
+| Orta Batı ABD     | Batı ABD 2          |
 | Batı ABD             | Doğu ABD            |
+| Batı ABD 2           | Orta Batı ABD    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

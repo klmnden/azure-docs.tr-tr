@@ -14,18 +14,119 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510960"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620484"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
 
-Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı sıra, önceki sürümleri için sürüm notları içerir.
+Bu makale, Azure Depolama Gezgini 1.8.1 yayın yönelik sürüm notlarına yanı sıra, önceki sürümleri için sürüm notları içerir.
 
 [Microsoft Azure Depolama Gezgini](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux'ta Azure depolama verileriyle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
+
+## <a name="version-181"></a>Sürümü 1.8.1
+5/13/2019
+
+### <a name="download-azure-storage-explorer-181"></a>Azure Depolama Gezgini 1.8.1 indirin
+- [Windows için Azure Depolama Gezgini 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac için Azure Depolama Gezgini 1.8.1](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux için Azure Depolama Gezgini 1.8.1](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Düzeltmeler
+* Bazı durumlarda, "Yük daha fazla" kaynak düzeyinde tıklayarak sonraki sayfaya kaynakların döndürecekti değil. Bu düzeltilmiştir. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* Dosya veya klasör adı için bir Windows yolu geçersiz bir karakter vardı ve tek dosya veya klasör yüklenmiş Windows üzerinde AzCopy yükleme başarısız olur. Bu düzeltilmiştir. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* Ender durumlarda, bir yeniden adlandırma, bir dosya paylaşımı veya bir yeniden adlandırma bir dosya paylaşımında kopyalarını yeniden adlandırma başarısız olursa veya depolama keşfedin kopyalar, Azure'la başarısını onaylayamadı gerçekleştirilirken oluştu olası o silmek Depolama Gezgini zgün dosyaları kopyalama bitmeden. Bu düzeltilmiştir.
+
+### <a name="new"></a>Yeni
+
+* Tümleşik AzCopy sürümünü 10.1.0 sürümüne güncelleştirildi.
+* CTRL / Cmd + R artık o anda odaklanılan Düzenleyicisi'ni yenilemek için kullanılabilir. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack depolama API Sürüm 2017-04-17 değiştirildi.
+* ADLS Gen2'ye ait yönetme erişimi iletişim artık maske bir şekilde eşitlenmiş POSIX izinleri araçlara benzer tutar. Kullanıcı arabirimini de bir değişiklik yapılması durumunda maske sınırları aşan bir kullanıcı veya grup izinlerini neden olan uyarır. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* AzCopy yüklemeler için MD5 karma değeri hesaplamak ve bayrağı şimdi etkinleştirildi. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>Önizleme Özellikleri
+
+* Cihaz kod akış oturum açma Önizleme kullanıma sunulmuştur. Bunu etkinleştirmek için "Kullanımı cihaz kod akış oturum açma" "Preview" → gidin. Oturum açma daha güvenilir bir biçimi olması kanıtlayın gibi windows ile birlikte bu özelliği denemek için boş oturum açma sorunları materyaline kullanıcılardan öneririz.
+* AzCopy ile tümleşik Depolama Gezgini önizlemesi şu anda kullanılabilir. Bunu etkinleştirmek için "Preview" → "Kullanın AzCopy için geliştirilmiş Blob karşıya yükleme ve indirme" gidin. AzCopy ile tamamlanan blob aktarımları daha hızlı ve daha fazla performansa sahip.
+
+### <a name="fixes"></a>Düzeltmeleri
+
+* Erişim ilkeleri iletişim bundan böyle bir sona erme tarihi depolama erişim ilkelerine bağlı bir süre sonu olmayan ayarlar. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Saklı erişim ilkeleri düzgün bir SAS oluştururken kullanılan emin olmak için SAS oluşturma iletişim kutusu için bazı değişiklikler yapıldı. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Bir sayfa blobu bir dosyaya hizalanmış bir olmayan 512 baytlık karşıya yüklemeye, Depolama Gezgini artık daha fazla ilgili bir hata açığa çıkarır. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Bir görünen ad olarak kullanılan bir Blob kapsayıcısı kopyalama başarısız olur. Şimdi, Blob kapsayıcısının gerçek adı kullanılır. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Unicode karakterler adına sahip bir ADLS 2. nesil klasöründeki belirli eylemleri gerçekleştirme girişimi başarısız. Tüm eylemleri çalışması gerekir. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>Bilinen Sorunlar
+
+* AzCopy Blob yükleme gerçekleştirirken, büyük dosyalar için MD5 Doğrulanmakta olan değil. Depolama SDK'sı bir hata nedeniyle budur. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* RBAC kullanırken, Depolama Gezgini depolama kaynaklarınıza erişmek için bazı yönetim katmanı izinleri gerektirir. Bkz: [sorun giderme kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) daha fazla bilgi için.
+* ADLS Gen2 BLOB'ları, bir proxy'nin arkasında erişmeye başarısız olabilir.
+* Bir blob kapsayıcısı gibi SAS URI'sini eklenen bir kaynağından ayırma doğru gösteren gelen diğer ekleri engelleyen hataya neden olabilir. Bu sorunu çözmek için yalnızca Grup düğümünü yenileyin. #537 daha fazla bilgi için bkz.
+* Mac için VS kullanın ve özel bir AAD yapılandırmasına hiç olmadığı kadar oluşturdunuz, oturum açma alınamıyor olabilir. Sorunu çözmek için içeriğini silin. ~ /. IdentityService/AadConfigurations. Bunun yapılması durumunda, bu sorunla ilgili yorum engeli değil.
+* Azurite henüz tam olarak tüm depolama API'leri uygulamadı. Bu nedenle, beklenmeyen hatalar veya olabilir davranışı Azurite geliştirme depolaması için kullanılırken.
+* Nadiren de olsa, ağaç odağı Hızlı erişimi takılabilir. Odağı Ayır için Tümünü Yenile yapabilirsiniz.
+* Nodejs'de bir hata nedeniyle, OneDrive klasöründen karşıya çalışmaz. Hata düzeltildi, ancak henüz Elektron tümleşik. Bu sorun için karşıya yüklenirken veya indirilirken bir blob kapsayıcısından geçici olarak çözmek için Deneysel AzCopy özelliğini kullanabilirsiniz.
+* Azure Stack hedeflerken, ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
+* "İptal" görevde tıklandıktan sonra onu iptal etmek bu görev için biraz zaman alabilir. İptal filtre geçici kullanıyoruz çünkü burada açıklanmıştır.
+* Yanlış PIN/akıllı kart sertifikası seçeneğini belirlerseniz, depolama Gezgini'nin kararı unutursanız studio'durdurup yeniden başlatmanız gerekir.
+* BLOB'ları (ayrı ayrı veya yeniden adlandırılmış blob kapsayıcının içinde) yeniden adlandırma, anlık görüntüler korumaz. Diğer tüm özellikleri ve meta verileri bloblar, dosyalar ve varlıklar için bir yeniden adlandırma sırasında korunur.
+* Azure Stack aşağıdaki özellikleri desteklemez. Azure Stack ile çalışırken bu özellikleri kullanmak deneyen kaynakları beklenmeyen hatalarına neden olabilir.
+   * Dosya paylaşımları
+   * Erişim katmanları
+   * Geçici silme
+   * ADLS 2. nesil
+* Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) Donanım hızlandırmalı sorun vardır. Depolama Gezgini (boş) bir boş ana penceresi görüntüleniyorsa, deneyebileceğiniz Depolama Gezgini komut satırından başlatmak ve ekleyerek GPU hızlandırmasını devre dışı bırakma `--disable-gpu` geçin:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Depolama Gezgini Linux'ta çalışan ilk yüklenecek belirli bağımlılıkları gerektirir. Depolama Gezgini denetleyin [sorun giderme kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) daha fazla bilgi için.
+
+## <a name="previous-releases"></a>Önceki sürümler
+
+* [Sürüm 1.8.0](#version-180)
+* [Sürüm 1.7.0](#version-170)
+* [Sürüm 1.6.2](#version-162)
+* [Sürümü 1.6.1](#version-161)
+* [Sürüm 1.6.0](#version-160)
+* [Sürüm 1.5.0](#version-150)
+* [Sürüm 1.4.4](#version-144)
+* [Sürüm 1.4.3](#version-143)
+* [Sürüm 1.4.2](#version-142)
+* [Sürüm 1.4.1](#version-141)
+* [Sürüm 1.3.0](#version-130)
+* [Sürümü 1.2.0](#version-120)
+* [Sürüm 1.1.0](#version-110)
+* [Sürüm 1.0.0](#version-100)
+* [Sürüm 0.9.6](#version-096)
+* [Sürüm 0.9.5](#version-095)
+* [0.9.4 ve 0.9.3 sürümü](#version-094-and-093)
+* [Sürüm 0.9.2](#version-092)
+* [0.9.1 ve 0.9.0 sürümü](#version-091-and-090)
+* [Sürüm 0.8.16](#version-0816)
+* [Sürüm 0.8.14](#version-0814)
+* [Sürüm 0.8.13](#version-0813)
+* [Sürüm 0.8.12 ve 0.8.11 ve 0.8.10](#version-0812-and-0811-and-0810)
+* [Sürüm 0.8.9 ve 0.8.8](#version-089-and-088)
+* [Sürüm 0.8.7](#version-087)
+* [Sürüm 0.8.6](#version-086)
+* [Sürüm 0.8.5](#version-085)
+* [Sürüm 0.8.4](#version-084)
+* [Sürüm 0.8.3](#version-083)
+* [Sürüm 0.8.2](#version-082)
+* [Sürüm 0.8.0](#version-080)
+* [Sürüm 0.7.20160509.0](#version-07201605090)
+* [Sürüm 0.7.20160325.0](#version-07201603250)
+* [Sürüm 0.7.20160129.1](#version-07201601291)
+* [Sürüm 0.7.20160105.0](#version-07201601050)
+* [Sürüm 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-180"></a>Sürüm 1.8.0
 5/1/2019
@@ -83,44 +184,6 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
     ```
 
 * Depolama Gezgini Linux'ta çalışan ilk yüklenecek belirli bağımlılıkları gerektirir. Depolama Gezgini denetleyin [sorun giderme kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) daha fazla bilgi için.
-
-## <a name="previous-releases"></a>Önceki sürümler
-
-* [Sürüm 1.7.0](#version-170)
-* [Sürüm 1.6.2](#version-162)
-* [Sürümü 1.6.1](#version-161)
-* [Sürüm 1.6.0](#version-160)
-* [Sürüm 1.5.0](#version-150)
-* [Sürüm 1.4.4](#version-144)
-* [Sürüm 1.4.3](#version-143)
-* [Sürüm 1.4.2](#version-142)
-* [Sürüm 1.4.1](#version-141)
-* [Sürüm 1.3.0](#version-130)
-* [Sürümü 1.2.0](#version-120)
-* [Sürüm 1.1.0](#version-110)
-* [Sürüm 1.0.0](#version-100)
-* [Sürüm 0.9.6](#version-096)
-* [Sürüm 0.9.5](#version-095)
-* [0.9.4 ve 0.9.3 sürümü](#version-094-and-093)
-* [Sürüm 0.9.2](#version-092)
-* [0.9.1 ve 0.9.0 sürümü](#version-091-and-090)
-* [Sürüm 0.8.16](#version-0816)
-* [Sürüm 0.8.14](#version-0814)
-* [Sürüm 0.8.13](#version-0813)
-* [Sürüm 0.8.12 ve 0.8.11 ve 0.8.10](#version-0812-and-0811-and-0810)
-* [Sürüm 0.8.9 ve 0.8.8](#version-089-and-088)
-* [Sürüm 0.8.7](#version-087)
-* [Sürüm 0.8.6](#version-086)
-* [Sürüm 0.8.5](#version-085)
-* [Sürüm 0.8.4](#version-084)
-* [Sürüm 0.8.3](#version-083)
-* [Sürüm 0.8.2](#version-082)
-* [Sürüm 0.8.0](#version-080)
-* [Sürüm 0.7.20160509.0](#version-07201605090)
-* [Sürüm 0.7.20160325.0](#version-07201603250)
-* [Sürüm 0.7.20160129.1](#version-07201601291)
-* [Sürüm 0.7.20160105.0](#version-07201601050)
-* [Sürüm 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-170"></a>Sürüm 1.7.0
 3/5/2019
