@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771860"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789414"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics özel çıkış bölümleme blob
 
@@ -26,7 +26,7 @@ Azure Stream Analytics, özel alanlar veya öznitelikler ve özel bir tarih/saat
 
 ### <a name="partition-key-options"></a>Bölüm anahtarı seçenekleri
 
-Bölüm anahtarı veya giriş verileri bölümlemek için kullanılan sütun adı, alfasayısal karakterler ile tire, alt çizgi ve boşluk içerebilir. Diğer adları ile birlikte kullanılmadığı sürece bir bölüm anahtarı olarak iç içe geçmiş alanları kullanmak mümkün değildir.
+Bölüm anahtarı veya giriş verileri bölümlemek için kullanılan sütun adı, alfasayısal karakterler ile tire, alt çizgi ve boşluk içerebilir. Diğer adları ile birlikte kullanılmadığı sürece bir bölüm anahtarı olarak iç içe geçmiş alanları kullanmak mümkün değildir. Bölüm anahtarı NVARCHAR(MAX) olması gerekir.
 
 ### <a name="example"></a>Örnek
 
@@ -58,11 +58,11 @@ Her kayıtta blob sahip olduğuna dikkat edin. bir **client_id** klasörü eşle
    * cluster1 / {tarih} / {aFieldInMyData}  
    * cluster1 / {time} / {aFieldInMyData}  
    * cluster1 / {aFieldInMyData}  
-   * cluster1 / {tarih} / {time} / {aFieldInMyData}  
-
+   * cluster1 / {tarih} / {time} / {aFieldInMyData} 
+   
 2. Bölüm anahtarları büyük/küçük harfe duyarlı olduğundan bölüm anahtarları "John" ve "john" gibi eşdeğerdir. Ayrıca, ifadeleri, bölüm anahtarı olarak kullanılamaz. Örneğin, **{columnA + columnB}** çalışmıyor.  
 
-3. Bir giriş akışı, kayıtları bir bölüm anahtarı kardinaliteyle altında 8000 içeriyorsa, kayıtları için mevcut blobları eklenir ve yalnızca gerekli olduğunda, yeni BLOB'lar oluşturun. Kardinalite üzerinden ise BLOB mevcut bir garanti yoktur 8000 yazılacağı ve tercihe bağlı sayıda kayıtlar için aynı bölüm anahtarı ile yeni BLOB'ları oluşturulmaz.  
+3. Bir giriş akışı, kayıtları bir bölüm anahtarı kardinaliteyle altında 8000 içeriyorsa, kayıtları için mevcut blobları eklenir ve yalnızca gerekli olduğunda, yeni BLOB'lar oluşturun. Kardinalite üzerinden ise BLOB mevcut bir garanti yoktur 8000 yazılacağı ve tercihe bağlı sayıda kayıtlar için aynı bölüm anahtarı ile yeni BLOB'ları oluşturulmaz.
 
 ## <a name="custom-datetime-path-patterns"></a>Özel DateTime yol desenleri
 

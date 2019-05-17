@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394413"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540713"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -30,7 +30,7 @@ Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemey
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tasarım zamanı: uygulama türü, hizmet türü, uygulama paketini ve bildirimi, hizmet paketi ve bildirimi
 Hizmet türlerinin bir koleksiyona atanan adı/sürümü bir uygulama türüdür. Bu tanımlanan bir *ApplicationManifest.xml* dosyasını bir uygulama paketi dizinine eklenir. Uygulama paketi daha sonra Service Fabric kümenin görüntü deposuna kopyalanır. Ardından, ardından kümede çalışan uygulama türünden adlandırılmış bir uygulama oluşturabilirsiniz. 
 
-Hizmet adı/sürümü hizmetin kod paketleri, veri paketleri ve yapılandırma paketleri için atanan türüdür. Bu, bir hizmet paketi dizinde katıştırılmış bir ServiceManifest.xml dosyasında tanımlanır. Hizmet paketi dizini sonra bir uygulama paketin tarafından başvurulan *ApplicationManifest.xml* dosya. Küme içinde adlandırılmış bir uygulama oluşturduktan sonra adlandırılmış bir hizmet uygulaması türün hizmet türlerinden birini oluşturabilirsiniz. Hizmet türü tarafından açıklanan kendi *ServiceManifest.xml* dosya. Hizmet türünü çalışma zamanında yüklenen, yürütülebilir kod hizmeti yapılandırma ayarları ve hizmet tarafından kullanılan statik veri kümesinden oluşur.
+Hizmet adı/sürümü hizmetin kod paketleri, veri paketleri ve yapılandırma paketleri için atanan türüdür. Bu, bir hizmet paketi dizinde katıştırılmış bir ServiceManifest.xml dosyasında tanımlanır. Hizmet paketi dizini sonra bir uygulama paketin tarafından başvurulan *ApplicationManifest.xml* dosya. Küme içinde adlandırılmış bir uygulama oluşturduktan sonra adlandırılmış bir hizmet uygulaması türün hizmet türlerinden birini oluşturabilirsiniz. Hizmet türü tarafından açıklanan kendi *ServiceManifest.xml* dosya. Hizmet türü yürütülebilir kod ve çalışma zamanında yüklenen, hizmet yapılandırma ayarları ve hizmet tarafından kullanılan statik veri kümesinden oluşur.
 
 ![Service Fabric uygulama türleri ve hizmet türleri][cluster-imagestore-apptypes]
 
@@ -84,7 +84,7 @@ Varsayılan olarak, Service Fabric dağıtır ve hizmet işlemleri olarak etkinl
 ### <a name="reliable-actors"></a>Reliable Actors
 Reliable Services üzerinde oluşturulmuş [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework, aktör tasarım deseni temel alınarak sanal gerçekleştiren deseni, uygulayan bir uygulama altyapısıdır. Reliable Actor çerçeve yürütme aktörler olarak adlandırılan tek iş parçacıklı işlem durumu ve bağımsız bir birim kullanır. Reliable Actor çerçevesi sağlar, iletişim aktörler için yerleşik ve durumu kalıcı ve genişleme yapılandırmaları önceden ayarlayın.
 
-### <a name="aspnet-core"></a>ASP.NET Çekirdeği
+### <a name="aspnet-core"></a>ASP.NET Core
 Service Fabric ile tümleştirilir [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) web ve API uygulamaları oluşturmak için birinci sınıf bir programlama modeli olarak.  ASP.NET Core, Service Fabric iki farklı şekillerde kullanılabilir:
 
 - Konuk tarafından yürütülebilir bir dosya olarak barındırılan. Bu, öncelikli olarak mevcut ASP.NET Core uygulamaları kod değişikliği olmadan Service Fabric üzerinde çalıştırmak için kullanılır.

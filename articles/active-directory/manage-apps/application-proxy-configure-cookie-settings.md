@@ -2,22 +2,22 @@
 title: Uygulama proxy'si tanımlama bilgisi ayarları - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) erişim uygulama proxy'si aracılığıyla şirket için erişim ve oturum tanımlama bilgileri vardır. Bu makalede, tanımlama bilgisi ayarları yapılandırmak ve kullanmak nasıl bulabilirsiniz.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/16/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e7f1bb54ce316a10eca0d020519779b0536c9e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440539"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825737"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory'de şirket içi uygulamalara erişmek için tanımlama bilgisi ayarları
 

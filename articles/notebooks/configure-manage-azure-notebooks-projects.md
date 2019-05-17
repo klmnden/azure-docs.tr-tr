@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234995"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596747"
 ---
 # <a name="manage-and-configure-projects"></a>Projeleri yönetme ve yapılandırma
 
@@ -37,38 +37,7 @@ Azure not defterleri, her bir not defteri veya başka bir dosyaya çalıştırd�
 
 ## <a name="compute-tier"></a>İşlem katmanı
 
-**Çalıştırma** proje panosu açılır listede olan proje üzerinde çalıştığı işlem katmanı seçtiğiniz. Varsayılan olarak, projeler çalıştıracağınız **ücretsiz işlem** katmanı, kötüye kullanımı önlemek için 4 GB bellek ve veri 1 GB ile sınırlıdır:
-
-![Katmanı aşağı açılan liste proje panosundaki işlem](media/project-compute-tier-list.png)
-
-Bir Azure aboneliğinde sağladıktan farklı bir sanal makine kullanarak bu kısıtlamaları devre dışı bırakabilir. Yüklemeli ve JupyterHub bu sanal makine üzerinde çalıştırın. Veri bilimi sanal makinesi görüntülerini (herhangi bir işletim sistemini) iyi seçimler olduklarından varsayılan olarak JupyterHub içerirler.
-
-Uygun şekilde yapılandırılmış bir Azure sanal makine oluşturduktan sonra seçin **doğrudan işlem** (listesinde gösterilecek) ad, sanal makinenin IP adresi ve bağlantı noktası (genellikle 8000, varsayılan bağlantı noktası, ister aşağı açılan listede seçeneği JupyterHub dinlediği) ve VM kimlik bilgileri:
-
-![Doğrudan işlem seçeneği sunucu bilgilerini toplamak için sor](media/project-compute-tier-direct.png)
-
-Aşağıdaki koşullar doğruysa, açılır listede de gösterilir [veri bilimi sanal makinesi (DSVM)](/azure/machine-learning/data-science-virtual-machine) örnekleri. (Herhangi biri bu koşullar karşılanmadığı takdirde hala doğrudan işlem seçeneğini kullanarak ve Azure Portalı'ndan elde edilen değerleri girerek DSVM bağlanabilirsiniz.)
-
-- Azure Active Directory (AAD), bir şirket hesabı gibi kullanan bir hesapla Azure not defterlerine oturumunuz.
-- Hesabınız bir Azure aboneliğine bağlı.
-- Bu Abonelikteki bir veya daha fazla sanal makineler ile en az sahip olduğunuz veri bilimi sanal makinesi için Linux (Ubuntu) görüntüsü kullanan okuyucu erişimi.)
-
-![Proje panosu açılır listede veri bilimi sanal makine örnekleri](media/project-compute-tier-dsvm.png)
-
-Azure not defterleri DSVM örneği seçtiğinizde, sanal Makineyi oluştururken kullanılan belirli bir makine kimlik bilgilerini isteyebilir.
-
-Yeni bir DSVM örneği oluşturmak için yönergeleri takip edin [Ubuntu veri bilimi sanal makinesi oluşturma](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Kullanım **Linux (Ubuntu) için veri bilimi sanal makinesi** DSVM Azure not defterleri aşağı açılan listede görünmesini istiyorsanız, görüntü.  Windows veya CentOS görüntüsü kullanması gereken diğer nedenlerle kullandığınız **doğrudan işlem** el ile değerini DSVM Örneğinize bağlanmak için seçeneği.
-
-> [!IMPORTANT]
-> Doğrudan işlem veya veri bilimi sanal makineleri kullanırken, bunları üzerinde çalıştırdığınız not defterlerini tamamen müstakil olmalıdır. Şu anda yalnızca Azure not defterleri kopyalar *.ipynb* VM dosyasına ancak tüm diğer dosyalar projesinde kopyalamaz. Sonuç olarak, diğer proje dosyaları bulmak diğer Vm'lerde çalışan not defterlerini başarısız.
->
-> Bu davranış, iki yolla geçici çözüm bulabilirsiniz:
->
-> 1. Proje dosyaları sanal Makineye el ile kopyalayın.
->
-> 2. Bir kurulum not defteri içindeki dosyalar ekleme, önce birincil not defterini ilk çalıştırma. Dosya içeriğini burada hücresi her dosya için bir kod hücresi Kurulum not defteri oluşturun. Ardından her hücre üst kısmında Ekle komutu `%%writefile <filename>`burada `<filename>` içeriği almak için dosyanın adıdır. Not defterini çalıştırdığınızda, bu sanal makine üzerindeki tüm dosyaları oluşturur. Bir örnek için bkz. [Microsoft evcil hayvan algılayıcısı tanıtım setup.ipynb dosyasında](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Kullanarak bir %% kodu hücreyi başındaki writefile komutu](media/setup-notebook-writefile-command.png)
+Varsayılan olarak, projeler çalıştıracağınız **ücretsiz işlem** katmanı, kötüye kullanımı önlemek için 4 GB bellek ve veri 1 GB ile sınırlıdır. Bu kısıtlamaları atlama ve bir Azure aboneliğinde sağladıktan farklı bir sanal makine kullanarak işlem gücünü artırın. Daha fazla bilgi için [veri bilimi sanal makineleri kullanma](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Proje meta verilerini düzenleme
 

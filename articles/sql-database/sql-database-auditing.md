@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924751"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827765"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -110,10 +110,11 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 10. Denetlenen olayları özelleştirmek isterseniz, bunu aracılığıyla yapabilirsiniz [PowerShell cmdlet'leri](#subheading-7) veya [REST API](#subheading-9).
 11. Denetim ayarlarınızı yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları alacak e-postalar yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini etkin uyarılar alırsınız. Daha fazla bilgi için [tehdit algılamayı kullanmaya başlama](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->Bir Azure SQL veri ambarı veya bir Azure SQL veri ambarı'na da olan bir sunucuyu denetlemeyi etkinleştirme **sürdürülüyor veri ambarında sonuçlanır**, burada, daha önce duraklatıldı durumunda bile. **Denetim yeniden etkinleştirdikten sonra veri ambarını duraklatmak emin olun**.'
+> Duraklatılmış bir Azure SQL veri ambarı denetlemeyi etkinleştirme mümkün değildir. Bunu etkinleştirmek için duraklatma kaldırın, veri ambarı.
 
+> [!WARNING]
+> Azure SQL veri ambarı olan bir sunucuyu denetimi etkinleştirme **olduğu veri ambarı yeniden yeniden duraklatıldı ve devam ettirilmesini sonuçlanır** , faturalandırma ücretleri tabi.
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
 
@@ -206,7 +207,7 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 3. İkincil siteden birincil depolama erişim anahtarı yeniden denetim yapılandırma sayfasına geçin ve ardından Git **Tamam**. Ardından **Kaydet** denetim yapılandırma sayfanın üstünde.
 4. Depolama Yapılandırması sayfasına dönün ve (hazırlığında sonraki anahtarın yenileme döngüsü) ikincil erişim tuşunu yeniden oluşturun.
 
-## <a name="additional-information"></a>Ek Bilgi
+## <a name="additional-information"></a>Ek Bilgiler
 
 - Günlük hakkındaki ayrıntılar için biçimi, depolama klasör hiyerarşisini ve adlandırma kuralları için bkz: [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
 

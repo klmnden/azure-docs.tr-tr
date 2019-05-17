@@ -3,8 +3,8 @@ title: Azure AD'de Federasyon sertifikalarını yönetme | Microsoft Docs
 description: Federasyon sertifikalarınızı sona erme tarihini özelleştirme ve yakında sona erecek sertifikaları yenile öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c2d14a2aa6fc6b53260912b5bead2bd7c01e8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440634"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824735"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme
 
@@ -127,7 +127,7 @@ Süresi dolmak üzere bir sertifika ise, kullanıcılarınızın önemli kapalı
 
 ## <a name="related-articles"></a>İlgili makaleler
 
-* [SaaS uygulamalarını Azure Active Directory ile tümleştirme öğreticileri](../saas-apps/tutorial-list.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler](../saas-apps/tutorial-list.md)
 * [Azure Active Directory ile uygulama yönetimi](what-is-application-management.md)
 * [Azure Active Directory'de uygulamalar için çoklu oturum açma](what-is-single-sign-on.md)
 * [Azure Active Directory'de uygulamalar için SAML tabanlı çoklu oturum açma hata ayıklama](../develop/howto-v1-debug-saml-sso-issues.md)

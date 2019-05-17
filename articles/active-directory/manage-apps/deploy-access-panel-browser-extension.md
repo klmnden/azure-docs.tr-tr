@@ -3,8 +3,8 @@ title: Azure erişim paneli uzantısını dağıtmak için bir GPO kullanarak IE
 description: Internet Explorer eklenti için uygulamalarım portalında dağıtmak için Grup İlkesi kullanma
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7dfdd46714d367b61248d9376ce3e8888bb1ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b6f069489738e9dceeee350a36aa2b45715a314
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292563"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825023"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma
 Bu öğreticide, uzaktan erişim paneli uzantısını Internet Explorer için kullanıcılarınızın makinelerde yüklemek için Grup İlkesi kullanımı gösterilmektedir. Bu uzantıyı kullanarak yapılandırılan uygulamalarında oturum açmak için gereken Internet Explorer kullanıcılar için gerekli olan [parola tabanlı çoklu oturum açma](what-is-single-sign-on.md#password-based-sso).
@@ -72,7 +72,7 @@ Erişim paneli uzantısı için de kullanılabilir olan [Chrome](https://go.micr
    
     ![Yeni GPO düzenleme](./media/deploy-access-panel-browser-extension/edit-gpo.png)
 
-## <a name="step-3-assign-the-installation-package"></a>3. Adım: Yükleme paketini atayın
+## <a name="step-3-assign-the-installation-package"></a>3. adım: Yükleme paketini atayın
 1. Temel uzantısını dağıtmak isteyip istemediğinizi belirleyin **Bilgisayar Yapılandırması** veya **Kullanıcı Yapılandırması**. Kullanırken [Bilgisayar Yapılandırması](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), uzantıyı hangi kullanıcıların oturum açın, bilgisayara yüklenir. İle [Kullanıcı Yapılandırması](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), kullanıcılar, bunları bağımsız olarak hangi bilgisayarların oturum açmak için yüklü uzantılıdır.
 2. Sol bölmesinde **Grup İlkesi Yönetimi Düzenleyicisi** penceresi, seçtiğiniz yapılandırma türüne aşağıdaki klasör yolları birini gidin:
    

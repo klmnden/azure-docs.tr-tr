@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: banders
-ms.openlocfilehash: 8dc5918ac539abde2586e29a1608e9dc496a5e37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7caa7df3817c51d63dfa2838e4223d3fba88e529
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794784"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827341"
 ---
 # <a name="pay-azure-subscription-by-invoice"></a>Azure abonelik, fatura ile ödeme
 
@@ -65,14 +65,14 @@ Fatura ile ödemeyi geçiş yaparsanız, Fatura tarihinden itibaren 30 gün içi
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-- **Şirket adı** ve **şirket adresi** Azure hesabı için sağlanan bilgilerin eşleşmesi gerekir.  Görüntülemek veya bilgileri güncelleştirmek için bkz: [Azure hesap profili bilgilerinizi değiştirmek](billing-how-to-change-azure-account-profile.md).
-- Kredi sınırınıza onaylanabilir önce Azure portalında faturalama kişinizin eklemeniz gerekir. Şirketin Borç hesapları veya Finans departmanı için kişi ayrıntılarını ilişkili olmalıdır. Fatura ilgili güncelleştirmek için Git [Azure hesap Merkezi](https://account.azure.com/Profile).
+    - **Şirket adı** ve **şirket adresi** Azure hesabı için sağlanan bilgilerin eşleşmesi gerekir.  Görüntülemek veya bilgileri güncelleştirmek için bkz: [Azure hesap profili bilgilerinizi değiştirmek](billing-how-to-change-azure-account-profile.md).
+    - Kredi sınırınıza onaylanabilir önce Azure portalında faturalama kişinizin eklemeniz gerekir. Şirketin Borç hesapları veya Finans departmanı için kişi ayrıntılarını ilişkili olmalıdır. Fatura ilgili güncelleştirmek için Git [Azure hesap Merkezi](https://account.azure.com/Profile).
 
 5. İletişim bilgilerinizi ve tercih edilen iletişim yöntemini seçip **Oluştur**'a tıklayın.
 
 Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız gerekiyorsa, kredi application should check göndereceğiz.
 
-## <a name="switch-your-azure-subscription-to-invoice-payment"></a>Azure aboneliğinizin ödeme faturaya geç
+## <a name="switch-to-invoice-pay"></a>Ödeme faturaya geç
 
 Fatura ile ödemeyi onaylandıktan sonra Azure aboneliğinizi faturalı ödeme yöntemi geçebilirsiniz [Azure portalında](https://portal.azure.com).
 

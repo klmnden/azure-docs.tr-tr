@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: dekapur
-ms.openlocfilehash: 5657ac9f10c42c2201641c9af447b7ad2e6a3507
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 99882bd23d7b94afc550247172e5b70deb23bec9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079023"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791391"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances hakkında sık sorulan sorular
 
@@ -77,7 +77,7 @@ Henüz değil. Şu anda, bir kapsayıcı grubu için sınırları şunlardır. B
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>ACI, belirli bir bölgede ne zaman sunulacaktır?
 
-Geçerli bölge kullanılabilirliği yayımlandığında [burada](container-instances-region-availability.md#availability---general), ve aracılığıyla güncel bilgileri kullanılabildiği [listesi özellikleri](/rest/api/container-instances/listcapabilities) API. Belirli bir bölge için bir gereksinimi varsa, Azure desteğine başvurun.
+Geçerli bölge kullanılabilirliği yayımlandığında [burada](container-instances-region-availability.md#availability---general). Belirli bir bölge için bir gereksinimi varsa, Azure desteğine başvurun.
 
 ## <a name="features-and-scenarios"></a>Özellikler ve senaryolar
 

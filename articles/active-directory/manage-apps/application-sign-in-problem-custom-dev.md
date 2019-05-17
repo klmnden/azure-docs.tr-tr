@@ -1,10 +1,10 @@
 ---
 title: Özel olarak geliştirilmiş bir uygulamada oturum açarken sorun | Microsoft Docs
-description: Bir uygulamaya oturum açabilir olmaması için neden olabilecek yaygın rrors Azure AD ile geliştirilmiştir.
+description: Azure AD ile geliştirilmiş bir uygulamaya oturum açabilir olmaması için neden olabilecek yaygın hataları
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4365c87f0028fe3a9c4ba35f40599359eb1455f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438787"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825232"
 ---
-# <a name="problems-signing-in-to-an-custom-developed-application"></a>Özel olarak geliştirilmiş bir uygulamada oturum açarken sorun
+# <a name="problems-signing-in-to-a-custom-developed-application"></a>Özel olarak geliştirilmiş bir uygulamada oturum açma sorunları
 
 Bir uygulamada oturum açması mümkün olmaması için neden olabilecek çeşitli hatalar var. Bu sorun büyük neden değinilmektedir uygulamaları yanlış.
 

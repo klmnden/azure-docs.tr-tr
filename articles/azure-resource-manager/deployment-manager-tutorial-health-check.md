@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/06/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4f3f43ba063ed25389860183576c4dbd94e2bfcd
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466343"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790120"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Öğretici: Azure Dağıtım Yöneticisi'nde (genel Önizleme) sistem durumu denetimi kullanın
 
@@ -59,7 +59,7 @@ Bu makaleyi tamamlamak için gerekenler:
 Aşağıdaki iki dosyada Azure işlevi dağıtmak için kullanılır. Öğreticiyi incelemek için bu dosyaları indirmeniz gerekmez.
 
 * Resource Manager şablonu konumundaki [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Bir Azure işlevi oluşturmak için bu şablonu dağıtın.  
-* Bir Azure işlevi kaynak kodu zip dosyası [ https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Olarak adlandırılan bu zip Resource Manager şablonu tarafından çağrılır.
+* Bir Azure işlevi kaynak kodu zip dosyası [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Olarak adlandırılan bu zip Resource Manager şablonu tarafından çağrılır.
 
 Azure işlevini dağıtmak için seçebileceğiniz **deneyin** Azure Cloud Shell'i açın ve aşağıdaki betiği shell penceresine yapıştırın.  Kod yapıştırmak için shell penceresine sağ tıklayın ve ardından **yapıştırın**. 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ba41f6cce5233491020a0b42f4fd40dac060be57
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620239"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815593"
 ---
 **En son Güncelleştirmesi'ni belge**: 14 Mayıs 2019 10: 00'te Pasifik saati.
 
@@ -29,7 +29,7 @@ Güvenlik her yönüyle Azure ile nasıl tümleştirildiği hakkında daha fazla
 > Bu belge ilk kez yayınlandığı bu güvenlik açığı sınıfın birden çok çeşitleri duyurulmuştur. Microsoft, müşterilerimizin koruma ve rehberlik sağlama yatırım yoğun devam eder. Yayın başka düzeltmeleri devam ederken bu sayfa güncelleştirilir. 
 > 
 > 14 Mayıs 2019 tarihinde [duyurulmuş Intel](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) kurgusal yürütme yan kanal güvenlik açığı mikro mimari veri örnekleme bilinen yeni bir dizi (MDS bkz. Microsoft Güvenlik rehberi [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), birden çok CVEs atandı: 
-> - CVE-2018-11091 - mikro mimari (MDSUM) Uncacheable bellek örnekleme verileri
+> - CVE-2019-11091 - mikro mimari (MDSUM) Uncacheable bellek örnekleme verileri
 > - CVE-2018-12126 - mikro mimari Store verilerini arabelleğe (MSBDS) örnekleme 
 > - CVE-2018-12127 - mikro mimari yük bağlantı noktası verileri (MLPDS) örnekleme
 > - CVE-2018-12130 - mikro mimari dolgu verilerini arabelleğe (MFBDS) örnekleme
@@ -123,7 +123,7 @@ Windows OS support for MDS mitigation is enabled: True
 <a name="linux"></a>Kümesi içinde ek güvenlik özelliklerini etkinleştirme, hedef işletim sistemini tam olarak güncel olmasını gerektirir. Bazı risk azaltma işlemleri varsayılan olarak etkinleştirilir. Aşağıdaki bölümde, varsayılan olarak ve/veya donanım desteği (mikro kod) sayfalarında devre dışı olan özellikleri açıklar. Bu özellikleri etkinleştirmek, performans düşüşüne neden olabilir. Daha fazla yönerge için işletim sistemi sağlayıcınızın belgeleri başvurusu
 
 
-**1. adım: Sanal makine hiper iş parçacığı devre dışı** - VM hiper iş parçacığı devre dışı bırakma veya hiper iş parçacıklı olmayan VM'ye taşıma gerekir bir hiper iş parçacıklı güvenilmeyen kod çalıştırmaya müşteriler.  Hiper iş parçacıklı VM çalıştırıyorsanız denetlemek için çalıştırın `lspcu` Linux VM'de komutu. 
+**1. adım: Sanal makine hiper iş parçacığı devre dışı** - VM hiper iş parçacığı devre dışı bırakma veya hiper iş parçacıklı olmayan VM'ye taşıma gerekir bir hiper iş parçacıklı güvenilmeyen kod çalıştırmaya müşteriler.  Hiper iş parçacıklı VM çalıştırıyorsanız denetlemek için çalıştırın `lscpu` Linux VM'de komutu. 
 
 Varsa `Thread(s) per core = 2`, hiper iş parçacıklı etkinleştirilirse. 
 
@@ -146,7 +146,7 @@ NUMA node(s):          1
 
 ```
 
-Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) devre dışı bir hiper iş parçacıklı alınamıyor.  Not: Hiper iş parçacığı devre dışı bırakıldıktan sonra **desteği tam VM yeniden başlatma gerektiren**.
+Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine başvurun](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) devre dışı bir hiper iş parçacıklı alınamıyor.  Hiper iş parçacığı devre dışı bırakıldıktan sonra **desteği tam VM yeniden başlatma gerektiren**.
 
 
 **2. adım**: Herhangi bir karşı azaltmak için kurgusal yürütme yan kanal güvenlik açıkları, işletim sistemi sağlayıcının belgelerine bakın:   
@@ -159,18 +159,18 @@ Hiper iş parçacıklı VM çalıştırıyorsanız, lütfen [Azure desteğine ba
 
 Bu makale için kılavuzluk sağlar. çok sayıda modern işlemciye etkileyen kurgusal yürütme yan kanal saldırıları aşağıda:
 
-[Spectre ve Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[Spectre ve Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715 - dal hedef ekleme (BTI)  
 - CVE-2017-5754 - çekirdek sayfa tablosu yalıtım (KPTI)
 - CVE-2018-3639 – kurgusal Store atlama (KPTI) 
  
-[L1 Terminal hata (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 Terminal hata (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel yazılım koruma Uzantıları (Intel SGX)
 - CVE-2018-işletim sistemlerini (OS) ve sistem yönetim modu (SMM) 3620-
 - CVE-2018-3646 – Virtual Machine Manager (VMM) etkiler
 
-[Mikro mimari veri örnekleme](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091 - mikro mimari (MDSUM) Uncacheable bellek örnekleme verileri
+[Mikro mimari veri örnekleme](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091 - mikro mimari (MDSUM) Uncacheable bellek örnekleme verileri
 - CVE-2018-12126 - mikro mimari Store verilerini arabelleğe (MSBDS) örnekleme
 - CVE-2018-12127 - mikro mimari yük bağlantı noktası verileri (MLPDS) örnekleme
 - CVE-2018-12130 - mikro mimari dolgu verilerini arabelleğe (MFBDS) örnekleme

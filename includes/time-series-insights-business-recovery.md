@@ -8,12 +8,12 @@ ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
 ms.date: 04/29/2019
-ms.openlocfilehash: cf07d19966c08a63b9aa50475622aa0a1e5e1600
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e87a82e985ed1d1794f9da00546f167ef01e1779
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236525"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815613"
 ---
 ## <a name="business-disaster-recovery"></a>İş olağanüstü durum kurtarma
 
@@ -48,10 +48,10 @@ Time Series Insights diğer hizmetlerle tümleştirme ek olağanüstü durum kur
 
 Time Series Insights verileriniz, uygulamalarınız ve bunlar kesintiye bile çalışan hizmetleri korumak için birkaç yolu vardır. Azure Time Series ortamınızı tam, yinelenen, yedek bir kopyasını gerekli olduğunu belirlemek de:
 
-1. TSI özgü olarak **yük devretme örneği** verileri yeniden yönlendirme ve trafik için.
+1. Bir Time Series Insights özel olarak **yük devretme örneği** verileri yeniden yönlendirme ve trafik için.
 1. Denetim ve veri koruma amacıyla.
 
-Genel olarak, TSI ortam çoğaltmak için iyi bir yedeklemeyi Azure bölgesinde ikinci bir TSI ortamı oluşturmak için yoludur. Olayları, ayrıca ikincil bu ortama birincil olay kaynağınızdan gönderilir. İkinci, adanmış, tüketici grubu kullanın ve bu kaynağın iş olağanüstü durum kurtarma Kılavuzu (yukarıda sağlanan) izlemek için emin olun.
+Genel olarak, zaman serisi görüşleri ortamına çoğaltmak için en iyi yolu ikinci zaman serisi görüşleri ortamına bir yedekten Azure bölgesi oluşturmaktır. Olayları, ayrıca ikincil bu ortama birincil olay kaynağınızdan gönderilir. İkinci, adanmış, tüketici grubu kullanın ve bu kaynağın iş olağanüstü durum kurtarma Kılavuzu (yukarıda sağlanan) izlemek için emin olun.
 
 Özellikle, yinelenen bir ortam oluşturmak için:
 
@@ -63,7 +63,7 @@ Genel olarak, TSI ortam çoğaltmak için iyi bir yedeklemeyi Azure bölgesinde 
 Son olarak:
 
 * Bir olağanüstü durum olayı sırasında birincil bölge etkileniyorsa, yedekleme zaman serisi görüşleri ortamına işlemleri yeniden yönlendir.
-* Yedekleme ve tüm TSI telemetri ve sorgu verileri kurtarmak için ikinci bir bölge kullanın.
+* Yedekleme ve telemetri ve sorgu zaman serisi öngörüleri verilerini kurtarmak için ikinci bir bölge kullanın.
 
 > [!IMPORTANT]
 > * Not gecikme yük devretmesi durumunda karşılaşmış.

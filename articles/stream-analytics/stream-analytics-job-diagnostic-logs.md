@@ -7,18 +7,17 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480247"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826572"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics, tanılama günlükleri kullanarak sorun giderme
 
-Bazen, bir Azure Stream Analytics işi beklenmedik bir şekilde işlemeyi durdurur. Bu tür bir olayın sorunlarını giderebilmek önemlidir. Hatalara beklenmedik bir sorgu sonucu, cihazların bağlantısı veya beklemedik bir hizmet kesintisi neden olmuş olabilir. Stream analytics'te tanılama günlükleri yardımcı olabilecek oluşur ve kurtarma süresini kısaltmak, sorunların nedenini tanımlayın.
+Bazen, bir Azure Stream Analytics işi beklenmedik bir şekilde işlemeyi durdurur. Bu tür bir olay sorun giderme önemlidir. Hatalara beklenmedik bir sorgu sonucu, cihazların bağlantısı veya beklemedik bir hizmet kesintisi neden olmuş olabilir. Stream analytics'te tanılama günlükleri yardımcı olabilecek oluşur ve kurtarma süresini kısaltmak, sorunların nedenini tanımlayın.
 
 ## <a name="log-types"></a>Günlük türü
 
@@ -83,7 +82,7 @@ Tanılama günlüklerini kapatılması ve Azure İzleyici günlüklerine gönder
 
 ## <a name="diagnostics-log-categories"></a>Tanılama günlük kategorileri
 
-Şu anda, tanılama günlüklerinin iki kategoriye Yakala:
+Azure Stream Analytics, tanılama günlüklerinin iki kategoriye yakalar:
 
 * **Yazma**: Proje oluşturma, ekleme, girdileri ve çıktıları ekleme ve sorgu güncelleştiriliyor ve başlatma veya işi durdurma, silme gibi yazma işlemleri iş ile ilgili günlük olayları yakalar.
 
@@ -110,7 +109,7 @@ properties | Günlük girdisi özgü ayrıntılı olarak serileştirilmiş bir J
 
 ### <a name="execution-log-properties-schema"></a>Yürütme günlüğü özellikleri şeması
 
-Stream Analytics iş yürütme sırasında gerçekleşen olaylar hakkında bilgi yürütme günlükleri vardır. Şema özellikleri, olay türüne bağlı olarak değişir. Şu anda, yürütme günlükleri şu türlerini sunuyoruz:
+Stream Analytics iş yürütme sırasında gerçekleşen olaylar hakkında bilgi yürütme günlükleri vardır. Şema özellikleri, olay veri hatası veya genel bir olaya olmasına bağlı olarak değişir.
 
 ### <a name="data-errors"></a>Veri hataları
 
@@ -124,10 +123,14 @@ Tür | Hata türü. Örneğin, **DataConversionError**, **CsvParserError**, veya
 Veriler | Hatanın kaynağını doğru bir şekilde bulmak yararlı olan veriler içerir. Kesilme tabidir, boyutuna bağlı olarak.
 
 Yapılandırmanıza bağlı olarak **operationName** değeri aşağıdaki şema veri hatalar var:
-* **Olayları sıralamak**. Serileştirme olayları olay okuma işlemleri sırasında oluşur. Giriş verileri Bu nedenlerden biri için sorgu şeması karşılamaz bunlar ortaya çıkar:
-    * *Tür uyumsuzluğu (de) olay sırasında serileştirmek*: Hataya neden olan bir alan tanımlar.
-    * *Bir olay, geçersiz bir seri hale getirme okunamıyor*: Hatanın oluştuğu giriş verilerinin konumu hakkında bilgi listeler. BLOB adı için blob giriş uzaklığı ve verilerin bir örnek içerir.
-* **Olayları gönderme**. Yazma işlemleri sırasında olaylar meydana gönderin. Bunlar, hataya neden olan akış olayı tanımlar.
+
+* **Olayları sıralamak** olayı okuma işlemleri sırasında oluşur. Giriş verileri Bu nedenlerden biri için sorgu şeması karşılamaz bunlar ortaya çıkar:
+
+   * *Tür uyumsuzluğu (de) olay sırasında serileştirmek*: Hataya neden olan bir alan tanımlar.
+
+   * *Bir olay, geçersiz bir seri hale getirme okunamıyor*: Hatanın oluştuğu giriş verilerinin konumu hakkında bilgi listeler. BLOB adı için blob giriş uzaklığı ve verilerin bir örnek içerir.
+
+* **Olayları gönderme** yazma işlemleri sırasında oluşur. Bunlar, hataya neden olan akış olayı tanımlar.
 
 ### <a name="generic-events"></a>Genel olaylar
 
@@ -136,7 +139,7 @@ Genel olaylar, diğer her şeyi kapsar.
 Ad | Açıklama
 -------- | --------
 Hata | (isteğe bağlı) Hata bilgileri. Genellikle, varsa bu özel durum bilgilerini adıdır.
-İleti| Günlük iletisi.
+`Message`| Günlük iletisi.
 Tür | İleti türü. İç hataların kategorilere ayrılması eşlenir. Örneğin, **JobValidationError** veya **BlobOutputAdapterInitializationFailure**.
 Bağıntı Kimliği | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) tanımlamasının, iş yürütme. Aynı işi durur bulunana kadar andan itibaren tüm yürütme günlüğü girişleri işini başlatır. **bağıntı kimliği** değeri.
 

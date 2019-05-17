@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631899"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606928"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Teknik Özellikler ve StorSimple cihaz için uyumluluğu
 
@@ -173,7 +173,7 @@ Cihaz EN55024 ile uyumludur.
 
 ## <a name="ac-power-cord-compliance"></a>AC güç kablosu uyumluluk
 
-Tak ve tam güç kablosu derleme cihaz kullanılıyor ülke için uygun standartlara uyduğumuzu gerekir ve bu ülkede kullanılabilir güvenlik onayları olması gerekir. Aşağıdaki tablolar, ABD ve Avrupa için standartları listeler.
+Tak ve tam güç kablosu derleme cihaz kullanılıyor ülke/bölge için uygun standartlara uyduğumuzu gerekir ve bu ülke/bölgede kullanılabilir güvenlik onayları olması gerekir. Aşağıdaki tablolar, ABD ve Avrupa için standartları listeler.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC güç kablosu - USA (listelenen NRTL olmalıdır)
 

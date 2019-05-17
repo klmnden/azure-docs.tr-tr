@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 42b8c4caa53ffa6b3bc1148544c75602597ac452
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153835"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824449"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kotalar ve kısıtlamalar Azure Media Services v3
 
@@ -43,7 +43,7 @@ Bu makalede, kotalar ve kısıtlamalar Azure Media Services v3 açıklanır.
 | Akış İlkeleri | 100 <sup>(5)</sup> |
 | Media Services hesabı başına dönüşümler | 100 (sabit)|
 | Tek seferde bir varlıkla ilişkilendirilen benzersiz akış bulucuları | 100<sup>(6)</sup> (sabit) |
-| İçerik Anahtarı İlkesi |30 | 
+| İçerik anahtarı ilke başına seçenekleri |30 | 
 
 <sup>1</sup> tek bir blob şu anda en çok 5 TB Azure Blob Depolama için desteklenen en büyük boyutu. Media Services'ın hizmet tarafından kullanılan VM boyutlarına göre ek sınırlar geçerlidir. Karşıya yüklediğiniz dosyaları ve ayrıca, medya Hizmetleri (kodlama veya analiz etme) işleme sonucunda oluşturulan dosyaları boyut sınırını uygular. Kaynak dosyanız 260 GB'den daha büyük ise, işinizi büyük olasılıkla başarısız olur. 
 
@@ -73,4 +73,4 @@ Sabitlenmemiş kaynaklar için kotalar açarak yükseltilecek için isteyebilir 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Genel Bakış](media-services-overview.md)
+[Genel bakış](media-services-overview.md)

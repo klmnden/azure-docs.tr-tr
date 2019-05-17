@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357125"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823593"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -383,6 +383,9 @@ Y: Yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kab
 
 **S: Intune hüküm ve koşulları kullanma da ne olur?**<br />
 Y: Her iki Azure AD Kullanım Koşulları'nı yapılandırdıysanız ve [Intune hüküm ve koşulları](/intune/terms-and-conditions-create), kullanıcının her ikisini de kabul etmek için gerekli. Daha fazla bilgi için [koşulları, kuruluş blog gönderisi için çözüm seçme hakkını](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+
+**S: Hangi uç noktaları, kimlik doğrulaması için hizmet kullanım koşullarını kullanıyor mu?**<br />
+Y: Kullanım koşulları aşağıdaki uç noktaların kimlik doğrulaması için kullanır: https://tokenprovider.termsofuse.identitygovernance.azure.com ve https://account.activedirectory.windowsazure.com. Kuruluşunuzun URL'leri kayıt için bir izin verilenler varsa, bu uç noktalar Azure AD'ye uç noktaları ile birlikte izin verilenler listenize oturum eklemeniz gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -2,22 +2,22 @@
 title: Mevcut iş şirket içi proxy sunucuları ve Azure AD | Microsoft Docs
 description: Mevcut şirket içi proxy sunucuları ile çalışma konusunu kapsar.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4cb1f6cc3da5230f510f57a56c7297341f82f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25b8669e5ca2abe2d763d9bc14f27ed9c4460886
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293690"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825943"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
 
@@ -106,7 +106,7 @@ Giden proxy dikkate alınması gereken dört unsur vardır:
 #### <a name="proxy-outbound-rules"></a>Proxy giden kuralları
 Aşağıdaki URL'lere erişim izin ver:
 
-| URL'si | Nasıl kullanılır |
+| URL | Nasıl kullanılır |
 | --- | --- |
 | \*. msappproxy.net<br>\*. servicebus.windows.net | Bağlayıcı ve uygulama proxy'si bulut hizmeti arasında iletişim |
 | mscrl.microsoft.com:80<br>CRL.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure sertifikaları doğrulamak için bu URL'leri kullanır. |

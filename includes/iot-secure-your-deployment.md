@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289181"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815605"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Nesnelerin interneti (IOT) dağıtımınızın güvenliğini sağlama
 
@@ -25,7 +25,7 @@ Azure IOT dağıtımını güvenli hale getirme, aşağıdaki üç güvenlik ala
 
 * **Bağlantı güvenliği**: IOT Hub ve IOT cihaz arasında aktarılan tüm verileri sağlayarak, gizli ve değiştirilmeye kanıt.
 
-* **Bulut güvenliği**: aracılığıyla taşır ve bulutta depolanan verilerin güvenliğini sağlamak için bir yol sağlama.
+* **Bulut güvenliği**: Aracılığıyla taşır ve bulutta depolanan verilerin güvenliğini sağlamak için bir yol sağlama.
 
 ![Üç güvenlik alanları](./media/iot-secure-your-deployment/overview.png)
 
@@ -35,7 +35,7 @@ IOT Çözüm Hızlandırıcıları, aşağıdaki iki yöntemi kullanarak IOT cih
 
 * Cihazın IOT Hub ile iletişim kurmak için kullandığı her cihaz için benzersiz bir kimlik anahtarı (güvenlik belirteçleri) sağlayarak.
 
-* Bir cihazda kullanarak [X.509 sertifikası](http://www.itu.int/rec/T-REC-X.509-201210-I/en) ve IOT hub'ına cihaz kimlik doğrulaması için bir yol olarak özel anahtarı. Bu kimlik doğrulama yöntemi, özel anahtarı cihazda cihaz dışında herhangi bir zamanda yüksek seviyede güvenliği sağlama bilinmediğini sağlar.
+* Bir cihazda kullanarak [X.509 sertifikası](https://www.itu.int/rec/T-REC-X.509-201210-S) ve IOT hub'ına cihaz kimlik doğrulaması için bir yol olarak özel anahtarı. Bu kimlik doğrulama yöntemi, özel anahtarı cihazda cihaz dışında herhangi bir zamanda yüksek seviyede güvenliği sağlama bilinmediğini sağlar.
 
 Güvenlik belirteci yönteminde kimlik doğrulaması yapılan simetrik anahtar ilişkilendirerek IOT Hub'ına cihaz tarafından yapılan her çağrı için sağlar. X.509 tabanlı kimlik doğrulama IOT cihazına TLS bağlantı kurulurken bir parçası olarak fiziksel katmanda olanak sağlar. Belirteç tabanlı güvenlik yöntemi, daha az güvenli bir desendir X.509 kimlik doğrulaması kullanılabilir. İki yöntem arasında seçim yapma öncelikle nasıl güvenli olması için cihaz kimlik doğrulama gereksinimlerini ve (özel anahtarı güvenli bir şekilde depolamak için) cihazın güvenli depolama alanı kullanılabilirliğini belirler.
 
@@ -55,7 +55,7 @@ Her IOT Hub'ına bir [kimlik kayıt defteri](../articles/iot-hub/iot-hub-devguid
 
 * AMQP: SASL DÜZ ve AMQP talep tabanlı güvenlik (`{policyName}@sas.root.{iothubName}` IOT hub'ı düzeyinde belirteçleriyle; `{deviceId}` kapsamlı cihaz belirteçleri ile).
 
-* MQTT: Paket kullandığı CONNECT `{deviceId}` olarak `{ClientId}`, `{IoThubhostname}/{deviceId}` içinde **kullanıcıadı** alanı ve SAS belirtecini **parola** alan.
+* MQTT: CONNECT paket kullanan `{deviceId}` olarak `{ClientId}`, `{IoThubhostname}/{deviceId}` içinde **kullanıcıadı** alanı ve SAS belirtecini **parola** alan.
 
 * HTTP: Yetkilendirme istek üst bilgisinde geçerli belirtecidir.
 
@@ -101,15 +101,15 @@ Azure IOT Hub ve çözümün bir parçası olabilecek diğer hizmetleri Azure Ac
 
 Azure IOT Hub tarafından alınan veriler, çeşitli Azure Stream Analytics ve Azure blob depolama gibi hizmetler tarafından tüketilebilir. Bu hizmet, yönetim erişimi sağlar. Bu hizmetler ve kullanılabilir seçenekler hakkında daha fazlasını okuyun:
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): cihazlar için meta verileri yöneten yarı yapılandırılmış veriler için ölçeklenebilir, tam olarak dizini oluşturulan veritabanı hizmet, öznitelikler, yapılandırma ve güvenlik özellikleri gibi sağlayın. Azure Cosmos DB, yüksek performanslı ve yüksek performanslı işleme, veri ve zengin bir SQL sorgusu arabirimi şemadan dizin sunar.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Meta veri öznitelikleri, yapılandırma ve güvenlik özellikleri gibi sağlamak cihazların yöneten yarı yapılandırılmış veriler için ölçeklenebilir, tam olarak dizini oluşturulan bir veritabanı hizmeti. Azure Cosmos DB, yüksek performanslı ve yüksek performanslı işleme, veri ve zengin bir SQL sorgusu arabirimi şemadan dizin sunar.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Gerçek zamanlı akış işleme bulutta hızla geliştirmesini ve cihazlar, algılayıcılar, altyapı ve uygulamalardan gerçek zamanlı Öngörüler açığa çıkarmak için düşük maliyetli bir analiz çözümü sağlar. Bu tümüyle yönetilen bu hizmet verileri, herhangi bir birim için yine de yüksek aktarım hızı, düşük gecikme süresi ve dayanıklılık elde edin ölçeklendirebilirsiniz.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Gerçek Zamanlı Akış sayesinde hızlı bir şekilde geliştirin ve cihazlar, algılayıcılar, altyapı ve uygulamalardan gerçek zamanlı Öngörüler açığa çıkarmak için düşük maliyetli bir analiz çözümü dağıtmak bulutta işleme. Bu tümüyle yönetilen bu hizmet verileri, herhangi bir birim için yine de yüksek aktarım hızı, düşük gecikme süresi ve dayanıklılık elde edin ölçeklendirebilirsiniz.
 
-* [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/): güçlü web uygulamaları ve bağlanan her yerden veri; bulutta veya şirket içi mobil uygulamalar oluşturmak için bir bulut platformu. iOS, Android ve Windows için ilgi çekici mobil uygulamalar oluşturun. Yazılım olarak hizmet (SaaS) ve onlarca bulut tabanlı hizmetler için kullanıma hazır bağlantısı ile Kurumsal uygulamalar ve kurumsal uygulamaları ile tümleştirin. En sevdiğiniz dilde ve IDE'de (.NET, Node.js, PHP, Python veya Java) web uygulamaları ve API'leri her zamankinden daha hızlı derleme için kod.
+* [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/): Güçlü web uygulamaları ve her yerden veri bağlanan mobil uygulamaları oluşturmak için bir bulut platformu; bulutta veya şirket içinde. iOS, Android ve Windows için ilgi çekici mobil uygulamalar oluşturun. Yazılım olarak hizmet (SaaS) ve onlarca bulut tabanlı hizmetler için kullanıma hazır bağlantısı ile Kurumsal uygulamalar ve kurumsal uygulamaları ile tümleştirin. En sevdiğiniz dilde ve IDE'de (.NET, Node.js, PHP, Python veya Java) web uygulamaları ve API'leri her zamankinden daha hızlı derleme için kod.
 
 * [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): Azure App Service'in Logic Apps özelliği, IOT çözümünüzün var olan satır iş kolu sistemlerinize tümleştirin ve iş akışı işlemlerini otomatikleştirmek yardımcı olur. Logic Apps, geliştiricilerin bir tetikleyiciyle başlatılan ve bir dizi adım yürüten iş akışları tasarlamasına olanak tanır; kurallar ve İş süreçlerinizi ile tümleştirmek için güçlü bağlayıcıları kullanma eylemler. Logic Apps geniş bir SaaS, bulut tabanlı ekosistemine kullanıma hazır bağlantısı sunar ve şirket içi uygulamaları.
 
-* [Azure Blob Depolama](https://azure.microsoft.com/services/storage/): cihazlarınızı buluta gönderme veriler için güvenilir, ekonomik bulut depolama.
+* [Azure Blob Depolama](https://azure.microsoft.com/services/storage/): Cihazlarınızı buluta gönderdiğiniz verileri için güvenilir, ekonomik bulut depolama.
 
 ## <a name="conclusion"></a>Sonuç
 

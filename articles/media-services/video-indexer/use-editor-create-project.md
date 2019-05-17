@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: a9d6396cab560a201b98497e787af4b6c7c2dabb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560929"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518147"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Video Indexer Düzenleyicisi'ni projeleri oluşturmak için kullanın
 
@@ -54,7 +55,7 @@ Bu makalede, sıfırdan bir proje oluşturma ve ayrıca bir video hesabınızdak
 
     Daha fazla seçerek sonuçlarınızı filtreleyebilirsiniz **sonuçlarını filtreleme**. Belirli bir kişiye içeren videolar göstermek veya yalnızca, video sonuçları görmek istediğinizi belirtmek için filtre bir belirli bir dilde veya belirli bir sahip. <br/> Sorgunuzun kapsamını da belirtebilirsiniz. Örneğin, "GitHub" OCR içinde arama yapmak istiyorsanız, seçin **görsel metin**.
 
-    ![Filtre](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtrele](./media/video-indexer-view-edit/visual-text.png)
 
     Sorgunuz için birden çok filtre katmanlayabilirsiniz. Kullanım **+** / **-** filtreleri Ekle/Kaldır düğmeleri. Kullanım **Filtreleri Temizle** tüm filtreler kaldırılacak.
 1. Video eklemek, bunları seçin ve ardından **Ekle**.
@@ -95,7 +96,7 @@ Her video sağ tarafındaki aşağı oka tıklayarak videonun (video klipleri) z
 > [!TIP]
 > Seçme ve resimlerinizi sıralama gibi sayfanın sağ tarafındaki player videoda önizleyebilirsiniz. 
 
-![Önizleme](./media/video-indexer-view-edit/preview.png)
+![Preview](./media/video-indexer-view-edit/preview.png)
 
 Projenizi seçerek değişiklikler yaptığınızda kaydetmeyi unutmayın **Kaydet proje**. 
 

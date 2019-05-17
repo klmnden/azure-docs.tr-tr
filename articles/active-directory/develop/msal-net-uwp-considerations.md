@@ -4,7 +4,7 @@ description: Evrensel Windows platformu ile Microsoft kimlik doğrulama kitaplı
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb8076df5482c91942349e0a052794f3fe945a5f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 83fb999b0cf66cfd8d96e82d23ed43626352a8aa
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076518"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544131"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>MSAL.NET ile Evrensel Windows platformu özgü konuları
 Xamarin iOS, MSAL.NET kullanırken dikkate almanız gereken birkaç nokta vardır.

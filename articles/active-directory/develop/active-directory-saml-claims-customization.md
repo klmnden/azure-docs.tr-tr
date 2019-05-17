@@ -3,8 +3,8 @@ title: Azure AD'de kurumsal uygulamalar için SAML belirtecinde verilen talepler
 description: Azure AD'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231335"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764660"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
 
@@ -121,7 +121,7 @@ Talep dönüştürmeleri işlevleri de kullanabilirsiniz.
 | **Extract() - Before matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "BSimon_US" ise, eşleşen değeri olan "_US" sonra "BSimon" talebin çıkışı yapılır. |
 | **Extract() - Between matching** | Belirtilen değerle eşleşen kadar alt dizeyi döndürür.<br/>Örneğin, girdinin değer "Finance_BSimon_US" ise, ilk eşleşen değeri olan "Finance_", ikinci eşleşen değeri olan "_US" ve ardından "BSimon" talebin çıkışı yapılır. |
 | **ExtractAlpha() - Prefix** | Dize öneki alfabetik bölümünü döndürür.<br/>Girdinin değer "BSimon_123" ise, örneğin, ardından "BSimon" döndürür. |
-| **ExtractAlpha() - soneki** | Dize soneki alfabetik bölümünü döndürür.<br/>Girdinin değer "123_Simon" ise, örneğin, ardından "BSimon" döndürür. |
+| **ExtractAlpha() - soneki** | Dize soneki alfabetik bölümünü döndürür.<br/>Girdinin değer "123_Simon" ise, örneğin, ardından "Simon" döndürür. |
 | **ExtractNumeric() - Prefix** | Dize öneki sayısal bölümü döndürür.<br/>Girdinin değer "123_BSimon" ise, örneğin, ardından "123" döndürür. |
 | **ExtractNumeric() - Suffix** | Dizesinin soneki sayısal bölümü döndürür.<br/>Girdinin değer "BSimon_123" ise, örneğin, ardından "123" döndürür. |
 | **IfEmpty()** | Giriş null veya boş ise, öznitelik veya sabiti çıkarır.<br/>Örneğin, EmployeeID belirli bir kullanıcı için boş ise bir extensionattribute içinde depolanan bir öznitelik çıkış istiyorsanız. Bunu yapmak için aşağıdaki değerleri yapılandırırsınız:<br/>Parametre 1(input): user.employeeid<br/>Parametre 2 (çıkış): user.extensionattribute1<br/>Parametre 3 (eşleşme yoksa çıkış): user.employeeid |

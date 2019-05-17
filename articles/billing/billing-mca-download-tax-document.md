@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 245e5ca6e2d7d1f48951d63ba6539180a35f1358
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371555"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604148"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmenizi vergi belgeleri görüntüleyin
 
@@ -31,12 +31,12 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 Sahibi, katkıda bulunan, okuyucu veya fatura Yöneticisi faturalandırma profilinin görüntülemek ve vergi belgelerini indirmek için olmalıdır. Microsoft Müşteri sözleşmesi için fatura rolleri hakkında daha fazla bilgi edinmek için bkz. [faturalama profili rolleri ve görevleri](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 <!-- TO DO: add link to manage access doc for MCA -->
 
-1. **Maliyet Yönetimi + Faturalama** araması yapın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
 2. Faturalandırma profili seçin.
 3. **Faturalar**'ı seçin.
 4. Fatura kılavuzunda fatura indirmek istediğiniz vergi belgeye karşılık gelen satırı bulur.
 5. Üç noktaya tıklayın (`...`) satırın sonunda.
-6. Seçin **vergi belge**. Fatura profilinizi ülke bağlı olarak, birden fazla vergi belge başına fatura görebilirsiniz.
+6. Seçin **vergi belge**. Ülke/bölge bağlı olarak profilinizin faturalama, fatura başına birden fazla vergi belge görebilirsiniz.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

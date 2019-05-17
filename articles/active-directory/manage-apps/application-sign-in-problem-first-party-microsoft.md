@@ -3,8 +3,8 @@ title: Bir Microsoft uygulamasında oturum açmada sorun | Microsoft Docs
 description: Birinci taraf Microsoft Applications (Office 365 gibi) Azure AD kullanarak oturum açarken genişlettiklerinde karşılaştığı yaygın sorunları giderme
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292206"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825225"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulamasında oturum açma sorunları
 
@@ -123,7 +123,7 @@ Bir kullanıcı hesabının mevcut olup olmadığını denetlemek için şu adı
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -141,7 +141,7 @@ Bir kullanıcı hesabı durumunu denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -161,7 +161,7 @@ Bir kullanıcının parolasını sıfırlamak için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -193,7 +193,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek iç
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm kullanıcılar**.
 
@@ -217,7 +217,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek iç
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -239,7 +239,7 @@ Bir kullanıcının grup üyeliklerini denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -257,7 +257,7 @@ Bir kullanıcının lisans atanmış denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -275,7 +275,7 @@ Bir kullanıcıya bir lisans atamak için bu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -315,7 +315,7 @@ Bir grubun üyeliğini denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 
@@ -333,7 +333,7 @@ Dinamik grubun Üyelik ölçütleri denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 
@@ -353,7 +353,7 @@ Lisans atanmış Grup denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm grupları**.
 
@@ -371,7 +371,7 @@ Bir grubun atanmış lisansları yeniden işle için bu adımları izleyin:
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm grupları**.
 
@@ -396,7 +396,7 @@ Bir gruba lisans atamak için bu adımları izleyin:
 
 3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4. Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5. tıklayın **tüm grupları**.
 
@@ -456,7 +456,7 @@ Denetleyin ya da tek bir uygulamanın şu anda doğrulamak için koşullu erişi
 
 5.  tıklayın **tüm uygulamaları**.
 
-6.  Uygulama görünen adı veya uygulama kimliği ile oturum açmak ilgilendiğiniz uygulama veya kullanıcı için arama çalışıyor.
+6.  Uygulama tarafından ad veya uygulama kodunu görüntülemek oturum açmak ilgilendiğiniz uygulama veya kullanıcı için arama çalışıyor
 
      >[!NOTE]
      >Aradığınız uygulamayı görmüyorsanız tıklayın **filtre** listeye kapsamını genişletin ve düğme **tüm uygulamaları**. Daha fazla sütun görmek istiyorsanız, tıklayın **sütunları** düğmesini uygulamalarınız için ek ayrıntıları ekleyin.

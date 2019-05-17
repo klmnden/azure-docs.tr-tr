@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943611"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606915"
 ---
 <a name="seller-insights-definitions"></a>Satıcı Insights tanımları
 =======================
@@ -37,7 +37,7 @@ Aşağıdaki tabloda birçok satıcı Insights'ta kullanılan terimler için tan
 | **Müşteri Şehir**  | Müşteri tarafından sağlanan şehir adı. Bu, bir müşterinin Azure aboneliğini şehirde farklı olabilir.  |
 | **Müşteri iletişim dili**        | İletişim müşteri tarafından tercih edilen dili.                                  |
 | **Müşteri şirket adı**                  | Müşteri tarafından sağlanan şirket adı. Bu, bir müşterinin Azure aboneliğini şehirde farklı olabilir.                                  |
-| **Müşteri Ülke**                       | Müşteri tarafından sağlanan ülke adı.  Bu, ülkede bir müşterinin Azure aboneliğini farklı olabilir.                               |
+| **Müşteri Ülke**                       | Müşteri tarafından sağlanan ülke/bölge adı.  Bu, bir müşterinin Azure aboneliğindeki bir ülke/bölge farklı olabilir.                               |
 | **Müşteri para birimi (CC)**                 | Fiyatlandırma ve faturalama için müşteri tarafından tercih edilen para birimi.                            |
 | **Müşteri e-posta**                         | Son müşteri tarafından sağlanan e-posta adresi.  Bu, bir müşterinin Azure aboneliği e-posta adresinden farklı olabilir.                   |
 | **Müşteri adı**                              | Müşteri tarafından sağlanan ilk adı.  Bu, bir müşterinin Azure aboneliğinde sağlanan adından farklı olabilir.                    |

@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 7ed675e4c6988cf4c1340613323440de55a36843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024463"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595970"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search'te bir sorgu oluşturmak nasıl
 
@@ -122,7 +122,7 @@ Sorgu türleri geniş bir Azure Search'ü destekler.
 | Filtrelenen arama | [OData filtre ifadesinin](query-odata-filter-orderby-syntax.md) ve ya da çözümleyici | Filtre sorgularını tüm üzerinde bir boolean ifadesinin değerlendirme *filtrelenebilir* dizin alanları. Arama, bir filtre sorgusu büyük küçük harf duyarlılığı dize alanları dahil olmak üzere, bir alanın tam içeriğini eşleştirir. Filtre sorgularını OData söz diziminde ifade edilen başka bir farktır. <br/>[Filtre ifadesi örneği](search-query-simple-examples.md#example-3-filter-queries) |
 | Coğrafi arama | [Edm.GeographyPoint türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) alanda, filtre ifadesi ve ya da çözümleyici | "Yakınımda Bul" için kullanılan ya da harita tabanlı bir Edm.GeographyPoint sahip bir alanda depolanmış koordinatları arama denetimleri. <br/>[Coğrafi arama örneği](search-query-simple-examples.md#example-5-geo-search)|
 | Aralık arama | Filtre ifadesi ve basit ayrıştırıcı | Azure Search'te, aralık sorguları, filtre parametresi kullanılarak oluşturulur. <br/>[Aralık filtresi örnek](search-query-simple-examples.md#example-4-range-filters) | 
-| [İçi alan filtreleme](query-lucene-syntax.md#bkmk_fields) | Arama parametresi ve tam ayrıştırıcı | Tek bir alan hedefleyen bir bileşik sorgu ifadesi oluşturun. <br/>[İçi alan filtreleme örneği](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [Fielded arama](query-lucene-syntax.md#bkmk_fields) | Arama parametresi ve tam ayrıştırıcı | Tek bir alan hedefleyen bir bileşik sorgu ifadesi oluşturun. <br/>[Fielded arama örneği](search-query-lucene-examples.md#example-2-fielded-search) |
 | [Belirsiz arama](query-lucene-syntax.md#bkmk_fuzzy) | Arama parametresi ve tam ayrıştırıcı | Üzerinde benzer bir yapı olması veya yazım koşulları eşleşir. <br/>[Belirsiz arama örneği](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [Yakınlık araması](query-lucene-syntax.md#bkmk_proximity) | Arama parametresi ve tam ayrıştırıcı | Birbirine yakın olan bir belgede bulur koşulları. <br/>[Yakınlık araması örneği](search-query-lucene-examples.md#example-4-proximity-search) |
 | [Terim artırma](query-lucene-syntax.md#bkmk_termboost) | Arama parametresi ve tam ayrıştırıcı | Başkalarının içermeyen göreli artırmalı terimi içeriyorsa, daha yüksek bir belge sıralar. <br/>[Terim artırma örneği](search-query-lucene-examples.md#example-5-term-boosting) |

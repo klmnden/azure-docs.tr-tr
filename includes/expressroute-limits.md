@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d067f1af3d5479aef28ddf2290cebe3fe45726b0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c025c431d826d3a2951a9eb5c09308695e172887
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733724"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551219"
 ---
-| Kaynak | Varsayılan/üst sınır |
+| Resource | Varsayılan/üst sınır |
 | --- | --- |
 | Abonelik başına ExpressRoute devreleri |10 |
 | ExpressRoute bağlantı hatları ile Azure Resource Manager, abonelik başına bölge başına |10 |
@@ -25,7 +25,7 @@ ms.locfileid: "64733724"
 | Microsoft Azure ile standart ExpressRoute eşdüzey hizmet sağlama için rota sayısı |200 |
 | Microsoft Azure ExpressRoute Premium eklentisi ile eşleme için yol sayısı |200 |
 | ExpressRoute bağlantı hatları ile aynı konumda eşleme aynı sanal ağa bağlı en fazla sayısı |4 |
-| ExpressRoute devreleri farklı eşleme konumları aynı sanal ağa bağlı en fazla sayısı |> 4 GatewaySubnet boyutuna bağlıdır|
+| ExpressRoute devreleri farklı eşleme konumları aynı sanal ağa bağlı en fazla sayısı |4 |
 | ExpressRoute bağlantı hattı izin verilen sanal ağ bağlantılarının sayısı |Aşağıdaki tabloya bakın. |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>ExpressRoute bağlantı hattı başına sanal ağ sayısı
@@ -39,4 +39,7 @@ ms.locfileid: "64733724"
 | 2 Gbps |10 |60 |
 | 5 Gbps |10 |75 |
 | 10 Gbps |10 |100 |
+| 40 Gbps* |10 |100 |
+| 100 Gbps* |10 |100 |
 
+* Yalnızca ExpressRoute doğrudan

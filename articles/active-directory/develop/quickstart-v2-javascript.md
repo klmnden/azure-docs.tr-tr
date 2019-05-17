@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23003186aa413e313578c57616ae03c435f140e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9deaf610696f676610f589168426ac24be692c99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785393"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823514"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Hızlı Başlangıç: Kullanıcılar oturum ve JavaScript tek sayfalı uygulama (SPA) bir erişim belirteci alma
 
@@ -183,7 +183,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | (İsteğe bağlı) Bu tarayıcı depolama kimlik doğrulama durumu için ayarlar. SessionStorage varsayılandır.   |
 > |`storeAuthStateInCookie`  | (İsteğe bağlı) Tarayıcı tanımlama bilgileri kimlik doğrulama akışları doğrulanması için gerekli kimlik doğrulama isteği durumu kitaplığı depolar. Bu belirli azaltmak IE ve Edge tarayıcılarda ayarlanır [bilinen sorunlar](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
- Bkz: [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) yapılandırılabilir seçenekleri hakkında daha fazla ayrıntı için.
+ Yapılandırılabilir seçenekleri hakkında daha fazla ayrıntı için okuma [başlatmak istemci uygulamaları](msal-js-initializing-client-applications.md).
 
 ### <a name="sign-in-users"></a>Kullanıcılar oturum
 
@@ -256,6 +256,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > Bu hızlı başlangıçta kullanılmaktadır `loginRedirect` ve `acquireTokenRedirect` kullanılan tarayıcı nedeni Internet Explorer olduğunda yöntemleri bir [bilinen sorun](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) açılır pencereleri işlenmesi için Internet Explorer tarayıcı tarafından ilgili.
 

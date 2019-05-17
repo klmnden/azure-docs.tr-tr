@@ -3,8 +3,8 @@ title: Federasyon için yapılandırılmış galeri dışındaki bir uygulamada 
 description: SAML tabanlı Federasyon çoklu oturum açma için Azure AD ile yapılandırılmış bir uygulamada oturum açarken karşılaşabilecekleri belirli sorunlar için yönergeler
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440207"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825433"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış galeri dışındaki bir uygulamada oturum açma sorunları
 
@@ -58,7 +58,7 @@ Emin `Issuer` Azure AD'de yapılandırılan tanımlayıcı değerini SAML isteğ
 
 7. Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8. Uygulama yüklendikten sonra açın **temel SAML yapılandırma**. Tanımlayıcı metin kutusundaki değeri hata görüntülenen tanımlayıcı değeri değeri eşleştiğini doğrulayın.
+8. Uygulama yüklendikten sonra **Temel SAML yapılandırması**'nı açın. Tanımlayıcı metin kutusundaki değeri hata görüntülenen tanımlayıcı değeri değeri eşleştiğini doğrulayın.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Yanıt adresi, uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor. 
 
@@ -88,7 +88,7 @@ Emin `Issuer` Azure AD'de yapılandırılan tanımlayıcı değerini SAML isteğ
 
 7. Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8. Uygulama yüklendikten sonra açın **temel SAML yapılandırma**. Doğrulayın veya yanıt URL'si metin kutusuna, eşleştirilecek değer güncelleştirme `AssertionConsumerServiceURL` SAML isteğindeki değeri.    
+8. Uygulama yüklendikten sonra **Temel SAML yapılandırması**'nı açın. Doğrulayın veya yanıt URL'si metin kutusuna, eşleştirilecek değer güncelleştirme `AssertionConsumerServiceURL` SAML isteğindeki değeri.    
     
 Azure AD'de yanıt URL'si değeri güncelleştirdik ve SAML isteğindeki uygulama tarafından gönderilen değerle eşleşen sonra uygulamaya oturum açabilir.
 
@@ -188,7 +188,7 @@ Emin `Issuer` Azure AD'de yapılandırılan tanımlayıcı değerini SAML isteğ
 
 1.  Çoklu oturum açma için yapılandırmak istediğiniz uygulamayı seçin.
 
-1.  Uygulama yüklendikten sonra açın **temel SAML yapılandırma**. Tanımlayıcı metin kutusundaki değeri hata görüntülenen tanımlayıcı değeri değeri eşleştiğini doğrulayın.
+1.  Uygulama yüklendikten sonra **Temel SAML yapılandırması**'nı açın. Tanımlayıcı metin kutusundaki değeri hata görüntülenen tanımlayıcı değeri değeri eşleştiğini doğrulayın.
 
 ## <a name="certificate-or-key-not-configured"></a>Sertifika veya anahtar yapılandırılmadı
 
@@ -222,7 +222,7 @@ Silin ve yeni bir sertifika oluşturmak için aşağıdaki adımları izleyin:
 
 9. Sona erme tarihi seçin. ' A tıklayarak **kaydedin.**
 
-10. Denetleme **yeni sertifikayı etkin hale getirin** etkin sertifikayı geçersiz kılmak için. ' A tıklayarak **Kaydet** Bölmenin üst kısmındaki ve geçiş sertifikasını etkinleştirmek için kabul edin.
+10. Denetleme **yeni sertifikayı etkin hale getirin** etkin sertifikayı geçersiz kılmak için. Ardından bölmenin üstündeki **Kaydet**’e tıklayın ve geçiş sertifikasını etkinleştirmeyi kabul edin.
 
 11. Altında **SAML imzalama sertifikası** bölümünde **Kaldır** kaldırmak için **kullanılmayan** sertifika.
 
@@ -236,7 +236,7 @@ Azure AD SAML isteğini HTTP isteği URL'si parametrelerinde içinde belirlemek 
 
 **Çözümleme**
 
-HTTP kullanarak konum üst bilgisi içinde kodlanmış SAML isteği göndermek uygulaması gereken bağlama yeniden yönlendirme. Bunu gerçekleştirme hakkında daha fazla bilgi için HTTP yeniden yönlendirme bağlama bölümü içinde [SAML protokolü belirtimi belgesi](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+HTTP kullanarak konum üst bilgisi içinde kodlanmış SAML isteği göndermek uygulaması gereken bağlama yeniden yönlendirme. Bunun nasıl gerçekleştirileceği hakkında daha fazla bilgi için [SAML protokolü belirtimi belgesinde](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf) HTTP Yeniden Yönlendirme Bağlaması bölümünü okuyun.
 
 ## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD belirteç yanlış bir uç noktaya gönderme
 
@@ -264,7 +264,7 @@ Uygulama için yapılandırılan kullanılmayan yanıt URL'lerinden silin.
 
 6.  Çoklu oturum açma için yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra açın **temel SAML yapılandırma**. İçinde **yanıt URL'si (onay belgesi tüketici hizmeti URL'si)**, kullanılmayan Sil veya varsayılan yanıt URL'leri, sistem tarafından oluşturulan. Örneğin, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Uygulama yüklendikten sonra **Temel SAML yapılandırması**'nı açın. İçinde **yanıt URL'si (onay belgesi tüketici hizmeti URL'si)**, kullanılmayan Sil veya varsayılan yanıt URL'leri, sistem tarafından oluşturulan. Örneğin, `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

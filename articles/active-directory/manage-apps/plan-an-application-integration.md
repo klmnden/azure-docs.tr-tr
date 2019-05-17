@@ -3,8 +3,8 @@ title: Azure AD ile uygulamaları tümleştirme çalışmaya başlama | Microsof
 description: Bu makale, Azure Active Directory (AD) şirket içi uygulamaları ve bulut uygulamaları ile tümleştirmek için bir başlangıç kılavuzunda yöneliktir.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1223c96bffdf125da0c47fc932d46cfa84fa45c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8db7ac63aaf9ae5b1b16bb233e87ace06867309
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291271"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824309"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory alma uygulamaları ile tümleştirme için Başlangıç Kılavuzu
 

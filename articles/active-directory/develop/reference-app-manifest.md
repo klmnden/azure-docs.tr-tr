@@ -3,8 +3,8 @@ title: Azure Active Directory Uygulama bildirimini anlama | Microsoft Docs
 description: Azure AD kiracısında bir uygulamanın kimlik yapılandırmasını temsil eder ve OAuth yetkilendirme, onayı deneyimi ve diğer kolaylaştırmak için kullanılan Azure Active Directory Uygulama bildirimini ayrıntılı kapsamını.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ff5c4c54cdfe03eca572e2aa42f2330597c94d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918766"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545664"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory Uygulama bildirimi
 
@@ -72,22 +72,22 @@ Uygulama bildirimini yapılandırmak için:
 | `name` | String | Uygulama görünen adı. | `"MyRegisteredApp"` |
 | `oauth2AllowImplicitFlow` | Boolean | Bu web uygulaması OAuth2.0 örtük akış erişim belirteçleri isteme olanaklarının olup olmadığını belirtir. Varsayılan değer false'dur. Bu bayrak, Javascript tek sayfa uygulamaları gibi tarayıcı tabanlı uygulamalar için kullanılır. Daha fazla bilgi için girin `OAuth 2.0 implicit grant flow` içindekiler tablosunda ve örtük akış hakkındaki konulara bakın. | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | Boolean | Bu web uygulaması OAuth2.0 örtük akış kimliği belirteç isteyip isteyemeyeceğini belirtir. Varsayılan değer false'dur. Bu bayrak, Javascript tek sayfa uygulamaları gibi tarayıcı tabanlı uygulamalar için kullanılır. | `false` |
-| `oauth2Permissions` | Koleksiyon | İstemci uygulamalarında web API (kaynak) uygulamanın sunduğu OAuth 2.0 izin kapsamları koleksiyonu belirtir. Bu izin kapsamları, onay işlemi sırasında istemci uygulamalara verilebilir. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>] </code>|
+| `oauth2Permissions` | Koleksiyon | İstemci uygulamalarında web API (kaynak) uygulamanın sunduğu OAuth 2.0 izin kapsamları koleksiyonu belirtir. Bu izin kapsamları, onay işlemi sırasında istemci uygulamalara verilebilir. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>]</code>|
 | `oauth2RequiredPostResponse` | Boolean | OAuth 2.0 belirteç isteklerini bir parçası olarak, Azure AD GET istekleri aksine POST istekleri izin olup olmadığını belirtir. Yalnızca GET isteklerini verileceğini belirten varsayılan false değeridir. | `false` |
-| `parentalControlSettings` | String | `countriesBlockedForMinors` uygulama için yetişkin engellenir ülkeleri belirtir.<br>`legalAgeGroupRule` Uygulamayı kullanıcılara uygulanan yasal yaş grubu kuralı belirtir. Ayarlanabilir `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, veya `BlockMinors`.  | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>} </code> |
-| `passwordCredentials` | Koleksiyon | Açıklamasına bakın `keyCredentials` özelliği. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>] </code> |
+| `parentalControlSettings` | String | `countriesBlockedForMinors` uygulama için yetişkin engellenir ülkeleri belirtir.<br>`legalAgeGroupRule` Uygulamayı kullanıcılara uygulanan yasal yaş grubu kuralı belirtir. Ayarlanabilir `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, veya `BlockMinors`.  | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>}</code> |
+| `passwordCredentials` | Koleksiyon | Açıklamasına bakın `keyCredentials` özelliği. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>]</code> |
 | `preAuthorizedApplications` | Koleksiyon | Uygulamalar ve tanımlanabilen istenen izinleri listeler. Bir yöneticinin uygulamaya izin vermiş gerektirir. preAuthorizedApplications istenen izinleri kabul etmesi gerekmez. Kullanıcı onayı preAuthorizedApplications içinde listelenen izinlere gerek yoktur. Ancak preAuthorizedApplications listelenmeyen ek istenen izinleri, kullanıcı onayı gerektirir. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"appId": "abcdefg2-000a-1111-a0e5-812ed8dd72e8",<br>&nbsp;&nbsp;&nbsp;&nbsp;"permissionIds": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"8748f7db-21fe-4c83-8ab5-53033933c8f1"<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>]</code> |
 | `publicClient` | Boolean | Bu uygulamanın genel bir istemci (örneğin, bir mobil cihazda çalışan yüklü bir uygulama) olup olmadığını belirtir. <br><br> _Not: Bu, yalnızca uygulama kayıtları (eski) deneyimini kullanılabilir. Değiştirilen `allowPublicClient` içinde [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) karşılaşırsınız._ | |
 | `publisherDomain` | String | Uygulama için yayımcı etki alanı. Salt okunur. | https://www.contoso.com |
 | `replyUrls` | Dize dizisi | Bu çok değerli özellik belirteçleri döndürülürken hedefleri olarak Azure AD'ye kabul kayıtlı redirect_uri değerlerin listesini tutar. <br><br> _Not: Bu, yalnızca uygulama kayıtları (eski) deneyimini kullanılabilir. Değiştirilen `replyUrlsWithType` içinde [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) karşılaşırsınız._ | |
 | `replyUrlsWithType` | Koleksiyon | Bu çok değerli özellik belirteçleri döndürülürken hedefleri olarak Azure AD'ye kabul kayıtlı redirect_uri değerlerin listesini tutar. Her URI değeri, bir ilişkili uygulama türü değeri içermelidir. Desteklenen türde değerler şunlardır: `Web`, `InstalledClient`. | <code>"replyUrlsWithType":&nbsp;[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url":&nbsp;"https://localhost:4400/services/office365/redirectTarget.html",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"InstalledClient"&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;}<br>]</code> |
-| `requiredResourceAccess` | Koleksiyon | Dinamik onayı ile `requiredResourceAccess` yönetici onayı deneyimi ve statik onay kullanan kullanıcılar için kullanıcı onayı deneyimi sürücüler. Ancak, bu genel durum kullanıcı onayı deneyimi sürücü değil.<br>`resourceAppId` Uygulama erişim gerektiren kaynağın benzersiz tanımlayıcısıdır. Bu değer, hedef kaynak uygulama bildirilen AppID eşit olmalıdır.<br>`resourceAccess` Belirtilen kaynak uygulama gerektiren uygulama rolleri ve izin kapsamları OAuth2.0 listeleyen bir dizidir. İçeren `id` ve `type` değerleri belirtilen kaynakları. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
+| `requiredResourceAccess` | Koleksiyon | Dinamik onayı ile `requiredResourceAccess` yönetici onayı deneyimi ve statik onay kullanan kullanıcılar için kullanıcı onayı deneyimi sürücüler. Ancak, bu genel durum kullanıcı onayı deneyimi sürücü değil.<br>`resourceAppId` Uygulama erişim gerektiren kaynağın benzersiz tanımlayıcısıdır. Bu değer, hedef kaynak uygulama bildirilen AppID eşit olmalıdır.<br>`resourceAccess` Belirtilen kaynak uygulama gerektiren uygulama rolleri ve izin kapsamları OAuth2.0 listeleyen bir dizidir. İçeren `id` ve `type` değerleri belirtilen kaynakları. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>]</code> |
 | `samlMetadataUrl` | String | Uygulama SAML meta verilerinin URL'si. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | String | Uygulama giriş sayfası URL'sini belirtir. | `https://MyRegisteredApp` |
 | `signInAudience` | String | Hangi Microsoft hesapları için geçerli uygulamanın desteklenen belirtir. Desteklenen değerler şunlardır:<ul><li>**AzureADMyOrg** -kullanıcılar Microsoft ile iş veya Okul hesabı kuruluşumun Azure AD kiracısında (yani, tek kiracılı)</li><li>**AzureADMultipleOrgs** -kullanıcılar Microsoft ile iş veya Okul hesabı herhangi bir kuruluşun Azure AD kiracısında (yani, çok kiracılı)</li> <li>**AzureADandPersonalMicrosoftAccount** -kişisel bir Microsoft hesabı ya da herhangi bir kuruluşun Azure AD kiracısında bir iş veya Okul hesabı olan kullanıcılar</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String Array | Kategorilere ayırmak ve uygulamayı tanımlamak için kullanılan özel dizeleri. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
-## <a name="common-issues"></a>Genel sorunlar
+## <a name="common-issues"></a>Sık karşılaşılan sorunlar
 
 ### <a name="manifest-limits"></a>Sınırları bildirimi
 

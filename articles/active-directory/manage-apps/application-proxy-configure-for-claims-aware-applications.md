@@ -3,8 +3,8 @@ title: Talep kullanan uygulamalar - Azure AD uygulama ara sunucusu | Microsoft D
 description: Kullanıcılarınız tarafından güvenli uzaktan erişim için ADFS talep kabul şirket içi ASP.NET uygulamaları yayımlamak nasıl.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5be2f5bbeb901888edc1e69953fdeb8de566c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c97729cf7d88ebdeefb44c83eb571bb6d7ebd0ed
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293498"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825591"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uygulama proxy'sinde talep kullanan uygulamalar ile çalışma
 [Talep kullanan uygulamalar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) yeniden yönlendirmesi için güvenlik belirteci hizmeti (STS) gerçekleştirin. STS, bir belirteç lisanslarınıza kullanıcıdan kimlik bilgilerini ister ve ardından kullanıcıyı uygulamaya yönlendirir. Bu yeniden yönlendirme ile çalışmak uygulama proxy'sini etkinleştirmek için birkaç yolu vardır. Talep kullanan uygulamalar için dağıtımınızı yapılandırmak için bu makaleyi kullanın. 

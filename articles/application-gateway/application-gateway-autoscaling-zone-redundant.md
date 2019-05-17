@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510830"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827433"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi 
 
@@ -62,7 +62,7 @@ Birim kılavuzu işlem:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-[Fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/application-gateway/) bölgelere ait fiyatlara 14 Mayıs 2019 üzerinde yansıtacak şekilde güncelleştirilir. Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.
+Diğer fiyatlandırma bilgileri için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/application-gateway/). Faturalandırma, 1 Temmuz 2019 üzerinde başlatmak üzere zamanlandı.
 
 **Örnek 1**
 
@@ -100,7 +100,7 @@ Toplam Fiyat = $267.84 + $85.71 $353.55 =
 Application Gateway ve WAF yapılandırılabilir iki modda ölçeklendirmek için:
 
 - **Otomatik ölçeklendirme** - etkin, otomatik ölçeklendirme uygulama ağ geçidi ve WAF v2 SKU'ları uygulama trafiği gereksinimlerine göre ölçeği artırın veya azaltın. Bu mod, uygulamanız için daha iyi esneklik sunar ve uygulama ağ geçidi boyutu veya örnek sayısının tahmin gereğini ortadan kaldırır. Bu mod ağ geçidi sağlanan en yüksek kapasite için öngörülen en fazla trafik yükü çalışmak üzere gerektirmeyen maliyetten tasarruf sağlar. Müşteriler, minimum ve maksimum isteğe bağlı olarak örnek sayımı belirtmelisiniz. Uygulama ağ geçidi ve WAF v2, trafiği olmaması durumunda bile belirtilen en az örnek sayısı 'un altına düşersek değil, kapasite alt sınırı sağlar. Bu en düşük kapasiteden bile tüm trafik olmaması için faturalandırılırsınız. Ayrıca isteğe bağlı olarak, uygulama ağ geçidi örnekleri belirtilen sayıda ölçeklendirilemez sağlar bir en fazla örnek sayısı belirtebilirsiniz. Ağ Geçidi tarafından sunulan trafik miktarı faturalandırılmaya devam. Örnek sayısı 0'dan 125 için değişebilir. En fazla örnek sayısı için varsayılan değer 20'dir belirtilmediyse.
-- **El ile** -ağ geçidi otomatik ölçeklendirme burada olmaz el ile modu alternatif olarak seçebilirsiniz. Hangi Application Gateway WAF, işleyebileceğinden mi değerinden daha fazla trafik varsa bu modda, trafiği kaybına yol açabilir. El ile modu ile örnek sayısı belirtme zorunludur. Örnek sayısı 1 ile 125 örneklerine farklılık gösterebilir.
+- **El ile** -ağ geçidi otomatik ölçeklendirme burada olmaz el ile modu alternatif olarak seçebilirsiniz. Hangi uygulama ağ geçidi veya WAF işleyebilir, değerinden daha fazla trafik varsa bu modda, trafiği kaybına yol açabilir. El ile modu ile örnek sayısı belirtme zorunludur. Örnek sayısı 1 ile 125 örneklerine farklılık gösterebilir.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 ve v2 SKU arasında özellik karşılaştırması
 

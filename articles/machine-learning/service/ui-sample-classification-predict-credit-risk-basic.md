@@ -1,7 +1,7 @@
 ---
-title: 'Sınıflandırma: Kredi riskini tahmin etme'
+title: 'Sınıflandırma: Kredi riski tahmini'
 titleSuffix: Azure Machine Learning service
-description: Bu görsel arabirim örnek deneme bir kredi uygulamasında sağlanan bilgilere dayanarak kredi riskini tahmin etmek için ikili sınıflandırmanın nasıl gerçekleştirileceğini gösterir.
+description: Tek satırlık bir görsel arabirim kullanarak kod yazmadan sınıflandırıcı öğrenme bir makine oluşturmayı öğrenin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d4ec3c71aaed6bddb012fb17ee5bb96da00cd76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028538"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789409"
 ---
-# <a name="sample-3---classification-predict-credit-risk"></a>3 - sınıflandırma. örnek: Kredi riskini tahmin etme
+# <a name="sample-3---classification-predict-credit-risk"></a>3 - sınıflandırma. örnek: Kredi riski tahmini
 
-Bu görsel arabirim örnek deneme bir kredi uygulamasında sağlanan bilgilere dayanarak kredi riskini tahmin etmek için ikili sınıflandırmanın nasıl gerçekleştirileceğini gösterir. Bu, nasıl veri işleme faaliyetlerinden dahil olmak üzere temel sınıflandırması yapmak, eğitim ve test kümeleri halinde veri kümesi bölünemiyor, modeli eğitme, Puanlama test veri kümesini ve Öngörüler değerlendirmek gösterir.
+Tek satırlık bir görsel arabirim kullanarak kod yazmadan sınıflandırıcı öğrenme bir makine oluşturmayı öğrenin. Bu örnek eğitir bir **iki sınıflı artırmalı karar ağacı** kredi tahmin etmek için iade uygulama bilgilerini kredi geçmişi yaş ve kredi kartı numarası gibi risk (yüksek veya düşük) bağlı.
+
+"Hangisinin?" sorusunu deniyoruz nedeni Bu, bir sınıflandırma problemi olarak adlandırılır. Ancak, regresyon, Sınıflandırma, kümeleme ve benzeri oluşmasından herhangi bir türde machine learning sorun gidermek için aynı temel işlem uygulayabilirsiniz.
+
+Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
+
+![Denemeyi grafiği](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,7 +46,6 @@ Veri kümesi 20 özellikleri ve 1 etiket 1.000 örnekleri içerir. Her örnek, b
 
 ## <a name="experiment-summary"></a>Deneme özeti
 
-
 Biz, bir deneme oluşturmak için şu adımları izleyin:
 
 1. Almanca kredi kartı UCI veri veri kümesi modülü deneme tuvale sürükleyin.
@@ -50,11 +55,10 @@ Biz, bir deneme oluşturmak için şu adımları izleyin:
 1. Ekleme bir **modeli eğitme** modülü. Sınıflandırıcı önceki adımdaki sol giriş bağlantı noktasına bağlayın **modeli eğitme**. Eğitim kümesi Ekle (sol çıkış bağlantı noktasına **verileri bölme**) sağ giriş bağlantı noktasına **modeli eğitme**. **Modeli eğitme** sınıflandırıcı eğitme.
 1. Ekleme bir **Score Model** modülü ve bağlama **modeli eğitme** ona modülü. Sınama kümesi eklersiniz (sağ bağlantı noktası **verileri bölme**) için **Score Model**. **Score Model** tahminler yapar. Tahminler ve pozitif sınıfı olasılıklar görmek için çıkış bağlantı noktasını seçebilirsiniz.
 1. Ekleme bir **Evaluate Model** modülü ve puanlanmış veri kümesi sol giriş bağlantı noktasına bağlayın. Değerlendirme sonuçlarını görmek için çıkış bağlantı noktasına seçin **Evaluate Model** modülü ve select **Görselleştir**.
-    
+
 Eksiksiz bir deneme grafiğini şu şekildedir:
 
 ![Denemeyi grafiği](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## <a name="results"></a>Sonuçlar
 

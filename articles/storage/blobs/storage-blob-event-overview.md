@@ -9,18 +9,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: b03d7d98fe43eacab63f45ccacd7d8dea9598c8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142156"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826490"
 ---
 # <a name="reacting-to-blob-storage-events"></a>BLOB Depolama olaylarına tepki verme
 
 Azure Depolama olaylarını uygulamaların oluşturulmasını ve modern sunucusuz mimarileri kullanarak blobları silme işlemi için tepki verin. Bunu karmaşık kod veya pahalı ve verimsiz yoklama Hizmetleri gerek kalmadan yapar.  Bunun yerine, olayların gönderilmesini [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) gibi abonelere [Azure işlevleri](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ve hatta kendi özel http dinleyicisi ve yalnızca kullandığınız kadarı için ödeme yaparsınız.
 
-BLOB Depolama olaylarını güvenilir bir şekilde zengin yeniden deneme ilkelerini ve teslim edilemeyen bir deneyimle uygulamalarınızda güvenilir teslim hizmetleri sağlayan olay Kılavuzu hizmetine gönderilir.
+BLOB Depolama olaylarını güvenilir bir şekilde zengin yeniden deneme ilkelerini ve teslim edilemeyen bir deneyimle uygulamalarınızda güvenilir teslim hizmetleri sağlayan olay Kılavuzu hizmetine gönderilir. Daha fazla bilgi için bkz. [Event Grid iletiyi teslim ve yeniden deneme](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 Ortak Blob Depolama olayı senaryolar resim veya video işleme, arama dizini oluşturma veya tüm dosya odaklı iş akışı içerir.  Zaman uyumsuz dosya yüklemeleri olayları için harika bir uygun olan.  Seyrek görülen değişiklikler, ancak senaryonuza anında yanıt verme hızını gerektirir, olay tabanlı mimari özellikle etkili olabilir.
 
@@ -51,7 +51,7 @@ BLOB Depolama olaylarını verilerinizdeki değişiklikleri yanıtlamak için ge
 > |Kimlik|string|Bu benzersiz tanımlayıcı olay|
 > |dataVersion|string|Veri nesnesinin şema sürümü.|
 > |metadataVersion|string|Üst düzey özellikler şema sürümü.|
-> |veriler|object|Blob depolama özel olay verilerini toplama|
+> |veriler|nesne|Blob depolama özel olay verilerini toplama|
 > |data.contentType|string|Content-Type üst bilgisinde blobundan döndürülürdü blob'u, içerik türü|
 > |data.contentLength|number|Content-Length üst bilgisinde blobundan döndürülürdü gibi bayt sayısını temsil eden tamsayı olduğu gibi blob boyutu.  BlobCreated olaylı, ancak BlobDeleted gönderilir.|
 > |Data.URL|string|Olayın konusu nesnenin URL'si|
@@ -60,7 +60,7 @@ BLOB Depolama olaylarını verilerinizdeki değişiklikleri yanıtlamak için ge
 > |data.sequencer|string|Herhangi bir belirli blob adı için olayların mantıksal sırasını temsil eden bir donuk bir dize değeri.  Kullanıcılar, standart dize karşılaştırması, aynı blob adı iki olayların göreli sırasını anlamak için kullanabilirsiniz.|
 > |data.requestId|string|Depolama API işlemi için istek hizmet tarafından oluşturulan kimliği. Azure tanılama günlüklerinde "istek kimliği üstbilgisi" alanını kullanarak kaydeder ve başlatmasını API çağrısı 'x-ms-isteği-id' üst bilgisinde döndürülen depolama ilişkilendirmek için kullanılabilir. Bkz: [günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
 > |data.clientRequestId|string|Depolama API işlemi için sağlanan istemci istek kimliği. "X-ms-istemci-request-id" üst bilgisini kullanarak istemci isteklerinde sağlanan ve günlüklerinde "client-request-id" alanını kullanarak Azure depolama tanılama günlüklerine ilişkilendirmek için kullanılır. Bkz: [günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-> |data.storageDiagnostics|object|Bazen Azure depolama hizmeti tarafından bulunan Tanılama verileri. Mevcut olduğunda olay tüketicileri tarafından yoksayılacak.|
+> |data.storageDiagnostics|nesne|Bazen Azure depolama hizmeti tarafından bulunan Tanılama verileri. Mevcut olduğunda olay tüketicileri tarafından yoksayılacak.|
 |data.blobType|string|Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı.| 
 
 BlobCreated olayın bir örnek aşağıda verilmiştir:

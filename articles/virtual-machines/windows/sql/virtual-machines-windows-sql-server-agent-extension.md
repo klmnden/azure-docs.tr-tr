@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 71878d5d033f0005d2c8c36d9f59799e125a19dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2943a1501e1d81ff4884c21b5aa3861e16523bbb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762710"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827724"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server Aracısı uzantısı (Resource Manager) ile Azure sanal Makineler'de yönetim görevlerini otomatikleştirin
 > [!div class="op_single_selector"]
@@ -50,12 +50,15 @@ Sanal makinenizde SQL Server Iaas Aracısı uzantısı kullanmak için gereksini
 
 **İşletim sistemi**:
 
+* Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
 
 **SQL Server sürümleri**:
 
+* SQL Server 2008 
+* SQL Server 2008 R2
 * SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016

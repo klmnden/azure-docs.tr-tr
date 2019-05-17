@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728d961961250aad1d06067e0264c6b90aca4915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593841"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823402"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -81,8 +81,8 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 
 | Özellik | Gereksinimler |
 | --- | --- |
-| İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> boş alan |
-| Karakterlere izin verilmez |<ul><li>Unicode karakter.</li><li>Alanları.</li><li> Nokta karakteri içeremez "." hemen "\@ \" sembol".</li></ul> |
+| İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>boş alan</li></ul> |
+| Karakterlere izin verilmez |<ul><li>Unicode karakter.</li><li> Nokta karakteri içeremez "." hemen "\@ \" sembol".</li></ul> |
 | Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 256 karakter.</li><li>Üç tanesi dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Semboller (önceki parola kısıtlamalarını bakın).</li></ul></li></ul> |
 | Parola sona erme süresi |<ul><li>Varsayılan değer: **90** gün.</li><li>Değeri kullanılarak yapılandırılabilir `Set-MsolPasswordPolicy` Azure Active Directory modülü için Windows PowerShell cmdlet'i.</li></ul> |
 | Parola süre sonu bildirimi |<ul><li>Varsayılan değer: **14** (parola süresi dolmadan).</li><li>Değeri kullanılarak yapılandırılabilir `Set-MsolPasswordPolicy` cmdlet'i.</li></ul> |
@@ -99,7 +99,6 @@ Bu kılavuz, ayrıca Azure AD için kimlik ve dizin hizmetleri kullanan Intune v
 
 > [!NOTE]
 > Yalnızca dizin eşitleme ile eşitlenmemiş kullanıcı hesaplarının parolalarını dolmayacak şekilde yapılandırılabilir. Dizin eşitleme hakkında daha fazla bilgi için bkz: [AD ile Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Ayarlayın veya PowerShell kullanarak parola ilkelerini denetleyin
 
@@ -157,7 +156,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
    ```
 
    > [!WARNING]
-   > Parolaları kümesine `-PasswordPolicies DisablePasswordExpiration` hala göre yaş `pwdLastSet` özniteliği. Süresi dolmayacak kullanıcı parolaları ayarlama ve sonra 90 gün gidin, parolalarının süresinin dolmasını. Temel `pwdLastSet` özniteliği için sona erme değiştirirseniz `-PasswordPolicies None`, gereken tüm parolaların bir `pwdLastSet` 90 günde bir sonraki oturum açışlarında değiştirmeye gerektirmek daha eski. Bu değişiklik, kullanıcıların çok sayıda etkileyebilir. 
+   > Parolaları kümesine `-PasswordPolicies DisablePasswordExpiration` hala göre yaş `pwdLastSet` özniteliği. Süresi dolmayacak kullanıcı parolaları ayarlama ve sonra 90 gün gidin, parolalarının süresinin dolmasını. Temel `pwdLastSet` özniteliği için sona erme değiştirirseniz `-PasswordPolicies None`, gereken tüm parolaların bir `pwdLastSet` 90 günde bir sonraki oturum açışlarında değiştirmeye gerektirmek daha eski. Bu değişiklik, kullanıcıların çok sayıda etkileyebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

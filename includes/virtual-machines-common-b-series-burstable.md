@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: d76a3bb463452207e4b5b023cfe07dfd156e95f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecf70bbbeae8fd68309f3343615f021038fb10b6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731813"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815568"
 ---
 B serisi VM ailesi, hangi sanal makine boyutu %100 Intel® Broadwell E5-2673 v4'üne kadar CPU performans düzeyine çıkış yapması özelliği sayesinde, iş yükü için gereken temel düzeyde performans sağlar seçmenizi sağlar 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemci vCPU.
 
@@ -21,19 +21,19 @@ B serisi sanal makineler, web sunucuları gibi kavramları, küçük veritabanla
 
 B serisi, aşağıdaki altı VM boyutlarında gelir:
 
-| Boyut             | Sanal işlemci  | Bellek: GiB | Geçici depolama (SSD) GiB | Sanal makinenin temel bir CPU performans | En fazla CPU performans VM | Bankaya nakledilen KREDİLERİ / saat | En fazla KREDİLERİ Bankaya nakledilen | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / MB/sn | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | En fazla NIC |          
-|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
-| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | %5                   | %100                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
-| Standard_B1s  | 1           | 1              | 4                          | %10                   | %100                   | 6                  | 144            | 2                       | 400 / 10                                  | 320 / 10                                  | 2  |
-| Standard_B1ms | 1           | 2              | 4                          | %20                   | %100                   | 12                 | 288           | 2                        | 800 / 10                                  | 640 / 10                                  | 2  |
-| Standard_B2s  | 2           | 4              | 8                          | %40                   | 200%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
-| Standard_B2ms | 2           | 8              | 16                         | %60                   | 200%                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
-| Standard_B4ms | 4           | 16             | 32                         | %90                   | 400%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
-| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Boyutlandır             | vCPU  | Bellek: GiB | Geçici depolama (SSD) GiB | Sanal makinenin temel bir CPU performans | En fazla CPU performans VM | Başlangıç kredisi | Bankaya nakledilen KREDİLERİ / saat | En fazla KREDİLERİ Bankaya nakledilen | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / MB/sn | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | En fazla NIC |          
+|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
+| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | %5                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | %10                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1ms | 1           | 2              | 4                          | %20                   | 100%                   | 30                   | 12                 | 288           | 2                         | 800 / 10                                  | 640 / 10                                  | 2  |
+| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 60                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
+| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 <sup>1</sup> B1ls, yalnızca Linux üzerinde desteklenir
 
-## <a name="q--a"></a>Soru-Cevap 
+## <a name="q--a"></a>Soru - Yanıt 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>S: Nasıl bir VM'den %135 temel performans elde ederim?
 **A**: %135 yaptığınız VM boyutu 8 vCPU's arasında paylaşılır. Örneğin, 4, 8 çekirdek toplu işlem üzerinde çalışan uygulama kullanıyorsa ve % 30 kullanımı sırasında çalışan her biri bu 4 vCPU's VM CPU performansı toplam miktarı %120 eşit.  Sanal makinenizin temel performansınızı % 15 deltasında dayalı kredi zaman oluşturursunuz anlamına gelir.  Ancak, aynı VM tüm 8 vCPU, %100 kullanabileceğiniz krediler olduğunda bu VM bir en fazla CPU performans %800 vererek, ayrıca anlamına gelir.

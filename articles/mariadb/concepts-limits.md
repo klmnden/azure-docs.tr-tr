@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041284"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550503"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
@@ -82,6 +82,9 @@ Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 
 ### <a name="vnet-service-endpoints"></a>Sanal ağ hizmet uç noktaları
 - Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için sanal ağ hizmet uç noktaları desteğidir.
+
+### <a name="storage-size"></a>Depolama boyutu
+- Lütfen [fiyatlandırma katmanları](concepts-pricing-tiers.md) fiyatlandırma katmanı başına depolama boyutu sınırları.
 
 ## <a name="current-known-issues"></a>Bilinen geçerli sorunlar
 - Bağlantı kurulduktan sonra MariaDB sunucuyu yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği altyapı sürümü almak için kullanın `select version();` komutu.

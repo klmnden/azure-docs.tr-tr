@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540142"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823341"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft kimlik platformu tümleştirme denetim listesi
 
@@ -31,13 +31,13 @@ Yeni başlıyorsanız, kullanıma [belgeleri](index.yml) kimlik doğrulaması te
 
 ## <a name="testing-your-integration"></a>Tümleştirme testi
 
-Uygulamanız ile etkili bir şekilde tümleşiktir emin olmak için aşağıdaki denetim listesini kullanın [Microsoft kimlik platformu](https://docs.microsoft.com/legal/mdsa).
+Uygulamanız ile etkili bir şekilde tümleşiktir emin olmak için aşağıdaki denetim listesini kullanın [Microsoft kimlik platformu](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### <a name="basics"></a>Temel
 
 |   |   |
 |---|---|
-| ![Onay kutusu](./media/active-directory-integration-checklist/checkbox-two.svg) | Okumanız ve anlamanız [Microsoft Platformu ilkeleri](https://docs.microsoft.com/legal/mdsa). Uygulamanızın kullanıcıları ve platform korumak için tasarlanmışlardır gibi ana hatlarıyla belirtilen koşulları uyduğundan emin olun. |
+| ![Onay kutusu](./media/active-directory-integration-checklist/checkbox-two.svg) | Okumanız ve anlamanız [Microsoft Platformu ilkeleri](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Uygulamanızın kullanıcıları ve platform korumak için tasarlanmışlardır gibi ana hatlarıyla belirtilen koşulları uyduğundan emin olun. |
 
 ### <a name="ownership"></a>Sahipliği
 

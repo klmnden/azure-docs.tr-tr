@@ -3,8 +3,8 @@ title: Azure AD uygulama geliştiricileri için destek ve Yardım seçenekleri |
 description: Yardım ve geliştirme ile ilgili sorular ve sorunlar için destek Microsoft kimlikleri (Azure Active Directory ve Microsoft hesabı) ile tümleştirme uygulaması oluştururken elde etme bildirin
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299745"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540380"
 ---
 # <a name="support-and-help-options-for-developers"></a>Geliştiriciler için destek ve Yardım seçenekleri
 
@@ -63,7 +63,7 @@ Yığın taşması geliştirme ile ilgili sorular için tercih edilen bir kanald
 
 Bir arama aracılığıyla sorunuzun yanıtını bulamazsanız, yeni Stack Overflow soru gönderin. Aşağıdaki etiketlerin birine tanımlamak ve daha hızlı bir şekilde sorusunu denetlemesi yönelik sorular sorma kullanın:
 
-|Bileşen/alan  | Etiketler |
+|Bileşen/alan  | Tags |
 |---------|---------|
 | ADAL kitaplığı | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL kitaplığı     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

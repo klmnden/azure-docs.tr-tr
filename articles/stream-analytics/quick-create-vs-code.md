@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071889"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825336"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Hızlı Başlangıç: Visual Studio Code'da (Önizleme) Azure Stream Analytics bulut işi oluşturma
 
@@ -103,7 +103,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
 
 1. Visual Studio Code'da basın **Ctrl + Shift + P** komut paletini açın. Yazarak **ASA** seçip **ASA: Yeni proje oluşturma**.
 
-   ![Yeni proje oluşturma](./media/quick-create-vs-code/create-new-project.png)
+   ![Yeni proje oluştur](./media/quick-create-vs-code/create-new-project.png)
 
 2. Projenizin adını gibi giriş **myASAproj** ve projeniz için bir klasör seçin.
 
@@ -140,7 +140,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
 
    |Ayar|Önerilen değer|Açıklama|
    |-------|---------------|-----------|
-   |Ad|Girdi|İşin girdisini tanımlamak için bir ad girin.|
+   |Ad|Giriş|İşin girdisini tanımlamak için bir ad girin.|
    |IotHubNamespace|MyASAIoTHub|Seçin veya IOT Hub'ınızın adını girin. IOT hub'ı adları, aynı abonelikte oluşturulursa otomatik olarak algılanır.|
    |Uç nokta|Mesajlaşma| |
    |SharedAccessPolicyName|iothubowner| |
@@ -229,7 +229,7 @@ Komut dosyası derleme tetiklemek için iki yolu vardır:
 
 2. Proje adına sağ tıklayın. Ardından, **Başlat** bağlam menüsünden.
 
-![VS Code'da Stream Analytics işini başlatın](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![VS Code'da Stream Analytics işini başlatın](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. Seçin **artık** işi başlatmak için ve açılan penceredeki.
 

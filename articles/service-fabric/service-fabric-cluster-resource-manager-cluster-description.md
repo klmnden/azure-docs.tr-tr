@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744337"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561202"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric Küme Kaynak Yöneticisi bir kümesini tanımlamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında küme kaynak yöneticisi, kümede çalışan hizmetler yüksek kullanılabilirliğini sağlamak için bu bilgileri kullanır. Önemli kurallar zorlarken, ayrıca küme içindeki kaynak tüketimini iyileştirmek çalışır.
@@ -33,7 +33,7 @@ Küme Kaynak Yöneticisi, bir kümeyi tanımlama çeşitli özelliklerini destek
 * Düğüm kapasiteleri
 
 ## <a name="fault-domains"></a>Hata etki alanları
-Hata etki alanı tüm Eşgüdümlü hatası alanıdır. (Bu sürücü hataları hatalı NIC bellenimi için güç kaynağı hatalarından kendi çeşitli nedenlerle başarısız) tek bir makine hata etki alanı olduğu. Güç veya tek bir konumda tek bir kaynak paylaşımı makineler olduğu gibi aynı Ethernet anahtara bağlı makineler, aynı hata etki alanında olur. Donanım hatalarına çakıştırmayı doğal olduğundan, hata etki alanları kendiliğinden Cerberus ve Service fabric'te bir URI'leri olarak temsil edilir.
+Hata etki alanı tüm Eşgüdümlü hatası alanıdır. (Bu sürücü hataları hatalı NIC bellenimi için güç kaynağı hatalarından kendi çeşitli nedenlerle başarısız) tek bir makine hata etki alanı olduğu. Güç veya tek bir konumda tek bir kaynak paylaşımı makineler olduğu gibi aynı Ethernet anahtara bağlı makineler, aynı hata etki alanında olur. Donanım hatalarına çakıştırmayı doğal olduğundan, hata etki alanları kendiliğinden hiyerarşik ve Service fabric'te bir URI'leri olarak temsil edilir.
 
 Service Fabric Hizmetleri güvenli bir şekilde yerleştirmek için bu bilgileri kullandığından hata etki alanlarını doğru şekilde ayarlanması önemlidir. Service Fabric Hizmetleri gitmek bir hizmet hata etki alanı (bazı bileşen hatasından kaynaklanır) kaybına neden olacak şekilde yerleştirmek istememektedir. Azure ortamı Service Fabric, doğru sizin adınıza kümedeki düğümlerin yapılandırmak için ortam tarafından sağlanan hata etki alanı bilgileri kullanır. Küme ayarlama zaman tanımlanan için Service Fabric tek başına, hata etki alanları 
 
@@ -95,13 +95,17 @@ Toplam hata veya yükseltme etki alanları sayısını nasıl örtüşecek üzer
 ![Hata ve yükseltme etki alanı düzeni][Image4]
 </center>
 
-Hangi düzenin seçmek için hiçbir en iyi yanıt, her bazı Artıları ve eksileri vardır. Örneğin, 1FD:1UD modeli ayarlamak basit bir işlemdir. 1 yükseltme etki alanı başına düğüm modeli, insanların için kullanılan gibi çoğu. Yükseltme sırasında her düğüm bağımsız olarak güncelleştirilir. Bu, nasıl küçük makineler kümesini el ile geçmişte yükseltildiği için benzer. 
+Hangi düzenin seçmek için hiçbir en iyi yanıt, her bazı Artıları ve eksileri vardır. Örneğin, 1FD:1UD modeli ayarlamak basit bir işlemdir. 1 yükseltme etki alanı başına düğüm modeli, insanların için kullanılan gibi çoğu. Yükseltme sırasında her düğüm bağımsız olarak güncelleştirilir. Bu, nasıl küçük makineler kümesini el ile geçmişte yükseltildiği için benzer.
 
 Burada, UD ve Fd'ler bir tablo oluşturur ve düğümleri çapraz başlangıç yerleştirilir FD/UD matris en yaygın modelidir. Bu, varsayılan olarak Azure Service Fabric kümelerinde kullanılan modelidir. Çok sayıda düğüme sahip kümeler için her şeyi yoğun matris yukarıdaki desen gibi bakan sonlandırır.
 
+> [!NOTE]
+> Azure'da barındırılan Service Fabric kümeleri varsayılan strateji değiştirmeyi desteklemez. Yalnızca tek başına kümeler, özelleştirme sunar.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Hata ve yükseltme etki alanı kısıtlamaları ve bunun sonucunda oluşan davranışı
 ### <a name="default-approach"></a>*Varsayılan yaklaşımı*
-Varsayılan olarak, Küme Kaynak Yöneticisi hata ve yükseltme etki alanları arasında dengeli Hizmetleri tutar. Bu olarak modellenir bir [kısıtlaması](service-fabric-cluster-resource-manager-management-integration.md). Hata ve yükseltme etki alanı kısıtlaması durumları: "Bir verili hizmet bölümü için hiçbir zaman olmalıdır bir fark hiyerarşisinin aynı düzeyde iki tüm etki alanları arasında hizmet nesneleri (durum bilgisi olmayan hizmet örneği veya durum bilgisi olan hizmet çoğaltmalar) sayısını birden büyük". Bu kısıtlama, "en büyük fark" garantisi sağlar varsayalım. Hata ve yükseltme etki alanı kısıtlaması, belirli taşıma veya yukarıda belirtilen kural ihlal düzenlemeleri engeller. 
+Varsayılan olarak, Küme Kaynak Yöneticisi hata ve yükseltme etki alanları arasında dengeli Hizmetleri tutar. Bu olarak modellenir bir [kısıtlaması](service-fabric-cluster-resource-manager-management-integration.md). Hata ve yükseltme etki alanı kısıtlaması durumları: "Bir verili hizmet bölümü için hiçbir zaman olmalıdır bir fark hiyerarşisinin aynı düzeyde iki tüm etki alanları arasında hizmet nesneleri (durum bilgisi olmayan hizmet örneği veya durum bilgisi olan hizmet çoğaltmalar) sayısını birden büyük". Bu kısıtlama, "en büyük fark" garantisi sağlar varsayalım. Hata ve yükseltme etki alanı kısıtlaması, belirli taşıma veya yukarıda belirtilen kural ihlal düzenlemeleri engeller.
 
 Bir örneğe göz atalım. Altı düğümü, beş hata etki alanları ve beş yükseltme etki alanları ile yapılandırılmış olan bir küme sahip olduğunuzu düşünelim.
 

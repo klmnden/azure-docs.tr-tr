@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728818"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596973"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -236,7 +236,7 @@ Güncelleştirme `launch.json` altında dosya `.vscode` proje klasörünüze alt
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>'Kitaplığım' tür veya ad alanı bulunamadı
 
-### <a name="reason"></a>Neden 
+### <a name="reason"></a>Reason 
 Varsayılan olarak proje/hizmet düzeyinde derleme bağlamıdır, bu nedenle, kullandığınız bir kitaplık projesi bulunamıyor.
 
 ### <a name="try"></a>Deneyin:
@@ -251,7 +251,7 @@ Bir örneğe göz bulabilirsiniz https://github.com/sgreenmsft/buildcontextsampl
 Gereksinim duyduğunuz *sahibi* veya *katkıda bulunan* Azure aboneliğinizdeki Azure geliştirme alanları yönetmek için erişim. Geliştirme alanları yönetme çalıştığınız ve erişiminiz yok, bu hatayı görebilirsiniz *sahibi* veya *katkıda bulunan* ilişkili Azure aboneliğine erişim.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
-### <a name="reason"></a>Neden
+### <a name="reason"></a>Reason
 Seçilen Azure aboneliği kaydedilmemiş `Microsoft.DevSpaces` ad alanı.
 
 ### <a name="try"></a>Deneyin:
@@ -263,7 +263,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Geliştirme alanları zaman aşımına *kapsayıcı görüntü derlemesi için bekleniyor...*  AKS sanal düğümü adımla
 
-### <a name="reason"></a>Neden
+### <a name="reason"></a>Reason
 Bu zaman aşımı oluşur çalıştırmak için yapılandırılmış bir hizmeti çalıştırmak için geliştirme alanları kullanma girişimi bir [AKS sanal düğümü](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Geliştirme alanları, oluşturma veya hata ayıklama Hizmetleri sanal düğümlere şu anda desteklemiyor.
 
 Çalıştırırsanız `azds up` ile `--verbose` anahtar veya Visual Studio'da etkinleştir ayrıntılı günlük kaydı, ek ayrıntı görürsünüz:
@@ -295,7 +295,7 @@ Genellikle, kümenizin aracı düğümleri yeniden başlatılıyor, bu sorunu ç
 
 ## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"Hata: yayın azds -\<tanımlayıcı\>-\<spacename\>-\<servicename\> başarısız oldu: Hizmetler'in\<servicename\>' zaten var "veya" erişim reddedildi için çekme \<servicename\>, depo yok veya 'docker login' gerektirebilir "
 
-### <a name="reason"></a>Neden
+### <a name="reason"></a>Reason
 Doğrudan Helm komutlarını çalıştırarak karıştırmak bu hatalar oluşabilir (gibi `helm install`, `helm upgrade`, veya `helm delete`) geliştirme alanları komutlarla (gibi `azds up` ve `azds down`) aynı geliştirme alanı içinde. Geliştirme alanları aynı geliştirme alanında çalışan kendi Tiller örneğiyle çakışıyor kendi Tiller örneği olduğundan, bunlar oluşur.
 
 ### <a name="try"></a>Deneyin:
@@ -329,7 +329,7 @@ configurations:
 
 ## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Hata "İç izleme başarısız oldu: ENOSPC izleme" eklerken bir Node.js uygulaması için hata ayıklama
 
-### <a name="reason"></a>Neden
+### <a name="reason"></a>Reason
 
 Hata ayıklayıcısı ile iliştirme çalıştığınız Node.js uygulaması ile pod çalıştıran düğümü aştı *fs.inotify.max_user_watches* değeri. Bazı durumlarda, [varsayılan değerini *fs.inotify.max_user_watches* bir Haya ayıklayıcı doğrudan bir pod işlemek için çok küçük olabilir](https://github.com/Azure/AKS/issues/772).
 
@@ -338,7 +338,7 @@ Değerini artırmak için bu sorun için geçici bir çözüm olan *fs.inotify.m
 
 ## <a name="new-pods-are-not-starting"></a>Yeni pod'ların başlamıyor
 
-### <a name="reason"></a>Neden
+### <a name="reason"></a>Reason
 
 Kubernetes Başlatıcısı için RBAC izni değişiklikleri nedeniyle, yeni pod'ların PodSpec uygulanamıyor *küme yönetim* küme rolü. Yeni pod da geçersiz bir PodSpec olabilir, örneğin pod ile ilişkili hizmet hesabı artık yok. İçinde bulunduğunuz pod'ların görmek için bir *bekleyen* kullanım Başlatıcı sorunu nedeniyle durum `kubectl get pods` komutu:
 
@@ -370,7 +370,7 @@ Denetleyicinizi yeniden yüklendikten sonra pod'ların yeniden dağıtın.
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Geliştirme alanları denetleyici ve API'leri çağırmak için doğru RBAC izinlerinin
 
-### <a name="reason"></a>Neden
+### <a name="reason"></a>Reason
 Azure geliştirme alanları denetleyicisi erişen kullanıcı yönetici okuma erişimi olmalıdır *kubeconfig'i denetleyin* AKS kümesinde. Örneğin, bu izni kullanılabilir [yerleşik Azure Kubernetes hizmeti Küme Yöneticisi rolüne](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). Azure geliştirme alanları denetleyicisi erişen bir kullanıcı da olmalıdır *katkıda bulunan* veya *sahibi* denetleyicisi için RBAC rolü.
 
 ### <a name="try"></a>Deneme
@@ -389,3 +389,18 @@ Denetleyici için kullanıcının RBAC rolü'nü güncellemek için:
     * İçin *erişim Ata* seçin *Azure AD kullanıcı, Grup veya hizmet sorumlusu*.
     * İçin *seçin* izinleri vermek istediğiniz kullanıcıyı arayın.
 1. *Kaydet*’e tıklayın.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Denetleyici oluşturma denetleyicisi adı uzunluğu nedeniyle başarısız oluyor
+
+### <a name="reason"></a>Reason
+Azure geliştirme alanları denetleyicinin adı 31 karakterden uzun olamaz. Denetleyicinizin adını 31 karakteri aşıyorsa, bir AKS kümesinde geliştirme alanları etkinleştirme veya bir denetleyici oluşturma gibi bir hata alırsınız:
+
+*Küme için bir geliştirme alanları denetleyicisi 'a-controller-name-that-is-way-too-long-aks-east-us' oluşturma başarısız oldu: Azure geliştirme alanları Denetleyici adı 'a-controller-name-that-is-way-too-long-aks-east-us' geçersiz. Kısıt ihlal edildi: Azure geliştirme alanları denetleyicisi adları yalnızca en fazla 31 karakter uzunluğunda olabilir*
+
+### <a name="try"></a>Deneme
+
+Bir denetleyici ile başka bir ad oluşturun:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```
