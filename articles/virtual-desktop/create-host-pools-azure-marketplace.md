@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6991201b3cda5699849ac00cc92217c6b7bf72
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524005"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834001"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Öğretici: Azure Market ile ana bilgisayar havuzu oluşturma
 
@@ -58,6 +58,9 @@ Yapılandırma sanal makineler dikey penceresi için:
 ### <a name="virtual-machine-settings"></a>Sanal makine ayarları
 
 Sanal makine ayarı dikey için:
+
+>[!NOTE]
+> Bir Azure AD Domain Services ortama Vm'lerinize birleştirdiğimiz, etki alanı katılma kullanıcınızın üyesi olduğundan emin olun [AAD DC Administrators grubu](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 1. Seçin **görüntü kaynağı** nasıl bulacağınızı ve depolamak için uygun bilgileri girin. Yönetilen diskleri kullanmayı tercih ederseniz, .vhd dosyasını içeren depolama hesabını seçin.
 2. Vm'leri Active Directory etki alanına etki alanı hesabının kullanıcı asıl adını ve parolasını girin. Bu aynı kullanıcı adı ve parola sanal makinelerde yerel bir hesap oluşturulur. Daha sonra bu yerel hesaplar sıfırlayabilirsiniz.

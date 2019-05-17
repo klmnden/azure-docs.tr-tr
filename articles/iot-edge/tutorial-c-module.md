@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f5f6b6473a3cbe078ae2357e1f908788e54af25d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 63169423e757f3e1e73a95a1523d74c8fc59b2b2
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573437"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835120"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Öğretici: Linux cihazlar için bir C IOT Edge modülü geliştirme
 
@@ -38,10 +38,10 @@ Bu öğreticide bir modülde nasıl geliştirilebileceğini gösterir **C** kull
 
 Geliştirme ve Linux için C modülleri dağıtma seçeneklerinizi anlamak için aşağıdaki tabloyu kullanın: 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
-| - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Linux AMD64 C modülleri için VS Code kullanma](./media/tutorial-c-module/green-check.png) | ![VS 2017 Linux AMD64 üzerinde C modüller için kullanın](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![Linux ARM32 üzerinde C modüller için VS Code kullanma](./media/tutorial-c-module/green-check.png) | ![VS 2017 Linux ARM32 üzerinde C modüller için kullanın](./media/tutorial-c-module/green-check.png) |
+| C | Visual Studio Code | Visual Studio | 
+| - | ------------------ | ------------- |
+| **Linux AMD64** | ![Linux AMD64 C modülleri için VS Code kullanma](./media/tutorial-c-module/green-check.png) | ![Linux AMD64 C modülleri için VS kullanın](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![Linux ARM32 üzerinde C modüller için VS Code kullanma](./media/tutorial-c-module/green-check.png) | ![Linux ARM32 üzerinde C modüller için VS kullanın](./media/tutorial-c-module/green-check.png) |
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -61,7 +61,7 @@ C dilinde bir IOT Edge modülü geliştirme için geliştirme makinenizde aşağ
 
 Aşağıdaki adımlar, Visual Studio Code ve Azure IOT araçları uzantısını kullanarak, C için IOT Edge modülü projesinde oluşturur. Oluşturulan proje şablonu oluşturduktan sonra böylece modül bildirilen özelliklerine göre iletileri filtreler yeni kod ekleyin. 
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 Kendi yazacağınız kodla özelleştirebileceğiniz bir C çözüm şablonu oluşturun.
 

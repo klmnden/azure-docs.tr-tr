@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 04/04/2019
 ms.author: sngun
-ms.openlocfilehash: cb132c8e36797e4ae089420e48d75271cddb5c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a54c7493dd40d26151311a4211a791a99b0a265e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60685858"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833546"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API'si için .NET örnekleri
 > [!div class="op_single_selector"]
@@ -34,8 +34,8 @@ ms.locfileid: "60685858"
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Visual Studio 2017 ile yüklü Azure geliştirme iş akışı
-- İndirip kullanabilirsiniz **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun. 
+Visual Studio 2019 yüklü Azure geliştirme iş akışı ile
+- İndirip kullanabilirsiniz **ücretsiz** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun. 
 
 [Microsoft.Azure.DocumentDB NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
@@ -88,7 +88,7 @@ Bir Azure aboneliği veya ücretsiz Cosmos DB deneme hesabı
 | [Koşullu ETag denetimiyle belgeyi değiştirme](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L398-L440) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 | [Yalnızca belge değiştiğinde belgeyi okuma](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
-## <a name="indexing-examples"></a>Dizin örnekleri
+## <a name="indexing-examples"></a>Dizin oluşturma örnekleri
 [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) örnek yöntemi *IndexManagement* proje, aşağıdaki görevlerin nasıl yapılacağını gösterir. Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de dizinleme hakkında bilgi edinmek için [dizin ilkeleri](index-policy.md), [dizin türleri](index-types.md), ve [dizin yolları](index-paths.md). 
 
 | Görev | API başvurusu |

@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 0e2d4b783068cfd14385eb1712ea246c94dc9500
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61335492"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827156"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>Hızlı Başlangıç: URL önizlemesi sorguC#
 
@@ -23,7 +23,7 @@ Aşağıdaki C# örneği SwiftKey Web sitesi için bir URL Önizlemesi oluşturu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
+İhtiyacınız olacak [Visual Studio 2017 veya üstü](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
 [Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 

@@ -32,8 +32,6 @@
       href: create-host-pools-user-profile.md
     - name: Windows Sanal Masaüstü yük dengeleme yöntemini yapılandırma
       href: configure-host-pool-load-balancing.md
-    - name: Tanılama özelliğiyle sorunları belirleme
-      href: diagnostics-role-service.md
     - name: Ana VHD görüntüsünü hazırlama ve özelleştirme
       href: set-up-customize-master-image.md
     - name: Ana VHD görüntüsü üzerinde Office yükleme
@@ -54,6 +52,8 @@
   items:
     - name: 'Sorun çözümüne genel bakış, geri bildirim ve destek'
       href: troubleshoot-set-up-overview.md
+    - name: Tanılama özelliğiyle sorunları belirleme
+      href: diagnostics-role-service.md
     - name: Kiracı ve ana bilgisayar havuzu oluşturma
       href: troubleshoot-set-up-issues.md
     - name: Oturum ana bilgisayarı sanal makine yapılandırması

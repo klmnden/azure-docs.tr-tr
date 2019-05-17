@@ -49,14 +49,6 @@
       items:
         - name: Çevrimdışı değerlendirme
           href: how-to-offline-evaluation.md
-    - name: Kapsayıcıları kullanma
-      items:
-        - name: Kapsayıcıları yükleme ve çalıştırma
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey'
-          href: personalizer-container-howto.md
-        - name: Kapsayıcıları yapılandırma
-          href: personalizer-container-configuration.md
-          displayName: 'docker, run, apikey'
 - name: Başvuru
   items:
     - name: Örnekler

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6e1681e4eca923e8e4ce541570b4ed4b3ba9d567
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126452"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834374"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Cihazı Sağlama Hizmeti İstemcisi’ni kullanarak bir IoT hub’a cihaz kaydetme (.NET)
 
@@ -30,7 +30,7 @@ ms.locfileid: "62126452"
 
 Devam etmeden önce, [Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak bir cihazı sağlamak üzere ayarlama](./tutorial-set-up-device.md) öğreticisinde açıklandığı gibi cihazınızı ve *Donanım Güvenliği Modülünü* yapılandırdığınızdan emin olun.
 
-* Visual Studio 2015 veya Visual Studio 2017
+* Visual Studio
 
 > [!NOTE]
 > Visual Studio gerekli değildir. [.NET](https://www.microsoft.com/net) yüklemesi yeterlidir ve geliştiriciler Windows veya Linux üzerinde tercih ettikleri düzenleyiciyi kullanabilir.  

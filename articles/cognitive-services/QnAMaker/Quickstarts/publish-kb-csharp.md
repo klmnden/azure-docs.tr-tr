@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: b832b8e07bb81d670539423dd6ab6cf5d28df837
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790830"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827584"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Hızlı Başlangıç: Soru-cevap Oluşturucu kullanarak Bilgi Bankası yayımlamaC#
 
@@ -40,7 +40,7 @@ Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
 
 ## <a name="create-knowledge-base-project"></a>Bilgi bankası projesi oluşturma
 
-1. Visual Studio 2017 Community Edition'ı açın.
+1. Visual Studio 2019 Community edition'ı açın.
 1. Yeni bir **konsol uygulaması (.NET Core)** proje ve proje adı `QnaMakerQuickstart`. Diğer ayarlar için varsayılan değerleri kabul edin.
 
 ## <a name="add-required-dependencies"></a>Gerekli bağımlılıkları ekleme

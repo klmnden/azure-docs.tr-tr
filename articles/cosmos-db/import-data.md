@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 366a5512179136987a8fc984136c3c039a5b079d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61058375"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827269"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma
 
@@ -63,7 +63,7 @@ Geçiş aracı kaynak koduna GitHub’da [bu depodan](https://github.com/azure/a
 * **Dtui.exe**: Aracı'nın grafik arabirimi sürümü
 * **Dt.exe**: Komut satırı aracı sürümü
 
-## <a name="select-data-source"></a>Veri kaynağı seçme
+## <a name="select-data-source"></a>Veri kaynağı seç
 
 Aracı yükledikten sonra verilerinizin içeri aktarılmasına sıra gelir. Ne tür verileri içeri aktarmak istiyorsunuz?
 
@@ -85,6 +85,19 @@ Aracı yükledikten sonra verilerinizin içeri aktarılmasına sıra gelir. Ne t
 JSON dosyası kaynak alma seçeneği alma bir veya daha fazla tek belge JSON dosyaları veya her bir dizi JSON belgeleri olan JSON dosyaları sağlar. JSON dosyalarını içeri aktarmak için klasör eklerken, yinelemeli olarak alt klasörlerdeki dosyaları aranıyor seçeneğiniz vardır.
 
 ![JSON dosya kaynağı seçeneklerinin ekran görüntüsü: Veritabanı geçişi araçları](./media/import-data/jsonsource.png)
+
+Bağlantı dizesi aşağıdaki biçimdedir:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* `<CosmosDB Endpoint>` Uç noktası URI'si. Bu değeri Azure portalından alabilirsiniz. Azure Cosmos hesabınıza gidin. Açık **genel bakış** bölmesi ve kopyalama **URI** değeri.
+* `<AccountKey>` "Parola" veya **birincil anahtar**. Bu değeri Azure portalından alabilirsiniz. Azure Cosmos hesabınıza gidin. Açık **bağlantı dizeleri** veya **anahtarları** bölmesi ve "Password" Kopyala veya **birincil anahtar** değeri.
+* `<CosmosDB Database>` CosmosDB veritabanı adıdır.
+
+Örnek: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Bağlantı dizesi alanında belirtilen Cosmos DB hesabı erişilebildiğinden emin olmak için doğrulama komutunu kullanın.
 
 Aşağıda, JSON dosyalarını içeri aktarmak için bazı komut satırı örnekleri verilmiştir:
 

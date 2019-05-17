@@ -7,20 +7,20 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: b654c177accb92d5b9a861f14874e795f4525a43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793822"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834114"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Öğretici: Hizmet güncelleştirmeleri doğrulamak için bir konak havuzu oluşturma
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Öğretici: Hizmet güncelleştirmelerini doğrulamak için konak havuzu oluşturma
 
 Ana bilgisayar havuzları, Windows sanal masaüstü Önizleme Kiracı ortamlar içinde bir veya daha fazla aynı sanal makinelerden oluşan bir koleksiyondur. Ana bilgisayar havuzları üretim ortamınıza dağıtmadan önce doğrulama konak havuz oluşturma önemle öneririz. Güncelleştirmelerin ilk doğrulama konak havuzları, hizmet güncelleştirmeleri üretim ortamınıza sunulmadan önce izleyin belirtmenize izin vererek uygulanır. Doğrulama konak havuzu, üretim ortamınızdaki kullanıcılar kapalı kalma süresine neden hatalara neden değişiklikleri keşfedebilir değil.
 
 En son güncelleştirmeleri içeren uygulamalar iş emin olmak için doğrulama konak havuzu konak havuzlarına üretim ortamınızda mümkün olduğunca benzer olmalıdır. Üretim ana havuzuna yapmasını kullanıcıların sık doğrulama ana havuzuna bağlanmanız gerekir. Konak havuzunuz test otomatik, otomatikleştirilmiş test doğrulama konak havuzunda içermelidir.
 
-Sorunları tanılama hizmetiyle doğrulama konak havuzundaki hata ayıklaması yapabilirsiniz veya [sorun giderme makaleleri Windows Sanal Masaüstü](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+Ya da doğrulama konak havuz sorunların hatalarını ayıklayabilir [Tanılama özelliğini](diagnostics-role-service.md) veya [sorun giderme makaleleri Windows Sanal Masaüstü](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
 
 >[!NOTE]
 > Doğrulama konak havuzunun gelecekteki tüm güncelleştirmeler test yerinde bırakın öneririz.

@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2fc2a4267c3a10a7837012dc65f0ce1a0f826a11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60312602"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823271"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>Hızlı Başlangıç: C# proje yanıt arama sorgusu
 
@@ -23,7 +23,7 @@ Aşağıdaki C# örneği kalkülüsün üçüncü yasası hakkında bilgi almak 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
+İhtiyacınız olacak [Visual Studio 2017 veya üstü](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
 [Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 

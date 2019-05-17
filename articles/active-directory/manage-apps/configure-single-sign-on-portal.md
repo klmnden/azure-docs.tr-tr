@@ -2,22 +2,22 @@
 title: Çoklu oturum açmayı yapılandırma - Azure Active Directory | Microsoft Docs
 description: Bu öğreticide Azure portal kullanılarak bir uygulama için Azure Active Directory (Azure AD) ile SAML tabanlı çoklu oturum açma yapılandırması yapılmaktadır.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d96799e69e2fdef3a4ffd1a436727e6a58da79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442235"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825008"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Öğretici: SAML tabanlı çoklu oturum açma bir uygulama için Azure Active Directory ile yapılandırın.
 
@@ -76,14 +76,14 @@ Etki alanını ve URL'leri yapılandırmak için:
     |:--|:--|:--|:--|
     | Tanımlayıcı (Varlık Kimliği) | Bazı uygulamalar için gereklidir | Bazı uygulamalar için gereklidir | Çoklu oturum açma yapılandırmasının yapıldığı uygulamayı benzersiz olarak tanımlar. Azure AD tanımlayıcısı SAML belirteç hedef kitlesi parametre olarak uygulamasına gönderir. Bunu doğrulamak için uygulamayı bekleniyor. Bu değer ayrıca uygulama tarafından sağlanan SAML meta verilerinde Varlık Kimliği olarak da görünür.|
     | Yanıt URL'si | İsteğe bağlı | Gerekli | Uygulamanın SAML belirtecini almayı beklediği konumu belirtir. Yanıt URL'si, Onay Belgesi Tüketici Hizmeti (ACS) URL'si olarak da bilinir. |
-    | Oturum açma URL'si | Gerekli | Belirtmeyin | Kullanıcı bu URL'yi açtığında hizmet sağlayıcısı kimlik doğrulaması ve oturum açma için Azure AD'ye yönlendirir. Azure AD, Office 365 veya Azure AD erişim paneli uygulamayı başlatmak için URL'yi kullanır. Boş bırakıldığında, Azure AD çoklu oturum açma kullanıcı uygulamayı başlattığında başlatmak için kimlik sağlayıcısını kullanır.|
+    | Oturum Açma URL'si | Gerekli | Belirtmeyin | Kullanıcı bu URL'yi açtığında hizmet sağlayıcısı kimlik doğrulaması ve oturum açma için Azure AD'ye yönlendirir. Azure AD, Office 365 veya Azure AD erişim paneli uygulamayı başlatmak için URL'yi kullanır. Boş bırakıldığında, Azure AD çoklu oturum açma kullanıcı uygulamayı başlattığında başlatmak için kimlik sağlayıcısını kullanır.|
     | Geçiş Durumu | İsteğe bağlı | İsteğe bağlı | Uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcının yönlendirileceği yeri belirtir. Genellikle uygulama için geçerli bir URL değerdir. Ancak, bazı uygulamalar farklı bu alanı kullanın. Daha fazla bilgi için uygulama satıcısına danışın.
     | Oturum Kapatma URL'si | İsteğe bağlı | İsteğe bağlı | Uygulamaya SAML oturum kapatma yanıtları göndermek için kullanılır.
 
 
 2. Temel SAML yapılandırma seçeneklerini düzenlemek için seçin **Düzenle** sağ üst köşesindeki simgeyi (Kalem) **temel SAML yapılandırma** bölümü.
 
-     ![Sertifikaları yapılandırma](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
+     ![Sertifikaları yapılandırın](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
 3. Adım 1'de uygulama satıcısı tarafından sağlanan bilgileri sayfasında ilgili alanlara girin.
 

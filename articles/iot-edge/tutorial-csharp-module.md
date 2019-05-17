@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 55cec146382f0b64a38bf2d954b81051ba109b27
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: d98fd0c3417d54321c492b1e47679ec63f8c1603
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876040"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835177"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Öğretici: Geliştirme bir C# Linux cihazları için IOT Edge Modülü
 
@@ -38,8 +38,8 @@ Bu öğreticide bir modülde nasıl geliştirilebileceğini gösterir **C#** kul
 
 Geliştirme ve Linux için C modülleri dağıtma seçeneklerinizi anlamak için aşağıdaki tabloyu kullanın: 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
-| -- | ------------------ | ------------------ |
+| C# | Visual Studio Code | Visual Studio | 
+| -- | ------------------ | ------------- |
 | **Linux AMD64** | ![C#VS code'da LinuxAMD64 için modüller](./media/tutorial-c-module/green-check.png) | ![C#Visual Studio'da LinuxAMD64 için modüller](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![C#VS code'da LinuxARM32 için modüller](./media/tutorial-c-module/green-check.png) | ![C#Visual Studio'da LinuxARM64 için modüller](./media/tutorial-c-module/green-check.png) |
 
@@ -62,7 +62,7 @@ Bu öğreticiler tamamlamak için aşağıdaki ek önkoşulları geliştirme mak
 
 Bir IOT Edge modülü projesi için aşağıdaki adımları oluşturma C# Visual Studio Code ve Azure IOT araçları uzantısını kullanarak. Oluşturulan proje şablonu oluşturduktan sonra böylece modül bildirilen özelliklerine göre iletileri filtreler yeni kod ekleyin. 
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu oluşturun. 
 

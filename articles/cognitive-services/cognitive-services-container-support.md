@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea74dbd6cffa34e4462433cdfc51e7d5abac9a41
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796662"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833542"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
@@ -26,9 +26,12 @@ Azure Bilişsel hizmetler kapsayıcı desteği sayesinde geliştiriciler, Azure'
 * [Yüz tanıma](Face/Overview.md)
 * [Form tanıyıcı](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding'i](LUIS/luis-container-howto.md) (LUIS)
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Metin Analizi](text-analytics/overview.md)
+
+<!--
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
 
 Kapsayıcı içinde bir uygulama veya onun bağımlılıklarını & yapılandırması gibi hizmet birlikte bir kapsayıcı görüntüsüne paketlenmiştir yazılım dağıtımı için bir yaklaşımdır. Çok az kayıpla veya hiç değişiklik yapmadan kapsayıcı görüntüsü, bir kapsayıcı konağı üzerinde dağıtılabilir. Birbirine ve bir sanal makine değerinden daha küçük bir kaplama alanı ile temel işletim sistemi, yalıtılmış kapsayıcılardır. Kapsayıcılar için kısa vadeli görevleri kapsayıcı görüntülerinden oluşturulan ve artık gerekli olmadığında kaldırıldı.
 
@@ -57,12 +60,15 @@ Azure Bilişsel hizmetler kapsayıcılar, Docker kapsayıcıları, aşağıdaki 
 |[Yüz tanıma](Face/face-how-to-install-containers.md) |F0, S0|**Yüz tanıma** |Görüntülerdeki İnsan yüzlerini algılar ve yüz yer işareti (örneğin, noses ve gözler), cinsiyet, geçerlilik süresi ve diğer makine tahmin yüz özellikleri dahil olmak üzere, öznitelikleri tanımlar. Yüz algılama ek olarak, iki yüzün aynı görüntü ya da farklı görüntüleri bir güven puanı kullanarak aynı olduğundan veya bir benzeyen olmadığını görmek için bir veritabanında yüzleri karşılaştırın veya aynı yüz zaten kontrol edebilirsiniz. Bu gibi durumlarda, benzer yüzlerden de paylaşılan visual nitelikler kullanarak gruplar halinde düzenleyebilirsiniz.<br>[Erişim isteği](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form tanıyıcı](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Form tanıyıcı** |Formu anlama tanımlamak ve anahtar-değer çiftleri ve tabloları formlardan ayıklamak için makine öğrenimi teknolojisi geçerlidir.<br>[Erişim isteği](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Bir eğitilen veya yayımlanmış dil anlama modeli olarak da bilinen bir LUIS uygulaması bir docker kapsayıcısına yükler ve kapsayıcının API uç noktalardan gelen sorgu tahminler elde etmek için erişim sağlar. Kapsayıcıdan sorgu günlüklerini toplamak ve bu geri yükleme [LUIS portalı](https://www.luis.ai) uygulamanın tahmin doğruluğunu artırmak için.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Kişiselleştirme, kullanıcıların gerçek zamanlı davranışlarından öğrenerek onlara gösterilebilecek en iyi deneyimi seçmenizi sağlayan bulut tabanlı bir API’dir.|
 |[Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Konuşmayı metne dönüştürme** |Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<br>[Erişim isteği](https://aka.ms/speechcontainerspreview/)|
 |[Konuşma Hizmeti API’si](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Metin okuma** |Metni, doğal sesli konuşmaya dönüştürür.<br>[Erişim isteği](https://aka.ms/speechcontainerspreview/)|
 |[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Anahtar ifade ayıklama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Ana noktaları belirleyin, anahtar ifadeleri ayıklar. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. |
 |[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Dil algılama** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |En fazla 120 dil için hangi dil giriş metni yazılır ve rapor istekte gönderilen her belge için bir tek dil kodu algılar. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. |
 |[Metin Analizi](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Yaklaşım analizi** ([görüntü](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](./text-analytics/language-support.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
+
+<!--
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+-->
 
 Ayrıca, bazı kapsayıcıları Bilişsel hizmetler desteklenmektedir [ **hepsi bir arada sunan** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) kaynak anahtarı. Tek bir Bilişsel hizmetler hepsi bir arada kaynak oluşturabilir ve aynı faturalama anahtarının desteklenen hizmetler aşağıdaki hizmetler için kullanın:
 
@@ -117,6 +123,8 @@ Yükleme ve Azure Bilişsel hizmetler, kapsayıcılar tarafından sağlanan işl
 * [Yüz tanıma kapsayıcıları](Face/face-how-to-install-containers.md)
 * [Form tanıyıcı kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding (LUIS) kapsayıcıları](LUIS/luis-container-howto.md)
-* [Personalizer kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Konuşma hizmeti API'sini kapsayıcıları](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Metin analizi kapsayıcıları](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+
+<!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
+-->
