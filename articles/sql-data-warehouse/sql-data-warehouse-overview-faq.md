@@ -2,20 +2,20 @@
 title: Azure SQL veri ambarı hakkında sık sorulan sorular | Microsoft Docs
 description: Bu makalede, Azure SQL veri ambarı hakkında sık sorulan soruların müşterilere ve geliştiricilerinden kullanıma listelenir.
 services: sql-data-warehouse
-author: acomet
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: acomet
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c16d95ea15fc358cb81b17b42570cb35f2e8c52d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747617"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795560"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL veri ambarı sık sorulan sorular
 
@@ -116,4 +116,4 @@ Bir bütün olarak SQL veri ambarı hakkında daha fazla bilgi için bkz. bizim 
 [Azure depolama BLOB'ları]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Veritabanı projeleri özellik isteği]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[Genel Bakış]: ./sql-data-warehouse-overview-faq.md
+[Genel bakış]: ./sql-data-warehouse-overview-faq.md

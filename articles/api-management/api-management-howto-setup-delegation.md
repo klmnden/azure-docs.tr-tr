@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4db99f23019b34e7361e3ead4096939b9499320d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657749"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518100"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Nasıl kullanıcı kaydı ve ürün aboneliği temsilcisi seçin
 
@@ -130,7 +130,7 @@ Ardından, temsilci seçme uç nokta aşağıdaki eylemleri yapar emin olun:
      > 
    * Yukarıda hesaplanan karma değerini karşılaştırmak **sig** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçmek, aksi takdirde isteği reddeder.
 3. Ürün aboneliği içinde istenen işlem türüne göre işlem **işlemi** - Örneğin, faturalandırma, başka sorularınız varsa, vs.
-4. Kullanıcı tarafından API Management ürününe başarıyla abone olmadan, tarafındaki ürün kullanıcıya üzerinde abone [Ürün aboneliği için REST API çağırma].
+4. Kullanıcı tarafından API Management ürününe başarıyla abone olmadan, tarafındaki ürün kullanıcıya üzerinde abone [Abonelikler için REST API çağırma].
 
 ## <a name="delegate-example-code"> </a> Örnek kod
 
@@ -186,7 +186,7 @@ Temsilci seçme hakkında daha fazla bilgi için aşağıdaki videoya bakın:
 [Delegating product subscription]: #delegate-product-subscription
 [bir çoklu oturum açma (SSO) belirteci iste]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Bir kullanıcı oluşturun]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[Ürün aboneliği için REST API çağırma]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[Abonelikler için REST API çağırma]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [aşağıda sağlanan kod örneği]: #delegate-example-code
 

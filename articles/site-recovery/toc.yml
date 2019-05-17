@@ -187,6 +187,8 @@
               href: delete-vault.md
     - name: VMware'den Azure'a olağanüstü durum kurtarma
       items:
+        - name: Her ölçekte olağanüstü durum kurtarmayı ayarlama
+          href: vmware-physical-large-deployment.md
         - name: Ağı ayarlama
           items:
             - name: Azure çoğaltmaya şirket için ağ ara birimlerini ayarlama
@@ -269,6 +271,8 @@
               href: delete-vault.md
     - name: Fiziksel sunucudan Azure'a olağanüstü durum kurtarma
       items:
+        - name: Her ölçekte olağanüstü durum kurtarmayı ayarlama
+          href: vmware-physical-large-deployment.md
         - name: Ağı ayarlama
           items:
             - name: Azure çoğaltmaya şirket için ağ ara birimlerini ayarlama

@@ -196,7 +196,7 @@
         - name: 'Bloblar, Kuyruklar, Tablolar ve Dosyalar'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Veri taşıma
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
+          href: /dotnet/api/microsoft.azure.storage.datamovement
         - name: Resource Manager
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
@@ -258,21 +258,21 @@
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: NuGet paketleri
       items:
-        - name: .NET için Depolama İstemci Kitaplığı
-          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
-        - name: Azure Depolama Veri Taşıma Kitaplığı
+        - name: Azure Depolama Ortak istemci kitaplığı
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+        - name: Azure Kuyruk depolama istemci kitaplığı
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
+        - name: Azure Depolama Veri Taşıma istemci kitaplığı
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
         - name: Azure Configuration Manager
-          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
     - name: Kaynak kod
       items:
         - name: .NET
           items:
-            - name: 'Blob, kuyruk, tablo ve dosya'
+            - name: 'Bloblar, Kuyruklar ve Dosyalar'
               href: 'https://github.com/Azure/azure-storage-net'
-            - name: Veri taşıma
-              href: 'https://github.com/Azure/azure-storage-net-data-movement'
-            - name: Kaynak sağlayıcısı
+            - name: Depolama Kaynak Sağlayıcısı
               href: 'https://github.com/Azure/azure-sdk-for-net'
         - name: Node.js
           href: 'https://azure.github.io/azure-storage-node/'

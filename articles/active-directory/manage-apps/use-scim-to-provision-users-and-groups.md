@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 04dde608f5885cdafe18b49a388de8dbb596cbfe
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191551"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539350"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -202,7 +202,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="create-user"></a>Kullanıcı Oluştur
 
-###### <a name="request"></a>İstek
+###### <a name="request"></a>İste
 *POST/kullanıcılar*
 ```json
 {
@@ -259,7 +259,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-user"></a>Kullanıcı Al
 
-###### <a name="request"></a>İstek
+###### <a name="request"></a>İste
 *GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Yanıt
@@ -290,7 +290,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 #### <a name="get-user-by-query"></a>Kullanıcı tarafından sorgu Al
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 *GET/kullanıcılar? filtre kullanıcıadı eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081" =*
 
 ##### <a name="response"></a>Yanıt
@@ -329,7 +329,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-user-by-query---zero-results"></a>Kullanıcı sorgusu - sıfır sonuçlarını Al
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 *GET/kullanıcılar? filtre kullanıcıadı eq "mevcut olmayan kullanıcı" =*
 
 ##### <a name="response"></a>Yanıt
@@ -347,7 +347,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-user-multi-valued-properties"></a>[Birden çok değerli özellikler] kullanıcı güncelleştirme
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 */ Kullanıcı/6764549bef60420686bc HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -396,7 +396,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-user-single-valued-properties"></a>Kullanıcı güncelleştirme [tek değerli özellikler]
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 */ Kullanıcı/5171a35d82074e068ce2 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -437,9 +437,9 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-#### <a name="delete-user"></a>Kullanıcıyı Silme
+#### <a name="delete-user"></a>Kullanıcıyı Sil
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 */Users/5171a35d82074e068ce2 HTTP/1.1 Sil*
 
 ##### <a name="response"></a>Yanıt
@@ -454,13 +454,12 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="create-group"></a>Grup Oluşturma
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 *POST /Groups HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
     "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-    "id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
     "displayName": "displayName",
     "members": [],
     "meta": {
@@ -489,7 +488,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-group"></a>Grubu Al
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 *GET/Grup/40734ae655284ad3abcc? excludedAttributes üyeleri HTTP/1.1 =*
 
 ##### <a name="response"></a>Yanıt
@@ -510,7 +509,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-group-by-displayname"></a>DisplayName tarafından grubunu Al
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 *GET /Groups? excludedAttributes üyeleri & Filtresi = "displayName" HTTP/1.1 displayName eq =*
 
 ##### <a name="response"></a>Yanıt
@@ -537,7 +536,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 #### <a name="update-group-non-member-attributes"></a>Güncelleştirme grubu [olmayan üye öznitelikleri]
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 */ Grup/fa2ce26709934589afc5 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -555,7 +554,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 ### <a name="update-group-add-members"></a>Güncelleştirme grubu [üye ekleme]
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 */ Grup/a99962b9f99d4c4fac67 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -576,7 +575,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-group-remove-members"></a>Güncelleştirme grubu [Kaldır üyeleri]
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 */ Grup/a99962b9f99d4c4fac67 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -597,7 +596,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="delete-group"></a>Grubu Silme
 
-##### <a name="request"></a>İstek
+##### <a name="request"></a>İste
 */Groups/cdb1ce18f65944079d37 HTTP/1.1 Sil*
 
 ##### <a name="response"></a>Yanıt
@@ -1245,7 +1244,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan `urn:ietf:p
 | streetAddress |adresler [türü eq "İş"] .streetAddress |
 | Soyadı |name.familyName |
 | telefon numarası |PhoneNumber [türü eq "İş"] .value |
-| Kullanıcı PrincipalName |Kullanıcı adı |
+| Kullanıcı PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tablo 2: Varsayılan grubu öznitelik eşlemesi
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993078"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792107"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -128,7 +128,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Bir veri öğesi bulunamadı ya da hatalı biçimlendirilmiş isteği ise örnek meta veri hizmeti standart HTTP hataları döndürür. Örneğin:
 
-HTTP durum kodu | Neden
+HTTP durum kodu | Reason
 ----------------|-------
 200 TAMAM |
 400 Hatalı istek | Eksik `Metadata: true` üst bilgi veya bir yaprak düğüm sorgulanırken biçimi eksik
@@ -357,12 +357,12 @@ Veriler | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
 azEnvironment | Azure ortamı burada VM çalışıyor | 2018-10-01
 customData | Bkz: [özel veri](#custom-data) | 2019-02-01
-location | Azure bölgesi VM çalışıyor | 2017-04-02
-ad | VM adı | 2017-04-02
-Teklif | VM görüntüsü için bilgi sağlar. Bu değer, yalnızca Azure görüntü Galerisi'nden dağıtılan görüntülerin bulunur. | 2017-04-02
+konum | Azure bölgesi VM çalışıyor | 2017-04-02
+name | VM adı | 2017-04-02
+Teklif | VM görüntüsü için bilgi sunan ve görüntüleri için yalnızca şu Azure görüntü Galerisi'nden dağıtılır | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
 placementGroupId | [Yerleştirme grubu](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
-planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) bir VM için bir Azure Market görüntüsü adı, ürün ve yayımcı içerir | 2018-04-02
+planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) adı, ürün ve bir VM için yayımcı içeren, bir Azure Market görüntüsü | 2018-04-02
 platformUpdateDomain |  [Güncelleme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
 platformFaultDomain | [Hata etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
 sağlayıcı | Sanal makinenin sağlayıcısı | 2018-10-01
@@ -371,7 +371,7 @@ Yayımcı | VM görüntü yayımcısı | 2017-04-02
 resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
 sku | Belirli SKU için VM görüntüsü | 2017-04-02
 subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
-etiketler | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
+tags | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
 version | VM görüntüsü sürümü | 2017-04-02
 vmId | [Benzersiz tanımlayıcı](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) VM için | 2017-04-02
 vmScaleSetName | [Sanal makine ölçek kümesi adı](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , sanal makine ölçek kümesi | 2017-12-01
@@ -688,9 +688,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Özel Veriler
-Örnek meta veri hizmeti VM'nin özel veri erişim olanağı sağlar. İkili verileri 64 KB'den az olmalıdır ve VM'ye base64 olarak kodlanmış biçimde sağlanır. Özel veriler içeren bir VM oluşturma hakkında daha fazla ayrıntı için bkz. [CustomData ile bir sanal makine dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Örnek meta veri hizmeti VM'nin özel veri erişim olanağı sağlar. İkili verileri 64 KB'den az olmalıdır ve VM'ye base64 olarak kodlanmış biçimde sağlanır.
+
+Azure özel veri, REST API'ler, PowerShell cmdlet'leri, Azure komut satırı arabirimi (CLI) veya bir ARM şablonu aracılığıyla sanal makineye eklenebilir.
+
+Azure komut satırı arabirimi örneği için bkz. [özel veriler ve Cloud-Init Microsoft Azure üzerinde](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+ARM şablonu örneği için bkz. [CustomData ile bir sanal makine dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 Özel veriler VM içinde çalışan tüm işlemler için kullanılabilir. Müşteriler özel verileri gizli bilgi eklemeyin önerilir.
+
+Şu anda, özel veri bir sanal makinenin önyükleme sırasında kullanılabilir olması garanti edilir. VM'ye disk ekleme veya VM'yi yeniden boyutlandırmadan gibi güncelleştirmeleri yaptıysanız, özel veri örnek meta veri hizmeti sağlamaz. Özel verileri kalıcı olarak örnek meta veri hizmeti aracılığıyla sağlama şu anda devam ediyor.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Sanal makinede özel veri alma
 Örnek meta veri hizmeti özel verileri base64 olarak kodlanmış biçimde VM sağlar. Aşağıdaki örnek, base64 kodlamalı dizenin kodunu çözer.
@@ -715,7 +723,7 @@ My custom data.
 Dil | Örnek
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Başlayın  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Git  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

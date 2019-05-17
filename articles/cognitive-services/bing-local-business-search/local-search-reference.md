@@ -3,18 +3,18 @@ title: Bing yerel iş arama API'si v7 başvurusu | Microsoft Docs
 description: Bing yerel iş arama API'si, programlama öğeleri açıklar.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866354"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796758"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing yerel iş arama API'si v7 başvurusu
 
@@ -75,7 +75,7 @@ Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için g
 |<a name="count" />Sayısı|Sonuçları döndürmek için tarafından belirtilen dizin ile başlayan sayısını `offset` parametresi.|String|Hayır|   
 |<a name="localCategories" />localCategories|Arama iş kategoriye göre tanımlayan seçenekleri listesi.  Bkz: [yerel iş kategorilerde arama](local-categories.md)|String|Hayır|  
 |<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için Pazar kodları bölümüne bakın.<br /><br /> **NOT:** Yerel iş arama API'si şu anda yalnızca tr destekler-bize pazara çıkma sürelerini ve dili.<br /><br />|String|Evet|
-|<a name="offset"/>uzaklık|Tarafından belirtilen sonuçları başlamak için dizini `count` parametresi.|Tamsayı|Hayır|  
+|<a name="offset"/>uzaklık|Tarafından belirtilen sonuçları başlamak için dizini `count` parametresi.|Integer|Hayır|  
 |<a name="query" />q|Kullanıcı arama terimi.|String|Hayır|  
 |<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />  JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](https://json-ld.org/).|String|Hayır|  
 |<a name="safesearch" />safeSearch|Yetişkinlere yönelik içeriği filtrelemek için kullanılan bir filtre. Aşağıdakiler, büyük/küçük harfe duyarlı olmayan olası filtre değerleridir.<br /><ul><li>Kapalı&mdash;yetişkinlere yönelik metin, görüntü veya video Web sayfalarının döndürür.<br /><br/></li><li>Orta&mdash;yetişkinlere yönelik metin ancak yetişkin değil görüntü veya video Web sayfalarının döndürür.<br /><br/></li><li>Katı&mdash;yetişkinlere yönelik metin, görüntü veya video Web sayfalarının döndürmüyor.</li></ul><br /> Varsayılan ayar Moderate değeridir.<br /><br /> **NOT:** İstek bir pazar geliyorsa gerektiren bu Bing'in yetişkinlere yönelik ilke `safeSearch` ayarlanır Strıct için Bing yoksayar `safeSearch` değeri ve Strıct kullanır.<br/><br/>**NOT:** Kullanırsanız `site:` sorgu işleci yanıt ne bakılmaksızın yetişkinlere yönelik içerik içerebilir fırsat yok `safeSearch` sorgu parametresi ayarlanır. `site:` işlecini yalnızca sitenin içeriği hakkında bilgi sahibiyseniz ve senaryonuz, yetişkinlere yönelik içeriğin mevcut olma ihtimalini destekliyorsa kullanın. |String|Hayır|  
@@ -119,11 +119,11 @@ Altında bir metin veya resim kullanılabilir lisans tanımlar.
   
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
-|ad|Lisans adı.|String|  
+|name|Lisans adı.|String|  
 |url|Kullanıcı Lisansı hakkında daha fazla bilgi edinebileceğiniz bir Web sitesi URL'si.<br /><br /> Köprü oluşturmak için adını ve URL'sini kullanın.|String|  
 
 
-### <a name="link"></a>Bağlantı  
+### <a name="link"></a>Bağla  
 Köprü bileşenlerinin tanımlar.  
   
 |Ad|Değer|Tür|  
@@ -142,7 +142,7 @@ Bir yayımcı adının veya Web sitesi veya her ikisini sağlayabilir unutmayın
   
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
-|ad|Yayımcının adı.|String|  
+|name|Yayımcının adı.|String|  
 |url|Yayımcının Web sitesi URL'si.<br /><br /> Yayımcının Web sitesi sağlamayabilir unutmayın.|String|  
   
   
@@ -155,7 +155,7 @@ Bir restoran veya otel gibi yerel bir iş hakkında bilgileri tanımlar.
 |_type|Tür ipucu, aşağıdakilerden birini ayarlanabilir:<br /><br /><ul><li>Otel</li><li>LocalBusiness<br /></li><li>Restoran</ul><li>|String|  
 |adres|Varlığın bulunduğu, posta adresi.|PostalAddress|  
 |entityPresentationInfo|Varlığın türü belirlemek için kullanabileceğiniz ipuçları gibi varlık hakkında ek bilgi. Örneğin, bir restoran veya otel olup. `entityScenario` Alan ListItem için ayarlanır.|entityPresentationInfo|  
-|ad|Varlığın adı.|String|  
+|name|Varlığın adı.|String|  
 |Telefon|Varlığın telefon numarası.|String|  
 |url|Varlığın Web sitesi URL'si.<br /><br /> Varlığın adı ile birlikte bu URL'yi kullanın köprü tıklandığında oluşturan kullanıcıyı varlığın Web sitesine götürür.|String|  
 |webSearchUrl|Burası Bing'in arama sonucunu URL'si.|String| 
@@ -176,21 +176,21 @@ Bing istek için kullanılan sorgu bağlamı tanımlar.
 
 |Ad|Değer|Tür|  
 |-------------|-----------------|----------|
-|id|Bir kaynak tanımlayıcısı|String|
+|kimlik|Bir kaynak tanımlayıcısı|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
 
 |Ad|Değer|Tür|  
 |-------------|-----------------|----------|
-|öğeler|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
+|items|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Görüntülenecek bir arama sonucu öğesi tanımlar.
 
 |Ad|Değer|Tür|  
 |-------------|-----------------|----------|
-|resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Tamsayı|
+|resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Integer|
 |answerType|Görüntülenecek öğe içeren yanıtı. Örneğin, haber.<br /><br />Yanıt SearchResponse nesnesinde bulunacak türünü kullanın. Türü bir SearchResponse alan adıdır.<br /><br /> Ancak, yalnızca bu nesne değeri alanı varsa yanıt türünü kullanın. Aksi takdirde, yoksayın.|String|
 |textualIndex|Görüntülenecek textualAnswers yanıt dizini.| İşaretsiz tamsayı|
 |value|Görüntülenecek yanıt veya öğeyi görüntülemek için bir yanıt tanımlayan kimliği. Kimliği bir yanıt tanımlıyorsa, yanıtın tüm öğeleri görüntüler.|Tanımlama|

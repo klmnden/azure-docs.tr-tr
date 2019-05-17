@@ -7,7 +7,7 @@ metadata:
   description: 'Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.'
   ms.author: jmartens
   ms.subservice: core
-  ms.date: 12/04/2018
+  ms.date: 5/14/2019
   ms.devlang: na
   ms.service: machine-learning
   ms.tgt_pltfrm: na
@@ -34,20 +34,28 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Bulutta bir deneme çalıştırma</a> (yükleme gerekmez)
           - html: <a href="service/quickstart-run-local-notebook">Yerel not defteri sunucusu kullanarak bir deneme çalıştırma</a> (yerel SDK yüklemesi gerekir)
+          - html: <a href="service/ui-quickstart-run-experiment">Görsel arabirimde deneme çalıştırma</a> (kod gerekmez)
         style: unordered
         type: list
-      - text: '<b>MNIST verileriyle görüntü sınıflandırma öğreticisi:</b>'
+      - text: '<b>Öğretici: SDK ile MNIST verilerinin görüntü sınıflandırması:</b>'
         type: paragraph
       - items:
           - html: '1. Bölüm: <a href="service/tutorial-train-models-with-aml">Kendi modelinizi eğitme</a>'
           - html: '2. Bölüm: <a href="service/tutorial-deploy-models-with-aml">Bu modeli dağıtma</a>'
         style: unordered
         type: list
-      - text: '<b>NYC taksi verileriyle regresyon modelleme öğreticisi:</b>'
+      - text: '<b>Öğretici: SDK''yı kullanarak taksi ücretini tahmin etme:</b>'
         type: paragraph
       - items:
           - html: '1. Bölüm: <a href="service/tutorial-data-prep">Verileri modelleme için hazırlama</a>'
           - html: '2. Bölüm: <a href="service/tutorial-auto-train-models">Otomatik ML''nin modelleri sizin için eğitmesine olanak tanıma</a>'
+        style: unordered
+        type: list
+      - text: '<b>Öğretici: Görsel arabirimi kullanarak otomobil fiyatını tahmin etme:</b>'
+        type: paragraph
+      - items:
+          - html: '1. Bölüm: <a href="service/ui-tutorial-automobile-price-train-score">Otomobil fiyatını tahmin etme</a>'
+          - html: '2. Bölüm: <a href="service/ui-tutorial-automobile-price-deploy">Regresyon modelini dağıtma</a>'
         style: unordered
         type: list
       - text: '<b>Modellerinizi kullanma:</b>'

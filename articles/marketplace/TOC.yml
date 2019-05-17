@@ -463,3 +463,25 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Destek alma
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: İş Ortağı Merkezi'nde Ticari Market Portalı
+  items:
+    - name: Genel Bakış
+      items:
+        - name: Ticari Market nedir?
+          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Hesap Yönetimi
+      items:
+        - name: Yeni bir İş Ortağı Merkezi hesabı oluşturma
+          href: ./partner-center-portal/create-account.md
+        - name: İş Ortağı Merkezi hesabınızı yönetme
+          href: ./partner-center-portal/manage-account.md
+        - name: Şirket iş hesabı bulma veya oluşturma
+          href: ./partner-center-portal/company-work-accounts.md
+    - name: Yeni teklif oluşturma
+      items:
+        - name: SaaS teklifi oluşturma
+          href: ./partner-center-portal/create-new-saas-offer.md
+    - name: Yayın durumu
+      href: ./partner-center-portal/publishing-status.md
+    - name: Mevcut teklifleri güncelleştirme
+      href: ./partner-center-portal/update-existing-offer.md

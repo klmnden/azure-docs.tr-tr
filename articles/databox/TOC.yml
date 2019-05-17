@@ -36,6 +36,8 @@
           items:
             - name: Güvenlik yönergelerini okuyun
               href: data-box-safety.md
+            - name: İzleme ve günlüğe kaydetme
+              href: data-box-logs.md
             - name: Gereksinimleri inceleme
               items:
                 - name: Data Box için

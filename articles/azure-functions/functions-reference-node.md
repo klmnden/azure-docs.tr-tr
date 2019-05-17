@@ -275,10 +275,10 @@ Varsayılan izleme düzeyinde akış işlev günlükleri yazmanızı sağlar. Ü
 
 | Yöntem                 | Açıklama                                |
 | ---------------------- | ------------------------------------------ |
-| **hata (_ileti_)**   | Oturum açma veya daha düşük hata düzeyini yazar.   |
-| **uyar (_ileti_)**    | Oturum açma veya daha düşük uyarı düzeyi için yazar. |
+| **error (_message_)**   | Oturum açma veya daha düşük hata düzeyini yazar.   |
+| **warn (_message_)**    | Oturum açma veya daha düşük uyarı düzeyi için yazar. |
 | **Info (_ileti_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
-| **ayrıntılı (_ileti_)** | Ayrıntılı düzeyinde günlüğe kaydetme için yazar.           |
+| **verbose (_message_)** | Ayrıntılı düzeyinde günlüğe kaydetme için yazar.           |
 
 Aşağıdaki örnek, bir uyarı izleme düzeyini günlüğüne yazar:
 
@@ -352,12 +352,12 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 | Özellik      | Açıklama                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _Gövde_        | İstek gövdesini içeren bir nesne.               |
-| _Üst bilgileri_     | İstek üst bilgilerini içeren bir nesne.                   |
-| _Yöntemi_      | İsteğin HTTP yöntemi.                                |
+| _body_        | İstek gövdesini içeren bir nesne.               |
+| _headers_     | İstek üst bilgilerini içeren bir nesne.                   |
+| _method_      | İsteğin HTTP yöntemi.                                |
 | _originalUrl_ | İsteğin URL'si.                                        |
 | _params_      | İstek yönlendirme parametrelerini içeren bir nesne. |
-| _Sorgu_       | Sorgu parametrelerini içeren bir nesne.                  |
+| _query_       | Sorgu parametrelerini içeren bir nesne.                  |
 | _rawBody_     | Dize olarak iletinin gövdesi.                           |
 
 
@@ -367,10 +367,10 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 | Özellik  | Açıklama                                               |
 | --------- | --------------------------------------------------------- |
-| _Gövde_    | Yanıtın gövdesini içeren bir nesne.         |
-| _Üst bilgileri_ | Yanıt üst bilgilerini içeren bir nesne.             |
+| _body_    | Yanıtın gövdesini içeren bir nesne.         |
+| _headers_ | Yanıt üst bilgilerini içeren bir nesne.             |
 | _isRaw_   | Biçimlendirme yanıt atlanır gösterir.    |
-| _Durumu_  | Yanıtın HTTP durum kodu.                     |
+| _status_  | Yanıtın HTTP durum kodu.                     |
 
 ### <a name="accessing-the-request-and-response"></a>İstek ve yanıt erişme 
 

@@ -9,20 +9,32 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: 80e4ff38-5174-43
+ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508218"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603403"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
 Azure işlevleri temel araçları, geliştirme ve yerel bilgisayarınızda bir komut istemi veya terminal işlevlerinizi test sağlar. Yerel işlevlerinizi Canlı Azure hizmetlerine bağlanabilir ve tam işlevler çalışma zamanı'nı kullanarak yerel bilgisayarınızda işlevlerinizi hata ayıklaması yapabilirsiniz. Azure aboneliğinizde bir işlev uygulaması da dağıtabilirsiniz.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Yerel bilgisayarınızda işlevleri geliştirme ve temel araçları ile Azure'a yayımlama temel adımları izler:
+
+> [!div class="checklist"]
+> * [Temel araçları ve bağımlılıkları yükleyin.](#v2)
+> * [Dile özgü şablondan bir işlev uygulaması projesi oluşturun.](#create-a-local-functions-project)
+> * [Tetikleyici ve bağlama uzantıları kaydedin.](#register-extensions)
+> * [Depolama ve diğer bağlantıların tanımlayın.](#local-settings-file)
+> * [Bir işlev, bir tetikleyici ve dile özgü şablon oluşturun.](#create-func)
+> * [İşlevi yerel olarak çalıştırma](#start)
+> * [Projeyi Azure'da yayımlama](#publish)
 
 ## <a name="core-tools-versions"></a>Çekirdek araçları sürümleri
 
@@ -41,9 +53,6 @@ Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x.
 ### <a name="v2"></a>Sürüm 2.x
 
 Sürüm 2.x Araçları, Azure işlevleri çalışma zamanı kullanan .NET Core üzerine yapılandırılan 2.x. Bu sürüm dahil olmak üzere, .NET Core 2.x desteklenen tüm platformlarda desteklenir [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). .NET Core yüklemelisiniz 2.x SDK.
-
-> [!IMPORTANT]
-> Uzantı paketleri projenin host.json dosyasındaki etkinleştirdiğinizde, .NET Core'u yükleme gerekmez 2.x SDK. Daha fazla bilgi için [Azure işlevleri çekirdek araçları ve uzantı paketleri ile yerel geliştirme ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Uzantı paketleri, temel Araçlar 2.6.1071 sürümünü veya sonraki bir sürümünü gerektirir.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -186,14 +195,20 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 
 | Ayar      | Açıklama                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Ayarlandığında `true`, tüm değerlerin bir yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer `true`. Zaman `true`, tüm ayarlar kullanılarak eklenen `func settings add` yerel makine anahtarı kullanılarak şifrelenir. Bu işlev uygulaması ayarları uygulama ayarlarını azure'da nasıl depolandığını yansıtır. Yerel ayar değerlerini şifreleme local.settings.json genel olarak maruz kalmalıdır değerli veriler için ek koruma sağlar.  |
+| **`IsEncrypted`** | Ayarlandığında `true`, tüm değerlerin bir yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer `false`. |
 | **`Values`** | Uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri koleksiyonu. Bu değerler, azure'daki işlev uygulamanızın uygulama ayarlarında gibi karşılık [ `AzureWebJobsStorage` ]. Birçok tetikleyiciler ve bağlamalar gibi bir bağlantı dizesi uygulama ayarına başvuran bir özelliği olan `Connection` için [Blob Depolama tetikleyicisi](functions-bindings-storage-blob.md#trigger---configuration). Tür özellikleri için tanımlanan bir uygulama ayarı ihtiyacınız `Values` dizisi. <br/>[`AzureWebJobsStorage`] gerekli bir uygulama dışındaki HTTP tetikleyici ayarlanıyor. <br/>Sürüm 2.x çalışma zamanı işlevleri gerektirir [ `FUNCTIONS_WORKER_RUNTIME` ] ayarını projeniz için temel araçları tarafından oluşturulur. <br/> Olduğunda [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) ayarlayabileceğiniz yerel olarak yüklü [ `AzureWebJobsStorage` ] için `UseDevelopmentStorage=true` ve temel araçları öykünücüsü kullanır. Geliştirme sırasında kullanışlıdır ancak gerçek depolama bağlantısı dağıtımdan önce test etmeniz gerekir. |
 | **`Host`** | Bu bölümdeki ayarlarını yerel olarak çalıştırılırken işlevleri ana bilgisayar işlemi özelleştirin. |
 | **`LocalHttpPort`** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
 | **`CORS`** | İzin verilen çıkış noktaları tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Kaynakları, boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
 | **`ConnectionStrings`** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca genellikle bağlantı dizeleri alma çerçeveleri tarafından kullanılan `ConnectionStrings` gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bağlantı dizelerini bu nesne, sağlayıcı türü ortamı eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğelerin diğer uygulama ayarları ile Azure'a yayımlanmaz. Bu değerleri açıkça eklemelidir `Connection strings` , işlev uygulaması ayarları koleksiyonu. Oluşturuyorsanız bir [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) işlev kodunuzu bağlantı dizesi değerindeki saklamalısınız **uygulama ayarları** , diğer bağlantılarla portalında. |
 
-[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+İşlev uygulaması ayarları değerleri, ortam değişkenleri olarak kodunuzda da okunabilir. Daha fazla bilgi için bu dile özgü başvuru konularında ortam değişkenleri bölümüne bakın:
+
+* [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
+* [C# betiği (.csx)](functions-reference-csharp.md#environment-variables)
+* [F#betik (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 İçin geçerli bir depolama bağlantı dizesi ayarlandığında [ `AzureWebJobsStorage` ] ve öykünücü kullanılmıyor, aşağıdaki hata iletisi gösterilir:
 
@@ -307,7 +322,6 @@ func host start
 | **`--script-root --prefix`** | Çalıştırın veya dağıtılmış bir işlev uygulaması, kök yolunu belirtmek için kullanılır. Bu, bir alt klasöre proje dosyalarını oluşturmak derlenen projeler için kullanılır. Örneğin, bir C# sınıf kitaplığı projesi, host.json, local.settings.json ve function.json dosyaları oluşturduğunuzda oluşturulur bir *kök* bir yola sahip alt ister `MyProject/bin/Debug/netstandard2.0`. Bu durumda, ön eki olarak ayarlamak `--script-root MyProject/bin/Debug/netstandard2.0`. Azure'da çalışan işlev uygulamasını kök budur. |
 | **`--timeout -t`** | Saniyeler içinde başlatılacak işlevleri konak için zaman aşımı. Varsayılan: 20 saniye.|
 | **`--useHttps`** | Bağlama `https://localhost:{port}` yerine çok `http://localhost:{port}`. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
-| **`--enableAuth`** | Ardışık Düzen işleme tam kimlik doğrulamasını etkinleştirin.|
 
 Bir C# sınıf kitaplığı projesi için (.csproj) eklemeniz gerekir `--build` kitaplığı .dll uzantısını oluşturmak için seçeneği.
 
@@ -474,7 +488,6 @@ Aşağıdaki özel kapsayıcı dağıtım seçenekleri kullanılabilir:
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Daha fazla bilgi için bkz. [İzleyici Azure işlevleri](functions-monitoring.md).
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure işlevleri çekirdek Araçları [açık kaynak ve GitHub üzerinde barındırılır](https://github.com/azure/azure-functions-cli).  
