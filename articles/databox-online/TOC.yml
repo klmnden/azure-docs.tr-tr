@@ -67,8 +67,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: '4 - Paylaşıma ekleme, bağlanma'
           href: data-box-edge-deploy-add-shares.md
-        - name: 5 - İşlemi yapılandırma
+        - name: 5A - İşlemi yapılandırma (basit)
           href: data-box-edge-deploy-configure-compute.md
+        - name: 5B - İşlemi yapılandırma (gelişmiş)
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: Kavramlar
       items:
         - name: Gereksinimleri inceleme

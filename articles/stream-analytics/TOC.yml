@@ -34,6 +34,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Kavramlar
   items:
+    - name: Akış analiz teknolojisi seçme
+      href: streaming-technologies.md
     - name: İş için giriş türleri
       items:
         - name: Girişlere genel bakış

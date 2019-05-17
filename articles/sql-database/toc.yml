@@ -368,7 +368,7 @@
   items:
     - name: Genel Bakış
       href: sql-database-howto.md
-    - name: Tek veritabanı
+    - name: Tek veritabanları ve elastik havuzlar
       items:
         - name: Genel Bakış
           href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
               href: elastic-jobs-tsql.md
             - name: Geçirme (eski Elastik işlerden)
               href: elastic-jobs-migrate.md
-    - name: Yönetilen örnek
+    - name: Yönetilen örnekler
       items:
         - name: Genel Bakış
           href: sql-database-howto-managed-instance.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: Microsoft Learn ile becerilerinizi geliştirin
       href: /learn/browse/?products=azure-sql-database
+    - name: SQL Server Blogu
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Microsoft Azure Blogu
+      href: 'https://azure.microsoft.com/blog/'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Genel veri kümeleri

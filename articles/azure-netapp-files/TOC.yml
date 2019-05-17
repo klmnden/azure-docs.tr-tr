@@ -25,6 +25,8 @@
       href: azure-netapp-files-cost-model.md
     - name: Azure NetApp Files ağ planlaması yönergeleri
       href: azure-netapp-files-network-topologies.md
+    - name: Azure NetApp Files hakkında SSS
+      href: azure-netapp-files-faqs.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure NetApp Files için kaydolma

@@ -1,4 +1,5 @@
 - name: Dayanıklı İşlevler Belgeleri
+  href: durable-functions-overview.md
 - name: Genel Bakış
   items:
     - name: Azure İşlevleri hakkında
@@ -7,6 +8,8 @@
       href: durable-functions-overview.md
     - name: Sunucusuz karşılaştırma
       href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Önizleme özellikleri
+      href: durable-functions-preview.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:

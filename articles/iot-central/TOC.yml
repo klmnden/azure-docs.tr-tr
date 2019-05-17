@@ -89,6 +89,8 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: Blob Depolama'ya aktarma
               href: howto-export-data-blob-storage.md
+        - name: Özel kurallar oluşturma
+          href: howto-create-custom-rules.md
         - name: Power BI’da verilerinizi görselleştirme
           href: howto-connect-powerbi.md
         - name: Diğer IoT bulutlarına bağlanma

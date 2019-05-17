@@ -167,6 +167,8 @@
           href: application-provisioning-config-problem.md
         - name: Kullanıcı sağlama galeri uygulamasını yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu
           href: application-provisioning-config-problem-storage-limit.md
+        - name: Eşleme için özniteliği eşitleme - galeri uygulaması
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: Kullanıcılar sağlanmıyor - galeri uygulaması
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Yanlış kullanıcılar sağlanıyor - galeri uygulaması

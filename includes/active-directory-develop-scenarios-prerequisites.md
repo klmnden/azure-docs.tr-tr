@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 192e3d4b0fee350b5e736aba423990874d8fd5f4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c2769282a2e9afda22d2e03c653b0f62b05b98bc
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075093"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550362"
 ---
-Bu makalede aşağıdaki kavramlarla ilgili bilgi sahibi veya aşağıdaki makaleleri okuma varsayılır:
+Bu makalede okumadan önce aşağıdaki kavramlarını tanımanız veya bu makaleleri okuyun:
 
 - [Microsoft Identity platformuna genel bakış](../articles/active-directory/develop/v2-overview.md)
 - [Kimlik doğrulaması temel bilgileri](../articles/active-directory/develop/authentication-scenarios.md)

@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Python’u kullanma
           href: quickstarts/detect-data-anomalies-python.md
+- name: Öğreticiler
+  items:
+    - name: Power BI kullanarak anomalileri toplu olarak görselleştirme
+      href: tutorials/batch-anomaly-detection-powerbi.md
+    - name: Azure Databricks kullanarak akış verileri üzerinde anomali algılama
+      href: tutorials/anomaly-detection-streaming-databricks.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Verilerinizdeki anomalileri belirleme

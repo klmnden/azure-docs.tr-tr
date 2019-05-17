@@ -1,62 +1,51 @@
 - name: Azure HDInsight Belgeleri
   href: /azure/hdinsight
-- name: Kurumsal güvenlik
+- name: Genel Bakış
   items:
-    - name: Genel Bakış
+    - name: HDInsight'ta Kurumsal Güvenlik Paketi nedir?
       href: apache-domain-joined-introduction.md
+- name: Kavramlar
+  items:
     - name: ESP kümeleri için planlama
       href: apache-domain-joined-architecture.md
     - name: Azure AD DS kullanarak ESP kümelerini yapılandırma
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Azure AD kullanıcılarını HDInsight kümesine eşitleme
       href: ../hdinsight-sync-aad-users-to-cluster.md
-      maintainContext: true
     - name: Apache Hive ilkelerini yapılandırma
       href: apache-domain-joined-run-hive.md
     - name: Apache Ranger ile Apache HBase RBAC
       href: apache-domain-joined-run-hbase.md
     - name: Apache Ranger ile Apache Kafka RBAC
       href: apache-domain-joined-run-kafka.md
-      maintainContext: true
     - name: ESP kümesiyle bağlantı kurmak için VSCode kullanma
       href: ../hdinsight-for-vscode.md
-      maintainContext: true
     - name: ESP kümesiyle bağlantı kurmak için IntelliJ kullanma
       href: ../spark/apache-spark-intellij-tool-plugin.md
-      maintainContext: true
     - name: ESP kümesiyle bağlantı kurmak için Eclipse kullanma
       href: ../spark/apache-spark-eclipse-tool-plugin.md
-      maintainContext: true
     - name: ESP kümelerinde Apache Oozie kullanma
       href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Verilerin güvenliğini sağlama
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-  maintainContext: true
 - name: Ağ erişimi
   items:
     - name: Azure VNet’te HDInsight
       href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: HDInsight’a şirket içi ağınızla bağlanma
       href: ../connect-on-premises-network.md
-      maintainContext: true
     - name: Azure VNet’te Apache HBase kümesi oluşturma
       href: ../hbase/apache-hbase-provision-vnet.md
-      maintainContext: true
     - name: Azure VNet’te Apache HBase kümesi çoğaltma
       href: ../hbase/apache-hbase-replication.md
-      maintainContext: true
 - name: Azure İzleyici günlüklerini kullanarak izleme
   items:
     - name: Azure İzleyici günlüklerini kullanma
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
     - name: Azure İzleyici günlükleriyle sorguları kullanma
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
     - name: Küme performansını izleme
       href: ../hdinsight-key-scenarios-to-monitor.md
-      maintainContext: true
 - name: Başvuru
   items:
     - name: Kod örnekleri
@@ -86,10 +75,8 @@
       items:
         - name: Güncel sürüm notları
           href: ../hdinsight-release-notes.md
-          maintainContext: true
         - name: Arşivlenmiş sürüm notları
           href: ../hdinsight-release-notes-archive.md
-          maintainContext: true
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Forumdan yardım alma
@@ -102,4 +89,3 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: HDInsight için Windows araçları
       href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true

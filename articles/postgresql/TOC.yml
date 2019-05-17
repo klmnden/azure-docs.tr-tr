@@ -7,115 +7,147 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: DB Oluşturma - Portal
-      href: quickstart-create-server-database-portal.md
-    - name: DB Oluşturma - Azure CLI
-      href: quickstart-create-server-database-azure-cli.md
-    - name: DB Oluşturma - Azure CLI up komutu
-      href: quickstart-create-server-up-azure-cli.md
-    - name: Bağlanma ve sorgulama
+    - name: Tek sunucu
       items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Java
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Başlayın
-          href: connect-go.md
+        - name: DB Oluşturma - Portal
+          href: quickstart-create-server-database-portal.md
+        - name: DB Oluşturma - Azure CLI
+          href: quickstart-create-server-database-azure-cli.md
+        - name: DB Oluşturma - Azure CLI up komutu
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Bağlanma ve sorgulama
+          items:
+            - name: Python
+              href: connect-python.md
+            - name: Node.js
+              href: connect-nodejs.md
+            - name: Java
+              href: connect-java.md
+            - name: Ruby
+              href: connect-ruby.md
+            - name: PHP
+              href: connect-php.md
+            - name: .NET
+              href: connect-csharp.md
+            - name: Başlayın
+              href: connect-go.md
+    - name: Hiper Ölçek (Citus)
+      items:
+        - name: DB Oluşturma - Portal
+          href: quickstart-create-hyperscale-portal.md
 - name: Öğreticiler
   items:
-    - name: 1 - Veritabanı Tasarlama
+    - name: Tek sunucu
       items:
-        - name: Azure portal
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: 2 - Web Uygulaması Tasarlama - Python
-      href: ../app-service/containers/tutorial-python-postgresql-app.md
-      maintainContext: true
-    - name: 3 - İzleme ve ayarlama
-      href: tutorial-monitor-and-tune.md
+        - name: 1 - Veritabanı Tasarlama
+          items:
+            - name: Azure portal
+              href: tutorial-design-database-using-azure-portal.md
+            - name: Azure CLI
+              href: tutorial-design-database-using-azure-cli.md
+        - name: 2 - Web Uygulaması Tasarlama - Python
+          href: ../app-service/containers/tutorial-python-postgresql-app.md
+          maintainContext: true
+        - name: 3 - İzleme ve ayarlama
+          href: tutorial-monitor-and-tune.md
+    - name: Hiper Ölçek (Citus)
+      items:
+        - name: Çok kiracılı bir veritabanı tasarlama
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+        - name: Gerçek zamanlı bir pano tasarlama
+          href: tutorial-design-database-hyperscale-realtime.md
 - name: Örnekler
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Kavramlar
   items:
-    - name: DB ve Sunucular
+    - name: Tek sunucu
       items:
-        - name: Sunucular
-          href: concepts-servers.md
-        - name: Desteklenen sürümler
-          href: concepts-supported-versions.md
-        - name: PostgreSQL uzantıları
-          href: concepts-extensions.md
-        - name: Yüksek kullanılabilirlik
-          href: concepts-high-availability.md
-    - name: Kaynaklar
-      items:
-        - name: Fiyatlandırma katmanları
-          href: concepts-pricing-tiers.md
-        - name: Sınırlar
-          href: concepts-limits.md
-    - name: Veri erişimi ve güvenlik
-      items:
-        - name: Güvenlik duvarı kuralları
-          href: concepts-firewall-rules.md
-        - name: SSL yapılandırma
-          href: concepts-ssl-connection-security.md
-        - name: Gelişmiş Tehdit Koruması
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: Sanal ağ
-          href: concepts-data-access-and-security-vnet.md
-    - name: İş sürekliliği
-      items:
-        - name: Genel Bakış
-          href: concepts-business-continuity.md
-        - name: Yedekleme ve geri yükleme
-          href: concepts-backup.md
-    - name: İzleme ve ayarlama
-      items:
+        - name: Veritabanları ve sunucular
+          items:
+            - name: Sunucular
+              href: concepts-servers.md
+            - name: Desteklenen sürümler
+              href: concepts-supported-versions.md
+            - name: PostgreSQL uzantıları
+              href: concepts-extensions.md
+            - name: Yüksek kullanılabilirlik
+              href: concepts-high-availability.md
+        - name: Kaynaklar
+          items:
+            - name: Fiyatlandırma katmanları
+              href: concepts-pricing-tiers.md
+            - name: Sınırlar
+              href: concepts-limits.md
+        - name: Veri erişimi ve güvenlik
+          items:
+            - name: Güvenlik duvarı kuralları
+              href: concepts-firewall-rules.md
+            - name: SSL yapılandırma
+              href: concepts-ssl-connection-security.md
+            - name: Gelişmiş Tehdit Koruması
+              href: concepts-data-access-and-security-threat-protection.md
+            - name: Sanal ağ
+              href: concepts-data-access-and-security-vnet.md
+        - name: İş sürekliliği
+          items:
+            - name: Genel Bakış
+              href: concepts-business-continuity.md
+            - name: Yedekleme ve geri yükleme
+              href: concepts-backup.md
         - name: İzleme ve ayarlama
-          href: concepts-monitoring.md
-        - name: Sunucu günlükleri
-          href: concepts-server-logs.md
-        - name: Sorgu Deposu
           items:
+            - name: İzleme ve ayarlama
+              href: concepts-monitoring.md
+            - name: Sunucu günlükleri
+              href: concepts-server-logs.md
             - name: Sorgu Deposu
-              href: concepts-query-store.md
-            - name: Sorgu Deposu kullanım senaryoları
-              href: concepts-query-store-scenarios.md
-            - name: Sorgu Deposu en iyi yöntemleri
-              href: concepts-query-store-best-practices.md
-        - name: Sorgu Performansı İçgörüleri
-          href: concepts-query-performance-insight.md
-        - name: Performans Önerileri
-          href: concepts-performance-recommendations.md
-    - name: Geliştirme
-      items:
-        - name: Bağlantı kitaplıkları
-          href: concepts-connection-libraries.md
-        - name: Bağlantı dayanıklılığı
-          href: concepts-connectivity.md
-        - name: Azure Kubernetes Service (AKS) ile geliştirme
-          href: concepts-aks.md
-        - name: Java
+              items:
+                - name: Sorgu Deposu
+                  href: concepts-query-store.md
+                - name: Sorgu Deposu kullanım senaryoları
+                  href: concepts-query-store-scenarios.md
+                - name: Sorgu Deposu en iyi yöntemleri
+                  href: concepts-query-store-best-practices.md
+            - name: Sorgu Performansı İçgörüleri
+              href: concepts-query-performance-insight.md
+            - name: Performans önerileri
+              href: concepts-performance-recommendations.md
+        - name: Geliştirme
           items:
-            - name: Spring Verilerini Yapılandırma JDBC
-              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-            - name: Spring Verilerini Yapılandırma JPA
-              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-    - name: Çoğaltma
+            - name: Bağlantı kitaplıkları
+              href: concepts-connection-libraries.md
+            - name: Bağlantı dayanıklılığı
+              href: concepts-connectivity.md
+            - name: Azure Kubernetes Service (AKS) ile geliştirme
+              href: concepts-aks.md
+            - name: Java
+              items:
+                - name: Spring Verilerini Yapılandırma JDBC
+                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+                - name: Spring Verilerini Yapılandırma JPA
+                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+        - name: Çoğaltma
+          items:
+            - name: Okuma amaçlı çoğaltmalar
+              href: concepts-read-replicas.md
+    - name: Hiper Ölçek (Citus)
       items:
-        - name: Okuma amaçlı çoğaltmalar
-          href: concepts-read-replicas.md
+        - name: Düğümler
+          href: concepts-hyperscale-nodes.md
+        - name: Dağıtılmış veriler
+          href: concepts-hyperscale-distributed-data.md
+        - name: Dağıtım sütunu seçme
+          href: concepts-hyperscale-choose-distribution-column.md
+        - name: Tablo birlikte bulundurma
+          href: concepts-hyperscale-colocation.md
+        - name: PostgreSQL uzantıları
+          href: concepts-hyperscale-extensions.md
+        - name: Kaynaklar
+          items:
+            - name: Yapılandırma seçenekleri
+              href: concepts-hyperscale-configuration-options.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Kullanıcı oluşturma

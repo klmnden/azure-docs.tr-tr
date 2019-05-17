@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402777"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800272"
 ---
 # <a name="message-expiration-time-to-live"></a>İleti süre sonu (Yaşam Süresi)
 
@@ -35,6 +35,11 @@ Son **ExpiresAtUtc** anında, iletileri alma işlemi için uygun olur. Sona erme
 ## <a name="entity-level-expiration"></a>Varlık düzeyinde süre sonu
 
 Bir kuyruk veya konuda gönderilen tüm iletilerin varlıkta ayarlanmış varsayılan süre sonu ile düzeyi tabidir [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) özelliği ve bu da ayarlanabilir portalda oluşturma sırasında ve daha sonra ayarlanır. Varsayılan süre sonu varlığa gönderilen tüm iletiler için kullanılan burada [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) açıkça ayarlı değil. Varsayılan süre sonu için bir tavan olarak da işler **TimeToLive** değeri. Uzun olan iletiler **TimeToLive** sona erme varsayılan değerinden sessizce için ayarlanmış **defaultMessageTimeToLive** sıraya alınıyor önce değeri.
+
+> [!NOTE]
+> Varsayılan [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) aracılı ileti değeri [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) belirtilmişse Aksi takdirde.
+>
+> Varlıkları (kuyruklar ve konular) Mesajlaşma için varsayılan sona erme süresini de olduğundan [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) Service Bus standart ve premium katmanları için.  Temel katmanı için varsayılan süre 14 gündür.
 
 Süresi dolan iletileri isteğe bağlı olarak taşınabileceği bir [eski ileti sırası](service-bus-dead-letter-queues.md) ayarlayarak [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) özelliği veya portaldaki ilgili kutuyu işaretleyerek. Süresi dolan iletileri seçeneği devre dışı bırakılırsa, bırakılır. Süresi dolan iletileri teslim edilemeyen kuyruğa taşındı ayırt edilebilir diğer eski lettered iletilerden değerlendirerek [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) Aracısı kullanıcı özellikleri bölümünde; depolar özelliği değerdir[TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) böyle bir durumda.
 
@@ -59,13 +64,13 @@ Bu özellik kullanılarak etkinleştirilir [autoDeleteOnIdle](/azure/templates/m
 
 İşte ne kabul modu boşta kalma oranı varlıkları (kuyruklar, konular ve abonelikler):
 
-- Kuyruklar
+- Sıralar
     - Hiçbir gönderir  
     - Hayır alır  
     - Kuyruğa güncelleştirme yok  
     - Zamanlanmış ileti yok  
     - Hiçbir gözatma/göz atma 
-- Konu başlıkları  
+- Konular  
     - Hiçbir gönderir  
     - Konuya güncelleştirme yok  
     - Zamanlanmış ileti yok 

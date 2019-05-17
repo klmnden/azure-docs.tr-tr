@@ -187,7 +187,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Küme hizmet sorumlusu kimlik bilgilerini güncelleştirme
           href: update-credentials.md
-        - name: Küme çıkış trafiğini kısıtlama ve denetleme
+        - name: Küme çıkış trafiğini kısıtlama ve denetleme (önizleme)
           href: limit-egress-traffic.md
         - name: Azure Active Directory tümleştirmesini etkinleştirme
           items:

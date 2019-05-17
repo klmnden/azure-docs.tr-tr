@@ -2,15 +2,10 @@
   href: /azure/hdinsight
 - name: Genel Bakış
   items:
-    - name: HDInsight üzerinde Apache HBase
+    - name: HDInsight’ta Apache HBase nedir?
       href: apache-hbase-overview.md
-    - name: HDInsight üzerindeki Apache Hadoop bileşenleri
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
-      maintainContext: true
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Apache HBase’i sorgulama - Apache Phoenix
       href: apache-hbase-phoenix-squirrel-linux.md
@@ -22,23 +17,24 @@
       href: apache-hbase-tutorial-get-started-linux.md
     - name: HDInsight uygulamaları yükleme
       href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
-      maintainContext: true
+- name: Kavramlar
+  items:
+    - name: HDInsight üzerindeki Apache Hadoop bileşenleri
+      href: ../hdinsight-component-versioning.md
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
 - name: Nasıl yapılır
   items:
     - name: Küme depolama alanını kullanma
       items:
         - name: Azure Depolama’yı kullanma
           href: ../hdinsight-hadoop-use-blob-storage.md
-          maintainContext: true
         - name: Azure Data Lake Storage 2. Nesil kullanma
           href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
-          maintainContext: true
         - name: Azure Data Lake Storage 1. Nesil kullanma
           href: ../hdinsight-hadoop-use-data-lake-store.md
-          maintainContext: true
     - name: Geliştirme
       items:
         - name: .NET için Apache HBase SDK’yı kullanma
@@ -47,62 +43,48 @@
           href: apache-hbase-build-java-maven-linux.md
         - name: Boş kenar düğümlerini kullanma
           href: ../hdinsight-apps-use-edge-node.md
-          maintainContext: true
         - name: Etkileşimli olmayan kimlik doğrulaması ile çalıştırılan .NET HDInsight uygulamaları oluşturma
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
-          maintainContext: true
         - name: HDInsight üzerinde Apache Phoenix
           href: ../hdinsight-phoenix-in-hdinsight.md
-          maintainContext: true
         - name: Apache Phoenix Sorgu Sunucusu REST SDK'sını kullanma
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Büyük verileri çözümleme
       items:
         - name: Apache HBase verilerini okuyup yazmak için Apache Spark kullanma
           href: ../hdinsight-using-spark-query-hbase.md
-          maintainContext: true
     - name: Kümeleri genişletme
       items:
         - name: Bootstrap ile kümeleri özelleştirme
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-          maintainContext: true
         - name: Script Action kullanarak kümeleri özelleştirme
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
         - name: Betik eylemleri geliştirme
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
         - name: HDInsight uygulamalarını derleme
           items:
             - name: Özel uygulamaları yükleme
               href: ../hdinsight-apps-install-custom-applications.md
-              maintainContext: true
             - name: Uygulama yüklemek için REST kullanma
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: HDInsight uygulamalarını Azure Market’te yayımlama
               href: ../hdinsight-apps-publish-applications.md
-              maintainContext: true
     - name: Güvenlik
       items:
         - name: HDInsight ile SSH kullanma
           href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-          maintainContext: true
         - name: SSH tüneli kullanma
           href: ../hdinsight-linux-ambari-ssh-tunnel.md
-          maintainContext: true
     - name: Yönetme
       items:
         - name: HDInsight kümeleri oluşturma
           href: ../hdinsight-hadoop-provision-linux-clusters.md
-          maintainContext: true
           items:
             - name: Azure portalı kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-              maintainContext: true
             - name: Azure Resource Manager şablonlarını kullanma
               displayName: 'resource manager template, arm template, resource manager group'
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-              maintainContext: true
             - name: .NET için SDK’yı kullanma
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
             - name: Python için SDK’yı kullanma
@@ -111,22 +93,16 @@
               href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
             - name: Azure PowerShell kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-              maintainContext: true
             - name: cURL ve Azure REST API’si kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-              maintainContext: true
             - name: Azure CLI kullanma
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-              maintainContext: true
             - name: İsteğe bağlı kümeler oluşturma
               href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-              maintainContext: true
         - name: İsteğe bağlı kümeler oluşturma
           href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
         - name: HDInsight kümelerini yönetme
           href: ../hdinsight-administer-use-portal-linux.md
-          maintainContext: true
           items:
             - name: .NET için SDK’yı kullanma
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
@@ -138,42 +114,31 @@
               href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
             - name: Azure PowerShell kullanma
               href: ../hdinsight-administer-use-powershell.md
-              maintainContext: true
             - name: Azure Klasik CLI'yi kullanma
               href: ../hdinsight-administer-use-command-line.md
-              maintainContext: true
         - name: Apache Ambari web kullanıcı arabirimini kullanarak kümeleri yönetme
           href: ../hdinsight-hadoop-manage-ambari.md
-          maintainContext: true
           items:
             - name: Apache Ambari web kullanıcı arabirimiyle kümeleri iyileştirme
               href: ../hdinsight-changing-configs-via-ambari.md
-              maintainContext: true
             - name: Apache Ambari REST API'sini kullanma
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-              maintainContext: true
         - name: Hızlandırılmış Yazma İşlemleri
           href: ../hbase/apache-hbase-accelerated-writes.md
         - name: HDInsight kümesini ölçeklendirme
           href: ../hdinsight-scaling-best-practices.md
-          maintainContext: true
         - name: HDInsight kümesi için günlükleri yönetme
           href: ../hdinsight-log-management.md
-          maintainContext: true
         - name: Depolama hesapları ekleme
           href: ../hdinsight-hadoop-add-storage.md
-          maintainContext: true
         - name: Apache Hadoop işleri için veri yükleme
           href: ../hdinsight-upload-data.md
-          maintainContext: true
         - name: Psql kullanarak Apache Phoenix’e toplu veri yükleme
           href: apache-hbase-phoenix-psql.md
         - name: Data Lake Storage ile birden çok HDInsight kümesi
           href: ../hdinsight-multiple-clusters-data-lake-store.md
-          maintainContext: true
         - name: Apache Sqoop ile verileri içeri ve dışarı aktarma
           href: ../hdinsight-use-sqoop.md
-          maintainContext: true
           items:
             - name: SSH ile bağlanma
               href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
@@ -185,89 +150,41 @@
               href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
         - name: Küme ve hizmet bağlantı noktaları ile URI'ler
           href: ../hdinsight-hadoop-port-settings-for-services.md
-          maintainContext: true
         - name: Kullanılabilirlik ve güvenilirlik
           href: ../hdinsight-high-availability-linux.md
-          maintainContext: true
         - name: HDInsight kümesini yeni bir sürüme yükseltme
           href: ../hdinsight-upgrade-cluster.md
-          maintainContext: true
         - name: Apache HBase kümesini daha yeni bir sürüme geçirme
           href: apache-hbase-migrate-new-version.md
         - name: HDInsight kümesi için işletim sistemi düzeltme eki uygulama
           href: ../hdinsight-os-patching.md
-          maintainContext: true
     - name: Sorun giderme
       href: ../hdinsight-troubleshoot-guide.md
-      maintainContext: true
       items:
         - name: Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
           href: ../hdinsight-troubleshoot-failed-cluster.md
-          maintainContext: true
         - name: Apache Hadoop HDFS sorunlarını giderme
           href: ../hdinsight-troubleshoot-hdfs.md
-          maintainContext: true
         - name: Apache HBase sorunlarını giderme
           href: apache-troubleshoot-hbase.md
-          maintainContext: true
         - name: Apache Hadoop YARN sorunlarını giderme
           href: ../hdinsight-troubleshoot-yarn.md
-          maintainContext: true
         - name: Kaynaklar
           items:
             - name: Linux’ta HDInsight kullanma ile ilgili bilgiler
               href: ../hdinsight-hadoop-linux-information.md
-              maintainContext: true
             - name: Apache Hadoop’ta bellek ve performans
               href: ../hdinsight-hadoop-stack-trace-error-messages.md
-              maintainContext: true
             - name: Linux üzerinde Apache Hadoop’ta YARN uygulama günlüklerine erişme
               href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-              maintainContext: true
             - name: Apache Hadoop hizmetleri için yığın dökümlerini etkinleştirme
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-              maintainContext: true
             - name: WebHCat hatalarını anlama ve çözme
               href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
-              maintainContext: true
             - name: Apache Hive ayarları ile Yetersiz Bellek hatalarını düzeltme
               href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-              maintainContext: true
             - name: Apache Hive sorgularını iyileştirme
               href: ../hdinsight-hadoop-optimize-hive-query.md
-              maintainContext: true
-- name: Kurumsal kullanıma hazır olma
-  items:
-    - name: Verilerin güvenliğini sağlama
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-      maintainContext: true
-    - name: Ağ erişimi
-      items:
-        - name: Azure VNet’te HDInsight
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
-        - name: HDInsight’a şirket içi ağınızla bağlanma
-          href: ../connect-on-premises-network.md
-          maintainContext: true
-        - name: Azure VNet’te Apache HBase kümesi oluşturma
-          href: apache-hbase-provision-vnet.md
-        - name: Azure VNet’te Apache HBase kümesi çoğaltma
-          href: apache-hbase-replication.md
-        - name: Apache HBase ve Apache Phoenix için yedekleme ve çoğaltmayı ayarlama
-          href: apache-hbase-backup-replication.md
-    - name: Azure İzleyici günlüklerini kullanarak izleme
-      items:
-        - name: Azure İzleyici günlüklerini kullanma
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Azure İzleyici günlükleriyle sorguları kullanma
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Küme performansını izleme
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
-        - name: Apache Phoenix performansı için en iyi yöntemler
-          href: apache-hbase-phoenix-performance.md
 - name: Başvuru
   items:
     - name: Kod örnekleri
@@ -291,26 +208,14 @@
     - name: Resource Manager şablonu
       displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
-- name: İlgili
-  items:
-    - name: Windows kümeleri
-      items:
-        - name: Linux kümelerine Windows kümelerini geçirme
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
-        - name: .NET çözümlerini Linux kümelerine geçirme
-          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-          maintainContext: true
 - name: Kaynaklar
   items:
     - name: Sürüm notları
       items:
         - name: Güncel sürüm notları
           href: ../hdinsight-release-notes.md
-          maintainContext: true
         - name: Arşivlenmiş sürüm notları
           href: ../hdinsight-release-notes-archive.md
-          maintainContext: true
         - name: Küme yapılandırmaları için ayrıntılı rol tabanlı erişime geçme
           href: ../hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Azure Yol Haritası
@@ -325,4 +230,37 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: HDInsight için Windows araçları
       href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true
+- name: Kurumsal kullanıma hazır olma
+  items:
+    - name: Verilerin güvenliğini sağlama
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Ağ erişimi
+      items:
+        - name: Azure VNet’te HDInsight
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: HDInsight’a şirket içi ağınızla bağlanma
+          href: ../connect-on-premises-network.md
+        - name: Azure VNet’te Apache HBase kümesi oluşturma
+          href: apache-hbase-provision-vnet.md
+        - name: Azure VNet’te Apache HBase kümesi çoğaltma
+          href: apache-hbase-replication.md
+        - name: Apache HBase ve Apache Phoenix için yedekleme ve çoğaltmayı ayarlama
+          href: apache-hbase-backup-replication.md
+    - name: Azure İzleyici günlüklerini kullanarak izleme
+      items:
+        - name: Azure İzleyici günlüklerini kullanma
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Azure İzleyici günlükleriyle sorguları kullanma
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+        - name: Küme performansını izleme
+          href: ../hdinsight-key-scenarios-to-monitor.md
+        - name: Apache Phoenix performansı için en iyi yöntemler
+          href: apache-hbase-phoenix-performance.md
+- name: İlgili
+  items:
+    - name: Windows kümeleri
+      items:
+        - name: Linux kümelerine Windows kümelerini geçirme
+          href: ../hdinsight-migrate-from-windows-to-linux.md
+        - name: .NET çözümlerini Linux kümelerine geçirme
+          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

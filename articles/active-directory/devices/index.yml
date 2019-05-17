@@ -21,7 +21,7 @@ sections:
   - title: Adım adım öğreticiler
     items:
       - type: paragraph
-        text: Şirket içi AD'ye katılan cihazları Azure AD ile tümleştirmeyi öğrenin.
+        text: Şirket içi AD'ye katılan cihazlarınızı Azure AD ile tümleştirmeyi öğrenin.
       - type: list
         style: icon48
         items:

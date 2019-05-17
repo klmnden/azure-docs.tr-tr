@@ -3,8 +3,8 @@ title: SaaS erişimi yönetmek için kullanım Kiracı kısıtlamaları bulut uy
 description: Kiracı kısıtlamaları yönetmek için hangi kullanıcılar kendi Azure AD Kiracı göre uygulamalara erişebilir kullanma
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707180"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824393"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Kiracı kısıtlamaları SaaS bulut uygulamalarına erişimi yönetmek için kullanın
 
@@ -109,7 +109,7 @@ Azure portalında diğer raporları gibi raporunuzun kapsamını belirtmek için
 
 - **Kullanıcı**
 - **Uygulama**
-- **Durum**
+- **Durumu**
 - **Tarih**
 - **Tarih (UTC)** (UTC olduğu Eşgüdümlü Evrensel Saat)
 - **MFA kimlik doğrulama yöntemi** (çok faktörlü kimlik doğrulama yöntemi)
@@ -136,7 +136,7 @@ Outlook ve Skype için modern kimlik doğrulamasını destekleyen iş istemciler
 
 Windows için Outlook, müşterileri, son kullanıcıların profillerini için onaylanmamış e-posta hesapları eklemesini engelleyen kısıtlamalar uygulamak seçebilir. Örneğin, [varsayılan olmayan Exchange hesapları ekleme engelle](https://gpsearch.azurewebsites.net/default.aspx?ref=1) Grup İlkesi ayarı.
 
-## <a name="testing"></a>Test Etme
+## <a name="testing"></a>Test ediliyor
 
 Kiracı kısıtlamaları tüm kuruluşunuz için uygulamadan önce denemek istiyorsanız, iki seçeneğiniz vardır: Fiddler veya Ara sunucu ayarlarını aşamalı bir sunum gibi bir araç kullanarak ana bilgisayar tabanlı bir yaklaşım.
 

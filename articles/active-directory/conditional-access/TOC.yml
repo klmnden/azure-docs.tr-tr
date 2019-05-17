@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: Yönetilen cihazları gerektirme
       href: require-managed-devices.md
+    - name: MFA kaydı için güvenilen ağlar gerektirme
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Güvenilmeyen ağlardan gelen erişim denemeleri için MFA gerektirme
       href: untrusted-networks.md
     - name: Kullanım koşullarını gerekli kılma
