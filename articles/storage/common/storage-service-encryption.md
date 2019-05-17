@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153082"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790063"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Bekleyen veri için Azure depolama şifrelemesi
 
@@ -51,6 +51,9 @@ Müşteri tarafından yönetilen anahtarlar Azure depolama ile kullanma konusund
 - [Müşteri tarafından yönetilen anahtarlar Azure portalından Azure depolama şifrelemesi için yapılandırma](storage-encryption-keys-portal.md)
 - [Müşteri tarafından yönetilen anahtarlar powershell'den Azure depolama şifrelemesi için yapılandırma](storage-encryption-keys-powershell.md)
 - [Azure clı'dan Azure depolama şifreleme ile müşteri tarafından yönetilen anahtarlar kullan](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> Müşteri tarafından yönetilen anahtarlar Azure Active Directory (Azure AD) özelliği, Azure kaynakları için yönetilen kimlikleri kullanır. Ne zaman bir Azure AD dizininden bir abonelik başka bir, yönetilen kimlikleri aktarımı güncelleştirilmez ve müşteri tarafından yönetilen anahtarlar artık çalışmayabilir. Daha fazla bilgi için **Azure AD'ye dizinler arasında bir aboneliğin aktarılması** içinde [SSS ve bilinen sorunlar ile yönetilen Azure kaynakları için kimlikleri](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 > [!NOTE]  
 > Müşteri tarafından yönetilen anahtarlar için desteklenmez [Azure yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md).

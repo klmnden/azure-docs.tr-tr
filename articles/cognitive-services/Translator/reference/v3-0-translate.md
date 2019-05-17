@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722434"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797001"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -41,11 +41,11 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli parametre</em>.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>başlangıç</td>
+    <td>from</td>
     <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak <a href="./v3-0-languages.md">desteklenen diller</a> kullanarak <code>translation</code> kapsam. Varsa <code>from</code> parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
   </tr>
   <tr>
-    <td>-</td>
+    <td>bitiş</td>
     <td><em>Gerekli parametre</em>.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır <a href="./v3-0-languages.md">desteklenen diller</a> dahil <code>translation</code> kapsam. Örneğin, <code>to=de</code> Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, <code>to=de&to=it</code> Almanca ve İtalyanca çevrilemedi.</td>
   </tr>
   <tr>
@@ -213,7 +213,7 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>429</td>
-    <td>Çağıran, çok fazla istek gönderiyor.</td>
+    <td>İstemci istek sınırları aştığı için sunucu isteği reddetti.</td>
   </tr>
   <tr>
     <td>500</td>

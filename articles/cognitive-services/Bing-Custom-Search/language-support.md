@@ -3,19 +3,19 @@ title: Dil desteği - Bing özel arama API'si
 titleSuffix: Azure Cognitive Services
 description: Bing özel arama API'si için desteklenen diller ve bölgeler listesi.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: aahi
+ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867824"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790238"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing özel arama API'si için dil ve bölge desteği
 
@@ -32,7 +32,7 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Ülke/bölge|Kod|
 |-------|----|
 |Arjantin|AR|
-|Avustralya|AU|
+|Avustralya|Otomatik Olarak Güncelleştir|
 |Avusturya|AT|
 |Belçika|BE|
 |Brezilya|BR|
@@ -45,14 +45,14 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Hong Kong Çin ÖİB|HK|
 |Hindistan|IN|
 |Endonezya|Kimlik|
-|İtalya|BT|
+|İtalya|IT|
 |Japonya|JP|
 |Güney Kore|KR|
 |Malezya|MY|
 |Meksika|MX|
 |Hollanda|NL|
 |Yeni Zelanda|NZ|
-|Norveç|NO|
+|Norveç|HAYIR|
 |Çin|CN|
 |Polonya|PL|
 |Portekiz|PT|
@@ -74,12 +74,12 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
 |Arjantin|İspanyolca |es-AR|
-|Avustralya|Türkçe|tr-AU|
+|Avustralya|İngilizce|tr-AU|
 |Avusturya|Almanca |de-AT|
 |Belçika|Felemenkçe|NL-olabilir|
 |Belçika|Fransızca |FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
-|Kanada|Türkçe|CA tr|
+|Kanada|İngilizce|CA tr|
 |Kanada|Fransızca |fr-CA|
 |Şili|İspanyolca |ES-CL|
 |Danimarka|Danca|v-DK|
@@ -87,29 +87,29 @@ Kullanarak bir ülke/bölge belirtin `cc` sorgu parametresi. Bir ülke/bölge be
 |Fransa|Fransızca |fr-FR|
 |Almanya|Almanca |de-DE|
 |Hong Kong, SAR|Geleneksel Çince|zh-HK|
-|Hindistan|Türkçe|tr-giriş|
-|Endonezya|Türkçe|tr kimliği|
-|İtalya|İtalyanca|İt-IT|
+|Hindistan|İngilizce|tr-giriş|
+|Endonezya|İngilizce|tr kimliği|
+|İtalya|İtalyanca |İt-IT|
 |Japonya|Japonca|ja-JP|
 |Güney Kore|Korece|ko-KR|
-|Malezya|Türkçe|MY tr|
+|Malezya|İngilizce|MY tr|
 |Meksika|İspanyolca |es-MX|
 |Hollanda|Felemenkçe|NL-NL|
-|Yeni Zelanda|Türkçe|tr NZ|
+|Yeni Zelanda|İngilizce|tr NZ|
 |Norveç|Norveççe|no-NO|
 |Çin|Çince|zh-CN|
 |Polonya|Lehçe|pl-PL|
 |Portekiz|Portekizce|pt-PT|
-|Filipinler|Türkçe|tr PH|
+|Filipinler|İngilizce|tr PH|
 |Rusya|Rusça|ru-RU|
 |Suudi Arabistan|Arapça|ar-SA|
-|Güney Afrika|Türkçe|tr-ZA|
+|Güney Afrika|İngilizce|tr-ZA|
 |İspanya|İspanyolca |es-ES|
 |İsveç|İsveççe|sv-SE|
 |İsviçre|Fransızca |FR-CH|
 |İsviçre|Almanca |de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
-|Birleşik Krallık|Türkçe|en-GB|
-|Amerika Birleşik Devletleri|Türkçe|en-US|
+|Birleşik Krallık|İngilizce|en-GB|
+|Amerika Birleşik Devletleri|İngilizce|en-US|
 |Amerika Birleşik Devletleri|İspanyolca |ES-ABD|

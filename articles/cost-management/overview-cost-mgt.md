@@ -5,21 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6615c6d8912195dbecda727bbdb31dcf04898ea2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035774"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792819"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Maliyet Yönetimi nedir?
 
 Maliyet yönetimi etkin bir şekilde planlama ve işinizde ilgili maliyetleri denetleme işlemidir. Maliyet yönetimi görevleri normalde finans, yönetim ve uygulama takımları tarafından gerçekleştirilir. Azure maliyet yönetimi, kuruluşların aklınızda maliyetiyle planlama yardımcı olur. Ayrıca maliyetleri etkin bir şekilde analiz etmek ve bulut en iyi duruma getirme amacıyla eyleme geçmek için yardımcı olur harcama. Kuruluş olarak maliyet yönetimine nasıl yaklaşmak gerektiği hakkında daha fazla bilgi edinmek için, [Azure Maliyet Yönetimi en iyi yöntemleri](cost-mgt-best-practices.md) makalesini gözden geçirin.
+
+İzleme [Azure maliyet Yönetimi genel bakış videosu](https://www.youtube.com/watch?v=el4yN5cHsJ0) Azure maliyet yönetimi ile Azure tasarruf etmenize nasıl yardımcı olabileceği hakkında hızlı bir genel bakış.
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Faturalandırma, maliyet yönetimiyle ilgili olsa da aynı şey değildir. Faturalandırma, müşterilere mal veya hizmetler karşılığı fatura hazırlama ve ticari ilişkileri yönetme işlemidir.  Faturalandırma görevleri genellikle tedarik ve finans takımları tarafından yürütülür.
 
@@ -42,6 +46,10 @@ Maliyet yönetimi verilerine erişmek veya bu verileri incelemek için dış sis
 ## <a name="consider-cloudyn"></a>Cloudyn'i göz önünde bulundurun
 
 [Cloudyn](overview.md), Maliyet Yönetimi ile ilgili bir Azure hizmetidir. Cloudyn ile, Azure kaynaklarınız için bulut kullanımını ve harcamalarını izleyebilirsiniz. Ayrıca AWS ve Google gibi diğer bulut sağlayıcılarını da destekler. Anlaşılması kolay pano raporları, maliyet ayırma ve ücret hesaplama/yansıtma konusunda yardımcı olur. Şu anda, Maliyet Yönetimi'nin geri gösterme/geri ödeme ve diğer bulut hizmeti sağlayıcıları için desteği yoktur. Öte yandan, Cloudyn bunları _destekleyen_ bir seçenektir. Şu anda, maliyet yönetimi, Microsoft bulut hizmeti sağlayıcısı (CSP) hesapları desteklemez ancak Cloudyn yapar. CSP hesabınız varsa veya hesaplama/yansıtma kullanmak istiyorsanız, Cloudyn, maliyetleri yönetmenize yardımcı olmak için kullanabilirsiniz.
+
+İzleme [Azure maliyet yönetimi ve Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) iş gereksinimlerinize göre Azure maliyet Yönetimi veya Cloudyn kullanmalısınız önerileri görmek için.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="additional-azure-tools"></a>Ek Azure araçları
 

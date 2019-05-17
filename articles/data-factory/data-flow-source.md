@@ -1,103 +1,115 @@
 ---
-title: Azure veri fabrikası veri akışı kaynak dönüştürme eşlemesi
-description: Azure veri fabrikası veri akışı kaynak dönüştürme eşlemesi
+title: Kaynak dönüştürme Azure Data Factory veri akışı eşleme özelliğini ayarlama
+description: Eşleme veri akışı kaynak Dönüşümde ayarlama konusunda bilgi edinin.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369182"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792359"
 ---
-# <a name="mapping-data-flow-source-transformation"></a>Veri akışı kaynak dönüştürme eşlemesi
+# <a name="source-transformation-for-mapping-data-flow"></a>Eşleme veri akışı kaynak dönüşümü 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Kaynak dönüşümü, veri akışınız verileri getirmek için kullanmak istediğiniz bir veri kaynağı yapılandırır. Tek bir akış veri birden fazla kaynak dönüştürme olabilir. Her zaman, veri akışları ile bir kaynak dönüştürme tasarlama başlar.
+Bir kaynak dönüşüm veri akışı için veri kaynağı yapılandırır. Birden fazla kaynak dönüşüm veri akışı içerebilir. Her zaman veri tasarlama akışlarınız çalıştığında, bir kaynak dönüştürme ile başlar.
+
+Her veri akışı en az bir kaynak dönüştürme gerektiriyor. Kadar kaynakları, veri Bağlantılarınızdaki tamamlamak için gerektiği gibi ekleyin. Bu kaynakları bir birleşim dönüştürme veya birleşim dönüştürme birlikte katılabilirsiniz.
 
 > [!NOTE]
-> Her veri akışı en az bir kaynak dönüştürme gerektiriyor. Veri Bağlantılarınızdaki tamamlamak için ihtiyaç duyduğunuz kadar ek kaynakları ekleyin. Bu kaynakları JOIN veya birleşim dönüştürme birlikte katılabilirsiniz. Hata ayıklama oturumlarında, veri akışı hata ayıklaması yaparken veri örnekleme ayarı veya hata ayıklama kaynak sınırları kullanarak kaynağından okur. Ancak, bir işlem hattı veri akışı etkinliği, veri akışını yürütecek kadar havuza veri yazılır. 
+> Veri akışınızı hata ayıklaması yaparken, veriler kaynaktan örnekleme ayarı veya hata ayıklama kaynak sınırları kullanarak okunur. Bir havuz için veri yazmak için bir işlem hattını veri akış etkinliğini veri akışınız çalıştırmanız gerekir. 
 
-![Dönüştürme seçenekleri kaynak](media/data-flow/source.png "kaynak")
+![Dönüştürme seçenekleri kaynak ayarlar sekmesindeki kaynak](media/data-flow/source.png "kaynak")
 
-Her veri akışı kaynak dönüştürme ile tam olarak bir Data Factory veri kümesi ilişkilendirilmelidir. Veri kümesini, verilerinizin okuma veya yazma konumunu ve şekli tanımlar. Aynı anda birden fazla dosyayla çalışmak için kaynak kodunuzda joker karakterler ve dosya listeleri kullanabilir dosya kaynakları kullanırken.
+Veri akışı kaynak dönüşümünüzü tam olarak bir Data Factory veri kümesi ile ilişkilendirin. Veri kümesi, yazma veya okuma istediğiniz veri konumunu ve şekli tanımlar. Aynı anda birden fazla dosyayla çalışmak için kaynak kodunuzda joker karakterler ve dosya listeleri kullanın.
 
-## <a name="data-flow-staging-areas"></a>Hazırlama alanları veri akışı
+## <a name="data-flow-staging-areas"></a>Veri akışı hazırlama alanları
 
-Veri akışı, tüm Azure üzerinde olan "Hazırlama" veri kümeleri ile birlikte çalışır. Bu veri akışı veri kümeleri için verileri hazırlama, veri dönüşümlerini gerçekleştirmek için kullanılır. Veri Fabrikası yaklaşık 80 farklı yerel bağlayıcıları erişebilir. Bu diğer kaynaklardan verileri, veri akışı dahil etmek için önce bu verileri bu veri akışı veri kümesi hazırlama alanların birini kopyalama etkinliği'ni kullanarak hazırlayın.
+Veri akışı ile birlikte çalışır *hazırlama* Azure'a tüm olan veri kümeleri. Bu veri kümeleri, verilerinizi dönüştürürken hazırlama için kullanın. 
+
+Veri Fabrikası yaklaşık 80 yerel bağlayıcıları erişebilir. Veri akışınızı bu diğer kaynaklardan verileri dahil etmek için bu verileri bir veri akışı veri kümesi hazırlama alanları hazırlamak için kopyalama etkinliği aracını kullanın.
 
 ## <a name="options"></a>Seçenekler
 
+Verileriniz için şema ve örnekleme Seçenekleri'ni seçin.
+
 ### <a name="allow-schema-drift"></a>Şema değişikliklerini izin ver
-Kaynak sütunları genellikle değiştirirseniz, şema değişikliklerini izin seçin. Bu ayar, kaynak havuzuna dönüştürmeleri akışına gelen tüm alanları izin verir.
+Seçin **şema değişikliklerini izin** kaynak sütunları genellikle değiştirirseniz. Bu ayar, tüm gelen kaynak alanları havuz dönüşümleri akışına sağlar.
 
 ### <a name="validate-schema"></a>Şema doğrulama
 
-![Genel kaynak](media/data-flow/source1.png "genel kaynağı 1")
+Tanımlı bir şeması kaynak verilerin gelen sürüm eşleşmiyorsa, veri akışı çalıştırmak başarısız olur.
 
-Gelen sürümü kaynak veriler, tanımlı bir şeması eşleşmiyorsa veri akışının yürütme başarısız olur.
+![Doğrulama şeması, şema değişikliklerini izin ver ve örnekleme seçeneklerini gösteren genel kaynak ayarlarını](media/data-flow/source1.png "genel kaynağı 1")
 
-### <a name="sampling"></a>Örnekleme
-Örnekleme kaynağınızdan alınan satır sayısını sınırlamak için kullanın.  Bu test veya hata ayıklama amacıyla kaynağınızdan veri örnekleme olduğunda yararlıdır.
+### <a name="sample-the-data"></a>Örnek veriler
+Etkinleştirme **örnekleme** kaynağınızdan alınan satır sayısını sınırlamak için. Test veya hata ayıklama amacıyla kaynağınızdan alınan veri örneği, bu ayarı kullanın.
 
 ## <a name="define-schema"></a>Şema tanımlayın
 
-![Dönüştürme kaynağı](media/data-flow/source2.png "kaynak 2")
+Kaynak dosyalarını (örneğin, düz dosyalar yerine için Parquet dosyalarını) kesin değil, kaynak dönüşümünde burada her bir alan için veri türlerini tanımlayın.  
 
-Kesin türü belirtilmiş (yani düz dosyalar Parquet dosyalarını aksine) olmayan bir kaynak dosya türleri için kaynak dönüşümünde burada her bir alan için veri türlerini tanımlamanız gerekir. Daha sonra bir Select dönüştürme sütun adları ve veri türleri, bir sütunu türetilmiş dönüşümünde da değiştirebilirsiniz. 
+![Kaynağı tanımlama şema sekmesinde dönüştürme ayarları](media/data-flow/source2.png "kaynak 2")
 
-![Dönüştürme kaynağı](media/data-flow/source003.png "veri türleri")
+Bir select dönüştürme sütun adları daha sonra değiştirebilirsiniz. Bir türetilmiş sütun dönüşümü, veri türlerini değiştirmek için kullanın. Kesin olarak belirlenmiş kaynaklar için daha sonra seçin dönüştürme veri türlerini değiştirebilirsiniz. 
 
-Kesin olarak belirlenmiş kaynakları için bir sonraki Select dönüştürme veri türlerini değiştirebilirsiniz. 
+![Veri türleri seçme dönüşümünde](media/data-flow/source003.png "veri türleri")
 
-### <a name="optimize"></a>İyileştirme
+### <a name="optimize-the-source-transformation"></a>Kaynak dönüşümü en iyi duruma getirme
 
-![Kaynak bölümler](media/data-flow/sourcepart.png "bölümleme")
+Üzerinde **İyileştir** kaynak dönüştürme için sekmesinde görebileceğiniz bir **kaynak** lüm türü. Bu seçenek, yalnızca Azure SQL veritabanı kaynağınızın olduğunda kullanılabilir. Data Factory bağlantıları SQL veritabanı kaynağınızın karşı büyük sorguları çalıştırmak için paralel hale getirmeyi denediğinden budur.
 
-Bir kaynak dönüştürme için İyileştir sekmesinde, "Kaynak" adlı ek bir bölümleme türü görürsünüz. Bu yalnızca açık kaynak Azure SQL DB seçtiğinizde yukarı. ADF bağlantılar, Azure SQL DB kaynağına karşı büyük sorgularını yürütmek için paralel hale getirmek istediğiniz olmasıdır.
+![Kaynak bölüm ayarları](media/data-flow/sourcepart2.png "bölümleme")
 
-SQL DB kaynak verileri bölümleme isteğe bağlıdır, ancak büyük sorgular için yararlıdır. İki seçeneğiniz vardır:
+Verileri bölümlemek için SQL veritabanı kaynağınız yoksa, ancak bölümleri büyük sorgular için kullanışlıdır. Bir sütun veya bir sorgu bölümünüz temel alabilir.
 
-### <a name="column"></a>Sütun
+### <a name="use-a-column-to-partition-data"></a>Sütun bölümü veri kullanın
 
-Bir sütun bölüm için kaynak tablosundan seçin. Maksimum bağlantı sayısını de ayarlamanız gerekir.
+Kaynak tablonuzdan bölüme bir sütun seçin. Ayrıca en fazla bağlantı sayısını ayarlayın.
 
-### <a name="query-condition"></a>Sorgu koşulu
+### <a name="use-a-query-to-partition-data"></a>Verileri bölümleme için bir sorgu kullanın
 
-İsteğe bağlı bir sorgu üzerindeki bağlantıları bölümlemek seçebilirsiniz. Bu seçenek için WHERE koşulu içerikte basitçe. I.e. year > 1980
+Bölüm bir sorguya dayalı bağlantılar seçebilirsiniz. WHERE koşulu içeriğini girmeniz yeterlidir. Örneğin, Yıl > 1980 girin.
 
 ## <a name="source-file-management"></a>Kaynak dosya yönetimi
+
+Kaynak dosyaları yönetmek için Ayarlar'ı seçin. 
+
 ![Yeni kaynak ayarları](media/data-flow/source2.png "yeni ayarlar")
 
-* Bir desenle eşleşen dosyaları kaynak klasöründen bir dizi seçmek için joker karakter yolu. Bu, veri kümesi tanımında, ayarladığınız herhangi bir dosyayı geçersiz kılar.
-* Dosyaların listesi. Bir dosya kümesi ile aynıdır. İşlemek için göreli yol dosyaların listesini ile oluşturduğunuz bir metin dosyasına işaret.
-* Dosya adı depolamak için sütun verilerinizi sütununda kaynak dosyasının adını depolar. Dosya adı dizesi depolamak için yeni bir ad girin.
-* Tamamlandıktan sonra (veri akışı yürütüldükten sonra kaynak dosya ile hiçbir şey yapma, kaynak dosyaları silin veya kaynak dosyalarını taşımak için seçebilirsiniz. Taşıma için göreli yolların yollardır.
+* **Joker karakter yolu**: Kaynak klasörünüzden bir desenle eşleşen dosyaları bir dizi seçin. Bu ayar, herhangi bir dosyada, veri kümesi tanımı geçersiz kılar.
+* **Dosyaların listesini**: Bu dosya kümesidir. İşlemek için göreli yol dosyaların listesini içeren bir metin dosyası oluşturun. Bu metin dosyasını göstermek.
+* **Dosya adı depolamak için sütun**: Kaynak dosyanın adı, bir sütunda, verilerinizi Store. Dosya adı dizesi depolamak için yeni bir ad girin.
+* **Tamamlandıktan sonra**: Veri akış çalıştırmaları, kaynak dosyayı silin veya kaynak dosyayı taşıma sonra kaynak dosya ile yapmamak seçin. Göreli taşımak yollardır.
 
 ### <a name="sql-datasets"></a>SQL veri kümeleri
 
-Azure SQL DB veya Azure SQL DW, kaynağı olarak kullanırken, ek seçenekler gerekir.
+Kaynağınızda SQL veritabanı veya SQL veri ambarı ise, kaynak dosya yönetimi için ek seçenekleri vardır.
 
-* Sorgu: Kaynağınız için bir SQL sorgusunu girin. Bir sorgu ayarlama kümesinde seçtiğiniz herhangi bir tabloda geçersiz kılar. Order By yan tümcesi burada desteklenmediğini unutmayın. Ancak, tam bir SELECT FROM deyimi Burada ayarlanan olabilir.
-
-* Toplu iş boyutu: Toplu iş boyutu okur ile büyük verileri öbek için bir toplu iş boyutu girin.
+* **Sorgu**: Kaynağınız için bir SQL sorgusunu girin. Bu ayar kümesinde seçtiğiniz herhangi bir tabloda geçersiz kılar. Unutmayın **Order By** yan tümceleri burada desteklenmez. Ancak tam bir SELECT FROM deyimi burada ayarlayabilirsiniz.
+* **Yığın boyutu**: Okur ile büyük verileri öbek için bir toplu iş boyutu girin.
 
 > [!NOTE]
-> Veri akışı işlem hattı çalıştırmasını (işlem hattı hata ayıklama veya Çalıştır yürütme) yürütüldüğünde dosya işlemi ayarları yalnızca yürütecek bir işlem hattı yürütme veri akışı etkinliği kullanarak. Dosya işlemleri, veri akışı hata ayıklama modunda yürütün değil.
+> Dosya işlemleri, yalnızca yürütme veri akışı etkinliği kullanan bir işlem hattı (işlem hattı hata ayıklama veya yürütme Çalıştır) bir işlem hattı çalıştırması'ndan veri akışı başladığında çalıştırın. Dosya işlemleri *olmayan* veri akışı hata ayıklama modunda çalıştırın.
 
 ### <a name="projection"></a>Yansıtma
 
-![Projeksiyon](media/data-flow/source3.png "projeksiyonu")
+Veri kümelerinde şemalar gibi veri sütunları, türlerini ve biçimlerini veriler kaynak veri kaynağındaki projeksiyon tanımlar. 
 
-Benzer şemalara veri kümelerinde, veri sütunları, veri türleri ve veri biçimleri veriler kaynak veri kaynağındaki projeksiyon tanımlar. Bir metin dosyasında tanımlı bir şeması varsa, "Veri türü örneği ve veri türlerini çıkarması denemek için ADF sormak algıla" tıklayın. Varsayılan veri ayarlayabilirsiniz biçimleri için otomatik algıla "Varsayılan biçim tanımlama" düğmesini kullanarak. Bir sonraki sütun türetilmiş dönüştürme sütun veri türlerini değiştirebilirsiniz. Sütun adlarını seçme dönüştürme kullanılarak değiştirilebilir.
+![Projeksiyon sekmesindeki ayarlar](media/data-flow/source3.png "projeksiyonu")
 
-![Varsayılan biçimleri](media/data-flow/source2.png "varsayılan biçimleri")
+Metin dosyanızı tanımlı bir şeması varsa, seçin **veri türünü Algıla** Data Factory örneği ve veri türleri çıkarılamıyor. Seçin **tanımla varsayılan biçimi** otomatik algılama için varsayılan verileri biçimlendirir. 
+
+Daha sonra türetilmiş sütun dönüştürme sütun veri türlerini değiştirebilirsiniz. Bir select dönüştürme, sütun adlarını değiştirmek için kullanın.
+
+![Varsayılan veri biçimleri için ayarları](media/data-flow/source2.png "varsayılan biçimleri")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Veri dönüşümünüzü oluşturmaya başlamak [türetilmiş sütun](data-flow-derived-column.md) ve [seçin](data-flow-select.md).
+Yapı başlamak bir [türetilmiş sütun dönüştürme](data-flow-derived-column.md) ve [seçin dönüştürme](data-flow-select.md).

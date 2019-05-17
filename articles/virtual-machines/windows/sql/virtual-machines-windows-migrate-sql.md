@@ -16,18 +16,22 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 95acda60935e82b226a1a0e860b5fa8effb8e47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325707"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795789"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Bir SQL Server veritabanını Azure VM’deki SQL Server’a geçirme
 
 Bir şirket içi SQL Server kullanıcı veritabanını Azure VM'deki SQL Server'a geçirmek için yöntemler vardır. Bu makalede, kısa bir süre çeşitli yöntemleri ele ve en iyi yöntem çeşitli senaryolar için önerilir.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 ve SQL Server 2008 R2 yaklaşan [destek yaşam döngüsü sonuna](https://www.microsoft.com/sql-server/sql-server-2008) şirket içi örnekleri için. Desteğini genişletmek için Azure VM'deki SQL Server Örneğinize geçirme veya şirket içinde kalmasını sağlamak için güvenlik güncelleştirmeleri Genişletilmiş satın alın. Daha fazla bilgi için [desteği SQL Server 2008 ve 2008 R2 Azure ile genişletme](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Birincil geçiş yöntemlerinin nelerdir?
 Birincil geçiş yöntemler şunlardır:
@@ -96,7 +100,7 @@ Azure sanal makinesi için bir şirket içi SQL Server örneğindeki tüm sistem
 ## <a name="ship-hard-drive"></a>Sabit sürücü gönderin
 Kullanım [Windows içeri/dışarı aktarma hizmeti yöntemi](../../../storage/common/storage-import-export-service.md) büyük miktarlardaki dosya verilerini Azure Blob Depolama ağ üzerinden karşıya olduğu fazla vakit pahalı veya uygun olmayan durumda aktarmak için. Bu hizmet ile verilerinizi depolama hesabınıza burada karşıya yüklenecek bir Azure veri merkezi bu verileri içeren bir veya daha fazla sabit sürücüler gönderin.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Azure sanal Makineler'de SQL Server çalıştırma hakkında daha fazla bilgi için bkz. [SQL Server Azure sanal makinelerine genel bakış](virtual-machines-windows-sql-server-iaas-overview.md).
 
 > [!TIP]

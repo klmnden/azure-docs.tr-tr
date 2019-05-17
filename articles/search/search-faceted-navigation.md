@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023953"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793634"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.
 
- ![Azure arama iş Portal Tanıtımı][1]
+ ![Azure arama iş Portal Tanıtımı](media/search-faceted-navigation/azure-search-faceting-example.png "Azure arama iş Portal Tanıtımı")
 
 Çok yönlü gezinme, aramak için bir alternatif giriş noktasıdır. El ile karmaşık arama ifadeleri yazmak için uygun bir alternatif sunar. Modelleri, sıfır sonuçlar elde etmezsiniz sağlarken aradığınızı bulmanıza yardımcı olabilir. Bir geliştirici olarak, search dizininizi gezinme için en kullanışlı arama ölçütleri kullanıma özellikleri sağlar. Çevrimiçi satış uygulamalar, çok yönlü gezinme genellikle markaları, Departmanlar (çocuk shoes), boyutu, fiyat, özelliği sayesinde Popülerlik ve derecelendirmeler üzerinde oluşturulmuştur. 
 
@@ -341,7 +341,7 @@ Azure arama, bir aralık bilgi işlem için iki yaklaşım sağlayarak aralığ�
 **Yaklaşım 2: Değerler listesini kullanın**  
 Sayısal veriler için değerler listesini kullanabilirsiniz.  Model aralığının göz önünde bir `listPrice` alan, şu şekilde oluşturulur:
 
-  ![Örnek değerler listesi][5]
+  ![Örnek değerler listesi](media/search-faceted-navigation/Facet-5-Prices.PNG "örnek değerleri listesi")
 
 Önceki ekran görüntüsüne benzer bir modeli aralığını belirtmek için değerler listesini kullanın:
 
@@ -352,7 +352,7 @@ Her aralık, başlangıç noktası, bir uç nokta olarak listeden bir değer ola
 ### <a name="build-a-filter-for-a-range"></a>Bir aralık için bir filtre oluşturun
 Seçtiğiniz bir aralığı tabanlı belge filtrelemek için kullanabileceğiniz `"ge"` ve `"lt"` filtre işleçleri aralığın uç noktalarını tanımlayan iki parçalı ifadesinde. Örneğin, aralığı 10-25 seçerseniz bir `listPrice` alanın filtre olacak `$filter=listPrice ge 10 and listPrice lt 25`. Örnek kodda, filtre ifadesi kullanan **priceFrom** ve **priceTo** uç noktaları ayarlamak için parametreleri. 
 
-  ![Değer aralığı için sorgu][6]
+  ![Değer aralığı için sorgu](media/search-faceted-navigation/Facet-6-buildfilter.PNG "değer aralığı için sorgu")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Arama sonuçları ile çalışırken, sorgu oluşturma değişiklikleri URL'sini
    
    Çok yönlü gezinme yapısı ile arama sonuçları da döndürülür. Arama sonuçları sayfasında, çok yönlü gezinme yapısına her modeli sonuç sayısını içerir. Modeli seçilir ve bu nedenle tüm eşleşen sonuç döndürülür.
    
-   ![Modelleri seçmeden önce arama sonuçları][11]
+   ![Arama sonuçları modelleri seçmeden önce](media/search-faceted-navigation/faceted-search-before-facets.png "arama sonuçları modelleri seçmeden önce")
 
 4. Bir iş başlık, konum veya en düşük ücret tıklayın. Modeller ilk arama null, ancak değerlerine göre aldıkları gibi arama sonuçlarını artık eşleşen öğeleri atılır.
    
-   ![Modelleri seçtikten sonra arama sonuçları][12]
+   ![Arama sonuçları modelleri seçtikten sonra](media/search-faceted-navigation/faceted-search-after-facets.png "arama sonuçları modelleri seçtikten sonra")
 
 5. Böylece farklı sorgu davranışları yapabileceğiniz çok yönlü sorgu temizlemek için tıklatın `[X]` özellikleri temizlemek için seçilen modelleri sonra.
    
@@ -400,42 +400,6 @@ Arama sonuçları ile çalışırken, sorgu oluşturma değişiklikleri URL'sini
 
 Çok yönlü gezinme için tasarım ilkeleri hakkında daha fazla öngörü için aşağıdaki bağlantıları öneririz:
 
-* [Çok yönlü arama için tasarlama](http://www.uie.com/articles/faceted_search/)
 * [Tasarım desenleri: Çok yönlü navigasyon](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [Çok yönlü arama – bölüm 1 uygularken ön uç konuları ](https://articles.uie.com/faceted_search2/)
 

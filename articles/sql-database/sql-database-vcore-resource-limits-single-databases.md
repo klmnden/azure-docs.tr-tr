@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507832"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790394"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
 Bu makalede ayrıntılı kaynak sınırları sanal çekirdek tabanlı satın alma modelini kullanarak Azure SQL veritabanı tek veritabanı sağlar.
 
@@ -129,7 +129,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 
 ### <a name="serverless-compute-tier"></a>Sunucusuz işlem katmanı
 
-[Sunucusuz bilgi işlem katmanı](sql-database-serverless.md) genel Önizleme aşamasındadır ve yalnızca sanal çekirdek satın kullanarak tek veritabanı modeli aranır.
+[Sunucusuz bilgi işlem katmanı](sql-database-serverless.md) Önizleme aşamasındadır ve yalnızca sanal çekirdek satın kullanarak tek veritabanı modeli aranır.
 
 #### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
 

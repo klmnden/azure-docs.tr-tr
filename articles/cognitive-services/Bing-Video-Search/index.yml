@@ -5,15 +5,15 @@ metadata:
   title: 'Bing Video Arama API’si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs'
   description: Web’de video aramak için Bing Video Arama API'sinin nasıl kullanılacağını öğrenin.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/31/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'Bing Video Arama API''si, Bing''in video arama özelliklerini uygulamalarınıza tümleştirmenize olanak tanır. API’ye arama sorguları göndererek bing.com/videos üzerindekilere benzer, alakalı ve yüksek kaliteli videolar alıp görüntüleyebilirsiniz.'
 sections:

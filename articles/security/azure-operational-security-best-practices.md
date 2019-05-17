@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409840"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795901"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure operasyonel güvenlik en iyi uygulamaları
 Bu makalede, verilerinizi, uygulamaları ve diğer Azure varlıklarını koruma için işletimsel en iyi yöntemler kümesi sağlar.
@@ -153,7 +153,7 @@ Kullanabileceğiniz [Azure Resource Manager](https://azure.microsoft.com/documen
 **Ayrıntı**: [Azure işlem hatları](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) birden çok aşama dağıtımı otomatik hale getirme ve yayın işlemini yönetmek için bir çözümdür. Hızlı, kolay ve sık yayımlamak üzere yönetilen sürekli dağıtım işlem hatları oluşturun. Azure işlem hatları, sürüm işlemini otomatik hale getirebilirsiniz ve onay iş akışlarını önceden tanımlanmış. Şirket içinde dağıtın ve buluta genişletin ve gerektiği gibi özelleştirin.
 
 **En iyi yöntem**: Başlatın veya güncelleştirmeleri üretim ortamına dağıtmak için önce uygulamanızın performansını kontrol edin.  
-**Ayrıntı**: Bulut tabanlı çalıştırma [yük testleri](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) için:
+**Ayrıntı**: Bulut tabanlı çalıştırma [yük testleri](/azure/devops/test/load-test/overview#alternatives) için:
 
 - Uygulamanızda performans sorunlarını bulun.
 - Dağıtım kalitesini geliştirin.

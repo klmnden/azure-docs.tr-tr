@@ -12,65 +12,80 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 05/16/2019
 ms.author: banders
-ms.openlocfilehash: 0a17821cc69900c7f24375cbf06a61811bbd52d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8dc5918ac539abde2586e29a1608e9dc496a5e37
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918852"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794784"
 ---
-# <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Azure aboneliği faturayla ödeme talebinizi
+# <a name="pay-azure-subscription-by-invoice"></a>Azure abonelik, fatura ile ödeme
 
-Bir Azure destek isteği göndererek faturalamak Azure aboneliğinizin ödeme yöntemini değiştirebilirsiniz. İsteğiniz onaylandıktan sonra faturalı ödeme yöntemi için aboneliğinizi ayarlama konusunda yönergeler sağlanır.
+Fatura ile ödemeyi geçiş yaparsanız, Fatura tarihinden itibaren 30 gün içinde faturanızı ödeme yapacağınız anlamına gelir. Azure aboneliğinizi faturayla ödeme yapmak için uygun olmak için bir Azure destek isteği gönderin. İsteğiniz onaylandıktan sonra fatura ödeme için bir aboneliğe geçebilirsiniz, [Azure portalında](https://portal.azure.com).
 
 > [!IMPORTANT]
 > * Fatura ile ödeme, yalnızca iş hesapları için kullanılabilir.
-> * [Üçüncü taraf veya dış hizmetlere](billing-understand-your-azure-marketplace-charges.md) satın aldığı veya fatura ödeme kullanmak için ücretli. Aboneliğinizi SendGrid gibi dış hizmetlerden kaynaklar içeriyorsa, bunların fatura ödeme değiştirmeden önce silinmesi. Fatura ödeme değiştirdikten sonra dış hizmetler satın almak için bir kredi kartı veya banka kartıyla ayrı bir abonelik gerekir.
+> * Fatura ödeme geçmeden önce tüm ödenmemiş ödeme yapmanız gerekir.
 > * Fatura ile ödemeye geçtikten sonra tekrar kredi kartı veya banka kartı ile ödemeye geçemezsiniz.
 
-## <a name="request-pay-by-invoice"></a>Faturayla ödeme talep
+## <a name="request-to-pay-by-invoice"></a>Faturayla ödeme talep
 
 1. [Azure portal](https://portal.azure.com/) oturum açın. Seçin **Yardım + Destek** > **yeni destek isteği**.
 
-    ![Yardım ve Destek düğmesi](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+    ![Yardım ve Destek düğmesi](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
 2. Sorun türü olarak **Faturalandırma**'yı seçin, fatura ile ödeme yapmak istediğiniz aboneliği ve bir destek planı seçip **İleri**'ye tıklayın.
 
 3. **Sorun Türü** kutusunda **Fatura ile ödeme**'yi seçin.
 
- 4. Aşağıdaki bilgileri girin **ayrıntıları** kutusuna ve ardından **sonraki**.
+4. Aşağıdaki bilgileri girin **ayrıntıları** kutusuna ve ardından **sonraki**.
 
          New or existing customer:
          If existing, current payment method:
-         Order ID (requesting for invoice option): 
+         Order ID (requesting for invoice option):
          Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID: 
-         Company Name (as registered under VAT or Government Website): 
-         Company Address (as registered under VAT or Government Website): 
+         Commerce Account ID:
+         Company Name (as registered under VAT or Government Website):
+         Company Address (as registered under VAT or Government Website):
          Company Website:
-         Country: 
+         Country:
          TAX ID/ VAT ID:
          Company Established on (Year):
-         Any prior business with Microsoft: 
+         Any prior business with Microsoft:
          Contact Name:
          Contact Phone:
          Contact Email:
-         Justification on why you prefer Invoice option over credit card: 
-    
+         Justification on why you prefer Invoice option over credit card:
+
         For cores increase, provide the following additional information:
-    
+
          (Old quota) Existing Cores:
          (New quota) Requested cores:
-         Specific region & series of Subscription: 
- 
-    - **Şirket adı** ve **şirket adresi** Azure hesabı için sağlanan bilgilerin eşleşmesi gerekir.  Görüntülemek veya bilgileri güncelleştirmek için bkz: [Azure hesap profili bilgilerinizi değiştirmek](billing-how-to-change-azure-account-profile.md).
-    - Kredi sınırınıza onaylanabilir önce Azure portalında faturalama kişinizin eklemeniz gerekir. Şirketin Borç hesapları veya Finans departmanı için kişi ayrıntılarını ilişkili olmalıdır. Fatura ilgili güncelleştirmek için Git [Azure hesap Merkezi](https://account.azure.com/Profile).
+         Specific region & series of Subscription:
+
+- **Şirket adı** ve **şirket adresi** Azure hesabı için sağlanan bilgilerin eşleşmesi gerekir.  Görüntülemek veya bilgileri güncelleştirmek için bkz: [Azure hesap profili bilgilerinizi değiştirmek](billing-how-to-change-azure-account-profile.md).
+- Kredi sınırınıza onaylanabilir önce Azure portalında faturalama kişinizin eklemeniz gerekir. Şirketin Borç hesapları veya Finans departmanı için kişi ayrıntılarını ilişkili olmalıdır. Fatura ilgili güncelleştirmek için Git [Azure hesap Merkezi](https://account.azure.com/Profile).
 
 5. İletişim bilgilerinizi ve tercih edilen iletişim yöntemini seçip **Oluştur**'a tıklayın.
 
-Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız gerekiyorsa, kredi application should check gönderin. Uygulamayı gönderdikten sonra kredi başvurusunun işlenmesi 5-7 günü sürebilir.
+Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız gerekiyorsa, kredi application should check göndereceğiz.
+
+## <a name="switch-your-azure-subscription-to-invoice-payment"></a>Azure aboneliğinizin ödeme faturaya geç
+
+Fatura ile ödemeyi onaylandıktan sonra Azure aboneliğinizi faturalı ödeme yöntemi geçebilirsiniz [Azure portalında](https://portal.azure.com).
+
+1. Oturum [Azure portalında](https://portal.azure.com) hesap yöneticisi olarak.
+1. Arama **maliyet Yönetimi + faturalandırma**.
+
+    ![Arama gösteren ekran görüntüsü](./media/billing-how-to-pay-by-invoice/search.png)
+
+1. Fatura ödeme geçiş yapmak istediğiniz aboneliği seçin.
+1. **Ödeme yöntemleri**'ni seçin.
+1. Komut çubuğunda **faturayla ödeme** düğmesi.
+
+    ![Ödeme tarafından Fatura düğmesini gösteren ekran görüntüsü](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 

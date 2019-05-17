@@ -2,8 +2,8 @@
 title: Azure Kurumsal abonelikler oluşturmak için erişim verme | Microsoft Docs
 description: Bir kullanıcı veya hizmet sorumlusu program aracılığıyla Azure Enterprise abonelikleri oluşturma olanağı sağlayacak öğrenin.
 services: azure-resource-manager
-author: adpick
-manager: adpick
+author: jureid
+manager: jureid
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 04/09/2019
+ms.author: jureid
+ms.openlocfilehash: 742658e36da956c46bd932b59903e68786c65b93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112572"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794575"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure Kurumsal abonelikler (Önizleme) oluşturma erişimi verme
 
@@ -26,14 +26,118 @@ ms.locfileid: "56112572"
 
 Bir abonelik oluşturmak için bkz: [program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma](programmatically-create-subscription.md).
 
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>RBAC kullanarak bir kayıt hesabı temsilci erişimi
+## <a name="grant-subscription-creation-access-to-a-user-or-group"></a>Bir kullanıcı veya grup için abonelik oluşturma erişimi verme
 
-Başka bir kullanıcı veya hizmet sorumlusu aboneliklere yönelik özel bir hesap oluşturma olanağı vermek [kayıt hesabı kapsamındaki bir RBAC sahip rolü vermediğiniz](../active-directory/role-based-access-control-manage-access-rest.md). Aşağıdaki örnek bir kullanıcıya sahip kiracısındaki sağlar. `principalId` , `<userObjectId>` (için SignUpEngineering@contoso.com) kayıt hesabında bir sahip rolü. Kayıt hesabı Kimliğinizi ve asıl Kimliğinizi bulmak için bkz: [program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma](programmatically-create-subscription.md).
+Bir kayıt hesabı altındaki abonelikler oluşturmak için kullanıcıların olmalıdır [RBAC sahip rolü](../role-based-access-control/built-in-roles.md#owner) o hesapta. Aşağıdaki adımları izleyerek bir kullanıcı veya kullanıcılar grubunun kayıt hesaplarında RBAC sahip rolü verebilirsiniz:
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+### <a name="1-get-the-object-id-of-the-enrollment-account-you-want-to-grant-access-to"></a>1. Erişim vermek istediğiniz kayıt hesabı nesne Kimliğini alın
+
+Diğer kayıt hesaplarında RBAC sahip rolü vermek için ya da hesap sahibi veya hesabın bir RBAC sahip olması gerekir.
+
+### <a name="resttabrest"></a>[REST](#tab/rest)
+
+Erişiminiz olan tüm kayıt hesaplarını listelemek için istek:
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
+```
+
+Azure, erişiminiz olan tüm kayıt hesaplarının listesi ile yanıt verir:
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "SignUpEngineering@contoso.com"
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "BillingPlatformTeam@contoso.com"
+      }
+    }
+  ]
+}
+```
+
+Kullanım `principalName` RBAC sahip erişimi vermek istediğiniz hesabı tanımlamak için kullanılan özellik. Kopyalama `name` o hesabın. Örneğin, RBAC sahip erişimi vermek istediyseniz SignUpEngineering@contoso.com kayıt hesabı kopyalama ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Kayıt hesabı nesne kimliğidir. Bu değer bir sonraki adımda kullanmak yere yapıştırın `enrollmentAccountObjectId`.
+
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Açık [Azure Cloud Shell](https://shell.azure.com/) ve PowerShell seçin.
+
+Kullanım [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) erişiminiz olan tüm kayıt hesaplarını listelemek için kullanın.
+
+```azurepowershell-interactive
+Get-AzEnrollmentAccount
+```
+
+Azure erişiminiz kayıt hesaplarının listesi ile yanıt verir:
+
+```azurepowershell
+ObjectId                               | PrincipalName
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
+```
+
+Kullanım `principalName` RBAC sahip erişimi vermek istediğiniz hesabı tanımlamak için kullanılan özellik. Kopyalama `ObjectId` o hesabın. Örneğin, RBAC sahip erişimi vermek istediyseniz SignUpEngineering@contoso.com kayıt hesabı kopyalama ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Bu nesne kimliği bir sonraki adımda kullanmak bir yere yapıştırmak `enrollmentAccountObjectId`.
+
+### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Kullanım [az fatura kayıt hesabı listesi](https://aka.ms/EASubCreationPublicPreviewCLI) erişiminiz olan tüm kayıt hesaplarını listelemek için komutu.
+
+```azurecli-interactive 
+az billing enrollment-account list
+```
+
+Azure erişiminiz kayıt hesaplarının listesi ile yanıt verir:
+
+```json
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
+
+```
+
+Kullanım `principalName` RBAC sahip erişimi vermek istediğiniz hesabı tanımlamak için kullanılan özellik. Kopyalama `name` o hesabın. Örneğin, RBAC sahip erişimi vermek istediyseniz SignUpEngineering@contoso.com kayıt hesabı kopyalama ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Kayıt hesabı nesne kimliğidir. Bu değer bir sonraki adımda kullanmak yere yapıştırın `enrollmentAccountObjectId`.
+
+<a id="userObjectId"></a>
+
+### <a name="2-get-object-id-of-the-user-or-group-you-want-to-give-the-rbac-owner-role-to"></a>2. Kullanıcı veya grup için RBAC sahip rolünü vermek istediğiniz nesne Kimliğini alın
+
+1. Azure portalında arama **Azure Active Directory**.
+1. Bir kullanıcıya erişim vermek istiyorsanız, tıklayarak **kullanıcılar** sol taraftaki menüden. Bir gruba erişim vermek istiyorsanız, tıklayın **grupları**.
+1. Kullanıcı veya grup için RBAC sahip rolünü vermek istediğiniz seçin.
+1. Bir kullanıcı seçtiğinizde, nesne kimliği Profil sayfasında bulabilirsiniz. Bir grubu seçtiğinizde, genel bakış sayfasında bulunan nesne kimliği olur. Kopyalama **objectID** metin kutusunun sağındaki simgesine tıklayarak. Sonraki adımda kullanabilmesi için bu bir yere yapıştırmak `userObjectId`.
+
+### <a name="3-grant-the-user-or-group-the-rbac-owner-role-on-the-enrollment-account"></a>3. Kullanıcının izni veya RBAC sahip rolü kayıt hesabındaki grubu
+
+İlk iki adımını toplanan değerler kullanarak, kullanıcı vermek veya RBAC sahip rolü kayıt hesabındaki grup.
+
+### <a name="resttabrest-2"></a>[REST](#tab/rest-2)
+
+Aşağıdaki komutu çalıştırın değiştirerek ```<enrollmentAccountObjectId>``` ile `name` ilk adımda kopyaladığınız (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Değiştirin ```<userObjectId>``` ikinci adımda kopyaladığınız nesne Kimliğine sahip.
+
+```json
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -62,27 +166,27 @@ Sahip rolü kayıt hesabı kapsamda başarıyla atandığında, Azure rol atamas
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershelltabazure-powershell-2"></a>[PowerShell](#tab/azure-powershell-2)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Kullanım [yeni AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) kayıt hesabınıza başka bir kullanıcıya sahip erişimi vermek için.
+Aşağıdaki komutu çalıştırın [yeni AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) komutuyla değiştirerek ```<enrollmentAccountObjectId>``` ile `ObjectId` ilk adımda toplanan (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Değiştirin ```<userObjectId>``` nesneyle ikinci adım kimliği toplanmadı.
 
 ```azurepowershell-interactive
-New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-clitabazure-cli-2"></a>[Azure CLI](#tab/azure-cli-2)
 
-Kullanım [az rol ataması oluşturma](../active-directory/role-based-access-control-manage-access-azure-cli.md) kayıt hesabınıza başka bir kullanıcıya sahip erişimi vermek için.
+Aşağıdaki komutu çalıştırın [az rol ataması oluşturma](../active-directory/role-based-access-control-manage-access-azure-cli.md) komutuyla değiştirerek ```<enrollmentAccountObjectId>``` ile `name` ilk adımda kopyaladığınız (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Değiştirin ```<userObjectId>``` nesneyle ikinci adım kimliği toplanmadı.
 
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```azurecli-interactive
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
 ----
 
-Bir kullanıcı bir kayıt hesabınız için RBAC sahip olduktan sonra programlı olarak abonelik altındaki oluşturabilirler. Yetkilendirilmiş bir kullanıcı tarafından oluşturulmuş bir abonelik hala özgün hesap sahibi olarak Hizmet Yöneticisi vardır, ancak ayrıca yetkilendirilmiş kullanıcının sahibi olarak varsayılan olarak sahiptir. 
+Bir kullanıcı bir kayıt hesabınız için RBAC sahip olduktan sonra yapabilirler [programlı abonelikler oluşturmak](programmatically-create-subscription.md) altındaki. Yetkilendirilmiş bir kullanıcı tarafından oluşturulmuş bir abonelik hala özgün hesap sahibi olarak Hizmet Yöneticisi vardır, ancak ayrıca yetkilendirilmiş kullanıcının RBAC sahip olarak varsayılan olarak sahiptir.
 
 ## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Etkinlik günlüklerini kullanarak abonelikleri oluşturan denetim
 
@@ -95,7 +199,6 @@ Bu API aracılığıyla oluşturulan abonelikleri izlemek için [Kiracı etkinli
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
 ```
 
-> [!NOTE]
 > Bu API'yi komut satırından rahatça çağırmak için [ARMClient](https://github.com/projectkudu/ARMClient)'ı deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
