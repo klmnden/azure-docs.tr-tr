@@ -100,11 +100,11 @@ SAP Business Warehouse açık bağlı Hub hizmeti için aşağıdaki özellikler
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SapOpenHub** | Evet |
-| sunucu | SAP BW örneği yer aldığı sunucunun adı. | Evet |
+| server | SAP BW örneği yer aldığı sunucunun adı. | Evet |
 | systemNumber | SAP BW sisteminin sistem numarası.<br/>İzin verilen değer: bir dize olarak temsil edilen iki basamaklı ondalık sayı. | Evet |
-| ClientID | SAP W sisteminde istemcinin istemci kimliği.<br/>İzin verilen değer: bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet |
+| clientId | SAP W sisteminde istemcinin istemci kimliği.<br/>İzin verilen değer: bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet |
 | language | SAP sisteminin kullandığı dil. | Hayır (varsayılan değer **tr**)|
-| Kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
+| userName | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
 | password | Kullanıcının parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
 
