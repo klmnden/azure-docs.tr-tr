@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357469"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861526"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
-Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranından sıfırlamasını sağlayacaksınız. Yeni Windows 10 Nisan 2018 Güncelleştirmesi ile, cihazları **Azure AD'ye katılmış** veya **hibrit Azure AD’ye katılmış** olan kullanıcılar oturum açma ekranlarında “Parolayı sıfırla” bağlantısını kullanabilirler. Kullanıcılar bu bağlantıya tıkladıklarında, bildikleri self servis parola sıfırlama (SSPR) deneyimine ulaşırlar.
+Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranından sıfırlamasını sağlayacaksınız. Yeni Windows 10 Nisan 2018 Güncelleştirmesi ile, cihazları **Azure AD'ye katılmış** veya **hibrit Azure AD’ye katılmış** olan kullanıcılar oturum açma ekranlarında “Parolayı sıfırla” bağlantısını kullanabilirler. Kullanıcılar bu bağlantıya tıkladıklarında, bildikleri self servis parola sıfırlama (SSPR) deneyimine ulaşırlar. Bir kullanıcıya kilitlenmişse bu işlem şirket içi Active Directory'de hesapları kilidini değil.
 
 > [!div class="checklist"]
 > * Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
@@ -60,7 +60,7 @@ Oturum açma ekranından parola sıfırlama yapılmasını sağlayan yapılandı
       * **Değer** olarak **1** ayarlayın
       * **Tamam**’a tıklayın.
    * **Tamam**’a tıklayın.
-4. **Oluştur**'a tıklayın
+4. **Oluştur**'a tıklayın.
 
 ### <a name="assign-a-device-configuration-policy-in-intune"></a>Intune'da cihaz yapılandırma ilkesini atama
 
@@ -71,7 +71,7 @@ Oturum açma ekranından parola sıfırlama yapılmasını sağlayan yapılandı
 3. Grup için bir ad girin ve **Üyelik türü**'nün altında **Atandı**'yı seçin
    * **Üyeler**'in altında, ilkeyi uygulamak istediğiniz, Azure AD'ye katılmış Windows 10 cihazlarını seçin.
    * **Seç**'e tıklayın
-4. **Oluştur**'a tıklayın
+4. **Oluştur**'a tıklayın.
 
 [Azure Active Directory grupları ile kaynaklara erişimi yönetme](../fundamentals/active-directory-manage-groups.md) makalesinde, grup oluşturma hakkında daha fazla bilgi bulabilirsiniz.
 

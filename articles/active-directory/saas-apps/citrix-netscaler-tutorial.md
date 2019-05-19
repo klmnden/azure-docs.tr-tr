@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863516"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Öğretici: Citrix Netscaler ile Azure Active Directory Tümleştirme
 
@@ -227,7 +227,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     b. İçinde **etki alanı adı** metin etki alanını seçin.
 
-    c. **Tamam** düğmesine tıklayın.
+    c. **Tamam**'ı tıklatın.
 
 12. Olun **mağaza** ayarlarını **Web siteleri için alıcı** aşağıdaki ekran görüntüsünde gösterildiği gibi:
 
@@ -241,7 +241,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     b. Seçin **NetScaler gateway'den doğrudan**.
 
-    c. **Tamam** düğmesine tıklayın.
+    c. **Tamam**'ı tıklatın.
 
 14. Üzerinde **güvenilen etki alanlarını yapılandırma** açılır penceresinde, aşağıdaki adımları gerçekleştirin:
 
@@ -255,7 +255,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     d. Seçin **oturum açma sayfasını göster etki alanları listesinde**.
 
-    e. **Tamam** düğmesine tıklayın.
+    e. **Tamam**'ı tıklatın.
 
 15. Üzerinde **NetScaler ağ geçitlerini Yönet** açılır penceresinde, aşağıdaki adımları gerçekleştirin:
 
@@ -275,7 +275,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     c. Seçin **kullanımı veya rol** olarak **kimlik doğrulaması ve HDX yönlendirme**.
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**'ı tıklatın.
 
 17. Üzerinde **mağaza güvenli bilet yetkilisi** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
@@ -285,7 +285,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     b. Seçin **etkinleştirme oturumu güvenilirlik**.
 
-    c. **Tamam** düğmesine tıklayın.
+    c. **Tamam**'ı tıklatın.
 
 18. Üzerinde **mağaza kimlik doğrulama ayarları** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
@@ -297,7 +297,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     c. Girin, **geri çağırma URL'si**.
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**'ı tıklatın.
 
 19. Üzerinde **mağaza dağıtma Citrix alıcı** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
@@ -305,7 +305,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     a. Seçin **dağıtım seçeneği** olarak **yerel alıcı kullanılamıyorsa, HTML5 için kullanım alıcı**.
 
-    b. **Tamam** düğmesine tıklayın.
+    b. **Tamam**'ı tıklatın.
 
 20. Üzerinde **yönetme işaretleri** açılır penceresinde, aşağıdaki adımları gerçekleştirin:
 
@@ -315,7 +315,7 @@ Azure AD çoklu oturum açma ile Citrix Netscaler yapılandırmak için aşağı
 
     b. Tıklayın **Ekle** , URL'nin olarak eklemek için **dış işaretleri** metin.
 
-    c. **Tamam** düğmesine tıklayın.
+    c. **Tamam**'ı tıklatın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

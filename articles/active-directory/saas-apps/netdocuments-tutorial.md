@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65871256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Öğretici: NetDocuments ile Azure Active Directory Tümleştirme
 
@@ -147,7 +147,7 @@ Azure AD çoklu oturum açma ile NetDocuments yapılandırmak için aşağıdaki
    
     b. Tıklayın **dosya**, Azure portalından indirdiğiniz indirilen meta veri dosyasını karşıya yükleyin.
    
-    c. **Tamam** düğmesine tıklayın.
+    c. **Tamam**'ı tıklatın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

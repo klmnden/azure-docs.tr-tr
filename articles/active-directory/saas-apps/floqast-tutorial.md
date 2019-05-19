@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 5b3e839af886dc23bdfb11dacfb1854a2277bf3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Öğretici: FloQast ile Azure Active Directory Tümleştirme
 
@@ -122,7 +122,7 @@ Azure AD çoklu oturum açma ile FloQast yapılandırmak için aşağıdaki adı
     | ------------------- | -------------------- |    
     | FirstName           | User.givenName |
     | LastName            | User.surname |
-    | Email               | User.Mail    |
+    | E-posta               | User.Mail    |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
@@ -152,7 +152,7 @@ Azure AD çoklu oturum açma ile FloQast yapılandırmak için aşağıdaki adı
 
     a. Seçin **oturum SAML yanıtını ve onayını** gelen **imzalama seçeneği**.
     
-    b. **Kaydet**’e tıklayın
+    b. **Kaydet**'e tıklayın.
 
     ![Communifire imzalama seçeneği](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
 

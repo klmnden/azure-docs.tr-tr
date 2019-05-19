@@ -205,7 +205,7 @@
             - name: Azure PowerShell kullanma
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Azure Klasik CLI'yi kullanma
+            - name: Azure CLI kullanma
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Apache Ambari web kullanıcı arabirimini kullanarak kümeleri yönetme

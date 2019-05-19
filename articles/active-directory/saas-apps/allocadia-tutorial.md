@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab731bf7526521f6c091d2cd7d7d296636f76f67
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Öğretici: Allocadia ile Azure Active Directory Tümleştirme
 
@@ -131,7 +131,7 @@ Azure AD çoklu oturum açma ile Allocadia yapılandırmak için aşağıdaki ad
     | ------------------- | -------------------- |
     | firstName | User.givenName |
     | Soyadı | User.surname |
-    | e-posta | User.Mail |
+    | email | User.Mail |
     | | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

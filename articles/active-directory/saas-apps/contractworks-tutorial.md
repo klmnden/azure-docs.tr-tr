@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8d6ee5d4d9db8f6c91d43f72135ba42d6735287
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Öğretici: ContractWorks ile Azure Active Directory Tümleştirme
 

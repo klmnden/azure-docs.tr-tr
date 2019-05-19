@@ -129,7 +129,7 @@
           href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
         - name: Azure PowerShell kullanma
           href: ../hdinsight-administer-use-powershell.md
-        - name: Azure Klasik CLI'yi kullanma
+        - name: Azure CLI kullanma
           href: ../hdinsight-administer-use-command-line.md
         - name: Apache Ambari web kullanıcı arabirimini kullanarak kümeleri yönetme
           href: ../hdinsight-hadoop-manage-ambari.md

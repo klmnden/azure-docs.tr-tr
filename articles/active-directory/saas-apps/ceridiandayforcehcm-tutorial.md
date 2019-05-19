@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79741d9ec71dd7735ef94ef8172921965a9e9df1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Öğretici: Ceridian Dayforce HCM ile Azure Active Directory Tümleştirme
 
@@ -107,21 +107,21 @@ Azure AD çoklu oturum açma Ceridian Dayforce HCM ile yapılandırmak için aş
 
     a. İçinde **işareti bulunan URL'si** metin kutusu, türü URL kullanıcılarınız oturum açmaya Ceridian Dayforce HCM uygulamanıza tarafından kullanılıyor.
 
-    | Ortam | URL'si |
+    | Ortam | URL |
     | :-- | :-- |
     | Üretim için | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Test için | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
 
-    | Ortam | URL'si |
+    | Ortam | URL |
     | :-- | :-- |
     | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp` |
     | Test için | `https://fs-test.dayforcehcm.com/sp` |
 
     c. İçinde **yanıt URL'si** metin kutusu, türü URL kullanılan Azure AD tarafından yanıta gönderilecek.
 
-    | Ortam | URL'si |
+    | Ortam | URL |
     | :-- | :-- |
     | Üretim için | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | Test için | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
@@ -137,7 +137,7 @@ Azure AD çoklu oturum açma Ceridian Dayforce HCM ile yapılandırmak için aş
     
     | Ad | Kaynak özniteliği|
     | ---------| --------- |
-    | ad  | User.extensionattribute2 |
+    | name  | User.extensionattribute2 |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

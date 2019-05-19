@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537045"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860327"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Öğretici: Translator konuşma uygulamaC#
 
@@ -32,9 +32,9 @@ Bu öğreticide, Azure Bilişsel Hizmetleri'nin bir parçası olan Translator Ko
 
 Bu uygulamanın Visual Studio çözüm dosyası [GitHub'da mevcuttur](https://github.com/MicrosoftTranslator/SpeechTranslator).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide Community Edition dahil olmak üzere Visual Studio 2017'nin herhangi bir sürümünü kullanabilirsiniz.
+Bu öğreticide, Visual Studio Community sürümü dahil olmak üzere 2019'ın herhangi bir sürümü gerekir.
 
 Visual Studio çözümü, uygulama için bir yükleyici de derler. Bu işlevi kullanabilmek için [WiX Toolset](http://wixtoolset.org/) ve [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) uygulamalarına ihtiyacınız vardır.
 

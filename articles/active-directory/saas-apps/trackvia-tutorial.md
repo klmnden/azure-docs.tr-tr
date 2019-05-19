@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a04622d0c35a93d954dcca38859ea3a48a8d5416
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Öğretici: TrackVia ile Azure Active Directory Tümleştirme
 
@@ -144,7 +144,7 @@ Azure AD çoklu oturum açma ile TrackVia yapılandırmak için aşağıdaki ad�
 
     b. Seçin **Dosya Seç** Azure portalından indirdiğiniz meta veri dosyasını karşıya yükleyin.
 
-    c. **Kaydet**’e tıklayın
+    c. **Kaydet**'e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

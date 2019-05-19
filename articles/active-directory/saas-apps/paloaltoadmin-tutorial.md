@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f45b0779693433f1b1fad3c5bfd4323eacb9a63b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65870294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Öğretici: Palo Alto Networks - yönetici kullanıcı Arabirimi ile Azure Active Directory Tümleştirme
 
@@ -127,7 +127,7 @@ Palo Alto Networks - yönetici kullanıcı Arabirimi, Azure AD çoklu oturum aç
 
     | Ad |  Kaynak özniteliği|
     | --- | --- |
-    | kullanıcı adı | User.userPrincipalName |
+    | username | User.userPrincipalName |
     | adminrole | customadmin |
     | | |
 

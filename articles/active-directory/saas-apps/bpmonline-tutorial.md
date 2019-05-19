@@ -17,11 +17,11 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e2bc30a5b856cba5f1fcca254603c35dfd3764d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Öğretici: Bpm'online ile Azure Active Directory Tümleştirme
 

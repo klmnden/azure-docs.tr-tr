@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65864044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Öğretici: Boomi ile Azure Active Directory Tümleştirme
 

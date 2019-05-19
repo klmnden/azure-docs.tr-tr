@@ -16,11 +16,11 @@ ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfd3afea4a5f09f1e572030b28d3511b31d81b69
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Öğretici: Zoho ile Azure Active Directory Tümleştirme
 
@@ -150,7 +150,7 @@ Azure AD çoklu oturum açma ile Zoho yapılandırmak için aşağıdaki adımla
    
     e. Olarak **algoritması**seçin **RSA**.
    
-    f. **Tamam** düğmesine tıklayın.
+    f. **Tamam**'ı tıklatın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -232,7 +232,7 @@ Azure AD kullanıcılarının Zoho posta oturum etkinleştirmek için bunlar Zoh
 
     d. İçinde **parola** metin kutusu, kullanıcının parolasını girin.
    
-    e. **Tamam** düğmesine tıklayın.  
+    e. **Tamam**'ı tıklatın.  
       
     > [!NOTE]
     > Azure Active Directory hesap sahibi bu etkinleştirilmeden önce hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız.

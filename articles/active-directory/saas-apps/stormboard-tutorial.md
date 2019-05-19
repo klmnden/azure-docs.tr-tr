@@ -16,11 +16,11 @@ ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1a8c28546417e5de22b363e425728c97cbe5288
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65866568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Öğretici: Stormboard ile Azure Active Directory Tümleştirme
 

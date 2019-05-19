@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65868805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Öğretici: Azure Active Directory tarafından Genesys PureCloud ile tümleştirmesi
 
@@ -146,7 +146,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
-    | Email | User.userprinicipalname |
+    | E-posta | User.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
@@ -203,7 +203,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
 
     ![Çoklu oturum açmayı yapılandırın](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. **Kaydet**’e tıklayın   
+    e. **Kaydet**'e tıklayın.   
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
