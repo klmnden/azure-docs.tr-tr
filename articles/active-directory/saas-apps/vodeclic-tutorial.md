@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Öğretici: Vodeclic ile Azure Active Directory Tümleştirme
 
