@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148945"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796156"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -139,7 +139,7 @@ Sorgu sonuçlarını şunlardır:
     }]
 ```
 
-Aşağıdaki sorgu ailedeki verilen adlarını, çocukların döndürür, `id` eşleşen `WakefieldFamily`, ikamet şehre göre sıralanmış.
+Aşağıdaki sorgu ailedeki verilen adlarını, çocukların döndürür, `id` eşleşen `WakefieldFamily`ve şehre göre sıralı.
 
 ```sql
     SELECT c.givenName
@@ -160,7 +160,7 @@ Sonuçlar şu şekildedir:
 
 Önceki örneklerde, Cosmos sorgu dili çeşitli yönlerini gösterir:  
 
-* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3…..Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
+* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3….Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
 
 * Sorgu dili şemasız verilerle çalışır çünkü tür sistemi dinamik olarak bağlı olmalıdır. Farklı türlerde farklı öğeye aynı ifadesi üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olmasını garanti yoktur.  
 
@@ -588,7 +588,7 @@ Mantıksal işleçler Boole değerleri üzerinde çalışır. Aşağıdaki tablo
 | --- | --- |
 | True |False |
 | False |True |
-| Tanımlanmadı |Undefined |
+| Tanımlanmadı |Tanımlanmadı |
 
 ## <a name="between-keyword"></a>ARASINDA anahtar sözcüğü
 
@@ -867,6 +867,13 @@ Sonuçlar şu şekildedir:
         ]
       }
     ]
+```
+
+Aşağıdaki SQL sorgusunu kullanarak alt sorgularda içindeki dizi, başka bir örnektir. Bu sorgu bir arrary çocuklarını tüm farklı verilen adlarını alır.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
