@@ -45,10 +45,10 @@ Kare bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Kare** | Evet |
-| konak | Kare örneğinin URL'si. (yani mystore.mysquare.com)  | Evet |
-| ClientID | Kare uygulamanızla ilişkili istemci kimliği.  | Evet |
-| ClientSecret | Kare uygulamanızla ilişkili istemci gizli anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
-| RedirectUri | Kare uygulama panosunda atanan yeniden yönlendirme URL'si. (yani http:\//localhost:2500)  | Evet |
+| host | Kare örneğinin URL'si. (yani mystore.mysquare.com)  | Evet |
+| clientId | Kare uygulamanızla ilişkili istemci kimliği.  | Evet |
+| clientSecret | Kare uygulamanızla ilişkili istemci gizli anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| redirectUri | Kare uygulama panosunda atanan yeniden yönlendirme URL'si. (yani http:\//localhost:2500)  | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | Ana bilgisayar adı sunucunun sertifikasında SSL üzerinden bağlanırken sunucu ana bilgisayar adıyla eşleşmesi gerekip gerekmediğini belirtir. Varsayılan değer true olur.  | Hayır |
 | usePeerVerification | SSL üzerinden bağlanırken sunucu kimliğinin doğrulanıp doğrulanmayacağını belirtir. Varsayılan değer true olur.  | Hayır |
@@ -111,7 +111,7 @@ Kareden veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarla
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SquareSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Business"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Business"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
