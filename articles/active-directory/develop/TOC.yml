@@ -239,20 +239,30 @@
               href: msal-net-provide-httpclient.md
             - name: Azure AD B2C ile tümleştirme
               href: msal-b2c-overview.md
-            - name: Platformla ilgili dikkate alınacak önemli noktalar (.NET)
+            - name: Dikkat edilmesi gerekenler ve bilinen sorunlar
               items:
-                - name: Web tarayıcıları
-                  href: msal-net-web-browsers.md
-                - name: Xamarin Android
-                  href: msal-net-xamarin-android-considerations.md
-                - name: Android üzerinde sistem tarayıcısı
-                  href: msal-net-system-browser-android-considerations.md
-                - name: Xamarin iOS
-                  href: msal-net-xamarin-ios-considerations.md
-                - name: Evrensel Windows Platformu
-                  href: msal-net-uwp-considerations.md
-                - name: AAD B2C ilkesi uygulama
-                  href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.NET
+                  items:
+                    - name: Web tarayıcıları
+                      href: msal-net-web-browsers.md
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Android üzerinde sistem tarayıcısı
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: Evrensel Windows Platformu
+                      href: msal-net-uwp-considerations.md
+                    - name: AAD B2C ilkesi uygulama
+                      href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.js
+                  items:
+                    - name: IE kullanmaya ilişkin dikkat edilmesi gerekenler
+                      href: msal-js-use-ie-browser.md
+                    - name: Bilinen sorunlar - IE ve Microsoft Edge
+                      href: msal-js-known-issues-ie-edge-browsers.md
+                    - name: Bilinen sorunlar - Safari
+                      href: msal-js-known-issues-safari-browser.md
         - name: Kimlik Doğrulaması
           items:
             - name: Kimlik doğrulaması temel bilgileri

@@ -63,8 +63,9 @@
     - name: Ölçek
       href: concepts-scale.md
     - name: En iyi uygulamalar
-      href: best-practices.md
       items:
+        - name: Genel Bakış
+          href: best-practices.md
         - name: Küme operatörleri için
           items:
             - name: Çok kiracılılık ve küme yalıtımı
@@ -115,9 +116,9 @@
           maintainContext: true
         - name: Sanal düğümler oluşturma
           items:
-            - name: Azure CLI
+            - name: Azure CLI kullanma
               href: virtual-nodes-cli.md
-            - name: Azure portal
+            - name: Azure portalı kullanma
               href: virtual-nodes-portal.md
         - name: Sanal Kubelet kullanma
           href: virtual-kubelet.md
@@ -152,7 +153,7 @@
               href: configure-azure-cni.md
         - name: İç yük dengeleyici oluşturma
           href: internal-lb.md
-        - name: Statik IP adreslerini kullanma
+        - name: Statik IP adresi kullanma
           href: static-ip.md
         - name: Giriş
           items:
@@ -165,9 +166,10 @@
             - name: TLS’yi kendi sertifikalarınızla kullanma
               href: ingress-own-tls.md
             - name: TLS’yi Let’s Encrypt ile kullanma
-              href: ingress-tls.md
               items:
-                - name: Statik genel IP kullanma
+                - name: Dinamik genel IP adresi kullanma
+                  href: ingress-tls.md
+                - name: Statik genel IP adresi kullanma
                   href: ingress-static-ip.md
         - name: Çıkış trafiği
           href: egress.md
@@ -212,6 +214,20 @@
         - name: Gerçek zamanlı kapsayıcı günlüklerini görüntüleme (önizleme)
           href: ../azure-monitor/insights/container-insights-live-logs.md
           maintainContext: true
+    - name: Windows Server kapsayıcılarını kullanma (önizleme)
+      items:
+        - name: AKS kümesi oluşturma
+          href: windows-container-cli.md
+        - name: Uzaktan bağlanma
+          href: rdp.md
+        - name: Bilinen sınırlamalar
+          href: windows-node-limitations.md
+        - name: Kubernetes panosunu kullanma
+          href: kubernetes-dashboard.md
+        - name: Windows Server kapsayıcılarına yönelik Dockerfiles oluşturma
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+        - name: Windows Server kapsayıcılarına yönelik Dockerfiles’ı en iyi duruma getirme
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Uygulamaları geliştirme ve çalıştırma
       items:
         - name: Dev Spaces ile geliştirme

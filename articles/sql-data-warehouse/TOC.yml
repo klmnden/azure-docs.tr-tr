@@ -59,7 +59,7 @@
           href: quickstart-scale-compute-powershell.md
         - name: T-SQL
           href: quickstart-scale-compute-tsql.md
-    - name: İş Yükü Yönetimi
+    - name: İş yükü yönetimi
       items:
         - name: İş yükü sınıflandırıcısı oluşturma
           items:
@@ -177,9 +177,9 @@
       items:
         - name: Kaynak sınıfları ve iş yükü yönetimi
           href: resource-classes-for-workload-management.md
-        - name: İş Yükü Sınıflandırma
+        - name: İş yükü sınıflandırma
           href: sql-data-warehouse-workload-classification.md
-        - name: İş Yükü Önem Düzeyi
+        - name: İş yükü önem düzeyi
           href: sql-data-warehouse-workload-importance.md
         - name: Bellek ve eşzamanlılık sınırları
           href: memory-and-concurrency-limits.md
@@ -253,7 +253,7 @@
           href: sql-data-warehouse-query-visual-studio.md
         - name: Visual Studio yükleme
           href: sql-data-warehouse-install-visual-studio.md
-    - name: İş yükünü yönetme
+    - name: İş yükü yönetimi
       items:
         - name: İş yükünüzü çözümleme
           href: analyze-your-workload.md

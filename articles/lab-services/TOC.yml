@@ -176,6 +176,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: Hizmet Olarak Platform (PaaS) hizmetlerini kullanma
               href: use-paas-services.md
+            - name: İç içe şablonları dağıtma
+              href: deploy-nested-template-environments.md
         - name: Laboratuvarlara güvenli erişim
           items:
             - name: Laboratuvar sahibi ve kullanıcıları ekleme
@@ -188,6 +190,8 @@
           items:
             - name: İlke ve zamanlamalar ayarlama
               href: devtest-lab-set-lab-policy.md
+            - name: Otomatik kapatma bildirimleri gönderme
+              href: devtest-lab-auto-shutdown.md
             - name: Maliyet yönetimini yapılandırma
               href: devtest-lab-configure-cost-management.md
             - name: Azure Market görüntülerini yapılandırma

@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: Riskli kullanıcıları ve oturum açma işlemlerini araştırma
           href: howto-investigate-risky-users-signins.md
+        - name: Risk olayları ile ilgili geri bildirim gönderme
+          href: howto-provide-risk-event-feedback.md
         - name: Risk ilkelerini yapılandırma
           href: howto-configure-risk-policies.md
         - name: Algılama doğruluğunu geliştirme

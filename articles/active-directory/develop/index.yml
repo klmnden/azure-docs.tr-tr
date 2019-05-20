@@ -15,7 +15,7 @@ metadata:
   ms.date: 05/07/2019
   ms.author: celested
 abstract:
-  description: 'Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu platform geliştiricilerin tüm Microsoft kimlikleriyle oturum açan ve Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemesini sağlar. OAuth 2.0 ve OpenID Connect standardıyla uyumlu bir kimlik doğrulama hizmetinden, açık kaynak kitaplıklarından, uygulama kaydı ve yapılandırmasından, güçlü kavram ve başvuru belgelerinden, hızlı başlangıç örneklerinden, kod örneklerinden, öğreticilerden ve nasıl yapılır kılavuzlarından oluşan tam özellikli bir platformdur.'
+  description: 'Microsoft kimlik platformu, Azure Active Directory (Azure AD) geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu platform geliştiricilerin tüm Microsoft kimlikleriyle oturum açan ve Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemesini sağlar. OAuth 2.0 ve OpenID Connect standardıyla uyumlu bir kimlik doğrulama hizmetinden, açık kaynak kitaplıklarından, uygulama kaydı ve yapılandırmasından, güçlü kavram ve başvuru belgelerinden, hızlı başlangıç örneklerinden, kod örneklerinden, öğreticilerden ve nasıl yapılır kılavuzlarından oluşan tam özellikli bir platformdur.'
   aside:
     image:
       alt: null
