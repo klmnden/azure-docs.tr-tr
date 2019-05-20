@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831018"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873027"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Öğretici: ASP.NET üzerinde bir edilgen önbellek puan tablosu oluşturma
 
@@ -41,9 +41,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşullara sahip olmanız gerekir:
 
 * Bu öğreticide, kaldığınız yerden devam [ASP.NET Hızlı Başlangıç için Azure önbelleği için Redis](cache-web-app-howto.md). Henüz yapmadıysanız önce hızlı başlangıcı izleyin.
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
+* Yükleme [Visual Studio 2019](https://www.visualstudio.com/downloads/) aşağıdaki iş yükleri ile:
     * ASP.NET ve web geliştirme
-    * Azure Geliştirme
+    * Azure geliştirme
     * [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express) veya SQL Server Express LocalDB ile .NET masaüstü geliştirmesi.
 
 ## <a name="add-a-leaderboard-to-the-project"></a>Projeye puan tablosu ekleme
@@ -156,7 +156,7 @@ Bu paket hakkında daha fazla bilgi için [EntityFramework](https://www.nuget.or
 
 1. Aşağıdaki `connectionStrings` bölümünü `configuration` bölümüne ekleyin. Bağlantı dizesinin adı, Entity Framework veritabanı bağlamı sınıfının adı olan `TeamContext` ile eşleşmelidir.
 
-    Bu bağlantı dizesinde, [Önkoşulları](#prerequisites) yerine getirdiğiniz ve Visual Studio 2017 ile yüklenen *.NET masaüstü geliştirme*’nin parçası olan SQL Server Express LocalDB’yi yüklediğiniz varsayılır.
+    Bu bağlantı dizesini karşılanıyor varsayar [önkoşulları](#prerequisites) ve SQL Server Express parçası olan LocalDB, yüklü, *.NET Masaüstü geliştirmesinden* iş yükü ile Visual Studio 2019 yüklenmiş.
 
     ```xml
     <connectionStrings>
