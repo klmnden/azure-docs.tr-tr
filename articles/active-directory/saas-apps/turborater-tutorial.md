@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c279a224a7692a64621e24cc8fe2213b78b54ce
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62735627"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Öğretici: TurboRater ile Azure Active Directory Tümleştirme
 
@@ -70,15 +70,15 @@ Azure AD'ye TurboRater tümleştirmesini yapılandırmak için TurboRater Azure 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma TurboRater adlı bir test kullanıcı tabanlı test **Britta Simon**. Tek iş için oturum açma için TurboRater içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı oluşturmanız gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma TurboRater adlı bir test kullanıcı tabanlı test **B Simon**. Tek iş için oturum açma için TurboRater içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı oluşturmanız gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma TurboRater ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
 1. **[TurboRater çoklu oturum açmayı yapılandırma](#configure-turborater-single-sign-on)**  üzerinde uygulama tarafından çoklu oturum açma ayarları yapılandırmak için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-1. **[TurboRater test kullanıcısı oluşturma](#create-a-turborater-test-user)**  kullanan Azure AD kullanıcı için bağlantılı adlandırılmış Britta Simon TurboRater, böylece bir kullanıcı Britta Simon adlı.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açma b Simon ile test etmek için.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Azure AD çoklu oturum açmayı kullanmak b Simon etkinleştirmek için.
+1. **[TurboRater test kullanıcısı oluşturma](#create-a-turborater-test-user)**  kullanan Azure AD kullanıcı için bağlantılı adlandırılmış b Simon TurboRater, böylece bir kullanıcı b Simon adlı.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -109,9 +109,9 @@ Azure AD çoklu oturum açma ile TurboRater yapılandırmak için aşağıdaki a
 
     1. İçinde **yanıt URL'si (onay belgesi tüketici hizmeti URL'si)** kutusunda, URL şu biçimi kullanarak girin:
 
-       | Ortam | URL'si |
+       | Ortam | URL |
        | ---------------| --------------- |
-       | Test etme  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
+       | Sına  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
        | Canlı  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
 
     > [!NOTE]
@@ -149,9 +149,9 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     ![Kullanıcı bölmesi](common/user-properties.png)
 
-    1. İçinde **adı** kutusuna **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BSimon**.
   
-    1. İçinde **kullanıcı adı** kutusuna **BrittaSimon\@\<yourcompanydomain >.\< Uzantı >**. Örneğin, **BrittaSimon\@contoso.com**.
+    1. İçinde **kullanıcı adı** kutusuna **BSimon\@\<yourcompanydomain >.\< Uzantı >**. Örneğin, **BSimon\@contoso.com**.
 
     1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
@@ -159,7 +159,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için TurboRater erişim vererek Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma için TurboRater erişimleri vererek kullanmak b Simon etkinleştirin.
 
 1. Azure portalında **kurumsal uygulamalar** > **tüm uygulamaları** > **TurboRater**.
 
@@ -177,7 +177,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için TurboRater erişim verer
 
     ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. İçinde **kullanıcılar ve gruplar** bölmesinde **Britta Simon** içinde **kullanıcılar** listeleyin ve ardından **seçin** bölmesinin alt kısmındaki.
+1. İçinde **kullanıcılar ve gruplar** bölmesinde **b Simon** içinde **kullanıcılar** listeleyin ve ardından **seçin** bölmesinin alt kısmındaki.
 
 1. SAML onaylaması rol değerinde ardından içinde beklediğiniz varsa **rolü Seç** bölmesinde, listeden bir kullanıcı için uygun rolü seçin. Bölmesinin en altında seçin **seçin**.
 
@@ -185,7 +185,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için TurboRater erişim verer
 
 ### <a name="create-a-turborater-test-user"></a>TurboRater test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon TurboRater içinde adlı bir kullanıcı oluşturun. Çalışmak [TurboRater Destek ekibine](https://www.getitc.com/support) Britta Simon TurboRater kullanıcı olarak eklenecek. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, B. Simon TurboRater içinde adlı bir kullanıcı oluşturun. Çalışmak [TurboRater Destek ekibine](https://www.getitc.com/support) b Simon TurboRater kullanıcı olarak eklenecek. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

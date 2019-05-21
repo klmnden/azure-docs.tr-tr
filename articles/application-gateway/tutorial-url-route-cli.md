@@ -1,27 +1,27 @@
 ---
-title: Öğretici - URL'ye göre web trafiğini yönlendirme -Azure CLI
-description: Bu öğreticide Azure CLI kullanarak sunucuların belirli ölçeklenebilir havuzlarının URL'sine göre web trafiğini yönlendirmeyi öğreneceksiniz.
+title: Web trafiğini yönlendirme URL'sine bağlı - Azure CLI
+description: Bu makalede, Azure CLI kullanarak sunucularının belirli ölçeklenebilir havuzları URL'sine göre web trafiği yönlendirmeyi öğrenin.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006482"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955573"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak URL'sini temel alarak web trafiğini yönlendirme
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI kullanarak URL'sini temel alarak web trafiğini yönlendirme
 
-Web trafiğini yöneten bir BT yöneticisi olarak müşterilerinizin ihtiyaç duydukları bilgilere mümkün olan en hızlı şekilde ulaşmalarına yardımcı olmak istersiniz. Müşteri deneyimini iyileştirmenin bir yolu da farklı türlerdeki web trafiğini farklı sunucu kaynaklarına yönlendirmektir. Bu öğreticide Azure CLI'yi kullanarak uygulamanızda farklı trafik türleri için Application Gateway yönlendirme kurulumunu ve yapılandırmasını gerçekleştirme adımları gösterilmektedir. Yönlendirme, trafiği URL'ye göre farklı sunucu havuzlarına yönlendirir.
+Web trafiğini yöneten bir BT yöneticisi olarak müşterilerinizin ihtiyaç duydukları bilgilere mümkün olan en hızlı şekilde ulaşmalarına yardımcı olmak istersiniz. Müşteri deneyimini iyileştirmenin bir yolu da farklı türlerdeki web trafiğini farklı sunucu kaynaklarına yönlendirmektir. Bu makalede Azure CLI'yı kurma ve uygulamanızın farklı trafik türleri için uygulama ağ geçidi yönlendirme yapılandırma için nasıl kullanılacağını gösterir. Yönlendirme, trafiği URL'ye göre farklı sunucu havuzlarına yönlendirir.
 
 ![URL yönlendirme örneği](./media/tutorial-url-route-cli/scenario.png)
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * İhtiyacınız olacak ağ kaynakları için bir kaynak grubu oluşturma
@@ -31,15 +31,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Otomatik ölçeklendirme gerçekleştirmek için her havuzda bir ölçek kümesi oluşturma
 > * Farklı trafik türlerinin doğru havuza gittiğini doğrulamak için bir test gerçekleştirme
 
-Tercih ederseniz, [Azure PowerShell](tutorial-url-route-powershell.md) veya [Azure portal](create-url-route-portal.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
+Tercih ederseniz, bu yordamı kullanarak tamamlayabilirsiniz [Azure PowerShell](tutorial-url-route-powershell.md) veya [Azure portalında](create-url-route-portal.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale Azure CLI 2.0.4 sürümünü çalıştırmanızı gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. `az group create` komutunu kullanarak bir kaynak grubu oluşturun.
 
@@ -165,7 +165,7 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-a-routing-rule"></a>Yönlendirme kuralı ekleme
+### <a name="add-a-routing-rule"></a>Yönlendirme kuralı ekle
 
 Yönlendirme kuralı URL eşlemelerini oluşturduğunuz dinleyici ile ilişkilendirir. `az network application-gateway rule create` komutunu kullanarak *rule2* adlı bir kural ekleyin.
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>VM ölçek kümelerini oluşturma
 
-Bu örnekte, oluşturduğunuz üç arka uç havuzunu destekleyen üç sanal makine ölçek kümesi oluşturursunuz. Oluşturduğunuz ölçek kümeleri *myvmss1*, *myvmss2* ve *myvmss3* olarak adlandırılır. Her bir ölçek kümesi NGINX yükleyeceğiniz iki sanal makine örneği içerir.
+Bu makalede, oluşturduğunuz üç arka uç havuzu destekleyen üç sanal makine ölçek kümeleri oluşturun. Oluşturduğunuz ölçek kümeleri *myvmss1*, *myvmss2* ve *myvmss3* olarak adlandırılır. Her bir ölçek kümesi NGINX yükleyeceğiniz iki sanal makine örneği içerir.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [URL yolu tabanlı yönlendirme ile bir uygulama ağ geçidi oluşturma](./tutorial-url-redirect-cli.md)
+* [URL yolu tabanlı yönlendirme ile bir uygulama ağ geçidi oluşturma](./tutorial-url-redirect-cli.md)

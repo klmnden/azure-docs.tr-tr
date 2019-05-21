@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145049"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949606"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Öğretici: Statik bir Web sitesi için SSL ile özel etki alanı etkinleştirmek için Azure CDN'yi kullanma
 
@@ -44,8 +44,9 @@ Oturum [Azure portalında](https://portal.azure.com/) kullanmaya başlamak için
 1. İçinde **yeni uç nokta** bölümünde, yeni bir CDN uç noktası oluşturmak için alanları doldurun.
 1. Bir uç nokta adı gibi girin *mystaticwebsiteCDN*.
 1. Web sitesi etki alanınızı CDN uç noktanız için ana bilgisayar girin.
-1. Kaynak konak adı için girin, statik Web sitesi uç nokta demektir. Statik Web sitesi uç noktanızı bulmak için gidin **statik Web sitesi** bölümünde depolama hesabınız için ve uç noktasını kopyalayın. 
+1. Kaynak konak adı için girin, statik Web sitesi uç nokta demektir. Statik Web sitesi uç noktanızı bulmak için gidin **statik Web sitesi** bölümünde depolama hesabınız için ve (kaldırma önceki https://) uç noktasını kopyalayın
 1. CDN uç noktanıza giderek test *mywebsitecdn.azureedge.net* tarayıcınızda.
+1. Etki alanı doğrulama giderek **yeni uç nokta** ayarları, kaynak türü ayarlanırsa görmek için kaynak *özel kaynak* ve *kaynak konak adı* statik görüntüler webiste uç nokta adı.
 
 ## <a name="enable-custom-domain-and-ssl"></a>Özel etki alanı ve SSL etkinleştir
 

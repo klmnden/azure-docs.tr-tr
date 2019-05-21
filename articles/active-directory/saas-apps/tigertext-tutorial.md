@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 7507e5d23898fd069797c14d0fa18419b8345d78
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.openlocfilehash: 840b1fe55556cfd853e0928164891d6b21b17cc2
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888271"
+ms.locfileid: "65956873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Öğretici: TigerText güvenli Messenger ile Azure Active Directory Tümleştirme
 
@@ -156,7 +156,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma TigerText Messenger güvenli erişim vererek kullanmak Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma TigerText Messenger'a güvenli erişimi vererek kullanmak Britta Simon etkinleştirin.
 
 1. Azure portalında **kurumsal uygulamalar** > **tüm uygulamaları** > **TigerText güvenli Messenger**.
 

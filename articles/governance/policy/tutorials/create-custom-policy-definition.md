@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f9dc6e98e184e6eeeca3a56ff4a28739369a3d24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800492"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979661"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Öğretici: Özel ilke tanımı oluşturma
 
@@ -46,12 +46,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Gereksinimlerinizi açıkça hem de tanımlamanız gerekir "" ve "olmayacak biçimde" kaynak durumları.
 
-Beklenen kaynak durumunu tanımladığımız, ancak biz istediğimiz tanımlanmamış henüz ile uyumlu olmayan kaynakları yaptık. İlke destekleyen bir dizi [etkileri](../concepts/effects.md). Bu öğretici için iş kuralları ile uyumlu değilse kaynaklarının oluşturulmasını önleyen olarak size yönelik iş gereksinimini tanımlarsınız. Bu hedefe ulaşmak için kullanacağız [Reddet](../concepts/effects.md#deny) efekt. İlkeyi belirli atamalar için askıya alma seçeneği de istiyoruz. Bu nedenle, kullanacağız [devre dışı bırakılmış](../concepts/effects.md#disabled) efekt ve uygulanması bir [parametre](../concepts/definition-structure.md#parameters) ilke tanımı'ndaki.
+Beklenen kaynak durumunu tanımladığımız, ancak biz istediğimiz tanımlanmamış henüz ile uyumlu olmayan kaynakları yaptık. Azure İlkesi, bir dizi destekler [etkileri](../concepts/effects.md). Bu öğretici için iş kuralları ile uyumlu değilse kaynaklarının oluşturulmasını önleyen olarak size yönelik iş gereksinimini tanımlarsınız. Bu hedefe ulaşmak için kullanacağız [Reddet](../concepts/effects.md#deny) efekt. İlkeyi belirli atamalar için askıya alma seçeneği de istiyoruz. Bu nedenle, kullanacağız [devre dışı bırakılmış](../concepts/effects.md#disabled) efekt ve uygulanması bir [parametre](../concepts/definition-structure.md#parameters) ilke tanımı'ndaki.
 
 ## <a name="determine-resource-properties"></a>Kaynak özelliklerini belirleme
 
-İş gereksinimi temel alan, Denetim İlkesi ile Azure kaynak depolama hesabı anlamına gelmektedir.
-Ancak biz özelliklerini ilke tanımında kullanmak üzere bilmiyorum. Biz bu kaynakta mevcut olan özelliklerin anlamanız gereken şekilde kaynak JSON temsili karşı ilkeyi değerlendirir.
+İş gereksinimi temel alan, Azure İlkesi ile denetlemek için Azure kaynak depolama hesabı anlamına gelmektedir. Ancak biz özelliklerini ilke tanımında kullanmak üzere bilmiyorum. Azure İlkesi, bu nedenle bu kaynakta mevcut olan özelliklerin anlamanız gerekir kaynak JSON temsili karşı değerlendirir.
 
 Bir Azure kaynak özelliklerini belirlemek için birçok yolu vardır. Bu öğretici için her şu konuları inceleyeceğiz:
 
@@ -121,8 +120,7 @@ Altında **özellikleri** adlı bir değer **supportsHttpsTrafficOnly** kümesin
 
 #### <a name="create-a-resource-in-the-portal"></a>Portalda kaynak oluştur
 
-Portal üzerinden başka bir yolu kaynak oluşturma deneyimidir. Bir depolama hesabı altındaki bir seçenek portal üzerinden oluşturulurken **Gelişmiş** sekmesi **gerekli güvenlik aktarımı**.
-Bu özelliğin _devre dışı bırakılmış_ ve _etkin_ seçenekleri. Bu seçeneği, büyük olasılıkla istiyoruz özelliği olduğunu doğrular, ek metin bilgi simgesine sahip. Ancak, portalda özellik adı bu ekranda bize değil.
+Portal üzerinden başka bir yolu kaynak oluşturma deneyimidir. Bir depolama hesabı altındaki bir seçenek portal üzerinden oluşturulurken **Gelişmiş** sekmesi **gerekli güvenlik aktarımı**. Bu özelliğin _devre dışı bırakılmış_ ve _etkin_ seçenekleri. Bu seçeneği, büyük olasılıkla istiyoruz özelliği olduğunu doğrular, ek metin bilgi simgesine sahip. Ancak, portalda özellik adı bu ekranda bize değil.
 
 Üzerinde **gözden geçir + Oluştur** sekmesi, bir bağlantı olduğu için sayfanın alt kısmındaki **Otomasyon için bir şablonunu indirebilirsiniz**. Bağlantı seçildiğinde, biz yapılandırılmış kaynak oluşturan şablonu açar. Bu durumda, iki temel bilgi parçasını bakın:
 
@@ -181,8 +179,7 @@ Sonuçlarda adlı depolama hesabı tarafından desteklenen bir diğer ad görüy
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell'de `Get-AzPolicyAlias` cmdlet'i, kaynak diğer adları aramak için kullanılır.
-İçin filtreleyeceğiz **Microsoft.Storage** ad alanı temel aldık Azure kaynak hakkında daha önce ayrıntıları.
+Azure PowerShell'de `Get-AzPolicyAlias` cmdlet'i, kaynak diğer adları aramak için kullanılır. İçin filtreleyeceğiz **Microsoft.Storage** ad alanı temel aldık Azure kaynak hakkında daha önce ayrıntıları.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -312,7 +309,8 @@ Azure Kaynak Grafiği (Önizleme) aracılığıyla kullanılabilir [Cloud Shell]
 
 ## <a name="determine-the-effect-to-use"></a>Kullanılacak etkisini belirlemek
 
-Uyumlu olmayan kaynaklarınızla yapmanız gerekenler karar ne ilk başta değerlendirilecek karar olarak neredeyse da önemlidir. Uyumlu olmayan bir kaynağa her olası yanıt olarak adlandırılan bir [etkisi](../concepts/effects.md). Uyumlu olmayan kaynak açtıysa engellenen etkili denetimler veri eklenmiş veya bir dağıtım için kaynak geri uyumlu duruma koymak için ilişkili.
+Uyumlu olmayan kaynaklarınızla yapmanız gerekenler karar ne ilk başta değerlendirilecek karar olarak neredeyse da önemlidir. Uyumlu olmayan bir kaynağa her olası yanıt olarak adlandırılan bir [etkisi](../concepts/effects.md).
+Uyumlu olmayan kaynak açtıysa engellenen etkili denetimler veri eklenmiş veya bir dağıtım için kaynak geri uyumlu duruma koymak için ilişkili.
 
 Bizim örneğimizde, reddetme, uyumlu olmayan kaynakları Azure ortamımızda oluşturulan istemediğiniz gibi istiyoruz etkisidir. Denetim Reddet olarak ayarlamadan önce bir ilkenin etkisi nedir belirlemek bir ilke etkisi için iyi bir ilk seçimdir. Daha kolay atama temelinde geçerli değiştirmek için bir efekti parametre haline getirmek için yoludur. Bkz: [parametreleri](#parameters) aşağıda hakkında ayrıntılar için.
 

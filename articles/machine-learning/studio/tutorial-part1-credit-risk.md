@@ -1,5 +1,5 @@
 ---
-title: '1. Öğretici: Kredi riskini tahmin etme'
+title: '1. Öğretici: Kredi riski tahmini'
 titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio'da bir kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü oluşturmayı gösteren ayrıntılı bir öğretici. Bu öğretici üç bölümden öğretici serisinin birinci bölümüdür.  Bu, bir çalışma alanı oluşturun, karşıya yüklemek ve bir deneme oluşturma işlemini göstermektedir.
 keywords: kredi riski, tahmine dayalı analiz çözümü, risk değerlendirmesi
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461189"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949799"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>1. Öğretici: Kredi riskini - Azure Machine Learning Studio tahmin
 
@@ -78,7 +78,7 @@ Adlı dosyayı kullanacaksınız **german.data**. Bu dosya yerel sabit sürücü
 
 UCI Web sitesi öznitelikleri özellik vektör bu veriler için bir açıklama sağlar. Bu veriler, finansal bilgi, kredi geçmişi, iş durumu ve kişisel bilgileri içerir. Her başvuran için ikili bir derecelendirme düşük olup olmadığını gösteren belirli veya yüksek olan kredi riski. 
 
-Bu veriler, Tahmine dayalı analiz modeli eğitmek için kullanacaksınız. İşiniz bittiğinde, modelinizi yeni bir kişiye ait bir özellik vektör kabul edip isterse düşük veya yüksek kredi riski mi olduğunu tahmin etmek mümkün olması gerekir.  
+Bu veriler, Tahmine dayalı analiz modeli eğitmek için kullanacaksınız. İşiniz bittiğinde, model bir özellik vektör yeni bir kişiye ait kabul edin ve düşük veya yüksek kredi riski olup olmadığını tahmin olmalıdır.  
 
 İlginç bir sürpriz aşağıda verilmiştir.
 

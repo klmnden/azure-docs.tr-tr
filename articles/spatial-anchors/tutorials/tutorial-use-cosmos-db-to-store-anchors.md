@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19c2298c9bda03acba28496a97c89c2a53e3c44e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681410"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964906"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Öğretici: Paylaşım Azure uzamsal bağlayıcılarını oturumları ve cihazlar arasında bir Azure Cosmos DB ile arka uç
 
@@ -70,7 +70,7 @@ Bulun `StorageConnectionString` özelliği ve aynı olacak şekilde değeri ayar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure Cosmos DB bağlantı tanımlayıcıları cihaz üzerinden paylaşmalarını kullandınız. Yeni bir Android uygulaması Azure uzamsal bağlayıcıları kullanma hakkında daha fazla bilgi edinmek için sonraki öğreticiye devam edin.
+Bu öğreticide, Azure Cosmos DB bağlantı tanımlayıcıları cihaz üzerinden paylaşmalarını kullandınız. Yeni bir Unity HoloLens uygulama Azure uzamsal bağlayıcıları kullanma hakkında daha fazla bilgi edinmek için sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Yeni bir Android uygulaması başlatılıyor](./tutorial-new-android-app.md)
+> [Yeni bir Android uygulaması başlatılıyor](./tutorial-new-unity-hololens-app.md)

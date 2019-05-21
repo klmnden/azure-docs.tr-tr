@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864044"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Öğretici: Boomi ile Azure Active Directory Tümleştirme
 
@@ -251,9 +251,9 @@ Boomi için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bu
 
     d. Kullanıcının girin **Federasyon kimliği**. Her kullanıcının kullanıcı hesabı içinde benzersiz olarak tanımlayan bir Federasyon kimliği olması gerekir.
 
-    e. Ata **standart kullanıcı** kullanıcı rolü. İlişkiyi çoklu oturum açma erişimi yanı sıra normal Atmosfer erişim vereceği için Yönetici rolü atamayın.
+    e. Ata **standart kullanıcı** kullanıcı rolü. Yönetici rolü olduğundan, bunları çoklu oturum açma erişimi yanı sıra normal Atmosfer erişim verirsiniz atamayın.
 
-    f. **Tamam** düğmesine tıklayın.
+    f. **Tamam**'ı tıklatın.
 
     > [!NOTE]
     > Kullanıcı parolasını kimlik sağlayıcısı olarak yönetildiğinden AtomSphere hesabında oturum açma için kullanılan bir parola içeren bir Hoş Geldiniz bildirim e-posta alırsınız. Herhangi diğer Boomi kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Boomi tarafından sağlanan.

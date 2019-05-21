@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190804"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962198"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
@@ -178,12 +178,12 @@ Ayrıca, kullanıcının yerel intranet bölgesinde **Betik yoluyla durum çubu�
 
 ### <a name="configure-seamless-sso"></a>Sorunsuz çoklu oturum açmayı yapılandırın
 
-Ayrıca gerekir, sizin Windows başarıyla tamamlanması hibrit Azure AD'ye katılmak için kimlik doğrulama yöntemi Azure AD geçişli kimlik doğrulaması (PTA) ya da parola karması eşitleme (PHS) kullanan bir yönetilen etki alanındaki alt düzey cihazları bulut [yapılandırın Sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Ayrıca gerekir, sizin Windows başarıyla tamamlanması hibrit Azure AD'ye katılmak için kimlik doğrulama yöntemi Azure AD geçişli kimlik doğrulaması (PTA) ya da parola karması eşitleme (PHS) kullanan bir yönetilen etki alanındaki alt düzey cihazları bulut [yapılandırın Sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Sorunsuz çoklu oturum açmayı yapılandırma ile ilgili sorunlar yaşıyorsanız, bkz [sorun giderme Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Windows alt düzey cihazlarını denetleme 
 
-Windows alt düzey cihazlarını kaydetmek için İndirme Merkezi’nden bir Windows Installer paketi (.msi) indirip yüklemeniz gerekir. Daha fazla bilgi için [buraya](hybrid-azuread-join-control.md#control-windows-down-level-devices) tıklayın. 
+Windows alt düzey cihazlarını kaydetmek için İndirme Merkezi’nden bir Windows Installer paketi (.msi) indirip yüklemeniz gerekir. Daha fazla bilgi için bkz [cihazlarınızı hibrit Azure AD'ye katılma denetim](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 
 ## <a name="verify-the-registration"></a>Kaydı doğrulama

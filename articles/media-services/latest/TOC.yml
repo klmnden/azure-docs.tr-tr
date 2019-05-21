@@ -49,6 +49,7 @@
       items:
         - name: Depolama
           href: storage-account-concept.md
+          displayName: Storage side encryption
         - name: Varlıklar API’si
           href: assets-concept.md
     - name: Encoding
@@ -169,6 +170,7 @@
       items:
         - name: Hesap oluşturma - CLI
           href: create-account-cli-how-to.md
+          displayName: storage
         - name: Hesap kimlik bilgilerini sıfırlama - CLI
           href: cli-reset-account-credentials.md
         - name: API'lere erişim - CLI

@@ -3,33 +3,23 @@ title: Web uygulaması güvenlik duvarını etkinleştirme - Azure CLI
 description: Azure CLI kullanarak bir uygulama ağ geçidinde web uygulaması güvenlik duvarı ile web trafiğini kısıtlama hakkında bilgi edinin.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407176"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955484"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Azure CLI kullanarak web uygulaması Güvenlik Duvarı'nı etkinleştir
 
-> [!div class="op_single_selector"]
->
-> - [Azure portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+Bir [uygulama ağ geçidi](overview.md) üzerindeki trafiği [web uygulaması güvenlik duvarı](waf-overview.md) (WAF) ile kısıtlayabilirsiniz. WAF, uygulamanızı korumak için [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) kurallarını kullanır. Bu kurallar SQL ekleme, siteler arası betik saldırıları ve oturum ele geçirme gibi saldırılara karşı korumayı içerir.
 
-Bir [uygulama ağ geçidi](overview.md) üzerindeki trafiği [web uygulaması güvenlik duvarı](waf-overview.md) (WAF) ile kısıtlayabilirsiniz. WAF, uygulamanızı korumak için [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) kurallarını kullanır. Bu kurallar SQL ekleme, siteler arası betik saldırıları ve oturum ele geçirme gibi saldırılara karşı korumayı içerir. 
-
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Ağı ayarlama
@@ -39,15 +29,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ![Web uygulaması güvenlik duvarı örneği](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Tercih ederseniz, bu öğreticiyi [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) kullanarak tamamlayabilirsiniz.
+Tercih ederseniz, bu yordamı kullanarak tamamlayabilirsiniz [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. *az group create* komutuyla [myResourceGroupAG](/cli/azure/group#az-group-create) adlı bir Azure kaynak grubu oluşturun.
 
@@ -148,7 +138,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Bir depolama hesabı oluşturma ve tanılamaları yapılandırma
 
-Bu öğreticide uygulama ağ geçidi, algılama ve önleme amacıyla verileri depolamak için bir depolama hesabı kullanır. Veri kaydetmek için Azure İzleyici günlüklerine veya olay hub'ı kullanabilirsiniz. 
+Bu makalede, uygulama ağ geçidi, algılama ve önleme amacıyla verileri depolamak için bir depolama hesabı kullanır. Veri kaydetmek için Azure İzleyici günlüklerine veya olay hub'ı kullanabilirsiniz. 
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -196,18 +186,9 @@ az network public-ip show \
 Artık gerekli olmadığında kaynak grubunu, uygulama ağ geçidini ve tüm ilgili kaynakları silin.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Ağı ayarlama
-> * WAF etkinken bir uygulama ağ geçidi oluşturma
-> * Sanal makine ölçek kümesi oluşturma
-> * Bir depolama hesabı oluşturma ve tanılamaları yapılandırma
-
-> [!div class="nextstepaction"]
-> [SSL sonlandırma ile bir uygulama ağ geçidi oluşturma](./tutorial-ssl-cli.md)
+* [SSL sonlandırma ile bir uygulama ağ geçidi oluşturma](./tutorial-ssl-cli.md)

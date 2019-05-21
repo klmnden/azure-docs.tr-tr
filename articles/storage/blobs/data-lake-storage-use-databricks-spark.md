@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788071"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951386"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 
@@ -48,7 +48,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
   > [!IMPORTANT]
   > Data Lake depolama Gen2'ye depolama hesabı kapsamında bir rol atamak emin olun. Üst kaynak grubuna veya aboneliğe rol atayabilir, ancak bu rol atamaları depolama hesabına dolmaya başladığını kadar izinleri ile ilgili hataları alırsınız.
 
-  :heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
+  :heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve parola değerlerini bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
 ### <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 
@@ -82,11 +82,9 @@ Bu bölümde, Azure portalını kullanarak bir Azure Databricks hizmeti oluştur
 
     ![Bir Azure Databricks çalışma alanı oluşturma](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "bir Azure Databricks hizmeti oluşturma")
 
-3. **Panoya sabitle**’yi ve sonra **Oluştur**’u seçin.
+3. Hesabın oluşturulması birkaç dakika sürer. İşlem durumunu izlemek için üst kısmında ilerleme çubuğunu görüntüleyin.
 
-4. Hesabın oluşturulması birkaç dakika sürer. Hesap oluşturma sırasında portal görüntüler **Azure Databricks için dağıtım gönderiliyor** kutucuğuna sağ tarafta. İşlem durumunu izlemek için üst kısmında ilerleme çubuğunu görüntüleyin.
-
-    ![Databricks dağıtım kutucuğu](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Databricks dağıtım kutucuğu")
+4. **Panoya sabitle**’yi ve sonra **Oluştur**’u seçin.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Azure Databricks’te Spark kümesi oluşturma
 
@@ -179,7 +177,7 @@ Belirtilen yer tutucuları değiştirmek için bu değerleri kullanırsınız.
    * Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
 
    > [!NOTE]
-   > Bir üretim ayarında, Azure Databricks'te, kimlik doğrulama anahtarı depolamayı düşünün. Ardından, kimlik doğrulama anahtarı yerine, kod bloğu için bir arama anahtarı ekleyin. Bu hızlı başlangıcı tamamladıktan sonra bkz [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makalede bu yaklaşım örneklerini görmek için Azure Databricks Web sitesinde.
+   > Bir üretim ayarında, Azure Databricks'te parolanızı depolamayı düşünün. Ardından, arama anahtarı parolası yerine, kod bloğu ekleyin. Bu hızlı başlangıcı tamamladıktan sonra bkz [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makalede bu yaklaşım örneklerini görmek için Azure Databricks Web sitesinde.
 
 19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 

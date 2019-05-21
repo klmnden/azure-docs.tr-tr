@@ -75,9 +75,10 @@
       items:
         - name: Sanal ağ ile erişimi sınırlandırma (önizleme)
           href: container-registry-vnet.md
-        - name: Kimlik Doğrulamasına genel bakış
-          href: container-registry-authentication.md
+        - name: Kimlik Doğrulaması
           items:
+            - name: Kimlik Doğrulamasına genel bakış
+              href: container-registry-authentication.md
             - name: Hizmet sorumlusu kimlik doğrulaması
               href: container-registry-auth-service-principal.md
             - name: Yönetilen kimlik doğrulaması
@@ -143,3 +144,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
     - name: Videolar
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'
+    - name: SSS
+      href: container-registry-faq.md

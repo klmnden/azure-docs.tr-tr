@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081317"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65954792"
 ---
 1. Visual Studio 2017'yi başlatın.
 
@@ -23,7 +23,7 @@ ms.locfileid: "65081317"
 
     ![Yeni Proje iletişim kutusunun ekran görüntüsü](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Hız SDK’sı, uygulamanızın Windows 10 Fall Creators Update veya sonraki sürümü için derlenmiş olmasını gerektirir. Çıkan **Yeni Evrensel Windows Platformu Projesi** penceresinde **Windows 10 Fall Creators Update (10.0; Sürüm 16299)** seçeneğini **En düşük sürüm** olarak belirleyin. **Hedef sürümü** kutusunda, bu veya sonraki bir sürümü seçin ve ardından **Tamam**’a tıklayın.
+1. Speech SDK'sı, uygulamanızı Windows 10 Fall Creators Update veya üzeri oluşturulması gerekir. Çıkan **Yeni Evrensel Windows Platformu Projesi** penceresinde **Windows 10 Fall Creators Update (10.0; Sürüm 16299)** seçeneğini **En düşük sürüm** olarak belirleyin. **Hedef sürümü** kutusunda, bu veya sonraki bir sürümü seçin ve ardından **Tamam**’a tıklayın.
 
     ![Yeni Evrensel Windows Platformu Projesi penceresinin ekran görüntüsü](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

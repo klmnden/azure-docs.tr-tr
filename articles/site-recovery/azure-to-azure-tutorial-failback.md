@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc2bd50fda34b493463898d8ef47ed2c246b7d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790099"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951794"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Azure bölgeleri arasında Azure VM ilk duruma döndürme
 
@@ -29,7 +29,7 @@ Bu öğreticide, tek bir Azure VM geri dönecek şekilde açıklar. Yük devrett
 > 
 > [!NOTE]
 > 
-> Bu öğretici, hedef bölge ve kaynak bölge en düşük özelleştirmelerle geri için birkaç sanal makine yük devretmek için yardımcı olur. Daha fazla ayrıntılı yönergeler için gözden [nasıl yapılır kılavuzları Azure Vm'lerinde](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/).
+> Bu öğretici, hedef bölge ve kaynak bölge en düşük özelleştirmelerle geri için birkaç sanal makine yük devretmek için yardımcı olur. Daha fazla ayrıntılı yönergeler için gözden [nasıl yapılır kılavuzları Azure Vm'lerinde](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
 ## <a name="before-you-start"></a>Başlamadan önce
 

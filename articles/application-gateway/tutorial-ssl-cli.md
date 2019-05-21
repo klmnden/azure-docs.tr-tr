@@ -7,21 +7,21 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233275"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955692"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak SSL sonlandırma ile bir uygulama ağ geçidi oluşturma
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Azure CLI kullanarak SSL sonlandırma ile bir uygulama ağ geçidi oluşturma
 
 Azure CLI’yı arka uç sunucuları için bir [sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) kullanan bir [SSL sonlandırma](ssl-overview.md) sertifikası bulunan bir [uygulama ağ geçidi](overview.md) oluşturmak için kullanabilirsiniz. Bu örnekte örnek kümesi, uygulama ağ geçidinin varsayılan arka uç havuzuna eklenen iki sanal makine örneğini içerir.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Otomatik olarak imzalanan sertifika oluşturma
@@ -29,17 +29,17 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Sertifikalı bir uygulama ağ geçidi oluşturma
 > * Varsayılan arka uç havuzuyla bir sanal makine ölçek kümesi oluşturma
 
-Tercih ederseniz, bu öğreticiyi [Azure PowerShell](tutorial-ssl-powershell.md) kullanarak tamamlayabilirsiniz.
+Tercih ederseniz, bu yordamı kullanarak tamamlayabilirsiniz [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale Azure CLI 2.0.4 sürümünü çalıştırmanızı gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika oluşturma
 
-Üretim sırasında kullanım için, güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu öğretici için openssl komutunu kullanarak otomatik olarak imzalanan bir sertifika ve pfx dosyası oluşturursunuz.
+Üretim sırasında kullanım için, güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu makale için bir otomatik olarak imzalanan sertifika ve pfx dosyasını openssl komutunu kullanarak oluşturun.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -53,7 +53,7 @@ openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.cr
 
 Sertifika için parola belirtin. Bu örnekte *Azure123456!* kullanılmaktadır.
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. [az group create](/cli/azure/group) ile bir kaynak grubu oluşturun.
 
@@ -183,5 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Birden çok web sitesi barındıran bir uygulama ağ geçidi oluşturma](./tutorial-multiple-sites-cli.md)
+* [Birden çok web sitesi barındıran bir uygulama ağ geçidi oluşturma](./tutorial-multiple-sites-cli.md)

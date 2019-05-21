@@ -6,6 +6,9 @@
     - name: Azure Machine Learning hizmeti nedir?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
+    - name: Bu hizmet nasıl çalışır?
+      displayName: architecture concepts definitions
+      href: concept-azure-machine-learning-architecture.md
 - name: Kurulum
   items:
     - name: Çalışma alanı oluşturma
@@ -77,9 +80,6 @@
           href: ui-sample-classification-predict-churn.md
 - name: Kavramlar
   items:
-    - name: Bu hizmet nasıl çalışır?
-      displayName: architecture concepts definitions
-      href: concept-azure-machine-learning-architecture.md
     - name: Çalışma alanı
       displayName: concept definitions architecture
       href: concept-workspace.md

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/17/2019
-ms.openlocfilehash: 7c60b2ae3d403584822e694daf3357b86cba34d7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a6a681ace95f9bab3c77e4a0f9982a2281c778b8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864758"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966434"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek
 
@@ -63,7 +63,7 @@ Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlayın:
 
       Belirli dosya veya dizin, başvuru ile hizmet sorumlusu ilişkilendirmek için bir erişim denetimi listesi (ACL) kullanmayı tercih ederseniz [Azure Data Lake depolama Gen2'deki erişim denetimi](../storage/blobs/data-lake-storage-access-control.md).
 
-   * Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
+   * Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve parola değerlerini bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
 * [Azure Portal](https://portal.azure.com/) oturum açın.
 
@@ -103,11 +103,9 @@ Bu bölümde, Azure portalını kullanarak bir Azure Databricks hizmeti oluştur
     |**Konum**     | **Batı ABD 2**'yi seçin.  Kullanılabilir diğer bölgeler için bkz. [Bölgeye göre kullanılabilir Azure hizmetleri](https://azure.microsoft.com/regions/services/).      |
     |**Fiyatlandırma Katmanı**     |  Seçin **standart**.     |
 
-3. **Panoya sabitle**’yi ve sonra **Oluştur**’u seçin.
+3. Hesabın oluşturulması birkaç dakika sürer. İşlem durumunu izlemek için üst kısmında ilerleme çubuğunu görüntüleyin.
 
-4. Hesabın oluşturulması birkaç dakika sürer. Hesap oluşturma sırasında portal görüntüler **Azure Databricks için dağıtım gönderiliyor** kutucuğuna sağ tarafta. İşlem durumunu izlemek için üst kısmında ilerleme çubuğunu görüntüleyin.
-
-    ![Databricks dağıtım kutucuğu](./media/databricks-extract-load-sql-data-warehouse/databricks-deployment-tile.png "Databricks dağıtım kutucuğu")
+4. **Panoya sabitle**’yi ve sonra **Oluştur**’u seçin.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Azure Databricks’te Spark kümesi oluşturma
 
@@ -154,8 +152,8 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturun v
    ```scala
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
@@ -167,17 +165,17 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturun v
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. Bu kod bloğunda değiştirin `application-id`, `authentication-id`, `tenant-id`, ve `storage-account-name` Bu kod bloğu içinde yer tutucu değerlerini Bu öğretici önkoşulları tamamlanırken toplanan değerlere sahip. Değiştirin `file-system-name` yer tutucu değerini, ad ile istediğiniz dosya sistemi sağlar.
+6. Bu kod bloğunda değiştirin `appID`, `password`, `tenant-id`, ve `storage-account-name` Bu kod bloğu içinde yer tutucu değerlerini Bu öğretici önkoşulları tamamlanırken toplanan değerlere sahip. Değiştirin `file-system-name` yer tutucu değerini, ad ile istediğiniz dosya sistemi sağlar.
 
-   * `application-id`, Ve `authentication-id` uygulamasından active Directory Hizmet sorumlusu oluşturma işleminin parçası olarak kayıtlı olduğunuz.
+   * `appID`, Ve `password` uygulamasından active Directory Hizmet sorumlusu oluşturma işleminin parçası olarak kayıtlı olduğunuz.
 
    * `tenant-id` Aboneliğinizden olduğu.
 
@@ -338,7 +336,7 @@ Daha önce bahsedildiği gibi SQL veri ambarı Bağlayıcısı verileri Azure Da
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Azure SQL Veri Ambarı örneğine bağlanmak için değerleri sağlayın. SQL veri ambarı bir önkoşul olarak oluşturmuş olmanız gerekir.
+4. Azure SQL Veri Ambarı örneğine bağlanmak için değerleri sağlayın. SQL veri ambarı bir önkoşul olarak oluşturmuş olmanız gerekir. Tam sunucu adı için **dwServer**. Örneğin, `<servername>.database.windows.net`.
 
    ```scala
    //SQL Data Warehouse related settings

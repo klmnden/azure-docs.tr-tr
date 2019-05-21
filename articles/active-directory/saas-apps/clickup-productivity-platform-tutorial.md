@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900469"
+ms.locfileid: "65950923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Öğretici: Azure Active Directory tümleştirmesiyle ClickUp üretkenlik platformu
 
@@ -203,7 +203,7 @@ Bu bölümde, ClickUp üretkenlik platformu için erişim izni verdiğinizde, Az
     ![ClickUp üretkenlik yapılandırma](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
-    > Kullanıcı bildirimi alırsınız ve he hesabını etkinleştirmek için daveti kabul etmesi gerekir.
+    > Kullanıcı bildirimi alırsınız ve hesabını etkinleştirmek için daveti kabul etmeniz gerekir.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

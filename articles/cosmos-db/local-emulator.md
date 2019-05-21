@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 03/14/2019
-ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205781"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953967"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos öykünücüsünü kullanma
 
@@ -243,7 +243,7 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
 | GetStatus |Azure Cosmos öykünücüsü'nü durumunu alır. Durum, çıkış kodu tarafından belirtilir: 1 = başlangıç, 2 çalışan, 3 = = durduruldu. Negatif çıkış kodu, bir hata oluştuğunu gösterir. Başka bir çıktı üretilmez. | CosmosDB.Emulator.exe /GetStatus| |
 | Kapat| Azure Cosmos öykünücüsü'nü kapatır.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Veri dosyalarının depolanacağı yolu belirtir. % LocalAppdata%\CosmosDBEmulator varsayılan değerdir. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<DataPath\>: Erişilebilir bir yol |
-|Bağlantı noktası | Öykünücü için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan değer 8081'dir. |CosmosDB.Emulator.exe /Port=\<port\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası |
+|Port | Öykünücü için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan değer 8081'dir. |CosmosDB.Emulator.exe /Port=\<port\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası |
 | MongoPort | MongoDB uyumluluk API’si için kullanılacak bağlantı noktası numarasını belirtir. 10255 olarak varsayılan değerdir. |CosmosDB.Emulator.exe /MongoPort = \<mongoport\>|\<mongoport\>: Tek bir bağlantı noktası numarası|
 | CassandraPort | Cassandra uç noktası için kullanılacak bağlantı noktası numarasını belirtir. 10350 varsayılan değerdir. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Tek bir bağlantı noktası numarası |
 | ComputePort | Belirtilen işlem Interop ağ geçidi hizmeti için kullanılacak bağlantı noktası numarası. Ağ geçidinin HTTP uç noktası araştırma bağlantı noktası ComputePort + 79 olarak hesaplanır. Bu nedenle, ComputePort ve ComputePort + 79 açık ve kullanılabilir olması gerekir. 8900, varsayılan değerler 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Tek bir bağlantı noktası numarası |

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: e7bd97d6ab197a061a33620b590e41acb486d934
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606850"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969289"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics ile telefon araması verileri analiz etmek ve Power BI panosunda sonuçlarını Görselleştirme
 
@@ -99,7 +99,7 @@ TelcoGenerator uygulamasını başlatmadan önce bunu, daha önce oluşturduğun
 3. Config dosyasındaki `<appSettings>` öğesini şu bilgilerle güncelleştirin:
 
    * *EventHubName* anahtarının değerini bağlantı dizesindeki EntityPath değerine ayarlayın.
-   * *Microsoft.ServiceBus.ConnectionString* anahtarının değerini EntityPath değerini kaldırdığınız bağlantı dizesine ayarlayın.
+   * Değerini *Microsoft.ServiceBus.ConnectionString* anahtar EntityPath değeri olmadan bağlantı dizesine (kendisinden noktalı virgülü kaldırmayı unutmayın).
 
 4. Dosyayı kaydedin.
 5. Daha sonra bir komut penceresi açıp, TelcoGenerator uygulamasının sıkıştırmasını açtığınız klasöre geçin. Ardından aşağıdaki komutu girin:

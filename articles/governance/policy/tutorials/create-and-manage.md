@@ -7,12 +7,12 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1a00d237ef94f73ebf59070d8160a7e5144b0ac8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800552"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979177"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Öğretici: Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme
 
@@ -42,11 +42,11 @@ Azure İlkesi ile uyumluluğu zorlamanın ilk adımı bir ilke tanımı atamakt�
 
    ![Atamalar sayfasından bir ilke tanımı atama](../media/create-and-manage/select-assign-policy.png)
 
-1. **İlke Ata** sayfasında üç noktaya tıklayıp bir yönetim grubu veya abonelik belirleyerek **Kapsam**’ı seçin. İsterseniz bir kaynak grubu seçin. Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler.  Ardından **Kapsam** sayfasının alt kısmından **Seç**’e tıklayın.
+1. **İlke Ata** sayfasında üç noktaya tıklayıp bir yönetim grubu veya abonelik belirleyerek **Kapsam**’ı seçin. İsterseniz bir kaynak grubu seçin. Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Ardından **Kapsam** sayfasının alt kısmından **Seç**’e tıklayın.
 
    Bu örnekte **Contoso** aboneliği kullanılır. Sizin aboneliğiniz farklı olacaktır.
 
-1. Kaynaklar **Kapsam**’a göre dışlanabilir.  **Dışlamalar**, **Kapsam**’dan bir düzey aşağıda başlatılır. **Dışlamalar** isteğe bağlıdır, bu yüzden şimdilik boş bırakın.
+1. Kaynaklar **Kapsam**’a göre dışlanabilir. **Dışlamalar**, **Kapsam**’dan bir düzey aşağıda başlatılır. **Dışlamalar** isteğe bağlıdır, bu yüzden şimdilik boş bırakın.
 
 1. **İlke tanımı** üç nokta öğesini seçerek kullanılabilen tanımların listesini açın. **Tür** değeri *Yerleşik* olan ilke tanımlarını filtreleyerek bunların tümünü görüntüleyebilir ve açıklamalarını okuyabilirsiniz.
 
@@ -54,7 +54,8 @@ Azure İlkesi ile uyumluluğu zorlamanın ilk adımı bir ilke tanımı atamakt�
 
    ![Bir ilke bulmak için arama filtresi kullanın.](../media/create-and-manage/select-available-definition.png)
 
-1. **Atama adı** otomatik olarak seçtiğiniz ilke adıyla doldurulur, ancak bunu değiştirebilirsiniz. Bu örnekte, *SQL Server sürüm 12.0 gerektir* ayarını değiştirmeyin. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. Açıklama, bu ilke atamasıyla ilgili ayrıntıları sağlar.  **Tarafından atanan** açan temel alınarak otomatik olarak doldurulur. Bu alan isteğe bağlı olduğu için özel değerler girilebilir.
+1. **Atama adı** otomatik olarak seçtiğiniz ilke adıyla doldurulur, ancak bunu değiştirebilirsiniz. Bu örnekte, *SQL Server sürüm 12.0 gerektir* ayarını değiştirmeyin. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. Açıklama, bu ilke atamasıyla ilgili ayrıntıları sağlar.
+   **Tarafından atanan** açan temel alınarak otomatik olarak doldurulur. Bu alan isteğe bağlı olduğu için özel değerler girilebilir.
 
 1. **Yönetilen Kimlik Oluşturun** seçeneğini işaretsiz bırakın. Bu kutuyu _gerekir_ işaretli olduğunda ilke veya girişim atandıktan sahip bir ilke içerir [Deployıfnotexists](../concepts/effects.md#deployifnotexists) efekt. Bu öğreticide kullanılan ilke bulunmadığından, boş bırakın. Daha fazla bilgi için [yönetilen kimlikler](../../../active-directory/managed-identities-azure-resources/overview.md) ve [düzeltme güvenliğinin işleyişi](../how-to/remediate-resources.md#how-remediation-security-works) bölümlerine bakın.
 
@@ -116,7 +117,7 @@ Artık bir yerleşik ilke tanımı atadığınıza göre, Azure İlkesi'yle daha
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>REST API ile ilke tanımı oluşturma
 
-İlke Tanımları için REST API ile ilke oluşturabilirsiniz. REST API, ilke tanımlarını oluşturmanıza ve silmenize, ayrıca mevcut tanımlar hakkında bilgi almanıza olanak tanır. İlke tanımı oluşturmak için aşağıdaki örneği kullanın:
+Azure ilke tanımları için REST API ile bir ilke oluşturabilirsiniz. REST API, ilke tanımlarını oluşturmanıza ve silmenize, ayrıca mevcut tanımlar hakkında bilgi almanıza olanak tanır. İlke tanımı oluşturmak için aşağıdaki örneği kullanın:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Aşağıdaki örnekte gösterilene benzer bir istek gövdesi ekleyin:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>PowerShell ile ilke tanımı oluşturma
 
-PowerShell örneğine devam etmeden önce Azure PowerShell Az modülünün en son sürümünü yüklediğiniz emin olun. 
+PowerShell örneğine devam etmeden önce Azure PowerShell Az modülünün en son sürümünü yüklediğiniz emin olun.
 
 `New-AzPolicyDefinition` cmdlet'ini kullanarak ilke tanımı oluşturabilirsiniz.
 
@@ -369,13 +370,14 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
    ![Girişim tanımı sayfasından bir tanımı atama](../media/create-and-manage/assign-definition.png)
 
-   Ayrıca, seçilen satıra sağ tıklayın veya bağlamsal menü satırın sonundaki üç noktaya üzerinde sol.  Sonra da **Ata**’yı seçebilirsiniz.
+   Ayrıca, seçilen satıra sağ tıklayın veya bağlamsal menü satırın sonundaki üç noktaya üzerinde sol. Sonra da **Ata**’yı seçebilirsiniz.
 
    ![Girişim için diğer seçenekleri](../media/create-and-manage/select-right-click.png)
 
 1. Doldurun **güvenliği sağlama: Girişim Ata** aşağıdaki örnek bilgileri girerek sayfası. Kendi bilgilerinizi de kullanabilirsiniz.
 
-   - Kapsam: Yönetim grubuna veya aboneliğe girişime kaydettiğiniz varsayılan olur.  Kapsamı değiştirerek girişimi kayıt konumundaki bir aboneliğe veya kaynak grubuna atayabilirsiniz.
+   - Kapsam: Yönetim grubuna veya aboneliğe girişime kaydettiğiniz varsayılan olur.
+     Kapsamı değiştirerek girişimi kayıt konumundaki bir aboneliğe veya kaynak grubuna atayabilirsiniz.
    - Dışlamaları: Bunları uygulanmasını girişim atamasını önlemek için kapsam içi herhangi bir kaynağa yapılandırın.
    - Girişim tanımını ve atama adı: Güvenli (atanan girişim adıyla önceden doldurulmuş) alın.
    - Açıklama: Bu girişim ataması, bu ilke tanımları grubunu zorunlu tutmak için uyarlanmıştır.
@@ -389,7 +391,8 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
 1. Azure İlkesi sayfasının sol tarafından **Uyumluluklar**'ı seçin.
 
-1. **Kaynak Alma** girişimini bulun. Yine de olasıdır _uyumluluk durumu_ , **başlatılmadı**. Atamanın ilerleme durumunun tüm ayrıntılarını almak için girişime tıklayın.
+1. **Kaynak Alma** girişimini bulun. Yine de olasıdır _uyumluluk durumu_ , **başlatılmadı**.
+   Atamanın ilerleme durumunun tüm ayrıntılarını almak için girişime tıklayın.
 
    ![Girişim uyumluluğu sayfası - değerlendirmeleri başlatılmadı](../media/create-and-manage/compliance-status-not-started.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f6e6b262dccd5b68c5a55c3d96a894205df8933
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c3546dbadf64786b398610c19ee7f8e9e740d51
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695882"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Öğretici: Rollbar ile Azure Active Directory Tümleştirme
 
@@ -243,7 +243,7 @@ Rollbar için oturum açmak Azure AD kullanıcılarının etkinleştirmek için 
 
     ![Kişileri davet edin](./media/rollbar-tutorial/user3.png)
 
-1. Kullanıcı Davet alır ve kabul ettikten sonra derse sistemde oluşturdunuz.
+1. Kullanıcı Davet alır ve kabul ettikten sonra bunlar sistemde oluşturulur.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
