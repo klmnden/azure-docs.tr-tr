@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8acc835a7f18ee673f0857f65d49eed59638a6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271255"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Öğretici: Azure Active Directory tümleştirmesiyle InstaVR Görüntüleyicisi
 

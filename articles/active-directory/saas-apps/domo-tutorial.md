@@ -16,11 +16,11 @@ ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 011991a3951adde9a0d062b40584caa74d172023
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918730"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Öğretici: Domo ile Azure Active Directory Tümleştirme
 
@@ -137,8 +137,8 @@ Azure AD çoklu oturum açma ile Domo yapılandırmak için aşağıdaki adımla
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
     | NameIdentifier | User.userprinicipalname |
-    | ad | user.displayname |
-    | e-posta | User.Mail |
+    | name | user.displayname |
+    | email | User.Mail |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

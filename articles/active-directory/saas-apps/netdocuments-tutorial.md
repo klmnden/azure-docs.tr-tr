@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 724d47695c2878caf6ae18e2622f72dc59767ea0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871256"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Öğretici: NetDocuments ile Azure Active Directory Tümleştirme
 
@@ -104,12 +104,12 @@ Azure AD çoklu oturum açma ile NetDocuments yapılandırmak için aşağıdaki
 
     ![NetDocuments etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-reply.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. İlgili kişi [NetDocuments istemci Destek ekibine](https://support.netdocuments.com/hc/) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. Depo kimliği ile CA-8 karakter kodu NetDocuments deponuzla ilişkili ardından başlamanızı bir değerdir. Denetleyebilirsiniz [NetDocuments Federal Kimlik Desteği belge](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) daha fazla bilgi için. Alternatif olarak başvurabilirsiniz [NetDocuments istemci Destek ekibine](https://support.netdocuments.com/hc/) dificulties yukarıdaki bilgileri kullanarak yapılandırma varsa, bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 

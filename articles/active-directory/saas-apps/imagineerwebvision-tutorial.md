@@ -17,11 +17,11 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8c8bdfb7c9ae921eda2828af2c20136feaa9de6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917790"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Öğretici: Imagineer WebVision ile Azure Active Directory Tümleştirme
 

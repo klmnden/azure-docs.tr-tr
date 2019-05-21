@@ -9,11 +9,11 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65745463"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65920280"
 ---
 >[!IMPORTANT]
 >Oluşturduğunuz kaynakları, diğer Azure Machine Learning hizmeti öğreticileri ve nasıl yapılır makaleleri için önkoşul olarak kullanabilirsiniz.

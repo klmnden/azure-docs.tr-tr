@@ -10,11 +10,11 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 5c10edc4f11aad23801045011b67592b6cc537e4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149072"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912152"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Öğretici: AzCopy komutunu kullanarak bulut depolamaya şirket içi verileri geçirme
 
@@ -28,7 +28,7 @@ AzCopy; basit komutlar kullanılarak Azure Blob depolamaya, Azure Dosyaları’n
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Depolama hesabı oluşturma. 
+> * Bir depolama hesabı oluşturun. 
 > * AzCopy komutunu kullanarak tüm verilerinizi karşıya yükleme.
 > * Test amacıyla verileri değiştirme.
 > * Karşıya yüklenecek yeni dosyaları belirlemek için zamanlanmış bir görev veya sıralanmış iş oluşturma.

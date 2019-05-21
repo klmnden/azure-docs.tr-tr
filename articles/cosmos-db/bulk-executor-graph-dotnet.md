@@ -5,15 +5,15 @@ author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 04/26/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 5e88602aa3b983e1533248253d53967f39e6b5eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a37b0b1a804851268fad30038388c20d2e4fb6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894399"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912694"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API'de toplu işlem gerçekleştirmek için grafik BulkExecutor .NET kitaplığını kullanma
 
@@ -114,7 +114,7 @@ e.AddProperty("customProperty", "value");
 ## <a name="sample-application"></a>Örnek uygulama
 
 ### <a name="prerequisites"></a>Önkoşullar
-* Azure geliştirme iş yüküyle Visual Studio 2017. [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/)'ı ücretsiz kullanmaya başlayabilirsiniz.
+* Azure geliştirme iş yüküyle Visual Studio 2019. İle oluşturabileceğinize dair [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) ücretsiz.
 * Azure aboneliği. [Buradan ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db) oluşturabilirsiniz. Alternatif olarak Azure aboneliği kullanmadan [Azure Cosmos DB’yi ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) bağlantısından bir Cosmos DB veritabanı hesabı oluşturabilirsiniz.
 * **Sınırsız koleksiyona** sahip Azure Cosmos DB Gremlin API veritabanı. Bu kılavuz, [.NET ile Azure Cosmos DB Gremlin API'yi](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet) kullanmaya başlamayı göstermektedir.
 * Git. Daha fazla bilgi için [Git indirme sayfasına](https://git-scm.com/downloads) bakın.

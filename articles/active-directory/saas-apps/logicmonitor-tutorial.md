@@ -16,11 +16,11 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a953ae52f37b8d48f9e2e0566325691dbb08307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60257803"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Öğretici: LogicMonitor ile Azure Active Directory Tümleştirme
 
@@ -213,7 +213,7 @@ Azure AD kullanıcılarının oturum açabilmesi, Azure Active Directory kullan�
 
     ![Rolleri ve kullanıcıları](./media/logicmonitor-tutorial/ic790056.png "roller ve kullanıcılar")
 
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 
 4. İçinde **Hesap Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
 

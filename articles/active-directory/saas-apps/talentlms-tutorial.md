@@ -17,11 +17,11 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922326"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Öğretici: TalentLMS ile Azure Active Directory Tümleştirme
 

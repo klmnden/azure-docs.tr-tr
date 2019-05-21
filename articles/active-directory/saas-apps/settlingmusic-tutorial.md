@@ -17,11 +17,11 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 713ca571a4321eded82cbc9db56dae7616126e2a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922116"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Öğretici: Müzik kapatma ile azure Active Directory Tümleştirmesi
 

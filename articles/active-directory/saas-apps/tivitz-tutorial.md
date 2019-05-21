@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 831077142519bb0c740e61a6897215c0b1c8ae1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344368"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tivitz"></a>Öğretici: TiViTz ile Azure Active Directory Tümleştirme
 

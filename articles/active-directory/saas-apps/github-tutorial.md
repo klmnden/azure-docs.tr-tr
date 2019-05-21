@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278017"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Öğretici: GitHub ile Azure Active Directory Tümleştirme
 
@@ -162,7 +162,7 @@ Azure AD çoklu oturum açma ile GitHub yapılandırmak için aşağıdaki adım
 
     ![Ayarlar](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-6. **Kaydet**’e tıklayın
+6. **Kaydet**'e tıklayın.
 
 > [!NOTE]
 > Çoklu oturum açmayı github'da github'da belirli bir kuruluş için doğrular ve Github'daki kimliğini değiştirmez. Bu nedenle, kullanıcının github.com oturumunu dolmuşsa, GitHub'ın kimliği/parola ile çoklu oturum açma işlemi sırasında kimlik doğrulaması istenebilir.

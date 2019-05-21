@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843700"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Öğretici: Azure Active Directory tümleştirmesiyle AppNeta Performans İzleyicisi
 
@@ -123,8 +123,8 @@ Azure AD çoklu oturum açma ile AppNeta Performans İzleyicisi'ni yapılandırm
     | --------| ----------------|
     | FirstName| User.givenName|
     | Soyadı| User.surname|
-    | e-posta| User.userPrincipalName|
-    | ad| User.userPrincipalName|
+    | email| User.userPrincipalName|
+    | name| User.userPrincipalName|
     | gruplar  | User.assignedroles |
     | telefon| User.telephoneNumber |
     | başlık| user.jobtitle|

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 3dcbbfcdff0f30b8300e4fe767e27efb65723c5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278468"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898509"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Öğretici: FreshGrade ile Azure Active Directory Tümleştirme
 

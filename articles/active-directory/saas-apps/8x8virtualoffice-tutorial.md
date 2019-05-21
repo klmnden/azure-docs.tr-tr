@@ -16,11 +16,11 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117239"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Öğretici: 8x8lik sanal Office ile Azure Active Directory Tümleştirme
 

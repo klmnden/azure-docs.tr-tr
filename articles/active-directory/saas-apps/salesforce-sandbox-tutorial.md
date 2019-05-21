@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.openlocfilehash: b2940f3eee3112fe1c6d57cc92157c573ecad109
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722573"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Öğretici: Salesforce korumalı alanı ile Azure Active Directory Tümleştirmesi
 

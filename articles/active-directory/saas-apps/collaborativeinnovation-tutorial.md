@@ -15,11 +15,11 @@ ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8252dea33ff5cde07e021421d9772a69ea9f143b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281213"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Öğretici: Azure Active Directory Tümleştirmesi ile işbirliğine dayalı yenilik
 
@@ -124,7 +124,7 @@ Azure AD çoklu oturum açma ile işbirliğine dayalı yenilik yapılandırmak i
     | givenName | User.givenName |
     | Soyadı | User.surname |
     | emailaddress | User.userPrincipalName |
-    | ad | User.userPrincipalName |
+    | name | User.userPrincipalName |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

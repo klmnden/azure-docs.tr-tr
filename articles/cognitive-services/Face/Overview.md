@@ -9,81 +9,81 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 6fba9e6387e60f2156ee01461c3bba22405376fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729567"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905693"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Yüz Tanıma API’si nedir?
 
-Azure Yüz Tanıma API'si görüntülerdeki insan yüzlerini algılamaya, tanımaya ve analiz etmeye yönelik algoritmalar sağlayan bilişsel bir hizmettir. İnsan yüzü bilgilerini işleyebilme özelliği; güvenlik, doğal kullanıcı arabirimi, görüntü içeriği analizi ve yönetimi, mobil uygulamalar ve robotlar gibi birçok farklı yazılım senaryosunda oldukça önemlidir.
+Azure Bilişsel hizmetler yüz tanıma API'si, görüntülerdeki İnsan yüzlerini analiz algılamak ve tanımak için kullanılan algoritmalar sağlar. İnsan yüz bilgi işleme yeteneği, birçok farklı yazılım senaryolarda önemlidir. Güvenlik, doğal kullanıcı arabirimi, içerik analizi ve yönetimi, mobil uygulamalar ve robotlara ilişkin örnek senaryolar verilmiştir.
 
-Yüz Tanıma API'si farklı işlevler sağlar. Bunlardan her biri aşağıdaki bölümlerde ele alınmıştır. İçin okumaya devam her hakkında daha fazla bilgi edinin.
+Yüz tanıma API'si, birçok farklı işlevleri sağlar. Her işlev, aşağıdaki bölümlerde gösterilmiştir. İçin okumaya devam bunlar hakkında daha fazla bilgi edinin.
 
 ## <a name="face-detection"></a>Yüz algılama
 
-Yüz Tanıma API'si görüntüdeki insan yüzlerini algılayabilir ve bunların konumunu gösteren dikdörtgen koordinatlarını döndürür. İsteğe bağlı olarak, yüz algılama, yüz tanıma ile ilgili özniteliklere baş poz, cinsiyet, yaş, duygu tanıma, bıyığın ve gözlük gibi bir dizi ayıklayabilirsiniz.
+Yüz tanıma API'si bir resimdeki İnsan yüzlerini algılar ve konumlarını dikdörtgen koordinatlarını döndürür. İsteğe bağlı olarak, yüz algılama, yüz tanıma ile ilgili özniteliklere bir dizi ayıklayabilirsiniz. Baş poz, cinsiyet, yaş, duygu tanıma, bıyığın ve gözlük verilebilir.
 
 > [!NOTE]
-> Yüz algılama özelliği [Görüntü İşleme API'si](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) aracılığıyla da sağlanır ama yüz verileriyle başka işlemler de yapmak isterseniz Yüz Tanıma API'sini (bu hizmet) kullanmalısınız.
+> Yüz algılama özelliğini de aracılığıyla [görüntü işleme API'si](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). İsterseniz, yüz veri işlemleriyle daha da bu makalede ele alınan hizmet yüz tanıma API'sini kullanın.
 
-![Yüzlerinin çevresine dikdörtgenler çizilmiş, yaş ve cinsiyetlerin de görüntülendiği bir kadın ve erken resmi](./Images/Face.detection.jpg)
+![Bir kadın ve bir ADAM, yüzleri ve yaş ve görüntülenen cinsiyet geçici olarak çizilen dikdörtgenler görüntüsü](./Images/Face.detection.jpg)
 
-Yüz algılama hakkında daha fazla bilgi için bkz. [yüz algılama](concepts/face-detection.md) kavramları makale veya göz atma [algılama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) başvuru belgeleri.
+Yüz algılama hakkında daha fazla bilgi için bkz. [yüz algılama](concepts/face-detection.md) kavramları makalesi. Ayrıca bkz: [algılama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) başvuru belgeleri.
 
 ## <a name="face-verification"></a>Yüz doğrulama
 
-Doğrulama API'si, algılanan iki yüz arasında veya algılanan tek bir yüzden bir kişi nesnesine kimlik doğrulaması gerçekleştirir. Pratikte, iki yüzün aynı kişiye ait olup olmadığını değerlendirir. Güvenlik senaryolarında bu yaralı olabilir. Daha fazla bilgi için [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [doğrulayın API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) başvuru belgeleri.
+Doğrulama API'si, algılanan iki yüz arasında veya algılanan tek bir yüzden bir kişi nesnesine kimlik doğrulaması gerçekleştirir. Pratikte, iki yüzün aynı kişiye ait olup olmadığını değerlendirir. Bu özellik, büyük olasılıkla güvenlik senaryolarda yararlıdır. Daha fazla bilgi için [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [doğrulayın API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) başvuru belgeleri.
 
 ## <a name="find-similar-faces"></a>Benzer yüzleri bulma
 
-Benzer Bulma API'si bir hedef yüz ile bir dizi aday yüzü alır ve hedef yüze en çok benzeyenlerle daha küçük bir yüz kümesi bulur. **matchPerson** ve **matchFace** olmak üzere iki çalışma modu desteklenir. **matchPerson** modu aynı kişi için filtreleme yaptıktan sonra benzer yüzleri döndürür ([Doğrulama API'sini](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) kullanır). **matchFace** modu aynı kişi filtresini yoksayar ve aynı kişiye ait olabilecek veya olmayabilecek benzer aday yüzlerin listesini döndürür.
+Bulma benzer API, bir hedef yüz hedef yüze benzeyen yüzleri daha küçük bir kümesini bulmak için aday yüzler kümesi ile karşılaştırır. İki çalışma modu, matchPerson ve matchFace, desteklenir. Kullanarak aynı kişi için filtreler sonra benzer yüzlerden matchPerson modunu döndürür [doğrulayın API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). MatchFace modu kişinin aynı filtre yok sayar. Bu, aynı kişiye ait olmayabilir veya aday benzer yüzlerden oluşan bir liste döndürür.
 
-Aşağıdaki örnekte, hedef yüz şudur:
+Aşağıdaki örnek, hedef yüz gösterir:
 
 ![Gülümseyen kadın](./Images/FaceFindSimilar.QueryFace.jpg)
 
 Ve aday yüzler de şunlardır:
 
-![Beş tane gülümseyen kişi görüntüsü. a) ve b) görüntüleri aynı kişiye aittir](./Images/FaceFindSimilar.Candidates.jpg)
+![Beş tane gülümseyen kişi görüntüsü. Görüntüleri bir ve b aynı kişi göster.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Dört benzer yüzü bulmak için **matchPerson** modu, hedef yüz olarak aynı kişiyi gösteren (a) ve (b) girişlerini döndürür. **matchFace** modu, bazıları hedefle aynı kişiye ait olmasa veya benzerlik düşük olsa bile tam olarak dört adayı, başka bir deyişle (a), (b), (c) ve (d) öğesini döndürür. Daha fazla bilgi için [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [Bul benzer API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) başvuru belgeleri.
+Dört benzer yüzleri bulmak için matchPerson modunu döndürür. bir ve hedef yüz aynı kişi göster b. MatchFace modunu döndürür, b, c ve d, tam olarak dört adayları, bazı hedef aynı kişi değildir veya düşük benzerlik sahip olsa bile. Daha fazla bilgi için [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [Bul benzer API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) başvuru belgeleri.
 
 ## <a name="face-grouping"></a>Yüz gruplama
 
-Gruplama API'si, bilinmeyen bir dizi yüzü benzerlik temelinde birkaç gruba ayırır. Her grup, özgün yüz kümesinin kopuk bir alt kümesidir. Gruptaki yüzlerin tümü büyük olasılıkla aynı kişiye aittir ama tek bir kişi için birkaç farklı grup olabilir (başka bir faktöre, örneğin ifadeye göre ayrıştırılabilir). Daha fazla bilgi için [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [grubu API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) başvuru belgeleri.
+Gruplama API'si, bilinmeyen bir dizi yüzü benzerlik temelinde birkaç gruba ayırır. Her grup, özgün yüz kümesinin kopuk bir alt kümesidir. Tüm bir grubu yüzlerini aynı kişiye ait olasılığı düşüktür. Tek bir kişi için birkaç farklı grupları olabilir. Grupları ifade gibi başka bir faktör olarak örneğin ayrılır. Daha fazla bilgi için [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [grubu API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) başvuru belgeleri.
 
 ## <a name="person-identification"></a>Kişileri tanıma
 
-Tanımlama API'si, algılanan yüzü bir kişi veritabanına göre tanımlamak için kullanılabilir. Bu özellik, fotoğraf yönetimi yazılımında otomatik görüntü etiketleme için yararlı olabilir. Veritabanını önceden oluşturabilir ve zaman içinde düzenleyebilirsiniz.
+Tanımlamak API, algılanan bir yüz kişinin bir veritabanında tanımlamak için kullanılır. Bu özellik, fotoğraf Yönetimi yazılım otomatik görüntü etiketleme için yararlı olabilir. Veritabanını önceden oluşturmak ve zaman içinde düzenleyebilirsiniz.
 
-Aşağıdaki görüntüde "myfriends" adlı bir veritabanı örneği gösterilir. Her grup en çok 1.000.000 farklı kişi nesnesi içerebilir ve her kişi nesnesinin kaydedilmiş en çok 248 yüzü olabilir.
+Aşağıdaki görüntüde "myfriends." adlı bir veritabanı örneği gösterilmektedir. Her grup, 1 milyona kadar farklı kişi nesnelerini içerebilir. Her kişi nesnesinde en fazla 248 kayıtlı yüz olabilir.
 
-![Farklı kişiler için 3 sütunu ve her kişi için 3 yüz görüntüsü satırı olan bir kılavuz](./Images/person.group.clare.jpg)
+![Her üç satır yüz görüntülerin farklı kişiler için üç sütun içeren bir kılavuz](./Images/person.group.clare.jpg)
 
-Veritabanı oluşturulup eğitildikten sonra, yeni algılanan yüzün bulunduğu grupta tanımlama yapabilirsiniz. Yüz, grupta bir kişi olarak belirlenirse kişi nesnesi döndürülür.
+Bir veritabanı oluşturulur ve eğitim sonra yeni algılanan yüzleri gruba göre tanımlama gerçekleştirebilirsiniz. Yüz, grupta bir kişi olarak belirlenirse kişi nesnesi döndürülür.
 
 Kişileri tanımlama hakkında daha fazla bilgi için bkz. [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [tanımlamak API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) başvuru belgeleri.
 
 ## <a name="use-containers"></a>Kapsayıcıları kullanma
 
-[Yüz tanıma kapsayıcınızı kullanmak](face-how-to-install-containers.md) algılamak için tanı ve yüzleri, verilerinizi daha yakın standartlaştırılmış bir Docker kapsayıcısı yükleyerek belirleyin.
+[Yüz tanıma kapsayıcınızı kullanmak](face-how-to-install-containers.md) algılamak için tanı ve verilerinizi daha yakın standartlaştırılmış bir Docker kapsayıcısı yükleyerek yüzleri belirleyin.
 
 ## <a name="sample-apps"></a>Örnek uygulamalar
 
-Aşağıdaki örnek uygulamalarda, Yüz Tanıma API'sinin kullanılabileceği birkaç yol gösterilir.
+Aşağıdaki örnek uygulamalar yüz tanıma API'sini kullanmayı birkaç yolu gösterilmektedir:
 
-- [Microsoft yüz tanıma API'si: Windows istemci kitaplığı ve örnek](https://github.com/Microsoft/Cognitive-Face-Windows) -yüz algılama, analiz ve kimlik çeşitli senaryolar gösterir bir WPF uygulaması.
-- [FamilyNotes UWP uygulaması](https://github.com/Microsoft/Windows-appsample-familynotes) - Bir aile not paylaşım senaryosunda yüz tanımlamayı konuşma, Cortana, mürekkep ve kamerayla birlikte kullanan Evrensel Windows Platformu (UWP) uygulaması.
+- [Microsoft yüz tanıma API'si: Windows istemci kitaplığı ve örnek](https://github.com/Microsoft/Cognitive-Face-Windows) yüz algılama, analiz ve kimlik çeşitli senaryolar gösterir bir WPF uygulaması.
+- [FamilyNotes UWP uygulaması](https://github.com/Microsoft/Windows-appsample-familynotes) kullandığı kimlik konuşma, Cortana, mürekkep ve kamera ailesi Not paylaşımı senaryosunda yanı sıra yüz Evrensel Windows Platformu (UWP) uygulamasıdır.
 
 ## <a name="data-privacy-and-security"></a>Veri gizliliği ve güvenliği
 
-Tüm Bilişsel hizmetler gibi yüz tanıma hizmeti kullanan geliştiriciler Microsoft'un müşteri verilerini ilkeleri haberdar olmanız gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
+Tüm Bilişsel hizmetler kaynakları gibi yüz tanıma hizmeti kullanan geliştiricilerin Microsoft'un müşteri verilerini ilkelerinin farkında olmanız gerekir. Daha fazla bilgi için [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kodda basit bir yüz algılama senaryosu uygulamak için hızlı başlangıcı izleyin.
+Kodda bir yüz algılama senaryoyu uygulamak için bir hızlı başlangıcı izleyin:
 
-- [Hızlı Başlangıç: .NET SDK'sı ile kullanarak görüntüdeki yüzleri algılayın C# ](quickstarts/csharp.md) (diğer diller kullanılabilir)
+- [Hızlı Başlangıç: .NET SDK'sı ile kullanarak bir resimdeki yüz algılama C# ](quickstarts/csharp.md). Diğer diller mevcut değildir.

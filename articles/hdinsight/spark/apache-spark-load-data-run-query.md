@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
-ms.openlocfilehash: f480aeb7e126cb6ab8286bbfbfb8441fefeb07ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: 09509b32320fb10b8ab3d563442b6d0fb44ad34e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716090"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909212"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Öğretici: Verileri yüklemek ve Azure HDInsight, Apache Spark kümesinde sorguları çalıştırma
 
 Bu öğreticide, bir csv dosyasından bir dataframe oluşturun ve karşı etkileşimli Spark SQL sorgularının nasıl çalıştırılacağını öğrenin bir [Apache Spark](https://spark.apache.org/) Azure HDInsight kümesinde. Spark’ta dataframe, adlandırılmış sütunlar halinde düzenlenmiş, dağıtılmış bir veri koleksiyonudur. Dataframe kavramsal olarak, ilişkisel bir veritabanındaki tabloya veya R/Python’daki veri çerçevesine eşdeğerdir.
- 
+
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Bir csv dosyasından dataframe oluşturma
@@ -26,7 +26,22 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Azure HDInsight’ta Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md) bölümünü tamamlayın.
+HDInsight üzerinde bir Apache Spark kümesi. Bkz: [bir Apache Spark kümesi oluşturma](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+## <a name="create-a-jupyter-notebook"></a>Jupyter not defteri oluşturma
+
+Jupyter Notebook, çeşitli programlama dillerini destekleyen etkileşimli bir not defteri ortamıdır. Not defteri, verilerle etkileşim kurmanıza, kodu markdown metniyle birleştirmenize ve basit görselleştirmeler gerçekleştirmenize olanak sağlar. 
+
+1. URL'yi Düzenle `https://SPARKCLUSTER.azurehdinsight.net/jupyter` değiştirerek `SPARKCLUSTER` Spark kümenizin adını. Ardından bir web tarayıcısında düzenlenen URL'sini girin. İstendiğinde, küme için küme oturum açma kimlik bilgilerini girin.
+
+2. Jupyter web sayfasından seçin **yeni** > **PySpark** bir not defteri oluşturmak için. 
+
+   ![Jupyter Not Defteri’ni oluşturarak etkileşimli Spark SQL sorgusu çalıştırma](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Not Defteri’ni oluşturarak etkileşimli Spark SQL sorgusu çalıştırma")
+
+   Yeni bir not defteri oluşturulur ve adsız adıyla açılan (`Untitled.ipynb`).
+
+    > [!NOTE]  
+    > PySpark çekirdeği kullanılarak not defteri oluşturmak için, ilk kod hücresini çalıştırdığınızda sizin için otomatik olarak `spark` oturumu oluşturulur. Belirtik şekilde bir oturum oluşturmanız gerekmez.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Bir csv dosyasından dataframe oluşturma
 
@@ -34,13 +49,7 @@ Uygulamalar dataframe'leri doğrudan Azure Depolama veya Azure Data Lake Storage
     
 ![Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsü](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsü")
 
-
-1. Önkoşullar bölümünde oluşturduğunuz Jupyter not defterini açın ve PySpark ile yeni bir not defteri oluşturun.
-
-    > [!NOTE]  
-    > PySpark çekirdeği kullanılarak not defteri oluşturmak için, ilk kod hücresini çalıştırdığınızda sizin için otomatik olarak `spark` oturumu oluşturulur. Belirtik şekilde bir oturum oluşturmanız gerekmez.
-
-2. Aşağıdaki kodu, not defterindeki boş bir koda yapıştırın ve sonra kodu çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Kod, bu senaryo için gerekli olan türleri içeri aktarır:
+1. Boş bir hücreye, Jupyter not defterine aşağıdaki kodu yapıştırın ve sonra basın **SHIFT + ENTER** kodu çalıştırmak için. Kod, bu senaryo için gerekli olan türleri içeri aktarır:
 
     ```python
     from pyspark.sql import *
@@ -51,7 +60,7 @@ Uygulamalar dataframe'leri doğrudan Azure Depolama veya Azure Data Lake Storage
 
     ![Etkileşimli Spark SQL sorgusunun durumu](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-3. Aşağıdaki kodu çalıştırarak bir dataframe ve geçici bir tablo (**hvac**) oluşturun. 
+2. Aşağıdaki kodu çalıştırarak bir dataframe ve geçici bir tablo (**hvac**) oluşturun. 
 
     ```python
     # Create a dataframe and table from sample data
@@ -94,11 +103,7 @@ Kaynak grubu adını seçerek de kaynak grubu sayfasını açabilir ve sonra **K
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-> [!div class="checklist"]
-> * Bir Apache Spark dataframe oluşturun.
-> * Dataframe’e karşı Spark SQL’i çalıştırma.
+Bu öğreticide, bir csv dosyasından bir dataframe oluşturma ve Azure HDInsight'ın bir Apache Spark kümesinde etkileşimli Spark SQL sorguları çalıştırmanızı öğrendiniz. Power BI gibi bir BI analiz aracı Apache Spark, kayıtlı verileri nasıl çekilebilir görmek için sonraki makaleye ilerleyin.
 
-Power BI gibi bir BI analiz aracı Apache Spark, kayıtlı verileri nasıl çekilebilir görmek için sonraki makaleye ilerleyin. 
 > [!div class="nextstepaction"]
 > [BI araçlarını kullanarak verileri analiz etme](apache-spark-use-bi-tools.md)

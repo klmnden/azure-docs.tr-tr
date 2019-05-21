@@ -17,11 +17,11 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f0ead46bf93815644cb766c24fc9d894c2b4983
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709120"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Öğretici: Satır WORKS ile Azure Active Directory Tümleştirme
 

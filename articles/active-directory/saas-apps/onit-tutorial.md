@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 56b3e42a65eb84ef6ee53b4ba16e5fafc4473405
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60243915"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904875"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Öğretici: Onit ile Azure Active Directory Tümleştirme
 
@@ -120,7 +120,7 @@ Azure AD çoklu oturum açma ile Onit yapılandırmak için aşağıdaki adımla
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
-    | e-posta | User.Mail |
+    | email | User.Mail |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

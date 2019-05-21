@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 1c3b95686b8c91552615a9014102fd6a14f8c385
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277077"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Öğretici: Sprinklr ile Azure Active Directory Tümleştirme
 

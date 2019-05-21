@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 3dab784d706228793c6acc0f930f39ba1962caeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255528"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Öğretici: M-Files ile Azure Active Directory Tümleştirme
 
@@ -154,7 +154,7 @@ M-Files ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıdaki a
 
     e. İçin **kasa sunucuya**, sunucuda karşılık gelen kasayı seçin.
  
-    f. **Tamam** düğmesine tıklayın.
+    f. **Tamam**'ı tıklatın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

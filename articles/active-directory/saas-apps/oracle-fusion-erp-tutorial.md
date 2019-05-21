@@ -16,11 +16,11 @@ ms.date: 1/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ad7517765d824be600f019f76a1b067048b3a98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390923"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oracle-fusion-erp"></a>Öğretici: Oracle Fusion ERP ile Azure Active Directory Tümleştirme
 

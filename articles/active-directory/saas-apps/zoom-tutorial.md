@@ -16,11 +16,11 @@ ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842099"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65895936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Öğretici: Azure Active Directory Tümleştirmesi ile yakınlaştırma
 
@@ -120,11 +120,11 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
     
     | Ad | Ad alanı  |  Kaynak özniteliği|
     | ---------------| --------------- | --------- |
-    | E-posta adresi  | User.Mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+    | E-posta Adresi  | User.Mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
     | Ad  | User.givenName  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
     | Soyadı  | User.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
     | Telefon numarası  | User.telephoneNumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
-    | Bölüm  | User.Department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+    | Departman  | User.Department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
     | rol |    User.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
@@ -273,7 +273,7 @@ Yakınlaştırmak için oturum açmak Azure AD kullanıcılarının etkinleştir
 
     b. İçinde **e-postaları** metin kutusu, türü e-posta adresi geçerli bir Azure ad hesabına sağlamak istiyor.
 
-    c. **Ekle**'ye tıklayın.
+    c. **Ekle**'yi tıklatın.
 
 > [!NOTE]
 > Herhangi diğer yakınlaştırma kullanıcı hesabı oluşturma araçları kullanabilir veya kullanıcı hesapları yakınlaştırma sağlama Azure Active Directory tarafından sağlanan API'leri.

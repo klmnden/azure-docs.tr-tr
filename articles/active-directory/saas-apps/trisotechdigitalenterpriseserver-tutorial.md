@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: c5d1a791de5c295b4644e5633983a5369200498e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256592"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65888366"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Öğretici: Azure Active Directory tümleştirmesiyle Trisotech dijital kuruluş sunucusu
 
@@ -140,11 +140,11 @@ Azure AD çoklu oturum açma Trisotech dijital Kurumsal sunucusuyla yapılandır
 
     c. İçinde **uygulama kimliği** metin kutusuna şu biçimi kullanarak URL'yi girin: `https://<companyname>.trisotech.com`.
 
-    d. **Kaydet**’e tıklayın
+    d. **Kaydet**'e tıklayın.
 
     e. Etki alanı adı girin **(boş gösterir herkes) etki alanlarına izin verilir** metin otomatik olarak atar izin etki alanları ile eşleşen kullanıcılar için lisans
 
-    f. **Kaydet**’e tıklayın
+    f. **Kaydet**'e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

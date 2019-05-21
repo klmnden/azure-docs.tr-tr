@@ -303,9 +303,9 @@
         - name: Hakkında
           href: speech-devices-sdk.md
         - name: Lisans
-          href: speech-devices-sdk-license.md
+          href: 'https://aka.ms/sdsdk-license'
         - name: Üçüncü taraf bildirimleri
-          href: devices-sdk-third-party-notices.md
+          href: 'https://aka.ms/sdsdk-toctpn'
     - name: Konuşma SDK’sı sorunlarını giderme
       href: troubleshooting.md
     - name: Konuşma Cihazları SDK’sında sorun giderme

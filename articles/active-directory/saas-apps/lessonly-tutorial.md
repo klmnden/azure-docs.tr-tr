@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: ec1fce18913d6763514abb80ceba471bf73d59ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60257893"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Öğretici: Lessonly.com ile Azure Active Directory Tümleştirme
 

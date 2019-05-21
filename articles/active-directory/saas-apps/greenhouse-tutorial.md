@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 5bd7c5fe97d18d83f07db2b8b75ee556b0ad685d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277339"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Öğretici: Greenhouse ile Azure Active Directory Tümleştirme
 

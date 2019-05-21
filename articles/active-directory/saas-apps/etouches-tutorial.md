@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46fa85581829f82da9a137315e1f890aa481408d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850794"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898908"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Öğretici: Etouches ile Azure Active Directory Tümleştirme
 
@@ -121,7 +121,7 @@ Azure AD çoklu oturum açma ile etouches yapılandırmak için aşağıdaki ad�
 
     | Ad | Kaynak özniteliği|
     | ------------------- | -------------------- |
-    | Email | User.Mail | 
+    | E-posta | User.Mail | 
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 

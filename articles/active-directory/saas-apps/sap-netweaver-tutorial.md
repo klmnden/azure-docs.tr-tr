@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523792"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65903534"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Öğretici: SAP NetWeaver ile Azure Active Directory Tümleştirme
 
@@ -256,7 +256,7 @@ SAP NetWeaver ile Azure AD çoklu oturum açmayı yapılandırmak için aşağı
 
     ![Çoklu oturum açmayı yapılandırın](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
-11. Go için sekmesinde **güvenilen bir sağlayıcı** > **Kimlik Federasyonu** (Alttan ekranın). **Düzenle**’ye tıklayın.
+11. Go için sekmesinde **güvenilen bir sağlayıcı** > **Kimlik Federasyonu** (Alttan ekranın). **Düzenle**‘ye tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 

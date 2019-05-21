@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: ce1af9c88bbdad96a22eb96abc26026abcad56cc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: cda9c4c914e4ec955d2009ce3f015bf7807027f6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793049"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922204"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK kullanarak Azure Cosmos DB tablo API'si ve Azure tablo depolama ile çalışmaya başlama
 
@@ -41,15 +41,15 @@ Bu örneği başarıyla tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="create-a-net-console-project"></a>Bir .NET konsol projesi oluşturun
 
-Visual Studio'da yeni bir .NET konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de bir konsol uygulaması oluşturmayı gösterir. Adımlar Visual Studio’nun diğer sürümlerinde de benzerdir. Herhangi bir türde bir Azure bulut hizmeti veya web uygulaması da dahil olmak üzere, .NET uygulaması ve Masaüstü ve mobil uygulamaları, Azure Cosmos DB tablo kitaplığı kullanabilirsiniz. Bu kılavuzda, sadeleştirmek için konsol uygulaması kullanmaktayız.
+Visual Studio'da yeni bir .NET konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2019 bir konsol uygulaması oluşturma işlemini gösterir. Herhangi bir türde bir Azure bulut hizmeti veya web uygulaması da dahil olmak üzere, .NET uygulaması ve Masaüstü ve mobil uygulamaları, Azure Cosmos DB tablo kitaplığı kullanabilirsiniz. Bu kılavuzda, sadeleştirmek için konsol uygulaması kullanmaktayız.
 
 1. **Dosya** > **Yeni** > **Proje**’yi seçin.
 
-1. Seçin **yüklü** > **Visual C#**   >  **konsol uygulaması (.NET Core)**.
+1. Seçin **konsol uygulaması (.NET Core)** ve ardından **sonraki**.
 
-1. İçinde **adı** alan, uygulamanız için bir ad girin, örneğin, **CosmosTableSamples** (, farklı bir ad gerektiğinde sağlayabilirsiniz).
+1. İçinde **proje adı** gibi uygulamanız için bir ad girin **CosmosTableSamples**. (, Farklı bir ad gerektiği şekilde sağlayabilirsiniz.)
 
-1. **Tamam**’ı seçin.
+1. **Oluştur**’u seçin.
 
 Bu örnekte tüm kod örnekleri konsol uygulamanızın Main() yöntemine eklenebilir **Program.cs** dosya.
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 4edd445fe526b9be5c421b21b25f9b095c734f43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269903"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Öğretici: SumoLogic ile Azure Active Directory Tümleştirme
 
@@ -233,7 +233,7 @@ Azure AD kullanıcıları için SumoLogic oturum açmak etkinleştirmek için bu
 
     ![Kullanıcılar](./media/sumologic-tutorial/ic778561.png "kullanıcılar")
 
-1. **Ekle**'ye tıklayın.
+1. **Ekle**'yi tıklatın.
 
     ![Kullanıcılar](./media/sumologic-tutorial/ic778562.png "kullanıcılar")
 

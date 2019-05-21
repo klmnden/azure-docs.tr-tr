@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257799"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Öğretici: Optimizely ile Azure Active Directory Tümleştirme
 
@@ -120,7 +120,7 @@ Azure AD çoklu oturum açma ile Optimizely yapılandırmak için aşağıdaki a
 
     | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
-    | e-posta | User.Mail |
+    | email | User.Mail |
     
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
@@ -174,7 +174,7 @@ Azure AD çoklu oturum açma ile Optimizely yapılandırmak için aşağıdaki a
   
     ![Azure AD çoklu oturum açma](./media/optimizely-tutorial/tutorial_optimizely_10.png)
 
-6. **Kaydet**’e tıklayın
+6. **Kaydet**'e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

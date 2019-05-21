@@ -16,11 +16,11 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45063107cdaf5ea8a720233c47e5b9007faa6d13
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880407"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Öğretici: CompetencyIQ ile Azure Active Directory Tümleştirme
 

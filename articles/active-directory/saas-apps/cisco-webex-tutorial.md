@@ -16,11 +16,11 @@ ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850018"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Öğretici: Cisco Webex toplantıları ile Azure Active Directory Tümleştirme
 
@@ -132,7 +132,7 @@ Azure AD çoklu oturum açma ile Cisco Webex toplantı yapılandırmak için aş
     | ---------------|  --------- |
     |   firstName    | User.givenName |
     |   Soyadı    | User.surname |
-    |   e-posta       | User.Mail |
+    |   email       | User.Mail |
     |   Kullanıcı Kimliği    | User.Mail |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.

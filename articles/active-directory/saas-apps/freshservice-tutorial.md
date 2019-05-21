@@ -16,11 +16,11 @@ ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26f41165b94db8252d0094f2b082f3fc98cf01a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878032"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Öğretici: Freshservice ile Azure Active Directory Tümleştirme
 
@@ -156,7 +156,7 @@ Azure AD çoklu oturum açma ile Freshservice yapılandırmak için aşağıdaki
 
     e. İçinde **güvenlik sertifikası parmak izi** metin kutusu, yapıştırma **parmak İZİ** Azure Portalı'ndan kopyaladığınız sertifika değeri.
 
-    f. **Kaydet**’e tıklayın
+    f. **Kaydet**'e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

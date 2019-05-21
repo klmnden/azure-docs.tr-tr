@@ -80,6 +80,12 @@
     - name: Bu hizmet nasıl çalışır?
       displayName: architecture concepts definitions
       href: concept-azure-machine-learning-architecture.md
+    - name: Çalışma alanı
+      displayName: concept definitions architecture
+      href: concept-workspace.md
+    - name: Görsel arabirim
+      displayName: concept
+      href: ui-concept-visual-interface.md
     - name: Otomatik makine öğrenimi
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md

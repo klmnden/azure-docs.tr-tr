@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: ab4a36fa117793724a897de4f6d8f03d7f46504e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60259551"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lean"></a>Öğretici: Azure Active Directory Tümleştirmesi yalın ile
 

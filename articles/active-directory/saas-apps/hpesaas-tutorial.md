@@ -16,11 +16,11 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43a231a4317aa2500b6377b512ae9311b2c7acda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60275035"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Öğretici: HPE SaaS ile Azure Active Directory Tümleştirme
 

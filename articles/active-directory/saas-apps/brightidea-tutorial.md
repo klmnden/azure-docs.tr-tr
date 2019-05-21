@@ -16,11 +16,11 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888715"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Öğretici: Brightidea ile Azure Active Directory Tümleştirme
 

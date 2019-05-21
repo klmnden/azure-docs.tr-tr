@@ -16,11 +16,11 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: edfc1f0b2d49510926cfbc306dacf6715225c5c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60258880"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897827"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Öğretici: Learningpool Yasası ile Azure Active Directory Tümleştirme
 

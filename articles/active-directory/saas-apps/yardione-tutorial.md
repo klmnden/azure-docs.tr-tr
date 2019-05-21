@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: c1b35e6a28948cf952c61ec700cbd2ba764674ab
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920139"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65895998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Öğretici: YardiOne ile Azure Active Directory Tümleştirme
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408071"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Öğretici: QuickHelp ile Azure Active Directory Tümleştirme
 
@@ -150,11 +150,11 @@ Azure AD çoklu oturum açma ile QuickHelp yapılandırmak için aşağıdaki ad
    
     b. İndirilen Azure meta verileri dosyanızı karşıya yüklemek için tıklayın **Gözat**, dosyasına gidin, ardından son **meta verilerini karşıya yükleme**.
    
-    c. İçinde **e-posta** metin kutusuna `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. İçinde **e-posta** metin kutusuna `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
    
-    d. İçinde **ad** metin `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. İçinde **ad** metin `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    
-    e. İçinde **Soyadı** metin `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. İçinde **Soyadı** metin `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. İçinde **Eylem çubuğu**, tıklayın **Kaydet**.
 

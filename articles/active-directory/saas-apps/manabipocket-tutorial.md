@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 7f793741638db5196bbf8bcd97e7f42d79548f0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255505"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Öğretici: Manabi Pocket ile Azure Active Directory Tümleştirme
 

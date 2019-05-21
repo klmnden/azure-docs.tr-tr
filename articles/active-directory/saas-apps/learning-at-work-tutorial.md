@@ -16,11 +16,11 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fd941e2c6d4b830bea6458e74fd27123b25efdf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60257917"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>Öğretici: İşte öğrenim ile Azure Active Directory Tümleştirme
 

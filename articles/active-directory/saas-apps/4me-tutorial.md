@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11cc42f9ed7e427620b22ce65365183bc62cc0be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891731"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Öğretici: 4me ile Azure Active Directory Tümleştirme
 
@@ -108,7 +108,7 @@ Azure AD çoklu oturum açma ile 4me yapılandırmak için aşağıdaki adımlar
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
-    | Ortam| URL'si|
+    | Ortam| URL|
     |---|---|
     | ÜRETİM | `https://<SUBDOMAIN>.4me.com`|
     | QA| `https://<SUBDOMAIN>.4me.qa`|
@@ -116,7 +116,7 @@ Azure AD çoklu oturum açma ile 4me yapılandırmak için aşağıdaki adımlar
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
-    | Ortam| URL'si|
+    | Ortam| URL|
     |---|---|
     | ÜRETİM | `https://<SUBDOMAIN>.4me.com`|
     | QA| `https://<SUBDOMAIN>.4me.qa`|

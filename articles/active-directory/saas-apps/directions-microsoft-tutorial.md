@@ -16,11 +16,11 @@ ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ca35e1c6966365fab1a53fe9674a8f361422eea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280537"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Öğretici: Microsoft yönergeleri ile Azure Active Directory Tümleştirme
 

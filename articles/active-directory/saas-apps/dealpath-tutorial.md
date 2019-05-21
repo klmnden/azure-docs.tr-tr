@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5474af0fbc6b510d3667445bfdbe00fb45daebf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894708"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Öğretici: Dealpath ile Azure Active Directory Tümleştirme
 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 39ff12a853b38b843a73f4a87a24db0292d1accd
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601602"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906973"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verileri ayıklayın
 
@@ -26,15 +26,31 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu hızlı başlangıcı tamamlamak için şunlara sahip olmalısınız:
 - Form tanıyıcı sınırlı erişim önizlemesine erişebilirsiniz. Önizleme erişim elde etmek için doldurun ve gönderme [Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu.
 - [Python](https://www.python.org/downloads/) (örnek yerel olarak çalıştırmak istiyorsanız) yüklü.
-- Form tanıyıcı bir abonelik anahtarı. Tek hizmet aboneliği yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) Form tanıyıcının abone ve anahtarınızı alın. Form tanıyıcı hizmet içermeyeceğinden, çoklu hizmet aboneliği kullanmayın.
 - En az beş forms aynı türde bir dizi. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için.
+
+## <a name="create-a-form-recognizer-resource"></a>Form tanıyıcı kaynak oluştur
+
+Form tanıyıcı kullanmak için erişim verildiğinde, bir karşılama iletisi alırsınız birkaç bağlantı ve kaynakları içeren e-posta. "Azure portalında" bağlantıyı Azure portalını açın ve bir Form tanıyıcı kaynak oluşturmak için bu iletiyi kullanın. İçinde **Oluştur** bölmesinde aşağıdaki bilgileri sağlayın:
+
+|    |    |
+|--|--|
+| **Ad** | Kaynağınız için açıklayıcı bir ad. Örneğin, açıklayıcı bir ad kullanmanızı öneririz *MyNameFormRecognizer*. |
+| **Abonelik** | Erişim izni verilen Azure aboneliği seçin. |
+| **Konum** | Bilişsel hizmet örneğinizin konumu. Farklı konumlara gecikmelere neden ancak kaynağınızı çalışma zamanı kullanılabilirliğini etkilemez sahip. |
+| **Fiyatlandırma katmanı** | Kaynak maliyeti, seçtiğiniz fiyatlandırma katmanı ve kullanım bağlıdır. Daha fazla bilgi için bkz. API [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/).
+| **Kaynak grubu** | [Azure kaynak grubu](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) kaynağınızı içerecek. Yeni bir grup oluşturmak veya önceden mevcut olan bir gruba ekleyin. |
+
+> [!IMPORTANT]
+> Normalde Azure portalında bir Bilişsel Hizmet kaynağı oluşturduğunuzda, (bilişsel çok hizmette kullanılan) bir hizmet birden çok abonelik anahtarı veya bir tek hizmet abonelik anahtarı (yalnızca belirli bir bilişsel hizmet ile kullanılır) oluşturma seçeneğine sahip olursunuz. Ancak, Form tanıyıcı Önizleme sürümü olduğundan, çoklu hizmet abonelikte dahil değildir ve Hoş Geldiniz e-postasındaki bağlantıya kullanılmadıkça tek hizmet aboneliği oluşturulamıyor.
+
+Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim **tüm kaynakları** portalında listesi. Ardından **anahtarları** abonelik anahtarlarınızı görüntülemek için sekmesinde. İki anahtarı kaynağa erişim sunar. Değerini kopyalayın **anahtar 1**. Sonraki bölümde kullanır.
 
 ## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
 Oluşturma ve çalıştırma örneği için aşağıdaki kod parçacığı şu değişiklikleri yapın:
 1. Değiştirin `<Endpoint>` Form tanıyıcı kaynak abonelik anahtarlarınızın aldığınız burada bir Azure bölgesinde uç nokta URL'si ile.
 1. Değiştirin `<SAS URL>` eğitim verilerin konumu URL'sini imzası (SAS) bir Azure Blob Depolama kapsayıcısına paylaşılan erişim.  
-1. `<Subscription Key>` değerini abonelik anahtarınızla değiştirin.
+1. Değiştirin `<Subscription key>` önceki adımda kopyaladığınız abonelik anahtarı.
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post

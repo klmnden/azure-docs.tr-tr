@@ -16,11 +16,11 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f7925e6fe66579c8bf702acbe165c50d2aed536e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60276832"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Öğretici: Halojensiz yazılım ile Azure Active Directory Tümleştirme
 

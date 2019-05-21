@@ -16,11 +16,11 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60275463"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Öğretici: HireVue ile Azure Active Directory Tümleştirme
 
@@ -107,17 +107,17 @@ Azure AD çoklu oturum açma ile HireVue yapılandırmak için aşağıdaki adı
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
-    | Ortam | URL'si |
+    | Ortam | URL |
     |-------------|---|
     | Üretim | `https://<companyname>.hirevue.com` |
-    | Staging    | `https://<companyname>.stghv.com` |
+    | Hazırlanıyor    | `https://<companyname>.stghv.com` |
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
     | Ortam | URN |
     |-------------|-----|
     | Üretim |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Staging    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Hazırlanıyor    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [HireVue istemci Destek ekibine](mailto:samlsupport@hirevue.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.

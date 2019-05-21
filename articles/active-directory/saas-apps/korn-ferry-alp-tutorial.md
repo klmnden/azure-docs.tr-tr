@@ -16,11 +16,11 @@ ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261370"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Öğretici: Korn Ferry ALP ile Azure Active Directory Tümleştirme
 

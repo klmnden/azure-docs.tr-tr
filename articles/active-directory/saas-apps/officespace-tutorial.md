@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261556"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Öğretici: OfficeSpace yazılım ile Azure Active Directory Tümleştirme
 
@@ -122,8 +122,8 @@ Azure AD çoklu oturum açma OfficeSpace yazılımıyla yapılandırmak için a�
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
-    | e-posta | User.Mail |
-    | ad | user.displayname |
+    | email | User.Mail |
+    | name | user.displayname |
     | first_name | User.givenName |
     | Soyadı | User.surname |
 

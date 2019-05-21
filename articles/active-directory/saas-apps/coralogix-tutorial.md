@@ -16,11 +16,11 @@ ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0095a825f5582dc795f5bebdcf08be07a92946e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280728"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Öğretici: Coralogix ile Azure Active Directory Tümleştirme
 
@@ -111,7 +111,7 @@ Azure AD çoklu oturum açma ile Coralogix yapılandırmak için aşağıdaki ad
     
     `https://api.coralogix.com/saml/metadata.xml`
 
-    or
+    veya
 
     `https://aws-client-prod.coralogix.com/saml/metadata.xml` 
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: c3a2a92eb01943ab87c12d3ffefc4999cd9ff518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277942"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Öğretici: Gigya ile Azure Active Directory Tümleştirme
 

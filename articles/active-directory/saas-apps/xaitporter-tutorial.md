@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: ada93903113cedd68e23ec66a36dceef99ec1233
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192103"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896171"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Öğretici: XaitPorter ile Azure Active Directory Tümleştirme
 
@@ -148,7 +148,7 @@ Azure AD çoklu oturum açma ile XaitPorter yapılandırmak için aşağıdaki a
 
     c. Seçin **etkinleştirme kullanıcı Autocreation**.
 
-    d. **Tamam**'ı tıklatın.
+    d. **Tamam** düğmesine tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 7cd20397c122834a23586bf51af6467f58531094
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248641"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Öğretici: RingCentral ile Azure Active Directory Tümleştirme
 
