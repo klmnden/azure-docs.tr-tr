@@ -16,11 +16,11 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b00e27a0620212fbc09f8b7d91d8f5b9d0971c8f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105726"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Öğretici: Samanage ile Azure Active Directory Tümleştirme
 

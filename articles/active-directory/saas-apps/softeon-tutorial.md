@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 4f14e7e4a5699d00e9d94c1796e02e97a7a2441e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685502"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Öğretici: Softeon WMS ile Azure Active Directory Tümleştirme
 

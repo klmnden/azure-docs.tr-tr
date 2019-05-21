@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: d02c3fbb762e83584a9ea277ef8d5cc15b391f37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792583"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954960"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Bilgi Bankası'na güvenli Sharepoint veri kaynağı Ekle
 
@@ -53,7 +53,7 @@ Bir Active Directory hesabı için kimlik doğrulaması için bir açılır penc
 
 ![Hesabınızda kimlik doğrulaması](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Soru-cevap Oluşturucu yöneticisi hesabı seçtikten sonra Active Directory Yöneticisi soru-cevap Oluşturucu, Sharepoint kaynak (soru-cevap Oluşturucu Yöneticisi değil) uygulama erişime izin vermek gerektiğini bir uyarı alırsınız. Her Sharepoint kaynak, ancak bu kaynağa her belgede Bunu yapmak Active Directory Yöneticisi gerekir. 
+Soru-cevap Oluşturucu yöneticisi hesabı seçtikten sonra Active Directory Yöneticisi soru-cevap Oluşturucu, Sharepoint kaynak uygulama (soru-cevap Oluşturucu Yöneticisi değil) erişim izni vermek gereken bir uyarı alırsınız. Her Sharepoint kaynak, ancak bu kaynağa her belgede Bunu yapmak Active Directory Yöneticisi gerekir. 
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active directory Yöneticisi: dosya okuma yetkisi vermek için soru-cevap Oluşturucu
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 3f28e540aeb1604c5df885fd54d243211beb40b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796338"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909387"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Önceki arama ImageInsightsToken kullanarak benzer görüntülerden Bul
 
@@ -25,7 +25,7 @@ Bu öğretici için tam kaynak kodunu ek hata işleme ve ek açıklamalar ile bu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
+* Herhangi bir sürümünü [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Linux/MacOS kullanıyorsanız, bu uygulamayı kullanarak çalıştırabilirsiniz [Mono](https://www.mono-project.com/).
 * NuGet görsel arama ve resim arama paketler.
     - Visual Studio'da Çözüm Gezgini'nden, projeyi sağ tıklatın **NuGet paketlerini Yönet** menüsünde. Yükleme `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketi ve `Microsoft.Azure.CognitiveServices.Search.ImageSearch` paket. NuGet paketlerini yükleme Ayrıca aşağıdakileri yükler:

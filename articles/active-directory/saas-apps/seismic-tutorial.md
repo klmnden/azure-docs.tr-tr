@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 6da53c14546fbe08206e5ba026a7b9176da2577e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339219"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Öğretici: Seismic ile Azure Active Directory Tümleştirme
 

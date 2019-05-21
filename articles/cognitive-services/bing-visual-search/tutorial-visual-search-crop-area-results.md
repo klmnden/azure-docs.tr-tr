@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 7c3fc67dbeac71530d9c5ddedc609296023fe901
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796527"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896262"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Öğretici: Bing görsel arama için SDK ile görüntü kırpmaC#
 
@@ -33,7 +33,7 @@ Bu öğreticide gösterilmiştir nasıl yapılır:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
+* Herhangi bir sürümünü [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Linux/MacOS kullanıyorsanız bu uygulama, [Mono](https://www.mono-project.com/) kullanılarak çalıştırılabilir.
 * [NuGet Özel Arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paketinin yüklenmiş olması.
     - Visual Studio'da Çözüm Gezgini'nden, projeyi sağ tıklatın **NuGet paketlerini Yönet** menüsünde. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketini yükleyin. NuGet Özel Arama paketini yüklediğinizde aşağıdaki derlemeler de yüklenir:

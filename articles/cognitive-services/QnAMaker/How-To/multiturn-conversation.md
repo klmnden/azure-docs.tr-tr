@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471949"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954878"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Birden çok kapatır konuşmanın oluşturmak için istemleri takip kullanın
 
@@ -52,7 +52,7 @@ PDF belgesinin içeri aktarırken, soru-cevap Oluşturucu damıtarak konuşma ba
 
 ![! [PDF belgesinin içeri aktarırken, soru-cevap Oluşturucu damıtarak konuşma bağlamında kullanılabilen akışı oluşturmak için yapı izleme istemleri belirler. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>Sorular ve cevaplar bağlama göre filtrele
+## <a name="show-questions-and-answers-with-context"></a>Sorular ve cevaplar bağlamla Göster
 
 1. Bağlamsal konuşmaları yalnızca olanlar için görüntülenen soru ve yanıt çiftleri azaltın. Seçin **görüntüleme seçenekleri**, ardından **Show bağlam (Önizleme)**. İlk soru ve yanıt çifti izleme istemiyle ekleyene kadar listesi boş olur. 
 
@@ -64,22 +64,36 @@ PDF belgesinin içeri aktarırken, soru-cevap Oluşturucu damıtarak konuşma ba
 1. Yeni soru metnini girin `Give feedback.` bir yanıt `What kind of feedback do you have?`.
 
 1. İçinde **yanıt** bu soruyu seçin için sütun **Ekle izleme istemi**. 
-1. **İzleme istemi** açılır iletişim kutusu için mevcut bir soru aramak veya yeni bir soru girin olanak tanır. Bu yordamda, metin girin `Feedback on an QnA Maker service`, için **ekran metni**. 
-1. Denetleme **yalnızca bağlam**. **Yalnızca bağlam** seçeneğin belirtilmediğini bu kullanıcı metni anlaşılması _yalnızca_ önceki soruyu yanıtlayarak verildiyse. Bu senaryo için istem metnini herhangi bir tek başına soru olarak anlam ifade etmez, yalnızca önceki soruyu bağlamında mantıklıdır.
-1. İçinde **yanıtlamak için bağlantı** metin kutusunda, yanıt girin `How would you rate QnA Maker?`.
-1. Seçin **Yeni Oluştur** seçip **Kaydet**. 
+1. **İzleme istemi (Önizleme)** açılır pencere arama için mevcut bir soru veya yeni bir soru girin olanak tanır. Aşağıdaki değerler girerek yeni bir istemi oluşturun: 
+
+    |Metin alanı|Değer|
+    |--|--|
+    |**Metin görüntüleme**|`Feedback on an QnA Maker service`|
+    |**Yanıt için bağlantı**|`How would you rate QnA Maker??`|
+    |||
 
     ![Yeni komut istemi soru-cevap oluşturma](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    Bu yeni bir soru-cevap çifti oluşturulur ve izleme istemi olarak seçilen sorunun bağlı. **Bağlam** sütununda, her iki sorular için izleme bir komut istemi ilişkisi belirtin. 
+1. Denetleme **yalnızca bağlam**. **Yalnızca bağlam** seçeneğin belirtilmediğini bu kullanıcı metni anlaşılması _yalnızca_ önceki soruyu yanıtlayarak verildiyse. Bu senaryo için istem metnini herhangi bir tek başına soru olarak anlam ifade etmez, yalnızca önceki soruyu bağlamında mantıklıdır.
+1. Seçin **Yeni Oluştur** seçip **Kaydet**. 
+
+    Bu yeni bir soru-cevap çifti oluşturulur ve izleme istemi olarak seçilen sorunun bağlı. **Bağlam** sütununda, her iki sorular için izleme bir komut istemi ilişkileri gösterir. 
 
     ![! [Bağlam sütununda, her iki sorular için izleme bir komut istemi ilişkiyi gösterir.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Seçin **Ekle izleme istemi** için `Give feedback` soru başka bir izleme istemi ekleyin. 
-1. Girerek yeni bir soru oluşturmasını `Feedback on an existing feature`, yanıt `Which feature would you like to give feedback on?`.  
+1. Seçin **Ekle izleme istemi** için `Give feedback` soru başka bir izleme istemi ekleyin. Bu açılır **izleme istemi (Önizleme)** açılır pencere.
 
-1.  Denetleme **yalnızca bağlam**. **Yalnızca bağlam** seçeneğin belirtilmediğini bu kullanıcı metni anlaşılması _yalnızca_ önceki soruyu yanıtlayarak verildiyse. Bu senaryo için istem metnini herhangi bir tek başına soru olarak anlam ifade etmez, yalnızca önceki soruyu bağlamında mantıklıdır.
-1.  **Kaydet**’i seçin. 
+1. Aşağıdaki değerler girerek yeni bir istemi oluşturun:
+
+    |Metin alanı|Değer|
+    |--|--|
+    |**Metin görüntüleme**|`Feedback on an existing feature`|
+    |**Yanıt için bağlantı**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. Denetleme **yalnızca bağlam**. **Yalnızca bağlam** seçeneğin belirtilmediğini bu kullanıcı metni anlaşılması _yalnızca_ önceki soruyu yanıtlayarak verildiyse. Bu senaryo için istem metnini herhangi bir tek başına soru olarak anlam ifade etmez, yalnızca önceki soruyu bağlamında mantıklıdır.
+
+1. **Kaydet**’i seçin. 
 
     Bu yeni bir soru oluşturulur ve izleme komut istemi soru olarak soru bağlı `Give feedback` soru.
     
@@ -93,26 +107,34 @@ PDF belgesinin içeri aktarırken, soru-cevap Oluşturucu damıtarak konuşma ba
 
 1. Bir izleme istemi olarak var olan bir soru-cevap çifti bağlamak isterseniz, soru ve yanıt çifti için bir satır seçin.
 1. Seçin **Ekle izleme istemi** söz konusu satırdaki.
-1. Açılan iletişim kutusunda, arama kutusuna soru metnini girin. Tüm eşleşmeleri döndürülür. İzleme istediğiniz ve kontrol soruyu seçin **yalnızca bağlam**, ardından **Kaydet**. 
+1. İçinde **izleme istemi (Önizleme)** açılır pencere, arama kutusuna yanıt metni girin. Tüm eşleşmeleri döndürülür. Yanıt izlenmesini istediğiniz ve kontrol seçin **yalnızca bağlam**, ardından **Kaydet**. 
 
-    İzleme istemi OU eklendikten sonra seçeneğini belirlemeyi unutmayın **kaydedin ve eğitme**.
+    ![İzleme istemi ait bağlantı yanıt metni kullanarak yanıt iletişim var olan bir yanıt arayın.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    İzleme istemi ekledikten sonra seçeneğini belirlemeyi unutmayın **kaydedin ve eğitme**.
   
-## <a name="add-metadata-to-follow-up-prompts"></a>İzleme istem için meta verileri ekleme 
+<!--
 
-Bilgi Bankası'nda soru/yanıt çifti için bağlı olduğunda izleme ister, meta veri filtresini önce uygulanır ve ardından yanıt döndürülür.
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. İki izleme soru-cevap çiftlerini için meta verileri her birini ekleyin:
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |Soru|meta veri ekleme|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|"Özelliği": "tüm"|
-    |`Feedback on an existing feature`|"Özelliği": "bir"|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![Meta veri hizmetinden konuşma yanıt filtrelenebilir izleme komutuna ekleyin](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Kaydet ve eğitin. 
+1. Save and train. 
 
-    Soru gönderdiğinizde `Give feedback` ile meta veri filtresini `Feature` değeriyle `all`, yalnızca meta verilerin soru-cevap çiftiyle döndürülür. Her ikisi de filtre eşleşmediğinden hem de soru-cevap çiftlerini döndürülmez. 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>Test izleme almak için soru-cevap ayarlamak ister
 
@@ -145,7 +167,7 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ Soru-cevap Oluşturucu _GenerateAnswer_ JSON yanıtı içeren izleme istemleri `
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>Komut istemlerini görüntüleme ve istemci uygulamasında bağlamı gönderme 
 
-İstemci uygulama, önerilen eylemleri veya düğme yönergeleri görüntülemek bir kullanıcı için bir seçenek ile tüm soruları görüntüler.
-İstemci uygulama daha sonra geçerli soru-cevap eşleştirme ve kullanıcı sorgu bağlamı ile ileri kullanıcı sorgusu geçirilmesi olarak depolar. 
+İstemleri, Bilgi Bankası'ndaki ekledik ve akış test Bölmesi'nde test ettikten istemleri otomatik olarak istemci uygulamalarında görünmeye başlar. Size istemleri önerilen eylemleri veya düğme olarak kullanıcının sorgu yanıtı bir parçası olarak istemci uygulamaları dahil ederek gösterebilir [Bot Framework örnek](https://aka.ms/qnamakermultiturnsample) kodunuzda. İstemci uygulaması geçerli soru-cevap kimliği ve kullanıcı sorgusu depolamak ve bunları geçmesi [GenerateAnswer API bağlam nesnesinin](#json-request-to-return-non-initial-answer-and-follow-up-prompts) ileri kullanıcı sorgusu için.
 
-Bunu kullanın [Bot Framework örnek](https://aka.ms/qnamakermultiturnsample) çok Aç iletişim çalışma için uçtan uca bir soru-cevap Oluşturucu bot içinde görmek için.
+## <a name="display-order-supported-in-api"></a>Desteklenen API görüntülenme sırasını
 
-
-## <a name="prompt-order-supported-in-api"></a>Desteklenen API isteme sırası
-
-JSON yanıtta döndürülen isteme sırası, yalnızca API tarafından düzenleme için desteklenir. 
+JSON yanıtta döndürülen görüntülenme sırasını yalnızca API tarafından düzenleme için desteklenir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

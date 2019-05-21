@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866541"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954646"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Özel ses oluşturma kayıt ses örnekleri
 
@@ -53,7 +53,7 @@ Ses yetenek, doğal ses seçin ister. Benzersiz "character" sesleri oluşturmak 
 
 Ses beceri seçme tek en önemli faktör tutarlılık ' dir. Aynı odada aynı günde yapılan gibi kayıtlarınızı tüm ses. Bu ideal iyi kayıt yöntemleri ve mühendislik yaklaşımı.
 
-Eşitlik diğer yarısı, sesli yeteneğiniz olur. İzinli tutarlı oranı, ses düzeyi, aralık ve sesi konuşabilirsiniz olmalıdır. NET diction zorunluluktur. Yetenek, ayrıca kendi sıklık değişimi, duygusal etkiler ve konuşma veren davranışların kesin denetim sahibi olması gerekir.
+Eşitlik diğer yarısı, sesli yeteneğiniz olur. Bunların tutarlı oranı, ses düzeyi, aralık ve sesi konuşabilirsiniz olması gerekir. NET diction zorunluluktur. Yetenek, ayrıca bunların sıklık değişimi, duygusal etkiler ve konuşma veren davranışların kesin denetim sahibi olması gerekir.
 
 Özel ses örnekleri kaydı diğer tür üslup çalışmalar daha fazla fatiguing olabilir. Çoğu ses beceri günde iki veya üç saat kaydedebilirsiniz. Mümkünse oturumları üç veya dört haftada bir, bir günü raflarının ile sınırlayın.
 
@@ -117,7 +117,7 @@ Neyse ki, bu sorunları tamamen önlemek mümkündür. Metin izni veya lisans ku
 
 Betiğinizi uzmanlaşmış bir profesyonel kaydı studio, sesli işlerinde kaydedin. Bunlar, bir kaydı standına, doğru donanım ve işletmek için doğru kişilere sahip olacaksınız. Bu kayıt skimp değil öder.
 
-Studio'nun kaydı mühendisiyle, projeyi tartışmak ve kendi öneriler için dinleyin. Kayıt, çok az kayıpla veya hiç dinamik aralık sıkıştırma (en fazla 4:1) sahip olmalıdır. Ses birimi tutarlı ve yüksek bir sinyal/gürültü oranına istenmeyen sesler ücretsiz olmanın yanı sıra olduğunu önemlidir.
+Studio'nun kaydı mühendisiyle, projeyi tartışmak ve bunların öneriler için dinleyin. Kayıt, çok az kayıpla veya hiç dinamik aralık sıkıştırma (en fazla 4:1) sahip olmalıdır. Ses birimi tutarlı ve yüksek bir sinyal/gürültü oranına istenmeyen sesler ücretsiz olmanın yanı sıra olduğunu önemlidir.
 
 ### <a name="do-it-yourself"></a>Bu işlemi kendiniz yapın
 
@@ -131,7 +131,7 @@ Bir analog mikrofon de kullanabilirsiniz. Birçok kiralama görev açısından k
 
 Bir yedek veya ok mikrofon yükleyin ve "p" ve "b" gibi "plosive" ünsüzler paraziti ortadan kaldırmak için mikrofon önünde pop filtre yükleyin Bazı mikrofonlar bunları vibrations yararlıdır bağımsız olarak öğesinden ayırır bir askıya alma bağlama gelir.
 
-Ses beceri mikrofondan tutarlı bir uzaklıkta kalması gerekir. Bant katında izinli olduğu göze işaretlemek için kullanın. Beceri tercih durumda kalmaya devam ediyorsa, MIC uzaklık izlemek ve sandalye gürültüsünü önlemek için özel dikkat edin.
+Ses beceri mikrofondan tutarlı bir uzaklıkta kalması gerekir. Bant katında olduğu göze işaretlemek için kullanın. Beceri tercih durumda kalmaya devam ediyorsa, MIC uzaklık izlemek ve sandalye gürültüsünü önlemek için özel dikkat edin.
 
 Betiğini tutmak için kullanın. Böylece doğru mikrofon ses yansıtabilir öne angling kaçının.
 
@@ -158,12 +158,12 @@ Kayıtta doğrudan yüksek kaliteli ses arabirimi veya kullanmakta olduğunuz MI
 
 ### <a name="before-the-session"></a>Oturumdan önce
 
-Studio zaman harcamamak için önce kayıt oturumu aracılığıyla, sesli beceri komut dosyasını çalıştırın. Ses beceri metinle tanıdık olurken, isterse tanınmayan herhangi bir kelimelerin telaffuz açıklık getirebilirsiniz.
+Studio zaman harcamamak için önce kayıt oturumu aracılığıyla, sesli beceri komut dosyasını çalıştırın. Ses beceri metinle tanıdık olurken, Söyleniş tanınmayan herhangi bir kelimelerin açıklık getirebilirsiniz.
 
 > [!NOTE]
 > Çoğu kayıt studios kaydı standına betiklerde elektronik görünümünü sunar. Bu durumda, sınama yayınını notlarınıza doğrudan betiğin belgeye yazın. Yine de not oturumu boyunca, ancak almak için basılı kopya istersiniz. Çoğu mühendisleri sabit kopyasını çok isteyeceksiniz. Ve üçüncü bir kopya bilgisayar kapalı durumda yetenek için yedek olarak yazdırılır. yine de istersiniz.
 
-Kendi ses beceri bir utterance ("operative sözcüğü") vurgulanmış istediğiniz hangi word isteyebilir. Ondan hiçbir belirli Vurgu ile doğal bir okuma istediğinizi söyleyin. Konuşma oluşturulan Vurgu eklenebilmesi için; özgün kaydın parçası olmamalıdır.
+Kendi ses beceri bir utterance ("operative sözcüğü") vurgulanmış istediğiniz hangi word isteyebilir. Hiçbir belirli Vurgu ile doğal bir okuma istediğinizi söyleyin. Konuşma oluşturulan Vurgu eklenebilmesi için; özgün kaydın parçası olmamalıdır.
 
 Sözcükleri sonuçlanmaz telaffuz edilir beceri yönlendirir. Her sözcüğün betik yazıldığı gibi telaffuz. Ses atlanırsa veya birlikte, rastgele okuma özelliği, yaygın olarak bulunur slurred *bunlar böylece kodda yazılmış sürece*.
 

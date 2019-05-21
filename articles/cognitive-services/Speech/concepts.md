@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60514970"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954528"
 ---
 # <a name="basic-concepts"></a>Temel kavramlar
 
@@ -32,7 +32,7 @@ Bu konuşma özellikli bir uygulama oluşturuyorsanız ilk kez kullanıyorsanız
 
 Konuşma temel kavramlarını arasında yapısıdır *ses akışı*. Tek bir noktada saatinden ve tek bir bilgiyi içeren bir tuş vuruşu aksine konuşmada geçen bir istek yüzlerce milisaniye yayılan ve birçok kilobayt bilgileri içerir. Konuşulan konuşma süresi, kendi uygulama kolaylaştırılmış ve şık konuşma deneyimi sağlamak isteyen geliştiriciler için bazı güçlük sunar. Günümüzün bilgisayarlar ve algoritmaları konuşma transkripsiyonu utterance süresi yaklaşık yarısını 2 saniyelik utterance yaklaşık 1 saniye içinde transcribed, ancak 1 saniye gecikmeden işleme kullanıcı deneyimleri herhangi bir uygulama için gerçekleştirin Kolaylaştırılmış ne Zarif.
 
-Neyse ki, vardır, "kullanıcı başka bir bölümü konuştuğunu sırada utterance bir parçası üzerinde döküm gerçekleştirerek transkripsiyonu zaman gizleme". Kullanıcı farkında değildir Örneğin, bir 1 saniye utterance 100 milisaniye cinsinden süre 10 parçalara bölmek ve döküm her bir öbeği sırasıyla yaparak, üzerinde döküm için gereken toplam 500 milisaniye "gizlenebilir" 450 transkripsiyonu, böylelikle derse Konuşmayı sırada gerçekleştirilmekte olan. Bu örnek hakkında düşünmeye unutmayın hizmeti kullanıcı, sonraki 100 Konuşmayı sırada ses önceki 100 milisaniye transkripsiyonu gerçekleştiriyor, kullanıcı Konuşmayı durduğunda bu nedenle hizmet yalnızca kabaca 100 konuşmaların gerekir bir sonuç üretmek için ses milisaniye.
+Neyse ki, vardır, "kullanıcı başka bir bölümü konuştuğunu sırada utterance bir parçası üzerinde döküm gerçekleştirerek transkripsiyonu zaman gizleme". Kullanıcı farkında değildir Örneğin, bir 1 saniye utterance 100 milisaniye cinsinden süre 10 parçalara bölmek ve döküm her bir öbeği sırasıyla yaparak, üzerinde döküm için gereken toplam 500 milisaniye "gizlenebilir" 450 transkripsiyonu, böylelikle Konuşma sırada gerçekleştirilmekte olan. Bu örnek hakkında düşünmeye unutmayın hizmeti kullanıcı, sonraki 100 Konuşmayı sırada ses önceki 100 milisaniye transkripsiyonu gerçekleştiriyor, kullanıcı Konuşmayı durduğunda bu nedenle hizmet yalnızca kabaca 100 konuşmaların gerekir bir sonuç üretmek için ses milisaniye.
 
 Bu kullanıcı deneyimi elde etmek için konuşulan ses bilgi yığınlar toplanır ve kullanıcı konuştukça transcribed. Bu ses öbekleri topluca gelen *ses akışı*, ve bu ses öbekleri hizmete gönderme işlemini çağrılır *ses akışı.* Ses akış, herhangi bir konuşma özellikli uygulamanın önemli bir parçasıdır; Öbek boyutu ayarlama ve akış uygulaması en iyi duruma getirme, uygulamanızın kullanıcı deneyimini geliştiriyor en etkili yolları bazılarıdır.
 
@@ -162,7 +162,7 @@ Döküm yanıtları Dönüştürülen metin gelen istemcilere döndürür. Bir d
 
 | Durum | Açıklama |
 | ------------- | ---------------- |
-| Başarılı | Tanıma başarılı oldu ve görüntü metni alanı var. |
+| Başarı | Tanıma başarılı oldu ve görüntü metni alanı var. |
 | NoMatch | Konuşma Tanıma Ses akışında algılandı, ancak hiçbir hedef dil sözcükleri eşleştirilmiş olan. [NoMatch tanıma Status(#nomatch-recognition-status) daha fazla ayrıntı için bkz.  |
 | InitialSilenceTimeout | Ses akışı başlangıcını yalnızca sessizlik ve konuşma için beklerken zaman aşımına hizmeti yer alan |
 | BabbleTimeout | Ses akışı başlangıcını yalnızca gürültü ve konuşma için beklerken zaman aşımına hizmeti yer alan |
@@ -190,7 +190,7 @@ Microsoft konuşma hizmeti yük biçimleri çeşitli transkripsiyonu yanıtları
 
 İfade sonucu biçimi belirterek denetleyebilirsiniz `format` URL'si sorgu parametresi. Varsayılan olarak, hizmetin döndürdüğü `simple` sonuçları.
 
-| Biçimlendir | Açıklama |
+| Biçim | Açıklama |
 |-----|-----|
 | `simple` | Tanıma durumu ve görüntüleme formu içinde tanınan metin içeren bir Basitleştirilmiş ifade sonucu. |
 | `detailed` | Tanıma durumu ve en iyi N listesini ifade sonuçlar burada her ifade sonucu tüm dört tanıma formları ve bir güven puanı içerir. |

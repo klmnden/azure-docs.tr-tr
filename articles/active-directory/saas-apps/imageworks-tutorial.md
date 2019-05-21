@@ -16,11 +16,11 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cde9d4efd3d6eb5bc987a4bf7eb423447ceddc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273833"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Öğretici: Azure Active Directory Tümleştirmesi ile görüntü ÇALIŞIR
 

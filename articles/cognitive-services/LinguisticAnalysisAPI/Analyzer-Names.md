@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405265"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954711"
 ---
 # <a name="analyzer-names"></a>Çözümleyici adları
 
@@ -43,10 +43,10 @@ Bu analiz türünü döndürdü ve bu analizin temsil etmek için kullanılan ve
 Belirli bir tür içinde belirli bir olguya nasıl çözümlenmelidir farklı uzmanlar ancak katılmıyorum.
 Programlama dillerden farklı olarak, bu nasıl yapılmalıdır hiçbir NET ve tam tanımı yok.
 
-Örneğin, "He gitmedi." İngilizce cümlede belirteçleri bulmaya çalıştığınız düşünün.
+Örneğin, "Bunlar gitmedi." İngilizce cümlede belirteçleri bulmaya çalıştığınız düşünün.
 Özellikle, dize, "siz" göz önünde bulundurun.
 Olası bir yorumu olduğundan bu iki belirteçlere bölünmesi: "yaptığını" ve "not".
-Ardından alternatif cümlenin "He değil gitti" belirteçleri aynı kümesi gerekir.
+Ardından alternatif cümlenin "bunlar değil gitti" belirteçleri aynı kümesi gerekir.
 Bu belirteçleri "yaptığını" ve "Me" olarak ayrılmalıdır söyleyin başka bir olasılıktır.
 İkinci belirtecin normalde bir sözcük değerlendirilmeyecektir, ancak bazı durumlarda yararlı olabilir yüzey dize hakkında daha fazla bilgi bu yaklaşım korur.
 Veya belki de bu kısaltma tek bir sözcük düşünülmelidir.
