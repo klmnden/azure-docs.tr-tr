@@ -77,7 +77,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Lisanslı SQL Server kopyamı bir Azure sanal makinesine nasıl yükleyebilirim?**
 
-   Bunu yapmanın iki yolu vardır. [Lisansları destekleyen sanal makine görüntülerinden](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) birini (kendi lisansını getir (KLG) olarak da bilinir) sağlayabilirsiniz. Diğer seçenek SQL Server yükleme medyasını bir Windows Server sanal makinesine kopyalamak ve sonra sanal makineye SQL Server'ı yüklemektir. Öte yandan SQL Server'ı kendiniz yüklerseniz portal tümleştirmesi olmaz ve SQL Server IaaS Aracı Uzantısı desteklenmez; dolayısıyla Otomatik Yedekleme ve Otomatik Yama Uygulama gibi özellikler bu senaryoda çalışmaz. Bu nedenle KLG galeri görüntülerinden birini kullanmanızı öneririz. KLG veya kendi SQL Server medya, bir Azure sanal makinesinde kullanmak için olmalıdır [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/). Daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
+   Bunu yapmanın iki yolu vardır. [Lisansları destekleyen sanal makine görüntülerinden](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) birini (kendi lisansını getir (KLG) olarak da bilinir) sağlayabilirsiniz. Diğer seçenek SQL Server yükleme medyasını bir Windows Server sanal makinesine kopyalamak ve sonra sanal makineye SQL Server'ı yüklemektir. Öte yandan SQL Server'ı kendiniz yüklerseniz portal tümleştirmesi olmaz ve SQL Server IaaS Aracı Uzantısı desteklenmez; dolayısıyla Otomatik Yedekleme ve Otomatik Düzeltme Eki Uygulama gibi özellikler bu senaryoda çalışmaz. Bu nedenle KLG galeri görüntülerinden birini kullanmanızı öneririz. KLG veya kendi SQL Server medya, bir Azure sanal makinesinde kullanmak için olmalıdır [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/). Daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 
 1. **Yalnızca bekleme/yük devretme için kullanılıyorsa Azure sanal makinesindeki SQL Server'ı lisanslamak için ödeme yapmam gerekir mi?**
@@ -119,9 +119,9 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
     Microsoft.SqlVirtualMachine kaynak bırakıldığında Microsoft.Compute/VirtualMachine kaynak etkilenmez. Ancak, lisans değişikliklerinin özgün görüntü kaynağı için varsayılan olarak kullanılır. 
 
-1. **Kendi kendine dağıtılan SQL Server VM'lerini SQL VM kaynak sağlayıcısıyla kaydetmek mümkün mü?**
+1. **Kendi dağıttığımız SQL Server VM'lerini SQL VM kaynak sağlayıcısıyla kaydetmek mümkün mü?**
 
-    Evet. SQL Server'ı kendi medyadan dağıtılan ve SQL Iaas uzantısı yüklü değilse, SQL Server VM'nize SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile kaydedebilirsiniz. Öte yandan kendi kendine dağıtılan SQL VM'yi kullandıkça öde modeline dönüştüremezsiniz.
+    Evet. SQL Server'ı kendi medyadan dağıtılan ve SQL Iaas uzantısı yüklü değilse, SQL Server VM'nize SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile kaydedebilirsiniz. Öte yandan kendi dağıttığımız SQL VM'yi kullandıkça öde modeline dönüştüremezsiniz.
 
 ## <a name="administration"></a>Yönetim
 

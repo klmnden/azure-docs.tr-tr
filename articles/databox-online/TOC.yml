@@ -89,6 +89,8 @@
           items:
             - name: Uç işlemi
               href: data-box-edge-manage-compute.md
+            - name: Uç işlemi ağı
+              href: data-box-edge-extend-compute-access-modules.md
             - name: Paylaşımlar
               href: data-box-edge-manage-shares.md
             - name: Kullanıcılar

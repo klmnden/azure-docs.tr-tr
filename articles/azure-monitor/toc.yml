@@ -819,53 +819,47 @@
       items:
         - name: Uyarılar
           items:
-            - name: Ölçüm uyarılarını kullanma
-              items:
-                - name: 'Azure İzleyici''de ölçüm uyarıları oluşturma, görüntüleme ve yönetme'
-                  href: platform/alerts-metric.md
-                - name: 'Azure İzleyici''de klasik ölçüm uyarıları oluşturma, görüntüleme ve yönetme'
-                  href: platform/alerts-classic-portal.md
-                - name: Dinamik Eşikler ile Ölçüm Uyarıları
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: Günlük verileriyle ölçüm uyarılarını yapılandırma
-                  href: platform/alerts-metric-logs.md
-                - name: Resource Manager şablonu ile daha yeni bir ölçüm uyarısı oluşturma
-                  href: platform/alerts-metric-create-templates.md
-                - name: Kaynak Yöneticisi şablonu ile klasik ölçüm uyarısı oluşturma
-                  href: platform/alerts-enable-template.md
-                - name: Klasik bir ölçüm uyarısının bir web kancasını çağırmasını sağlama
-                  href: platform/alerts-webhooks.md
-            - name: Günlük uyarılarını kullanma
-              items:
-                - name: Analiz sorgusuyla uyarıları yapılandırma
-                  href: platform/alerts-log.md
-                - name: Günlük uyarısı sorguları
-                  href: platform/alerts-log-query.md
-                - name: Günlük uyarıları için web kancası eylemleri
-                  href: platform/alerts-log-webhook.md
-                - name: Günlük uyarıları sorunlarını giderme
-                  href: platform/alert-log-troubleshoot.md
-            - name: Etkinlik günlüğü uyarılarını kullanma
-              items:
-                - name: Bir etkinlik günlüğü olayında uyarı yapılandırma
-                  href: platform/alerts-activity-log.md
-                - name: Etkinlik günlüğü uyarılarına geçirme
-                  href: platform/migrate-management-alerts.md
-                - name: Hizmet bildirimlerinde uyarı yapılandırma
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: Uygulama uyarılarını kullanma
+            - name: Uygulama uyarı kuralları
               items:
                 - name: Kullanılabilirlik
                   href: app/monitor-web-app-availability.md
                 - name: Ölçüm uyarıları
                   href: app/alerts.md
-            - name: Eylem gruplarını uyarılarla kullanma
+            - name: Platform ölçüm uyarısı kuralları
+              items:
+                - name: Ölçüm uyarılarını yönetme
+                  href: platform/alerts-metric.md
+                - name: Dinamik eşikleri kullanma
+                  href: platform/alerts-dynamic-thresholds.md
+                - name: Günlüklerde ölçüm uyarıları
+                  href: platform/alerts-metric-logs.md
+                - name: Resource Manager şablonunu kullanma
+                  href: platform/alerts-metric-create-templates.md
+            - name: Günlük uyarı kuralları
+              items:
+                - name: Analiz sorgusuyla uyarıları yapılandırma
+                  href: platform/alerts-log.md
+                - name: Sorgular
+                  href: platform/alerts-log-query.md
+                - name: Web kancası eylemleri
+                  href: platform/alerts-log-webhook.md
+                - name: Sorun giderme
+                  href: platform/alert-log-troubleshoot.md
+            - name: Etkinlik günlüğü uyarı kuralları
+              items:
+                - name: Etkinlik günlüğü olayıyla ilgili uyarı
+                  href: platform/alerts-activity-log.md
+                - name: Yönetim olaylarını etkinlik günlüğü uyarılarına geçirme
+                  href: platform/migrate-management-alerts.md
+                - name: Hizmet durumu bildirimleriyle ilgili uyarı
+                  href: platform/alerts-activity-log-service-notifications.md
+            - name: Eylem gruplarını kullanma
               items:
                 - name: Eylem grubu oluşturma
                   href: platform/action-groups.md
-                - name: Web kancası şeması hakkında bilgi edinme
+                - name: Web kancası şeması
                   href: platform/activity-log-alerts-webhook.md
-                - name: Ortak uyarı şeması tanımları
+                - name: Ortak uyarı şeması tanımı
                   href: platform/alerts-common-schema-definitions.md
                 - name: SMS uyarısı davranışı
                   href: platform/alerts-sms-behavior.md
@@ -875,9 +869,9 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Bir Mantıksal Uygulama eylemi gerçekleştirme
                   href: platform/action-groups-logic-app.md
-            - name: Operations Manager uyarıları
+            - name: Uyarı Yönetimi çözümü
               href: platform/alert-management-solution.md
-            - name: Uyarıları yönetme
+            - name: Uyarı kullanıcı arabirimi
               items:
                 - name: Uyarı örneklerini yönetme
                   href: platform/alerts-managing-alert-instances.md
@@ -887,19 +881,31 @@
                   href: platform/alerts-managing-alert-states.md
                 - name: Diğer izleme hizmetlerinden gelen uyarıları yönetme
                   href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: Klasik uyarıları geçirme
+            - name: Klasik uyarı kurallarını geçirme
               items:
-                - name: Geçiş aracını kullanma
-                  href: platform/alerts-using-migration-tool.md
-                - name: Geçiş için hazırlama
+                - name: Geçiş için hazırlanma
                   href: platform/alerts-prepare-migration.md
                 - name: Geçiş aracını anlama
                   href: platform/alerts-understand-migration.md
+                - name: Geçiş aracını kullanma
+                  href: platform/alerts-using-migration-tool.md
+                - name: Klasik ölçüm uyarılarını yönetme
+                  href: platform/alerts-classic-portal.md
+                - name: Resource Manager şablonunu kullanarak klasik ölçüm uyarısı
+                  href: platform/alerts-enable-template.md
+                - name: Web kancasını çağıran klasik ölçüm uyarısı
+                  href: platform/alerts-webhooks.md
+        - name: Etkinlik günlüğündeki hizmet durumu bildirimleri
+          items:
+            - name: Bildirimleri görüntüleme
+              href: platform/service-notifications.md
+            - name: Bildirim olaylarıyla ilgili uyarıları yapılandırma
+              href: platform/alerts-activity-log-service-notifications.md
         - name: Otomatik Ölçeklendirme
           items:
-            - name: Otomatik ölçeklendirmeyle ilgili adım adım kılavuz
+            - name: Kılavuz
               href: platform/autoscale-get-started.md
-            - name: Otomatik Ölçeklendirme ayarlarını anlama
+            - name: Ayarlar
               href: platform/autoscale-understanding-settings.md
             - name: En iyi uygulamalar
               href: platform/autoscale-best-practices.md
@@ -907,20 +913,14 @@
               href: platform/autoscale-common-metrics.md
             - name: Ortak desenler
               href: platform/autoscale-common-scale-patterns.md
-            - name: Özel ölçüm kullanarak otomatik ölçekleme
+            - name: Özel ölçümlerle ölçeklendirme
               href: platform/autoscale-custom-metric.md
-            - name: Resource Manager şablonlarını kullanarak sanal makine ölçek kümelerini otomatik ölçeklendirme
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: Sanal Makine Ölçek Kümesi’nde makineleri otomatik olarak ölçeklendirme
+            - name: VM ölçek kümelerini ölçeklendirme
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: Otomatik ölçeklendirmede web kancalarını ve e-posta bildirimlerini yapılandırma
+            - name: Resource Manager şablonlarını kullanarak VM ölçek kümelerini ölçeklendirme
+              href: platform/autoscale-virtual-machine-scale-sets.md
+            - name: Web kancalarını ve e-posta bildirimlerini kullanma
               href: platform/autoscale-webhook-email.md
-        - name: Hizmet bildirimleri
-          items:
-            - name: Hizmet bildirimlerini görüntüleme
-              href: platform/service-notifications.md
-            - name: Hizmet bildirimlerinde uyarı yapılandırma
-              href: platform/alerts-activity-log-service-notifications.md
         - name: BT Hizmet Yönetimi
           items:
             - name: BT Hizmet Yönetimi Bağlayıcısı
