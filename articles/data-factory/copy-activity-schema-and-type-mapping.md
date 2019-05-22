@@ -90,12 +90,12 @@ Aşağıdaki özellikler altında desteklenen `translator`  ->  `mappings` Nesne
 
 | Özellik | Açıklama                                                  | Gerekli |
 | -------- | ------------------------------------------------------------ | -------- |
-| ad     | Kaynak veya havuz sütunun adı.                           | Evet      |
-| Sıra  | Sütun dizini. 1 ile başlayın. <br>Uygula ve sınırlandırılmış metin üst bilgi satırı olmadan kullanarak gereklidir. | Hayır       |
+| name     | Kaynak veya havuz sütunun adı.                           | Evet      |
+| ordinal  | Sütun dizini. 1 ile başlayın. <br>Uygula ve sınırlandırılmış metin üst bilgi satırı olmadan kullanarak gereklidir. | Hayır       |
 | path     | Ayıklanacak veya eşleme her bir alan için JSON yolu ifadesini. Hiyerarşik veriler için MongoDB/REST örn uygulayın.<br>Kök nesne altındaki alanlar için root $ ile JSON yolunu başlatır; tarafından seçilen dizinin içindeki alanlar için `collectionReference` özelliği, JSON yolu dizi öğeden başlar. | Hayır       |
 | type     | Veri Fabrikası geçici sütunun veri türünü kaynak veya havuz. | Hayır       |
-| Kültür  | Kaynak veya havuz sütun kültür. <br>Türü olduğunda geçerli `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. | Hayır       |
-| biçim   | Biçim türü olduğunda kullanılacak dize `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır       |
+| culture  | Kaynak veya havuz sütun kültür. <br>Türü olduğunda geçerli `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. | Hayır       |
+| format   | Biçim türü olduğunda kullanılacak dize `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır       |
 
 Aşağıdaki özellikler altında desteklenen `translator`  ->  `mappings` nesneyle yanı sıra `source` ve `sink`:
 
@@ -287,7 +287,7 @@ Data Factory, aşağıdaki geçici veri türlerini destekler: Tür bilgilerini y
 
 * Byte[]
 * Boolean
-* DateTime
+* Datetime
 * Datetimeoffset
 * Decimal
 * Double
