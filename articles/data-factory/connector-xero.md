@@ -50,7 +50,7 @@ Xero bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Xero** | Evet |
-| konak | Xero sunucu uç noktası (`api.xero.com`).  | Evet |
+| host | Xero sunucu uç noktası (`api.xero.com`).  | Evet |
 | consumerKey | Xero uygulamayla ilişkili tüketici anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | privateKey | Özel anahtar, Xero özel uygulama için oluşturulan .pem dosyasından bkz [bir ortak/özel anahtar çifti oluşturma](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Not **numbits 512 ile privatekey.pem oluşturmak** kullanarak `openssl genrsa -out privatekey.pem 512`; 1024 desteklenmiyor. .Pem dosyasından UNIX satırı endings(\n) dahil olmak üzere tüm metni eklemek, aşağıdaki örneğe bakın.<br/><br/>Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
@@ -125,7 +125,7 @@ Xero verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarl
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **XeroSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Contacts"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Contacts"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
