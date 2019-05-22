@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: f86949c196507080b32771a1b5470e9911e3e5b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 069bc213695de813ad6b878db54f38a909efd1df
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768754"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956025"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Öğretici: Spring ve Azure Cosmos DB'yi kullanarak bir Java web uygulaması derleme
 
@@ -79,7 +79,7 @@ Aboneliğinizde bir Azure Cosmos DB veritabanı oluşturmak için aşağıdaki a
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Uygulamaya bağlanmak için Azure Cosmos DB anahtarınızı alın. He tutmak `primaryMasterKey`, `documentEndpoint` nearby gibi bir sonraki adım gerekir.
+4. Uygulamaya bağlanmak için Azure Cosmos DB anahtarınızı alın. Tutun `primaryMasterKey`, `documentEndpoint` nearby gibi bir sonraki adım gerekir.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>

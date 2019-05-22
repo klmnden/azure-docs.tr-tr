@@ -305,6 +305,12 @@
                       href: app/snapshot-debugger-troubleshoot.md
                 - name: Tanılama
                   href: ../application-insights/app-insights-azure-diagnostics.md
+            - name: ASP.NET Çekirdeği
+              displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+              href: app/asp-net-core.md
+              items:
+                - name: ILogger
+                  href: app/ilogger.md
             - name: ASP.NET uygulamaları
               items:
                 - name: Web uygulamaları
@@ -339,13 +345,6 @@
                   href: app/windows-services.md
                 - name: Windows masaüstü
                   href: app/windows-desktop.md
-                - name: ASP.NET Çekirdeği
-                  href: app/asp-net-core.md
-                  items:
-                    - name: Linux Uygulama hizmetleri için Profil Oluşturucu (önizleme)
-                      href: app/profiler-aspnetcore-linux.md
-                - name: Visual Studio olmadan ASP.NET Core
-                  href: app/asp-net-core-no-visualstudio.md
                 - name: Konsol
                   href: app/console.md
                 - name: Uygulama panosu
@@ -356,8 +355,6 @@
                   href: app/asp-net-exceptions.md
                 - name: Günlük izlemeleri
                   href: app/asp-net-trace-logs.md
-                - name: ILogger
-                  href: app/ilogger.md
                 - name: Performans sayaçları
                   href: app/performance-counters.md
                 - name: Bağımlılıklar
