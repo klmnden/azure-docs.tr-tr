@@ -55,9 +55,9 @@ Bağlı Teradata hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Teradata** | Evet |
-| sunucu | Teradata sunucusunun adı. | Evet |
+| server | Teradata sunucusunun adı. | Evet |
 | authenticationType | Teradata veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel**, ve **Windows**. | Evet |
-| kullanıcı adı | Teradata veritabanına bağlanmak için kullanıcı adı belirtin. | Evet |
+| username | Teradata veritabanına bağlanmak için kullanıcı adı belirtin. | Evet |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
 
@@ -123,7 +123,7 @@ Teradata verileri kopyalamak için kopyalama etkinliği için kaynak türünü a
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
@@ -167,37 +167,37 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemeler Teradata ver
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| char |String |
+| Char |String |
 | Clob |String |
-| Tarih |DateTime |
+| Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Grafiği |String |
-| Tamsayı |Int32 |
-| Gün aralığı |TimeSpan |
-| Saat gün aralığı |TimeSpan |
-| Dakika gün aralığı |TimeSpan |
-| İkinci gün aralığı |TimeSpan |
-| Saat aralığı |TimeSpan |
-| Aralığı saat dakika |TimeSpan |
-| İkinci saat aralığı |TimeSpan |
-| Aralık dakika |TimeSpan |
-| İkinci aralık dakika |TimeSpan |
-| Aralık ayı |String |
-| Aralık ikinci |TimeSpan |
-| Aralığı yıl |String |
-| Yıl ay aralığı |String |
-| Sayı |Double |
+| Graphic |String |
+| Integer |Int32 |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Month |String |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Number |Double |
 | Period(Date) |String |
 | Period(Time) |String |
-| Süresi (saat dilimiyle birlikte) |String |
-| Period(timestamp) |String |
-| Süre (saat dilimi ile zaman damgası) |String |
-| Tamsayı |Int16 |
-| Zaman |TimeSpan |
-| Saat dilimi ile zaman |String |
-| Zaman damgası |DateTime |
-| Saat dilimi ile zaman damgası |DateTimeOffset |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
+| SmallInt |Int16 |
+| Time |TimeSpan |
+| Time With Time Zone |String |
+| Timestamp |DateTime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
