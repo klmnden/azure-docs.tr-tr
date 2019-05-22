@@ -131,16 +131,16 @@ Kopyalama etkinliği, aşağıdaki şablon desteklenen özelliklerin kapsamlı b
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği öğesinin type özelliği ayarlanmalıdır: **Kopyala** | Evet |
-| girişler | Kaynak verileri hangi noktalara oluşturduğunuz veri kümesi belirtin. Kopyalama etkinliği, yalnızca tek bir giriş destekler. | Evet |
-| çıkışlar | Havuz veri hangi noktalara oluşturduğunuz veri kümesi belirtin. Kopyalama etkinliği, yalnızca tek bir çıktı destekler. | Evet |
+| inputs | Kaynak verileri hangi noktalara oluşturduğunuz veri kümesi belirtin. Kopyalama etkinliği, yalnızca tek bir giriş destekler. | Evet |
+| outputs | Havuz veri hangi noktalara oluşturduğunuz veri kümesi belirtin. Kopyalama etkinliği, yalnızca tek bir çıktı destekler. | Evet |
 | typeProperties | Kopyalama etkinliği yapılandırmak için özellikler grubu. | Evet |
 | source | Kopyalama kaynağı türü ve karşılık gelen özelliklere veri almak nasıl belirtin.<br/><br/>"Kopyalama etkinliğinin özellikleri" bölümündeki bağlayıcı makalede listelenen daha ayrıntılı bilgi [desteklenen veri depoları ve biçimler](#supported-data-stores-and-formats). | Evet |
-| Havuz | Kopyalama Havuz türü ve karşılık gelen özelliklere veri yazma konusunda belirtin.<br/><br/>"Kopyalama etkinliğinin özellikleri" bölümündeki bağlayıcı makalede listelenen daha ayrıntılı bilgi [desteklenen veri depoları ve biçimler](#supported-data-stores-and-formats). | Evet |
-| Translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışı gereksinimi yerine getiremiyor uygulanır.<br/><br/>Ayrıntıları öğrenin [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
+| sink | Kopyalama Havuz türü ve karşılık gelen özelliklere veri yazma konusunda belirtin.<br/><br/>"Kopyalama etkinliğinin özellikleri" bölümündeki bağlayıcı makalede listelenen daha ayrıntılı bilgi [desteklenen veri depoları ve biçimler](#supported-data-stores-and-formats). | Evet |
+| translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışı gereksinimi yerine getiremiyor uygulanır.<br/><br/>Ayrıntıları öğrenin [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
 | dataIntegrationUnits | ' In powerfulness belirtin [Azure Integration Runtime](concepts-integration-runtime.md) veri kopyalama olanağı. Eski veri taşıma birimleri (DMU) bulut olarak bilinir. <br/><br/>Ayrıntıları öğrenin [veri tümleştirme birimleri](copy-activity-performance.md#data-integration-units). | Hayır |
 | parallelCopies | Kopyalama etkinliği, havuz için veri kaynağı ve veri yazma ait okunurken kullanılacak istediğiniz paralellik belirtin.<br/><br/>Ayrıntıları öğrenin [paralel kopyalama](copy-activity-performance.md#parallel-copy). | Hayır |
 | enableStaging<br/>stagingSettings | Geçici verileri doğrudan veri kopyalama havuz kaynağından yerine bir blob depolama alanındaki hazırlamak bu seçeneği seçin.<br/><br/>Yararlı senaryoları ve yapılandırma ayrıntılarını öğrenmek [kopyalama aşamalı](copy-activity-performance.md#staged-copy). | Hayır |
-| Enableskipıncompatiblerow<br/>Redirectıncompatiblerowsettings| Havuz kaynaktan veri kopyalama sırasında uyumsuz satırların işlemek nasıl seçin.<br/><br/>Ayrıntıları öğrenin [hataya dayanıklılık](copy-activity-fault-tolerance.md). | Hayır |
+| enableskipıncompatiblerow<br/>redirectıncompatiblerowsettings| Havuz kaynaktan veri kopyalama sırasında uyumsuz satırların işlemek nasıl seçin.<br/><br/>Ayrıntıları öğrenin [hataya dayanıklılık](copy-activity-fault-tolerance.md). | Hayır |
 
 ## <a name="monitoring"></a>İzleme
 
@@ -173,14 +173,14 @@ Kopyalama etkinliğinin yürütme ayrıntıları ve performans özelliklerini de
 
 | Özellik adı  | Açıklama | Birim |
 |:--- |:--- |:--- |
-| DataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
-| DataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
+| dataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
+| dataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
 | filesRead | Dosya depolama'yı veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | filesWritten | Dosya depolama alanına veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | rowsRead | (İkili kopya için geçerli değildir) kaynaktan okunan satır sayısı. | Int64 değeri (birim) |
 | rowsCopied | Havuz (ikili kopya için geçerli değildir) Kopyalanan satırların sayısı. | Int64 değeri (birim) |
 | rowsSkipped | İki tanesinden uyumsuz satırların sayısı. True olarak Ayarla "Enableskipıncompatiblerow" tarafından özelliğini kapatabilirsiniz. | Int64 değeri (birim) |
-| Aktarım hızı | Aktarılan ve veri oranı. | Kayan noktalı sayı olarak **KB/sn** |
+| throughput | Aktarılan ve veri oranı. | Kayan noktalı sayı olarak **KB/sn** |
 | copyDuration | Kopyalama süresi. | Int32 değeri saniye |
 | sourcePeakConnections | Yoğun kaynak veri deposu için kopyalama sırasında oluşturulan eş zamanlı bağlantı sayısı. | Int32 değeri |
 | sinkPeakConnections| Havuz veri deposuna kopyalama sırasında oluşturulan eş zamanlı bağlantı sayısı yüksek.| Int32 değeri |
