@@ -1,21 +1,47 @@
-- name: OpenShift Belgeleri
-  href: index.md
-- name: Hızlı Başlangıçlar
-  expanded: true
+- name: Azure Red Hat OpenShift
+  href: index.yml
+- name: Genel Bakış
   items:
-    - name: 'OpenShift:  Topluluk şablonu'
-      href: 'https://azure.microsoft.com/resources/templates/openshift-origin-rhel/'
+    - name: About Azure Red Hat OpenShift Hakkında
+      href: intro-openshift.md
 - name: Öğreticiler
   items:
-    - name: Azure VM’lerine dağıtma
-      href: /azure/virtual-machines/linux/openshift-get-started
+    - name: Azure Red Hat OpenShift kümesini oluşturma ve yönetme
+      items:
+        - name: 1 - Azure Red Hat OpenShift kümesi oluşturma
+          href: tutorial-create-cluster.md
+        - name: 2 - Azure Red Hat OpenShift kümesini ölçeklendirme
+          href: tutorial-scale-cluster.md
+        - name: 3 - Azure Red Hat OpenShift kümesini silme
+          href: tutorial-delete-cluster.md
+- name: Nasıl yapılır kılavuzları
+  expanded: true
+  items:
+    - name: Azure Red Hat OpenShift geliştirme ortamınızı ayarlama
+      href: howto-setup-environment.md
+      expanded: true
+      items:
+        - name: Azure AD kiracısı oluşturma
+          href: howto-create-tenant.md
+        - name: Azure AD uygulama nesnesi veya kullanıcısı oluşturma
+          href: howto-aad-app-configuration.md
+- name: Başvuru
+  items:
+    - name: Azure Red Hat OpenShift CLI
+      href: /cli/azure/openshift
+    - name: Azure Red Hat OpenShift REST API'leri
+      href: /rest/api/openshift
 - name: Kaynaklar
   items:
+    - name: Sık sorulan sorular
+      href: openshift-faq.md
+    - name: Sorun giderme
+      href: troubleshoot.md
+    - name: Desteklenen kaynaklar
+      href: supported-resources.md
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Red Hat OpenShift belgeleri
+      href: 'https://docs.openshift.com/aro/welcome/index.html'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: OpenShift Container şablonu
-      href: 'https://github.com/Microsoft/openshift-container-platform'
-    - name: OpenShift Origin
-      href: 'https://docs.openshift.org/latest/getting_started/index.html'
-    - name: OpenShift sitesi
-      href: 'https://docs.openshift.org/latest/welcome/index.html'

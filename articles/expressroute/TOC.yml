@@ -21,13 +21,12 @@
     - name: Bağlantı hatları ve eşleme
       href: expressroute-circuit-peerings.md
     - name: Konumlar ve iş ortakları
-      href: expressroute-locations.md
       items:
         - name: Konuma göre sağlayıcılar
           href: expressroute-locations-providers.md
         - name: Sağlayıcıya Göre Konumlar
           href: expressroute-locations.md
-    - name: Sanal ağ geçitleri hakkında
+    - name: ExpressRoute sanal ağ geçidi ve FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Ön koşullar
       href: expressroute-prerequisites.md

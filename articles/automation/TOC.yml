@@ -42,6 +42,8 @@
           href: automation-onboard-solutions-from-vm.md
         - name: Otomasyon hesabından ekleme
           href: automation-onboard-solutions-from-automation-account.md
+        - name: Bölge eşlemeleri
+          href: how-to/region-mappings.md
     - name: Güncelleştirme Yönetimi
       items:
         - name: Güncelleştirme Yönetimine genel bakış

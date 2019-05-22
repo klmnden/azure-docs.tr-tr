@@ -99,6 +99,16 @@
       href: sql-database-implement-geo-distributed-database.md
     - name: Azure SQL Data Sync’i ayarlama
       href: sql-database-get-started-sql-data-sync.md
+    - name: Machine Learning Services
+      items:
+        - name: R'de tahmine dayalı bir model oluşturma ve dağıtma
+          items:
+            - name: 1 - Verileri hazırlama
+              href: sql-database-tutorial-predictive-model-prepare-data.md
+            - name: 2 - Modeli oluşturma
+              href: sql-database-tutorial-predictive-model-build-compare.md
+            - name: 3 - Modeli dağıtma
+              href: sql-database-tutorial-predictive-model-deploy.md
 - name: Örnekler
   items:
     - name: Kod örnekleri

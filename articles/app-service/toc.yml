@@ -92,11 +92,11 @@
   items:
     - name: Uygulama yapılandırma
       items:
-        - name: Uygulama ayarlarını kullanma
-          href: web-sites-configure.md
+        - name: Genel ayarları yapılandırma
+          href: configure-common.md
         - name: PHP'yi yapılandırma
           href: web-sites-php-configure.md
-        - name: Java geliştirici kılavuzu
+        - name: Java'yı yapılandırma
           href: configure-language-java.md
         - name: Şirket içi kaynaklara bağlanma
           href: web-sites-integrate-with-vnet.md

@@ -4,14 +4,14 @@ title: Azure Cosmos DB Belgeleri
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Azure Cosmos DB Belgeleri - Öğreticiler, API Başvurusu'
-  description: 'Global olarak dağıtılmış çoklu model veritabanları oluşturmak için Azure Cosmos DB kullanmayı öğrenin. Öğreticiler, belgeleri, anahtar/değer ve grafik veritabanlarını oluşturmayı ve sorgulamayı gösterir.'
+  description: 'Genel olarak dağıtılmış çok modelli veritabanı hizmeti Azure Cosmos DB''yi kullanmayı öğrenin. Öğreticiler, belgeleri, anahtar/değer ve grafik veritabanlarını oluşturmayı ve sorgulamayı gösterir.'
   author: SnehaGunda
   ms.author: sngun
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 05/20/2019
 abstract:
-  description: 'Azure Cosmos DB, belge, anahtar-değer, geniş sütun ve graf veritabanlarını destekleyen, global olarak dağıtılmış çok modelli bir veritabanı hizmetidir. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Cosmos DB’yi kullanmayı öğrenin.'
+  description: 'Azure Cosmos DB, anahtar teslimi genel dağıtım ve saydam çoklu ana kaynak çoğaltma özelliğiyle tam olarak yönetilen bir veritabanı hizmetidir. Veritabanınızdaki işlem verileri üzerinde genel olarak dağıtılmış, düşük gecikme süreli operasyon ve analiz iş yükleri ile yapay zeka çalıştırın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Cosmos DB’yi kullanmayı öğrenin.'
   aside:
     image:
       alt: null

@@ -2,22 +2,22 @@
 title: Uzaktan erişim için şirket içi uygulamalar - Azure Active Directory Uygulama proxy'si | Microsoft Docx
 description: Azure Active Directory Uygulama proxy'si, şirket içi web uygulamalarına güvenli uzaktan erişim sağlar. Bir çoklu oturum açma sonra Azure ad, kullanıcılar hem buluttaki hem de şirket içi uygulamaları dış URL veya bir iç uygulama portal erişebilir. Örneğin, uygulama ara sunucusu uzaktan erişim ve çoklu oturum açma Uzak Masaüstü, SharePoint, Teams, Tableau, Qlik ve iş kolu (LOB) uygulamaları için sağlayabilir.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506650"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825549"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory Uygulama proxy'si aracılığıyla şirket içi uygulamalara uzaktan erişim 
 
@@ -44,7 +44,7 @@ Uygulama proxy'si ile çalışır:
 
 Uygulama Ara sunucusu, çoklu oturum açmayı destekler. Desteklenen yöntemler hakkında daha fazla bilgi için bkz. [tek bir oturum açma yöntemini seçme](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-Uygulama proxy'si, dış uzak kullanıcılar iç kaynaklara erişim vermek için önerilir. Uygulama proxy'si için bir VPN ya da ters proxy ihtiyacını ortadan kaldırır. Kurumsal ağ üzerindeki iç kullanıcılar için tasarlanmamıştır.  Uygulama proxy'si gereksiz yere kullanan iç kullanıcılar beklenmedik ve istenmeyen performans sorunlarına yol açabilir.
+Uygulama Ara sunucusu, uzak kullanıcıların iç kaynaklara erişim vermek için önerilir. Uygulama proxy'si için bir VPN ya da ters proxy ihtiyacını ortadan kaldırır. Kurumsal ağ üzerindeki iç kullanıcılar için tasarlanmamıştır.  Uygulama proxy'si gereksiz yere kullanan bu kullanıcılar beklenmedik ve istenmeyen performans sorunlarına yol açabilir.
 
 ## <a name="how-application-proxy-works"></a>Uygulama proxy'si nasıl çalışır?
 

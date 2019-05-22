@@ -116,8 +116,9 @@
             - name: Saklama ilkesi ayarlama ve temizleme betikleri çalıştırma
               href: image-factory-set-retention-policy-cleanup.md
         - name: Kuruluşta DevTest Labs
-          href: devtest-lab-guidance-prescriptive-adoption.md
           items:
+            - name: Kurumsal ölçekte DevTest Labs
+              href: devtest-lab-guidance-prescriptive-adoption.md
             - name: Başvuru mimarisi
               href: devtest-lab-reference-architecture.md
             - name: DevTest Labs dağıtımınızın ölçeğini artırma
