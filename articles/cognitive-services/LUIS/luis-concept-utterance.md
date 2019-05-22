@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792547"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65073147"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS uygulamanızı iyi konuşma neler olduğunu anlama
 
@@ -74,13 +74,47 @@ LUIS, etkin LUIS model yazarı tarafından dikkatli bir şekilde seçili olan ko
 
 Ardından birkaç Konuşma ile başlatmak iyidir [konuşma uç noktası gözden](luis-how-to-review-endpoint-utterances.md) doğru hedefi tahmin ve varlık ayıklama için.
 
-## <a name="punctuation-marks"></a>Noktalama işaretleri
+## <a name="utterance-normalization"></a>Utterance normalleştirme
 
-Bazı istemci uygulamalar üzerinde bu işaretler anlam yerleştirebilirsiniz çünkü LUIS varsayılan olarak, noktalama işaretleri yoksaymaz. Örnek konuşma noktalama hem hiçbir noktalama için her iki stil sırayla aynı göreli puanları döndürülecek kullandığınızdan emin olun. Noktalama, istemci uygulamasında özel bir anlamı varsa, göz önünde bulundurun [noktalama yoksayılıyor](#ignoring-words-and-punctuation) düzenleri kullanarak. 
+Utterance normalleştirme noktalama işaretleri ve aksan etkilerini eğitim ve tahmin sırasında yok sayılıyor işlemidir.
 
-## <a name="ignoring-words-and-punctuation"></a>Sözcükleri ve noktalama işaretleri yoksayılıyor
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Utterance normalleştirme aksanlar ve noktalama işaretleri
 
-Belirli sözcükleri ya da örnek utterance, noktalama işareti yok saymak istiyorsanız, kullanan bir [deseni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ söz dizimi. 
+Utterance normalleştirme oluşturduğunuzda ya da uygulama JSON dosyasında bir ayar olduğundan uygulamasını içeri aktarma tanımlanır. Utterance normalleştirme ayarlarını varsayılan olarak kapalıdır. 
+
+Aksan işaretlerini veya metninde işaretleri gibi şunlardır: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+İçinde uygulamanızı normalleştirme açar, puanlar **Test** bölmesinde, batch testleri ve uç nokta sorgular için tüm konuşma Aksanları veya noktalama işareti kullanarak değiştirir.
+
+Utterance normalleştirme Aksanları veya noktalama LUIS JSON uygulama dosyanıza açma `settings` parametresi.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normalleştirme **noktalama** noktalama Modellerinizi eğitimi alın ve önce uç noktanızı sorguları tahmin için önce sesleri kaldırılacak anlamına gelir. 
+
+Normalleştirme **Aksanları** Konuşma ile normal karakterler, aksanlı karakterleri değiştirir. Örneğin: `Je parle français` olur `Je parle francais`. 
+
+Normalleştirme, bkz: noktalama ve aksan örnek konuşma veya tahmin yanıtları, yalnızca, eğitim ve tahmin sırasında yoksayılacak mı anlamına gelmez.
+
+
+### <a name="punctuation-marks"></a>Noktalama işaretleri
+
+Noktalama normale döndürülemez, bazı istemci uygulamalar üzerinde bu işaretler anlam yerleştirebilirsiniz çünkü varsayılan olarak, noktalama işaretleri LUIS yoksaymaz. Örnek konuşma noktalama hem hiçbir noktalama için her iki stil sırayla aynı göreli puanları döndürülecek kullandığınızdan emin olun. 
+
+Noktalama, istemci uygulamasında özel bir anlamı varsa, göz önünde bulundurun [noktalama yoksayılıyor](#utterance-normalization) noktalama normalleştirme tarafından. 
+
+### <a name="ignoring-words-and-punctuation"></a>Sözcükleri ve noktalama işaretleri yoksayılıyor
+
+Belirli bir sözcük veya noktalama desenleri yoksay istiyorsanız, kullanmanız bir [deseni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ köşeli parantez sözdizimi `[]`. 
 
 ## <a name="training-utterances"></a>Eğitim konuşma
 
@@ -94,7 +128,7 @@ Geliştiriciler, konuşma göndererek gerçek trafiği ile kendi LUIS uygulama t
 
 Modelinizi eğitilen, yayımlanmış ve alıcı sonra [uç nokta](luis-glossary.md#endpoint) sorgular [konuşma gözden](luis-how-to-review-endpoint-utterances.md) LUIS tarafından önerilen. LUIS hedefi veya varlık için düşük puanlar olan konuşma uç noktası seçer. 
 
-## <a name="best-practices"></a>En iyi uygulamalar
+## <a name="best-practices"></a>En iyi yöntemler
 
 Gözden geçirme [en iyi uygulamalar](luis-concept-best-practices.md) ve normal geliştirme döngünüzün bir parçası olarak uygulayabilirsiniz.
 

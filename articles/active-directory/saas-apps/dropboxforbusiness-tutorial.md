@@ -12,40 +12,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55ae4077b3ec14cb8dc2226714b094574ed9522
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f2109c3f67a666d0c379cc188c07968c8b31d6a1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898973"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989651"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Öğretici: İş için Dropbox ile Azure Active Directory Tümleştirme
+# <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Öğretici: Dropbox iş Azure Active Directory ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile iş için Dropbox tümleştirme konusunda bilgi edinin.
-İş için Dropbox'ı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile iş için Dropbox tümleştirme öğreneceksiniz. Azure AD ile iş için Dropbox'ı tümleştirdiğinizde, şunları yapabilirsiniz:
 
-* İş Dropbox erişimi, Azure AD'de kontrol edebilirsiniz.
-* Otomatik olarak dropbox'a iş (çoklu oturum açma) için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* İş Dropbox erişimi, Azure AD'de denetler.
+* Otomatik olarak iş için Dropbox kendi Azure AD hesapları ile oturum olmasını sağlayın.
+* Bir merkezi konumda - Azure portalı hesaplarınızı yönetin.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirmesi iş için Dropbox ile yapılandırmak için aşağıdaki öğeler gerekir:
+Başlamak için aşağıdaki öğeler gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Abonelik iş çoklu oturum açma için Dropbox etkin
+* Azure AD aboneliğiniz. Bir aboneliğiniz yoksa, bir aylık ücretsiz deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Dropbox iş çoklu oturum açma (SSO) için abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
-
-* İş desteklediği için Dropbox **SP** tarafından başlatılan
+* Bu öğreticide, yapılandırma ve Azure AD SSO bir test ortamında test edin. İş desteklediği için Dropbox **SP** tarafından başlatılan
 
 * İş desteklediği için Dropbox **zamanında** kullanıcı sağlama
 
@@ -53,59 +49,37 @@ Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamı
 
 Azure AD'de iş için Dropbox tümleştirmesini yapılandırmak için iş için Dropbox Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**İş için Dropbox Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
-
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
-
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
-
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
-
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
-
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
-
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
-
-4. Arama kutusuna **iş için Dropbox**seçin **iş için Dropbox** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
-
-     ![Sonuç listesinde iş için Dropbox](common/search-new-app.png)
+1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
+1. Sol gezinti bölmesinde seçin **Azure Active Directory** hizmeti.
+1. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları**.
+1. Yeni bir uygulama eklemek için seçin **yeni uygulama**.
+1. İçinde **Galeriden Ekle** bölümüne şunu yazın **iş için Dropbox** arama kutusuna.
+1. Seçin **iş için Dropbox** gelen sonuçlar panelinde ve uygulama ekleyin. Uygulama, kiracınıza eklendiği sırada birkaç saniye bekleyin.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve iş adlı bir test kullanıcı tabanlı için Azure AD çoklu oturum açma Dropbox ile test etme **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ve iş için dropbox'ta ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
+Yapılandırma ve Azure AD SSO adlı bir test kullanıcı kullanarak iş için Dropbox'ile test etme **Britta Simon**. Çalışmak SSO için dropbox iş için bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı ilişki oluşturmanız gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma ile iş için Dropbox sınamak için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD SSO ile iş için Dropbox sınamak için aşağıdaki yapı taşlarını tamamlayın:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Dropbox iş çoklu oturum açma için yapılandırma](#configure-dropbox-for-business-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+1. **[Azure AD SSO'yu yapılandırma](#configure-azure-ad-sso)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[İş SSO için Dropbox'ı yapılandırma](#configure-dropbox-for-business-sso)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 5. **[Dropbox için iş test kullanıcısı oluşturma](#create-dropbox-for-business-test-user)**  - kullanıcı Azure AD gösterimini bağlantılı iş için dropbox'ta bir karşılığı Britta simon'un sağlamak için.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+6. **[Test SSO](#test-sso)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO'yu yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
+Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları izleyin.
 
-İş için Dropbox ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıdaki adımları gerçekleştirin:
+1. İçinde [Azure portalında](https://portal.azure.com/), **iş için Dropbox** uygulama tümleştirme sayfası, bulma **Yönet** bölümünde ve seçin **çoklu oturum açma**.
+1. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** sayfasında **SAML**.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında, düzenleme/kalem simgesine tıklayıp **temel SAML yapılandırma** ayarlarını düzenlemek için.
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **iş için Dropbox** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+   ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
-
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
-
-    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
-
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
-
-    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
-
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
-
-    ![Dropbox için iş etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+1. Üzerinde **temel SAML yapılandırma** sayfasında, aşağıdaki alanlar için değerleri girin:
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.dropbox.com/sso/<id>`
 
@@ -114,43 +88,51 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
     > [!NOTE]
     > Önceki oturum açma URL değeri, gerçek değeri değil. Bu öğreticinin ilerleyen bölümlerinde açıklanan gerçek oturum açma URL'si ile değerini güncelleştirir.
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+1. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-6. Üzerinde **iş için Dropbox ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+1. Üzerinde **iş için Dropbox ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
-### <a name="configure-dropbox-for-business-single-sign-on"></a>İş çoklu oturum açma için Dropbox'ı yapılandırma
+### <a name="configure-dropbox-for-business-sso"></a>İş SSO için Dropbox'ı yapılandırma
 
-1. Çoklu oturum açmayı yapılandırma **iş için Dropbox** yan, iş Kiracı ve oturum için Dropbox'üzerinde iş Kiracı için Dropbox için gidin.
+1. İş için Dropbox içinde yapılandırmasını otomatik hale getirmenizi yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
+
+    ![Uygulamaları uzantım](common/install-myappssecure-extension.png)
+
+2. Uzantı tarayıcıya ekledikten sonra tıklayın **iş için Kurulum Dropbox** dropbox'a iş uygulaması için yönlendirir. Burada, iş için Dropbox oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve 3-8 adımları otomatik hale getirin.
+
+    ![Kurulum yapılandırması](common/setup-sso.png)
+
+3. İş için Dropbox'ı el ile Kurulum istiyorsanız, yeni bir web tarayıcı penceresi açın ve iş Kiracı için Dropbox gidin ve iş Kiracı için Dropbox oturum açma. ve aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırma](./media/dropboxforbusiness-tutorial/ic769509.png "çoklu oturum açmayı yapılandırın")
 
-2. Tıklayarak **kullanıcı simgesi** seçip **ayarları** sekmesi.
+4. Tıklayarak **kullanıcı simgesi** seçip **ayarları** sekmesi.
 
     ![Çoklu oturum açmayı yapılandırma](./media/dropboxforbusiness-tutorial/configure1.png "çoklu oturum açmayı yapılandırın")
 
-3. Sol taraftaki gezinti bölmesinde **Yönetici Konsolu**.
+5. Sol taraftaki gezinti bölmesinde **Yönetici Konsolu**.
 
     ![Çoklu oturum açmayı yapılandırma](./media/dropboxforbusiness-tutorial/configure2.png "çoklu oturum açmayı yapılandırın")
 
-4. Üzerinde **Yönetici Konsolu**, tıklayın **ayarları** sol gezinti bölmesinde.
+6. Üzerinde **Yönetici Konsolu**, tıklayın **ayarları** sol gezinti bölmesinde.
 
     ![Çoklu oturum açmayı yapılandırma](./media/dropboxforbusiness-tutorial/configure3.png "çoklu oturum açmayı yapılandırın")
 
-5. Seçin **çoklu oturum açma** altındaki **kimlik doğrulaması** bölümü.
+7. Seçin **çoklu oturum açma** altındaki **kimlik doğrulaması** bölümü.
 
     ![Çoklu oturum açmayı yapılandırma](./media/dropboxforbusiness-tutorial/configure4.png "çoklu oturum açmayı yapılandırın")
 
-6. İçinde **çoklu oturum açma** bölümünde, aşağıdaki adımları gerçekleştirin:  
+8. İçinde **çoklu oturum açma** bölümünde, aşağıdaki adımları gerçekleştirin:  
 
     ![Çoklu oturum açmayı yapılandırma](./media/dropboxforbusiness-tutorial/configure5.png "çoklu oturum açmayı yapılandırın")
 
@@ -166,56 +148,35 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
     e. **Kaydet**’e tıklayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Bu bölümde, bir test kullanıcısı Britta Simon adlı Azure portalında oluşturacaksınız.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
-
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
-
-2. Seçin **yeni kullanıcı** ekranın üstünde.
-
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
-
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
-
-    ![Kullanıcı iletişim kutusu](common/user-properties.png)
-
-    a. İçinde **adı** alana **BrittaSimon**.
-  
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
-    Örneğin, BrittaSimon@contoso.com
-
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
-
-    d. **Oluştur**’a tıklayın.
+1. Azure Portalı'ndaki sol bölmeden seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+1. Seçin **yeni kullanıcı** ekranın üstünde.
+1. İçinde **kullanıcı** özellikleri, aşağıdaki adımları izleyin:
+   1. **Ad** alanına `Britta Simon` girin.  
+   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin, `BrittaSimon@contoso.com`.
+   1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+   1. **Oluştur**’a tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, iş için dropbox'a erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, iş için dropbox'a erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon tıklatmalarını sağlarsınız.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **iş için Dropbox**.
+1. Azure portalında **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+1. Uygulamalar listesinde **iş için Dropbox**.
+1. Uygulamanın genel bakış sayfasında bulma **Yönet** seçin ve bölüm **kullanıcılar ve gruplar**.
 
-    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+   !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-2. Uygulamalar listesinde yazın ve **iş için Dropbox**.
+1. Seçin **Kullanıcı Ekle**, ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Uygulamalar listesini iş bağlantısı için Dropbox](common/all-applications.png)
+    ![Kullanıcı ekleme bağlantısı](common/add-assign-user.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
-
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
-
-    ![Atama Ekle bölmesi](common/add-assign-user.png)
-
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
-
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
-
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcılar listesinden ardından **seçin** ekranın alt kısmındaki düğmesi.
+1. SAML onaylama işlemi herhangi bir rolü değer de beklediğiniz varsa **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin ve ardından **seçin** ekranın alt kısmındaki düğmesi.
+1. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
 ### <a name="create-dropbox-for-business-test-user"></a>Dropbox için iş test kullanıcısı oluşturma
 
@@ -224,11 +185,9 @@ Bu bölümde, Britta Simon adlı bir kullanıcı, iş için dropbox'ta oluşturu
 >[!Note]
 >Bir kullanıcı el ile oluşturmanız gerekiyorsa başvurun [iş istemci destek ekibi için Dropbox](https://www.dropbox.com/business/contact)
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-sso"></a>Test SSO
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
-
-Erişim panelinde iş kutucuk için Dropbox'ı tıklattığınızda, otomatik olarak dropbox'a SSO'yu ayarlama iş için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim Paneli'nde iş kutucuk için Dropbox'ı seçtiğinizde, otomatik olarak dropbox'a SSO'yu ayarlama iş için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
@@ -237,4 +196,3 @@ Erişim panelinde iş kutucuk için Dropbox'ı tıklattığınızda, otomatik ol
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

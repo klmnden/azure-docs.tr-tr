@@ -14,18 +14,21 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/21/2019
 ms.author: jowargo
-ms.openlocfilehash: 2793f64528baa2b9a84c671fc73bbe399e2387ea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c5793d2388ddd7bb59d68f8f7fd7af773179ed41
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411610"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988195"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak iOS uygulamaları için anında iletme bildirimleri
 
-[!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+> [!div class="op_single_selector"]
+> * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+> * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+
 
 Bu öğreticide, bir iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs’ı kullanırsınız. [Apple Anında İletilen Bildirim servisini (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) kullanarak anında iletme bildirimleri alan boş bir iOS uygulaması oluşturursunuz.
 
@@ -56,25 +59,6 @@ Bu öğreticinin tamamlanan kodu [GitHub'da](https://github.com/Azure/azure-noti
 Bu öğreticiyi tamamlamak iOS uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>iOS anında iletme bildirimleri için Notification Hub'ınızı yapılandırma
-
-Bu bölümde, bir bildirim hub’ı oluşturur ve önceden oluşturduğunuz **.p12** anında iletme sertifikasını kullanarak APNS ile kimlik doğrulamasını yapılandırırsınız. Önceden oluşturduğunuz bir bildirim hub'ını kullanmak istiyorsanız 5. adıma geçebilirsiniz.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-your-notification-hub-with-apns-information"></a>APNS bilgileriyle bildirim hub’ınızı yapılandırma
-
-1. **Bildirim Hizmetleri** bölümünde **Apple (APNS)** seçeneğini belirleyin.
-2. **Sertifika**’yı seçin.
-3. **Dosya simgesini** seçin.
-4. Daha önce dışarı aktardığınız **.p12** dosyasını seçin.
-5. Doğru **parolayı** belirtin.
-6. **Korumalı alan** modunu seçin. **Üretim** seçeneğini yalnızca uygulamanızı mağazadan satın alan kullanıcılara anında iletme bildirimleri göndermek istiyorsanız kullanın.
-
-    ![Azure portalında APNS sertifikası yapılandırma][7]
-
-Bildirim hub'ınızı APNS ile birlikte çalışacak şekilde yapılandırdınız. Ayrıca uygulamanızı kaydetmenizi ve anlık iletme bildirimleri göndermenizi sağlayan bağlantı dizelerine sahipsiniz.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>iOS uygulamanızı Notification Hubs'a bağlama
 
@@ -121,7 +105,7 @@ Bildirim hub'ınızı APNS ile birlikte çalışacak şekilde yapılandırdını
      github "Azure/azure-notificationhubs-ios"
      ```
 
-     Ardından, güncelleştirin ve bağımlılıkları derleyin:
+     Ardından, güncelleştirme ve bağımlılıkları derleyin:
 
      ```shell
      $ carthage update

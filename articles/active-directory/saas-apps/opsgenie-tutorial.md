@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870578"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Öğretici: OpsGenie ile Azure Active Directory Tümleştirme
 
@@ -71,16 +71,16 @@ Azure AD'de OpsGenie tümleştirmesini yapılandırmak için OpsGenie Galeriden 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma adlı bir test kullanıcı tabanlı OpsGenie ile test etme **Britta Simon**.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma adlı bir test kullanıcı tabanlı OpsGenie ile test etme **b Simon**.
 Tek iş için oturum açma için bir Azure AD kullanıcısının OpsGenie ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma OpsGenie ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[OpsGenie çoklu oturum açmayı yapılandırma](#configure-opsgenie-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[OpsGenie test kullanıcısı oluşturma](#create-opsgenie-test-user)**  - kullanıcı Azure AD gösterimini bağlı OpsGenie Britta simon'un bir karşılığı vardır.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma b Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak b Simon etkinleştirmek için.
+5. **[OpsGenie test kullanıcısı oluşturma](#create-opsgenie-test-user)**  - kullanıcı Azure AD gösterimini bağlı OpsGenie b Simon bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -149,7 +149,7 @@ Azure AD çoklu oturum açma OpsGenie ile yapılandırmak için aşağıdaki ad�
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Bu bölümün amacı, B. Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
 1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
@@ -163,10 +163,10 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    a. İçinde **adı** alana **BrittaSimon**.
+    a. İçinde **adı** alana **b Simon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
-    Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alan türü **bsimon@yourcompanydomain.extension**  
+    Örneğin, BSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
@@ -174,7 +174,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümün OpsGenie için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, B. OpsGenie için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **OpsGenie**.
 
@@ -192,7 +192,7 @@ Bu bölümün OpsGenie için erişim izni verdiğinizde, Azure çoklu oturum aç
 
     ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **b Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
 6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
@@ -200,7 +200,7 @@ Bu bölümün OpsGenie için erişim izni verdiğinizde, Azure çoklu oturum aç
 
 ### <a name="create-opsgenie-test-user"></a>OpsGenie test kullanıcısı oluşturma
 
-Amacı, bu bölümün OpsGenie içinde Britta Simon adlı bir kullanıcı oluşturmaktır. 
+Amacı, bu bölümün OpsGenie içinde b Simon adlı bir kullanıcı oluşturmaktır. 
 
 1. Bir web tarayıcısı penceresinde OpsGenie Kiracı yönetici olarak oturum açın.
 
@@ -214,14 +214,14 @@ Amacı, bu bölümün OpsGenie içinde Britta Simon adlı bir kullanıcı oluşt
    
     ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-    a. İçinde **e-posta** metin BrittaSimon türü e-posta adresi, Azure Active Directory'de ele.
+    a. İçinde **e-posta** metin b Simon türü e-posta adresi, Azure Active Directory'de ele.
    
-    b. İçinde **tam adı** metin kutusuna **Britta Simon**.
+    b. İçinde **tam adı** metin kutusuna **b Simon**.
    
     c. **Kaydet**’e tıklayın. 
 
 >[!NOTE]
->Britta kendi profilinizi ayarlama yönergeleri içeren bir e-posta alır.
+>B. Simon kendi profilinizi ayarlama yönergeleri içeren bir e-posta alır.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

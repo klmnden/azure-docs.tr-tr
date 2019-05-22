@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813322"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Öğretici: İPass SmartConnect ile Azure Active Directory Tümleştirme
 
@@ -215,7 +215,7 @@ Bu bölümde, Azure çoklu oturum açma iPass SmartConnect erişim vererek kulla
 
 ### <a name="create-ipass-smartconnect-test-user"></a>İPass SmartConnect test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon SmartConnect iPass içinde adlı bir kullanıcı oluşturun. Çalışmak [iPass SmartConnect Destek ekibine](mailto:help@ipass.com) kullanıcı veya iPass SmartConnect platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak iPass SmartConnect platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon SmartConnect iPass içinde adlı bir kullanıcı oluşturun. Çalışmak [iPass SmartConnect Destek ekibine](mailto:help@ipass.com) kullanıcı veya iPass SmartConnect platformu için bir izin verilenler listesi eklenmeli etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak iPass SmartConnect platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

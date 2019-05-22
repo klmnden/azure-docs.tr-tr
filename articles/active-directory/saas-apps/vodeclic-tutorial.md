@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865291"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Öğretici: Vodeclic ile Azure Active Directory Tümleştirme
 
@@ -191,7 +191,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Vodeclic erişim vererek
 Bu bölümde, Britta Simon Vodeclic içinde adlı bir kullanıcı oluşturun. Çalışmak [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com) Vodeclic platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 > [!NOTE]
-> Uygulama gereksinimlerine göre makine beyaz listeye alma gerekebilir. Genel IP adresi ile paylaşmak, gerçekleşmesi gerekir [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com).
+> Uygulama gereksinimlerine göre makinenize eklenen bir izin verilenler listesine almak gerekebilir. Genel IP adresi ile paylaşmak, gerçekleşmesi gerekir [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com).
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

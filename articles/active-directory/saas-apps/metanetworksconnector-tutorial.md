@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a86e63f17230ed30bd5ae164d2d17d65b5cde745
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408066"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Öğretici: Meta ağları Bağlayıcısı ile Azure Active Directory Tümleştirme
 
@@ -131,8 +131,8 @@ Azure AD çoklu oturum açma Meta ağları Bağlayıcısı ile yapılandırmak i
     | ---------------| --------------- | -------- |
     | firstName | User.givenName | |
     | Soyadı | User.surname | |
-    | emailaddress| User.Mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | name | User.userPrincipalName| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | emailaddress| User.Mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | name | User.userPrincipalName| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | telefon | User.telephoneNumber | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
@@ -172,7 +172,7 @@ Azure AD çoklu oturum açma Meta ağları Bağlayıcısı ile yapılandırmak i
 1. Tarayıcınızda yeni bir sekme açın ve Meta ağları Bağlayıcısı yönetici hesabınızda oturum açın.
     
     > [!NOTE]
-    > Güvenli sistem meta ağları Bağlayıcıdır. Bu nedenle, portal erişmeden önce kendi tarafında genel IP adresi beyaz listeye almak gerekir. Genel IP adresi almak için izlemeniz aşağıdaki bağlantıda belirtilen [burada](https://whatismyipaddress.com/). IP adresiniz Gönder [Meta ağları bağlayıcı istemci Destek ekibine](mailto:support@metanetworks.com) IP adresi izin verilenler listesinde almak için.
+    > Güvenli sistem meta ağları Bağlayıcıdır. Bu nedenle, portal erişmeden önce kendi tarafında bir izin verilenler listesi eklenen, genel IP adresini almak gerekir. Genel IP adresi almak için izlemeniz aşağıdaki bağlantıda belirtilen [burada](https://whatismyipaddress.com/). IP adresiniz Gönder [Meta ağları bağlayıcı istemci Destek ekibine](mailto:support@metanetworks.com) bir izin verilenler listesine eklendiğinden, IP adresini almak için.
     
 2. Git **yönetici** seçip **ayarları**.
     

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898705"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Öğretici: Öngörüyor CX Suite ile Azure Active Directory Tümleştirmesi
 
@@ -194,7 +194,7 @@ Bu bölümde, Azure çoklu oturum açma Öngörüyor CX paketine erişim vererek
 
 ### <a name="create-foresee-cx-suite-test-user"></a>CX Suite Öngörüyor test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Öngörüyor CX paketindeki adlı bir kullanıcı oluşturun. Çalışmak [Öngörüyor CX Suite Destek ekibine](mailto:support@foresee.com) kullanıcı veya Öngörüyor CX Suite platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Öngörüyor CX Suite platforma sağlandı. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Öngörüyor CX paketindeki adlı bir kullanıcı oluşturun. Çalışmak [Öngörüyor CX Suite Destek ekibine](mailto:support@foresee.com) kullanıcı veya Öngörüyor CX Suite platformu için bir izin verilenler listesi eklenmeli etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Öngörüyor CX Suite platforma sağlandı. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

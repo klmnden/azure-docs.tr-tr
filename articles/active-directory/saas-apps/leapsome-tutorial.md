@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406719"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Öğretici: Leapsome ile Azure Active Directory Tümleştirme
 
@@ -126,10 +126,10 @@ Azure AD çoklu oturum açma ile Leapsome yapılandırmak için aşağıdaki ad�
 
     | Ad | Kaynak özniteliği | Ad alanı |
     | ---------------| --------------- | --------- |  
-    | firstName | User.givenName | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Soyadı | User.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | başlık | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | resmi | Çalışanın resim URL'si | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName | User.givenName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Soyadı | User.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | başlık | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | resmi | Çalışanın resim URL'si | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -244,7 +244,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Leapsome erişim vererek
 
 ### <a name="create-leapsome-test-user"></a>Leapsome test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Leapsome içinde adlı bir kullanıcı oluşturun. Çalışmak [Leapsome istemci Destek ekibine](mailto:support@leapsome.com) kullanıcı veya Leapsome platformunda beyaz listeye alınması gereken etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Leapsome platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Leapsome içinde adlı bir kullanıcı oluşturun. Çalışmak [Leapsome istemci Destek ekibine](mailto:support@leapsome.com) kullanıcı veya Leapsome platformu için bir izin verilenler listesi eklenmeli etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Leapsome platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 91d4cf874d4d98735582d2690072e6a04683c1f5
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899686"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Öğretici: Adobe Sign ile'Azure Active Directory Tümleştirme
 
@@ -128,7 +128,7 @@ Azure AD çoklu oturum açma ile Adobe Sign yapılandırmak için aşağıdaki a
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Adobe oturum çoklu oturum açmayı yapılandırın
 
-1. Yapılandırma önce başvurun [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) beyaz liste için Adobe Sign etki alanınızda. Etki alanı ekleme şöyledir:
+1. Yapılandırma önce başvurun [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) eklemek için Adobe Sign etki alanınızda izin listesinde. Etki alanı ekleme şöyledir:
 
     a. [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) rastgele oluşturulmuş bir belirteç gönderir. Etki alanınız için belirteci aşağıdaki gibi olacaktır: **adobe oturum doğrulama xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =**
 
