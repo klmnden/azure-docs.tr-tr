@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc04a307779b47b50cd16a81c0566b72bafab95
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c4beac0ab739d62eb7acb00e6b2db717b5f43e15
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900710"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Öğretici: Boxcryptor ile Azure Active Directory Tümleştirme
 
@@ -181,7 +181,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Boxcryptor erişim verer
 
 ### <a name="create-boxcryptor-test-user"></a>Boxcryptor test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Boxcryptor içinde adlı bir kullanıcı oluşturun. Çalışmak [Boxcryptor Destek ekibine](mailto:support@boxcryptor.com) kullanıcı veya Boxcryptor platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Boxcryptor platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Boxcryptor içinde adlı bir kullanıcı oluşturun. Çalışmak [Boxcryptor Destek ekibine](mailto:support@boxcryptor.com) kullanıcı veya Boxcryptor platformu için bir izin verilenler listesi eklenmeli etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Boxcryptor platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 

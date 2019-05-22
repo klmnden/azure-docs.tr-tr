@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707632"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Öğretici: Azure Active Directory Tümleştirmesi ile HRworks çoklu oturum açma
 
@@ -130,7 +130,7 @@ Azure AD çoklu oturum açma HRworks çoklu oturum açma ile yapılandırmak iç
 
 2. Tıklayarak **yönetici** > **Temelleri** > **güvenlik** > **çoklu oturum açma** gelen sol tarafındaki menü çubuğu ve aşağıdaki adımları gerçekleştirin:
 
-       ![Çoklu oturum açmayı yapılandırın](./media/hrworks-single-sign-on-tutorial/configure01.png)
+       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Denetleme **kullanım çoklu oturum açma** kutusu.
 
@@ -138,7 +138,7 @@ Azure AD çoklu oturum açma HRworks çoklu oturum açma ile yapılandırmak iç
 
     c. Seçin **bireysel Nameıd tanımlayıcı** olarak **Nameıd değeri**.
 
-    d. Not Defteri'nde, Azure portalından indirdiğiniz meta veri XML açın, içeriğini kopyalayın ve ardından yapıştırın **meta verileri** metin.
+    d. Not Defteri'nde, Azure portalından indirdiğiniz meta veri XML açın, içeriğini kopyalayın ve ardından yapıştırın **meta verileri** metin.
 
     e. **Kaydet**’e tıklayın.
 
@@ -202,7 +202,7 @@ Azure AD kullanıcılarının etkinleştirmek için oturum içinde HRworks çokl
 
 2. Tıklayarak **yönetici** > **kişiler** > **kişiler** > **yeni kişi** gelen Menü çubuğunda sol tarafındaki.
 
-     ![Çoklu oturum açmayı yapılandırın](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Çoklu oturum açmayı yapılandırın](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. Açılan tıklayın **sonraki**.
 

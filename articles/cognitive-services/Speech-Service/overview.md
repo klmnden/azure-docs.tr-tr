@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510739"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002999"
 ---
 # <a name="what-are-the-speech-services"></a>Konuşma Tanıma Hizmetleri nelerdir?
 
@@ -42,7 +42,9 @@ Bu özellikler Azure konuşma Hizmetleri ' hale getirir. Bağlantıları, her ö
 İle Azure konuşma Hizmetleri yenilikleri öğrenin.
 
 * Mayıs 2019 - belgeleri artık kullanılabilir [konuşma Transkripsiyonu](conversation-transcription-service.md), [çağrı merkezi Transkripsiyonu](call-center-transcription.md), ve [ses öncelikli sanal Yardımcıları](voice-first-virtual-assistants.md).
-* Konuşma 1.5.0 SDK - Mayıs 2019 yayımladı. Güncelleştirmeleri, yenilikleri ve bilinen sorunların tam listesi için bkz [sürüm notları](releasenotes.md).
+* Mayıs 2019
+    * Konuşma SDK 1.5.1 yayımladı. Güncelleştirmeleri, yenilikleri ve bilinen sorunların tam listesi için bkz [sürüm notları](releasenotes.md).
+    * Konuşma SDK 1.5.0 yayımladı. Güncelleştirmeleri, yenilikleri ve bilinen sorunların tam listesi için bkz [sürüm notları](releasenotes.md).
 * Nisan 2019 - serbest konuşma SDK 1.4.0 C++ için metin okuma (Beta) desteğiyle C#ve Windows ve Linux üzerinde Java. Ayrıca, SDK'sı artık MP3 ve geçerli/Ogg ses biçimleri için C++ destekler ve C# Linux üzerinde. Güncelleştirmeleri, yenilikleri ve bilinen sorunların tam listesi için bkz [sürüm notları](releasenotes.md).
 * Mart 2019 - belirli bir bölgede kullanılabilir sesleri tam bir listesini döndürür (TTS) okuma için yeni bir uç noktası artık kullanılabilir. Ayrıca, yeni bölgelere TTS için artık desteklenmektedir. Daha fazla bilgi için [metin okuma API Başvurusu (REST)](rest-text-to-speech.md).
 

@@ -54,7 +54,7 @@
 - name: Kavramlar
   items:
     - name: Şablon dosya yapısı
-      displayName: 'parameters,variables,resources,outputs'
+      displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
     - name: Şablon en iyi uygulamalar
       href: template-best-practices.md

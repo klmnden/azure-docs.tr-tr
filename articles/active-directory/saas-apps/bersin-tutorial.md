@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862413"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Öğretici: Bersin ile Azure Active Directory Tümleştirme
 
@@ -51,7 +51,7 @@ Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamı
 
 Azure AD'de Bersin tümleştirmesini yapılandırmak için Bersin Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Bersin eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Bersin eklemek için**
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
@@ -86,7 +86,7 @@ Yapılandırma ve Azure AD çoklu oturum açma Bersin ile test etmek için aşa�
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma ile Bersin yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile Bersin yapılandırmak için aşağıdaki adımları uygulayın:
 
 1. İçinde [Azure portalında](https://portal.azure.com/), **Bersin** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
@@ -110,7 +110,7 @@ Azure AD çoklu oturum açma ile Bersin yapılandırmak için aşağıdaki adım
 
     c. İçinde **geçiş durumu** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.bersin.com/secure/`
 
-5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **SP** başlatılan modu:
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımları uygulayın **SP** başlatılan modu:
 
     ![Bersin etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
@@ -132,7 +132,7 @@ Azure AD çoklu oturum açma ile Bersin yapılandırmak için aşağıdaki adım
 
 ### <a name="configure-bersin-single-sign-on"></a>Bersin tek oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **Bersin** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Bersin Destek ekibine](mailto:ramansabde@gmail.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **Bersin** yan, indirilen Gönder **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [Bersin Destek ekibine](mailto:ramansabde@gmail.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -146,13 +146,13 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
+3. Kullanıcı özellikleri, aşağıdaki adımları uygulayın.
 
     ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    a. İçinde **adı** alana **BrittaSimon**.
+    a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -181,13 +181,13 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Bersin erişim vererek B
 
 5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+6. SAML onaylama işlemi herhangi bir rolü değer daha sonra beklediğiniz varsa **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin. Tıklayın **seçin** ekranın alt kısmındaki düğmesi.
 
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+7. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
 ### <a name="create-bersin-test-user"></a>Bersin test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Bersin içinde adlı bir kullanıcı oluşturun. Çalışmak [Bersin Destek ekibine](mailto:USBersinServiceClient@deloitte.com) Bersin platform veya Bersin platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı kullanıcıları eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Bersin platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Bersin içinde adlı bir kullanıcı oluşturun. Çalışmak [Bersin Destek ekibine](mailto:USBersinServiceClient@deloitte.com) Bersin platform veya Bersin platformu için bir izin verilenler listesi eklenmeli etki alanı kullanıcıları eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Bersin platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
