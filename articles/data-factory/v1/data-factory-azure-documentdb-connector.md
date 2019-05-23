@@ -124,7 +124,7 @@ Kopyalama etkinliği kaynak türü olduğunda durumunda **DocumentDbCollectionSo
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için bir sorgu belirtin. |Azure Cosmos DB tarafından desteklenen dize sorgulayın. <br/><br/>Örnek: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select <columns defined in structure> from mycollection` |
+| query |Verileri okumak için bir sorgu belirtin. |Azure Cosmos DB tarafından desteklenen dize sorgulayın. <br/><br/>Örnek: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Belge iç içe geçmiş belirtmek için özel karakter |Herhangi bir karakter. <br/><br/>Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON belgeleri için deposudur. Azure Data Factory sağlayan kullanıcı hiyerarşisi olan nestingSeparator aracılığıyla belirtmek "." Yukarıdaki örneklerde. Ayırıcı ile kopyalama etkinliği ile üç alt öğeleri "Name" nesne ilk olarak, oluşturacak Orta ve son olarak, "Name.First", "Name.Middle" ve "Name.Last" Tablo tanımındaki göre. |Hayır |
 
 **DocumentDbCollectionSink** aşağıdaki özellikleri destekler:
