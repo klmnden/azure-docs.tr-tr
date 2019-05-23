@@ -46,6 +46,8 @@
           href: 'https://docs.microsoft.com/rest/api/consumption'
         - name: Resource Manager şablonu
           href: /azure/templates/microsoft.consumption/budgets
+        - name: Maliyet Yönetimi REST API Örnekleri
+          href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
     - name: Kaynaklar
       items:
         - name: Microsoft Learn ile becerilerinizi geliştirin

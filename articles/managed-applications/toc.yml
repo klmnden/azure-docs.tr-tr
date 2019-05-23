@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Key Vault’tan bir gizli anahtarı kullanma
           href: key-vault-access.md
+        - name: Yönetilen Kimlik ile dağıtma
+          href: publish-managed-identity.md
     - name: Tüketiciler
       items:
         - name: Yönetilen uygulamaları izleme

@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: Sağlayıcıya Göre Konumlar
           href: expressroute-locations.md
-    - name: ExpressRoute sanal ağ geçidi ve FastPath
+    - name: Sanal ağ geçidi ve FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Ön koşullar
       href: expressroute-prerequisites.md

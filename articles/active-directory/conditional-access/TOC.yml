@@ -19,8 +19,8 @@
 - name: Kavramlar
   expanded: false
   items:
-    - name: Ana Hat Koruma
-      href: baseline-protection.md
+    - name: Ana hat koruma ilkeleri
+      href: concept-baseline-protection.md
     - name: Koşullar
       href: conditions.md
     - name: Konum koşulları
@@ -38,6 +38,16 @@
       href: plan-conditional-access.md
     - name: En iyi uygulamalar
       href: best-practices.md
+    - name: Ana hat ilkeleri
+      items:
+        - name: Yöneticiler için MFA gerektirme
+          href: howto-baseline-protect-administrators.md
+        - name: Son kullanıcı koruması
+          href: howto-baseline-protect-end-users.md
+        - name: Eski kimlik doğrulamasını engelleme
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Hizmet yönetimi için MFA gerektirme
+          href: howto-baseline-protect-azure.md
     - name: Eski kimlik doğrulamasını engelleme
       href: block-legacy-authentication.md
     - name: Klasik ilkeleri geçirme

@@ -257,6 +257,10 @@
       items:
         - name: İş yükünüzü çözümleme
           href: analyze-your-workload.md
+        - name: İş yükü önem derecesini yönetme ve izleme
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: İş yükü önem düzeyini yapılandırma
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: Yönetme ve izleme
       items:
         - name: Gen2'ye yükselt
