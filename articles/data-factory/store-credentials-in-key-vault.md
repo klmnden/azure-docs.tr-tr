@@ -79,7 +79,7 @@ Bir alan bir anahtar kasası gizli dizi başvuran bağlı hizmette yapılandırd
 | type | Alan öğesinin type özelliği ayarlanmalıdır: **AzureKeyVaultSecret**. | Evet |
 | secretName | Azure key vault'ta gizli dizi adı. | Evet |
 | secretVersion | Azure key vault'ta gizli dizi sürümü.<br/>Belirtilmezse, her zaman en son sürümünü gizli anahtarı kullanır.<br/>Ardından belirtilmişse belirli bir sürümüne yapışması.| Hayır |
-| Store | Kimlik bilgilerini saklamak için kullandığınız bir Azure Key Vault bağlı hizmetini ifade eder. | Evet |
+| store | Kimlik bilgilerini saklamak için kullandığınız bir Azure Key Vault bağlı hizmetini ifade eder. | Evet |
 
 **Kullanıcı Arabirimi geliştirme kullanarak:**
 
