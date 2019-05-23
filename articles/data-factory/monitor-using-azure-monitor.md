@@ -107,14 +107,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | storageAccountId |String | Tanılama günlüklerini göndermek istediğiniz depolama hesabı kaynak kimliği |
 | serviceBusRuleId |String | Event Hubs akış tanılama günlükleri için oluşturulmuş olmasını istediğiniz service bus ad alanı service bus kural kimliği. Kimliği biçimi kural: "{hizmet veri yolu kaynak kimliği} /authorizationrules/ {anahtar name}".|
-| Çalışma alanı kimliği | Karmaşık Tür | Ölçüm zaman grains ve bekletme ilkelerini dizisi. Şu anda bu özellik boştur. |
+| workspaceId | Karmaşık Tür | Ölçüm zaman grains ve bekletme ilkelerini dizisi. Şu anda bu özellik boştur. |
 |metrics| Çağrılan işlem hattına geçirilecek parametre değerleri işlem hattının çalıştırma| Bağımsız değişken değerleri parametre adlarını eşleme bir JSON nesnesi |
-| günlükler| Karmaşık Tür| Bir kaynak türü için bir tanılama günlüğü kategori adı. Bir kaynak için tanılama günlük kategorileri listesi elde etmek için ilk tanılama ayarlarını alma işlemi gerçekleştirin. |
+| logs| Karmaşık Tür| Bir kaynak türü için bir tanılama günlüğü kategori adı. Bir kaynak için tanılama günlük kategorileri listesi elde etmek için ilk tanılama ayarlarını alma işlemi gerçekleştirin. |
 | category| String| Günlük kategorileri ve bunların bekletme ilkeleri |
 | timeGrain | String | ISO 8601 süre biçiminde yakalanan ölçüm ayrıntı düzeyi. PT1M (bir dakika) olmalıdır|
 | enabled| Boolean | Bu kaynak için ölçüm veya günlük kategori koleksiyonu etkin olup olmadığını belirtir|
 | retentionPolicy| Karmaşık Tür| Ölçüm veya günlük kategorisi için bekletme ilkesi açıklar. Yalnızca depolama hesabı seçeneği kullanılır.|
-| gün| Int| Günlükleri ve ölçümleri saklanacağı gün sayısı. 0 değeri, günlükler süresiz olarak korur. Yalnızca depolama hesabı seçeneği kullanılır. |
+| days| Int| Günlükleri ve ölçümleri saklanacağı gün sayısı. 0 değeri, günlükler süresiz olarak korur. Yalnızca depolama hesabı seçeneği kullanılır. |
 
 **Yanıt**
 
