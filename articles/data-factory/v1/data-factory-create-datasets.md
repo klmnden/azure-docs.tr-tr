@@ -81,13 +81,13 @@ Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
-| ad |Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
+| name |Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
 | type |Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türü](#Type). |Evet |NA |
-| yapısı |Şema kümesi.<br/><br/>Ayrıntılar için bkz [Dataset yapısını](#Structure). |Hayır |NA |
+| structure |Şema kümesi.<br/><br/>Ayrıntılar için bkz [Dataset yapısını](#Structure). |Hayır |NA |
 | typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#Type). |Evet |NA |
 | external | Bir veri kümesi açıkça bir veri fabrikası işlem hattı tarafından veya üretilen olup olmadığını belirlemek için Boole bayrağı. Bir etkinliğin giriş veri kümesi geçerli işlem hattı tarafından üretilen değil, bu bayrağı true olarak ayarlayın. Bu bayrak, işlem hattının birinci etkinliğin giriş veri kümesi için true olarak ayarlayın.  |Hayır |false |
 | availability | İşleme penceresini (örneğin, saatlik veya günlük) veya veri kümesi üretim dilimleme modelini tanımlar. Her bir birimi kullanılan ve bir etkinlik çalışması tarafından üretilen veriler, veri dilim adı verilir. Bir çıktı veri kümesi Kullanılabilirliği (sıklığı - gün, interval - 1) günlük olarak ayarlanırsa, bir dilim günlük oluşturulur. <br/><br/>Ayrıntılar için veri kümesinin kullanılabilirliğine bakın. <br/><br/>Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
-| ilke |Ölçüt veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [veri kümesi ilke](#Policy) bölümü. |Hayır |NA |
+| policy |Ölçüt veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [veri kümesi ilke](#Policy) bölümü. |Hayır |NA |
 
 ## <a name="dataset-example"></a>Veri kümesi örneği
 Aşağıdaki örnekte adlı bir tablo veri kümesini temsil eden **MyTable** bir SQL veritabanı'nda.
@@ -193,10 +193,10 @@ Her sütunda yapısı aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |Sütunun adı. |Evet |
+| name |Sütunun adı. |Evet |
 | type |Sütunun veri türü.  |Hayır |
-| Kültür |. Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. |Hayır |
-| biçim |Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. |Hayır |
+| culture |. Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. |Hayır |
+| format |Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. |Hayır |
 
 Aşağıdaki yönergeleri yapı bilgileri içerecek şekilde ne zaman ve ne eklenecek belirlemenize yardımcı **yapısı** bölümü.
 
@@ -237,9 +237,9 @@ Aşağıdaki tabloda kullanılabilirlik bölümünde kullanabileceğiniz özelli
 | --- | --- | --- | --- |
 | frequency |Veri kümesi dilim üretim yönelik zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: Dakika, saat, gün, hafta, ay |Evet |NA |
 | interval |Sıklığı çarpanı belirtir.<br/><br/>"X sıklık aralığı" ne sıklıkta dilim üretilir belirler. Örneğin, veri kümesinin saatlik olarak dilimlenmiş gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/>Belirttiğiniz gerçekleştiriyorsanız **sıklığı** olarak **dakika**, aralığı en az 15'e ayarlamanız gerekir. |Evet |NA |
-| Stil |Dilim başlangıç veya Bitiş aralığı olarak üretilen belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Varsa **sıklığı** ayarlanır **ay**, ve **stili** ayarlanır **EndOfInterval**, ayın son gününde dilim üretilir. Varsa **stili** ayarlanır **StartOfInterval**, ayın ilk gününde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **gün**, ve **stili** ayarlanır **EndOfInterval**, günün son bir saat içinde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **saat**, ve **stili** ayarlanır **EndOfInterval**, saatin sonunda dilim üretilir. Örneğin, 2 saat 13 - PM dönem için bir dilim için 2 saat dilim üretilir. |Hayır |EndOfInterval |
+| style |Dilim başlangıç veya Bitiş aralığı olarak üretilen belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Varsa **sıklığı** ayarlanır **ay**, ve **stili** ayarlanır **EndOfInterval**, ayın son gününde dilim üretilir. Varsa **stili** ayarlanır **StartOfInterval**, ayın ilk gününde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **gün**, ve **stili** ayarlanır **EndOfInterval**, günün son bir saat içinde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **saat**, ve **stili** ayarlanır **EndOfInterval**, saatin sonunda dilim üretilir. Örneğin, 2 saat 13 - PM dönem için bir dilim için 2 saat dilim üretilir. |Hayır |EndOfInterval |
 | anchorDateTime |Zamanlayıcı tarafından veri kümesi dilim sınırlarını hesaplamak için kullanılan zaman içinde mutlak konum tanımlar. <br/><br/>Bu özellik, belirtilen sıklığından daha ayrıntılı tarih kısımlarını varsa, daha ayrıntılı bölümleri göz ardı edilir unutmayın. Örneğin, varsa **aralığı** olduğu **saatlik** (Sıklık: saat ve aralığı: 1) ve **anchorDateTime** içeren **dakika ve saniye**, ardından dakika ve saniye bölümlerini **anchorDateTime** göz ardı edilir. |Hayır |01/01/0001 |
-| uzaklık |Başlangıç ve bitiş tüm veri kümesi dilim olarak kaydırılan bir TimeSpan değeri. <br/><br/>Her iki unutmayın **anchorDateTime** ve **uzaklığı** belirtilirse, sonuç, birleşik kaydırma. |Hayır |NA |
+| offset |Başlangıç ve bitiş tüm veri kümesi dilim olarak kaydırılan bir TimeSpan değeri. <br/><br/>Her iki unutmayın **anchorDateTime** ve **uzaklığı** belirtilirse, sonuç, birleşik kaydırma. |Hayır |NA |
 
 ### <a name="offset-example"></a>uzaklık örneği
 Varsayılan olarak her gün (`"frequency": "Day", "interval": 1`) dilimleri 12: 00 (gece yarısı) Eşgüdümlü Evrensel Saat (UTC) Başlat. Uzaklık, başlangıç zamanı, 6 AM UTC saati yerine olmasını istiyorsanız, aşağıdaki kod parçacığında gösterildiği gibi ayarlayın:
@@ -319,7 +319,7 @@ Bir veri kümesi Data Factory tarafından üretilen sürece bu olarak işaretlen
 | Ad | Açıklama | Gerekli | Varsayılan değer |
 | --- | --- | --- | --- |
 | dataDelay |Belirtilen dilim için dış veri kullanılabilirliğini kontrolü gecikme süresini. Örneğin, bu ayarı kullanarak bir saatlik onay erteleyebilirsiniz.<br/><br/>Ayar, yalnızca zamandan için geçerlidir. Örneğin, 13: 00'te şu anda ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar geçmiş dilimler etkilemez unutmayın. İle dilimler **dilim bitiş zamanı** + **dataDelay** < **artık** herhangi bir gecikme olmadan işlenir.<br/><br/>23:59 büyüktür saatleri saat kullanarak belirtilmelidir `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın. Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat, 1:04:00:00 belirtin. |Hayır |0 |
-| Retryınterval |Bir hata ile sonraki denemesi arasındaki bekleme süresi. Bu ayar, mevcut bir süre için geçerlidir. Önceki başarısız çalışırsanız, sonraki try sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şu anda ise, ilk denemede başlamadan. İlk doğrulama denetimini tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 + 1 dakika (süre) + 1 dakika (yeniden deneme aralığı) 13: 02'te =. <br/><br/>Geçmiş dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
+| retryInterval |Bir hata ile sonraki denemesi arasındaki bekleme süresi. Bu ayar, mevcut bir süre için geçerlidir. Önceki başarısız çalışırsanız, sonraki try sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şu anda ise, ilk denemede başlamadan. İlk doğrulama denetimini tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 + 1 dakika (süre) + 1 dakika (yeniden deneme aralığı) 13: 02'te =. <br/><br/>Geçmiş dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
 | retryTimeout |Her yeniden deneme girişimi için zaman aşımı.<br/><br/>Bu özellik, 10 dakika olarak ayarlanır, doğrulama 10 dakika içinde tamamlanmalıdır. Doğrulamayı gerçekleştirmek için 10 dakikadan uzun sürerse, yeniden deneme zaman aşımına uğradı.<br/><br/>Tüm girişimleri doğrulama zaman aşımı için dilim olarak işaretlenmişse **zaman aşımına uğradı**. |Hayır |00:10:00 (10 dakika) |
 | maximumRetry |Kaç defa dış veri kullanılabilirliğini denetleyin. Değer izin verilen üst sınırı 10'dur. |Hayır |3 |
 
