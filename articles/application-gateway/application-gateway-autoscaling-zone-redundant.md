@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827433"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986882"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi 
 
@@ -93,8 +93,6 @@ Kapasite Birimi fiyatı 744(hours) = * Maks (işlem birimi Max(25/50 for connect
 
 Toplam Fiyat = $267.84 + $85.71 $353.55 =
 
-[Fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/application-gateway/) bölgelere ait fiyatlara 14 Mayıs 2019 üzerinde yansıtacak şekilde güncelleştirilir. Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Application Gateway ve WAF v2 ölçeklendirme
 
 Application Gateway ve WAF yapılandırılabilir iki modda ölçeklendirmek için:
@@ -138,7 +136,7 @@ Aşağıdaki tabloda her SKU ile sunulan özellikler karşılaştırılmaktadır
 |Kullanıcı tanımlı yol (UDR) uygulama ağ geçidi alt ağı üzerinde|Desteklenmiyor|
 |Gelen bağlantı noktası aralığı için NSG| -65200 ila 65535 Standard_v2 için SKU<br>-65503 için 65534 standart SKU için.<br>Daha fazla bilgi için [SSS](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Azure Tanılama'da Performans Günlükleri|Desteklenmiyor.<br>Azure ölçümleri kullanılmalıdır.|
-|Faturalama|Faturalandırma, 1 Haziran 2019 üzerinde başlatmak üzere zamanlandı.|
+|Faturalama|Faturalandırma, 1 Temmuz 2019 üzerinde başlatmak üzere zamanlandı.|
 |FIPS modundayken|Bunlar şu anda desteklenmemektedir.|
 |ILB yalnızca modu|Bu şu anda desteklenmiyor. Genel ve ILB modu birlikte desteklenir.|
 |Netwatcher tümleştirme|Desteklenmiyor.|

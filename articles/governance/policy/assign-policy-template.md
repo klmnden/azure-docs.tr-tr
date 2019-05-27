@@ -7,12 +7,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 03d15d30deabbc2bd34fbb4fba108be382f94fa1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f31d6197c22be4d66e0610ad7914f541a45ed995
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787353"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979566"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Hızlı Başlangıç: Resource Manager şablonu kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 
@@ -25,7 +25,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="create-a-policy-assignment"></a>İlke ataması oluşturma
 
-Bu hızlı başlangıçta, bir ilke ataması oluşturma ve adlı yerleşik ilke tanımı atama *denetim yönetilen diskleri kullanmayan Vm'leri*. Kullanılabilir yerleşik ilkeler kısmi bir listesi için bkz. [ilkesi örnekleri](./samples/index.md).
+Bu hızlı başlangıçta, bir ilke ataması oluşturma ve adlı yerleşik ilke tanımı atama *denetim yönetilen diskleri kullanmayan Vm'leri*. Kullanılabilir yerleşik ilkeler kısmi bir listesi için bkz. [Azure ilkesi örnekleri](./samples/index.md).
 
 İlke ataması oluşturmak için çeşitli yöntemler vardır. Bu hızlı başlangıçta, kullandığınız bir [Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Şablonun bir kopyasını şu şekildedir:

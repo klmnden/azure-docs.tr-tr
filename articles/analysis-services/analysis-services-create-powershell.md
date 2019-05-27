@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fedc053d7869d9d5e85f890dcc707852a27df089
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: b3b23509197dd1d91dbd74c57b3c732151c51a97
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66142979"
 ---
-# <a name="quickstart-create-a-server---powershell"></a>Hızlı Başlangıç: Bir sunucu oluşturma - PowerShell
+# <a name="quickstart-create-a-server---powershell"></a>Hızlı Başlangıç: Sunucu oluşturma - PowerShell
 
 Bu hızlı başlangıç, Azure aboneliğinizde bir Azure Analysis Services sunucusu oluşturmak için komut satırından PowerShell kullanmayı anlatmaktadır.
 
@@ -35,7 +35,7 @@ Aboneliğinizde bir sunucu oluşturmak için kullandığınız [Az.AnalysisServi
 Import-Module Az.AnalysisServices
 ```
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Azure aboneliğinizi kullanarak oturum açın [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) komutu. Ekrandaki yönergeleri izleyin.
 
@@ -43,7 +43,7 @@ Azure aboneliğinizi kullanarak oturum açın [Connect AzAccount](/powershell/mo
 Connect-AzAccount
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md), Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Sunucunuzu oluşturduğunuzda, aboneliğinizde bir kaynak grubu belirtmeniz gerekir. Bir kaynak grubu zaten yoksa kullanarak yeni bir tane oluşturabilirsiniz [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. Aşağıdaki örnekte Batı ABD bölgesinde `myResourceGroup` adında bir kaynak grubu oluşturulmaktadır.
 

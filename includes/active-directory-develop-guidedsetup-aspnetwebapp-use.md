@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2b9d696ca896d0c8f0801f055000b9763d65d7ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298243"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121789"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Oturum açma ve oturum kapatma istekleri işlemek üzere bir denetleyici ekleyin
 
@@ -112,7 +112,7 @@ Visual Studio'da oturum açma düğmesini eklemek ve kimlik doğrulaması sonras
     ```
 
 <!--start-collapse-->
-> ### <a name="more-information"></a>Daha Fazla Bilgi
+> ### <a name="more-information"></a>Ek bilgiler
 > Bu sayfa, siyah bir arka plan SVG biçiminde bir oturum açma düğmesi ekler:<br/>![Microsoft'ta oturum açma](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Daha fazla düğme'nın oturum açma için lütfen Git [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "marka yönergeleri").
 <!--end-collapse-->
 
@@ -155,7 +155,7 @@ Bu denetleyici bir denetleyiciyi koruma amacıyla `[Authorize]` özniteliğini k
     ```
 
 <!--start-collapse-->
-> ### <a name="more-information"></a>Daha Fazla Bilgi
+> ### <a name="more-information"></a>Ek bilgiler
 > `[Authorize]` özniteliğinin kullanılması nedeniyle bu denetleyicinin tüm metotları yalnızca kullanıcının kimliğinin doğrulanması durumunda yürütülebilir. Kullanıcı kimliği doğrulanmamış, ve denetleyiciye erişmeye OWIN kimlik doğrulaması sınaması başlatmak ve kullanıcının kimlik doğrulamasını zorla. Yukarıdaki kod, talepler kullanıcının kimliği belirtecinde bulunan belirli bir kullanıcı özniteliklerinin listesi bakar. Bu öznitelik kullanıcının tam adını, kullanıcı adını ve genel kullanıcı tanımlayıcısı nesnesini içerir. Ayrıca kullanıcının kuruluşunun kimliğini temsil eden *Kiracı Kimliği* değerini de içerir. 
 <!--end-collapse-->
 

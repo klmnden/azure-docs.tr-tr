@@ -9,18 +9,18 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739259"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133197"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
 Azure Otomasyonu, stok bilgisayarlarınızda yüklü işletim sistemi güvenlik güncelleştirmelerini yönetmek ve değişiklikleri izlemek için çözümler sağlar. Makine birçok yolu vardır, bu çözüme ekleyebilir [bir sanal makineden](automation-onboard-solutions-from-vm.md), [birden çok makine gözatma gelen](automation-onboard-solutions-from-browse.md), Otomasyon hesabınızdan veya göre [runbook](automation-onboard-solutions.md). Bu makalede onboarding Bu çözümler Otomasyon hesabınızdan kapsar.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 https://portal.azure.com adresinden Azure'da oturum açın
 
@@ -32,27 +32,10 @@ Log Analytics çalışma alanını ve Otomasyon hesabı seçin ve tıklayın **e
 
 ![Stok çözümünü ekleme](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Çözümleri etkinleştirirken Log Analytics çalışma alanı ile Otomasyon Hesabı arasında bağlantı kurma seçeneği yalnızca belirli bölgelerde desteklenmektedir.
-
-Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
-
-|**Log Analytics çalışma alanı bölgesi**|**Azure Otomasyonu bölge**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP ve EastUS eşlemeleri Otomasyon hesapları için Log Analytics çalışma alanları için tam bir bölgeden bölgeye eşleme değildir, ancak doğru eşleme.
-
-<sup>2</sup> kapasitesi kısıtlamaları nedeniyle bölgeyi yeni kaynakları oluşturulurken kullanılabilir değil. Bu, Otomasyon hesaplarını ve Log Analytics çalışma alanlarını içerir. Ancak, önceden var olan bağlı kaynaklar bölgede çalışmaya devam.
+> [!NOTE]
+> Çözümleri etkinleştirirken Log Analytics çalışma alanı ile Otomasyon Hesabı arasında bağlantı kurma seçeneği yalnızca belirli bölgelerde desteklenmektedir.
+>
+> Desteklenen eşleme çiftlerine bir listesi için bkz. [Otomasyon hesabının ve Log Analytics çalışma alanı için bölge eşleme](how-to/region-mappings.md).
 
 Değişiklik İzleme ve Sayım çözümü, sanal makinelerinizde [değişiklikleri izleme](automation-vm-change-tracking.md) ve [sayım](automation-vm-inventory.md) olanağı sağlar. Bu adımda çözümü bir sanal makine üzerinde etkinleştirirsiniz.
 
@@ -82,7 +65,7 @@ Bir bilgisayarı güncelleştirme yönetimi veya değişiklik izleme ve sayım �
 
 Otomasyon hesabınıza gidin ve seçin **kayıtlı aramalar** altında **genel**. Aşağıdaki tabloda bu çözüm tarafından kullanılan iki kayıtlı aramalar görülebilir:
 
-|Ad     |Kategori  |Diğer ad  |
+|Ad     |Category  |Diğer Ad  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  Değişiklik izleme       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Güncelleştirmeler        | Updates__MicrosoftDefaultComputerGroup         |
@@ -144,7 +127,7 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
-   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
+   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png):
 
    Devam etmek istediğinizi doğrulayan bir ileti alırsınız.
 
@@ -161,6 +144,8 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 * Başlatma ve durdurma VM runbook zamanlama
 * VM runbook'ları durdurun ve başlatın
 * Değişkenler
+
+Alternatif olarak, ayrıca çalışma alanınızı Otomasyon hesabınızdan Log Analytics çalışma alanınızdan kesebilir. Çalışma alanınızda seçin **Otomasyon hesabı** altında **ilgili kaynakları**. Otomasyon hesabı sayfasında **hesabı bağlantısını**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

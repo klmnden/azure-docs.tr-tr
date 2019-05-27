@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576671"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130995"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights Durum İzleyicisi ile çalışma zamanında web uygulamalarını izleme
 
@@ -149,6 +149,8 @@ Bu sorunu takip ettiğimiz [burada](https://github.com/Microsoft/ApplicationInsi
 * Ayrıntılı günlükleri çıktısını almak için yapılandırma dosyasını değiştirme: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` ve ekleme `<add key="TraceLevel" value="All" />` için `appsettings`.
 Ardından, Durum İzleyicisi'ni yeniden başlatın.
 
+* Durum İzleyicisi, bir .NET uygulaması olduğundan da etkinleştirebilirsiniz [uygun tanılama yapılandırma dosyasına ekleyerek .net izleme](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Örneğin, bazı senaryolarda bu tarafından ağ düzeyinde neler olduğunu görmek yararlı olabilir [ağ izlemeyi yapılandırma](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
 ### <a name="insufficient-permissions"></a>İzinler yetersiz
   
 * "Yetersiz izinler" hakkında bir ileti görürseniz, sunucuda aşağıdakileri deneyin:
@@ -184,7 +186,7 @@ Sunucuda Application Insights Durum İzleyicisi için işletim sistemi desteği:
 * Windows server 2012 R2
 * Windows Server 2016
 
-en son SP ve .NET Framework 4.5 ile
+en son SP ve .NET Framework 4.5 (framework'ün bu sürümü Durum izleyicisini yerleşik)
 
 İstemci tarafında: Windows 7, 8, 8.1 ve 10, .NET Framework 4.5 ile
 
@@ -276,7 +278,9 @@ Durum İzleyicisi’nin izlemesi için bir web uygulaması seçtiğinizde:
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Application Insights SDK'sı sürümünü, Durum İzleyicisi yükleme?
 
-Şu anda, Durum İzleyicisi, yalnızca Application Insights SDK'sı sürüm 2.3 veya 2.4 yükleyebilirsiniz.
+Şu anda, Durum İzleyicisi, yalnızca Application Insights SDK'sı sürüm 2.3 veya 2.4 yükleyebilirsiniz. 
+
+Application Insights SDK sürüm 2.4 olan [destek .NET 4.0 için son sürüm](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) olduğu [EOL'ye Ocak 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Bu nedenle, şu andan itibaren Durum İzleyicisi, bir .NET 4.0 uygulamasını izleme için kullanılabilir. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Uygulamayı her güncelleştirdiğimde Durum İzleyicisi’ni çalıştırmam gerekiyor mu?
 

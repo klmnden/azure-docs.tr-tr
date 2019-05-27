@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134599"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Bir iç yük dengeleyici (ILB) uç noktası ile uygulama ağ geçidi yapılandırma
 
@@ -63,7 +63,7 @@ Arka uç havuzu, isteği sunan arka uç sunucuları istekleri yönlendirmek içi
 2. Uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS yüklersiniz.
 3. Arka uç sunucularının arka uç havuzuna ekleyin.
 
-### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+### <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 
 1. **Yeni**’ye tıklayın.
 2. Tıklayın **işlem** seçip **Windows Server 2016 Datacenter** Öne çıkanlar listesinde.
@@ -72,7 +72,7 @@ Arka uç havuzu, isteği sunan arka uç sunucuları istekleri yönlendirmek içi
    - Yönetici kullanıcı adı için *azureuser*.
    - *Azure123456!* Parola.
    - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**'ı tıklatın.
 5. Seçin **DS1_V2** tıklayın ve sanal makine boyutu için **seçin**.
 6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun.
 7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.

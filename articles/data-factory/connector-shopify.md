@@ -107,7 +107,7 @@ Shopify veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarla
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ShopifySource** | Evet |
-| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

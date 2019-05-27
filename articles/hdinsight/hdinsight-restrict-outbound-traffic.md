@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/13/2019
-ms.openlocfilehash: f244a67abab5c7f8cd14277f87f055ac6d48b8d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762428"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978008"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri için giden ağ trafiği kısıtlama yapılandırın
+# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Azure HDInsight kümeleri (Önizleme) için giden ağ trafiği kısıtlama yapılandırın
 
 Bu makalede, Azure Güvenlik Duvarı'nı kullanarak HDInsight kümenize giden trafiği güvenli hale getirmek adımları sağlar. Aşağıdaki adımlarda, bir Azure Güvenlik Duvarı var olan bir küme için yapılandırdığınız varsayılır. Yeni bir küme dağıtıyorsanız ve bir güvenlik duvarının arkasındaki ilk alt ağ ve HDInsight kümesi oluşturun ve ardından bu kılavuzdaki adımları izleyin.
 
@@ -27,7 +27,7 @@ Gelen trafik gerektiren birkaç bağımlılık vardır. Gelen yönetim trafiğin
 
 HDInsight giden trafiği bağımlılıkları neredeyse tamamen arkasına statik IP adreslerine sahip değilseniz, FQDN ile tanımlanır. Statik adresler olmaması anlamına gelir ağ güvenlik grupları (Nsg'ler) giden trafiğin bir küme kilitlemek için kullanılamaz. Adresleri sıklıkta biri olamaz geçerli ad çözümlemesinin temel kurallarını ayarlama ve NSG kurallarını ayarlamaya yönelik kullanan, değiştirin.
 
-Çözüm giden adresleri güvenliğini sağlamak için etki alanı adlarını temel alarak giden trafiği denetleyen bir güvenlik duvarı cihaz kullanmaktır. Azure güvenlik duvarı hedef FQDN'sini üzerinde giden HTTP ve HTTPS trafiğini kısıtlayabilirsiniz.
+Çözüm giden adresleri güvenliğini sağlamak için etki alanı adlarını temel alarak giden trafiği denetleyen bir güvenlik duvarı cihaz kullanmaktır. Azure güvenlik duvarı, hedef FQDN'sini üzerinde giden HTTP ve HTTPS trafiğini kısıtlayabilir veya [FQDN etiketleri](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>HDInsight ile Azure güvenlik duvarı yapılandırma
 
@@ -80,7 +80,7 @@ Yeni Güvenlik Duvarı'nı seçin **Test FW01** Azure portalından. Tıklayın *
         1. Girin `https:443` altında **protokolü: bağlantı noktası** ve `sqm.telemetry.microsoft.com` altında **hedefleyecek FQDN'LERİNİ**.
     1. Kümenizi WASB tarafından yedeklenir ve hizmet uç noktaları yukarıdaki kullanmıyorsanız, bir kural için WASB ekleyin:
         1. İçinde **hedef FQDN** bölümünde, sağlayan bir **adı**, ayarlayın **kaynak adreslerini** için `*`.
-        1. Girin `wasb` altında **protokolü: bağlantı noktası** ve `*` altında **hedefleyecek FQDN'LERİNİ**.
+        1. Girin `http` veya [https] bağlı olarak wasb kullanıyorsanız: / / ya da wasbs: / / altında **protokolü: bağlantı noktası** ve depolama hesap URL'si altında **hedef FQDN**.
 1. **Ekle**'yi tıklatın.
 
 ![Başlık: Uygulama kuralı koleksiyonu ayrıntıları girin](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)

@@ -6,45 +6,43 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: tisande
-ms.openlocfilehash: 3ba547aea9034777fe76f3c911efd2648f6184fa
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
-ms.translationtype: MT
+ms.openlocfilehash: 48d0c7a022ff568582637aac36a377ca022a413c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514807"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977350"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL alt sorgu örnekleri
 
-Alt sorgu başka bir sorgu içinde yuvalanmış bir sorgudur. Alt sorgu bir iç sorgu veya iç seçin de denir ve deyimini alt sorgu içeren tipik olarak bir dış sorgu çağrılır.
+Alt sorgu başka bir sorgu içinde yuvalanmış bir sorgudur. Alt sorgu, bir iç sorgu veya iç seçin olarak da bilinir. Alt sorgu içeren ifade genellikle dış bir sorgu olarak adlandırılır.
 
-Alt sorgular iki tür vardır:
-
-* Bağıntılı - bağıntılı alt sorgu dış sorgudan değerler başvuran alt sorgu olduğu. Alt sorgu, dış sorgu tarafından işlenen her satır için bir kez değerlendirilir.
-
-* Bağıntılı olmayan - alt sorgu ilişkili olmayan bir dış sorgusunu bağımsız bir alt sorgu olduğu ve olmadan kendi dış sorguya bağlı yürütülmek üzere.
-
-> [!NOTE]
-> Azure Cosmos DB bağıntılı alt sorgular yalnızca destekler.
+Bu makalede, SQL alt sorgular ve Azure Cosmos DB'de, ortak kullanım durumları açıklanmaktadır.
 
 ## <a name="types-of-subqueries"></a>Alt sorgular türleri
 
-Daha fazla alt sorgularda, döndürmeleri satır ve sütun sayısına göre sınıflandırılabilir. Üç farklı tür vardır:
-1.  **Tablo**: Birden çok satır ve birden çok sütun döndürür
-2.  **Birden çok değerli**: Birden çok satır ve tek bir sütun döndürür
-3.  **Skaler**: Tek satır ve tek bir sütun döndürür
+Alt sorgular iki ana türü vardır:
+
+* **Bağıntılı**: Dış sorgudan değerler başvuran alt sorgu. Alt sorgu, dış sorgu işlemleri her satır için bir kez değerlendirilir.
+* **Bağıntılı olmayan**: Dış sorgu bağımsız bir alt sorgu. Dış üzerinde bağlı olmadan kendi sorgu üzerinde çalıştırılabilir.
 
 > [!NOTE]
-> Azure Cosmos DB, birden çok değerli ve skaler alt sorgular destekler.
+> Azure Cosmos DB bağıntılı alt sorgular destekler.
 
-Azure Cosmos DB SQL sorguları her zaman tek bir sütun (basit bir değer veya karmaşık bir belgeyi) döndürür. Bu nedenle, yalnızca birden çok değerli ve skaler alt sorgular yukarıda, Azure Cosmos DB'de geçerlidir. Skaler bir alt sorguda bir skaler ifade seçin veya WHERE yan tümcesi veya FROM yan tümcesindeki ilişkisel bir ifade olarak kullanılabilse bir çok değer alt sorgusu yalnızca FROM yan tümcesinde ilişkisel bir ifade olarak kullanılabilir.
+Daha fazla alt sorgularda, döndürmeleri satır ve sütun sayısına göre sınıflandırılabilir. Üç tür vardır:
+* **Tablo**: Birden çok satır ve birden çok sütun döndürür.
+* **Birden çok değerli**: Birden çok satır ve tek bir sütun döndürür.
+* **Skaler**: Tek bir satır ve tek bir sütun döndürür.
+
+Azure Cosmos DB'de SQL sorguları her zaman tek bir sütun (basit bir değer veya karmaşık bir belgeyi) döndürür. Bu nedenle, yalnızca birden çok değerli ve skaler alt sorgular, Azure Cosmos DB içinde geçerlidir. FROM yan tümcesinde yalnızca bir çok değer alt sorgusu ilişkisel bir ifade olarak kullanabilirsiniz. Skaler bir alt sorguda bir skaler ifade seçin veya WHERE yan tümcesi veya FROM yan tümcesindeki ilişkisel bir ifade olarak kullanabilirsiniz.
 
 
 ## <a name="multi-value-subqueries"></a>Birden çok değerli alt sorgular
 
-Birden çok değerli alt sorgularda, bir belge kümesi dönün ve FROM yan tümcesi içinde her zaman kullanılır. Bunlar için kullanılır:
+Birden çok değerli alt sorgularda, bir belge kümesi dönün ve FROM yan tümcesi içinde her zaman kullanılır. İçin kullanıldıklarından:
 
-* Birleştirme ifadeleri en iyi duruma getirme 
-* Pahalı ifadeleri kez değerlendirme ve birden çok kez başvuruyor
+* Birleştirme ifadeleri en iyi duruma getirme. 
+* Pahalı ifadeleri kez değerlendirme ve birden çok kez başvuruyor.
 
 ### <a name="optimize-join-expressions"></a>Birleştirme ifadeleri en iyi duruma getirme
 
@@ -62,9 +60,11 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-Bu sorgu için bir etiket adı 'çocuk formülle', 0 ve 10 ile 1'den büyük bir miktarını sunma öğesi arasında bir değerle nutrient bir öğesi olan herhangi bir belge dizini eşleşir. Ancak, herhangi bir filtre uygulanmadan önce birleştirme ifadeyi buraya eşleşen her belge için etiketleri, nutrients ve servis dizilerinin tüm öğeleri çapraz çarpımını gerçekleştirir. WHERE yan tümcesi, ardından filtre koşulu her < c, t, n, s > demet uygulanır. Örneği için eşleşen bir belgeyi her üç diziden oluşan 10 öğe varsa, 1 x 10 x 10 x 10'a (yani, 1000) genişletecek tanımlama grubu. Burada alt sorgular kullanarak, bir sonraki ifadeyle katılmadan önce birleştirilmiş bir dizi öğeleri filtreleyerek yardımcı olabilir.
+Bu sorgu için dizin adı "çocuk formül." içeren bir etiket var olan herhangi bir belge eşleşir Bu bir nutrient öğesi 0 ile 10 arasında bir değer ile ve 1'den büyük bir miktarını sunma öğesiyle olur. Herhangi bir filtre uygulanmadan önce birleştirme ifadesi burada etiketler ve nutrients servis dizilerinin tüm öğelerin çapraz ürün eşleşen her belge için gerçekleştirin. 
 
-Bu sorgu, yukarıdaki eşdeğerdir ancak alt sorgular kullanır:
+WHERE yan tümcesi, ardından filtre koşulu her < c, t, n, s > demet uygulanır. Örneği için eşleşen bir belgeyi her üç diziden oluşan 10 öğe varsa, 1 x 10 x 10 x 10'a (diğer bir deyişle, 1000) genişletecek tanımlama grubu. Burada alt sorgular kullanarak sonraki ifade ile birleştirilmeden önce birleştirilmiş bir dizi öğeleri filtreleyerek de yardımcı olabilir.
+
+Bu sorgu için bir eşdeğerdir, ancak alt sorgular kullanır:
 
 ```sql
 SELECT Count(1) AS Count
@@ -74,13 +74,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-İlk sorgudaki 1000 öğe yerine yalnızca bir öğe etiketleri dizideki eşleşen filtre ve beş öğe nutrients hem servis diziler, birleştirme ifadeleri için 1 x 1 x 5 x 5 = 25 olarak genişletilecektir öğeleri.
+Yalnızca bir öğe etiketleri dizideki eşleşen filtre ve nutrients hem servis diziler için beş öğe varsayılır. Birleştirme ifadeleri ardından 1 x 1 x 5 x 5 = 25 olarak genişletilecektir öğeli ilk sorgudaki 1000 öğe.
 
 ### <a name="evaluate-once-and-reference-many-times"></a>Bir kez ve başvurusu birden çok kez değerlendir
 
-Alt sorgular pahalı ifadeleri gibi kullanıcı tanımlı işlevler (UDF) veya karmaşık dize veya aritmetik ifadeler içeren sorguların iyileştirilmesine yardımcı olabilir. İfade bir kez ancak birden çok kez başvurmak için bir alt sorguda birleştirme ifadesi ile birlikte kullanabilirsiniz.
+Alt sorgular, kullanıcı tanımlı işlevlerle (UDF), karmaşık dizeler veya aritmetik ifadeler gibi pahalı ifadeler içeren sorguların iyileştirilmesine yardımcı olabilir. İfade bir kez ancak birden çok kez başvurmak için bir alt sorguda birleştirme ifadesi ile birlikte kullanabilirsiniz.
 
-Aşağıdaki sorgu, UDF GetMaxNutritionValue iki kere yürütür:
+Aşağıdaki sorgu UDF çalışır `GetMaxNutritionValue` iki kez:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -88,7 +88,7 @@ FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
 
-UDF yalnızca bir kere yürütülen bir eşdeğer bir sorgu aşağıda verilmiştir:
+UDF yalnızca bir kez çalışır eşdeğer bir sorgu aşağıda verilmiştir:
 
 ```sql
 SELECT TOP 1000 c.id, MaxNutritionValue
@@ -98,7 +98,7 @@ WHERE MaxNutritionValue > 100
 ``` 
 
 > [!NOTE] 
-> UDF ifadesi tanımlanmamış için değerlendirmek, birleştirme ifadeleri çapraz ürün davranışı göz önünde bulundurulduğunda, bir nesne alt sorgu değeri yerine doğrudan döndürerek birleştirme ifade her zaman tek bir satır üretir emin olmanız gerekir.
+> Birleştirme ifadeleri çapraz ürün davranışı göz önünde bulundurun. UDF ifade için tanımlanmamış değerlendirebilirsiniz, bir nesne alt sorgu değeri yerine doğrudan döndürerek birleştirme ifade her zaman tek bir satır üretir emin olmanız gerekir.
 >
 
 Bir değer yerine bir nesne döndürür benzer bir örnek aşağıda verilmiştir:
@@ -110,7 +110,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-Yaklaşım UDF için ancak bunun yerine, herhangi bir yüksek maliyetlere neden olabilecek ifade sınırlı değildir. Örneğin, biz matematiksel işlev ortalama aynı yaklaşımı gerçekleştirebilir:
+Yaklaşım UDF için sınırlı değildir. Bu, herhangi bir yüksek maliyetlere neden olabilecek ifade geçerli olur. Örneğin, bir matematiksel işlev aynı yaklaşımı uygulayabileceğiniz `avg`:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -121,8 +121,9 @@ WHERE AvgNutritionValue > 80
 
 ### <a name="mimic-join-with-external-reference-data"></a>Dış başvuru verileriyle birleştirme taklit
 
-Biz genellikle nadiren değişen, ölçümleri veya ülke kodları birimleri gibi statik verileri başvurmanız gerekir. Bu tür veriler için her belge için yinelenen değil tercih edilir. Bu çoğaltma önleme depolama üzerinde kaydedin ve belge boyutu daha küçük tutarak yazma performansı. Alt sorgu, burada başvuru verilerinin bir koleksiyonunu iç birleşim semantiğiyle taklit etmek için kullanılabilir.
-Örneğin, bu başvuru veri kümesi göz önünde bulundurun.
+Genellikle başvuru nadiren değiştirir, ölçüm veya ülke kodları birimleri gibi statik verileri gerekebilir. Bu tür veriler her belge için yinelenen değil daha iyidir. Bu çoğaltma önleme depolama üzerinde kaydedin ve belge boyutunu daha küçük tutarak yazma performansı. Başvuru verilerinin bir koleksiyonunu iç birleşim semantiğiyle taklit etmek üzere sorgu kullanabilirsiniz.
+
+Örneğin, bu başvuru veri kümesi göz önünde bulundurun:
 
 | **Birim** | **Ad**            | **Çarpanı** | **Temel birim** |
 | -------- | ------------------- | -------------- | ------------- |
@@ -140,12 +141,12 @@ Biz genellikle nadiren değişen, ölçümleri veya ülke kodları birimleri gib
 | kJ       | Kilojoule           | 1.00E + 03       | Joule         |
 | MJ       | Megajoule           | 1.00E + 06       | Joule         |
 | GJ       | Gigajoule           | 1.00E + 09       | Joule         |
-| CAL      | Kalori             | 1.00E + 00       | kalori       |
-| kcal     | Kalori             | 1.00E + 03       | kalori       |
+| CAL      | Kalori             | 1.00E + 00       | Kalori       |
+| kcal     | Kalori             | 1.00E + 03       | Kalori       |
 | IU       | Uluslararası birimleri |                |               |
 
 
-Aşağıdaki sorgu, böylece çıkışı biriminin adını ekleriz bu verilerle birleştirmek taklit eder:
+Aşağıdaki sorgu, böylece çıkışı biriminin adını eklemek bu verilerle birleştirmek taklit eder:
 
 ```sql
 SELECT TOP 10 n.id, n.description, n.nutritionValue, n.units, r.name
@@ -177,8 +178,9 @@ WHERE n.units = r.unit
 
 ## <a name="scalar-subqueries"></a>Skaler alt sorgular
 
-Tek bir değer veren bir alt sorguda bir skaler alt sorgu ifadesidir. Skaler alt sorgu ifade değeri ' % s'yansıtma (SELECT yan tümcesi) alt değeridir.  Skaler alt sorgu ifade kullanılabilir olan skaler bir ifade pek çok yerde geçerlidir. Örneğin, skaler bir alt sorgu tüm ifade içinde her iki seçin ve WHERE yan tümceleri içinde kullanılabilir.
-Ancak, skaler bir alt sorgu kullanarak her zaman en iyi duruma getirmek değil. Örneğin, skaler bir alt sorguda bir sistem veya kullanıcı tanımlı işlevler için bağımsız değişken olarak geçirme RU kullanımını veya gecikme süresi hiçbir avantajı sağlar.
+Tek bir değer veren bir alt sorguda bir skaler alt sorgu ifadesidir. Skaler alt sorgu ifade değeri ' % s'yansıtma (SELECT yan tümcesi) alt değeridir.  Pek çok yerde skaler bir ifade geçerli olduğu bir skaler alt sorgu ifade kullanabilirsiniz. Örneğin, herhangi bir ifade içinde her iki seçin ve WHERE yan tümceleri sorguda skaler kullanabilirsiniz.
+
+Skaler bir alt sorgu kullanarak her zaman, ancak en iyi duruma getirmek değil. Örneğin, skaler bir alt sorguda bir sistem veya kullanıcı tanımlı işlevler için bağımsız değişken olarak geçirerek kaynak birimi (RU) tüketimi veya gecikme süresi hiçbir avantajı sağlar.
 
 Skaler alt sorgulara daha ayrıntılı olarak sınıflandırılabilir:
 * İfade basit skaler alt sorgular
@@ -186,7 +188,7 @@ Skaler alt sorgulara daha ayrıntılı olarak sınıflandırılabilir:
 
 ### <a name="simple-expression-scalar-subqueries"></a>İfade basit skaler alt sorgular
 
-Bir ifade basit skaler alt sorgu herhangi bir toplama ifadesi içermeyen bir SELECT yan tümcesi olan ilişkili bir alt sorgu olduğu. Derleyici bunları daha büyük bir basit ifadeye dönüştürür olduğundan bu alt sorgular hiçbir iyileştirme yararlar sağlar. İç ve dış sorgu arasında bağıntılı bağlamı yok.
+Bir ifade basit skaler alt sorgu herhangi bir toplama ifadesi içermeyen bir SELECT yan tümcesi olan ilişkili bir alt sorgu olduğu. Derleyici bunları daha büyük bir basit ifadeye dönüştürür olduğundan bu alt sorgular hiçbir iyileştirme yararlar sağlar. İç ve dış sorguları arasında bağıntılı bağlamı yok.
 
 Bazı örnekler şunlardır:
 
@@ -196,7 +198,7 @@ Bazı örnekler şunlardır:
 SELECT 1 AS a, 2 AS b
 ```
 
-Bu sorgu, bir ifade basit skaler alt sorgu kullanarak yazılması:
+Bu sorgu için bir ifade basit skaler alt kullanarak yazabilirsiniz:
 
 ```sql
 SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
@@ -217,7 +219,7 @@ SELECT TOP 5 Concat('id_', f.id) AS id
 FROM food f
 ```
 
-Bu sorgu, bir ifade basit skaler alt sorgu kullanarak yazılması:
+Bu sorgu için bir ifade basit skaler alt kullanarak yazabilirsiniz:
 
 ```sql
 SELECT TOP 5 (SELECT VALUE Concat('id_', f.id)) AS id
@@ -243,7 +245,7 @@ SELECT TOP 5 f.id, Contains(f.description, 'fruit') = true ? f.description : und
 FROM food f
 ```
 
-Bu sorgu, bir ifade basit skaler alt sorgu kullanarak yazılması:
+Bu sorgu için bir ifade basit skaler alt kullanarak yazabilirsiniz:
 
 ```sql
 SELECT TOP 10 f.id, (SELECT f.description WHERE Contains(f.description, 'fruit')).description
@@ -262,7 +264,7 @@ Sorgu çıktısı:
 ]
 ```
 
-## <a name="aggregate-scalar-subqueries"></a>Toplama skaler alt sorgular
+### <a name="aggregate-scalar-subqueries"></a>Toplama skaler alt sorgular
 
 Toplama skaler alt sorgu projeksiyon ya da tek bir değer veren filtresi toplama işlevine sahip alt sorgu olduğu.
 
@@ -292,7 +294,7 @@ Sorgu çıktısı:
 
 **Örnek 2**
 
-Alt sorgu birden fazla toplama işlevi ifadelerle:
+Alt sorgu birden fazla toplama işlevi ifadelerle şu şekildedir:
 
 ```sql
 SELECT TOP 5 f.id, (
@@ -317,7 +319,7 @@ Sorgu çıktısı:
 
 **Örnek 3**
 
-Bir sorgu ile bir toplama sorguda projeksiyon hem Filtresi:
+Aşağıda, bir toplama sorguda projeksiyon hem Filtresi ile bir sorgu verilmiştir:
 
 ```sql
 SELECT TOP 5 
@@ -339,7 +341,7 @@ Sorgu çıktısı:
 ]
 ```
 
-Bu sorgu yazmak için daha uygun bir şekilde alt sorgu üzerinde katılın ve her iki SELECT diğer sorguda ve WHERE yan tümcelerini başvuru sağlamaktır. Biz yalnızca join deyimi içinde ve öngörü ve filtre alt sorgu çalıştırmak gerekeceğinden, bu sorguyu daha verimlidir.
+Bu sorgu yazmak için daha uygun bir şekilde alt sorgu üzerinde katılın ve her iki SELECT diğer sorguda ve WHERE yan tümcelerini başvuru sağlamaktır. Bu sorgu yansıtma ve filtresi içinde değil ve join deyimi içinde yalnızca alt sorgu yürütmek gerektiğinden daha verimlidir.
 
 ```sql
 SELECT TOP 5 f.id, count_mg
@@ -348,27 +350,28 @@ JOIN (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') AS count
 WHERE count_mg > 20
 ```
 
-### <a name="exists-expression"></a>EXISTS ifadesi
+#### <a name="exists-expression"></a>EXISTS ifadesi
 
-Azure Cosmos DB EXISTS ifadeleri destekler. Azure Cosmos DB SQL API ile oluşturulmuş bir toplama skaler alt sorgu budur. EXISTS, bir alt sorgu ifadesi alır ve alt sorgu herhangi bir satır döndürürse, true döndürür Boole bir ifadedir; Aksi takdirde false döndürür.
-Azure Cosmos DB SQL API Boolean ifadeler ve herhangi bir skaler ifade arasında ayrım yapmaz olduğundan, her iki SELECT EXISTS kullanılabilir ve WHERE yan tümcelerini. T-SQL (örneğin EXISTS, içinde ve arasında) bir Boolean ifadesinin filtre sınırlı olduğu aksine budur.
+Azure Cosmos DB EXISTS ifadeleri destekler. Azure Cosmos DB SQL API ile oluşturulmuş bir toplama skaler alt sorgu budur. EXISTS, bir alt sorgu ifadesi alır ve alt sorgu herhangi bir satır döndürürse, true döndürür. mantıksal bir ifadedir. Aksi takdirde false döndürür.
 
-EXISTS tanımsızdır tek bir değer döndürürse, EXISTS false olarak değerlendirin. Örneğin, yanlış değerini aşağıdaki sorguyu göz önünde bulundurun:
+Azure Cosmos DB SQL API'sine Boolean ifadeler ve herhangi bir skaler ifade arasında ayrım yapmaz çünkü EXISTS hem seçin ve WHERE yan tümcelerini kullanabilirsiniz. T-SQL (örneğin, EXISTS, içinde ve arasında) bir Boolean ifadesinin filtre sınırlı olduğu aksine budur.
+
+EXISTS tanımsız, var olan tek bir değer döndürürse yanlış olarak değerlendirilir. Örneğin, yanlış değerini aşağıdaki sorguyu göz önünde bulundurun:
 ```sql
 SELECT EXISTS (SELECT VALUE undefined)
 ```   
 
 
-Ancak, yukarıdaki sorgudaki değer anahtar sözcüğü atlanırsa sorgu doğru olarak değerlendirilir:
+VALUE anahtar sözcüğü önceki sorgudaki atlanırsa, sorgu doğru olarak değerlendirilir:
 ```sql
 SELECT EXISTS (SELECT undefined) 
 ```
 
-Alt sorgu, bir nesne seçim listesinde değerlerin listesini alın. Seçili listedeki herhangi bir değer varsa, alt sorgu tek bir değer döndürür '{}' tanımlanır ve bu nedenle var true olarak değerlendirilir.
+Alt sorgu nesne içinde seçili listedeki değerlerin listesini alın. Seçili listedeki herhangi bir değer varsa, alt sorgu tek bir değer döndürür '{}'. Bu değer, EXISTS true olarak değerlendirilen şekilde tanımlanır.
 
-### <a name="example-rewriting-arraycontains-and-join-as-exists"></a>Örnek: Yeniden yazma ARRAY_CONTAINS ve EXISTS olarak birleştirme
+#### <a name="example-rewriting-arraycontains-and-join-as-exists"></a>Örnek: Yeniden yazma ARRAY_CONTAINS ve EXISTS olarak birleştirme
 
-ARRAY_CONTAINS yaygın bir kullanım örneği, belgeye bir dizide bir öğe varlığını filtre sağlamaktır. Bu durumda, biz dizi etiketlerinin turuncu adlı bir öğe içerip içermediğini görmek için iade ederler.
+ARRAY_CONTAINS yaygın bir kullanım örneği, belgeye bir dizide bir öğe varlığını filtre sağlamaktır. Bu durumda, biz etiketler dizisi "turuncu." adlı bir öğe içerip içermediğini görmek için denetimi
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -376,7 +379,7 @@ FROM food f
 WHERE ARRAY_CONTAINS(f.tags, {name: 'orange'})
 ```
 
-Aynı sorgu EXISTS kullanılacak yazılması:
+EXISTS kullanmak için aynı sorgu yazabilirsiniz:
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -384,9 +387,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-Ayrıca, ARRAY_CONTAINS yalnızca bir değer bir dizi içindeki herhangi bir öğeye eşit olup olmadığını denetlemek kullanabilirsiniz. Daha karmaşık filtreler dizi özellikleri gerekirse, bir birleştirme gereklidir.
+Ayrıca, ARRAY_CONTAINS yalnızca bir değer bir dizi içindeki herhangi bir öğeye eşit olup olmadığını kontrol edebilirsiniz. Dizin özellikleri daha karmaşık filtreler gerekiyorsa, birleşim kullanın.
 
-Filtre özellikleri dizideki birimleri ve nutritionValue göre şu sorguyu inceleyin: 
+Birimlerine göre filtreleyen şu sorguyu inceleyin ve `nutritionValue` dizideki özellikleri: 
 
 ```sql
 SELECT VALUE c.description
@@ -395,9 +398,9 @@ JOIN n IN c.nutrients
 WHERE n.units= "mg" AND n.nutritionValue > 0
 ```
 
-Her koleksiyondaki belgeleri için bir çapraz ürün dizi öğeleri ile gerçekleştirilir. Bu birleştirme işlemi, dizi içinde özelliklere filtre uygulamak için mümkün kılar. Ancak, bu sorgunun RU kullanımını önemli olacaktır. Örneği için 1.000 belge her dizide 100 öğe varsa, 1000 x 100 (yani, 100.000) genişletecek tanımlama grubu.
+Her koleksiyondaki belgeleri için bir çapraz ürün dizi öğeleri ile gerçekleştirilir. Bu birleştirme işlemi, dizi içinde özelliklere filtre uygulamak için mümkün kılar. Ancak, bu sorgunun RU kullanımını önemli olacaktır. Örneği için 1.000 belge her dizide 100 öğe varsa, 1000 x 100 (diğer bir deyişle, 100.000) genişletecek tanımlama grubu.
 
-Kullanarak `EXISTS` bu pahalı bir çapraz ürün önlemeye yardımcı olabilir:
+EXISTS kullanarak bu pahalı bir çapraz ürün önlemeye yardımcı olabilir:
 
 ```sql
 SELECT VALUE c.description
@@ -409,9 +412,9 @@ WHERE EXISTS(
 )
 ```
 
-Bu durumda, biz dizi öğeleri EXISTS içinde filtreleyin. Bir dizi öğesine eşleşen filtre sonra proje ediyoruz ve `EXISTS` true olarak değerlendirilir.
+Bu durumda, dizi öğelerinin EXISTS içinde filtreleme. Bir dizi öğesine filtre eşleşirse, ardından Proje ve EXISTS true olarak değerlendirilir.
 
-Biz de diğer EXISTS olabilir ve projeksiyon başvurun:
+Diğer ad EXISTS ayrıca ve projeksiyon başvurun:
 
 ```sql
 SELECT TOP 1 c.description, EXISTS(
@@ -432,9 +435,9 @@ Sorgu çıktısı:
 ]
 ```
 
-### <a name="array-expression"></a>DİZİ ifadesi
+#### <a name="array-expression"></a>DİZİ ifadesi
 
-`ARRAY` İfadesi, bir dizi olarak bir sorgunun sonuçlarını proje için kullanılabilir. Bu ifade, yalnızca sorgu SELECT yan tümcesi içinde kullanılabilir.
+DİZİ ifadesi, bir dizi olarak bir sorgunun sonuçlarını proje için kullanabilirsiniz. Bu ifade yalnızca SELECT yan tümcesi içinde sorgu kullanabilirsiniz.
 
 ```sql
 SELECT TOP 1   f.id, ARRAY(SELECT VALUE t.name FROM t in f.tags) AS tagNames
@@ -457,7 +460,7 @@ Sorgu çıktısı:
 ]
 ```
 
-İle birlikte başka bir alt olduğu gibi filtreler `ARRAY` ifade mümkündür.
+İle diğer alt olduğu gibi bir dizi ifadesi filtrelerle mümkündür.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t FROM t in c.tags WHERE t.name != 'infant formula') AS tagNames

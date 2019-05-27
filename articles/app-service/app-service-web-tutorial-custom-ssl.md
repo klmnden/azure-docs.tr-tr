@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138770"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Öğretici: Azure App Service'e var olan özel bir SSL sertifikası bağlama
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Uygulamanızın fiyatlandırma katmanını yükseltme
 > * Özel sertifikanızı App Service'e bağlama
 > * Sertifikaları yenileme
-> * HTTPS zorlama
+> * HTTPS'yi Zorunlu Kılma
 > * TLS 1.1/1.2 zorlama
 > * TLS yönetimini betiklerle otomatikleştirme
 
@@ -122,7 +122,7 @@ SSL sertifikanızı karşıya yüklemek için tıklayın **SSL ayarları** uygul
 
 **Karşıya Yükle**'ye tıklayın.
 
-![Sertifikayı karşıya yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
+![Karşıya sertifika yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 App Service, sertifikanızı karşıya yüklemeyi tamamladığında sertifikanız **SSL ayarları** sayfasında görüntülenir.
 
@@ -185,13 +185,13 @@ Bir bağlamayı sildiğinizde, bu bağlama IP tabanlı olsa bile gelen IP adresi
 2. Eskisini silmeden yeni sertifikayı istediğiniz özel etki alanına bağlayın. Bu eylem, eskisini kaldırmak yerine bağlamayı değiştirir.
 3. Eski sertifikayı silin. 
 
-## <a name="enforce-https"></a>HTTPS zorlama
+## <a name="enforce-https"></a>HTTPS'yi Zorunlu Kılma
 
 Varsayılan olarak, herkes HTTP kullanarak uygulamanıza erişmeye devam edebilirsiniz. Tüm HTTPS isteklerini HTTP bağlantı noktasına yeniden yönlendirebilirsiniz.
 
 Uygulaması sayfanızın sol gezinti bölmesinde seçin **SSL ayarları**. Ardından **Yalnızca HTTPS** menüsünde **Açık**’ı seçin.
 
-![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
+![HTTPS'yi Zorunlu Kılma](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
 İşlem tamamlandığında, uygulamanıza işaret eden HTTP URL'lerinden herhangi birine gidin. Örneğin:
 
@@ -213,7 +213,7 @@ Uygulaması sayfanızın sol gezinti bölmesinde seçin **SSL ayarları**. Ardı
 
 Kullanarak uygulamanızın, betiklerle SSL bağlamaları otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Aşağıdaki komut, dışarı aktarılan bir PFX dosyasını karşıya yükler ve parmak izini alır.
 
@@ -266,7 +266,7 @@ Uygulamanızı bir istemci olarak uzak kaynaklara erişmesi ve uzak kaynak serti
 
 Uygulamanızda ortak sertifika yükleme ve kullanma hakkında daha fazla bilgi için bkz. [Azure App Service’deki uygulama kodunda SSL sertifikası kullanma](app-service-web-ssl-cert-load.md). Ortak sertifikaları App Service ortamlarındaki uygulamalarla çok kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service ortamında bir uygulama kullanmanız gerekir. Daha fazla bilgi için [ortak sertifikaları App Service uygulamanız için yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
-![Ortak Sertifikayı Karşıya Yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
+![Ortak Sertifika Karşıya Yükle](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -276,7 +276,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Uygulamanızın fiyatlandırma katmanını yükseltme
 > * Özel sertifikanızı App Service'e bağlama
 > * Sertifikaları yenileme
-> * HTTPS zorlama
+> * HTTPS'yi Zorunlu Kılma
 > * TLS 1.1/1.2 zorlama
 > * TLS yönetimini betiklerle otomatikleştirme
 

@@ -15,11 +15,11 @@ ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66139432"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Öğretici: Azure App Service'te bir ASP.NET Core ve SQL veritabanı uygulaması oluşturma
 
@@ -91,7 +91,7 @@ Bu adımda, Azure’da bir SQL Veritabanı oluşturursunuz. Uygulamanız Azure�
 
 SQL Veritabanı için bu öğreticide [Azure SQL Veritabanı](/azure/sql-database/) kullanılır.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
@@ -168,7 +168,7 @@ Bu adımda, SQL Veritabanı’na bağlı .NET Core uygulamanızı App Service’
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Web uygulaması oluşturma
+### <a name="create-a-web-app"></a>Web uygulaması oluşturun
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 

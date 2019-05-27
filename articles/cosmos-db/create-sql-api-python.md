@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 297f71cef41f91a2e9595a0ccca08e2803bd6201
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 033baa80eaa10581777061b40c64afe6331a2e92
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787306"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979073"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Azure Cosmos DB SQL API hesabı kullanarak bir Python uygulaması oluşturma
 
@@ -26,7 +26,7 @@ ms.locfileid: "65787306"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızla oluşturun ve belge, anahtar/değer ve grafik veritabanlarını sorgulama. Tüm bu işlemler, dağıtım ve Azure Cosmos DB ölçeğini yararlı olacağı.
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızla oluşturun ve belge, anahtar/değer, geniş sütun ve grafik veritabanlarını sorgulama. Tüm bu işlemler, dağıtım ve Azure Cosmos DB ölçeğini yararlı olacağı.
 
 Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos DB [SQL API](sql-api-introduction.md) hesabını, belge veritabanını ve kapsayıcısını nasıl oluşturacağınız anlatılmıştır. Daha sonra [SQL API](sql-api-sdk-python.md)'si için Python SDK'sı ile bir konsol uygulamasını derleyip çalıştıracaksınız. Bu hızlı başlangıçta, sürüm 3.0 kullanılmaktadır [Python SDK'sı](https://pypi.org/project/azure-cosmos).
 
