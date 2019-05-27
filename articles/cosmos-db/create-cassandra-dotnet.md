@@ -8,12 +8,12 @@ ms.author: sngun
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e43b2d6f5a127f7f0f81c2dfc2fd3737c9ee787
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894177"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861301"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Hızlı Başlangıç: .NET SDK'sını ve Azure Cosmos DB ile Cassandra uygulaması derleme
 
@@ -33,7 +33,7 @@ Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritaba
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatif olarak, [Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)’yi ücretsiz olarak, Azure aboneliği olmadan ve herhangi bir taahhütte bulunmadan deneyebilirsiniz.
 
 Ayrıca, şunlar gerekir: 
-* Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+* Visual Studio yüklü 2019 yoksa, indirip kullanabilirsiniz **ücretsiz** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 * Örneği kopyalamak için [Git](https://www.git-scm.com/) yükleyin.
 
 <a id="create-account"></a>
@@ -122,7 +122,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     ![Azure portalı, Bağlantı Dizesi sayfasından erişim anahtarını görüntüleme ve kopyalama](./media/create-cassandra-dotnet/keys.png)
 
-2. Visual Studio 2017'de Program.cs dosyasını açın. 
+2. Visual Studio'da, Program.cs dosyasını açın. 
 
 3. Portaldan USERNAME değerini 13. satırdaki `<FILLME>` üzerine yapıştırın.
 

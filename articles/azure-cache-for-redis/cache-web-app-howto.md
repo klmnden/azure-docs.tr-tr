@@ -15,26 +15,26 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830544"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864814"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Hızlı Başlangıç: ASP.NET web uygulaması oluşturma 
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 
-Bu hızlı başlangıçta, Visual Studio 2017 kullanılarak ASP.NET web uygulamasının nasıl oluşturulacağı ve Azure App Service’e nasıl dağıtılacağı gösterilmektedir. Azure önbelleği için Redis depolamak ve önbellekten veri almak örnek uygulamayı bağlanır. Hızlı başlangıcı bitirdikten sonra Azure üzerinde barındırılan çalışan bir web uygulamasına sahip olacaksınız okur ve Azure önbelleği için Redis yazar.
+Bu hızlı başlangıçta, oluşturma ve Visual Studio 2019'ı kullanarak bir ASP.NET web uygulamasını Azure App Service'e dağıtma gösterilmektedir. Azure önbelleği için Redis depolamak ve önbellekten veri almak örnek uygulamayı bağlanır. Hızlı başlangıcı bitirdikten sonra Azure üzerinde barındırılan çalışan bir web uygulamasına sahip olacaksınız okur ve Azure önbelleği için Redis yazar.
 
 ![Azure’da basit bir test tamamlanmıştır](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için, aşağıdaki ortamlarla [Visual Studio 2017](https://www.visualstudio.com/downloads/)'yi yüklemeniz gerekir:
+Hızlı başlangıcı tamamlamak için yüklemeniz gerekir [Visual Studio 2019](https://www.visualstudio.com/downloads/) aşağıdaki ortamlarla:
 * ASP.NET ve web geliştirme
 * Azure geliştirme
 

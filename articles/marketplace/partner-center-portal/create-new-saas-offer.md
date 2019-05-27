@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 32537426b7b9b1a7015610fc0c3e2dd7c3efa49b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806214"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851193"
 ---
 # <a name="create-a-new-saas-offer"></a>Yeni bir SaaS teklifi oluşturma
 
@@ -386,7 +386,7 @@ Microsoft, barındırma ve sağlama hizmeti ve bu tür bir test sürüşü kulla
 
 - **Maks. eş zamanlı test sürüşleri** (gerekli): Test sürüşünüz aynı anda kullanabileceğiniz müşteriler maksimum sayısını ayarlayın. Yeterli lisans sınırı kümesi desteklemek kullanılabilir olmasını sağlamak ihtiyacınız olacak şekilde test sürüşü etkin olduğu sürece her eş zamanlı kullanıcı bir Dynamics 365 lisansı kullanacaktır. Önerilen değeri 3-5.
 
-- **Test sürüşü süresi** (gerekli): Test Sürüşü saat sayısını tanımlayarak etkin kalacak süreyi girin. Bu kadar çok saat sonra oturumu sonlandırmak ve artık lisanslarınızdan birini kullanır. Teklifinizi karmaşıklığına bağlı olarak 2-24 saat değerini öneririz. Bu süre yalnızca kümesi saatlerin toplamına göre bir tam sayı (örn. sonuç "2" saat "1.5" geçerli değildir).  Çalışma zamanı dışında ve test sürüşü yeniden erişmek istediğiniz kullanıcı yeni bir oturum isteyebilir.
+- **Test sürüşü süresi** (gerekli): Test Sürüşü saat tanımlayarak etkin kalacak süreyi girin. Bu kadar çok saat sonra oturumu sonlandırmak ve artık lisanslarınızdan birini kullanır. Teklifinizi karmaşıklığına bağlı olarak 2-24 saat değerini öneririz. Bu süre yalnızca kümesi saatlerin toplamına göre bir tam sayı (örn. sonuç "2" saat "1.5" geçerli değildir).  Çalışma zamanı dışında ve test sürüşü yeniden erişmek istediğiniz kullanıcı yeni bir oturum isteyebilir.
 
 - **Örnek URL** (gerekli): URL müşterinin kendi test sürüşü burada başlar. Genellikle, uygulamanızı çalıştıran yüklü örnek verilerle Dynamics 365 örneğinizin URL'sini (örneğin https://testdrive.crm.dynamics.com).
 

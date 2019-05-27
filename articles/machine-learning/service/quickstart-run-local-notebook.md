@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753025"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864375"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanma
 
-Değer'de oturum açması kodu çalıştırmak için kendi notebook sunucusu kullanın [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md). Çalışma alanı, denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır.
+Azure Machine Learning hizmeti ile çalışmaya başlama için kendi Python ortamını ve Jupyter Notebook sunucusu kullanın.  SDK yükleme ile bir hızlı başlangıç için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullanmak](quickstart-run-cloud-notebook.md).
 
-Bu hızlı başlangıçta Python ortamınızı ve Jupyter Notebook sunucusu kullanılır. SDK yükleme ile bir hızlı başlangıç için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan](quickstart-run-cloud-notebook.md) 
+Bu hızlı başlangıçta nasıl kullanabileceğinizi gösteren [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md) makine öğrenimi denemelerini izlemek için. Python kodu, çalıştıracak değerleri çalışma alanına oturum açın.
 
 Bu hızlı başlangıç videosu görüntüleyin:
 

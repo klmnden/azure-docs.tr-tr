@@ -13,32 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198610"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864849"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
-Bu makale bir Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve ardından dağıtmak için Visual Studio 2017'yi kullanmayı [Azure App Service](overview.md). Oluşturduğunuz proje sürümünü kullanan bir .NET Core konsol uygulaması olan Web işleri SDK'sının 3.x. Sürümünde ilgileniyorsanız .NET Framework kullanan, 2.x bkz [geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
+Bu makale bir Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve ardından dağıtmak için Visual Studio 2019 kullanmayı [Azure App Service](overview.md). Oluşturduğunuz proje sürümünü kullanan bir .NET Core konsol uygulaması olan Web işleri SDK'sının 3.x. Sürümünde ilgileniyorsanız .NET Framework kullanan, 2.x bkz [geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
 
 WebJobs SDK ile çalışma hakkında daha fazla bilgi edinmek için [olay odaklı arka plan işlemleri için Azure Web işleri SDK'sını kullanmayı](webjobs-sdk-how-to.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017'yi](/visualstudio/install/) ile **Azure geliştirme** iş yükü. Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçlar > araçları ve özellikleri Al**.
+* [Visual Studio 2019 yükleme](/visualstudio/install/) ile **Azure geliştirme** iş yükü. Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçlar > araçları ve özellikleri Al**.
 
 * Olmalıdır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Azure WebJobs SDK projenizi yayımlamak için.
 
-## <a name="create-a-project"></a>Proje oluşturma
+## <a name="create-a-project"></a>Proje oluştur
 
-1. Visual Studio'da **Dosya > Yeni > Proje**.
+1. Visual Studio'da **yeni bir proje oluşturma**.
 
-2. Seçin **.NET Core > konsol uygulaması (.NET Core)**.
+2. Seçin **konsol uygulaması (.NET Core)**.
 
-3. Projeyi adlandırın *WebJobsSDKSample*ve ardından **Tamam**.
+3. Projeyi adlandırın *WebJobsSDKSample*ve ardından **Oluştur**.
 
    ![Yeni Proje iletişim kutusu](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -171,7 +171,7 @@ Sürümünden başlayarak 3.x, Web işleri SDK'sı tarafından gerekli depolama 
                     });
     ```
 
-## <a name="create-a-function"></a>İşlev oluşturma
+## <a name="create-a-function"></a>İşlev oluştur
 
 1. Projeye sağ tıklayın, **Ekle** > **yeni öğe...** , seçin **sınıfı**, yeni ad C# sınıf dosyası *Functions.cs*seçip **Ekle**.
 
@@ -203,7 +203,7 @@ Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm 
 
 1. Açık **Sunucu Gezgini** Visual studio ve azure'da oturum açın. Sağ **Azure** düğümüne tıklayın ve ardından **Microsoft Azure aboneliğine bağlanma**.
 
-   ![Azure'da oturum açma](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Oturum açın: Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. Altında **Azure** düğümünde **Sunucu Gezgini**, sağ **depolama**ve ardından **oluşturma depolama hesabı**.
 

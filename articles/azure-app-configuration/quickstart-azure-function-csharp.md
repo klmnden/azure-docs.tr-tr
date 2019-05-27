@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408649"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864786"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile Azure işlevi oluşturma
 
@@ -31,7 +31,7 @@ Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenle
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Emin olun **Azure geliştirme** iş yükü de yüklenir. Ayrıca yükleme [en son Azure işlevleri Araçları](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Emin olun **Azure geliştirme** iş yükü de yüklenir. Ayrıca yükleme [en son Azure işlevleri Araçları](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

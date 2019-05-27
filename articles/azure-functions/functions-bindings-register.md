@@ -10,30 +10,30 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 802e177b6f3844abe4d24c26b7ea2d0d4fb1688c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697007"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864540"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure işlevleri bağlama uzantılarını kaydetme
 
-Azure işlevleri sürümünden itibaren 2.x [bağlamaları](./functions-triggers-bindings.md) ayrı işlevler çalışma zamanı paketi olarak kullanılabilir. .NET işlevleri aracılığıyla NuGet paketlerinin bağlamaları erişirken, uzantı paketleri tüm bağlamaları bir yapılandırma ayarı ile diğer işlevler erişim sağlar.
+Azure işlevleri sürüm 2.x [bağlamaları](./functions-triggers-bindings.md) ayrı işlevler çalışma zamanı paketi olarak kullanılabilir. .NET işlevleri aracılığıyla NuGet paketlerinin bağlamaları erişirken, uzantı paketleri tüm bağlamaları bir yapılandırma ayarı ile diğer işlevler erişim sağlar.
 
-Uzantıları bağlama ilişkin aşağıdakileri göz önünde bulundurun:
+Uzantıları bağlamayla ilgili aşağıdakileri göz önünde bulundurun:
 
-- Bağlama uzantıları işlevleri açıkça kayıtlı olmayan Aşağıdakiler haricinde 1.x [oluşturma bir C# Visual Studio 2017'yi kullanarak bir sınıf kitaplığı](#local-csharp).
+- Bağlama uzantıları işlevleri açıkça kayıtlı olmayan Aşağıdakiler haricinde 1.x [oluşturma bir C# sınıf kitaplığı kullanarak Visual Studio 2019](#local-csharp).
 
-- HTTP ve Zamanlayıcı Tetikleyicileri, varsayılan olarak desteklenir ve bir uzantı gerektirmez.
+- HTTP ve Zamanlayıcı Tetikleyicileri, varsayılan olarak desteklenir ve bir uzantı gerekmez.
 
 Aşağıdaki tabloda, ne zaman ve nasıl bağlamaları kaydetme gösterir.
 
 | Geliştirme ortamı |Kayıt<br/> işlevlerde 1.x  |Kayıt<br/> işlevlerde 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure portal|Automatic|Automatic|
-|.NET olmayan dil ya da yerel Azure Core araçlarını geliştirme|Automatic|[Azure işlevleri çekirdek araçları ve uzantı paketleri kullanın](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
-|Visual Studio 2017'yi kullanarak C# sınıf kitaplığı|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2017)|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2017)|
+|Azure portal|Otomatik|Otomatik|
+|.NET olmayan dil ya da yerel Azure Core araçlarını geliştirme|Otomatik|[Azure işlevleri çekirdek araçları ve uzantı paketleri kullanın](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
+|C#Visual Studio 2019 kullanarak sınıf kitaplığı|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2019)|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2019)|
 |Visual Studio Code kullanarak C# sınıf kitaplığı|Yok|[.NET Core CLI kullanma](#c-class-library-with-visual-studio-code)|
 
 ## <a name="local-development-with-azure-functions-core-tools-and-extension-bundles"></a>Azure işlevleri çekirdek araçları ve uzantı paketleri ile yerel geliştirme
@@ -41,9 +41,9 @@ Aşağıdaki tabloda, ne zaman ve nasıl bağlamaları kaydetme gösterir.
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
-## <a name="c-class-library-with-visual-studio-2017"></a>C# sınıf kitaplığı ile Visual Studio 2017
+## <a name="c-class-library-with-visual-studio-2019"></a>C#Visual Studio 2019 ile sınıf kitaplığı
 
-İçinde **Visual Studio 2017**, Paket Yöneticisi Konsolu'nu kullanarak paketleri yükleyebilirsiniz [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) aşağıdaki örnekte gösterildiği gibi komut:
+İçinde **Visual Studio 2019**, Paket Yöneticisi Konsolu'nu kullanarak paketleri yükleyebilirsiniz [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) aşağıdaki örnekte gösterildiği gibi komut:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>

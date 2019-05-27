@@ -110,7 +110,7 @@ Servicenow'ı verileri kopyalamak için kopyalama etkinliği için kaynak türü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **ServiceNowSource** | Evet |
-| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Actual.alm_asset"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Actual.alm_asset"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 Şema ve sütun için ServiceNow sorguda belirtirken, aşağıdakilere dikkat edin ve **başvurmak [performans ipuçları](#performance-tips) kopyalama performans olduğu çıkarımında üzerinde**.
 

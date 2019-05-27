@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530391"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833515"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure işlevleri PowerShell Geliştirici Kılavuzu
 
@@ -23,9 +23,9 @@ Bu makalede, PowerShell kullanarak Azure işlevleri nasıl yazdığınız ilişk
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Bir PowerShell işlev tetiklendiğinde yürüten bir PowerShell Betiği temsil edilir. Her işlev betiği nasıl işlevi, nasıl tetiklendikten gibi davranır ve giriş ve çıkış parametrelerini tanımlayan bir ilgili function.json sahiptir. Daha fazla bilgi için bkz. [tetikleyiciler ve bağlama makale](functions-triggers-bindings.md). 
+PowerShell Azure işlevi (işlev) tetiklendiğinde yürüten bir PowerShell Betiği temsil edilir. Her işlev betik ilgili olan `function.json` nasıl işlevi, nasıl tetiklendikten gibi davranacağını tanımlayan dosya ve giriş ve çıkış parametreleri. Daha fazla bilgi için bkz. [tetikleyiciler ve bağlama makale](functions-triggers-bindings.md). 
 
-Diğer türlerdeki işlevleri gibi PowerShell Betiği function.json içinde tanımlanan tüm giriş bağlamaları adları aynı parametreleri alır. A `TriggerMetadata` parametresi de geçirilen işlev çalışmaya tetikleyicisi hakkında daha fazla bilgi içeren.
+İçinde tanımlanan tüm giriş bağlamaları adları aynı parametreleri PowerShell betik işlevleri gibi diğer tür işlevlerin ele `function.json` dosya. A `TriggerMetadata` parametresi de geçirilen işlev çalışmaya tetikleyicisi hakkında daha fazla bilgi içeren.
 
 Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). Siz de tamamlamış olmanız gerekir [işlevleri hızlı PowerShell](functions-create-first-function-powershell.md) ilk PowerShell işlevinizi oluşturmak için.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-Proje kök dizininde yok paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.ps1) ve bağlama yapılandırma dosyası (function.json) ile bir klasörü vardır. Adını `function.json`ait üst dizinidir her zaman, işlevin adı.
+Proje kök dizininde yok paylaşılan [ `host.json` ](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev kendi bağlama yapılandırma dosyasını ve kod dosyası (.ps1) sahip bir klasör olan (`function.json`). Function.json dosyanın üst dizininde her zaman işlevinizin adını adıdır.
 
-Bazı bağlamalar bulunması gerekir. bir `extensions.csproj`. Uzantılar, gerekli bağlama [sürüm 2.x](functions-versions.md) işlevler çalışma zamanını, şurada tanımlanan `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
+Bazı bağlamalar bulunması gerekir. bir `extensions.csproj` dosya. Uzantılar, gerekli bağlama [sürüm 2.x](functions-versions.md) işlevler çalışma zamanını, şurada tanımlanan `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 PowerShell işlevi uygulamalarda, isteğe bağlı olarak olabilir bir `profile.ps1` çalıştırılacak bir işlev uygulaması başlatıldığında çalışır (Aksi halde olarak biliyor bir  *[hazırlıksız başlatma](#cold-start)*. Daha fazla bilgi için [PowerShell profiliniz](#powershell-profile).
 
@@ -81,7 +81,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| Özellik   | Açıklama                                     | Tür     |
+| Özellik   | Description                                     | Tür     |
 |------------|-------------------------------------------------|----------|
 | utcNow     | UTC biçiminde işlevi, tetiklendi.        | DateTime |
 | MethodName | Tetiklendi işlevin adı     | string   |
@@ -243,7 +243,7 @@ PowerShell işlevlerde günlüğü normal PowerShell günlükleri gibi çalış�
 | Hata | **`Write-Error`** |
 | Uyarı | **`Write-Warning`**  | 
 | Bilgi | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Bilgi | Yazar _bilgi_ düzeyinde günlüğe kaydetme. |
-| Hata ayıklama | **`Write-Debug`** |
+| Hata Ayıklama | **`Write-Debug`** |
 | İzleme | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Bu cmdlet'lerinin yanı sıra, herhangi bir şey işlem hattının yazılan yönlendireceği `Information` günlük düzeyi ve görüntülenen varsayılan biçimlendirme PowerShell ile.
@@ -302,9 +302,9 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 Betiğe geçirilen istek nesnesi türüdür `HttpRequestContext`, aşağıdaki özelliklere sahiptir:
 
-| Özellik  | Açıklama                                                    | Tür                      |
+| Özellik  | Description                                                    | Tür                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | İstek gövdesini içeren bir nesne. `Body` verilere göre en iyi türü seri hale getirilir. Verileri JSON ise, örneğin, karma tablosu olarak geçirilir. Verileri bir dize ise, bunu bir dize olarak geçirilir. | object |
+| **`Body`**    | İstek gövdesini içeren bir nesne. `Body` verilere göre en iyi türü seri hale getirilir. Verileri JSON ise, örneğin, karma tablosu olarak geçirilir. Verileri bir dize ise, bunu bir dize olarak geçirilir. | nesne |
 | **`Headers`** | İstek üst bilgilerini içeren bir sözlük.                | Sözlük < string, string ><sup>*</sup> |
 | **`Method`** | İsteğin HTTP yöntemi.                                | string                    |
 | **`Params`**  | İstek yönlendirme parametrelerini içeren bir nesne. | Sözlük < string, string ><sup>*</sup> |
@@ -317,9 +317,9 @@ Betiğe geçirilen istek nesnesi türüdür `HttpRequestContext`, aşağıdaki �
 
 Yanıt nesnesini geri göndermesi gerektiğini türüdür `HttpResponseContext`, aşağıdaki özelliklere sahiptir:
 
-| Özellik      | Açıklama                                                 | Tür                      |
+| Özellik      | Description                                                 | Tür                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Yanıtın gövdesini içeren bir nesne.           | object                    |
+| **`Body`**  | Yanıtın gövdesini içeren bir nesne.           | nesne                    |
 | **`ContentType`** | Yanıtın içerik türünü ayarlamak için bir kısa el. | string                    |
 | **`Headers`** | Yanıt üst bilgilerini içeren bir nesne.               | Sözlük veya karma tablosu   |
 | **`StatusCode`**  | Yanıtın HTTP durum kodu.                       | dize veya tamsayı             |
@@ -485,7 +485,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 Uygulama ayarlarını okuma yerel olarak çalıştırılırken [local.settings.json](functions-run-local.md#local-settings-file) proje dosyası.
 
-## <a name="concurrency"></a>Eşzamanlılık
+## <a name="concurrency"></a>Eş Zamanlılık
 
 Varsayılan olarak, işlevleri PowerShell çalışma zamanı yalnızca bir işlevin bir çağrı birer birer işleyebilirsiniz. Ancak, bu eşzamanlılık düzeyi aşağıdaki durumlarda yeterli olmayabilir:
 

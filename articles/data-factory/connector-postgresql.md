@@ -176,7 +176,7 @@ PostgreSQL verileri kopyalamak için kopyalama etkinliği için kaynak türünü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 > [!NOTE]
 > Şema ve tablo adları büyük/küçük harfe duyarlıdır. İçine alınmaları `""` (çift tırnak) sorgu.

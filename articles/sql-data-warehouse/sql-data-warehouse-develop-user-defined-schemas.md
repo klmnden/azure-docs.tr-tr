@@ -2,21 +2,20 @@
 title: SQL veri ambarı'nda kullanıcı tanımlı şemalar kullanarak | Microsoft Docs
 description: T-SQL kullanıcı tanımlı şemalar çözümleri geliştirmek için Azure SQL veri ambarı'nda kullanma hakkında ipuçları.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 04/17/2018
-ms.date: 10/15/2018
-ms.author: v-jay
+ms.subservice: development
+ms.date: 04/17/2018
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ae017461767a207deae1d990980258a1f661df3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e22dc69a9da1d9b5a8c0ff13f73769b1ed4514a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439154"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861710"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>SQL veri ambarı'nda kullanıcı tanımlı şemalar kullanma
 T-SQL kullanıcı tanımlı şemalar çözümleri geliştirmek için Azure SQL veri ambarı'nda kullanma hakkında ipuçları.

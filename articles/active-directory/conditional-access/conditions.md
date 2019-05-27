@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785390"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861539"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir?
 
-Kullanılarak kullanıcıların bulut uygulamalarınıza erişme denetleyebilirsiniz [Azure Active Directory (Azure AD) koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Bir koşullu erişim ilkesinde yanıtı tanımlayın ("ardından ("Bu durumda") ilkeniz tetikleme nedeni için bunun"). 
+Kullanılarak kullanıcıların bulut uygulamalarınıza erişme denetleyebilirsiniz [Azure Active Directory (Azure AD) koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Bir koşullu erişim ilkesinde yanıtı tanımlayın ("ardından ("Bu durumda") ilkeniz tetikleme nedeni için bunun").
 
 ![Neden ve yanıt](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ Koşullu erişim bağlamında **bu durumda** çağrılır bir **koşul**. **Bunu
 ![Koşullu erişim ilkesi](./media/conditions/61.png)
 
 
-Koşullu erişim ilkesinde yapılandırmadıysanız koşullar uygulanmaz. Bazı koşullar [zorunlu](best-practices.md) bir ortama bir koşullu erişim ilkesini uygulamak için. 
+Koşullu erişim ilkesinde yapılandırmadıysanız koşullar uygulanmaz. Bazı koşullar [zorunlu](best-practices.md) bir ortama bir koşullu erişim ilkesini uygulamak için.
 
 Bu makalede, koşulları ve bunların bir koşullu erişim ilkesini nasıl kullanıldığı bir genel bakıştır. 
 
@@ -73,7 +73,7 @@ Kuruluşlar, aşağıdaki seçeneklerden birini seçebilirsiniz:
 > [!NOTE]
 > Bir ilkenin belirli uygulamaları hariç tutabilirsiniz. Ancak, bu uygulamalar yine de erişim hizmetleri için uygulanan ilkelerle tabidir.
 
-**Kullanıcı eylemlerini** bir kullanıcı tarafından gerçekleştirilen görevlerdir. Yalnızca şu anda desteklenen eylemi **kaydetme güvenlik bilgilerini (Önizleme)**, bir kullanıcı kendi güvenlik bilgileri kayıt olurkenki zorlamak koşullu erişim ilkesi sağlar.
+**Kullanıcı eylemlerini** bir kullanıcı tarafından gerçekleştirilen görevlerdir. Yalnızca şu anda desteklenen eylemi **kaydetme güvenlik bilgilerini (Önizleme)**, olanak sağlayan birleşik bir kayıt için etkin kullanıcılar kendi güvenlik kaydetmeyi denediğinizde zorlamak koşullu erişim ilkesi bilgiler. Daha fazla bilgi makalesinde bulunabilir [birleştirilmiş güvenlik bilgileri kayıt (Önizleme) etkinleştir](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Oturum açma riski
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 5b83b50ad2618a4af357f5f9b89b63c7f19c4fe8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1ffb3f0071409e148f394913d4bda5ba73319e3e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765268"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861623"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Hızlı Başlangıç: Azure geliştirme (Visual Studio Code) boşluklarla Kubernetes üzerinde .NET Core ile geliştirme
 
@@ -39,7 +39,7 @@ Bir AKS kümesinde oluşturmak gereken bir [bölge desteklenen](https://docs.mic
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure geliştirme alanları AKS kümenizde etkinleştirme

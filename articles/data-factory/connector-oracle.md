@@ -284,13 +284,13 @@ Oracle için veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarla
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal, String (olursa hassasiyet > 28) |
-| INTEGER |Decimal, String (olursa hassasiyet > 28) |
+| KAYAN NOKTA |Ondalık, dize (olursa hassasiyet > 28) |
+| INTEGER |Ondalık, dize (olursa hassasiyet > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, String (olursa hassasiyet > 28) |
+| SAYI |Ondalık, dize (olursa hassasiyet > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

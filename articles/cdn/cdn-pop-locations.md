@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: ae316749d3e88bc8bfd99d0f4856d5386916a27f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 33682727b84713b515bb68d34aa5cf8b72ce44fa
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869633"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65862486"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN kapsamı Metro tarafından 
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Bu makalede, Azure Content Delivery Network (CDN) ürünleri için bir bölgeye 
 | Avrupa | Viyana, Avusturya<br />Brüksel, Belçika<br />Prag, Çek Cumhuriyeti<br />Kopenhag, Danimarka<br /> Helsinki, Finlandiya<br />Marsilya'daki, Fransa<br />Paris, Fransa<br />Berlin, Almanya<br />Frankfurt, Almanya<br />Atina, Yunanistan<br />Budapeşte, Macaristan<br />Dublin, İrlanda<br />Milano, İtalya<br />Amsterdam, Hollanda<br />Varşova, Polonya<br />Barcelona, İspanya<br />Madrid, İspanya<br />Stokholm, İsveç<br />Zürih, İsviçre<br />Londra, Birleşik Krallık<br />Manchester, Birleşik Krallık | Viyana, Avusturya<br />Kopenhag, Danimarka<br />Helsinki, Finlandiya<br />Marsilya'daki, Fransa<br />Paris, Fransa<br />Frankfurt, Almanya<br />Milano, İtalya<br />Riga, Letonya<br />Amsterdam, Hollanda<br />Varşova, Polonya<br />Madrid, İspanya<br />Stokholm, İsveç<br />Londra, Birleşik Krallık | Avusturya<br />Bulgaristan<br />Danimarka<br />Finlandiya<br />Fransa<br />Almanya<br />Yunanistan<br />İrlanda<br />İtalya<br />Hollanda<br />Polonya<br />Rusya<br />İspanya<br />İsveç<br />İsviçre<br />Birleşik Krallık |
 | Afrika | Cape Town, Güney Afrika<br />Johannesburg, Güney Afrika | Johannesburg, Güney Afrika | Güney Afrika |
 | Orta Doğu | Dubai, Birleşik Arap Emirlikleri | Muscat, Umman<br />Fujirah, Birleşik Arap Emirlikleri | Katar<br />Birleşik Arap Emirlikleri |
-| Hindistan | Chennai, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan | Bengaluru (Bangalore), Hindistan<br />Chennai, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan<br /> | Hindistan |
+| Hindistan | Chennai, Hindistan<br />Hyderabad, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan | Bengaluru (Bangalore), Hindistan<br />Chennai, Hindistan<br />Mumbai, Hindistan<br />Yeni Delhi, Hindistan<br /> | Hindistan |
 | Asya | Hong Kong<br />Osaka, Japonya<br />Tokyo, Japonya<br />Kuala Lumpur, Malezya<br />Manila, Filipinler<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Taipei, Tayvan<br />Bangkok, Tayland | Hong Kong<br />Batam, Endonezya<br />Cakarta, Endonezya<br />Osaka, Japonya<br />Tokyo, Japonya<br />Singapur<br />Busan, Güney Kore<br />Seul, Kore Güney<br />Kaohsiung, Tayvan | Hong Kong<br />Endonezya<br />İsrail<br />Japonya<br />Makao<br />Malezya<br />Filipinler<br />Singapur<br />Güney Kore<br />Tayvan<br />Tayland<br />Türkiye<br />Vietnam |
 | Avustralya ve Yeni Zelanda | Brisbane, Avustralya<br />Melbourne, Avustralya<br />Perth, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Melbourne, Avustralya<br />Sydney, Avustralya<br />Auckland, Yeni Zelanda | Avustralya<br />Yeni Zelanda |
 
