@@ -66,9 +66,9 @@ Aşağıdaki tabloda, bir FTP bağlantılı hizmete özgü JSON öğeleri açık
 | Özellik | Açıklama | Gerekli | Varsayılan |
 | --- | --- | --- | --- |
 | type |Bu işlem için Ftp_sunucusu ayarlayın. |Evet |&nbsp; |
-| konak |Adını veya FTP sunucusunun IP adresini belirtin. |Evet |&nbsp; |
+| host |Adını veya FTP sunucusunun IP adresini belirtin. |Evet |&nbsp; |
 | authenticationType |Kimlik doğrulama türünü belirtin. |Evet |Temel, anonim |
-| kullanıcı adı |FTP sunucusuna erişimi olan kullanıcının belirtin. |Hayır |&nbsp; |
+| username |FTP sunucusuna erişimi olan kullanıcının belirtin. |Hayır |&nbsp; |
 | password |(Kullanıcı adı) kullanıcının parolasını belirtin. |Hayır |&nbsp; |
 | encryptedCredential |FTP sunucusuna erişmek için şifrelenmiş kimlik bilgilerini belirtin. |Hayır |&nbsp; |
 | gatewayName |Veri Yönetimi ağ geçidi şirket içi FTP sunucusuna bağlanmak için ağ geçidi adını belirtin. |Hayır |&nbsp; |
@@ -159,8 +159,8 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Zaman **fileName** belirtilmemiş bir çıktı veri kümesi için oluşturulan dosya adı şu biçimde: <br/><br/>`Data.<Guid>.txt` (Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
 | fileFilter |Bir alt dosya seçmek için kullanılacak bir filtre belirtin **folderPath**, tüm dosyalar yerine.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** girdi FileShare veri kümesi için geçerlidir. Bu özellik, Hadoop dağıtılmış dosya sistemi (HDFS ile) desteklenmiyor. |Hayır |
 | partitionedBy |Dinamik belirtmek için kullanılan **folderPath** ve **fileName** zaman serisi verilerinin. Örneğin, belirtebileceğiniz bir **folderPath** veri her saat için parametreli. |Hayır |
-| biçim | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Dosyaları (ikili kopya) depoları arasında dosya tabanlı oldukları gibi kopyalamak istiyorsanız, hem girdi ve çıktı veri kümesi tanımları biçimi bölümüne atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**, ve desteklenen düzeyleri **Optimal** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| format | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi ](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Dosyaları (ikili kopya) depoları arasında dosya tabanlı oldukları gibi kopyalamak istiyorsanız, hem girdi ve çıktı veri kümesi tanımları biçimi bölümüne atlayın. |Hayır |
+| compression | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**, ve desteklenen düzeyleri **Optimal** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 | useBinaryTransfer |İkili aktarım modunu kullanıp kullanmayacağınızı belirtin. Değerler (Bu, varsayılan değer) ikili mod için true ve false ASCII için. Bu özellik, yalnızca ilişkili bağlantılı hizmet türü türü olduğunda kullanılabilir: FtpServer. |Hayır |
 
 > [!NOTE]
@@ -206,7 +206,7 @@ Kopya etkinlikteki kaynak türünde olduğunda **FileSystemSource**, aşağıdak
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| özyinelemeli |Alt klasörleri veya yalnızca belirtilen klasöre veri yinelemeli olarak okunur olup olmadığını belirtir. |TRUE, False (varsayılan) |Hayır |
+| recursive |Alt klasörleri veya yalnızca belirtilen klasöre veri yinelemeli olarak okunur olup olmadığını belirtir. |TRUE, False (varsayılan) |Hayır |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>JSON örneği: Azure Blob için FTP sunucusundan veri kopyalama
 Bu örnek, bir FTP sunucusundan Azure Blob depolama alanına veri kopyalama işlemi gösterilmektedir. Ancak, verileri doğrudan belirtilen havuzlarını hiçbirini kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats), veri fabrikasında kopyalama etkinliği kullanarak.
