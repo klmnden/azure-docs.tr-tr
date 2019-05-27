@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731574"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872965"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C'de dayanıklı ilk işlevinizi oluşturma\#
 
 *Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı sizin için durumu, denetim noktalarını ve yeniden başlatmaları yönetir.
 
-Bu makalede, yerel olarak oluşturma ve dayanıklı bir "Merhaba Dünya" işlevi test etmek için Azure işlevleri için Visual Studio 2017 araçlarını kullanmayı öğrenin.  Bu işlev düzenler ve diğer işlevlere zincirler birlikte çağırır. Ardından işlev kodunu Azure’da yayımlayacaksınız. Bu araçlar, Visual Studio 2017’de Azure geliştirme iş yükünün parçası olarak kullanılabilir.
+Bu makalede, yerel olarak oluşturma ve dayanıklı bir "Merhaba Dünya" işlevi test etmek için Azure işlevleri için Visual Studio 2019 araçlarını kullanmayı öğrenin.  Bu işlev düzenler ve diğer işlevlere zincirler birlikte çağırır. Ardından işlev kodunu Azure’da yayımlayacaksınız. Bu araçlar kullanılabilir Visual Studio 2019 Azure geliştirme iş yükünün parçası olarak.
 
 ![Dayanıklı işlevi Azure'da çalışan](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,7 +30,7 @@ Bu makalede, yerel olarak oluşturma ve dayanıklı bir "Merhaba Dünya" işlevi
 
 Bu öğreticiyi tamamlamak için:
 
-* [Visual Studio 2017](https://azure.microsoft.com/downloads/)'yi yükleyin. Emin olun **Azure geliştirme** iş yükü de yüklenir.
+* Yükleme [Visual Studio 2019](https://azure.microsoft.com/downloads/). Emin olun **Azure geliştirme** iş yükü de yüklenir.
 
 * [En son Azure İşlevleri araçlarınızın](../functions-develop-vs.md#check-your-tools-version) olduğundan emin olun.
 

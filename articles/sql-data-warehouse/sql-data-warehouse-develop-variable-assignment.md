@@ -2,21 +2,20 @@
 title: Azure SQL veri ambarı'nda değişkenleri atama | Microsoft Docs
 description: T-SQL değişkenleri Azure SQL veri ambarı çözümleri geliştirmek için atama hakkında ipuçları.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-origin.date: 04/17/2017
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: development
+ms.date: 04/17/2018
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ee97f7e5cda8b954fb697f73746e416d88d38c2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62c4273a02e02aff268a96e1b13483088ba33f87
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480842"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861677"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda değişkenleri atama
 

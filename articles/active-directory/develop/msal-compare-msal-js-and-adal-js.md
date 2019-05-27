@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72da1130efc288c03229d990b75bc96c941265d7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544311"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121964"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS ADAL JS arasındaki farklar
 
@@ -63,7 +63,7 @@ V2.0 içinde kullanarak `https://login.microsoftonline.com/common` yetkilisi, he
 
     v2.0: kapsam = https://graph.microsoft.com/User.Read
 
-    Herhangi bir kaynak API URI'sini şu biçimde kullanarak API için kapsamları isteyebilir: appidURI/kapsam için örnek: https://mytenant.onmicrosoft.com/myapi/api.read
+    Herhangi bir kaynak API URI'sini şu biçimde kullanarak API için kapsamları isteyebilir: appidURI/kapsam örneğin: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
     MS Graph API, bir kapsam değeri için yalnızca `user.read` eşlendiği https://graph.microsoft.com/User.Read ve birbirlerinin yerine kullanılabilir.
 

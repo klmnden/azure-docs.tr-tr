@@ -9,12 +9,12 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153183"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65874102"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage bağlantı dizelerini yapılandırma
 
@@ -35,7 +35,7 @@ Bir bağlantı dizesi, uygulamanız çalışma zamanında bir Azure depolama hes
 
 Bağlantı dizenizi bir yapılandırma dosyasında depolamanız depolama öykünücüsü ve buluttaki bir Azure depolama hesabı arasında geçiş yapmak için bağlantı dizesini güncellemek kolaylaştırır. Yalnızca, bağlantı dizesi için hedef ortamınız işaret edecek şekilde düzenlemeniz gerekebilir.
 
-Kullanabileceğiniz [Microsoft Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) , uygulamanızın nerede çalıştığına bakmaksızın zamanında bağlantı dizenizi erişmek için.
+Kullanabileceğiniz [Microsoft Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) , uygulamanızın nerede çalıştığına bakmaksızın zamanında bağlantı dizenizi erişmek için.
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>Depolama öykünücüsü için bağlantı dizesi oluşturma
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
@@ -107,7 +107,7 @@ Depolama uç noktası için özel bir etki alanı eşleştirdik ve bağlantı di
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Bir uç nokta son eki ile bir bağlantı dizesi oluşturma
-Azure Çin veya Azure devlet kurumları, olduğu gibi bir depolama hizmetine bölgelerde veya farklı bir uç nokta sonekleri ile örnekleri için bir bağlantı dizesi oluşturmak için aşağıdaki bağlantı dizesi biçimi kullanın. HTTP veya HTTPS (önerilen) üzerinden depolama hesabına bağlanmak istediğiniz belirtmek, yerine `myAccountName` depolama hesabınızın adıyla değiştirin `myAccountKey` hesabı erişim anahtarı ve Değiştir `mySuffix` URI soneki:
+Azure Çin 21Vianet veya Azure devlet kurumları, olduğu gibi bir depolama hizmetine bölgelerde veya farklı bir uç nokta sonekleri ile örnekleri için bir bağlantı dizesi oluşturmak için aşağıdaki bağlantı dizesi biçimi kullanın. HTTP veya HTTPS (önerilen) üzerinden depolama hesabına bağlanmak istediğiniz belirtmek, yerine `myAccountName` depolama hesabınızın adıyla değiştirin `myAccountKey` hesabı erişim anahtarı ve Değiştir `mySuffix` URI soneki:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +116,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Azure Çin'de depolama hizmetleri için örnek bir bağlantı dizesi şu şekildedir:
+Azure Çin 21Vianet depolama hizmetleri için örnek bir bağlantı dizesi şu şekildedir:
 
 ```
 DefaultEndpointsProtocol=https;

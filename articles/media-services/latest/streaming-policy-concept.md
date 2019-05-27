@@ -9,28 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 510899e44e4ea4a90e21473ee6af546744c2be2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230905"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120227"
 ---
 # <a name="streaming-policies"></a>Akış İlkeleri
 
-Azure Media Services v3 içinde [akış ilkeleri](https://docs.microsoft.com/rest/api/media/streamingpolicies) , akış protokolleri ve şifreleme seçeneklerini tanımlamanıza olanak sağlar, [akış bulucuları](streaming-locators-concept.md). Özel bir ilke oluşturulur veya önceden tanımlanmış akış ilkelerden birini ya da kullanabilirsiniz. Önceden tanımlanmış akış şu anda kullanılabilir ilkeleri şunlardır: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve 'Predefined_MultiDrmStreaming'.
+Azure Media Services v3 içinde [akış ilkeleri](https://docs.microsoft.com/rest/api/media/streamingpolicies) , akış protokolleri ve şifreleme seçeneklerini tanımlamanıza olanak sağlar, [akış bulucuları](streaming-locators-concept.md). Media Services v3, böylece bunları doğrudan deneme veya üretim için kullanabileceğiniz bazı önceden tanımlanmış akış ilkeleri sağlar. 
 
+Şu anda kullanılabilir akış ilkeleri önceden tanımlanmış:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve 'Predefined_MultiDrmStreaming'.
+
+(Örneğin, farklı protokollere belirtmek istiyorsanız bir özel anahtar dağıtımı hizmetiyle kullanmanız gerekir veya bir Temizle ses kaydı kullanmak ihtiyacınız varsa) özel gereksinimleriniz varsa, akış özel bir ilke oluşturabilirsiniz. 
+
+ 
 > [!IMPORTANT]
 > * Özelliklerini **akış ilkeleri** DateTime türü her zaman UTC biçiminde olan.
-> * Medya hizmeti hesabınız için sınırlı sayıda ilkeleri tasarlayın ve aynı seçeneklere gerektiğinde bunları yeniden için akış Bulucular gerekir. 
+> * Medya hizmeti hesabınız için sınırlı sayıda ilkeleri tasarlayın ve aynı seçeneklere gerektiğinde bunları yeniden için akış Bulucular gerekir. Daha fazla bilgi için [kotaları ve sınırlamaları](limits-quotas-constraints.md).
+
+## <a name="decision-tree"></a>Karar ağacı
+
+Aşağıdaki karar ağacı senaryonuz için önceden tanımlanmış bir akış ilkesini seçmenize yardımcı olur.
+
+Resmi tam boyutlu görüntülemek için tıklayın.  <br/>
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
 
 ## <a name="examples"></a>Örnekler
 
 ### <a name="not-encrypted"></a>Şifreli değil
 
-Dosya içinde--Temizle (şifrelenmemiş) akışla aktarmak istiyorsanız, önceden tanımlanmış açık akış ilke ayarlama: 'Predefined_ClearStreamingOnly' için (.NET, PredefinedStreamingPolicy.ClearStreamingOnly kullanabilirsiniz).
+Dosya içinde--Temizle (şifrelenmemiş) akışla aktarmak istiyorsanız, önceden tanımlanmış açık akış ilke ayarlama: 'Predefined_ClearStreamingOnly' için (.NET, PredefinedStreamingPolicy.ClearStreamingOnly enum kullanabilirsiniz).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -44,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>Şifreli 
+### <a name="encrypted"></a>Şifrelendi 
 
 İçerik Zarfı ve cenc şifreleme ile şifreleme gerekiyorsa 'Predefined_MultiDrmCencStreaming' ilkenizi ayarlayın. Bu ilke, bulucuda iki içerik anahtarı (zarf ve CENC) oluşturulmasını ve ayarlanmasını istediğinizi belirtir. Bu nedenle zarf, PlayReady ve Widevine şifrelemeleri uygulanır (anahtar, yapılandırılan DRM lisanslarına göre kayıttan yürütme istemcisine teslim edilir).
 
@@ -70,5 +82,5 @@ Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](ent
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)
-* [AES-128 dinamik şifreleme ve anahtar dağıtım hizmetini kullanma](protect-with-aes128.md)
+* [AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma](protect-with-aes128.md)
 * [DRM dinamik şifreleme ve lisans teslimat hizmeti kullanın](protect-with-drm.md)

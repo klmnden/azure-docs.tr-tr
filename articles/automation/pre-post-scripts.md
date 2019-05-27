@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499860"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913867"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Yönetme öncesi ve sonrası betikleri
 
@@ -30,9 +30,7 @@ Değiştirmek için bir öncesi kullanın ve post bir güncelleştirme dağıtı
 
 ![Komut dosyaları seçin](./media/pre-post-scripts/select-scripts.png)
 
-Bu örnekte, kullanmak istediğiniz betiği seçin, kullandığınız **UpdateManagement TurnOnVms** runbook. Runbook seçtiğinizde **yapılandırma betiği** seçin sayfası açılır ve parametrelerin değerlerini sağlamasını **ön betik**. Tıklayın **Tamam** işiniz bittiğinde.
-
-![Betik yapılandırma](./media/pre-post-scripts/configure-script.png)
+Bu örnekte, kullanmak istediğiniz betiği seçin, kullandığınız **UpdateManagement TurnOnVms** runbook. Runbook seçtiğinizde **yapılandırma betiği** sayfasında açılır **ön betik**. Tıklayın **Tamam** işiniz bittiğinde.
 
 Bu işlem için yineleme **UpdateManagement TurnOffVms** betiği. Ancak seçerken **betik türü**, seçin **sonrası betik**.
 

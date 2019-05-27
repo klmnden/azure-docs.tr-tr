@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204284"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921929"
 ---
 # <a name="connect-data-sources"></a>Veri kaynaklarını bağlama
 
@@ -53,7 +53,7 @@ Aşağıdaki veri bağlantı yöntemlerine Azure Gözcü tarafından desteklenir
 - **Dış çözümleri API aracılığıyla**: Bazı veri kaynakları, bağlı veri kaynağı tarafından sağlanan API'leri kullanarak bağlanır. Genellikle, çoğu güvenlik teknolojileri bir olay günlükleri alınabilir API kümesi sağlar. API'leri Azure Gözcü için bağlanın ve belirli veri türlerini toplayın ve bunları Azure Log Analytics'e gönderme. API aracılığıyla bağlı cihazları şunlardır:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Dış çözümleri aracı üzerinden**: Azure Sentinel bir aracı yoluyla Syslog protokolünü kullanarak gerçek zamanlı günlük akışını yapabilmek için diğer tüm veri kaynaklarına bağlanabilir. <br>Çoğu Gereçleri, kendisi ve günlüğü hakkında daha fazla veri günlüğe içeren olay iletileri göndermek için Syslog protokolünü kullanır. Günlüklerinin biçimi değişir, ancak çoğu Gereçleri Common Event Format (CEF) standart destekler. <br>OMS aracısı üzerinde temel alınan Azure Gözcü Aracısı Log Analytics tarafından alınan bir biçime günlükleri CEF dönüştürür biçimlendirilmiş. Gereç türüne bağlı olarak aracıyı doğrudan gereç veya ayrılmış bir Linux sunucusu üzerinde yüklü. Linux için aracıyı olayların Syslog daemon'dan UDP üzerinden alır, ancak yüksek hacimli Syslog olayları toplamak için bir Linux makine nerede beklendiği durumlarda, TCP üzerinden aracı Syslog cinini ve Log analytics'e buradan gönderilirler.
+- **Dış çözümleri aracı üzerinden**: Azure Sentinel bir aracı yoluyla Syslog protokolünü kullanarak gerçek zamanlı günlük akışını yapabilmek için diğer tüm veri kaynaklarına bağlanabilir. <br>Çoğu Gereçleri, kendisi ve günlüğü hakkında daha fazla veri günlüğe içeren olay iletileri göndermek için Syslog protokolünü kullanır. Günlüklerinin biçimi değişir, ancak çoğu Gereçleri Common Event Format (CEF) standart destekler. <br>Microsoft Monitoring Agent'ı temel alır, Azure Gözcü aracı biçimlendirilmiş CEF günlükleri Log Analytics tarafından alınan bir biçime dönüştürür. Gereç türüne bağlı olarak aracıyı doğrudan gereç veya ayrılmış bir Linux sunucusu üzerinde yüklü. Linux için aracıyı olayların Syslog daemon'dan UDP üzerinden alır, ancak yüksek hacimli Syslog olayları toplamak için bir Linux makine nerede beklendiği durumlarda, TCP üzerinden aracı Syslog cinini ve Log analytics'e buradan gönderilirler.
     - Güvenlik duvarları, Ara sunucuları ve uç noktaları:
         - [F5](connect-f5.md)
         - [Denetim noktası](connect-checkpoint.md)

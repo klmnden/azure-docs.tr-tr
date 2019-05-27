@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197750"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915848"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Data Lake depolama Gen1 ile
 > [!div class="op_single_selector"]
@@ -30,25 +30,18 @@ ms.locfileid: "60197750"
 Bu makalede, Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrulaması yapmak için .NET SDK'sı kullanma hakkında bilgi edinin. .NET SDK kullanarak son kullanıcı kimlik doğrulaması ile Data Lake depolama Gen1 bkz [son kullanıcı kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-end-user-authenticate-net-sdk.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Visual Studio 2013, 2015 veya 2017**. Aşağıdaki yönergelerde Visual Studio 2017 kullanılmıştır.
+* **Visual Studio 2013 veya üzeri**. Visual Studio 2019 aşağıdaki yönergeleri kullanın.
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Bir Azure Active Directory "Web" uygulaması oluşturma**. Adımları tamamlamış olmanız gerekir [hizmetten hizmete kimlik doğrulaması Azure Active Directory kullanarak Data Lake depolama Gen1 ile](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>.NET uygulaması oluşturma
-1. Visual Studio'yu açın ve bir konsol uygulaması oluşturun.
-2. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın.
-3. **Yeni Proje** bölümünden, aşağıdaki değerleri yazın veya seçin:
+1. Visual Studio'da **dosya** menüsünde **yeni**, ardından **proje**.
+2. Seçin **konsol uygulaması (.NET Framework)** ve ardından **sonraki**.
+3. İçinde **proje adı**, girin `CreateADLApplication`ve ardından **Oluştur**.
 
-   | Özellik | Değer |
-   | --- | --- |
-   | Kategori |Şablonlar/Visual C#/Windows |
-   | Şablon |Konsol Uygulaması |
-   | Ad |CreateADLApplication |
-4. Projeyi oluşturmak için **Tamam**'a tıklayın.
-
-5. NuGet paketlerini projenize ekleyin.
+4. NuGet paketlerini projenize ekleyin.
 
    1. Çözüm Gezgini'nde proje adına sağ tıklayın ve **NuGet Paketlerini Yönet**'e tıklayın.
    2. **NuGet Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
@@ -60,7 +53,7 @@ Bu makalede, Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrula
         ![NuGet kaynağı ekleme](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Yeni bir Azure Data Lake hesabı oluşturma")
    4. **NuGet Paket Yöneticisi**'ni kapatın.
 
-6. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
+5. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
 
 ```csharp
 using System;

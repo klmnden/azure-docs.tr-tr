@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory ile Active Directory’yi bağlayın. | Microsoft Docs
-description: Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik oluşturabilirsiniz.
+title: Azure Active Directory ile karma kimlik nedir?
+description: Karma kimlik hem şirket içi kimlik doğrulaması ve yetkilendirme için genel bir kullanıcı kimliği olan ve bulut.
 keywords: Azure AD Connect’e giriş, Azure AD Connect’e genel bakış, Azure AD Connect nedir, active directory yükleme
 services: active-directory
 author: billmath
@@ -9,24 +9,26 @@ ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6393d363c85fd22b28a3bc2ac5ef02047ebaacf0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784364"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896824"
 ---
-# <a name="what-is-hybrid-identity"></a>Hibrit kimlik nedir?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Azure Active Directory ile karma kimlik nedir?
 
-Bugün, şirketler ve kuruluşlar şirket içi bir karışımını daha gelmektedir ve bulut uygulamalarına.  Kullanıcılar bu uygulamaları hem şirket içi erişim gerektirir ve bulut. Bu gereksinim, zorlu bir senaryo haline gelmiştir. 
+Bugün, şirketler ve kuruluşlar şirket içi bir karışımını daha gelmektedir ve bulut uygulamalarına.  Kullanıcılar bu uygulamaları hem şirket içi erişim gerektirir ve bulut. Hem şirket içi kullanıcıları yönetme ve senaryoları zor bulut yürütmelisiniz. 
 
 Microsoft'un kimlik çözümleri, şirket içi ve bulut tabanlı özellikleri kapsar.  Kimlik doğrulaması ve yetkilendirme konumdan bağımsız olarak tüm kaynaklara genel bir kullanıcı kimliği bu çözümler oluşturun. Bu diyoruz **karma kimlik**.
 
-Karma kimlik elde etmek için üç kimlik doğrulama yöntemlerinden biri, senaryolarınıza bağlı olarak kullanılabilir.   Üç yöntem şunlardır: 
+Karma kimlik Azure AD'ye ve karma Kimlik Yönetimi bu senaryoları mümkün olur.
+
+Azure AD ile karma kimlik elde etmek için üç kimlik doğrulama yöntemlerinden biri, senaryolarınıza bağlı olarak kullanılabilir.   Üç yöntem şunlardır: 
 
 - **[Parola Karması eşitleme (PHS)](whatis-phs.md)**  
 - **[Geçişli kimlik doğrulaması (PTA)](how-to-connect-pta.md)**  

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61381998"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921357"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript'te dayanıklı ilk işlevinizi oluşturma
 
@@ -54,7 +54,7 @@ Bu öğreticiyi tamamlamak için:
 
 1. Gelen **Azure: İşlevleri**, Create FUNCTION simgesini seçin.
 
-    ![İşlev oluşturma](./media/quickstart-js-vscode/create-function.png)
+    ![İşlev oluştur](./media/quickstart-js-vscode/create-function.png)
 
 2. İşlev uygulaması projenizin yer aldığı klasörü seçin ve **HTTP tetikleyicisi** işlev şablonunu seçin.
 
@@ -117,7 +117,7 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 2. İşlevinizi test etmek için işlev kodunda bir kesme noktası ayarlayın ve işlev uygulaması projesini başlatmak için F5 tuşuna basın. Temel Araçlar’daki çıktı, **Terminal** panelinde görüntülenir. Dayanıklı İşlevler, ilk kez kullanıyorsanız, dayanıklı işlevler uzantısını yüklenir ve yapı birkaç saniye sürebilir.
 
     > [!NOTE]
-    > JavaScript dayanıklı işlevler sürümü gerektiren **1.7.0** veya büyük **Microsoft.Azure.WebJobs.Extensions.DurableTask** uzantısı. Dayanıklı işlevler uzantının sürümünde doğrulayın, `extensions.csproj` bu gereksinimi karşıladığından. Kullanmıyorsa, işlev uygulamanızı durdurun, sürüm değiştirin ve işlev uygulamanızı yeniden başlatmak için F5 tuşuna basın.
+    > JavaScript dayanıklı işlevler sürümü gerektiren **1.7.0** veya büyük **Microsoft.Azure.WebJobs.Extensions.DurableTask** uzantısı. Dayanıklı işlevler uzantısını yüklemek için Azure işlevleri uygulamanızın kök klasöründen aşağıdaki komutu çalıştırın `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. **Terminal** panelinde, HTTP ile tetiklenen işlevinizin URL uç noktasını kopyalayın.
 

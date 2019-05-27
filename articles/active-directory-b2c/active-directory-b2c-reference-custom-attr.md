@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4debd5408abda7e6ae7a7ebf2210fb69210582ae
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 629b872f78a30592fc00cb268066970b12b20561
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687921"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952812"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Özel öznitelikler Azure Active Directory B2C'de tanımlayın
 
  Her müşteriye dönük uygulama, bilgilerin toplanması gerekir için benzersiz gereksinimleri vardır. Azure Active Directory (Azure AD) B2C kiracınızı, verilen ad, Soyadı, şehir ve posta kodu gibi özniteliklerde depolanan bilgileri yerleşik bir dizi ile birlikte gelir. Azure AD B2C ile her bir müşteri hesapta depolanan öznitelik kümesini genişletebilirsiniz. 
  
- Özel öznitelikler oluşturabilirsiniz [Azure portalında](https://portal.azure.com/) ve kaydolma kullanıcı akışları, kaydolma veya oturum açma kullanıcı akışları veya profil düzenleme kullanıcı akışları kullanın. Ayrıca okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md). Azure AD B2C, özel öznitelikler kullanma [Azure AD Graph API Directory şema uzantıları](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Özel öznitelikler oluşturabilirsiniz [Azure portalında](https://portal.azure.com/) ve kaydolma kullanıcı akışları, kaydolma veya oturum açma kullanıcı akışları veya profil düzenleme kullanıcı akışları kullanın. Ayrıca okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md). Azure AD B2C, özel öznitelikler kullanma [Azure AD Graph API Directory şema uzantıları](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).  
+
+> [!NOTE]
+> Desteği yeni [Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) Azure AD B2C sorgulama için Kiracı hala geliştirme aşamasındadır.
+>
 
 ## <a name="create-a-custom-attribute"></a>Özel bir öznitelik oluşturma
 
@@ -41,7 +45,8 @@ ms.locfileid: "64687921"
 7. İsteğe bağlı olarak girin bir **açıklama** bilgilendirme amaçlıdır. 
 8. **Oluştur**’a tıklayın.
 
-Özel öznitelik listesinde kullanılabilir **kullanıcı öznitelikleri** ve kullanıcı akışlarınızda kullanın. Yalnızca hiçbir kullanıcı akışında kullanılan, ilk kez oluşturulan ve listesine değil eklediğinizde, özel bir öznitelik olan **kullanıcı öznitelikleri**.
+Özel öznitelik listesinde kullanılabilir **kullanıcı öznitelikleri** ve kullanıcı akışlarınızda kullanın. Yalnızca hiçbir kullanıcı akışında kullanılan, ilk kez oluşturulan ve listesine değil eklediğinizde, özel bir öznitelik olan **kullanıcı öznitelikleri**. 
+
 
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>Özel bir öznitelik kullanıcı akışınızı kullanın
 
@@ -51,5 +56,5 @@ ms.locfileid: "64687921"
 5. Seçin **uygulama taleplerini** ve özel özniteliği seçin. 
 6. **Kaydet**’e tıklayın.
 
-Kullanabileceğiniz **kullanıcı akışı çalıştırma** müşteri deneyimini doğrulamak için kullanıcı akışı özelliği. Görmelisiniz **ShoeSize** öznitelikler listesinde kaydolma yolculuğu sırasında toplanan ve uygulamanıza geri gönderilen belirteçte bakın.
+İçinde yeni oluşturulan özel öznitelik kullanan bir kullanıcı akışı kullanan yeni bir kullanıcı oluşturduktan sonra nesneyi sorgulanabilir [Azure AD Graph Gezgini](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). Alternatif olarak [ **kullanıcı akışı çalıştırma** ](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) müşteri deneyimini doğrulamak için kullanıcı akışı özelliği. Görmelisiniz **ShoeSize** öznitelikler listesinde kaydolma yolculuğu sırasında toplanan ve uygulamanıza geri gönderilen belirteçte bakın. 
 

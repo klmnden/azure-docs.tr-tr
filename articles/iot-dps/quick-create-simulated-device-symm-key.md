@@ -2,20 +2,19 @@
 title: Bu hızlı başlangıçta C kullanarak Azure IoT Hub'a bir simülasyon cihazı sağlamak için simetrik anahtar kullanma işlemi gösterilir | Microsoft Docs
 description: Bu hızlı başlangıçta, Azure IoT Hub Cihazı Sağlama Hizmeti ile simetrik anahtar kullanan bir simülasyon cihazı oluşturmak için C cihaz SDK’sını kullanacaksınız
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 93fc426d9de027100e70502bcf6ea3aad2c44e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31e71e942d7bd3f7a9739eeb83bd3ed250bb2c61
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363810"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909026"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Hızlı Başlangıç: Simetrik anahtarlar ile bir sanal cihaz sağlama
 
@@ -35,7 +34,7 @@ Bu makale Windows tabanlı bir iş istasyonuna yöneliktir. Ancak yordamları Li
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 veya üzeri ile [' ile masaüstü geliştirme C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirilmiş.
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
 
 

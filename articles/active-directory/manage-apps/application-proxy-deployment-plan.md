@@ -15,16 +15,18 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442598"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113020"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Bir Azure AD uygulama ara sunucusu dağıtımını planlama
 
-Azure Active Directory (Azure AD) uygulama proxy'si, şirket içi uygulamalar için uzaktan erişim güvenli ve uygun maliyetli bir çözümdür. Bu, eski erişimi yönetmek "Bulut ilk" kuruluşlar için bir anlık geçiş yolu yerinde henüz modern protokolleri kullanma yeteneği olmayan uygulamalar sağlar. Ek tanıtıcı bilgiler için bkz [uygulama proxy'si nedir](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) ve [nasıl uygulama Proxy çalışır](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+Azure Active Directory (Azure AD) uygulama proxy'si, şirket içi uygulamalar için uzaktan erişim güvenli ve uygun maliyetli bir çözümdür. Bu, eski erişimi yönetmek "Bulut ilk" kuruluşlar için bir anlık geçiş yolu yerinde henüz modern protokolleri kullanma yeteneği olmayan uygulamalar sağlar. Ek tanıtıcı bilgiler için bkz [uygulama proxy'si nedir](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+
+Uygulama Ara sunucusu, uzak kullanıcıların iç kaynaklara erişim vermek için önerilir. Uygulama proxy'si VPN'ye gerek veya bu uzaktan erişim kullanım örnekleri için ters proxy ayarlarını değiştirir. Kurumsal ağ üzerinde olan kullanıcılar için tasarlanmamıştır. Uygulama Ara sunucusu intranet erişimi için kullanan bu kullanıcılar, istenmeyen performans sorunlarıyla karşılaşabilirsiniz.
 
 Bu makale, planlama, çalıştırmak ve Azure AD uygulama ara sunucusunu yönetmek için ihtiyacınız olan kaynakları içerir. 
 
@@ -41,25 +43,30 @@ Uygulamanız başlamadan önce aşağıdaki önkoşulları sağlamanız gerekir.
    * Herhangi bir hiper yönetici çözümü içinde barındırılan bir sanal makine
    * Uygulama Ara Sunucusu hizmetine giden bağlantıyı etkinleştirmek için azure'da barındırılan bir sanal makine.
 
-Bkz: [anlamak Azure AD uygulaması Proxy bağlayıcıları](application-proxy-connectors.md) daha ayrıntılı bir genel bakış.
+* Bkz: [anlamak Azure AD uygulaması Proxy bağlayıcıları](application-proxy-connectors.md) daha ayrıntılı bir genel bakış.
 
-   * Bağlayıcıyı barındıran gereken [etkin olması için TLS 1.2](application-proxy-add-on-premises-application.md) bağlayıcılarını yüklemeden önce.
+     * Bağlayıcı gereken makineleri [etkin olması için TLS 1.2](application-proxy-add-on-premises-application.md) bağlayıcılarını yüklemeden önce.
 
-   * Mümkünse, bağlayıcı dağıtma [aynı ağ](application-proxy-network-topology.md) ve arka uç web uygulama sunucuları olarak kesimi. Bir bulma uygulamalarının tamamladıktan sonra bağlayıcıyı konakları dağıtmak idealdir.
+     * Mümkünse, bağlayıcı dağıtma [aynı ağ](application-proxy-network-topology.md) ve arka uç web uygulama sunucuları olarak kesimi. Bir bulma uygulamalarının tamamladıktan sonra bağlayıcı dağıtmak idealdir.
+     * Her bir bağlayıcı grubu yüksek kullanılabilirlik ve ölçek sağlamak için en az iki bağlayıcı olduğunu öneririz. Herhangi bir noktada bir makine hizmet gerektiği durumlarda üç bağlayıcılar olması idealdir. Gözden geçirme [bağlayıcı kapasite tablosunda](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) bağlayıcılar yüklemek için makine türüne karar vermenizde size yardımcı olacak. Bağlayıcı büyüdükçe makineye daha fazla arabellek ve yüksek performanslı olacaktır.
 
-* **Ağ erişim ayarları**: Azure AD uygulama ara sunucusu bağlayıcıları [HTTPS (TCP bağlantı noktası 443) ve HTTP (TCP bağlantı noktası 80) aracılığıyla azure'a bağlanma girişiminde](application-proxy-add-on-premises-application.md). 
+* **Ağ erişim ayarları**: Azure AD uygulama ara sunucusu bağlayıcıları [bağlantı HTTPS (TCP bağlantı noktası 443) ve HTTP (TCP bağlantı noktası 80) aracılığıyla azure'a](application-proxy-add-on-premises-application.md). 
 
    * Sondaki Bağlayıcısı TLS trafik desteklenmiyor ve bağlayıcılar ile ilgili Azure uygulama proxy'si uç noktalarını güvenli bir kanal kurmasını engeller.
 
    * Tüm bağlayıcılar ve Azure arasında giden TLS iletişimde satır içi İnceleme biçimlerinin kaçının. Bir bağlayıcı ve arka uç uygulamaları arasında iç İnceleme mümkündür, ancak kullanıcı deneyimini düşebilir ve bu nedenle önerilmez.
 
-   * Proxy bağlayıcıları kendilerini Yük Dengeleme de desteklenen ya da gerekli değildir.
+   * Bağlayıcılar Yük Dengeleme de desteklenen ya da gerekli değildir.
 
 ### <a name="important-considerations-before-configuring-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusunu yapılandırmadan önce önemli noktalar
 
 Yapılandırma ve Azure AD uygulama proxy'si uygulamak için aşağıdaki temel gereksinimlerinin karşılanması gerekir.
 
 *  **Azure ekleme**: Uygulama proxy'si dağıtmadan önce kullanıcı kimliklerini bir şirket içi dizininizden eşitlenmiş veya gerekir doğrudan, Azure AD kiracıları içinde oluşturulur. Azure AD uygulama proxy'si için bunları erişim verme yayımlanan uygulamaları önce önceden kimlik doğrulamasını ve çoklu oturum açma (SSO) gerçekleştirmek için gerekli kullanıcı kimlik bilgilerini sağlamak için kimlik eşitleme sağlar.
+
+* **Koşullu erişim gereksinimleri**: Bu kullanıcıları etkileyen gecikme eklediğinden, intranet erişimi için uygulama proxy'si kullanarak önermiyoruz. Uygulama proxy'si internet'ten uzaktan erişim için ön kimlik doğrulama ve koşullu erişim ilkeleriyle birlikte kullanmanızı öneririz.  AAD ile kimlik doğrulaması diretly yapabilirler böylece uygulamaların modernize etme intranet kullanmak için koşullu erişim sağlamak için bir yaklaşım. Başvurmak [kaynakları geçirmek için AAD uygulamaları](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) daha fazla bilgi için. 
+
+* **Hizmet sınırları**: Operasyonda ekstra tüketimi var. bireysel kiracılar tarafından kaynakların karşı korumak için uygulama ve Kiracı azaltma sınırları şunlardır. Başvurmak bu sınırları görmek için [Azure AD hizmet sınırlamaları ve kısıtlamaları](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Bu sınırları tipik kullanım hacmi üstünde Kıyaslama temel alır ve dağıtımların çoğunluğu için yeterli arabellek sağlar.
 
 * **Ortak sertifika**: Özel etki alanı adları kullanıyorsanız, Microsoft olmayan güvenilir bir sertifika yetkilisi tarafından verilen bir ortak sertifika tedarik gerekir. Kuruluş gereksinimlerinize bağlı olarak bir sertifika alma biraz zaman alabilir ve işlem mümkün olduğunca erken başlangıç önerilir. Azure uygulama proxy'si standardını destekleyen [joker](application-proxy-wildcard.md), veya SAN tabanlı sertifikalar.
 
@@ -73,13 +80,11 @@ Yapılandırma ve Azure AD uygulama proxy'si uygulamak için aşağıdaki temel 
 
 * **Yönetici haklarına ve rolleri**
 
-   * **Bağlayıcı yükleme** üzerinde yüklendiği Windows server için yerel yönetici hakları gerektirir. Ayrıca, kimlik doğrulaması ve bağlayıcı örneği Azure AD kiracınıza kaydetmek için bir uygulama yöneticisi rolü en az gerektirir. 
+   * **Bağlayıcı yükleme** üzerinde yüklendiği Windows server için yerel yönetici hakları gerektirir. Ayrıca en az gerektiren bir *Uygulama Yöneticisi* kimlik doğrulaması ve bağlayıcı örneği Azure AD kiracınıza kaydetmek için rol. 
 
    * **Uygulama yayımlama ve Yönetim** gerektiren *Uygulama Yöneticisi* rol. Uygulama yöneticileri dizinde kayıtları, SSO ayarlarını, kullanıcı ve Grup atamalarını ve lisanslama, uygulama proxy'si ayarları ve onay dahil olmak üzere tüm uygulamaları yönetebilirsiniz. Koşullu erişimi yönetme hakkı vermez. *Bulut uygulaması Yöneticisi* uygulama proxy'si ayarları yönetimi izin vermediğinden dışında tüm becerileri, uygulama yöneticisi rolüne sahip.
 
-* **Lisanslama**: Uygulama proxy'si aracılığıyla Azure AD temel aboneliği kullanılabilir. Başvurmak [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory/) lisans seçenekleri ve özelliklerin tam listesi için. 
-
-* Uygulama Yöneticisi hakları almak için bir rol ayrıcalık gerekebilir [Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) (PIM), böylece hesabınıza uygun olduğundan emin olun. 
+* **Lisanslama**: Uygulama proxy'si aracılığıyla Azure AD temel aboneliği kullanılabilir. Başvurmak [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory/) lisans seçenekleri ve özelliklerin tam listesi için.  
 
 ### <a name="application-discovery"></a>Uygulama bulma
 
@@ -87,7 +92,7 @@ Aşağıdaki bilgileri toplayarak uygulama proxy'si yayımlanan tüm kapsamında
 
 | Bilgi türü| Bilgi toplamak için |
 |---|---|
-| Hizmet Türü| Örneğin: SharePoint, SAP, CRM, özel bir Web uygulaması, API |
+| Hizmet türü| Örneğin: SharePoint, SAP, CRM, özel bir Web uygulaması, API |
 | Uygulama platformu | Örneğin: Windows IIS, Apache on Linux, Tomcat, NGINX |
 | Etki alanı üyeliği| Web sunucusunun tam etki alanı adı (FQDN) |
 | Uygulama konumu | Web sunucusu veya grup altyapınızda bulunduğu |
@@ -107,9 +112,9 @@ Kuruluşunuzun iş gereksinimlerini tanımlama alanları şunlardır: Her alanı
 
  **Erişim**
 
-* Herhangi bir etki alanına katılmış veya Azure AD kullanarak cihazları katıldığında etki alanı ve Azure AD kullanıcılarının sorunsuz çoklu oturum açma (SSO) güvenli bir şekilde ile yayımlanan uygulamalara erişebilirsiniz.
+* Etki alanına katılmış olan uzak kullanıcılar veya Azure AD'ye katılmış cihazların, kullanıcıların yayımlanan uygulamalara sorunsuz çoklu oturum açma (SSO) güvenli bir şekilde ile erişebilir.
 
-* MFA kaydedilen ve bir kimlik doğrulama yöntemi olarak Microsoft Authenticator uygulamasını cep telefonundan kayıtlı koşuluyla onaylı kişisel cihazlara sahip kullanıcılar yayımlanmış uygulamalara güvenli şekilde erişebilir.
+* MFA kaydedilen ve bir kimlik doğrulama yöntemi olarak Microsoft Authenticator uygulamasını cep telefonundan kayıtlı koşuluyla onaylı kişisel cihazlara sahip uzak kullanıcılar yayımlanmış uygulamalara güvenli şekilde erişebilir.
 
 **İdare** 
 
@@ -164,7 +169,7 @@ Aşağıdaki tasarım öğeleri pilot uygulamanızı bir üretim kiracıdaki do�
 
 ### <a name="deploy-application-proxy"></a>Uygulama proxy'si dağıtma
 
-Bu konuda, uygulama ara sunucusunu dağıtmak için adımları ele alınmaktadır [uzaktan erişim için şirket içi uygulama eklemek için öğretici](application-proxy-add-on-premises-application.md). Yükleme başarılı değilse seçin **uygulama proxy'si sorunlarını giderme** portalı veya sorun giderme kılavuzu[uygulama proxy'si aracı Bağlayıcısı yüklemeyle ilgili sorunları için](application-proxy-connector-installation-problem.md).
+Bu konuda, uygulama ara sunucusunu dağıtmak için adımları ele alınmaktadır [uzaktan erişim için şirket içi uygulama eklemek için öğretici](application-proxy-add-on-premises-application.md). Yükleme başarılı değilse seçin **uygulama proxy'si sorunlarını giderme** portalı veya sorun giderme kılavuzu [uygulama proxy'si aracı Bağlayıcısı yüklemeyle ilgili sorunları için](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Uygulama proxy'si aracılığıyla uygulama yayımlama
 
@@ -174,7 +179,7 @@ Kullanarak da uygulama yayımlayabilirsiniz [PowerShell](https://docs.microsoft.
 
 Bir uygulama yayımlama sırasında izlemek için en iyi yöntemlerden bazıları aşağıda verilmiştir:
 
-* **Bağlayıcı grupları kullanmak**: Her bir ilgili uygulama yayımlamak için belirlenmiş olan bir bağlayıcı grubu atayın.
+* **Bağlayıcı grupları kullanmak**: Her bir ilgili uygulama yayımlamak için belirlenmiş olan bir bağlayıcı grubu atayın. Her bir bağlayıcı grubu yüksek kullanılabilirlik ve ölçek sağlamak için en az iki bağlayıcı olduğunu öneririz. Herhangi bir noktada bir makine hizmet gerektiği durumlarda üç bağlayıcılar olması idealdir. Ayrıca bkz [ayrı ağlar ve konumları bağlayıcı grupları kullanarak uygulama yayımlama](application-proxy-connector-groups.md) görmek nasıl bağlayıcı grupları bağlayıcılarınızı ağ veya konuma göre segmentlere ayırmak için kullanabilirsiniz.
 
 * **Arka uç uygulama zaman aşımını ayarlayın**: Bu ayar, uygulamanın 75 istemci işlemi işlemeye saniyeden fazla nerede gerektirebilir senaryolarda yararlıdır. Örneğin ne zaman bir istemci bir sorgu için bir web uygulaması gönderen bir veritabanı için bir ön uç işlevi görür. Ön uç, arka uç veritabanı sunucusuna bu sorgu gönderir ve bir yanıt bekler, ancak zaman bir yanıt alır, konuşma istemci tarafında zaman aşımına uğrar. 180 saniye uzun işlemlerin tamamlanması uzun sağlar için zaman aşımını ayarlama.
 
@@ -190,7 +195,7 @@ Bir uygulama yayımlama sırasında izlemek için en iyi yöntemlerden bazılar�
 
 * **Uygulama gövdesindeki URL'leri**: Yanıtları istemciye geri çevrilmesi için bu uygulama bağlantılar istediğinizde bir uygulama için uygulama gövdesi bağlantı çeviri açın. Etkinleştirilirse, bu işlev, uygulama proxy'si istemcilere döndürülen HTML ve CSS yanıtları bulur, tüm iç bağlantıları çevirme, en iyi bir performans girişiminde sağlar. Sabit kodlanmış mutlak veya içerik NetBIOS shortname bağlantılar içeren uygulamaları veya diğer bağlantılar içerikle yayımlama şirket içi uygulamalarda olduğunda yararlıdır.
 
-Böylece uygulama başına düzeyinde kullanıcı deneyimi üzerinde denetime sahip uygulamaları Burada yayımlanan bir yayımlanan uygulama bağlantılar diğer senaryolar için bağlantı çeviri veya her uygulama etkinleştirin.
+Böylece uygulama başına düzeyinde kullanıcı deneyimi üzerinde denetime sahip uygulamaları Burada yayımlanan bir yayımlanan uygulama bağlantılar diğer senaryolar için her uygulama için bağlantı çeviri etkinleştirin.
 
 Örneğin, uygulama tüm birbirine bağlamasını Proxy üzerinden yayımlanan üç uygulama olduğunu varsayalım: Avantajları, giderleri ve seyahat yanı sıra dördüncü bir uygulama, uygulama proxy'si aracılığıyla yayımlandığından değilse geri bildirim.
 
@@ -225,7 +230,7 @@ Uygulamanızı yayımladıktan sonra dış URL'sini bir tarayıcıda yazarak vey
 
 ### <a name="enable-pre-authentication"></a>Ön kimlik doğrulamasını etkinleştirme
 
-Uygulamanızı uygulama proxy'si aracılığıyla erişilebilir olduğunu doğrulayın. 
+Uygulamanızı uygulama proxy'si dış URL'ye erişilirken üzerinden erişilebilir olduğunu doğrulayın. 
 
 1. Gidin **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları** ve yönetmek istediğiniz uygulamayı seçin.
 
@@ -233,7 +238,7 @@ Uygulamanızı uygulama proxy'si aracılığıyla erişilebilir olduğunu doğru
 
 3. İçinde **ön kimlik doğrulama** alan, seçmek için açılan listeyi kullanın **Azure Active Directory**seçip **Kaydet**.
 
-Etkin ön kimlik doğrulaması ile Azure AD için kimlik doğrulaması sınaması ve kimlik doğrulaması gerektiriyorsa, ardından arka uç uygulaması Ayrıca, meydan. Başlangıçta HTTP için yapılandırılmış herhangi bir uygulama artık HTTPS ile güvenli şekilde ön kimlik doğrulaması, Azure AD'ye geçiş değiştirme Ayrıca dış URL HTTPS ile yapılandırır.
+Etkin ön kimlik doğrulaması ile Azure AD kullanıcıların ilk kimlik doğrulaması için meydan ve çoklu oturum açma configued ise, uygulamaya erişim verilmeden önce ardından arka uç uygulaması da kullanıcı doğrular. Başlangıçta HTTP için yapılandırılmış herhangi bir uygulama artık HTTPS ile güvenli şekilde ön kimlik doğrulama modu, Azure AD'ye geçiş değiştirme Ayrıca dış URL HTTPS ile yapılandırır.
 
 ### <a name="enable-single-sign-on"></a>Çoklu oturum açmayı etkinleştirin
 
@@ -241,7 +246,7 @@ Kullanıcıların yalnızca Azure AD erişirken kez oturum açmasına gerek olma
 
 Seçme **geçiş** seçenek hiç olmadığı kadar Azure AD'ye kimlik doğrulaması yapmak zorunda kalmadan yayımlanan uygulamanıza erişmeleri kullanıcılara izin verir.
 
-SSO gerçekleştirmek yalnızca Azure AD kullanıcıların erişim sırasında SSO için çalışması için önceden kimlik doğrulaması için uygulamanızı yapılandırılması için bir kaynağa erişim isteğinde bulunan kullanıcı mevcutsa, aksi takdirde SSO seçenekleri devre dışı bırakılacak mümkün olur.
+SSO gerçekleştirmek yalnızca Azure AD kullanıcıları Azure AD temel erişim ile SSO için çalışması için önceden kimlik doğrulaması için uygulamanızı yeniden yapılandırılması için bir kaynağa erişim isteğinde bulunan kullanıcı mevcutsa, aksi takdirde SSO seçenekleri devre dışı bırakılacak mümkün olur.
 
 Okuma [Azure AD uygulamaları için çoklu oturum açma](what-is-single-sign-on.md) uygulamalarınızı yapılandırırken en uygun SSO yöntemi seçmenize yardımcı olmak için.
 
@@ -265,7 +270,7 @@ Aşağıdaki özellikleri, Azure AD uygulama ara sunucusunu desteklemek için ku
 
 * Risk tabanlı koşullu erişim: Kötü amaçlı bir bilgisayar korsanları ile verilerinizi koruma bir [risk tabanlı koşullu erişim ilkesi](https://www.microsoft.com/cloud-platform/conditional-access) uygulanabilecek tüm uygulamalar ve tüm kullanıcılara olup şirket içi veya bulutta.
 
-* Azure AD uygulama panelinde: Dağıtılan uygulama proxy'si hizmeti ile güvenli bir şekilde yayımlanan uygulamalar, kullanıcılarınızın bulmak ve tüm uygulamalara erişmek için basit bir hub sunar. Yeni uygulamalar ve gruplara erişim isteyebilir veya aracılığıyla, diğerleri adına bu kaynaklara erişimi yönetme olanağı gibi Self Servis özellikler ile verimliliği artırma [erişim paneli](https://aka.ms/AccessPanelDPDownload).
+* Azure AD erişim paneli: Dağıtılan uygulama proxy'si hizmeti ile güvenli bir şekilde yayımlanan uygulamalar, kullanıcılarınızın bulmak ve tüm uygulamalara erişmek için basit bir hub sunar. Yeni uygulamalar ve gruplara erişim isteyebilir veya aracılığıyla, diğerleri adına bu kaynaklara erişimi yönetme olanağı gibi Self Servis özellikler ile verimliliği artırma [erişim paneli](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Uygulamanızı yönetme
 
@@ -290,7 +295,7 @@ Azure AD sağlama kullanım ve denetim günlüklerini ve raporları ile operasyo
 
 #### <a name="application-audit-logs"></a>Uygulama denetim günlükleri
 
-Bu günlükler cihaz ve uygulama erişen kullanıcı hakkında bilgi yanı sıra, uygulama proxy'si ile yapılandırılan uygulamalar için oturum açma bilgileri ayrıntılı olarak açıklanmaktadır. Bunlar, Azure portalında ve denetim API'si yer alır.
+Bu günlükler, uygulama ara sunucusu ve cihaz ve uygulama erişen bir kullanıcı ile yapılandırılan uygulamalar için oturum açma bilgileri hakkında ayrıntılı bilgi sağlar. Denetim günlükleri dışarı aktarmak için Azure portalında ve denetim API'si yer alır.
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Windows olay günlükleri ve performans sayaçları
 
@@ -300,7 +305,7 @@ Bağlayıcılar, hem yönetim hem de oturum sahip günlükleri. Yönetici günl�
 
 Sık karşılaşılan sorunları ve bunların kılavuzunu ile nasıl çözüleceğine hakkında daha fazla bilgi [sorun giderme](application-proxy-troubleshoot.md) hata iletileri. 
 
-Bu makaleler, yaygın senaryoları kapsar, ancak destek kuruluşunuz için kendi sorun giderme kılavuzları de oluşturabilirsiniz. 
+Aşağıdaki makaleler de destek kuruluşunuz için sorun giderme kılavuzları oluşturmak için kullanılan yaygın senaryoları kapsar. 
 
 * [Uygulama sayfası görüntülenirken sorun oluşuyor](application-proxy-page-appearance-broken-problem.md)
 * [Uygulamanın yüklenmesi çok uzun sürüyor](application-proxy-page-load-speed-problem.md)

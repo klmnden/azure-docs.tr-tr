@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795939"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957324"
 ---
 # <a name="clustering-point-data"></a>Veri noktası kümeleme
 
@@ -33,7 +33,7 @@ var datasource = new atlas.source.DataSource(null, {
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
 
-    //The maximium zoom level in which clustering occurs.
+    //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15 
 });
@@ -46,9 +46,9 @@ var datasource = new atlas.source.DataSource(null, {
 
 | Yöntem | Dönüş türü | Açıklama |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promise&lt;özellik&lt;geometri herhangi&gt; \| şekli&gt; | Sonraki yakınlaştırma düzeyini kümede belirli alt öğeleri alır. Bu alt şekiller ve subclusters bir birleşimi olabilir. Subclusters özellikleri ClusteredProperties eşleşen özelliklere sahip olacaktır. |
+| getClusterChildren(clusterId: number) | Promise&lt;dizi&lt;özellik&lt;geometri herhangi&gt; \| şekli&gt;&gt; | Sonraki yakınlaştırma düzeyini kümede belirli alt öğeleri alır. Bu alt şekiller ve subclusters bir birleşimi olabilir. Subclusters özellikleri ClusteredProperties eşleşen özelliklere sahip olacaktır. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;numarası&gt; | Başlangıçtan kümeyi genişleterek başlatır veya parçalama yakınlaştırma düzeyi hesaplar. |
-| getClusterLeaves (Lclusterıd: sayı, sınırı: sayı, offset: sayı) | Promise&lt;özellik&lt;geometri herhangi&gt; \| şekli&gt; | Bir kümedeki tüm noktalarını alır. Ayarlama `limit` noktalarının bir alt kümesi döndürür ve `offset` sayfasına noktaları üzerinden. |
+| getClusterLeaves (Lclusterıd: sayı, sınırı: sayı, offset: sayı) | Promise&lt;dizi&lt;özellik&lt;geometri herhangi&gt; \| şekli&gt;&gt; | Bir kümedeki tüm noktalarını alır. Ayarlama `limit` noktalarının bir alt kümesi döndürür ve `offset` sayfasına noktaları üzerinden. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Kabarcık Katman'ı kullanarak kümeleri görüntüleme
 
@@ -89,7 +89,7 @@ Kümelenmiş bir veri noktasının kümelenmiş veri noktalarını içeren bir k
 | küme | boole | Özellik bir kümeyi temsil edip etmediğini belirtir. |
 | cluster_id | string | Veri kaynağı ile kullanılabilecek kümesi için benzersiz bir kimlik `getClusterExpansionZoom`, `getClusterChildren`, ve `getClusterLeaves` yöntemleri. |
 | point_count | number | Kümeyi içeren nokta sayısı. |
-| point_count_abbreviated | string | Uzun olursa kısaltmasıdır point_count değeri bir dize. (örneğin, 4 K 4.000 olur) |
+| point_count_abbreviated | string | Kısaltmasıdır bir dize `point_count` uzun olursa değer. (örneğin, 4 K 4.000 olur) |
 
 Bu örnekte, küme noktaları oluşturur ve bir tıklama olayı ekler Kabarcık katmanındaki alır, tetiklendiğinde, hesaplama ve harita yakınlaştırma, küme bozar parçalayın kullanarak bir sonraki yakınlaştırma düzeyi `getClusterExpansionZoom` yöntemi `DataSource` sınıfı ve `cluster_id` özelliği tıklandı kümelenmiş veri noktası. 
 

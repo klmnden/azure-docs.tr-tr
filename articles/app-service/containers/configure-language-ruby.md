@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 402c85e7902c8c2f612ad6c777d8f6773a4d0ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 412efac3742acf7ad1cdc3d08f9d90c4d39bad3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854876"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956123"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Bir Linux Ruby uygulamasını Azure App Service için yapılandırma
 
@@ -57,7 +57,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
-> or
+> veya
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
@@ -65,7 +65,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Ortam değişkenlerine erişme
 
-Uygulama hizmetinde [uygulama ayarlarını belirlemek](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) , uygulama kodunuz dışında. Standardını kullanarak bunlar erişebilir [ENV ['< yol-name >']](https://ruby-doc.org/core-2.3.3/ENV.html) deseni. Örneğin, bir uygulama ayarı erişmeye adlı `WEBSITE_SITE_NAME`, aşağıdaki kodu kullanın:
+Uygulama hizmetinde [uygulama ayarlarını belirlemek](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) , uygulama kodunuz dışında. Standardını kullanarak bunlar erişebilir [ENV ['< yol-name >']](https://ruby-doc.org/core-2.3.3/ENV.html) deseni. Örneğin, bir uygulama ayarı erişmeye adlı `WEBSITE_SITE_NAME`, aşağıdaki kodu kullanın:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -82,7 +82,7 @@ Dağıtırken bir [Git deposu](../deploy-local-git.md?toc=%2fazure%2fapp-service
 
 ### <a name="use---without-flag"></a>--Bayrağı olmadan kullanın
 
-Çalıştırılacak `bundle install` ile [--olmadan](https://bundler.io/man/bundle-install.1.html) bayrak olarak ayarlayın `BUNDLE_WITHOUT` [uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) grupları virgülle ayrılmış listesi. Örneğin, aşağıdaki komut, ayarlar `development,test`.
+Çalıştırılacak `bundle install` ile [--olmadan](https://bundler.io/man/bundle-install.1.html) bayrak olarak ayarlayın `BUNDLE_WITHOUT` [uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) grupları virgülle ayrılmış listesi. Örneğin, aşağıdaki komut, ayarlar `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
@@ -92,7 +92,7 @@ Bu ayar tanımlanan sonra dağıtım altyapısında çalışan `bundle install` 
 
 ### <a name="precompile-assets"></a>Varlıkları önceden derleme
 
-Dağıtım sonrası adımları varlıkları varsayılan olarak önceden derleme yok. Varlık ön derleme üzerinde etkinleştirmek için ayarlanmış `ASSETS_PRECOMPILE` [uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) için `true`. Komut `bundle exec rake --trace assets:precompile` dağıtım sonrası adımları sonunda çalıştırın. Örneğin:
+Dağıtım sonrası adımları varlıkları varsayılan olarak önceden derleme yok. Varlık ön derleme üzerinde etkinleştirmek için ayarlanmış `ASSETS_PRECOMPILE` [uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) için `true`. Komut `bundle exec rake --trace assets:precompile` dağıtım sonrası adımları sonunda çalıştırın. Örneğin:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -121,7 +121,7 @@ Başlatma işlemi aşağıdaki şekillerde özelleştirebilirsiniz:
 Rails sunucusunu Ruby kapsayıcısında, varsayılan olarak, üretim modunda çalışır ve [varlıklar önceden derlenmiş ve web sunucunuz tarafından sunulan varsayar](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Rails sunucusunu statik varlıklarından görmesi için iki işlem yapmanız gerekir:
 
 - **Varlıkları ön derleme** - [statik varlıkları yerel olarak ön derleme](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) ve bunları el ile dağıtabilirsiniz. Veya bunun yerine işlemek dağıtım altyapısı sağlar (bkz [varlıklar ön derleme](#precompile-assets).
-- **Statik dosyaları sunma etkinleştirme** - Ruby kapsayıcısına statik varlıklarından sunmak için ayarlayın `RAILS_SERVE_STATIC_FILES` [ayarlamak `RAILS_SERVE_STATIC_FILES` uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) için `true`. Örneğin:
+- **Statik dosyaları sunma etkinleştirme** - Ruby kapsayıcısına statik varlıklarından sunmak için ayarlayın `RAILS_SERVE_STATIC_FILES` [ayarlamak `RAILS_SERVE_STATIC_FILES` uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) için `true`. Örneğin:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -129,13 +129,13 @@ Rails sunucusunu Ruby kapsayıcısında, varsayılan olarak, üretim modunda ça
 
 ### <a name="run-in-non-production-mode"></a>Üretim dışı modunda çalıştır
 
-Rails sunucusunu üretim modunda çalıştırır. Örneğin, geliştirme modunda çalışacak şekilde ayarlamak `RAILS_ENV` [uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) için `development`.
+Rails sunucusunu üretim modunda çalıştırır. Örneğin, geliştirme modunda çalışacak şekilde ayarlamak `RAILS_ENV` [uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) için `development`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-Ancak, bu ayar tek başına localhost yalnızca ister ve kapsayıcı dışında erişilebilir değildir kabul geliştirme modunda başlatmak Rails sunucusunu neden olur. Uzak istemci isteklerini kabul etmek için ayarlama `APP_COMMAND_LINE` [uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) için `rails server -b 0.0.0.0`. Bu uygulama ayarı, özel komut Ruby kapsayıcısında çalıştırmanıza olanak tanır. Örneğin:
+Ancak, bu ayar tek başına localhost yalnızca ister ve kapsayıcı dışında erişilebilir değildir kabul geliştirme modunda başlatmak Rails sunucusunu neden olur. Uzak istemci isteklerini kabul etmek için ayarlama `APP_COMMAND_LINE` [uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) için `rails server -b 0.0.0.0`. Bu uygulama ayarı, özel komut Ruby kapsayıcısında çalıştırmanıza olanak tanır. Örneğin:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
@@ -143,7 +143,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secretkeybase-manually"></a>Secret_key_base el ile ayarlama
 
-Kendi kullanılacak `secret_key_base` ayarlayın, sizin için oluşturur. App Service izin vermek yerine değer `SECRET_KEY_BASE` [uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) istediğiniz değer. Örneğin:
+Kendi kullanılacak `secret_key_base` ayarlayın, sizin için oluşturur. App Service izin vermek yerine değer `SECRET_KEY_BASE` [uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) istediğiniz değer. Örneğin:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

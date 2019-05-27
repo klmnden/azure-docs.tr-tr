@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233970"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949578"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -150,7 +150,7 @@ Kullanıcıların ve grupların kimlikleri, Azure Active Directory (Azure AD) ki
 
 #### <a name="the-owning-group"></a>Sahip olan grup
 
-POSIX ACL'lerinde her kullanıcı ile ilişkili bir *birincil grup*. Örneğin, "Gamze adlı" kullanıcı "Finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait olabilir, ancak bir grup her zaman birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur). Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
+POSIX ACL'lerinde her kullanıcı ile ilişkili bir *birincil grup*. Örneğin, "Gamze adlı" kullanıcı "Finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait, ancak bir grup her zaman kendi birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur). Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Yeni dosya veya dizin sahip olan grup atama
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780363"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956405"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Azure CNI ağı yapılandırma
 
@@ -41,6 +41,7 @@ Pod'ların ve küme düğümleri için IP adresleri, sanal ağ içinde belirtile
 > Gerekli IP adresi sayısı, yükseltme ve ölçeklendirme işlemlerinin dikkate alınacak noktalar içermelidir. Yalnızca düğümlerin sabit sayıda desteklemek için IP adresi aralığı ayarlarsanız, yükseltin veya kümenizi ölçeklendirme.
 >
 > - Olduğunda, **yükseltme** AKS kümenizi, yeni bir düğüm kümesine dağıtılır. Hizmetleri ve iş yüklerini yeni düğüm üzerinde çalışmaya başlar ve daha eski bir düğümü kümeden kaldırılır. Bu sıralı yükseltme işlemi en az bir ek kullanılabilir olması için IP adres bloğunu gerektirir. Bu durumda, düğüm sayısını `n + 1`.
+>   - Windows Server düğüm havuzları (şu anda önizlemede aks'deki) kullandığınızda, bu özellikle önemli bir noktadır. Windows Server düğümleri aks'deki otomatik olarak Windows güncelleştirmeleri geçerli değildir, bunun yerine yükseltme düğüm havuzu üzerinde gerçekleştirin. Bu yükseltme, yeni düğümleri en son penceresi sunucu 2019 temel düğümünün görüntüsü ve güvenlik düzeltme eklerinin dağıtır. Bir Windows Server düğüm havuzu yükseltme hakkında daha fazla bilgi için bkz. [aks'deki bir düğüm havuzunu yükseltme][nodepool-upgrade].
 >
 > - Olduğunda, **ölçek** AKS kümesi, yeni bir düğüm kümesine dağıtılır. Hizmetleri ve iş yüklerini yeni düğüm üzerinde çalışmaya başlar. IP adresi aralığınızı düğümleri ve kümenize destekleyebilir pod'ların sayısını ölçeklendirmek nasıl isteyebileceğiniz noktaları olması gerekir. Yükseltme işlemleri için ek bir düğümü da bulunması gerekir. Bu durumda, düğüm sayısını `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -68,7 +69,7 @@ Pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını 250'dir. 
 
 ### <a name="configure-maximum---new-clusters"></a>Maksimum - yeni kümeleri yapılandırma
 
-Pod'ların düğüm başına en fazla sayısını yapılandırabilirsiniz *küme dağıtım sırasında yalnızca*. Azure CLI veya Resource Manager şablonu ile dağıtırsanız, aşağıdaki içinde gerektiğinde maksimum pod'ların her düğüm değeri ayarlayabilirsiniz `maxPods` yönergeleri:
+Pod'ların düğüm başına en fazla sayısını yapılandırabilirsiniz *küme dağıtım sırasında yalnızca*. Azure CLI veya Resource Manager şablonu ile dağıtırsanız, maksimum pod'ların her düğüm değeri 250 yüksek olarak ayarlayabilirsiniz.
 
 | Ağ | Minimum | Maksimum |
 | -- | :--: | :--: |
@@ -76,8 +77,7 @@ Pod'ların düğüm başına en fazla sayısını yapılandırabilirsiniz *küme
 | Kubernetes | 30 | 110 |
 
 > [!NOTE]
-> Yukarıdaki tabloda en küçük değerin kesinlikle AKS hizmeti tarafından zorlanır.
-Bir maxPods değer yapmak böylece küme başlamasını engelleyebilir olarak gösterilen en küçük ayarlanamaz.
+> Yukarıdaki tabloda en küçük değerin kesinlikle AKS hizmeti tarafından zorlanır. Bir maxPods değer yapmak böylece küme başlamasını engelleyebilir olarak gösterilen en küçük ayarlanamaz.
 
 * **Azure CLI**: Belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma] [ az-aks-create] komutu. En yüksek değer 250'dir.
 * **Resource Manager şablonu**: Belirtin `maxPods` özelliğinde [ManagedClusterAgentPoolProfile] bir Resource Manager şablonu ile bir küme dağıtılırken nesne. En yüksek değer 250'dir.
@@ -114,7 +114,7 @@ Azure CLI ile bir AKS kümesi oluşturduğunuzda, Azure CNI ağ da yapılandıra
 
 İlk olarak, AKS kümesi katılması mevcut alt ağı için alt ağ kaynak Kimliğini alın:
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -125,7 +125,7 @@ $ az network vnet subnet list \
 
 Kullanım [az aks oluşturma] [ az-aks-create] komutunu `--network-plugin azure` ile Gelişmiş Ağ bir küme oluşturmak için bağımsız değişken. Güncelleştirme `--vnet-subnet-id` önceki adımda toplanan alt ağ kimliği değeri:
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -133,7 +133,8 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24
+    --service-cidr 10.2.0.0/24 \
+    --generate-ssh-keys
 ```
 
 ## <a name="configure-networking---portal"></a>Ağ - portal
@@ -211,3 +212,4 @@ AKS altyapıyla oluşturulmuş Kubernetes kümeleri destekleyen hem de [kubernet
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

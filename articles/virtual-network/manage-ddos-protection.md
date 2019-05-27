@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203518"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911251"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS koruması Azure portalını kullanarak standart yönetme
 
@@ -203,6 +203,19 @@ Microsoft ile kurdu [BreakingPoint Cloud](https://www.ixiacom.com/products/break
 - Olay yanıtlama işleminize DDoS saldırıya en iyi duruma getirme
 - Belge DDoS uygunluk
 - Ağ güvenlik gruplarını eğitin
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki DDoS koruması Uyarıları görüntüle
+
+Azure Güvenlik Merkezi bir listesini sağlar [güvenlik uyarıları](/azure/security-center/security-center-managing-and-responding-alerts), araştırın ve sorunları düzeltmenize yardımcı olacak bilgiler ile. Bu özellik sayesinde, uyarılar, DDoS saldırı ilgili uyarıları ve yakın zamanda saldırının etkilerini hafifletmek için yapılan Eylemler dahil olmak üzere, birleşik bir görünümünü alırsınız.
+İki belirli uyarılar için herhangi bir DDoS göreceği saldırı algılama ve önleme vardır:
+
+- **DDoS saldırı algılandığında genel IP için**: DDoS koruması hizmeti, genel IP adreslerinden birini bir DDoS saldırısının hedef olduğunu algıladığında, bu uyarı oluşturulur.
+- **DDoS saldırılarının azaltılabilir genel IP için**: Genel IP adresini bir saldırı azaltılabilir olduğunda bu uyarı oluşturulur.
+Uyarıları görüntülemek için Aç **Güvenlik Merkezi** Azure portalında. Altında **tehdit koruması**seçin **güvenlik uyarıları**. Aşağıdaki ekran görüntüsünde, DDoS saldırı uyarılar örneği gösterilmektedir.
+
+![Azure Güvenlik Merkezi'nde DDoS uyarı](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Uyarılar, saldırı, coğrafi ve tehdit bilgileri ve düzeltmeler adımları altında olan ortak IP adresi hakkında genel bilgiler içerir.
 
 ## <a name="permissions"></a>İzinler
 

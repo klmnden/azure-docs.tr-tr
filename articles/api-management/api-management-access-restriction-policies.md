@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541689"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921208"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management erişim kısıtlama ilkeleri
 
@@ -315,8 +315,6 @@ Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.micro
 `quota-by-key` Yenilenebilir veya ömrü çağrı birim ve/veya bant genişliği kota anahtarı başına temelinde ilkeleri uygular. Anahtar, rastgele bir dize olabilir ve genellikle bir ilke ifadesi kullanılarak sağlanır. Hangi istekler kota hesaplamanıza dahil sayılması belirtmek için isteğe bağlı increment koşul eklenebilir. Birden çok ilke, aynı anahtar değeri gerçekleştirilemediği, istek başına yalnızca bir kez artırılır. Çağrı sınıra ulaşıldığında, çağırana alır bir `403 Forbidden` yanıt durum kodu.
 
 Daha fazla bilgi ve işbu politikaya ilişkin örnekler için bkz. [Gelişmiş istek azaltma ile Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
-
-> [İlke ifadeleri](api-management-policy-expressions.md) herhangi bir ilke özniteliği bu ilke için kullanılamaz.
 
 ### <a name="policy-statement"></a>İlke bildirimi
 

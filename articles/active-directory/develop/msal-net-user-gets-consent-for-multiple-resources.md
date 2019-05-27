@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544043"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121981"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Kullanıcı onayı MSAL.NET kullanarak çeşitli kaynaklar için alır.
 Microsoft kimlik platformu uç noktası için çeşitli kaynaklar tek seferde bir belirteç almak üzere izin vermez. Microsoft kimlik doğrulama kitaplığı .NET (MSAL.NET) kullanırken, kapsamları parametreyi alma belirteci yöntemi yalnızca tek bir kaynak için kapsamları içermelidir. Ancak, ön maliyet bazı kaynakları kullanarak ek kapsamlarla belirterek önceden onaylayabileceğini `.WithExtraScopeToConsent` Oluşturucu yöntemi.
@@ -32,8 +32,8 @@ Microsoft kimlik platformu uç noktası için çeşitli kaynaklar tek seferde bi
 
 Örneğin, sahip iki kaynaklarınız varsa 2 her kapsamları:
 
-- https://mytenant.onmicrosoft.com/customerapi (2 kapsamlı `customer.read` ve `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (2 kapsamlı `vendor.read` ve `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (2 kapsamlı `customer.read` ve `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (2 kapsamlı `vendor.read` ve `vendor.write`)
 
 Kullanmanız gereken `.WithExtraScopeToConsent` olan değiştirici *extraScopesToConsent* aşağıdaki örnekte gösterildiği gibi parametre:
 

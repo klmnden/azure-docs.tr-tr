@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415233"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956582"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 
@@ -27,6 +27,9 @@ ms.locfileid: "60415233"
 Artık şirket içi Multi-Factor Authentication Sunucusu’nı kullanıp kullanmayacağımıza karar verdiğimize göre, devam edebiliriz. Bu sayfa yeni bir sunucu yüklemeyi ve şirket içi Active Directory’de kurulumunu yapmayı ele alır. MFA sunucusu zaten yüklüyse ve yükseltmek istiyorsanız bkz. [En yeni Azure Multi-Factor Authentication Sunucusu’na yükseltme](howto-mfaserver-deploy-upgrade.md). Yalnızca web hizmetini yükleme hakkında bilgi almak istiyorsanız bkz. [Azure Multi-Factor Authentication Sunucusu Mobil Uygulama Web Hizmeti’ni dağıtma](howto-mfaserver-deploy-mobileapp.md).
 
 ## <a name="plan-your-deployment"></a>Dağıtımınızı planlama
+
+> [!WARNING]
+> 2019 MFA Server'ın Mart ayından başlayarak yüklemeler yalnızca ücretli kiracılar için kullanılabilir. Ücretsiz deneme kiracıları artık indirin veya oluşturma ve etkinleştirme kimlik bilgileri kullanmak mümkün olacaktır.
 
 Azure Multi-Factor Authentication Sunucusu'nu indirmeden önce yük ve yüksek kullanılabilirlik gereksinimlerinizi göz önünde bulundurun. Bu bilgileri kullanarak nasıl ve nereye dağıtım gerçekleştireceğinize karar verin.
 
@@ -90,6 +93,9 @@ Olay Onayı özelliğini kullanmıyorsanız ve kullanıcılarınız şirket ağ�
 
 ## <a name="download-the-mfa-server"></a>MFA Sunucusu'nu indirme
 
+> [!WARNING]
+> 2019 MFA Server'ın Mart ayından başlayarak yüklemeler yalnızca ücretli kiracılar için kullanılabilir. Ücretsiz deneme kiracıları artık indirin veya oluşturma ve etkinleştirme kimlik bilgileri kullanmak mümkün olacaktır.
+
 Azure portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
@@ -102,9 +108,6 @@ Azure portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için 
 5. Yükleyiciyi çalıştırdıktan sonra bakacağımızdan bu sayfayı açık tutun.
 
 ## <a name="install-and-configure-the-mfa-server"></a>MFA Sunucusu'nu yükleme ve yapılandırma
-
-> [!WARNING]
-> 2019 MFA Server'ın Mart ayından başlayarak yüklemeler yalnızca ücretli kiracılar için kullanılabilir. Ücretsiz deneme kiracıları artık indirin veya oluşturma ve etkinleştirme kimlik bilgileri kullanmak mümkün olacaktır.
 
 Artık sunucuyu indirdiğinize göre, yükleyebilir ve yapılandırabilirsiniz. Yükleme yaptığınız sunucunun, planlama bölümünde listelenen gereksinimleri karşıladığından emin olun.
 

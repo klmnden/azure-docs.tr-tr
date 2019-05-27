@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: android
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
-ms.reviewer: dadobali
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 288581ed3ca339ad9126336556e7b0b565fbbafa
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545696"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122004"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
 
@@ -86,18 +85,17 @@ mAuthResult.getAccessToken()
     - ***Azure Active Directory*** > ***Uygulama kayıtları***’nı seçin.
 
 2. Uygulama oluşturma
-    - **Yeni uygulama kaydı**’nı seçin.
+    - Seçin **yeni kayıt**.
     - **Ad** alanına bir uygulama adı girin.
-    - **Uygulama türü**’nde **Yerel**’i seçin.
-    - **Yeniden yönlendirme URI'si** olarak `http://localhost` girin.
+    - Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
+    - İçinde **yeniden yönlendirme URI'si**seçin **genel istemci (Mobil ve Masaüstü)** açılır listeden seçip `http://localhost`.
+    - Tıklayın **kaydetme**.
 
 3. Microsoft Graph’ı yapılandırma
-    - **Ayarlar > Gerekli izinler**’i seçin.
-    - **Ekle**’yi seçin, **Bir API seçin** alanında ***Microsoft Graph***’ı seçin.
-    - **Oturum açma ve kullanıcı profilini okuma** iznini seçin ve kaydetmek için **Seç**'e basın.
-        - Bu izin `User.Read` kapsamıyla eşleşir.
-    - İsteğe bağlı: İçinde **gerekli izinler > Windows Azure Active Directory**, seçili izinleri kaldırmak **oturum açın ve kullanıcı profilini okuma**. Bu, kullanıcı onayı sayfasında iznin iki kez listelemesini önler.
-
+    - Seçin **API izinleri**.
+    - Seçin **bir izin eklemek**içine **bir API seçin** seçin ***Microsoft Graph***.
+    - Altında **temsilci izinleri**, izni seçin **User.Read**, ardından isabet **Ekle** kaydetmek için.        
+    
 4. Tebrikler! Uygulamanız başarıyla yapılandırıldı. Sonraki bölümde size gerekecekler:
     - `Application ID`
     - `Redirect URI`

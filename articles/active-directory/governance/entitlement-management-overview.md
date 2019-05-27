@@ -16,12 +16,12 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873602"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921063"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD hak yönetimi nedir? (Önizleme)
 
@@ -114,7 +114,7 @@ Aşağıdaki diyagramda, Hak Yönetimi'nde farklı öğelerinin bir örneği gö
 
 Kullanırken [Azure AD--işletmeler arası (B2B)](../b2b/what-is-b2b.md) deneyimi, davet e-posta adreslerini kaynak dizininizi taşıyın ve çalışmak istediğiniz dış konuk kullanıcılara önceden bilmeniz gerekir. Daha küçük ya da kısa süreli bir proje üzerinde çalışıyorsanız ve tüm katılımcıları bildiğiniz, ancak bu kullanıcılar, birlikte çalışmak istediğiniz sayıda varsa yönetmek için zordur veya katılımcılar zamanla değişiyorsa harika bu çalışır.  Örneğin, başka bir kuruluşla çalışma ve söz konusu kuruluştaki ile bir iletişim noktası olmalıdır, ancak zaman içinde o kuruluştan ek kullanıcılar ayrıca erişim gerekir.
 
-Hak Yönetimi ile Azure AD erişim paket isteği için de kullanıyorsanız, belirttiğiniz kuruluşlardan izin veren bir ilke tanımlayabilirsiniz. Onay gerekli olup olmadığını ve erişim için bir sona erme tarihi belirtebilirsiniz. Onay gerekli olursa, onaylayan olarak da belirleyebilirsiniz kuruluşlarında hangi dış kullanıcıların erişim gerektiğini öğrenmek olası olduğundan, daha önce - davet dış kuruluştan bir veya daha fazla kullanıcı. Erişim paketi yapılandırdıktan sonra dış kuruluşta, kişi için erişimi paketi bir bağlantı gönderebilirsiniz. Paket erişim istemek için bu bağlantıyı kullanabilirsiniz ve bu kişiyi dış kuruluştaki kullanıcılar, başkalarıyla paylaşabilir.  Dizininize davet kullanıcıların, kuruluş, bu bağlantıyı da kullanabilirsiniz.
+Hak Yönetimi ile Azure AD erişim paket isteği için de kullanıyorsanız, belirttiğiniz kuruluşlardan izin veren bir ilke tanımlayabilirsiniz. Onay gerekli olup olmadığını ve erişim için bir sona erme tarihi belirtebilirsiniz. Onay gerekli olursa, onaylayan olarak da belirleyebilirsiniz kuruluşlarında hangi dış kullanıcıların erişim gerektiğini öğrenmek olası olduğundan, daha önce - davet dış kuruluştan bir veya daha fazla kullanıcı. Erişim paketi yapılandırdıktan sonra dış kuruluşta, kişi için erişimi paketi bir bağlantı gönderebilirsiniz. Bu kişiyi dış kuruluşunuzdaki diğer kullanıcılarla paylaşabilir ve paket erişim istemek için bu bağlantıyı kullanabilirsiniz.  Dizininize davet edildiniz söz konusu kuruluştaki kullanıcılar, bu bağlantıyı da kullanabilirsiniz.
 
 Bir istek onaylandığında, hak yönetimi değil zaten dizininizde iseler kullanıcı davet içerebilecek gerekli erişimi olan kullanıcı sağlanır. Azure AD B2B hesabı kendileri için otomatik olarak oluşturur.  Yöneticinin önceden ayarlayarak, hangi kuruluşların işbirliği için izin verilen sınırlı olabileceğini unutmayın bir [B2B izin verme veya reddetme](../b2b/allow-deny-list.md) izin vermeyi veya engellemeyi, diğer kuruluşlar için davet eder.  Kullanıcı izin verilenler veya Engellenenler listesi tarafından izin verilmiyor, ardından bunların davet edilir değil.
 
@@ -130,7 +130,7 @@ Hak Yönetimi ve belgelerini daha iyi anlamak için aşağıdaki koşulları gö
 | Paket erişim | İzinleri ve ilkeleri kullanıcılar isteyebilir kaynakları koleksiyonudur. Bir erişim paket her zaman bir katalogda yer alır. |
 | erişim isteği | Bir erişim paket erişimi için istek. Bir istek genellikle bir iş akışı gider. |
 | ilke | Nasıl kullanıcıları, erişim elde kimler onaylayabilir ve ne kadar süreyle kullanıcıların erişimi gibi erişim yaşam döngüsünü tanımlayan kuralları kümesi. Örnek ilkeleri ve dış çalışan erişimi içerir. |
-| katalog | İlgili kaynakları ve erişim paketleri bir kapsayıcısı. |
+| catalog | İlgili kaynakları ve erişim paketleri bir kapsayıcısı. |
 | Genel katalog | Her zaman kullanılabilir yerleşik bir kataloğu. Genel kataloğa kaynakları eklemek için belirli izinler gerektirir. |
 | kaynak | Bir varlık veya bir kullanıcı için izinler verilebilir hizmet (örneğin, grubu, uygulama veya site). |
 | kaynak türü | Grupları, uygulamaları ve SharePoint Online siteleri içeren bir kaynak türü. |

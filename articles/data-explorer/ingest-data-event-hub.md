@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/02/2018
-ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446100"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898930"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma
 
@@ -22,11 +22,11 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
-* [Test kümesi ve veritabanı](create-cluster-database-portal.md)
+* [Bir test kümesi ile veritabanı](create-cluster-database-portal.md).
 
 * [Örnek bir uygulama](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) veri üretir ve olay hub'ına gönderir. Örnek uygulamayı sisteminize indirin.
 
-* Örnek uygulamayı çalıştırmak için [Visual Studio 2017 sürüm 15.3.2 veya üzeri](https://www.visualstudio.com/vs/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) örnek uygulamayı çalıştırın.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
@@ -46,7 +46,7 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
 
 1. Olay hub'ının oluşturulmasını istediğiniz aboneliği seçin ve *test-hub-rg* adlı bir kaynak grubu oluşturun.
 
-    ![Kaynak grubu oluşturma](media/ingest-data-event-hub/create-resource-group.png)
+    ![Kaynak grubu oluşturun](media/ingest-data-event-hub/create-resource-group.png)
 
 1. Formu aşağıdaki bilgilerle doldurun.
 
@@ -111,7 +111,7 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Veri bağlantısı adı | *test-hub-connection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
-    | Olay hub’ı ad alanı | Benzersiz bir ad alanı adı | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
+    | Olay hub'ı ad alanı | Benzersiz bir ad alanı adı | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
     | Olay hub'ı | *test-hub* | Oluşturduğunuz olay hub'ı. |
     | Tüketici grubu | *test-group* | Oluşturduğunuz olay hub'ında tanımlanan tüketici grubu. |
     | | |

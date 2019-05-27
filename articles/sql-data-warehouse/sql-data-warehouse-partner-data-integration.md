@@ -2,26 +2,26 @@
 title: SQL veri ambarı veri tümleştirme iş ortakları | Microsoft Docs
 description: Azure SQL veri ambarı'nı destekleyen bir veri tümleştirme çözümleri ile üçüncü taraf iş ortaklarından oluşan listeler.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476846"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873793"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL veri ambarı veri tümleştirme iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Azure SQL veri ambarı destek resmi veri tümleştirme çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
 
 ## <a name="data-integration-partners"></a>Veri tümleştirme iş ortakları
-| İş ortağı | Açıklama | Web sitesi/ürün bağlantısı |
+| İş Ortağı | Açıklama | Web sitesi/ürün bağlantısı |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma veri ekipleri, tümleştirme, zenginleştirin ve verileri çeşitli veri ambarlarının yayılması gelen SQL veri ambarı tüm gerçek zamanlı akış sağlayan bir ETL çözümüdür. |[Ürün sayfası][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Tasarımcısı, daha kapsamlı içgörüler için değil, geleneksel yaklaşım tipik hafta saat olarak müşteri adayları Self Servis veri analizi için bir iş akışı sağlar! Alteryx Tasarımcısı, veri hazırlama, verileri ve Tahmine dayalı, istatistiksel ve uzamsal – aynı sezgisel kullanıcı arabirimini kullanarak Analiz – birleştirerek veri analistleri yardımcı olur. |[Ürün sayfası][alteryx_designer_website]<br>[Azure Market][alteryx_marketplace]<br>|

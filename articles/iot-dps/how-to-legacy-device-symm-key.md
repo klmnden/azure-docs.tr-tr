@@ -2,19 +2,18 @@
 title: Azure IOT Hub cihazı sağlama hizmeti ile eski cihazları sağlamak için simetrik anahtarları kullanma | Microsoft Docs
 description: Eski cihazları, cihaz sağlama hizmeti örneği ile sağlamak için simetrik anahtarları kullanma
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775194"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914307"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Simetrik anahtarlar kullanarak eski cihazları sağlamasını yapma
 
@@ -44,7 +43,7 @@ Bu makalede gösterilmiştir cihaz kodu olarak aynı deseni takip [hızlı başl
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Tamamlanmasından [IOT Hub cihazı sağlama hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) hızlı başlangıç.
-* ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 veya üzeri ile [' ile masaüstü geliştirme C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirilmiş.
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
 
 
@@ -173,7 +172,7 @@ Değiştirin **anahtarı** ile **birincil anahtar** daha önce not ettiğiniz.
 
 Değiştirin **REG_ID** kayıt kimliğinizle
 
-```PowerShell
+```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -184,7 +183,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```PowerShell
+```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488941"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118178"
 ---
 #### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
 1. Oturum açmak için Microsoft hesabı kimlik bilgilerinizi kullanın [Microsoft Azure kamu portalında](https://portal.azure.us/).

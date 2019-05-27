@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8c0b895c3ef811268c7b67393a5382362601d875
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204384"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921917"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Common Event Format'ı kullanarak dış çözümünüzü bağlayın
 
@@ -61,7 +61,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin. 
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
-   - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına adanmış bir Linux, otomatik olarak çalışma alanınıza bağlı olduğu VM için götürür. VM bir **standart D2s v3 (2 vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
+   - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına adanmış bir Linux, otomatik olarak çalışma alanınıza bağlı olduğu VM için götürür. VM bir **standart D2s v3 (2 Vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
       1. İçinde **özel dağıtım** sayfasında ayrıntılarınızı sağlamak ve bir kullanıcı adı ve parola seçin ve hüküm ve koşulları kabul ediyorsanız, VM satın alın.
       1. Bağlantı sayfada listelenen ayarları kullanarak günlükleri göndermek için gerecinizin yapılandırın. Genel Common Event Format bağlayıcısının bu ayarları kullanın:
          - Protokol UDP =
@@ -90,6 +90,9 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
       2. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
+ İlgili şema CEF olayları Log Analytics'te kullanmak için arama `CommonSecurityLog`.
+
+
 ### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>Aracı üzerinde bir şirket içi Linux sunucusunda dağıtma
 
 Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak için Azure Gözcü aracıyı el ile dağıtın.
@@ -113,17 +116,49 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
       1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
   
-## <a name="step-2-validate-connectivity"></a>2. Adım: Bağlantıyı doğrula
+ İlgili şema CEF olayları Log Analytics'te kullanmak için arama `CommonSecurityLog`.
+
+## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
 
-1. Günlüklerinizi Syslog aracıyı doğru bağlantı noktasına aldığınızdan emin olun. Aracı makinede Syslog şu komutu çalıştırın: `tcpdump -A -ni any  port 514 -vv` Bu komut Syslog makineye CİHAZDAN akışı günlükleri gösterir. Günlükleri doğru bağlantı noktası ve doğru tesis kaynak gerecinde gelen alındığından emin olun.
-2. Syslog cinini ve aracı arasındaki iletişim olup olmadığını denetleyin. Aracı makinede Syslog şu komutu çalıştırın: `tcpdump -A -ni any  port 25226 -vv` Bu komut Syslog makineye CİHAZDAN akışı günlükleri gösterir. Günlükleri de aracıda alındığından emin olun.
-3. Bu komutların her ikisi de başarılı sonuçları sağlanan günlüklerinizi gelme görmek için Log Analytics kontrol edin. Bu gereçlerini akışa tüm olayları ham biçimde Log Analytics kapsamında görünen `CommonSecurityLog` türü.
-1. Hatalar varsa veya günlükleri gelen olmayan denetlemek için konum `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. Syslog iletisi varsayılan boyutunuz (2 KB) 2048 bayt ile sınırlı olduğundan emin olun. Günlükleri çok uzun olması durumunda, bu komutu kullanarak security_events.conf güncelleştirin: `message_length_limit 4096`
-6. İlgili şema CEF olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
+1. Doğru tesis kullandığınızdan emin olun. Tesis gerecinize ve Azure Gözcü'de aynı olmalıdır. Azure Gözcü içinde kullanıyorsanız ve dosyada değişiklik hangi tesis dosyasını kontrol edebilirsiniz `security-config-omsagent.conf`. 
 
+2. Günlüklerinizi Syslog aracıyı doğru bağlantı noktasına aldığınızdan emin olun. Aracı makinede Syslog şu komutu çalıştırın: `tcpdump -A -ni any  port 514 -vv` Bu komut Syslog makineye CİHAZDAN akışı günlükleri gösterir. Günlükleri doğru bağlantı noktası ve doğru tesis kaynak gerecinde gelen alındığından emin olun.
+
+3. Gönderdiğiniz günlükler ile uyumlu olduğundan emin [RFC 5424](https://tools.ietf.org/html/rfc542).
+
+4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.netman/8/netstat). Düzgün dinliyorsa, görürsünüz:
+
+   ![Azure Sentinel bağlantı noktaları](./media/connect-cef/ports.png) 
+
+5. Arka plan programının günlüklerini gönderiyor olun, 514 bağlantı noktasında dinleyecek şekilde ayarlandığından emin olun.
+    - Rsyslog için:<br>Emin olun dosya `/etc/rsyslog.conf` bu yapılandırma şunları içerir:
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      Daha fazla bilgi için [imudp: UDP Syslog giriş Modülü](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) ve [imtcp: TCP Syslog Giriş modülü](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - Syslog-ng:<br>Emin olun dosya `/etc/syslog-ng/syslog-ng.conf` bu yapılandırma şunları içerir:
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     Daha fazla bilgi için bkz. [imudp: UDP Syslog Giriş modülü] (daha fazla bilgi için [syslog-ng açık kaynak sürümü 3.16 - Yönetim Kılavuzu](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+
+1. Syslog cinini ve aracı arasındaki iletişim olup olmadığını denetleyin. Aracı makinede Syslog şu komutu çalıştırın: `tcpdump -A -ni any  port 25226 -vv` Bu komut Syslog makineye CİHAZDAN akışı günlükleri gösterir. Günlükleri de aracıda alındığından emin olun.
+
+6. Bu komutların her ikisi de başarılı sonuçları sağlanan günlüklerinizi gelme görmek için Log Analytics kontrol edin. Bu gereçlerini akışa tüm olayları ham biçimde Log Analytics kapsamında görünen `CommonSecurityLog` türü.
+
+7. Hataları olup olmadığını denetleyin veya günlükleri gelen değil, konum `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Günlük biçimi uyumsuzluğu hatası derse gidin `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` ve dosyaya bakması `security_events.conf`ve günlüklerinizi bu dosyada gördüğünüz normal ifade biçimi eşleştiğinden emin olun.
+
+8. Syslog iletisi varsayılan boyutunuz (2 KB) 2048 bayt ile sınırlı olduğundan emin olun. Günlükleri çok uzun olması durumunda, bu komutu kullanarak security_events.conf güncelleştirin: `message_length_limit 4096`
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

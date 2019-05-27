@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825225"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956853"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulamasında oturum açma sorunları
 
@@ -87,7 +87,7 @@ Kullanıcılarının bir Microsoft uygulamasında oturum açamıyorum istemeyenl
 
 - İçin **Microsoft** **lisans gerektirmeyen uygulamalar**, kontrol etmek için diğer işlemlerden bazıları aşağıda verilmiştir:
 
-  * Uygulamanın istediği, **kullanıcı düzeyi izinleri** (örneğin "Bu kullanıcıların posta kutularına erişim"), kullanıcı uygulamada oturum açtığını emin olun ve gerçekleştirdiği bir **kullanıcıdüzeyionayıişlemi** kendi veri erişim izin vermek için.
+  * Uygulamanın istediği, **kullanıcı düzeyi izinleri** (örneğin "Bu kullanıcıların posta kutularına erişim"), kullanıcı uygulamada oturum açtığını emin olun ve gerçekleştirdiği bir **kullanıcıdüzeyionayıişlemi** verilerine erişmesine izin vermek için.
 
   * Uygulamanın istediği, **yönetici düzeyi izinlerini** (örneğin "tüm kullanıcıların posta kutularına erişim"), genel yönetici yürüttü emin olun bir **yönetici düzeyi onayı işlemi tüm kullanıcılar adına** kuruluştaki.
 

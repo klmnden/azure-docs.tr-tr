@@ -9,12 +9,12 @@ ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192162"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912459"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -426,7 +426,7 @@ Varsa **Percentthrottlingerror'da** ölçüm azaltma bir hata ile başarısız o
 Artış **Percentthrottlingerror'da** genellikle depolama isteklerinin sayısı arasında bir artış ile aynı zamanda oluşur veya uygulamanızı test etme, başlangıçta olduğunuzda yükle. Bu ayrıca kendi istemci "503 Sunucu meşgul" veya "500 işlem zaman aşımı" HTTP durum iletileri depolama işlemleri gibi bildiriminde.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Geçici Percentthrottlingerror'da artış
-Değerini artış görüyorsanız **Percentthrottlingerror'da** yüksek etkinlik dönemlerini uygulama ile çakıştığı, bir üstel (doğrusal değil) geri alma stratejisi için yeniden deneme istemcinizde uygulayın. Geri alma yeniden deneme hemen bölüm azaltmak ve ani trafik kesintisiz uygulamanıza yardımcı olur. Depolama istemci kitaplığı kullanılarak yeniden deneme ilkelerini uygulamanız hakkında daha fazla bilgi için bkz: [durumlarda Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
+Değerini artış görüyorsanız **Percentthrottlingerror'da** yüksek etkinlik dönemlerini uygulama ile çakıştığı, bir üstel (doğrusal değil) geri alma stratejisi için yeniden deneme istemcinizde uygulayın. Geri alma yeniden deneme hemen bölüm azaltmak ve ani trafik kesintisiz uygulamanıza yardımcı olur. Depolama istemci kitaplığı kullanılarak yeniden deneme ilkelerini uygulamanız hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Storage.RetryPolicies ad alanı](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > Ayrıca değerini bir artış görebilirsiniz **Percentthrottlingerror'da** , değil çakıştığı yüksek etkinlik dönemlerini uygulama ile: Burada en olası nedeni yük dengelemeyi iyileştirmek üzere bölümler taşıma depolama hizmetidir.
@@ -469,15 +469,15 @@ Bu hatanın en yaygın nedeni, bir istemcidir depolama hizmeti zaman aşımı s�
 
 | Kaynak | Ayrıntı düzeyi | Ayrıntı düzeyi | İstemci istek kimliği | İşlem metin |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-… |Konum modunu PrimaryOnly başına, birincil konumla işlemi başlatılıyor. |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Eşzamanlı isteği başlatılıyor <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıt bekleniyor. |
-| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |Yanıtı beklenirken özel durum: Uzak sunucu hata döndürdü: (403) Yasak. |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıt alındı. Durum kodu 403, istek kimliği = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, içerik MD5 = =, ETag =. |
-| Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |İşlem sırasında özel bir durum oluştu: Uzak sunucu hata döndürdü: (403) Yasak... |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |İşlemi yeniden denetleniyor. Yeniden deneme sayısı = 0, HTTP durum kodu 403, özel durum = = uzak sunucu bir hata döndürdü: (403) Yasak... |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Sonraki konuma için birincil konum modunu dayalı olarak ayarlandı. |
-| Microsoft.WindowsAzure.Storage |Hata |1 |85d077ab-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan uzak sunucu hata döndürdü: (403) Yasak. |
+| Microsoft.Azure.Storage |Bilgi |3 |85d077ab-… |Konum modunu PrimaryOnly başına, birincil konumla işlemi başlatılıyor. |
+| Microsoft.Azure.Storage |Bilgi |3 |85d077ab-... |Eşzamanlı isteği başlatılıyor <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Bilgi |3 |85d077ab-... |Yanıt bekleniyor. |
+| Microsoft.Azure.Storage |Uyarı |2 |85d077ab-... |Yanıtı beklenirken özel durum: Uzak sunucu hata döndürdü: (403) Yasak. |
+| Microsoft.Azure.Storage |Bilgi |3 |85d077ab-... |Yanıt alındı. Durum kodu 403, istek kimliği = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, içerik MD5 = =, ETag =. |
+| Microsoft.Azure.Storage |Uyarı |2 |85d077ab-... |İşlem sırasında özel bir durum oluştu: Uzak sunucu hata döndürdü: (403) Yasak... |
+| Microsoft.Azure.Storage |Bilgi |3 |85d077ab-... |İşlemi yeniden denetleniyor. Yeniden deneme sayısı = 0, HTTP durum kodu 403, özel durum = = uzak sunucu bir hata döndürdü: (403) Yasak... |
+| Microsoft.Azure.Storage |Bilgi |3 |85d077ab-... |Sonraki konuma için birincil konum modunu dayalı olarak ayarlandı. |
+| Microsoft.Azure.Storage |Hata |1 |85d077ab-... |Yeniden deneme ilkesi için bir yeniden deneme izin vermedi. Başarısız olan uzak sunucu hata döndürdü: (403) Yasak. |
 
 Bu senaryoda, istemcinin sunucuya belirteç göndermeden önce SAS belirteci neden doluyor araştırmanız gerekir:
 

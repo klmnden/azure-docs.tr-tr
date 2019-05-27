@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61254827"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910825"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ Aşağıdaki yönergeler, özel bir .NET etkinliği oluşturmayı ve bir işlem 
 
 ## <a name="walkthrough-create-a-custom-activity"></a>İzlenecek yol: özel etkinlik oluşturma
 ### <a name="prerequisites"></a>Önkoşullar
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)’yı indirip yükleyin
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch önkoşulları
@@ -100,10 +100,10 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
 ### <a name="procedure"></a>Yordam
 1. Oluşturma bir **.NET sınıf kitaplığı** proje.
    <ol type="a">
-     <li>Başlatma <b>Visual Studio 2017</b> veya <b>Visual Studio 2015</b> veya <b>Visual Studio 2013'ün</b> veya <b>Visual Studio 2012</b>.</li>
+     <li>Visual Studio'yu başlatın.</li>
      <li><b>Dosya</b>’ya tıklayın, <b>Yeni</b>’nin üzerine gelin ve <b>Proje</b>’ye tıklayın.</li>
      <li><b>Şablonlar</b>’ı genişletin ve <b>Visual C#</b> seçeneğini belirleyin. Bu izlenecek yolda, C# kullanıyor, ancak özel etkinlik geliştirmek için dilediğiniz .NET dilini kullanabilirsiniz.</li>
-     <li>Seçin <b>sınıf kitaplığı</b> sağ taraftaki proje türleri listesinden. VS 2017'deki seçin <b>sınıf kitaplığı (.NET Framework)</b> </li>
+     <li>Seçin <b>sınıf kitaplığı</b> sağ taraftaki proje türleri listesinden. Visual Studio'da <b>sınıf kitaplığı (.NET Framework)</b> </li>
      <li>Girin <b>MyDotNetActivity</b> için <b>adı</b>.</li>
      <li>Seçin <b>C:\ADFGetStarted</b> için <b>konumu</b>.</li>
      <li>Projeyi oluşturmak için <b>Tamam</b>'a tıklayın.</li>
@@ -476,7 +476,7 @@ Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory�
 
        İçin **poolName** özelliği, havuzun havuz adı yerine Kimliğini belirtebilirsiniz.
 
-### <a name="step-3-create-datasets"></a>3. Adım: Veri kümeleri oluşturma
+### <a name="step-3-create-datasets"></a>3. adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
@@ -713,7 +713,7 @@ Sorun giderme birkaç temel teknikten oluşur:
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
-    Projeyi derleyin. Sürüm > 4.3.0 Azure.Storage derlemenin bin\Debug klasöründen silin. İkili dosyalar ve PDB dosyası bir zip dosyası oluşturun. Bu bir blob kapsayıcısında (customactivitycontainer) eski zip dosyasını değiştirin. Yeniden çalıştırma başarısız olan dilimler (dilime sağ tıklayın ve Çalıştır'a tıklayın).
+    Projeyi oluşturun. Sürüm > 4.3.0 Azure.Storage derlemenin bin\Debug klasöründen silin. İkili dosyalar ve PDB dosyası bir zip dosyası oluşturun. Bu bir blob kapsayıcısında (customactivitycontainer) eski zip dosyasını değiştirin. Yeniden çalıştırma başarısız olan dilimler (dilime sağ tıklayın ve Çalıştır'a tıklayın).
 8. Özel Etkinlik kullanmaz **app.config** dosyasını. Bu nedenle, kodunuz yapılandırma dosyasından herhangi bir bağlantı dizesini okuyorsa, çalışma zamanında çalışmıyor. Azure Batch tüm gizli tutmak için kullanırken en iyi bir **Azure KeyVault**, korumak için sertifika tabanlı hizmet sorumlusu kullanmak **keyvault**ve Azure Batch için sertifika dağıtma havuzu. Böylece .NET özel etkinliği çalıştırma sırasında KeyVault’tan parolalara erişebilir. Bu çözüm, genel bir çözümdür ve gizli dizi, yalnızca bağlantı dizesi türüne ölçeklendirebilirsiniz.
 
    Daha kolay bir geçici çözüm (ancak değil en iyi uygulama): oluşturabileceğiniz bir **Azure SQL bağlı hizmeti** bağlantı dizesi ayarlarını bağlı hizmetini kullanan bir veri kümesi oluşturma ve veri kümesi olarak bir işlevsiz bir giriş veri kümesi için zincir oluşturma özel bir .NET etkinliği. Özel Etkinlik kod bağlantılı hizmetin bağlantı dizesinde erişebilirsiniz.

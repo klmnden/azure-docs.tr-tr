@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445636"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901032"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne kafka'dan veri alma
  
@@ -22,11 +22,11 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
  
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun. 
  
-* [Test kümesi ve veritabanı](create-cluster-database-portal.md)
+* [Bir test kümesi ile veritabanı](create-cluster-database-portal.md).
  
-* [Örnek bir uygulama](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) veri üretir ve Kafka'ya gönderir
+* [Örnek bir uygulama](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) veri üretir ve Kafka için gönderir.
 
-* Örnek uygulamayı çalıştırmak için [Visual Studio 2017 sürüm 15.3.2 veya üzeri](https://www.visualstudio.com/vs/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) örnek uygulamayı çalıştırın.
  
 ## <a name="kafka-connector-setup"></a>Kafka bağlayıcı Kurulumu
 
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Oluşturma
+#### <a name="build"></a>Derle
 
 Yerel olarak oluşturmak için Maven ile derleme bir `.jar` bağımlılıkları ile tamamlandı.
 
@@ -57,7 +57,7 @@ Kök dizin içinde *havuz azure kusto kafka*çalıştırın:
 mvn clean compile assembly:single
 ```
 
-### <a name="deploy"></a>Dağıtma 
+### <a name="deploy"></a>Dağıt 
 
 Kafka eklentisini yükleyin. Docker'ı kullanarak bir dağıtım örneği şu yolda bulunabilir: [havuz azure kusto kafka](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  

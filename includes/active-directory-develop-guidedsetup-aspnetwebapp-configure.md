@@ -15,13 +15,13 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2cdc6ea01e6c3555740102f319d0f4e8e4fc1c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298231"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121685"
 ---
-## <a name="register-your-application"></a>Uygulamanızı kaydetme
+## <a name="register-your-application"></a>Uygulamanızı kaydedin
 
 Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için iki seçeneğiniz vardır:
 
@@ -41,7 +41,7 @@ Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile
    1. Çözüm Gezgini'nde projeyi seçin ve Özellikler penceresine (bir Özellikler penceresinde, F4 tuşuna görmüyorsanız) bakın.
    1. Değiştirmek için etkinleştirilmiş SSL `True`.
    1. Visual Studio'da projeye sağ tıklayın ve ardından **özellikleri**ve **Web** sekmesi. İçinde *sunucuları* bölümünde değişiklik *proje URL'si* SSL URL olmalı.
-   1. SSL URL'sini kopyalayın. Bu URL yeniden yönlendirme URL'lerini listesinde kayıt Portal'ın bir sonraki adımda yeniden yönlendirme URL'lerini listesine ekleyecek:<br/><br/>![Proje özellikleri](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   1. SSL URL'sini kopyalayın. Bu URL yeniden yönlendirme URL'lerini listesinde kayıt Portal'ın bir sonraki adımda yeniden yönlendirme URL'lerini listesine ekleyecek:<br/><br/>![Proje Özellikleri](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
 1. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
