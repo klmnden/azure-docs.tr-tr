@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.date: 05/22/2019
+ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544531"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990184"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
@@ -92,11 +92,15 @@ Mantıksal uygulama devre dışı bıraktıktan sonra şu anda çalışan örnek
 Kullanım fiyatlandırması uygulanır [tümleştirme hesapları](logic-apps-enterprise-integration-create-integration-account.md) nerede keşfedin, geliştirebilir ve test [B2B ve EDI](logic-apps-enterprise-integration-b2b.md) ve [XML işleme](logic-apps-enterprise-integration-xml.md) olmadan Azure Logic Apps özellikleri ek bir maliyet.
 Her bir Azure bölgesinde bir tümleştirme hesabı olabilir. Her tümleştirme hesabı belirli depolayabilirsiniz [yapıtları sayıda](../logic-apps/logic-apps-limits-and-config.md), iş ortakları, anlaşmalar, haritalar, şemalar, derlemeleri, sertifikaları, toplu iş yapılandırması ve benzeri ticari içerir.
 
-Azure Logic Apps, ayrıca temel ve standart tümleştirme hesapları ile desteklenen Logic Apps SLA'sı sunar. Bir temel veya standart tümleştirme hesabı kullanıp kullanmayacağınızı seçin yollar şunlardır:
+Azure Logic Apps, ücretsiz, temel ve standart tümleştirme hesapları sunar. Ücretsiz katmanda SLA tarafından desteklenmiyor ve bir üst sınırı temel ve standart Katmanlar Logic Apps hizmet düzeyi sözleşmesi (SLA), aktarım hızı ve kullanımı desteklenir.
 
-* Temel tümleştirme hesapları yalnızca ileti işleme istediğiniz veya daha büyük bir iş varlığı bir alım-satım iş ortağı ilişkisi olan küçük bir iş ortağı olarak davranacak kullanın.
+Ücretsiz, temel veya standart tümleştirme hesabı arasında seçmek için:
 
-* Standart tümleştirme hesapları daha karmaşık B2B ilişkilerine sahip ve yönetebileceğiniz varlık sayısını artırmak istiyorsanız kullanın.
+* **Ücretsiz**: Keşif senaryoları, üretim senaryolarında denemek istediğinizde için.
+
+* **Temel**: Yalnızca ileti işleme istediğinizde veya küçük bir iş ortağı olarak davranacak şekilde, daha büyük bir iş varlığı ile ticari bir iş ortağı ilişkisine sahiptir.
+
+* **Standart**: Daha karmaşık B2B ilişkileri ve artan sayıda gereken varlıkları olduğunda için yönetin.
 
 NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 

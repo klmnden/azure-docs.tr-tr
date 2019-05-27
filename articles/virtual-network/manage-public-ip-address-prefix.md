@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601501"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952688"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
@@ -50,7 +50,7 @@ Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [fiyatl
    |Abonelik|Evet|Aynı bulunmalıdır [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) için genel IP adresini ilişkilendirmek istediğiniz kaynağı olarak.|
    |Kaynak grubu|Evet|Aynı veya farklı bir arada var [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) için genel IP adresini ilişkilendirmek istediğiniz kaynağı olarak.|
    |Ad|Evet|Adı kaynak grubu içinde benzersiz olmalıdır.|
-   |Bölge|Evet|Aynı bulunmalıdır [bölge](https://azure.microsoft.com/regions)genel IP adresleri olarak adresleri aralığından atayacaksınız. Ön eki şu anda Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya Önizleme aşamasındadır.|
+   |Bölge|Evet|Aynı bulunmalıdır [bölge](https://azure.microsoft.com/regions)genel IP adresleri olarak adresleri aralığından atayacaksınız.|
    |Ön ek boyutu|Evet| Gereksinim duyduğunuz ön ek boyutu. A/28 ya da 16 IP adresleri, varsayılan değerdir.
 
 **Komutları**
@@ -73,6 +73,13 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
    |Ad|Evet|Genel IP adresinin adı kaynak grubu içinde benzersiz olmalıdır.|
    |Boşta kalma zaman aşımı (dakika)|Hayır|Etkin tutma iletileri göndermek için istemcileri kullanmadan bir TCP veya HTTP bağlantısını açık tutmak için kaç dakika. |
    |DNS ad etiketi|Hayır|(Tüm abonelikler ve müşteriler arasında) ad oluşturma Azure bölgesi içinde benzersiz olmalıdır. Ada sahip bir kaynak için bağlanabilmesi için azure otomatik olarak adı ve IP adresi, DNS kaydeder. Azure varsayılan alt ağ gibi ekler *location.cloudapp.azure.com* (konum seçtiğiniz konum olduğu) adına, DNS adı tam olarak nitelenmiş oluşturulacağını sağladığınız. Daha fazla bilgi için [Azure genel bir IP adresi ile Azure DNS kullanma](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+
+Alternatif olarak, CLI'yı kullanabilirsiniz ve PS komutları aşağıda genel IP önekini (CLI ile) ve bir genel IP oluşturma - PublicIpPrefix (PS) parametreleri, kaynak adresi. 
+
+|Tool|Komut|
+|---|---|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## <a name="view-or-delete-a-prefix"></a>Görüntülemek veya bir ön eki Sil
 

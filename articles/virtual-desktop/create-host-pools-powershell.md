@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: HT
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523967"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833964"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell ile ana bilgisayar havuzu oluşturma
 
@@ -78,6 +78,9 @@ Başarıyla etki alanına katılma için her sanal makinede aşağıdaki işleml
 3. Seçin **bilgisayar adı**seçin **ayarlarını değiştir**ve ardından **Değiştir...**
 4. Seçin **etki alanı** ve ardından sanal ağ üzerinde Active Directory etki alanını girin.
 5. Makine etki alanına katılım ayrıcalıkları olan bir etki alanı hesabıyla kimlik doğrulaması.
+
+    >[!NOTE]
+    > Bir Azure AD Domain Services ortama Vm'lerinize birleştirdiğimiz, etki alanı katılma kullanıcınızın üyesi olduğundan emin olun [AAD DC Administrators grubu](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Windows sanal masaüstü Önizleme ana havuzuna sanal makineleri kaydetmek
 

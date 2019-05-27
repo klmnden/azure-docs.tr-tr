@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544523"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961458"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -24,7 +24,7 @@ Logic apps ve tümleştirme hesapları gereken yere erişimi senaryoları için 
 
 Bu makalede, bu görevleri tamamlamak gösterilmektedir:
 
-* Tümleştirme hizmeti ortamı (ISE) üzerinden trafiği ilerleyebilir için sanal ağ içindeki alt ağlar arasındaki bağlantı noktaları Azure sanal ağınızda ayarlayın.
+* Trafik, sanal ağda alt ağlar arasında tümleştirme hizmeti ortamı (ISE) izler, bir sanal ağ üzerindeki herhangi bir gerekli bağlantı noktalarını açık olduğundan emin olun.
 
 * Tümleştirme hizmeti ortamı (ISE) oluşturun.
 
@@ -60,11 +60,13 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Ağ bağlantı noktalarını ayarlayın
+## <a name="check-network-ports"></a>Onay ağ bağlantı noktaları
 
-Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti ortamı (ISE) belirli bağlantı noktalarını sanal ağınızda kullanılabilir olması gerekir. Aksi takdirde, bu bağlantı noktalarından birini kullanılamıyorsa, çalışmayı durdurabilir, işe için erişimi kaybedebilir. Bir sanal ağda bir işe kullandığınızda, engellenen bir veya daha fazla bağlantı noktaları ortak bir kurulum sorunu yaşıyor. İŞE hedef sistem arasındaki bağlantılar için kullandığınız bağlayıcı da kendi bağlantı noktası gereksinimleri olabilir. FTP Bağlayıcısı'nı kullanarak bir FTP sistemiyle iletişim kurmak, örneğin, üzerinde kullandığınız bağlantı noktası komutları göndermek için bağlantı noktası 21 gibi FTP sistemin kullanılabilir emin olun.
+Bir sanal ağ ile tümleştirme hizmeti ortamı (ISE) kullandığınızda, engellenen bir veya daha fazla bağlantı noktaları ortak bir kurulum sorunu yaşıyor. Hedef sistem, işe arasında bağlantılar oluşturmak için kullandığınız bağlayıcılar da kendi bağlantı noktası gereksinimleri olabilir. FTP Bağlayıcısı'nı kullanarak bir FTP sistemiyle iletişim kurmak, örneğin, üzerinde kullandığınız bağlantı noktası komutları göndermek için bağlantı noktası 21 gibi FTP sistemin kullanılabilir emin olun.
 
-İŞE nerede dağıttığınız sanal ağın alt ağlar arasında trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) için bu alt ağları tarafından [alt ağlar arasında ağ trafiğini filtreleme](../virtual-network/tutorial-filter-network-traffic.md). Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. [Resource Manager hizmet etiketleri](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder.
+ISE burada dağıttığınız sanal ağın alt ağlar arasında trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) tarafından [alt ağlar arasında ağ trafiğini filtreleme](../virtual-network/tutorial-filter-network-traffic.md). Ancak, işe belirli bağlantı noktaları sanal ağda ağ güvenlik gruplarının kullanıldığı açık olması gerekir. Bu şekilde, işe erişilebilir kalır ve böylece, ISE'ye erişiminizi kaybetmeyin doğru bir şekilde çalışabilir. Aksi takdirde, gerekli tüm bağlantı noktaları kullanılabilir durumda değilse, işe çalışmayı durduruyor.
+
+Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. [Resource Manager hizmet etiketleri](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder.
 
 > [!IMPORTANT]
 > Alt ağlarınızı içinde iç iletişimi için bu alt ağlardan içindeki tüm bağlantı noktaları açma ISE gerektirir.
@@ -159,7 +161,7 @@ Arama kutusuna filtreniz olarak "tümleştirme hizmeti ortamı" girin.
    1. Üzerinde **alt ağ Ekle** bölmesinde, bu bilgileri sağlayın.
 
       * **Ad**: Alt ağınız için bir ad
-      * **Adres aralığı (CIDR bloğu)**: Sanal ağınızda bulunan ve CIDR biçimindeki alt ağın aralığı
+      * **Adres aralığı (CIDR bloğu)** : Sanal ağınızda bulunan ve CIDR biçimindeki alt ağın aralığı
 
       ![Alt ağ ayrıntıları ekleyin](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 

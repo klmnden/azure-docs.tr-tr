@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc03751859160f2c234810dcb01e1579cb3e2a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782664"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859531"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama Ara sunucusu ve Qlik Sense 
 Azure Active Directory Uygulama Ara sunucusu ve Qlik Sense kolayca Qlik Sense dağıtımınız için uzaktan erişim sağlamak için uygulama ara sunucusu kullanmanız mümkün olduğundan emin olmak için birlikte kurdu.  
@@ -60,7 +60,9 @@ Aşağıdaki istisnalarla birlikte uygulama #1 olduğu gibi aynı adımları izl
 Uygulamanızı şimdi test etmek hazırdır. Her iki uygulama için atanan bir kullanıcı olarak uygulama #1 ve oturum açma QlikSense yayımlamak için kullanılan dış URL erişin.  
 
 ## <a name="additional-references"></a>Ek başvurular
-Uygulama Ara sunucusu ile uygulama yayımlama Qlik Sense hakkında daha fazla bilgi için Qlik topluluk makaleye başvurun: [Azure AD ile tümleşik Windows Qlik Sense ile Kerberos kısıtlanmış temsil kullanarak kimlik doğrulaması](https://community.qlik.com/docs/DOC-20183).
+Uygulama Ara sunucusu ile uygulama yayımlama Qlik Sense hakkında daha fazla bilgi için aşağıdaki Qlik topluluk makaleler için bakın: 
+- [Azure AD ile tümleşik Windows Qlik Sense ile Kerberos kısıtlanmış temsil kullanarak kimlik doğrulaması](https://community.qlik.com/docs/DOC-20183)
+- [Azure AD uygulama proxy'si ile Qlik Sense tümleştirme](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
