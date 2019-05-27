@@ -75,15 +75,15 @@ HDInsight Hive etkinliği bir Data factory'de [işlem hattı](data-factory-creat
 ## <a name="syntax-details"></a>Söz dizimi ayrıntıları
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |Etkinliğin adı |Evet |
-| açıklama |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |
+| name |Etkinliğin adı |Evet |
+| description |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |
 | type |HDinsightHive |Evet |
-| girişler |Hive etkinliği tarafından tüketilen girişleri |Hayır |
-| çıkışlar |Hive etkinliği tarafından üretilen çıkış |Evet |
+| inputs |Hive etkinliği tarafından tüketilen girişleri |Hayır |
+| outputs |Hive etkinliği tarafından üretilen çıkış |Evet |
 | linkedServiceName |Data Factory öğesinde bağlantılı hizmet olarak kayıtlı HDInsight kümesine başvuru |Evet |
 | script |Hive betiği satır içi belirtin |Hayır |
-| betik yolu |Hive betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
-| tanımlar |Hive betiği 'hiveconf' kullanarak içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
+| scriptPath |Hive betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
+| defines |Hive betiği 'hiveconf' kullanarak içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
 ## <a name="example"></a>Örnek
 İstediğiniz analytics şirketiniz tarafından başlatılan oyun oynama kullanıcılar tarafından harcanan süreyi belirlemek oyun günlüğünü bir örnek düşünelim. 
