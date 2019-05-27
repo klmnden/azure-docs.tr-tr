@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938303"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964119"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Market ve Appsource'ta yönelik Danışmanlık Hizmetleri
 Danışmanlık Hizmetleri Azure Market ve AppSource Microsoft iş ortakları, iş hedefleri ve Hizmetleri ile bağlantı müşterilerin Azure kullanımını genişleten ve desteklemek için hedef sağlar. 
@@ -80,7 +80,7 @@ Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı
 Danışmanlık Hizmetleri Lansman belirli coğrafi bölgede çalışmaya başlayacaktır. İlk kez başlatıldığında şu kadar olur: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık ve Avustralya. Diğer ülkeler/bölgeler için katalog anlamlı bir sayıdan sonra canlı geçilir ve hizmet teklifleri seçilmesine etkileyici alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylandı.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Danışmanlık Hizmetleri Azure Market ve AppSource için nasıl kaydı
-Başlayın [kaydetme](https://azuremarketplace.microsoft.com/sell/signup) şirket bilgilerinizi Market'te. Yayımcılar başvurabilir [bir yayımcının Market'te haline](https://docs.microsoft.com/azure/marketplace/become-publisher), bir onay-gereksinimlerinin tam listesi kayıt için. 
+Başlayın [kaydetme](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) şirket bilgilerinizi Market'te. Yayımcılar başvurabilir [bir yayımcının Market'te haline](https://docs.microsoft.com/azure/marketplace/become-publisher), bir onay-gereksinimlerinin tam listesi kayıt için. 
 
 **Hangi beklediğiniz sonra kaydının** Onboarding ekibi ulaşın ile bulut iş ortağı Portalı'nı (CPP) oturum açma bilgilerini içeren bir Hoş Geldiniz e-posta, 1-3 iş günü içinde. [Bulut iş ortağı portalı](https://cloudpartner.azure.com) yayımcılar burada gönderme liste bilgilerinde ve gönderimler teklif liste portalıdır. 
 

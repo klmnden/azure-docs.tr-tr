@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148094"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956973"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IOT Edge çözümünüzü üretim ortamında dağıtmaya hazırlanma
 
@@ -215,7 +215,7 @@ Bu bilgiler adlı bir dosyaya ekleyin (veya ekleme) `daemon.json` ve cihaz platf
 | Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 Kapsayıcı altyapısı değişikliklerin etkili olması için yeniden başlatılması gerekiyor.
 

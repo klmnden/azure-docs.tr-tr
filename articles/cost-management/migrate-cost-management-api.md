@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311950"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967229"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Kurumsal Sözleşme, Microsoft Müşteri sözleşmesi API'lerine geçiş
 
@@ -90,7 +90,7 @@ Mevcut bir EA API kullanıyorsanız, bunları MCA fatura hesapları desteklemek 
 - Bakiyeler
 - Yeni satın almalar
 - Azure Market hizmeti ücreti
-- Düzeltmeler
+- Ayarlamalar
 - Hizmet fazla kullanım ücretleri
 
 Tüm tüketim API'leri, Azure AD kimlik doğrulama ve yetkilendirme için kullanın. yerel Azure API'leri ile değiştirilir. Azure REST API'lerini çağırmayla ilgili daha fazla bilgi için bkz. [REST ile çalışmaya başlama](/rest/api/azure/#create-the-request).
@@ -187,7 +187,7 @@ Veri kullanım kayıtlarından oluşan bir diziyi içeren özellik adı değişt
 | ExtendedCost ve maliyet | costInBillingCurrency | &nbsp;  |
 | Örnek kimliği | resourceId | &nbsp;  |
 | Yinelenen Ücretlendirme | None | &nbsp;  |
-| Location | location | &nbsp;  |
+| Location | konum | &nbsp;  |
 | Ölçüm kategorisi | meterCategory | Tam dize değerlerini gösterebilir. |
 | Ölçüm kimliği | meterId | Tam dize değerleri farklı. |
 | Ölçüm adı | meterName | Tam dize değerlerini gösterebilir. |
@@ -216,7 +216,7 @@ Veri kullanım kayıtlarından oluşan bir diziyi içeren özellik adı değişt
 | Abonelik guid'i | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | Abonelik adı | subscriptionName | &nbsp;  |
-| Etiketler | etiketler | Etiketler özelliği kök nesnesi, iç içe özellikler özelliğine uygulanır. |
+| Tags | tags | Etiketler özelliği kök nesnesi, iç içe özellikler özelliğine uygulanır. |
 | Ölçü birimi | unitOfMeasure | Tam dize değerleri farklı. |
 | usageEndDate | date | &nbsp;  |
 | Yıl | None | Tarihinden itibaren bir yıl ayrıştırır. |

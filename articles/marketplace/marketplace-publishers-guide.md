@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a3d75f09ac21fcdb4862cf8eefff0b5c05fd3369
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937619"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956752"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Market ve Appsource'ta yayımlama Kılavuzu
 
@@ -62,7 +62,7 @@ Market'teki yeni kayıtlara, iş ortaklarının işletmelerini markette büyütm
 
 *   Ortak satış: Başlamak veya Market aracılığıyla Microsoft ile satış sürecinizi hızlandırın. Programlar ve Microsoft teams ile ortak satış sürücü için desteğe erişin.
 
-Çalıştırdıktan sonra [çözümünüzü gönderme](https://azuremarketplace.microsoft.com/sell/signup) Market'te, ekleme ekibimiz, yayımlama deneyiminizi desteklemek için bağlantı kurar.
+Çalıştırdıktan sonra [çözümünüzü gönderme](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) Market'te, ekleme ekibimiz, yayımlama deneyiminizi desteklemek için bağlantı kurar.  Bkz: [bir iş ortağı merkezi hesabınız oluşturma](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) daha fazla bilgi için.
 
 Microsoft Go-To-Market avantajları ve işinizi markette büyütme yolları hakkında daha fazla bilgi için bkz: [Microsoft Go-To-Market Hizmetleri](https://partner.microsoft.com/reach-customers/gtm).
 

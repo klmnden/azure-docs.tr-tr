@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747821"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953019"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Güvenli bir şekilde yüklemek ve Azure Data Box'ı çalıştırmak
 ![Uyarı simgesi](./media/data-box-safety/warning_icon.png)

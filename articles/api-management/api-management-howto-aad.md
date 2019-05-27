@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723634"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956312"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure Active Directory kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme
 
@@ -34,7 +34,7 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD'yi kullanarak Geliştirici hesaplarını yetkilendirme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
-2. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
+2. Seç ![oku seçin](./media/api-management-howto-aad/arrow.png):
 3. Tür **API** arama kutusuna.
 4. Seçin **API Management Hizmetleri**.
 5. API Management hizmet örneğinizi seçin.
@@ -61,21 +61,22 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
 14.  Uygulama kaydedildikten sonra kopyalama **uygulama (istemci) kimliği** gelen **genel bakış** sayfası. 
 15. API Management örneğinizin geri dönün. İçinde **Ekle kimlik sağlayıcısı** penceresinde Yapıştır **uygulama (istemci) kimliği** içine değer **istemci kimliği** kutusu.
 16. Geçiş geri Azure AD'ye yapılandırmaya, Select **sertifikaları ve parolaları** altında **Yönet**. Seçin **yeni gizli** düğmesi. Bir değer girin **açıklama**, tüm seçeneğini **Expires** ve **Ekle**. Bu sayfadan ayrılmadan önce istemci gizli değer kopyalayın. Bu sonraki adımda gerekecektir. 
-17. API Management örneğinizin geri dönün, gizli dizi içine yapıştırın **gizli** kutusu.
+17. Altında **Yönet**seçin **kimlik doğrulaması** seçip **kimlik belirteçlerini** altında **örtülü izin**
+18. API Management örneğinizin geri dönün, gizli dizi içine yapıştırın **gizli** kutusu.
 
     > [!IMPORTANT]
     > Lütfen güncelleştirdiğinizden emin olun **gizli** anahtarın süresi dolmadan önce. 
     >  
     >
 
-18. **Ekle kimlik sağlayıcısı** penceresi de içeren **izin verilen kiracılar** metin kutusu. Burada, API Management hizmet örneği API'ler için erişim vermek istediğiniz Azure AD örneğinde etki alanları belirtin. Birden çok etki alanı, satır başı, boşluk veya virgül ile ayırabilirsiniz.
+19. **Ekle kimlik sağlayıcısı** penceresi de içeren **izin verilen kiracılar** metin kutusu. Burada, API Management hizmet örneği API'ler için erişim vermek istediğiniz Azure AD örneğinde etki alanları belirtin. Birden çok etki alanı, satır başı, boşluk veya virgül ile ayırabilirsiniz.
 
 > [!NOTE]
 > Birden çok etki alanında belirtebilirsiniz **izin verilen kiracılar** bölümü. Farklı bir etki alanı genel Yöneticisi, uygulamayı kaydedildiği özgün etki alanı farklı bir etki alanından herhangi bir kullanıcı oturum açabilmek uygulama dizini verilere erişmek için izin vermeniz gerekir. Genel yönetici izinleri vermeniz gerekir: bir. Git `https://<URL of your developer portal>/aadadminconsent` (örneğin, https://contoso.portal.azure-api.net/aadadminconsent).
 > b. Bunlar erişim vermek istediğiniz Azure AD kiracısı etki alanı adını yazın.
 > c. Seçin **gönderme**. 
 
-19.  İstenen yapılandırmayı belirtin, sonra seçin **Ekle**.
+20.  İstenen yapılandırmayı belirtin, sonra seçin **Ekle**.
 
 Değişiklikler kaydedildikten sonra kullanıcılar belirtilen Azure AD'de örneği Geliştirici portalında içindeki adımları izleyerek oturum [ve geliştirici portalında bir Azure AD hesabı kullanarak oturum açın](#log_in_to_dev_portal).
 

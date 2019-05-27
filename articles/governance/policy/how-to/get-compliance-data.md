@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263789"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979423"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure kaynaklarınızın uyumluluk verilerini al
 
-Azure İlkesi'nin en büyük avantajlarından biri olan içgörü ve denetimler sağlar bir Abonelikteki kaynakları üzerinden veya [yönetim grubu](../../management-groups/overview.md) abonelikler. Bu denetim, yanlış konumda oluşturulan kaynaklarını genel ve tutarlı etiket kullanım zorlamayı engelleyen gibi birçok farklı şekillerde uygulanabilecek veya yapılandırmaları ve ayarları denetim mevcut kaynakları için uygun. Her durumda, veriler sağlamak ortamınızın uyumluluk durumunu anlamak, ilke tarafından oluşturulur.
+Azure İlkesi'nin en büyük avantajlarından biri olan içgörü ve denetimler sağlar bir Abonelikteki kaynakları üzerinden veya [yönetim grubu](../../management-groups/overview.md) abonelikler. Bu denetim, yanlış konumda oluşturulan kaynaklarını genel ve tutarlı etiket kullanım zorlamayı engelleyen gibi birçok farklı şekillerde uygulanabilecek veya yapılandırmaları ve ayarları denetim mevcut kaynakları için uygun. Her durumda, veriler Azure ortamınızın uyumluluk durumunu anlamak sağlamak için ilke tarafından oluşturulur.
 
 Girişim atamaları ve ilke tarafından oluşturulan uyumluluk bilgileri erişmek için çeşitli yollar vardır:
 
@@ -33,7 +33,7 @@ Uyumluluk üzerinde yöntemleri bakarak önce uyumluluk bilgilerini güncelleşt
 
 ## <a name="evaluation-triggers"></a>Değerlendirme Tetikleyicileri
 
-Tamamlanan değerlendirme döngüsü sonuçlarını kullanılabilir `Microsoft.PolicyInsights` kaynak sağlayıcısı aracılığıyla `PolicyStates` ve `PolicyEvents` operations. İlke Insights REST API işlemleri hakkında daha fazla bilgi için bkz. [ilke görüşleri](/rest/api/policy-insights/).
+Tamamlanan değerlendirme döngüsü sonuçlarını kullanılabilir `Microsoft.PolicyInsights` kaynak sağlayıcısı aracılığıyla `PolicyStates` ve `PolicyEvents` operations. Azure İlkesi Insights REST API işlemleri hakkında daha fazla bilgi için bkz. [Azure ilke görüşleri](/rest/api/policy-insights/).
 
 Atanan ilkeleri ve girişimler değerlendirmeleri çeşitli olayları sonucu olarak ortaya çıkar:
 
@@ -88,7 +88,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Uyumluluk nasıl çalışır?
 
-Atama, bir kaynaktır **uyumlu** ilke veya girişim kuralların izleyin değil ise. Aşağıdaki tabloda, farklı ilke efektler elde edilen uyumluluk durumu için Koşul değerlendirmesi ile çalışma gösterilmektedir:
+Atama, bir kaynaktır **uyumlu** ilke veya girişim kuralların izleyin değil ise.
+Aşağıdaki tabloda, farklı ilke efektler elde edilen uyumluluk durumu için Koşul değerlendirmesi ile çalışma gösterilmektedir:
 
 | Kaynak durumu | Etki | İlke değerlendirmesi | Uyumluluk durumu |
 | --- | --- | --- | --- |
@@ -114,7 +115,7 @@ Yanında **uyumlu** ve **uyumlu**, ilkeleri ve kaynakları diğer üç durumu va
 - **Başlatılmamış**: Değerlendirme döngüsü, ilke veya kaynak için başlatılmadı.
 - **Kayıtlı**: Azure İlkesi kaynak sağlayıcısına kayıtlı olmayan veya oturum açmış hesabın uyumluluk verilerini okuma izni yok.
 
-İlkeyi kullanan **türü** ve **adı** alan tanımında bir kaynak bir eşleşme olup olmadığını belirlemek için. Kaynak eşleştiğinde, geçerli olarak kabul edilir ve durumu ya da **uyumlu** veya **uyumlu**. Ya da **türü** veya **adı** tüm kaynakların uygun olarak kabul edilir ve değerlendirilir tanımındaki özelliktir.
+Azure İlkesi kullanan **türü** ve **adı** alan tanımında bir kaynak bir eşleşme olup olmadığını belirlemek için. Kaynak eşleştiğinde, geçerli olarak kabul edilir ve durumu ya da **uyumlu** veya **uyumlu**. Ya da **türü** veya **adı** tüm kaynakların uygun olarak kabul edilir ve değerlendirilir tanımındaki özelliktir.
 
 Uyumluluk yüzdesi bölünmesiyle belirlenir **uyumlu** kaynaklar tarafından _toplam kaynakları_.
 _Toplam kaynakları_ toplamı olarak tanımlanan **uyumlu**, **uyumlu**, ve **çakışan** kaynakları. Farklı kaynaklar toplamını genel uyumluluk sayılardır **uyumlu** toplamı tüm farklı kaynaklar tarafından ayrılmış. Aşağıdaki görüntüde, geçerli olan 20 farklı kaynak vardır ve yalnızca **uyumlu**. Genel kaynak uyumluluk % 95'inden (19 / 20) ' dir.
@@ -123,23 +124,22 @@ _Toplam kaynakları_ toplamı olarak tanımlanan **uyumlu**, **uyumlu**, ve **ç
 
 ## <a name="portal"></a>Portal
 
-Azure portalında bir grafik deneyimi Görselleştirme ve anlama ortamınızın uyumluluk durumunu gösterir. Üzerinde **ilke** sayfasında **genel bakış** seçeneği kullanılabilir kapsamlarda uyumluluk ilkeleri ve girişimler için Ayrıntılar sağlar. Uyumluluk durumu ve başına atama sayısı ile birlikte, son yedi güne uyumluluk gösteren bir grafiği içerir.
-**Uyumluluk** sayfası (grafik dışında) aynı bilgilerin çoğunu içerir, ancak ek filtreleme ve sıralama seçenekleri sağlar.
+Azure portalında bir grafik deneyimi Görselleştirme ve anlama ortamınızın uyumluluk durumunu gösterir. Üzerinde **ilke** sayfasında **genel bakış** seçeneği kullanılabilir kapsamlarda uyumluluk ilkeleri ve girişimler için Ayrıntılar sağlar. Uyumluluk durumu ve başına atama sayısı ile birlikte, son yedi güne uyumluluk gösteren bir grafiği içerir. **Uyumluluk** sayfası (grafik dışında) aynı bilgilerin çoğunu içerir, ancak ek filtreleme ve sıralama seçenekleri sağlar.
 
-![İlke uyumluluğu sayfası örneği](../media/getting-compliance-data/compliance-page.png)
+![Azure İlkesi uyumluluk sayfası örneği](../media/getting-compliance-data/compliance-page.png)
 
 Bir ilke veya girişim farklı kapsamlara atanabilir olduğundan, tablo, her atama ve tür tanımının atandığı için kapsamı içerir. Uyumlu olmayan kaynakları ve her atama için uyumlu olmayan ilkeler de sağlanır. Bir ilke veya girişim tabloda tıklayarak bu atama için Uyumluluk, daha kapsamlı bir bakış sağlar.
 
-![İlke uyumluluk Ayrıntıları sayfası örneği](../media/getting-compliance-data/compliance-details.png)
+![Azure İlkesi uyumluluk Ayrıntıları sayfası örneği](../media/getting-compliance-data/compliance-details.png)
 
 Kaynakları listesini **kaynak Uyumluluk** sekmesinde mevcut kaynaklar mevcut atamanın için değerlendirme durumunu gösterir. Varsayılanları sekmesi **uyumlu**, ancak filtrelenebilir.
 Olaylar (ekleme, Denetim, reddetme, dağıtım) kaynak oluşturmak için istek tarafından tetiklenen altında gösterilen **olayları** sekmesi.
 
-![İlke uyumluluğunu olayları örneği](../media/getting-compliance-data/compliance-events.png)
+![Azure İlkesi uyumluluk olayları örneği](../media/getting-compliance-data/compliance-events.png)
 
 Olay hakkında daha ayrıntılı bilgi toplamak ve seçmek için istediğiniz satıra sağ **etkinlik günlüklerini göster**. Etkinlik günlüğü sayfasında açılır ve atama ve olayların ayrıntılarını gösteren arama önceden filtre uygulanmış. Etkinlik günlüğü ek bağlam ve bu olaylar hakkında bilgi sağlar.
 
-![İlke uyumluluk etkinlik günlüğü örneği](../media/getting-compliance-data/compliance-activitylog.png)
+![Azure İlkesi uyumluluk etkinlik günlüğü örneği](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Uyumsuzluk anlama
 
@@ -149,7 +149,7 @@ Ne zaman bir kaynakları belirlenir olmasını **uyumlu olmayan**, birçok olas�
 
 ## <a name="command-line"></a>Komut satırı
 
-REST API ile aynı bilgileri portalda kullanılabilir alınabilir (dahil olmak üzere [ARMClient](https://github.com/projectkudu/ARMClient)) veya Azure PowerShell. REST API ile ilgili tüm ayrıntılar için bkz. [ilke görüşleri](/rest/api/policy-insights/) başvuru. REST API başvuru sayfalarına deneyin olanak tanıyan her işlemi ''deneyin It bir yeşil düğmeyi sahip sağdaki tarayıcıdaki.
+REST API ile aynı bilgileri portalda kullanılabilir alınabilir (dahil olmak üzere [ARMClient](https://github.com/projectkudu/ARMClient)) veya Azure PowerShell. REST API ile ilgili tüm ayrıntılar için bkz. [Azure ilke görüşleri](/rest/api/policy-insights/) başvuru. REST API başvuru sayfalarına deneyin olanak tanıyan her işlemi ''deneyin It bir yeşil düğmeyi sahip sağdaki tarayıcıdaki.
 
 Azure PowerShell'de aşağıdaki örnekleri kullanmak için bir kimlik doğrulama belirteci ile bu kod örneği oluşturun. Ardından $restUri ardından ayrıştırılabilir bir JSON nesnesi almak için örnekler dizeyi değiştirin.
 
@@ -178,7 +178,7 @@ $response
 
 ### <a name="summarize-results"></a>Sonuçlarını özetleme
 
-REST API ile kapsayıcı, tanımını veya atamasını özetleme gerçekleştirilebilir. İşte bir örnek ilke InSight'ın kullanarak abonelik düzeyinde özetleme [özetlemek için abonelik](/rest/api/policy-insights/policystates/summarizeforsubscription):
+REST API ile kapsayıcı, tanımını veya atamasını özetleme gerçekleştirilebilir. İşte bir örnek kullanarak Azure İlkesi InSight'ın abonelik düzeyinde özetleme [özetlemek için abonelik](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -288,11 +288,12 @@ Sonuçlarınız aşağıdaki örneğe benzer:
 }
 ```
 
-İlke olaylarını sorgulama hakkında daha fazla bilgi için bkz. [ilke olaylarını](/rest/api/policy-insights/policyevents) başvurusu makalesinde.
+İlke olaylarını sorgulama hakkında daha fazla bilgi için bkz. [Azure ilke olaylarını](/rest/api/policy-insights/policyevents) başvurusu makalesinde.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-İlke için Azure PowerShell modülü, PowerShell Galerisi'nde kullanılabilir [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). PowerShellGet kullanarak modülü kullanarak yükleyebilirsiniz `Install-Module -Name Az.PolicyInsights` (en son sahip olduğunuzdan emin olun [Azure PowerShell](/powershell/azure/install-az-ps) yüklü):
+Azure ilkesi için Azure PowerShell modülü, PowerShell Galerisi'ndeki kullanılabilir [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
+PowerShellGet kullanarak modülü kullanarak yükleyebilirsiniz `Install-Module -Name Az.PolicyInsights` (en son sahip olduğunuzdan emin olun [Azure PowerShell](/powershell/azure/install-az-ps) yüklü):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -417,13 +418,13 @@ Trent Baker
 
 Varsa bir [Log Analytics çalışma alanı](../../../log-analytics/log-analytics-overview.md) ile `AzureActivity` gelen [Activity Log Analytics çözümünü](../../../azure-monitor/platform/collect-activity-logs.md) aboneliğinize bağlı, uyumsuzluk sonuçları değerlendirme döngüsü kullanarak da görüntüleyebilirsiniz Basit Kusto sorgu ve `AzureActivity` tablo. Azure İzleyici günlüklerine ayrıntılarla uyumsuzluk için izlemek için uyarılar yapılandırılabilir.
 
-![Azure İzleyici günlüklerine kullanarak ilke uyumluluğu](../media/getting-compliance-data/compliance-loganalytics.png)
+![Azure İzleyici günlüklerini kullanarak Azure ilke uyumluluğu](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md)
-- Gözden geçirme [İlkesi tanım yapısı](../concepts/definition-structure.md)
-- Gözden geçirme [ilke etkilerini anlama](../concepts/effects.md)
-- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md)
-- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](remediate-resources.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
+- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
+- [Azure İlkesi tanımı yapısını](../concepts/definition-structure.md) gözden geçirin.
+- [İlkenin etkilerini anlama](../concepts/effects.md) konusunu gözden geçirin.
+- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md).
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları düzeltme](remediate-resources.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md).

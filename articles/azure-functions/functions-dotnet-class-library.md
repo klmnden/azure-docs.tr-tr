@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107107"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872794"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -29,16 +29,16 @@ Azure işlevleri C# ve betik C# programlama dillerini destekler. İçin yönerge
 Bu makalede, aşağıdaki makalelere zaten konusunu okuduğunuz varsayılır:
 
 * [Azure işlevleri Geliştirici Kılavuzu](functions-reference.md)
-* [Azure işlevleri Visual Studio 2017 araçları](functions-develop-vs.md)
+* [Azure işlevleri Visual Studio 2019 araçları](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>İşlevleri sınıf kitaplığı projesi
 
 Visual Studio'da **Azure işlevleri** proje şablonu, aşağıdaki dosyaları içeren bir C# sınıf kitaplığı projesi oluşturur:
 
 * [Host.JSON](functions-host-json.md) -proje uygulamasında tüm işlevleri yerel olarak veya azure'da çalıştırırken etkileyen yapılandırma ayarları depolar.
-* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri depolar. Bu dosya, gizli dizileri içerir ve işlev uygulamanızı azure'da yayımlanan değil. Bunun yerine gerekir [uygulama ayarlarını işlev uygulamanıza ekleme](functions-develop-vs.md#function-app-settings).
+* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri depolar. Bu dosya, gizli dizileri içerir ve işlev uygulamanızı azure'da yayımlanan değil. Bunun yerine, [uygulama ayarlarını işlev uygulamanıza ekleme](functions-develop-vs.md#function-app-settings).
 
-Proje oluşturduğunuzda, aşağıdaki oluşturulan yapı gibi görünen bir klasör yapısı çıkış dizinine:
+Aşağıdaki örnek, yapı çıktı dizininde oluşturulmuş gibi görünen bir klasör yapısı proje oluşturduğunuzda:
 
 ```
 <framework.version>
@@ -50,7 +50,7 @@ Proje oluşturduğunuzda, aşağıdaki oluşturulan yapı gibi görünen bir kla
  | - host.json
 ```
 
-Bu dizin ne işlev uygulamanızı azure'da dağıtılan olur. Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı olan [projeye NuGet paketleri olarak eklenen](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
+Bu dizin ne işlev uygulamanızı azure'da dağıtılan olur. Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı olan [projeye NuGet paketleri olarak eklenen](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
 
 > [!IMPORTANT]
 > Derleme işlemi oluşturur bir *function.json* her işlev için dosya. Bu *function.json* dosyasının doğrudan düzenlenmesi değil yöneliktir. Bağlama yapılandırması değiştiremez veya bu dosyayı düzenleyerek işlevi devre dışı bırakın. Bir işlev devre dışı bırakma hakkında bilgi edinmek için [işlevler devre dışı bırakma](disable-function.md#functions-2x---c-class-libraries).
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` Özniteliği yöntemi bir işlev giriş noktası olarak işaretler. Adı bir projesi içinde benzersiz olmalı, bir harf ile başlamalı ve yalnızca harf, sayı içeren `_` ve `-`, en çok 127 karakter uzunluğunda. Proje şablonları, genellikle adlı bir yöntem oluşturma `Run`, ancak yöntem adı geçerli bir C# yöntem adı olabilir.
+`FunctionName` Özniteliği yöntemi bir işlev giriş noktası olarak işaretler. Adı bir projesi içinde benzersiz olmalı, bir harf ile başlamalı ve yalnızca harf, sayı içeren `_`, ve `-`, en çok 127 karakter uzunluğunda. Proje şablonları, genellikle adlı bir yöntem oluşturma `Run`, ancak yöntem adı geçerli bir C# yöntem adı olabilir.
 
 Tetikleyici özniteliğini tetikleyici türü belirtir ve giriş verileri için bir yöntem parametresi bağlar. Örnek işlevi bir kuyruk iletisi tarafından tetiklenir ve kuyruk iletisini yöntemine geçirilen `myQueueItem` parametresi.
 
@@ -181,7 +181,7 @@ Her iki sürümü için kullanılan aynı paket 1.x ve 2.x'i işlevler çalışm
 </ItemGroup>
 ```
 
-Arasında `Sdk` paket bağımlılıkları, Tetikleyicileri ve bağlamaları alınır. .NET Core 2.x Tetikleyicileri ve bağlamaları hedef sırada bu .NET Framework'ü hedefleyen çünkü 1.x Tetikleyicileri ve bağlamaları için bir 1.x proje ifade eder.
+Arasında `Sdk` paket bağımlılıkları, Tetikleyicileri ve bağlamaları alınır. .NET Core 2.x Tetikleyicileri ve bağlamaları hedef sırada bu Tetikleyicileri ve bağlamaları .NET Framework'ü hedefleyen çünkü 1.x Tetikleyicileri ve bağlamaları için bir 1.x proje ifade eder.
 
 `Sdk` Paket de bağlıdır [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)ve dolaylı olarak [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Bu bağımlılıkları projenize işlevler çalışma zamanı sürümüyle çalışan bu paketleri sürümlerini kullandığından emin olun, proje. Örneğin, `Newtonsoft.Json` sürüm 11 için .NET Framework 4.6.1 var, ancak .NET Framework 4.6.1'i hedefleyen işlevler çalışma zamanı yalnızca uyumlu `Newtonsoft.Json` 9.0.1. Bu projedeki işlev kodunuzu kullanmak de sahiptir. `Newtonsoft.Json` 9.0.1.
 

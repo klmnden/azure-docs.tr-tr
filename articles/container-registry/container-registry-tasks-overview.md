@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582423"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977210"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>İşletim sistemi ve framework ACR görevlerle düzeltme eki uygulama otomatikleştirin
 
@@ -94,6 +94,16 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR görevleri temel görüntü b
 Çok adımlı görevler oluşturma, çalıştırma ve arası adım bağımlılık desteğiyle daha birleştirilebilir adımlara görüntüsü test bölmek etkinleştirin. ACR görevleri çok adımlı görevler ile görüntü oluşturma, sınama ve işletim sistemi ve iş akışları düzeltme eki uygulama çerçevesi daha ayrıntılı denetime sahip.
 
 Çok adımlı görevler hakkında bilgi edinin [ACR görevleri çok adımlı derleme, test ve düzeltme eki görevleri çalıştırmak](container-registry-tasks-multi-step.md).
+
+## <a name="view-task-logs"></a>Görev günlüklerini görüntüle
+
+Çalışan her görev, görev adımları başarıyla çalıştı olup olmadığını belirlemek için inceleyebilirsiniz günlük çıktı üretir. Kullanırsanız [az acr build](/cli/azure/acr#az-acr-build), [çalıştırma az acr](/cli/azure/acr#az-acr-run), veya [az acr görevi Çalıştır](/cli/azure/acr/task#az-acr-task-run) tetikleyici komutunu, çalışan görev için günlük çıktısını akışa konsola ve daha sonra kullanmak üzere depolanır alma. Bir görev için günlükleri Azure Portalı'nda çalıştırın veya kullanın görünümü [az acr görevi günlükleri](/cli/azure/acr/task#az-acr-task-logs) komutu.
+
+Temmuz 2019 ' başlayarak, veri ve görev çalıştığında kayıt defterindeki günlüklerini varsayılan olarak 30 gün boyunca tutulur ve otomatik olarak temizlenir. Çalışan bir görev için verileri arşivlemek istiyorsanız, kullanarak arşivleme etkinleştirmek [az acr update-çalışan görev](/cli/azure/acr/task#az-acr-task-update-run) komutu. Aşağıdaki örnek görev için arşivleme *cf11* kayıt defterindeki *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

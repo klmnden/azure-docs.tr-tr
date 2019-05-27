@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6a917b5e4586e9b2f54fee5816a9a0bcfcca2eee
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793314"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956259"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları alın.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="contact-us"></a>Bizimle iletişim kurun
+## <a name="contact-us"></a>Bize ulaşın
 * [Nasıl ben Microsoft Azure API Management takım soru sorabilir?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
@@ -39,7 +39,7 @@ Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları
 * [Tek bir API birden çok ortamda nasıl ayarlayabilirim?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [SOAP API Management ile kullanabilir miyim?](#can-i-use-soap-with-api-management)
 * [API Management ağ geçidi IP adresi sabit mi? Güvenlik duvarı kurallarında kullanabilir miyim?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* Bir OAuth 2.0 yetkilendirme sunucusu ile AD FS güvenliği yapılandırabilir miyim?
+* [Bir OAuth 2.0 yetkilendirme sunucusu ile AD FS güvenliği yapılandırabilir miyim?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [Yönlendirme yöntemi, birden çok coğrafi konumlara dağıtımlarında API Management kullanıyor mu?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [API Management hizmet örneği oluşturmak için bir Azure Resource Manager şablonu kullanabilir miyim?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [Arka uç için otomatik olarak imzalanan bir SSL sertifikası kullanabilir miyim?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)

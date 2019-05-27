@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 04/13/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89ea1dba09173b20d11a5022e6666e6c865ead62
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540088"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962743"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft kimlik platformu Geliştirici sözlüğü
 
@@ -192,7 +192,7 @@ Bir uygulamanın oturum açma işlevi genellikle çoklu oturum açma (SSO) uygul
 
 Kullanıcı durumunu ayırma bir son kullanıcı unauthenticating işlemi ile ilişkili [istemci uygulaması](#client-application) oturumu sırasında [oturum açma](#sign-in)
 
-## <a name="tenant"></a>tenant
+## <a name="tenant"></a>tek
 
 Bir Azure AD directory örneğini Azure AD kiracısı adlandırılır. Bu da dahil olmak üzere çeşitli özellikler sağlar:
 

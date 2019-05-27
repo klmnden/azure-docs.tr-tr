@@ -4,15 +4,15 @@ description: Bu makalede Azure Cosmos DB yüksek kullanılabilirliği nasıl sa�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 3/24/2019
+ms.date: 05/21/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1e866560ceab342f08a98ba3db05980a2b0947d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74e2d7901d127c9dd7edd8509e5bba082c4ad220
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888524"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978965"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
@@ -34,8 +34,8 @@ Global olarak dağıtılmış bir veritabanı olarak Cosmos DB, aktarım hızı,
 
 |İşlem türü  | Tek bölge |Çok bölgeli (tek bölge yazar)|Çok bölgeli (çok bölgeli yazar) |
 |---------|---------|---------|-------|
-|Yazma    | 99.99    |99.99   |99.999|
-|Okuma     | 99.99    |99.999  |99.999|
+|Yazar    | 99.99    |99.99   |99.999|
+|Okur     | 99.99    |99.999  |99.999|
 
 > [!NOTE]
 > Uygulamada, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve nihai tutarlılık modelleri için gerçek yazma kullanılabilirliği yayımlanan Sla'lardan önemli ölçüde büyük/küçük harf yüksektir. Gerçek okuma kullanılabilirliği için tüm tutarlılık düzeyi yayımlanan SLA'lar yüksektir.

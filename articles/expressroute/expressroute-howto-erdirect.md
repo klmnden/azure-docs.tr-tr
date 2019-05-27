@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365086"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964249"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>ExpressRoute doğrudan'ı yapılandırma
 
@@ -226,7 +226,9 @@ Varsayılan olarak 10 bağlantı hatları ExpressRoute doğrudan kaynak olduğu 
 
 Yalnızca yukarıda özetlenen senaryoları desteklemek için ExpressRoute doğrudan üzerinde kullanılan ek bağlantı hattı bant genişlikleri vardır. Bunlar: 40Gbps ve 100Gbps.
 
-Standart veya premium devreler oluşturulabilir. Premium bağlantı hatları seçili bant genişliğine göre maliyet varken standart devreler maliyeti dahil edilir. Bağlantı hatları, yalnızca ölçülen gibi oluşturulabilir sınırsız olarak desteklenmiyor ExpressRoute doğrudan üzerinde.
+**SkuTier** yerel, standart veya Premium olabilir.
+
+**SkuFamily** MeteredData yalnızca sınırsız olarak olmalıdır ExpressRoute doğrudan üzerinde desteklenmiyor.
 
 Bir devreyi ExpressRoute doğrudan kaynağı oluşturun.
 

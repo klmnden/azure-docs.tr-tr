@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230938"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954939"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -84,7 +84,7 @@ Azure yönetici bir kullanıcı ya da bir dizin siler veya aksi halde açıkça 
 Bir yıl ("Bekletme dönemi") erişilemeyen veri eski kabul edilir ve Microsoft bulutundan silinebilir. Saklama dönemi değiştirilebilir, ancak 90 günden daha az olur. Eski veri Windows/uygulama ayarları veya bir kullanıcı için tüm ayarları belirli bir kümesi olabilir. Örneğin:
 
 * Cihaz erişimi belirli ayarlar koleksiyonu (örneğin, bir uygulama CİHAZDAN kaldırılır veya bir "Tema" gibi ayarları grubu tüm kullanıcı aygıtları için devre dışıdır), o koleksiyon saklama döneminden sonra eski hale gelir ve silinebilir . 
-* Bir kullanıcı, kullanıcının tüm cihazlarında ayarları eşitleme devre dışı bıraktıysa ayarları verilerin hiçbiri ardından erişilir ve söz konusu kullanıcı için tüm ayarları veri eski hale gelir ve saklama döneminden sonra silinebilir. 
+* Bir kullanıcının tüm cihazlarında ayarları eşitleme devre dışı bıraktıysa ayarları verilerin hiçbiri ardından erişilir ve söz konusu kullanıcı için tüm ayarları veri eski hale gelir ve saklama döneminden sonra silinebilir. 
 * Azure AD dizin Yöneticisi Kurumsal durumda dolaşım, tüm kullanıcılar gibi tüm dizin için dizin ayarları eşitlenirken durdurur ve tüm kullanıcılar için tüm ayarları veri eski hale gelir ve saklama döneminden sonra silinebilir kapatırsa. 
 
 ### <a name="deleted-data-recovery"></a>Silinen verileri kurtarma

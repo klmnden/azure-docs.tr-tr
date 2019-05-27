@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904044"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957294"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights verilerle özel raporları otomatikleştirme
 
@@ -93,6 +93,9 @@ availabilityResults
    ![Yeni işlev ekran oluşturma](./media/automate-custom-reports/function-app-03.png)
 
 5. Seçin  **_Application Insights Zamanlanmış Özet şablon_**.
+
+     > [!NOTE]
+     > Varsayılan olarak, çalışma zamanı sürümü ile oluşturulan işlev uygulamaları 2.x. Yapmanız gerekenler [hedef Azure işlevleri çalışma zamanı sürümü](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) Application ınsights'ı kullanmak için bir 1.x Zamanlanmış Özet şablonu.
 
    ![Yeni işlev Application Insights şablonu ekran görüntüsü](./media/automate-custom-reports/function-app-04.png)
 

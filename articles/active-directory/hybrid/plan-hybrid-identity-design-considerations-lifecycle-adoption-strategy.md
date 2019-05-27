@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381284"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950834"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Karma kimlik yaşam döngüsü benimseme stratejisi belirleme
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için Kimlik Yönetimi stratejisi tanımlarsınız [karma kimlik yönetimi görevleri belirlemek](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -42,7 +42,7 @@ Bu ayrıntıları sağlama sisteminiz tarafından denetlenebilir ve karmaşık B
 
 ## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 Rol tabanlı erişim denetimi (RBAC) kullanır rolleri ve sağlama ilkelerini değerlendirmek için test ve iş süreçleri ve kullanıcılara erişim verme kurallarını zorla. Anahtar yöneticileri sağlama ilkeleri oluşturma ve kullanıcıları rollere atamak ve bu rolleri için kaynaklara yetkilendirmeler kümesini tanımlayan. RBAC, yazılım tabanlı işlemler kullanır ve el ile kullanıcı etkileşimi sağlama işleminde azaltmak için kimlik yönetimi çözümü genişletir.
-Azure AD RBAC, Azure portalına erişim sahip sonra bireysel yapabilirsiniz işlemlerin sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticilerinin ca temsilci erişimi aşağıdaki erişim yönetimi yaklaşımlardan kullanarak:
+Azure AD RBAC, Azure portalına erişiminiz sonra bireysel yapabilirsiniz işlemlerin sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticilerinin ca temsilci erişimi aşağıdaki erişim yönetimi yaklaşımlardan kullanarak:
 
 * **Grup tabanlı rol ataması**: Erişim, yerel Active Directory'nizden eşitlenebilen Azure AD gruplarına atayabilirsiniz. Bu, kuruluşunuz, araçları ve grupları yönetmek için işlemlerdeki yaptı mevcut yatırımlardan yararlanma sağlar. Azure AD Premium Temsilcili Grup Yönetimi özelliğini de kullanabilirsiniz.
 * **Rolleri azure'da yerleşik yararlanarak**: Üç rol kullanabilirsiniz — sahibi, katkıda bulunan ve okuyucu, kullanıcılar ve gruplar yalnızca kullanıcıların işlerini yapmak için ihtiyaç duydukları görevleri gerçekleştirme izniniz olduğundan emin olun.
@@ -86,7 +86,7 @@ Azure Active Directory çoklu oturum sağlar ve binlerce SaaS uygulamaları ve �
 
 Aşağıdaki şekilde kimlik eşitleme işlemi üst düzey görünümü örneği vardır.
 
-![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Eşitle](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Kimlik eşitleme işlemi
 

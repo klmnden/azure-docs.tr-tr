@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345383"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952215"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>RBAC kullanarak dış kullanıcılar için Azure kaynaklarına erişimi yönetme
 
@@ -57,7 +57,7 @@ Abonelik seçtikten sonra yönetici kullanıcı tıklatmalısınız **erişim de
 
 Sonraki adım, atanacak rol ve kullanıcı kim RBAC rolü atanmış seçeneğini belirlemektir. İçinde **rol** açılır menüsünde, yönetici kullanıcı, Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamlarla açıklamalarını ayrıntılı için bkz: [Azure kaynakları için yerleşik roller](built-in-roles.md).
 
-Yönetici kullanıcı, daha sonra dış kullanıcının e-posta adresi eklemeniz gerekir. Beklenen davranış mevcut kiracıda değil gösterilecek dış kullanıcı içindir. Dış kullanıcıyı davet sonra o altında görünür olacak **abonelikler > erişim denetimi (IAM)** abonelik kapsamında bir RBAC rolü atanmış olan tüm geçerli kullanıcılar ile.
+Yönetici kullanıcı, daha sonra dış kullanıcının e-posta adresi eklemeniz gerekir. Beklenen davranış mevcut kiracıda değil gösterilecek dış kullanıcı içindir. Dış kullanıcıyı davet sonra bunlar altında görünür olacak **abonelikler > erişim denetimi (IAM)** abonelik kapsamında bir RBAC rolü atanmış olan tüm geçerli kullanıcılar ile.
 
 ![Yeni RBAC rolü için izinleri ekleme](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ Yönetici kullanıcı, daha sonra dış kullanıcının e-posta adresi eklemeniz
 Kullanıcı "chessercarlton@gmail.com" olarak davet bir **sahibi** "Ücretsiz deneme" aboneliği için. Dış kullanıcıyı davet gönderdikten sonra etkinleştirme bağlantısını içeren bir e-posta onayı alırsınız.
 ![e-posta davetiyesi RBAC rolü](./media/role-assignments-external-users/5.png)
 
-Kuruluş dışı olduğundan, yeni kullanıcı herhangi bir mevcut özniteliği "Varsayılan Kiracı Azure" dizininde yok. Dış kullanıcı izin verdiği sonra oluşturulurlar abonelikle ilişkili dizine kaydedilecek he bir role atanmış.
+Kuruluş dışı olduğundan, yeni kullanıcı herhangi bir mevcut özniteliği "Varsayılan Kiracı Azure" dizininde yok. Dış kullanıcı izin verdiği sonra oluşturulurlar abonelikle ilişkili dizine kaydedilmesi, bir role atanmış.
 
 ![RBAC rolü için e-posta davetiyesi iletisi](./media/role-assignments-external-users/6.png)
 

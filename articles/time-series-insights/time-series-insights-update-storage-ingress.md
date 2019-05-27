@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405709"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951096"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Veri depolama ve Azure zaman serisi öngörüleri önizlemesinde giriş
 
@@ -146,7 +146,7 @@ Verilerinizi üç genel yollarla erişebilirsiniz:
 
 ### <a name="data-deletion"></a>Veri silme
 
-Zaman serisi öngörüleri Önizleme içindeki blobları hakkında meta veriler tutar. nedeni blobları silmeyin.
+Blobları silmeyin. Yalnızca bunlar yararlı denetimi ve bir kayıt verilerinizi korumak için zaman serisi öngörüleri Önizleme her blob içinde blob meta verilerini tutar.
 
 ## <a name="time-series-insights-data-ingress"></a>Zaman serisi görüşleri veri girişi
 
@@ -177,7 +177,7 @@ Zaman serisi öngörüleri Önizleme, bir blob boyutu iyileştirme stratejisi ku
 
 ### <a name="scale"></a>Ölçek
 
-Zaman serisi öngörüleri Önizleme 6 Mega bayt / saniye (Mbps) ortam başına en fazla bir ilk giriş ölçeğini destekler. Gelişmiş ölçeklendirme desteği devam ediyor. Bu geliştirmeler yansıtacak şekilde belgelerimize güncelleştirmeyi planlıyoruz
+Zaman serisi öngörüleri Önizleme, ortam başına en fazla 1 Mega (bayt/sn Mbps) saniyede bir ilk giriş ölçeği destekler. Gelişmiş ölçeklendirme desteği devam ediyor. Bu geliştirmeler yansıtacak şekilde belgelerimize güncelleştirmeyi planlıyoruz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

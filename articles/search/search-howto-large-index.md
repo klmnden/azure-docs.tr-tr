@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871174"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949834"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Büyük veri kümeleri Azure Search dizinleme
 
@@ -67,7 +67,7 @@ Yordamı olmayan, işlem bakımından yoğun dizin gereksinimleri için - biliş
 Paralel işleme Bu öğe vardır:
 
 + Birden çok kapsayıcı veya aynı kapsayıcı içinde birden çok sanal klasörler arasında kaynak verileri alt bölümlere ayırır. 
-+ Mini her veri kümesi kendi eşleme [tarih kaynak](https://docs.microsoft.com/rest/api/searchservice/create-data-source), kendi için eşleştirilmiş [dizin oluşturucu](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Mini her veri kümesi kendi eşleme [veri kaynağı](https://docs.microsoft.com/rest/api/searchservice/create-data-source), kendi için eşleştirilmiş [dizin oluşturucu](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Bilişsel arama için aynı başvuru [beceri kümesi](https://docs.microsoft.com/rest/api/searchservice/create-skillset) her dizin oluşturucu tanımı.
 + Aynı hedef arama dizinine yazma. 
 + Tüm Dizin oluşturucuların aynı anda çalışacak şekilde zamanlayın.

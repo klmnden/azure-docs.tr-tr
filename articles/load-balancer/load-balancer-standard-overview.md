@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734533"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957477"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure standart Load Balancer'a genel bakış
 
@@ -226,7 +226,6 @@ Standart Load Balancer fiyatlandırma bilgileri için [Load Balancer fiyatlandı
 - SKU'ları değişebilir değildir. Mevcut bir kaynağı SKU'su değiştiremeyebilir.
 - Tek başına sanal makine kaynağı, kaynak kullanılabilirlik kümesi veya sanal makine ölçek kümesi kaynak bir SKU, hiçbir zaman hem de başvurabilirsiniz.
 - Bir yük dengeleyici kuralı, iki sanal ağlara yayılamaz.  Ön uçlar ve bunların ilgili arka uç örnekleriyle aynı sanal ağda bulunması gerekir.  
-- Yük Dengeleyici ön uçlar küresel sanal ağ eşlemesi üzerinden erişilebilir.
 - [Abonelik işlemleri taşıma](../azure-resource-manager/resource-group-move-resources.md) standart SKU LB ve PIP kaynaklar için desteklenmez.
 - Web çalışanı rolü bir sanal ağ ve diğer Microsoft platform Hizmetleri olmadan pre-sanal ağ hizmetleri ve platform hizmetleri nasıl işlevi gelen bir yan etkisi nedeniyle yalnızca bir iç standart yük dengeleyici kullanıldığında erişilebilir. Kendisinin veya arka plandaki ilgili hizmet olarak, bu durumda değil platform bildirim olmadan değiştirebilirsiniz. Oluşturmanız gereken her zaman varsaymalısınız [giden bağlantı](load-balancer-outbound-connections.md) açıkça bir iç standart yük dengeleyici yalnızca kullanırken isterseniz.
 - Load Balancer, TCP veya UDP IP protokolleri için yük dengeleme ve bağlantı noktası iletme özellikleri sunan bir üründür.  Yük dengeleme kuralları ve gelen NAT kuralları, TCP ve UDP için desteklenir ancak ICMP dahil olmak üzere diğer IP protokolleri için desteklenmez. Load Balancer, UDP veya TCP akışlarının yüklerini sonlandırmaz, yanıtlamaz veya başka bir şekilde etkileşim kurmaz. Bir ara sunucu değildir. Bir ön uç bağlantı başarılı doğrulama gerçekleştirmeniz gereken bant bağlantısı ile bir Yük Dengeleme veya gelen NAT kuralı (TCP veya UDP) kullanılan aynı protokol _ve_ en az bir sanal makinelerinizin gerekir oluşturmak bir yanıt için bir istemci bir ön uç yanıtı görmek için.  Ön uç yük Dengeleyiciden bir bant dışı yanıt almadıktan hiçbir sanal makine yanıt verebilmesi gösterir.  Bir yük dengeleyici sanal makine yanıt verebilmesi ön uç ile etkileşim kurmak mümkün değildir.  Bu durum [port masquerade SNAT](load-balancer-outbound-connections.md#snat) öğesinin yalnızca TCP ve UDP için desteklendiği giden bağlantılar için de geçerlidir. ICMP de dahil olmak üzere diğer bağlantılar başarısız olacaktır.  Azaltmak için bir örnek düzeyinde Genel IP adresi atayın.

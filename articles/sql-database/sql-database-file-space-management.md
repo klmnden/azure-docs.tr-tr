@@ -13,11 +13,11 @@ ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123324"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları için dosya alanı yönetme
 
@@ -63,7 +63,7 @@ SQL veritabanı hizmeti, veritabanı performans için potansiyel etkisi nedeniyl
 
 Aşağıdaki depolama alanı miktarları anlama bir veritabanının dosya alanı yönetmek için önemli.
 
-|Veritabanı miktar|Tanım|Yorumlar|
+|Veritabanı miktar|Tanım|Açıklamalar|
 |---|---|---|
 |**Kullanılan veri alanı**|8 KB'lık sayfalarında veritabanı verilerini depolamak için kullanılan alanı miktarı.|Genellikle, artar (azaldıkça) ekler (siler) üzerinde kullanılan alan. Bazı durumlarda, kullanılan alanı üzerinde ekler değiştirmez veya tutar ve veri işleme ve her türlü parçalanma desenini bağlı olarak siler. Örneğin, her veri sayfasından bir satırın silinmesi mutlaka kullanılan alanı azalmaz.|
 |**Ayrılmış veri alanı**|Veritabanı verilerini depolamak için kullanılabilir hale dosya alanı miktarını biçimlendirilmiş.|Ayrılan alan miktarını otomatik olarak artar, ancak hiçbir zaman siler sonra azaltır. Bu davranış, gelecekteki ekler alanı yeniden biçimlendirildi gerekmez. bu yana daha hızlı olmasını sağlar.|
@@ -120,7 +120,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 Aşağıdaki depolama alanı miktarları anlama dosya alanı, bir elastik havuzun yönetmek için önemli.
 
-|Elastik havuz miktar|Tanım|Yorumlar|
+|Elastik havuz miktar|Tanım|Açıklamalar|
 |---|---|---|
 |**Kullanılan veri alanı**|Esnek havuzdaki tüm veritabanları tarafından kullanılan veri alanı toplamı.||
 |**Ayrılmış veri alanı**|Esnek havuzdaki tüm veritabanları tarafından ayrılan veri alanı toplamı.||

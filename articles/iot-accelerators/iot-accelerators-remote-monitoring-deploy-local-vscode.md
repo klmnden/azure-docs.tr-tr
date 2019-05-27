@@ -3,17 +3,17 @@ title: Uzaktan izleme çözümünü yerel olarak (Visual Studio Code) - Azure'ı
 description: Bu nasıl yapılır kılavuzunda test ve geliştirme için Visual Studio Code kullanarak yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtmayı gösterir.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61446187"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967521"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio kod dağıtma
 
@@ -25,7 +25,7 @@ Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm 
 
 Uzaktan izleme çözüm Hızlandırıcısını tarafından kullanılan Azure Hizmetleri dağıtmak için bir etkin Azure aboneliği gerekir.
 
-Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Makine Kurulumu
 
@@ -59,7 +59,7 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Yerel makinede diğer mikro hizmetlerin dağıtımı
 
-Aşağıdaki adımlar Visual Studio 2017'de Uzaktan izleme mikro hizmetleri çalıştırma işlemini gösterir:
+Aşağıdaki adımlar Visual Studio Code'da Uzaktan izleme mikro hizmetleri çalıştırma işlemini gösterir:
 
 1. Visual Studio Code'u başlatın.
 1. Açık **azure-iot-pcs-remote-monitoring-dotnet** yerel kopyanızı VS code'da modülünden.

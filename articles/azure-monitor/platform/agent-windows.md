@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138135"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952475"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure İzleyici Windows bilgisayarları bağlama
 
@@ -54,9 +54,9 @@ Windows için Log Analytics aracısını yüklemeden önce çalışma alanı kim
 Kullanımını yapılandırmak için [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protokolü Windows Aracısı'nı ve Log Analytics hizmeti arasındaki iletişimi için aracıyı sanal makineye yüklenmeden önce etkinleştirmek için aşağıdaki adımları takip edebilirsiniz veya daha sonra.   
 
 1. Aşağıdaki kayıt defteri alt anahtarını bulun: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. Altında bir alt anahtarını oluşturmak **protokolleri** TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
-3. Oluşturma bir **istemci** alt anahtar, daha önce oluşturduğunuz TLS 1.2 protokolü sürümü alt anahtarı altında. Örneğin, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
-4. Altında aşağıdaki DWORD değerleri oluşturmak **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
+2. Altında bir alt anahtarını oluşturmak **protokolleri** TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. Oluşturma bir **istemci** alt anahtar, daha önce oluşturduğunuz TLS 1.2 protokolü sürümü alt anahtarı altında. Örneğin, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Altında aşağıdaki DWORD değerleri oluşturmak **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **Etkin** [değer = 1]
     * **DisabledByDefault** [değer = 0]  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610873"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951721"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Risk azaltma işlemleri 
 
@@ -44,7 +44,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
@@ -55,7 +55,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
@@ -66,7 +66,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
@@ -77,7 +77,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
@@ -88,7 +88,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
@@ -99,18 +99,18 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
-| Ayrıntılar | <p>Parola ve hesap ilkeyle uyumlu kuruluş ilkesi ve en iyi uygulamaları uygulanmalıdır.</p><p>Deneme yanılma ve temel sözlük tahmin karşı korumak için: Kullanıcıların karmaşık bir parola (örneğin, en az 12 karakter uzunluğu, alfasayısal ve özel karakterler) oluşturduğunuzdan emin olmak için güçlü bir parola ilkesi uygulanmalıdır.</p><p>Hesap kilitleme ilkeleri şu şekilde uygulanabilir:</p><ul><li>**Yazılım kilidi çıkışı:** Bu, kullanıcılarınızın deneme yanılma saldırılarına karşı korumaya yönelik iyi bir seçenek olabilir. Yanlış bir parola kullanıcının girdiği her Örneğin, üç kez uygulamanın hesabı için bir dakika kaba devam etmek saldırganın az karlı yaparak kendi parola zorlama işlemi yavaşlatmaz için kilitleme. elde bu örneğin Sabit kilitleme karşı önlemler uygulamak için olsaydı "kalıcı olarak hesapları kilitleme tarafından Dos" a. Alternatif olarak, uygulama bir OTP (bir saat parola) oluştur ve bant dışı Gönder (e-posta, sms vb.) kullanıcı. Başarısız girişim eşiği sayısına ulaşıldıktan sonra CAPTCHA uygulamak için başka bir yaklaşım olabilir.</li><li>**Sabit kilit çıkışı:** Her bir kullanıcı uygulama ve sayaç ona yanıtı ekibi, adli araştırma yapmak için bir süre beklendiğinden kadar kalıcı olarak kendi hesabını kilitlemek yoluyla saldırmak algılamak, bu tür bir kilitleme uygulanmalıdır. Bu işleminden sonra kullanıcıya vermek karar verebilirsiniz hesabını yedekleme veya daha fazla kendisine karşı yasal eylemleri gerçekleştirin. Bu tür bir yaklaşım, uygulamanızın ve altyapınızın daha fazla penetrating gelen saldırgan engeller.</li></ul><p>Varsayılan ve tahmin edilebilir hesapları saldırılarına karşı korumak için tüm anahtarları ve parolaları değiştirilebilir ve olan oluşturulan veya yükleme süre sonra değiştirilmesi doğrulayın.</p><p>Uygulama parolaları otomatik olarak oluşturmak varsa, oluşturulan parolalar rastgele ve yüksek entropi sahip olun.</p>|
+| Ayrıntılar | <p>Parola ve hesap ilkeyle uyumlu kuruluş ilkesi ve en iyi uygulamaları uygulanmalıdır.</p><p>Deneme yanılma ve temel sözlük tahmin karşı korumak için: Kullanıcıların karmaşık bir parola (örneğin, en az 12 karakter uzunluğu, alfasayısal ve özel karakterler) oluşturduğunuzdan emin olmak için güçlü bir parola ilkesi uygulanmalıdır.</p><p>Hesap kilitleme ilkeleri şu şekilde uygulanabilir:</p><ul><li>**Yazılım kilidi çıkışı:** Bu, kullanıcılarınızın deneme yanılma saldırılarına karşı korumaya yönelik iyi bir seçenek olabilir. Yanlış bir parola kullanıcının girdiği her Örneğin, üç kez uygulamanın hesabı için bir dakika kaba devam etmek saldırganın az karlı yaparak kullanıcının parolasını zorlama işlemi yavaşlatmaz için kilitleme. Elde bu örneğin Sabit kilitleme karşı önlemler uygulamak için olsaydı "kalıcı olarak hesapları kilitleme tarafından DoS" a. Alternatif olarak, uygulama bir OTP (bir saat parola) oluştur ve bant dışı Gönder (e-posta, sms vb.) kullanıcı. Başarısız girişim eşiği sayısına ulaşıldıktan sonra CAPTCHA uygulamak için başka bir yaklaşım olabilir.</li><li>**Sabit kilit çıkışı:** Her bir kullanıcı uygulama ve bunları kalıcı olarak kadar bir yanıtı ekibi kendi hesabını kilitlemek yoluyla, adli araştırma yapmak için bir süre beklendiğinden sayacı saldırmak algılamak, bu tür bir kilitleme uygulanmalıdır. Bu işleminden sonra kullanıcıya vermek karar verebilirsiniz hesabını yedekleme veya daha fazla bunlara karşı yasal eylemleri gerçekleştirin. Bu tür bir yaklaşım, uygulamanızın ve altyapınızın daha fazla penetrating gelen saldırgan engeller.</li></ul><p>Varsayılan ve tahmin edilebilir hesapları saldırılarına karşı korumak için tüm anahtarları ve parolaları değiştirilebilir ve olan oluşturulan veya yükleme süre sonra değiştirilmesi doğrulayın.</p><p>Uygulama parolaları otomatik olarak oluşturmak varsa, oluşturulan parolalar rastgele ve yüksek entropi sahip olun.</p>|
 
 ## <a id="controls-username-enum"></a>Kullanıcı adı numaralandırma önlemek için denetimleri uygulayın
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
@@ -121,7 +121,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Şirket içi |
 | **Öznitelikler**              | SQL sürümü - tüm |
 | **Başvuruları**              | [SQL Server - kimlik doğrulama modu seçme](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -132,7 +132,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | SQL Azure |
 | **Öznitelikler**              | SQL sürümü - V12 |
 | **Başvuruları**              | [Azure Active Directory kimlik doğrulamasını kullanarak SQL veritabanına bağlanma](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -143,7 +143,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [SQL Server Parola İlkesi](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -154,7 +154,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Şirket içi, SQL Azure |
 | **Öznitelikler**              | SQL - MSSQL2012, SQL sürüm - sürüm V12 |
 | **Başvuruları**              | [Kapsanan veritabanları ile en iyi güvenlik uygulamaları](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -165,7 +165,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Olay Hub'ı | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Event Hubs kimlik doğrulama ve güvenlik modeline genel bakış](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -231,7 +231,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Kimlik sunucusu | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [IdentityServer3 - büyük resmi](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -264,7 +264,7 @@ ms.locfileid: "60610873"
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikler**              | Yok |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -304,7 +304,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | .NET Framework 3 |
 | **Öznitelikler**              | İstemci kimlik bilgisi türü - yok |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
@@ -320,7 +320,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Generic, .NET Framework 3 |
 | **Öznitelikler**              | İstemci kimlik bilgisi türü - yok |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
@@ -335,8 +335,8 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Web API | 
-| **SDL aşaması**               | Oluşturma |  
+| **Bileşen**               | Web API'si | 
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Kimlik doğrulama ve yetkilendirme ASP.NET Web API'de](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
@@ -347,7 +347,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Azure AD için kimlik doğrulama senaryoları](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory kod örnekleri](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory Geliştirici Kılavuzu](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -358,7 +358,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Web uygulamaları için Azure Active Directory ile modern kimlik doğrulaması](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [ADAL belirteç önbelleği olarak Redis kullanma](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -369,7 +369,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Web uygulamaları için Azure Active Directory ile modern kimlik doğrulaması](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -430,7 +430,7 @@ Unutmayın, bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı e
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -441,7 +441,7 @@ Unutmayın, bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı e
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT alan ağ geçidi | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
@@ -452,7 +452,7 @@ Unutmayın, bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı e
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Generic, C#, Node.JS,  |
 | **Öznitelikler**              | Yok, ağ geçidi seçim - Azure IOT hub'ı |
 | **Başvuruları**              | Yok, [.NET ile Azure IOT hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [IOT hub ve düğüm JS ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [SAS ve sertifikaları güvenli hale getirme IOT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git deposu](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
@@ -552,7 +552,7 @@ await deviceClient.SendEventAsync(message);
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi  | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Ağ geçidi seçim - Azure IOT hub'ı |
 | **Başvuruları**              | [Azure IOT Hub güvenlik belirteçleri](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -563,7 +563,7 @@ await deviceClient.SendEventAsync(message);
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | StorageType - Blob |
 | **Başvuruları**              | [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [paylaşılan erişim imzaları, 1. Bölüm: SAS modelini anlama](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -574,7 +574,7 @@ await deviceClient.SendEventAsync(message);
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
-| **SDL aşaması**               | Oluşturma |  
+| **SDL aşaması**               | Derle |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok |
 | **Başvuruları**              | [Paylaşılan erişim imzaları, 1. Bölüm: SAS modelini anlama](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [paylaşılan erişim imzaları, bölüm 2: Oluşturma ve bir SAS ile Blob Depolama kullanma](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [paylaşılan erişim imzalarını ve depolanan erişim ilkelerini kullanarak hesabınızdaki nesnelere erişim devretmek nasıl](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

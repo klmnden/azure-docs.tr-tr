@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919776"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956168"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Bir Linux Node.js uygulamasını Azure App Service için yapılandırma
 
@@ -137,7 +137,7 @@ Hata ayıklama ile işleminizi tamamladıktan sonra seçerek hata ayıklayıcıy
 
 ## <a name="access-environment-variables"></a>Ortam değişkenlerine erişme
 
-Uygulama hizmetinde [uygulama ayarlarını belirlemek](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) , uygulama kodunuz dışında. Daha sonra bunları standart Node.js deseni kullanarak erişebilirsiniz. Örneğin, bir uygulama ayarı erişmeye adlı `NODE_ENV`, aşağıdaki kodu kullanın:
+Uygulama hizmetinde [uygulama ayarlarını belirlemek](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) , uygulama kodunuz dışında. Daha sonra bunları standart Node.js deseni kullanarak erişebilirsiniz. Örneğin, bir uygulama ayarı erişmeye adlı `NODE_ENV`, aşağıdaki kodu kullanın:
 
 ```javascript
 process.env.NODE_ENV
@@ -253,7 +253,7 @@ Node.js uygulamanız App Service'te farklı davranır ya da hatalı aşağıdaki
     - Yapılandırmanıza bağlı olarak, *package.json*, farklı paketleri üretim modu için yüklü (`dependencies` karşılaştırması `devDependencies`).
     - Bazı web çerçeveleri, statik dosyalar farklı üretim modunda dağıtabilirsiniz.
     - Bazı web çerçeveleri, üretim modunda çalışırken özel başlatma komut dosyaları kullanabilirsiniz.
-- Uygulamanızı App Service'te geliştirme modunda çalıştırın. Örneğin, [MEAN.js](https://meanjs.org/), çalışma zamanı tarafından geliştirme modunda için uygulamanızı ayarlayın [ayarı `NODE_ENV` uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Uygulamanızı App Service'te geliştirme modunda çalıştırın. Örneğin, [MEAN.js](https://meanjs.org/), çalışma zamanı tarafından geliştirme modunda için uygulamanızı ayarlayın [ayarı `NODE_ENV` uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

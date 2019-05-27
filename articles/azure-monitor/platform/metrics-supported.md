@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595440"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957162"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 
@@ -70,7 +70,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ShortParsingBusyThreads|İş parçacıkları: Kısa ayrıştırma meşgul iş parçacıkları|Count|Ortalama|Kısa ayrıştırma iş parçacığı havuzundaki meşgul iş parçacığı sayısı.|ServerResourceType|
 |ShortParsingIdleThreads|İş parçacıkları: Kısa ayrıştırma boşta iş parçacıkları|Count|Ortalama|Kısa ayrıştırma iş parçacığı havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
 |ShortParsingJobQueueLength|İş parçacıkları: Kısa ayrıştırma iş kuyruğu uzunluğu|Count|Ortalama|Kısa ayrıştırma iş parçacığı havuzu kuyruğundaki iş sayısı.|ServerResourceType|
-|memory_thrashing_metric|Bellek çok yavaş|Yüzde|Ortalama|Ortalama bellek temizleme.|ServerResourceType|
+|memory_thrashing_metric|Bellek çok yavaş|Percent|Ortalama|Ortalama bellek temizleme.|ServerResourceType|
 |mashup_engine_qpu_metric|M altyapı QPU'su|Count|Ortalama|Karma altyapısı işlemleri tarafından kullanılan qpu|ServerResourceType|
 |mashup_engine_memory_metric|M altyapı belleği|Bayt|Ortalama|Karma altyapısı işlemleri tarafından bellek kullanımı|ServerResourceType|
 
@@ -84,7 +84,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |FailedRequests|Başarısız ağ geçidi istekleri|Count|Toplam|Ağ geçidi istek sayısı|Konum, ana bilgisayar adı|
 |OtherRequests|Diğer ağ geçidi istekleri|Count|Toplam|Diğer ağ geçidi istekleri sayısı|Konum, ana bilgisayar adı|
 |Süre|Ağ geçidi isteklerinin toplam süre|Milisaniye|Ortalama|Toplam süre, ağ geçidi istekleri milisaniye|Konum, ana bilgisayar adı|
-|Kapasite|Kapasite|Yüzde|Ortalama|ApiManagement hizmeti için kullanım ölçümü|Location|
+|Kapasite|Kapasite|Percent|Ortalama|ApiManagement hizmeti için kullanım ölçümü|Location|
 |EventHubTotalEvents|Toplam EventHub olayları|Count|Toplam|Event Hubs'a gönderilen olay sayısı|Location|
 |EventHubSuccessfulEvents|Başarılı EventHub olayları|Count|Toplam|Başarılı EventHub olay sayısı|Location|
 |EventHubTotalFailedEvents|Başarısız EventHub olayları|Count|Toplam|Başarısız EventHub olay sayısı|Location|
@@ -154,12 +154,12 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |totalkeys|Toplam Anahtar Sayısı|Count|Maksimum||ShardId|
 |expiredkeys|Süresi Dolan Anahtarlar|Count|Toplam||ShardId|
 |usedmemory|Kullanılan Bellek|Bayt|Maksimum||ShardId|
-|usedmemorypercentage|Kullanılan bellek yüzdesi|Yüzde|Maksimum||ShardId|
+|usedmemorypercentage|Kullanılan bellek yüzdesi|Percent|Maksimum||ShardId|
 |usedmemoryRss|Kullanılan bellek RSS|Bayt|Maksimum||ShardId|
-|serverLoad|Sunucu Yükü|Yüzde|Maksimum||ShardId|
+|serverLoad|Sunucu Yükü|Percent|Maksimum||ShardId|
 |cacheWrite|Önbellek Yazması|BytesPerSecond|Maksimum||ShardId|
 |cacheRead|Önbellek Okuması|BytesPerSecond|Maksimum||ShardId|
-|percentProcessorTime|CPU|Yüzde|Maksimum||ShardId|
+|percentProcessorTime|CPU|Percent|Maksimum||ShardId|
 |cacheLatency|Önbellek gecikme mikrosaniye (Önizleme)|Count|Ortalama||ShardId, SampleType|
 |hatalar|Hatalar|Count|Maksimum||ShardId, ErrorType|
 |connectedclients0|Bağlı istemciler (parça 0)|Count|Maksimum||Boyut yok|
@@ -174,10 +174,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys0|Süresi dolan anahtarlar (parça 0)|Count|Toplam||Boyut yok|
 |usedmemory0|Kullanılan bellek (parça 0)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss0|Kullanılan bellek RSS (parça 0)|Bayt|Maksimum||Boyut yok|
-|serverLoad0|Sunucu iş yükü (parça 0)|Yüzde|Maksimum||Boyut yok|
+|serverLoad0|Sunucu iş yükü (parça 0)|Percent|Maksimum||Boyut yok|
 |cacheWrite0|Önbellek yazma (parça 0)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead0|Önbellek Okuma (parça 0)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime0|CPU (parça 0)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime0|CPU (parça 0)|Percent|Maksimum||Boyut yok|
 |connectedclients1|Bağlı istemciler (parça 1)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed1|Toplam işlemler (parça 1)|Count|Toplam||Boyut yok|
 |cachehits1|(Parça 1) İsabetli Önbellek okuma sayısı|Count|Toplam||Boyut yok|
@@ -190,10 +190,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys1|Süresi dolan anahtarlar (parça 1)|Count|Toplam||Boyut yok|
 |usedmemory1|Kullanılan bellek (parça 1)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss1|Kullanılan bellek RSS (parça 1)|Bayt|Maksimum||Boyut yok|
-|serverLoad1|Sunucu iş yükü (parça 1)|Yüzde|Maksimum||Boyut yok|
+|serverLoad1|Sunucu iş yükü (parça 1)|Percent|Maksimum||Boyut yok|
 |cacheWrite1|Önbellek yazma (parça 1)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead1|Önbellek Okuma (parça 1)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime1|CPU (parça 1)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime1|CPU (parça 1)|Percent|Maksimum||Boyut yok|
 |connectedclients2|Bağlı istemciler (parça 2)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed2|Toplam işlemler (parça 2)|Count|Toplam||Boyut yok|
 |cachehits2|(Parça 2) İsabetli Önbellek okuma sayısı|Count|Toplam||Boyut yok|
@@ -206,10 +206,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys2|Süresi dolan anahtarlar (parça 2)|Count|Toplam||Boyut yok|
 |usedmemory2|Kullanılan bellek (parça 2)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss2|Kullanılan bellek RSS (parça 2)|Bayt|Maksimum||Boyut yok|
-|serverLoad2|Sunucu iş yükü (parça 2)|Yüzde|Maksimum||Boyut yok|
+|serverLoad2|Sunucu iş yükü (parça 2)|Percent|Maksimum||Boyut yok|
 |cacheWrite2|Önbellek yazma (parça 2)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead2|Önbellek Okuma (parça 2)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime2|CPU (parça 2)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime2|CPU (parça 2)|Percent|Maksimum||Boyut yok|
 |connectedclients3|Bağlı istemciler (parça 3)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed3|Toplam işlemler (parça 3)|Count|Toplam||Boyut yok|
 |cachehits3|(Parça 3) İsabetli Önbellek okuma sayısı|Count|Toplam||Boyut yok|
@@ -222,10 +222,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys3|Süresi dolan anahtarlar (parça 3)|Count|Toplam||Boyut yok|
 |usedmemory3|Kullanılan bellek (parça 3)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss3|Kullanılan bellek RSS (parça 3)|Bayt|Maksimum||Boyut yok|
-|serverLoad3|Sunucu iş yükü (parça 3)|Yüzde|Maksimum||Boyut yok|
+|serverLoad3|Sunucu iş yükü (parça 3)|Percent|Maksimum||Boyut yok|
 |cacheWrite3|Önbellek yazma (parça 3)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead3|Önbellek Okuma (parça 3)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime3|CPU (parça 3)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime3|CPU (parça 3)|Percent|Maksimum||Boyut yok|
 |connectedclients4|Bağlı istemciler (parça 4)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed4|Toplam işlemler (parça 4)|Count|Toplam||Boyut yok|
 |cachehits4|İsabetli Önbellek Okuma (parça 4)|Count|Toplam||Boyut yok|
@@ -238,10 +238,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys4|Süresi dolan anahtarlar (parça 4)|Count|Toplam||Boyut yok|
 |usedmemory4|Kullanılan bellek (parça 4)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss4|Kullanılan bellek RSS (parça 4)|Bayt|Maksimum||Boyut yok|
-|serverLoad4|Sunucu iş yükü (parça 4)|Yüzde|Maksimum||Boyut yok|
+|serverLoad4|Sunucu iş yükü (parça 4)|Percent|Maksimum||Boyut yok|
 |cacheWrite4|Önbellek yazma (parça 4)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead4|Önbellek Okuma (parça 4)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime4|CPU (parça 4)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime4|CPU (parça 4)|Percent|Maksimum||Boyut yok|
 |connectedclients5|Bağlı istemciler (parça 5)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed5|Toplam işlemler (parça 5)|Count|Toplam||Boyut yok|
 |cachehits5|(Parça 5) İsabetli Önbellek okuma sayısı|Count|Toplam||Boyut yok|
@@ -254,10 +254,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys5|Süresi dolan anahtarlar (parça 5)|Count|Toplam||Boyut yok|
 |usedmemory5|Kullanılan bellek (parça 5)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss5|Kullanılan bellek RSS (parça 5)|Bayt|Maksimum||Boyut yok|
-|serverLoad5|Sunucu iş yükü (parça 5)|Yüzde|Maksimum||Boyut yok|
+|serverLoad5|Sunucu iş yükü (parça 5)|Percent|Maksimum||Boyut yok|
 |cacheWrite5|Önbellek yazma (parça 5)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead5|Önbellek Okuma (parça 5)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime5|CPU (parça 5)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime5|CPU (parça 5)|Percent|Maksimum||Boyut yok|
 |connectedclients6|Bağlı istemciler (parça 6)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed6|Toplam işlemler (parça 6)|Count|Toplam||Boyut yok|
 |cachehits6|(Parça 6) İsabetli Önbellek okuma sayısı|Count|Toplam||Boyut yok|
@@ -270,10 +270,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys6|Süresi dolan anahtarlar (parça 6)|Count|Toplam||Boyut yok|
 |usedmemory6|Kullanılan bellek (parça 6)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss6|Kullanılan bellek RSS (parça 6)|Bayt|Maksimum||Boyut yok|
-|serverLoad6|Sunucu iş yükü (parça 6)|Yüzde|Maksimum||Boyut yok|
+|serverLoad6|Sunucu iş yükü (parça 6)|Percent|Maksimum||Boyut yok|
 |cacheWrite6|Önbellek yazma (parça 6)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead6|Önbellek Okuma (parça 6)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime6|CPU (parça 6)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime6|CPU (parça 6)|Percent|Maksimum||Boyut yok|
 |connectedclients7|Bağlı istemciler (parça 7)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed7|Toplam işlemler (parça 7)|Count|Toplam||Boyut yok|
 |cachehits7|İsabetli Önbellek Okuma (parça 7)|Count|Toplam||Boyut yok|
@@ -286,10 +286,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys7|Süresi dolan anahtarlar (parça 7)|Count|Toplam||Boyut yok|
 |usedmemory7|Kullanılan bellek (parça 7)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss7|Kullanılan bellek RSS (parça 7)|Bayt|Maksimum||Boyut yok|
-|serverLoad7|Sunucu iş yükü (parça 7)|Yüzde|Maksimum||Boyut yok|
+|serverLoad7|Sunucu iş yükü (parça 7)|Percent|Maksimum||Boyut yok|
 |cacheWrite7|Önbellek yazma (parça 7)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead7|Önbellek Okuma (parça 7)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime7|CPU (parça 7)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime7|CPU (parça 7)|Percent|Maksimum||Boyut yok|
 |connectedclients8|Bağlı istemciler (parça 8)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed8|Toplam işlemler (parça 8)|Count|Toplam||Boyut yok|
 |cachehits8|(Parça 8) İsabetli Önbellek okuma sayısı|Count|Toplam||Boyut yok|
@@ -302,10 +302,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys8|Süresi dolan anahtarlar (parça 8)|Count|Toplam||Boyut yok|
 |usedmemory8|Kullanılan bellek (parça 8)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss8|Kullanılan bellek RSS (parça 8)|Bayt|Maksimum||Boyut yok|
-|serverLoad8|Sunucu iş yükü (parça 8)|Yüzde|Maksimum||Boyut yok|
+|serverLoad8|Sunucu iş yükü (parça 8)|Percent|Maksimum||Boyut yok|
 |cacheWrite8|Önbellek yazma (parça 8)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead8|Önbellek Okuma (parça 8)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime8|CPU (parça 8)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime8|CPU (parça 8)|Percent|Maksimum||Boyut yok|
 |connectedclients9|Bağlı istemciler (parça 9)|Count|Maksimum||Boyut yok|
 |totalcommandsprocessed9|Toplam işlemler (parça 9)|Count|Toplam||Boyut yok|
 |cachehits9|İsabetli Önbellek Okuma (parça 9)|Count|Toplam||Boyut yok|
@@ -318,10 +318,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |expiredkeys9|Süresi dolan anahtarlar (parça 9)|Count|Toplam||Boyut yok|
 |usedmemory9|Kullanılan bellek (parça 9)|Bayt|Maksimum||Boyut yok|
 |usedmemoryRss9|Kullanılan bellek RSS (parça 9)|Bayt|Maksimum||Boyut yok|
-|serverLoad9|Sunucu iş yükü (parça 9)|Yüzde|Maksimum||Boyut yok|
+|serverLoad9|Sunucu iş yükü (parça 9)|Percent|Maksimum||Boyut yok|
 |cacheWrite9|Önbellek yazma (parça 9)|BytesPerSecond|Maksimum||Boyut yok|
 |cacheRead9|Önbellek Okuma (parça 9)|BytesPerSecond|Maksimum||Boyut yok|
-|percentProcessorTime9|CPU (parça 9)|Yüzde|Maksimum||Boyut yok|
+|percentProcessorTime9|CPU (parça 9)|Percent|Maksimum||Boyut yok|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
@@ -403,10 +403,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Giden Akışlar|Giden Akışlar (Önizleme)|Count|Ortalama|Giden Akışlar, gidiş yönündeki (VM'den giden trafik) akışların mevcut sayısıdır|Boyut yok|
 |En Yüksek Gelen Akış Oluşturma Oranı|En Yüksek Gelen Akış Oluşturma Oranı (Önizleme)|CountPerSecond|Ortalama|Gelen akışların en yüksek oluşturulma oranı (VM'ye gelen trafik)|Boyut yok|
 |En Yüksek Giden Akış Oluşturma Oranı|En Yüksek Giden Akış Oluşturma Oranı (Önizleme)|CountPerSecond|Ortalama|Giden akışların en yüksek oluşturulma oranı (VM'den çıkan trafik)|Boyut yok|
-|Premium Veri Diski İsabetli Önbellek Okuması|Premium Veri Diski İsabetli Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium Veri Diski İsabetli Önbellek Okuması|LUN|
-|Premium Veri Diski İsabetsiz Önbellek Okuması|Premium Veri Diski İsabetsiz Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium Veri Diski İsabetsiz Önbellek Okuması|LUN|
-|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|Boyut yok|
-|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|Boyut yok|
+|Premium Veri Diski İsabetli Önbellek Okuması|Premium Veri Diski İsabetli Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium Veri Diski İsabetli Önbellek Okuması|LUN|
+|Premium Veri Diski İsabetsiz Önbellek Okuması|Premium Veri Diski İsabetsiz Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium Veri Diski İsabetsiz Önbellek Okuması|LUN|
+|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|Boyut yok|
+|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|Boyut yok|
 |Toplam Alınan Ağ|Toplam Alınan Ağ|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|Boyut yok|
 |Toplam Gönderilen Ağ|Toplam Gönderilen Ağ|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|Boyut yok|
 
@@ -447,10 +447,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Giden Akışlar|Giden Akışlar (Önizleme)|Count|Ortalama|Giden Akışlar, gidiş yönündeki (VM'den giden trafik) akışların mevcut sayısıdır|VMName|
 |En Yüksek Gelen Akış Oluşturma Oranı|En Yüksek Gelen Akış Oluşturma Oranı (Önizleme)|CountPerSecond|Ortalama|Gelen akışların en yüksek oluşturulma oranı (VM'ye gelen trafik)|VMName|
 |En Yüksek Giden Akış Oluşturma Oranı|En Yüksek Giden Akış Oluşturma Oranı (Önizleme)|CountPerSecond|Ortalama|Giden akışların en yüksek oluşturulma oranı (VM'den çıkan trafik)|VMName|
-|Premium Veri Diski İsabetli Önbellek Okuması|Premium Veri Diski İsabetli Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium Veri Diski İsabetli Önbellek Okuması|LUN, VMName|
-|Premium Veri Diski İsabetsiz Önbellek Okuması|Premium Veri Diski İsabetsiz Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium Veri Diski İsabetsiz Önbellek Okuması|LUN, VMName|
-|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|VMName|
-|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması (Önizleme)|Yüzde|Ortalama|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|VMName|
+|Premium Veri Diski İsabetli Önbellek Okuması|Premium Veri Diski İsabetli Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium Veri Diski İsabetli Önbellek Okuması|LUN, VMName|
+|Premium Veri Diski İsabetsiz Önbellek Okuması|Premium Veri Diski İsabetsiz Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium Veri Diski İsabetsiz Önbellek Okuması|LUN, VMName|
+|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium İşletim Sistemi Diski İsabetli Önbellek Okuması|VMName|
+|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması (Önizleme)|Percent|Ortalama|Premium İşletim Sistemi Diski İsabetsiz Önbellek Okuması|VMName|
 |Toplam Alınan Ağ|Toplam Alınan Ağ|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|VMName|
 |Toplam Gönderilen Ağ|Toplam Gönderilen Ağ|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|VMName|
 
@@ -532,8 +532,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |CloudUploadThroughput|Bulut Karşıya Yükleme Aktarım Hızı|BytesPerSecond|Ortalama|Bulut karşıya yükleme azure'a aktarım hızını raporlama süresi boyunca.|Boyut yok|
 |CloudReadThroughput|Bulut indirme aktarım hızı|BytesPerSecond|Ortalama|Bulut indirme azure'a aktarım hızını raporlama süresi boyunca.|Boyut yok|
 |BytesUploadedToCloud|Karşıya Yüklenen Bulut Baytı (Cihaz)|Bayt|Ortalama|Raporlama döneminde bir cihazdan Azure'a yüklenen toplam bayt sayısı.|Boyut yok|
-|HyperVVirtualProcessorUtilization|İşlem CPU kullanımı|Yüzde|Ortalama|CPU Kullanımı Yüzdesi|InstanceName|
-|HyperVMemoryUtilization|İşlem Belleği Kullanımı|Yüzde|Ortalama|Kullanımdaki RAM miktarı|InstanceName|
+|HyperVVirtualProcessorUtilization|İşlem CPU kullanımı|Percent|Ortalama|CPU Kullanımı Yüzdesi|InstanceName|
+|HyperVMemoryUtilization|İşlem Belleği Kullanımı|Percent|Ortalama|Kullanımdaki RAM miktarı|InstanceName|
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
@@ -552,7 +552,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ActivitySucceededRuns|Etkinlik çalıştırmaları ölçümlerinin başarılı oldu|Count|Toplam||ActivityType, PipelineName, FailureType, adı|
 |TriggerFailedRuns|Tetikleyici çalıştırmaları ölçümleri başarısız oldu|Count|Toplam||Ad, FailureType|
 |TriggerSucceededRuns|Tetikleyici çalıştırmaları ölçümleri başarılı oldu|Count|Toplam||Ad, FailureType|
-|IntegrationRuntimeCpuPercentage|Tümleştirme çalışma zamanı CPU kullanımı|Yüzde|Ortalama||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeCpuPercentage|Tümleştirme çalışma zamanı CPU kullanımı|Percent|Ortalama||IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeAvailableMemory|Tümleştirme çalışma zamanı kullanılabilir bellek|Bayt|Ortalama||IntegrationRuntimeName, NodeName|
 |MaxAllowedResourceCount|İzin verilen en fazla varlık sayısı|Count|Maksimum||Boyut yok|
 |MaxAllowedFactorySizeInGbUnits|İzin verilen en yüksek Fabrika boyutu (GB birim)|Count|Maksimum||Boyut yok|
@@ -584,13 +584,13 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Boyut yok|
-|memory_percent|Bellek yüzdesi|Yüzde|Ortalama|Bellek yüzdesi|Boyut yok|
-|io_consumption_percent|G/ç yüzdesi|Yüzde|Ortalama|G/ç yüzdesi|Boyut yok|
-|storage_percent|Depolama yüzdesi|Yüzde|Ortalama|Depolama yüzdesi|Boyut yok|
+|cpu_percent|CPU yüzdesi|Percent|Ortalama|CPU yüzdesi|Boyut yok|
+|memory_percent|Bellek yüzdesi|Percent|Ortalama|Bellek yüzdesi|Boyut yok|
+|io_consumption_percent|G/ç yüzdesi|Percent|Ortalama|G/ç yüzdesi|Boyut yok|
+|storage_percent|Depolama yüzdesi|Percent|Ortalama|Depolama yüzdesi|Boyut yok|
 |storage_used|Kullanılan depolama alanı|Bayt|Ortalama|Kullanılan depolama alanı|Boyut yok|
 |storage_limit|Depolama sınırı|Bayt|Ortalama|Depolama sınırı|Boyut yok|
-|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Yüzde|Ortalama|Sunucu günlüğü depolama yüzdesi|Boyut yok|
+|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Percent|Ortalama|Sunucu günlüğü depolama yüzdesi|Boyut yok|
 |serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Ortalama|Kullanılan sunucu günlük depolama alanı|Boyut yok|
 |serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Ortalama|Sunucu günlük depolama sınırı|Boyut yok|
 |active_connections|Etkin bağlantılar|Count|Ortalama|Etkin bağlantılar|Boyut yok|
@@ -604,13 +604,13 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Boyut yok|
-|memory_percent|Bellek yüzdesi|Yüzde|Ortalama|Bellek yüzdesi|Boyut yok|
-|io_consumption_percent|G/ç yüzdesi|Yüzde|Ortalama|G/ç yüzdesi|Boyut yok|
-|storage_percent|Depolama yüzdesi|Yüzde|Ortalama|Depolama yüzdesi|Boyut yok|
+|cpu_percent|CPU yüzdesi|Percent|Ortalama|CPU yüzdesi|Boyut yok|
+|memory_percent|Bellek yüzdesi|Percent|Ortalama|Bellek yüzdesi|Boyut yok|
+|io_consumption_percent|G/ç yüzdesi|Percent|Ortalama|G/ç yüzdesi|Boyut yok|
+|storage_percent|Depolama yüzdesi|Percent|Ortalama|Depolama yüzdesi|Boyut yok|
 |storage_used|Kullanılan depolama alanı|Bayt|Ortalama|Kullanılan depolama alanı|Boyut yok|
 |storage_limit|Depolama sınırı|Bayt|Ortalama|Depolama sınırı|Boyut yok|
-|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Yüzde|Ortalama|Sunucu günlüğü depolama yüzdesi|Boyut yok|
+|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Percent|Ortalama|Sunucu günlüğü depolama yüzdesi|Boyut yok|
 |serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Ortalama|Kullanılan sunucu günlük depolama alanı|Boyut yok|
 |serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Ortalama|Sunucu günlük depolama sınırı|Boyut yok|
 |active_connections|Etkin bağlantılar|Count|Ortalama|Etkin bağlantılar|Boyut yok|
@@ -624,13 +624,13 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Boyut yok|
-|memory_percent|Bellek yüzdesi|Yüzde|Ortalama|Bellek yüzdesi|Boyut yok|
-|io_consumption_percent|G/ç yüzdesi|Yüzde|Ortalama|G/ç yüzdesi|Boyut yok|
-|storage_percent|Depolama yüzdesi|Yüzde|Ortalama|Depolama yüzdesi|Boyut yok|
+|cpu_percent|CPU yüzdesi|Percent|Ortalama|CPU yüzdesi|Boyut yok|
+|memory_percent|Bellek yüzdesi|Percent|Ortalama|Bellek yüzdesi|Boyut yok|
+|io_consumption_percent|G/ç yüzdesi|Percent|Ortalama|G/ç yüzdesi|Boyut yok|
+|storage_percent|Depolama yüzdesi|Percent|Ortalama|Depolama yüzdesi|Boyut yok|
 |storage_used|Kullanılan depolama alanı|Bayt|Ortalama|Kullanılan depolama alanı|Boyut yok|
 |storage_limit|Depolama sınırı|Bayt|Ortalama|Depolama sınırı|Boyut yok|
-|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Yüzde|Ortalama|Sunucu günlüğü depolama yüzdesi|Boyut yok|
+|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Percent|Ortalama|Sunucu günlüğü depolama yüzdesi|Boyut yok|
 |serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Ortalama|Kullanılan sunucu günlük depolama alanı|Boyut yok|
 |serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Ortalama|Sunucu günlük depolama sınırı|Boyut yok|
 |active_connections|Etkin bağlantılar|Count|Ortalama|Etkin bağlantılar|Boyut yok|
@@ -645,10 +645,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Boyut yok|
-|memory_percent|Bellek yüzdesi|Yüzde|Ortalama|Bellek yüzdesi|Boyut yok|
+|cpu_percent|CPU yüzdesi|Percent|Ortalama|CPU yüzdesi|Boyut yok|
+|memory_percent|Bellek yüzdesi|Percent|Ortalama|Bellek yüzdesi|Boyut yok|
 |IOPS|IOPS|Count|Ortalama|Saniye başına g/ç işlemleri|Boyut yok|
-|storage_percent|Depolama yüzdesi|Yüzde|Ortalama|Depolama yüzdesi|Boyut yok|
+|storage_percent|Depolama yüzdesi|Percent|Ortalama|Depolama yüzdesi|Boyut yok|
 |storage_used|Kullanılan depolama alanı|Bayt|Ortalama|Kullanılan depolama alanı|Boyut yok|
 |active_connections|Etkin bağlantılar|Count|Ortalama|Etkin bağlantılar|Boyut yok|
 |network_bytes_egress|Ağ Çıkışı|Bayt|Toplam|Etkin bağlantılar arasında ağ çıkışı|Boyut yok|
@@ -747,7 +747,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |MongoRequests|Mongo istekleri|Count|Count|Mongo istekleri sayısı|DatabaseName CollectionName, bölgesi CommandName, hata kodu|
 |ProvisionedThroughput|Sağlanan Aktarım Hızı|Count|Maksimum|Sağlanan Aktarım Hızı|DatabaseName, CollectionName|
 |ReplicationLatency|P99 Çoğaltma gecikmesi|Milisaniye|Ortalama|Kaynak ve hedef bölgede coğrafi özellikli hesabının P99 çoğaltma gecikmesi|SourceRegion, TargetRegion|
-|ServiceAvailability|Hizmet kullanılabilirliği|Yüzde|Ortalama|Hesap istekleri kullanılabilirliğine bir saat, gün veya ay ayrıntı düzeyi|Boyut yok|
+|ServiceAvailability|Hizmet kullanılabilirliği|Percent|Ortalama|Hesap istekleri kullanılabilirliğine bir saat, gün veya ay ayrıntı düzeyi|Boyut yok|
 |TotalRequestUnits|Toplam istek birimleri|Count|Toplam|Tüketilen birimler iste|DatabaseName, CollectionName, bölge, StatusCode, OperationType|
 |TotalRequests|Toplam İstek Sayısı|Count|Count|Yapılan istek sayısı|DatabaseName, CollectionName, bölge, StatusCode, OperationType|
 
@@ -839,7 +839,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |CaptureBacklog|Kapsam yakalayın. (Önizleme)|Count|Toplam|Microsoft.EventHub için kapsam yakalayın. (Önizleme)|Boyut yok|
 |CapturedMessages|Yakalanan İletiler. (Önizleme)|Count|Toplam|Microsoft.EventHub için Yakalanan İletiler. (Önizleme)|Boyut yok|
 |CapturedBytes|Yakalanan Baytlar. (Önizleme)|Bayt|Toplam|Microsoft.EventHub için Yakalanan Baytlar. (Önizleme)|Boyut yok|
-|CPU|CPU (Önizleme)|Yüzde|Maksimum|Yüzde olarak Olay Hub'ı Kümesinin CPU kullanımı|Rol|
+|CPU|CPU (Önizleme)|Percent|Maksimum|Yüzde olarak Olay Hub'ı Kümesinin CPU kullanımı|Rol|
 |AvailableMemory|Kullanılabilir bellek (Önizleme)|Count|Maksimum|Bayt cinsinden Olay Hub'ı Kümesi için kullanılabilir bellek|Rol|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -848,12 +848,6 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |---|---|---|---|---|---|
 |GatewayRequests|Ağ geçidi istekleri|Count|Toplam|Ağ geçidi istekleri sayısı|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Kategorilere ayrılmış bir ağ geçidi istekleri|Count|Toplam|Ağ geçidi istekleri (1xx/2xx/3xx/4xx/5xx) kategorilere göre sayısı|ClusterDnsName, HttpStatus|
-|Otomatik ölçeklendirme|Otomatik ölçeklendirme ölçüm|Count|Maksimum|Otomatik ölçeklendirme ölçüm|ClusterDnsName, MetricName|
-|AllocatedMB|Ayrılan MB|Count|Maksimum|Ayrılan MB|ClusterDnsName, MetricName|
-|AvailableMB|Kullanılabilir MB|Count|Maksimum|Kullanılabilir MB|ClusterDnsName, MetricName|
-|AppsPending|Bekleyen uygulamalar|Count|Maksimum|Bekleyen uygulamalar|ClusterDnsName, MetricName|
-|AppsRunning|Çalışan uygulamalar|Count|Maksimum|Çalışan uygulamalar|ClusterDnsName, MetricName|
-|AppsSubmitted|Gönderilen uygulamalar|Count|Maksimum|Gönderilen uygulamalar|ClusterDnsName, MetricName|
 |NumActiveWorkers|Etkin çalışan sayısı|Count|Maksimum|Etkin çalışan sayısı|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
@@ -889,8 +883,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |performanceCounters/requestsPerSecond|HTTP isteği oranı|CountPerSecond|Ortalama|Saniyede ASP.NET'ten uygulamaya yapılan tüm isteklerin oranı.|Bulut/Roleınstance|
 |performanceCounters/exceptionsPerSecond|Özel durum oranı|CountPerSecond|Ortalama|Windows'a raporlanan, işlenen ve yakalanamayan özel durumların (.NET özel durumları ve .NET özel durumlarına dönüştürülmüş yönetilmeyen özel durumlar gibi) sayısı.|Bulut/Roleınstance|
 |performanceCounters/processIOBytesPerSecond|İşlem GÇ hızı|BytesPerSecond|Ortalama|Dosyalar, ağ ve cihazlar üzerinde saniyede okunan ve yazılan toplam bayt.|Bulut/Roleınstance|
-|performanceCounters/processCpuPercentage|İşlem CPU'su|Yüzde|Ortalama|Tüm işlem iş parçacıklarının sürenin yüzdesini işlemci yönergeleri yürütmek için kullanılır. Bu, 0 ile 100 arasında değişebilir. Bu ölçüm yalnızca w3wp işleminin performansını gösterir.|Bulut/Roleınstance|
-|performanceCounters/processorCpuPercentage|İşlemci zamanı|Yüzde|Ortalama|İşlemcinin boş olmayan iş parçacıklarında harcadığı sürenin yüzdesi.|Bulut/Roleınstance|
+|performanceCounters/processCpuPercentage|İşlem CPU'su|Percent|Ortalama|Tüm işlem iş parçacıklarının sürenin yüzdesini işlemci yönergeleri yürütmek için kullanılır. Bu, 0 ile 100 arasında değişebilir. Bu ölçüm yalnızca w3wp işleminin performansını gösterir.|Bulut/Roleınstance|
+|performanceCounters/processorCpuPercentage|İşlemci zamanı|Percent|Ortalama|İşlemcinin boş olmayan iş parçacıklarında harcadığı sürenin yüzdesi.|Bulut/Roleınstance|
 |performanceCounters/memoryAvailableBytes|Uygun bellek|Bayt|Ortalama|Bir işleme veya sistem kullanımına ayırmak için hemen kullanılabilir fiziksel bellek.|Bulut/Roleınstance|
 |performanceCounters/processPrivateBytes|İşleme özel bayt sayısı|Bayt|Ortalama|İzlenen uygulama işlemleri için özel olarak atanan bellek.|Bulut/Roleınstance|
 |istekleri/süresi|Sunucu yanıt süresi|Milisaniye|Ortalama|Bir HTTP isteğinin alınmasıyla yanıtın gönderilmesi arasında geçen süre.|İstek/performanceBucket, istek/resultCode, işlemi/Sentetik, bulut/Roleınstance, istek/başarı, bulut/roleName|
@@ -914,15 +908,15 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Önbellek kullanımı|Yüzde|Ortalama|Küme kapsamında kullanım düzeyi|Boyut yok|
+|ClusterDataCapacityFactor|Önbellek kullanımı|Percent|Ortalama|Küme kapsamında kullanım düzeyi|Boyut yok|
 |QueryDuration|Sorgu süresi|Milisaniye|Ortalama|Saniye cinsinden sorgu süresi|QueryStatus|
-|IngestionsLoadFactor|Alımı kullanımı|Yüzde|Ortalama|Kümede kullanılan alma yuvası oranı|Boyut yok|
+|IngestionsLoadFactor|Alımı kullanımı|Percent|Ortalama|Kümede kullanılan alma yuvası oranı|Boyut yok|
 |IsEngineAnsweringQuery|Canlı|Count|Ortalama|Küme sorgulara yanıt sağlamlık denetimi gösterir.|Boyut yok|
 |IngestCommandOriginalSizeInMb|Alma birim (MB cinsinden)|Count|Toplam|Genel (MB cinsinden) kümeye içe alınan veri hacmi|Boyut yok|
 |IngestedEventAgeSeconds|Alma gecikmesi (saniye cinsinden)|Saniye|Ortalama|Alma süresi (örneğin ileti içinde EventHub) kaynak kümeye saniye|Boyut yok|
 |EventRecievedFromEventHub|(Event Hubs için) işlenen olaylar|Count|Toplam|Olay Hub'ından başlayan kümeniz, küme tarafından işlenen olay sayısı|Boyut yok|
 |IngestionResult|Alma sonucu|Count|Count|Alma işlemi sayısı|IngestionResultDetails|
-|EngineCPU|CPU|Yüzde|Ortalama|CPU kullanımı düzeyi|Boyut yok|
+|EngineCPU|CPU|Percent|Ortalama|CPU kullanımı düzeyi|Boyut yok|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -942,7 +936,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |RunLatency|Çalıştırma Gecikmesi|Saniye|Ortalama|Tamamlanan iş akışı çalıştırmalarının gecikme süresi.|Boyut yok|
 |RunSuccessLatency|Başarılı Çalıştırma Gecikmesi|Saniye|Ortalama|Başarılı iş akışı çalıştırmalarının gecikme süresi.|Boyut yok|
 |RunThrottledEvents|Çalıştırılması Kısıtlanan Olaylar|Count|Toplam|İş akışı eylemi veya tetikleyiciyle kısıtlanan olay sayısı.|Boyut yok|
-|RunFailurePercentage|Çalıştırma Hatası Yüzdesi|Yüzde|Toplam|Başarısız olan iş akışı çalıştırmalarının yüzdesi.|Boyut yok|
+|RunFailurePercentage|Çalıştırma Hatası Yüzdesi|Percent|Toplam|Başarısız olan iş akışı çalıştırmalarının yüzdesi.|Boyut yok|
 |ActionsStarted|Başlatılan Eylemler |Count|Toplam|Başlatılan iş akışı eylemi sayısı.|Boyut yok|
 |ActionsCompleted|Tamamlanan Eylemler |Count|Toplam|Tamamlanan iş akışı eylemi sayısı.|Boyut yok|
 |ActionsSucceeded|Başarılı Eylemler |Count|Toplam|Başarılı iş akışı eylemi sayısı.|Boyut yok|
@@ -984,7 +978,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |RunSuccessLatency|Başarılı Çalıştırma Gecikmesi|Saniye|Ortalama|Başarılı iş akışı çalıştırmalarının gecikme süresi.|Boyut yok|
 |RunThrottledEvents|Çalıştırılması Kısıtlanan Olaylar|Count|Toplam|İş akışı eylemi veya tetikleyiciyle kısıtlanan olay sayısı.|Boyut yok|
 |RunStartThrottledEvents|Çalıştırma Başlangıcı Kısıtlanan Olaylar|Count|Toplam|İş akışı çalıştırma başlangıcı kısıtlanan olay sayısı.|Boyut yok|
-|RunFailurePercentage|Çalıştırma Hatası Yüzdesi|Yüzde|Toplam|Başarısız olan iş akışı çalıştırmalarının yüzdesi.|Boyut yok|
+|RunFailurePercentage|Çalıştırma Hatası Yüzdesi|Percent|Toplam|Başarısız olan iş akışı çalıştırmalarının yüzdesi.|Boyut yok|
 |ActionsStarted|Başlatılan Eylemler |Count|Toplam|Başlatılan iş akışı eylemi sayısı.|Boyut yok|
 |ActionsCompleted|Tamamlanan Eylemler |Count|Toplam|Tamamlanan iş akışı eylemi sayısı.|Boyut yok|
 |ActionsSucceeded|Başarılı Eylemler |Count|Toplam|Başarılı iş akışı eylemi sayısı.|Boyut yok|
@@ -1003,10 +997,10 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |TriggerFireLatency|Tetikleyici Tetikleme Gecikme Süresi |Saniye|Ortalama|Başlatılan iş akışı tetikleyicilerinin gecikmesi.|Boyut yok|
 |TriggerSuccessLatency|Tetikleyici Başarı Gecikme Süresi |Saniye|Ortalama|Başarılı iş akışı tetikleyicilerinin gecikmesi.|Boyut yok|
 |TriggerThrottledEvents|Tetikleyici Kısıtlanan Olaylar|Count|Toplam|İş akışı tetikleyicisiyle kısıtlanan olay sayısı.|Boyut yok|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Tümleştirme Hizmet Ortamı için İş Akışı İşlemci Kullanımı|Yüzde|Ortalama|Tümleştirme hizmet ortamı için iş akışı işlemci kullanımı.|Boyut yok|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Tümleştirme Hizmet Ortamı için İş Akışı Bellek Kullanımı|Yüzde|Ortalama|Tümleştirme hizmet ortamı için iş akışı bellek kullanımı.|Boyut yok|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Tümleştirme Hizmet Ortamı için Bağlayıcı İşlemci Kullanımı|Yüzde|Ortalama|Tümleştirme hizmet ortamı için bağlayıcı işlemci kullanımı.|Boyut yok|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Tümleştirme Hizmet Ortamı için Bağlayıcı Bellek Kullanımı|Yüzde|Ortalama|Tümleştirme hizmet ortamı için bağlayıcı bellek kullanımı.|Boyut yok|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Tümleştirme Hizmet Ortamı için İş Akışı İşlemci Kullanımı|Percent|Ortalama|Tümleştirme hizmet ortamı için iş akışı işlemci kullanımı.|Boyut yok|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Tümleştirme Hizmet Ortamı için İş Akışı Bellek Kullanımı|Percent|Ortalama|Tümleştirme hizmet ortamı için iş akışı bellek kullanımı.|Boyut yok|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Tümleştirme Hizmet Ortamı için Bağlayıcı İşlemci Kullanımı|Percent|Ortalama|Tümleştirme hizmet ortamı için bağlayıcı işlemci kullanımı.|Boyut yok|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Tümleştirme Hizmet Ortamı için Bağlayıcı Bellek Kullanımı|Percent|Ortalama|Tümleştirme hizmet ortamı için bağlayıcı bellek kullanımı.|Boyut yok|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
@@ -1088,7 +1082,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |---|---|---|---|---|---|
 |QueryVolume|Sorgu birim|Count|Toplam|Bir DNS bölgesi için sunulan sorgu sayısı|Boyut yok|
 |RecordSetCount|Kayıt kümesi sayısı|Count|Maksimum|Bir DNS bölgesinde kayıt kümesi sayısı|Boyut yok|
-|RecordSetCapacityUtilization|Kayıt kümesi kapasite kullanımı|Yüzde|Maksimum|Bir DNS bölgesi tarafından kullanılan kayıt kümesi kapasite yüzdesi|Boyut yok|
+|RecordSetCapacityUtilization|Kayıt kümesi kapasite kullanımı|Percent|Maksimum|Bir DNS bölgesi tarafından kullanılan kayıt kümesi kapasite yüzdesi|Boyut yok|
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
@@ -1188,7 +1182,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|% Araştırmaları başarısız oldu|Yüzde|Ortalama|araştırmalar izleme bağlantı başarısız oldu|Boyut yok|
+|ProbesFailedPercent|% Araştırmaları başarısız oldu|Percent|Ortalama|araştırmalar izleme bağlantı başarısız oldu|Boyut yok|
 |AverageRoundtripMs|Ort. Gidiş dönüş süresi (ms)|Milisaniye|Ortalama|Kaynak ve hedef arasında gönderilen yoklamalar izleme bağlantı için ortalama ağ gidiş dönüş süresi (ms)|Boyut yok|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
@@ -1201,7 +1195,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |BackendRequestCount|Arka uç istek sayısı|Count|Toplam|İçin arka uçlar HTTP/S Ara sunucuya gönderilen istek sayısı|Httpstatus'a, HttpStatusGroup, arka uç|
 |BackendRequestLatency|Arka uç istek gecikme süresi|Milisaniye|Ortalama|Ara sunucu HTTP/S son yanıt bayt arka uçtan alınan kadar zaman İstek HTTP/S proxy tarafından arka ucuna gönderilen hesaplandığında|Arka uç|
 |TotalLatency|Toplam gecikme süresi|Milisaniye|Ortalama|İstemci, HTTP/S Proxy'den gelen son yanıt bayt onaylanır kadar ne zaman istemci isteği HTTP/S proxy tarafından alındı hesaplandığında|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
-|BackendHealthPercentage|Arka uç sistem durumu yüzdesi|Yüzde|Ortalama|Başarılı sistem durumu yüzdesi için arka uçlar HTTP/S Ara sunucuya araştırmaları|Arka uç, BackendPool|
+|BackendHealthPercentage|Arka uç sistem durumu yüzdesi|Percent|Ortalama|Başarılı sistem durumu yüzdesi için arka uçlar HTTP/S Ara sunucuya araştırmaları|Arka uç, BackendPool|
 |WebApplicationFirewallRequestCount|Web uygulaması güvenlik duvarı istek sayısı|Count|Toplam|Web uygulaması güvenlik duvarı tarafından işlenen istemci isteklerinin sayısı|PolicyName, RuleName, eylem|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -1355,7 +1349,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |QueryPoolJobQueueLength|İş parçacıkları: Sorgu havuzu iş kuyruğu uzunluğu|Count|Ortalama|Sorgu iş parçacığı havuzu kuyruğundaki iş sayısı.|Boyut yok|
 |qpu_high_utilization_metric|QPU yüksek kullanımı|Count|Toplam|Son dakika, 1 yüksek QPU kullanımı, aksi durumda 0 QPU yüksek kullanımı|Boyut yok|
 |memory_metric|Bellek|Bayt|Ortalama|Bellek. A1, 0-5 Aralık 0-3 GB için A2 GB, 0-10 GB için A3, A4 için 0-25 GB, A5 için 0-50 GB ve 0-100 GB için A6|Boyut yok|
-|memory_thrashing_metric|Bellek çok yavaş|Yüzde|Ortalama|Ortalama bellek temizleme.|Boyut yok|
+|memory_thrashing_metric|Bellek çok yavaş|Percent|Ortalama|Ortalama bellek temizleme.|Boyut yok|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -1381,7 +1375,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |---|---|---|---|---|---|
 |SearchLatency|Arama gecikme süresi|Saniye|Ortalama|Arama hizmeti için ortalama bir arama gecikme süresi|Boyut yok|
 |SearchQueriesPerSecond|Saniye başına arama sorguları|CountPerSecond|Ortalama|Arama hizmeti için saniye başına arama sorguları|Boyut yok|
-|ThrottledSearchQueriesPercentage|Kısıtlanmış arama sorguları yüzdesi|Yüzde|Ortalama|Arama hizmeti için kısıtlanmış arama sorguları yüzdesi|Boyut yok|
+|ThrottledSearchQueriesPercentage|Kısıtlanmış arama sorguları yüzdesi|Percent|Ortalama|Arama hizmeti için kısıtlanmış arama sorguları yüzdesi|Boyut yok|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -1400,8 +1394,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ActiveMessages|Bir Sıradaki/Konudaki etkin iletilerin sayısı. (Önizleme)|Count|Ortalama|Bir Sıradaki/Konudaki etkin iletilerin sayısı. (Önizleme)|EntityName|
 |DeadletteredMessages|Bir Kuyruktaki/Konudaki sahipsiz iletilerin sayısı. (Önizleme)|Count|Ortalama|Bir Kuyruktaki/Konudaki sahipsiz iletilerin sayısı. (Önizleme)|EntityName|
 |ScheduledMessages|Bir Kuyruktaki/Konudaki zamanlanmış iletilerin sayısı. (Önizleme)|Count|Ortalama|Bir Kuyruktaki/Konudaki zamanlanmış iletilerin sayısı. (Önizleme)|EntityName|
-|CPUXNS|Ad alanı başına CPU kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı CPU kullanım ölçümü|Boyut yok|
-|WSXNS|Ad alanı başına bellek boyutu kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı bellek kullanım ölçümü|Boyut yok|
+|CPUXNS|Ad alanı başına CPU kullanımı|Percent|Maksimum|Service Bus premium ad alanı CPU kullanım ölçümü|Boyut yok|
+|WSXNS|Ad alanı başına bellek boyutu kullanımı|Percent|Maksimum|Service Bus premium ad alanı bellek kullanım ölçümü|Boyut yok|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1411,8 +1405,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |AllocatedMemory|AllocatedMemory|Bayt|Ortalama|Bu kapsayıcı MB cinsinden ayrılan bellek|ApplicationName, HizmetAdı, CodePackageName, ServiceReplicaName|
 |ActualCpu|ActualCpu|Count|Ortalama|Milicore'daki gerçek CPU kullanımı|ApplicationName, HizmetAdı, CodePackageName, ServiceReplicaName|
 |ActualMemory|ActualMemory|Bayt|Ortalama|MB cinsinden gerçek bellek kullanımı|ApplicationName, HizmetAdı, CodePackageName, ServiceReplicaName|
-|CpuUtilization|CpuUtilization|Yüzde|Ortalama|CPU yüzdesi cinsinden AllocatedCpu kullanımı bu kapsayıcı için|ApplicationName, HizmetAdı, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|MemoryUtilization|Yüzde|Ortalama|CPU yüzdesi cinsinden AllocatedCpu kullanımı bu kapsayıcı için|ApplicationName, HizmetAdı, CodePackageName, ServiceReplicaName|
+|CpuUtilization|CpuUtilization|Percent|Ortalama|CPU yüzdesi cinsinden AllocatedCpu kullanımı bu kapsayıcı için|ApplicationName, HizmetAdı, CodePackageName, ServiceReplicaName|
+|MemoryUtilization|MemoryUtilization|Percent|Ortalama|CPU yüzdesi cinsinden AllocatedCpu kullanımı bu kapsayıcı için|ApplicationName, HizmetAdı, CodePackageName, ServiceReplicaName|
 |ApplicationStatus|ApplicationStatus|Count|Ortalama|Service Fabric Mesh uygulamasının durumu|ApplicationName, durumu|
 |ServiceStatus|ServiceStatus|Count|Ortalama|Bir Service Fabric Mesh uygulama hizmetinin sistem durumu|ApplicationName, durumu, ServiceName|
 |ServiceReplicaStatus|ServiceReplicaStatus|Count|Ortalama|Service Fabric Mesh uygulaması'nda hizmet çoğaltma sistem durumu|ApplicationName, durumu, HizmetAdı, ServiceReplicaName|
@@ -1427,70 +1421,70 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |MessageCount|İleti Sayısı|Count|Toplam|İletilerin toplam tutar.|Boyut yok|
 |InboundTraffic|Gelen trafik|Bayt|Toplam|Gelen trafik hizmeti|Boyut yok|
 |OutboundTraffic|Giden trafik|Bayt|Toplam|Giden trafik hizmeti|Boyut yok|
-|UserErrors|Kullanıcı hataları|Yüzde|Maksimum|Kullanıcı hatalarının yüzdesi|Boyut yok|
-|SystemErrors|Sistem hataları|Yüzde|Maksimum|Sistem hatalarının yüzdesi|Boyut yok|
+|UserErrors|Kullanıcı hataları|Percent|Maksimum|Kullanıcı hatalarının yüzdesi|Boyut yok|
+|SystemErrors|Sistem hataları|Percent|Maksimum|Sistem hatalarının yüzdesi|Boyut yok|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Boyut yok|
-|physical_data_read_percent|Veri G/Ç yüzdesi|Yüzde|Ortalama|Veri G/Ç yüzdesi|Boyut yok|
-|log_write_percent|Günlük G/Ç yüzdesi|Yüzde|Ortalama|Günlük G/Ç yüzdesi|Boyut yok|
-|dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|Boyut yok|
+|cpu_percent|CPU yüzdesi|Percent|Ortalama|CPU yüzdesi|Boyut yok|
+|physical_data_read_percent|Veri G/Ç yüzdesi|Percent|Ortalama|Veri G/Ç yüzdesi|Boyut yok|
+|log_write_percent|Günlük G/Ç yüzdesi|Percent|Ortalama|Günlük G/Ç yüzdesi|Boyut yok|
+|dtu_consumption_percent|DTU yüzdesi|Percent|Ortalama|DTU yüzdesi|Boyut yok|
 |depolama|Kullanılan veri alanı|Bayt|Maksimum|Toplam veritabanı boyutu|Boyut yok|
 |connection_successful|Başarılı bağlantılar|Count|Toplam|Başarılı bağlantılar|Boyut yok|
 |connection_failed|Başarısız Bağlantılar|Count|Toplam|Başarısız Bağlantılar|Boyut yok|
 |blocked_by_firewall|Güvenlik Duvarı tarafından engellendi|Count|Toplam|Güvenlik Duvarı tarafından engellendi|Boyut yok|
 |Kilitlenme|Kilitlenmeler|Count|Toplam|Kilitlenmeler|Boyut yok|
-|storage_percent|Kullanılan yüzde veri alanı|Yüzde|Maksimum|Veri boyutu yüzdesi|Boyut yok|
-|xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Yüzde|Ortalama|Bellek içi OLTP depolama yüzdesi|Boyut yok|
-|workers_percent|Çalışan yüzdesi|Yüzde|Ortalama|Çalışan yüzdesi|Boyut yok|
-|sessions_percent|Oturumları yüzdesi|Yüzde|Ortalama|Oturumları yüzdesi|Boyut yok|
+|storage_percent|Kullanılan yüzde veri alanı|Percent|Maksimum|Veri boyutu yüzdesi|Boyut yok|
+|xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Percent|Ortalama|Bellek içi OLTP depolama yüzdesi|Boyut yok|
+|workers_percent|Çalışan yüzdesi|Percent|Ortalama|Çalışan yüzdesi|Boyut yok|
+|sessions_percent|Oturumları yüzdesi|Percent|Ortalama|Oturumları yüzdesi|Boyut yok|
 |dtu_limit|DTU Limit|Count|Ortalama|DTU Limit|Boyut yok|
 |dtu_used|Kullanılan DTU|Count|Ortalama|Kullanılan DTU|Boyut yok|
 |cpu_limit|CPU sınırı|Count|Ortalama|CPU sınırı|Boyut yok|
 |cpu_used|Kullanılan CPU|Count|Ortalama|Kullanılan CPU|Boyut yok|
 |dwu_limit|DWU limiti|Count|Maksimum|DWU limiti|Boyut yok|
-|dwu_consumption_percent|DWU yüzdesi|Yüzde|Maksimum|DWU yüzdesi|Boyut yok|
+|dwu_consumption_percent|DWU yüzdesi|Percent|Maksimum|DWU yüzdesi|Boyut yok|
 |dwu_used|Kullanılan DWU|Count|Maksimum|Kullanılan DWU|Boyut yok|
-|dw_cpu_percent|DW nodu düzeyinde CPU yüzdesi|Yüzde|Ortalama|DW nodu düzeyinde CPU yüzdesi|DwLogicalNodeId|
-|dw_physical_data_read_percent|DW düğüm düzeyi veri g/ç yüzdesi|Yüzde|Ortalama|DW düğüm düzeyi veri g/ç yüzdesi|DwLogicalNodeId|
-    |cache_hit_percent|Önbellek isabet yüzdesi|Yüzde|Maksimum|Önbellek isabet yüzdesi|Boyut yok|
-|cache_used_percent|Kullanılan önbellek yüzdesi|Yüzde|Maksimum|Kullanılan önbellek yüzdesi|Boyut yok|
-|local_tempdb_usage_percent|Yerel tempdb yüzdesi|Yüzde|Ortalama|Yerel tempdb yüzdesi|Boyut yok|
+|dw_cpu_percent|DW nodu düzeyinde CPU yüzdesi|Percent|Ortalama|DW nodu düzeyinde CPU yüzdesi|DwLogicalNodeId|
+|dw_physical_data_read_percent|DW düğüm düzeyi veri g/ç yüzdesi|Percent|Ortalama|DW düğüm düzeyi veri g/ç yüzdesi|DwLogicalNodeId|
+    |cache_hit_percent|Önbellek isabet yüzdesi|Percent|Maksimum|Önbellek isabet yüzdesi|Boyut yok|
+|cache_used_percent|Kullanılan önbellek yüzdesi|Percent|Maksimum|Kullanılan önbellek yüzdesi|Boyut yok|
+|local_tempdb_usage_percent|Yerel tempdb yüzdesi|Percent|Ortalama|Yerel tempdb yüzdesi|Boyut yok|
 |app_cpu_billed|Fiyatlandırılan uygulama CPU'su|Count|Toplam|Fiyatlandırılan uygulama CPU'su|Boyut yok|
-|app_cpu_percent|Uygulama CPU yüzdesi|Yüzde|Ortalama|Uygulama CPU yüzdesi|Boyut yok|
-|app_memory_percent|Uygulama kullanılan bellek yüzdesi|Yüzde|Ortalama|Uygulama kullanılan bellek yüzdesi|Boyut yok|
+|app_cpu_percent|Uygulama CPU yüzdesi|Percent|Ortalama|Uygulama CPU yüzdesi|Boyut yok|
+|app_memory_percent|Uygulama kullanılan bellek yüzdesi|Percent|Ortalama|Uygulama kullanılan bellek yüzdesi|Boyut yok|
 |allocated_data_storage|Ayrılmış veri alanı|Bayt|Ortalama|Ayrılmış veri alanı|Boyut yok|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Boyut yok|
-|physical_data_read_percent|Veri G/Ç yüzdesi|Yüzde|Ortalama|Veri G/Ç yüzdesi|Boyut yok|
-|log_write_percent|Günlük G/Ç yüzdesi|Yüzde|Ortalama|Günlük G/Ç yüzdesi|Boyut yok|
-|dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|Boyut yok|
-|storage_percent|Kullanılan yüzde veri alanı||Yüzde|Ortalama|Depolama yüzdesi|Boyut yok|
-|workers_percent|Çalışan yüzdesi|Yüzde|Ortalama|Çalışan yüzdesi|Boyut yok|
-|sessions_percent|Oturumları yüzdesi|Yüzde|Ortalama|Oturumları yüzdesi|Boyut yok|
+|cpu_percent|CPU yüzdesi|Percent|Ortalama|CPU yüzdesi|Boyut yok|
+|physical_data_read_percent|Veri G/Ç yüzdesi|Percent|Ortalama|Veri G/Ç yüzdesi|Boyut yok|
+|log_write_percent|Günlük G/Ç yüzdesi|Percent|Ortalama|Günlük G/Ç yüzdesi|Boyut yok|
+|dtu_consumption_percent|DTU yüzdesi|Percent|Ortalama|DTU yüzdesi|Boyut yok|
+|storage_percent|Kullanılan yüzde veri alanı||Percent|Ortalama|Depolama yüzdesi|Boyut yok|
+|workers_percent|Çalışan yüzdesi|Percent|Ortalama|Çalışan yüzdesi|Boyut yok|
+|sessions_percent|Oturumları yüzdesi|Percent|Ortalama|Oturumları yüzdesi|Boyut yok|
 |eDTU_limit|eDTU sınırı|Count|Ortalama|eDTU sınırı|Boyut yok|
 |storage_limit|Maksimum veri boyutu|Bayt|Ortalama|Depolama sınırı|Boyut yok|
 |eDTU_used|kullanılan eDTU|Count|Ortalama|kullanılan eDTU|Boyut yok|
 |storage_used|Kullanılan veri alanı|Bayt|Ortalama|Kullanılan depolama alanı|Boyut yok|
-|xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Yüzde|Ortalama|Bellek içi OLTP depolama yüzdesi|Boyut yok|
+|xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Percent|Ortalama|Bellek içi OLTP depolama yüzdesi|Boyut yok|
 |cpu_limit|CPU sınırı|Count|Ortalama|CPU sınırı|Boyut yok|
 |cpu_used|Kullanılan CPU|Count|Ortalama|Kullanılan CPU|Boyut yok|
 |allocated_data_storage|Ayrılmış veri alanı|Bayt|Ortalama|Ayrılmış veri alanı|Boyut yok|
-|allocated_data_storage_percent|Veriler ayrılan alanı yüzde|Yüzde|Maksimum|Veriler ayrılan alanı yüzde|Boyut yok|
+|allocated_data_storage_percent|Veriler ayrılan alanı yüzde|Percent|Maksimum|Veriler ayrılan alanı yüzde|Boyut yok|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |virtual_core_count|Sanal çekirdek sayısı|Count|Ortalama|Sanal çekirdek sayısı|Boyut yok|
-|avg_cpu_percent|Ortalama CPU yüzdesi|Yüzde|Ortalama|Ortalama CPU yüzdesi|Boyut yok|
+|avg_cpu_percent|Ortalama CPU yüzdesi|Percent|Ortalama|Ortalama CPU yüzdesi|Boyut yok|
 |reserved_storage_mb|Ayrılan depolama alanı|Count|Ortalama|Ayrılan depolama alanı|Boyut yok|
 |storage_space_used_mb|Kullanılan depolama alanı|Count|Ortalama|Kullanılan depolama alanı|Boyut yok|
 |io_requests|G/ç isteği sayısı|Count|Ortalama|G/ç isteği sayısı|Boyut yok|
@@ -1581,7 +1575,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|ResourceUtilization|SU Kullanım Yüzdesi|Yüzde|Maksimum|SU Kullanım Yüzdesi|LogicalName, bölüm kimliği|
+|ResourceUtilization|SU Kullanım Yüzdesi|Percent|Maksimum|SU Kullanım Yüzdesi|LogicalName, bölüm kimliği|
 |Inputevents|Giriş Olayları|Count|Toplam|Giriş Olayları|LogicalName, bölüm kimliği|
 |InputEventBytes|Giriş Olayı Bayt Sayısı|Bayt|Toplam|Giriş Olayı Bayt Sayısı|LogicalName, bölüm kimliği|
 |LateInputEvents|Geç Giriş Olayları|Count|Toplam|Geç Giriş Olayları|LogicalName, bölüm kimliği|
@@ -1654,8 +1648,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CpuPercentage|CPU Yüzdesi|Yüzde|Ortalama|CPU Yüzdesi|Örnek|
-|MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
+|CpuPercentage|CPU Yüzdesi|Percent|Ortalama|CPU Yüzdesi|Örnek|
+|MemoryPercentage|Bellek Yüzdesi|Percent|Ortalama|Bellek Yüzdesi|Örnek|
 |DiskQueueLength|Disk Kuyruğu Uzunluğu|Count|Ortalama|Disk Kuyruğu Uzunluğu|Örnek|
 |HttpQueueLength|Http Kuyruk Uzunluğu|Count|Ortalama|Http Kuyruk Uzunluğu|Örnek|
 |BytesReceived|Data Girişi|Bayt|Toplam|Data Girişi|Örnek|
@@ -1782,8 +1776,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Http4xx|Http 4xx|Count|Toplam|Http 4xx|Örnek|
 |Http5xx|Http Sunucu Hataları|Count|Toplam|Http Sunucu Hataları|Örnek|
 |AverageResponseTime|Ortalama Yanıt Süresi|Saniye|Ortalama|Ortalama Yanıt Süresi|Örnek|
-|CpuPercentage|CPU Yüzdesi|Yüzde|Ortalama|CPU Yüzdesi|Örnek|
-|MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
+|CpuPercentage|CPU Yüzdesi|Percent|Ortalama|CPU Yüzdesi|Örnek|
+|MemoryPercentage|Bellek Yüzdesi|Percent|Ortalama|Bellek Yüzdesi|Örnek|
 |DiskQueueLength|Disk Kuyruğu Uzunluğu|Count|Ortalama|Disk Kuyruğu Uzunluğu|Örnek|
 |HttpQueueLength|Http Kuyruk Uzunluğu|Count|Ortalama|Http Kuyruk Uzunluğu|Örnek|
 |ActiveRequests|Etkin İstekler|Count|Toplam|Etkin İstekler|Örnek|
@@ -1799,8 +1793,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |Bugün için WorkersTotal|Toplam Çalışanlar|Count|Ortalama|Toplam Çalışanlar|Boyut yok|
 |WorkersAvailable|Kullanılabilir Çalışanlar|Count|Ortalama|Kullanılabilir Çalışanlar|Boyut yok|
 |WorkersUsed|Kullanılan Çalışanlar|Count|Ortalama|Kullanılan Çalışanlar|Boyut yok|
-|CpuPercentage|CPU Yüzdesi|Yüzde|Ortalama|CPU Yüzdesi|Örnek|
-|MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
+|CpuPercentage|CPU Yüzdesi|Percent|Ortalama|CPU Yüzdesi|Örnek|
+|MemoryPercentage|Bellek Yüzdesi|Percent|Ortalama|Bellek Yüzdesi|Örnek|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure İzleyici'de ölçümleri hakkında bilgi edinin](data-platform.md)

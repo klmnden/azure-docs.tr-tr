@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794116"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957302"
 ---
 # <a name="manage-your-azure-maps-account"></a>Azure haritalar hesabınızı yönetin
 
@@ -21,7 +21,7 @@ Azure haritalar hesabınız Azure Portalı aracılığıyla yönetebilirsiniz. B
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-a-new-account"></a>Yeni hesap oluşturun
+## <a name="create-a-new-account"></a>Yeni hesap oluştur
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -43,10 +43,14 @@ Daha sonra bir onay sayfasına bakın. Silme işlemi hesabınızın adını yaza
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir Azure haritalar hesabı fiyatlandırma Katmanı'nı yönetmeyi öğrenin:
-    > [!div class="nextstepaction"] 
-    > [Bir fiyatlandırma Katmanı'nı yönetme](./how-to-manage-pricing-tier.md)
+Azure Haritalar ile kimlik doğrulaması ayarlayın:
+> [!div class="nextstepaction"]
+> [Kimlik doğrulamasını Yönet](how-to-manage-authentication.md)
 
-* Azure haritalar hesabınız için API kullanım ölçümleri hakkında bilgi edinin:
-    > [!div class="nextstepaction"] 
-    > [Kullanım ölçümlerini görüntüle](./how-to-view-api-usage.md)
+Bir Azure haritalar hesabı fiyatlandırma Katmanı'nı yönetmeyi öğrenin:
+> [!div class="nextstepaction"] 
+> [Bir fiyatlandırma Katmanı'nı yönetme](how-to-manage-pricing-tier.md)
+
+Azure haritalar hesabınız için API kullanım ölçümleri hakkında bilgi edinin:
+> [!div class="nextstepaction"] 
+> [Kullanım ölçümlerini görüntüle](how-to-view-api-usage.md)

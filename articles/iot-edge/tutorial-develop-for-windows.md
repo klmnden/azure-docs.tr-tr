@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b629c7b8a6addbb2ef6f9ced58d4db656ad2480
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 631338c0217eb61f4f98cd06ffa16cb2500f246b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576799"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146743"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Öğretici: IOT Edge modülleri Windows cihazlar için geliştirme
 
@@ -49,7 +49,7 @@ Aşağıdaki tabloda desteklenen geliştirme senaryoları için **Windows kapsay
 | - | ------------------ | ------------------ |
 | **Azure Hizmetleri** | Azure İşlevleri <br> Azure Stream Analytics |   |
 | **Diller** | C#(desteklenen hata ayıklamaya değil) | C <br> C# |
-| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 Bu öğretici, Visual Studio 2017 için geliştirme adımlarını öğretir. Bunun yerine Visual Studio Code kullanmayı tercih ediyorsanız, yönergeleri başvurmak [kullanan Visual Studio geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için kod](how-to-vs-code-develop-module.md).
 
@@ -100,7 +100,7 @@ IOT Edge modülleri geliştirmek için Visual Studio 2017 için IOT uzantıları
 
    * Azure geliştirme
    * C++ ile masaüstü geliştirme
-   * .NET Core çoklu platform geliştirme
+   * .NET core platformlar arası geliştirme
 
 1. Visual Studio 2017 geliştirme makinenizde zaten yüklü ise, sürüm 15.7 veya üzeri olduğundan emin olun. Bağlantısındaki [değiştirme Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) zaten yoksa, gerekli iş yüklerini eklemek için.
 
@@ -128,7 +128,7 @@ Azure IOT Edge araçları uzantısı proje şablonları için desteklenen tüm I
 
 2. **Dosya** > **Yeni** > **Proje**’yi seçin. 
 
-3. Yeni Proje penceresini seçin **Azure IOT** seçin ve proje türü **Azure IOT Edge** proje. Projeyi ve çözümü yeniden adlandırın veya varsayılanı kabul **AzureIoTEdgeApp1**. Projeyi oluşturmak için **Tamam**'ı seçin. 
+3. Yeni Proje penceresini seçin **Azure IOT** seçin ve proje türü **Azure IOT Edge** proje. Projeyi ve çözümü yeniden adlandırın veya varsayılanı kabul **AzureIoTEdgeApp1**. Seçin **Tamam** projeyi oluşturmak için. 
 
    ![Yeni Azure IOT Edge projesi oluşturma](./media/tutorial-develop-for-windows/new-project.png)
 
@@ -261,7 +261,7 @@ Geliştirme makinenizde kapsayıcı kayıt defterinizde artık erişimi olduğun
 
     ![Kapsayıcı kayıt defterine iki görüntü sürümünü görüntüleme](./media/tutorial-develop-for-windows/view-repository-versions.png)
 
-### <a name="troubleshoot"></a>Sorun giderme
+### <a name="troubleshoot"></a>Sorun gider
 
 Oluştururken ve modülü görüntünüzü gönderilirken hatalarla karşılaşırsanız, geliştirme makinenizde Docker yapılandırmasını yapmak genellikle sahiptir. Yapılandırmanızı gözden geçirmek için aşağıdaki denetimleri kullanın: 
 

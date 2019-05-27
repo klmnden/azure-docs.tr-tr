@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a0f30063b5d98d23bb25fdc7f610158b92cd78
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8538a96e1919fbff9f800a785788ccaa41a68392
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545617"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121925"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir iOS uygulamasından Microsoft Graph API çağırma
 
@@ -76,12 +76,13 @@ Uygulamanızı belirteçleri alacak şekilde ayarlamak için, uygulamayı Azure 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubukta hesabınızı seçin. **Dizin** listesi altında, uygulamanızı kaydetmek istediğiniz Azure Active Directory kiracısını seçin.
 3. En soldaki gezinti bölmesinde **Tüm hizmetler**'i seçin ve ardından **Azure Active Directory**'yi seçin.
-4. **Uygulama kayıtları**'nı ve ardından **Ekle**'yi seçin.
-5. İstemleri izleyerek yeni bir **Yerel** istemci uygulaması oluşturun.
+4. Seçin **uygulama kayıtları**ve ardından **yeni kayıt**.
+5. Yeni bir istemci uygulaması oluşturmak için istemleri izleyin.
     * **Ad**, uygulamanın adıdır ve uygulamanızı son kullanıcılara açıklar.
-    * **Yeniden Yönlendirme URI'si**, Azure AD'nin belirteç yanıtlarını döndürmek için kullandığı şema ve dize bileşimidir. Uygulamanıza özgü olan ve önceki yeniden yönlendirme URI'si bilgilerini temel alan bir değer girin.
+    * **Yeniden Yönlendirme URI'si**, Azure AD'nin belirteç yanıtlarını döndürmek için kullandığı şema ve dize bileşimidir. Uygulamanıza özgü olan ve önceki yeniden yönlendirme URI'si bilgilerini temel alan bir değer girin. Ayrıca seçin **genel istemci (Mobil ve Masaüstü)** açılır listeden.
 6. Kaydı tamamladıktan sonra, Azure AD uygulamanıza benzersiz bir uygulama kimliği atar. Bu değeri sonraki bölümlerde kullanacağınız için, uygulama sekmesinden kopyalayın.
-7. **Ayarlar** sayfasında **Gerekli izinler > Ekle > Microsoft Graph**'ı seçin ve **Temsilcili izinler**'in altına **Dizin verilerini okuma** iznini ekleyin. Bu izin, uygulamanızı Azure AD Graph API'sini kullanıcılar için sorgulayacak şekilde ayarlar.
+7. Gelen **API izinleri** sayfasında **bir izin eklemek**. İçinde **bir API seçin** seçin ***Microsoft Graph***.
+8. Altında **temsilci izinleri**, izni seçin **User.Read**, ardından isabet **Ekle** kaydetmek için. Bu izin, uygulamanızı Azure AD Graph API'sini kullanıcılar için sorgulayacak şekilde ayarlar.
 
 ## <a name="step-3-install-and-configure-adal"></a>3. adım: Yükleme ve ADAL'ı yapılandırma
 

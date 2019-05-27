@@ -3,17 +3,17 @@ title: Yerel olarak (aracılığıyla Visual Studio IDE) - uzaktan izleme çöz�
 description: Bu nasıl yapılır kılavuzunda test ve geliştirme için Visual Studio kullanarak yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtmayı gösterir.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150961"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967514"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio dağıtma
 
@@ -27,7 +27,7 @@ Uzaktan izleme çözüm Hızlandırıcısını Docker'da yerel makinenizde çal�
 
 Uzaktan izleme çözüm Hızlandırıcısını tarafından kullanılan Azure Hizmetleri dağıtmak için bir etkin Azure aboneliği gerekir.
 
-Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Makine Kurulumu
 
@@ -60,9 +60,9 @@ Cihaz benzetimi hizmeti için Docker kapsayıcısı başlatmak için aşağıdak
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Yerel makinede diğer mikro hizmetlerin dağıtımı
 
-Aşağıdaki adımlar Visual Studio 2017'de Uzaktan izleme mikro hizmetleri çalıştırma işlemini gösterir:
+Aşağıdaki adımlar Visual Studio'da Uzaktan izleme mikro hizmetleri çalıştırma işlemini gösterir:
 
-1. Visual Studio 2017'yi başlatın
+1. Visual Studio'yu başlatın.
 1. Açık **uzaktan monitoring.sln** çözümde **Hizmetleri** deposunun yerel kopyasında bir klasör.
 1. İçinde **Çözüm Gezgini**, çözüm ve ardından sağ **özellikleri**.
 1. Seçin **Ortak Özellikler > başlangıç projesi**.

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823577"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956551"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -335,28 +335,28 @@ Görüntüleyebilir, ayarlayabilir ve herhangi bir yönetici olmayan kullanıcı
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
 
-### <a name="b2c-user-flow-administrator"></a>B2C kullanıcı Akışı Yöneticisi
+### <a name="b2c-user-flow-administrator"></a>B2C Kullanıcı Akışı Yöneticisi
 Oluşturabilir ve kullanıcı Akışları'nın tüm özelliklerini yönetebilir.
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | Microsoft.aad.B2C/userFlows/allTasks | Okuma ve Azure Active Directory B2C'de kullanıcı akışları yapılandırın. |
 
-### <a name="b2c-user-flow-attribute-administrator"></a>B2C kullanıcı akışı özniteliği Yöneticisi
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C Kullanıcı Akışı Öznitelik Yöneticisi
 Oluşturun ve tüm kullanıcı akışları için kullanılabilir özniteliği şema yönetin.
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | Microsoft.aad.B2C/userAttributes/allTasks | Okuma ve Azure Active Directory B2C'de kullanıcı öznitelikleri yapılandırabilirsiniz. |
 
-### <a name="b2c-ief-keyset-administrator"></a>B2C IEF anahtar kümesi yönetici
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF Anahtar kümesi Yöneticisi
 Federasyon ve şifreleme, kimlik deneyimi çerçevesi için gizli dizilerini yönetin.
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | Microsoft.aad.B2C/trustFramework/keySets/allTasks | Okuma ve Azure Active Directory B2C'de anahtar kümesi yapılandırın. |
 
-### <a name="b2c-ief-policy-administrator"></a>B2C IEF İlke Yöneticisi
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF İlkesi Yöneticisi
 Oluşturun ve kimlik deneyimi çerçevesi güven framework ilkelerini yönetin.
 
 | **Eylemler** | **Açıklama** |

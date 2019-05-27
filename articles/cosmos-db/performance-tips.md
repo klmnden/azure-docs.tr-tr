@@ -4,14 +4,14 @@ description: Azure Cosmos DB veritabanı performansını artırmak üzere istemc
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: e03fa427227bed745b53d43aaebc4dc58ad5bb9d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097904"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953793"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -164,7 +164,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
  
 1. **Kullanılmayan yolları daha hızlı yazmalar için dizine elmadan hariç tut**
 
-    Cosmos DB'nin dizin oluşturma ilkesini dahil etmek veya dizin yolları (IndexingPolicy.IncludedPaths ve IndexingPolicy.ExcludedPaths) yararlanarak dizine elmadan hariç tutmak için hangi belge yolları belirtmenizi sağlar. Dizin oluşturma maliyetleri doğrudan dizini benzersiz yollara sayısını bağıntılı olan gibi dizin yolları kullanımını geliştirilmiş yazma performansını ve sorgu desenleri önceden bilinmektedir senaryoları için daha düşük dizin depolaması sunabilir.  Örneğin, aşağıdaki kod belgeleri bölümünün tamamını (diğer adıyla) hariç tutmak nasıl gösterir bir alt ağacı) dizin oluşturma kullanarak "*" joker karakter.
+    Cosmos DB'nin dizin oluşturma ilkesini dahil etmek veya dizin yolları (IndexingPolicy.IncludedPaths ve IndexingPolicy.ExcludedPaths) yararlanarak dizine elmadan hariç tutmak için hangi belge yolları belirtmenizi sağlar. Dizin oluşturma maliyetleri doğrudan dizini benzersiz yollara sayısını bağıntılı olan gibi dizin yolları kullanımını geliştirilmiş yazma performansını ve sorgu desenleri önceden bilinmektedir senaryoları için daha düşük dizin depolaması sunabilir.  Örneğin, aşağıdaki kod dizin oluşturma kullanarak belge (bir alt ağacı) bölümünün tamamını dışlama gösterir "*" joker karakter.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -175,7 +175,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     Daha fazla bilgi için [Azure Cosmos DB dizinleme ilkeleri](index-policy.md).
 
-## <a name="throughput"></a>Aktarım hızı
+## <a name="throughput"></a>Performans
 <a id="measure-rus"></a>
 
 1. **Ölçün ve için alt istek birimi/saniye kullanım ayarlayın.**

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938646"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964057"
 ---
 # <a name="marketplace-faqs"></a>Market hakkında SSS
 
@@ -35,7 +35,7 @@ Azure Market, BT uzmanları ve ticari BT yazılım ve Hizmetleri ile ilgilenen b
 Azure Market, Azure ürünlerini ve hizmetlerini genişletmek için oluşturulmuş Microsoft ve iş ortaklarının sağladığı teknik çözümleri ve hizmetleri sunar. Çözüm Kataloğu dahil ancak bunlarla sınırlı olmamak üzere birkaç kategorisine yayılır:
 
 * temel işletim sistemleri
-* veritabanları
+* veritabanı
 * güvenlik
 * identity
 * ağ iletişimi
@@ -310,7 +310,7 @@ Gözden geçirme [yayımcı rehberi](https://docs.microsoft.com/azure/marketplac
 
 **Azure Market'te yayımlamak nasıl başlamak?**
 
-İnceleyerek Azure Market kaydınıza başlayın [Azure Market yayımcı rehberi](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) ve [yayımcı olmak](https://docs.microsoft.com/azure/marketplace/become-publisher). Ardından, tamamlayarak uygulamanızı gönderin [Azure Market ADAYLIK formu](https://azuremarketplace.microsoft.com/sell/signup).
+İnceleyerek Azure Market kaydınıza başlayın [Azure Market yayımcı rehberi](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) ve [yayımcı olmak](https://docs.microsoft.com/azure/marketplace/become-publisher). Ardından, uygulamanız tarafından gönderme [teklifinizi gönderme](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Bkz. nasıl [bir iş ortağı merkezi hesabınız oluşturma](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) daha fazla bilgi için.
 
 **Uygulamalarımı ve hizmetlerimi Azure Marketi'nde listelemek için Microsoft İş Ortağı Ağı'nın (MPN) üyesi olmam gerekir var mı?**
 

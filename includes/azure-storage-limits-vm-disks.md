@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386363"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148207"
 ---
 Bir Azure sanal makinesine veri diski sayısı ekleyebilirsiniz. Bir sanal makinenin veri diskleri için ölçeklenebilirlik ve performans hedefleri bağlı olarak, performans ve kapasite gereksinimlerini karşılamak için gereken disk türü ve numarası belirleyebilirsiniz.
 
@@ -20,7 +20,7 @@ Bir Azure sanal makinesine veri diski sayısı ekleyebilirsiniz. Bir sanal makin
 
 Aşağıdaki tabloda, varsayılan ve maksimum sınırları her Abonelikteki bölge başına kaynak sayısı gösterilmektedir.
 
-> | Kaynak | Varsayılan limit  | Üst sınır |
+> | Resource | Varsayılan limit  | Üst sınır |
 > | --- | --- | --- |
 > | Standart yönetilen diskler | 25,000 | 50,000 |
 > | Standart SSD yönetilen diskler | 25,000 | 50,000 |

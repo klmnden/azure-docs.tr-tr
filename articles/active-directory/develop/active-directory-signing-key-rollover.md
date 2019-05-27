@@ -17,15 +17,15 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47430b4bd2f7fa6811785247ae6cd4f6df6f8f5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546139"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962861"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>İmzalama anahtarı geçiş işlemi, Azure Active Directory'de
-Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarları hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları geçişi düzenli aralıklarla ve acil bir durum uzatılabilir, hemen dikkat edin önemlidir. Azure AD kullanan tüm uygulamalar, program aracılığıyla anahtarı geçiş işlemi ya da bir düzenli el ile geçiş işlemi'kurmak başlatabilmeniz gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza geçişin etkisini değerlendirmek ve uygulamanızı güncelleştirmeniz veya gerekirse, anahtar geçişi işlemek için bir düzenli el ile geçiş işlemi oluşturmak.
+Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarları hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarlar düzenli aralıklarla atla ve acil durumlarda hemen aylarına unutmayın önemlidir. Azure AD kullanan tüm uygulamalar, program aracılığıyla anahtarı geçiş işlemi ya da bir düzenli el ile geçiş işlemi'kurmak başlatabilmeniz gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza geçişin etkisini değerlendirmek ve uygulamanızı güncelleştirmeniz veya gerekirse, anahtar geçişi işlemek için bir düzenli el ile geçiş işlemi oluşturmak.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD'de imzalama anahtarı genel bakış
 Azure AD, kendisi ve onu kullanan uygulamalar arasında güven oluşturmak için sektör standartlarında derlenmiş ortak anahtar şifrelemesi kullanır. Pratikte, bunu şu şekilde çalışır: Azure AD, bir ortak ve özel anahtar çiftinden oluşur bir imzalama anahtarı kullanır. Azure AD, bir kullanıcı kimlik doğrulaması için Azure AD kullanan bir uygulama için oturum açtığında, kullanıcı hakkında bilgileri içeren bir güvenlik belirteci oluşturur. Bu belirteç uygulamaya geri göndermeden önce özel anahtarı kullanarak Azure AD tarafından imzalanır. Belirtecin geçerli ve Azure ad kaynaklı olduğunu doğrulamak için uygulamayı kiracının içinde yer alan Azure AD tarafından kullanıma sunulan ortak anahtarı kullanarak belirtecinin imzası doğrulama [Openıd Connect bulma belge](https://openid.net/specs/openid-connect-discovery-1_0.html) veya SAML / WS-Federasyon [Federasyon meta veri belgesi](azure-ad-federation-metadata.md).
@@ -43,7 +43,7 @@ Uygulamanızı anahtar geçişi nasıl işlediğini uygulama veya hangi kimlik p
 * [Web uygulamaları / API'ları kullanarak .NET OWIN Openıd Connect, WS-Federasyon veya WindowsAzureActiveDirectoryBearerAuthentication ara yazılım kaynakları koruma](#owin)
 * [Web uygulamaları / API'ları kullanarak .NET Core Openıd Connect veya JwtBearerAuthentication ara yazılım kaynakları koruma](#owincore)
 * [Web uygulamaları / Node.js passport azure ad modülünü kullanarak kaynakları koruma API'leri](#passport)
-* [Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya Visual Studio 2017 ile oluşturulmuş](#vs2015)
+* [Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya sonraki oluşturulmuş](#vs2015)
 * [Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web uygulamaları](#vs2013)
 * Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web API'leri
 * [Kaynakları koruma ve Visual Studio 2012 ile oluşturulan web uygulamaları](#vs2012)
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya Visual Studio 2017 ile oluşturulmuş
-Uygulamanız bir web uygulaması şablonu Visual Studio 2015 veya Visual Studio 2017 kullanılarak oluşturulan ve seçtiyseniz **iş ve Okul hesapları** gelen **kimlik doğrulamayı Değiştir** menüsünde, zaten sahip anahtar geçişi otomatik olarak işlemek için gerekli mantığı. OWIN Openıd Connect Ara yazılımında katıştırılmış bu mantık, Openıd Connect bulma belge anahtarlarını önbelleğe alır ve bunları düzenli aralıklarla yeniler.
+### <a name="vs2015"></a>Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya sonraki oluşturulmuş
+Uygulamanızı Visual Studio 2015 veya sonraki bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **iş veya Okul hesapları** gelen **kimlik doğrulamayı Değiştir** menüsünde, gerekli zaten var anahtar geçişi otomatik olarak işlemek için mantığı. OWIN Openıd Connect Ara yazılımında katıştırılmış bu mantık, Openıd Connect bulma belge anahtarlarını önbelleğe alır ve bunları düzenli aralıklarla yeniler.
 
 Çözümünüz için el ile kimlik doğrulaması eklediyseniz gerekli anahtar geçişi mantığı uygulamanız olmayabilir. Kendiniz yazmak veya adımları gerekecektir [Web uygulamaları / herhangi diğer kitaplıkları'nı kullanarak veya desteklenen protokolden herhangi birini el ile uygulanması API'leri](#other).
 

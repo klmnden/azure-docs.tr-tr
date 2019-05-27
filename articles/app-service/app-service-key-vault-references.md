@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853157"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956213"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service ve Azure işlevleri'ni (Önizleme) için Key Vault başvuruları kullanın
 
@@ -67,7 +67,7 @@ Alternatif olarak:
 
 ## <a name="source-application-settings-from-key-vault"></a>Anahtar Kasası'ndaki kaynak uygulama ayarları
 
-Key Vault başvuruları için değerler olarak kullanılabilir [uygulama ayarları](web-sites-configure.md#app-settings), gizli anahtar Kasası'nda yerine site yapılandırmasında devam etmenize imkan sağlar. Uygulama ayarları, güvenli bir şekilde bekleme durumundayken şifrelenir, ancak bu Key Vault'a gizli dizi yönetimi özelliklerine ihtiyacınız varsa, bunlar tamamlamalıdır.
+Key Vault başvuruları için değerler olarak kullanılabilir [uygulama ayarları](configure-common.md#configure-app-settings), gizli anahtar Kasası'nda yerine site yapılandırmasında devam etmenize imkan sağlar. Uygulama ayarları, güvenli bir şekilde bekleme durumundayken şifrelenir, ancak bu Key Vault'a gizli dizi yönetimi özelliklerine ihtiyacınız varsa, bunlar tamamlamalıdır.
 
 Bir uygulama ayarı için bir anahtar kasası başvurusu kullanmak için ayar değeri olarak başvuru ayarlayın. Uygulamanızı gizli anahtarıyla normal olarak aracılığıyla başvurabilirsiniz. Hiçbir kod değişikliği gerekli değildir.
 

@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: d0479b834f814616e44a1888ab8b958990610820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611710"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951763"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Abonelik yöneticileri için multi-Factor authentication (MFA) zorunlu
 
@@ -22,7 +22,7 @@ Genel yönetici hesabınız dahil olmak üzere yöneticilerinize oluşturduğunu
 Günlük yönetim özel yönetici rolleri atayarak gerçekleştirebileceğiniz — Exchange yönetici veya yönetici parolası gibi — kullanıcı hesaplarını gerektiği gibi BT personeli için.
 Ayrıca, etkinleştirme [Azure multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) kullanıcı oturum açma ve işlemler için Yöneticiler için ikinci bir güvenlik katmanı ekler. Azure mfa'yı da yardımcı olan BT güvenliği aşılmış bir kimlik bilgisi kuruluş verilerine erişimi olmasını olasılığını azaltır.
 
-Örneğin: kullanıcılarınız için Azure MFA zorlamak ve telefon görüşmesi veya SMS mesajı doğrulaması kullanacak şekilde yapılandırın. Saldırgan, kullanıcının kimlik bilgilerini aşılırsa, o kullanıcının telefonuna erişimi olmayacaktır bu yana herhangi bir kaynağa erişmek mümkün olmayacaktır. Ek kimlik koruma katmanları eklemeyin kuruluşlar, veri güvenliğinin aşılmasına yol açabilir kimlik bilgisi hırsızlığı saldırısına için daha açıktır.
+Örneğin: Kullanıcılarınız için Azure MFA zorlamak ve telefon görüşmesi veya SMS mesajı doğrulaması kullanacak şekilde yapılandırın. Saldırgan, kullanıcının kimlik bilgilerinin güvenliğinin aşılması durumunda kullanıcının telefonuna erişimi sahip herhangi bir kaynağa erişmek mümkün olmayacaktır. Ek kimlik koruma katmanları eklemeyin kuruluşlar, veri güvenliğinin aşılmasına yol açabilir kimlik bilgisi hırsızlığı saldırısına için daha açıktır.
 
 Bir alternatif için tüm denetim şirket içi kimlik doğrulaması tutmak isteyen kuruluşların kullanmaktır [Azure multi-Factor Authentication sunucusu](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), "Şirket içi MFA" olarak da bilinir. Bu yöntemi kullanarak, multi-Factor authentication sunucusu şirket içi MFA tutarken uygulayabilmektir devam edersiniz.
 

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 2/25/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365103"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965911"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI kullanarak ExpressRoute doğrudan yapılandırın
 
@@ -280,8 +280,9 @@ Varsayılan olarak, ExpressRoute doğrudan kaynağı içeren abonelik 10 bağlan
 
 Yalnızca Burada özetlenen senaryoları desteklemek için ExpressRoute doğrudan üzerinde ek bağlantı hattı bant genişlikleri kullanabilirsiniz. 40 GB/sn ve 100 GB/sn bant genişlikleri var.
 
-Standart veya Premium bağlantı hatları oluşturabilirsiniz. Standart devreler hizmetinin maliyetine dahildir. Premium bağlantı hatları maliyeti, seçtiğiniz bant genişliğini temel alır. Bağlantı hatları yalnızca ölçülen gibi oluşturabilirsiniz. Sınırsız devreler ExpressRoute doğrudan üzerinde desteklenmez.
+**SkuTier** yerel, standart veya Premium olabilir.
 
+**SkuFamily** MeteredData yalnızca sınırsız olarak olmalıdır ExpressRoute doğrudan üzerinde desteklenmiyor.
 ExpressRoute doğrudan kaynak üzerinde bir bağlantı hattı oluşturun:
 
   ```azurecli

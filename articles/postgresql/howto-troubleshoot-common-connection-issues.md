@@ -7,18 +7,18 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 9026b561f52b2d43fff2d3e36ba569d7b62a4684
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069034"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952114"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı bağlantı sorunlarını giderme
 
 Çeşitli gibi çeşitli işlemler tarafından bağlantı sorunlara neden olabilir:
 
-* Güvenlik duvarı ayarları
+* Güvenlik Duvarı ayarları
 * Bağlantı zaman aşımı
 * Hatalı oturum açma bilgileri
 * Bazı kaynaklar PostgreSQL için Azure veritabanı üzerinde üst sınırına ulaştınız
@@ -53,7 +53,7 @@ PostgreSQL için Azure veritabanı'na bağlanmak uygulamayı kalıcı olarak ba�
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kalıcı bağlantı sorunlarını giderme adımları
 
 1. Ayarlanan [güvenlik duvarı kuralları](howto-manage-firewall-using-portal.md) istemci IP adreslerine izin verecek şekilde. Geçici yalnızca test amaçlıdır için başlangıç IP adresi ve bitiş IP adresi 255.255.255.255 kullanarak 0.0.0.0 kullanarak güvenlik duvarı kuralı ayarlama. Bu, tüm IP adreslerinin sunucuya açar. Bu, bağlantı sorunu giderip, bu kuralı kaldırmak ve uygun şekilde sınırlı IP adresi veya adres aralığı için bir güvenlik duvarı kuralı oluşturun.
-2. İstemci internet arasındaki tüm güvenlik duvarlarının üzerinde 3306 numaralı bağlantı noktasını giden bağlantılar için açık olduğundan emin olun.
+2. İstemci internet arasındaki tüm güvenlik duvarlarının üzerinde 5432 numaralı bağlantı noktasını giden bağlantılar için açık olduğundan emin olun.
 3. Bağlantı dizenizi ve diğer bağlantı ayarlarını doğrulayın.
 4. Hizmet durumu Panosu denetleyin. Bölgesel bir kesinti olduğunu düşünüyorsanız, bkz. [PostgreSQL için Azure veritabanı ile iş sürekliliğine genel bakış](concepts-business-continuity.md) için yeni bir bölgeye kurtarmak için adımlar.
 

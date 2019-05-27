@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137871"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955808"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
@@ -99,7 +99,7 @@ Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalana
 * Ölçek ayarları
 * WebJobs zamanlayıcılar
 * IP kısıtlamaları
-* Her Zaman Açık
+* Daima Açık
 * Protokol ayarları (HTTP**S**, TLS sürümü, istemci sertifikaları)
 * Tanılama günlüğü ayarları
 * CORS
@@ -217,7 +217,7 @@ Kullanırken [Auto-Swap](#Auto-Swap), bazı uygulamalar takas önce özel Isınm
 
 Özelleştirme hakkında daha fazla bilgi için `applicationInitialization` öğesi bkz [en yaygın dağıtım yuvası takas hataları ve nasıl düzeltileceğini](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-Bir veya daha fazlasını Isınma davranışını özelleştirebilirsiniz [uygulama ayarları](web-sites-configure.md):
+Bir veya daha fazlasını Isınma davranışını özelleştirebilirsiniz [uygulama ayarları](configure-common.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: Isınma için sitenizin ping yolu. Bu uygulama ayarının değeri olarak bir eğik çizgi ile başlayan bir özel yol belirterek ekleyin. Örneğin, `/statuscheck`. Varsayılan değer `/` şeklindedir. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Isınma işlemi için geçerli HTTP yanıt kodları. HTTP kodlarının virgülle ayrılmış bir listesi ile bu uygulama ayarı ekleyin. Örneğin: `200,202` . Döndürülen durum kodu listede değilse Isınma ve değiştirme işlemlerini durdurulur. Varsayılan olarak, tüm yanıt kodları geçerlidir.
@@ -289,7 +289,7 @@ Azure PowerShell, Azure App Service'te dağıtım yuvalarını yönetmek için d
 Yükleme ve yapılandırma Azure PowerShell ve Azure PowerShell, Azure aboneliğiniz ile kimlik doğrulaması için bilgi [nasıl Microsoft Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Web uygulaması oluşturma
+### <a name="create-web-app"></a>Web uygulaması oluştur
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

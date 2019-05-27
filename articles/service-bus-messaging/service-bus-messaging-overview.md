@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863253"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988485"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
 
@@ -33,7 +33,7 @@ Yaygın olarak kullanılan bazı mesajlaşma senaryoları:
 
 Ad alanı, tüm mesajlaşma bileşenlerini kapsayan bir kapsayıcıdır. Tek bir ad alanında birden fazla kuyruk ve konu bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar.
 
-## <a name="queues"></a>Kuyruklar
+## <a name="queues"></a>Sıralar
 
 İletiler *kuyruklara* gönderilir ve bunlardan alınır. Kuyruklar, alacak uygulama almaya ve işlemeye uygun olana kadar iletileri depolamanızı sağlar.
 
@@ -41,7 +41,7 @@ Ad alanı, tüm mesajlaşma bileşenlerini kapsayan bir kapsayıcıdır. Tek bir
 
 Sıralarındaki iletileri sıralanır ve zaman damgalı işle. Kabul edildikten sonra ileti yedekli depolama alanında güvenli bir şekilde tutulur. İletileri teslim edilir *çekme* istek iletileri sunan modu.
 
-## <a name="topics"></a>Konu başlıkları
+## <a name="topics"></a>Konular
 
 İleti göndermek ve almak için *konu başlıklarını* da kullanabilirsiniz. Bir kuyruk genellikle noktadan noktaya iletişim için kullanılır, buna karşın konu başlıkları yayımlama/abone olma senaryolarında yararlıdır.
 
@@ -55,7 +55,7 @@ Bazı senaryolarda bireysel aboneliklerin bir konu başlığına gönderilen tü
 
 Service Bus ayrıca daha karmaşık mesajlaşma sorunlarını çözmenizi sağlayan gelişmiş özelliklere de sahiptir. Aşağıdaki bölümlerde bu başlıca özellikler açıklanmaktadır:
 
-### <a name="message-sessions"></a>İleti oturumları
+### <a name="message-sessions"></a>Mesaj oturumları
 
 Service Bus'ta ilk giren ilk çıkar ilkesinin (FIFO) kullanılmasını garantilemek için oturumlar kullanın. [İleti oturumları](message-sessions.md), sınırsız sayıda birbiriyle ilgili iletinin birlikte ve düzenli olarak işlenmesini sağlar. 
 
@@ -129,3 +129,4 @@ Service Bus mesajlaşmasını kullanmaya başlamak için aşağıdaki makalelere
 * Azure Service Bus [Standart ve Premium](https://azure.microsoft.com/pricing/details/service-bus/) katmanları ve bunların fiyatlandırması hakkında daha fazla bilgi edinin
 * [Azure Service Bus Premium katmanının performansı ve gecikme süresi](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) ve [JMS](service-bus-java-how-to-use-jms-api-amqp.md) hızlı başlangıçlarını deneyin
+* [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

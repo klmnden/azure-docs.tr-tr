@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305416"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950108"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Görevler için veri bilimi takım projesi üzerinde Grup Yöneticisi
 
-Bu konuda anahatları grup yöneticisi beklenen görevleri tamamlamak için hist / veri bilimi organizasyonunda. Hedefi üzerinde standartlaştırır işbirliğine dayalı Grup ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
+Bu konuda anahatları grup yöneticisi görevleri için veri bilimi kuruluş tamamlanması bekleniyor. Hedefi üzerinde standartlaştırır işbirliğine dayalı Grup ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 
 **Grup Yöneticisi** kuruluştaki tüm veri bilimi biriminin yöneticisidir. Bir veri bilimi birimi, birden çok takıma, her biri ayrı iş sıralamasına koydunuz birden çok veri bilimi proje üzerinde çalışıyor olabilir. Grup Yöneticisi görevlerini bir yedek için temsilci, ancak rol ile ilişkili görevleri aynıdır. Aşağıdaki diyagramda gösterildiği gibi altı ana görevler şunlardır:
 

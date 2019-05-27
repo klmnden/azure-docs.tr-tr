@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205492"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951302"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
 
@@ -54,7 +54,7 @@ Bu makalenin amacı, (içinde sınırlı bir kapasite barındırabilir) birincil
 
 Önerilen çözüm, çağıran uygulama için büyük olasılıkla eski veri döndürmek için kabul edilebilir olduğunu varsayar. İkincil bölgedeki veri sonunda tutarlı olduğundan, bir güncelleştirme ikincil bölgeye çoğaltma bitmeden önce birincil bölgeye erişilemez duruma gelebilir mümkündür.
 
-Örneğin, müşteri bir güncelleştirme başarıyla gönderir, ancak birincil bölgeden ikincil bölgeye güncelleştirme yayılmadan önce başarısız olduğunu varsayalım. Müşteri geri verileri okumak sorduğunda, güncelleştirilmiş veriler yerine ikincil bölgeden yaptığı eski veri alır. Müşteri ileti nasıl uygulamanızı tasarlarken, bu kabul edilebilir olup olmadığını ve bu durumda, karar vermeniz gerekir. 
+Örneğin, müşteri bir güncelleştirme başarıyla gönderir, ancak birincil bölgeden ikincil bölgeye güncelleştirme yayılmadan önce başarısız olduğunu varsayalım. Müşteri geri verileri okumak sorduğunda, eski verileri ikincil bölgeden, güncelleştirilmiş veriler yerine alırlar. Müşteri ileti nasıl uygulamanızı tasarlarken, bu kabul edilebilir olup olmadığını ve bu durumda, karar vermeniz gerekir. 
 
 Bu makalenin sonraki bölümlerinde son eşitleme ikincil güncel olup olmadığını denetlemek için veriler için zaman ikincil nasıl kontrol edileceğini göstereceğiz.
 
@@ -74,7 +74,7 @@ Bu makalenin geri kalanında ele alınacaktır diğer değerlendirmeler şunlard
 
 *   Sonunda tutarlı veri ve son eşitleme zamanı
 
-*   Test Etme
+*   Test ediliyor
 
 ## <a name="running-your-application-in-read-only-mode"></a>Uygulamanız salt okunur modda çalışan
 
@@ -197,14 +197,14 @@ Belirli bir noktada geri birincil uç noktayı kullanarak ve güncelleştirmeler
 
 RA-GRS, birincil bölgedeki işlemleri ikincil bölgede çoğaltarak çalışır. Bu çoğaltma işlemi, ikincil bölgedeki verilerin olduğunu garanti *sonunda tutarlı*. Bu ikincil bölgede, birincil bölgedeki tüm işlemlerin sonunda görünür ancak bunlar görünmeden önce bir gecikme olabilir ve işlemleri geldiğinde, burada aynı sırada ikincil bölgedeki bir garanti yoktur anlamına gelir, ilk olarak birincil bölgeye uygulandı. İşlemlerinizi sırası, ikincil bölgede ulaşırsa, *olabilir* hizmet arayı kapatıncaya kadar tutarsız bir durumda olmasını ikincil bölgede göz önünde bulundurun.
 
-Aşağıdaki tabloda her bir üyesi yapmak için bir çalışan ayrıntılarını güncelleştirdiğinizde ne olacağını örneği gösterilmektedir *Yöneticiler* rol. Bu örnek için bu güncelleştirme gerektirir. **çalışan** varlık ve güncelleştirme bir **Yönetici rolü** Yöneticiler toplam sayısı sayısı olan varlık. Güncelleştirmeleri sıralamaya ikincil bölgede uygulanma dikkat edin.
+Aşağıdaki tablo bir örnek üyesi olacak şekilde bir çalışan ayrıntılarını güncelleştirdiğinizde ne olacağını gösterir *Yöneticiler* rol. Bu örnek için bu güncelleştirme gerektirir. **çalışan** varlık ve güncelleştirme bir **Yönetici rolü** Yöneticiler toplam sayısı sayısı olan varlık. Güncelleştirmeleri sıralamaya ikincil bölgede uygulanma dikkat edin.
 
 | **saat** | **İşlem**                                            | **Çoğaltma**                       | **Son eşitleme zamanı** | **Sonuç** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | İşlem y: <br> Çalışan Ekle <br> birincil varlık |                                   |                    | Birincil bölgeye eklenen bir işlem<br> henüz çoğaltılmamış. |
 | T1       |                                                            | Bir işlem <br> çoğaltılır<br> ikincil | T1 | İşlem bir ikincil siteden çoğaltılan. <br>Son eşitleme zamanı güncelleştirildi.    |
-| T2       | İşlem B:<br>Güncelleştirme<br> Çalışan varlık<br> birincil  |                                | T1                 | Birincil veritabanına yazılan B işlem<br> henüz çoğaltılmamış.  |
-| T3       | İşlem C:<br> Güncelleştirme <br>yönetici<br>Rol varlık<br>birincil |                    | T1                 | C birincil veritabanına yazılan işlem<br> henüz çoğaltılmamış.  |
+| T2       | İşlem B:<br>Güncelle<br> Çalışan varlık<br> birincil  |                                | T1                 | Birincil veritabanına yazılan B işlem<br> henüz çoğaltılmamış.  |
+| T3       | İşlem C:<br> Güncelle <br>yönetici<br>Rol varlık<br>birincil |                    | T1                 | C birincil veritabanına yazılan işlem<br> henüz çoğaltılmamış.  |
 | *T4*     |                                                       | İşlem C <br>çoğaltılır<br> ikincil | T1         | İşlem için ikincil çoğaltılan C.<br>LastSyncTime olduğundan güncelleştirilmedi <br>işlem B henüz çoğaltılmamış.|
 | *T5*     | Varlıkları okuma <br>İkincil bölgeden                           |                                  | T1                 | Çalışana ait eski değeri Al <br> Varlık işlem B taşınmadığından çünkü <br> henüz çoğaltılır. Yeni değeri Al<br> yönetici rol varlığını C olduğundan<br> Çoğaltılmış. Son eşitleme zamanı hala henüz<br> Silinmiş olduğundan güncelleştirilmiş işlem B<br> Çoğaltılmış edilmemiş. Söyleyin<br>yönetici rol varlığını tutarsız. <br>Varlık tarih/saat sonra olduğu için <br>Son eşitleme zamanı. |
 | *T6*     |                                                      | İşlem B<br> çoğaltılır<br> ikincil | T6                 | *T6* – C aracılığıyla tüm işlemlerin <br>edilmiş çoğaltılan, son eşitleme zamanı<br> güncelleştirilir. |
@@ -213,7 +213,7 @@ Bu örnekte, istemci T5 konumunda ikincil bölgeden okuma için anahtarları var
 
 Büyük olasılıkla tutarsız veri, değerinin istemcinin kullanabileceği tanımak için *son eşitleme zamanı* herhangi bir zamanda depolama hizmeti sorgulayarak alabilirsiniz. Bu, verileri ikincil bölgedeki son zaman bildirir tutarlı ve ne zaman hizmeti uygulanan o noktadan önce tüm işlemlerin zaman. Hizmet ekledikten sonra yukarıda gösterilen örnekte **çalışan** ikincil bölgede, son eşitleme zamanı varlık kümesine *T1*. Kalır *T1* hizmet güncelleştirmeleri kadar **çalışan** varlık ayarlandığında ikincil bölgedeki *T6*. İstemcinin okuduğu karşı tarafındaki varlığın ne zaman son eşitleme zamanı alır, *T5*, bu varlık üzerinde zaman damgası ile karşılaştırabilirsiniz. Varlık üzerinde zaman damgası, son eşitleme zamanından daha sonra ise, varlık büyük olasılıkla tutarsız bir durumda ise ve uygulamanız için uygun eylemi ne olursa olsun alabilir. Bu alanı kullanarak birincil son güncelleştirmeye tamamlandığı bilmeniz gerekir.
 
-## <a name="testing"></a>Test Etme
+## <a name="testing"></a>Test ediliyor
 
 Uygulamanızı yeniden denenebilir bir hata ile karşılaştığında beklediğiniz gibi davrandığını test etmek önemlidir. Örneğin, birincil bölge tekrar kullanılabilir hale geldiğinde uygulama anahtarları ikincil ve bir sorun algılar ve anahtarları salt okunur moduna geri test etmek gerekir. Bunu yapmak için yeniden denenebilir hata ve ne sıklıkta ortaya denetim benzetimini yapmak için bir yol gerekir.
 

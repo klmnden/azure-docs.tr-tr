@@ -8,12 +8,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920034"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956019"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux üzerinde App Service'te Azure Depolama'dan içerik sunma
 
@@ -62,7 +62,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 Bir depolama hesabına bağlanması için istediğiniz herhangi bir dizin için bunu yapmalısınız.
 
-## <a name="verify"></a>Doğrulama
+## <a name="verify"></a>Doğrula
 
 Bir depolama kapsayıcısı bir web uygulamasına bağlandığında, aşağıdaki komutu çalıştırarak bunu doğrulayabilirsiniz:
 
@@ -85,4 +85,4 @@ wordpress:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure App Service'te Web uygulamalarını yapılandırma](https://docs.microsoft.com/azure/app-service/web-sites-configure).
+- [Azure App Service'te Web uygulamalarını yapılandırma](../configure-common.md).

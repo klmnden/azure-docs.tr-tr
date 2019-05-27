@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474241"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955157"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure’da PostgreSQL yükleme ve yapılandırma
 PostgreSQL için Oracle ve DB2 benzer bir Gelişmiş açık kaynak veritabanı ' dir. Bu, tam ACID uyumluluk ve güvenilir bir işlem tabanlı işleme çok sürümlü eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartları destekler. 12'den yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikler için destek JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
@@ -232,7 +232,7 @@ Bu, tüm bilgileri "John" satır siler. Çıktı.
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Bir tablodaki verileri güncelleştirme
-Bir tablodaki verileri güncelleştirmek için aşağıdaki komutu kullanın. "Y" öğesinden "N" kendi Davetiyeyi değiştireceğiz. Bu nedenle bu biri, Filiz katılan olmadığını, Kumlu onaylamıştır:
+Bir tablodaki verileri güncelleştirmek için aşağıdaki komutu kullanın. "Y" öğesinden "N" Davetiyeyi değiştireceğiz. Bu nedenle bunlar katılan olduğunu, bu biri için Kumlu onaylamıştır:
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

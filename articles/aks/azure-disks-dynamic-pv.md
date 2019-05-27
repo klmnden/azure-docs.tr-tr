@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071991"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956483"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure diskleri Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
@@ -39,6 +39,8 @@ Her bir AKS kümesi iki önceden oluşturulmuş depolama sınıfları içerir; h
     * Standart depolama, HDD'ler ile desteklenir ve hala performansa sahip olmanın yanı sıra, düşük maliyetli depolama sunar. Standart diskler, uygun maliyetli bir geliştirme ve iş yükü testi için idealdir.
 * *Premium yönetilen* Azure disk bir premium depolama sınıfı sağlar.
     * Premium diskler SSD tabanlı, yüksek performanslı ve düşük gecikme süreli disk ile desteklenir. Üretim iş yükü çalıştıran VM'ler için son derece uygundur. AKS düğümleri premium depolama kullanıyorsanız, belirleyin *premium yönetilen* sınıfı.
+    
+Bu varsayılan depolama sınıfları, oluşturulduktan sonra birim boyutu güncelleştirmeye izin vermez. Bu özelliği etkinleştirmek için eklemeniz *allowVolumeExpansion: true* satır varsayılan depolama sınıflardan birini veya kendi özel depolama sınıfı oluşturun. Mevcut bir depolama sınıfı kullanarak düzenleyebileceğiniz `kubectl edit sc` komutu. Depolama sınıfları ve kendi oluşturma youor hakkında daha fazla bilgi için bkz. [AKS uygulamalar için Depolama Seçenekleri][storage-class-concepts].
 
 Kullanım [kubectl alma sc] [ kubectl-get] önceden oluşturulmuş depolama sınıfları görmek için komutu. Aşağıdaki örnekte gösterildiği bir AKS kümesi içinde kullanılabilen depolama sınıfları önceden oluştur:
 
@@ -86,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Kalıcı hacim kullanın
 
-Kalıcı hacim talep oluşturulduktan sonra başarıyla kaynak sağlandı, disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirim adlı kalıcı hacim talep kullanan temel bir NGINX pod oluşturur *azure yönetilen diski* Azure diski yolda `/mnt/azure`.
+Kalıcı hacim talep oluşturulduktan sonra başarıyla kaynak sağlandı, disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirim adlı kalıcı hacim talep kullanan temel bir NGINX pod oluşturur *azure yönetilen diski* Azure diski yolda `/mnt/azure`. Kapsayıcılar (şu anda önizlemede AKS), Windows Server için belirtin bir *mountPath* gibi Windows yol kuralı kullanılarak *'D:'*.
 
 Adlı bir dosya oluşturun `azure-pvc-disk.yaml`, aşağıdaki bildirim kopyalayın.
 
@@ -279,3 +281,4 @@ Azure diskleri kullanarak Kubernetes kalıcı birimleri hakkında daha fazla bil
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes

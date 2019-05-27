@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: d4287307ee3ed7f65b91f2865242113aa5b22bfd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a7b3176e39ccaa0f9ddb1ef45c33ec6902e62f1c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684184"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956317"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Desteklenen Kubernetes sürümlerini Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,11 @@ AKS, Kubernetes’in dört küçük sürümünü destekler:
 - Yukarı Akış (n) olan geçerli alt sürümü yayımlanan
 - Önceki üç küçük sürüm. Desteklenen her küçük sürüm, ayrıca iki kararlı düzeltme eki de destekler.
 
-Örneğin, AKS sunarsa *1.12.x* bugün desteği de için sağlanan *1.11.a* + *1.11.b*, *1.10.c*  +  *1.10d*, *1.9.e* + *1.9F* (burada yitirmiş düzeltme eki sürümleri iki en son kararlı yapı değildir).
+Örneğin, AKS sunarsa *1.13.x* bugün desteği de için sağlanan *1.12.a* + *1.12.b*, *1.11.c*  +  *1.11d*, *1.10.e* + *1.10F* (burada yitirmiş düzeltme eki sürümleri iki en son kararlı yapı değildir).
 
-Yeni bir küçük sürüm sunulduğunda, desteklenen en eski küçük sürüm ve düzletme eki yayınları kullanım dışı olur. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 30 gün üzerinden bir duyuru yapılır [Azure güncelleştirme kanalları][azure-update-channel]. Where yukarıdaki örnekte *1.12.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.8.g* + *1.8.h*.
+Yeni bir küçük sürüm sunulduğunda, desteklenen en eski küçük sürüm ve düzletme eki yayınları kullanım dışı olur. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 30 gün üzerinden bir duyuru yapılır [Azure güncelleştirme kanalları][azure-update-channel]. Where yukarıdaki örnekte *1.13.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.9.g* + *1.9.h*.
 
-Bir AKS kümesini portalda veya Azure CLI ile dağıttığınızda, küme her zaman n-1 küçük sürümüne ve en son düzeltme ekine ayarlanır. Örneğin, AKS destekliyorsa *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1.10d*, *1.9.e* + *1.9F*, yeni küme için varsayılan sürüm *1.11.b*.
+Bir AKS kümesini portalda veya Azure CLI ile dağıttığınızda, küme her zaman n-1 küçük sürümüne ve en son düzeltme ekine ayarlanır. Örneğin, AKS destekliyorsa *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c*  +   *1.11d*, *1.10.e* + *1.10F*, yeni küme için varsayılan sürüm *1.11.b*.
 
 ## <a name="list-currently-supported-versions"></a>Şu anda desteklenen sürümler listesi
 
@@ -41,19 +41,18 @@ Hangi sürümlerine bölge ve abonelik için şu anda kullanılabilir olduğunu 
 az aks get-versions --location eastus --output table
 ```
 
-Kubernetes sürümü gösteren aşağıdaki örneğe benzer bir çıkış *1.12.5* en son sürümü kullanılabilir:
+Kubernetes sürümü gösteren aşağıdaki örneğe benzer bir çıkış *1.13.5* en son sürümü kullanılabilir:
 
 ```
 KubernetesVersion    Upgrades
--------------------  -----------------------
-1.12.5               None available
-1.12.4               1.12.5
-1.11.7               1.12.4, 1.12.5
-1.11.6               1.11.7, 1.12.4, 1.12.5
-1.10.12              1.11.6, 1.11.7
-1.10.9               1.10.12, 1.11.6, 1.11.7
-1.9.11               1.10.9, 1.10.12
-1.9.10               1.9.11, 1.10.9, 1.10.12
+-------------------  ------------------------
+1.13.5               None available
+1.12.7               1.13.5
+1.12.6               1.12.7, 1.13.5
+1.11.9               1.12.6, 1.12.7
+1.11.8               1.11.9, 1.12.6, 1.12.7
+1.10.13              1.11.8, 1.11.9
+1.10.12              1.10.13, 1.11.8, 1.11.9
 ```
 
 ## <a name="faq"></a>SSS
@@ -62,8 +61,8 @@ KubernetesVersion    Upgrades
 
 Kullanıyorsanız *n-4* sürümü, SLO dışında olan. Sonra yükseltme sürümü n-4 n-3 başarılı olursa, SLO geri sunulur. Örneğin:
 
-- Desteklenen AKS sürümleri varsa *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +  *1.10d*, ve *1.9.e* + *1.9F* ve bulunduğunuz *1.8.g* veya *1.8.h*, SLO dışında olan.
-- Yükseltme işlemi *1.8.g* veya *1.8.h* için *1.9.e* veya *1.9.f* başarılı, SLO geri olursunuz.
+- Desteklenen AKS sürümleri varsa *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c*  +  *1.11d*, ve *1.10.e* + *1.10F* ve bulunduğunuz *1.9.g* veya *1.9.h*, SLO dışında olan.
+- Yükseltme işlemi *1.9.g* veya *1.9.h* için *1.10.e* veya *1.10.f* başarılı, SLO geri olursunuz.
 
 Şundan eski sürümlere yükseltme *n-4* desteklenmez. Bu gibi durumlarda, müşterilerin yeni AKS küme oluşturma ve iş yüklerini yeniden öneririz.
 

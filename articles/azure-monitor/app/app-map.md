@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba4643118c5d90b91c3e51d569e9a628c84159fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780024"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964027"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama Haritası: Dağıtılmış uygulamalar Önceliklendirme
 
@@ -94,7 +94,9 @@ Etkin uyarıları ve uyarı tetiklenmesi neden temel kurallarını görüntülem
 
 Uygulama Haritası kullanan **bulut rolü adı** eşlemedeki bileşenleri tanımlamak için özellik. Application Insights SDK'sı bileşenleri tarafından yayılan telemetriyi otomatik olarak bulut rolü adı özelliği ekler. Örneğin, SDK'sı bulut rolü adı özelliği için bir web sitesi veya hizmet rolü adı ekleyeceksiniz. Bununla birlikte, varsayılan değeri geçersiz kılmak için burada isteyebileceğiniz durumlar vardır. Bulut rolü adını geçersiz kılacak ve uygulama eşlemesinde görüntülenen değiştirmek için:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET core
+
+**Aşağıda gösterildiği gibi özel bir Telemetryınitializer yazın.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Yük, başlatıcı**
+**Etkin TelemetryConfiguration için yük Başlatıcı**
 
 Applicationınsights.config dosyasında:
 
@@ -131,7 +133,10 @@ Applicationınsights.config dosyasında:
     </ApplicationInsights>
 ```
 
-Kodda, örneğin Global.aspx.cs başlatıcısında örneklemek için alternatif bir yöntem verilmiştir:
+> [!NOTE]
+> Ekleme Başlatıcısı kullanarak `ApplicationInsights.config` ASP.NET Core uygulamaları için geçerli değil.
+
+ASP.NET Web uygulamaları için alternatif bir yöntem, başlatıcı Global.aspx.cs örnek kodda örneklemek için verilmiştir:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ Kodda, örneğin Global.aspx.cs başlatıcısında örneklemek için alternatif 
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+İçin [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) uygulamalar, yeni bir ekleme `TelemetryInitializer` aşağıda gösterildiği gibi bağımlılık ekleme kapsayıcısına ekleyerek yapılır. Bu yapılır `ConfigureServices` yöntemi, `Startup.cs` sınıfı.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

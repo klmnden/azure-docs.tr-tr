@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7711c3476ac9118406a86430e5ade238bec2c028
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918636"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950905"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için kimlik gereksinimleri belirleme
 Karma kimlik çözümü tasarlamanın ilk adımı, bu çözüm yararlanarak iş kuruluş gereksinimlerini belirlemektir.  Karma kimlik (diğer tüm bulut çözümleri kimlik sağlayarak destekler) destekleyen bir rol olarak başlar ve kullanıcılar için yeni iş yüklerini kilidini yeni ve ilginç özellikler sağlamak için geçer.  Bu iş yükleri veya kullanıcılarınız için benimsemek için istediğiniz hizmetleri karma kimlik tasarımı gereksinimlerini gösterecektir.  Bu hizmetlerin ve iş yüklerini karma kimlik hem şirket içi gerekir ve bulut.  
 
-Bu anahtar ne olduğunu anlamak için iş yönlerinin üzerinde gerek artık bir gereksinim ve şirket geleceğe yönelik planlarının ne. Karma kimlik tasarımı için uzun vadeli stratejisi görünürlüğünü yoksa büyür ve değişirken iş gereksinimleriniz değiştikçe çözümünüzü ölçeklenebilir olmayacağını yüksektir.   T, bir karma kimlik mimarisi ve kullanıcılar için kilidi iş yüklerinin örneği kendisinin diyagram gösterilmektedir. Yalnızca örnek kilidi açılabilir ve kesintisiz karma kimlik stratejisi ile sunulan tüm yeni olasılık budur. 
+Bu anahtar ne olduğunu anlamak için iş yönlerinin üzerinde gerek artık bir gereksinim ve şirket geleceğe yönelik planlarının ne. Karma kimlik tasarımı için uzun vadeli stratejisi görünürlüğünü yoksa büyür ve değişirken iş gereksinimleriniz değiştikçe çözümünüzü ölçeklenebilir olmayacağını yüksektir. Aşağıdaki diyagramda karma kimlik mimarisi ve kullanıcılar için kilidi iş yükleri bir örneği gösterilmektedir. Yalnızca örnek kilidi açılabilir ve kesintisiz karma kimlik stratejisi ile sunulan tüm yeni olasılık budur. 
 
 Karma kimlik mimarisi parçası olan bazı bileşenleri ![karma kimlik mimarisi](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 

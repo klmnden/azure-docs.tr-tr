@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073986"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956398"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Kubernetes kendi IP adresi aralıklarını Azure Kubernetes Service (AKS) ile ağ kullanma
 
@@ -22,6 +22,9 @@ Varsayılan olarak, AKS kümesi kullanım [kubernetes][kubenet], ve sizin için 
 İle [Azure kapsayıcı ağ arabirimi (CNI)][cni-networking], her pod alt ağdan bir IP adresi alır ve doğrudan erişilebilir. Bu IP adresleri, ağ alanı benzersiz olmalıdır ve önceden hazırlıklı olmak gerekir. Her düğümü destekliyorsa pod'ların sayısı için bir yapılandırma parametresi vardır. Düğüm başına IP adreslerinin sayısı, bu düğüm için önden ayrılmıştır. Bu yaklaşım, daha fazla planlama gerektirir ve genellikle IP adresi tükenmesi veya uygulama arttıkça daha büyük bir alt ağ kümelerini yeniden gereksinimini doğurur.
 
 Bu makalede nasıl kullanılacağını gösterir *kubernetes* oluşturmak ve bir AKS kümesi için bir sanal ağ alt ağı kullanmak için ağ. Ağ seçenekleri ve konuları hakkında daha fazla bilgi için bkz. [ağ kavramları Kubernetes ve AKS için][aks-network-concepts].
+
+> [!WARNING]
+> Windows Server düğüm havuzları (şu anda önizlemede aks'deki) kullanmak için Azure CNI kullanmanız gerekir. Windows Server kapsayıcıları için kubernetes kullanımını ağ modeli olarak kullanılamaz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -149,6 +152,8 @@ Kümenin parçası oluşturma işlemi aşağıdaki IP adresi aralıklarını da 
     * Bu adres aralığı'nın ölçeği beklediğiniz düğüm sayısını tutabilecek kadar büyük olmalıdır. Ek düğümler için daha fazla adres gerekiyorsa, küme dağıtıldıktan sonra bu adres aralığını değiştiremezsiniz.
     * Pod IP adresi aralığı atamak için kullanılan bir */24* adres alanı her küme düğümünde için. Aşağıdaki örnekte, *--pod CIDR* , *192.168.0.0/16* ilk düğümü atar *192.168.0.0/24*, ikinci düğümü *192.168.1.0/24*ve üçüncü düğüm *192.168.2.0/24*.
     * Küme ölçek veya yükseltme olarak, Azure platformu pod IP adresi aralığı her yeni düğüme atamak devam eder.
+    
+* *--Docker köprü adresi* AKS düğümleri temel alınan yönetim platformu ile iletişim kurmasına olanak tanır. Bu IP adresi kümenizin sanal ağ IP adresi aralığında olmamalıdır ve ağınızda kullanımda başka adres aralıklarıyla çakışıyor olmamalıdır.
 
 ```azurecli-interactive
 az aks create \

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1caa523b2bc43b7b3690e01f589aecf18fd3da9e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937591"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965099"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne Kaydolma  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -69,7 +69,7 @@ Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımc�
     Bir onay e-posta iletisi gönderilmesini Son düğmesini tıklatın.  
 11. Teklifiniz için faturalandırma modeliyle sonraki adımları seçin.  
 
-    | Faturalandırma modeli | Sonraki adımlar |  
+    | Faturalama modeli | Sonraki adımlar |  
     |:--- |:--- |  
     | Ücretsiz | Bulut iş ortağı Portalı'na gidin.<ul> <li>Azure Marketi'nde içerik yayımlamak için sayfasında bulunan bulut iş ortağı portalını ziyaret edin [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
     | Ticari (transact) | Hesap bilgilerinizi güncelleştirin.<ul> <li>Hesap bilgileri ekleme hakkında daha fazla bilgi için ziyaret [Ekle banka ve vergi bilgilerini](#add-bank-information) bölümü.</li> </ul> |  
@@ -156,7 +156,7 @@ Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari tekli
   > Posta kodu çok doğru girildiğinden emin olun. Şehir, posta kodu doğrulama yoktur.
 
 * **Bir promosyon kodu nasıl alabilirim?**
-  > Tamamlamak [Market kaydı](https://azuremarketplace.microsoft.com/en-us/sell/signup) forma bir Geliştirme Merkezi promosyon kodu alırsınız.
+  > Tamamlamak [Market kaydı](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) forma bir Geliştirme Merkezi promosyon kodu alırsınız. Bkz. nasıl [bir iş ortağı merkezi hesabınız oluşturma](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) daha fazla bilgi için.
  
 * **Ne ı tamamladıktan sonra beklemeliyim?**
   > Bir e-posta arayın verify@microsoft.com konu satırı ile "eylem gerekli: E-posta hesabınızı Microsoft ile doğrulama". Kaydı tamamlamak için zaman hassas doğrulama bağlantısına tıklayın. *24 saat içinde e-posta almadıysanız Lütfen istenmeyen posta klasörüne bakın.*
@@ -170,7 +170,7 @@ Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari tekli
 * **Geliştirme Merkezi uygulamam neden reddedildiği?**
   > (Duns & Bradstreet) üçüncü taraf güvenlik incelemesi şirket, telefon numarası sağladığınız ile bağlantı kuramadı. Desteğe başvurun [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) güvenlik incelemesi işlemini yeniden başlatmak için
 
-> or
+> veya
 > 
 > Coğrafya sorunları tabanlı hesabı kayıt reddedilir. Genel merkez ' farklı konumlarda bağlı kuruluşlarının şirketlerle yalnızca bir Geliştirme Merkezi hesabı gerekir.
  

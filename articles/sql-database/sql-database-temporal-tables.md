@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614165"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951505"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>2. Adım: İş yükünüz düzenli olarak çalıştır
 Zamana bağlı tablolarda ana avantajı, sitenizi değişiklik izleme gerçekleştirmek için herhangi bir şekilde ayarlamak veya değiştirmek gerekmez ' dir. Verilerinizde değişiklikleri uygulamak her zaman oluşturulduktan sonra zamana bağlı tablolarda şeffaf bir şekilde önceki satır sürümleri kalıcı. 
 
-Otomatik değişiklik izleme bu belirli bir senaryo için yararlanmak üzere yalnızca sütun güncelleştirelim **PagesVisited** kullanıcı Web sitesinde her/his oturumu sona erdiğinde her zaman:
+Otomatik değişiklik izleme bu belirli bir senaryo için yararlanmak üzere yalnızca sütun güncelleştirelim **PagesVisited** bir kullanıcı kendi Web sitesinde sona her zaman:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -120,7 +120,7 @@ Update sorgusu gerçek işlemi meydana geldiğinde veya geçmiş verileri ilerid
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-## <a name="step-3-perform-historical-data-analysis"></a>3. Adım: Geçmiş veri çözümlemesi gerçekleştirme
+## <a name="step-3-perform-historical-data-analysis"></a>3. adım: Geçmiş veri çözümlemesi gerçekleştirme
 Zamana bağlı sistem sürümü oluşturma etkin olduğunda, geçmiş verileri çözümleme, uzakta yalnızca bir sorgu sunulmuştur. Bu makalede, tüm ayrıntıları öğrenin, çeşitli seçenekleri ile sunulan keşfedin ortak analiz senaryoları - birkaç örnek sağlayacağız [FOR system_tıme](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) yan tümcesi.
 
 Bir saatten önce itibarıyla ziyaret edilen web sayfalarının göre sıralanmış ilk 10 kullanıcıları görmek için bu sorguyu çalıştırın:

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694124"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956701"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk şifrelemesi sorun giderme kılavuzu
 
@@ -150,7 +150,9 @@ If the expected encryption state does not match what is being reported in the po
 
 Portal bile VM içinden şifrelenmemiş edildikten sonra bir disk olarak şifrelenmiş görüntüleyebilir.  Alt düzey komutları doğrudan diskten daha yüksek düzey Azure Disk şifrelemesi yönetimi komutları kullanmak yerine VM'de sıfırlamaktır kullanıldığında ortaya çıkabilir.  Daha yüksek düzeyde, yalnızca diskten VM içinde sıfırlamaktır, ancak VM dışında Ayrıca önemli platform düzeyinde şifreleme ayarları ve VM ile ilişkili uzantı ayarları güncelleştirme komutları.  Bu hizalama tutulmazsa, platform şifreleme durumu bildirmek veya VM'yi düzgün şekilde sağlamak mümkün olmayacaktır.   
 
-Düzgün bir şekilde Azure Disk şifrelemesi devre dışı bırakmak için şifreleme ile etkin bilinen bir iyi durumda başlatın ve ardından [devre dışı bırak AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) ve [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell komutlar, veya [az vm şifreleme devre dışı](/cli/azure/vm/encryption) CLI komutu. 
+PowerShell ile Azure Disk şifrelemesini devre dışı bırakmak için [devre dışı bırak AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) ardından [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Remove-AzVMDiskEncryptionExtension şifreleme devre dışı bırakılmasına çalıştıran başarısız olur.
+
+CLI ile Azure Disk şifrelemesini devre dışı bırakmak için [az vm şifreleme devre dışı](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

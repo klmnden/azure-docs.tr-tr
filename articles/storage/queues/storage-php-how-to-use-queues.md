@@ -10,12 +10,12 @@ ms.date: 01/11/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410459"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951203"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -87,7 +87,7 @@ UseDevelopmentStorage=true
 Bir Azure kuyruk hizmeti istemcisi oluşturmak için kullanmanız gerekir **QueueRestProxy** sınıfı. Aşağıdaki tekniklerden birini kullanabilirsiniz:
 
 * Doğrudan bağlantı dizesini geçirin.
-* Ortam değişkenlerini kullanarak Web uygulamanızda bağlantı dizesini depolamak için kullanın. Bkz: [Azure web uygulaması yapılandırma ayarları](../../app-service/web-sites-configure.md) bağlantı dizelerini yapılandırma belge.
+* Ortam değişkenlerini kullanarak Web uygulamanızda bağlantı dizesini depolamak için kullanın. Bkz: [Azure web uygulaması yapılandırma ayarları](../../app-service/configure-common.md) bağlantı dizelerini yapılandırma belge.
 Burada özetlenen örnekler için bağlantı dizesi doğrudan geçirilir.
 
 ```php

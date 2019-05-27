@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021669"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951896"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search dizini için özel çözümleyiciler ekleme
 
@@ -223,7 +223,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
 |Tür|"#Microsoft.Azure.Search.CustomAnalyzer" olmalıdır.|  
-|CharFilters|Listelenen önceden tanımlanmış karakter filtreleri birini ayarlayın [Char filtreleri](#CharFilter) tablo veya dizin tanımında belirtilen bir özel karakter filtre.|  
+|CharFilters|Listelenen önceden tanımlanmış karakter filtreleri birini ayarlayın [Char filtreleri](#char-filters-reference) tablo veya dizin tanımında belirtilen bir özel karakter filtre.|  
 |Belirteç Oluşturucu|Gereklidir. Listelenen önceden tanımlanmış oluşturma denenmeden birini ayarlayın [oluşturma denenmeden](#Tokenizers) aşağıdaki tablo veya dizin tanımında belirtilen özel bir belirteç Oluşturucu.|  
 |TokenFilters|Listelenen önceden tanımlanmış simge filtreleri birini ayarlayın [filtreler Token](#TokenFilters) tablo veya dizin tanımında belirtilen özel bir belirteç Filtresi.|  
 
@@ -236,8 +236,8 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Tür|Char desteklenen char filtreler listeden türünü filtreleyin. Bkz: **char_filter_type** sütununda [Char filtreleri](#CharFilter) aşağıdaki tabloda.|  
-|Seçenekler|Geçerli seçenekleri olmalıdır bir verilen [Char filtreleri](#CharFilter) türü.|  
+|Tür|Char desteklenen char filtreler listeden türünü filtreleyin. Bkz: **char_filter_type** sütununda [Char filtreleri](#char-filters-reference) aşağıdaki tabloda.|  
+|Seçenekler|Geçerli seçenekleri olmalıdır bir verilen [Char filtreleri](#char-filters-reference) türü.|  
 
 ### <a name="tokenizers"></a>Oluşturma denenmeden
 

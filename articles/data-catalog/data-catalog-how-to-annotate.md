@@ -8,15 +8,15 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001945"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953179"
 ---
 # <a name="how-to-annotate-data-sources"></a>Veri kaynaklarına açıklama ekleme
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 **Microsoft Azure veri Kataloğu** kayıt ve kurumsal veri kaynakları için bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Diğer bir deyişle, tüm veri kaynakları ve yardımcı kuruluşların var olan verilerden daha fazla değer elde kullanacağınızı bulmak ve anlamak yardımcı hakkında veri Kataloğu. Bir veri kaynağı, veri Kataloğu'na kaydedildiğinde meta verilerini kopyalanır ve hizmet tarafından ancak bir hikayesi vardır sonlanmıyor. Veri Kataloğu, açıklamaları ve etiketleri – veri kaynağından ayıklanan meta verileri desteklemek ve veri kaynağı için daha fazla insana daha anlaşılır hale getirmek için gibi – kendi açıklayıcı meta verilerini sağlamak kullanıcıların sağlar.
 
 ## <a name="annotation-and-crowdsourcing"></a>Ek açıklama ve kitle kaynak
@@ -27,7 +27,7 @@ Veri Kataloğu, farklı kullanıcılar kurumsal veri kaynakları üzerinde farkl
 * Veritabanı Yöneticisi, her bir veritabanı ve ETL işlemi izin verilen windows yedekleme zamanlamasını bilir.
 * Sistem sahibinin, kullanıcılar veri kaynağına erişim isteme işlemini bilir.
 * Varlıklar ve veri kaynağındaki öznitelikleri ve kurumsal veri modelini nasıl eşleştiği veri Görevlisi bilir.
-* Analist, veri kendisinin destekler ve iş süreçleri bağlamında nasıl kullanıldığını bilir.
+* Analist, veri destekledikleri iş süreçlerini bağlamında nasıl kullanıldığını bilir.
 
 Bu perspektifler her değerlidir ve bir kitle kaynak yaklaşımı yakalanır ve kayıtlı veri kaynaklarına, eksiksiz bir görünümünü sağlamak için kullanılan her biri izin veren bir meta veri kataloğu kullanır. Her bir kullanıcı, veri Kataloğu portalını kullanarak ekleyebilir ve diğer kullanıcılar tarafından sağlanan ek açıklamaları görüntülemesi sırasında kendi ek açıklamalarını düzenleyebilirsiniz.
 

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001239"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967750"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps B2B tümleştirme hesapları için bölgeler arası olağanüstü durum kurtarma
 
@@ -62,7 +62,7 @@ Logic Apps tümleştirme hesabı'nda iş sürekliliği B2B protokolleri X12, AS2
 
 Olağanüstü durum olayı sırasında birincil bölge için iş sürekliliği, trafiği ikincil bölgeye kullanılabilir olmadığında. Bir ikincil bölgeye yardımcı bir RPO'ya/RTO'ya karşılamak için hızla işlevleri kurtarmak için iş ortaklarının tarafından üzerinde anlaşmaya varılan. Ayrıca bir bölgesinden başka bir bölgeye yük devretmek için çabalarınızı en aza indirir. 
 
-Denetim numaraları birincil bir bölgeden ikincil bölgeye kopyalanırken beklenen bir gecikme yoktur. Yinelenen oluşturulan denetim numaraları iş ortakları için olağanüstü durum olayı sırasında gönderilmesini önlemek için Denetim numaralarını kullanarak ikincil bölgeye sözleşmelerde artırmak için önerilir [PowerShell cmdlet'leri](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+Denetim numaraları birincil bir bölgeden ikincil bölgeye kopyalanırken beklenen bir gecikme yoktur. Yinelenen oluşturulan denetim numaraları iş ortakları için olağanüstü durum olayı sırasında gönderilmesini önlemek için Denetim numaralarını kullanarak ikincil bölgeye sözleşmelerde artırmak için önerilir [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Bir birincil bölge sonrası olağanüstü durum olayına geri döner
 
@@ -70,7 +70,7 @@ Uygun olduğunda birincil bölgeye geri dönmesi için bu adımları izleyin:
 
 1. İkincil bölgedeki iş ortaklarından iletileri kabul etmeye durdurun.  
 
-2. Tüm birincil bölgeye anlaşmalar için oluşturulan denetim numaralarını kullanarak Artır [PowerShell cmdlet'leri](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+2. Tüm birincil bölgeye anlaşmalar için oluşturulan denetim numaralarını kullanarak Artır [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Birincil bölgeye trafiği ikincil bölgeye ait.
 
