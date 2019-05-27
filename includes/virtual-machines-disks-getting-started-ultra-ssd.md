@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 495326c172f900dc8bcff78b0df38f2cb64ed27e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546530"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147775"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Etkinleştirme ve Azure ultra SSD (Önizleme) dağıtma
 
@@ -27,7 +27,7 @@ Onaylandıktan sonra ultra SSD kullanmak için içinde bulunduğunuz hangi kulla
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
-CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
+CLI: `az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].locationInfo"`
 
 Yanıt X olduğu bölge Doğu ABD 2 bölgesinde kullanmak için aşağıdaki formu, benzer olacaktır. X 1, 2 veya 3 olabilir.
 

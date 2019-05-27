@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537922"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146238"
 ---
-| Kaynak | Varsayılan limit |
+| Resource | Varsayılan limit |
 | --- | :--- |
 | [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına kapsayıcı grubu | 100<sup>1</sup> |
 | Kapsayıcı grubu başına kapsayıcı sayısı | 60 |

@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155256"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 Bu makalede, işlem veya dönüşüm veri için kullanabileceğiniz farklı işlem ortamlarında açıklanmaktadır. (İsteğe bağlı ve Getir kendi) farklı yapılandırmalar hakkında ayrıntılar bu bağlama bağlı hizmetler yapılandırırken Data Factory tarafından desteklenen bir Azure data factory'ye ortamları işlem sağlar.
@@ -387,8 +387,8 @@ Bir Machine Learning batch Puanlama uç noktası bir data factory'ye kaydetmeniz
 | ApiKey                 | Yayımlanan çalışma alanı modelinin API.     | Evet                                      |
 | updateResourceEndpoint | Tahmine dayalı Web hizmeti ile eğitilmiş model dosyasını güncelleştirmek için kullanılan bir Azure ML Web Hizmeti uç noktası güncelleştirme kaynak URL'si | Hayır                                       |
 | servicePrincipalId     | Uygulamanın istemci kimliği belirtin.     | UpdateResourceEndpoint belirttiyseniz gereklidir |
-| serviceprincipalkey değerleri    | Uygulama anahtarını belirtin.           | UpdateResourceEndpoint belirttiyseniz gereklidir |
-| kiracı                 | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | UpdateResourceEndpoint belirttiyseniz gereklidir |
+| servicePrincipalKey    | Uygulama anahtarını belirtin.           | UpdateResourceEndpoint belirttiyseniz gereklidir |
+| tek                 | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | UpdateResourceEndpoint belirttiyseniz gereklidir |
 | connectVia             | Bu bağlı hizmeti için etkinlikler gönderilmesi için kullanılacak Integration Runtime. Azure tümleştirme çalışma zamanı veya şirket içinde barındırılan Integration Runtime'ı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics bağlı hizmeti
@@ -431,8 +431,8 @@ Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics
 | subscriptionId       | Azure abonelik kimliği                    | Hayır                                       |
 | resourceGroupName    | Azure kaynak grubu adı                | Hayır                                       |
 | servicePrincipalId   | Uygulamanın istemci kimliği belirtin.     | Evet                                      |
-| serviceprincipalkey değerleri  | Uygulama anahtarını belirtin.           | Evet                                      |
-| kiracı               | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | Evet                                      |
+| servicePrincipalKey  | Uygulama anahtarını belirtin.           | Evet                                      |
+| tek               | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | Evet                                      |
 | connectVia           | Bu bağlı hizmeti için etkinlikler gönderilmesi için kullanılacak Integration Runtime. Azure tümleştirme çalışma zamanı veya şirket içinde barındırılan Integration Runtime'ı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır                                       |
 
 
@@ -485,8 +485,8 @@ Oluşturabileceğiniz **Azure Databricks bağlı hizmeti** Databricks workloads(
 
 | Özellik             | Açıklama                              | Gerekli                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| ad                 | Bağlı hizmetin adı               | Evet   |
-| type                 | Type özelliği ayarlanmalıdır: **AzureDatabricks**. | Evet                                      |
+| name                 | Bağlı hizmetin adı               | Evet   |
+| tür                 | Type özelliği ayarlanmalıdır: **AzureDatabricks**. | Evet                                      |
 | etki alanı               | Buna göre bir Databricks çalışma alanı, bölgeye göre Azure bölgesi belirtin. Örnek: https://eastus.azuredatabricks.net | Evet                                 |
 | accessToken          | Data factory'nin Azure Databricks için kimlik doğrulaması erişim belirteci gereklidir. Erişim belirteci databricks çalışma alanından oluşturulması gerekir. Erişim belirteci bulunabilir bulmak için aşağıdaki adımları ayrıntılı [burada](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Evet                                       |
 | existingClusterId    | Bu tüm işleri çalıştırmak için var olan bir kümenin küme kimliği. Bu, zaten oluşturulmuş bir etkileşimli kümede olmalıdır. Yanıt vermeyi durdurursa kümeyi el ile yeniden başlatmanız gerekebilir. Daha fazla güvenilirlik için yeni kümelerinde çalışan işlerin Databricks önerin. Küme Kimliği bulabilirsiniz kümeler, etkileşimli bir çalışma alanı -> Databricks kümesinde etkileşimli küme adı -> yapılandırma -> etiketleri ->. [Daha fazla ayrıntı](https://docs.databricks.com/user-guide/clusters/tags.html) | Hayır 

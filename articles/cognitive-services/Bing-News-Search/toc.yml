@@ -109,3 +109,5 @@
       href: language-support.md
     - name: Bing Haber Arama API'si Analizleri
       href: bing-news-stats.md
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

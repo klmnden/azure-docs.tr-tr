@@ -184,6 +184,8 @@
   items:
     - name: Bölgesel Kullanılabilirlik
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma ve limitler

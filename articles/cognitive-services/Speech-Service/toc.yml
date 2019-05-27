@@ -170,7 +170,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Özel bir modeli dağıtma
               href: how-to-custom-speech-deploy-model.md
-            - name: 'Kılavuz: İnsan etiketli transkripsiyonlar oluşturma'
+            - name: Kılavuz İnsan etiketli transkripsiyonlar oluşturma
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Metin okuma
           items:
@@ -195,14 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Translator Konuşma Çevirisi API’sinden
           href: how-to-migrate-from-translator-speech-api.md
-    - name: Şirket içi kapsayıcıları kullanma
+    - name: Kapsayıcıları kullanma
       items:
-        - name: Şirket içi kapsayıcıları yükleme ve çalıştırma
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+        - name: Kapsayıcıları yükleme ve çalıştırma
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
           href: speech-container-howto.md
         - name: Kapsayıcıları yapılandırma
           href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging'
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
 - name: Örnekler
   items:
     - name: Konuşma SDK'sı
@@ -314,6 +314,8 @@
       href: support.md
     - name: Fiyatlandırma ve limitler
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Gizlilik ve tanımlama bilgileri

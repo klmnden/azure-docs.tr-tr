@@ -16,11 +16,11 @@ ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 064466b73e03e9648b78c32b7e6ffcd83defd607
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66139373"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure'da statik bir HTML web uygulaması oluşturma
 
@@ -48,7 +48,7 @@ Ardından, örnek uygulama deposunu quickstart dizininize kopyalamak için aşa�
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-## <a name="create-a-web-app"></a>Web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Web uygulaması oluşturun
 
 Örnek kodu içeren dizine geçin ve `az webapp up` komutunu çalıştırın.
 

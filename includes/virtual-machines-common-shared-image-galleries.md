@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546756"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145869"
 ---
 Paylaşılan görüntü Galerisi yapısı ve kendi özel VM görüntülerinizi yönetilen etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan resim galerileri sağlar:
 
@@ -128,7 +128,7 @@ En iyi deneyim için Galeri düzeyinde paylaşımı öneririz. RBAC hakkında da
 Görüntüleri Ayrıca, uygun ölçekte, çok kiracılı uygulama kaydı kullanılarak kiracılar genelinde paylaşılabilir. Kiracılar genelinde görüntülerini paylaşma hakkında daha fazla bilgi için bkz. [galeri VM görüntüleri Azure kiracılar arasında paylaşmak](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Faturalama
-Paylaşılan görüntü Galerisi bu hizmeti kullanmak için fazladan bir ücret yoktur. Aşağıdaki kaynaklar için ücretlendirilirsiniz:
+Paylaşılan Görüntü Galerisi hizmetini kullanırken ekstra ücret ödemezsiniz. Aşağıdaki kaynaklar için ücretlendirilirsiniz:
 - Depolama maliyetini paylaşılan görüntü sürümlerini depolamak için. Çoğaltma görüntü sürümü sayısı ve sürüm çoğaltılır bölge sayısı maliyeti bağlıdır. Örneğin, 2 görüntüler varsa ve her ikisi de 3 bölgeye çoğaltılır, ardından, kendi boyutunu temel alan 6 yönetilen diskler için değiştirilecek. Daha fazla bilgi için [yönetilen diskler fiyatlandırması](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Çıkış ücretlerini kaynak bölgesinden ilk görüntü sürümü çoğaltılmış bölgelere çoğaltma için ağ. Herhangi bir ek ücret olduklarından izleyen yinelemeler bölge içinde işlenir. 
 

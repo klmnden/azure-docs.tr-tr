@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546706"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145898"
 ---
 Paylaşılan resim galerileri, RBAC kullanarak paylaşım görüntüleri sağlar. Görüntüleri kiracınızdaki ve hatta kişiler, kiracınızın dışında paylaşmak için RBAC kullanabilirsiniz. Ancak, uygun ölçekte, Azure kiracınızın dışındaki görüntülerin paylaşmak istiyorsanız, paylaşımını kolaylaştırmak için bir uygulama kaydı oluşturmanız gerekir.  Bir uygulama kaydı kullanarak gibi daha karmaşık paylaşım senaryolarını etkinleştirebilirsiniz: 
 

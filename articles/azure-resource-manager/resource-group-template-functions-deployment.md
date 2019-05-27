@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128672"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Dağıtım işlevleri için Azure Resource Manager şablonları 
 
@@ -167,7 +167,7 @@ Bir parametre değeri döndürür. Belirtilen parametre adı şablon parametrele
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| parameterName |Evet |dize |Döndürülecek parametrenin adı. |
+| parameterName |Evet |string |Döndürülecek parametrenin adı. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -256,7 +256,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | stringOutput | String | Seçenek 1 |
 | intOutput | Int | 1 |
-| objectOutput | Nesne | {"bir": "a", "iki": "b"} |
+| objectOutput | Object | {"bir": "a", "iki": "b"} |
 | arrayOutput | Dizi | [1, 2, 3] |
 | crossOutput | String | Seçenek 1 |
 
@@ -360,7 +360,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Dizi | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Nesne | {"property1": "value1", "Özellik2": "value2"} |
+| exampleOutput4 |  Object | {"property1": "value1", "Özellik2": "value2"} |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 

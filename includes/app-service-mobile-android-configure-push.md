@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 686688bf0f6b9970b29d540a2425139e78b91a35
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: a0b52c5f30e3d90570f4e9a1995b164dc9b6d0c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811573"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140590"
 ---
 1. İçinde [Azure portalında](https://portal.azure.com/)seçin **tümüne Gözat** > **uygulama hizmetleri**. Ardından select, Mobile Apps arka ucu. 
 2. Altında **ayarları**seçin **anında iletme**. Ardından **anında iletme bildirimi hizmetlerini yapılandır**.

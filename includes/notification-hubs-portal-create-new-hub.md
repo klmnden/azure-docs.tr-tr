@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60423406"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140571"
 ---
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri** seçin ve soldaki menüden **Notification hubs'ı** içinde **mobil** bölümü. Yıldızı seçin (`*`) eklemek için hizmet adının yanındaki **Sık Kullanılanlar** sol menüde bölümü. Sonra **Notification hubs'ı** eklenir **Sık Kullanılanlar**, sol taraftaki menüde seçin. 

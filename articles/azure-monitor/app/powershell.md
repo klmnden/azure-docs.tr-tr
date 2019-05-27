@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130922"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell ile Application Insights kaynakları oluşturma
 
@@ -201,7 +201,7 @@ Yukarıdaki şablonu kullanarak kurumsal fiyat planı ile bir uygulama kaynak ol
 |priceCode|planı|
 |---|---|
 |1|Temel|
-|2|Enterprise|
+|2|Kuruluş|
 
 * Yalnızca varsayılan temel fiyat planı kullanmak istiyorsanız, şablonu CurrentBillingFeatures kaynak atlayabilirsiniz.
 * Fiyat planı bileşen kaynak oluşturulduktan sonra değiştirmek istiyorsanız, "microsoft.insights/components" kaynak atlar bir şablon kullanabilirsiniz. Ayrıca, atlamak `dependsOn` fatura kaynak düğüm. 

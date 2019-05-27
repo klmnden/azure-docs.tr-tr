@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: c79b6f854dc78670a7eb8a1275c3e2fc46fcdd99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450229"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147743"
 ---
 ### <a name="code-walkthrough"></a>Kod gözden geçirme
 
@@ -26,7 +26,7 @@ Aşağıdaki kod parçacığı, cihazın özelliklerini açıklayan bildirilen �
 - Cihazın desteklediği yöntemlerin listesi.
 - Cihaz tarafından gönderilen telemetri iletilerini şeması.
 
-
+[!code-cpp[Define data structures for Chiller](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=datadefinition "Define data structures for Chiller")]
 
 Örnek içeren bir **serializeToJson** Parson kitaplığını kullanarak bu veri yapısını serileştiren işlevi.
 
@@ -39,15 +39,15 @@ Aşağıdaki kod parçacığı, cihazın özelliklerini açıklayan bildirilen �
 
 Aşağıdaki kod parçacığında gösterildiği **device_method_callback** işlevi. Bu işlev bir yöntem çağrısının çözüm hızlandırıcıdan aldığında gerçekleştirilecek eylemi belirler. İşlev bir başvuru alır **Soğutucu** veri yapısı içinde **userContextCallback** parametresi. Değerini **userContextCallback** geri çağırma işlevine olarak yapılandırıldığında ayarlanır **ana** işlevi:
 
-
+[!code-cpp[Device method callback](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=devicemethodcallback "Device method callback")]
 
 Çözüm Hızlandırıcısını üretici yazılımı güncelleştirme yöntemini çağırdığında, örnek JSON yükü seri durumdan çıkarır ve güncelleştirme işlemini tamamlamak için bir arka plan iş parçacığı başlatılır. Aşağıdaki kod parçacığında gösterildiği **do_firmware_update** iş parçacığında çalışır:
 
-
+[!code-cpp[Firmware update thread](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=firmwareupdate "Firmware update thread")]
 
 Aşağıdaki kod parçacığını nasıl istemci çözüm hızlandırıcısına bir telemetri iletisi gönderen gösterir. Çözüm Hızlandırıcısını telemetrisini Panoda görüntüleme amacıyla ileti şeması ileti özellikleri şunlardır:
 
-
+[!code-cpp[Send telemetry](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=sendmessage "Send telemetry")]
 
 **Ana** işlevi örneğinde:
 
@@ -57,4 +57,4 @@ Aşağıdaki kod parçacığını nasıl istemci çözüm hızlandırıcısına 
 - Cihaz yöntemi geri çağırma işlevi yapılandırır.
 - Çözüm Hızlandırıcısını telemetri değerleri gönderen benzetimi.
 
-
+[!code-cpp[Main](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=main "Main")]

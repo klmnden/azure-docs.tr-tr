@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: d0c38b69d8cb2fda85a85fd27f0a5b26da51b699
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b008ef47ba530affd65e4d0e5e293312cfe74b69
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136518"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>Bir App Service uygulaması bir SQL veritabanı'na bağlanma
 

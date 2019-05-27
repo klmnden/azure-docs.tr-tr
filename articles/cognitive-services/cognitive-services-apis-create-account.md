@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: b5adb5b8bddd0f379ac581f3268f0121791cf0bc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546365"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145934"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma
 
@@ -92,6 +92,8 @@ Bu sabitlenmiş kaynağınızı oluşturduktan sonra bunu Azure panosundan eriş
 Bilişsel hizmetler kaynağınızı uç nokta URL'si ve anahtarları kullanabilirsiniz **genel bakış** API oluşturmaya başlamak için bölüm uygulamalarınızda çağırır.
 
 ![Kaynaklarının ekranı](media/cognitive-services-apis-create-account/resourceScreen.png)
+
+Konum ve anahtarları not edin. Tuşlarını seçerek alabilirsiniz **anahtarları** altında **kaynak yönetimi**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

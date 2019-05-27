@@ -9,13 +9,13 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468439"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145933"
 ---
-Kısa ömürlü işletim sistemi diskleri yerel sanal makine (VM) depolama alanında oluşturulur ve uzak Azure Depolama'da kalıcı hale değil. Burada uygulamaları tek tek VM kesintilerine dayanıklı olsa da, büyük ölçekli dağıtımlar için geçen süreyi veya tek tek sanal makine örneği görüntüsünü yeniden oluşturmak zaman hakkında daha fazla endişe iyi durum bilgisiz iş yükleri için kısa ömürlü işletim sistemi diskleri çalışır. Resource Manager dağıtım modeline taşımak Klasik dağıtım modeli kullanılarak dağıtılan uygulamalar için de uygundur. Kısa ömürlü işletim sistemi diski ile işletim sistemi diski ve daha hızlı VM yeniden görüntü oluşturma için daha düşük okuma/yazma gecikme süresi görebilirsiniz. Ayrıca, kısa ömürlü işletim sistemi diski ücretsizdir, işletim sistemi diski için hiçbir depolama maliyeti doğurur. 
+Kısa ömürlü işletim sistemi diskleri yerel sanal makine (VM) depolama alanında oluşturulur ve uzak Azure Depolama'da kalıcı hale değil. Burada uygulamaları tek tek VM kesintilerine dayanıklı olsa da, büyük ölçekli dağıtımlar için geçen süreyi veya tek tek sanal makine örneği görüntüsünü yeniden oluşturmak zaman hakkında daha fazla endişe iyi durum bilgisiz iş yükleri için kısa ömürlü işletim sistemi diskleri çalışır. Resource Manager dağıtım modeline taşımak Klasik dağıtım modeli kullanılarak dağıtılan uygulamalar için de uygundur. Kısa Ömürlü İşletim Sistemi diskleriyle, İşletim Sistemi disklerinde okuma/yazma gecikme süresinin kısaldığını ve yeniden görüntü oluşturmanın hızlandığını görebilirsiniz. Ayrıca, kısa ömürlü işletim sistemi diski ücretsizdir, işletim sistemi diski için hiçbir depolama maliyeti doğurur. 
  
 Geçici diskler önemli özellikleri şunlardır: 
 - Bunlar, hem Market görüntüleri hem de özel görüntüleri ile kullanılabilir.

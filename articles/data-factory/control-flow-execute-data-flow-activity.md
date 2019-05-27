@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236682"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153536"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme veri akışı etkinliği
 Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklenen işlem hattı çalıştırmaları, ADF veri akışı çalıştırmak için kullanın.
@@ -64,6 +64,10 @@ Veri akışı hata ayıklama veri akışlarınızı çalıştırma bir işlem ha
 Bu veri akışı, Etkinlik yürütme için kullanılacak hangi Integration Runtime tanımlayan gerekli bir alandır. Varsayılan olarak, varsayılan otomatik Çözümle Azure tümleştirme çalışma zamanının Data Factory kullanır. Ancak, kendi Azure tümleştirme belirli bölgeleri tanımlamak, veri akış Etkinlik yürütme için işlem türü, çekirdek sayısı ve TTL çalışma zamanları oluşturabilirsiniz.
 
 8 çekirdek genel bilgi işlem, bir TTL 60 dakika ile yürütme veri akışı için varsayılan ayardır.
+
+Veri akışı etkinlikleriniz için Spark yürütme ortamı üzerinde kontrol sizde. İçinde [Azure tümleştirme çalışma zamanı](concepts-integration-runtime.md) işlem türü (genel amaçlı, bellek için iyileştirilmiş ve işlem için iyileştirilmiş) çalışan çekirdek sayısı ve zaman yaşam yürütme altyapısı, veri akışı işlem ile eşleşecek şekilde ayarlamak için ayarlar gereksinimleri. Ayrıca, TTL ayarlama için iş yürütmeleri hemen kullanılamıyorsa, normal bir küme tutmanıza olanak sağlar.
+
+![Azure tümleştirme çalışma zamanı](media/data-flow/ir-new.png "Azure tümleştirme çalışma zamanı")
 
 ### <a name="staging-area"></a>Hazırlama alanı
 

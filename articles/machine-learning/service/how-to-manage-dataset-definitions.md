@@ -1,5 +1,5 @@
 ---
-title: Veri kümesi tanımı ve sürüm oluşturma
+title: Veri kümesi tanımı ve azureml kümeleriyle sürüm oluşturma
 titleSuffix: Azure Machine Learning service
 description: Veri kümesi tanımlarını güncelleştir ve tanımları yaşam döngüsünü yönetme hakkında bilgi edinin
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 7c861c8cdc9985caa42bd2beb5236a4f4e93e4c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028688"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146217"
 ---
 # <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Güncelleştirme ve veri kümesi tanımları yaşam döngüsünü yönetme
 
@@ -362,7 +362,7 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.deprecate(deprecate_by_dataset_id=dataset.id, deprecated_by_definition_version=2)
 ```
 
-### <a name="archive"></a>Arşiv
+### <a name="archive"></a>Arşivle
 
 Veri kümesi tanımları, herhangi bir nedenle (örneğin, temel alınan veriler artık kullanılabilir) kullanılacak tanımları görmemesi olduğunda saklanabilir. Arşivlenen bir veri kümesi tanımı machine learning işlem hatlarını kullanıldığında, yürütme hatası ile engellenir.
 

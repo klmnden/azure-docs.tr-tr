@@ -2,18 +2,17 @@
 title: Azure Kubernetes Service (AKS) kubeconfig'i denetleyin erişimi sınırlayın
 description: Küme yöneticileri ve küme kullanıcılar için Kubernetes yapılandırma dosyası (kubeconfig'i denetleyin) erişimi denetleme hakkında bilgi edinin
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 01/03/2019
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: 141aacc71d129bb45dc53774af876d5b07b7fc86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/03/2019
+ms.author: iainfou
+ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466469"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143017"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure rol tabanlı erişim denetimleri Kubernetes yapılandırma dosyasının Azure Kubernetes Service (AKS) erişim tanımlamak için kullanın
 
@@ -42,17 +41,19 @@ Ne zaman etkileşim kullanarak bir AKS kümesi `kubectl` aracı, yapılandırma 
     * Erişime izin *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API çağrısı. Bu API çağrısı [küme kullanıcı kimlik bilgilerini listeler][api-cluster-user].
     * İndirmeler *kubeconfig'i denetleyin* için *clusterUser* rol.
 
-## <a name="assign-role-permissions-to-a-user"></a>Bir kullanıcıya rol izinleri atama
+Bu RBAC rolleri, bir Azure Active Directory (AD) kullanıcı veya gruba uygulanabilir.
 
-Azure rollerden biri için bir kullanıcı atamak için AKS kümesi kaynak Kimliğini ve kullanıcı hesabının Kimliğini almanız gerekir. Aşağıdaki örnek komutlar aşağıdaki adımları uygulayın:
+## <a name="assign-role-permissions-to-a-user-or-group"></a>Bir kullanıcı veya grup rolü izinleri atama
+
+Kullanılabilir rollerden biri atamak için kaynak Kimliğini AKS kümesi ve Azure AD kullanıcı hesabı veya grup Kimliğini almanız gerekir. Aşağıdaki örnek komutlar aşağıdaki adımları uygulayın:
 
 * Küme kaynak Kimliğini kullanarak alır [az aks show] [ az-aks-show] adlı Küme için komutu *myAKSCluster* içinde *myResourceGroup* kaynak grubu. Gerektiğinde kendi küme ve kaynak grubu adı belirtin.
-* Kullanan [az hesabı show] [ az-account-show] ve [az ad kullanıcı show] [ az-ad-user-show] komutları kullanıcı kimliğinizi alma
+* Kullanan [az hesabı show] [ az-account-show] ve [az ad kullanıcı show] [ az-ad-user-show] kullanıcı kimliğinizi almak için komutları
 * Son olarak, bir rolü kullanarak atar [az rol ataması oluşturma] [ az-role-assignment-create] komutu.
 
-Aşağıdaki örnek atar *Azure Kubernetes hizmeti Küme Yöneticisi rolüne*:
+Aşağıdaki örnek atar *Azure Kubernetes hizmeti Küme Yöneticisi rolüne* bireysel bir kullanıcı hesabı için:
 
-```azurecli
+```azurecli-interactive
 # Get the resource ID of your AKS cluster
 AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query id -o tsv)
 
@@ -66,6 +67,9 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!TIP]
+> Azure AD grubu için izinleri atamak istiyorsanız, güncelleştirme `--assignee` önceki örnekte gösterildiği gibi bir kullanıcı yerine, grubun nesne Kimliğini parametresi. Bir grubun nesne Kimliğini almak için kullanın [az ad Grup show] [ az-ad-group-show] komutu. Aşağıdaki örnekte adlı bir Azure AD grubu nesne kimliği alır *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Önceki atama için değiştirebileceğiniz *küme kullanıcı rolünü* gerektiğinde.
 
@@ -88,7 +92,7 @@ Rol ataması başarıyla oluşturuldu, aşağıdaki örnek çıktı gösterilmek
 
 Atanan RBAC rolleri ile [az aks get-credentials] [ az-aks-get-credentials] almak için komut *kubeconfig'i denetleyin* AKS kümenizin tanımı. Aşağıdaki örnekte *--yönetici* kullanıcı verilmişse, düzgün çalışması kimlik bilgilerini *Küme Yöneticisi rolüne*:
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
@@ -101,7 +105,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: DATA+OMITTED
-    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.chinaeast.azmk8s.io:443
+    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.eastus.azmk8s.io:443
   name: myAKSCluster
 contexts:
 - context:
@@ -121,9 +125,9 @@ users:
 
 ## <a name="remove-role-permissions"></a>Rol izinleri Kaldır
 
-Rol atamalarını kaldırmak için [az rol atamasını Sil] [ az-role-assignment-delete] komutu. Hesap Kimliği ve küme kaynağı kimliği, önceki komutlarda elde edilmiş olarak belirtin:
+Rol atamalarını kaldırmak için [az rol atamasını Sil] [ az-role-assignment-delete] komutu. Hesap Kimliği ve küme kaynağı kimliği, önceki komutlarda elde edilmiş olarak belirtin. Uygun grup nesne kimliği yerine hesap nesnesi kimliği için kullanıcı yerine bir grup rolü atanmışsa belirtin `--assignee` parametresi:
 
-```azurecli
+```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 ```
 
@@ -138,14 +142,15 @@ Gelişmiş Güvenlik AKS kümelerine erişim [Azure Active Directory kimlik doğ
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials
-[api-cluster-user]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-account-show]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show
-[az-ad-user-show]: https://docs.azure.cn/zh-cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-role-assignment-delete]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-delete
-[aad-integration]: aad-integration.md
+[api-cluster-admin]: /rest/api/aks/managedclusters/listclusteradmincredentials
+[api-cluster-user]: /rest/api/aks/managedclusters/listclusterusercredentials
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-account-show]: /cli/azure/account#az-account-show
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
+[aad-integration]: azure-ad-integration.md
+[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

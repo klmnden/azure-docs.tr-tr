@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c025cdeb-786c-4aab-abd1-132907007f7e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49c5194f75ad973514a3ec015ef29c1d6f48330a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a13d2a62c64ea114e45b49e38eda0ddc686fe7cf
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382887"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Öğretici: Workable ile Azure Active Directory Tümleştirme
 
@@ -68,7 +69,7 @@ Azure AD'de Workable tümleştirmesini yapılandırmak için Workable Galeriden 
 
 4. Arama kutusuna **Workable**seçin **Workable** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuç listesinde çalışılabilir](common/search-new-app.png)
+    ![Sonuç listesinde çalışılabilir](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -80,8 +81,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Workable ile test etmek için aş
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Çalışılabilir çoklu oturum açmayı yapılandırma](#configure-workable-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Çalışılabilir bir test kullanıcısı oluşturma](#create-workable-test-user)**  - kullanıcı Azure AD gösterimini bağlı Workable Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çalışılabilir bir test kullanıcısı oluşturma](#create-workable-test-user)**  - kullanıcı Azure AD gösterimini bağlı Workable Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -127,7 +128,7 @@ Azure AD çoklu oturum açma ile Workable yapılandırmak için aşağıdaki ad�
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
@@ -141,7 +142,7 @@ Workable içinde SSO'yu etkinleştirmek üzere, adanmış çalışılabilir hesa
 
 3. Oturum Kapatma URL'si
 
-Çoklu oturum açma etkinleştirildi, çalışılabilir hesap yöneticinize bunu size bildirir ve kullanabileceğiniz sonra [Workable'nın SSO sayfa](https://www.workable.com/sso/signin) , çalışılabilir hesabı alt etki alanı kullanarak oturum açmak için.
+Çoklu oturum açma etkinleştirildi, çalışılabilir hesap yöneticinize bunu size bildirir ve kullanabileceğiniz sonra [Workable'nın SSO sayfa](https://id.workable.com/sso/signin) , çalışılabilir hesabı alt etki alanı ile oturum açması.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -161,8 +162,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
-    Örneğin, BrittaSimon@contoso.com
+    b. İçinde **kullanıcı adı** alan türü `brittasimon\@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com.
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 

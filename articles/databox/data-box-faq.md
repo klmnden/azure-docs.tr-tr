@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473258"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150454"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 
@@ -70,12 +70,12 @@ A.  Azure Data Box'ı almak için Azure portalda oturum açın ve bir Data Box s
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>S. Azure portalda Data Box siparişi oluşturamadım. Neden olabilir?
 A. Data Box siparişi oluşturamadıysanız abonelik türünüz veya erişimle ilgili bir sorun olabilir. 
 
-Aboneliğinizi kontrol edin. Veri kutusu yalnızca Kurumsal Sözleşme (EA) ve bulut çözümü sağlayıcısı (CSP) abonelik teklifleri için kullanılabilir. Aboneliğiniz bunlardan biri değilse Microsoft Desteği ile iletişime geçerek aboneliğinizi yükseltin.
+Aboneliğinizi kontrol edin. Data Box yalnızca Kurumsal Anlaşma (EA) ve Bulut çözüm sağlayıcısı (CSP) aboneliği teklifleriyle kullanılabilir. Aboneliğiniz bunlardan biri değilse Microsoft Desteği ile iletişime geçerek aboneliğinizi yükseltin.
 
 Aboneliğiniz, desteklenen teklif türlerinden birine aitse abonelik erişim düzeyinizi kontrol edin. Sipariş oluşturma için aboneliğinizde katkıda bulunan veya sahip olmanız gerekir.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-am-not-able-to-create-any-additional-orders-why-would-this-be"></a>S. Birkaç Data Box cihazı sipariş ettim. Başka sipariş oluşturamıyorum. Neden olabilir?
-A. Beş etkin siparişler ticari sınır (ülke ve seçili bölge birleşimi) başına abonelik başına en fazla izin veriyoruz. Daha fazla cihaz sipariş etmeniz gerekiyorsa Microsoft Desteği ile iletişime geçerek aboneliğinizin sınırını artırabilirsiniz.
+A. Ticari sınır başına (seçilen ülke ve bölge birleşimi) her abonelik için en fazla beş etkin siparişe izin veriyoruz. Daha fazla cihaz sipariş etmeniz gerekiyorsa Microsoft Desteği ile iletişime geçerek aboneliğinizin sınırını artırabilirsiniz.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>S. Sipariş oluşturmaya çalıştığımda Data Box hizmetinin kullanılabilir durumda olmadığını belirten bir bildirim alıyorum. Bu ne anlama geliyor?
 A. Bu ifade Data Box hizmetinin seçtiğiniz ülke ve bölge birleşimi için kullanılabilir durumda olmadığını gösterir. Bu birleşimi değiştirmeniz durumunda muhtemelen Data Box hizmetinden faydalanabileceksiniz. Hizmetin kullanılabildiği bölgelerin listesi için bkz. [Data Box için bölge kullanılabilirliği](data-box-overview.md#region-availability).
@@ -182,6 +182,9 @@ A. Hasarlı bir şekilde ulaşan veya bariz kurcalama izleri bulunan cihazları 
 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>S. Data Box'ı göndermek için kendi gönderim şirketimi kullanabilir miyim?
 A. Data Box hizmetinde cihazların Azure veri merkezine geliş gidişi Microsoft tarafından koordine edilir. Kendi gönderim şirketinizi kullanmak istiyorsanız Azure İçeri/Dışarı Aktarma hizmetini kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure İçeri/Dışarı Aktarma hizmeti nedir?](../storage/common/storage-import-export-service.md)
+
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>S. Gönderim sırasında Data Box cihazlarım çapraz ülke Kenarlıklar olur?
+A. Tüm Data Box cihazlar gelen hedeflerine aynı ülkede içinde gönderilir ve uluslararası Kenarlıklar çapraz değil. Siparişler, Avrupa Birliği (AB herhangi bir ülkede gelen ve giden cihazlar nereye sevk edebilir AB), tek özel durumu içindir.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>S. E-mürekkep üzerinde iade sevkiyat etiketi gösterilmiyor. Ne yapmalıyım?
 A. E-mürekkepte iade sevkiyat etiketi gösterilmiyorsa aşağıdaki adımları uygulayın:

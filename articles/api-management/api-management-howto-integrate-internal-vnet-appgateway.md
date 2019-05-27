@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
 ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141660"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
@@ -88,7 +88,7 @@ Bu kılavuzda biz de açığa çıkarır **Geliştirici Portalı** uygulama ağ 
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager için kaynak grubu oluşturun
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>Adım 1
 
 Azure'da oturum açma
 
@@ -98,7 +98,7 @@ Connect-AzAccount
 
 Kimlik bilgilerinizle kimliğinizi.
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>Adım 2
 
 İstediğiniz aboneliği seçin.
 
@@ -107,7 +107,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure su
 Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>Adım 3
 
 Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın).
 
@@ -123,7 +123,7 @@ Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerekti
 
 Aşağıdaki örnek, kaynak kullanarak sanal bir ağ yöneticisi oluşturma işlemi gösterilmektedir.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>Adım 1
 
 10.0.0.0/24 adres aralığını, sanal ağ oluşturulurken Application Gateway için kullanılacak alt ağ değişkenine atayın.
 
@@ -131,7 +131,7 @@ Aşağıdaki örnek, kaynak kullanarak sanal bir ağ yöneticisi oluşturma işl
 $appgatewaysubnet = New-AzVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>Adım 2
 
 Adres aralığı 10.0.1.0/24 bir sanal ağ oluşturulurken API yönetimi için kullanılacak alt ağ değişkenine atayın.
 
@@ -139,7 +139,7 @@ Adres aralığı 10.0.1.0/24 bir sanal ağ oluşturulurken API yönetimi için k
 $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>Adım 3
 
 Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubundaki **apim-appGw-RG** Batı ABD bölgesi için. Önek 10.0.0.0/16 kullanın 10.0.0.0/24 alt ağlar ve 10.0.1.0/24.
 
@@ -160,7 +160,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 Aşağıdaki örnek, bir API Management hizmeti yalnızca iç erişimi için yapılandırılmış bir sanal ağ oluşturma işlemi gösterilmektedir.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>Adım 1
 
 Yukarıda oluşturulan $apimsubnetdata alt ağı kullanarak bir API Yönetim sanal ağ nesnesi oluşturun.
 
@@ -168,7 +168,7 @@ Yukarıda oluşturulan $apimsubnetdata alt ağı kullanarak bir API Yönetim san
 $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>Adım 2
 
 Sanal ağ içinde bir API Management hizmeti oluşturun.
 
@@ -183,7 +183,7 @@ Yukarıdaki komut başarılı olduktan sonra başvurmak [DNS yapılandırması g
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>API Management özel etki alanı Kurulumu
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>Adım 1
 
 Etki alanları için özel anahtarları olan sertifikaları, ayrıntılarla aşağıdaki değişkenleri başlatır. Bu örnekte, kullanacağız `api.contoso.net` ve `portal.contoso.net`.  
 
@@ -200,7 +200,7 @@ $certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>Adım 2
 
 Oluşturun ve ana bilgisayar yapılandırma nesnelerini proxy için portalı için ayarlayın.  
 
@@ -227,7 +227,7 @@ Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
 
 Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturulmadan önce ayarlanmalıdır. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğelerini oluşturur.
 
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>Adım 1
 
 **gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
@@ -235,7 +235,7 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturulmadan önce ayarla
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>Adım 2
 
 Genel IP uç noktası için ön uç IP bağlantı noktasını yapılandırın. Bu bağlantı noktası, son kullanıcılarının bağlantı noktasıdır.
 
@@ -243,7 +243,7 @@ Genel IP uç noktası için ön uç IP bağlantı noktasını yapılandırın. B
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>Adım 3
 
 Ön uç IP’sini genel IP uç noktası ile yapılandırın.
 

@@ -16,11 +16,11 @@ ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138879"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Öğretici: Node.js ve azure'da MongoDB uygulaması oluşturma
 
@@ -37,7 +37,7 @@ Azure App Service, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki 
 > [!div class="checklist"]
 > * Azure’da MongoDB veritabanı oluşturma
 > * Node.js uygulamasını MongoDB’ye bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki tanılama günlüklerinin akışını sağlama
 > * Uygulamayı Azure portalında yönetme
@@ -129,7 +129,7 @@ Bu adımda, Azure’da bir MongoDB veritabanı oluşturursunuz. Uygulamanız Azu
 
 MongoDB için bu öğreticide [Azure Cosmos DB](/azure/documentdb/) kullanılır. Cosmos DB, MongoDB istemci bağlantılarını destekler.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
@@ -262,7 +262,7 @@ Bu adımda, MongoDB’ye bağlı Node.js uygulamanızı Azure App Service’e da
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>Web uygulaması oluşturma
+### <a name="create-a-web-app"></a>Web uygulaması oluşturun
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
@@ -506,7 +506,7 @@ Varsayılan olarak, uygulamanızın portal gösterir **genel bakış** sayfası.
 > [!div class="checklist"]
 > * Azure’da MongoDB veritabanı oluşturma
 > * Node.js uygulamasını MongoDB’ye bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki günlüklerin terminalinize akışını sağlama
 > * Uygulamayı Azure portalında yönetme
