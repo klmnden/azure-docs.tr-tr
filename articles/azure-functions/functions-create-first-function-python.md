@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143066"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864509"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure'da bir HTTP ile tetiklenen işlev oluşturma
 
@@ -92,7 +92,7 @@ Uzantı paketleri kolaylaştırır yol aşağı bağlama uzantıları. Ayrıca .
 
 Artık, bir işlev projenize ekleyebilirsiniz.
 
-## <a name="create-a-function"></a>İşlev oluşturma
+## <a name="create-a-function"></a>İşlev oluştur
 
 Projenize bir işlev eklemek için aşağıdaki komutu çalıştırın:
 
@@ -108,7 +108,7 @@ Adlı bir alt klasör _HttpTrigger_ oluşturulur, aşağıdaki dosyaları içeri
 
   Her bağlama, bir yönü, türü ve benzersiz bir ad gerektirir. HTTP tetikleyicisi türünde bir giriş bağlaması olan [ `httpTrigger` ](functions-bindings-http-webhook.md#trigger) ve çıktı bağlaması türü [ `http` ](functions-bindings-http-webhook.md#output).
 
-* **__init__.py**: HTTP betik dosyasının tetiklenen işlevi. Bu komut dosyasını gözden geçirin ve varsayılan içerip içermediğini `main()`. HTTP tetikleyicisi verileri kullanarak bu işlevi geçirilir `req` bağlama parametresinin adı. Function.JSON içinde tanımlanan `req` örneğidir [azure.functions.HttpRequest sınıfı](/python/api/azure-functions/azure.functions.httprequest). 
+* **\_\_init\_\_.py**: HTTP betik dosyasının tetiklenen işlevi. Bu komut dosyasını gözden geçirin ve varsayılan içerip içermediğini `main()`. HTTP tetikleyicisi verileri kullanarak bu işlevi geçirilir `req` bağlama parametresinin adı. Function.JSON içinde tanımlanan `req` örneğidir [azure.functions.HttpRequest sınıfı](/python/api/azure-functions/azure.functions.httprequest). 
 
     Tanımlanan dönüş nesnesi `$return` function.json içinde örneğidir [azure.functions.HttpResponse sınıfı](/python/api/azure-functions/azure.functions.httpresponse). Daha fazla bilgi için bkz. [Azure işlevleri HTTP Tetikleyicileri ve bağlamaları](functions-bindings-http-webhook.md).
 

@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442410"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849739"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX ve Azure Machine Learning: Oluşturma ve ML modelleri hızlandırın
 
-Bilgi kullanıldığında nasıl [açık sinir ağı Exchange](https://onnx.ai) (ONNX) makine öğrenimi modellerini iyileştirme yardımcı olabilir.
+Bilgi kullanıldığında nasıl [açık sinir ağı Exchange](https://onnx.ai) (ONNX) makine öğrenimi modelinizi çıkarımı en iyi duruma getirme yardımcı olabilir. Çıkarım veya Puanlama modeli, dağıtılan model için tahmin, üretim veri çubuğunda en yaygın olarak kullanıldığı aşamasıdır. 
 
-Model ve donanım özelliklerinden en iyi hale getirmek için çıkarım kitaplığı ayarlamak gerekli olduğundan, en iyi duruma getirme makine öğrenimi modellerini için çıkarım zordur. Sorun (bulut/edge, CPU/GPU, vb.) platformları farklı türden en iyi performansı elde etmek istiyorsanız, bu yana her biri farklı özellikler ve özelliklerine sahip son derece zor hale geliyor. Modelleri çok çeşitli platformlarda çalıştırmak için gereken çerçeveleri çeşitli varsa karmaşıklığı artırır. Bu çok zaman çerçeveleri ve donanım tüm farklı birleşimlerini iyileştirmek için alır. Tercih edilen çerçeveniz içinde bir kez eğitmek ve buluta veya uca her yerde çalışan bir çözüm gereklidir. Bu, ONNX burada devreye girer.
+Model ve donanım özelliklerinden en iyi hale getirmek için çıkarım kitaplığı ayarlamak gerekli olduğundan, en iyi duruma getirme makine öğrenimi modellerini çıkarımı (veya model Puanlama) zordur. Sorun (bulut/edge, CPU/GPU, vb.) platformları farklı türden en iyi performansı elde etmek istiyorsanız, bu yana her biri farklı özellikler ve özelliklerine sahip son derece zor hale geliyor. Modelleri çok çeşitli platformlarda çalıştırmak için gereken çerçeveleri çeşitli varsa karmaşıklığı artırır. Bu çok zaman çerçeveleri ve donanım tüm farklı birleşimlerini iyileştirmek için alır. Tercih edilen çerçeveniz içinde bir kez eğitmek ve buluta veya uca her yerde çalışan bir çözüm gereklidir. Bu, ONNX burada devreye girer.
 
 Microsoft ve iş ortaklarından oluşan bir topluluk ONNX makine öğrenimi modelleri temsil etmek için açık bir standart olarak oluşturuldu. Gelen modeller [birçok](https://onnx.ai/supported-tools) TensorFlow, PyTorch, SciKit-öğrenme, Keras, bağlayıcı, MXNet ve MATLAB dahil aktarılacak veya standart ONNX biçimine dönüştürüldü. Modelleri ONNX biçiminde olduğunda, çeşitli platformlar ve cihazlar üzerinde çalıştırılabilir.
 

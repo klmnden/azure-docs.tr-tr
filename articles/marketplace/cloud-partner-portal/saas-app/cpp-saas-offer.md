@@ -5,20 +5,24 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: pabutler
-ms.openlocfilehash: 81e33bf37750dd869c3b52be5b2bca49820f47d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 08baf908d47cdc6a9bc1e97f88eb5ff509d6790e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941890"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835048"
 ---
 # <a name="azure-saas-application-offer"></a>SaaS uygulaması için Azure teklifi
 
 Bu bölümde, bir yazılım olarak hizmet (SaaS) uygulaması teklif yayımlamak açıklanmaktadır <a href="https://azuremarketplace.microsoft.com">Azure Marketi</a>.
 
-Çözümünüzü, kendi Azure aboneliğinize dağıtılır ve müşterilerin tasarlamak ve uygulamayı test etmek için Yönet bir arabirim oturum açan SaaS uygulamaları kullanın. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> mevcut deneme ortamınıza yararlanmak için kullanılır.
+> [!IMPORTANT] 
+> SaaS teklif işlevselliği geçirilecek için [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tüm yeni yayımcılar, iş ortağı merkezi yeni SaaS teklifleri oluşturma ve mevcut teklifler yönetmek için kullanmanız gerekir.  SaaS teklifleri ile geçerli yayımcılar iş ortağı Merkezi'ne batchwise bulut iş ortağı Portalı'ndan geçiriliyor.  Bulut iş ortağı portalı belirli mevcut teklifler zaman geçirilmiş belirtmek için durum iletilerini görüntüler.
+
+
+Çözümünüzü, kendi Azure aboneliğinize dağıtılır ve müşterilerin tasarlamak ve uygulamayı test etmek için Yönet bir arabirim ile oturum açacak SaaS uygulamaları kullanın. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> mevcut deneme ortamınıza yararlanmak için kullanılır.
 
 ## <a name="benefits"></a>Avantajlar
 

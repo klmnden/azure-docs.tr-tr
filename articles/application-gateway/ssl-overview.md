@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715233"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849819"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Uygulama ağ geçidi ile uçtan uca SSL ve SSL sonlandırma genel bakış
 
@@ -36,7 +36,7 @@ SSL sonlandırma yapılandırmak için bir simetrik anahtar SSL protokolü belir
 SSL bağlantısı çalışmak SSL sertifikasının aşağıdaki koşulları karşıladığından emin olmak gerekir:
 
 - Geçerli tarih ve saat içinde "Geçerlilik" ve "Geçerlilik sonu" tarih aralığı sertifikadaki olmasıdır.
-- Bu sertifikanın "ortak" (CN) ana bilgisayar üstbilgisi isteğinde adıyla aynıdır. Örneğin, istemci istek yapıyor `https://www.contoso.com/`, CN olmalıdır `www.contoso.com`.
+- Sertifikanın "Ortak Ad" (CN) değeri, istekteki ana bilgisayar üst bilgisiyle eşleşiyor. Örneğin istemci isteğinin hedefi `https://www.contoso.com/` ise CN `www.contoso.com` olmalıdır.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>SSL sonlandırma için desteklenen sertifika
 
@@ -48,6 +48,9 @@ Uygulama ağ geçidi, aşağıdaki sertifika türlerini destekler:
 - Otomatik olarak imzalanan sertifikalar: İstemci tarayıcıları bu sertifikalara güvenmesi değil ve sanal hizmetin sertifika güven zinciri parçası değil kullanıcıyı uyarır. Otomatik olarak imzalanan sertifikalar, test veya burada Yöneticiler istemcilerin denetim ve güvenli bir şekilde tarayıcının güvenlik uyarılarını devre dışı bırakabilir ortamlar için uygundur. Üretim iş yükleri, hiçbir zaman otomatik olarak imzalanan sertifikalar kullanmanız gerekir.
 
 Daha fazla bilgi için [SSL sonlandırma application gateway ile yapılandırma](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+### <a name="size-of-the-certificate"></a>Sertifikanın boyutu
+SSL sertifikası bilgileri kişisel bilgi değişimi (PFX) dosyasıyla 10 KB boyutunda olmamalıdır.
 
 ## <a name="end-to-end-ssl-encryption"></a>SSL şifrelemesini uçtan uca
 
