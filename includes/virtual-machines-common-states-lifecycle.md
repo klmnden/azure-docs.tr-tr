@@ -9,11 +9,11 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420013"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164655"
 ---
 Azure sanal makineleri (VM'ler) halinde kategorilere farklı durumları geçtikleri *sağlama* ve *güç* durumları. Bu makalenin amacı, bu durumları açıklayan ve müşterilerin olduğunda özellikle vurgulamak için örneği için kullanım faturalandırılır ' dir. 
 
@@ -29,7 +29,7 @@ Aşağıdaki tabloda, her örnek durum açıklamasını sağlar ve örnek kullan
 <table>
 <tr>
 <th>
-Durum
+Eyalet
 </th>
 <th>
 Açıklama

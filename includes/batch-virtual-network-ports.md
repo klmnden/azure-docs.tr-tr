@@ -16,11 +16,11 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550228"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127505"
 ---
 ### <a name="general-requirements"></a>Genel gereksinimler
 
@@ -64,16 +64,16 @@ Batch kendi NSG'lerini yapılandırdığından alt ağ düzeyinde NSG belirtmeni
 
 **Gelen güvenlik kuralları**
 
-| Kaynak IP adresleri | Kaynak hizmeti etiketi | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protokol | Eylem |
+| Kaynak IP adresleri | Kaynak hizmeti etiketi | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protocol | Eylem |
 | --- | --- | --- | --- | --- | --- | --- |
-| Yok | `BatchNodeManagement` [Hizmet etiketi](../articles/virtual-network/security-overview.md#service-tags) | * | Herhangi biri | 29876-29877 | TCP | İzin Ver |
-| Kullanıcı kaynak IP'leri gerekirse işlem düğümleri ve/veya işlem düğüm alt Linux, çok örnekli görevler için uzaktan erişim için. | Yok | * | Herhangi biri | 3389 (Windows), 22 (Linux) | TCP | İzin Ver |
+| Yok | `BatchNodeManagement` [Hizmet etiketi](../articles/virtual-network/security-overview.md#service-tags) | * | Herhangi | 29876-29877 | TCP | İzin ver |
+| Kullanıcı kaynak IP'leri gerekirse işlem düğümleri ve/veya işlem düğüm alt Linux, çok örnekli görevler için uzaktan erişim için. | Yok | * | Herhangi | 3389 (Windows), 22 (Linux) | TCP | İzin ver |
 
 **Giden güvenlik kuralları**
 
-| Kaynak | Kaynak bağlantı noktaları | Hedef | Hedef hizmet etiketi | Protokol | Eylem |
+| Kaynak | Kaynak bağlantı noktaları | Hedef | Hedef hizmeti etiketi | Protocol | Eylem |
 | --- | --- | --- | --- | --- | --- |
-| Herhangi biri | 443 | [Hizmet etiketi](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (aynı bölgede Batch hesabı ve sanal ağ olarak)  | Herhangi biri | İzin Ver |
+| Herhangi | 443 | [Hizmet etiketi](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (aynı bölgede Batch hesabı ve sanal ağ olarak)  | Herhangi | İzin ver |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Bulut Hizmetleri yapılandırmasındaki havuzlar
 
@@ -97,13 +97,13 @@ Havuz düğümleri için RDP erişimine izin verecek şekilde gerekiyorsa gelen 
 
 **Gelen güvenlik kuralları**
 
-| Kaynak IP adresleri | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protokol | Eylem |
+| Kaynak IP adresleri | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protocol | Eylem |
 | --- | --- | --- | --- | --- | --- |
-Herhangi biri <br /><br />Bunun için "tümüne izin ver" izni gerekli olsa da Batch hizmeti her düğümün düzeyinde Batch harici IP adreslerini filtreleyen bir ACL kuralı uygular. | * | Herhangi biri | 10100, 20100, 30100 | TCP | İzin Ver |
-| İsteğe bağlı, işlem düğümleri RDP erişimine izin vermek. | * | Herhangi biri | 3389 | TCP | İzin Ver |
+Herhangi <br /><br />Bunun için "tümüne izin ver" izni gerekli olsa da Batch hizmeti her düğümün düzeyinde Batch harici IP adreslerini filtreleyen bir ACL kuralı uygular. | * | Herhangi | 10100, 20100, 30100 | TCP | İzin ver |
+| İsteğe bağlı, işlem düğümleri RDP erişimine izin vermek. | * | Herhangi | 3389 | TCP | İzin ver |
 
 **Giden güvenlik kuralları**
 
-| Kaynak | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protokol | Eylem |
+| Kaynak | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protocol | Eylem |
 | --- | --- | --- | --- | --- | --- |
-| Herhangi biri | * | Herhangi biri | 443  | Herhangi biri | İzin Ver |
+| Herhangi | * | Herhangi | 443  | Herhangi | İzin ver |

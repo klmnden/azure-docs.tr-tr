@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472259"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979636"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -31,7 +31,14 @@ SAS kuralları ve anahtarlar ya da hizmet veri yolu için belirli diğer herhang
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus rolleri ve izinleri
 
-İlk genel Önizleme için Service Bus Mesajlaşması ad alanı "Sahip" veya "Katılımcı" rolleri için yalnızca Azure AD hesapları ve hizmet sorumlularını ekleyebilirsiniz. Bu işlem ad alanındaki tüm varlıklar üzerinde kimlik tam denetim verir. Ad topoloji değişikliği yönetim işlemlerini olan başlangıçta yalnızca desteklenen ancak Azure kaynak yönetimi ve yerel bir Service Bus REST yönetim arabirimi üzerinden değil. Bu destek de .NET Framework istemci anlamına [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nesnesi olan bir Azure AD hesabı kullanılamaz.
+Azure sağlayan yerleşik RBAC rolleri için erişimi bir Service Bus ad alanı yetkilendirme aşağıda:
+
+* [Hizmet veri yolu veri sahibi (Önizleme)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Service Bus ad alanı ve varlıkları (kuyruklar, konular, abonelikler ve filtreleri) veri erişim sağlar.
+
+>[!IMPORTANT]
+> Biz daha önce desteklenen yönetilen kimliğe ekleme **"Sahip"** veya **"Katılımcı"** rol.
+>
+> Ancak, veri ayrıcalıklarına erişim **"Sahip"** ve **"Katılımcı"** rolü artık kullanılacaktır. Kullandıysanız **"Sahip"** veya **"Katılımcı"** rolünü ve ardından bu gerekecektir yazılımınız için **"Hizmet veri yolu veri sahibi"** rol.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Service Bus ile bir Azure AD etki alanı kullanıcı hesabı kullanın.
 
@@ -47,7 +54,7 @@ Yine de bu senaryo için özel bir hesap oluşturmak istiyorsanız [adımları](
 
 ### <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
 
-Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md) RBAC Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa**.
+Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md).
 
 Ad alanı oluşturduktan sonra gidin, **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** sahip rolü için Azure AD kullanıcı hesabı eklemek için. Kendi kullanıcı hesabı kullanıyorsanız ve oluşturduğunuz ad alanı, zaten sahip rolüne sahiptirler. Rolü için farklı bir hesap eklemek için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
 
@@ -67,7 +74,7 @@ Ayrıntılı kayıt adımları açıklanmıştır [Bu öğreticide](../active-di
 
 - `tenantId`: Kümesine **Tenantıd** değeri.
 - `clientId`: Kümesine **ApplicationId** değeri.
-- `clientSecret`: İstemci gizli anahtarı kullanarak oturum açmak istiyorsanız, Azure AD'de oluşturun. Ayrıca, bir web uygulaması veya API yerine yerel bir uygulama kullanın. Ayrıca, altında uygulama Ekle **erişim denetimi (IAM)** daha önce oluşturduğunuz ad alanı içinde.
+- `clientSecret`: İstemci gizli anahtarı kullanarak oturum istiyorsanız, Azure AD'de oluşturun. Ayrıca, bir web uygulaması veya API yerine yerel bir uygulama kullanın. Ayrıca, altında uygulama Ekle **erişim denetimi (IAM)** daha önce oluşturduğunuz ad alanı içinde.
 - `serviceBusNamespaceFQDN`: Yeni oluşturulan Service Bus ad alanınız için tam DNS adı ayarlayın; Örneğin, `example.servicebus.windows.net`.
 - `queueName`: Oluşturduğunuz sıranın adına ayarlayın.
 - Uygulamanıza, önceki adımlarda belirtilen yeniden yönlendirme URI'si.

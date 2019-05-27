@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 035e12da67d28e8e3fb46ac295717dd6b579922c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167050"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Program aracılığıyla bir Azure data factory izleyin
 Bu makalede, farklı yazılım geliştirme setleri (SDK'lar) kullanarak bir veri fabrikasında bir işlem hattı izlemek açıklar. 

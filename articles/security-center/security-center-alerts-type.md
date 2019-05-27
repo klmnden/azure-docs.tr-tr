@@ -13,18 +13,18 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
-ms.author: monhaber
-ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: 4592caacf7f73e4bce9f974fb3bb2ab3ed1a89ff
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60916250"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968370"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
 
-Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. Ücretsiz bir deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](tutorial-security-policy.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
+Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. Ücretsiz deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](tutorial-security-policy.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="what-type-of-alerts-are-available"></a>Hangi tür uyarılar mevcuttur?
 Azure Güvenlik Merkezi, ortamlarını hedefleyen potansiyel saldırılar konusunda müşterileri uyarmak için çeşitli [algılama özelliklerini](security-center-detection-capabilities.md) kullanır. Bu uyarılar uyarıyı neyin tetiklediği, hedeflenen kaynaklar ve saldırının kaynağı hakkındaki değerli bilgileri içerir. Uyarılarda bulunan bilgiler, tehdidi algılamak için kullanılan analiz türüne göre çeşitlilik gösterir. Tehdit inceleme sırasında yararlı olabilecek ek bağlamsal bilgiler olaylarda da bulunabilir.  Bu makalede aşağıdaki uyarı türleri hakkında bilgi sağlanmıştır:

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76f457b7d577fb2a08bbcc386328ce4d8e59f902
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60501016"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979609"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Azure CLI ile uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma
 
 Azure’da uyumluluğu anlamanın ilk adımı, kaynaklarınızın durumunu belirlemektir.
 Bu hızlı başlangıç, yönetilen disk kullanmayan sanal makineleri belirlemek üzere ilke ataması oluşturma işleminde size yol gösterir.
@@ -32,7 +32,7 @@ CLI'yi yerel olarak yükleyip kullanmak için, bu hızlı başlangıç için Azu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure CLI kullanarak İlke Görüşleri kaynak sağlayıcısını kaydedin. Kaynak sağlayıcısı kaydedildiğinde, aboneliğinizin bununla çalıştığından emin olunur. Bir kaynak sağlayıcısını kaydetmek için kayıt kaynak sağlayıcısı işlemi izni olmalıdır. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
+Azure CLI kullanarak Azure ilke görüşleri kaynak sağlayıcısını kaydedin. Kaynak sağlayıcısı kaydedildiğinde, aboneliğinizin bununla çalıştığından emin olunur. Bir kaynak sağlayıcısını kaydetmek için kayıt kaynak sağlayıcısı işlemi izni olmalıdır. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -54,7 +54,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 Yukarıdaki komutta aşağıdaki bilgiler kullanılmaktadır:
 
-- **Ad** - Atamanın gerçek adı.  Bu örnekte *audit-vm-manageddisks* kullanıldı.
+- **Ad** - Atamanın gerçek adı. Bu örnekte *audit-vm-manageddisks* kullanıldı.
 - **Görünen Ad** - Bu ilke atamasının görünen adı. Bu durumda, kullanmakta olduğunuz *yönetilen disk ataması olmayan denetim VM'ler*.
 - **İlke** - Bu, atamayı oluşturmak için kullandığınız ilke tanımı kimliğidir. Bu durumda, ilke tanımı kimliğidir *denetim yönetilen diskleri kullanmayan Vm'leri*. İlke tanımı kimliğini almak için şu komutu çalıştırın: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Kapsam** - Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Bir abonelikten kaynak gruplarına kadar değişiklik gösterebilir. &lt;Kapsam&gt; yerine kaynak grubunuzun adını yazdığınızdan emin olun.

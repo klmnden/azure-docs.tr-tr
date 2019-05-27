@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
 ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127773"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell kullanarak Data Protection Manager (DPM) sunucuları için Azure’a yedekleme dağıtma ve yönetme
 
@@ -189,7 +189,7 @@ Bu yerel bir PowerShell nesnesine yapılan tüm değişiklikleri ```$setting``` 
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="networking"></a>Ağ İletişimi
+## <a name="networking"></a>Ağ
 
 Azure Backup hizmeti internet üzerindeki DPM makinenin bağlantı bir proxy sunucu üzerinden ise, Ara sunucu ayarlarını, başarılı yedeklemeler için sağlanmalıdır. Bu kullanılarak yapılır ```-ProxyServer```ve ```-ProxyPort```, ```-ProxyUsername``` ve ```ProxyPassword``` parametrelerle [kümesi DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet'i. Bu örnekte, proxy sunucusu yok biz açıkça herhangi bir ara sunucu ile ilgili bilgi temizlemek için.
 

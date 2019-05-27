@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5307f7674635fd33241e1faba9bb0b7c0432d10b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134832"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak yol tabanlı yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturma
 
@@ -33,7 +33,7 @@ Tercih ederseniz Bu öğretici kullanarak tamamlayabilirsiniz [Azure CLI](tutori
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
@@ -58,7 +58,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
    - *myAGSubnet* - Alt ağın adı.
    - *10.0.0.0/24* - Alt ağın adres alanı.
 
-     ![Sanal ağ oluşturma](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluştur](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. Seçin **Tamam** sanal ağ ve alt ağ oluşturmak için.
 7. Seçin **genel bir IP adresi seçin**seçin **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
@@ -70,7 +70,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 1. Seçin **tüm kaynakları** seçin ve soldaki menüden **myVNet** ve kaynak listesinden.
 2. Seçin **alt ağlar**ve ardından **alt**.
 
-    ![Alt ağ oluşturma](./media/create-url-route-portal/application-gateway-subnet.png)
+    ![Alt ağ oluştur](./media/create-url-route-portal/application-gateway-subnet.png)
 
 3. Girin *myBackendSubnet* seçin ve alt ağ adı için **Tamam**.
 

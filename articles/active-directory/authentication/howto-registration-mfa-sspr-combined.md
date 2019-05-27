@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823385"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119374"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Birleştirilmiş etkinleştir güvenlik bilgileri kayıt (Önizleme)
 
@@ -43,7 +43,7 @@ Birleşik kaydını etkinleştirmek için aşağıdaki adımları tamamlayın:
 > Mart 2019 ' başlayarak, telefon araması seçenekleri çok faktörlü kimlik doğrulaması ve Azure AD ücretsiz/deneme kiracıları SSPR kullanıcıları için kullanılabilir olmayacaktır. SMS iletileri, bu değişiklikten etkilenmez. Telefon araması seçenekleri hala Ücretli Azure AD kiracılarıyla kullanıcılar için kullanılabilir.
 
 > [!NOTE]
-> Birleşik kaydını, kayıt veya telefon numarasını onaylamak kullanıcıları etkinleştirin veya bu yöntem çok faktörlü kimlik doğrulaması ve SSPR etkinleştirilip etkinleştirilmediğini yeni deneyim aracılığıyla mobil uygulama bunları çok faktörlü kimlik doğrulaması ve SSPR için kullanabilirsiniz ilkeleri. Bu deneyim devre dışı bırakırsanız, önceki SSPR kaydı için Git Kullanıcılar sayfasında `https:/aka.ms/ssprsetup` sayfa erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek için gerekli.
+> Birleşik kaydını, kayıt veya telefon numarasını onaylamak kullanıcıları etkinleştirin veya bu yöntem çok faktörlü kimlik doğrulaması ve SSPR etkinleştirilip etkinleştirilmediğini yeni deneyim aracılığıyla mobil uygulama bunları çok faktörlü kimlik doğrulaması ve SSPR için kullanabilirsiniz ilkeleri. Bu deneyim devre dışı bırakırsanız, önceki SSPR kaydı için Git Kullanıcılar sayfasında `https://aka.ms/ssprsetup` sayfa erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek için gerekli.
 
 Internet Explorer'da siteyi bölgeye ataması Listesi'ni yapılandırdıysanız, aşağıdaki siteleri aynı bölgede olması gerekir:
 

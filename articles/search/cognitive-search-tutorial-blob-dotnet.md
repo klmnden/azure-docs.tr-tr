@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 7794cf256ed8063007b4eee7c5c928be85723982
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153203"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170194"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Öğretici: Bir Azure Search dizini oluşturma ardışık düzen Bilişsel hizmetler API'lerini çağırma
 
@@ -44,13 +44,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu öğreticide, aşağıdaki hizmetleri, araçları ve verileri kullanılır. 
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
++ [Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri depolamak için. Azure Search ile aynı bölgede depolama hesabı olduğundan emin olun.
 
-[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri depolamak için.
++ [Örnek verileri](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) farklı türlerde küçük bir dosya kümesinden oluşur. 
 
-[Örnek verileri](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) farklı türlerde küçük bir dosya kümesinden oluşur. 
++ [Visual Studio yükleme](https://visualstudio.microsoft.com/) IDE kullanılacak.
 
-[Visual Studio yükleme](https://visualstudio.microsoft.com/) IDE kullanılacak.
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
 
 ## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
@@ -163,7 +163,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > 
 > 
 
-## <a name="create-a-data-source"></a>Veri kaynağı oluşturma
+## <a name="create-a-data-source"></a>Bir veri kaynağı oluşturun
 
 Yeni bir `DataSource` çağırarak örneği `DataSource.AzureBlobStorage`. `DataSource.AzureBlobStorage` veri kaynağı adı, bağlantı dizesi ve blob kapsayıcısı adı belirtmeniz gerekir.
 

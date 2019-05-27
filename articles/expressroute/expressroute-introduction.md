@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b13c57728c43e02f7ebf9d7730d82d681f5fc1f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364355"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965869"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute'a genel bakış
 ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. ExpressRoute'u kullanarak Microsoft Azure, Office 365 ve Dynamics 365 gibi Microsoft bulut hizmetleriyle bağlantı kurabilirsiniz.
@@ -59,8 +59,11 @@ ExpressRoute üzerinde desteklenen hizmetlerin ayrıntılı listesi için [Expre
 
 Örneğin, Microsoft'a Amsterdam'da ExpressRoute aracılığıyla bağlandıysanız Kuzey ve Batı Avrupa'da barındırılan tüm Microsoft bulut hizmetlerine erişiminiz olur. Jeopolitik bölgeler, ilişkili Microsoft bulut bölgeleri ve karşılık gelen ExpressRoute eşleme konumlarına genel bakış için [ExpressRoute iş ortakları ve eşleme konumları](expressroute-locations.md) makalesine bakın.
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>ExpressRoute premium eklentisine ile genel bağlantı
-Coğrafi sınırlar arasındaki bağlantıyı genişletmek için ExpressRoute premium eklenti özelliğini etkinleştirebilirsiniz. Örneğin, Microsoft'a Amsterdam'da ExpressRoute aracılığıyla bağlanırsanız dünyadaki tüm bölgelerde barındırılan tüm Microsoft bulut hizmetlerine (ulusal bulutlar dışında) erişiminiz olur. Güney Amerika ve Avustralya'da dağıtılan hizmetlere Kuzey ve Batı Avrupa bölgeleriyle aynı şekilde erişebilirsiniz.
+### <a name="global-connectivity-with-expressroute-premium"></a>ExpressRoute Premium ile genel bağlantı
+Etkinleştirebilirsiniz [ExpressRoute Premium](expressroute-faqs.md) coğrafi sınırlar arasındaki bağlantıyı genişletmek için. Örneğin, Microsoft'a Amsterdam'da ExpressRoute aracılığıyla bağlanırsanız dünyadaki tüm bölgelerde barındırılan tüm Microsoft bulut hizmetlerine (ulusal bulutlar dışında) erişiminiz olur. Güney Amerika ve Avustralya'da dağıtılan hizmetlere Kuzey ve Batı Avrupa bölgeleriyle aynı şekilde erişebilirsiniz.
+
+### <a name="local-connectivity-with-expressroute-local"></a>ExpressRoute yerel ile yerel bağlantı
+Sağlayarak, uygun maliyetli bir veri aktarabileceğini [yerel SKU](expressroute-faqs.md) verilerinizi bir ExpressRoute konumuna istediğiniz Azure bölgeyi getirebilir. Yerel ile ExpressRoute bağlantı noktası ücreti veri aktarımı dahildir. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>ExpressRoute Global Reach ile şirket içi bağlantılar
 ExpressRoute bağlantı hattınızı bağlayarak şirket içi siteleriniz arasında veri alışverişi yapmak için ExpressRoute Global Reach’i etkinleştirebilirsiniz. Örneğin Kaliforniya’da, Silikon Vadisi’ndeki ExpressRoute’a bağlanmış olan özel bir veri merkeziniz ve Teksas'ta, Dallas'taki ExpressRoute'a bağlanmış bir başka özel veri merkeziniz varsa ExpressRoute Global Reach ile özel veri merkezlerinizi iki ExpressRoute bağlantı hattı aracılığıyla birbirlerine bağlayabilirsiniz. Veri merkezleri arası trafiğiniz Microsoft ağı üzerinden geçer.

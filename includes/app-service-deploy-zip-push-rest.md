@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 7aa0d232cf53eef9bd28c36b66e8fdae22a28db9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488068"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132568"
 ---
 ## <a name="rest"></a>ZIP dosyası REST API'leri ile dağıtma 
 

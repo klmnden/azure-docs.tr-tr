@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276499"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979305"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programlı olarak ilkeler oluşturma ve uyumluluk verilerini görüntüleyin
 
-Bu makalede, program aracılığıyla oluşturma ve ilkeleri yönetme gösterilmektedir. İlke tanımları, kaynaklarınız üzerinden farklı kuralları ve etkileri uygular. Zorlama kaynakları, Kurumsal standartlarınız ve hizmet düzeyi sözleşmeleri ile uyumluluğu sürdürün, emin olur.
+Bu makalede, program aracılığıyla oluşturma ve ilkeleri yönetme gösterilmektedir. Azure ilke tanımları, kaynaklarınız üzerinden farklı kuralları ve etkileri uygular. Zorlama kaynakları, Kurumsal standartlarınız ve hizmet düzeyi sözleşmeleri ile uyumluluğu sürdürün, emin olur.
 
 Uyumluluk hakkında daha fazla bilgi için bkz. [uyumluluk verilerini alma](getting-compliance-data.md).
 
@@ -31,13 +31,13 @@ Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 
 1. Azure PowerShell modülünün en son sürüme güncelleştirin. Bkz: [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps) ayrıntılı bilgi için. En son sürümü hakkında daha fazla bilgi için bkz. [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Aboneliğinizin kaynak sağlayıcısı ile çalışır durumda olduğunu doğrulamak için Azure PowerShell kullanarak ilke görüşleri kaynak sağlayıcısını kaydedin. Bir kaynak sağlayıcısını kaydetmek için kaynak sağlayıcısı kaydetme işlemini çalıştırma izni olmalıdır. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
+1. Aboneliğinizin kaynak sağlayıcısı ile çalışır durumda olduğunu doğrulamak için Azure PowerShell kullanarak Azure ilke görüşleri kaynak sağlayıcısını kaydedin. Bir kaynak sağlayıcısını kaydetmek için kaynak sağlayıcısı kaydetme işlemini çalıştırma izni olmalıdır. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Aşağıdaki komutu çalıştırarak kaynak sağlayıcısını kaydedin:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Kaynak sağlayıcıları kaydetme ve görüntülemeyle ilgili daha fazla bilgi için bkz. [kaynak sağlayıcıları ve türleri](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Kaynak sağlayıcıları kaydetme ve görüntülemeyle ilgili daha fazla bilgi için bkz. [Kaynak Sağlayıcıları ve Türleri](../../../azure-resource-manager/resource-manager-supported-services.md).
 
 1. Henüz yapmadıysanız, Azure CLI'yı yükleyin. En son sürümünü edinebilirsiniz [Windows üzerinde Azure CLI yükleme](/cli/azure/install-azure-cli-windows).
 
@@ -148,7 +148,7 @@ Azure Resource Manager PowerShell modülü kullanarak kaynak ilkelerini yönetme
 
    Önceki {Subscriptionıd}, abonelikte ya da {Managementgroupıd} Kimliğine sahip kimliği ile değiştirin, [yönetim grubu](../../management-groups/overview.md).
 
-   Sorgu yapısı hakkında daha fazla bilgi için bkz. [ilke tanımları – oluşturma veya güncelleştirme](/rest/api/resources/policydefinitions/createorupdate) ve [ilke tanımları – oluşturma veya güncelleştirme, yönetim grubu](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Sorgu yapısı hakkında daha fazla bilgi için bkz. [Azure ilke tanımları – oluşturma veya güncelleştirme](/rest/api/resources/policydefinitions/createorupdate) ve [ilke tanımları – oluşturma veya güncelleştirme, yönetim grubu](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Bir ilke ataması oluşturma ve kaynak grubu düzeyinde ilke tanımını atamak için aşağıdaki yordamı kullanın.
 
@@ -230,7 +230,7 @@ Bir ilke tanımı oluşturmak için aşağıdaki yordamı kullanın:
    - Aboneliği- `/subscriptions/{subID}`
    - Yönetim grubu- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-İlke tanım kimliği ile aşağıdaki komutu PowerShell kullanarak alabilirsiniz:
+Aşağıdaki komutla PowerShell kullanarak Azure ilke tanım kimliği alabilirsiniz:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +251,5 @@ Bu makaledeki sorgular ve komutları hakkında daha fazla bilgi için aşağıda
 - [Azure REST API kaynakları](/rest/api/resources/)
 - [Azure PowerShell modülleri](/powershell/module/az.resources/#policies)
 - [Azure CLI'yı ilke komutları](/cli/azure/policy?view=azure-cli-latest)
-- [İlke görüşleri kaynak sağlayıcısını REST API Başvurusu](/rest/api/policy-insights)
-- [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](../../management-groups/overview.md)
+- [Azure ilke görüşleri kaynak sağlayıcısı REST API Başvurusu](/rest/api/policy-insights)
+- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md).

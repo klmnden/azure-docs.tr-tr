@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c346c51db2c06c2ef91b101255076b811dfea9e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869754"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957282"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure haritalar harita denetimini kullanma
 
@@ -68,7 +68,7 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
     </body>
     ```
 
-5. Harita denetimi başlatmak için html gövdesinde yeni bir bölüm tanımlayın ve bir betik oluşturabilir. Eşlemesini kullanarak kimlik doğrulaması yapmak için kendi Azure haritalar hesabı anahtarı veya Azure Active Directory (AAD) kimlik bilgilerini kullanan [kimlik doğrulama seçenekleri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Bir hesap oluşturun veya, anahtar, bkz: bulmak gerekiyorsa [Azure haritalar hesabı ve anahtarları yönetme](how-to-manage-account-keys.md). **Dil** seçeneği harita etiketlerini ve denetimler için kullanılacak dili belirtir. Desteklenen diller hakkında daha fazla bilgi için bkz. [desteklenen diller](supported-languages.md). Bir abonelik anahtarı kimlik doğrulaması için kullanılıyorsa.
+5. Harita denetimi başlatmak için html gövdesinde yeni bir bölüm tanımlayın ve bir betik oluşturabilir. Geçirin `id` harita `<div>` veya `HTMLElement` (örneğin, `document.getElementById('myMap')`) örneğini oluştururken birinci parametre olarak `Map` sınıfı. Eşlemesini kullanarak kimlik doğrulaması yapmak için kendi Azure haritalar hesabı anahtarı veya Azure Active Directory (AAD) kimlik bilgilerini kullanan [kimlik doğrulama seçenekleri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Bir hesap oluşturun veya, anahtar, bkz: bulmak gerekiyorsa [Azure haritalar hesabı ve anahtarları yönetme](how-to-manage-account-keys.md). **Dil** seçeneği harita etiketlerini ve denetimler için kullanılacak dili belirtir. Desteklenen diller hakkında daha fazla bilgi için bkz. [desteklenen diller](supported-languages.md). Bir abonelik anahtarı kimlik doğrulaması için kullanılıyorsa.
 
     ```HTML
     <script type="text/javascript">

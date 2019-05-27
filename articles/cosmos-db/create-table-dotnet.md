@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 629adfe558aec71e156e50c75aa0891eac5a8bcf
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890790"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979047"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Hızlı Başlangıç: API uygulaması .NET SDK'sını ve Azure Cosmos DB ile tablo oluşturma 
 
@@ -28,7 +28,7 @@ Bu hızlı başlangıçta GitHub’dan bir örneği kopyalayarak bir uygulama ol
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+Visual Studio yüklü 2019 yoksa, indirip kullanabilirsiniz **ücretsiz** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

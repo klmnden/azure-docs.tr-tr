@@ -93,3 +93,5 @@
       href: entity-search-endpoint.md
     - name: Bing Varlık Arama API'si Analizleri
       href: bing-entity-stats.md
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

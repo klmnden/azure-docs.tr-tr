@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c016e7b4b70368eb1ca2bd517ed7f48d223e24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60426682"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140592"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Sertifika imzalama isteği dosyası oluşturma
 
@@ -25,7 +25,7 @@ Apple Anında İletilen Bildirim Servisi (APNS), anında iletme bildirimlerinizi
 2. **Anahtar Zinciri Erişimi**’ne tıklayın, **Sertifika Yardımcısı**’nı genişletin ve **Sertifika Yetkilisinden Sertifika İste...** öğesine tıklayın.
 
     ![Anahtarlık Erişimi kullanarak yeni sertifika isteğinde bulunma](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. **Kullanıcı E-posta Adresi**’nizi ve **Ortak Ad**’ı seçin, **Diske kaydedilmiş**’in seçili olduğundan emin olun ve ardından **Devam**’a tıklayın. Gerekmediğinden **CA E-posta Adresi**’ni boş bırakın.
+3. **Kullanıcı E-posta Adresi**’nizi ve **Ortak Ad**’ı seçin, **Diske kaydedilmiş**’in seçili olduğundan emin olun ve ardından **Devam**’a tıklayın. Bırakın **CA e-posta adresi** gerekli değil olarak boş alan.
 
     ![Gerekli sertifika bilgileri](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
@@ -39,16 +39,16 @@ Ardından, uygulamanızı Apple’a kaydedeceksiniz; anında iletme bildirimleri
 
 ## <a name="register-your-app-for-push-notifications"></a>Anında iletme bildirimleri için uygulamanızı kaydetme
 
-iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanızı Apple’a kaydetmenin yanı sıra anında iletme bildirimlerini de kaydetmeniz gerekir.  
+Bir iOS uygulamasına anında iletme bildirimleri için uygulamanızı Apple'a kaydedeceksiniz ve ayrıca anında iletme bildirimleri için kaydedin.  
 
-1. Uygulamanızı henüz kaydetmediyseniz, Apple Geliştirici Merkezi’ndeki [iOS Sağlama Portalı](https://go.microsoft.com/fwlink/p/?LinkId=272456)’na gidin, Apple kimliğinizle oturum açın, **Tanımlayıcılar**’a, **Uygulama kimlikleri**’ne ve son olarak da **+** işaretine tıklayarak yeni uygulamayı kaydedin.
+1. Uygulamanızı henüz kaydolmadıysanız, gidin [iOS sağlama portalı](https://go.microsoft.com/fwlink/p/?LinkId=272456) 'a tıklayın, Apple Kimliğiyle Apple Geliştirici Merkezi'nde oturum **tanımlayıcıları**, ardından **uygulama kimlikleri** ve son olarak tıklayarak **+** oturum yeni uygulamayı kaydedin.
 
     ![iOS Hazırlama Portalı Uygulama Kimlikleri sayfası](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
 2. Yeni uygulamanız için aşağıdaki üç alanı güncelleştirin ve ardından **Devam**’a tıklayın:
 
    * **Ad**: Uygulamanız için açıklayıcı bir ad yazın **adı** alanındaki **uygulama kimliği açıklaması** bölümü.
-   * **Paket grubu tanımlayıcısı**: Altında **açık uygulama kimliği** bölümünde, girin bir **paket grubu tanımlayıcısı** biçiminde `<Organization Identifier>.<Product Name>` belirtildiği gibi [uygulama Dağıtım Kılavuzu'na](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). *Kuruluş Tanımlayıcı* ve kullandığınız *Ürün Adı*, XCode projenizi oluşturduğunuzda kullandığınız kuruluş tanımlayıcısı ve ürün adıyla eşleşmelidir. Aşağıdaki ekran görüntüsünde *NotificationHubs* kuruluş tanımlayıcısı, *GetStarted* ise ürün adı olarak kullanılmıştır. Bu değerin, XCode projenizde kullandığınız değerle eşleştiğinden emin olunması XCode ile doğru yayımlama profili kullanmanızı sağlar.
+   * **Paket grubu tanımlayıcısı**: Altında **açık uygulama kimliği** bölümünde, girin bir **paket grubu tanımlayıcısı** biçiminde `<Organization Identifier>.<Product Name>` belirtildiği gibi [uygulama Dağıtım Kılavuzu'na](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). *Kuruluş Tanımlayıcı* ve kullandığınız *Ürün Adı*, XCode projenizi oluşturduğunuzda kullandığınız kuruluş tanımlayıcısı ve ürün adıyla eşleşmelidir. Aşağıdaki ekran görüntüsünde *NotificationHubs* değeri kuruluş tanımlayıcı olarak kullanılır ve *GetStarted* ürün adı olarak kullanılır. Bu değerin, XCode projenizde kullandığınız değerle eşleştiğinden emin olunması XCode ile doğru yayımlama profili kullanmanızı sağlar.
    * **Anında iletme bildirimleri**: Denetleme **anında iletme bildirimleri** seçeneğini **uygulama hizmetleri** bölümü.
 
      ![Yeni Uygulama Kimliği kaydetme formu](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -104,7 +104,7 @@ iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanız�
 
     ![Sertifikayı p12 biçiminde dışarı aktarma](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    Dışarı aktarılan .p12 sertifikanın dosya adını ve konumunu not edin. APNS ile kimlik doğrulamasını etkinleştirmek için kullanılacaktır.
+    Dışarı aktarılan .p12 sertifikanın dosya adını ve konumunu not edin. APNS kimlik doğrulamasını etkinleştirmek için kullanılır.
 
     > [!NOTE]
     > Bu öğretici bir QuickStart.p12 dosyası oluşturur. Dosyanızın adı ve konumu farklı olabilir.
@@ -136,3 +136,21 @@ iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanız�
 7. Yeni sağlama profili oluşturulduğunda indirmek için buna tıklayın ve Xcode geliştirme makinesine yükleyin. Sonra da **Bitti**’ye tıklayın.
 
     ![Sağlama profilini indirin](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+
+## <a name="create-a-notification-hub"></a>Bildirim hub’ı oluşturma
+Bu bölümde, bir bildirim hub’ı oluşturur ve önceden oluşturduğunuz **.p12** anında iletme sertifikasını kullanarak APNS ile kimlik doğrulamasını yapılandırırsınız. Önceden oluşturduğunuz bir bildirim hub'ını kullanmak istiyorsanız 5. adıma geçebilirsiniz.
+
+[!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
+
+## <a name="configure-your-notification-hub-with-apns-information"></a>APNS bilgileriyle bildirim hub’ınızı yapılandırma
+
+1. **Bildirim Hizmetleri** bölümünde **Apple (APNS)** seçeneğini belirleyin.
+2. **Sertifika**’yı seçin.
+3. **Dosya simgesini** seçin.
+4. Daha önce dışarı aktardığınız **.p12** dosyasını seçin.
+5. Doğru **parolayı** belirtin.
+6. **Korumalı alan** modunu seçin. Yalnızca uygulamanızı mağazadan satın alan kullanıcılara anında iletme bildirimleri göndermek istiyorsanız **Üretim** modunu kullanın.
+
+    ! [Azure portalında APNS sertifikası yapılandırma] [7]
+
+Bildirim hub'ınızı APNS ile birlikte çalışacak şekilde yapılandırdınız. Ayrıca uygulamanızı kaydetmenizi ve anlık iletme bildirimleri göndermenizi sağlayan bağlantı dizelerine sahipsiniz.

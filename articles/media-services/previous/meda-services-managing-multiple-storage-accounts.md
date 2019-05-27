@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169284"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Birden çok depolama hesabı arasında Media Services varlıklarını yönetme  
 
@@ -35,7 +35,7 @@ Bu makalede, birden fazla depolama hesabı kullanarak bir Media Services hesabı
 
 Birden çok depolama hesapları Media Services hesabınızı eklerken aşağıdaki maddeler geçerlidir:
 
-* Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneliğinde olması gerekir. Media Services hesabıyla aynı konumda depolama hesaplarını kullanmak için önerilir.
+* Media Services hesabı ve onunla ilişkili tüm depolama hesaplarının aynı Azure aboneliğinde olması gerekir. Media Services hesabıyla aynı konumda depolama hesaplarını kullanmak için önerilir.
 * Bir depolama hesabı için belirtilen Media Services hesabına bağlandıktan sonra ayrılamıyor.
 * Birincil depolama, Media Services hesabı oluşturma süre boyunca belirtilen bir hesaptır. Şu anda, varsayılan depolama hesabı değişemez. 
 * Seyrek erişimli depolama hesabı AMS hesabına eklemek istiyorsanız, depolama hesabının Blob türü ve birincil olmayan için ayarlamanız gerekir.

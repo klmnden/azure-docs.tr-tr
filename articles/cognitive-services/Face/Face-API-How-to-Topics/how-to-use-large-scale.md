@@ -1,5 +1,5 @@
 ---
-title: "Örnek: Yüz tanıma API'si - büyük ölçekli özelliğini kullanın"
+title: "Örnek: -Yüz tanıma API'si büyük ölçekli özelliğini kullanın"
 titleSuffix: Azure Cognitive Services
 description: Yüz Tanıma API’sinde büyük ölçek özelliğini kullanın.
 services: cognitive-services
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 35ab2d36a5d6c9977398fdbc16ba22eb1d9656a4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5a4085f713d66859a464ab59b00d856921db8ec3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65229841"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124474"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Örnek: Büyük ölçekli özelliğinin nasıl kullanılacağı
+# <a name="example-use-the-large-scale-feature"></a>Örnek: Büyük ölçek özelliğini kullanma
 
-Bu kılavuzda varolandan ölçeği artırma konusunda Gelişmiş bir makaledir **PersonGroup** ve **FaceList** için **LargePersonGroup** ve **LargeFaceList**sırasıyla. Bu kılavuz, geçiş işlemini gösterir ve temel olarak bilindiğini varsayar **PersonGroup**, **FaceList**, [eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) işlemi yanı sıra, yüz tanıma İşlevler. Bkz: [yüz tanıma](../concepts/face-recognition.md) bunlar hakkında daha fazla bilgi edinmek için kavramsal Kılavuzu.
+Bu kılavuz, mevcut PersonGroup ve FaceList nesnelerden LargePersonGroup ve LargeFaceList nesnelere sırasıyla ölçeği konusunda Gelişmiş bir makaledir. Bu kılavuz, geçiş işlemi gösterilmektedir. PersonGroup ve FaceList nesneleri temel olarak bilindiğini varsayar [eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) işlemi yanı sıra, yüz tanıma işlevleri. Bu konu hakkında daha fazla bilgi edinmek için [yüz tanıma](../concepts/face-recognition.md) kavramsal Kılavuzu.
 
-LargePersonGroup ve LargeFaceList topluca için büyük ölçekli işlem olarak adlandırılır. LargePersonGroup 248 yüz, en fazla her 1.000.000 kişi içerebilir ve en fazla 1.000.000 yüzleri LargeFaceList içerebilir. Büyük ölçekli işlemler için geleneksel PersonGroup ve FaceList benzerdir, ancak yeni mimarisi nedeniyle bazı önemli farklılıklar vardır. 
+LargePersonGroup ve LargeFaceList topluca için büyük ölçekli işlem olarak adlandırılır. LargePersonGroup her 248 yüzleri en fazla 1 milyona kadar kişi içerebilir. LargeFaceList 1 milyona kadar yüzleri içerebilir. Büyük ölçekli işlem geleneksel PersonGroup ve FaceList benzerdir, ancak yeni mimarisi nedeniyle bazı farklılıkları vardır. 
 
-Örnekler, Yüz Tanıma API’si istemci kitaplığı kullanılarak C# dilinde yazılır.
+Örnekleri yazılan C# Azure Bilişsel hizmetler yüz tanıma API'si istemci kitaplığı kullanarak.
 
 > [!NOTE]
-> Büyük ölçekte Tanımlama ve FindSimilar için Yüz arama performansını etkinleştirmek için, LargeFaceList ve LargePersonGroup’u önceden işlemek için bir Eğitim işlemi sunmanız gerekir. Eğitim süresi, gerçek kapasiteye bağlı olarak, saniyeler ile yarım saat arasında değişiklik gösterir. Eğitim dönemi boyunca, daha önce başarılı bir eğitim yapıldıysa, yine de Tanımlama ve FindSimilar işlemleri gerçekleştirilebilir. Ancak dezavantajı, büyük ölçekli eğitime yeni geçiş sonrası tamamlanıncaya kadar yeni eklenen kişilerin/yüzlerin sonuçta görüntülenmemesidir.
+> Büyük ölçek tanımlama ve FindSimilar için yüz Arama performansını LargeFaceList ve LargePersonGroup önişle için Train işlemi dağıtır. Eğitim süresini saniyelerden gerçek kapasiteye bağlı yaklaşık yarım saat için farklılık gösterir. Eğitim dönemi boyunca işletim başarılı eğitim önce yapıldıysa tanımlama ve FindSimilar gerçekleştirmek mümkündür. Dezavantajı, büyük ölçekli eğitim için yeni bir gönderi Geçiş tamamlanana kadar yeni eklenen kişi ve yüz sonucunda görüntülenmediğini olmasıdır.
 
 ## <a name="step-1-initialize-the-client-object"></a>1. Adım: İstemci nesnesini başlatır
 
-Yüz Tanıma API’si istemci kitaplığı kullanılırken abonelik anahtarı ve abonelik uç noktası, FaceServiceClient sınıfının oluşturucusu aracılığıyla geçirilir. Örneğin:
+Yüz tanıma API'si istemci kitaplığı kullandığınızda, abonelik anahtarını ve abonelik uç noktası FaceServiceClient sınıf oluşturucu üzerinden geçirilir. Örneğin:
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
@@ -39,24 +39,24 @@ string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/f
 FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
 ```
 
-İlgili uç nokta ile birlikte abonelik anahtarı, Azure portalınızın Market sayfasından elde edilebilir.
-Bkz. [Abonelikler](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
+Kendi karşılık gelen uç noktası ile aboneliği anahtarı almak için Azure portalından Azure Marketi'nde gidin.
+Daha fazla bilgi için [abonelikleri](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
 ## <a name="step-2-code-migration"></a>2. Adım: Kod geçişi
 
-Bu bölümde yalnızca PersonGroup/FaceList uygulamasının LargePersonGroup/LargeFaceList uygulamasına geçişine odaklanılmaktadır. Tasarım ve iç uygulama LargePersonGroup/LargeFaceList PersonGroup/FaceList farklı olsa da, geriye dönük uyumluluk için API Arabirimi benzerdir.
+Bu bölümde LargePersonGroup veya LargeFaceList PersonGroup veya FaceList uygulama geçirme ele alınmaktadır. LargePersonGroup veya LargeFaceList PersonGroup veya FaceList tasarım ve iç uygulama farklı olsa da, geriye dönük uyumluluk için API Arabirimi benzerdir.
 
-Veri geçişi desteklenmez, bunun yerine LargePersonGroup/LargeFaceList’i yeniden oluşturmanız gerekir.
+Veri geçişi desteklenmez. LargePersonGroup veya LargeFaceList bunun yerine yeniden oluşturun.
 
-### <a name="migrate-persongroup-to-largepersongroup"></a>İçin LargePersonGroup PersonGroup geçirme
+### <a name="migrate-a-persongroup-to-a-largepersongroup"></a>İçin bir LargePersonGroup bir PersonGroup geçirme
 
-Bunlar tam olarak aynı grup düzeyinde işlemlerine paylaştıkça LargePersonGroup PersonGroup geçiş basit bir işlemdir.
+Bir LargePersonGroup bir PersonGroup geçiş, basit bir işlemdir. Tam olarak aynı grup düzeyinde işlemlerine paylaşırlar.
 
-PersonGroup/Kişi ile ilgili uygulama için API yollarının veya SDK sınıfı/modülünün yalnızca LargePersonGroup ve LargePersonGroup Kişisine değiştirilmesi gereklidir.
+PersonGroup veya kişi ilgili uygulama için yalnızca API yolları veya SDK sınıfı/modülü LargePersonGroup ve LargePersonGroup kişi değiştirmek gereklidir.
 
-Tüm yüzleri ve kişiler için yeni LargePersonGroup PersonGroup eklemeniz gerekir. Bkz: [ekleme yüzler nasıl](how-to-add-faces.md) başvuru.
+Tüm yüzleri ve kişiler için yeni LargePersonGroup PersonGroup ekleyin. Daha fazla bilgi için [ekleme yüzleri](how-to-add-faces.md).
 
-### <a name="migrate-facelist-to-largefacelist"></a>İçin LargeFaceList FaceList geçirme
+### <a name="migrate-a-facelist-to-a-largefacelist"></a>İçin bir LargeFaceList bir FaceList geçirme
 
 | FaceList API’leri | LargeFaceList API’leri |
 |:---:|:---:|
@@ -68,7 +68,7 @@ Tüm yüzleri ve kişiler için yeni LargePersonGroup PersonGroup eklemeniz gere
 | - | Eğit |
 | - | Eğitim Durumunu Alma |
 
-Yukarıdaki tabloda, FaceList ile LargeFaceList arasındaki liste düzeyinde işlemlerin karşılaştırması yer almaktadır. Gösterildiği gibi LargeFaceList, FaceList’e kıyasla yeni işlemler (Eğitim ve Eğitim Durumunu Al) ile birlikte gelir. FaceList için Eğitim gerekmese de, LargeFaceList’in eğitimi için [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) işlemi ön koşuldur. Aşağıdaki kod parçacığı, LargeFaceList eğitimini beklemek için kullanılan bir yardımcı işlevdir.
+Yukarıdaki tabloda, FaceList ile LargeFaceList arasındaki liste düzeyinde işlemlerin karşılaştırması yer almaktadır. Gösterildiği, LargeFaceList yeni işlemleriyle eğitme ve eğitim durumunu Al FaceList ile karşılaştırıldığında gelir. Bir önkoşulu olan LargeFaceList eğitim [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) işlemi. Eğitim için FaceList gerekli değildir. Aşağıdaki kod parçacığında, bir LargeFaceList eğitim için beklenecek bir yardımcı işlevdir:
 
 ```CSharp
 /// <summary>
@@ -118,7 +118,7 @@ private static async Task TrainLargeFaceList(
 }
 ```
 
-Daha önce yüz ve FindSimilar ekleme ile FaceList tipik bir kullanımı aşağıdaki gibi görünür:
+Eklenen yüzlerin ve FindSimilar tipik bir kullanımı FaceList, daha önce aşağıdaki gibi görünüyordu:
 
 ```CSharp
 // Create a FaceList.
@@ -151,7 +151,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-LargeFaceList için geçiş yaparken, aşağıdaki duruma gelir:
+LargeFaceList için geçiş sırasında aşağıdakiler olur:
 
 ```CSharp
 // Create a LargeFaceList.
@@ -188,44 +188,47 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-Yukarıda gösterildiği gibi, veri yönetimi ve FindSimilar kısmı neredeyse aynıdır. Tek istisna, FindSimilar’ın çalışması için önce LargeFaceList’te yeni bir Eğitim ön işleminin tamamlanmasının gerekmesidir.
+Daha önce gösterildiği, veri yönetimi ve FindSimilar bölümü neredeyse aynıdır. Tek özel durum FindSimilar çalışır önce yeni bir ön işleme Train işlemi içinde LargeFaceList tamamlamalısınız ' dir.
 
 ## <a name="step-3-train-suggestions"></a>3. adım: Train önerileri
 
-Eğitim işlemi, [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) ve [Tanımlama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) işlemini hızlandırıyor olsa da, özellikle de büyük ölçek söz konusu olduğunda eğitim süresi uzar. Aşağıdaki tabloda, farklı ölçeklerde tahmini eğitim süresi listelenmektedir:
+Train işlemi hızlandırır rağmen [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) ve [kimlik](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), özellikle büyük ölçek Bekletmeden çıkarken eğitim süresini düşebilir. Aşağıdaki tabloda farklı ölçekler tahmini eğitim sürede listelenir.
 
-| Ölçek (yüzler veya kişiler) | Tahmini Eğitim Süresi |
+| Yüzleri veya kişi için ölçek | Tahmini eğitim süresini |
 |:---:|:---:|
-| 1000 | 1-2 s |
-| 10,000 | 5-10 s |
-| 100,000 | 1 - 2 dak |
-| 1.000.000 | 10 - 30 dak |
+| 1000 | 1-2 sn |
+| 10,000 | 5-10 sn |
+| 100,000 | 1-2 dk |
+| 1.000.000 | 10-30 dakika |
 
-Büyük ölçekli özelliği daha iyi kullanmak için dikkate alınması için bazı stratejiler önerilir.
+Büyük ölçekli özellik daha iyi kullanmak için aşağıdaki stratejilerden öneririz.
 
-## <a name="step-31-customize-time-interval"></a>Adım 3.1: Zaman aralığı özelleştirme
+### <a name="step-31-customize-time-interval"></a>Adım 3.1: Zaman aralığı özelleştirme
 
-`TrainLargeFaceList()` içinde gösterildiği gibi, sonsuz eğitim durumu denetleme işlemini geciktirmek için `timeIntervalInMilliseconds` vardır. Daha fazla yüz içeren LargeFaceList için, büyük bir aralık kullanıldığında çağrı sayıları ve maliyeti azaltılır. Zaman aralığı, beklenen LargeFaceList kapasitesine göre özelleştirilmelidir.
+İçinde gösterildiği `TrainLargeFaceList()`, işlem denetimi sonsuz eğitim durumu geciktirmek için milisaniye cinsinden zaman aralığı yok. Daha fazla yüz içeren LargeFaceList için, büyük bir aralık kullanıldığında çağrı sayıları ve maliyeti azaltılır. Zaman aralığı LargeFaceList beklenen kapasitesine göre özelleştirin.
 
-Strateji LargePersonGroup için de geçerlidir. Örneğin, bir LargePersonGroup 1.000.000 kişiler ile eğitimindeki `timeIntervalInMilliseconds` 60.000 (1 dakikalık aralık) olabilir.
+Strateji LargePersonGroup için de geçerlidir. Örneğin, ne zaman eğittiğiniz bir LargePersonGroup 1 milyon kişi ile `timeIntervalInMilliseconds` 60.000 1 dakikalık bir aralığı olan olabilir.
 
-## <a name="step-32-small-scale-buffer"></a>Adım 3.2: Küçük ölçekli arabellek
+### <a name="step-32-small-scale-buffer"></a>Adım 3.2: Küçük ölçekli arabelleği
 
-LargePersonGroup/LargeFaceList’teki Kişiler/Yüzler yalnızca eğitildikten sonra aranabilir. Dinamik bir senaryoda, yeni kişiler/yüzler sürekli olarak eklenir ve bunların hemen aranabilir olması gerekir; ancak eğitim istenenden uzun sürebilir. Bu sorunu azaltmak için yalnızca yeni eklenen girişler için arabellek olarak ekstra küçük ölçekli bir LargePersonGroup/LargeFaceList kullanabilirsiniz. Bu arabelleğin boyutu çok daha küçük olduğundan bu geçici arabellekte anında arama yapılabilmesi gerektiğinden bu arabelleğin eğitilmesi daha kısa sürer. Ana eğitimi daha seyrek aralıklarla (örneğin, gece yarısı) ve günlük olarak yürüterek ana LargePersonGroup/LargeFaceList’te eğitim ile birlikte bu arabelleği kullanın.
+Kişi veya bir LargeFaceList ya da bir LargePersonGroup yüzeylerine yalnızca eğitimli sonra aranabilir. Dinamik bir senaryoda, yeni bir kişi veya yüz sürekli olarak eklenir ve hemen aranabilir olması gerekir, ancak eğitim istenen daha uzun sürebilir. 
+
+Bu sorunu çözmek için sadece yeni eklenen girişleri için bir arabellek olarak fazladan küçük ölçekli bir LargePersonGroup veya LargeFaceList kullanın. Bu arabelleği, daha küçük boyutu nedeniyle eğitmek için daha kısa bir zaman alır. Bu geçici bir arabelleğe hemen arama özelliği çalışması gerekir. Ana eğitim sparser bir aralıkta çalıştırarak ana LargePersonGroup veya LargeFaceList eğitim ile birlikte bu arabellek kullanın. Gece ve günlük ortasında verilebilir.
 
 Örnek bir iş akışı:
-1. Bir ana LargePersonGroup/LargeFaceList (ana koleksiyon) ve arabellek LargePersonGroup/LargeFaceList (arabellek koleksiyonu) oluşturun. Arabellek koleksiyonu yalnızca yeni eklenen Kişiler/Yüzler içindir.
-1. Hem ana koleksiyona hem de arabellek koleksiyonuna yeni Kişiler/Yüzler ekleyin.
-1. Yeni eklenen girişlerin geçerli olduğundan emin olmak için yalnızca kısa zaman aralığı ile arabellek koleksiyonunu eğitin.
-1. Hem ana koleksiyona hem de arabellek koleksiyonuna karşı Tanımlama/FindSimilar çağrısı yapın ve sonuçları birleştirin.
-1. Arabellek koleksiyonu boyutu bir eşiğe arttığında veya sistemin boşta kalma anında yeni bir arabellek koleksiyonu oluşturun ve ana koleksiyonda eğitimi tetikleyin.
-1. Ana koleksiyonda eğitim bittikten sonra eski arabellek koleksiyonunu silin.
 
-## <a name="step-33-standalone-training"></a>Adım 3.3 tek başına eğitim
+1. Bir ana LargePersonGroup veya LargeFaceList, ana koleksiyon olduğu oluşturun. Bir arabellek LargePersonGroup veya arabellek koleksiyonu olan LargeFaceList oluşturun. Arabellek koleksiyon, yalnızca yeni eklenen kişiler veya yüzeyleri için oluşturulur.
+1. Yeni bir kişi veya yüz hem ana koleksiyonu ve arabellek koleksiyonuna ekleyin.
+1. Yalnızca yeni eklenen girişlerin etkili olmasını sağlamak için bir kısa zaman aralığı arabellek koleksiyonuyla eğitin.
+1. Kimlik veya FindSimilar ana koleksiyonu ve arabellek koleksiyon karşı çağırın. Sonuçları birleştirin.
+1. Bir eşiğe veya sistem boşta kalma zaman arabellek koleksiyon boyutu artar, yeni bir arabellek koleksiyonu oluşturun. Ana koleksiyonu Train işlemi tetikler.
+1. Ana koleksiyonunda Train işlemi tamamlandıktan sonra eski arabellek koleksiyonu silin.
 
-Nispeten uzun bir gecikme süresi kabul edilebiliyorsa, yeni veriler eklendikten hemen sonra Eğitim işleminin tetiklenmesi gerekmez. Bunun yerine Eğitim işlemi, ana mantıktan ayrılabilir ve düzenli olarak tetiklenebilir. Bu strateji, kabul edilebilir gecikme süresi olan dinamik senaryolar için uygundur ve Eğitim sıklığını azaltmak için statik senaryolara uygulanabilir.
+### <a name="step-33-standalone-training"></a>Adım 3.3: Tek başına eğitim
 
-`TrainLargeFaceList` öğesine benzer bir `TrainLargePersonGroup` işlevi olduğunu varsayın. Tek başına tipik bir uygulaması üzerinde LargePersonGroup çağırarak eğitim [ `Timer` ](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) sınıfını `System.Timers` olacaktır:
+Görece uzun bir gecikme süresi kabul edilebilir ise, yeni veri ekledikten sonra tetikleyici doğru Train işlemi için gerekli değildir. Bunun yerine Eğitim işlemi, ana mantıktan ayrılabilir ve düzenli olarak tetiklenebilir. Bu strateji, kabul edilebilir gecikme süresi ile dinamik senaryoları için uygundur. Daha fazla Train sıklığını azaltmak için statik senaryoları için uygulanabilir.
+
+Orada olduğunu varsayın bir `TrainLargePersonGroup` işlevi benzer `TrainLargeFaceList`. Tek başına eğitimle çağırarak bir LargePersonGroup tipik bir uygulaması [ `Timer` ](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) sınıfını `System.Timers` olan:
 
 ```CSharp
 private static void Main()
@@ -235,15 +238,15 @@ private static void Main()
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
     FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
-    // Setup a standalone training at regular intervals.
-    const int TimeIntervalForStatus = 1000 * 60; // 1 minute interval for getting training status.
-    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1 hour interval for training.
+    // Set up standalone training at regular intervals.
+    const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.
+    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1-hour interval for training.
     var trainTimer = new Timer(TimeIntervalForTrain);
     trainTimer.Elapsed += (sender, args) => TrainTimerOnElapsed(LargePersonGroupId, TimeIntervalForStatus);
     trainTimer.AutoReset = true;
     trainTimer.Enabled = true;
 
-    // Other operations like creating persons, adding faces and Identification except for Train.
+    // Other operations like creating persons, adding faces, and identification, except for Train.
     // ...
 }
 
@@ -253,18 +256,18 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-Veri yönetimi ve tanımlama ile ilgili uygulamalar hakkında daha fazla bilgi için bkz. [Yüz Ekleme](how-to-add-faces.md) ve [Görüntüdeki Yüzleri Belirleme](HowtoIdentifyFacesinImage.md).
+Veri Yönetimi ve kimlik ile ilgili uygulamaları hakkında daha fazla bilgi için bkz. [ekleme yüzleri](how-to-add-faces.md) ve [tanımlamak bir görüntüdeki yüzleri](HowtoIdentifyFacesinImage.md).
 
 ## <a name="summary"></a>Özet
 
-Bu kılavuzda, mevcut PersonGroup/FaceList kodunun (veri değil) LargePersonGroup/LargeFaceList’e nasıl geçirileceğini öğrendiniz:
+Bu kılavuzda, verileri değil, mevcut PersonGroup veya FaceList kod LargePersonGroup veya LargeFaceList geçirmenizi nasıl yapılacağını öğrendiniz:
 
-- LargePersonGroup ve LargeFaceList, PersonGroup/FaceList’e benzer şekilde çalışır; tek istisna, LargeFaceList tarafından Eğitim işleminin gerekmesidir.
-- Büyük ölçekli veri kümesi için dinamik veri güncelleştirmesine yönelik uygun eğitim stratejisini uygulayın.
+- Train işlemi tarafından LargeFaceList gereklidir dışında LargePersonGroup ve LargeFaceList PersonGroup veya FaceList, benzer çalışır.
+- Büyük ölçekli veri kümeleri için dinamik veri güncelleştirme uygun eğitimi stratejisi taşıyın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Yüz için bir PersonGroup eklemek veya bir PersonGroup belirleme işlemi yürütmek hakkında bilgi edinmek için bir nasıl yapılır Kılavuzu izleyin.
 
-- [Yüz Ekleme](how-to-add-faces.md)
-- [Görüntüdeki Yüzleri Belirleme](HowtoIdentifyFacesinImage.md)
+- [Yüzleri Ekle](how-to-add-faces.md)
+- [Bir görüntüdeki yüzleri belirleme](HowtoIdentifyFacesinImage.md)

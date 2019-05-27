@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 05/21/2019
 ms.author: lbosq
-ms.openlocfilehash: 3f10c8d38d37682e2a949397d9747ec094bdb9af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24d5c11eb32350b2c11584ca5fc75ed4b619b6cf
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60893215"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978742"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Hızlı Başlangıç: Azure Cosmos DB Gremlin API hesabı kullanarak bir .NET Framework veya Core uygulaması derleme
 
@@ -32,9 +32,7 @@ Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [Gremlin
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
-
-Visual Studio 2017 zaten yüklüyse, [Visual Studio 2017 Güncelleştirme 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes) sürümünün yüklü olduğundan emin olun.
+Visual Studio yüklü 2019 yoksa, indirip kullanabilirsiniz **ücretsiz** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

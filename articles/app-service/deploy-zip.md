@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: aac60d3d4fd154847bdfae3dfb590b947e861e9e
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130781"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978811"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uygulamanızı bir ZIP veya WAR dosyası ile Azure App Service'e dağıtma
 
@@ -95,7 +95,7 @@ Daha fazla bilgi için [Kudu belgeleri](https://github.com/projectkudu/kudu/wiki
 
 ## <a name="deploy-war-file"></a>WAR dosyasını dağıtma
 
-App Service'e bir WAR dosyasını dağıtmak için https://<app_name>.scm.azurewebsites.net/api/wardeploy bir POST isteği gönderin. POST isteğinin ileti gövdesinde .war dosyası bulunmalıdır. Uygulamanızın dağıtım kimlik bilgileri, HTTP BASIC kimlik doğrulaması kullanılarak istekte belirtilir. 
+App Service'e bir WAR dosyasını dağıtmak için bir POST isteği gönderin `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. POST isteğinin ileti gövdesinde .war dosyası bulunmalıdır. Uygulamanızın dağıtım kimlik bilgileri, HTTP BASIC kimlik doğrulaması kullanılarak istekte belirtilir.
 
 HTTP temel kimlik doğrulaması için App Service dağıtım kimlik bilgileriniz gerekir. Dağıtım kimlik bilgilerinizi ayarlamak hakkında bilgi için bkz. [ayarlayın ve kullanıcı düzeyi kimlik bilgilerini sıfırlama](deploy-configure-credentials.md#userscope).
 
@@ -117,7 +117,7 @@ $password = "<deployment_password>"
 $filePath = "<war_file_path>"
 $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
+Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "application/octet-stream"
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
@@ -126,7 +126,7 @@ Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64A
 
 Daha gelişmiş dağıtım senaryoları için deneyin [Git ile azure'a dağıtma](deploy-local-git.md). Git tabanlı azure'a dağıtım, sürüm denetimi, paket geri yükleme, MSBuild ve daha fazlasını sağlar.
 
-## <a name="more-resources"></a>Diğer kaynaklar
+## <a name="more-resources"></a>Daha fazla kaynak
 
 * [Kudu: Zip dosyasından dağıtma](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service'e dağıtım kimlik bilgileri](deploy-ftp.md)

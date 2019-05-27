@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228027"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956958"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de kullanıcı erişimini yönetme
 
@@ -38,7 +38,7 @@ Bir kullanıcı bir ikincil belirlenirse, kullanıcı akışını Azure AD B2C'y
 
 - **İşaretsiz bir JSON belirteci uygulamaya gönderir**: Azure AD B2C kullanıcı küçük ve kullanıcının ebeveyn izni durumunu sağlar. uygulama bildirir. Uygulama, iş kuralları uygulayarak devam eder. Bir JSON belirteç başarılı bir kimlik doğrulaması ile uygulama tamamlamaz. Uygulama Kimliği doğrulanmamış kullanıcı içerebilecek JSON belirtecinde bulunan talepleri göre işlemelisiniz **adı**, **e-posta**, **yaş**ve **consentProvidedForMinor**.
 
-- **Kullanıcı engelleme**: Bir kullanıcı küçük ebeveyn izni sağlanmamış ise, Azure AD B2C kullanıcı isterse engellenir bildirebilir. Hiçbir belirteç verilir, erişim engellenir ve kayıt yolculuğu sırasında kullanıcı hesabı oluşturulmaz. Bu bildirim uygulamak için mevcut uygun seçenekleri ve kullanıcıya bildirmek için uygun HTML/CSS içerik sayfası sağlar. Yeni kayıtlar için uygulama tarafından başka bir eylem gerekmez.
+- **Kullanıcı engelleme**: Bir kullanıcı küçük ebeveyn izni sağlanmamış ise, Azure AD B2C kullanıcı engellenip engellenmeyeceğini bildirebilir. Hiçbir belirteç verilir, erişim engellenir ve kayıt yolculuğu sırasında kullanıcı hesabı oluşturulmaz. Bu bildirim uygulamak için mevcut uygun seçenekleri ve kullanıcıya bildirmek için uygun HTML/CSS içerik sayfası sağlar. Yeni kayıtlar için uygulama tarafından başka bir eylem gerekmez.
 
 ## <a name="get-parental-consent"></a>Ebeveyn izni alın
 
@@ -48,7 +48,7 @@ Kullanıcı akışı ebeveyn izni toplamak için bir örnek verilmiştir:
 
 1. Bir [Azure Active Directory Graph API'si](/previous-versions/azure/ad/graph/api/api-catalog) işlemi kullanıcı küçük olarak tanımlar ve işaretsiz bir JSON belirteci biçiminde uygulama kullanıcı verilerini döndürür.
 
-2. Uygulama, JSON belirteci işler ve ondan ebeveyn izni gerekli olduğunu bildiren ve çevrimiçi bir üst izni isteyen küçük için gösteren bir ekranla karşılaşırsınız. 
+2. Uygulama, JSON belirteci işler ve ebeveyn izni gerekli olduğunu bildiren ve çevrimiçi bir üst izni isteyen küçük için gösteren bir ekranla karşılaşırsınız. 
 
 3. Azure AD B2C kullanıcı normal şekilde oturum açabilir ve bir belirteç içerecek şekilde ayarlamak uygulamanın yayınlar bir oturum açma yolculuğu gösterir **legalAgeGroupClassification "minorWithParentalConsent" =**. Uygulama, e-posta adresi üst toplar ve üst yetişkin olduğunu doğrular. Bunu yapmak için bir Ulusal kimliği office, lisans doğrulama veya düzeltme kredi kartı gibi güvenilen bir kaynak kullanır. Doğrulama başarılı olursa, uygulamanın Azure AD B2C kullanıcı akışı kullanarak oturum açmak için alt ister. Onay reddedilirse (örneğin, **legalAgeGroupClassification "minorWithoutParentalConsent" =**), Azure AD B2C, onay işlemini yeniden başlatmak için uygulamaya bir JSON belirteç (oturum açma değil) döndürür. Bu, isteğe bağlı olarak bir yetişkin veya küçük küçük'ın hesabına erişimi küçük'ın e-posta adresi ya da bir yetişkinin e-posta adresi kaydı için bir kayıt kodu göndererek kazanabilirsiniz böylece kullanıcı akışını özelleştirmek mümkündür.
 

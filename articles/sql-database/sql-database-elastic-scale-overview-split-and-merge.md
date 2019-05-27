@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123373"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanları arasında veri taşıma
 
@@ -27,7 +27,7 @@ Ayırma-Birleştirme aracı, bir Azure web hizmeti olarak çalışır. Bir yöne
 
 ![Genel Bakış][1]
 
-## <a name="download"></a>İndirme
+## <a name="download"></a>Karşıdan Yükle
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
@@ -176,7 +176,7 @@ Geçerli ayırma-birleştirme hizmetini aşağıdaki gereksinimleri ve sınırla
 - İsteğin işlenmesinin Kurs sırasında bazı parçacık verileri kaynak ve hedef parça mevcut olabilir. Bu, parçacık taşıma zamanı hatalarına karşı korumak gereklidir. Ayırma-birleştirme parça eşlemesi ile tümleştirmesini sağlar bağlantıları aracılığıyla verilere bağımlı yönlendirme API'lerini kullanarak **OpenConnectionForKey** parça eşlemesi metodunda tutarsız bir ara durum göremezsiniz. Ancak, kaynak veya hedef parçalar kullanmadan bağlanırken **OpenConnectionForKey** yöntemi, tutarsız Ara durumları olabilir görünür Birleştir/Böl/taşıma istekler bittiğini tıklattığınızda. Bu bağlantılar kısmi veya yinelenen bir zamanlama veya arka plandaki bağlantı parça bağlı olarak sonuçlara neden olabilir. Bu sınırlama, şu anda esnek ölçeklendirme çok-Shard-sorgular tarafından yapılan bağlantıları içerir.
 - Ayırma-birleştirme hizmeti için meta verileri veritabanı farklı rolleri arasında Paylaşılmaması gerekir. Örneğin, bir üretim rolü farklı meta verileri veritabanı işaret edecek şekilde hazırlamada çalışan bölme-birleştirme hizmeti rolü gerekiyor.
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Ayırma-birleştirme hizmetini, Microsoft Azure Aboneliğinize bir bulut hizmeti olarak çalışır. Hizmet Örneğiniz için bulut Hizmetleri için ücret alınır. Birleştir/Böl/taşıma işlemlerini sık gerçekleştirmediğiniz sürece, bölme-birleştirme bulut hizmetinizi silmeniz önerilir. Çalıştırma maliyetinden tasarruf veya Bulut hizmeti örnekleri dağıtılmış. Yeniden Dağıt ve bölme ve birleştirme işlemleri gerçekleştirme ihtiyacınız olduğunda kolayca çalıştırılabilir yapılandırmanızı başlatın.
 
@@ -194,7 +194,7 @@ Ayırma-birleştirme hizmeti sağlar **RequestStatus** tamamlanan ve Süren iste
 
   İstek benzersiz olarak tanımlayan GUID. Bu istek işlemi hala devam ederken iptal etmek için de kullanılabilir.
 
-- **Durum**
+- **Durumu**
 
   İsteğin geçerli durumu. Devam eden istekleri için istek olduğu geçerli aşama ayrıca listelenir.
 

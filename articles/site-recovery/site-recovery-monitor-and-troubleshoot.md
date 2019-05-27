@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: rayne-wiselman
-ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: raynew
+ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278163"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969380"
 ---
 # <a name="monitor-site-recovery"></a>Site kurtarma İzleyicisi
 
@@ -26,7 +26,7 @@ Bu makalede, Azure Site Recovery'nin yerleşik İzleme özelliklerini izleme ve 
 
 2.  Pano, tek bir konumda kasa için tüm izleme bilgilerini birleştirir. Panodan farklı alanlara detaya gidebilirsiniz. 
 
-    ![Site Recovery Panosu](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Site Recovery Panosu](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png):
 
 3. Üzerinde **çoğaltılan öğeler**, tıklayın **görünümü tüm** tüm sunucuları kasaya görmek için.
 4. Her bölümde durumu ayrıntıları tıklayarak detayına gidin. İçinde **altyapı görünümü**, izleme bilgilerini çoğaltılan makineler türüne göre sıralayabilirsiniz.
@@ -37,7 +37,7 @@ Bu makalede, Azure Site Recovery'nin yerleşik İzleme özelliklerini izleme ve 
 
 **State** | **Ayrıntılar**
 --- | ---
-Sorunsuz | Çoğaltma normal şekilde devam eder. Herhangi bir hata veya uyarı belirtileri algılanır.
+İyi Durumda | Çoğaltma normal şekilde devam eder. Herhangi bir hata veya uyarı belirtileri algılanır.
 Uyarı | Çoğaltma etkileyebilecek bir veya daha fazla uyarı belirtileri algılanır.
 Kritik | Bir veya daha fazla kritik çoğaltma hatası belirtileri tespit ettik.<br/><br/> Bu hata Belirtiler genellikle göstergeleri olduğundan, çoğaltma takılı kalıyor veya veri değişim oranı gibi hızlı ilerleyen değil.
 Uygulanamaz | Şu anda çoğaltma olması beklenen olmayan sunucuları. Bu yük devreden makineler içerebilir.

@@ -75,3 +75,5 @@
       href: language-support.md
     - name: Bing Otomatik Öneri API’si analizleri
       href: bing-autosuggest-stats.md
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

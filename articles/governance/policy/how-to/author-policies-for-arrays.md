@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498772"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979322"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Dizi özellikleri Azure kaynakları için yazar ilkeleri
 
@@ -207,9 +207,9 @@ Daha fazla bilgi için [append örnekleri](../concepts/effects.md#append-example
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md)
-- Gözden geçirme [İlkesi tanım yapısı](../concepts/definition-structure.md)
-- Gözden geçirme [ilke etkilerini anlama](../concepts/effects.md)
-- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md)
-- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](remediate-resources.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
+- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
+- [Azure İlkesi tanımı yapısını](../concepts/definition-structure.md) gözden geçirin.
+- [İlkenin etkilerini anlama](../concepts/effects.md) konusunu gözden geçirin.
+- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md).
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları düzeltme](remediate-resources.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md).

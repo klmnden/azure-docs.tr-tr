@@ -1,17 +1,22 @@
 ---
+author: jpconnock
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: jeconnoc
 ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337309"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125378"
 ---
 > [!WARNING]
 > Mevcut bir rol için tanılama etkinleştirdiğinizde, paket dağıtıldığında zaten ayarlamış olduğunuz herhangi bir uzantısı devre dışı bırakıldı. Bunlar:
 >
 > * Microsoft İzleme Aracısı tanılamaları
 > * Microsoft Azure güvenlik izleme
-> * Microsoft Kötü Amaçlı Yazılımdan Korunma                 
+> * Microsoft Kötü Amaçlı Yazılımdan Koruma Yazılımı                 
 > * Microsoft Monitoring Agent
 > * Microsoft Service Profiler Aracısı      
 > * Windows Azure etki alanı uzantısı        

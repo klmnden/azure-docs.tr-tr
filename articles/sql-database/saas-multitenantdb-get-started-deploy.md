@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486207"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978537"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Parçalı bir çok kiracılı uygulamasını dağıtma ve keşfetme
 
@@ -58,7 +58,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 ### <a name="plan-the-names"></a>Adları planlama
 
 Bu bölümdeki adımlarda, sağladığınız bir *kullanıcı* Kaynak adlarının benzersiz olduğundan emin olmak için kullanılan değer ve için bir ad *kaynak grubu* bir dağıtım tarafından oluşturulan tüm kaynakları içerir uygulamanın. Adlı bir kişi için *Ann Finley*, öneririz:
-- *Kullanıcı:* **af1**  *(kendi baş yanı sıra bir sayı. İkinci kez uygulamayı dağıtma (örneğin af2) farklı bir değer kullanın.)*
+- *Kullanıcı:* **af1***(baş harflerini yanı sıra bir sayı.   İkinci kez uygulamayı dağıtma (örneğin af2) farklı bir değer kullanın.)*
 - *Kaynak grubu:* **wingtip mt af1** *(wingtip-mt gösterir parçalı çok kiracılı uygulama budur. Kullanıcı adı af1 ekleme adlarıyla içerdiği tüm kaynakları kaynak grubu adını ilişkilendirir.)*
 
 Artık adlarınızı seçin ve not edin. 
@@ -101,7 +101,7 @@ Uygulama dağıtılırken, uygulama kaynak kodu ve yönetim komut dosyaları ind
 3. Tıklayın **ZIP'i indir** ve dosyayı kaydedin.
 4. Sağ **WingtipTicketsSaaS MultiTenantDb master.zip** seçin ve dosya **özellikleri**.
 5. Üzerinde **genel** sekmesinde **Engellemeyi Kaldır**, tıklatıp **Uygula**.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**'ı tıklatın.
 7. Dosyaları ayıklayın.
 
 Betikleri bulunan *... \\WingtipTicketsSaaS MultiTenantDb ana\\öğrenme modülleri\\*  klasör.

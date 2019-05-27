@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165727"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines'de (Resource Manager) için otomatik yedekleme v2
 
@@ -107,7 +107,7 @@ Büyük veritabanlarının sayısını içeren bir SQL Server VM'si var.
 
 Pazartesi günü aşağıdaki ayarlarla otomatik yedekleme v2 etkinleştir:
 
-- Yedekleme zamanlaması: Manual
+- Yedekleme zamanlaması: El ile
 - Tam yedekleme sıklığı: Günlük
 - Tam yedekleme başlangıç saati: 22:00
 - Tam yedekleme zaman penceresi: 6 saat

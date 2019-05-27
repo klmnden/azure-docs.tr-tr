@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035440"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990150"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Oluşturma ve otomatik makine öğrenimi denemelerini (Önizleme) Azure portalında keşfedin
 
@@ -40,7 +40,7 @@ ms.locfileid: "65035440"
 
 ![Azure portal deneme giriş sayfası](media/how-to-create-portal-experiments/landing-page.png)
 
-Aksi takdirde, otomatik machine learning panonuzu otomatik, makine öğrenimi denemelerini, SDK'sı ile çalıştırmak da dahil olmak üzere bir bakış görürsünüz. Burada filtreleyebilirsiniz ve tarihe göre çalıştırmalarınızı keşfedin, adı denemeler yapın ve çalıştırma durumu.
+Aksi takdirde, otomatik machine learning panonuzu otomatik, makine öğrenimi denemelerini, SDK'sı ile oluşturulan dahil olmak üzere bir bakış görürsünüz. Burada filtreleyebilirsiniz ve tarihe göre çalıştırmalarınızı keşfedin, adı denemeler yapın ve çalıştırma durumu.
 
 ![Azure portal deneme Panosu](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -106,7 +106,7 @@ Aşağıdaki formu doldurmak için deneme oluşturma düğmesini seçin.
     Sonlandırma kriteri| Aşağıdaki ölçütleri karşılandığında, eğitim işine tam tamamlanmadan önce sona erer. <br> *Eğitim işi süresi (dakika)*: Eğitim işini çalıştırmak izin vermek için ne kadar.  <br> *En yüksek yineleme sayısı*: Eğitim işi test etmek için işlem hatları (Yineleme) sayısı. İş belirtilen yineleme sayısını birden fazla çalışmaz. <br> *Ölçüm puanı eşiği*:  Tüm işlem hatları için en düşük ölçüm puanı. Bu, erişmek istediğiniz bir tanımlanmış hedef ölçüm varsa, daha fazla zaman eğitim işini daha harcadığınız değil, sağlar.
     Ön işleme| Etkinleştirme veya devre dışı otomatik makine öğrenimi tarafından yapılan ön işleme seçin. Ön işleme otomatik veri temizleme, hazırlama ve dönüştürme yapay özellikleri oluşturulacak içerir. [Ön işleme hakkında daha fazla bilgi](#preprocess).
     Doğrulama| Eğitim işi kullanmak için çapraz doğrulama seçeneklerden birini seçin. [Daha fazla doğrulama bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
-    Eşzamanlılık| Çok çekirdekli işlem kullanırken istediğiniz çok çekirdekli sınırları seçin.
+    Eş Zamanlılık| Çok çekirdekli işlem kullanırken istediğiniz çok çekirdekli sınırları seçin.
     Engellenen algoritması| Algoritmalar ve eğitim işinden çıkarmak istediğiniz seçin.
 
    ![Gelişmiş ayarları formu](media/how-to-create-portal-experiments/advanced-settings.png)
@@ -184,6 +184,63 @@ Herhangi bir eğitim gibi performans ölçümlerini ve dağılım grafikleri ça
 
 ![Yineleme ayrıntılarını](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Model dağıtma
+
+Eldeki en iyi modeli oluşturduktan sonra yeni veri tahmin etmek için bir web hizmeti olarak dağıtma zamanı geldi.
+
+Otomatik ML model dağıtımı ile kod yazmadan yardımcı olur:
+
+1. Dağıtım için birkaç seçeneğiniz vardır. 
+    1. Deneme için seçin ölçüm ölçütleri temel alarak en iyi modeli dağıtmak istiyorsanız ayarladığınız **en iyi modeli dağıtma** gelen **çalıştırma ayrıntıları** sayfası.
+
+        ![Dağıt düğmesi modeli](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Bir modele yineleme dağıtmak istiyorsanız, kendi özel çalışma ayrıntı sayfası açın ve seçmek için model üzerinde detaya **Model dağıtma**.
+
+        ![Dağıt düğmesi modeli](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Modeli kaydedin hizmete ilk adımdır. "Modeli Kaydet"'i seçin ve kayıt işleminin tamamlanması için bekleyin.
+
+    ![Model dikey dağıtma](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Model kaydedildiğinde, Puanlama betik (scoring.py) ve dağıtım sırasında kullanılacak ortamı betik (condaEnv.yml) indirmek mümkün olacaktır.
+
+1. Puanlama betiği ve ortam betik indirildiğinde, Git **varlıklar** seçin ve sol Gezinti Bölmesi Dikey penceresinde **modelleri**.
+
+    ![Gezinti bölmesinde modelleri](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Kaydettiğiniz model seçin ve "Görüntü Oluştur" seçeneğini belirleyin.
+
+    Çalıştırma kimliği, yineleme sayısı aşağıdaki biçimde içerecektir açıklamasını tarafından modeli tanımlayabilirsiniz: *< Run_ID > _ < Iteration_number > _Model*
+
+    ![Modeller: Görüntü oluştur](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Görüntü için bir ad girin. 
+1. Seçin **Gözat** daha önce indirdiğiniz Puanlama dosyası (scoring.py) yüklemek için "Puanlama dosyası" kutusunun yanındaki düğmeyi.
+
+1. Seçin **Gözat** daha önce indirdiğiniz ortam dosyası (condaEnv.yml) yüklemek için "Conda dosya" kutusunun yanındaki düğmeyi.
+
+    Kendi Puanlama betiği ve conda dosyası kullanmak, yapabilir ek dosyaları karşıya yükleme. [Puanlama betiği hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > Dosya adları gerekir altında 32 karakter olmalı ve başlamalı ve alfasayısal karakterler ile bitmelidir. Tire, alt çizgi, nokta ve arasında alfasayısal karakterler içerebilir. Alanları izin verilmez.
+
+    ![Görüntü oluştur](media/how-to-create-portal-experiments/create-image.png)
+
+1. Görüntü oluşturma işlemini başlatmak için "Oluştur" düğmesini seçin. Bu kez tamamlanması birkaç dakika sürer, üst çubukta bir ileti görürsünüz.
+1. "Görüntüler" sekmesine gidin, dağıtmak istediğiniz görüntüyü yanındaki onay kutusunu işaretleyin ve "dağıtım oluştur" seçeneğini belirleyin. [Dağıtımları hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Dağıtım için 2 seçenek vardır.
+     + Azure Container Instance (ACI) - bu amacı yerine uygun ölçekte operasyonel dağıtımı test etmek için daha kullanılır. En az bir çekirdek için değerleri girin emin _CPU rezervasyon kapasitesi_ve en az bir gigabayt (GB) için _bellek ayırma kapasitesi_
+     + Azure Kubernetes Service'i (AKS)) - Bu seçenek, uygun ölçekte dağıtım için kullanılabilir. Hazır bir AKS göre işlem gerekir.
+
+     ![Görüntüler: Dağıtım oluşturma](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. İşiniz bittiğinde **Oluştur**’u seçin. Modeli dağıtma, her işlem hattı çalıştırma tamamlanması birkaç dakika sürebilir.
+
+1. İşte bu kadar! Tahminler üretmek için bir işletimsel web Hizmetim var.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Otomatik machine learning hakkında daha fazla bilgi edinin](concept-automated-ml.md) ve Azure Machine Learning.
+* [Bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

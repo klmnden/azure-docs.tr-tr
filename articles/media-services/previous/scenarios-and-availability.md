@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0cae2befad1b0cd2d6a093387c41aac8ccdfff7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719226"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991442"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Senaryolar ve Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
 
@@ -194,7 +194,7 @@ AMS, isteğe bağlı iki kodlayıcı sunar: **Media Encoder Standard** ve **Medi
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-|Medya işlemci adı|Durum|Veri merkezleri
+|Medya işleyicisi adı|Durum|Veri merkezleri
 |---|---|---|
 |Media Encoder Standard|GA|Tümü|
 |Media Encoder Premium İş Akışı|GA|Çin dışında tümü|
@@ -205,17 +205,16 @@ Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştü
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-|Medya işlemci adı|Durum|Veri merkezleri
+|Medya işleyicisi adı|Durum|Veri merkezleri
 |---|---|---|
-|Azure Media Face Detector|Önizleme|Tümü|
-|Azure Media Hyperlapse|Önizleme|Tümü|
+|Azure Media Face Detector|Preview|Tümü|
 |Azure Media Indexer|GA|Tümü|
-|Azure Media Motion Detector|Önizleme|Tümü|
-|Azure Media OCR|Önizleme|Tümü|
-|Azure Media Redactor|Önizleme|Tümü|
-|Azure Media Stabilizer|Önizleme|Tümü|
-|Azure Media Video Thumbnails|Önizleme|Tümü|
-|Azure Media Indexer 2|Önizleme|Çin ve Federal Devlet bölgesi dışında tümü|
+|Azure Media Motion Detector|Preview|Tümü|
+|Azure Media OCR|Preview|Tümü|
+|Azure Media Redactor|Preview|Tümü|
+|Azure Media Stabilizer|Preview|Tümü|
+|Azure Media Video Thumbnails|Preview|Tümü|
+|Azure Media Indexer 2|Preview|Çin ve Federal Devlet bölgesi dışında tümü|
 
 ### <a name="protection"></a>Koruma
 
@@ -261,6 +260,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

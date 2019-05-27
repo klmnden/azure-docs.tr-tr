@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 13507361411a08852a059782f1ed6f00e25bec94
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8300baa1afa3e6c738cee4c2a2517463c2af1e88
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541325"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978847"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
 
@@ -119,7 +119,8 @@ Bu izlenecek yolda amacıyla simplestaticmetricalert.json olarak aşağıdaki js
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -366,7 +367,8 @@ Bu izlenecek yolda amacıyla simpledynamicmetricalert.json olarak aşağıdaki j
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1100,7 +1102,8 @@ Bu gözden geçirme amacıyla all-vms-in-resource-group-static.json olarak aşa�
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1411,7 +1414,8 @@ Bu gözden geçirme amacıyla all-vms-in-resource-group-dynamic.json olarak aşa
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1717,7 +1721,8 @@ Tüm-VM-içinde-abonelik-static.json amacıyla bu kılavuz olarak aşağıdaki j
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2025,7 +2030,8 @@ Tüm-VM-içinde-abonelik-dynamic.json amacıyla bu kılavuz olarak aşağıdaki 
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2328,7 +2334,8 @@ Liste-,-vms-static.json amacıyla bu kılavuz olarak aşağıdaki json'u kaydedi
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2639,7 +2646,8 @@ Liste-,-vms-dynamic.json amacıyla bu kılavuz olarak aşağıdaki json'u kayded
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."

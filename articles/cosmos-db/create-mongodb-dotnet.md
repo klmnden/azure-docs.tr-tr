@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: cc910359b5519d2cf1bd8a8bf019924dff660362
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73caa57fe7e721d69091bfb6ee74f7d88baf1ba3
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891150"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979082"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Hızlı Başlangıç: Azure Cosmos DB'nin MongoDB kullanarak bir .NET web uygulaması derleme 
 
@@ -34,7 +34,7 @@ Bu Hızlı Başlangıç ile bir Cosmos hesabının nasıl oluşturulacağını g
 
 Örneği çalıştırmak için ihtiyacınız olacak [Visual Studio](https://www.visualstudio.com/downloads/) ve geçerli bir Azure Cosmos DB hesabı.
 
-Visual Studio yoksa [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirin ve **ASP.NET ve web geliştirme** iş yükünü kurulumla birlikte yükleyin.
+Visual Studio zaten yoksa, indirme [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükünü kurulumla birlikte yükleyin.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

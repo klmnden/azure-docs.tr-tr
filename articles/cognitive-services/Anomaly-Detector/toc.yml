@@ -60,6 +60,8 @@
       href: 'https://aka.ms/adregion'
     - name: Çözüm mimarisi başvurusu
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
 - name: Destek
   items:
     - name: Destek alın

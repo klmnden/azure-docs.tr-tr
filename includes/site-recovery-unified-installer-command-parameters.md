@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 9d9790c9b3dbe3b130be999dd76092ae64f7b52c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841466"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169943"
 ---
 |Parametre Adı| Tür | Açıklama| Olası Değerler|
 |-|-|-|-|

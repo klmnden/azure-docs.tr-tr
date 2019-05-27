@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309206"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122519"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Dikdörtgen veri kümeleri için yapı tanımını belirtme
 JSON veri kümesi yapısı bölümünde bir **isteğe bağlı** bölümünde dikdörtgen tablolarla (satırlar ve sütunlar) için ve bir tablonun sütunlarını koleksiyonunu içerir. Tür dönüştürmeleri sağlayan iki tür bilgileri veya sütun eşlemelerini yapmak için yapı bölüm kullanır. Aşağıdaki bölümlerde, bu özelliklerin ayrıntılı açıklanmaktadır. 
@@ -20,8 +20,8 @@ Her sütun, aşağıdaki özellikleri içerir:
 | --- | --- | --- |
 | ad |Sütunun adı. |Evet |
 | type |Sütunun veri türü. Görmek için aşağıdaki tür dönüştürmeleri bölümüne daha fazla ayrıntı ile ilgili ne zaman tür bilgileri belirtmeniz gerekir |Hayır |
-| Kültür |.NET türü belirtildi ve .NET türü Datetime veya Datetimeoffset olduğunda kullanılacak kültürü temel. Varsayılan değer "en-us". |Hayır |
-| biçim |Datetime veya Datetimeoffset türü belirtildi ve .NET olduğunda kullanılacak biçim dizesi yazın. |Hayır |
+| culture |.NET türü belirtildi ve .NET türü Datetime veya Datetimeoffset olduğunda kullanılacak kültürü temel. Varsayılan değer "en-us". |Hayır |
+| format |Datetime veya Datetimeoffset türü belirtildi ve .NET olduğunda kullanılacak biçim dizesi yazın. |Hayır |
 
 Aşağıdaki örnek, üç sütun kimliği, adı ve lastlogindate sahip bir tablo yapısı bölümü JSON gösterir.
 
@@ -56,7 +56,7 @@ Data factory, Azure blob gibi salt okunur veri kaynakları üzerinde şema için
 * Bool
 * String 
 * Guid
-* DateTime
+* Datetime
 * Datetimeoffset
 * Timespan 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769503"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955972"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Otomatik ölçeklendirme ve App Service ortamı v1
 
@@ -63,7 +63,7 @@ Bir App Service ortamında otomatik ölçeklendirme, en iyi bir senaryoyu adım 
 Otomatik ölçeklendirme ' ayarladığınızda bu makalede, gerekli tüm konuları açıklanmaktadır. Makale App Service Ortamı'nda barındırılan App Service ortamları otomatik ölçeklendirmeyi faktörü yükleyen oyuna gelen etkileşimler size kılavuzluk eder.
 
 ### <a name="scenario-introduction"></a>Senaryo giriş
-Frank bir kısmını kendisi yönetir iş yükleri için App Service ortamı geçirildikten bir kuruluş için bir sysadmin ' dir.
+Frank bir kısmını yönettikleri iş yükleri için App Service ortamı geçirildikten bir kuruluş için bir sysadmin ' dir.
 
 App Service ortamı için el ile ölçeklendirmenin aşağıdaki gibi yapılandırılır:
 
@@ -76,7 +76,7 @@ App Service ortamı için el ile ölçeklendirmenin aşağıdaki gibi yapıland�
 
 App Service planları QA ve geliştirme için el ile ölçeklendirme için yapılandırılır. App Service planı üretim yükünü ve trafik farklılığı uğraşmanız otomatik ölçeklendirme için ayarlanır.
 
-Frank uygulama ile tanıdık. He, bu çalışanlar ofiste oldukları sırada kullanan bir satır iş kolu (LOB) uygulaması olduğundan yoğun yük 9: 00'da ve 18:00:00 arasında olduğunu bilir. Kullanıcı o gün için tamamladıktan sonra kullanım bırakır. Yoğun saatler dışında yoktur hala bazı yük çünkü kullanıcılar uygulamayı uzaktan kendi mobil cihazlarını veya ev bilgisayarları kullanarak erişebilirsiniz. App Service planı üretim, aşağıdaki kurallar ile CPU kullanımı temel alan otomatik ölçeklendirme için zaten yapılandırıldı:
+Frank uygulama ile tanıdık. Bunlar, bu çalışanlar ofiste oldukları sırada kullanan bir satır iş kolu (LOB) uygulaması olduğundan yoğun yük 9: 00'da ve 18:00:00 arasında olduğundan emin olabilirsiniz. Kullanıcı o gün için tamamladıktan sonra kullanım bırakır. Yoğun saatler dışında yoktur hala bazı yük çünkü kullanıcılar uygulamayı uzaktan kendi mobil cihazlarını veya ev bilgisayarları kullanarak erişebilirsiniz. App Service planı üretim, aşağıdaki kurallar ile CPU kullanımı temel alan otomatik ölçeklendirme için zaten yapılandırıldı:
 
 ![LOB uygulaması için özel ayarlar.][asp-scale]
 
@@ -85,7 +85,7 @@ Frank uygulama ile tanıdık. He, bu çalışanlar ofiste oldukları sırada kul
 | **Adı:** Haftanın günü profili |**Adı:** Hafta sonu profili |
 | **Tarafından ölçeğini genişletin:** Zamanlama ve performans kuralları |**Tarafından ölçeğini genişletin:** Zamanlama ve performans kuralları |
 | **Profil:** Haftanın günü |**Profil:** Hafta sonu |
-| **Türü:** Yineleme |**Türü:** Yineleme |
+| **Türü:** Yinelenme |**Türü:** Yinelenme |
 | **Hedef aralığı:** 5-20 örnekleri |**Hedef aralığı:** 3 ila 10 örnekleri |
 | **Gün sayısı:** Monday, Tuesday, Wednesday, Thursday, Friday |**Gün sayısı:** Pazar Cumartesi |
 | **Başlangıç zamanı:** 9: 00'DA |**Başlangıç zamanı:** 9: 00'DA |
@@ -156,7 +156,7 @@ Bu bilgileri kullanarak, aşağıdaki otomatik ölçeklendirme profilini ve kura
 | **Adı:** Haftanın günü profili |**Adı:** Hafta sonu profili |
 | **Tarafından ölçeğini genişletin:** Zamanlama ve performans kuralları |**Tarafından ölçeğini genişletin:** Zamanlama ve performans kuralları |
 | **Profil:** Haftanın günü |**Profil:** Hafta sonu |
-| **Türü:** Yineleme |**Türü:** Yineleme |
+| **Türü:** Yinelenme |**Türü:** Yinelenme |
 | **Hedef aralığı:** 13-25 örnekleri |**Hedef aralığı:** 6-15 örnekleri |
 | **Gün sayısı:** Monday, Tuesday, Wednesday, Thursday, Friday |**Gün sayısı:** Pazar Cumartesi |
 | **Başlangıç zamanı:** 7: 00'DA |**Başlangıç zamanı:** 9: 00'DA |
@@ -201,7 +201,7 @@ Bu senaryo için hata oranı % 80 CPU kullanımı ön uçlar ulaştıktan sonra 
 | **Adı:** Otomatik ölçeklendirmeyi ön Uçlar |
 | **Tarafından ölçeğini genişletin:** Zamanlama ve performans kuralları |
 | **Profil:** her gün |
-| **Türü:** Yineleme |
+| **Türü:** Yinelenme |
 | **Hedef aralığı:** 3 ila 10 örnekleri |
 | **Gün sayısı:** her gün |
 | **Başlangıç zamanı:** 9: 00'DA |

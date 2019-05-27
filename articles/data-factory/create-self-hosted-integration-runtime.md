@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728097"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967949"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 1. Veri Geliştirici PowerShell cmdlet'ini kullanarak bir şirket içinde barındırılan tümleştirme çalışma zamanı içinde bir Azure data factory oluşturur. Şu anda, Azure portalı, bu özelliği desteklemez.
 2. Veri geliştirici bir şirket içi veri deposu için bağlı hizmet, veri depolarında bağlanmak için kullanması gereken şirket içinde barındırılan tümleştirme çalışma zamanı örneğini belirterek oluşturur.
 3. Şirket içinde barındırılan Integration runtime düğümü, Windows Data Protection uygulama programlama arabirimi (DPAPI) kullanarak kimlik bilgilerini şifreler ve kimlik bilgilerini yerel olarak kaydeder. Yüksek kullanılabilirlik için birden çok düğüm ayarlarsanız, kimlik bilgilerini diğer düğümler arasında daha fazla eşitlenir. Her düğümü DPAPI kullanarak kimlik bilgilerini şifreler ve bunları yerel olarak depolar. Kimlik bilgisi eşitlemesi veri geliştiriciler için saydamdır ve şirket içinde barındırılan IR tarafından ele alınır    
-4. Data Factory hizmetinin zamanlama ve işleri yönetimi için şirket içinde barındırılan tümleştirme çalışma zamanı ile iletişim kuran bir *denetim kanalı* paylaşılan bir Azure Service Bus kuyruğu kullanan. Bir etkinliği işinin çalıştırılması gerektiğinde, Data Factory istekle birlikte tüm kimlik bilgilerini (kimlik bilgileri zaten şirket içinde barındırılan tümleştirme çalışma zamanını depolanmaz durumda) kuyruğa alır. Şirket içinde barındırılan tümleştirme çalışma zamanı işi kuyruğa yoklama sonra başlatıyor.
+4. Data Factory hizmetinin zamanlama ve işleri yönetimi için şirket içinde barındırılan tümleştirme çalışma zamanı ile iletişim kuran bir *denetim kanalı* paylaşılan kullanan [Azure Service Bus geçişi](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay). Bir etkinliği işinin çalıştırılması gerektiğinde, Data Factory istekle birlikte tüm kimlik bilgilerini (kimlik bilgileri zaten şirket içinde barındırılan tümleştirme çalışma zamanını depolanmaz durumda) kuyruğa alır. Şirket içinde barındırılan tümleştirme çalışma zamanı işi kuyruğa yoklama sonra başlatıyor.
 5. Şirket içinde barındırılan tümleştirme çalışma zamanı verileri bulut depolamaya veya tam tersi veri işlem hattında kopyalama etkinliği nasıl yapılandırıldığına bağlı olarak bir şirket içi depolama alanından kopyalar. Bu adım için şirket içinde barındırılan tümleştirme çalışma zamanı doğrudan Azure Blob Depolama gibi bulut tabanlı depolama hizmetleriyle güvenli (HTTPS) bir kanal üzerinden iletişim kurar.
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Şirket içinde barındırılan IR kullanma konuları
@@ -126,11 +126,11 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 
 ### <a name="scale-considerations"></a>Ölçek konuları
 
-#### <a name="scale-out"></a>Ölçeği genişletme
+#### <a name="scale-out"></a>Ölçeği genişlet
 
 Kendinden konak IR üzerinde kullanılabilir bellek düşükse ve CPU kullanımı yüksek olduğunda, yeni bir düğüm ekleme yük ölçeğinizi makinelerde yardımcı olur. Ağ geçidini bir düğüm ekleme, çünkü bunlar zaman aşımına uğruyor etkinlikleri başarısız oluyorsa ya da şirket içinde barındırılan IR düğümü çevrimdışı olduğu için yardımcı olur.
 
-#### <a name="scale-up"></a>Ölçeği artırma
+#### <a name="scale-up"></a>Ölçeği artır
 
 Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütme sınırına ulaştı, bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak ölçeği. Kendinden konak IR aşırı yüklendiği etkinlikler zaman aşımına uğruyor. zaman ölçeği isteyebilirsiniz. Aşağıdaki görüntüde gösterildiği gibi bir düğüm için kapasite üst sınırı artırabilirsiniz:  
 
@@ -220,7 +220,7 @@ Simge veya bildirim alanında bir ileti üzerinden imlecinizi taşırsanız, şi
 ## <a name="ports-and-firewall"></a>Bağlantı noktaları ve güvenlik duvarı
 Dikkate alınması gereken iki güvenlik duvarı vardır: *Kurumsal güvenlik duvarınız* kuruluşun merkezi yönlendirici üzerinde çalışan ve *Windows Güvenlik Duvarı* yerel makinede bir arka plan olarak yapılandırılmış olduğu Şirket içinde barındırılan tümleştirme çalışma zamanı yüklenir.
 
-![Güvenlik duvarı](media/create-self-hosted-integration-runtime/firewall.png)
+![Güvenlik Duvarı](media/create-self-hosted-integration-runtime/firewall.png)
 
 Konumunda *Kurumsal güvenlik duvarınız* düzeyi, aşağıdaki etki alanları ve giden bağlantı noktalarını yapılandırmak gerekir:
 

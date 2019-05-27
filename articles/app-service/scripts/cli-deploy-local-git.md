@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 747d215810710c6810df02dca556d7a685ae4060
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136739"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Bir App Service uygulaması oluşturma ve Azure CLI kullanarak yerel bir Git deposundan kod dağıtma
 

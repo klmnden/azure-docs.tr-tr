@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738928"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133113"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Bir Azure sanal makinesinden yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
 Azure Otomasyonu, işletim sistemi güvenlik güncelleştirmelerini yönetme, değişiklikleri izleme ve stok bilgisayarlarınızda yüklü yardımcı olmaya yönelik çözümler sunar. Makine birden çok yolu vardır. Bir sanal makineden çözüm ekleyebilir [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md), [birden çok makine gözatma gelen](automation-onboard-solutions-from-browse.md), kullanarak veya bir [runbook](automation-onboard-solutions.md). Bu makale bir Azure sanal makinesinden bu çözümleri ekleme kapsar.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 https://portal.azure.com adresinden Azure portalında oturum açın.
 
@@ -51,7 +51,7 @@ Seçilen çalışma alanı, güncelleştirme yönetimi veya değişiklik izleme 
 
 Seçilen çalışma alanında Çözüm zaten varsa, çözümü yeniden değildir ve kapsam yapılandırması eklenmez.
 
-Üç nokta simgesini (**...** ) yapılandırmaları tıklayın ve ardından hiçbirinde **Düzenle**. İçinde **düzenleme kapsam yapılandırması** bölmesinde **bilgisayar grupları Seç**. **Bilgisayar grupları** kapsam yapılandırması oluşturmak için kullanılan kayıtlı aramalar bölmesi gösterir.
+Üç nokta simgesini ( **...** ) yapılandırmaları tıklayın ve ardından hiçbirinde **Düzenle**. İçinde **düzenleme kapsam yapılandırması** bölmesinde **bilgisayar grupları Seç**. **Bilgisayar grupları** kapsam yapılandırması oluşturmak için kullanılan kayıtlı aramalar bölmesi gösterir.
 
 ## <a name="saved-searches"></a>Kayıtlı aramalar
 
@@ -59,7 +59,7 @@ Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri için bir b
 
 Çalışma alanınıza gidin. Altında **genel**seçin **kayıtlı aramalar**. Bu çözümler tarafından kullanılan iki kayıtlı aramalar aşağıdaki tabloda gösterilmiştir:
 
-|Ad     |Kategori  |Diğer ad  |
+|Ad     |Category  |Diğer Ad  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  Değişiklik izleme       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Güncelleştirmeler        | Updates__MicrosoftDefaultComputerGroup         |
@@ -87,7 +87,7 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
-   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
+   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png):
 
    Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
 
@@ -104,6 +104,8 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 * Başlatma ve durdurma VM runbook zamanlama
 * VM runbook'ları durdurun ve başlatın
 * Değişkenler
+
+Alternatif olarak, ayrıca çalışma alanınızı Otomasyon hesabınızdan Log Analytics çalışma alanınızdan kesebilir. Çalışma alanınızda seçin **Otomasyon hesabı** altında **ilgili kaynakları**. Otomasyon hesabı sayfasında **hesabı bağlantısını**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
