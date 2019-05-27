@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/20/2019
 ms.topic: overview
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 58fd09726f05ba442c66387ecbd6cfad37f598e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896167"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955195"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Azure Blockchain Workbench nedir?
 
@@ -41,13 +41,13 @@ Workbench, aşağı akış tüketicilerine ileti göndermek için Service Bus ve
 
 Azure Blockchain Workbench, Azure Resource Manager çözüm şablonuyla önceden yapılandırılmış bir çözüm olarak konsorsiyum blok zinciri ağının kurulumunu kolaylaştırır. Şablon, bir konsorsiyumu çalıştırmak için gereken tüm bileşenleri dağıtan, basitleştirilmiş dağıtım sağlar. Şu anda Blockchain Workbench, Ethereum’u desteklemektedir.
 
-## <a name="use-active-directory-login"></a>Active Directory oturum açma adını kullanma
+## <a name="use-active-directory"></a>Active Directory'yi Kullan
 
 Mevcut blok zinciri protokolleri ile blok zinciri kimlikleri, ağ üzerindeki bir adres olarak temsil edilir. Azure Blockchain Workbench, blok zinciri kimliğini bir Active Directory kimliğiyle ilişkilendirerek soyutlar ve böylece Active Directory kimlikleriyle kurumsal uygulamalar derlenmesini kolaylaştırır.
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Zincir üzerindeki verileri, zincir dışı depolama ile eşitleme
 
-Azure Blockchain Workbench, blok zinciri üzerindeki verileri otomatik olarak zincir dışı depolama ile eşitleyerek blok zinciri olaylarının ve verilerinin analiz edilmesini kolaylaştırır. Doğrudan blok zincirinden verileri ayıklamak yerine, SQL Server gibi zincir dışı veritabanı sistemlerini sorgulayabilirsiniz. Veri analizi görevlerini gerçekleştiren son kullanıcıların blok zincirine özgü deneyime sahip olması gerekmez. 
+Azure Blockchain Workbench, blok zinciri üzerindeki verileri otomatik olarak zincir dışı depolama ile eşitleyerek blok zinciri olaylarının ve verilerinin analiz edilmesini kolaylaştırır. Doğrudan blok zincirinden verileri ayıklamak yerine, SQL Server gibi zincir dışı veritabanı sistemlerini sorgulayabilirsiniz. Blok zinciri uzmanlığı, son kullanıcılar için veri analizi görevleri yapan gerekli değildir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 957009ec9833df2dd0f89c3745c7f3df5a3705b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403803"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131333"
 ---
 Azure işlevleri çalışma zamanı ana iki sürümleri desteklenir bağlamaları aşağıdaki tabloda gösterilmektedir.
 
-| Tür | 1.x | 2.x<sup>1</sup> | Tetikleyici | Girdi | Çıktı |
+| Tür | 1.x | 2.x<sup>1</sup> | Tetikleyici | Giriş | Çıktı |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob Depolama](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
@@ -32,7 +32,7 @@ Azure işlevleri çalışma zamanı ana iki sürümleri desteklenir bağlamalar�
 | [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|
 | [SignalR](../articles/azure-functions/functions-bindings-signalr-service.md)             | |✔| |✔|✔|
 | [Tablo depolama](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|
-| [Zamanlayıcı](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
+| [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
 <sup>1</sup> 2.x'i, HTTP ve Zamanlayıcı hariç tüm bağlamaları kayıtlı olması gerekir. Bkz: [kaydetme bağlama uzantıları](../articles/azure-functions/functions-bindings-register.md).

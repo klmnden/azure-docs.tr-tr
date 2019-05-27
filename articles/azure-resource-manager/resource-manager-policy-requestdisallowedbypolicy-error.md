@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c160fe39b02d8adf6c12e3736307cf7f9688b0c5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128446"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure kaynak İlkesi ile RequestDisallowedByPolicy hatası
 
@@ -51,7 +51,7 @@ PowerShell'de, bu ilke tanımlayıcısı olarak sağlamak `Id` dağıtımınız�
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Azure CLI, ilke tanımı adını sağlayın:
 
@@ -67,4 +67,4 @@ Bu sorunu çözmek için kaynak ilkelerini gözden geçirin ve bu ilkeleri ile u
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [Azure İlkesi nedir?](../governance/policy/overview.md)
-- [Uyumluluğu zorlamak için ilkeleri oluşturma ve yönetme](../governance/policy/tutorials/create-and-manage.md)
+- [Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme](../governance/policy/tutorials/create-and-manage.md)

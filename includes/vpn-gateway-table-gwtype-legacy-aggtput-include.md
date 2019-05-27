@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197195"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159205"
 ---
-Aşağıdaki tabloda ağ geçidi türleri ve ağ geçidi SKU’suna göre tahmini toplam verimlilik gösterilmiştir. Bu tablo Resource Manager ve klasik dağıtım modellerine uygulanır. 
+Aşağıdaki tabloda ağ geçidi türleri ve ağ geçidi SKU’suna göre tahmini toplam verimlilik gösterilmiştir. Bu tablo Resource Manager ve klasik dağıtım modelleri için geçerlidir. 
 
 Ağ geçidi SKU'ları arasında fiyatlandırma farklılık gösterir. Daha fazla bilgi için bkz. [VPN Gateway Fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
@@ -38,4 +38,4 @@ UltraPerformance ağ geçidi SKU’sunun bu tabloda temsil edilmediğini unutmay
 
 (5) Etkin-etkin S2S VPN Gateway bağlantıları bu SKU için desteklenmiyor. Etkin-etkin, yalnızca Yüksek Performanslı SKU üzerinde desteklenir.
 
-(6) temel SKU ExpressRoute ile kullanmak için kullanım dışıdır.
+(6) temel SKU, ExpressRoute ile birlikte kullanım dışıdır.

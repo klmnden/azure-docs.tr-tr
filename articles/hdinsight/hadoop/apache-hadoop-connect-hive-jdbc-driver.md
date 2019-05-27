@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: aaf54907ca0cf218b126fc9fc74080c02ef6cf6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721598"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906525"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Apache Hive JDBC sürücüsü, HDInsight ile sorgulama
 
@@ -80,7 +80,7 @@ SQuirreL SQL uzaktan HDInsight kümenizle Hive sorguları çalıştırmak için 
 
 5. Sürücü Ekle iletişim kutusunda aşağıdaki bilgileri ekleyin:
 
-    * **Ad**: Hive
+    * **Ad**: Kovan
     * **Örnek URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Yol'ekstra sınıf**: Daha önce indirdiğiniz jar dosyalarının tümü eklemek için Ekle düğmesini kullanın.
     * **Sınıf adı**: org.apache.hive.jdbc.HiveDriver
@@ -156,7 +156,7 @@ Hive ile çalışmak için JDBC kullanmayı öğrendiniz, Azure HDInsight ile ç
 
 * [Azure HDInsight, Microsoft Power BI ile Apache Hive verileri görselleştirme](apache-hadoop-connect-hive-power-bi.md).
 * [Power BI'da Azure HDInsight ile etkileşimli sorgu Hive verilerini görselleştirme](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma](./../hdinsight-connect-hive-zeppelin.md).
+* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Excel'i Microsoft Hive ODBC sürücüsü ile HDInsight bağlama](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel'i Power Query kullanarak Apache Hadoop'a bağlama](apache-hadoop-connect-excel-power-query.md).
 * [Azure HDInsight için bağlanın ve Visual Studio için Data Lake Araçları'nı kullanarak Apache Hive sorguları çalıştırma](apache-hadoop-visual-studio-tools-get-started.md).

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406285"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953361"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Data Box Disk alanınızı yönetmek için Azure portalını kullanma
 
@@ -71,12 +71,12 @@ Yalnızca tamamlanan veya iptal edilen siparişleri silebilirsiniz. Siparişi si
 
     ![Data Box Disk siparişini silme 1](media/data-box-portal-ui-admin/delete-order1.png)
 
-3. Siparişi silme işlemini onaylamanız istendiğinde siparişin adını girin. **Sil**'e tıklayın.
+3. Siparişi silme işlemini onaylamanız istendiğinde siparişin adını girin. Tıklayın **Sil**.
 
      ![Data Box Disk siparişini silme 2](media/data-box-portal-ui-admin/delete-order2.png)
 
 
-## <a name="download-shipping-label"></a>Sevkiyat etiketini indirme
+## <a name="download-shipping-label"></a>Sevkiyat etiketini indirin
 
 Disklerinizle birlikte gönderilen iade sevkiyat etiketi kaybolduysa sevkiyat etiketini indirmeniz gerekebilir. 
 
@@ -103,9 +103,9 @@ Siparişi düzenlemek için aşağıdaki adımları gerçekleştirin.
 
     ![Teslimat adresini düzenleme 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
 
-## <a name="edit-notification-details"></a>Bildirim ayrıntılarını düzenleme
+## <a name="edit-notification-details"></a>Bildirim ayrıntılarını düzenle
 
-Sipariş durumu e-postalarının gönderilmesini istediğiniz kullanıcıları değiştirmek isteyebilirsiniz. Örneğin disk teslim edildiğinde veya alındığında bir kullanıcının bilgilendirilmesi gerekebilir. Veriler kaynaktan silinmeden önce Azure depolama hesabındaki verileri doğrulanması amacıyla veri kopyalama işlemi tamamlandığında başka bir kullanıcıya bildirim gönderilmesini isteyebilirsiniz. Bu gibi durumlarda bildirim ayrıntılarını düzenleyebilirsiniz.
+Sipariş durumu e-postalarının gönderilmesini istediğiniz kullanıcıları değiştirmek isteyebilirsiniz. Örneğin disk teslim edildiğinde veya alındığında bir kullanıcının bilgilendirilmesi gerekebilir. Başka bir kullanıcı verileri kaynaktan silmeden önce Azure depolama hesabında olduğunu doğrulayabilmeniz için veri kopyalama tamamlandığında bilgilendirilmesi gerekebilir. Bu gibi durumlarda bildirim ayrıntılarını düzenleyebilirsiniz.
 
 Bildirim ayrıntılarını düzenlemek için aşağıdaki adımları gerçekleştirin.
 

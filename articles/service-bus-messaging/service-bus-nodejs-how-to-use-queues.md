@@ -1,5 +1,5 @@
 ---
-title: Node.js'de Service Bus kuyruklarını kullanma | Microsoft Docs
+title: Node.js'de Azure Service Bus kuyruklarını kullanma | Microsoft Docs
 description: Azure'da bir Node.js uygulamasından Service Bus kuyruklarını kullanmayı öğrenin.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,22 +14,25 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589997"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988301"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>Node.js ile Service Bus kuyruklarını kullanma
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Node.js ve azure-sb paketi ile Service Bus kuyruklarını kullanma
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure sb)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+Bu öğreticide, Node.js uygulamalarını kullanarak bir Service Bus kuyruğu iletileri almak ve ileti göndermek için nasıl oluşturulacağını öğrenin [azure sb](https://www.npmjs.com/package/azure-sb) paket. Örnekler JavaScript dilinde yazılmıştır ve Node.js kullanma [Azure Modülü](https://www.npmjs.com/package/azure) , dahili olarak kullandığı `azure-sb` paket.
 
-Bu öğreticide, bir Service Bus kuyruğundaki iletileri alıp ileti göndermek için Node.js uygulamalarının nasıl oluşturulacağını öğrenin. Örnekler, JavaScript'te yazılmış ve Node.js Azure modülü kullanır. 
+[Azure sb](https://www.npmjs.com/package/azure-sb) paketini kullanan [hizmet veri yolu REST çalışma zamanı API'ları](/rest/api/servicebus/service-bus-runtime-rest). Yeni kullanarak daha hızlı deneyimi elde edebilirsiniz [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) daha hızlı kullanan paket [AMQP 1.0 protokol](service-bus-amqp-overview.md). Yeni paketi hakkında daha fazla bilgi için bkz: [Node.js ile Service Bus kuyruklarını kullanma ve @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), aksi takdirde nasıl kullanacağınızı görmek için okumaya devam [azure](https://www.npmjs.com/package/azure) paket.
 
 ## <a name="prerequisites"></a>Önkoşullar
-1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Çalışmak için bir kuyruk yoksa, izleyeceğiniz adımlar [Service Bus kuyruğuna oluşturmak için Azure portalını kullanın](service-bus-quickstart-portal.md) makalenin bir kuyruk oluşturun.
+- Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Çalışmak için bir kuyruk yoksa, izleyeceğiniz adımlar [Service Bus kuyruğuna oluşturmak için Azure portalını kullanın](service-bus-quickstart-portal.md) makalenin bir kuyruk oluşturun.
     1. Hızlı Okuma **genel bakış** Service Bus **kuyrukları**. 
     2. Hizmet veri yolu oluşturma **ad alanı**. 
     3. Alma **bağlantı dizesi**. 
@@ -46,7 +49,7 @@ Azure Service Bus hizmetini kullanmak için indirin ve Node.js Azure paketi kull
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Bir paketi almasını düğüm paketi Yöneticisi'ni (NPM) kullanın
 1. Kullanım **Node.js için Windows PowerShell** gitmek için komut penceresinde **c:\\düğüm\\sbqueues\\WebRole1** örneğinizi oluşturduğunuz klasör uygulama.
-2. Tür **npm yükleme azure** komut penceresinde, neden aşağıdakine benzer bir çıktı:
+2. Tür **npm yükleme azure** komut penceresinde, neden çıktı aşağıdaki örneğe benzer:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -71,11 +74,11 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Bir Azure Service Bus bağlantısı kurma
-Azure modülünü ortam değişkenini okur `AZURE_SERVICEBUS_CONNECTION_STRING` Service Bus'a bağlanmak için gereken bilgileri elde edilir. Bu ortam değişkeni ayarlanmazsa çağırırken hesap bilgilerini belirtmelisiniz `createServiceBusService`.
+Azure modülünü ortam değişkenini okur `AZURE_SERVICEBUS_CONNECTION_STRING` Service Bus'a bağlanmak için gereken bilgileri elde edilir. Bu ortam değişkeni ayarlanmadıysa çağırırken hesap bilgilerini belirtmelisiniz `createServiceBusService`.
 
 Ortam değişkenlerini ayarlama bir örnek için [Azure portalında] [ Azure portal] bir Azure Web sitesi için bkz: [depolama ile Node.js Web uygulaması] [ Node.js Web Application with Storage].
 
-## <a name="create-a-queue"></a>Bir kuyruk oluşturma
+## <a name="create-a-queue"></a>Kuyruk oluştur
 **ServiceBusService** nesnesi, Service Bus kuyrukları ile çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir **ServiceBusService** nesne. En ekleme **server.js** dosya, Azure modülü içeri aktarmak için deyim sonra:
 
 ```javascript
@@ -147,12 +150,12 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir. Kotaları hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
+Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu bir sınır yoktur. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir. Kotaları hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Bir kuyruktan ileti alma
 İletilerin kullanarak bir sıraya alındığı `receiveQueueMessage` metodunda **ServiceBusService** nesne. Okunurlar gibi varsayılan olarak, ileti kuyruktan silinir; Ancak, (Özet) okuyun ve iletiyi kuyruktan isteğe bağlı parametresi ayarlanarak silmeden kilitleme `isPeekLock` için **true**.
 
-Okuma ve ileti alma işleminin bir parçası olarak silmeye varsayılan davranışı en basit modeldir ve uygulamanın bir arıza olması durumunda bir iletiyi işlememeye izin dayanabilir senaryolar için en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Okuma ve ileti alma işleminin bir parçası olarak silmeye varsayılan davranışı en basit modeldir ve uygulamanın hata oluştuğunda bir iletinin işlenmemesine dayanabilir senaryolar için en iyi şekilde çalışır. Bu davranışı anlamak için hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından bunu önce çökmenin kullanılan iletiyi atlamış olur.
 
 Varsa `isPeekLock` parametrenin ayarlanmış **true**, alma, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar `deleteMessage` yöntemi ve iletiyi bir parametre olarak silinmesini sağlar. `deleteMessage` Yöntemi iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırır.
 
@@ -177,11 +180,14 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi işlemek için herhangi bir nedenle silemiyor sonra çağırabilirsiniz `unlockMessage` metodunda **ServiceBusService** nesne. Bu, Service Bus'ın Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı kullanıcı uygulama veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale neden olur.
+Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi işlemek için herhangi bir nedenle silemiyor sonra çağırabilirsiniz `unlockMessage` metodunda **ServiceBusService** nesne. Service Bus'ın Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı kullanıcı uygulama veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale neden olur.
 
-Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı yoktur ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açmasına ve hale kilit zaman aşımı dolmadan tekrar kullanılabilir.
+Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı yoktur ve uygulama başarısız olursa (örneğin, uygulama çökerse), kilit zaman aşımı önce iletiyi süresi ve Service Bus otomatik olarak iletinin kilidini açmasına ve yapın tekrar kullanılabilir.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, `deleteMessage` yöntemi çağrılır, ardından yeniden başlatıldığında ileti uygulamaya yeniden teslim edilebilir. Buna genellikle denir *en az bir kez işleme*, diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu işlem, genellikle iletinin teslimat denemelerinde korunan **MessageId** özelliği kullanılarak gerçekleştirilir.
+Uygulama iletiyi ancak önce çökmesi durumunda, `deleteMessage` yöntemi çağrılır, ardından yeniden başlatıldığında ileti uygulamaya yeniden teslim edilebilir. Bu yaklaşım genellikle adlandırılır *en az bir kez işleme*, diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa, uygulama geliştiricilerinin yinelenen ileti teslimine izin vermek, uygulamaya ek mantık eklemelisiniz. Genellikle kullanılarak gerçekleştirilir **MessageID** özelliğini iletinin teslim denemeleri arasında sabit kalır.
+
+> [!NOTE]
+> Service Bus kaynakları ile yönetebileceğiniz [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer/). Hizmet veri yolu Gezgini, bir Service Bus ad alanınıza bağlanın ve mesajlaşma varlıkları kolay bir şekilde yönetmek kullanıcıların sağlar. Araç, içeri/dışarı aktarma işlevleri veya konu, kuyruklar, abonelikler, geçiş hizmetleri, bildirim hub'ları ve olay hub'ları test etme olanağı gibi gelişmiş özellikler sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kuyruklar hakkında daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın.

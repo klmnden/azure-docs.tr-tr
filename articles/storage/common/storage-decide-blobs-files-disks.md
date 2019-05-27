@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f66a2699b6d29f10633b4853801240f0590ff918
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147638"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969415"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
+
 Microsoft Azure, verilerinizi bulutta erişmek ve depolamak için Azure Depolama'da birçok özellik sunar. Bu makalede, Azure dosyaları, Blobları ve diskleri kapsar ve bu özellikler arasında seçmenize yardımcı olmak için tasarlanmıştır.
 
 ## <a name="scenarios"></a>Senaryolar
+
 Aşağıdaki tabloda, dosyaları, Blobları ve diskleri karşılaştırır ve her biri için uygun örnek senaryoları gösterir.
 
 | Özellik | Açıklama | Kullanılması gereken durumlar |
@@ -28,6 +30,7 @@ Aşağıdaki tabloda, dosyaları, Blobları ve diskleri karşılaştırır ve he
 | **Azure diskleri** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/compute/manageddisks/disks/disks-rest-api) kalıcı olarak depolanır ve bir bağlı sanal sabit diskten erişilen verileri sağlar. | Lift- and -shift okumak ve kalıcı diske veri yazmak için yerel dosya sistemi API kullanan uygulamaları istiyorsunuz.<br/><br/>Disk bağlı olduğu sanal makinenin dışında erişilebilir için gerekli olmayan verileri depolamak istediğiniz. |
 
 ## <a name="comparison-files-and-blobs"></a>Karşılaştırma: Dosyalar ve Bloblar
+
 Aşağıdaki tabloda, Azure BLOB'ları ile Azure dosyaları karşılaştırır.  
   
 ||||  
@@ -38,18 +41,19 @@ Aşağıdaki tabloda, Azure BLOB'ları ile Azure dosyaları karşılaştırır.
 |Bağlantı|REST API'leri--dünya çapında|REST API'ler - dünya çapında<br /><br /> SMB 2.1--bölge içinde<br /><br /> SMB 3.0--dünya çapında|  
 |Uç Noktalar|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Dizinler|Düz ad alanı|Doğru dizin nesneleri|  
-|Adları büyük/küçük harf duyarlılığı|Büyük/Küçük harfe duyarlı|/ Küçük harfe duyarlı çalışması ancak büyük/küçük harf koruma|  
+|Adları büyük/küçük harf duyarlılığı|Büyük/küçük harfe duyarlı|/ Küçük harfe duyarlı çalışması ancak büyük/küçük harf koruma|  
 |Kapasite|En fazla 2 PiB hesap sınırı |5 TiB dosya paylaşımları|  
-|Aktarım hızı|Blok blobu başına en fazla 60 MiB/sn|Paylaşım başına en fazla 60 MiB/sn|  
+|Performans|Blok blobu başına en fazla 60 MiB/sn|Paylaşım başına en fazla 60 MiB/sn|  
 |Nesne boyutu|Blok blobu başına yaklaşık 4,75 TiB kadar|Dosya başına en fazla 1 TiB|  
 |Faturalandırılan kapasite|Yazılan bayt sayısı tabanlı|Dosya boyutuna göre|  
 |İstemci kitaplıkları|Birden çok dil|Birden çok dil|  
   
 ## <a name="comparison-files-and-disks"></a>Karşılaştırma: Dosya ve diskleri
+
 Azure dosyaları Azure diskleri tamamlar. Bir disk aynı anda yalnızca bir Azure sanal makinesine iliştirilebilir. Diskleri sayfa blobları Azure Depolama'da depolanan sabit biçimli VHD ve sanal makine tarafından kalıcı verileri depolamak için kullanılır. Dosya paylaşımlarını Azure dosyaları'nda yerel diske (bir yerel dosya sistemi API'ı kullanarak) erişilebilen olarak aynı şekilde erişilebilen ve çok sayıda sanal makineler arasında paylaşılabilir.  
- 
+
 Aşağıdaki tabloda, Azure dosyaları Azure diskleri ile karşılaştırır.  
- 
+
 ||||  
 |-|-|-|  
 |**Özniteliği**|**Azure diskleri**|**Azure dosyaları**|  
@@ -58,11 +62,12 @@ Aşağıdaki tabloda, Azure dosyaları Azure diskleri ile karşılaştırır.
 |Yapılandırma|Sanal makinenin başlangıçta bağlı|Sanal makine başlatıldıktan sonra bağlı|  
 |Kimlik Doğrulaması|Yerleşik|NET kullanım ile ayarlama|  
 |REST kullanarak erişimi|İçindeki VHD dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
-|En Yüksek Boyut|4 TiB disk|5 TiB dosya paylaşımını ve 1 TiB dosya paylaşımı içinde|  
-|En fazla IOPS|500 IOPS|1000 IOPS|  
-|Aktarım hızı|Disk başına en fazla 60 MiB/sn|(Daha yüksek g/ç boyutları için daha yüksek alabilirsiniz) dosya paylaşımı başına 60 MiB/sn hedefidir.|  
+|En Yüksek Boyut|32 TiB disk|5 TiB dosya paylaşımını ve 1 TiB dosya paylaşımı içinde|  
+|En fazla IOPS|20.000 IOPS|1000 IOPS|  
+|Performans|Disk başına en fazla 900 MiB/sn|(Daha yüksek g/ç boyutları için daha yüksek alabilirsiniz) dosya paylaşımı başına 60 MiB/sn hedefidir.|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Verilerinizin nasıl depolandığını ve erişilen ilişkin kararların, aynı zamanda maliyetleri dahil düşünmelisiniz. Daha fazla bilgi için [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
   
 SMB özelliklerinden bazıları bulut için geçerli değildir. Daha fazla bilgi için [Azure dosya hizmeti tarafından desteklenmeyen özellikler](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).

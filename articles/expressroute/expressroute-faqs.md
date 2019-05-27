@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/12/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794765"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991599"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -72,6 +72,7 @@ ExpressRoute destekler [üç yönlendirme etki alanı](expressroute-circuit-peer
 * Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br><br>
   **Aşağıdaki hizmetler desteklenmez**:
     * CDN
+    * Azure ön kapısı
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -84,6 +85,7 @@ ExpressRoute destekler [üç yönlendirme etki alanı](expressroute-circuit-peer
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure küresel hizmetler community)
 * Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br><br>**Aşağıdaki hizmetler desteklenmez**:
     * CDN
+    * Azure ön kapısı
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -220,7 +222,7 @@ Evet. En fazla 4000 rota önekleri özel eşleme ve Microsoft eşlemesi için 20
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>BGP oturumunda tanıtmayı IP aralıkları kısıtlamalar var mı?
 
-Size özel önekleri (RFC1918) için Microsoft eşleme BGP oturumu kabul etmeyin.
+Size özel önekleri (RFC1918) için Microsoft eşleme BGP oturumu kabul etmeyin. Biz hem Microsoft hem de özel eşleme üzerinde herhangi bir önek boyutunu (en fazla özelliğini/32) kabul edin.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Sınırlar BGP aşarsam ne olur?
 
@@ -283,6 +285,26 @@ Başvurmak [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/d
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>ExpressRoute Premium standart ExpressRoute ücretlerine ek olarak ödeme yapabilirim?
 
 Evet. ExpressRoute bağlantı hattı bağlantı sağlayıcı tarafından gerekli süreliğine ve üstünde ExpressRoute premium ücretleri uygulanır.
+
+## <a name="expressroute-local"></a>ExpressRoute yerel
+### <a name="what-is-expressroute-local"></a>ExpressRoute yerel nedir?
+ExpressRoute yerel bir SKU, ExpressRoute bağlantı hattı ' dir. Bir anahtar yerel bir ExpressRoute eşdüzey hizmet sağlama konumu size, yerel bir circit yalnızca bir veya iki Azure bölgesi içinde veya neredeyse aynı metro erişimi özelliğidir. Buna karşılık, standart devreyi, coğrafi bir alan ve tüm Azure bölgelerinde Premium devreye tüm Azure bölgelerinde genel olarak erişmenizi sağlar. 
+
+### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute yerel yararları nelerdir?
+Çıkış veri aktarımı, standart veya Premium ExpressRoute bağlantı hattı için de ödeme yapmam gerekiyor ancak, çıkış veri aktarımı ayrı olarak yerel ExpressRoute bağlantı hattınız için ödeme yapmayın. Diğer bir deyişle, ExpressRoute yerel fiyatı, veri aktarım ücretleri içerir. Çok büyük miktarda veri aktarmak için sahip ve istenen, Azure bölgeleri bir ExpressRoute konumuna eşleme için özel bağlantı üzerinden verilerinizi getirebilirsiniz ExpressRoute yerel daha ekonomik bir çözüm olur. 
+
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Kullanılabilen özellikleri ve yerel ExpressRoute ne değildir?
+Bir standart ExpressRoute bağlantı hattına karşılaştırıldığında, yerel bir bağlantı hattı dışındaki özellikleri aynı kümesi vardır:
+* Yukarıdaki Azure bölgeleri açıklandığı erişim kapsamı
+* ExpressRoute Global erişim kullanılabilir değil yerel
+
+ExpressRoute yerel Ayrıca aynı sınırlarını kaynaklar (örneğin Vnet sayısı bağlantı hattı başına) standart olarak sahiptir. 
+
+### <a name="how-to-configure-expressroute-local"></a>ExpressRoute yerel yapılandırmak nasıl? 
+ExpressRoute yerel yalnızca ExpressRoute doğrudan üzerinde kullanılabilir. Bu nedenle öncelikle, ExpressRoute doğrudan bağlantı noktası yapılandırmanız gerekecektir. Doğrudan bağlantı noktası oluşturulduktan sonra yönergeleri izleyerek yerel bir bağlantı hattı oluşturabilirsiniz [burada](expressroute-howto-erdirect.md).
+
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>ExpressRoute yerel kullanılabilir olduğu ve hangi Azure bölgeleri her eşleme konumunda eşlendi?
+ExpressRoute yerel bir veya iki Azure bölgesi tarafından yakın olduğu eşleme konumlarda kullanılabilir. Bir eşleme konumda kullanılamaz hiçbir Azure bölgesine durumu veya il veya ülke. Tam eşleşmeler Lütfen bakın [konumları sayfası](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>Office 365 için ExpressRoute
 

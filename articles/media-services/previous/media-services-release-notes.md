@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506639"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991907"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 
@@ -44,6 +44,10 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API Sürüm Geçmişi
 Media Services REST API sürüm geçmişi hakkında daha fazla bilgi için bkz. [Azure Media Services REST API'si başvurusu].
+
+## <a name="march-2019"></a>Mart 2019
+
+Azure Media Services medya Hyperlapse önizleme özelliği kullanım dışı bırakıldı.
 
 ## <a name="december-2018"></a>Aralık 2018
 

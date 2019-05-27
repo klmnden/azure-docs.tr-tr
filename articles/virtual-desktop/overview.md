@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606400"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965726"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemesi nedir? 
 
@@ -54,11 +54,6 @@ Atama ve kullanıcılar için sanal masaüstlerinizi bağlanın:
 
 Windows sanal masaüstü bağlantısı kurma ve kullanıcılarınızın Windows Masaüstü ve uygulamalar için başarıyla bağlanması için gereken birkaç nokta vardır.
 
-Windows sanal masaüstü yalnızca şu anda aşağıdaki iki işletim sistemi destekler:
-
-* Windows 10 Enterprise çok oturum
-* Windows Server 2016
-
 Aşağıdaki işletim sistemleri için destek eklemek için bu nedenle sahip olduğunuzdan emin olun planlıyoruz [uygun lisansları](https://azure.microsoft.com/pricing/details/virtual-desktop/) Masaüstü ve uygulamaları dağıtmayı planladığınız göre kullanıcılarınız için:
 
 |İşletim Sistemi|Gerekli lisans|
@@ -78,9 +73,7 @@ Altyapınızı Windows sanal masaüstü desteklemek için aşağıdakiler gereki
 Windows sanal masaüstü için oluşturduğunuz Azure sanal makineleri olması gerekir:
 
 * [Etki alanına katılmış standart](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) veya [hibrit AD'ye katılmış](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Sanal makineler, Azure AD'ye katılmış olamaz.
-* Aşağıdaki desteklenen işletim sistemi görüntüleri birini çalıştırıyor:
-  * Windows 10 Enterprise çok oturum
-  * Windows Server 2016
+* Aşağıdakilerden birini çalıştıran [desteklenen işletim sistemi görüntüleri](#supported-virtual-machine-os-image).
 
 >[!NOTE]
 >Bir Azure aboneliğine ihtiyacınız varsa, [bir aylık ücretsiz deneme için kaydolun](https://azure.microsoft.com/free/). Azure ücretsiz deneme sürümünü kullanıyorsanız, Windows Server Active Directory'nizi Azure Active Directory ile eşitlenmiş tutmak için Azure AD Domain Services'ı kullanmalısınız.
@@ -92,6 +85,21 @@ En iyi performans için ağınıza aşağıdaki gereksinimleri karşıladığın
 * Konak havuzları dağıtıldığı Azure bölgesi için istemcinin ağ üzerinden gidiş dönüş (RTT) gecikmesi 150 MS'den az olmalıdır.
 * Masaüstü ve uygulamaları barındıran VM'ler yönetim hizmetine bağlanırken ağ trafiğini dış ülke/bölge Kenarlıklar akış.
 * Ağ performansı için en iyi duruma getirmek için yönetim hizmeti ile aynı Azure bölgesinde üzere bu oturumu konağın VM'lerin birlikte öneririz.
+
+## <a name="supported-remote-desktop-clients"></a>Desteklenen bir Uzak Masaüstü istemcileri
+
+Windows sanal masaüstü aşağıdaki Uzak Masaüstü istemcileri destekler:
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>Desteklenen sanal makine işletim sistemi görüntüsü
+
+Windows sanal masaüstü aşağıdaki işletim sistemi görüntüleri destekler:
+
+* Windows 10 Enterprise çok oturum
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>Geri bildirim gönder
 

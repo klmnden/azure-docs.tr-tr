@@ -2,20 +2,20 @@
 title: 'Hızlı Başlangıç: Oluşturma ve Azure SQL veri ambarı - Azure portalı sorgu yürütme | Microsoft Docs'
 description: Oluşturun ve Azure SQL veri ambarı ile veri ambarı Azure portalındaki sorgu.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 08/02/2018
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732985"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169269"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında Azure SQL veri ambarı oluşturma ve sorgulama
 
@@ -194,7 +194,7 @@ Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
     ![Kaynakları temizleme](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. İşlemi duraklatmak için, **Duraklat** düğmesine tıklayın. Veri ambarı duraklatıldığında, bir **Başlat** düğmesi görürsünüz. İşlemi sürdürmek için **Başlat**’a tıklayın.
+2. İşlemi duraklatmak için, **Duraklat** düğmesine tıklayın. Veri ambarı duraklatıldığında gördüğünüz bir **sürdürme** düğmesi. İşlemi sürdürmek için tıklayın **sürdürme**.
 
 3. İşlem veya depolama için ücretlendirilmemek üzere veri ambarını kaldırmak için **Sil**’e tıklayın.
 

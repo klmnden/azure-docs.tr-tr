@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171409"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma
 
@@ -31,7 +31,7 @@ Birden fazla aboneliğiniz varsa kaynağı içeren aboneliği veya faturalandır
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir [Azure kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -47,12 +47,12 @@ az group create --name myresourcegroup --location westus
 
 Ayar | Örnek değer | Açıklama
 ---|---|---
-ad | **mydemoserver** | MariaDB için Azure Veritabanı sunucunuzu tanımlayan benzersiz bir ad girin. Sunucu adı yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini içerebilir. 3 ile 63 arasında karakter içermelidir.
+name | **mydemoserver** | MariaDB için Azure Veritabanı sunucunuzu tanımlayan benzersiz bir ad girin. Sunucu adı yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini içerebilir. 3 ile 63 arasında karakter içermelidir.
 resource-group | **myresourcegroup** | Azure kaynak grubunun adını girin.
 sku-name | **GP_Gen5_2** | SKU'nun adı. Kısaca *fiyatlandırma katmanı*\_*işlem nesli*\_*sanal çekirdek sayısı* kuralına uyar. **sku-name** parametresi hakkında daha fazla bilgi için bu tablonun altındaki bölüme bakın.
 backup-retention | **7** | Yedeklemenin ne kadar süreyle tutulacağı. Birim olarak gün kullanılır. Aralığı: 7 ila 35. 
 geo-redundant-backup | **Devre dışı** | Coğrafi olarak yedekli yedeklemelerin bu sunucu için etkinleştirilip etkinleştirilmeyeceği. İzin verilen değerler: **Etkin**, **devre dışı bırakılmış**.
-location | **westus** | Sunucu için Azure konumu.
+konum | **westus** | Sunucu için Azure konumu.
 ssl-enforcement | **Etkin** | Bu sunucu için SSL'in etkinleştirilip etkinleştirilmeyeceği. İzin verilen değerler: **Etkin**, **devre dışı bırakılmış**.
 storage-size | **51200** | Sunucunun depolama kapasitesi (birim olarak megabayt kullanılır). Geçerli depolama boyutları 5.120 MB (minimum) ile başlar ve 1.024 MB artar. Depolama boyutu sınırları hakkında daha fazla bilgi için bkz. [Fiyatlandırma katmanları](./concepts-pricing-tiers.md). 
 version | **10.2** | MariaDB büyük altyapı sürümü.
@@ -215,8 +215,8 @@ mysql komut satırı aracını kullanarak sunucuya bağlanmak için:
    |---|---|---|
    | Bağlantı Adı | **Tanıtım bağlantısı** | Bu bağlantı için bir etiket girin (bağlantı adı herhangi bir şey olabilir) |
    | Bağlantı Yöntemi | **Standart (TCP/IP)** | MariaDB için Azure Veritabanı'na bağlanmak için TCP/IP protokolünü kullanın |
-   | Ana Bilgisayar Adı | **mydemoserver.mariadb.database.azure.com** | Daha önceden not aldığınız sunucu adı. |
-   | Bağlantı noktası | **3306** | MariaDB için Azure Veritabanı'nın varsayılan bağlantı noktası. |
+   | Konak adı | **mydemoserver.mariadb.database.azure.com** | Daha önceden not aldığınız sunucu adı. |
+   | Port | **3306** | MariaDB için Azure Veritabanı'nın varsayılan bağlantı noktası. |
    | Kullanıcı adı | **myadmin\@demosunucum** | Daha önceden not aldığınız sunucu yöneticisi oturum açma bilgileri. |
    | Parola | *parolanız* | Önceden belirlediğiniz yönetici parolasını kullanın. |
 

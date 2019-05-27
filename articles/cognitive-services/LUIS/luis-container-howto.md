@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072997"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124338"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -109,7 +109,7 @@ Giriş bağlama directory içerebilir **üretim**, **hazırlama**, ve **Trained*
 |Paket türü|Sorgu uç API'si|Sorgu kullanılabilirlik|Paket dosya adı biçimi|
 |--|--|--|--|
 |Eğitildi|GET, Post|Kapsayıcı yalnızca|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Staging|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_STAGING.gz`|
+|Hazırlanıyor|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_STAGING.gz`|
 |Üretim|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -256,15 +256,19 @@ Daha fazla [örnekler](luis-container-configuration.md#example-docker-run-comman
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## <a name="endpoint-apis-supported-by-the-container"></a>Kapsayıcı tarafından desteklenen API uç noktası
+
+Her iki V2 ve [V3 (Önizleme)](luis-migration-api-v3.md) kapsayıcı ile API sürümlerinde kullanılabilir. 
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Sorgu kapsayıcının tahmini uç noktası
 
 Kapsayıcı, REST tabanlı sorgu tahmin uç nokta API'leri sağlar. Uç noktaları (hazırlık veya üretim) yayımlanan uygulamalar için bir _farklı_ daha eğitilen uygulamalar için uç nokta yolu. 
 
 Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri için. 
 
-|Paket türü|Yöntem|Yol|Sorgu parametreleri|
+|Paket türü|Yöntem|Rota|Sorgu parametreleri|
 |--|--|--|--|
-|Yayımlanma|[Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [sonrası](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>& hazırlama<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]<br>|
+|Yayımlandı|[Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [sonrası](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>& hazırlama<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]<br>|
 |Eğitildi|GET, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]|
 
 Sorgu parametrelerini yapılandırma nasıl ve ne sorgu yanıtına döndürülür:
@@ -329,7 +333,7 @@ Burada kapsayıcı çalışıyor, komut satırı ortamında kapsayıcı kapatmak
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](luis-container-configuration.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Fatura bilgilerini azure'a, kullanarak LUIS kapsayıcı gönderen bir _Bilişsel Hizmetler_ Azure hesabınız kaynaktaki. 
 

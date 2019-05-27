@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 0861c47ef9f9649dfe223d8abeb51310a87ea4a9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169849"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Hızlı Başlangıç: Web uç noktasına Azure portalı ve Event Grid ile özel olaylarını yönlendirme
 
@@ -100,7 +100,7 @@ Event Grid’e hangi olayları izlemek istediğinizi ve olayların nereye gönde
 Birinci örnekte, Azure CLI kullanılmaktadır. Özel konunun URL’si ve anahtarı ile örnek olay verilerini alır. `<topic name>` yerine özel konunuzun adını yazın. Örnek olay verileri oluşturulur. JSON’un `data` öğesi, olayınızın yüküdür. Bu alana doğru oluşturulmuş herhangi bir JSON gelebilir. Ayrıca, gelişmiş yönlendirme ve filtreleme için konu alanını da kullanabilirsiniz. CURL, HTTP istekleri gönderen bir yardımcı programdır.
 
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 1. Azure portalında **Cloud Shell**. Seçin **Bash** Cloud Shell penceresinin sol üst köşesindeki. 
 
     ![Cloud Shell'i - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)

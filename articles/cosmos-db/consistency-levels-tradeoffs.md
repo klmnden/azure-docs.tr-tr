@@ -4,15 +4,15 @@ description: Azure Cosmos DB'de çeşitli tutarlılık düzeyleri için kullanı
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894037"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990218"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans dengeleri 
 
@@ -55,9 +55,9 @@ Aşağıdaki tabloda tutarlılık modeli ve veri dayanıklılığı bölge geni�
 |1|Tek veya çok yöneticili|Herhangi bir tutarlılık düzeyi|< 240 dakika|< 1 hafta|
 |>1|Tek yönetici|Oturum, tutarlı ön ek, nihai|< 15 dakika|< 15 dakika|
 |>1|Tek yönetici|Sınırlanmış Eskime Durumu|*K* & *T*|< 15 dakika|
+|>1|Tek yönetici|Güçlü|0|< 15 dakika|
 |>1|Çok yöneticili|Oturum, tutarlı ön ek, nihai|< 15 dakika|0|
 |>1|Çok yöneticili|Sınırlanmış Eskime Durumu|*K* & *T*|0|
-|>1|Tek veya çok yöneticili|Güçlü|0|< 15 dakika|
 
 *K* sayısı = *"K"* bir öğe (yani, güncelleştirmeleri) sürümleri.
 

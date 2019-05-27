@@ -9,11 +9,11 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ece75ff84c9f45e7284d7a5976f55f8a4ac4680f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366390"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158767"
 ---
 Bu makalede PowerShell cmdlet'lerini kullanır. Cmdlet'leri çalıştırmak için Azure Cloud Shell, kullanabileceğiniz ücretsiz bir etkileşimli Kabuk. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. **Kopyala**’ya tıklayarak kodu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın. Cloud Shell’i başlatmanın birkaç yolu vardır:
 

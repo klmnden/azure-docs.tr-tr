@@ -5,18 +5,18 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367991"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991583"
 ---
-# <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
-Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanabilirsiniz. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır ve tahmini performans SKU ve ağ geçidi türleri, SKU'ları hakkında bilgiler içerir.
+# <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute sanal ağ geçidi ve FastPath
+Azure sanal ağınız ve ExpressRoute aracılığıyla şirket içi ağınıza bağlanmak için bir sanal ağ geçidi oluşturmalısınız. Bir sanal ağ geçidi iki amaca hizmet eder: exchange IP yolları ağları arasında ağ trafiği yönlendirme. Bu makalede, ağ geçidi türleri, ağ geçidi SKU'ları ve SKU'ya göre tahmini performans açıklanmaktadır. Bu makalede ayrıca ExpressRoute açıklar [FastPath](#fastpath), performansı artırmak için sanal ağ geçidi atlamak için şirket içi ağınızdan ağ trafiğini etkinleştiren bir özellik.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,6 +59,15 @@ Bölgesel olarak yedekli ağ geçitleri, ExpressRoute ağ geçidi için belirli 
 
 Yeni ağ geçidi SKU'ları, en iyi sonucu gereksinimlerinize uyacak şekilde diğer dağıtım seçenekleri de destekler. Yeni ağ geçidi SKU'ları kullanarak bir sanal ağ geçidi oluştururken, aynı zamanda belirli bir bölgenin ağ geçidi dağıtmak için seçeneğiniz vardır. Bu, bölgesel bir ağ geçidi olarak adlandırılır. Bölgesel bir ağ geçidi dağıttığınızda, ağ geçidinin tüm örnekleri aynı kullanılabilirlik alanında dağıtılır.
 
+## <a name="fastpath"></a>FastPath
+ExpressRoute sanal ağ geçidi, ağ yollarını gönderip ve ağ trafiğini yönlendirmek için tasarlanmıştır. FastPath sanal ağınız ile şirket içi ağınız arasında veri yolu performansını artırmak için tasarlanmıştır. Etkin olduğunda, FastPath ağ trafiğini doğrudan sanal ağdaki sanal makinelerin ağ geçidi atlayarak gönderir. 
+
+FastPath edinilebilir [ExpressRoute doğrudan](expressroute-erdirect-about.md) yalnızca. Bu özellik yalnızca, diğer bir deyişle, etkinleştirebilirsiniz, [uygulamanızı sanal ağınıza bağlama](expressroute-howto-linkvnet-arm.md) bir ExpressRoute doğrudan bağlantı noktasında oluşturulan bir ExpressRoute devresi için. FastPath yine de şirket içi ağ ile sanal ağ arasındaki yolları için oluşturulacak sanal ağ geçidi gerektirir. Sanal ağ geçidi, Ultra yüksek performans veya ErGw3AZ olması gerekir.
+
+FastPath aşağıdaki özellikleri desteklemez:
+* Ağ geçidi alt ağı üzerinde UDR: şirket içi ağınızdan ağ trafiğini sanal ağ geçidi için gönderilecek devam edecek, sanal ağınızın ağ geçidi alt ağı için UDR geçerli değilse.
+* VNet eşlemesi: varsa diğer sanal ağlar ile şirket içi ağınızdan ağ trafiğini diğer sanal ağlara (yani sözde "Uç" sanal ağlar) sanal ağa gönderilecek devam edecek expressroute'a bağlı bir eşlenmiş ağ geçidi. Tüm sanal ağları ExpressRoute işlem hattına doğrudan bağlanmak için çözüm olabilir.
+
 ## <a name="resources"></a>REST API ve PowerShell cmdlet'leri
 Ek teknik kaynaklar ve sanal ağ geçidi yapılandırması için REST API'ler ve PowerShell cmdlet'lerini kullanırken, belirli bir söz dizimi gereksinimler için şu sayfalara bakın:
 
@@ -73,3 +82,5 @@ Bkz: [Expressroute'a genel bakış](expressroute-introduction.md) kullanılabili
 Bkz: [ExpressRoute için sanal ağ geçidi oluşturma](expressroute-howto-add-gateway-resource-manager.md) ExpressRoute ağ geçitleri oluşturma hakkında daha fazla bilgi için.
 
 Bkz: [bölgesel olarak yedekli sanal ağ geçidi oluşturma](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) bölgesel olarak yedekli ağ geçitlerini yapılandırma hakkında daha fazla bilgi.
+
+Bkz: [ExpressRoute için sanal ağ bağlantısı](expressroute-howto-linkvnet-arm.md) FastPath etkinleştirme hakkında daha fazla bilgi için. 

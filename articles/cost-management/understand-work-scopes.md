@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003021"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991392"
 ---
 # <a name="understand-and-work-with-scopes"></a>Kapsamları anlama ve bunlarla çalışma
 
@@ -60,14 +60,14 @@ Aşağıdaki yerleşik rolleri her biri aşağıdaki kapsamlar için maliyet Yö
 - [**Sahibi** ](../role-based-access-control/built-in-roles.md#owner) – maliyetleri görüntüleyebilir ve maliyet yapılandırma dahil her şeyi yönetme.
 - [**Katkıda bulunan** ](../role-based-access-control/built-in-roles.md#contributor) – maliyetleri görüntüleyebilir ve her şeyi, maliyet yapılandırılması dahil olmak üzere, ancak erişim denetimi dışında yönetin.
 - [**Okuyucu** ](../role-based-access-control/built-in-roles.md#reader) – maliyet verileri ve yapılandırma dahil olmak üzere her şeyi görüntüleyebilir ancak değişiklik yapamazsınız.
-- [**Maliyet Yönetimi katkıda bulunan** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – maliyetleri görüntüleyebilir ve maliyet yapılandırmasını yönetin.
-- [**Maliyet Yönetimi okuyucu** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – maliyet verileri ve yapılandırma görüntüleyebilirsiniz.
+- [**Maliyet Yönetimi katkıda bulunan** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – görüntüleyebilir maliyetleri, maliyet yapılandırmasını yönetmek ve önerileri görüntüleyin.
+- [**Maliyet Yönetimi okuyucu** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – maliyet verileri, maliyet yapılandırma, görüntüleme ve önerileri görüntüleyin.
 
 Maliyet Yönetimi katkıda önerilen en az ayrıcalıklı rol bulunur. Bu, oluşturmak ve bütçelerini yönetmek erişim veriyor ve daha etkili bir şekilde izlemek ve maliyetleri rapor verir. Maliyet Yönetimi Katkıda Bulunanlar, uçtan uca maliyet yönetim senaryolarını desteklemek için ek rolleri de gerektirebilir. Aşağıdaki senaryoları düşünün:
 
 - **Hareket bütçelerini aşıldığında** – maliyet Yönetimi Katkıda Bulunanlar, oluşturma ve/veya fazla kullanımlar için otomatik olarak tepki vermek için Eylem grupları yönetmek için erişim da gerekir. Vermeyi düşünün [izleme katılımcı](../role-based-access-control/built-in-roles.md#monitoring-contributor) kullanmak üzere eylem grubu içeren bir kaynak grubu için bütçe eşikleri aşıldığında. Ek roller, belirli eylemleri otomatikleştirme, otomasyon ve Azure işlevleri gibi kullanılan belirli hizmetler için gerektirir.
 - **Verileri dışarı aktarma maliyet zamanlama** – maliyet Yönetimi Katkıda Bulunanlar, verileri bir depolama hesabına kopyalamak için bir verme zamanlamak için depolama hesaplarını yönetme erişimi de gerekir. Vermeyi düşünün [depolama hesabı Katılımcısı](../role-based-access-control/built-in-roles.md#storage-account-contributor) depolama içeren bir kaynak grubu hesabı nerede maliyet verilerini dışarı aktarılır.
-- **Maliyet tasarrufu önerileri görüntüleme** – maliyet Yönetimi okuyucu ve katkıda bulunanlar yoksa erişiminiz önerileri varsayılan olarak. Öneriler erişim kaynakların okuma erişimi gerektirir. Vermeyi düşünün [okuyucu](../role-based-access-control/built-in-roles.md#reader) veya [hizmete özgü rol](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Maliyet tasarrufu önerileri görüntüleme** – maliyet Yönetimi okuyucular ve maliyet Yönetimi katkıda bulunan erişimine sahip *görünümü* varsayılan olarak öneriler maliyeti. Bununla birlikte, maliyet önerileri yapacak erişim kaynakların erişim gerektirir. Vermeyi düşünün bir [hizmete özgü rol](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) bir maliyet tabanlı öneriye yapmasını istiyorsanız.
 
 ## <a name="enterprise-agreement-scopes"></a>Kurumsal Anlaşma kapsamları
 

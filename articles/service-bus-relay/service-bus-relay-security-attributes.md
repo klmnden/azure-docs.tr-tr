@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f8827ac290393c9f394c3b13149555a1a2aa6df9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927500"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000160"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-relay"></a>Azure Service Bus geçişi için ortak güvenlik öznitelikleri
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Azure Service Bus geçişi için güvenlik öznitelikleri
 
-Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makale, Azure Service Bus geçişi içinde oluşturulan genel güvenlik özniteliklerini içermektedir.
+Bu makale, Azure Service Bus geçişi içinde yerleşik güvenlik özniteliklerini içermektedir.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,7 +27,7 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makale, Azur
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
 | Bekleme sırasında şifreleme:<ul><li>Sunucu tarafı şifrelemesi</li><li>Müşteri tarafından yönetilen anahtarlarla sunucu tarafı şifrelemesi</li><li>Diğer şifreleme özellikleri (örneğin, istemci tarafı, her zaman şifreli, vb.)</ul>|  Yok | Geçiş, bir web yuvası ve veri devam etmez. |
-| Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>Vnet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet | Hizmet, TLS gerektirir. |
+| Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>VNet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet | Hizmet, TLS gerektirir. |
 | Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Hayır | Yalnızca Microsoft TLS sertifikaları kullanır.  |
 | Sütun düzeyinde şifrelemeyi (Azure Data Services)| Yok | |
 | Şifrelenmiş API çağrıları| Evet | HTTPS. |

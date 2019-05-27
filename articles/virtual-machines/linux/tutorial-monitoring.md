@@ -17,11 +17,11 @@ ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169559"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Öğretici: İzleme ve azure'da bir Linux sanal makinesi güncelleştirme
 
@@ -29,7 +29,7 @@ Azure’daki sanal makinelerin (VM) düzgün bir şekilde çalıştığından em
 
 > [!div class="checklist"]
 > * VM’de önyükleme tanılamalarını etkinleştirme
-> * Önyükleme tanılamasını görüntüleme
+> * Önyükleme tanılamasını görüntüle
 > * Konak ölçümlerini görüntüleme
 > * VM’de tanılama uzantısını etkinleştirme
 > * VM ölçümlerini görüntüleme
@@ -42,7 +42,7 @@ Azure’daki sanal makinelerin (VM) düzgün bir şekilde çalıştığından em
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-vm"></a>VM oluşturma
+## <a name="create-vm"></a>VM Oluştur
 
 Tanılama ve ölçüm özelliklerinin nasıl çalıştığını görmek için bir VM gerekir. Öncelikle [az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupMonitor* adlı bir kaynak grubu oluşturur.
 
@@ -92,7 +92,7 @@ az vm boot-diagnostics enable \
   --storage $bloburi
 ```
 
-## <a name="view-boot-diagnostics"></a>Önyükleme tanılamasını görüntüleme
+## <a name="view-boot-diagnostics"></a>Önyükleme tanılamasını görüntüle
 
 Önyükleme tanılaması etkinleştirildiğinde, VM’yi durdurduğunuz ve başlattığınızda her seferinde önyükleme işlemiyle ilgili bilgiler bir günlük dosyasına yazılır. Bu örnekte öncelikle [az vm deallocate](/cli/azure/vm#az-vm-deallocate) komutuyla VM’yi şu şekilde serbest bırakın:
 
@@ -140,7 +140,7 @@ VM ölçümlerini, konak VM ölçümlerini görüntülediğiniz gibi görüntül
 
     ![VM ölçümlerini görüntüleme](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
-## <a name="create-alerts"></a>Uyarı oluşturma
+## <a name="create-alerts"></a>Uyarı oluştur
 
 Belirli performans ölçümlerine bağlı uyarılar oluşturabilirsiniz. Uyarılar, ortalama CPU kullanımı belirli bir eşiği aştığında veya mevcut boş disk alanı belirli bir miktarın altına düştüğünde bildirim almak için kullanılabilir. Uyarılar Azure portalında görüntülenebilir veya e-posta ile gönderilebilir. Ayrıca oluşturulan uyarılara yanıt olarak Azure Otomasyonu runbook’larını veya Azure Logic Apps’i tetikleyebilirsiniz.
 
@@ -302,7 +302,7 @@ Bu öğreticide bir VM için güncelleştirmeleri yapılandırdınız, gözden g
 
 > [!div class="checklist"]
 > * VM’de önyükleme tanılamalarını etkinleştirme
-> * Önyükleme tanılamasını görüntüleme
+> * Önyükleme tanılamasını görüntüle
 > * Konak ölçümlerini görüntüleme
 > * VM’de tanılama uzantısını etkinleştirme
 > * VM ölçümlerini görüntüleme

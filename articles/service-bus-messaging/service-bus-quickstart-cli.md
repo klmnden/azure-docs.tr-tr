@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500643"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992036"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Service Bus kuyruğuna oluşturmak için Azure CLI'yi kullanma
 Bu hızlı başlangıçta, Azure CLI ve Service Bus Java Kitaplığı'nı kullanarak Service Bus ile ileti alma ve gönderme açıklar. Son olarak, daha teknik ayrıntılarla ilgileniyorsanız örnek kodun temel öğeleriyle ilgili [bir açıklamayı okuyabilirsiniz](#understand-the-sample-code).
@@ -26,7 +26,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturabil
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 Kullanırsanız **deneyin** Cloud Shell'i başlatmak için kimlik bilgilerinizi kullanarak Azure'da oturum açın düğmesi. 
 
 Cloud Shell ya da doğrudan ya da Azure portalında, geçiş için Web tarayıcınızdaki başlatılan varsa **Bash** görürseniz **PowerShell** Cloud Shell sol üst köşesindeki. 
@@ -366,6 +366,9 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 }
 ```
+
+> [!NOTE]
+> Service Bus kaynakları ile yönetebileceğiniz [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer/). Hizmet veri yolu Gezgini, bir Service Bus ad alanınıza bağlanın ve mesajlaşma varlıkları kolay bir şekilde yönetmek kullanıcıların sağlar. Araç, içeri/dışarı aktarma işlevleri veya konu, kuyruklar, abonelikler, geçiş hizmetleri, bildirim hub'ları ve olay hub'ları test etme olanağı gibi gelişmiş özellikler sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

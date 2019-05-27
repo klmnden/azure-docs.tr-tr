@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66170244"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Hızlı Başlangıç: Azure CLI ve Event Grid ile özel olayları Azure Kuyruk depolamaya yönlendirme
 
@@ -31,7 +31,7 @@ Azure portalında Cloud Shell kullanmak yerine, yerel makinenizde Azure CLI veya
 
 Bu makalede, Azure CLI kullanmak için komutlar sağlar. 
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Event Grid konuları Azure kaynaklarıdır ve bir Azure kaynak grubuna yerleştirilmelidir. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal koleksiyondur.
 

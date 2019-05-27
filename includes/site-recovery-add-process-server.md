@@ -4,24 +4,24 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: b6e3abb56ebd02131fac78c2a8f03ddcbf50958a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164999"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169950"
 ---
 1. Azure Site Recovery UnifiedSetup.exe dosyasını başlatın
 2. **Başlamadan önce** kısmında **Dağıtımı genişletmek için ek işlem sunucuları ekleyin**’i seçin.
 
-  ![İşlem sunucusu ekleme](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![İşlem sunucusu ekleme](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. **Yapılandırma Sunucusu Ayrıntıları**’nda Yapılandırma Sunucusunun IP adresini ve parolayı belirtin.
 
-  ![İşlem sunucusu ekleme 2](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![İşlem sunucusu ekleme 2](./media/site-recovery-add-process-server/ps-page-2.png)
 4. **İnternet Ayarları** kısmında, Yapılandırma Sunucusunda çalıştırılan Sağlayıcının, Azure Site Recovery'ye İnternet üzerinden nasıl bağlanacağını belirtin.
 
-  ![İşlem sunucusu ekleme 3](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![İşlem sunucusu ekleme 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * O anda makine üzerinde ayarlanmış olan bir ara sunucu ile bağlanmak isterseniz **Var olan ara sunucu ayarlarıyla bağlan** seçeneğini belirleyin.
    * Sağlayıcı'nın doğrudan bağlanmasını istiyorsanız **Ara sunucu olmadan doğrudan bağlan** seçeneğini belirleyin.

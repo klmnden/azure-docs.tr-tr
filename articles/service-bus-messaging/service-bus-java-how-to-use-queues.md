@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 032c4af0e36626881b514573cc4a5f966e8c2077
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510310"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991747"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -182,6 +182,9 @@ Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluş
 Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı yoktur ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve alınabilmesini kilit zaman aşımı dolmadan tekrar kullanılabilir.
 
 Uygulama iletiyi ancak önce çökmesi durumunda, **deleteMessage** isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya yeniden teslim. Bu durum *En Az Bir Kez İşleme* olarak adlandırılır. Her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılmasıdır **getMessageId** yöntemi iletinin teslim denemeleri arasında sabit kalır.
+
+> [!NOTE]
+> Service Bus kaynakları ile yönetebileceğiniz [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer/). Hizmet veri yolu Gezgini, bir Service Bus ad alanınıza bağlanın ve mesajlaşma varlıkları kolay bir şekilde yönetmek kullanıcıların sağlar. Araç, içeri/dışarı aktarma işlevleri veya konu, kuyruklar, abonelikler, geçiş hizmetleri, bildirim hub'ları ve olay hub'ları test etme olanağı gibi gelişmiş özellikler sağlar. 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre artık bkz [kuyruklar, konular ve abonelikler] [ Queues, topics, and subscriptions] daha fazla bilgi için.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415047"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988615"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS web uygulamaları için Azure Multi-Factor Authentication Sunucusu
 
@@ -30,7 +30,7 @@ Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli 
 
 1. Azure Multi-Factor Authentication Sunucusu’nun soldaki menüsünde IIS Kimlik Doğrulaması simgesine tıklayın.
 2. **Form Tabanlı** sekmesine tıklayın.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. Kullanıcı adı, parola ve etki alanı değişkenlerini otomatik olarak algılamak için oturum açma URL'sini girin (gibi `https://localhost/contoso/auth/login.aspx`) tıklatın ve otomatik yapılandırma form tabanlı Web sitesi iletişim kutusuna içinde **Tamam**.
 5. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
 6. Sayfa değişkenleri otomatik olarak algılanamıyorsa Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusunda **Elle Belirt**’e tıklayın.
@@ -54,12 +54,12 @@ Tümleşik Windows HTTP kimlik doğrulaması kullanan bir IIS web uygulamasını
 
 1. Azure Multi-Factor Authentication Sunucusu’nun soldaki menüsünde IIS Kimlik Doğrulaması simgesine tıklayın.
 2. **HTTP** sekmesine tıklayın.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. Taban URL'si Ekle iletişim kutusunda, HTTP kimlik doğrulamasının gerçekleştirileceği Web sitesinin URL'sini girin (gibi <http://localhost/owa>) ve (isteğe bağlı) bir uygulama adı sağlayın. Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
 5. Varsayılan yeterli değilse, Boşta kalma zaman aşımı ve Maksimum oturum sürelerini ayarlayın.
 6. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
 7. İsterseniz **Tanımlama bilgisi önbelleği** kutusunu işaretleyin.
-8. **Tamam** düğmesine tıklayın.
+8. **Tamam**'ı tıklatın.
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme
 
@@ -74,6 +74,6 @@ Form Tabanlı ya da HTTP kimlik doğrulaması URL’lerini ve ayarlarını yapı
 Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kaynaklanan web sitesi istekleri için Azure Multi-Factor Authentication’ı atlamasına olanak tanır. Örneğin, ofisten oturum açarken kullanıcıların Azure Multi-Factor Authentication’dan muaf tutulmasını isteyebilirsiniz. Bunun için ofis alt ağını Güvenilen IP’ler girişi olarak belirtebilirsiniz. Güvenilen IP’leri yapılandırmak için aşağıdaki yordamı kullanın:
 
 1. IIS Kimlik Doğrulaması bölümünde **Güvenilen IP'ler** sekmesine tıklayın.
-2. **Ekle**'ye tıklayın.
+2. **Ekle**'yi tıklatın.
 3. Güvenilen IP'leri Ekle iletişim kutusu göründüğünde **Tek IP**, **IP aralığı** veya **Alt ağ** radyo düğmesini seçin.
-4. Güvenilir listesinde olması gereken IP adresini, IP adresleri aralığını ya da alt ağı girin. Bir alt ağ giriyorsanız uygun Ağ maskesini seçip **Tamam**’a tıklayın. Güvenilir listesi şimdi eklendi.
+4. IP adresi, IP adresi aralığı veya izin verilmesi alt ağ girin. Bir alt ağ giriyorsanız uygun Ağ maskesini seçip **Tamam**’a tıklayın.

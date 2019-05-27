@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128656"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Sayısal işlevler için Azure Resource Manager şablonları
 
@@ -40,7 +40,7 @@ Resource Manager, tamsayı ile çalışmak için aşağıdaki işlevleri sunar:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>add
+## <a name="add"></a>ekle
 `add(operand1, operand2)`
 
 İki sağlanan tam sayının toplamını döndürür.
@@ -120,7 +120,7 @@ Bir yineleme döngüsü dizinini döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| loopName | Hayır | dize | Yineleme almak için döngünün adı. |
+| loopName | Hayır | string | Yineleme almak için döngünün adı. |
 | uzaklık |Hayır |int |Sıfır tabanlı yineleme değerine eklenecek sayı. |
 
 ### <a name="remarks"></a>Açıklamalar

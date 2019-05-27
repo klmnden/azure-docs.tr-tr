@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264126"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165503"
 ---
 1. Uzak Masaüstü ile sanal makineye bağlıyken **Yapılandırma Yöneticisi**‘ni arayın:
 
@@ -21,7 +21,7 @@ ms.locfileid: "51264126"
 
     ![TCP’yi Etkinleştirme](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. Konsol bölmesinde **SQL Server Hizmetleri**’ne tıklayın. Ayrıntılar bölmesinde, **SQL Server (*örnek adı*)** (varsayılan örnek **SQL Server (MSSQLSERVER)**) ve ardından **yenidenbaşlatın**, durdurmak ve SQL Server örneğini yeniden başlatın.
+1. Konsol bölmesinde **SQL Server Hizmetleri**’ne tıklayın. Ayrıntılar bölmesinde, **SQL Server (*örnek adı*)** (varsayılan örnek **SQL Server (MSSQLSERVER)** ) ve ardından **yenidenbaşlatın**, durdurmak ve SQL Server örneğini yeniden başlatın.
 
     ![Veritabanı Altyapısını Yeniden Başlatma](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

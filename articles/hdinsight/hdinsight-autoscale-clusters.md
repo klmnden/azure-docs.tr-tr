@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413711"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000099"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight kümeleri (Önizleme) otomatik olarak ölçeklendirme
+
+> [!Important]
+> Otomatik ölçeklendirme özelliği, yalnızca 8 Mayıs 2019'den sonra oluşturulmuş Spark, Hive ve MapReduce kümeleri için çalışır. 
 
 Azure HDInsight'ın küme otomatik ölçeklendirme özelliği otomatik olarak çalışan düğümü sayısı bir kümede yukarı ve aşağı ölçeklendirir. Kümedeki düğümler diğer türleri şu anda ölçeklendirilemiyor.  Yeni bir HDInsight kümesi oluşturma sırasında çalışan düğümlerinin minimum ve maksimum sayısını ayarlayabilirsiniz. Otomatik ölçeklendirme analytics yükü kaynak gereksinimlerini izler ve çalışan düğüm sayısı yukarı veya aşağı ölçeklendirir. Bu özellik için ek ücret yoktur.
 
 ## <a name="cluster-compatibility"></a>Küme uyumluluğu
-
-> [!Important]
-> Otomatik ölçeklendirme özelliği, yalnızca Mayıs 2019 özelliğinin genel kullanılabilirlik sonrasında oluşturulmuş kümeleri için çalışır. Önceden var olan kümeleri için çalışmaz.
 
 Aşağıdaki tabloda, küme türlerini ve otomatik ölçeklendirme özelliği ile uyumlu sürümlerini açıklar.
 
@@ -189,6 +189,25 @@ Bir HDInsight kümesi zamanlama tabanlı otomatik ölçeklendirme ile bir Azure 
 Çalışan bir küme üzerinde otomatik ölçeklendirmeyi etkinleştirmek için seçin **küme boyutu** altında **ayarları**. Ardından **etkinleştirmek otomatik ölçeklendirme**. İstediğiniz ve yük veya zamanlama tabanlı ölçeklendirme seçeneklerini girin otomatik ölçeklendirme türünü seçin. Son olarak, tıklayın **Kaydet**.
 
 ![Çalışan düğümü zamanlama tabanlı ölçeklendirme seçeneğini etkinleştirin](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>En iyi yöntemler
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Yük veya zamanlama tabanlı ölçeklendirme seçme
+
+Hangi modun seçme hakkında bir karar vermeden önce aşağıdaki faktörleri göz önünde bulundurun:
+
+* Varyans yükleyin: yük belirli günlerde belirli zamanlarda tutarlı bir deseni takip ediyor. Aksi durumda, zamanlama temelinde yük daha iyi bir seçenektir.
+* SLA'sı gereksinimleri: Otomatik ölçeklendirme ölçeklendirme yerine Tahmine dayalı reaktif. Yük artışı ve küme hedef boyutunda olması gerektiğinde başladığında arasında yeterli bir gecikme olacak? Katı bir SLA'sı gereksinimleri vardır ve sabit bilinen bir deseni yük ise, 'zamanlama tabanlı' daha iyi bir seçenektir.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Ölçek gecikme süresini göz önünde bulundurun veya işlemleri ölçeklendirin
+
+Uygulamanın, bir ölçeklendirme işleminin tamamlanması için 10-20 dakika sürebilir. Özelleştirilmiş zaman çizelgesi ayarlamak, bu gecikme planlayın. Küme boyutu, 20 9: 00'da olması gerekiyorsa, 09:00:00 ile ölçeklendirme işleminin tamamlanması için örneğin, zamanlama tetikleyicisi 8:30 AM gibi önceki bir zamana ayarlayın.
+
+### <a name="preparation-for-scaling-down"></a>Ölçeği azaltma için hazırlama
+
+Küme ölçeklendirme işlemi sırasında otomatik ölçeklendirme hedef boyutu karşılamak için düğümlerinin yetkisini alma. Bu düğümler üzerinde görevleri çalışan varsa, otomatik ölçeklendirme görevler tamamlanana kadar bekler. Her çalışan düğümü de bir rol HDFS'deki gördüğünden, geçici veriler için kalan düğümleri kaydırılır. Bu nedenle Kalan düğümlerde tüm geçici verileri barındırmak için yeterli alanı olduğundan emin olmanız gerekir. 
+
+Çalışan işleri çalıştırmak ve tamamlamak devam eder. Bekleyen işler, daha az kullanılabilir çalışan düğümü ile normal şekilde zamanlanması için bekler.
 
 ## <a name="monitoring"></a>İzleme
 

@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791491"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949913"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı'nda, tek ve havuza alınmış veritabanlarını yönetme
 
@@ -160,7 +160,7 @@ Uçuşan hassas verilerinizi korumaya ve bekleme sırasında SQL veritabanı adl
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Nasıl miyim Veritabanımın hassas verilere erişimi sınırlayabilir
 
-Her uygulamanın belirli bir bit hassas verilerin herkese görünür olmasını korunması gereken veritabanı vardır. Kuruluş içinde belirli bir personel, bu verileri görüntülemek için ancak diğerleri bu verileri işleyememelidir gerekir. Çalışan ücretler bir örnektir. Bir yönetici kullanıcının bağlı çalışanlarını ücret bilgilerini erişimi ancak gerekir, bireysel takım üyelerinin kendi eş ücret bilgilere erişimi olmaması. Örneğin, müşterilerin Ssn'ler test veya geliştirme aşamalarında hassas verilerle etkileşim veri geliştiriciler başka bir senaryodur. Bu bilgileri tekrar geliştirici için açık gerekmez. Bu gibi durumlarda, hassas verilerinizi ya da maskelenmiş olamaz ya da hiç gösterilmeyen gerekir. SQL veritabanı, yetkisiz kullanıcıların hassas verileri görüntüleyebilirsiniz engellemek için bu iki yaklaşımı sunar:
+Her uygulamanın belirli bir bit hassas verilerin herkese görünür olmasını korunması gereken veritabanı vardır. Kuruluş içinde belirli bir personel, bu verileri görüntülemek için ancak diğerleri bu verileri işleyememelidir gerekir. Çalışan ücretler bir örnektir. Bir yönetici ücret bilgilere erişim için doğrudan raporlarının ancak gerekir, bireysel takım üyelerinin kendi eş ücret bilgilere erişimi olmaması. Örneğin, müşterilerin Ssn'ler test veya geliştirme aşamalarında hassas verilerle etkileşim veri geliştiriciler başka bir senaryodur. Bu bilgileri tekrar geliştirici için açık gerekmez. Bu gibi durumlarda, hassas verilerinizi ya da maskelenmiş olamaz ya da hiç gösterilmeyen gerekir. SQL veritabanı, yetkisiz kullanıcıların hassas verileri görüntüleyebilirsiniz engellemek için bu iki yaklaşımı sunar:
 
 [Dinamik veri maskeleme](sql-database-dynamic-data-masking-get-started.md) , hassas verilerin görünürlüğünü ayrıcalık sahibi uygulama katmanı üzerinde ayrıcalıklı olmayan kullanıcıları maskeleyerek sınırlamanıza olanak tanır bir veri maskeleme özelliğidir. Maskeleme deseni oluşturan bir maskeleme kuralı tanımlayın (örneğin, yalnızca gösteriye abone son dört rakamı ulusal bir kimliği SSN: XXX-xx-0000 ve çoğu Xs olarak işaretleyin) ve hangi kullanıcıların maskeleme kuralından hariç tutulacak olduğunu belirleyin. Maskeleme üzerinde anında gerçekleşir ve çeşitli veri kategorileri için kullanılabilen çeşitli maskeleme işlevi vardır. Dinamik veri maskeleme, otomatik olarak veritabanınızda hassas verileri algılamak ve maskeleme uygulamak olanak tanır.
 

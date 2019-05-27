@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597497"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990209"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -166,7 +166,7 @@ Web API'leri oluşturabileceğiniz özel bağlayıcılar için sınırlar aşağ
 
 | Ad | Sınır |
 | ---- | ----- |
-| Azure abonelik kimlikleri sayısı sistem tarafından atanan mantıksal uygulamalarla yönetilen | 10 |
+| Azure abonelik kimlikleri sayısı sistem tarafından atanan mantıksal uygulamalarla yönetilen | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,7 +241,7 @@ Tüm mantıksal uygulamalar ile aynı bölgede aynı IP adresi aralıklarını k
 
 Çağrıları desteklemek için [Microsoft tarafından yönetilen Bağlayıcılar](../connectors/apis-list.md) güvenlik duvarınızla ayarlama yapma, *tüm* [giden](#outbound) bölgelerine bağlı, bu bağlayıcılar tarafından kullanılan IP adresleri logic apps bulunduğu. Bu adresler altında görünür **giden** Bu bölümde başlık ve bölgeye göre sıralanır.
 
-İçin [Azure kamu](../azure-government/documentation-government-overview.md) ve [Azure Çin 21Vianet](/azure/china/china-welcome), ayrılmış IP adresleri için bağlayıcılar şu anda kullanıma sunulmaz.
+İçin [Azure kamu](../azure-government/documentation-government-overview.md) ve [Azure Çin 21Vianet](https://docs.microsoft.com/azure/china/), ayrılmış IP adresleri için bağlayıcılar şu anda kullanıma sunulmaz.
 
 > [!IMPORTANT]
 >

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8ac0497b13dad6795e8dc7ffaf761fe887a9953
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414911"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988619"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Multi-Factor Authentication için NPS uzantısı için Gelişmiş yapılandırma seçenekleri
 
@@ -40,15 +40,15 @@ Alternatif oturum açma kimlikleri ile ilgili sorunları gidermek için önerile
 
 ## <a name="ip-exceptions"></a>IP özel durumları
 
-Sunucu kullanılabilirliği, yük Dengeleyiciler hangi sunucuların iş yükleri, göndermeden önce çalıştığını doğrulayın, gibi izlemeniz gerekiyorsa bu denetimler, doğrulama isteklerinin tarafından engellenmesi istemezsiniz. Bunun yerine, bildiğiniz hizmet hesapları tarafından kullanılan IP adreslerinden oluşan bir liste oluşturun ve söz konusu liste için çok faktörlü kimlik doğrulaması gereksinimleri devre dışı bırakın. 
+Sunucu kullanılabilirliği, yük Dengeleyiciler hangi sunucuların iş yükleri, göndermeden önce çalıştığını doğrulayın, gibi izlemeniz gerekiyorsa bu denetimler, doğrulama isteklerinin tarafından engellenmesi istemezsiniz. Bunun yerine, bildiğiniz hizmet hesapları tarafından kullanılan IP adreslerinden oluşan bir liste oluşturun ve söz konusu liste için çok faktörlü kimlik doğrulaması gereksinimleri devre dışı bırakın.
 
-Bir IP beyaz listesi yapılandırmak için Git `HKLM\SOFTWARE\Microsoft\AzureMfa` ve aşağıdaki kayıt defteri değeri yapılandırın: 
+İzin verilen listesi IP yapılandırmak için Git `HKLM\SOFTWARE\Microsoft\AzureMfa` ve aşağıdaki kayıt defteri değeri yapılandırın:
 
 | Ad | Tür | Varsayılan değer | Açıklama |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Boş | IP adresleri noktalı virgülle ayrılmış listesini sağlayın. Burada hizmet istekleri, NAS/VPN sunucusu gibi kaynaklanan makinelerin IP adreslerini içerir. IP aralıkları ve alt ağlar desteklenmiyor. <br><br> Örneğin, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Bir istek beyaz listedeki mevcut bir IP adresinden geldiğinde, iki aşamalı doğrulama atlandı. IP beyaz listesi, sağlanan IP adresi karşılaştırılan *ratNASIPAddress* RADIUS isteğini özniteliği. Bir RADIUS isteği ratNASIPAddress özniteliği olmadan geliyorsa, aşağıdaki uyarı kaydedilir: "Kaynak IP, RADIUS isteğini NasIpAddress özniteliği eksik olduğundan P_WHITE_LIST_WARNING::IP beyaz liste yok sayılıyor."
+Ne zaman bir istek geldiğinde, var olan bir IP adresinden `IP_WHITELIST`, iki aşamalı doğrulama atlandı. IP listesi, sağlanan IP adresi karşılaştırılan *ratNASIPAddress* RADIUS isteğini özniteliği. Bir RADIUS isteği ratNASIPAddress özniteliği olmadan geliyorsa, aşağıdaki uyarı kaydedilir: "Kaynak IP, RADIUS isteğini NasIpAddress özniteliği eksik olduğundan P_WHITE_LIST_WARNING::IP beyaz liste yok sayılıyor."
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

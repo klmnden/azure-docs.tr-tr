@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
 ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127782"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell kullanarak Windows Server/Windows İstemcisi için Azure’a yedekleme dağıtma ve yönetme
 
 Bu makalede Azure Backup Windows Server veya Windows istemci ayarlama ve yedekleme ve kurtarma yönetmek için PowerShell kullanmayı gösterir.
 
-## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
+## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleyin
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Başlamak için [en son PowerShell sürümü yüklemek](/powershell/azure/install-az-ps).

@@ -4,14 +4,14 @@ description: JSON alma, bilgilendirici raporlar oluşturabilir ve Azure Cosmos D
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929832"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979000"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI Bağlayıcısı'nı kullanarak Azure Cosmos DB verileri Görselleştir
 
@@ -48,7 +48,7 @@ Power BI öğreticideki yönergeleri izlemeden önce aşağıdaki kaynaklara eri
 
 PowerBI.com raporlarınızda paylaşmak için Powerbı.com'daki hesabınız olmalıdır.  Power BI ve Power BI Pro hakkında daha fazla bilgi için bkz: [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Başlayalım
+## <a name="lets-get-started"></a>Kullanmaya başlayın
 Şimdi bu öğreticide, dünyanın dört bir yanındaki volkanlar Çincesi bir geologist olduğunu hayal edin. Bir Azure Cosmos DB hesabını volkan veriler ve JSON belge biçimi aşağıdaki gibidir:
 
     {
@@ -120,7 +120,7 @@ Azure Cosmos DB hesabınızdan volkan verileri almak ve etkileşimli bir Power B
     ![Power BI öğretici için Azure Cosmos DB Power BI Bağlayıcısı - koordinatları listesi](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Koordinat dizisi düzleştirmek için oluşturma bir **özel sütun** LatLong çağrılır.  Seçin **Sütun Ekle** tıklayın ve Şerit **özel sütun**.  **Özel sütun** penceresi görüntülenir.
 8. Yeni bir sütun, örneğin LatLong için bir ad belirtin.
-9. Ardından, yeni bir sütun özel formülünü belirtin.  Bizim örneğimizde, biz aşağıdaki formülü kullanarak aşağıda gösterildiği gibi bir virgülle ayrılmış enlem ve boylam değerleri birleştirir: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. **Tamam** düğmesine tıklayın.
+9. Ardından, yeni bir sütun özel formülünü belirtin.  Bizim örneğimizde, biz aşağıdaki formülü kullanarak aşağıda gösterildiği gibi bir virgülle ayrılmış enlem ve boylam değerleri birleştirir: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. **Tamam**'ı tıklatın.
    
     Üzerinde veri çözümleme ifadeleri (DAX işlevleri dahil olmak üzere DAX) daha fazla bilgi için lütfen [Power BI Desktop'ta DAX temel bilgileri](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
@@ -168,7 +168,7 @@ Basit bir etkileşimli harita görünümü rapor oluşturmaya yönelik temel ad�
 Raporunuzu paylaşmak için Powerbı.com'daki bir hesabınızın olması gerekir.
 
 1. Power BI Desktop'ta tıklayarak **giriş** Şerit.
-2. **Yayımla**’ta tıklayın.  Olması istenir PowerBI.com hesabınız için kullanıcı adını ve parolasını girin.
+2. Tıklayın **yayımlama**.  Olması istenir PowerBI.com hesabınız için kullanıcı adını ve parolasını girin.
 3. Kimlik doğrulandıktan sonra raporu, seçtiğiniz hedef için yayımlanır.
 4. Tıklayın **Power bı'da Aç 'PowerBITutorial.pbix'** görmek ve PowerBI.com üzerinde raporunuzu paylaşmak için.
    

@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: spelluru
-ms.openlocfilehash: e943dbff71fdbd98773587c8ac5a62dd081b49a2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a392f8b11a7ab1ad72f4da289c54e34b022f1ea6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698848"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990307"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Hızlı Başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portalını kullanma
 Bu hızlı başlangıçta, Service Bus konusu oluşturun ve sonra bu konuya abonelik oluşturmak için Azure portalını kullanın. 
@@ -31,7 +31,8 @@ Service Bus konuları ve Abonelikleri, çok sayıda kullanıcılar ve uygulamala
 
 [!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-
+> [!NOTE]
+> Service Bus kaynakları ile yönetebileceğiniz [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer/). Hizmet veri yolu Gezgini, bir Service Bus ad alanınıza bağlanın ve mesajlaşma varlıkları kolay bir şekilde yönetmek kullanıcıların sağlar. Araç, içeri/dışarı aktarma işlevleri veya konu, kuyruklar, abonelikler, geçiş hizmetleri, bildirim hub'ları ve olay hub'ları test etme olanağı gibi gelişmiş özellikler sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir abonelik aracılığıyla bu iletileri alıp bir konuya ileti göndermek nasıl öğrenmek için şu makaleye bakın: içindekiler tablosunda programlama dilini seçin. 

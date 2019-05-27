@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2019
-ms.author: monhaber
-ms.openlocfilehash: e601bbaa0d15078fc2b19b5b7c536e3a1f6d20ad
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.author: v-mohabe
+ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442755"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968576"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Iaas SQL Server'lar için Gelişmiş veri güvenliği
 Iaas SQL Server'lar için Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Şu anda, görünmesini ve olası veritabanı güvenlik açıklarını azaltmaya ve veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya yönelik işlevleri içerir.

@@ -5,22 +5,23 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2017
+ms.date: 05/15/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797765"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991349"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure kuyruk depolama işlemleri
 
 Azure kuyruk depolama, çok sayıda herhangi bir HTTP veya HTTPS aracılığıyla dünyanın erişilebilen iletileri depolamak için kullanılan bir hizmettir. Ayrıntılı bilgi için bkz. [Azure kuyruklara giriş](storage-queues-introduction.md). Bu nasıl yapılır makalesi genel kuyruk depolama işlemleri kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
+>
 > * Kuyruk oluştur
 > * Bir kuyruğa alma
 > * Bir ileti ekleyin
@@ -53,7 +54,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluştur
 
-Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. 
+Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu.
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Kaynak grubu adı, gelecekte kullanım için bir değişkende Store. Bu örnekte, adlı bir kaynak grubu *howtoqueuesrg* oluşturulur *eastus* bölge.
 
@@ -114,7 +115,7 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
-# Add two more messages to the queue 
+# Add two more messages to the queue
 $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
@@ -123,15 +124,15 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Kullanırsanız [Azure Depolama Gezgini](https://storageexplorer.com), Azure hesabınıza bağlanın ve Kuyruklar depolama hesabında görüntüleyebilir ve detaya gitme kuyrukta iletileri görüntülemek için bir kuyruğun içine. 
+Kullanırsanız [Azure Depolama Gezgini](https://storageexplorer.com), Azure hesabınıza bağlanın ve Kuyruklar depolama hesabında görüntüleyebilir ve detaya gitme kuyrukta iletileri görüntülemek için bir kuyruğun içine.
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Kuyruktan bir ileti okuma ardından silin
 
 En iyi deneme ilk-giren ilk çıkar sırayla ileti okunur. Bu garanti edilmez. Kuyruktan ileti okurken sıraya isteyen tüm diğer işlemler için görünmez hale gelir. Bu iletiyi donanım veya yazılım arızasından dolayı kodunuzun başarısız olursa, kodunuzun başka bir örneği aynı iletiyi alıp yeniden deneyin, sağlar.  
 
-Bu **görünmezlik zaman aşımı** yeniden işleme için kullanılabilir olmadan önce ileti ne kadar süreyle görünmez kalır tanımlar. Varsayılan değer 30 saniyedir. 
+Bu **görünmezlik zaman aşımı** yeniden işleme için kullanılabilir olmadan önce ileti ne kadar süreyle görünmez kalır tanımlar. Varsayılan değer 30 saniyedir.
 
-Kodunuzun bir iletiyi kuyruktan iki adımda okur. Çağırdığınızda [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) kuyrukta sonraki iletiyi elde yöntemi. **GetMessage**’dan dönen bir ileti bu kuyruktaki kod okuyan iletilere karşı görünmez olur. İletiyi kuyruktan kaldırmayı tamamlamak için çağrı [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) yöntemi. 
+Kodunuzun bir iletiyi kuyruktan iki adımda okur. Çağırdığınızda [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) kuyrukta sonraki iletiyi elde yöntemi. **GetMessage**’dan dönen bir ileti bu kuyruktaki kod okuyan iletilere karşı görünmez olur. İletiyi kuyruktan kaldırmayı tamamlamak için çağrı [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) yöntemi.
 
 Aşağıdaki örnekte, üç kuyruk iletileri okumak ardından 10 saniye bekleyin (görünmezlik zaman aşımı). Çağırarak okuduğunuzda iletilerini silme yeniden üç iletileri okumak sonra **DeleteMessage**. Kuyruk iletileri silindikten sonra okumak çalışırsanız $queueMessage NULL olarak döndürülür.
 
@@ -148,7 +149,7 @@ $queueMessage.Result
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
 $queueMessage.Result
 
-# After 10 seconds, these messages reappear on the queue. 
+# After 10 seconds, these messages reappear on the queue.
 # Read them again, but delete each one after reading it.
 # Delete the message.
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
@@ -167,7 +168,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 Bir kuyruk ve içerdiği tüm iletileri silmek için Remove-AzStorageQueue cmdlet'ini çağırın. Aşağıdaki örnek Remove-AzStorageQueue cmdlet'ini kullanarak bu alıştırmada kullanılan belirli bir kuyruğa silme işlemini gösterir.
 
 ```powershell
-# Delete the queue 
+# Delete the queue
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
@@ -184,11 +185,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 Nasıl yapılır bu makalede PowerShell ile temel kuyruk Depolama Yönetimi hakkında bilgi öğrendiniz da dahil olmak üzere:
 
 > [!div class="checklist"]
+>
 > * Kuyruk oluştur
 > * Bir kuyruğa alma
 > * Bir ileti ekleyin
 > * Sonraki iletiyi okuyun
-> * İleti silme 
+> * İleti silme
 > * Bir kuyruk silme
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell depolama cmdlet'leri

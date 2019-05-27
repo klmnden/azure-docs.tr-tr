@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 1ab6bb069f60f4d2dbb4cfaecda54c3c2ef20adc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806439"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117333"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Hızlı Başlangıç: Jupyter Python not defterlerini kullanarak bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -26,17 +26,17 @@ ms.locfileid: "65806439"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Jupyter not defteri oluşturur, yükler ve Azure Search sorgular derleme [dizin](search-what-is-an-index.md) Python kullanarak ve [Azure arama hizmeti REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, derleme Not adım adım açıklanmaktadır. İsteğe bağlı olarak, tamamlanmış bir not defteri çalıştırabilirsiniz. Bir kopyasını indirmek için Git [Azure-Search-python-samples deposuna](https://github.com/Azure-Samples/azure-search-python-samples).
+Jupyter not defteri oluşturur, yükler ve Python kullanarak Azure Search dizini sorgular oluşturun ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, sıfırdan başlayarak adım adım bir not defteri oluşturmak açıklanmaktadır. Alternatif olarak, tamamlanmış bir not defteri çalıştırabilirsiniz. Bir kopyasını indirmek için Git [Azure-Search-python-samples deposuna](https://github.com/Azure-Samples/azure-search-python-samples).
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun ve [Azure Search hizmetine kaydolun](search-create-service-portal.md).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıçta, aşağıdaki hizmetler ve Araçlar kullanılır. 
 
-+ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
-
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), sağlama Python 3.x ve Jupyter not defterleri.
+
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
 
 ## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
@@ -67,9 +67,9 @@ Jupyter not defterini açın ve yerel iş istasyonunuzu bağlantısından hizmet
 1. İkinci hücresinde her istekte sabitleri olacak istek öğeleri girin. Arama hizmeti adı (YOUR-SEARCH-hizmet-adı) ve yönetici API anahtarını (YOUR-ADMIN-API-KEY) geçerli değerlerle değiştirin. 
 
    ```python
-    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-    api_version = '?api-version=2019-05-06'
-    headers = {'Content-Type': 'application/json',
+   endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
+   api_version = '?api-version=2019-05-06'
+   headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
@@ -98,7 +98,6 @@ Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut 
 Alanlar koleksiyonu yapısını tanımlayan bir *belge*. Bir dizinin gerekli öğeler, bir ad ve bir alanlar koleksiyonu içerir. Her alanın bir adı, türü ve nasıl kullanıldığını belirleyen özniteliklere sahip (örneğin, tam metin olup aranabilir, filtrelenebilir veya arama sonuçlarında alınabilir). Bir dizinin türü alanlardan biri içinde `Edm.String` olarak belirlenmesi gerekir *anahtar* belge kimliği.
 
 Bu dizin, "hotels-py" olarak adlandırılır ve aşağıda gördüğünüz alan tanımlarına sahip. Daha büyük bir alt kümesidir [Oteller dizinini](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) diğer izlenecek yollarında kullanılır. Biz, bu hızlı başlangıçta kısaltma kırpılır.
-
 
 1. Sonraki hücreye aşağıdaki örnekte şema sağlamak üzere bir hücreye yapıştırın. 
 
@@ -152,7 +151,7 @@ Bu dizin, "hotels-py" olarak adlandırılır ve aşağıda gördüğünüz alan 
 
 Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği kullanın. REST API [ekleme, güncelleştirme veya silme belgeleri](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Belgeler kaynaklanan gelen [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) GitHub üzerinde.
 
-1. Yeni bir hücreye dizin şemaya uygun üç belgeler sağlar. Her belge için karşıya yükleme eylemi belirtin.
+1. Yeni bir hücreye dizin şemaya uygun dört belgeler sağlar. Her belge için karşıya yükleme eylemi belirtin.
 
     ```python
     documents = {
@@ -212,7 +211,25 @@ Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği 
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
-        }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "4",
+        "HotelName": "Sublime Cliff Hotel",
+        "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+        "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+        "Category": "Boutique",
+        "Tags": [ "concierge", "view", "24-hour front desk service" ],
+        "ParkingIncluded": "true",
+        "LastRenovationDate": "1960-02-06T00:00:00Z",
+        "Rating": 4.60,
+        "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+       }
       }
      ]
     }
@@ -242,6 +259,10 @@ Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği 
            {'errorMessage': None,
             'key': '3',
             'status': True,
+            'statusCode': 201}]},
+           {'errorMessage': None,
+            'key': '4',
+            'status': True,
             'statusCode': 201}]}
      ```
 
@@ -266,7 +287,7 @@ Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgele
    pprint(query)
    ```
 
-   Sonuç aşağıdaki çıktıya benzer olmalıdır.
+   Sonuç aşağıdaki çıktıya benzer olmalıdır. Sonuçları unranked (search.score = 1.0) çünkü biz eşleştirilecek herhangi bir ölçütü sağlamadı.
 
    ```
    {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
@@ -279,14 +300,17 @@ Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgele
                'HotelName': 'Twin Dome Motel'},
               {'@search.score': 1.0,
                'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'}]}
+               'HotelName': 'Triple Landscape Hotel'},
+              {'@search.score': 1.0,
+               'HotelId': '4',
+               'HotelName': 'Sublime Cliff Hotel'}]}
    ```
 
-3. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. Bir filtre uygulamak, ilk iki sonucu alın, belirli bir alana göre sıralamak veya 
+3. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. Bir filtre uygulayabilir, ilk iki sonucu alın veya belirli bir alana göre sıralamak.
 
    + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
 
-   + `searchstring = '&search=hotel&$top=2&$select=HotelId,HotelName,Description'`
+   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
 
    + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
 
@@ -311,7 +335,7 @@ pprint(index_list)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sorgu söz dizimi ve senaryoları hakkında daha fazla bilgi edinin.
+Bu hızlı başlangıçta, bir basitleştirme Oteller dizinini kısaltılmış sürümü kullanılmaktadır. Daha ilgi çekici sorguları denemek için tam sürümü oluşturabilirsiniz. Tam sürümü ve 50 tüm belgeleri almak için çalıştırın **verileri içeri aktarma** seçme Sihirbazı *hotels örnek* yerleşik bir örnek veri kaynaklarından.
 
 > [!div class="nextstepaction"]
-> [Temel sorgu oluşturma](search-query-overview.md)
+> [Hızlı Başlangıç: Azure portalında bir dizin oluşturun](search-get-started-portal.md)

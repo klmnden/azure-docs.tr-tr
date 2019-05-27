@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: b33561ad80207a5d649ac1fd497c9d6c7add78c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe472b8a19b45d7f7b00a8f858c9179d6ee51999
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723979"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951587"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL veritabanı Machine Learning Hizmetleri ile R (Önizleme)
 
@@ -49,9 +49,7 @@ En sık kullanılan açık kaynaklı R paketleri Machine Learning Hizmetleri ön
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | Bu Kitaplığı'nda ölçeklenebilir r işlevleri arasında en yaygın kullanılan için RevoScaleR birincil kitaplığıdır. Veri dönüşümlerini ve işleme, istatistiksel özetleme, Görselleştirme ve modelleme çözümlemeler ve çok sayıda formlar bu kitaplıkları bulunamadı. Ayrıca, bu kitaplıkları olarak işlevleri otomatik olarak iş yükleri kullanılabilir çekirdek sayısı için paralel işleme öbekler halinde düzenlenir ve hesaplama altyapısı tarafından yönetilen veri çubuğunda çalışma olanağı ile dağıtabilirsiniz. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | Metin analizi, görüntü analizi ve yaklaşım analizi için özel modeller oluşturmak için machine learning algoritmaları MicrosoftML ekler. |
 
-<!-- Add this back when the new package-related article is written
-In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
--->
+Önceden yüklenmiş paketlerine ek olarak şunları yapabilirsiniz [ek paketler yüklemek](sql-database-machine-learning-services-add-r-packages.md).
 
 <a name="signup"></a>
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415503"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987753"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Azure Multi-Factor Authentication Sunucusunu AD FS 2.0 ile çalışacak şekilde yapılandırma
 
@@ -32,7 +32,7 @@ Ara sunucu ile AD FS 2.0’ı güvenli hale getirmek için ADFS ara sunucusuna A
 
 1. Azure Multi-Factor Authentication Sunucusu’nun soldaki menüsünde **IIS Kimlik Doğrulaması** simgesine tıklayın.
 2. **Form Tabanlı** sekmesine tıklayın.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 
    ![MFA sunucusu IIS kimlik doğrulaması penceresi](./media/howto-mfaserver-adfs-2/setup1.png)
 
@@ -70,7 +70,7 @@ IIS kimlik doğrulamasını etkinleştirdiniz, ancak LDAP aracılığıyla Activ
 
    ![Belirli LDAP ayarları için LDAP ayarlarını yapılandırma](./media/howto-mfaserver-adfs-2/ldap1.png)
 
-3. **Düzenle**’ye tıklayın.
+3. **Düzenle**‘ye tıklayın.
 4. LDAP Yapılandırmasını Düzenle iletişim kutusunda, AD etki alanı denetleyicisine bağlanmak için gerekli bilgilerle alanları doldurun. Bu alanların açıklamaları Azure Multi-Factor Authentication Sunucusu yardım dosyasında da bulunmaktadır.
 5. **Test** düğmesine tıklayarak LDAP bağlantısını test edin.
 
@@ -85,7 +85,7 @@ IIS kimlik doğrulamasını etkinleştirdiniz, ancak LDAP aracılığıyla Activ
 3. Kullanıcılar, kullanıcı adlarını “etki alanı\kullanıcı adı” biçiminde girerse Sunucunun, LDAP sorgusunu oluşturduğunda etki alanını kullanıcı adından çıkarabilmesi gerekir. Bu, bir kayıt defteri ayarı aracılığıyla yapılabilir.
 4. Kayıt defteri düzenleyicisini açın ve 64 bit sunucuda HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor öğesine gidin. 32 bit sunucuda, “Wow6432Node” öğesini yoldan çıkarın. “UsernameCxz_stripPrefixDomain” adlı bir DWORD kayıt defteri anahtarı oluşturun ve değeri 1 olarak ayarlayın. Azure Multi-Factor Authentication artık AD FS ara sunucusunu güvenli hale getirir.
 
-Kullanıcıların Active Directory’den Sunucuya aktarıldığından emin olun. Bu konumlardan web sitesinde oturum açarken iki aşamalı doğrulamanın gerekli olmaması için iç IP adreslerini güvenilir listeye almak istiyorsanız [Güvenilen IP’ler](#trusted-ips) bölümüne bakın.
+Kullanıcıların Active Directory’den Sunucuya aktarıldığından emin olun. Bkz: [güvenilen IP'ler bölümüne](#trusted-ips) iç izin vermek istiyorsanız, IP adresleri, böylece iki aşamalı doğrulama bu konumlardan Web sitesinde oturum açtığınızda gerekli değildir.
 
 ![Şirket ayarlarını yapılandırmak için Kayıt Defteri Düzenleyicisi](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -95,7 +95,7 @@ AD FS ara sunucusu kullanılmadığında AD FS’yi güvenli hale getirebilirsin
 
 1. Azure Multi-Factor Authentication Sunucusu’nun soldaki menüsünde **IIS Kimlik Doğrulaması** simgesine tıklayın.
 2. **HTTP** sekmesine tıklayın.
-3. **Ekle**'ye tıklayın.
+3. **Ekle**'yi tıklatın.
 4. Temel URL Ekle iletişim kutusunda, HTTP kimlik doğrulamasının gerçekleştirildiği AD FS web sitesinin URL’sini (https://sso.domain.com/adfs/ls/auth/integrated) gibi) Temel URL alanına girin. Ardından bir uygulama adı (isteğe bağlı) girin. Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
 5. İsterseniz, Boşta kalma zaman aşımı ve Maksimum oturum sürelerini ayarlayın.
 6. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve iki aşamalı doğrulamaya tabi olacaksa **Azure Multi-Factor Authentication kullanıcılarının eşleşmesini gerektir** kutusunu işaretleyin. Sunucu’ya henüz aktarılmamış ve/veya iki aşamalı doğrulamadan muaf tutulacak çok sayıda kullanıcı varsa kutunun işaretini kaldırın.
@@ -109,15 +109,17 @@ AD FS ara sunucusu kullanılmadığında AD FS’yi güvenli hale getirebilirsin
 
 Azure Multi-Factor Authentication artık AD FS’yi güvenli hale getirir.
 
-Kullanıcıların Active Directory’den Sunucuya aktarıldığından emin olun. Bu konumlardan web sitesinde oturum açarken iki aşamalı doğrulamanın gerekli olmaması için iç IP adreslerini güvenilir listeye almak istiyorsanız Güvenilen IP’ler bölümüne bakın.
+Kullanıcıların Active Directory’den Sunucuya aktarıldığından emin olun. İki aşamalı doğrulama bu konumlardan Web sitesinde oturum açtığınızda gerekli olmaması iç IP adreslerini izin vermek istiyorsanız güvenilen IP'ler bölümüne bakın.
 
 ## <a name="trusted-ips"></a>Güvenilen IP'ler
+
 Güvenilen IP'ler, kullanıcıların belirli IP adresleri veya alt ağlardan kaynaklanan web sitesi istekleri için Azure Multi-Factor Authentication’ı atlamasına olanak tanır. Örneğin, kullanıcıları ofiste oturum açtıklarında iki aşamalı doğrulamadan muaf tutabilirsiniz. Bunun için ofis alt ağını Güvenilen IP’ler girişi olarak belirtebilirsiniz.
 
 ### <a name="to-configure-trusted-ips"></a>Güvenilen IP'leri yapılandırmak için
+
 1. IIS Kimlik Doğrulaması bölümünde **Güvenilen IP'ler** sekmesine tıklayın.
 2. **Ekle…** düğmesine tıklayın.
 3. Güvenilen IP Ekle iletişim kutusu göründüğünde **Tek bir IP**, **IP aralığı** ve **Alt ağ** radyo düğmelerinden birini seçin.
-4. Güvenilir listede olması gereken IP adresini, IP adresleri aralığını ya da alt ağı girin. Bir alt ağ giriyorsanız uygun Ağ maskesini seçip **Tamam** düğmesine tıklayın. Güvenilen IP şimdi eklendi.
+4. IP adresi, IP adresi aralığı veya izin verilmesi alt ağ girin. Bir alt ağ giriyorsanız uygun Ağ maskesini seçip **Tamam** düğmesine tıklayın.
 
 ![MFA sunucusu için güvenilen IP'leri](./media/howto-mfaserver-adfs-2/trusted.png)

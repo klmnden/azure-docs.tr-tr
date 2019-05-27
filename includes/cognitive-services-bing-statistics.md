@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193500"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124727"
 ---
 Bing Statistics, Bing arama API'leri için analiz sağlar. Analytics çağrı hacmi, en iyi sorgu dizeleri, coğrafi dağılımı ve daha fazlasını içerir. Bing Statistics, Bing arama Ücretli aboneliği etkinleştirmek için gidin, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), ücretli aboneliğinizi seçin ve Bing Statistics Etkinleştir'e tıklayın. Bing Statistics etkinleştirme artırır, abonelik oranı biraz (bkz [fiyatlandırma](https://aka.ms/bingstatisticspricing)).
 
@@ -75,7 +75,7 @@ Aşağıdaki olası ölçümleridir. Her ölçüm bitiş noktası kısıtlamalar
   - /Videos/trending
   - / Video/ayrıntıları
   - /News
-  - / haber/trendingtopics
+  - /news/trendingtopics
   - /suggestions  
   
   > [!NOTE]  

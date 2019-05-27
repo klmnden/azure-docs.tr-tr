@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: e203877b2bc939c1d7fb9390df39f3e2451d12d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2781e3cc2433f73ba7ff33e5c452e29de746adf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852321"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956210"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Bir Linux yapılandırma ASP.NET Core uygulaması Azure App Service için
 
@@ -50,7 +50,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>Ortam değişkenlerine erişme
 
-Uygulama hizmetinde [uygulama ayarlarını belirlemek](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) , uygulama kodunuz dışında. Ardından, standart ASP.NET deseni kullanarak erişebilirsiniz:
+Uygulama hizmetinde [uygulama ayarlarını belirlemek](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) , uygulama kodunuz dışında. Ardından, standart ASP.NET deseni kullanarak erişebilirsiniz:
 
 ```csharp
 include Microsoft.Extensions.Configuration;

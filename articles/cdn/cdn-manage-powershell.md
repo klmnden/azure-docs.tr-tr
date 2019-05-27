@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: 5dc05b08e84decf958481d19b9cfb820947fae78
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0ad3d1693e2dbf1c4f5329ec23265ea1b3469e2e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66125449"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>PowerShell ile Azure CDN'yi yönetme
 PowerShell, Azure CDN profili ve uç noktaları yönetmek için en esnek yöntemi sağlar.  Yönetim görevlerini otomatik hale getirmek için etkileşimli olarak veya komut dosyası yazma PowerShell kullanabilirsiniz.  Bu öğretici, birkaç gösterir PowerShell ile Azure CDN profili ve uç noktaları yönetmek için en yaygın görevleri gerçekleştirebilirsiniz.

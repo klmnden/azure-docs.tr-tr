@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: bb47a1b828084673961a6d2c5657793b4437f294
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160583"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151697"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>IOT Edge, Linux kapsayıcıları çalıştırmak için Windows üzerinde kullanın.
 
@@ -64,6 +64,13 @@ Daha fazla farklı bir yükleme seçeneklerini ve parametrelerini makaledeki hak
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. PowerShell'i yönetici olarak çalıştırın.
+
+   >[!NOTE]
+   >IOT Edge, PowerShell (x86) yüklemek için bir AMD64 PowerShell oturumu kullanın. Kullanmakta olduğunuz hangi oturum türü emin değilseniz, aşağıdaki komutu çalıştırın:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. **Dağıt IoTEdge** komutu, Windows makinenizde desteklenen bir sürümü, kapsayıcıları özelliğini açar ve sonra (Linux kapsayıcıları için kullanılmaz) moby çalışma zamanı ve IOT Edge çalışma zamanı yükler denetler. Windows kapsayıcıları için komut varsayılan değerleri İstenen kapsayıcı işletim sistemi olarak bu nedenle Linux bildirin. 
 

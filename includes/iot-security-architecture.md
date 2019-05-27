@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626612"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166334"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Nesnelerin interneti (IOT) güvenlik mimarisi
 
@@ -175,16 +175,16 @@ Her Azure IOT mimaride özetlenen kategorileri, bu örnek veri/bilgi bulunmaktad
 
 **(T) oynama**: Saldırganlar cihaz üzerinde çalışan yazılımı kısmen veya tamamen değiştirebilir ve değiştirilen yazılım sayesinde cihazın özgün kimliğinden faydalanarak anahtarlardan veya önemli öğelerin yer aldığı şifreleme bilgilerinden faydalanabilir. Örneğin, bir saldırganın kesecek ve iletişim yolunun cihazda verileri gösterme ve çalınan anahtar malzemesi ile kimlik doğrulaması false veri yerine ayıklanan anahtar malzemesi yararlanarak.
 
-**Bilgi İfşası (ı)**: Cihaz yönetilebilen yazılım çalışıyorsa, yönetilebilen yazılımla yetkisiz taraflara veri sızıntı. Örneğin, bir saldırganın, kendisi cihaz denetleyicisi veya alan ağ geçidi veya bilgileri siphon için bulut ağ geçidi arasındaki iletişim yolunun uygulamasına eklemesine ayıklanan anahtar malzemesi yararlanarak.
+**Bilgi İfşası (ı)** : Cihaz yönetilebilen yazılım çalışıyorsa, yönetilebilen yazılımla yetkisiz taraflara veri sızıntı. Örneğin, bir saldırganın, kendisi cihaz denetleyicisi veya alan ağ geçidi veya bilgileri siphon için bulut ağ geçidi arasındaki iletişim yolunun uygulamasına eklemesine ayıklanan anahtar malzemesi yararlanarak.
 
 **(E) ayrıcalık yükseltme**: Belirli bir işlev için tasarlanmış olan bir cihaz başka bir göreve zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
 
 | **Bileşen** | **Tehdit** | **Risk azaltma** | **Risk** | **Uygulama** |
 | --- | --- | --- | --- | --- |
-| Cihaz |S |Cihaza kimlik atama ve cihaz kimlik doğrulaması |Aygıt veya aygıtın başka bir cihazı ile değiştiriliyor. Nasıl doğru cihaza varsayılır biliyor musunuz? |Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak cihaz kimlik doğrulaması. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD yararlanın [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Cihaz |P |Cihaza kimlik atama ve cihaz kimlik doğrulaması |Aygıt veya aygıtın başka bir cihazı ile değiştiriliyor. Nasıl doğru cihaza varsayılır biliyor musunuz? |Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak cihaz kimlik doğrulaması. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD yararlanın [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Cihaz tamperproof mekanizmalarına, örneğin, sabit için anahtarları ve diğer şifreleme malzemelerini CİHAZDAN ayıklamak mümkün kolaylaştırarak uygulayın. |Birisi (fiziksel girişim) cihaz oynama, riski oluşturur. Nasıl emin, bu cihaz misiniz oynanmış değil. |En etkili azaltma içinden anahtarları okunamaz, ancak yalnızca bu anahtarı kullanırsınız, ancak hiçbir zaman anahtarının ifşa şifreleme işlemleri için kullanılan özel yonga üzerinde devresi anahtarları depolama sağlayan güvenilir platform Modülü (TPM) özelliktir. Cihaz şifreleme bellek. Anahtar Yönetimi için cihaz. Kod imzalama. |
 || E |Cihazın erişim denetimi sahip. Yetkilendirme düzeni. |Cihazı için bireysel işlemlere gerçekleştirilecek bir dış kaynağa ya da güvenliği aşılmış sensörlerden komutları temel alınarak izin veriyorsa, aksi takdirde işlemleri gerçekleştirmek saldırı erişilebilir sağlar. |Cihaz için Yetkilendirme düzeni sahip |
-| Alan ağ geçidi |S |Bulut ağ geçidi için bir alan ağ geçidi (PSK, sertifika tabanlı veya talep tabanlı gibi.) kimlik doğrulaması |Ardından, birisi alan ağ geçidi davranabilir, kendisini herhangi bir CİHAZDAN sunabilir. |RSA/PSK TLS, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Aynı genel – aygıtların temel depolama ve kanıtlama sorunlarının en iyi durum kullanın TPM. Kablosuz algılayıcı ağları (WSN) desteklemek IPSec 6LowPAN uzantısı. |
+| Alan ağ geçidi |P |Bulut ağ geçidi için bir alan ağ geçidi (PSK, sertifika tabanlı veya talep tabanlı gibi.) kimlik doğrulaması |Ardından, birisi alan ağ geçidi davranabilir, kendisini herhangi bir CİHAZDAN sunabilir. |RSA/PSK TLS, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Aynı genel – aygıtların temel depolama ve kanıtlama sorunlarının en iyi durum kullanın TPM. Kablosuz algılayıcı ağları (WSN) desteklemek IPSec 6LowPAN uzantısı. |
 || TRID |Alan ağ geçidi (TPM?) izinsiz kullanıma karşı koruyun |Alan ağ geçidi için Bahsediyor bulut ağ geçidi düşünmeye kandırmaya saldırıları yanıltma bilgi ifşasına ve verilerin izinsiz kullanımına neden olabilir |Bellek şifreleme, TPM's, kimlik doğrulaması. |
 || E |Alan ağ geçidi için erişim denetimi mekanizması | | |
 

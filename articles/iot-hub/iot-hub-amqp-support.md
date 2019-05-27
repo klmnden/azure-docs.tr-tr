@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: rezas
-ms.openlocfilehash: 703e2c842fb42bad8aa112d84c516a29c2327378
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f39f184bdc09677e347a2691351309dd6483f467
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473514"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965398"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-amqp-protocol"></a>AMQP protokolünü kullanarak IOT hub ile iletişim
 
@@ -65,7 +65,7 @@ Bulut-cihaz ileti exchange hizmeti ve IOT hub'ı arasındaki yanı sıra IOT Hub
 | Oluşturan | Bağlantı türü | Bağlantı yolu | Açıklama |
 |------------|-----------|-----------|-------------|
 | Hizmet | Gönderen bağlantısı | `/messages/devicebound` | Cihazları hedefleyen C2D iletileri için bu bağlantı hizmet tarafından gönderilir. Bu bağlantı üzerinden gönderilen iletilere kendi `To` özelliği hedef cihazın alıcı bağlantı yolu: başka bir deyişle, `/devices/<deviceID>/messages/devicebound`. |
-| Hizmet | Alıcı bağlantıya | `/messages/serviceBound/feedback` | Bu bağlantıya hizmeti tarafından alınan cihazlardan gelen tamamlama, ret ve abandonment geri bildirim iletileri. Bkz: [burada](./iot-hub-devguide-messages-c2d.md#message-feedback) geri bildirim iletileri hakkında daha fazla bilgi. |
+| Hizmet | Alıcı bağlantıya | `/messages/serviceBound/feedback` | Bu bağlantıya hizmeti tarafından alınan cihazlardan gelen tamamlama, ret ve abandonment geri bildirim iletileri. Geri bildirim iletileri hakkında daha fazla bilgi için bkz: [burada](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 Aşağıdaki kod parçacığında, bir C2D iletisi oluşturun ve bir cihaz kullanarak göndermek gösterilmiştir [Python uAMQP kitaplıkta](https://github.com/Azure/azure-uamqp-python).
 
@@ -127,11 +127,76 @@ Yukarıda gösterildiği gibi bir C2D geri bildirim iletisi içerik türüne sah
 * Anahtar `originalMessageId` geri bildirim hizmeti tarafından gönderilen orijinal C2D iletinin Kimliğini gövdeye sahip. Bu geri bildirim C2D iletileri ilişkilendirmek için kullanılabilir.
 
 ### <a name="receive-telemetry-messages-service-client"></a>Telemetri iletilerini (hizmeti istemcisi)
+Varsayılan olarak, IOT Hub cihaz alınan telemetri iletilerini yerleşik bir olay hub'ında depolar. Hizmet istemci saklı olaylarını almak için AMQP protokolünü kullanabilirsiniz.
+
+Bu amaç için hizmeti istemcisi, IOT Hub uç noktasını bağlamak ve bir yeniden yönlendirme adresine yerleşik Event hubs'ı almak öncelikle gerekir. Hizmeti istemcisi, sağlanan adres ardından yerleşik olay hub'ına bağlanmak için kullanır.
+
+Her adımda şu bilgilere sunmak istemcinin gerekir:
+* Geçerli hizmet kimlik bilgilerini (hizmet SAS belirteci).
+* İyi biçimlendirilmiş bir tüketici grubu bölümü yoluna iletileri almak amaçlamaktadır. Belirli bir tüketici grubu ve bölüm için bir kimlik, yol aşağıdaki biçime sahiptir: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (varsayılan bir tüketici grubu olan `$Default`).
+* Bir başlangıç noktası (Bu, bir sıra numarası, offset veya sıraya alınan zaman damgası biçiminde olabilir) bölümündeki belirlemek için isteğe bağlı bir filtre koşulu.
+
+Kodu aşağıdaki kod parçacığını kullanır [Python uAMQP kitaplıkta](https://github.com/Azure/azure-uamqp-python) yukarıdaki adımları göstermek için.
+
+```python
+import json
+import uamqp
+import urllib
+import time
+
+# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+from helper import generate_sas_token
+
+iot_hub_name = '<iot-hub-name>'
+hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
+policy_name = 'service'
+access_key = '<primary-or-secondary-key>'
+operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(consumer_group='$Default', p_id=0)
+
+username = '{policy_name}@sas.root.{iot_hub_name}'.format(policy_name=policy_name, iot_hub_name=iot_hub_name)
+sas_token = generate_sas_token(hostname, access_key, policy_name)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+# Optional filtering predicates can be specified using endpiont_filter
+# Valid predicates include:
+# - amqp.annotation.x-opt-sequence-number
+# - amqp.annotation.x-opt-offset
+# - amqp.annotation.x-opt-enqueued-time
+# Set endpoint_filter variable to None if no filter is needed
+endpoint_filter = b'amqp.annotation.x-opt-sequence-number > 2995'
+
+# Helper function to set the filtering predicate on the source URI
+def set_endpoint_filter(uri, endpoint_filter=''):
+  source_uri = uamqp.address.Source(uri)
+  source_uri.set_filter(endpoint_filter)
+  return source_uri
+
+receive_client = uamqp.ReceiveClient(set_endpoint_filter(uri, endpoint_filter), debug=True)
+try:
+  batch = receive_client.receive_message_batch(max_batch_size=5)
+except uamqp.errors.LinkRedirect as redirect:
+  # Once a redirect error is received, close the original client and recreate a new one to the re-directed address
+  receive_client.close()
+
+  sas_auth = uamqp.authentication.SASTokenAuth.from_shared_access_key(redirect.address, policy_name, access_key)
+  receive_client = uamqp.ReceiveClient(set_endpoint_filter(redirect.address, endpoint_filter), auth=sas_auth, debug=True)
+
+# Start receiving messages in batches
+batch = receive_client.receive_message_batch(max_batch_size=5)
+for msg in batch:
+  print('*** received a message ***')
+  print(''.join(msg.get_data()))
+  print('\t: ' + str(msg.annotations['x-opt-sequence-number']))
+  print('\t: ' + str(msg.annotations['x-opt-offset']))
+  print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
+```
+
+Belirli bir cihaz kimliği için IOT hub'ı bir cihaz kimliği, iletileri depolamak için hangi bölümünün belirlemek için kullanır. Yukarıdaki kod parçacığında tek bir alıcı olayları gösterir. Bu tür bir bölüm. Ancak, tüm olay hub'ı bölümleri içinde depolanan olayları almak tipik bir uygulama genelde gerektiğini unutmayın.
 
 
 ### <a name="additional-notes"></a>Ek notlar
 * AMQP bağlantıları ağ sorun veya (kodda oluşturulan) kimlik doğrulama belirteci süre sonu nedeniyle kesilmiş olabilir. Hizmeti istemcisi, şu durumlarda işlemek ve bağlantı ve gerekirse bağlantıları yeniden oluşturun. Kimlik doğrulama belirteci süre sonu durum istemci bağlantı bırakma önlemek için sona erme önce belirteç de proaktif bir şekilde yenileyebilirsiniz.
-* Bazı durumlarda, istemci bağlantıyı yeniden yönlendirmeleri doğru bir şekilde işleyebilir olması gerekir. Bunun nasıl yapılacağı AMQP istemcisi belgelerinize bakın.
+* Bazı durumlarda, istemci bağlantıyı yeniden yönlendirmeleri doğru bir şekilde işleyebilir olması gerekir. Bu işlemi işlemek nasıl AMQP istemcisi belgelerinize başvurun.
 
 ### <a name="receive-cloud-to-device-messages-device-and-module-client"></a>Bulut-cihaz iletilerini (cihaz ve modül istemci)
 AMQP bağlantıları cihaz tarafında kullanılan aşağıdaki gibidir:

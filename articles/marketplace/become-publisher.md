@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5dcde10430308eaa1df0e6cca279803c3f7f5fe1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 10d2eb45b6706299336094359f10568e6811e1fb
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935659"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967722"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -24,7 +24,7 @@ Bu makale, bir bulut Market yayımcısı kaydetme kapsar. Seçilen yayımlama se
 |:--- |:--- |:--- |:--- |  
 | 1 | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Market kayıt formu gönderin | 15 dakika | [Market ADAYLIK formu gönderin](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 3 | Bir iş ortağı merkezi hesabı oluşturun | 15 dakika | [Bir iş ortağı merkezi hesabı oluşturun](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
@@ -59,14 +59,19 @@ Bir Microsoft hesabı, örneğin  *\@outlook.com veya \@live.com*, birçok Micro
 
 ---
 
-## <a name="3-submit-the-marketplace-registration-form"></a>3. Market kayıt formu gönderin  
+## <a name="3-create-a-partner-center-account"></a>3. Bir iş ortağı merkezi hesabı oluşturun  
 | 15 dakika |  
-Bu kısa tamamlamak [kayıt formunda](https://azuremarketplace.microsoft.com/sell/signup) Market yayımcısı olacak. Bu form üzerinde gönderilen bilgiler, bulut iş ortağı oluşturun, yayımlayın ve Market tekliflerini yönetmenize izin veren portalında bir yayımcı hesabı oluşturmak için kullanılır.
 
-Aşağıdaki bilgiler istenir:
-*   Kuruluşunuz, Microsoft iş ortağı ağ Kimliğini de dahil olmak üzere ilgili ayrıntıları (hangi ya da göz atabilirsiniz [iş ortağı Merkezi](https://partnercenter.microsoft.com/partner/home) veya [iş ortağı üyelik Merkezi'nde](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
-*   İlk uygulamanızı veya danışmanlık hizmetleri kısa bir açıklamasını sunar, yayımlama, Microsoft Ürün veya hizmet teklifinizi en yakın beraber hizalar dahil olmak üzere planladığınız
-*   Uygulamanız veya hizmetiniz için hedef kitle 
+Çalıştırdıktan sonra [çözümünüzü gönderme](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) Market'te, ekleme ekibimiz, yayımlama deneyiminizi desteklemek için bağlantı kurar. Bkz. nasıl [bir iş ortağı merkezi hesabınız oluşturma](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) daha fazla bilgi için.
+
+<!---
+Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
+
+You will be asked to include the following information:
+*   Details about your organization, including your Microsoft Partner Network ID (which you can look up in either [Partner Center](https://partnercenter.microsoft.com/partner/home) or [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
+*   A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
+*   The target audience for your app or service 
+-->
 
 ---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Bulut iş ortağı Portalı'nda oturum açın
@@ -90,10 +95,10 @@ A [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesabı 
 *   Kaydolmak için bir [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesabı [kaydolma işlemini başlatmak](https://developer.microsoft.com/store/register).
 *   Bir Microsoft hesabı oluşturma hakkında daha fazla bilgi için ziyaret *Microsoft hesabı oluşturmanızda* bölümü.
  
-Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/store/register) kayıt, bulut iş ortağı profilinizle birlikte bağlantı, [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesap (burada ayrıntılı adımlara bakın). Transact teklifinizi yayımlamadan önce bu adımın tamamlanması gerekir. 
+Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/store/register) kayıt, bulut iş ortağı profilinizle birlikte bağlantı, [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesabı ([bakın ayrıntılı adımlar burada](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile)). Transact teklifinizi yayımlamadan önce bu adımın tamamlanması gerekir. 
 
 >[!Note]
->99 Geliştirici Merkezi kayıt ücret ayları için tamamlayın [Market kayıt formunda](https://azuremarketplace.microsoft.com/sell/signup) promosyon kodunuzu içeren bir e-posta alırsınız. 
+>99 Geliştirici Merkezi kayıt ücret ayları için tamamlayın [Market kayıt formunda](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) promosyon kodunuzu içeren bir e-posta alırsınız. Bkz. nasıl [bir iş ortağı merkezi hesabınız oluşturma](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) daha fazla bilgi için.
 
 >[!Important]
 >Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [geliştirme Merkezi'ne kaydolun](https://docs.microsoft.com/azure/marketplace/register-dev-center) bölümü.

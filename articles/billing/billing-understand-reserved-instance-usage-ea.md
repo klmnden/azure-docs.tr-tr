@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789384"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126855"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kurumsal Anlaşma ayırma maliyetleri ve kullanım bilgilerini alma
 
@@ -42,9 +42,9 @@ Verileri iki ayrı veri kümeleri halinde ayrılmıştır: _Gerçek maliyet_ ve 
 
 | Veriler | Gerçek maliyet veri kümesi | Amorti edilmiş maliyet veri kümesi |
 | --- | --- | --- |
-| Rezervasyon satın alma | Bu görünümde kullanılabilir.<br>  Bu veri filtresi ChargeType üzerinde almak için = &quot;satın alma&quot;. <br> Reservationıd veya ReservationName ücretlendirme yapılır hangi ayırma bilmesi için bakın.  | Bu görünüm için geçerli değildir. <br> Satın alma maliyetleri amorti edilmiş veri sağlanmayan. |
+| Rezervasyon satın alma | Bu görünümde kullanılabilir.<br><br>  Bu veri filtresi ChargeType üzerinde almak için = &quot;satın alma&quot;. <br><br> Reservationıd veya ReservationName ücretlendirme yapılır hangi ayırma bilmesi için bakın.  | Bu görünüm için geçerli değildir. <br><br> Satın alma maliyetleri amorti edilmiş veri sağlanmayan. |
 | effectivePrice | Ayırma indirimi alır kullanım için sıfır değerdir. | Değer, rezervasyon ayırma indirimi olan kullanımlar için saatlik günlere eşit olarak dağıtılır maliyetidir. |
-| Kullanılmamış ayırma (ayırma bir gün içinde kullanılan değildi saat sayısı ve atık parasal değerini sağlar) | Bu görünümde geçerli değildir. | Bu görünümde kullanılabilir.<br> Bu verileri almak için filtre ChargeType üzerinde = &quot;UnusedReservation&quot;.<br>  Hangi ayırma potansiyelinden az kullanılmasına neden bilmek Reservationıd veya ReservationName başvurun. Rezervasyon ne kadar günün boşa budur.  |
+| Kullanılmamış ayırma (ayırma bir gün içinde kullanılan değildi saat sayısı ve atık parasal değerini sağlar) | Bu görünümde geçerli değildir. | Bu görünümde kullanılabilir.<br><br> Bu verileri almak için filtre ChargeType üzerinde = &quot;UnusedReservation&quot;.<br><br>  Hangi ayırma potansiyelinden az kullanılmasına neden bilmek Reservationıd veya ReservationName başvurun. Rezervasyon ne kadar günün boşa budur.  |
 | UnitPrice (kaynak, fiyat fiyatı) | Kullanılabilir | Kullanılabilir |
 
 Azure kullanım verilerinde başka bilgilerine değişmiştir:
@@ -77,12 +77,12 @@ Daha fazla bilgi {Enrollmentıd} ve {billingPeriodId} için bakın [kullanım ay
 | **API veri türü** | Eylem API çağrısı |
 | --- | --- |
 | **Tüm ücretler (kullanım ve satın alma)** | {Ölçümü} ActualCost ile değiştirin. |
-| **Ayırma indirimi alındı kullanımı** | {Ölçümü} ActualCost ile değiştirin.<br>{Filter} değiştirin: properties/reservationId%20ne%20 |
-| **Ayırma indirimi almadığını kullanımı** | {Ölçümü} ActualCost ile değiştirin.<br>{Filter} değiştirin: properties/reservationId%20eq%20 |
+| **Ayırma indirimi alındı kullanımı** | {Ölçümü} ActualCost ile değiştirin.<br><br>{Filter} değiştirin: properties/reservationId%20ne%20 |
+| **Ayırma indirimi almadınız kullanımı** | {Ölçümü} ActualCost ile değiştirin.<br><br>{Filter} değiştirin: properties/reservationId%20eq%20 |
 | **Amorti edilmiş ücretleri (kullanım ve satın alma)** | {Ölçümü} AmortizedCost ile değiştirin. |
-| **Kullanılmamış ayırma raporu** | {Ölçümü} AmortizedCost ile değiştirin.<br>{Filter} değiştirin: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Rezervasyon satın alma** | {Ölçümü} ActualCostReplace {filter} ile değiştirin: properties/ChargeType%20eq%20'Purchase'  |
-| **Mahsup işlemleri** | {Ölçümü} ActualCost ile değiştirin.<br>{Filter} değiştirin: properties/ChargeType%20eq%20'Refund' |
+| **Kullanılmamış ayırma raporu** | {Ölçümü} AmortizedCost ile değiştirin.<br><br>{Filter} değiştirin: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Rezervasyon satın alma** | {Ölçümü} ActualCost ile değiştirin.<br><br>{Filter} değiştirin: properties/ChargeType%20eq%20'Purchase'  |
+| **Mahsup işlemleri** | {Ölçümü} ActualCost ile değiştirin.<br><br>{Filter} değiştirin: properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Yeni verilerle kullanım CSV dosyalarını indirme
 

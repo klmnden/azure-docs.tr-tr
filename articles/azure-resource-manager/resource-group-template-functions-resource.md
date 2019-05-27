@@ -1,23 +1,17 @@
 ---
 title: Azure Resource Manager şablonu işlevleri - kaynakları | Microsoft Docs
 description: Kaynaklarla ilgili değerleri almak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklar.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783016"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990753"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -175,7 +169,7 @@ Diğer liste işlevleri farklı dönüş biçimlerine sahip. Bir işlev biçimin
 
 Kaynak adı kullanarak bir kaynak belirtin veya [ResourceId işlevi](#resourceid). Başvurulan kaynak dağıtan aynı şablonda bir liste işlevini kullanarak, kaynak adı kullanın.
 
-Kullanıyorsanız bir **listesi** koşullu olarak dağıtılan, kaynak işlevi işlevinde, kaynağın dağıtılan değilse bile değerlendirilir. Varsa bir hata alıyorsunuz **listesi** işlevi, var olmayan bir kaynağa başvuruyor. Kullanım **varsa** işlevi yalnızca kaynak varken değerlendirme emin olmak için işlevi. Bkz: [varsa işlevi](resource-group-template-functions-logical.md#if) kullanıyorsa örnek şablonu ve koşullu olarak dağıtılan bir kaynak listesi.
+Kullanıyorsanız bir **listesi** koşullu olarak dağıtılan, kaynak işlevi işlevinde, kaynağın dağıtılan değilse bile değerlendirilir. Varsa bir hata alıyorsunuz **listesi** işlevi, var olmayan bir kaynağa başvuruyor. Kullanım **varsa** işlevi yalnızca kaynak dağıtıldığında değerlendirme emin olmak için işlevi. Bkz: [varsa işlevi](resource-group-template-functions-logical.md#if) kullanıyorsa örnek şablonu ve koşullu olarak dağıtılan bir kaynak listesi.
 
 ### <a name="example"></a>Örnek
 
@@ -343,11 +337,11 @@ Her kaynak türü için başvuru işlevi farklı özellikleri döndürür. İşl
 
 Başvuru işlevi, daha önceden dağıtılan bir kaynak ya da geçerli şablon dağıtılan bir kaynak çalışma zamanı durumunu alır. Bu makalede her iki senaryo için örnekler gösterilmektedir. Geçerli şablon kaynağında başvuran bir parametre olarak yalnızca kaynak adı belirtin. Daha önceden dağıtılan bir kaynağa başvuran, kaynak Kimliğine ve bir API sürümü için kaynak sağlar. Kaynağınızda için geçerli API sürümlerini belirlemek [şablon başvurusu](/azure/templates/).
 
-Başvuru işlevi yalnızca bir kaynak tanımı özelliklerini ve bir şablonu veya dağıtım çıktılar bölümünü kullanılabilir.
+Başvuru işlevi yalnızca bir kaynak tanımı özelliklerini ve bir şablonu veya dağıtım çıktılar bölümünü kullanılabilir. İle kullanıldığında [özelliği yineleme](resource-group-create-multiple.md#property-iteration), başvuru işlev için kullanabileceğiniz `input` ifade kaynak özelliğine atanan olduğundan. İle kullanamazsınız `count` olduğundan başvuru işlevi daha çözümlenir önce sayısı belirlenmesi gerekir.
 
 Başvuru işlevini kullanarak, aynı şablonu içinde başvurulan kaynak sağlandıktan ve kaynağa adıyla (kaynak kimliği değil) başvurun bir kaynak başka bir kaynaktaki bağlıdır örtük olarak bildirdiğiniz. Ayrıca dependsOn özelliği kullanmanız gerekmez. Başvurulan kaynak dağıtımı tamamlanana kadar işlevi değerlendirilmez.
 
-Kullanırsanız **başvuru** koşullu olarak dağıtılan, kaynak işlevi işlevinde, kaynağın dağıtılan değilse bile değerlendirilir.  Varsa bir hata alıyorsunuz **başvuru** işlevi, var olmayan bir kaynağa başvuruyor. Kullanım **varsa** işlevi yalnızca kaynak varken değerlendirme emin olmak için işlevi. Bkz: [varsa işlevi](resource-group-template-functions-logical.md#if) kullanıyorsa örnek şablonu ve koşullu olarak dağıtılan bir kaynak başvurusu.
+Kullanırsanız **başvuru** koşullu olarak dağıtılan, kaynak işlevi işlevinde, kaynağın dağıtılan değilse bile değerlendirilir.  Varsa bir hata alıyorsunuz **başvuru** işlevi, var olmayan bir kaynağa başvuruyor. Kullanım **varsa** işlevi yalnızca kaynak dağıtıldığında değerlendirme emin olmak için işlevi. Bkz: [varsa işlevi](resource-group-template-functions-logical.md#if) kullanıyorsa örnek şablonu ve koşullu olarak dağıtılan bir kaynak başvurusu.
 
 Özellik adlarını ve değerlerini bir kaynak türü için görmek için çıkışları bölümünde nesnesi döndüren bir şablon oluşturun. Mevcut bir kaynak türü varsa, tüm yeni kaynaklar dağıtmadan şablonunuzu nesneyi döndürür. 
 
@@ -725,7 +719,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | differentSubOutput | Dize | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
 
-## <a name="subscription"></a>aboneliği
+## <a name="subscription"></a>abonelik
 
 `subscription()`
 

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a6f16df4b827538c1f8bdb9b7382ed06d543b62
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883088"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991514"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI kullanarak bir ExpressRoute bağlantı hattına bir sanal ağı bağlama
 
@@ -139,6 +139,32 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **Bağlantı Yetkilendirme serbest bırakmak için**
 
 Sanal ağı ExpressRoute bağlantı hattına bağlayan bağlantı silerek bir yetkilendirme serbest bırakabilirsiniz.
+
+## <a name="modify-a-virtual-network-connection"></a>Sanal ağ bağlantısı değiştirme
+Belirli bir sanal ağ bağlantısı özellikleri güncelleştirebilirsiniz. 
+
+**Bağlantı ağırlığına güncelleştirmek için**
+
+Sanal ağınız için birden çok ExpressRoute bağlantı hattına bağlı olabilir. Aynı öneke birden fazla ExpressRoute devresinden alabilirsiniz. Bu ön eki hedefleyen trafiği göndermek için hangi bağlantı seçmek için değiştirebileceğiniz *RoutingWeight* bağlantısı. Trafik, en yüksek bağlantı gönderilecek *RoutingWeight*.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+Aralığı *RoutingWeight* 0-32000. Varsayılan değer 0’dır.
+
+## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath yapılandırın 
+Etkinleştirebilirsiniz [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) ExpressRoute devreniz açıksa [ExpressRoute doğrudan](expressroute-erdirect-about.md) ve sanal newtork Ultra yüksek performans veya ErGw3AZ noktanızdır. Veri yolu preformance Saniyedeki ve sanal ağınız ile şirket içi ağınız arasında saniye başına bağlantılar gibi FastPath artırır. 
+
+> [!NOTE] 
+> Zaten bir sanal ağ bağlantısına sahip ancak FastPath etkinleştirmediniz sanal ağ bağlantısını silin ve yeni bir tane oluşturmanız gerekir. 
+> 
+>  
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

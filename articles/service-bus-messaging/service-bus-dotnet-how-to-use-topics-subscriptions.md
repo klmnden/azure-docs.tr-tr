@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714262"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991763"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
@@ -390,9 +390,12 @@ Gönderdiğiniz iletileri almak için başka bir .NET Core konsol uygulaması ol
     ```
 9. Programı çalıştırın ve portalı tekrar denetleyin. **İleti Sayısı** ve **Geçerli** değerlerinin artık **0** olduğuna dikkat edin.
    
-    ![Konu uzunluğu][topic-message-receive]
+    ![Konu başlığı uzunluğu][topic-message-receive]
 
 Tebrikler! .NET Standard kitaplığını kullanarak bir konu ve abonelik oluşturdunuz, 10 ileti gönderdiniz ve bu iletileri aldınız.
+
+> [!NOTE]
+> Service Bus kaynakları ile yönetebileceğiniz [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer/). Hizmet veri yolu Gezgini, bir Service Bus ad alanınıza bağlanın ve mesajlaşma varlıkları kolay bir şekilde yönetmek kullanıcıların sağlar. Araç, içeri/dışarı aktarma işlevleri veya konu, kuyruklar, abonelikler, geçiş hizmetleri, bildirim hub'ları ve olay hub'ları test etme olanağı gibi gelişmiş özellikler sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

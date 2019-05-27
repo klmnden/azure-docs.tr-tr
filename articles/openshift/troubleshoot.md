@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 9ef32273c007e7319b7f6df99f3d904f805c31f2
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 82678091c1d0b71e6209f6d03e9d1a0ca60fe03e
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550922"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992167"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift için sorun giderme
 
@@ -23,10 +23,6 @@ Bu makalede, oluşturma veya Microsoft Azure Red Hat OpenShift kümelerini yöne
 
 Bir Azure Red Hat OpenShift oluşturma kullanarak küme varsa `az` CLI komutu başarısız olursa, yeniden deneniyor oluşturma devam başarısız.
 Kullanım `az openshift delete` başarısız kümeyi silmek için ardından tamamen yeni bir küme oluşturun.
-
-## <a name="untrusted-azure-red-hat-openshift-server-certificate"></a>Güvenilmeyen Azure Red Hat OpenShift sunucu sertifikası
-
-OpenShift Konsolu otomatik olarak imzalanan bir sertifika kullanır. Tarayıcınızda istendiğinde, uyarı atlayabilir ve "güvenilmeyen" sertifikayı kabul edin.
 
 ## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>Gizli Azure Red Hat OpenShift küme kaynağı grubu
 

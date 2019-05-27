@@ -4,15 +4,15 @@ description: Bu makalede, Application Gateway için web uygulaması Güvenlik Du
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518193"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991394"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Azure Application Gateway Web uygulaması güvenlik duvarı
 
@@ -38,7 +38,7 @@ Bu bölümde, uygulama ağ geçidi ve, WAF'yi sağlayan temel avantajlar açıkl
 
 * Web güvenlik açıklarından ve saldırılarından arka uç kodunda değişiklik yapmadan web uygulamalarınızı koruyun.
 
-* Aynı anda birden çok web uygulamaları koruyun. Application Gateway örneği barındırabilir en fazla 20 Web siteleri, bir web uygulaması güvenlik duvarı tarafından korunur.
+* Aynı anda birden çok web uygulamaları koruyun. Uygulama ağ geçidi örneğini barındıran bir web uygulaması güvenlik duvarı tarafından korunur en fazla 100 Web siteleri.
 
 ### <a name="monitoring"></a>İzleme
 
@@ -121,12 +121,19 @@ Application Gateway WAF, aşağıdaki iki modda çalışacak şekilde yapıland�
 * **Önleme modu**: Blokları izinsiz girişleri ve kuralları algılamak saldırıları. Saldırgan "403 yetkisiz erişim" özel durumu alır ve bağlantı sonlandırılır. Önleme modu bu tür saldırıları WAF günlüklerine kaydeder.
 
 ### <a name="anomaly-scoring-mode"></a>Anomali Puanlama modu
- 
+
 OWASP trafiği engellemek karar verme için iki mod vardır: Geleneksel modu ve Anomali Puanlama modu.
 
 Geleneksel modunda herhangi bir kural eşleşen trafik herhangi bir kural eşleşen bağımsız olarak kabul edilir. Bu mod, anlaşılması kolay bir işlemdir. Ancak, belirli bir istek kaç kurallarla eşleşecek hakkında bilgi eksikliği bir sınırlamadır. Bu nedenle, Anomali Puanlama modu sunulmuştur. OWASP 3 için varsayılandır. *x*.
 
 Güvenlik Duvarı önleme modunda olduğunda Anomali Puanlama modunda hemen herhangi bir kural eşleşen trafik engellenmiş değil. Kuralları belirli bir önem derecesi vardır: *Kritik*, *hata*, *uyarı*, veya *bildirimi*. Bu önem derecesi Anomali puanı adlı istek için sayısal bir değer etkiler. Örneğin, bir *uyarı* kural eşleştirme 3 puana katkıda bulunur. Bir *kritik* kural eşleşen 5 katkıda bulunur.
+
+|Severity  |Değer  |
+|---------|---------|
+|Kritik     |5|
+|Hata        |4|
+|Uyarı      |3|
+|Bildirim       |2|
 
 Bir Anomali puanı trafiği engellemek için 5 eşiğinin yoktur. Bunu, tek bir *kritik* kural eşleşmedir önleme modunda bile bir istek engellemek Application Gateway WAF için yeterli. Ancak bir *uyarı* kural eşleşme, yalnızca tek başına trafiği engellemek için yeterli değildir Anomali puanı 3 artırır.
 

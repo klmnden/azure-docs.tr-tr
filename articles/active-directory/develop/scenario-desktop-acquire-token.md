@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407000"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962545"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Web API'leri - çağıran Masaüstü uygulamasının bir belirteç Al
 
@@ -163,7 +163,7 @@ MSAL.NET takım bu genişletilebilirlik mekanizması yararlanmak için yaptığ�
 
 #### <a name="other-optional-parameters"></a>Diğer isteğe bağlı parametreler
 
-Tüm diğer isteğe bağlı parametreler için hakkında daha fazla bilgi `AcquireTokenInteractive` için başvuru belgelerindeki [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+Tüm diğer isteğe bağlı parametreler için hakkında daha fazla bilgi `AcquireTokenInteractive` için başvuru belgelerindeki [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>Tümleşik Windows kimlik doğrulaması
 
@@ -283,7 +283,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Olası değiştiricilerini AcquireTokenByIntegratedWindowsAuthentication listesi için bkz. [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+Olası değiştiricilerini AcquireTokenByIntegratedWindowsAuthentication listesi için bkz. [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="username--password"></a>Kullanıcı adı / parola
 
@@ -519,7 +519,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-Uygulanabilir tüm değiştiricilere hakkında ayrıntılı bilgi için `AcquireTokenByUsernamePassword`, bkz: [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+Uygulanabilir tüm değiştiricilere hakkında ayrıntılı bilgi için `AcquireTokenByUsernamePassword`, bkz: [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="command-line-tool-without-web-browser"></a>Komut satırı aracı (olmadan web tarayıcısı gerekir)
 

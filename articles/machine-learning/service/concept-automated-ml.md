@@ -9,48 +9,55 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/02/2019
+ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9736cc3ab20d43cc3731bc237bed9eb9b5370cb4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 88e4e305e0f66c61ab4d73bcfef21319b4d02946
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800778"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989813"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
-AutoML da adlandırılan otomatik machine learning, veri uzmanları, analistler ve geliştiricilerin tüm model kalitesi dayanıklılık geçtikten çalışırken ile yüksek ölçek, verimliliğini ve üretkenliğini ML modelleri oluşturup sağlar. 
+Otomatik machine Learning, otomatik ML da bilinir, makine öğrenimi modeli geliştirme zaman alıcı ve yinelemeli görevleri otomatikleştirme işlemidir. Veri uzmanları, analistler ve geliştiricilerin tüm model kalitesi dayanıklılık geçtikten çalışırken ile yüksek ölçek, verimliliğini ve üretkenliğini ML modelleri oluşturup izin verir.
 
-Otomatik ML, ML modelleri modelleri eğitim için otomatik olarak, akıllı bir şekilde seçerek bir dizi oluşturur ve sonra sizin için en iyisi önerir. Kaynak Kullanımı Yoğun önemli etki alanı bilgisini ve üretmek ve modelleri onlarca karşılaştırmak için zaman gerektiren geleneksel makine öğrenme modeli geliştirme. Otomatik ML ile üretime hazır ML model harika kolaylık ve verimlilik elde süresini hızlandırın.
+Kaynak Kullanımı Yoğun, önemli bir etki alanı bilgisini ve üretmek ve modelleri onlarca karşılaştırmak için zaman gerektiren geleneksel makine öğrenme modeli geliştirme. Eğitme ve modeli sizin için belirttiğiniz hedef ölçüm kullanarak ayarlamak için Azure Machine Learning istediğinizde otomatik ML uygulayın. Hizmet ardından özellik seçimleri, burada her yinelemenin bir eğitim puan modeliyle üretir ile eşleştirilmiş ML algoritmaları aracılığıyla yinelenir. Daha yüksek puanı, daha iyi modeli "verilerinizi uygun" kabul edilir.
 
-Arka planda eğitim verilerinizi tanımlanmış hedef özelliğiyle gerçekleştirilen ve akıllı bir şekilde bağlı ML algoritmaları ve özellik seçimleri birleşimlerini yinelenir. Ardından, eğitim puanları temel alarak en iyi Ekrana sığdırılmış modeli tanımlanan ve sizin için önerilen. 
+Otomatik machine learning ile üretime hazır ML model harika kolaylık ve verimlilik elde süresini hızlandırın.
 
-Deneme ve neler olduğunu, konusunda saydamlık denetime çözümlenmedi. Kısıtlamaları tanımlamak ve deneme süresi, doğruluk veya yineleme sayısı örneğin dayalı hedefler. Denemeniz, her yineleme için eğitim akış ve belirli bir model için en etkili özellikleri için oluşturulan her model görebilirsiniz.
+## <a name="when-to-use-automated-ml"></a>ML otomatik ne zaman kullanılır?
+
+Otomatik ML, makine öğrenimi modeli geliştirme sürecine ıot'yi herkesin kullanımına sunan ve herhangi bir sorun için bir uçtan uca makine öğrenimi işlem hattı tanımlamak için kullanıcılar, veri bilimi uzmanlıklarını ne olursa olsun güçlendirir.
+
+Veri uzmanları ve analistleri sektörlerden geliştiriciler için otomatik ML kullanabilirsiniz:
+
++ Kapsamlı bir programlama bilgisi olmadan makine öğrenimi çözümleri uygulayın
++ Zamandan ve kaynaklardan tasarruf
++ Veri bilimi en iyi yararlanın
++ Çevik sorun giderme sağlayın
 
 ## <a name="how-automated-ml-works"></a>Nasıl otomatik ML çalışır
 
 Kullanarak **Azure Machine Learning hizmeti**, tasarım ve otomatik ML eğitim denemelerinizi ile aşağıdaki adımları çalıştırın:
 
 1. **ML tanımlamaya** çözülecek: Sınıflandırma, tahmin veya regresyon
-   
+
 1. **Kaynak ve etiketli bir eğitim veri biçimi belirtmek**: Numpy diziler veya Pandas dataframe
 
 1. **Model eğitimi için işlem hedefini yapılandırın**, gibi [yerel bilgisayar, Azure Machine Learning hesaplar, uzaktan sanal makineleri veya Azure Databricks](how-to-set-up-training-targets.md).  Otomatik eğitim hakkında bilgi edinin [uzak kaynak](how-to-auto-train-remote.md).
 
 1. **Yapılandırma parametreleri öğrenme otomatik makine** farklı modelleri, Hiper parametre ayarları üzerinden kaç adet yineleme ön işleme/özellik kazandırma sayesinde Gelişmiş ve en iyi modeli belirlerken bakmak için hangi ölçümleri belirler.  Otomatik eğitim denemesini ayarlarını yapılandırabilirsiniz [Azure portalında](how-to-create-portal-experiments.md) veya [SDK'sı ile](how-to-configure-auto-train.md).
 
-1. **Çalıştırma eğitim gönderin.** 
+1. **Çalıştırma eğitim gönderin.**
 
+  ![Otomatik makine öğrenimi](./media/how-to-automated-ml/automl-concept-diagram.png)
 
-[![Otomatik makine öğrenimi](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
-
-Eğitim sırasında Azure Machine Learning hizmetinde bir dizi farklı algoritmaları ve parametrelerle deneyin işlem hatları oluşturur. Deneme içinde tanımlanan çıkış ölçütlerini İsabetleri sonra durdurulur. 
+Eğitim sırasında Azure Machine Learning hizmeti farklı algoritmaları ve parametrelerle deneyin paralel işlem hatları bir dizi oluşturur. Deneme içinde tanımlanan çıkış ölçütlerini İsabetleri sonra durdurulur.
 
 Ayrıca, çalışma sırasında toplanan ölçümleri içeren günlüğe kaydedilen çalışma bilgileri inceleyebilirsiniz. Python serileştirilmiş nesne eğitim çalıştırmanın (`.pkl` dosyası) modeli ve veri ön işleme içerir.
 
-
-Model oluşturmanın otomatik karşın, şunları da yapabilirsiniz. [nasıl önemli veya ilgili özellikleri olan](how-to-configure-auto-train.md#explain) oluşturulmuş modelleri. 
+Model oluşturmanın otomatik karşın, şunları da yapabilirsiniz. [nasıl önemli veya ilgili özellikleri olan](how-to-configure-auto-train.md#explain) oluşturulmuş modelleri.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -61,22 +68,25 @@ Model oluşturmanın otomatik karşın, şunları da yapabilirsiniz. [nasıl ön
 Deneme her otomatik makine öğrenimi, verilerinizi varsayılan yöntemleri kullanılarak ve isteğe bağlı olarak Gelişmiş ön işleme önceden işlenmiş.
 
 ### <a name="automatic-preprocessing-standard"></a>Otomatik (standart) ön işleme
+
 Deneme her otomatik makine öğrenimi, verilerinizi otomatik olarak ölçeği veya iyi gerçekleştirilip algoritmaları yardımcı olmak için normalleştirilmiş.  Her model için model eğitim sırasında ölçeklendirme veya normalleştirme aşağıdaki tekniklerden birini uygulanır.
 
 |Ölçeklendirme&nbsp;&&nbsp;normalleştirme| Açıklama |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Ortalama kaldırarak ve birim varyansı için ölçeklendirme özellikleri standart hale getirin  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Her bir özellik bu sütunun minimum ve maksimum tarafından ölçeklendirerek özellikleri dönüştürür  |
-| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |    Her bir özellik tarafından en yüksek mutlak değeri ölçeklendirin |  
-| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |   Bu Scaler tarafından quantile menzil özellikleri |
-| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) | Doğrusal boyut düzeyi azaltma için daha düşük bir boyutlu alanı proje için verilerin tekil değer ayrıştırma kullanma | 
-| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |    Bu dönüştürücü doğrusal boyut düzeyi azaltma kesilmiş tekil değer ayrıştırma (SVD) yoluyla gerçekleştirir. PCA aykırı bu tahmin veri tekil değer ayrıştırma bilgi işlem önce Merkezi değil. Bu scipy.sparse matrisleri ile verimli bir şekilde çalışabilir anlamına gelir. | 
-| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Böylece kendi norm (l1 veya l2) bir eşittir (diğer bir deyişle, her satır veri matris)'en az bir sıfır olmayan bileşeni ile her örnek bağımsız olarak diğer örnekleri boyutlandırılan | 
+| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Her bir özellik tarafından en yüksek mutlak değeri ölçeklendirin |
+| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |Bu Scaler tarafından quantile menzil özellikleri |
+| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Doğrusal boyut düzeyi azaltma için daha düşük bir boyutlu alanı proje için verilerin tekil değer ayrıştırma kullanma |
+| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Bu dönüştürücü doğrusal boyut düzeyi azaltma kesilmiş tekil değer ayrıştırma (SVD) yoluyla gerçekleştirir. PCA aykırı bu tahmin veri tekil değer ayrıştırma bilgi işlem önce Merkezi değil. Bu scipy.sparse matrisleri ile verimli bir şekilde çalışabilir anlamına gelir. |
+| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Böylece kendi norm (l1 veya l2) bir eşittir en az bir sıfır olmayan bileşeni ile her örnek (diğer bir deyişle, her satır veri matris) bağımsız olarak diğer örnekleri yeniden Ölçeklendirildi |
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Ön işleme Gelişmiş: isteğe bağlı özellik kazandırma sayesinde
 
 Ayrıca ek Gelişmiş ön işleme ve özellik kazandırma sayesinde değerleri imputation, kodlama ve dönüştürmeler eksik gibi kullanılabilir. [Hangi özellik kazandırma sayesinde dahildir hakkında daha fazla bilgi](how-to-create-portal-experiments.md#preprocess). Bu ayarı etkinleştirin:
-+ Azure portalı: Seçme **ön işleme** onay kutusu **Gelişmiş ayarlar** [adımlarıyla](how-to-create-portal-experiments.md). 
+
++ Azure portalı: Seçme **ön işleme** onay kutusu **Gelişmiş ayarlar** [adımlarıyla](how-to-create-portal-experiments.md).
+
 + Python SDK: Belirtme `"preprocess": True` için [ `AutoMLConfig` sınıfı](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 ## <a name="ensemble-models"></a>Topluluğu modelleri
@@ -90,8 +100,9 @@ Azure Machine Learning ile bir Python modeli oluşturun ve ONNX biçimine dönü
 ## <a name="automated-ml-across-microsoft"></a>Microsoft Otomatik ML
 
 Otomatik ML ayrıca gibi diğer Microsoft çözümleri kullanılabilir:
+
 + Visual Studio ve Visual Studio Code kullanarak .NET uygulamaları [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
-+ [HDInsight üzerinde](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), otomatik ML eğitim projelerinizdeki Spark HDInsight kümeleri paralel olarak ölçeği genişletme burada. 
++ [HDInsight üzerinde](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), otomatik ML eğitim projelerinizdeki Spark HDInsight kümeleri paralel olarak ölçeği genişletme burada.
 + [Power BI'da](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -100,10 +111,10 @@ Otomatik ML ayrıca gibi diğer Microsoft çözümleri kullanılabilir:
 
 + İzleyin [Öğreticisi: Otomatik olarak bir Azure Machine Learning otomatik sınıflandırma modeli eğitme](tutorial-auto-train-models.md)
 
-+ Otomatik eğitim denemesini için ayarları yapılandırın: 
-   + Azure portal arabiriminde [şu adımları kullanarak](how-to-create-portal-experiments.md).
-   + Python SDK'sı ile [şu adımları kullanarak](how-to-configure-auto-train.md).
++ Otomatik eğitim denemesini için ayarları yapılandırın:
+  + Azure portal arabiriminde [şu adımları kullanarak](how-to-create-portal-experiments.md).
+  + Python SDK'sı ile [şu adımları kullanarak](how-to-configure-auto-train.md).
   
- + Zaman serisi verilerini kullanarak train otomatik öğrenin [şu adımları kullanarak](how-to-auto-train-forecast.md).
++ Zaman serisi verilerini kullanarak train otomatik öğrenin [şu adımları kullanarak](how-to-auto-train-forecast.md).
 
 + Denemenin [Jupyter not defteri örnekleri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)

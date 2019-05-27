@@ -10,11 +10,11 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156414"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -245,7 +245,7 @@ Kullanım `-Result` bitişi işler başarıyla tamamlanıp tamamlanmadığını 
 * İptal edildi
 * Başarısız
 * None
-* Başarılı oldu
+* Başarılı Oldu
 
 ``` powershell
 # List Successful jobs.

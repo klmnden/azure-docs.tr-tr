@@ -3,9 +3,8 @@ title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama i
 description: Azure Active Directory kullanıcı Cerner Orta bir listesi için otomatik sağlama için yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61e88e0fe7e6eec5b3cdfd03755a186744b77b47
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281205"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964209"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Cerner Orta yapılandırın
 

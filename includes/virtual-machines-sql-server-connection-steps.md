@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264069"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165547"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Veritabanı Altyapısı’nın varsayılan örneği için Windows güvenlik duvarında TCP bağlantı noktalarını açma
 1. Uzak Masaüstü kullanarak sanal makineye bağlanın. Sanal makineye bağlanma işleminin ayrıntılı yönergeleri için bkz. [Uzak Masaüstü ile SQL VM’yi Açma](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
@@ -26,12 +26,12 @@ ms.locfileid: "51264069"
 6. **İleri**’ye tıklayın.
 7. **Eylem** iletişim kutusunda **Bağlantıya izin ver**’i seçin ve **İleri**’ye tıklayın.
    
-    **Güvenlik Notu:** **Bağlantı güvenliyse izin ver** seçeneği ek güvenlik sağlayabilir. Ortamınızda ek güvenlik seçenekleri yapılandırmak istiyorsanız bu seçeneği belirtin.
+    **Güvenlik Notu:** Seçme **Bağlantı güvenliyse izin** ek güvenlik sağlayabilir. Ortamınızda ek güvenlik seçenekleri yapılandırmak istiyorsanız bu seçeneği belirtin.
    
     ![Bağlantılara İzin Verme](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. **Profil** iletişim kutusunda **Genel**, **Özel** ve **Etki Alanı**’nı seçin. Ardından **İleri**'ye tıklayın.
    
-    **Güvenlik Notu:** **Genel** seçeneği belirlendiğinde, İnternet üzerinden erişime izin verilir. Mümkün olduğu durumlarda daha kısıtlayıcı bir profil seçin.
+    **Güvenlik Notu:**  Seçme **genel** internet üzerinden erişim sağlar. Mümkün olduğu durumlarda daha kısıtlayıcı bir profil seçin.
    
     ![Genel Profil](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. **Ad** iletişim kutusunda, bu kural için ad ve açıklama yazın ve **Son**’a tıklayın.
@@ -55,7 +55,7 @@ SQL Server Veritabanı Altyapısı, etki alanı ortamı olmadan Windows Kimlik D
 1. Sanal makineye bağlı durumdayken, Başlangıç sayfasında **SQL Server Management Studio** yazın ve seçili simgeye tıklayın.
    
     İlk kez açtığınızda Management Studio’nun, kullanıcıların Management Studio ortamını oluşturması gerekir. Bu birkaç dakika sürebilir.
-2. Management Studio, **Sunucuya Bağlan** iletişim kutusunu gösterir. **Sunucu adı** kutusuna, Nesne Gezgini’yle Veritabanı Altyapısı’na bağlanacak sanal makinenin adını yazın. (Sanal makine adı yerine **Sunucu adı** olarak **(yerel)** veya tek nokta da kullanabilirsiniz). Seçin **Windows kimlik doğrulaması**, bırakıp ***your_VM_name * \your_local_administrator** içinde **kullanıcı adı** kutusu. **Bağlan**'a tıklayın.
+2. Management Studio, **Sunucuya Bağlan** iletişim kutusunu gösterir. **Sunucu adı** kutusuna, Nesne Gezgini’yle Veritabanı Altyapısı’na bağlanacak sanal makinenin adını yazın. (Sanal makine adı yerine **Sunucu adı** olarak **(yerel)** veya tek nokta da kullanabilirsiniz). Seçin **Windows kimlik doğrulaması**, bırakıp ***your_VM_name\your_local_administrator*** içinde **kullanıcı adı** kutusu. **Bağlan**'a tıklayın.
    
     ![Sunucuya bağlanma](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. SQL Server Management Studio Nesne Gezgini’nde, SQL Server örneğinin adına (sanal makine adı) sağ tıklayın ve ardından **Özellikler**’e tıklayın.

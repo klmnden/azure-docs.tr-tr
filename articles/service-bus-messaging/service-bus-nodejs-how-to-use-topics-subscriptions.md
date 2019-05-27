@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591819"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992106"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Nasıl yapılır kullanım Service Bus konuları ve abonelikleri ile Node.js
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Nasıl yapılır kullanım Service Bus konuları ve abonelikleri ile Node.js ve azure-sb paketi
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+Bu öğreticide, bir Service Bus konusuna iletiler gönderir ve kullanarak bir Service Bus aboneliği iletileri almak için Node.js uygulamalarının nasıl oluşturulacağını öğrenin [azure sb](https://www.npmjs.com/package/azure-sb) paket. Örnekler JavaScript dilinde yazılmıştır ve Node.js kullanma [Azure Modülü](https://www.npmjs.com/package/azure) , dahili olarak kullandığı `azure-sb` paket.
 
-Bu kılavuzda, Service Bus konuları ve abonelikleri Node.js uygulamalarından kullanmayı açıklar. Kapsanan senaryolar şunlardır:
+[Azure sb](https://www.npmjs.com/package/azure-sb) paketini kullanan [hizmet veri yolu REST çalışma zamanı API'ları](/rest/api/servicebus/service-bus-runtime-rest). Yeni kullanarak daha hızlı deneyimi elde edebilirsiniz [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) daha hızlı kullanan paket [AMQP 1.0 protokol](service-bus-amqp-overview.md). Yeni paketi hakkında daha fazla bilgi için bkz: [Node.js ile Service Bus konu başlıklarını ve aboneliklerini kullanma ve @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), aksi takdirde nasıl kullanacağınızı görmek için okumaya devam [azure](https://www.npmjs.com/package/azure) paket.
+
+Burada kapsamdaki senaryolar şunlardır:
 
 - Konuları ve abonelikleri oluşturma 
 - Abonelik filtreleri oluşturma 
@@ -36,8 +41,8 @@ Bu kılavuzda, Service Bus konuları ve abonelikleri Node.js uygulamalarından k
 Konuları ve abonelikleri hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
 ## <a name="prerequisites"></a>Önkoşullar
-1. Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [Visual Studio veya MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. İzleyeceğiniz adımlar [hızlı başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portal'ı kullanmanızı](service-bus-quickstart-topics-subscriptions-portal.md) bir Service Bus'ı oluşturmak için **ad alanı** ve **bağlantı dizesi**.
+- Azure aboneliği. Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Etkinleştirebilir, [Visual Studio veya MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) veya kaydolun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- İzleyeceğiniz adımlar [hızlı başlangıç: Bir Service Bus konusu ve konu için Abonelik oluşturmak için Azure portal'ı kullanmanızı](service-bus-quickstart-topics-subscriptions-portal.md) bir Service Bus'ı oluşturmak için **ad alanı** ve **bağlantı dizesi**.
 
     > [!NOTE]
     > Oluşturacağınız bir **konu** ve **abonelik** kullanarak konuya **Node.js** Bu hızlı başlangıçta. 
@@ -82,7 +87,7 @@ Azure bulut hizmeti için ortam değişkenlerini ayarlama örneği için bkz: [o
 
 
 
-## <a name="create-a-topic"></a>Konu başlığı oluşturma
+## <a name="create-a-topic"></a>Konu oluştur
 **ServiceBusService** nesnesi konuları ile çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir **ServiceBusService** nesne. En ekleme **server.js** dosya, azure modülü içeri aktarmak için deyim sonra:
 
 ```javascript
@@ -330,7 +335,10 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 });
 ```
 
-## <a name="next-steps"></a>Sonraki Adımlar
+> [!NOTE]
+> Service Bus kaynakları ile yönetebileceğiniz [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer/). Hizmet veri yolu Gezgini, bir Service Bus ad alanınıza bağlanın ve mesajlaşma varlıkları kolay bir şekilde yönetmek kullanıcıların sağlar. Araç, içeri/dışarı aktarma işlevleri veya konu, kuyruklar, abonelikler, geçiş hizmetleri, bildirim hub'ları ve olay hub'ları test etme olanağı gibi gelişmiş özellikler sağlar. 
+
+## <a name="next-steps"></a>Sonraki adımlar
 Hizmet veri yolu konuları hakkındaki temel bilgileri öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin.
 
 * Bkz: [kuyruklar, konular ve abonelikler][Queues, topics, and subscriptions].

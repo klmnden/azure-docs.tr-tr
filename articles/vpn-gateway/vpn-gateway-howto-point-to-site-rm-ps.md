@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320269"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989438"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: PowerShell
 
@@ -64,7 +64,7 @@ Bu makaledeki adımların çoğu, Cloud Shell'i kullanabilirsiniz. Ancak, kök s
 
 Bu bölümde, oturum açın ve bu yapılandırma için kullanılan değerleri bildirirsiniz. Belirtilen değerler örnek betiklerde kullanılır. Değerleri, ortamınızı yansıtacak şekilde değiştirin. Veya, bildirilen değerleri kullanın ve bir alıştırma olarak adımları uygulayın.
 
-### <a name="sign-in"></a>Oturum aç
+### <a name="sign-in"></a>Oturum Aç
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -131,8 +131,8 @@ Kullanmak istediğiniz değişkenleri bildirin. Aşağıdaki örneği kullanın 
 Sanal ağınız için sanal ağ geçidini yapılandırın ve oluşturun.
 
 * -GatewayType değeri **Vpn** ve -VpnType değeri **RouteBased** olmalıdır.
-* -VpnClientProtocol, etkinleştirmek istediğiniz tünel türlerini belirtmek için kullanılır. **SSTP** ve **IKEv2** olmak üzere iki tünel seçeneği bulunur. Birini veya ikisini birden etkinleştirmeyi seçebilirsiniz. İkisini birden etkinleştirmek istiyorsanız, her iki adı da virgülle ayrılmış olarak belirtin. Android ve Linux üzerindeki strongSwan istemcisi ile iOS ve OSX üzerindeki yerel IKEv2 VPN istemcisi, bağlanmak için yalnızca IKEv2 tünelini kullanır. Windows istemcileri önce IKEv2’yi dener ve bağlanamazsa SSTP’ye döner.
-* Sanal ağ geçidi 'Temel' SKU, Ikev2 veya RADIUS kimlik doğrulamasını desteklemez. Mac istemcileri, sanal ağınıza bağlanmak zorunda planlıyorsanız, temel SKU kullanmayın.
+* -VpnClientProtocol, etkinleştirmek istediğiniz tünel türlerini belirtmek için kullanılır. Tünel Seçenekler **OpenVPN, SSTP** ve **Ikev2**. Bunlardan birini ya da desteklenen herhangi bir birleşimini etkinleştirmeyi seçebilirsiniz. Birden çok etkinleştirmek istiyorsanız, ardından virgülle ayırarak adları belirtin. OpenVPN ve SSTP birlikte etkinleştirilemez. Android ve Linux üzerindeki strongSwan istemcisi ile iOS ve OSX üzerindeki yerel IKEv2 VPN istemcisi, bağlanmak için yalnızca IKEv2 tünelini kullanır. Windows istemcileri önce IKEv2’yi dener ve bağlanamazsa SSTP’ye döner. OpenVPN istemci OpenVPN tünel türü için bağlanmak için kullanabilirsiniz.
+* Sanal ağ geçidi 'Temel' SKU, Ikev2, OpenVPN veya RADIUS kimlik doğrulamasını desteklemez. Mac istemcileri, sanal ağınıza bağlanmak zorunda planlıyorsanız, temel SKU kullanmayın.
 * Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz [ağ geçidi sku'suna](vpn-gateway-about-vpn-gateway-settings.md) bağlı olarak 45 dakikaya kadar sürebilir. Bu örnekte IKEv2 kullanılmıştır.
 
 ```azurepowershell-interactive
@@ -150,7 +150,7 @@ $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
 ```
 
-## <a name="Certificates"></a>5. İstemci sertifikaları oluşturma
+## <a name="Certificates"></a>5. Sertifika oluşturma
 
 Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için Azure tarafından sertifikalar kullanılır. Kök sertifikanın ortak anahtar bilgilerini Azure'a yükleyin. Bundan sonra ortak anahtar, 'güvenilir' olarak kabul edilir. Güvenilir kök sertifikadan istemci sertifikaları oluşturulmalı ve sonra Sertifikalar-Geçerli Kullanıcı/Kişisel sertifika deposundaki her bir istemci bilgisayara yüklenmelidir. Sertifika, sanal ağ ile bağlantı başlattığında istemcinin kimliğini doğrulamak için kullanılır. 
 

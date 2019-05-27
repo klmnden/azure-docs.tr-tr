@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/5/2019
+ms.date: 03/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2e9177f91f016ffc64d542b9fad89d147b96f6d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e05d79773cfd2ebae8047e75d41684de9101787a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545144"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962189"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 kodu verme akışı kullanarak Azure Active Directory web uygulamalarına erişim yetkisi verme
 
@@ -56,7 +56,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| tenant |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| tek |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
 | client_id |gerekli |Azure AD ile kaydettiğinizde, uygulamanıza atanan uygulama kimliği. Bunu Azure Portal'da bulabilirsiniz. Tıklayın **Azure Active Directory** Hizmetleri Kenar çubuğunda tıklatın **uygulama kayıtları**, uygulamayı seçin. |
 | response_type |gerekli |İçermelidir `code` yetkilendirme kod akışı için. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
@@ -141,7 +141,7 @@ grant_type=authorization_code
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| tenant |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| tek |gerekli |`{tenant}` İstek yolunda değer, uygulamaya oturum denetimi için kullanılabilir. Kiracı tanımlayıcıları, örneğin, izin verilen değerler: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
 | client_id |gerekli |Azure AD ile kaydettiğinizde, uygulamanıza atanan uygulama kimliği. Bunu Azure portalında bulabilirsiniz. Uygulama Kimliği uygulama kaydını ayarlarında görüntülenir. |
 | grant_type değeri |gerekli |Olmalıdır `authorization_code` yetkilendirme kod akışı için. |
 | kod |gerekli |`authorization_code` Önceki bölümde aldığınız |

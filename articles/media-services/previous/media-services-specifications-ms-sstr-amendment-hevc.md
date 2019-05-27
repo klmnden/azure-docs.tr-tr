@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650718"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963245"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Kesintisiz Akış Protokolü (MS-SSTR) değişiklik için HEVC 
 
@@ -40,11 +40,11 @@ Aşağıdaki terimler tanımlanan *[MS-GLOS]*:
 
 Aşağıdaki koşulları bu belgeye özgü:
 
->  **oluşturma saati:** Zaman bir örnek istemcide tanımlandığı şekilde sunulan [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>  **oluşturma saati:** Zaman bir örnek istemcide tanımlandığı şekilde sunulan [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: [ISO/IEC 23001-7], tanımlanmış ikinci sürüm olarak ortak şifreleme.
 > 
->   **kod çözme zamanı:** Bir örnek sınıfında tanımlandığı gibi istemcide kodu çözülecek gerekli zamandır [[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   **kod çözme zamanı:** Bir örnek sınıfında tanımlandığı gibi istemcide kodu çözülecek gerekli zamandır [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **Parça:** Bağımsız olarak indirilebilir bir ölçü **medya** bir veya daha fazla oluşur **örnekleri**.
 
@@ -52,11 +52,11 @@ Aşağıdaki koşulları bu belgeye özgü:
 > 
 >   **bildirim:** Hakkındaki meta verileri **sunu** olanak sağlayan bir istemci isteği yapmak **medya**. **ortam:** Oynatmak için istemcinin kullandığı ses, video ve metin veri sıkıştırılmış bir **sunu**. **medya biçimi:** Ses veya video sıkıştırılmış temsil etmek için iyi tanımlanmış bir biçimde **örnek**.
 > 
->   **sunumu:** Tüm kümesini **akışları** ve tek bir filmi yürütmek için gereken ilgili meta veriler. **İstek:** Sınıfında tanımlandığı gibi istemciden sunucuya gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **response:** Sınıfında tanımlandığı gibi sunucudan istemciye gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **sunumu:** Tüm kümesini **akışları** ve tek bir filmi yürütmek için gereken ilgili meta veriler. **İstek:** Sınıfında tanımlandığı gibi istemciden sunucuya gönderilen bir HTTP iletisi [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **yanıt:** Sınıfında tanımlandığı gibi sunucudan istemciye gönderilen bir HTTP iletisi [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **Örnek:** Burada küçük temel birimi (örneğin, bir çerçeve) **medya** depolanabilir ve işlenebilir.
 > 
->   **MAYIS, GEREKİR, GEREKİR, GEREKTİĞİ, GEREKİR:** Bu terimler (tümü büyük harf içinde) açıklandığı gibi kullanılır [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) İsteğe bağlı bir davranış kullanım tüm deyimler ya da olabilir, SHOULD veya olmamalıdır.
+>   **MAYIS, GEREKİR, GEREKİR, GEREKTİĞİ, GEREKİR:** Bu terimler (tümü büyük harf içinde) açıklandığı gibi kullanılır [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) isteğe bağlı bir davranış kullanım tüm deyimler ya da olabilir, SHOULD veya olmamalıdır.
 
 ## <a name="12-references"></a>1.2 başvuruları
 

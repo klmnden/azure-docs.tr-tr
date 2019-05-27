@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406837"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991489"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Bir olay hub'ı kullanarak zaman serisi görüşleri ortamına olayları gönderme
 
@@ -28,27 +28,27 @@ Bu makalede, oluşturma ve Azure olay hub'ları, bir olay hub'ı yapılandırma 
 1. Bir olay hub'ı oluşturmayı öğrenmek için bkz: [Event Hubs belgeleri](https://docs.microsoft.com/azure/event-hubs/).
 1. Arama kutusuna arama **Event Hubs**. Döndürülen listeden seçin **Event Hubs**.
 1. Olay hub'ınızı seçin.
-1. Bir olay hub'ı oluşturduğunuzda, aslında bir olay hub'ı ad alanını oluşturuyorsunuz. Henüz bir olay hub'ı ad alanı içinde menüde altında oluşturmadıysanız **varlıkları**, bir olay hub'ı oluşturun.  
+1. Bir olay hub'ı oluşturduğunuzda, bir olay hub'ı ad alanını oluşturuyorsunuz. Henüz bir olay hub'ı ad alanı içinde menüde altında oluşturmadıysanız **varlıkları**, bir olay hub'ı oluşturun.  
 
     [![Olay hub'ları listesi](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. Bir olay hub'ı oluşturduğunuzda, olay hub'ları listesinde seçin.
-1. Menüde altında **varlıkları**seçin **Event Hubs**.
+1. Menüsünde altında **varlıkları**seçin **Event Hubs**.
 1. Olay hub'ı yapılandırmak için adını seçin.
 1. Altında **varlıkları**seçin **tüketici grupları**ve ardından **tüketici grubu**.
 
     [![Bir tüketici grubu oluşturun](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Özel olarak yalnızca Zaman Serisi Görüşleri olay kaynağınız tarafından kullanılan bir tüketici grubu oluşturduğunuzdan emin olun.
+1. Özel zaman serisi görüşleri olay kaynağınız tarafından kullanılan bir tüketici grubu oluşturduğunuzdan emin olun.
 
     > [!IMPORTANT]
-    > Bu tüketici grubunun başka bir hizmet (örneğin, Azure Stream Analytics işi veya başka bir zaman serisi görüşleri ortamı) tarafından kullanılmadığından emin olun. Tüketici grubu tarafından kullanılıyorsa, bu ortam için ve diğer hizmetler için Hizmetleri, okuma işlemleri olumsuz etkilenir. Kullanırsanız **$Default** tüketici grubu diğer okuyucular potansiyel olarak, bir tüketici grubu yeniden kullanabilir.
+    > Bu tüketici grubunun, Azure Stream Analytics işi veya başka bir zaman serisi görüşleri ortamına gibi diğer tüm hizmet tarafından kullanılmadığından emin olun. Tüketici grubu tarafından kullanılıyorsa, bu ortam için ve diğer hizmetler için Hizmetleri, okuma işlemleri olumsuz etkilenir. Kullanırsanız **$Default** tüketici grubu diğer okuyucular potansiyel olarak, bir tüketici grubu yeniden kullanabilir.
 
-1. Menüde altında **ayarları**seçin **paylaşılan erişim ilkeleri**ve ardından **Ekle**.
+1. Menüsünde altında **ayarları**seçin **paylaşılan erişim ilkeleri**ve ardından **Ekle**.
 
     [![Paylaşılan erişim ilkeleri'ni seçin ve ardından Ekle düğmesini seçin.](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. İçinde **yeni paylaşılan erişim ilkesi ekleme** bölmesinde adlı bir paylaşılan erişim oluşturma **MySendPolicy**. Bu paylaşılan erişim ilkesi olayları göndermek için kullanacağınız C# bu makaledeki örnekler.
+1. İçinde **yeni paylaşılan erişim ilkesi ekleme** bölmesinde adlı bir paylaşılan erişim oluşturma **MySendPolicy**. Bu paylaşılan erişim ilkesi olayları göndermek için kullandığınız C# bu makaledeki örnekler.
 
     [![İlke adı kutusuna MySendPolicy girin](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
@@ -81,7 +81,7 @@ Time Series Insights güncelleştirme örnekleri bağlamsal veriler için gelen 
 
 1. Seçin **başlatmak için tıklatın**. Simülatör doğrudan kullanabileceğiniz JSON örneği oluşturur.
 
-1. Azure portalında event hub'ınıza geri dönün. Üzerinde **genel bakış** sayfa, olay hub'ı tarafından alınan yeni olaylar görmelisiniz.
+1. Azure portalında event hub'ınıza geri dönün. Üzerinde **genel bakış** sayfa, olay hub'ı tarafından alınan yeni olayları görürsünüz.
 
     [![Ölçümleri olay hub'ı gösteren bir olay hub'ı genel bakış sayfası](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

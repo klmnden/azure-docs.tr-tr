@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: spelluru
 ms.openlocfilehash: b6e0e57881154f5885e9f518363eda3c5b1169a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201723"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171262"
 ---
 ### <a name="install-via-composer"></a>Oluşturucu yükleme
 1. Adlı bir dosya oluşturun **composer.json** projenizin kökünde ve aşağıdaki kodu ekleyin:

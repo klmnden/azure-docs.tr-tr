@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956086"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -212,7 +212,7 @@ git config --global http.postBuffer 524288000
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
-      OR
+      VEYA
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
 ## <a name="additional-resources"></a>Ek Kaynaklar

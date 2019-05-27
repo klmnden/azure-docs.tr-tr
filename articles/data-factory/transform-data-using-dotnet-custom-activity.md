@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165972"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 
@@ -102,11 +102,11 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 
 | Özellik              | Açıklama                              | Gerekli |
 | :-------------------- | :--------------------------------------- | :------- |
-| ad                  | İşlem hattındaki etkinliğin adı     | Evet      |
+| name                  | İşlem hattındaki etkinliğin adı     | Evet      |
 | açıklama           | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
-| type                  | Özel bir etkinlik için etkinlik türdür **özel**. | Evet      |
+| tür                  | Özel bir etkinlik için etkinlik türdür **özel**. | Evet      |
 | linkedServiceName     | Azure Batch için bağlı hizmeti. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  | Evet      |
-| command               | Yürütülecek özel uygulama komutu. Uygulama zaten Azure Batch havuzu düğüm üzerinde kullanılabilir haldeyse, folderPath ve resourceLinkedService atlanabilir. Örneğin, komut olarak belirtebilirsiniz `cmd /c dir`, yerel olarak desteklendiği Windows Batch havuzu düğümü tarafından. | Evet      |
+| Komutu               | Yürütülecek özel uygulama komutu. Uygulama zaten Azure Batch havuzu düğüm üzerinde kullanılabilir haldeyse, folderPath ve resourceLinkedService atlanabilir. Örneğin, komut olarak belirtebilirsiniz `cmd /c dir`, yerel olarak desteklendiği Windows Batch havuzu düğümü tarafından. | Evet      |
 | resourceLinkedService | Özel uygulama depolandığı depolama hesabı için Azure depolama bağlı hizmeti | Yok&#42;       |
 | folderPath            | Özel uygulama ve tüm bağımlılıklarını klasörünün yolu<br/><br/>Hiyerarşik klasör yapısı altında alt klasörlerinde - diğer bir deyişle, depolanan bağımlılıkları varsa *folderPath* -klasör yapısı şu anda Azure Batch'e dosyaları kopyalarken düzleştirilir. Diğer bir deyişle, tüm dosyaları hiçbir alt klasör tek bir klasöre kopyalanır. Bu davranışa geçici bir çözüm için dosyalar sıkıştırılıyor, sıkıştırılmış dosya kopyalamayı ve ardından, istenen konumu özel kodla sıkıştırması açılırken göz önünde bulundurun. | Yok&#42;       |
 | referenceObjects      | Mevcut bağlı hizmetleri ve veri kümeleri dizisi. Data Factory kaynaklarını özel kodunuz başvurabilmeniz başvurulan bağlı hizmetleri ve veri kümeleri JSON biçimindeki özel uygulamaya geçirilir | Hayır       |

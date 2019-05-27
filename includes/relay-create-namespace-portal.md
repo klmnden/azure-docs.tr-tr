@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420202"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111536"
 ---
 1. [Azure portalında][Azure portal] oturum açın.
 2. Soldaki menüden **+ Kaynak oluştur**'u seçin. Ardından **Tümleştirme** > **Geçiş**'i seçin. Listede **Geçiş**'i görmüyorsanız sağ üst köşedeki **Tümünü Gör**'ü seçin. 
@@ -18,7 +18,7 @@ ms.locfileid: "60420202"
 5. [Kaynak grubu](../articles/azure-resource-manager/manage-resource-groups-portal.md) kutusunda, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.  
 6. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
    
-    ![ad alanı oluşturma][create-namespace]
+    ![Ad alanı oluştur][create-namespace]
 7. **Oluştur**’u seçin. Sistem ad alanınızı oluşturur ve kullanıma açar. Birkaç dakika sonra sistem, hesabınız için kaynakları sağlar.
 
 ### <a name="get-management-credentials"></a>Yönetim kimlik bilgilerini alma

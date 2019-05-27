@@ -9,12 +9,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6e859f57f9b5f24ea2f0172f5aa35a60d9769f19
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551722"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962130"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift geliştirme ortamınızı ayarlama
 
@@ -29,13 +29,15 @@ Microsoft Azure Red Hat OpenShift uygulamalar oluşturup çalıştırın, sizin 
 
 Aşağıdaki yönergeler bu Önkoşullar tümünde size yol gösterir.
 
-## <a name="purchase-azure-virtual-machine-reserved-instances"></a>Ayrılmış Azure sanal makine örnekleri satın alın
+## <a name="purchase-azure-red-hat-openshift-application-nodes-reserved-instances"></a>Azure Red Hat OpenShift uygulama düğümleri ayrılmış örnekler satın alma
 
-Azure Red Hat OpenShift kullanabilmeniz için ayrılmış Azure sanal makine örnekleri satın almanız gerekir.
+Azure Red Hat OpenShift kullanabilmeniz için önce en az 4 Azure Red Hat OpenShift ayrılmış uygulama düğümünden daha sonra küme sağlama için mümkün olacaktır, satın almanız gerekir.
 
-Bir Azure müşterisi, burada ait olması durumunda nasıl [satın alma Azure sanal makine örnekleri ayrılmış](https://aka.ms/openshift/buy). Rezervasyon azaltır, tam olarak yönetilen Azure Hizmetleri için önceden ödeme yaparak ayırın. Başvurmak [ *Azure ayırmaları nelerdir* ](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) ayırmaları ve nasıl bunlar tasarruf hakkında daha fazla bilgi edinmek için.
+Bir Azure müşterisi olduğunuz [Azure Red Hat OpenShift ayrılmış örnekler satın alma](https://aka.ms/openshift/buy) Azure portalı üzerinden. Satın aldıktan sonra aboneliğinizi 24 saat içinde etkinleştirilecektir.
 
 Bir Azure müşterisi değilseniz [satış birimiyle iletişime geçin](https://aka.ms/openshift/contact-sales) ve işlemini başlatmak için sayfanın alt kısmındaki Satış formunu doldurun.
+
+Başvurmak [Azure Red Hat OpenShift fiyatlandırma sayfası](https://aka.ms/openshift/pricing) daha fazla bilgi için.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
 
