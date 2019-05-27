@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58442962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66116975"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak Stream Analytics işi oluşturma
 
@@ -32,7 +32,7 @@ Azure PowerShell modülü, PowerShell cmdlet'leri veya betikleri kullanarak Azur
 * Bazı IOT Hub eylemleri Azure PowerShell tarafından desteklenmez ve tamamlanan kullanarak Azure CLI sürümünü 2.0.24 veya sonraki bir sürümü gerekir ve Azure CLI için IOT uzantısı. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ve `az extension add --name azure-cli-iot-ext` IOT uzantısını yüklemek için.
 
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Azure aboneliğinizde oturum açın `Connect-AzAccount` komutunu ve açılır tarayıcı penceresine Azure kimlik bilgilerinizi girin:
 
@@ -51,7 +51,7 @@ Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubscription
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Bir Azure kaynak grubu oluşturun [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 

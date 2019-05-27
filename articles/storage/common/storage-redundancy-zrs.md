@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146199"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961432"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -31,11 +31,11 @@ ZRS şu bölgelerde genel kullanıma sunulmuştur:
 - Kuzey Avrupa
 - Fransa Orta
 - Japonya Doğu
-- Birleşik Krallık Güney
+- BK Güney
+- ABD Orta
 - ABD Doğu
 - ABD Doğu 2
 - ABD Batı 2
-- ABD Orta
 
 Microsoft, ek Azure bölgelerinde ZRS etkinleştirmek devam ediyor. Denetleme [Azure hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/) düzenli olarak yeni bölgeler hakkında daha fazla bilgi için.
 
@@ -75,6 +75,7 @@ Dinamik geçiş üzerine aşağıdaki kısıtlamaları göz önünde bulundurun:
 - Yalnızca aynı bölgede verilerin geçirebilirsiniz. Veri kaynağı hesaptan farklı bir bölgede bulunan bir ZRS hesabına geçirmek istiyorsanız, el ile geçiş gerçekleştirmeniz gerekir.
 - Yalnızca standart depolama hesabı türleri, dinamik geçiş desteği. Premium depolama hesapları el ile geçirilmesi gerekir.
 - LRS, GRS veya RA-GRS ZRS Canlı geçiş desteklenmiyor. Yeni veya mevcut bir depolama hesabı için verileri el ile taşımanız gerekir.
+- Yönetilen diskler yalnızca LRS için kullanılabilir ve ZRS için geçirilemez. Bkz: tümleştirme ile kullanılabilirlik kümeleri için [giriş Azure yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). Anlık görüntülerini ve görüntülerini standart SSD yönetilen diskler için standart HDD depolama alanında depolayabilirsiniz ve [LRS hem de ZRS seçenekler arasından seçim yapın](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 Dinamik geçiş aracılığıyla isteyebilir [Azure destek portalı](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Portalda, ZRS için dönüştürmek istediğiniz depolama hesabını seçin.
 1. Seçin **yeni destek isteği**
@@ -96,7 +97,7 @@ Destek ekibiyle sizinle iletişim kurmak ve ihtiyacınız olan tüm Yardım sağ
 
 **Geçiş sırasında kapalı kalma süresi için planlama yapmalıyım?**
 
-Geçiş tarafından nedeniyle kapalı kalma süresi yoktur. Verilerinizi, kaynak ve hedef depolama Damgalar arasında geçişi sırasında bir dinamik geçiş sırasında depolama hesabınızın devam edebilirsiniz. Geçiş işlemi sırasında normal aynı düzeyde dayanıklılık ve kullanılabilirlik SLA'sı yazarken sahip.
+Geçiş tarafından nedeniyle kapalı kalma süresi yoktur. Bir dinamik geçiş sırasında verilerinizi, kaynak ve hedef depolama Damgalar arasında geçişi sırasında depolama hesabınızı kullanmaya devam edebilirsiniz. Geçiş işlemi sırasında normal aynı düzeyde dayanıklılık ve kullanılabilirlik SLA'sı yazarken sahip.
 
 **Geçişle ilişkilendirilmiş veri kaybını var mı?**
 

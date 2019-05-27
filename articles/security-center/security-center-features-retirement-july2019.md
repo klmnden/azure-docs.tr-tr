@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 5ac6603be087e887e3304f6a7e14aa063863e1dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796459"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952146"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Güvenlik Merkezi özelliklerini (Temmuz 2019) devre dışı bırakma
 
@@ -160,9 +160,9 @@ Mevcut bağlantılı çözümler varsa, Azure Gözcü için taşıma geçirmeniz
 
 ## Güvenlik ilkeleri için güvenlik yapılandırmalarını Düzenle<a name="menu_securityconfigurations"></a>
 
-Azure Güvenlik Merkezi'nin izlediği güvenlik yapılandırmalarını bir dizi uygulayarak [150'den önerilen kurallar](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). işletim sistemini sağlamlaştırma için. Bu kurallar, güvenlik duvarları, Denetim, parola ilkeleri ve daha fazla bilgi için ilgilidir. Güvenlik açığı bulunan bir yapılandırmaya sahip bir makine bulundu, Güvenlik Merkezi bir güvenlik önerisi oluşturur. [Düzenleme güvenlik yapılandırma ekranında](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) Güvenlik Merkezi'nde varsayılan işletim sistemi güvenlik yapılandırması özelleştirme yapmasını sağlar.
+Azure Güvenlik Merkezi'nin izlediği güvenlik yapılandırmalarını bir dizi uygulayarak [150'den önerilen kurallar](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). işletim sistemini sağlamlaştırma için. Bu kurallar, güvenlik duvarları, Denetim, parola ilkeleri ve daha fazla bilgi için ilgilidir. Bir makinenin yapılandırmasında güvenlik açığı varsa Güvenlik Merkezi bu konuyla ilgili bir güvenlik önerisi oluşturur. [Düzenleme güvenlik yapılandırma ekranında](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) Güvenlik Merkezi'nde varsayılan işletim sistemi güvenlik yapılandırması özelleştirme yapmasını sağlar.
 
-Biz bu önizleme özelliğini devre dışı bırakma.
+Biz bu önizleme özelliğini devre dışı bırakma. O tarihten sonra güvenlik yapılandırmalarını geri varsayılan değerlerine sıfırlamak istiyorsanız, bunu API veya Powershell kullanarak aracılığıyla yapabilirsiniz [yönergeleri izleyin](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Güvenlik yapılandırmalarını düzenle][17]
 

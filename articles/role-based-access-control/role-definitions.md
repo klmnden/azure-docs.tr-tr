@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121835"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949998"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Azure kaynakları için rol tanımları anlama
 
@@ -131,7 +131,7 @@ Yönetim ve veri işlemlerini nasıl çalıştığını daha iyi anlamak için b
 
 [Sahibi](built-in-roles.md#owner) Alice için rol ve [depolama Blob verileri katkıda bulunan](built-in-roles.md#storage-blob-data-contributor) rolde Bob için aşağıdaki eylemleri:
 
-Sahip
+Sahibi
 
 &nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
@@ -147,9 +147,9 @@ Depolama Blob Verileri Katkıda Bulunanı
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Alice, joker karakter olduğundan (`*`) eylem bir abonelik kapsamda kendi devralmak aşağı tüm yönetim eylemleri gerçekleştirmek her etkinleştirmek için. Alice, okuma, yazma ve kapsayıcıları silin. Ancak, Alice, ek adımların atılmasından olmadan veri işlemleri gerçekleştiremezsiniz. Örneğin, varsayılan olarak, bir kapsayıcı içinde BLOB'ları Alice okunamıyor. Alice blobları okumak için depolama erişim tuşlarını almak ve bunları bloblara erişmek için gerekir.
+Alice, joker karakter olduğundan (`*`) eylem bir abonelik kapsamda izinlerini devralır aşağı bunları tüm yönetim eylemleri gerçekleştirmek üzere etkinleştirmek için. Alice, okuma, yazma ve kapsayıcıları silin. Ancak, Alice, ek adımların atılmasından olmadan veri işlemleri gerçekleştiremezsiniz. Örneğin, varsayılan olarak, bir kapsayıcı içinde BLOB'ları Alice okunamıyor. Alice blobları okumak için depolama erişim tuşlarını almak ve bunları bloblara erişmek için gerekir.
 
-Bob'ın izinler için yalnızca sınırlı `Actions` ve `DataActions` belirtilen [depolama Blob verileri katkıda bulunan](built-in-roles.md#storage-blob-data-contributor) rol. Rol tabanlı, Bob hem yönetim hem de veri işlemleri gerçekleştirebilirsiniz. Örneğin, Bob okumak, yazma ve belirtilen depolama hesabında kapsayıcıları silmek ve he ayrıca okuma, yazma ve blobları silin.
+Bob'ın izinler için yalnızca sınırlı `Actions` ve `DataActions` belirtilen [depolama Blob verileri katkıda bulunan](built-in-roles.md#storage-blob-data-contributor) rol. Rol tabanlı, Bob hem yönetim hem de veri işlemleri gerçekleştirebilirsiniz. Örneğin, Bob okuma, yazma ve belirtilen depolama hesabında kapsayıcıları silmek ve de okuma, yazma ve bloblarını silin.
 
 Yönetim ve depolama için veri düzlemi güvenliği hakkında daha fazla bilgi için bkz. [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md).
 

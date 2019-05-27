@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838969"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955752"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service'te güvenlik
 
@@ -105,7 +105,7 @@ Kaynak bağlantısı tamamen azure'da paylaşılan ağları yalıtmak için uygu
 
 ## <a name="application-secrets"></a>Uygulama gizli dizilerini
 
-Veritabanı kimlik bilgileri, API belirteçleri ve özel anahtarlar gibi uygulama gizli kod veya yapılandırma dosyalarınızda depolamayın. Olarak erişmek için yaygın olarak kabul edilen yaklaşımdır [ortam değişkenlerini](https://wikipedia.org/wiki/Environment_variable) standart deseni kullanarak istediğiniz dilde. App Service ortam değişkenlerini aracılığıyla yoludur [uygulama ayarları](web-sites-configure.md#app-settings) (ve .NET uygulamaları için özellikle [bağlantı dizeleri](web-sites-configure.md#connection-strings)). Uygulama ayarlarının ve bağlantı dizelerinin Azure'da şifrelenmiş olarak depolanır ve bunların uygulama başlatıldığında yalnızca uygulamanızın işlem belleğe eklenmiş önce şifresi. Şifreleme anahtarlarını düzenli olarak döndürülür.
+Veritabanı kimlik bilgileri, API belirteçleri ve özel anahtarlar gibi uygulama gizli kod veya yapılandırma dosyalarınızda depolamayın. Olarak erişmek için yaygın olarak kabul edilen yaklaşımdır [ortam değişkenlerini](https://wikipedia.org/wiki/Environment_variable) standart deseni kullanarak istediğiniz dilde. App Service ortam değişkenlerini aracılığıyla yoludur [uygulama ayarları](configure-common.md#configure-app-settings) (ve .NET uygulamaları için özellikle [bağlantı dizeleri](configure-common.md#configure-connection-strings)). Uygulama ayarlarının ve bağlantı dizelerinin Azure'da şifrelenmiş olarak depolanır ve bunların uygulama başlatıldığında yalnızca uygulamanızın işlem belleğe eklenmiş önce şifresi. Şifreleme anahtarlarını düzenli olarak döndürülür.
 
 Alternatif olarak, App Service uygulamanızı facebook veya [Azure anahtar kasası](/azure/key-vault/) Gelişmiş gizli dizileri yönetimi. Tarafından [yönetilen bir kimlikle Key Vault'a erişme](../key-vault/tutorial-web-application-keyvault.md), App Service uygulamanızı ihtiyacınız gizli dizileri güvenli bir şekilde erişebilir.
 

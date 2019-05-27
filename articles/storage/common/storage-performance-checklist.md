@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477306"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951165"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
 Microsoft Azure depolama hizmetleri sürümü,'den itibaren Microsoft, yüksek performanslı bir şekilde bu hizmetleri kullanmaya yönelik kendini kanıtlamış bir dizi geliştirdi ve bunların en önemli bir denetim stili listesine birleştirmek için bu makalede hizmet. Bu makalede amacınıza uygulama geliştiricileri, kendini kanıtlamış Azure depolama ile kullandığınızdan emin olun ve benimsemeyi düşünmelisiniz diğer kendini kanıtlamış belirlemenize yardımcı olmak amacıyla ' dir. Bu makalede, her olası performans ve ölçeklenebilirlik iyileştirme kapsayacak şekilde denemez — etkilerine küçük veya kapsamlı olarak uygulanabilir olanlar hariç tutar. Uygulamanın davranışını tasarım sırasında tahmin edilebilmesi için toplasa bile, bu performans sorunlarla karşılaşırsanız çalıştıracak tasarımları erkenden önlemek için göz önünde tutmak kullanışlıdır.  
 
-Azure depolama kullanan her uygulama geliştiricisine, bu makaleyi okuyun ve kendi uygulama her biri aşağıda listelenen kendini kanıtlamış izlediğini denetlemek için zamanınız olması gerekir.  
+Azure depolama kullanan her uygulama geliştiricisine, bu makaleyi okuyun ve uygulamalarını her biri aşağıda listelenen kendini kanıtlamış izlediğini denetlemek için zamanınız olması gerekir.  
 
 ## <a name="checklist"></a>Denetim listesi
 Bu makalede, kendini kanıtlamış yöntemleri aşağıdaki gruplar halinde düzenler. Kendini kanıtlamış yöntemleri uygulanabilir:  
@@ -27,9 +27,9 @@ Bu makalede, kendini kanıtlamış yöntemleri aşağıdaki gruplar halinde düz
 * Tüm Azure depolama hizmetleri (BLOB'lar, tablolar, kuyruklar ve dosyalar)
 * Bloblar
 * Tablolar
-* Kuyruklar  
+* Sıralar  
 
-| Bitti | Alan | Kategori | Soru |
+| Bitti | Alan | Category | Soru |
 | --- | --- | --- | --- |
 | &nbsp; | Tüm Hizmetler |Ölçeklenebilirlik hedefleri |[Uygulamanızı ölçeklenebilirlik hedefleri yaklaşan önlemek için tasarlanmıştır?](#subheading1) |
 | &nbsp; | Tüm Hizmetler |Ölçeklenebilirlik hedefleri |[Adlandırma kuralınızın, daha iyi Yük Dengeleme sağlamak için tasarlanmıştır?](#subheading47) |
@@ -38,15 +38,15 @@ Bu makalede, kendini kanıtlamış yöntemleri aşağıdaki gruplar halinde düz
 | &nbsp; | Tüm Hizmetler |Ağ |[İstemci uygulaması "neredeyse" depolama hesabı bulunur?](#subheading4) |
 | &nbsp; | Tüm Hizmetler |İçerik Dağıtımı |[İçerik dağıtımı için bir CDN kullanıyorsunuz?](#subheading5) |
 | &nbsp; | Tüm Hizmetler |Doğrudan istemci erişimi |[Depolama proxy yerine doğrudan erişmesine izin vermek için SAS ve CORS kullanıyorsunuz?](#subheading6) |
-| &nbsp; | Tüm Hizmetler |Önbelleğe alma |[Sürekli olarak kullanılan uygulama verileri önbelleğe alma ve değişiklikleri nadiren mi?](#subheading7) |
-| &nbsp; | Tüm Hizmetler |Önbelleğe alma |[Uygulamanız, (bunların istemci tarafı önbelleğe alma ve sonra daha büyük kümeleri karşıya) güncelleştirmeleri'toplu işlem?](#subheading8) |
+| &nbsp; | Tüm Hizmetler |Önbelleğe Alma |[Sürekli olarak kullanılan uygulama verileri önbelleğe alma ve değişiklikleri nadiren mi?](#subheading7) |
+| &nbsp; | Tüm Hizmetler |Önbelleğe Alma |[Uygulamanız, (bunların istemci tarafı önbelleğe alma ve sonra daha büyük kümeleri karşıya) güncelleştirmeleri'toplu işlem?](#subheading8) |
 | &nbsp; | Tüm Hizmetler |.NET yapılandırma |[Yeterli sayıda eş zamanlı bağlantı kullanmak için istemcinizi yapılandırdıktan?](#subheading9) |
 | &nbsp; | Tüm Hizmetler |.NET yapılandırma |[.NET iş parçacığı yeterli sayıda kullanmak için yapılandırdığınız?](#subheading10) |
 | &nbsp; | Tüm Hizmetler |.NET yapılandırma |[.NET 4.5 kullandığınız ya da daha sonra çöp toplama geliştirmiştir?](#subheading11) |
 | &nbsp; | Tüm Hizmetler |Paralellik |[Böylece, istemci yeteneklerini veya ölçeklenebilirlik hedefleri aşırı yükleme yapmaz paralellik uygun şekilde sınırlanmış sağlamış olursunuz?](#subheading12) |
 | &nbsp; | Tüm Hizmetler |Araçlar |[Microsoft en son sürümünü kullanarak istemci kitaplıkları ve araçları sağlanır?](#subheading13) |
-| &nbsp; | Tüm Hizmetler |Yeniden deneme sayısı |[Kullanarak bir üstel geri alma yeniden deneme ilkesi hatalarını ve zaman aşımları azaltma için misiniz?](#subheading14) |
-| &nbsp; | Tüm Hizmetler |Yeniden deneme sayısı |[Uygulama kaçınarak yeniden deneme denenemeyen hata mı?](#subheading15) |
+| &nbsp; | Tüm Hizmetler |Yeniden Deneme Sayısı |[Kullanarak bir üstel geri alma yeniden deneme ilkesi hatalarını ve zaman aşımları azaltma için misiniz?](#subheading14) |
+| &nbsp; | Tüm Hizmetler |Yeniden Deneme Sayısı |[Uygulama kaçınarak yeniden deneme denenemeyen hata mı?](#subheading15) |
 | &nbsp; | Bloblar |Ölçeklenebilirlik hedefleri |[Çok sayıda eşzamanlı olarak tek bir nesne erişen istemciler var mı?](#subheading46) |
 | &nbsp; | Bloblar |Ölçeklenebilirlik hedefleri |[Uygulamanızın içinde tek bir blob için bant genişliği veya işlem ölçeklenebilirlik hedefine kalıyor?](#subheading16) |
 | &nbsp; | Bloblar |Blobları kopyalama |[Verimli bir şekilde, kopyalama blobları misiniz?](#subheading17) |
@@ -71,13 +71,13 @@ Bu makalede, kendini kanıtlamış yöntemleri aşağıdaki gruplar halinde düz
 | &nbsp; | Tablolar |Ekleme/güncelleştirme/silme |[Yalnızca ekleme veya güncelleştirme aramak belirlemek için bir varlık alma önleme?](#subheading36) |
 | &nbsp; | Tablolar |Ekleme/güncelleştirme/silme |[Sık alınır veri serisi, tek bir varlık yerine birden çok varlık özellikleri olarak birlikte depolama bulundurduğunuzdan?](#subheading37) |
 | &nbsp; | Tablolar |Ekleme/güncelleştirme/silme |[Her zaman birlikte alınır ve toplu (örneğin, zaman serisi verileri) olarak yazılan varlıklar için BLOB'ları, tabloları yerine kullanarak bulundurduğunuzdan?](#subheading38) |
-| &nbsp; | Kuyruklar |Ölçeklenebilirlik hedefleri |[Saniye başına ileti için ölçeklenebilirlik hedefleri yaklaştığı?](#subheading39) |
-| &nbsp; | Kuyruklar |Yapılandırma |[Nagle küçük isteklerinin performansını artırmak için devre dışı bırakmış?](#subheading40) |
-| &nbsp; | Kuyruklar |İleti Boyutu |[Kuyruğun performansını artırmak için iletileri compact misiniz?](#subheading41) |
-| &nbsp; | Kuyruklar |Toplu Al |["Get" tek bir işlemde birden çok ileti alıyor?](#subheading42) |
-| &nbsp; | Kuyruklar |Yoklama sıklığı |[Uygulamanızı algılanan gecikme süresini azaltmak için yoklama sıklıkta?](#subheading43) |
-| &nbsp; | Kuyruklar |İletiyi güncelleştirme |[Bir hata oluşursa, iletinin tamamı yeniden işlemek zorunda ilerleme iletilerini işleme depolamak için UpdateMessage kullanıyorsunuz?](#subheading44) |
-| &nbsp; | Kuyruklar |Mimari |[Uzun süre çalışan iş yükleri kritik yol dışında tutarak tüm uygulamanızın daha ölçeklenebilir yapmak ve birbirinden bağımsız olarak ölçeklendirme için kuyrukları kullanıyorsunuz?](#subheading45) |
+| &nbsp; | Sıralar |Ölçeklenebilirlik hedefleri |[Saniye başına ileti için ölçeklenebilirlik hedefleri yaklaştığı?](#subheading39) |
+| &nbsp; | Sıralar |Yapılandırma |[Nagle küçük isteklerinin performansını artırmak için devre dışı bırakmış?](#subheading40) |
+| &nbsp; | Sıralar |İleti Boyutu |[Kuyruğun performansını artırmak için iletileri compact misiniz?](#subheading41) |
+| &nbsp; | Sıralar |Toplu Al |["Get" tek bir işlemde birden çok ileti alıyor?](#subheading42) |
+| &nbsp; | Sıralar |Yoklama sıklığı |[Uygulamanızı algılanan gecikme süresini azaltmak için yoklama sıklıkta?](#subheading43) |
+| &nbsp; | Sıralar |İletiyi güncelleştirme |[Bir hata oluşursa, iletinin tamamı yeniden işlemek zorunda ilerleme iletilerini işleme depolamak için UpdateMessage kullanıyorsunuz?](#subheading44) |
+| &nbsp; | Sıralar |Mimari |[Uzun süre çalışan iş yükleri kritik yol dışında tutarak tüm uygulamanızın daha ölçeklenebilir yapmak ve birbirinden bağımsız olarak ölçeklendirme için kuyrukları kullanıyorsunuz?](#subheading45) |
 
 ## <a name="allservices"></a>Tüm hizmetler
 Bu bölüm, herhangi bir Azure depolama hizmeti (BLOB, tablo, kuyruk veya dosyaları) için geçerlidir, kendini kanıtlamış uygulamaları listeler.  
@@ -159,7 +159,7 @@ SAS hakkında daha fazla bilgi için bkz: [paylaşılan erişim imzaları, 1. B�
 
 CORS hakkında daha fazla bilgi için bkz: [Azure Storage Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) desteği](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
-### <a name="caching"></a>Önbelleğe alma
+### <a name="caching"></a>Önbelleğe Alma
 #### <a name="subheading7"></a>Veri alma
 Genel olarak, bir hizmetten veri alma, bir kez daha iki kez alma daha iyidir. Zaten 50 MB'lık bir blobun bir kullanıcıya içerik olarak görev yapacak Depolama hizmetinden alınan bir web rolünde çalışan bir MVC web uygulaması örneği göz önünde bulundurun. Uygulama, daha sonra bir kullanıcı istekte ya da yerel olarak disk ve sonraki kullanıcı istekleri için önbelleğe alınmış sürümünü yeniden önbelleğe alınamadı, aynı blob alabilir. Ayrıca, her bir kullanıcı verileri, uygulama sorunu, değiştirilmemiş varsa tüm blob girmeyi önlemek değiştirme saati için koşullu bir üstbilgiyle ALABİLİR ister. Bu aynı deseni tablo varlıklarla çalışmaya uygulayabilirsiniz.  
 
@@ -208,7 +208,7 @@ Paralellik performans için harika olabilir, ancak sınırsız paralellik (iş p
 ### <a name="subheading13"></a>Depolama istemci kitaplıkları ve araçları
 Her zaman en son Microsoft sağlanan istemci kitaplıkları ve araçları kullanın. Makalenin yazıldığı sırada, diğer diller için Önizleme kitaplıkları yanı sıra .NET, Windows Phone, Windows çalışma zamanı, Java ve C++ için kullanılabilir olan istemci kitaplıkları vardır. Ayrıca, Microsoft, PowerShell cmdlet'leri ve Azure depolama ile çalışmak için Azure CLI komutlarını kullanıma sundu. Microsoft etkin bir şekilde performans aklınızda bu araçlarla geliştiren, en son hizmet sürümleri ile güncel kalmasını sağlar ve kanıtlanmış performansından uygulamalarının dahili olarak işledikleri sağlar.  
 
-### <a name="retries"></a>Yeniden deneme sayısı
+### <a name="retries"></a>Yeniden Deneme Sayısı
 #### <a name="subheading14"></a>Azaltma ServerBusy
 Bazı durumlarda, depolama hizmeti, uygulamanızın azaltma veya yalnızca bazı geçici koşul nedeniyle isteği hizmet ve "503 Sunucu meşgul" iletisi veya "500 zaman aşımı" dönmek olabilir.  Uygulamanızı herhangi bir ölçeklenebilirlik hedefleri yaklaştığını veya bölümlenmiş verilerinizi daha yüksek aktarım hızı için izin vermek için sistemin yeniden Dengeleme yoksa bu durum oluşabilir.  İstemci uygulaması genellikle, bu tür bir hataya neden olan işlemi yeniden denemesinin: daha sonra aynı istek denemesi başarılı olabilir. Bununla birlikte, ölçeklenebilirlik hedefleri aşılıyor çünkü depolama hizmeti, uygulamanızın azaltma veya hizmet isteği başka bir nedenle hizmet kuramadı olsa bile, agresif yeniden deneme genellikle sorun daha da kötüsü oluşturur. Bu nedenle, bir üstel geri alma (Bu davranışı için istemci kitaplıkları varsayılan) kullanmanız gerekir. Örneğin, uygulamanız 2 saniye sonra 4 saniye sonra 10 saniye sonra 30 saniye sonra yeniden deneyin ve tamamen vazgeçerlerdi. Bu davranış, önemli ölçüde hizmet yüküne azaltma yerine problemleri exacerbating uygulamanızda sonuçlanır.  
 
@@ -376,7 +376,7 @@ Uygulamanızı ayrı özelliği tek bir varlık olarak her saat için alternatif
 ##### <a name="subheading38"></a>Bloblar yapılandırılmış verileri depolama
 Bazen yapılandırılmış verileri tablolarda, gitmesi gereken ancak aralıkları varlıklar her zaman birlikte alınır ve batch eklenebilir gibi hissettirir.  Bunun iyi bir örnek günlük dosyasıdır.  Bu durumda, birkaç dakikadan günlükler batch, bunları eklemek ve ardından, her zaman aynı anda de günlüklerinin birkaç dakika alıyor.  Bu durumda, performans için yazılan /, genellikle yapılan gereken isteklerinin sayısı yanı sıra döndürülen nesne sayısını önemli ölçüde azaltabilirsiniz beri tabloları yerine, BLOB'ları kullanmak en iyisidir.  
 
-## <a name="queues"></a>Kuyruklar
+## <a name="queues"></a>Sıralar
 Kendini kanıtlamış yöntemleri için ek olarak [tüm hizmetleri](#allservices) daha önce açıklandığı gibi aşağıdaki başarısı kanıtlanmış yöntemler özellikle sıra hizmete uygulayın.  
 
 ### <a name="subheading39"></a>Ölçeklenebilirlik sınırları

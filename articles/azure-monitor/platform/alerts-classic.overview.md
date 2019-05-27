@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776650"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914711"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft azure'da Klasik uyarılar nedir?
 
@@ -24,7 +24,7 @@ Uyarılar, veriler üzerinde koşulları yapılandırın ve son izleme verilerin
 
 ## <a name="old-and-new-alerting-capabilities"></a>Eski ve yeni uyarı verme özellikleri
 
-Azure İzleyici, Application Insights, Log Analytics ve hizmetin sistem durumunu ayrı olan geçmişte uyarı verme özellikleri. Zaman içinde Azure geliştirdik ve kullanıcı arabirimi ve uyarı farklı yöntemleri. Birleştirme işlemi hala devam ediyor. Uyarılar
+Azure İzleyici, Application Insights, Log Analytics ve hizmetin sistem durumunu ayrı olan geçmişte uyarı verme özellikleri. Zaman içinde Azure geliştirdik ve kullanıcı arabirimi ve uyarı farklı yöntemleri. Birleştirme işlemi hala devam ediyor.
 
 Azure portalında Klasik uyarıları kullanıcı ekran, yalnızca klasik uyarıları görüntüleyebilirsiniz. Bu ekrandan alma **Klasik uyarıları görüntüleyip** uyarılar ekranında düğmesi. 
 

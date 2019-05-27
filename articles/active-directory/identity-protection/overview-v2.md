@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294302"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956939"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Azure Active Directory kimlik koruması nedir (yenilenebilecek)?
 
@@ -147,44 +147,44 @@ Kimlik koruması, risk algılama için temel akış ve yanıt herhangi belirli o
 
 ## <a name="common-scenarios"></a>Genel senaryolar 
 
-Sarah, Contoso'nun çalışan bir örneğe göz atalım. 
+Bir Contoso çalışanı örneğe göz atalım. 
 
-1. Sarah Tor tarayıcısından Exchange Online'da oturum açmak çalışır. Oturum açma zaman Azure AD, gerçek zamanlı risk olaylarını algılar. 
+1. Exchange Online'a Tor tarayıcıdan oturum açmak bir çalışan çalışır. Oturum açma zaman Azure AD, gerçek zamanlı risk olaylarını algılar. 
 
-2. Sarah anonim bir IP adresinden orta düzeyde riskli oturum açma düzeyini tetikleme oturum açmak için Azure AD algılar. 
+2. Azure AD, çalışan bir anonim IP adresinden orta düzeyde riskli oturum açma düzeyini tetikleme oturum açmak için olduğunu algılar. 
 
-3. Sarah, Contoso'nun BT yöneticisi kimlik koruması oturum açma riski koşullu erişim ilkesinin yapılandırıldığı bir MFA istemi tarafından sınandı. İlkeyi bir oturum açma riskini Orta büyüklükte ya da daha yüksek için mfa'yı gerektirir. 
+3. Contoso'nun BT yöneticisi kimlik koruması oturum açma riski koşullu erişim ilkesinin yapılandırıldığı çalışan bir MFA istemi tarafından sınandı. İlkeyi bir oturum açma riskini Orta büyüklükte ya da daha yüksek için mfa'yı gerektirir. 
 
-4. Sarah MFA istemi geçirir ve Exchange Online erişir ve Sarah'ın kullanıcı risk düzeyi değiştirilmez. 
+4. Çalışan MFA istemi geçirir ve Exchange Online erişir ve kendi kullanıcı risk düzeyi değiştirilmez. 
 
-Arka planda ne oldu? Tor tarayıcıdan oturum açma denemesi gerçek zamanlı bir oturum açma riski anonim IP adresi için Azure AD'de tetiklenir. Azure AD isteği işlendi olarak, kimlik koruması Sarah'ın oturum açma riski düzeyi (Orta) eşiğine çünkü yapılandırılmış oturum açma riski ilkesi uygulanır. Sarah daha önce MFA için kaydolduğunu olduğundan, Filiz yanıt ve MFA testini geçirin. MFA testini başarıyla geçirmek için kendi yeteneği, Filiz, büyük olasılıkla meşru kimlik sahibi olduğu ve her kullanıcı risk düzeyi artmıyor Azure AD'ye sinyal. 
+Arka planda ne oldu? Tor tarayıcıdan oturum açma denemesi gerçek zamanlı bir oturum açma riski anonim IP adresi için Azure AD'de tetiklenir. Azure AD isteği işlendi olarak, kimlik koruması çalışanın oturum açma riski düzeyi (Orta) eşiğine çünkü yapılandırılmış oturum açma riski ilkesi uygulanır. Çalışan, daha önce MFA için kaydolduğunu olduğundan, yanıt ve MFA testini geçirin. MFA testini başarıyla geçirmek için kendi yeteneği, büyük olasılıkla meşru kimlik sahibi oldukları ve kendi kullanıcı risk düzeyi artmıyor Azure AD'ye sinyal. 
 
 
-Ancak bir oturum açmaya çalışırken Sarah ne durumda? 
+Ancak bir oturum açmaya çalışan ne edilmedi? 
 
-1. Kendi IP adresini gizlemek çalışıyor olduğundan Sarah'ın Exchange Online hesabınızda Tor tarayıcıdan oturum açmak kötü amaçlı bir aktör Sarah'ın kimlik bilgileriyle çalışır. 
+1. Kendi IP adresini gizlemek çalışıyor olduğundan, Exchange Online hesabında Tor tarayıcıdan oturum açmak kötü amaçlı bir aktör çalışanın kimlik bilgileriyle çalışır. 
 
 2. Azure AD oturum açma denemesi'nın anonim bir IP adresinden, gerçek zamanlı bir oturum açma riski tetikleme algılar. 
 
 3. Kötü amaçlı aktör, Contoso'nun BT Yöneticisi oturum açma riski Orta büyüklükte ya da daha yüksek olduğunda MFA gerektirecek şekilde kimlik koruma oturum açma riski koşullu erişim ilkesinin yapılandırıldığı bir MFA istemi tarafından sınandı. 
 
-4. Kötü amaçlı aktör MFA testini başarısız olur ve Exchange Online hesabı Sarah'ın erişemez. 
+4. Kötü amaçlı aktör MFA testini başarısız olur ve Exchange Online hesabı çalışanın erişemez. 
 
-5. Başarısız MFA Sarah'ın kullanıcı riski gelecekteki oturum açma işlemleri için yükseltme istemi kaydedilmesi için risk olayı tetiklendi. 
+5. Başarısız MFA istemi gelecekteki oturum açma işlemleri için kendi kullanıcı riski yükseltme kaydedilmesi için risk olayı tetiklendi. 
 
-Kötü amaçlı bir aktör Sarah'ın hesabı erişmeyi denedi, Sarah oturum açmak için çalıştığında ne olacağını görelim. 
+Kötü amaçlı bir aktör Sarah'ın hesabı erişmeyi denedi, çalışan oturum açmak için çalıştığında ne olacağını görelim. 
 
-1. Sarah Outlook'tan Exchange Online'da oturum açmak çalışır. Oturum açma zaman Azure AD, herhangi bir önceki kullanıcı risk yanı sıra gerçek zamanlı risk olaylarını algılar. 
+1. Outlook'tan Exchange Online'da oturum açmak çalışan çalışır. Oturum açma zaman Azure AD, herhangi bir önceki kullanıcı risk yanı sıra gerçek zamanlı risk olaylarını algılar. 
 
 2. Azure AD, gerçek zamanlı bir oturum açma riski algılamıyor, ancak önceki senaryolarda yüksek kullanıcı riski nedeniyle son riskli etkinlik algılar.  
 
-3. Sarah çünkü bir parola sıfırlama istemi tarafından sınandı Contoso BT yöneticisinin kimlik koruması kullanıcı riski ilkesi yüksek riskli bir kullanıcıyla oturum açtığında parola değişikliği gerektirecek şekilde yapılandırılmış. 
+3. Çalışan, çünkü bir parola sıfırlama istemi tarafından sınandı Contoso BT yöneticisinin kimlik koruması kullanıcı riski ilkesi yüksek riskli bir kullanıcıyla oturum açtığında parola değişikliği gerektirecek şekilde yapılandırılmış. 
 
-4. Sarah SSPR ve MFA için kaydedildiğinden, Filiz başarıyla kendi parolasını sıfırlar. 
+4. SSPR ve MFA için çalışan kayıtlı olduğundan, bunlar başarıyla sıfırlar parolalarını. 
 
-5. Kendi parola sıfırlama, artık Sarah'ın kimlik bilgilerinin tehlikeye ve kendi kimlik güvenli bir duruma döndürür. 
+5. Tarafından parola sıfırlama, çalışanın kimlik bilgileri artık tehlikede olur ve güvenli bir duruma kimliklerini döndürür. 
 
-6. Sarah'ın önceki risk olaylarını daha çözümlenir ve kendi kullanıcı risk düzeyi kimlik bilgilerinin tehlikeye atılması Azaltıcı yanıt olarak otomatik olarak sıfırlanır. 
+6. Çalışanın önceki risk olaylarını daha çözümlenir ve kendi kullanıcı risk düzeyi kimlik bilgilerinin tehlikeye atılması Azaltıcı yanıt olarak otomatik olarak sıfırlanır. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Kimlik koruması nasıl yapılandırılır? 
 

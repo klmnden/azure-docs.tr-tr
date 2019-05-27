@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337ea9d55a119c3aec6e94649cdbf049f99e9d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783676"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113095"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -87,7 +87,9 @@ Bağlayıcı grupları hakkında daha fazla bilgi için bkz: [ayrı ağlar ve ko
 
 ## <a name="capacity-planning"></a>Kapasite Planlaması 
 
-Beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapasite planladığınızdan emin olmak önemlidir. Genel, sahip olduğunuz daha fazla kullanıcı, daha büyük içinde bir makine gerekir. Farklı makineler birimin bir özetini veren bir tablo işleyebilir aşağıdadır. Tüm beklenen işlem başına ikinci (TPS üzerinde) temel kullanım bu yana bir kullanıcı tarafından desenleri değişir ve yük tahmin kullanılamaz yerine unutmayın. Ayrıca yanıtları ve arka uç uygulama yanıt süresini boyutuna bağlı olarak bazı farklılıklar da olacaktır - büyük yanıt boyutu ve daha yavaş yanıt süresi daha düşük bir maksimum TPS neden olur. Böylece makinelerdeki dağıtılmış yük yaklaşık % 50 ek makineler olması önerilir. Ek kapasite, yüksek kullanılabilirlik ve dayanıklılığı sahip olmanızı sağlar.
+Beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapasite planladığınızdan emin olmak önemlidir. Her bir bağlayıcı grubu yüksek kullanılabilirlik ve ölçek sağlamak için en az iki bağlayıcı olduğunu öneririz. Herhangi bir noktada bir makine hizmet gerektiği durumlarda üç bağlayıcılar olması idealdir. 
+
+Genel, sahip olduğunuz daha fazla kullanıcı, daha büyük içinde bir makine gerekir. Aşağıda farklı makineler işleyebilir beklenen gecikme süresi ve birimi bir özetini veren bir tablodur. Tüm beklenen işlem başına ikinci (TPS üzerinde) temel kullanım bu yana bir kullanıcı tarafından desenleri değişir ve yük tahmin kullanılamaz yerine unutmayın. Ayrıca yanıtları ve arka uç uygulama yanıt süresini boyutuna bağlı olarak bazı farklılıklar da olacaktır - büyük yanıt boyutu ve daha yavaş yanıt süresi daha düşük bir maksimum TPS neden olur. Dağıtılmış yük makinelerdeki her zaman geniş bir arabellek sağlar, böylece ek makineler sahip öneririz. Ek kapasite, yüksek kullanılabilirlik ve dayanıklılığı sahip olmanızı sağlar.
 
 |Çekirdekler|RAM|Gecikme süresi (MS) bekleniyordu-P99|En fazla TPS|
 | ----- | ----- | ----- | ----- |

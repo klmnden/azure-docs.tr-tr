@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192260"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954461"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR görevleri başvurusu: YAML
 
@@ -95,7 +95,7 @@ Gizli dizi nesnesi, aşağıdaki özelliklere sahiptir.
 | Özellik | Tür | İsteğe bağlı | Açıklama | Varsayılan değer |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | Hayır | Gizli dizi tanımlayıcısı. | None |
-| `akv` | string | Evet | Azure Key Vault (AKV) gizli URL'si. | None |
+| `keyvault` | string | Evet | Azure Key Vault gizli URL'si. | None |
 | `clientID` | string | Evet | Kullanıcı tarafından atanan istemci kimliği yönetilen Azure kaynakları için kimliği. | None |
 
 ### <a name="network"></a>Ağ
@@ -156,13 +156,13 @@ steps:
 | `ignoreErrors` | bool | İsteğe bağlı |
 | `isolation` | string | İsteğe bağlı |
 | `keep` | bool | İsteğe bağlı |
-| `network` | object | İsteğe bağlı |
+| `network` | nesne | İsteğe bağlı |
 | `ports` | [dize, dize,...] | İsteğe bağlı |
 | `pull` | bool | İsteğe bağlı |
 | `repeat` | int | İsteğe bağlı |
 | `retries` | int | İsteğe bağlı |
 | `retryDelay` | int (saniye) | İsteğe bağlı |
-| `secret` | object | İsteğe bağlı |
+| `secret` | nesne | İsteğe bağlı |
 | `startDelay` | int (saniye) | İsteğe bağlı |
 | `timeout` | int (saniye) | İsteğe bağlı |
 | `when` | [dize, dize,...] | İsteğe bağlı |
@@ -273,13 +273,13 @@ steps:
 | `ignoreErrors` | bool | İsteğe bağlı |
 | `isolation` | string | İsteğe bağlı |
 | `keep` | bool | İsteğe bağlı |
-| `network` | object | İsteğe bağlı |
+| `network` | nesne | İsteğe bağlı |
 | `ports` | [dize, dize,...] | İsteğe bağlı |
 | `pull` | bool | İsteğe bağlı |
 | `repeat` | int | İsteğe bağlı |
 | `retries` | int | İsteğe bağlı |
 | `retryDelay` | int (saniye) | İsteğe bağlı |
-| `secret` | object | İsteğe bağlı |
+| `secret` | nesne | İsteğe bağlı |
 | `startDelay` | int (saniye) | İsteğe bağlı |
 | `timeout` | int (saniye) | İsteğe bağlı |
 | `when` | [dize, dize,...] | İsteğe bağlı |
@@ -373,14 +373,14 @@ Her adım türü kendi türü için uygun çeşitli özelliklerini destekler. A�
 | `ignoreErrors` | bool | Evet | Bir adım olarak başarılı olup olmadığını kapsayıcı yürütülürken bir hata oluştu bağımsız olarak işaretlemek belirtir. | `false` |
 | `isolation` | string | Evet | Kapsayıcı yalıtım düzeyi. | `default` |
 | `keep` | bool | Evet | Adım kapsayıcı yürütme sonrasında korunması gerekir. | `false` |
-| `network` | object | Evet | Kapsayıcı çalıştığı bir ağı tanımlar. | None |
+| `network` | nesne | Evet | Kapsayıcı çalıştığı bir ağı tanımlar. | None |
 | `ports` | [dize, dize,...] | Evet | Kapsayıcıdan konağa yayımlanan bağlantı noktaları dizisi. |  None |
 | `pull` | bool | Evet | Tüm önbelleğe alma davranışı önlemek için çalıştırmadan önce bir çekme kapsayıcının zorlamak verilmeyeceğini belirtir. | `false` |
 | `privileged` | bool | Evet | Kapsayıcı'ı ayrıcalıklı modda çalıştırılıp çalıştırılmayacağını belirtir. | `false` |
 | `repeat` | int | Evet | Bir kapsayıcının yürütme yinelemek için yeniden deneme sayısı. | 0 |
 | `retries` | int | Evet | Bir kapsayıcı yürütme başarısız olursa denemek için yeniden deneme sayısı. Bir kapsayıcının çıkış kodu sıfır değilse bir yeniden deneme yalnızca denenir. | 0 |
 | `retryDelay` | int (saniye) | Evet | Bir kapsayıcının yürütme yeniden denemeler arasındaki saniye cinsinden gecikme. | 0 |
-| `secret` | object | Evet | Bir Azure Key Vault gizli veya Azure kaynakları için yönetilen kimlik tanımlar. | None |
+| `secret` | nesne | Evet | Bir Azure Key Vault gizli veya Azure kaynakları için yönetilen kimlik tanımlar. | None |
 | `startDelay` | int (saniye) | Evet | Bir kapsayıcının yürütme geciktirme saniye sayısı. | 0 |
 | `timeout` | int (saniye) | Evet | En fazla saniye sayısı, sonlandırılmadan önce bir adımı yürütür. | 600 |
 | [`when`](#example-when) | [dize, dize,...] | Evet | Görev içindeki bir veya daha fazla diğer adımlar bir adım bağımlılık yapılandırır. | None |

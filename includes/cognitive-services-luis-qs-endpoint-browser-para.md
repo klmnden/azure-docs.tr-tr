@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 67c95ffcdbdbcfbb9a86e15c91d984953d7bbffc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710504"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124056"
 ---
 Bir LUIS tahmin uç noktasının ne döndüğünü anlamak için bir tahmin sonucunu bir Web tarayıcısında görüntüleyin. Ortak bir uygulamayı sorgulamak için kendi anahtarınız ve uygulama kimliğiniz olması gerekir. Ortak IoT uygulama kimliği `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, birinci adımda URL'nin bir parçası olarak verilmiştir.
 

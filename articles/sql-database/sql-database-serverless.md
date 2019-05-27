@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823310"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951490"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL veritabanı sunucusuz (Önizleme)
 
@@ -81,7 +81,22 @@ Veritabanları için herhangi bir işlem belirlenen sınırlar içinde istenen m
 
 ### <a name="memory-management"></a>Bellek yönetimi
 
-Sunucusuz veritabanları için bellek iadesi birden çok sık sağlanan veritabanları için. Bu davranış, sunucusuz, maliyetleri denetlemek için önemlidir. CPU veya önbellek kullanım düşük olduğunda sağlanan işlem farklı olarak, SQL veritabanından bellek sunucusuz bir veritabanından geri kazanılır.
+Sunucusuz veritabanları için bellek iadesi birden çok sık sağlanan işlem veritabanları için. Bu davranış, sunucusuz, maliyetleri denetlemek için önemlidir ve performansı etkileyebilir.
+
+#### <a name="cache-reclaiming"></a>Önbellek tekrar kullanılabilir hale getirme
+
+CPU veya önbellek kullanım düşük olduğunda sağlanan işlem veritabanlarının aksine, SQL veritabanından bellek sunucusuz bir veritabanından geri kazanılır.
+
+- Toplam boyutu en kısa süre önce bir süre için önbellek girişlerini eşiğin bir kullanılan önbellek kullanımı düşük olarak kabul edilir.
+- Önbellek geri kazanma tetiklendiğinde hedef önbellek boyutu, bir önceki boyutuna kesir olarak artımlı olarak azaltılır ve tekrar kullanılabilir hale getirme yalnızca kullanım düşükse, devam eder.
+- Önbellek geri kazanma ortaya çıktığında, yüksek bellek baskısı olduğunda çıkarmak için önbellek girişlerinin seçmek için sağlanan işlem veritabanları için aynı seçim ilke ilkedir.
+- Önbellek boyutu, hiçbir zaman yapılandırılabilecek en düşük Vcore tarafından tanımlanan en az bellek azaltılır.
+
+Hem sunucusuz ve sağlanan veritabanları, tüm kullanılabilir bellek kullanıldığında girişleri çıkarılmış önbellek işlem.
+
+#### <a name="cache-hydration"></a>Önbellek hidrasyonu
+
+Verileri diskten aynı şekilde ile sağlanan veritabanları için aynı hızda getirildiğini gibi SQL önbellek büyür. Veritabanı meşgul olduğunda önbellek sınırlandırılmamış Maks bellek sınırı kadar büyümesine izin verilmez.
 
 ## <a name="autopause-and-autoresume"></a>Autopause ve autoresume
 
@@ -115,7 +130,7 @@ Aşağıdaki koşullardan herhangi biri herhangi bir zamanda doğruysa Autoresum
 
 ### <a name="connectivity"></a>Bağlantı
 
-Sunucusuz bir veritabanları duraklatıldı durumunda ilk oturum açma veritabanını sürdürmeniz ve veritabanı hata kodu 40613 kullanılamaz olduğunu bildiren bir hata döndürür. Veritabanı sürdürülüyor sonra oturum açma bağlantısı kurmak için yeniden denenmelidir. Veritabanı bağlantısı yeniden deneme mantığı istemcilerle değiştirilmesi gerekmez.
+Sunucusuz veritabanı duraklatıldı durumunda ilk oturum açma veritabanını sürdürmeniz ve veritabanı hata kodu 40613 kullanılamaz olduğunu bildiren bir hata döndürür. Veritabanı sürdürülüyor sonra oturum açma bağlantısı kurmak için yeniden denenmelidir. Veritabanı bağlantısı yeniden deneme mantığı istemcilerle değiştirilmesi gerekmez.
 
 ### <a name="latency"></a>Gecikme
 
@@ -277,9 +292,9 @@ Faturalandırılan işlem miktarını tarafından aşağıdaki ölçüm sunulur:
 
 Bu miktar saniyede hesaplanır ve 1 dakika içinde toplanır.
 
-1 dakika sanal çekirdek ve en fazla 4 sanal çekirdek ile yapılandırılmış bir sunucusuz veritabanı göz önünde bulundurun.  Bu, yaklaşık 3 GB en düşük bellek ve en fazla 12 GB bellek karşılık gelir.  Otomatik duraklatma gecikme 6 saat olarak ayarlanır ve veritabanı iş yükünüzü 24 saatlik bir dönemde ilk 2 saat boyunca etkin ve etkin olmayan aksi varsayalım.    
+1 dakika sanal çekirdek ve en fazla 4 sanal çekirdek ile yapılandırılmış bir sunucusuz veritabanı göz önünde bulundurun.  Bu, yaklaşık 3 GB en düşük bellek ve en fazla 12 GB bellek karşılık gelir.  Otomatik duraklatma gecikme 6 saat olarak ayarlanır ve veritabanı iş yükünüzü 24 saatlik bir dönemde ilk 2 saat boyunca etkin ve etkin olmayan Aksi takdirde varsayalım.    
 
-Bu durumda, veritabanı işlem ve depolama için sırasında ilk 8 saat olarak faturalandırılır.  Veritabanı devre dışı sonra 2 saatten itibaren olsa da, veritabanı çevrimiçi durumdayken sağlanan en düşük işlem üzerinde göre sonraki 6 saat içindeki işlem yine de faturalandırılır.  Veritabanı duraklatıldığında yalnızca depolama 24 saatlik bir dönemde geri kalanı faturalandırılır.
+Bu durumda, veritabanı işlem ve depolama için sırasında ilk 8 saat olarak faturalandırılır.  Veritabanı devre dışı sonra ikinci saatten itibaren olsa da, veritabanı çevrimiçi durumdayken sağlanan en düşük işlem üzerinde göre sonraki 6 saat içindeki işlem yine de faturalandırılır.  Veritabanı duraklatıldığında yalnızca depolama 24 saatlik dönemde geri kalanı faturalandırılır.
 
 Bu örnekteki işlem faturada daha kesin bir şekilde aşağıdaki gibi hesaplanır:
 
@@ -291,7 +306,7 @@ Bu örnekteki işlem faturada daha kesin bir şekilde aşağıdaki gibi hesaplan
 |8:00-24:00|0|0|Duraklatılmış faturalandırılırken işlem yok|0 sanal çekirdek saniye|
 |Toplam sanal çekirdek saniye içinde 24 saat olarak faturalandırılır||||50400 sanal çekirdek saniye|
 
-İşlem birim fiyatı $0.000073/vCore/second olduğunu varsayın.  Sonra bu 24 saat boyunca faturalandırılan işlem ürün işlem birim fiyatı ve sanal çekirdek saniyelik olarak faturalandırılır: $0.000073/vCore/second * $3.68 50400 sanal çekirdek saniye =
+İşlem birim fiyatı $0.000073/vCore/second olduğunu varsayın.  Sonra bu 24 saatlik dönem için fatura işlem ürün işlem birim fiyatı ve sanal çekirdek saniyelik olarak faturalandırılır: $0.000073/vCore/second * $3.68 50400 sanal çekirdek saniye =
 
 ## <a name="available-regions"></a>Kullanılabilen bölgeler
 

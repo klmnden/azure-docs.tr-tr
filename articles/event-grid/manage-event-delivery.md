@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
 ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66119575"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Atılacak Mektubu ve yeniden deneme ilkeleri
 
@@ -27,7 +27,7 @@ Atılacak Mektubu konumunu ayarlamak için bir uç noktaya sağlanamamıştır o
 > [!NOTE]
 > Bir depolama hesabı ve bir blob kapsayıcısı depolamada bu makaledeki komutları çalıştırmadan önce oluşturun.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 ```azurecli-interactive
 containername=testcontainer
@@ -73,7 +73,7 @@ Event Grid aboneliği oluştururken, Event Grid olay teslim etmek ne kadar süre
 
 Yapılandıramazsınız [yeniden deneme planı](delivery-and-retry.md#retry-schedule-and-duration).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Olay yaşam süresi 1440 dakika dışında bir değere ayarlamak için kullanın:
 

@@ -27,8 +27,6 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Gözden geçirmelerle kullanıcı erişimini yönetme
           href: manage-user-access-with-access-reviews.md
-        - name: Programları ve denetimlerini yönetme
-          href: manage-programs-controls.md
         - name: Koşullu erişimin dışında tutulan kullanıcıları yönetme
           href: conditional-access-exclusion.md
 - name: Nasıl yapılır kılavuzları
@@ -64,8 +62,6 @@
               href: review-your-access.md
             - name: Erişim gözden geçirmesi tamamlama
               href: complete-access-review.md
-            - name: Erişim gözden geçirmesi sonuçlarını alma
-              href: retrieve-access-review.md
         - name: Azure AD rolleri
           items:
             - name: Erişim gözden geçirmesi oluşturma

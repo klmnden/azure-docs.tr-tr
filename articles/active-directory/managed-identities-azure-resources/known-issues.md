@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e958aa82eb1e2fbf21a44df333533c6da058a966
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448487"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950458"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -81,6 +81,11 @@ Hayır. Abonelik başka bir dizine taşırsanız, el ile yeniden oluşturun ve A
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Farklı bir dizin/kiracısındaki bir kaynağa erişmek için yönetilen bir kimlik kullanabilir miyim?
 
 Hayır. Yönetilen kimlik şu anda çapraz directory senaryoları desteklemez. 
+
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Kaynak üzerinde yönetilen kimlik için hangi Azure RBAC izinler gereklidir? 
+
+- Yönetilen kimlik sistem tarafından atanan: Kaynak üzerinde yazma izinleri. Örneğin: Microsoft.Compute/virtualMachines/write veya bu eylemi belirli yerleşik roller gibi kaynak dahil edileceğini [sanal makine Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Yönetilen kimlik, kullanıcı tarafından atanan: Kaynak üzerinde yazma izinleri. Örneğin: Microsoft.Compute/virtualMachines/write. Ek olarak [yönetilen kimlik işleci](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol ataması üzerinden yönetilen kimlik. 
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Azure kaynaklarını uzantısı için yönetilen kimlikleri nasıl başlatmanız?
 Uzantı durursa, Windows ve Linux'ın, aşağıdaki cmdlet'i el ile yeniden başlatmak için kullanılabilir:

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023747"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956282"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile sanal Kubelet kullanın
 
@@ -26,13 +26,35 @@ Standart bir Kubernetes düğümü ise gibi hem Linux hem de Windows kapsayıcı
 >
 > Sanal Kubelet, Deneysel bir açık kaynak bir projedir ve bu nedenle kullanılmalıdır. Katkıda bulunmak için dosya sorunları ve okuma sanal kubelet hakkında daha fazla bilgi bkz [sanal Kubelet GitHub projesini][vk-github].
 
-## <a name="prerequisite"></a>Önkoşul
+## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu belge, bir AKS kümesi olduğunu varsayar. Bir AKS kümesi gerekirse bkz [Azure Kubernetes Service (AKS) hızlı başlangıç][aks-quick-start].
 
 Ayrıca Azure CLI Sürüm ihtiyacınız **2.0.33** veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 Virtual Kubelet yüklemek için [Helm](https://docs.helm.sh/using_helm/#installing-helm) de gereklidir.
+
+### <a name="register-container-instances-feature-provider"></a>Container Instances özellik sağlayıcısını Kaydet
+
+Azure Container örneği (ACI) hizmeti daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. Aşağıdaki örnekte gösterildiği gibi [az provider list] [az provider list] komutunu kullanarak ACI Sağlayıcısı kaydı durumunu kontrol edebilirsiniz:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+*Microsoft.ContainerInstance* sağlayıcısı olarak raporlamalıdır *kayıtlı*aşağıdaki örnek çıktıda gösterildiği gibi:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Sağlayıcı olarak gösteriliyorsa *NotRegistered*, aşağıdaki örnekte gösterildiği gibi sağlayıcıyı [az provider register] [az sağlayıcısını kaydetme] kullanarak kaydedin:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ### <a name="for-rbac-enabled-clusters"></a>Kümeler için RBAC etkin
 
@@ -88,11 +110,11 @@ Bu bağımsız değişkenler kullanılabilir `aks install-connector` komutu.
 | Bağımsız değişkeni: | Açıklama | Gerekli |
 |---|---|:---:|
 | `--connector-name` | ACI Bağlayıcısı adıdır.| Evet |
-| `--name` `-n` | Yönetilen kümesinin adı. | Evet |
-| `--resource-group` `-g` | Kaynak grubunun adı. | Evet |
+| `--name``-n` | Yönetilen kümesinin adı. | Evet |
+| `--resource-group``-g` | Kaynak grubunun adı. | Evet |
 | `--os-type` | Kapsayıcı örnekleri işletim sistemi türü. İzin verilen değerler: Both, Linux, Windows. Varsayılan: Linux. | Hayır |
 | `--aci-resource-group` | ACI kapsayıcı grubu oluşturulacağı kaynak grubu. | Hayır |
-| `--location` `-l` | ACI kapsayıcı grubu oluşturulacağı konum. | Hayır |
+| `--location``-l` | ACI kapsayıcı grubu oluşturulacağı konum. | Hayır |
 | `--service-principal` | Hizmet sorumlusu kimlik doğrulaması için Azure API'leri için kullanılır. | Hayır |
 | `--client-secret` | Hizmet sorumlusuyla ilişkili gizli anahtarı. | Hayır |
 | `--chart-url` | ACI Bağlayıcısı yükleyen bir Helm grafiği URL'si. | Hayır |

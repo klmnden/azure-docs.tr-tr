@@ -15,11 +15,11 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 8c2dc41fde9387da291b6e4a6c8a6220ae62b514
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298022"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121724"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Kullanıcılar oturum ve bir JavaScript tek sayfalı uygulama (SPA) Microsoft Graph API çağırma
 
@@ -30,7 +30,7 @@ Bu kılavuz, nasıl bir JavaScript tek sayfalı uygulama (SPA) kişisel, iş otu
 ![Örnek uygulama tarafından bu öğreticileri çalışır nasıl oluşturulacağını gösterir](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
 <!--start-collapse-->
-### <a name="more-information"></a>Daha Fazla Bilgi
+### <a name="more-information"></a>Ek bilgiler
 
 Bu kılavuzda oluşturulan örnek uygulama, Microsoft Graph API'sini veya Microsoft kimlik platformu uç noktasından belirteçleri kabul eden bir Web API sorgulamak bir JavaScript SPA sağlar. Bu senaryo için bir kullanıcı oturum açtıktan sonra bir erişim belirteci istenen ve HTTP isteklerini yetkilendirme üst bilgisi eklenir. Microsoft Authentication Library (MSAL tarafından) belirteç edinme ve yenileme işlenir.
 

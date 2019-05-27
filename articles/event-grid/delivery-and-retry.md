@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562007"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952892"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid iletiyi teslim ve yeniden deneyin
 
@@ -24,16 +24,18 @@ Event Grid, sürekli teslimi sağlar. Bu, her ileti her abonelik için en az bir
 
 ## <a name="retry-schedule-and-duration"></a>Yeniden deneme zamanlaması ve süresi
 
-Event Grid olay teslimi için bir üstel geri alma yeniden deneme ilkesi kullanır. Bir uç nokta yanıt vermiyor veya bir hata kodu döndürüyor, Event Grid teslim en iyi çaba ilkesine göre aşağıdaki zamanlamaya göre yeniden deneme:
+Event Grid, bir iletiyi teslim sonra 30 saniye için bir yanıt bekler. Uç nokta yanıtlamamışsa 30 saniye sonra yeniden deneme için ileti kuyruğa alınır. Event Grid olay teslimi için bir üstel geri alma yeniden deneme ilkesi kullanır. Event Grid teslim en iyi çaba ilkesine göre aşağıdaki zamanlamaya göre yeniden deneme sayısı:
 
-1. 10 saniye
-1. 30 saniye
-1. 1 dakika
-1. 5 dakika
-1. 10 dakika
-1. 30 dakika
-1. 1 saat
-1. Saatlik 24 saate kadar
+- 10 saniye
+- 30 saniye
+- 1 dakika
+- 5 dakika
+- 10 dakika
+- 30 dakika
+- 1 saat
+- Saatlik 24 saate kadar
+
+Uç nokta 3 dakika içinde yanıt verirse, Event Grid olayı en iyi çaba ilkesine göre yeniden deneme kuyruğu'ndan kaldırmayı dener ancak yinelenenler hala alınan.
 
 Event Grid, tüm yeniden deneme adımları küçük rastgele ekler ve bir uç nokta için uzun bir süre kapalı tutarlı bir şekilde sağlam değil veya kısası gibi görünüyor, belirli bir yeniden deneme desteklemedikleri atlayabilirsiniz.
 

@@ -8,15 +8,15 @@ ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003721"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953104"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda veri varlıklarını yönetme
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 Böylece kolayca keşfedin ve analiz ve karar vermek için gereken veri kaynaklarını anlama, azure veri Kataloğu veri kaynağı bulma için tasarlanmıştır. Bu bulma özellikleri, sizin ve diğer kullanıcıların bulun ve çeşitli kullanılabilir veri kaynaklarını anlama en büyük etkiyi haline getirir. Bu öğeleri göz önünde görünür ve tüm katalog kullanıcıları tarafından bulunabilir olması tüm kayıtlı veri kaynakları veri Kataloğu'nın varsayılan davranışını içindir.
 
 Veri Kataloğu, veri için erişim sağlamaz. Veri erişimini veri kaynağının sahibi tarafından denetlenir. Veri Kataloğu ile veri kaynaklarını bulmasına ve kataloğa kayıtlı kaynaklarla ilgili meta verileri görüntüleyebilirsiniz.
@@ -52,7 +52,7 @@ Bir veri varlığına zaten aitse, diğer kullanıcılar yalnızca sahipliği al
 ### <a name="remove-owners"></a>Sahipleri kaldır
 Herhangi bir varlık sahibi ikincil sahipler eklemeniz yeterlidir gibi tüm ikincil sahip herhangi bir varlık sahibi kaldırabilirsiniz.
 
-Sahip olarak kendisi kaldırır bir varlık sahibi artık varlık yönetebilirsiniz. Sahip olarak da varlık sahibinin kendisi kaldırır ve diğer ikincil sahipleri, varlık sahipsiz durumuna geri döner.
+Sahip olarak kendilerini kaldırır bir varlık sahibi artık varlık yönetebilirsiniz. Varlık sahibi kendilerini bir sahibi olarak kaldırır ve diğer ikincil sahipleri, varlık sahipsiz durumuna geri döner.
 
 ## <a name="control-visibility"></a>Denetim görünürlük
 Veri varlığına sahip oldukları veri varlıklarının görünürlüğünü denetleyebilir. Burada tüm veri Kataloğu kullanıcıları bulmak ve veri varlığı görüntülemek, varsayılan olarak görünürlüğü kısıtlamak için varlık sahibi görünürlük ayarından geçiş yapabilirsiniz **herkes** için **sahipler ve bu kullanıcılar** içinde Varlık özellikleri. Sahipler, ardından belirli kullanıcılar ve güvenlik grupları ekleyebilirsiniz.

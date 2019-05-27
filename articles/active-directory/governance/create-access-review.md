@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247013"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113446"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Grupları bir erişim gözden geçirmesi oluşturma veya uygulamaları Azure ad erişim gözden geçirmeleri
 
@@ -30,8 +30,11 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+- Azure AD Premium P2
 - [Erişim gözden geçirmeleri etkin](access-reviews-overview.md)
 - Genel yönetici veya Kullanıcı Yöneticisi
+
+Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Bir veya daha fazla erişim gözden geçirmesi oluşturma
 
@@ -77,9 +80,13 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 
     ![Gözden Geçiren - erişim gözden geçirmesi oluşturma](./media/create-access-review/reviewers.png)
 
-1. İçinde **programlar** bölümünde, kullanmak istediğiniz programı seçin. Programlara düzenleyerek farklı amaçlara yönelik erişim gözden geçirmeleri toplamak ve izlemek nasıl basitleştirebilir. **Varsayılan Program** her zaman mevcut değil ya da başka bir program oluşturabilirsiniz. Örneğin, bir program için her uyumluluk girişim sahip olmayı seçebilirsiniz veya İş hedefi.
+1. İçinde **programlar** bölümünde, kullanmak istediğiniz programı seçin. **Varsayılan Program** her zaman vardır.
 
     ![Erişim gözden geçirmesi - program oluştur](./media/create-access-review/programs.png)
+
+    Programlara düzenleyerek farklı amaçlara yönelik erişim gözden geçirmeleri toplamak ve izlemek nasıl basitleştirebilir. Her erişim gözden geçirmesi bir programa bağlanabilir. Raporlar için bir denetçi hazırlarken, erişim gözden geçirmeleri için belirli bir girişim kapsamda üzerinde odaklanabilirsiniz. Programlar ve erişim gözden geçirmesi sonuçlarını genel yönetici, yönetici kullanıcı, güvenlik yöneticisi veya güvenlik okuyucusu rolü kullanıcılara görünür.
+
+    Programların listesini görmek için erişim Git sayfası ve select incelemeleri **programlar**. Bir genel yönetici veya Kullanıcı Yöneticisi rolü, ek programlar oluşturabilirsiniz. Örneğin, bir program için her uyumluluk girişim sahip olmayı seçebilirsiniz veya İş hedefi. Bir program artık ihtiyacınız ve ona bağlı herhangi bir denetim yok, onu silebilirsiniz.
 
 ### <a name="upon-completion-settings"></a>Tamamlanma ayarları hakkında
 
@@ -110,6 +117,8 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 
 1. Ayarlama **anımsatıcılar** için **etkinleştirme** sahip Azure AD göndermek erişim gözden geçirmesi anımsatıcı sürüyor, gözden geçirme tamamlamayan gözden geçirenlere.
 
+    Varsayılan olarak, bitiş tarihine kadar olan sürenin yarısına ulaşıldığında, Azure AD henüz yanıt vermemiş olan gözden geçirenlere bir anımsatıcı gönderir.
+
 ## <a name="start-the-access-review"></a>Erişim değerlendirmesi başlatma
 
 Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**. Erişim gözden geçirmesi listenizi durumu göstergesi görünür.
@@ -118,19 +127,7 @@ Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**. 
 
 İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md). Gözden geçirme kendi erişimini gözden geçirmek, konuklar için ise, bunları nasıl yapılır yönergeleri Göster [grupları ve uygulamaları için erişimi kendiniz için incele](review-your-access.md).
 
-Yalnızca bunlar zaten davetini kabul ettiğiniz, Konuklar, gözden geçirenlerin bazıları Konukları varsa, e-posta aracılığıyla bildirilir.
-
-## <a name="manage-the-access-review"></a>Erişim gözden geçirmesi yönetme
-
-Gözden geçirenler, üzerinde kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **genel bakış** erişim gözden geçirmesi sayfası. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](complete-access-review.md).
-
-![Erişim gözden geçirmeleri ilerleme durumu](./media/create-access-review/overview-progress.png)
-
-Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [grupları ve uygulamaları, erişim değerlendirmesi tamamlama](complete-access-review.md) bakın ve sonuçları uygulamak için.  
-
-Bir dizi erişim yönetmek için gözden geçirmeleri erişim gözden gidin ve zamanlanmış incelemelerde yaklaşan yinelemesi Bul ve bitiş tarihi Düzenle veya kaldıracak ekleme/gözden geçirenler uygun şekilde kaldırma.
-
-Yaptığınız seçimlere göre **tamamlama ayarlarını bağlı**, otomatik olarak Uygula incelemesinin bitiş tarihi veya el ile ne zaman gözden geçirmeyi durdurmak sonra yürütülür. Gözden geçirme durumu değiştirilecek **tamamlandı** gibi ara durumları arasında **uygulama** ve son durumuna **uygulanan**. Reddedilen kullanıcılar varsa, Grup üyeliğini veya uygulama ataması birkaç dakika içinde kaldırılmakta olan görmeyi beklemelisiniz.
+Davet gözden geçirme önce ilk kabul gerekir çünkü gözden geçirenler olarak Konukları atadığınız ve daveti kabul ettikleri değil, bunlar bir e-posta erişim gözden geçirmeleri almazsınız.
 
 ## <a name="create-reviews-via-apis"></a>Gözden geçirmeler API'leri aracılığıyla oluşturma
 

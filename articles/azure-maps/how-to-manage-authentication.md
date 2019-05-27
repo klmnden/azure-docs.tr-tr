@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60694122"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952559"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure haritalar kimlik doğrulamasını Yönet
 
@@ -98,4 +98,8 @@ Kullanıcılar ve hizmet sorumluları için Azure AD'den erişim belirteci iste�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure AD kimlik doğrulaması ve Azure haritalar Web SDK'sı hakkında daha fazla bilgi için bkz: [Azure AD ve Azure haritalar Web SDK'sı](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Azure AD kimlik doğrulaması ve Azure haritalar Web SDK'sı hakkında daha fazla bilgi için bkz: [Azure AD ve Azure haritalar Web SDK'sı](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+
+Azure haritalar hesabınız için API kullanım ölçümleri hakkında bilgi edinin:
+> [!div class="nextstepaction"] 
+> [Kullanım ölçümlerini görüntüle](how-to-view-api-usage.md)
