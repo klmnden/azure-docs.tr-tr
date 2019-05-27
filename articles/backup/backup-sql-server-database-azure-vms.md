@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: ae1f5f9148fa516c98d78afdd57887d4279f92dc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827680"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952944"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM’lerinde SQL Server veritabanlarını yedekleme
 
@@ -51,7 +51,7 @@ Aşağıdaki seçeneklerden birini kullanarak bağlantı kurar:
 
 - **Azure veri merkezi IP aralıklarına izin verin**. Bu seçenek sayesinde [IP aralıklarını](https://www.microsoft.com/download/details.aspx?id=41653) indirmesindeki. Bir ağ güvenlik grubu (NSG) erişmek için Set-AzureNetworkSecurityRule cmdlet'ini kullanın. Beyaz listeye ekleme özelliğini yalnızca bölgeye özgü kullanıyorsanız IP'ler, ayrıca Azure Active Directory (Azure AD) güvenilir listeye hizmet kimlik doğrulamasını etkinleştirmek için etiket.
 
-- **NSG etiketleri kullanarak erişim izni**. Bağlantı kısıtlamak için Nsg kullanırsanız, bu seçeneği AzureBackup etiketini kullanarak Azure Backup için giden erişim veren NSG kuralı ekler. Bu etiket yanı sıra, ayrıca karşılık gelen gerekir [kuralları](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) Azure AD için ve kimlik doğrulaması ve veri aktarımı için bağlantısına izin vermek için Azure depolama. AzureBackup etiketi yalnızca PowerShell üzerinde şu anda kullanılabilir. AzureBackup etiketini kullanarak bir kural oluşturmak için:
+- **NSG etiketleri kullanarak erişim izni**. Bağlantı kısıtlamak için Nsg kullanırsanız, bu seçeneği AzureBackup etiketini kullanarak Azure Backup için giden erişim veren NSG kuralı ekler. Bu etiket yanı sıra, ayrıca karşılık gelen gerekir [kuralları](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) Azure AD için ve kimlik doğrulaması ve veri aktarımı için bağlantısına izin vermek için Azure depolama. AzureBackup etiketi yalnızca PowerShell üzerinde şu anda kullanılabilir. AzureBackup etiketini kullanarak bir kural oluşturmak için:
 
     - Azure hesabı kimlik bilgilerini ekleyin ve Ulusal bulutlarda güncelleştirin<br/>
     `Add-AzureRmAccount`
@@ -67,7 +67,7 @@ Aşağıdaki seçeneklerden birini kullanarak bağlantı kurar:
 
   - NSG Kaydet<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **Azure güvenlik duvarı etiketleri kullanarak erişim izni**. Azure güvenlik duvarı kullanıyorsanız, AzureBackup kullanarak bir uygulama kuralı oluşturma [FQDN etiketi](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags). Bu, Azure Backup için giden erişim sağlar.
+- **Azure güvenlik duvarı etiketleri kullanarak erişim izni**. Azure güvenlik duvarı kullanıyorsanız, AzureBackup kullanarak bir uygulama kuralı oluşturma [FQDN etiketi](https://docs.microsoft.com/azure/firewall/fqdn-tags). Bu, Azure Backup için giden erişim sağlar.
 - **Trafiği yönlendirmek için bir HTTP Ara sunucusunu dağıtmak**. Bir Azure sanal makinesinde bir SQL Server veritabanını yedeklediğinizde, VM'deki yedekleme uzantısına Azure Backup ve Azure Depolama'ya veri yönetimi komutları göndermek için HTTPS API'lerini kullanır. Backup uzantısı, Azure AD kimlik doğrulaması için de kullanır. HTTP proxy üzerinden bu üç hizmeti yedekleme uzantısını trafiği yönlendirme. Genel internet erişimi için yapılandırılan tek bileşen uzantılarıdır.
 
 Bağlantı seçenekleri, aşağıdaki avantajları ve dezavantajları şunlardır:

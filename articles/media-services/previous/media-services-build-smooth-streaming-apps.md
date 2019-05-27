@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466077"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949618"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Sorunsuz bir akış Windows Store uygulaması oluşturma  
 
@@ -87,7 +87,7 @@ Windows Store uygulaması geliştirme hakkında daha fazla bilgi için bkz. [gel
     | Başvuru grubu |Windows ve uzantıları |
     | Başvuru |Microsoft kesintisiz akış istemci SDK'sı Windows 8 ve Microsoft Visual C++ çalışma zamanı paketi için seçin |
 
-1. **Tamam** düğmesine tıklayın. 
+1. **Tamam**'ı tıklatın. 
 
 Başvuru ekledikten sonra hedef Platformu (x64 veya x86) seçmeniz gerekir, ekleyerek başvuruları için herhangi bir CPU platform yapılandırması çalışmaz.  Çözüm Gezgini'nde, sarı bir uyarı işareti şu başvuru eklendi görürsünüz.
 
@@ -507,7 +507,7 @@ Aynı olayları, uygulamadaki tüm ortam öğeleri için ortak işlevselliği i�
    ```
 
    > [!NOTE]
-   > CoreDispatcher olmayan UI iş parçacığından UI iş parçacığı için değişiklik yapmak için kullanılır. Dağıtıcı iş parçacığı üzerinde performans sorunu durumunda, geliştirici, dağıtıcı UI derse güncelleştirme amaçlayan öğesi tarafından sağlanan kullanmayı seçebilirsiniz.  Örneğin:
+   > CoreDispatcher olmayan UI iş parçacığından UI iş parçacığı için değişiklik yapmak için kullanılır. Dağıtıcı iş parçacığı üzerinde performans sorunu durumunda Geliştirici UI-güncelleştirmek istediğiniz öğe tarafından sağlanan dağıtıcı kullanmayı seçebilirsiniz.  Örneğin:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve 
          </ListBox>
          </StackPanel>
    ```
-3. Tuşuna **CTRL + S** he değişiklikleri kaydetmek için
+3. Tuşuna **CTRL + S** değişiklikleri kaydetmek için
 
 ### <a name="to-modify-the-code-behind-file"></a>Arka plan kod dosyasında değiştirmek için
 
@@ -1027,7 +1027,7 @@ Ders 4 tamamladınız.  Bu derste, parçaları seçmek için işlevselliği ekle
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Diğer kaynaklar:
