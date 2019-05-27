@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301437"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001187"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Nasıl Yapılır: Azure Active Directory'de koşullu erişim dağıtımınızı planlama
 
@@ -81,7 +81,7 @@ Bu noktada, ilkelerinize yönelik standart bir adlandırma karar vermek üzere z
  
 ![Adlandırma standardı](./media/plan-conditional-access/11.png)
 
-Açıklayıcı bir ad, koşullu erişim uygulamanızı genel bir bakış tutmaya yardımcı olurken, sıra numarası bir konuşma ilkesinde başvurmak gerekiyorsa yararlıdır. Örneğin, diğer yönetici telefonda bahsediyorsa bir sorunu çözmek için EM063 İlkesi kendisine sorabilirsiniz.
+Açıklayıcı bir ad, koşullu erişim uygulamanızı genel bir bakış tutmaya yardımcı olurken, sıra numarası bir konuşma ilkesinde başvurmak gerekiyorsa yararlıdır. Örneğin, diğer yönetici telefonla görüşmek, ilke bir sorunu çözmek için EM063 açacak biçimde isteyebilirsiniz.
 
 
 
@@ -131,7 +131,7 @@ Kullanıcıların oturum açma deneyimini basitleştirmek için bulut uygulamala
 
 Erişim MFA gerektirmek için yaygın kullanım örnekleri şunlardır:
 
-- [Yöneticileri tarafından](baseline-protection.md#require-mfa-for-admins)
+- [Yöneticileri tarafından](howto-baseline-protect-administrators.md)
 - [Belirli uygulamalar için](app-based-mfa.md) 
 - [Ağ Konumları güvenmediğiniz](untrusted-networks.md).
 
@@ -245,7 +245,7 @@ Temizleme yordamı, aşağıdaki adımlardan oluşur:
 
 
 
-## <a name="move-to-production"></a>Üretim aşamasına geçme
+## <a name="move-to-production"></a>Üretime taşıma
 
 Yeni ilkeler ortamınız için hazır olduğunuzda bunları aşamalarında dağıtma::
 

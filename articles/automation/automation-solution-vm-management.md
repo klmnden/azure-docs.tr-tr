@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501972"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002489"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -49,7 +49,7 @@ VM Başlat/Durdur çözümü için ayrı bir Otomasyon hesabı kullanmak için �
 
 ### <a name="permissions-needed-to-deploy"></a>Dağıtmak için gereken izinler
 
-Bir kullanıcı, Vm'leri başlatma/durdurma sırasında saat çözümü Kapat'ı dağıtmak için gereken belirli izinleri vardır. Bu izinleri bir önceden oluşturulmuş Otomasyon hesabının ve Log Analytics çalışma alanı kullanıyorsanız farklı veya dağıtım sırasında yenilerini oluşturma.
+Bir kullanıcı, Vm'leri başlatma/durdurma sırasında saat çözümü Kapat'ı dağıtmak için gereken belirli izinleri vardır. Bu izinleri bir önceden oluşturulmuş Otomasyon hesabının ve Log Analytics çalışma alanı kullanıyorsanız farklı veya dağıtım sırasında yenilerini oluşturma. Abonelik üzerinde katkıda bulunan ve genel yönetici Azure Active Directory kiracınız varsa, aşağıdaki izinleri yapılandırmanız gerekmez. Aşağıdaki gerekli izinleri, bu haklara sahip bir ya da özel bir rol yapılandırmanız gerekir, bkz.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Önceden var olan Otomasyon hesabının ve Log Analytics hesabı
 
@@ -79,41 +79,21 @@ Vm'leri başlatma/durdurma sırasında saat çözüm kapalı bir Otomasyon hesab
 
 Mesai saatleri dışında başlatma/durdurma Vm'leri dağıtmak için aşağıdaki izinlerin yanı sıra önceki bölümde tanımlanan izinleri çözüme yeni bir Otomasyon hesabının ve Log Analytics çalışma alanı çözümü dağıtma kullanıcı gerekir:
 
-- Ortak yönetici - abonelikte bu Klasik farklı çalıştır hesabı oluşturmak için gereklidir
-- Parçası olarak **uygulama geliştiricisi** rol. Farklı Çalıştır hesaplarını yapılandırma hakkında ayrıntılı bilgi için bkz: [farklı çalıştır hesaplarını yapılandırmak için izinleri](manage-runas-account.md#permissions).
+- Ortak yönetici abonelikte - bunu yalnızca klasik farklı çalıştır hesabı oluşturmak için gereklidir
+- Parçası olarak [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **uygulama geliştiricisi** rol. Farklı Çalıştır hesaplarını yapılandırma hakkında ayrıntılı bilgi için bkz: [farklı çalıştır hesaplarını yapılandırmak için izinleri](manage-runas-account.md#permissions).
+- Abonelik veya aşağıdaki izinlere katkıda bulunan.
 
 | İzin |`Scope`|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Abonelik|
+| Microsoft.Authorization/permissions/read |Abonelik|
 | Microsoft.Authorization/roleAssignments/read | Abonelik |
 | Microsoft.Authorization/roleAssignments/write | Abonelik |
+| Microsoft.Authorization/roleAssignments/delete | Abonelik |
 | Microsoft.Automation/automationAccounts/connections/read | Kaynak Grubu |
 | Microsoft.Automation/automationAccounts/certificates/read | Kaynak Grubu |
 | Microsoft.Automation/automationAccounts/write | Kaynak Grubu |
 | Microsoft.OperationalInsights/workspaces/write | Kaynak Grubu |
-
-### <a name="region-mappings"></a>Bölge eşleme
-
-Kapalı olduğu saatlerde Vm'leri başlatma/durdurma etkinleştirirken, bir Log Analytics çalışma alanı ve Otomasyon hesabı bağlamak için yalnızca belirli bölgelerde desteklenir.
-
-Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
-
-|**Log Analytics çalışma alanı bölgesi**|**Azure Otomasyonu bölge**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP ve EastUS eşlemeleri Otomasyon hesapları için Log Analytics çalışma alanları için tam bir bölgeden bölgeye eşleme değildir, ancak doğru eşleme.
-
-<sup>2</sup> kapasitesi kısıtlamaları nedeniyle bölgeyi yeni kaynakları oluşturulurken kullanılabilir değil. Bu, Otomasyon hesaplarını ve Log Analytics çalışma alanlarını içerir. Ancak, önceden var olan bağlı kaynaklar bölgede çalışmaya devam.
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
@@ -140,6 +120,11 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    - İçin **kaynak grubu**, yeni bir kaynak grubu oluşturun veya varolan bir tanesini seçin.
    - Bir **Konum** seçin. Şu anda yalnızca mevcut konumlarının **Avustralya Güneydoğu**, **Kanada orta**, **Orta Hindistan**, **Doğu ABD**, **Doğu Japonya**, **Güneydoğu Asya**, **UK Güney**, **Batı Avrupa**, ve **Batı ABD 2**.
    - Bir **Fiyatlandırma katmanı** seçin. Seçin **GB başına (tek başına)** seçeneği. Azure İzleyici günlüklerine güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katman tek seçenektir.
+
+   > [!NOTE]
+   > Çözümleri etkinleştirirken Log Analytics çalışma alanı ile Otomasyon Hesabı arasında bağlantı kurma seçeneği yalnızca belirli bölgelerde desteklenmektedir.
+   >
+   > Desteklenen eşleme çiftlerine bir listesi için bkz. [Otomasyon hesabının ve Log Analytics çalışma alanı için bölge eşleme](how-to/region-mappings.md).
 
 5. Gerekli bilgileri girdikten sonra **Log Analytics çalışma alanı** sayfasında **Oluştur**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüden döndüren size **Çözüm Ekle** işiniz bittiğinde sayfa.
 6. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir Log Analytics çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
@@ -433,7 +418,9 @@ Artık çözümü kullanmak gereken karar verirseniz, Otomasyon hesabı silebili
 
 Çözümü silmek için aşağıdaki adımları gerçekleştirin:
 
-1. Otomasyon hesabınızdan seçin **çalışma** sol sayfasından.
+1. Otomasyon hesabınızdan altında **ilgili kaynakları**seçin **bağlantılı çalışma**.
+1. Seçin **çalışma alanına gidin**.
+1. Altında **genel**seçin **çözümleri**. 
 1. Üzerinde **çözümleri** sayfasında, çözümü seçin **Başlat-Durdur-VM [çalışma alanı]**. Üzerinde **VMManagementSolution [çalışma alanı]** sayfasından menüsünde, select **Sil**.<br><br> ![VM yönetimi çözümü Sil](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. İçinde **Sil çözüm** penceresinde çözümü silmek istediğinizi onaylayın.
 1. Bilgiler doğrulanır ve çözümün silinmiş, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde. Döndürülürsünüz **çözümleri** Çözüm kaldırma işlemini başladıktan sonra sayfa.

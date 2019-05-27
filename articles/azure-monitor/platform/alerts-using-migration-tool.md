@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698414"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015633"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Uyarı kurallarınızı Klasik geçirmek için gönüllü bir geçiş aracını kullanma
 
-Olarak [daha önce duyurulduğu gibi](monitoring-classic-retirement.md), Azure İzleyici'de klasik uyarılar, Temmuz 2019 ' kullanımdan. Geçiş Aracı, Azure portalında Klasik uyarı kuralları kullanan ve kendilerini geçişini isteyen müşteriler için kullanılabilir. Bu makalede, Temmuz 2019 ' otomatik geçiş başlamadan önce uyarı kurallarınızı Klasik gönüllü olarak geçirmek için geçiş aracı kullanmayı açıklar.
+Olarak [daha önce duyurulduğu gibi](monitoring-classic-retirement.md), Azure İzleyici'de klasik uyarılar, Eylül 2019 ' kullanımdan (başlangıçta Temmuz 2019 oluştu). Geçiş Aracı, Azure portalında Klasik uyarı kuralları kullanan ve kendilerini geçişini isteyen müşteriler için kullanılabilir. Bu makalede, Eylül 2019 ' otomatik geçiş başlamadan önce uyarı kurallarınızı Klasik gönüllü olarak geçirmek için geçiş aracı kullanmayı açıklar.
+
+> [!NOTE]
+> Sunum geçiş aracının gecikme nedeniyle, o tarihten Klasik uyarılar geçiş yapıldı [31 Ağustos 2019'için Genişletilmiş](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) ilk duyurulan tarihinden 30 Haziran 2019.
 
 ## <a name="benefits-of-new-alerts"></a>Yeni uyarılar avantajları
 
@@ -78,7 +81,7 @@ Azure portalında Klasik uyarı kurallarınızı geçişini tetiklemek için bu 
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Neden geçiş için hazır değil olarak Aboneliğimi listelenir?
 
-Geçiş Aracı müşterilerine aşamalı olarak kullanıma sunulmaktadır. Erken aşamalarında olarak çoğu veya tüm aboneliklerinizi işaretlenebilir **geçiş için hazır değil**. Mid-Nisan göre Bununla birlikte, tüm abonelikleri geçirmeye hazır olmalıdır.
+Geçiş Aracı müşterilerine aşamalı olarak kullanıma sunulmaktadır. Erken aşamalarında olarak çoğu veya tüm aboneliklerinizi işaretlenebilir **geçiş için hazır değil**. 
 
 Abonelik geçiş için hazır olduğunda, abonelik sahibi aracı kullanılabilir olduğunu belirten bir e-posta iletisi alırsınız. Bu ileti için takip.
 

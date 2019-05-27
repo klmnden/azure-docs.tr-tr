@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771184"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966120"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
-Bu makalede, azure'da kullanım için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele RHEL 6.7 + ve 7.1 + sürümleridir. Bu makalede ele hiper hazırlama için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hats bulut erişimi Program'a uygunluk gereksinimleri hakkında daha fazla bilgi için bkz. [Red Hats bulut Access Web sitesinin](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+Bu makalede, azure'da kullanım için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele RHEL 6.7 + ve 7.1 + sürümleridir. Bu makalede ele hiper hazırlama için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hats bulut erişimi Program'a uygunluk gereksinimleri hakkında daha fazla bilgi için bkz. [Red Hats bulut Access Web sitesinin](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Görüntüleri RHEL oluşturmayı otomatikleştirme yollarını görmek [Azure Görüntü Oluşturucu](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Red Hat tabanlı bir sanal makine Hyper-V Yöneticisi'nden hazırlama
 
@@ -110,7 +110,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak geçici bir diskle olduğunu ve sanal makinenin sağlaması kaldırıldığında, boşaltılabilir olduğunu unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle /etc/waagent.conf uygun şekilde değiştirin:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak geçici bir diskle olduğunu ve sanal makinenin sağlaması varsa, boşaltılabilir olduğunu unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle /etc/waagent.conf uygun şekilde değiştirin:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -124,6 +124,8 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -193,7 +195,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması, boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -207,6 +209,8 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -315,7 +319,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
         # chkconfig waagent on
 
-1. Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin **/etc/waagent.conf** uygun şekilde:
+1. Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması, boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin **/etc/waagent.conf** uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -329,6 +333,8 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -464,7 +470,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması, boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -478,6 +484,8 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -593,7 +601,7 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması, boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -607,6 +615,8 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -707,7 +717,7 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması, boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -721,6 +731,8 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -875,7 +887,7 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
         NM_CONTROLLED=no
         EOF
 
-        # Deprovision and prepare for Azure
+        # Deprovision and prepare for Azure if you are creating a generalized image
         waagent -force -deprovision
 
         %end

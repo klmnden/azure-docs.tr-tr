@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 05/17/2019
 ms.author: byvinyal
-ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3f01e15e4ac39127263c8c68590b6c50be04847d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787633"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66023225"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -54,6 +54,7 @@ Azure Resource Manager'ı kullandığınızda sınırları aşağıdaki listede 
 * [PostgreSQL için Azure Veritabanı](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
 * [Azure güvenlik duvarı](#azure-firewall-limits)
+* [Azure İşlevleri](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning hizmeti](#azure-machine-learning-service-limits)
 * [Azure Haritalar](#azure-maps-limits)
@@ -234,6 +235,9 @@ Aşağıdaki App Service limitleri, Web Apps, Mobile Apps ve API Apps sınırlar
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+### <a name="functions-limits"></a>İşlevleri sınırları
+[!INCLUDE [functions-limits](../includes/functions-limits.md)]
+
 ### <a name="scheduler-limits"></a>Scheduler sınırları
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
@@ -246,7 +250,7 @@ Aşağıdaki tabloda, Azure BizTalk Hizmetleri için sınırlar gösterilmektedi
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB sınırları
-Azure Cosmos DB, aktarım hızını ve depolamayı ne olursa olsun uygulamanızın gerektirdiği işlemek için ölçeklendirilebilir bir küresel ölçek veritabanıdır. Azure Cosmos DB sağlar ölçek hakkında sorularınız varsa, e-posta Gönder askcosmosdb@microsoft.com.
+Azure Cosmos DB limitleri için bkz. [sınırları Azure Cosmos DB'de](cosmos-db/concepts-limits.md).
 
 ### <a name="azure-database-for-mysql"></a>MySQL için Azure Veritabanı
 Sınırları MySQL için Azure veritabanı için bkz: [MySQL için Azure veritabanı'nda sınırlamaları](mysql/concepts-limits.md).

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407581"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003090"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Bir Linux PHP uygulamasını Azure App Service için yapılandırma
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Ortam değişkenlerine erişme
 
-Uygulama hizmetinde [uygulama ayarlarını belirlemek](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) , uygulama kodunuz dışında. Standardını kullanarak bunlar erişebilir [getenv()](https://secure.php.net/manual/function.getenv.php) deseni. Örneğin, bir uygulama ayarı erişmeye adlı `DB_HOST`, aşağıdaki kodu kullanın:
+Uygulama hizmetinde [uygulama ayarlarını belirlemek](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) , uygulama kodunuz dışında. Standardını kullanarak bunlar erişebilir [getenv()](https://secure.php.net/manual/function.getenv.php) deseni. Örneğin, bir uygulama ayarı erişmeye adlı `DB_HOST`, aşağıdaki kodu kullanın:
 
 ```php
 getenv("DB_HOST")
@@ -147,7 +147,7 @@ PHP yüklemenizi değişiklikler yapmanız gerekirse, herhangi birini değiştir
 > PHP sürümünü ve geçerli görmek için en iyi yolu *php.ini* yapılandırmadır çağrılacak [phpinfo()](https://php.net/manual/function.phpinfo.php) uygulamanızda.
 >
 
-### <a name="customize-non-phpinisystem-directives"></a>PHP_INI_SYSTEM olmayan yönergeleri özelleştirme
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Özelleştirme-olmayan-PHP_INI_SYSTEM yönergeleri
 
 PHP_INI_USER PHP_INI_PERDIR ve PHP_INI_ALL yönergeleri özelleştirmek için (bkz [php.ini yönergeleri](https://www.php.net/manual/ini.list.php)), ekleme bir *.htaccess* uygulamanızın kök dizinine dosya.
 
@@ -237,7 +237,7 @@ Değişikliklerin etkili olması için uygulamayı yeniden başlatın.
     - Yapılandırmanıza bağlı olarak, *composer.json*, farklı paketleri üretim modu için yüklü (`require` karşılaştırması `require-dev`).
     - Bazı web çerçeveleri, statik dosyalar farklı üretim modunda dağıtabilirsiniz.
     - Bazı web çerçeveleri, üretim modunda çalışırken özel başlatma komut dosyaları kullanabilirsiniz.
-- Uygulamanızı App Service'te hata ayıklama modunda çalıştırın. Örneğin, [Laravel](https://meanjs.org/), uygulamanız tarafından üretimde hata ayıklama iletilerinin de çıkışını almak yapılandırabileceğiniz [ayarı `APP_DEBUG` uygulama ayarının `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Uygulamanızı App Service'te hata ayıklama modunda çalıştırın. Örneğin, [Laravel](https://meanjs.org/), uygulamanız tarafından üretimde hata ayıklama iletilerinin de çıkışını almak yapılandırabileceğiniz [ayarı `APP_DEBUG` uygulama ayarının `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ### <a name="robots933456"></a>robots933456
 

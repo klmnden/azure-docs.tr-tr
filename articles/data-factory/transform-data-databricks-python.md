@@ -3,21 +3,21 @@ title: Azure Databricks Python ile - verileri dönüştürme | Microsoft Docs
 description: İşleme veya dönüştürme verileri Databricks Python çalıştırarak öğrenin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+author: gauravmalhot
+ms.author: gamal
+ms.reviewer: maghan
+manager: craigg
+ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589218"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002841"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks üzerinde bir Python etkinliği çalıştırarak verileri dönüştürme
 
@@ -64,9 +64,9 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 
 |Özellik|Açıklama|Gerekli|
 |---|---|---|
-|ad|İşlem hattındaki bir etkinliğin adı.|Evet|
+|name|İşlem hattındaki bir etkinliğin adı.|Evet|
 |açıklama|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
-|type|Databricks Python etkinliği için etkinlik DatabricksSparkPython türüdür.|Evet|
+|tür|Databricks Python etkinliği için etkinlik DatabricksSparkPython türüdür.|Evet|
 |linkedServiceName|Databricks bağlı Python etkinliğin çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
 |pythonFile|Yürütülecek Python dosyası URI'si. Yalnızca DBFS yolları desteklenir.|Evet|
 |parametreler|Python dosyasına geçirilecek komut satırı parametreleri. Bu dizeler dizisidir.|Hayır|

@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 11977a5aa36b023e468ce6a54862b5138995c417
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64513526"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003105"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-messaging"></a>Azure Service Bus Mesajlaşması için genel güvenlik öznitelikleri
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Azure Service Bus Mesajlaşması için güvenlik öznitelikleri
 
-Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makale, Azure Service Bus Mesajlaşması ile oluşturulmuş genel güvenlik özniteliklerini içermektedir.
+Bu makale, Azure Service Bus Mesajlaşması ile yerleşik güvenlik özniteliklerini içermektedir.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

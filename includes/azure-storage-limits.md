@@ -9,19 +9,19 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532750"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114535"
 ---
 Aşağıdaki tabloda, Azure genel amaçlı v1, v2 ve Blob Depolama hesapları için varsayılan sınırlara açıklanmaktadır. *Giriş* sınırı bir depolama hesabına gönderilen istekleri gelen tüm verilere başvurur. *Çıkış* sınırı tüm verileri bir depolama hesabından alınan yanıtlardan başvuruyor.
 
-| Kaynak | Varsayılan limit |
+| Resource | Varsayılan limit |
 | --- | --- |
 | Standart ve premium hesapları dahil olmak üzere, abonelik başına bölgeye göre depolama hesabı sayısı | 250 |
 | En fazla depolama hesabı kapasitesi | 2 PB Amerika ve Avrupa'da, 500 UK içeren TB için diğer tüm bölgeler için |
-| Blob kapsayıcıları, blobları, dosya paylaşımları, tablolar, kuyruklar, varlıklar veya depolama hesabı başına ileti sayısı | Sınırsız |
+| Blob kapsayıcıları, blobları, dosya paylaşımları, tablolar, kuyruklar, varlıklar veya depolama hesabı başına ileti sayısı | Sınır yok |
 | İstek hızı üst sınırı<sup>1</sup> depolama hesabı başına | saniyede 20.000 istekleri |
 | En büyük giriş<sup>1</sup> (ABD bölgelerinde) depolama hesabı başına | RA-GRS/GRS etkinse, 10 GB/sn, LRS/ZRS için 20 GB/sn<sup>2</sup> |
 | En büyük giriş<sup>1</sup> (ABD dışı bölgeler) depolama hesabı başına | RA-GRS/GRS etkinse, 5 GB/sn, LRS/ZRS için 10 GB/sn<sup>2</sup> |

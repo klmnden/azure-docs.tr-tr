@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606950"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001751"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 
@@ -393,8 +393,12 @@ Değiştirilebilir ve yaşam süresi boyunca düzenli olarak erişilen veriler i
 
 ## <a name="faq"></a>SSS
 
-**Eylemler neden hemen çalıştırılmaz, yeni bir ilke oluşturduğum?**  
+**Eylemler neden hemen çalışmaz, yeni bir ilke oluşturduğum?**  
 Platform yaşam döngüsü ilkesi günde bir kez çalışır. Bir ilkeyi yapılandırdıktan sonra uygulamanın ilk kez çalıştırmak bazı eylemler 24 saate kadar sürebilir.  
+
+**Ben el ile Arşivlenmiş bir blob rehydrated, nasıl bunu geri arşiv katmanı için geçici olarak taşınmasını engelleyebilirim?**  
+Bir blobu başka bir erişim katmanı için bir erişim katmanı'ndan taşındığında, son değiştirme zamanı değişmez. Arşivlenen bir blobu sık erişimli katman için el ile yeniden doldurma, onu geri katmanı arşiv yaşam döngüsü yönetimi altyapısı tarafından taşınması. Bu blob geçici olarak etkileyen kuralı devre dışı bırakarak engelleyebilirsiniz. Sık erişimli katmanda kalıcı olarak kalması gerekiyorsa, blob başka bir konuma kopyalayabilirsiniz. Blob güvenli bir şekilde geri katmanı arşiv olarak taşınabilir, kural yeniden etkinleştirebilirsiniz. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

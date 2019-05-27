@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c99125d1d17f85e9767dca6d108005e598561cc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545670"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001452"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -199,14 +199,15 @@ Visual Studio'da kullanıcının taleplerini bir web sayfasında görüntülemek
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure portalında kaydedin, ardından kendi ilgili bilgileri *web.config*
 
-1. Uygulamanızı kaydetmek için [Microsoft Azure portal - Uygulama kayıtları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) sayfasına gidin.
-2. **Yeni uygulama kaydı**’nı seçin.
-3. Uygulamanız için bir ad girin.
-4. Visual Studio projesinin *SSL URL* değerini **Oturum Açma URL'si** alanına yapıştırın. Bu URL de kaydettirmekte uygulama için yanıt URL'leri listesine otomatik olarak eklenir.
-5. Uygulamayı kaydetmek için **Oluştur** seçeneğine tıklayın. Uygulama listesi sayfasına dönersiniz.
-6. Şimdi yeni oluşturduğunuz uygulamayı arayın ve/veya seçin ve özelliklerini açın.
-7. **Uygulama Kimliği** bölümündeki GUID değerini panoya kopyalayın.
-8. Visual Studio ve içinde dönün `web.config`, değiştirin `Enter_the_Application_Id_here` kaydettiğiniz uygulamadan uygulama kimliği.
+1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
+2. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
+3. Geliştiriciler için Microsoft identity platformuna gidin [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası.
+4. Seçin **yeni kayıt**.
+5. Zaman **bir uygulamayı kaydetme** sayfası görüntülenirse, uygulamanız için bir ad girin.
+6. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
+7. Seçin **Web** platform altında **yeniden yönlendirme URI'si** bölüm ve Visual Studio Proje için değeri ayarlayın *SSL URL* (istediğiniz Azure AD belirteçleri döndürecektir konum).
+78. Bittiğinde **Kaydet**’i seçin. Uygulamasında **genel bakış** sayfasında, kopya **uygulama (istemci) kimliği** değeri.
+9. Visual Studio ve içinde dönün `web.config`, değiştirin `Enter_the_Application_Id_here` kaydettiğiniz uygulamadan uygulama kimliği.
 
 > [!TIP]
 > Hesabınız birden fazla dizine erişecek şekilde yapılandırılmışsa aşağıda gösterilen şekilde Azure portalda sağ üst köşedeki hesap adına tıklayıp seçili dizini doğrulayarak uygulamanın kaydedilmesini istediğiniz kuruluş için doğru dizini seçtiğinizden emin olun:<br/>![Doğru dizini seçme](./media/quickstart-v1-aspnet-webapp/tenantselector.png)

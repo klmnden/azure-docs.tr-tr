@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 37fed781629351475b384ac843a588bdaf7b5b66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 100482496df2db1bff07a070bb82c6811208cfd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718154"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891353"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Azure HDInsight, Apache Hadoop Excel'i Microsoft Hive ODBC sürücüsü ile bağlama
 
@@ -52,10 +52,10 @@ Aşağıdaki adımlar bir Hive ODBC veri kaynağı oluşturma işlemini gösteri
    | --- | --- |
    |  Data Source Name |Veri kaynağınız için bir ad verin |
    |  Konaklarında |Girin &lt;Hdınsightkümesiadı&gt;. azurehdinsight.net. Örnek: HDIKumesi.azurehdinsight.net |
-   |  Bağlantı noktası |<strong>443</strong> yazın. (Önceden 563 olan bu bağlantı noktası 443 olarak değiştirilmiştir.) |
+   |  Port |<strong>443</strong> yazın. (Önceden 563 olan bu bağlantı noktası 443 olarak değiştirilmiştir.) |
    |  Database |Kullanım <strong>varsayılan</strong>. |
-   |  Mechanism |<strong>Azure HDInsight Service</strong>’i seçin |
-   |  User Name |HDInsight küme HTTP kullanıcısı kullanıcı adı girin. Varsayılan kullanıcı adı <strong>admin</strong> şeklindedir. |
+   |  Mekanizma |<strong>Azure HDInsight Service</strong>’i seçin |
+   |  Kullanıcı adı |HDInsight küme HTTP kullanıcısı kullanıcı adı girin. Varsayılan kullanıcı adı <strong>admin</strong> şeklindedir. |
    |  Parola |HDInsight küme kullanıcı parolasını girin. |
 
    
@@ -99,7 +99,7 @@ Bu makalede, Microsoft Hive ODBC sürücüsü Excel'e HDInsight hizmetten veri a
 
 * [Azure HDInsight, Microsoft Power BI ile Apache Hive verileri görselleştirme](apache-hadoop-connect-hive-power-bi.md).
 * [Power BI'da Azure HDInsight ile etkileşimli sorgu Hive verilerini görselleştirme](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma](./../hdinsight-connect-hive-zeppelin.md).
+* [Azure HDInsight Apache Hive sorguları çalıştırmak için Apache Zeppelin kullanma](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Excel'i Power Query kullanarak Apache Hadoop'a bağlama](apache-hadoop-connect-excel-power-query.md).
 * [Azure HDInsight için bağlanın ve Visual Studio için Data Lake Araçları'nı kullanarak Apache Hive sorguları çalıştırma](apache-hadoop-visual-studio-tools-get-started.md).
 * [Visual Studio Code için Azure HDInsight aracını](../hdinsight-for-vscode.md).

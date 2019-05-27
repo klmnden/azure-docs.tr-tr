@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 290b548f31a967d514b09e4de775b12de7703b07
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782951"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016070"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Uygulama proxy'si uygulaması kullanılırken "Şirket bu uygulamaya erişemezsiniz" hatası
 
@@ -77,7 +77,7 @@ Uygulamayı doğrulamak için bağlayıcı grubunda çalışan atanır:
 
 1. Uygulama giderek portalda açın **Azure Active Directory**, öğesine tıklayarak **kurumsal uygulamalar**, ardından **tüm uygulamalar.** Uygulamayı açın ve sonra seçin **uygulama proxy'si** sol menüden.
 
-2. Bağlayıcı grubu alanına bakın. Grup içinde etkin bağlayıcı yok varsa, bir uyarı görürsünüz. Tüm uyarılar görmüyorsanız, "tüm bağlantı noktaları güvenilir listededir doğrula" geçin.
+2. Bağlayıcı grubu alanına bakın. Grup içinde etkin bağlayıcı yok varsa, bir uyarı görürsünüz. Tüm uyarılar görmüyorsanız, tüm bağlantı noktaları izin doğrulamak geçin.
 
 3. Bağlayıcı grubu yanlış gösteriliyorsa, doğru grubunu seçin ve tüm uyarılar artık bkz onaylamak için açılan listeyi kullanın. Hedeflenen bir bağlayıcı grubu gösteriliyorsa, uyarı iletisi Bağlayıcısı Yönetim sayfasını açmak için tıklayın.
 
@@ -87,11 +87,11 @@ Uygulamayı doğrulamak için bağlayıcı grubunda çalışan atanır:
 
    * Bu grup için yeni bir bağlayıcı indirin: Bu sayfadan bağlantısını alın [yeni bir bağlayıcı indirmek](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Bağlayıcıyı doğrudan görebilmesi için arka uç uygulaması ile bir makineye yükleyin. Genellikle, bağlayıcı uygulama ile aynı sunucuya yüklenir. Bağlayıcı bağlantısını indirin, hedef makineye bir bağlayıcı indirmek için kullanın. Ardından, Bağlayıcısı'nı tıklatın ve "Bağlayıcı grubu" açılan doğru gruba ait emin olmak için kullanın.
 
-   * Etkin olmayan bir bağlayıcı araştırın: Bağlayıcıyı devre dışı olarak gösteriyorsa, hizmete bağlanamıyoruz. Bu hata genellikle engellenme bazı gerekli bağlantı noktaları nedeniyle kaynaklanır. Bu sorunu çözmek için "Beyaz listeye tüm bağlantı noktaları olduğundan emin olun." geçin
+   * Etkin olmayan bir bağlayıcı araştırın: Bağlayıcıyı devre dışı olarak gösteriyorsa, hizmete bağlanamıyoruz. Bu hata genellikle engellenme bazı gerekli bağlantı noktaları nedeniyle kaynaklanır. Bu sorunu çözmek için tüm gerekli bağlantı noktaları izin doğrulamak geçin.
 
 Kullandıktan sonra uygulama bağlayıcıları, çalışma ile bir gruba atanmış emin olmak için aşağıdaki adımları uygulamayı yeniden sınayın. Yine de çalışmazsa sonraki bölüme devam edin.
 
-## <a name="check-all-required-ports-are-whitelisted"></a>Tüm gerekli bağlantı noktaları güvenilir listededir denetleyin
+## <a name="check-all-required-ports-are-open"></a>Tüm gerekli bağlantı noktalarının açık olduğunu kontrol edin
 
 Tüm gerekli bağlantı noktalarının açık olduğunu doğrulamak için bağlantı noktalarını açma üzerinde belgelerine bakın. Tüm gerekli bağlantı noktalarının açık olduğundan, sonraki bölüme Taşı.
 

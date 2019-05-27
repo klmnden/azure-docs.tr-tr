@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df1ffa07c9b813ee3da4952bbcc394f43c69b7ac
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204231"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001032"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Azure SQL veritabanı için güvenlik öznitelikleri
 
@@ -28,9 +28,9 @@ Azure SQL veritabanı hem de içeren [tek veritabanı](sql-database-single-index
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
 | Bekleme sırasında şifreleme:<ul><li>Sunucu tarafı şifrelemesi</li><li>Müşteri tarafından yönetilen anahtarlarla sunucu tarafı şifrelemesi</li><li>Diğer şifreleme özellikleri (örneğin, istemci tarafı, her zaman şifreli, vb.)</ul>| Evet | "Şifreleme kullanımda", makalesinde açıklandığı şekilde başvurulan [Always Encrypted](sql-database-always-encrypted.md). Hizmet tarafı şifreleme kullanan [saydam veri şifrelemesi](transparent-data-encryption-azure-sql.md) (TDE).|
-| Aktarım sırasında şifreleme:<ul><li>ExpressRoute şifreleme</li><li>Vnet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet | HTTPS kullanarak. |
+| Aktarım sırasında şifreleme:<ul><li>ExpressRoute şifreleme</li><li>VNet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet | HTTPS kullanarak. |
 | Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Evet | Hizmet tarafından yönetilen hem de müşteri tarafından yönetilen anahtar işleme sunulur (ikincisi aracılığıyla [Azure anahtar kasası](../key-vault/index.yml). |
-| Sütun düzeyinde şifrelemeyi (Azure Veri Hizmetleri)| Evet | Aracılığıyla [her zaman şifreli](sql-database-always-encrypted.md). |
+| Sütun düzeyinde şifrelemeyi (Azure Data Services)| Evet | Aracılığıyla [her zaman şifreli](sql-database-always-encrypted.md). |
 | Şifrelenmiş API çağrıları| Evet | HTTPS/SSL kullanma. |
 
 ## <a name="network-segmentation"></a>Ağ kesimleme
@@ -38,9 +38,9 @@ Azure SQL veritabanı hem de içeren [tek veritabanı](sql-database-single-index
 | Güvenlik özniteliği | Evet/Hayır | Notlar |
 |---|---|--|
 | Hizmet uç noktası desteği| Evet | Uygulandığı [tek veritabanı](sql-database-single-index.yml) yalnızca. |
-| vNET ekleme desteği| Evet | Uygulandığı [yönetilen örnek](sql-database-managed-instance.md) yalnızca. |
-| Ağ yalıtımı / destek özellikleri| Evet | Her iki veritabanı - ve sunucu düzeyinde güvenlik duvarı; ağ yalıtımı için [yönetilen örnek](sql-database-managed-instance.md) yalnızca |
-| Zorlamalı tünel için destek | Evet | [Yönetilen örnek](sql-database-managed-instance.md) aracılığıyla [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| VNet ekleme desteği| Evet | Uygulandığı [yönetilen örnek](sql-database-managed-instance.md) yalnızca. |
+| Ağ yalıtımı ve saldırısından desteği| Evet | Her iki veritabanı - ve sunucu düzeyinde güvenlik duvarı; ağ yalıtımı için [yönetilen örnek](sql-database-managed-instance.md) yalnızca |
+| Zorlamalı tünel oluşturma desteği| Evet | [Yönetilen örnek](sql-database-managed-instance.md) aracılığıyla [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
 ## <a name="detection"></a>Algılama
 
@@ -52,16 +52,16 @@ Azure SQL veritabanı hem de içeren [tek veritabanı](sql-database-single-index
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Erişim yönetimi - kimlik doğrulama| Evet | Azure Active Directory. |
-| Erişim Yönetimi - yetkilendirme| Evet |  |
+| Kimlik Doğrulaması| Evet | Azure Active Directory. |
+| Yetkilendirme| Evet |  |
 
 
 ## <a name="audit-trail"></a>Denetim izi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
-| Günlüğe kaydetme ve denetim Denetim/yönetimini planlama| Evet | Yalnızca bazı olaylar için Evet. |
-| Veri günlük kaydı ve denetim düzlemi | Evet | Aracılığıyla [SQL denetim](sql-database-auditing.md). |
+| Denetim ve yönetim düzlemi günlüğe kaydetme ve Denetim| Evet | Yalnızca bazı olaylar için Evet. |
+| Veri düzlemi günlük kaydı ve Denetim | Evet | Aracılığıyla [SQL denetim](sql-database-auditing.md). |
 
 ## <a name="configuration-management"></a>Yapılandırma yönetimi
 

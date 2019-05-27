@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648661"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872829"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Dayanıklı işlevler Web işleri çalıştırma
 
@@ -37,7 +37,7 @@ Bu makalede, C# sınıf kitaplığı geliştirme için Azure işlevleri ve dayan
 
 Bu makaledeki adımları tamamlayabilmeniz için:
 
-* [Visual Studio 2017 sürüm 15.6 veya üzerini yükleyin](https://docs.microsoft.com/visualstudio/install/) ile **Azure geliştirme** iş yükü.
+* [Visual Studio 2019 yükleme](https://docs.microsoft.com/visualstudio/install/) ile **Azure geliştirme** iş yükü.
 
   Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçları** > **araçları ve özellikleri Al**.
 
@@ -49,7 +49,7 @@ Bu makaledeki adımları tamamlayabilmeniz için:
 
 Bu makalede, WebJobs SDK 2.x projeyi geliştirmek üzere açıklanmaktadır (Azure işlevleri sürüm eşdeğer 1.x). Sürümü hakkında daha fazla bilgi için 3.x bkz [WebJobs SDK 3.x](#webjobs-sdk-3x) bu makalenin ilerleyen bölümlerinde.
 
-## <a name="create-a-console-app"></a>Konsol uygulaması oluşturma
+## <a name="create-a-console-app"></a>Bir konsol uygulaması oluşturma
 
 Dayanıklı işlevler Web işleri çalıştırmak için bir konsol uygulaması oluşturmanız gerekir. Yeni bir konsol uygulama projesi yüklü uygun NuGet paketleri ile bir Web işleri SDK'sı projesidir.
 

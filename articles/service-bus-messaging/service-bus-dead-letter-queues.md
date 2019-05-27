@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713971"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003128"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus edilemeyen genel bakış
 
@@ -102,6 +102,17 @@ while(true)
     }
 }
 ```
+
+## <a name="path-to-the-dead-letter-queue"></a>Geçerliliğini yitirmiş kuyruk yolu
+Eski ileti sırası aşağıdaki söz dizimini kullanarak erişebilirsiniz:
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscription/<subscription path>/$deadletterqueue
+```
+
+.NET SDK'sı kullanıyorsanız SubscriptionClient.FormatDeadLetterPath() yöntemi kullanarak eski ileti sırası yolunu alabilirsiniz. Bu yöntem konu adı veya aboneliğinizde adı alır ve ile sonekleri **/$DeadLetterQueue**.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c84bf84f8ba28a98937b02a463003a900aefaa0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150376"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002905"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Hızlı Başlangıç: T-SQL kullanarak bir iş yükü sınıflandırıcı oluşturma
 
@@ -107,6 +107,6 @@ Kaynakları temizlemek için aşağıdaki adımları izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir iş yükü sınıflandırıcı oluşturdunuz. Birkaç sorgu gösterdikleri için TheCEO çalıştırın. Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.
-
-SQL veri ambarı iş yükü yönetimi hakkında daha fazla bilgi için bkz: [SQL veri ambarı iş yükü önem](sql-data-warehouse-workload-importance.md) ve [SQL veri ambarı iş yükü sınıflandırma](sql-data-warehouse-workload-classification.md).
+- Bir iş yükü sınıflandırıcı oluşturdunuz. Birkaç sorgu gösterdikleri için TheCEO çalıştırın. Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.
+- Azure SQL veri ambarı iş yükü yönetimi hakkında daha fazla bilgi için bkz: [iş yükü önem](sql-data-warehouse-workload-importance.md) ve [iş yükü sınıflandırma](sql-data-warehouse-workload-classification.md).
+- Nasıl yapılır makalelerine bakın [iş yükü önem yapılandırma](sql-data-warehouse-how-to-configure-workload-importance.md) ve nasıl [yönetme ve izleme iş yükü yönetimi](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 1f3ae120bbbb902188d893d5a04582a6e9547bdf
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937954"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909695"
 ---
 # <a name="your-marketplace-benefits"></a>Market Avantajlarınızı
 
@@ -34,11 +34,7 @@ Git pazara açılma avantajları bir teklif yayımlanan iş ortakları için eri
 2. Microsoft marketleri danışmanlığı: Bu yararlanmak [ücretsiz danışmanlığı](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) Market uygulamanızda mimarisi planlamanıza yardımcı olacak.
 3. Market forumları için: Doğrudan Microsoft çalışanları ve diğer Market iş ortakları için sorularınızı sormak [Market Forumu](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 4. Teknik Destek: Yardım menüsünden kullanmak [bulut iş ortağı portalı](https://cloudpartner.azure.com/) destek Market ile ilgili sorularınızı Yardım almak için. 
-5. Geliştirme testi sponsorluk: Gözden geçirin, aşağıdaki uygunluk ve sponsorluk kullanma isteğinizi göndermek [kayıt formunda](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3omd2bW7etLoEoufw2-vMdUNUkxSjQ5V0hJOEtZSks3ME45TDJNTkVUTi4u):
-    * Geliştirme ve test amacıyla Azure Marketi yayımlama var.
-    * Fon başka bir amaçla kullanılamaz.
-    * Ödül 5.000 ABD Doları 90 gün, ilk atanan abonelikte eylem öğesinden başlayarak kullanımı içindir.
-    * Test edilen uygulamanın fon son bir günde 30 gün içinde Azure Marketi'nde yayınlayın gerekir: Böyle fon 1 Aralık'ta başlayan kullanılıyorsa, örneğin, ardından uygulamayı 31 Mart Canlı olması gerekir.
+5. AAD tümleştirmesi ve geliştirme ve test sponsorluk: bir transactable (dağıtılabilir ve faturalanabilir teklifi ile) Canlı geçtiğinizde de tutulursunuz. Git pazara açılma avantajları ile çalışmaya başlama öğrenmek için sonraki bölüme bakın.
 
 ## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Market'te Git pazara açılma (GTM) avantajları
 
@@ -46,8 +42,8 @@ Azure Market ve AppSource hem yeni kayıtlara Microsoft GTM Hizmetleri ekibimizl
 
 | Vitrin | Kullanılabilir ek avantajlar |
 |:--- |:--- |
-| AppSource |  Microsoft Gold iş ortaklarına <br> Deneme uygulamaları |
-| Azure Marketi | Teklifler transact <br> Deneme tekliflerinden |
+| AppSource |  Microsoft Gold iş ortaklarına <br> Teklifler transact-Market kazandırır <br> Deneme uygulamaları |
+| Azure Marketi | Teklifler transact-Market kazandırır <br> Deneme tekliflerinden |
 
 GTM destek şablonları, web içeriği, eğitim ve işletmenizi tanıtmak için Araçlar içerir.
 
@@ -56,18 +52,22 @@ Bu avantajlara erişmek için ihtiyacınız olacak:
 1. Bir teklifi Azure Market veya Appsource'ta yayımlama.
 2. Pazarlama kişi girdiğinizden emin olun **iletişim bilgilerini** teklifinizi kısmı. Bu, bir catch tüm diğer adı yerine özel bir pazarlama kaynak olmalıdır. (yani, kullanmaktan kaçının "Destek\@", "bilgi\@", "pazarlama\@", vb..)
 
-Liste, deneme veya Transact, teklif, çözüm durumu temelinde kendi kendine yardım kaynaklarını içeren bir e-posta veya danışmanlığı çağrısı ile ayrılmış bir Engagement Yöneticisi bir davet alırsınız. Aramayı başlatmak için herhangi bir şey yapmanız gerekmez; Market Onboarding ekibi, sağladığınız bilgileri temel alarak ulaşır [bulut iş ortağı portalı](https://cloudpartner.azure.com/).
+Liste, deneme veya Transact-Market ödül teklifini, çözüm durumu temelinde kendi kendine yardım kaynaklarını içeren bir e-posta veya danışmanlığı çağrısı ile ayrılmış bir Engagement Yöneticisi bir davet alırsınız. Aramayı başlatmak için herhangi bir şey yapmanız gerekmez; Market Onboarding ekibi, sağladığınız bilgileri temel alarak ulaşır [bulut iş ortağı portalı](https://cloudpartner.azure.com/).
 
-Teklifleri Market'te büyüdükçe kullanabileceğiniz etkinlikler kapsamını genişletir. Temel düzeyde iyileştirme önerileri ve yükseltme dökümleri alın.  Bu listeleri, Market ve Microsoft iş ortağı uzmanlığı başarı seçilen çözüm durumu (liste, deneme veya Transact) temelinde ek pazarlama avantajlar için de uygundur.
+Teklifleri Market'te büyüdükçe kullanabileceğiniz etkinlikler kapsamını genişletir. Temel düzeyde iyileştirme önerileri ve yükseltme dökümleri alın.  Bu listeleri, çözüm durumu (liste, deneme veya Transact - Market ödül), seçilen Market ve Microsoft iş ortağı uzmanlığı başarı göre ek pazarlama avantajları için de uygundur.
 
-Aşağıdaki tabloda, uygunluk gereksinimleri özetlenmektedir:
+Aşağıdaki tabloda, liste ve deneme teklifleri için uygunluk gereksinimlerini özetler:
 
-![](./media/marketplace-publishers-guide/gtm-activities-table.png)
+![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 \* Silver veya gold uzmanlığı gerektirir. <br>
 \*\* Gold uzmanlığı gerektirir. <br>
 \*\*\* Gold uzmanlığına sahip ve ortak satışa hazır iş ortağı listeleri de gerektirir. <br>
 ^ Yalnızca, Azure Marketi'nde geçerli transact.
+
+## <a name="marketplace-rewards-for-transact-partners"></a>Market ödül transact iş ortakları için
+
+Market ödül avantajları tam listesini görüntülenebilir [programı Özet slaytları](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -3,20 +3,21 @@ title: Sürekli tümleştirme ve teslim Azure Data factory'de | Microsoft Docs
 description: Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine taşımak için sürekli tümleştirme ve teslim kullanmayı öğrenin.
 services: data-factory
 documentationcenter: ''
-author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
+author: gauravmalhot
 ms.author: gamal
+ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905265"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002655"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
@@ -937,7 +938,7 @@ Bu koşullar altında varsayılan Parametreleştirme şablonu geçersiz kılmak 
 
 ### <a name="explanation"></a>Açıklama:
 
-#### <a name="pipelines"></a>İşlem hatları
+#### <a name="pipelines"></a>Ardışık düzenler
     
 * Etkinlikler/typeProperties/waitTimeInSeconds yolu herhangi bir özelliği parametreli. Buna herhangi bir etkinliği adlı bir kod düzeyinde özelliğine sahip bir işlem hattı `waitTimeInSeconds` (örneğin, `Wait` etkinliği) varsayılan ada sahip bir sayı olarak parametreli. Ancak, Resource Manager şablonunda bir varsayılan değere sahip olmaz. Bu, Resource Manager dağıtım sırasında bir zorunlu giriş olacaktır.
 * Benzer şekilde, bir özelliğin çağırılır `headers` (örneğin, bir `Web` etkinliği) türüyle parametreli `object` (JObject). Kaynak fabrikası ile aynı değer bir varsayılan değer var.
@@ -957,7 +958,7 @@ Bu koşullar altında varsayılan Parametreleştirme şablonu geçersiz kılmak 
 * Önceki örnekte `connectionString` özellik parametreli olarak bir `securestring` değeri varsayılan değere sahip olmaz ve kısaltılmış parametre adları ile sonekine sahip olacaktır `connectionString`.
 * Özellik `secretAccessKey`, ancak özelleştirmede bir `AzureKeyVaultSecret` (örneğin, bir `AmazonS3` bağlı hizmet). Bu nedenle, otomatik olarak bir Azure Key Vault gizli parametreli ve kaynak fabrikada yapılandırılır anahtar kasasından getirildi. Ayrıca kendi key vault parametreleştirebilirsiniz.
 
-#### <a name="datasets"></a>Veri kümeleri
+#### <a name="datasets"></a>Veri Kümeleri
 
 * Türe özgü özelleştirme veri kümeleri için kullanılabilir olsa bile yapılandırma açıkça zorunda kalmadan sağlanabilir bir \*-düzeyi yapılandırma. Yukarıdaki örnekte, tüm veri kümesi özellikleri altında `typeProperties` Parametreleştirilen.
 

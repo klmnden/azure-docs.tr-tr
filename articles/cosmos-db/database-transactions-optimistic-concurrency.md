@@ -4,21 +4,21 @@ description: Bu makalede veritabanı işlemleri ve Azure Cosmos DB'de iyimser e�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889364"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978981"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>İşlemler ve iyimser eşzamanlılık denetimi
 
 Veritabanı işlemleri verileri eşzamanlı değişikliklerle başa çıkmak için bir güvenli ve öngörülebilir programlama modeli sağlar. Geleneksel ilişkisel veritabanları, SQL Server gibi tetiklenir ve/veya depolanan yordamları kullanarak iş mantığı yazmanıza izin, doğrudan veritabanı altyapısının içinde yürütme için sunucuya gönderin. İki farklı programlama dili (işlem olmayan) uygulama programlama dili gibi JavaScript, Python, işlem için gerekli olan geleneksel veri tabanlarına C#, Java vb. ve işlem programlama dili () T-SQL gibi), veritabanı tarafından yerel olarak yürütülür.
 
-Anlık görüntü yalıtımıyla ACID (kararlılık, tutarlılık, yalıtım, dayanıklılık) uyumlu işlemler tam veritabanı altyapısı, Azure Cosmos DB destekler. Tüm veritabanı işlemlerinin kapsamı içinde bir kapsayıcının [mantıksal bölüm](partition-data.md) işlemsel olarak bölümün çoğaltması tarafından barındırılır veritabanı altyapısının içinde yürütülür. Bu işlemlerin her ikisi de dahil (mantıksal bölüm içindeki bir veya daha fazla öğe güncelleştirme) yazma ve okuma işlemleri. Aşağıdaki tabloda, farklı işlemler ve işlem kapsamı türleri gösterilmektedir:
+Anlık görüntü yalıtımıyla ACID (kararlılık, tutarlılık, yalıtım, dayanıklılık) uyumlu işlemler tam veritabanı altyapısı, Azure Cosmos DB destekler. Tüm veritabanı işlemlerinin kapsamı içinde bir kapsayıcının [mantıksal bölüm](partition-data.md) işlemsel olarak bölümün çoğaltması tarafından barındırılır veritabanı altyapısının içinde yürütülür. Bu işlemlerin her ikisi de dahil (mantıksal bölüm içindeki bir veya daha fazla öğe güncelleştirme) yazma ve okuma işlemleri. Aşağıdaki tabloda, farklı işlemler ve işlem türleri gösterilmektedir:
 
 | **İşlem**  | **İşlem türü** | **Tek veya çoklu öğe işlem** |
 |---------|---------|---------|

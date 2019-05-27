@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730418"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872500"
 ---
-# <a name="test-your-app-in-azure"></a>Uygulamanızı Azure’da test edin 
-Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kullanarak sağlar. İlk olarak, bir laboratuvar içindeki bir dosya paylaşımı ayarlama ve yerel geliştirme makineniz ve bir laboratuvar içindeki bir VM üzerinde bir sürücü olarak bağlayın. Ardından, böylece laboratuvara VM'de uygulamayı çalıştırabilir, dosya paylaşımına uygulamanızı dağıtmak için Visual Studio 2017'yi kullanın.  
+# <a name="test-your-app-in-azure"></a>Azure'da uygulamanızı test etme 
+Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kullanarak sağlar. İlk olarak, bir laboratuvar içindeki bir dosya paylaşımı ayarlama ve yerel geliştirme makineniz ve bir laboratuvar içindeki bir VM üzerinde bir sürücü olarak bağlayın. Ardından, böylece laboratuvara VM'de uygulamayı çalıştırabilir, dosya paylaşımına uygulamanızı dağıtmak için Visual Studio 2019 kullanın.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kull
 ## <a name="publish-your-app-from-visual-studio"></a>Uygulamanızı Visual Studio'dan yayımlama
 Bu bölümde, uygulamanızı Visual Studio'dan test VM'si bulut yayımlayın.
 
-1. Visual Studio 2017'yi kullanarak bir masaüstü/web uygulaması oluşturun.
+1. Visual Studio 2019'ı kullanarak bir masaüstü/web uygulaması oluşturun.
 2. Uygulamanızı oluşturun.
 3. Uygulamanızı yayımlamak için projenizde sağ **Çözüm Gezgini**seçip **Yayımla**. 
 4. İçinde **yayımlama sihirbazını**, girin **sürücü** dosya paylaşımınızı eşlenir.

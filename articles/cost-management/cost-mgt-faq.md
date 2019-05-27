@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0516c954bd23d5a2e339c5df447a923528e09d93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430639"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002018"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn için sık sorulan sorular
 
@@ -74,9 +74,9 @@ Yukarıdaki adımları tamamladıktan sonra bir veya iki gün içinde iyileştir
 
 İlk olarak, kullanıcı hesaplarını almak neden en yaygın senaryo bakalım *initiallySuspended*.
 
-> Microsoft bulut çözümü sağlayıcısı veya Kurumsal Anlaşma kullanıcı admin1 olabilir. Kuruluşundaki Cloudyn kullanmaya başlamak hazır olur.  Kendisi, Azure portalı üzerinden kaydeder ve Cloudyn portalında oturum açar. Cloudyn portalında oturum açtığında ve Cloudyn hizmet kaydeder kişi kendisine olur *birincil yönetici*. Tüm kullanıcı hesaplarını admin1 oluşturmaz. Ancak, Cloudyn portalını kullanarak yaptığı Azure hesapları oluşturma ve bir varlık hiyerarşisi ayarlar. Admin1 Admin2, kendisinin Cloudyn'e kaydetmek ve Cloudyn portalında oturum açmak için gereken bir kiracı Yöneticisi bildirir.
-> 
-> Azure portalı üzerinden Admin2 kaydeder. Ancak o hesabını olduğunu söyleyen bir hata alır kendisi, Cloudyn portalında oturum açmak çalıştığında, **askıya**. Admin1, birincil yönetici hesabı askıya alınması bildirilir. Admin1 Admin2'ın hesabı etkinleştirin ve vermek için gereksinim duyduğu *yönetici varlık erişimi* uygun varlıkların ve kullanıcı yönetim erişimini ve etkin kullanıcı hesabı sağlar.
+> Microsoft bulut çözümü sağlayıcısı veya Kurumsal Anlaşma kullanıcı admin1 olabilir. Kuruluş, Cloudyn kullanmaya başlamak hazırdır.  Kendisi, Azure portalı üzerinden kaydeder ve Cloudyn portalında oturum açar. Cloudyn portalında oturum açtığında ve Cloudyn hizmet kaydeder kişi Admin1 olur *birincil yönetici*. Tüm kullanıcı hesaplarını admin1 oluşturmaz. Bununla birlikte, Cloudyn portalını kullanarak, bunlar Azure hesapları oluşturun ve bir varlık hiyerarşisi ayarlayın. Admin1 Admin2, Cloudyn portalında oturum açın ve Cloudyn ile kaydetmek için ihtiyaç duydukları bir kiracı Yöneticisi, sizi bilgilendirir.
+>
+> Azure portalı üzerinden Admin2 kaydeder. Cloudyn portalında oturum açmayı denediğinde, ancak bunların hesabı olduğunu söyleyen bir hata iletisi **askıya**. Admin1, birincil yönetici hesabı askıya alınması bildirilir. Admin1 Admin2'ın hesabı etkinleştirin ve vermek için gereksinim duyduğu *yönetici varlık erişimi* uygun varlıkların ve kullanıcı yönetim erişimini ve etkin kullanıcı hesabı sağlar.
 
 
 Bir istek, bir kullanıcı için erişim izni olan bir uyarı alırsanız, kullanıcı hesabı'nı etkinleştirmeniz gerekir.

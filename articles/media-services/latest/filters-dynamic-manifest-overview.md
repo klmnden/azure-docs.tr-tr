@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467141"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002424"
 ---
 # <a name="dynamic-manifests"></a>Dinamik bildirimler
 
@@ -26,12 +26,12 @@ Medya Hizmetleri sunan **dinamik bildirimlerini** önceden tanımlanmış filtre
 
 Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
 
-|Protokol|Örnek|
+|Protocol|Örnek|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Kesintisiz Akış|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > Olan dinamik bildirimler, varlık ve bu varlık için varsayılan bildirimi değiştirmeyin. İstemci, bir akış ile veya olmadan filtreleri istemek seçebilirsiniz. 
 > 
@@ -124,7 +124,7 @@ Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/azure-media-service
 
 ## <a name="associate-filters-with-streaming-locator"></a>Filtreler akış Bulucu ile ilişkilendirme
 
-Bir akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belirtebilirsiniz. [Dinamik Paketleyici](dynamic-packaging-overview.md) bu olanlar istemcinizin URL'SİNDE belirtir birlikte filtrelerinin listesi için geçerlidir. Bu birleşim oluşturur bir [dinamik bildirim](filters-dynamic-manifest-overview.md), URL'deki filtreleri + akış Bulucu üzerinde belirttiğiniz filtreleri temel. Filtre uygulamak istediğiniz, ancak URL filtresi adlarında kullanıma sunmak istiyorsanız değil, bu özelliği kullanmanızı öneririz.
+Bkz: [filtreleri: akış bulucuları ile ilişkilendirme](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Önemli noktalar ve sınırlamalar
 
@@ -136,7 +136,6 @@ Bir akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belir
     
     - Bir varlık parçalar özelliklerini belirlemek için [almak ve bildirim dosyası inceleyin](#get-and-examine-manifest-files).
     - Varlık filtre zaman damgası özelliklerini ayarlamak için formül: <br/>startTimestamp = &lt;bildiriminde başlangıç saati&gt; +  &lt;beklenen filtre başlangıç süresini saniye cinsinden&gt;* ölçeği
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

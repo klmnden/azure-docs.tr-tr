@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c15b9aa0bde704ad3665375d1c1a5bb8a1d32cf
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604116"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015286"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan
 
-Bir bulut tabanlı bir not defteri sunucusu oluşturmak ve ardından bunu kullanın.  Bu hızlı başlangıçta, değer'de oturum açması Python kodunu çalıştırma [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md). Çalışma alanı, denemeler, eğitmek ve Machine Learning ile makine öğrenimi modelleri dağıtmak için kullandığınız bulutta temel taşıdır. 
+Yükleme gerekmez.  Bulutta yönetilen notebook sunucusu kullanarak Azure Machine Learning hizmetini kullanmaya başlayın. Bunun yerine kendi Python ortamına SDK yüklemek istiyorsanız, bkz. [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanmak](quickstart-run-local-notebook.md).
 
-Bu hızlı başlangıçta Azure Machine Learning çalıştırmak için gereken Python ortamını ile yapılandırılmış bulut kaynağı, Azure Machine Learning çalışma alanı oluşturma işlemi gösterilmektedir. Bunun yerine ortamınızda kullanmak için bkz: [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanmak](quickstart-run-local-notebook.md).  
+Bu hızlı başlangıçta nasıl kullanabileceğinizi gösteren [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md) makine öğrenimi denemelerini izlemek için.  Oluşturacağınız bir [not defteri VM (Önizleme)](how-to-configure-environment.md#notebookvm), Jupyter notebook sunucusu JupyterLab ve tam olarak hazır bir ML ortamı sağlayan bir güvenli, bulut tabanlı Azure iş istasyonu. Çalışma alanına değerleri günlüğe bu VM'de bir Python not defteri çalıştırın.
 
 Bu hızlı başlangıçta, aşağıdaki eylemleri gerçekleştirin:
 
-* Çalışma alanınızda yeni bir bulut tabanlı bir not defteri sunucusu oluşturun.
+* Çalışma alanı oluşturma
+* Çalışma alanınızda bir not defteri VM oluşturun.
 * Jupyter web arabirimi başlatın.
 * Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.
 * Not Defteri çalıştırma.
@@ -35,11 +36,11 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
 
-Bir Azure Machine Learning hizmeti çalışma alanı varsa, atlamak [sonraki bölümde](#create-a-cloud-based-notebook-server). Aksi takdirde, şimdi bir tane oluşturun.
+Bir Azure Machine Learning hizmeti çalışma alanı varsa, atlamak [sonraki bölümde](#create-notebook). Aksi takdirde, şimdi bir tane oluşturun.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>Bulut tabanlı bir not defteri sunucusu oluşturma
+## <a name="create-notebook"></a>Not Defteri VM oluşturma
 
  Çalışma alanınızdan, Jupyter not defterleri ile çalışmaya başlamak için bir bulut kaynağı oluşturun. Bu kaynak, önceden yapılandırılmış Azure Machine Learning hizmeti çalıştırmak için gereken her şeyi ile bulut tabanlı bir platform sunar.
 
@@ -59,6 +60,7 @@ Bir Azure Machine Learning hizmeti çalışma alanı varsa, atlamak [sonraki bö
     ![Yeni VM oluşturma](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Yaklaşık 4-5 durum olana kadar dakika bekleyip **çalıştıran**.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter web arabirimi başlatın
 
@@ -143,6 +145,7 @@ Ayrıca, kaynak grubunu korumakla birlikte tek bir çalışma alanını silebili
 
 Bu hızlı başlangıçta, bu görevleri tamamlandı:
 
+* Çalışma alanı oluşturma
 * VM bir not defteri oluşturun.
 * Jupyter web arabirimi başlatın.
 * Pi ve günlükleri hataları her yinelemede, tahmin kodunu içeren bir not defterini açın.

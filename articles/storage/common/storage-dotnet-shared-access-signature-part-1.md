@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154423"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907203"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -89,7 +89,7 @@ Hizmet SAS belirteçleri ve hesap SAS bazı ortak parametreleri içerir ve ayrı
 * **Depolama kaynağı.** SAS depolama kaynaklarına erişim ile bir hizmeti temsilci seçebilirsiniz şunlardır:
   * Kapsayıcılar ve bloblar
   * Dosya paylaşımları ve dosyalarla
-  * Kuyruklar
+  * Sıralar
   * Tabloları ve tablo varlıkları aralığı.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Bir hesap SAS belirteci için parametreleri
@@ -118,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Resource |`sr=b` |Bir blobu bir kaynaktır. |
 | İzinler |`sp=rw` |SAS'den izinler Read (r) içerir ve yazma (w). |
 | IP aralığı |`sip=168.1.5.60-168.1.5.70` |Bir talep kabul edilmeyecektir IP adresi aralığı. |
-| Protokol |`spr=https` |Yalnızca HTTPS kullanarak isteklerine izin verilir. |
+| Protocol |`spr=https` |Yalnızca HTTPS kullanarak isteklerine izin verilir. |
 | İmza |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Blob erişim yetkisi vermek için kullanılır. İmza, dize oturum ve SHA256 algoritmasını kullanılarak anahtarı üzerinden hesaplanır ve ardından Base64 kodlama kullanılarak kodlanan bir HMAC değil. |
 
 ### <a name="account-sas-uri-example"></a>Hesap SAS URI'sini örneği
@@ -232,7 +232,7 @@ Aşağıda bazı örnekler paylaşılan erişim imzaları, hesap SAS her iki tü
 Bu C# örnekleri çalıştırmak için aşağıdaki NuGet paketlerini projenize başvuru gerekir:
 
 * [.NET için Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage), sürüm 6.x veya daha sonra (hesap SAS kullanmak üzere).
-* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 Oluşturma ve bir SAS test gösteren ek örnekler için bkz: [Azure depolama kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -422,7 +422,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Paylaşılan erişim imzaları, depolama hesabınıza sınırlı izinlere hesap anahtarı bulunmamalıdır istemcilerine sağlamak için kullanışlıdır. Bu nedenle, Azure depolama kullanan uygulamalar için güvenlik modelinin önemli bir parçası olan. Burada listelenen en iyi uygulamaları izlerseniz, uygulamanızın güvenliğini tehlikeye atmadan depolama hesabınızdaki kaynaklara erişim daha fazla esneklik sağlamak için SAS'ı kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Paylaşılan erişim imzaları, bölüm 2: Oluşturma SAS ve Blob Depolama ile kullanma](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md)
 * [Paylaşılan Erişim İmzası ile Erişim için Temsilci Seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Tablo ve kuyruk SAS ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

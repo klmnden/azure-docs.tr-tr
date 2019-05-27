@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878860"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908064"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Bu makalede .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemle
 Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekleştirme talimatları için bkz. [hesap yönetim işlemlerini .NET SDK kullanarak Data Lake depolama Gen1](data-lake-store-get-started-net-sdk.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Visual Studio 2013, 2015 veya 2017**. Aşağıdaki yönergelerde Visual Studio 2017 kullanılmıştır.
+* **Visual Studio 2013 veya üzeri**. Visual Studio 2019 aşağıdaki yönergeleri kullanın.
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -41,19 +41,11 @@ Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekl
 ## <a name="create-a-net-application"></a>.NET uygulaması oluşturma
 [GitHub’da](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) bulunan kod örneği, depoda dosya oluşturma, dosyaları birleştirme, dosya indirme ve depodaki bazı dosyaları silme işlemlerinde size yol gösterir. Makalenin bu bölümü, kodun ana bölümlerinde sizi yönlendirir.
 
-1. Visual Studio'yu açın ve bir konsol uygulaması oluşturun.
-2. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın.
-3. **Yeni Proje** bölümünden, aşağıdaki değerleri yazın veya seçin:
+1. Visual Studio'da **dosya** menüsünde **yeni**, ardından **proje**.
+2. Seçin **konsol uygulaması (.NET Framework)** ve ardından **sonraki**.
+3. İçinde **proje adı**, girin `CreateADLApplication`ve ardından **Oluştur**.
 
-   | Özellik | Değer |
-   | --- | --- |
-   | Kategori |Şablonlar/Visual C#/Windows |
-   | Şablon |Konsol Uygulaması |
-   | Ad |CreateADLApplication |
-
-4. Projeyi oluşturmak için **Tamam**'a tıklayın.
-
-5. NuGet paketlerini projenize ekleyin.
+4. NuGet paketlerini projenize ekleyin.
 
    1. Çözüm Gezgini'nde proje adına sağ tıklayın ve **NuGet Paketlerini Yönet**'e tıklayın.
    2. **NuGet Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
@@ -64,7 +56,7 @@ Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekl
     
       **NuGet Paket Yöneticisi**'ni kapatın.
 
-6. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
+5. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
 
         using System;
         using System.IO;using System.Threading;
@@ -78,7 +70,7 @@ Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekl
         using Microsoft.Azure.DataLake.Store;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Aşağıda gösterilen değişkenleri bildirin ve yer tutucu değerlerini sağlayın. Ayrıca, burada sağladığınız yerel yolun ve dosya adının bilgisayar üzerinde var olduğundan emin olun.
+6. Aşağıda gösterilen değişkenleri bildirin ve yer tutucu değerlerini sağlayın. Ayrıca, burada sağladığınız yerel yolun ve dosya adının bilgisayar üzerinde var olduğundan emin olun.
 
         namespace SdkSample
         {
@@ -139,7 +131,7 @@ Aşağıdaki kod parçacığı Data Lake depolama Gen1 bir dosyanın içeriğini
         }
     }
 
-## <a name="get-file-properties"></a>Dosya özelliklerini alma
+## <a name="get-file-properties"></a>Dosya özelliklerini al
 Aşağıdaki kod parçacığı bir dosya veya dizin ile ilişkili özellikleri döndürür.
 
     // Get file properties

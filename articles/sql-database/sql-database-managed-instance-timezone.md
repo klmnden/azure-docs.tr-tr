@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/25/2019
-ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/22/2019
+ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866941"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016386"
 ---
-# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Saat dilimlerinde Azure SQL veritabanı yönetilen örneği (Önizleme)
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Saat dilimlerinde Azure SQL veritabanı yönetilen örneği
 
 Eşgüdümlü Evrensel Saat (UTC), veri katmanı bulut çözümleri için önerilen saat dilimi olur. Azure SQL veritabanı yönetilen örneği, tarih ve saat değerlerini depolar ve belirli bir saat dilimi örtük bir bağlamı ile tarih ve saat işlevlerini çağıran uygulamalara ihtiyaçlarını karşılamak için saat dilimlerini seçeneği de sunar.
 
@@ -103,7 +103,7 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 | Tarih Çizgisi Standart Saati | (UTC-12:00) Uluslararası Tarih Çizgisi Batı |
 | UTC-11 | (UTC-11:00) Eşgüdümlü Evrensel Saat-11 |
 | Aleutian Standart Saati | (UTC-10:00) Aleutian Adaları |
-| Hawaii Standart Saati | (UTC-10:00) Hawaii |
+| Hawaii Standart Saati | (UTC-10:00) Havai |
 | Marquesas Standart Saati | (UTC-09:30) Marquesas Adaları |
 | Alaska Standart Saati | (UTC-09:00) Alaska |
 | UTC-09 | (UTC-09:00) Eşgüdümlü Evrensel Saat-09 |
@@ -112,11 +112,11 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 | Pasifik Standart Saati | (UTC-08:00) Pasifik Saati (ABD ve Kanada) |
 | ABD Sıradağlar Standart Saati | (UTC-07:00) Arizona |
 | Sıradağlar Standart Saati (Meksika) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Sıradağlar Standart Saati | (UTC-07:00) Sıradağlar Saati (ABD ve Kanada) |
+| Sıradağlar Standart Saati | (UTC-07:00) Dağ Saati (ABD ve Kanada) |
 | Orta Amerika Standart Saati | (UTC-06:00) Orta Amerika |
 | Merkezi Standart Saat | (UTC-06:00) Merkezi Saat (ABD ve Kanada) |
 | Paskalya Adası Standart Saati | (UTC-06:00) Paskalya Adası |
-| Merkezi Standart Saat (Meksika) | (UTC-06:00) Guadalahara, Mexico City, Monterey |
+| Merkezi Standart Saat (Meksika) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
 | Kanada Orta Standart Saati | (UTC-06:00) Saskatchewan |
 | GA Pasifik Standart Saati | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
 | Doğu Standart Saati (Meksika) | (UTC-05:00) Chetumal |
@@ -144,19 +144,19 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 | UTC-02 | (UTC-02:00) Eşgüdümlü Evrensel Saat-02 |
 | Orta Atlantik Standart Saati | (UTC-02:00) Orta Atlantik - Eski |
 | Azor Adaları Standart Saati | (UTC-01:00) Azor Adaları |
-| Cabo Verde Standart Saati | (UTC-01:00) Cape Verde Adaları |
+| Cabo Verde Standart Saati | (UTC-01:00) Cabo Verde Adası |
 | UTC | (UTC) Eşgüdümlü Evrensel Saat |
 | GMT Standart Saati | (UTC+00:00) Dublin, Edinburgh, Lizbon, Londra |
-| Greenwich Standart Saati | (UTC+00:00) Monrovya, Reykjavik |
+| Greenwich Standart Saati | (UTC+00:00) Monrovia, Reykjavik |
 | W. Avrupa Standart Saati | (UTC+01:00) Amsterdam, Berlin, Bern, Roma, Stockholm, Viyana |
-| Orta Avrupa Standart Saati | (UTC+01:00) Belgrat, Bratislava, Budapeşte Ljubljana, Prag |
+| Orta Avrupa Standart Saati | (UTC+01:00) Belgrad, Bratislava, Budapeşte, Ljubljana, Prag |
 | Latin Standart Saati | (UTC+01:00) Brüksel, Kopenhag, Madrid, Paris |
 | Fas Standart Saati | (UTC+01:00) Kazablanka |
 | Sao Tome Standart Saati | (UTC+01:00) Sao Tome |
 | Orta Avrupa Standart Saati | (UTC+01:00) Saraybosna, Üsküp, Varşova, Zagreb |
 | W. Orta Afrika Standart Saati | (UTC+01:00) Orta Batı Afrika |
 | Ürdün Standart Saati | (UTC+02:00) Amman |
-| GTB Standart Saati | (UTC+02:00) Atina, Reykjavik |
+| GTB Standart Saati | (UTC+02:00) Atina, Bükreş |
 | Ortadoğu Standart Saati | (UTC+02:00) Beyrut |
 | Mısır Standart Saati | (UTC+02:00) Kahire |
 | E. Avrupa Standart Saati | (UTC+02:00) Chisinau |
@@ -177,9 +177,9 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 | E. Afrika Standart Saati | (UTC+03:00) Nairobi |
 | İran Standart Saati | (UTC+03:30) Tahran |
 | Arabistan Standart Saati | (UTC+04:00) Abu Dabi, Muscat |
-| Astrahan Standart Saati | (UTC+04:00) Astrahan, Ulyanovsk |
+| Astrahan Standart Saati | (UTC+04:00) Astrakhan, Ulyanovsk |
 | Azerbaycan Standart Saati | (UTC+04:00) Bakü |
-| Rusya saat dilimi 3 | (UTC+04:00) İjevsk, Samara |
+| Rusya saat dilimi 3 | (UTC+04:00) Izhevsk, Samara |
 | Mauritius Standart Saati | (UTC+04:00) Port Louis |
 | Saratov Standart Saati | (UTC+04:00) Saratov |
 | Georgia Standart Saati | (UTC+04:00) Tiflis |
@@ -188,10 +188,10 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 | Afganistan Standart Saati | (UTC+04:30) Kabil |
 | Batı Asya Standart Saati | (UTC+05:00) Aşkabad, Taşkent |
 | Ekaterinburg Standart Saati | (UTC+05:00) Ekaterinburg |
-| Pakistan Standart Saati | (UTC+05:00) İslamabat, Karaçi |
+| Pakistan Standart Saati | (UTC+05:00) İslamabad, Karaçi |
 | Hindistan Standart Saati | (UTC+05:30) Chennai, Kalküta, Mumbai, Yeni Delhi |
 | Sri Lanka Standart Saati | (UTC+05:30) Sri Jayawardenepura |
-| Nepal Standart Saati | (UTC+05:45) Kathmandu |
+| Nepal Standart Saati | (UTC+05:45) Katmandu |
 | Orta Asya Standart Saati | (UTC+06:00) Astana |
 | Bangladeş Standart Saati | (UTC+06:00) Dakka |
 | Omsk Standart Saati | (UTC+06:00) Omsk |
@@ -202,10 +202,10 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 | Kuzey Asya Standart Saati | (UTC+07:00) Krasnoyarsk |
 | N. Orta Asya Standart Saati | (UTC+07:00) Novosibirsk |
 | Tomsk Standart Saati | (UTC+07:00) Tomsk |
-| Çin Standart Saati | (UTC+08:00) Pekin, Chongqing, Hong Kong, Urumçi |
+| Çin Standart Saati | (UTC+08:00) Pekin, Çongcin, Hong Kong, Urumçi |
 | Kuzey Asya Doğu Standart Saati | (UTC+08:00) Irkutsk |
 | Singapur Standart Saati | (UTC+08:00) Kuala Lumpur, Singapur |
-| W. Avustralya Standart Saati | (UTC+08:00) Pert |
+| W. Avustralya Standart Saati | (UTC+08:00) Perth |
 | Taipei Standart Saati | (UTC+08:00) Taipei |
 | Ulanbator Standart Saati | (UTC+08:00) Ulanbator |
 | Orta Batı Avustralya Standart Saati | (UTC+08:45) Eucla |
@@ -227,8 +227,8 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 | Magadan Standart Saati | (UTC+11:00) Magadan |
 | Norfolk Standart Saati | (UTC+11:00) Norfolk Adası |
 | Sakhalin Standart Saati | (UTC+11:00) Sakhalin |
-| Orta Pasifik Standart Saati | (UTC+11:00) Solomon Adaları, Yeni Kaledonya |
-| Rusya saat dilimi 11 | (UTC+12:00) Anadır, Petropavlovsk-Kamçatski |
+| Orta Pasifik Standart Saati | (UTC+11:00) Solomon Ad., Yeni Kaledonya |
+| Rusya saat dilimi 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
 | Yeni Zelanda Standart Saati | (UTC+12:00) Auckland, Wellington |
 | UTC+12 | (UTC+12:00) Eşgüdümlü Evrensel Saat+12 |
 | Fiji Standart Saati | (UTC+12:00) Fiji |

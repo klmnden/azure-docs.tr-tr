@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498828"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116197"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure İlkesi etkilerini anlama
 
@@ -30,7 +30,7 @@ Azure İlkesi her ilke tanımında, tek bir etkiye sahiptir. Bu etkiyi ilke kura
 
 ## <a name="order-of-evaluation"></a>Değerlendirme sırası
 
-İstekleri oluşturun veya Azure Resource Manager aracılığıyla kaynak güncelleştirme ilkesi tarafından önce değerlendirilir. İlke kaynağına uygulayın ve sonra kaynak her tanımı karşı değerlendirir tüm atamaları listesini oluşturur. İlke isteği uygun kaynak sağlayıcısı için teslim etmeden önce birkaç etkileri işler. Bunun yapılması, kaynak İlkesi tasarlanmış idare denetimleri karşılamadığında gereksiz işleme kaynağı sağlayıcısı tarafından engeller.
+Azure ilkesi oluşturun veya Azure Resource Manager aracılığıyla kaynak güncelleştirme isteklerinin önce değerlendirilir. Azure İlkesi kaynağına uygulayın ve sonra kaynak her tanımı karşı değerlendirir tüm atamaları listesini oluşturur. Azure İlkesi birkaç etkileri, istek uygun kaynak sağlayıcısı için teslim etmeden önce işlenir. Bunun yapılması, kaynak Azure İlkesi'nin tasarlanmış idare denetimleri karşılamadığında gereksiz işleme kaynağı sağlayıcısı tarafından engeller.
 
 - **Devre dışı bırakılmış** önce ilke kuralı değerlendirileceğini belirlemek için denetlenir.
 - **Append** ardından değerlendirilir. Beri ekleme isteği değiştirecek, göre ekleme yapılan bir değişikliği denetim engellemek veya tetikleme gelen etkisi reddet.
@@ -88,8 +88,7 @@ Bir ekleme yalnızca etkisi bir **ayrıntıları** gerekli olan bir dizi. Olarak
 }
 ```
 
-Örnek 3: Tek **alan/değer** olmayan bir kullanarak pair **[\*]**
-[diğer](definition-structure.md#aliases) bir diziye sahip **değer** IP kurallarını ayarlamak için bir Depolama hesabı. Zaman olmayan **[\*]** diğer bir dizi olan etkisi ekler **değer** tüm dizi. Dizi zaten varsa, reddetme olayı çakışma gerçekleşir.
+Örnek 3: Tek **alan/değer** olmayan bir kullanarak pair **[\*]** [diğer](definition-structure.md#aliases) bir diziye sahip **değer** bir depolama hesabında IP kurallarını ayarlamak için. Zaman olmayan **[\*]** diğer bir dizi olan etkisi ekler **değer** tüm dizi. Dizi zaten varsa, reddetme olayı çakışma gerçekleşir.
 
 ```json
 "then": {
@@ -119,7 +118,7 @@ Bir ekleme yalnızca etkisi bir **ayrıntıları** gerekli olan bir dizi. Olarak
 }
 ```
 
-## <a name="deny"></a>Reddet
+## <a name="deny"></a>Engelle
 
 Reddetme istek başarısız olur ve bir ilke tanımı ile tanımlanan standartları eşleşmiyor kaynak isteğiyle önlemek için kullanılır.
 
@@ -149,7 +148,7 @@ Denetim etkinlik günlüğünde, uyumlu olmayan bir kaynak değerlendirirken uya
 
 ### <a name="audit-evaluation"></a>Denetim değerlendirme
 
-Denetim İlkesi tarafından oluşturulması veya bir kaynağın güncelleştirilmesi sırasında kullanıma son etkisidir. İlke, ardından kaynak kaynak sağlayıcısına gönderir. Denetim için kaynak isteğiyle ve değerlendirme döngüsü aynı şekilde çalışır. İlke ekler bir `Microsoft.Authorization/policies/audit/action` işlemi etkinlik günlüğüne ve kaynak uyumlu değil olarak işaretler.
+Denetim, Azure ilkesi oluşturma veya güncelleştirme bir kaynağın sırasında kullanıma son etkisidir. Azure İlkesi, ardından kaynağın kaynak sağlayıcısına gönderir. Denetim için kaynak isteğiyle ve değerlendirme döngüsü aynı şekilde çalışır. Azure ilkesi ekler bir `Microsoft.Authorization/policies/audit/action` işlemi etkinlik günlüğüne ve kaynak uyumlu değil olarak işaretler.
 
 ### <a name="audit-properties"></a>Denetim Özellikleri
 
@@ -171,7 +170,7 @@ AuditIfNotExists sağlayan eşleşen kaynak denetim **varsa** koşulu, belirtile
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists değerlendirme
 
-Bir kaynak sağlayıcısı oluşturma veya güncelleştirme kaynak isteğiyle işlediği ve bir başarı durum kodu döndürdü sonra AuditIfNotExists çalıştırır. Hiçbir ilgili kaynaklar varsa veya kaynaklar tarafından tanımlanan denetim gerçekleşir **ExistenceCondition** doğru olarak değerlendirilebilmesi yok. İlke ekler bir `Microsoft.Authorization/policies/audit/action` işlemi etkinlik denetim etkin aynı şekilde oturum. Tetiklendiğinde, memnun kaynak **varsa** ile uyumsuz olarak işaretlenmiş kaynak bir durumdur.
+Bir kaynak sağlayıcısı oluşturma veya güncelleştirme kaynak isteğiyle işlediği ve bir başarı durum kodu döndürdü sonra AuditIfNotExists çalıştırır. Hiçbir ilgili kaynaklar varsa veya kaynaklar tarafından tanımlanan denetim gerçekleşir **ExistenceCondition** doğru olarak değerlendirilebilmesi yok. Azure ilkesi ekler bir `Microsoft.Authorization/policies/audit/action` işlemi etkinlik denetim etkin aynı şekilde oturum. Tetiklendiğinde, memnun kaynak **varsa** ile uyumsuz olarak işaretlenmiş kaynak bir durumdur.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists özellikleri
 
@@ -300,7 +299,7 @@ Bir değerlendirme döngüsü sırasında kaynaklarla eşleşen ilke tanımları
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -369,9 +368,9 @@ Her atama ayrı ayrı değerlendirilir. Bu nedenle, hiç bir kaynak için bir f�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md)
-- Gözden geçirme [İlkesi tanım yapısı](definition-structure.md)
-- Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md)
-- Bilgi edinmek için nasıl [uyumluluk verilerini al](../how-to/getting-compliance-data.md)
-- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](../how-to/remediate-resources.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
+- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
+- [Azure İlkesi tanımı yapısını](definition-structure.md) gözden geçirin.
+- Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md).
+- Bilgi edinmek için nasıl [uyumluluk verilerini alma](../how-to/getting-compliance-data.md).
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları düzeltme](../how-to/remediate-resources.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md).

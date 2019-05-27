@@ -15,17 +15,17 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8682a335372a1516be49b35400a2605f08d6b45e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830133"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872994"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Hızlı Başlangıç: Azure önbelleği için Redis Python ile kullanın
 
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 
 Bu hızlı başlangıçta, bir Azure önbelleği için Redis okumak ve yazmak için bir önbellek için Python ile bağlanma işlemi gösterilmektedir. 
 
@@ -46,7 +46,7 @@ Bu hızlı başlangıçta, bir Azure önbelleği için Redis okumak ve yazmak i�
 
 [Redis-py](https://github.com/andymccurdy/redis-py) bir Python Azure önbelleği için Redis için arabirimidir. Python paketleri aracı olan *pip*’i kullanarak redis-py paketini yükleyin. 
 
-Aşağıdaki örnekte, yükseltilmiş Yönetici ayrıcalıkları ile çalışan bir Visual Studio 2017 Geliştirici Komut istemi kullanan Windows 10 üzerinde redis-py paketi yüklemek üzere Python3 için *pip3* kullanılır.
+Aşağıdaki örnekte *pip3* bir Visual Studio 2019 Geliştirici komutu yükseltilmiş yönetici ayrıcalıklarıyla çalıştırıyor İstemi'ni kullanarak Windows 10 redis-py paketini yüklemek Python3 için.
 
     pip3 install redis
 

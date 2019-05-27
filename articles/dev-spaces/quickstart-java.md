@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Kapsayıcılar, mikro hizmetler ve Azure üzerinde Java hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Java, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: f39fc0a7094941bb44fbe717879b3a2179c3be25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800877"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979120"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Hızlı Başlangıç: Azure geliştirme alanları kullanarak Kubernetes üzerinde Java ile geliştirme
 
@@ -41,7 +41,7 @@ Bir AKS kümesinde oluşturmak gereken bir [bölge desteklenen](https://docs.mic
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure geliştirme alanları AKS kümenizde etkinleştirme
@@ -122,7 +122,7 @@ Durdurursanız `azds up` komutunu kullanarak *Ctrl + c*, hizmet, AKS içinde ça
 Hizmetinizi güncelleştirilmiş bir sürümünü dağıtmak için projenizdeki herhangi bir dosyayı güncelleştirmek ve yeniden `azds up` komutu. Örneğin:
 
 1. Varsa `azds up` hala, çalışıyor basın *Ctrl + c*.
-1. Güncelleştirme [16'satır `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) için:
+1. Güncelleştirme [satır 19 ' `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) için:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -178,17 +178,17 @@ Tıklayın *hata ayıklama* ardından *hata ayıklamayı Durdur* hata ayıklayı
 
 Hata ayıklama modunu kullanarak hizmetinizi başlatın *başlatma Java programı'nı (AZDS)*.
 
-Geri gidin *Gezgini* tıklayarak görünümü *görünümü* ardından *Gezgini*. Açık `src/main/java/com/ms/sample/webfrontend/Application.java` ve imlecinizi buraya koymanız-16. satırda bir yeri tıklatın. Bir kesme noktası ayarlamak için isabet *F9* veya *hata ayıklama* ardından *iki durumlu kesme noktası*.
+Geri gidin *Gezgini* tıklayarak görünümü *görünümü* ardından *Gezgini*. Açık `src/main/java/com/ms/sample/webfrontend/Application.java` ve imlecinizi buraya koymanız-19. satırda bir yere tıklayın. Bir kesme noktası ayarlamak için isabet *F9* veya *hata ayıklama* ardından *iki durumlu kesme noktası*.
 
-Hizmetinizi bir tarayıcıda açın ve herhangi bir ileti görüntülenir dikkat edin. Visual Studio Code için geri dönün ve 16 satırı vurgulanır gözlemleyin. Kesme satırı 16 hizmeti duraklatıldı. Hizmeti sürdürmek için isabet *F5* veya *hata ayıklama* ardından *devam*. Tarayıcınıza dönün ve ileti görüntülenecektir dikkat edin.
+Hizmetinizi bir tarayıcıda açın ve herhangi bir ileti görüntülenir dikkat edin. Visual Studio Code için geri dönün ve satır 19 vurgulanır gözlemleyin. Kesme satır 19 hizmeti duraklatıldı. Hizmeti sürdürmek için isabet *F5* veya *hata ayıklama* ardından *devam*. Tarayıcınıza dönün ve ileti görüntülenecektir dikkat edin.
 
 Bir hata ayıklayıcısı ekli Kubernetes'te hizmetinizi çalışırken, çağrı yığını, yerel değişkenleri ve özel durum bilgileri gibi bilgileri hata ayıklamak için tam erişime sahip olursunuz.
 
-Kesme noktası 16 satırında imleci yerleştirerek kaldırmak `src/main/java/com/ms/sample/webfrontend/Application.java` ve ulaşmaktan *F9*.
+Kesme noktası 19 satırında imleci yerleştirerek kaldırmak `src/main/java/com/ms/sample/webfrontend/Application.java` ve ulaşmaktan *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Visual Studio code'dan kodunu güncelleştirme
 
-Hizmet hata ayıklama modunda çalışırken, 16 satırında güncelleştirme `src/main/java/com/ms/sample/webfrontend/Application.java`. Örneğin:
+Hizmet hata ayıklama modunda çalışırken, satır 19 güncelleştirme `src/main/java/com/ms/sample/webfrontend/Application.java`. Örneğin:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

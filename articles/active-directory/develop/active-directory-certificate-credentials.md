@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a499ac12bcf6f4aee671eb209b709390ca6139
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545131"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001226"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Uygulama kimlik doğrulaması için sertifika kimlik bilgileri
 
@@ -98,11 +98,10 @@ Sertifika kimlik bilgileri, aşağıdaki yöntemlerden birini kullanarak Azure p
 ### <a name="uploading-the-certificate-file"></a>Sertifika dosyası karşıya yükleniyor
 
 İstemci uygulaması Azure uygulama kaydında:
-1. Seçin **Ayarları > anahtarlar** seçip **ortak anahtarı karşıya**. 
-2. Karşıya yüklemek istediğiniz sertifika dosyası seçin.
-3. **Kaydet**’i seçin. 
-   
-   Kaydettiğinizde, sertifika karşıya yüklendi ve parmak izi, başlangıç tarihi ve bitiş değerleri görüntülenir. 
+1. Seçin **sertifikaları ve parolaları**. 
+2. Tıklayarak **sertifikayı karşıya yükle** ve karşıya yüklemek için sertifika dosyasını seçin.
+3. **Ekle**'yi tıklatın.
+  Sertifika karşıya yüklendikten sonra parmak izi, başlangıç tarihi ve bitiş değerleri görüntülenir. 
 
 ### <a name="updating-the-application-manifest"></a>Uygulama bildirimi güncelleştiriliyor
 
@@ -114,7 +113,7 @@ Bir sertifikanın basılı olan, işlem yapmanız gerekir:
 Ayrıca uygulama bildiriminde anahtarı tanımlayan bir GUID sağlamanız gerekir (`$keyId`).
 
 İstemci uygulaması Azure uygulama kaydında:
-1. Uygulama bildirimini açın.
+1. Seçin **bildirim** uygulama bildirimini açın.
 2. Değiştirin *keyCredentials* aşağıdaki şemayı kullanarak yeni sertifika bilgisi özelliği.
 
    ```

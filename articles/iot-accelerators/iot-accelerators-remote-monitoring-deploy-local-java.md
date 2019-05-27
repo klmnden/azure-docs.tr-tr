@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2b55fea69fe1affb6cab5d360f1e8355c3bb720d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412716"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015443"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Intellij dağıtma
 
@@ -46,7 +46,69 @@ Yerel dağıtımını tamamlamak için aşağıdaki araçları, yerel geliştirm
 > [!NOTE]
 > Intellij IDE, Windows ve Mac için kullanılabilir
 
-[!INCLUDE [iot-accelerators-local-setup-java](../../includes/iot-accelerators-local-setup-java.md)]
+## <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
+
+Uzaktan izleme kaynak kodu depoları, kaynak kodu ve mikro Hizmetleri Docker görüntülerini çalıştırmak için gereken Docker yapılandırma dosyalarını içerir.
+
+Kopyalamak ve depoya yerel bir sürümünü oluşturmak için yerel makinenizde uygun bir klasöre gitmek için komut satırı ortamı kullanın. Ardından komutların java depoyu kopyalamak için aşağıdaki adımlardan birini çalıştırın:
+
+Java mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
+
+
+```cmd/sh
+git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
+
+# To retrieve the latest submodules, run the following command:
+
+cd azure-iot-pcs-remote-monitoring-java
+git submodule foreach git pull origin master
+```
+
+> [!NOTE]
+> Bu komutlar, mikro Hizmetleri yerel olarak çalıştırmak için kullandığınız komut dosyalarının yanı sıra tüm mikro hizmetler için kaynak kodunu indirebilir. Kaynak kodu, mikro hizmetler Docker'da çalıştırma için kaynak kodu gerekmez ancak daha sonra çözüm Hızlandırıcısını değiştirin ve değişikliklerinizi yerel olarak test etmeyi planlıyorsanız yararlı olur.
+
+## <a name="deploy-the-azure-services"></a>Azure hizmetlerini dağıtma
+
+Bu makalede, mikro Hizmetleri yerel olarak çalıştırmak nasıl gösterir, ancak bunlar bulutta çalışan Azure Hizmetleri bağlıdır. Azure hizmetlerini dağıtmak için aşağıdaki betiği kullanın. Aşağıdaki betik örnekleri, bir Windows makinede java deposu kullanmakta olduğunuz varsayılır. Başka bir ortamda çalışıyorsanız, yol, dosya uzantılarını ve yol ayırıcıları uygun şekilde ayarlayın.
+
+### <a name="create-new-azure-resources"></a>Yeni Azure kaynakları oluşturma
+
+Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
+
+1. Komut satırı ortamınızda gidin **\services\scripts\local\launch** kopyaladığınız deponun klasöründe.
+
+1. Yüklemek için aşağıdaki komutları çalıştırın **bilgisayarları** CLI aracını kullanarak ve Azure hesabınızda oturum açın:
+
+    ```cmd
+    npm install -g iot-solutions
+    pcs login
+    ```
+
+1. Çalıştırma **start.cmd** betiği. Betik için aşağıdaki bilgileri ister:
+   * Bir çözüm adı.
+   * Kullanılacak Azure aboneliği.
+   * Kullanmak için Azure veri merkezi konumu.
+
+     Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir. İlgili kaynaklara artık ihtiyacınız sonra bu kaynak grubunu silebilirsiniz.
+
+     Betik ayrıca bir ön ek ortam değişkenlerini kümesi ekler **bilgisayarları** yerel makinenize. Bu ortam değişkenleri, bir Azure Key Vault kaynaktan okumak, Uzaktan izleme ayrıntılarını sağlayın. Uzaktan izleme kendi yapılandırma değerlerinden burada okuyacaksa bu Key Vault kaynaktır.
+
+     > [!TIP]
+     > Betik tamamlandığında, bu da adlı bir dosyaya ortam değişkenlerini kaydeder  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** . Gelecekteki çözüm Hızlandırıcı dağıtımları için bunları kullanabilirsiniz. Yerel makinenizde, herhangi bir ortam değişkenini değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+
+1. Komut satırı ortamınızdan çıkın.
+
+### <a name="use-existing-azure-resources"></a>Mevcut Azure kaynakları
+
+Gerekli Azure kaynakları zaten oluşturduysanız, yerel makinenizde karşılık gelen ortam değişkenleri oluşturun.
+Aşağıdaki ortam değişkenlerini ayarlayın:
+* **PCS_KEYVAULT_NAME** -Azure Key Vault kaynak adı
+* **PCS_AAD_APPID** -AAD uygulama kimliği
+* **PCS_AAD_APPSECRET** -AAD uygulama gizli anahtarı
+
+Bu Azure anahtar kasası kaynak yapılandırma değerlerini okur. Bu ortam değişkenlerini de kaydedilebilir  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** dağıtım dosyasından. Yerel makinenizde ortam değişkenleri değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+
+Mikro hizmet tarafından gereken yapılandırma bazıları örneğinde depolanır **Key Vault** ilk dağıtımı oluşturuldu. Karşılık gelen anahtar kasası değişkenleri gerektiği şekilde değiştirilmesi gerekir.
 
 ## <a name="run-the-microservices"></a>Mikro Hizmetleri çalıştırın
 

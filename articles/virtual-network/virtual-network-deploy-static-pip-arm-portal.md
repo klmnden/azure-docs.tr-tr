@@ -28,7 +28,7 @@ Bir statik genel IP adresiyle bir sanal makine oluşturabilirsiniz. Genel bir IP
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 

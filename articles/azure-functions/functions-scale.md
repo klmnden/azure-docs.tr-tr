@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045856"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872734"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
@@ -155,7 +155,7 @@ Ayrıca farklı ölçeklendirme limitleri yanı sıra aşağıda belgelenmiş fa
 
 Birçok yönden ne kadar iyi Bu, ana bilgisayar yapılandırması, çalışma zamanı Ayak izi ve kaynak verimliliği de dahil olmak üzere ölçeklendirecek etkileyen bir işlev uygulaması yok.  Daha fazla bilgi için [performans değerlendirmeleri makalede ölçeklenebilirlik bölümünü](functions-best-practices.md#scalability-best-practices). Bağlantılar, işlev uygulaması ölçekler nasıl davranacağını farkında olmalıdır. Daha fazla bilgi için [Azure işlevleri'nde bağlantılarını yönetme](manage-connections.md).
 
-### <a name="billing-model"></a>Faturalandırma modeli
+### <a name="billing-model"></a>Faturalama modeli
 
 Tüketim planı üzerinde ayrıntılı olarak açıklanan için faturalama [Azure işlevleri fiyatlandırması sayfası]. Kullanım işlevi uygulama düzeyinde toplanır ve işlev kodunu yürütülen zaman sayar. Faturalandırma birimler şunlardır:
 
@@ -165,3 +165,9 @@ Tüketim planı üzerinde ayrıntılı olarak açıklanan için faturalama [Azur
 Kullanışlı sorgular ve tüketim faturanızı anlama konusunda bilgi bulunabilir [fatura SSS](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure işlevleri fiyatlandırması sayfası]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>Hizmet sınırlamaları
+
+Aşağıdaki tabloda çeşitli barındırma planlarında çalıştırırken işlev uygulamaları için geçerli olan limitler gösterir:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

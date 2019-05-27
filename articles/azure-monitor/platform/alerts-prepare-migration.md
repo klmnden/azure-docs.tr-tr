@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727491"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015603"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Logic apps ve runbook'ları Klasik uyarı kuralları bir geçiş için hazırlama
 
-Olarak [daha önce duyurulduğu gibi](monitoring-classic-retirement.md), Azure İzleyici'de klasik uyarılar, Temmuz 2019 ' kullanımdan. Geçiş Aracı, Azure portalında Klasik uyarı kuralları kullanan ve kendilerini geçişini isteyen müşteriler için kullanılabilir.
+Olarak [daha önce duyurulduğu gibi](monitoring-classic-retirement.md), Azure İzleyici'de klasik uyarılar, Eylül 2019 ' kullanımdan (başlangıçta Temmuz 2019 oluştu). Geçiş Aracı, Azure portalında Klasik uyarı kuralları kullanan ve kendilerini geçişini isteyen müşteriler için kullanılabilir.
+
+> [!NOTE]
+> Geçiş Aracı kullanımına gecikme nedeniyle, Klasik uyarılar geçiş için o tarihten 30 Haziran 2019 ilk duyurulan tarihinden 31 Ağustos 2019 için genişletilmiştir.
 
 Yeni uyarı kuralları için uyarı kurallarınızı Klasik gönüllü olarak geçirmeyi seçerseniz, iki sistem arasındaki bazı farklar olduğunu unutmayın. Bu makalede bu farklılıklar ve değişikliğe hazırlanmak nasıl açıklanmaktadır.
 
@@ -29,8 +32,8 @@ Aşağıdaki tabloda, hem Klasik hem de yeni uyarılar için programlama arabiri
 |         |Klasik uyarılar  |Yeni ölçüm uyarıları |
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az İzleyici Uyarısı](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az İzleyici ölçümleri Uyarısı](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Başvuru](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
+|Azure CLI'si     | [az İzleyici Uyarısı](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az İzleyici ölçümleri Uyarısı](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|PowerShell      | [Başvuru](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Başvuru](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager şablonu | [Klasik uyarılar için](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Yeni ölçüm uyarıları](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Bildirim yükü değişiklikleri
@@ -41,7 +44,7 @@ Klasik biçimi Web kancası yükü alanları yeni biçime eşlemek için aşağ�
 
 |  |Klasik uyarılar  |Yeni ölçüm uyarıları |
 |---------|---------|---------|
-|Uyarının etkin veya çözümlenen?    | **Durumu**       | **data.status** |
+|Uyarının etkin veya çözümlenen?    | **status**       | **data.status** |
 |Uyarı hakkında bağlamsal bilgiler     | **Bağlam**        | **Data.Context**        |
 |Zaman damgası, uyarının etkin veya çözümlendi     | **Context.Timestamp**       | **Data.Context.Timestamp**        |
 | Uyarı kuralı kimliği | **Context.id** | **Data.Context.id** |
@@ -54,7 +57,7 @@ Klasik biçimi Web kancası yükü alanları yeni biçime eşlemek için aşağ�
 | (Nasıl toplanan bir ölçüm değeri eşik karşı karşılaştırılır) işleci | **Context.Condition.operator** | **Data.Context.Condition.operator** |
 | Eşik | **Context.Condition.Threshold** | **data.context.condition.allOf[0].threshold** |
 | Ölçüm değeri | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| Abonelik Kimliği | **context.subscriptionId** | **data.context.subscriptionId** |
+| Abonelik kimliği | **context.subscriptionId** | **data.context.subscriptionId** |
 | Etkilenen kaynak kaynak grubu | **context.resourceGroup** | **data.context.resourceGroup** |
 | Etkilenen kaynak adı | **context.resourceName** | **data.context.resourceName** |
 | Etkilenen kaynak türü | **context.resourceType** | **data.context.resourceType** |

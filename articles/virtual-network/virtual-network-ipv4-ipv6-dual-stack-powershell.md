@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: f26391e36e3208996160fffad01e39ec2f182318
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130967"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001006"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure - PowerShell (Önizleme) IPv6 ikili yığını uygulama dağıtma
 
@@ -48,7 +48,7 @@ Kayıt tamamlandıktan sonra aşağıdaki komutu çalıştırın:
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 İkili yığın sanal ağ oluşturabilmeniz için önce bir kaynak grubu oluşturmanız gerekir [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myRGDualStack* içinde *Doğu ABD* konumu:
 
@@ -149,9 +149,9 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Yük dengeleyici oluşturma
+### <a name="create-load-balancer"></a>Yük dengeleyici oluştur
 
-Basic Load Balancer ile oluşturma [AzLoadBalancer yeni](/powershell/module/az.network/new-azloadbalancer). Aşağıdaki örnek, genel bir temel yük adlı dengeleyici oluşturur *myLoadBalancer* IPv4 ve IPv6 ön uç IP yapılandırmaları arka uç havuzları, sistem durumu araştırmaları, Yük Dengeleme kuralları ve NAT kuralları'te oluşturduğunuz önceki adımlar:
+Basic Load Balancer ile oluşturma [AzLoadBalancer yeni](/powershell/module/az.network/new-azloadbalancer). Aşağıdaki örnek, genel bir temel yük adlı dengeleyici oluşturur *myLoadBalancer* kullanarak IPv4 ve IPv6 ön uç IP yapılandırmaları, arka uç havuzları ve önceki adımlarda oluşturulan Yük Dengeleme kuralları:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -167,7 +167,7 @@ $lb = New-AzLoadBalancer `
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 Vm'leri dağıtmadan ve dengeleyicinizi test edebilirsiniz önce destekleyici ağ kaynakları - oluşturmalısınız kullanılabilirlik kümesi, ağ güvenlik grubu, sanal ağ ve sanal NIC. 
-### <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
+### <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluştur
 Uygulamanızın yüksek oranda kullanılabilir olmasını sağlamak için VM’lerinizi bir kullanılabilirlik kümesine yerleştirin.
 
 Bir kullanılabilirlik kümesi oluşturma [yeni AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
@@ -182,7 +182,7 @@ $avset = New-AzAvailabilitySet `
   -Sku aligned
 ```
 
-### <a name="create-network-security-group"></a>Ağ güvenlik grubu oluşturma
+### <a name="create-network-security-group"></a>Ağ güvenlik grubu oluştur
 
 Sanal ağınızdaki gelen ve giden iletişimi yöneten kurallar için ağ güvenlik grubu oluşturun.
 
@@ -231,7 +231,7 @@ $nsg = New-AzNetworkSecurityGroup `
 -Name "dsNSG1"  `
 -SecurityRules $rule1,$rule2
 ```
-### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
 
 İle sanal ağ oluşturma [yeni AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Aşağıdaki örnek *mySubnet* alt ağına sahip *myVnet* adında bir sanal ağ oluşturur:
 
