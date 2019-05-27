@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306147"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962906"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Azure ön kapısı hizmetiyle önbelleğe alma
 Belgesinde, ön kapısı önbelleğe almanın etkin yönlendirme kurallarıyla davranışını belirtir.
@@ -101,7 +101,7 @@ Varlığın yaşam süresi (TTL) dolmadan ön kapısı varlıklar önbelleğe al
 ## <a name="cache-expiration"></a>Önbellek süre sonu
 Üst bilgi aşağıdaki sırayla bir öğe ne kadar olacağını belirlemek için kullanılan bizim önbellekte depolanır:</br>
 1. Cache-Control: s-maxage =\<saniye >
-2. Cache-Control: maxage =\<saniye >
+2. Cache-Control:, max-age =\<saniye >
 3. Süre sonu: \<http tarih >
 
 Yanıt Cache-Control gibi önbelleğe alınabilir olmaz gösteren bir cache-Control yanıt üstbilgileri: özel, Cache-Control: no-cache ve Cache-Control: no-store dikkate alınır. Ancak, varsa birden çok istek uçuşan aynı URL POP sırasında yanıt paylaşabilir. Cache-Control varsa varsayılan AFD kaynak süreyi X önbelleğe alacağı burada X 1 ila 3 gün arasında rastgele seçilir davranışıdır.

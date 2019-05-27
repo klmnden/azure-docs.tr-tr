@@ -4,15 +4,15 @@ description: Bu makalede, bazı örnekler ile Azure Cosmos DB faturanızı anlay
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115546"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965676"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB faturanızı anlama
 
@@ -80,7 +80,7 @@ Depolama kapasitesi, bir aylık bir dönemde depolanan saatlik en fazla veri mik
 
 * Aktarım hızınızın değişmesi ve her veritabanının her veritabanı için 10 K RU/sn sağlanan aktarım hızı artar ve yeni bir kapsayıcı ilk veritabanı adanmış aktarım hızı modu 15 bin RU/sn ile paylaşılan aktarım hızı veritabanınıza eklediğiniz, sağlanan genel kapasiteye 155-K RU/sn (60 K RU/sn + 80 K RU/sn + 15 bin RU/sn) olur.  
 
-* Faturanız şöyle değişir: 1.550 * $0.008 = 12.40 $/ saat.  
+* Bu durumda, faturanız şöyle değişir: 1.550 * $0.008 = 12.40 $/ saat.  
 
 * 720 saatlik bir ayda 300 saati için sağlanan aktarım hızı 120-K RU/sn ve kalan 420 saatliğine 155-K RU/sn sağlanan aktarım hızı şeklindeydi, aylık faturanızda görünür: 300 x 9.60 $/ saat + 420 x 12.40 $/ saat = $2,880 + $5,208 = $8,088 / ay. 
 

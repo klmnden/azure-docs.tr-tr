@@ -4,14 +4,14 @@ description: Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796156"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954122"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -160,7 +160,7 @@ Sonuçlar şu şekildedir:
 
 Önceki örneklerde, Cosmos sorgu dili çeşitli yönlerini gösterir:  
 
-* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3….Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
+* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3…..Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
 
 * Sorgu dili şemasız verilerle çalışır çünkü tür sistemi dinamik olarak bağlı olmalıdır. Farklı türlerde farklı öğeye aynı ifadesi üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olmasını garanti yoktur.  
 
@@ -869,7 +869,7 @@ Sonuçlar şu şekildedir:
     ]
 ```
 
-Aşağıdaki SQL sorgusunu kullanarak alt sorgularda içindeki dizi, başka bir örnektir. Bu sorgu bir arrary çocuklarını tüm farklı verilen adlarını alır.
+Aşağıdaki SQL sorgusunu kullanarak alt sorgularda içindeki dizi, başka bir örnektir. Bu sorgu alt öğeleri bir dizideki tüm farklı verilen adlarını alır.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
