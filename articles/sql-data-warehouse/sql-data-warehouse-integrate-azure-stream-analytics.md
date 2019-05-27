@@ -2,21 +2,20 @@
 title: SQL veri ambarı ile Azure Stream Analytics'i kullanma | Microsoft Docs
 description: Azure Stream Analytics ile Azure SQL veri ambarı çözümleri geliştirmek için kullanma hakkında ipuçları.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
-origin.date: 03/22/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: integration
+ms.date: 03/22/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474343"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873275"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL veri ambarı ile Azure Stream Analytics'i kullanma
 Azure Stream Analytics, akış verileri bulutta üzerinden düşük gecikme süreli, yüksek oranda kullanılabilir ve ölçeklenebilir karmaşık olay işleme sağlayan tam olarak yönetilen bir hizmettir. Okuyarak temellerini öğrenebilirsiniz [Azure Stream analytics'e giriş][Introduction to Azure Stream Analytics]. Stream Analytics ile izleyerek uçtan uca çözüm oluşturmaya nasıl ardından öğrenebilirsiniz [Azure Stream Analytics'i kullanmaya başlama] [ Get started using Azure Stream Analytics] öğretici.
@@ -34,13 +33,13 @@ Aşağıdaki adımlarda ilk olarak, üzerinde işlem [Azure Stream Analytics'i k
 Ardından, bir Azure SQL Data Warehouse veritabanı oluşturma
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>İş çıktısı belirtin: Azure SQL veri ambarı veritabanı
-### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>Adım 1
 Stream Analytics işinizi tıklayın **çıkış** sayfasının ve ardından üst **ekleme**.
 
-### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>Adım 2
 SQL veritabanı'nı seçin.
 
-### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>Adım 3
 Sonraki sayfasında aşağıdaki değerleri girin:
 
 * *Çıkış diğer adı*: Bu iş çıktısı için bir kolay ad girin.
@@ -85,6 +84,4 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı’nda geli�
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: /stream-analytics/
-
-<!-- Update_Description: update meta properties, wording update -->
+[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/

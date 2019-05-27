@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874570"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111529"
 ---
 ## <a name="webapi-project"></a>Webapı projesi
 1. Visual Studio'da açın **AppBackend** oluşturduğunuz proje **kullanıcılara bildirme** öğretici.
@@ -91,5 +91,5 @@ ms.locfileid: "60874570"
 Unutmayın `Post` yöntemi artık göndermez bir bildirim. Bu, yalnızca bildirim kimliği ve hassas olmayan tüm içeriği içeren bir ham bildirim gönderir. Ayrıca, gönderme işleminin hatalara neden olabilecek gibi kimlik bilgileri, bildirim hub'ındaki yapılandırılmış olan olmayan platformlar için açıklama emin olun.
 
 1. Artık bir Azure Web sitesi için bu uygulamayı tüm cihazlardan erişilebilir olması için yeniden dağıtacağız. **AppBackend** projesine sağ tıklayıp **Yayımla**’yı seçin.
-2. Azure Web sitesi, yayımlama hedefi seçin. Azure hesabınızla oturum açın ve mevcut veya yeni bir Web sitesini seçin ve Not **hedef URL** özelliğinde **bağlantı** sekmesi. Bu URL'ye bu öğreticinin sonraki bölümlerinde *arka uca ait uç nokta* olarak başvuracağız. **Yayımla**’ta tıklayın.
+2. Azure Web sitesi, yayımlama hedefi seçin. Azure hesabınızla oturum açın ve mevcut veya yeni bir Web sitesini seçin ve Not **hedef URL** özelliğinde **bağlantı** sekmesi. Bu URL'ye bu öğreticinin sonraki bölümlerinde *arka uca ait uç nokta* olarak başvuracağız. Tıklayın **yayımlama**.
 

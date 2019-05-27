@@ -47,7 +47,7 @@ Premium katman ad alanında bölümleme varlıkları desteklenmez. Bununla birli
 
 ### <a name="create-a-partitioned-entity"></a>Bölümlenmiş bir varlık oluşturma
 
-Bölümlenmiş bir kuyruk veya konuda oluşturmanın birkaç yolu vardır. Uygulamanızdan bir kuyruk veya konu oluşturduğunuzda, kuyruk veya konu başlığı için sırasıyla ayarlayarak bölümleme etkinleştirebilirsiniz [QueueDescription.EnablePartitioning] [ QueueDescription.EnablePartitioning] veya [ TopicDescription.EnablePartitioning] [ TopicDescription.EnablePartitioning] özelliğini **true**. Bu özellikler kuyruk veya konuda oluşturulduğu zaman ve yalnızca eski kullanılabilir ayarlanmalıdır [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kitaplığı. Daha önce belirtildiği gibi bu özellikleri bir var olan bir kuyruk veya konuda değiştirmek mümkün değildir. Örneğin:
+Bölümlenmiş bir kuyruk veya konuda oluşturmanın birkaç yolu vardır. Uygulamanızdan bir kuyruk veya konu oluşturduğunuzda, kuyruk veya konu başlığı için sırasıyla ayarlayarak bölümleme etkinleştirebilirsiniz [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] veya [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] özelliğini **true**. Bu özellikler kuyruk veya konuda oluşturulduğu zaman ve yalnızca eski kullanılabilir ayarlanmalıdır [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kitaplığı. Daha önce belirtildiği gibi bu özellikleri bir var olan bir kuyruk veya konuda değiştirmek mümkün değildir. Örneğin:
 
 ```csharp
 // Create partitioned topic
@@ -123,7 +123,7 @@ committableTransaction.Commit();
 
 ## <a name="automatic-message-forwarding-with-partitioned-entities"></a>Bölümlenen varlıklar ile otomatik ileti yönlendirmeyi
 
-Service Bus, için ya da bölümlenen varlıklar arasında iletme otomatik ileti destekler. Otomatik ileti yönlendirmeyi etkinleştirmek için [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] kaynak kuyruk veya Abonelik özelliği. İleti bir bölüm anahtarı belirtiyorsa ([SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), veya [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid)), bu bölüm anahtarı hedef varlık için kullanılır.
+Service Bus, için ya da bölümlenen varlıklar arasında iletme otomatik ileti destekler. Otomatik ileti yönlendirmeyi etkinleştirmek için [QueueDescription.ForwardTo][QueueDescription.ForwardTo] kaynak kuyruk veya Abonelik özelliği. İleti bir bölüm anahtarı belirtiyorsa ([SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), veya [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid)), bu bölüm anahtarı hedef varlık için kullanılır.
 
 ## <a name="considerations-and-guidelines"></a>Önemli noktalar ve yönergeleri
 * **Yüksek tutarlılık özellikleri**: Bir varlık oturumları, yinelenen algılama veya bölümleme anahtarı, açık denetim gibi özellikleri kullanıyorsa, Mesajlaşma işlemleri her zaman belirli bir bölüme yönlendirilir. Yüksek trafik bölümlerden hiçbirine deneyimi veya alttaki deponun sağlam değil, bu işlemleri başarısız ve kullanılabilirlik azalır. Genel olarak, tutarlılık bölümlenmemiş varlıkları yine de çok daha yüksektir; trafiğin yalnızca bir alt tüm trafiği aksine sorunları yaşıyor. Daha fazla bilgi için bkz. Bu [tartışma kullanılabilirlik ve tutarlılık](../event-hubs/event-hubs-availability-and-consistency.md).

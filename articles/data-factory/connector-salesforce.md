@@ -185,7 +185,7 @@ Salesforce veri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **SalesforceSource**. | Evet |
-| query |Verileri okumak için özel sorgu kullanın. Kullanabileceğiniz [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgusu veya 92 SQL sorgusu. Daha fazla ipuçlarını bkz [sorgu ipuçları](#query-tips) bölümü. Sorgu belirtilmezse, veri kümesi "objectApiName" belirtilen Salesforce nesnesi tüm veriler alınır. | Yok (veri kümesinde "objectApiName" belirtilmişse) |
+| sorgu |Verileri okumak için özel sorgu kullanın. Kullanabileceğiniz [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgusu veya 92 SQL sorgusu. Daha fazla ipuçlarını bkz [sorgu ipuçları](#query-tips) bölümü. Sorgu belirtilmezse, veri kümesi "objectApiName" belirtilen Salesforce nesnesi tüm veriler alınır. | Yok (veri kümesinde "objectApiName" belirtilmişse) |
 | readBehavior | Var olan kayıtların sorgu veya sorgu tüm kayıtları silinen olanlar da dahil olmak üzere görüntülenip görüntülenmeyeceğini gösterir. Belirtilmezse, varsayılan davranışı eski olur. <br>İzin verilen değerler: **sorgu** (varsayılan), **queryAll**.  | Hayır |
 
 > [!IMPORTANT]

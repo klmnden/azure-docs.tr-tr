@@ -16,11 +16,11 @@ ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66110393"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Hızlı Başlangıç: Windows kapsayıcıları Service Fabric'e dağıtma
 
@@ -148,7 +148,7 @@ Aşağıdaki içeriği kopyalayın **CN =** çalıştırdığınızda PowerShell
 
 ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-containers/publish-app.png)
 
-**Yayımla**’ta tıklayın.
+Tıklayın **yayımlama**.
 
 Kümedeki her uygulamanın benzersiz bir adı olmalıdır. Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
 

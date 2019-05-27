@@ -17,23 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304e23ec76a2f79d0ab3852efe2a483cf86c51b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453039"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66015208"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması nedir?
 
-Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:
-
-- Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama
-
-- Otomatik yanıtları, kuruluşunuzun kimliklerini ilgili algılanan kuşkulu eylemleri için yapılandırma  
-
-- Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme   
-
+Azure Active Directory kimlik koruması, kullanıcı kimliklerini ilgili algılanan kuşkulu eylemleri için otomatik yanıtlar yapılandırmak, kuruluşların sağlar.
 
 ## <a name="get-started"></a>başlarken
 
@@ -51,47 +44,38 @@ Tehlikeye atılmış kimlik keşfetme hiçbir kolay bir görevdir. Azure Active 
 
 Azure Active Directory kimlik koruması bir izleme ve raporlama aracıyla daha büyük. Kuruluşunuzun kimliklerini korumak için belirtilen risk düzeyi ulaşıldığında otomatik olarak algılanan sorunlara yanıt risk tabanlı ilkeler yapılandırabilirsiniz. Azure Active Directory tarafından sağlanan diğer koşullu erişim denetimleri ek olarak bu ilkeleri ve [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), otomatik olarak engellemek ya da dahil olmak üzere Uyarlamalı düzeltme eylemleri başlatmak parola sıfırlama ve çok faktörlü kimlik doğrulaması zorlama.
 
-
-#### <a name="identity-protection-capabilities"></a>Kimlik koruma özellikleri
+### <a name="identity-protection-capabilities"></a>Kimlik koruma özellikleri
 
 **Güvenlik Açıkları ve riskli hesapları algılama:**  
 
-* Güvenlik açıklarını vurgulayarak genel güvenlik duruşunu geliştirmek için özel öneriler sağlama
-* Oturum açma risk düzeyleri hesaplanıyor
-* Kullanıcı risk düzeyleri hesaplanıyor
-
+- Güvenlik açıklarını vurgulayarak genel güvenlik duruşunu geliştirmek için özel öneriler sağlama
+- Oturum açma risk düzeyleri hesaplanıyor
+- Kullanıcı risk düzeyleri hesaplanıyor
 
 **Risk olayları araştırma:**
 
-* Risk olayları için bildirimleri gönderme
-* Risk olayları ve ilgili bağlamsal bilgileri kullanarak araştırma
-* Araştırmalar izlemek için temel iş akışı sağlama
-* Düzeltme eylemleri parola sıfırlama gibi kolay erişim sağlama
+- Risk olayları için bildirimleri gönderme
+- Risk olayları ve ilgili bağlamsal bilgileri kullanarak araştırma
+- Araştırmalar izlemek için temel iş akışı sağlama
+- Düzeltme eylemleri parola sıfırlama gibi kolay erişim sağlama
 
 **Risk tabanlı koşullu erişim ilkeleri:**
 
-* Riskli oturum açma, oturum açma engelleme veya çok faktörlü kimlik doğrulaması zorluklarını gerektirerek azaltmak için ilke
-* Blok veya güvenli riskli kullanıcı hesapları için ilke
-* Kullanıcı çok faktörlü kimlik doğrulamasına kaydolacak şekilde zorunlu tutmak için ilke
-
-
+- Riskli oturum açma, oturum açma engelleme veya çok faktörlü kimlik doğrulaması zorluklarını gerektirerek azaltmak için ilke
+- Blok veya güvenli riskli kullanıcı hesapları için ilke
+- Kullanıcı çok faktörlü kimlik doğrulamasına kaydolacak şekilde zorunlu tutmak için ilke
 
 ## <a name="identity-protection-roles"></a>Kimlik koruması rolleri
 
 Yük Dengelemesi için yönetimi etkinlikleri, kimlik koruması uygulamanızın etrafında çeşitli roller atayabilirsiniz. Azure AD kimlik koruması 3 dizin rolünü destekler:
 
-| Rol                         | Yapabilirsiniz                          | Bunu yapamazsınız
-| :--                          | ---                                |  ---   |
-| Genel yönetici         | Kimlik koruması, yerleşik kimlik koruması tam erişim| |
-| Güvenlik yöneticisi       | Kimlik koruması tam erişim | Yerleşik kimlik koruması, kullanıcı parolalarını sıfırlama |
-| Güvenlik okuyucusu              | Kimlik koruması salt okunur erişim | Yerleşik kimlik koruması, kullanıcıları düzeltme, ilkelerini yapılandırma, parolaları sıfırlama |
-
-
-
+| Rol | Yapabilirsiniz | Bunu yapamazsınız |
+| :-- | --- | --- |
+| Genel yönetici | Kimlik koruması, yerleşik kimlik koruması tam erişim| |
+| Güvenlik yöneticisi | Kimlik koruması tam erişim | Yerleşik kimlik koruması, kullanıcı parolalarını sıfırlama |
+| Güvenlik okuyucusu | Kimlik koruması salt okunur erişim | Yerleşik kimlik koruması, kullanıcıları düzeltme, ilkelerini yapılandırma, parolaları sıfırlama |
 
 Daha fazla ayrıntı için [Azure Active Directory'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md)
-
-
 
 ## <a name="detection"></a>Algılama
 
@@ -104,7 +88,6 @@ Azure Active Directory kimlik koruması yapılandırmanızı analiz eder ve kull
 Azure Active Directory, kullanıcılarınızın kimliklerini ilgili kuşkulu eylemleri algılamak için Uyarlamalı makine öğrenimi algoritmaları ve buluşsal yöntemler kullanır. Sistem algılanan her bir şüpheli işlem için bir kayıt oluşturur. Bu kayıtlar risk olayları da verilir.  
 Daha ayrıntılı bilgi için bkz. [Azure Active Directory risk olayları](../active-directory-identity-protection-risk-events.md).
 
-
 ## <a name="investigation"></a>Araştırma
 
 Kimlik koruması aracılığıyla yolculuğunuza genellikle kimlik koruması panosu ile başlar.
@@ -113,29 +96,26 @@ Kimlik koruması aracılığıyla yolculuğunuza genellikle kimlik koruması pan
 
 Pano şunlara erişmenizi sağlar:
 
-* Raporları gibi **risk için işaretlenen kullanıcılar**, **Risk olayları** ve **güvenlik açıkları**
-* Yapılandırması gibi ayarları, **güvenlik ilkeleri**, **bildirimleri** ve **çok faktörlü kimlik doğrulaması kaydı**
+- Raporları gibi **risk için işaretlenen kullanıcılar**, **Risk olayları** ve **güvenlik açıkları**
+- Yapılandırması gibi ayarları, **güvenlik ilkeleri**, **bildirimleri** ve **çok faktörlü kimlik doğrulaması kaydı**
 
 Genellikle, başlangıç noktası olan etkinlikleri, günlükleri ve düzeltme ya da risk azaltma adımlarını gerekli olup olmadığını karar vermek için bir risk olayını ilgili diğer ilgili bilgileri gözden geçirme işlemi, araştırma ve kimlik nasıldı. gizliliği ve güvenliği aşılmış kimlik nasıl kullanıldığını anlayın.
 
 Araştırma etkinliklerinizi bağlayabilirsiniz [bildirimleri](notifications.md) Azure Active Directory koruması e-posta gönderir.
-
-
 
 ## <a name="policies"></a>İlkeler
 
 Otomatik yanıtlar uygulamak için Azure Active Directory kimlik koruması, üç ilkeleriyle sağlar:
 
 - [Çok faktörlü kimlik doğrulaması kayıt ilkesi](howto-mfa-policy.md)
-
 - [Kullanıcı riski İlkesi](howto-user-risk-policy.md)
-
 - [Oturum açma riski İlkesi](howto-sign-in-risk-policy.md)
 
+## <a name="license-requirements"></a>Lisans gereksinimleri
+
+[!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Kanal 9: Azure AD kimlik gösterin: Kimlik koruması önizlemesi](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-
 - [Azure Active Directory kimlik Koruması'nı etkinleştirme](enable.md)
-

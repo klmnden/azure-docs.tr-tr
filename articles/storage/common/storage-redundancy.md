@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789991"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002817"
 ---
 # <a name="azure-storage-redundancy"></a>Azure depolama yedekliliği
 
 Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Azure depolama, verilerinizi, geçici donanım hataları, ağ veya bölgesel elektrik kesintileriyle ve çok büyük doğal afetler gibi planlanan ve planlanmayan olayları, korunur kopyalar. Aynı bölge içinde Bölgesel veri merkezleri, veya bölgeler arasındaki coğrafi olarak ayrılmış verilerinizi aynı veri merkezinde çoğaltmayı seçebilirsiniz.
 
 Çoğaltma işlemi, hata durumunda bile depolama hesabınızın [Depolama için Hizmet Düzeyi Sözleşmesi'ne (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) uymasını sağlar. Azure Depolama'nın dayanıklılık ve kullanılabilirlikle ilgili sağladığı garantiler hakkında bilgi edinmek için SLA'ya göz atın.
+
+Azure depolama, Döngüsel artıklık denetimleri (CRC) kullanarak depolanan verilerin bütünlüğünü düzenli olarak doğrular. Veri bozulması algılanırsa, yedek verileri kullanarak onarıldı. Azure depolama, depolama veya veri alma, veri paketlerinin Bozulması algılamak için tüm ağ trafiğini sağlama de hesaplar.
 
 ## <a name="choosing-a-redundancy-option"></a>Bir yedeklik seçeneği seçme
 

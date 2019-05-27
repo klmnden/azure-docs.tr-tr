@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: f4344be1ef13daa85477b22aa0434347873aec40
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: e9d2b518af50aaec43bc7075e51829e80cdeddf5
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826144"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016140"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager'da sanal makineler için anahtar kasası ayarlama
 
@@ -49,6 +49,10 @@ Varolan anahtar kasası için bu PowerShell cmdlet'ini kullanabilirsiniz:
 Komut satırı arabirimi (CLI) kullanarak bir anahtar kasası oluşturmak için bkz [yönetme CLI ile anahtar kasası](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 CLI için dağıtım ilkesi atamadan önce anahtar kasası oluşturmanız gerekir. Aşağıdaki komutu kullanarak bunu yapabilirsiniz:
+
+    az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
+    
+Ardından anahtar kasası şablon dağıtımı ile kullanılmak üzere etkinleştirmek için aşağıdaki komutu çalıştırın:
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 

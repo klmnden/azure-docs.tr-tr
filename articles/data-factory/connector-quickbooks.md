@@ -122,7 +122,7 @@ QuickBooks Online'dan veri kopyalamak için kopyalama etkinliği için kaynak t�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **QuickBooksSource** | Evet |
-| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

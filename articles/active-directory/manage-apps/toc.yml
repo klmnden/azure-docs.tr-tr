@@ -111,8 +111,6 @@
           href: application-proxy-remove-personal-data.md
         - name: Özel etki alanı yapılandırma
           href: application-proxy-configure-custom-domain.md
-        - name: Yapılandırma hataları
-          href: application-proxy-troubleshoot.md
         - name: Adım adım kılavuzlar yayımlama
           items:
             - name: Cloud App Security ile tümleştirme
@@ -129,6 +127,12 @@
               href: application-proxy-qlik.md
         - name: Uygulama Ara Sunucusu sorunlarını giderme
           items:
+            - name: Bağlayıcı sorun çözümü akış çizelgesi
+              href: application-proxy-debug-connectors.md
+            - name: Uygulama sorun çözümü akış çizelgesi
+              href: application-proxy-debug-apps.md
+            - name: Yapılandırma hataları
+              href: application-proxy-troubleshoot.md
             - name: Uygulama sayfası görüntülenirken sorun oluşuyor
               href: application-proxy-page-appearance-broken-problem.md
             - name: Uygulamanın yüklenmesi çok uzun sürüyor

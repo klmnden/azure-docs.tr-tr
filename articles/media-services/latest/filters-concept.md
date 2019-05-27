@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465538"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002376"
 ---
-# <a name="define-account-filters-and-asset-filters"></a>Hesap filtreleri ve varlık filtrelerini tanımlayın  
+# <a name="filters"></a>Filtreler
 
 İçeriğinizi müşterilere (canlı akış olayları veya isteğe bağlı Video) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services hesap filtreleri ve içeriğiniz için varlık filtrelerini tanımlamanızı sağlar. 
 
@@ -36,7 +36,7 @@ Medya Hizmetleri sunan [dinamik bildirimlerini](filters-dynamic-manifest-overvie
 
 Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
 
-|Protokol|Örnek|
+|Protocol|Örnek|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>HLS v3 için kullanın: `format=m3u8-aapl-v3`.|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -88,11 +88,9 @@ Filtre izleme özelliği koşulları parça türleri, değerleri (aşağıdaki t
 |**Ad**|Filtreleme için izleme adını kullanın.|
 |**Tür**|İzleme türü, filtreleme için kullanın.<br/><br/>Aşağıdaki değerlerine izin verilir: "Görüntü", "ses" veya "metin".|
 
-## <a name="associate-filters-with-streaming-locator"></a>Filtreler akış Bulucu ile ilişkilendirme
+### <a name="example"></a>Örnek
 
-Bir akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belirtebilirsiniz. [Dinamik Paketleyici](dynamic-packaging-overview.md) bu olanlar istemcinizin URL'SİNDE belirtir birlikte filtrelerinin listesi için geçerlidir. Bu birleşim oluşturur bir [dinamik bildirim](filters-dynamic-manifest-overview.md), URL'deki filtreleri + akış Bulucu üzerinde belirttiğiniz filtreleri temel. Filtre uygulamak istediğiniz, ancak URL filtresi adlarında kullanıma sunmak istiyorsanız değil, bu özelliği kullanmanızı öneririz.
-
-## <a name="definition-example"></a>Tanımı örneği
+Aşağıdaki örnek, canlı akış bir filtre tanımlar: 
 
 ```json
 {
@@ -146,6 +144,15 @@ Bir akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belir
   }
 }
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>Filtreler akış Bulucu ile ilişkilendirme
+
+Bir listesini belirtebilirsiniz [varlık veya hesap filtreleri](filters-concept.md), için uygulamak, [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). [Dinamik Paketleyici](dynamic-packaging-overview.md) bu olanlar istemcinizin URL'SİNDE belirtir birlikte filtrelerinin listesi için geçerlidir. Bu birleşim oluşturur bir [dinamik bildirim](filters-dynamic-manifest-overview.md), URL'deki filtreleri + akış Bulucu üzerinde belirttiğiniz filtreleri temel. Filtre uygulamak istediğiniz, ancak URL filtresi adlarında kullanıma sunmak istiyorsanız değil, bu özelliği kullanmanızı öneririz.
+
+Aşağıdaki örneklere bakın:
+
+* [İlişkilendirme filtrelerle akış Bulucu - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Akış Bulucu - CLI ile ilişkilendirme filtreleri](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

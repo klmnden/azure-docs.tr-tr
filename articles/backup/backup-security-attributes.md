@@ -2,23 +2,22 @@
 title: Azure Backup için genel güvenlik öznitelikleri
 description: Azure Backup'ı değerlendirmek için genel güvenlik öznitelikleri listesi
 services: backup
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 86b8ab96a94a6ffc44c304d8a0a689301560a989
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64680809"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002813"
 ---
-# <a name="common-security-attributes-for-azure-backup"></a>Azure Backup için genel güvenlik öznitelikleri
+# <a name="security-attributes-for-azure-backup"></a>Azure Backup için güvenlik öznitelikleri
 
-Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Azure yedekleme ile oluşturulmuş genel güvenlik öznitelikleri belgeler. 
+Bu makalede, Azure Backup ile yerleşik güvenlik öznitelikleri belgeler. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -55,14 +54,14 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Az
 | Yetkilendirme| Evet | Müşteri oluşturuldu ve yerleşik RBAC rolleri kullanılır. Bkz: [Use Role-Based erişim denetimi, Azure Backup kurtarma noktaları yönetmek için](/azure/backup/backup-rbac-rs-vault) daha fazla bilgi için. |
 
 
-## <a name="audit-trail"></a>Denetim Kaydı
+## <a name="audit-trail"></a>Denetim izi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
 | Denetim ve yönetim düzlemi günlüğe kaydetme ve Denetim| Evet | Azure portalından tüm müşteri tetiklenen eylemler, etkinlik günlüklerine kaydedilir. |
 | Veri düzlemi günlük kaydı ve Denetim| Hayır | Azure Backup veri düzlemi doğrudan ulaşılamıyor.  |
 
-## <a name="configuration-management"></a>Yapılandırma Yönetimi
+## <a name="configuration-management"></a>Yapılandırma yönetimi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|

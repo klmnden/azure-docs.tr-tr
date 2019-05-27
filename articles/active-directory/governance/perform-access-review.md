@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384682"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113235"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Gruplara erişimi gözden geçirmek veya Azure AD uygulama erişim gözden geçirmeleri
 
 Azure Active Directory (Azure AD) nasıl kuruluşlar, Azure AD'de gruplara ve uygulamalara erişimi yönetme ve diğer Microsoft Çevrimiçi Hizmetler Azure AD erişim adlı bir özellik ile inceler kolaylaştırır.
 
 Bu makalede nasıl üyeleri bir grup veya uygulamaya erişimi olan kullanıcılar için erişim gözden geçirmesi belirlenen bir Gözden Geçiren gerçekleştirdiğini açıklar.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+- Azure AD Premium P2
+
+Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Erişim gözden geçirmesi açın
 
@@ -64,16 +70,16 @@ Erişim gözden geçirmesi açtıktan sonra gözden geçirilmesi gereken kullan�
 
 Onaylama veya reddetme erişim iki yolu vardır:
 
-- Onaylayın veya ayrı ayrı her bir isteği reddetme veya
+- Onaylayın veya bir veya daha fazla kullanıcı erişimi reddetmek veya
 - Kolay ve hızlı bir yolu olan sistem önerileri kabul edebilir.
 
-### <a name="approve-or-deny-access-for-each-request"></a>Onaylayın veya reddedin her istek için erişim
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Onaylamak veya reddetmek için bir veya daha fazla kullanıcı erişimi
 
 1. Onaylayın veya reddedin sürekli erişimleri karar vermek için kullanıcıların listesini gözden geçirin.
 
-1. Onaylayın veya reddedin her istek için satırın gerçekleştirilecek eylemi belirtmek için bir pencere açmak için tıklayın.
+1. Onaylayın veya tek bir kullanıcı erişimi reddetmek için satırın gerçekleştirilecek eylemi belirtmek için bir pencere açmak için tıklayın. Onaylayın veya reddedin birden çok kullanıcı için erişim için kullanıcıların yanında onay işareti ekleyin ve ardından **gözden geçirme X kullanıcı** gerçekleştirilecek eylemi belirtmek için bir pencere açmak için düğmeyi.
 
-1. Tıklayın **onaylama** veya **Reddet**. Emin değilseniz, tıklayabilirsiniz **bilmiyorum**. Bunun yapılması, kullanıcının kendi erişimi sürdürmek neden olur, ancak seçimi denetim günlüklerinde yansıtılır.
+1. Tıklayın **onaylama** veya **Reddet**. Emin değilseniz, tıklayabilirsiniz **bilmiyorum**. Bunun yapılması, kullanıcının kendi erişimini koruma neden olur, ancak seçimi denetim günlüklerinde yansıtılır.
 
     ![Erişim değerlendirmesi gerçekleştirme](./media/perform-access-review/approve-deny.png)
 

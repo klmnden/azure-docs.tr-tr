@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202187"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019814"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL veritabanı bağlantı sorunlarını ve geçici hatalar ile çalışma
 
@@ -134,7 +134,7 @@ Bu test pratik hale getirmek için programa neden olan bir çalışma zamanı pa
 Oluşturduğunuzda [bağlantı dizesi](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) için **SqlConnection** nesne, aşağıdaki parametreleri arasında değerleri koordine:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;varsayılan 1'dir. 0 ile 255 arasındaki aralıktır.
-- **ConnectRetryInterval**:&nbsp;&nbsp;varsayılan olan 1 saniye. 1 ila 60 aralığı.
+- **ConnectRetryInterval**:&nbsp;&nbsp;10 saniye varsayılandır. 1 ila 60 aralığı.
 - **Bağlantı zaman aşımı**:&nbsp;&nbsp;15 saniye varsayılandır. Aralığı 0 ile 2147483647 arasındadır.
 
 Özellikle, seçilen değerlerinizin aşağıdaki eşitlik true yapmanız gerekir: Bağlantı zaman aşımı ConnectRetryCount = * ConnectionRetryInterval

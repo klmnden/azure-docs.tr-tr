@@ -9,16 +9,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719410"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003068"
 ---
-# <a name="common-security-attributes-for-azure-service-fabric"></a>Azure Service Fabric için genel güvenlik öznitelikleri
+# <a name="security-attributes-for-azure-service-fabric"></a>Azure Service Fabric için güvenlik öznitelikleri
 
-Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makale, Azure Service Fabric'te yerleşik genel güvenlik özniteliklerini içermektedir. 
+Bu makale, Azure Service Fabric'te yerleşik güvenlik özniteliklerini içermektedir. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -55,14 +55,14 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makale, Azur
 | Yetkilendirme| Evet | Kimlik ve erişim yönetimi (IAM) aracılığıyla SFRP çağrıları için. Doğrudan küme uç noktasına çağrı iki rollerini destekler: Kullanıcı ve yönetici Müşteri API'leri için iki rol eşleyebilirsiniz. |
 
 
-## <a name="audit-trail"></a>Denetim Kaydı
+## <a name="audit-trail"></a>Denetim izi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
 | Denetim ve yönetim düzlemi günlüğe kaydetme ve Denetim| Evet | Tüm denetim düzlemi işlemleri ile işlemleri denetleme ve onayları için çalıştırın. |
 | Veri düzlemi günlük kaydı ve Denetim| Yok | Müşteri kümesine sahip.  |
 
-## <a name="configuration-management"></a>Yapılandırma Yönetimi
+## <a name="configuration-management"></a>Yapılandırma yönetimi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|

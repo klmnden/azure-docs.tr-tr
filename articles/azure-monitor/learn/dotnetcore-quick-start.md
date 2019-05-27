@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/29/2019
+ms.date: 05/21/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7700efb7bfdb60c8f8f82b442cf01aae691f2fc3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: e6afd342a27fa13ae79e037e6e42e582dd9856cc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595593"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015304"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
 Azure Application Insights ile web uygulamanızı kullanılabilirlik, performans ve kullanım bakımından kolayca izleyebilirsiniz. Ayrıca, bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları hızlıca tanımlayıp tespit edebilirsiniz. 
 
-Bu hızlı başlangıçta, Application Insights SDK'sını var olan bir ASP.NET Core web uygulamasına eklerken size kılavuzluk eder. Application Insights Visual Studio kullanıma alma bu yapılandırma hakkında bilgi edinmek için [makale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio).
+Bu hızlı başlangıçta, Application Insights SDK'sını var olan bir ASP.NET Core web uygulamasına eklerken size kılavuzluk eder. Application Insights Visual Studio kullanıma alma bu yapılandırma hakkında bilgi edinmek için [makale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -98,6 +98,10 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 5. Sol tıklayın üzerinde **ölçümleri**. Sistem durumunu ve kaynak kullanımını araştırmak için ölçüm Gezgini'ni kullanın. **Yeni grafik ekle**’ye tıklayarak ek özel görünümler oluşturabilir veya **Düzenle**’yi seçerek mevcut grafik türlerini, yüksekliğini, renk paletini, gruplandırmaları ve ölçümleri değiştirebilirsiniz. Örneğin, ortalama tarayıcı sayfa yükleme süresi "Tarayıcı sayfa yükleme süresi" seçerek ölçümleri açılır ve "Ortalama" günlüklerden tutun gösteren bir grafik yapabilirsiniz. Azure ölçüm Gezgini ziyaret hakkında daha fazla bilgi edinmek için [Azure ölçüm Gezgini ile çalışmaya başlama](../../azure-monitor/platform/metrics-getting-started.md).
 
      ![Ölçümleri sekmesi: Ortalama tarayıcı sayfa yükleme zamanı grafiği](./media/dotnetcore-quick-start/8metrics.png)
+
+## <a name="video"></a>Video
+
+- İlgili dış adım adım video [.NET Core ve Visual Studio ile Application Insights yapılandırma](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) sıfırdan.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İşiniz bittiğinde test, kaynak grubunu silebilirsiniz ve tüm ilgili kaynakları. İçin aşağıdaki adımları izleyin.

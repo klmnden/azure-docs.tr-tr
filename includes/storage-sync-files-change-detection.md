@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: beb08c29587e4ce522131142fd61925b5af45fa9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165659"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114552"
 ---
 Azure portalı veya SMB kullanarak Azure dosya paylaşımına yapılan değişiklikler hemen algılandı ve sunucu uç noktası değişiklikleri gibi çoğaltılır. Azure dosyaları henüz sahip değil değişiklik bildirimleri veya günlüğe kaydetme, vardır, bu nedenle dosyaları değiştiği bir eşitleme oturumu otomatik olarak başlatmak için bir yolu yoktur. Windows Server, Azure dosya eşitleme kullanan [Windows USN günlüğü](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) dosyaları değiştiğinde bir eşitleme oturumu otomatik olarak başlatmak için.<br /><br /> Azure dosya paylaşımına değişikliklerini algılamak için Azure dosya eşitleme adında bir zamanlanmış iş sahip bir *algılama işi değiştirmek*. Bir değişiklik algılama iş dosya paylaşımındaki her dosyanın numaralandırır ve söz konusu dosya için eşitleme sürümle karşılaştırır. Değişiklik algılama işi dosyaların değiştiğini belirlediğinde, Azure dosya eşitleme eşitleme oturumu başlatır. Değişiklik algılama işin her 24 saatte başlatılır. Her bir dosyanın Azure dosya paylaşımının numaralandırarak değişiklik algılama işi çalıştığı için daha büyük ad alanlarında daha küçük ad alanlarında değişiklik algılama, daha uzun sürer. Büyük ad alanları için 24 hangi dosyaların değiştiğini belirlemek için saatte uzun sürebilir.<br /><br />
 Not, REST kullanarak Azure dosya paylaşımı için yapılan değişiklikler, SMB son değiştirme zamanı güncelleştirmesi yapar ve bir değişiklik eşitleme tarafından görülmez. <br /><br />

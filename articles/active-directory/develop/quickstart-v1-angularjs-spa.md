@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f526ea3d1a53ef2ae80f36c863e7a19797e9142
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545999"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001204"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Hızlı Başlangıç: Oturum açma ve Azure Active Directory ile oturum kapatma için AngularJS tek sayfalı uygulama oluşturma
 
@@ -63,20 +63,15 @@ Uygulamanızın kullanıcı kimliklerini doğrulamasını ve belirteçleri almas
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Birden çok dizinde oturum açtıysanız, doğru dizini görüntülediğinizden emin olmalısınız. Bunu yapmak için, üst çubukta hesabınıza tıklayın. **Dizin** listesi altında, uygulamanızı kaydetmek istediğiniz Azure AD kiracısını seçin.
 1. Sol bölmede **Tüm hizmetler**'e tıklayın ve ardından **Azure Active Directory**'yi seçin.
-1. **Uygulama kayıtları**'na tıklayın ve **Ekle**'yi seçin.
-1. İstemleri izleyerek yeni web uygulaması ve/veya web API'si oluşturun:
-
-    * **Ad**, uygulamanızı kullanıcılara açıklar.
-    * **Oturum açma URL'si** Azure AD'nin belirteçleri döndüreceği konumdur. Bu örnek için varsayılan konum `https://localhost:44326/` konumudur.
-
-1. Kaydı bitirdikten sonra, Azure AD uygulamanıza benzersiz bir uygulama kimliği atar. Bu değeri sonraki bölümlerde kullanacağınız için, uygulama sekmesinden kopyalayın.
-1. Adal.js. Azure AD ile iletişim kurmak için OAuth örtük akışını kullanır. Uygulamanızda örtük akışı etkinleştirmeniz gerekir:
-
-    1. Satır içi bildirim düzenleyicisini açmak için uygulamaya tıklayın ve **Bildirim**'i seçin.
-    1. `oauth2AllowImplicitFlow` özelliğini bulun. Değerini `true` olarak ayarlayın.
-    1. Bildirimi kaydetmek için **Kaydet**’e tıklayın.
-
-1. Uygulamanız için kiracı genelinde izinleri verin. **Ayarlar > Gerekli izinler**'e gidin ve üst çubuktaki **İzin ver** düğmesini seçin.
+1. Tıklayın **uygulama kayıtları**ve ardından **yeni kayıt**.
+1. Zaman **bir uygulamayı kaydetme** sayfası görüntülenirse, uygulamanız için bir ad girin.
+1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
+1. Seçin **Web** platform altında **yeniden yönlendirme URI'si** bölümünde ve değerine `https://localhost:44326/` (istediğiniz Azure AD belirteçleri döndürecektir konum).
+1. Bittiğinde **Kaydet**’i seçin. Uygulamasında **genel bakış** sayfa, Not **uygulama (istemci) kimliği** değeri.
+1. Adal.js. Azure AD ile iletişim kurmak için OAuth örtük akışını kullanır. Örtük akış, uygulamanız için etkinleştirmeniz gerekir. Kayıtlı uygulama sol gezinti bölmesinde seçin **kimlik doğrulaması**.
+1. İçinde **Gelişmiş ayarlar**altında **örtük vermeyi**, her ikisini de etkinleştirmek **kimlik belirteçlerini** ve **erişim belirteçlerini** onay kutularını. Bu uygulama kullanıcılarının oturumunu ve bir API'yi çağırmak sonun kimliği ve erişim belirteçler gereklidir.
+1. **Kaydet**’i seçin.
+1. Uygulamanız için kiracı genelinde izinleri verin. Git **API izinleri**seçip **yönetici onayı vermek** düğmesini **onay verme**.
 1. Onaylamak için **Evet**’i seçin.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>2. Adım: ADAL'ı yükleyin ve tek sayfalı uygulamayı yapılandırma

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25b8669e5ca2abe2d763d9bc14f27ed9c4460886
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825943"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015469"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
 
@@ -106,13 +106,13 @@ Giden proxy dikkate alınması gereken dört unsur vardır:
 #### <a name="proxy-outbound-rules"></a>Proxy giden kuralları
 Aşağıdaki URL'lere erişim izin ver:
 
-| URL | Nasıl kullanılır |
+| URL'si | Nasıl kullanılır |
 | --- | --- |
 | \*. msappproxy.net<br>\*. servicebus.windows.net | Bağlayıcı ve uygulama proxy'si bulut hizmeti arasında iletişim |
 | mscrl.microsoft.com:80<br>CRL.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure sertifikaları doğrulamak için bu URL'leri kullanır. |
 | login.windows.net<br>login.microsoftonline.com | Bağlayıcı, bu URL'ler kayıt işlemi sırasında kullanır. |
 
-Güvenlik Duvarı veya proxy DNS beyaz listeye ekleme izin veriyorsa, beyaz liste bağlantıları için \*. msappproxy.net ve \*. servicebus.windows.net. Erişime izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). IP aralıklarını haftalık olarak güncelleştirilir.
+Güvenlik Duvarı veya proxy yapılandırmanıza izin veriyorsa DNS izin listeleri, bağlantılara izin vermek \*. msappproxy.net ve \*. servicebus.windows.net. Erişime izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). IP aralıklarını haftalık olarak güncelleştirilir.
 
 
 FQDN DEĞERİNE göre bağlantısına izin vermek ve bunun yerine IP aralıklarını belirtmeniz gerekir, bu seçenekleri kullanın:

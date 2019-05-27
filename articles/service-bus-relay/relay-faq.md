@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111479"
 ---
 # <a name="azure-relay-faqs"></a>Azure geçişi ile ilgili SSS
 
@@ -80,10 +80,10 @@ Genel olarak, daha önce açıklanan aracılı varlıklarda (kuyruklar, konular 
 Kullanılarak açılan geçişleri **netTCPRelay** WCF bağlama tek bir ileti olarak değil, ancak sistem üzerinden akıyor veri akışı olarak ileti kabul et. Bu bağlama kullandığınızda, yalnızca gönderen ve dinleyici gönderilen ve alınan bireysel iletilerin çerçeveleme görünürlük sahiptir. Geçişleri kullanan **netTCPRelay** bağlama, tüm veriler olarak kabul edildiği Faturalanabilir mesajlar hesaplamak için bir akış. Bu durumda, Service Bus toplam gönderilen veya alınan 5 dakikalık aralıklarla tek tek her geçiş aracılığıyla veri miktarını hesaplar. Ardından, 64 KB'ın ilgili süre içinde bu geçiş Faturalanabilir mesajların sayısı belirlemek için bu toplam veri miktarı böler.
 
 ## <a name="quotas"></a>Kotalar
-| Kota adı | Kapsam |  Notlar | Değer |
+| Kota adı | `Scope` |  Notlar | Değer |
 | --- | --- | --- | --- |
 | Bir geçiş üzerinde eşzamanlı dinleyicileri |Varlık |Bir ek bağlantı için sonraki istekler reddedilir ve bir özel durum çağıran kod tarafından alınır. |25 |
-| Tüm geçiş uç noktaların bir hizmet ad alanı başına eşzamanlı geçiş bağlantıları |Ad alanı |- |5.000 |
+| Tüm geçiş uç noktaların bir hizmet ad alanı başına eşzamanlı geçiş bağlantıları |Ad alanı |- |5,000 |
 | Hizmet ad alanı başına geçiş uç noktaları |Ad alanı |- |10,000 |
 | İleti boyutu için [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) ve [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) geçişleri |Ad alanı |Bu kotaları aşan gelen iletileri reddedilir ve bir özel durum çağıran kod tarafından alınır. |64 KB |
 | İleti boyutu için [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) ve [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) geçişleri |Ad alanı |İleti boyutu sınırı yoktur. |Sınırsız |

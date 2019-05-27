@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294251"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113118"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması tarafından algılanan güvenlik açıklarını
 
@@ -30,12 +30,10 @@ Aşağıdaki bölümler, kimlik koruması tarafından bildirilen güvenlik açı
 
 Bu güvenlik açığını Azure multi-Factor Authentication'ın dağıtım kuruluşunuzdaki değerlendirmek yardımcı olur.
 
-MFA için kayıtlı olmayan kullanıcılar tıklayın için sayısını görüntülemek için Güvenlik Açığı ve İstatistikler kimlik güvenli puanı içinde yönlendirilir.
-
 Azure multi-Factor Authentication ikinci bir kullanıcı kimlik doğrulaması için güvenlik katmanı sağlar. Bu basit bir oturum açma işlemi için kullanıcı taleplerini karşılarken, verilere ve uygulamalara erişimi korunmasına yardımcı. Azure multi-Factor Authentication gibi kullanımı kolay doğrulama seçenekleri sağlar:
 
 * Telefon araması
-* Kısa mesaj
+* SMS Mesajı
 * Mobil uygulama bildirimi
 * OTP doğrulama kodu
 
