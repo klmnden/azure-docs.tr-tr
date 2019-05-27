@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c88857c877440be724ddea0bdb239768621c8c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764798"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997234"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim nedir?
 
@@ -86,9 +86,9 @@ Yapılandırılmış koşullu erişim ilkesi çok faktörlü kimlik doğrulamas�
 
 Kullanıcı federe kimlik doğrulama hizmetinde oturum açtıktan sonra Azure AD, cihaz uyumluluğu ya da uygulamanın onaylanmış olması gibi diğer ilke gereksinimlerini halleder.
 
-## <a name="license-requirements-for-using-conditional-access"></a>Koşullu erişim kullanımı için lisans gereksinimleri
+## <a name="license-requirements"></a>Lisans gereksinimleri
 
-Koşullu erişimi kullanabilmek için Azure AD Premium lisansına ihtiyacınız vardır. Gereksinimlerinize uygun lisansı bulmak için bkz. [Ücretsiz, Temel ve Premium sürümlerinin genel olarak sağlanan özelliklerini karşılaştırma](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

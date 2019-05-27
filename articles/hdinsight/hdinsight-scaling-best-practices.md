@@ -7,22 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595859"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990507"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight kümeleri ölçeklendirme
 
-HDInsight, ölçeğini ve, kümede çalışan düğümleri sayısını ölçeğini seçeneği vererek esneklik sağlar. Bu, bir küme saat sonra veya hafta sonu küçültme ve en yüksek iş gereksinimlerini sırasında genişletmek sağlar.
+HDInsight, ölçeğini ve, kümede çalışan düğümleri sayısını ölçeğini seçeneği vererek esneklik sağlar. Bu esneklik saat sonra veya hafta sonu bir küme küçültme ve en yüksek iş gereksinimlerini sırasında genişletin olanak tanır.
 
-Örneğin, bazı toplu işlem varsa, günde bir kez veya ayda bir kez gerçekleşir, HDInsight kümesi zamanlanmış olay önce birkaç dakika'kurmak için yeterli bellek olacaktır ve CPU işlem gücü ölçeklendirilebilir.  Daha sonra işlem tamamlandı ve yeniden kullanımı arıza sonra HDInsight kümesine daha az çalışan düğümü aşağı ölçeklendirebilirsiniz.
+Düzenli aralıklarla toplu işlem varsa, kümenizi yeterli bellek ve CPU gücü sahip olacak şekilde HDInsight küme önce bu işlem birkaç dakika'kurmak ölçeklendirilebilir.  Daha sonra işlem tamamlandı ve yeniden kullanımı arıza sonra HDInsight kümesine daha az çalışan düğümü aşağı ölçeklendirebilirsiniz.
 
 Aşağıda açıklanan yöntemlerden birini kullanarak el ile bir kümenin ölçeğini veya kullanın [otomatik ölçeklendirme](hdinsight-autoscale-clusters.md) seçenekleri sistemin otomatik olarak sağlamak için ölçeği yukarı ve aşağı yanıt CPU, bellek ve diğer ölçümleri.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="utilities-to-scale-clusters"></a>Ölçek kümeleri için yardımcı programlar
 
@@ -33,7 +31,7 @@ Microsoft kümeleri ölçeklendirmek için aşağıdaki yardımcı programların
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<küme adı > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<küme adı > - TargetInstanceCount \<NewSize >|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdınsight yeniden boyutlandırma](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<kaynak grubu >--ad \<küme adı >--hedef örnek sayısı \<NewSize >|
-|[Klasik Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdınsight küme boyutlandırma \<clusterName > \<hedef örnek sayısı > |
+|[Azure CLI](hdinsight-administer-use-command-line.md)|Azure hdınsight küme boyutlandırma \<clusterName > \<hedef örnek sayısı > |
 |[Azure portal](https://portal.azure.com)|HDInsight kümesi bölmenizi açın, **küme boyutu** sol taraftaki menüden, sonra küme boyutu bölmesinde, çalışan düğümlerinin sayısını yazın ve Kaydet'i seçin.|  
 
 ![Kümeyi ölçeklendirin](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
@@ -44,19 +42,27 @@ Bu yöntemlerden birini kullanarak, HDInsight kümenizin ölçeğini artırıp d
 > * With Azure Klasik CLI kullanım dışı bırakılmıştır ve yalnızca klasik dağıtım modeliyle kullanılmalıdır. Diğer tüm dağıtımları için kullanmak [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
 > * PowerShell AzureRM modülü kullanım dışı bırakılmıştır.  Lütfen kullanın [Az modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) mümkün olduğunda.
 
-## <a name="scaling-impacts-on-running-jobs"></a>Ölçeklendirme etkileri işlerini çalıştırma
+## <a name="impact-of-scaling-operations"></a>Ölçeklendirme işlemlerinin etkisi
 
-Olduğunda, **ekleme** düğümleri çalışan HDInsight kümenize, bekleyen veya çalışan tüm işleri etkilenmeyecektir. Ayrıca, yeni işleri güvenli bir şekilde ölçeklendirme işlemi devam ederken gönderilebilir. Ölçeklendirme işlemleri için herhangi bir nedenle başarısız olursa, hata düzgün bir şekilde, kümenin işlevsel bir durumda bırakarak ele alınır.
+Olduğunda, **ekleme** düğümleri çalışan HDInsight kümenize (ölçeği artırma), bekleyen veya çalışan tüm işleri etkilenmez. Ölçeklendirme işlemi devam ederken yeni işleri güvenli bir şekilde gönderilebilir. Ölçeklendirme işlemi herhangi bir nedenle başarısız olursa hata kümenizi işlevsel bir durumda bırakır ele alınacaktır.
 
-Ancak, kümeniz tarafından aşağı ölçeklendirme, **kaldırma** düğümler, bekleyen veya çalışan tüm işler başarısız ölçeklendirme işlemi tamamlandığında olur. Bu hata, yeniden başlatma işlemi sırasında hizmetlerinden bazılarını kaynaklanır.
+Varsa, **Kaldır** düğüm (ölçeği azaltma) tüm bekleyen veya çalışan iş ölçeklendirme işlemi tamamlandığında başarısız. Bu hata, bir ölçeklendirme işlemi sırasında yeniden başlatmayı hizmetlerinden bazılarını kaynaklanır. Kümenizi ölçeklendirme işlemi sırasında el ile olarak takılan güvenli mod alabilirsiniz riski yoktur.
 
-Bu sorunu gidermek için kümenizi ölçeklendirmeden önce tamamlamak, el ile işleri sonlandırmak veya ölçeklendirme işlemini sonlandırdığını sonra sunmaları işlerinin tamamlanmasını bekleyebilirsiniz.
+## <a name="how-to-safely-scale-down-a-cluster"></a>Güvenli bir şekilde bir kümeyi ölçeklendirme
 
-Bekleyen bir listesini ve çalışan işleri görmek için aşağıdaki adımları YARN ResourceManager UI kullanabilirsiniz:
+### <a name="scale-down-a-cluster-with-running-jobs"></a>Çalışan iş ile bir küme ölçeği
+
+Bir ölçek ölçeği azaltma işlemi sırasında başarısız işlerinizi çalışan girmekten kaçınmak için üç şey deneyebilirsiniz:
+
+1. İşleri kümenizi ölçeklendirmeden önce tamamlanması için bekleyin.
+1. İşleri el ile bitmelidir.
+1. İşleri ölçeklendirme işlemini sonlandırdığını sonra yeniden gönderin.
+
+Bekleyen bir listesi ve çalışan işleri görmek için YARN kullanabilirsiniz **ResourceManager kullanıcı Arabirimi**, şu adımları izleyin:
 
 1. [Azure portalda](https://portal.azure.com) oturum açın.
 2. Soldan gidin **tüm hizmetleri** > **Analytics** > **HDInsight kümeleri**ve sonra kümenizi seçin.
-3. Ana görünümünde gidin **küme panoları** > **Ambari giriş**. Küme oturum açma kimlik bilgilerinizi girin.
+3. Ana görünümünde gidin **küme panoları** > **Ambari giriş**. Küme kimlik bilgilerinizi girin.
 4. Ambari Arabiriminden seçin **YARN** Hizmetleri sol menüdeki listesi.  
 5. YARN sayfasından seçin **hızlı bağlantılar** ve etkin baş düğümün üzerine gelin ve ardından **ResourceManager kullanıcı Arabirimi**.
 
@@ -80,182 +86,29 @@ yarn application -kill <application_id>
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-apache-hbase-cluster"></a>Bir Apache HBase kümesi yeniden Dengeleme
+### <a name="getting-stuck-in-safe-mode"></a>Güvenli modda takılırsa
 
-Bölge sunucuları, sonraki ölçeklendirme işleminin tamamlanması birkaç dakika içinde otomatik olarak dengelenir. Bölge sunucuları el ile dengelemek için aşağıdaki adımları kullanın:
+Bir kümeyi ölçeklediğinizde HDInsight Apache Ambari yönetim arabirimleri önce diğer çevrimiçi çalışan düğümlerine, HDFS blokları çoğaltma ek çalışan düğümlerinin yetkisini almak için kullanır. Bundan sonra HDInsight güvenli bir şekilde küme küçülten. HDFS ölçeklendirme işlemi sırasında güvenli moduna geçer ve ölçeklendirme tamamlandıktan sonra gelen beklenir. Bazı durumlarda, ancak HDFS güvenli modda bir ölçeklendirme işlemi sırasında dosya blok eksik çoğaltma nedeniyle takılı.
 
-1. HDInsight kümesine SSH kullanarak bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+Varsayılan olarak, HDFS ile yapılandırılmış bir `dfs.replication` her dosya engelleme kaç kopyasının kullanılabilir denetimleri 3 / ayarlama. Dosya Engelleme her kopyası, farklı bir küme düğümünde depolanır.
 
-2. HBase kabuğunu başlatın:
-
-        hbase shell
-
-3. Bölge sunucuları el ile dengelemek için aşağıdaki komutu kullanın:
-
-        balancer
-
-## <a name="scale-down-implications"></a>Etkileri ölçeklendirin
-
-Daha önce belirtildiği gibi bekleyen veya çalışan tüm işleri ölçeklendirme işlemi tamamlanma sonlandırılır. Ancak, oluşabilecek aşağı ölçeklendirme için diğer olası etkileri vardır.
-
-## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight ad düğümü, ölçeği sonra güvenli modda kalır.
-
-Kümenizin en az bir çalışan düğümü aşağı küçültme, çalışan düğümleri yamalama nedeniyle veya ölçeklendirme işleminden hemen sonra yeniden başlatılır, Apache HDFS güvenli modda takılırsa haline.
-
-Bu durumun birincil nedeni Hive birkaç kullanmasıdır `scratchdir` dosyaları ve varsayılan olarak her blok üç kopyasını bekliyor ancak olup yalnızca bir yineleme olası en az bir çalışan düğümü için ölçeği azaltın. Dosyaları bir sonucu olarak `scratchdir` haline *under-çoğaltılmış*. Bu hizmetleri ölçeklendirme işleminden sonra yeniden başlatıldığında güvenli modda kalmak HDFS neden olabilir.
-
-Bir ölçeği azaltma girişimi olduğunda, önce diğer çevrimiçi çalışan düğümlerine, HDFS blokları çoğaltmak, fazladan istenmeyen çalışan düğümlerinin yetkisini alma ve ardından güvenli bir şekilde kümenin ölçeğini için Apache Ambari yönetim arabirimleri üzerinde HDInsight'ı kullanır. HDFS, bakım penceresi sırasında güvenli bir moduna girer ve ölçeklendirme tamamlandıktan sonra gelen beklenir. Bu noktada, HDFS güvenli modda takılırsa duruma değil.
-
-HDFS ile yapılandırılmış bir `dfs.replication` 3 ayarlama. Bu nedenle, az üç çalışan düğümü çevrimiçi olduğunda kullanılabilir her dosya bloğun beklenen üç kopya olmadığından geçici dosya bloklarını under-çoğaltılmış.
-
-Güvenli mod dışında HDFS getirmek için bir komut çalıştırabilirsiniz. Geçici dosyalar under-çoğaltılmış olduğundan güvenli mod açıktır tek nedeni olduğunu biliyorsanız, örneğin, ardından güvenli bir şekilde güvenli mod bırakabilirsiniz. Hive geçici karalama dosyaları under-çoğaltılmış dosyalarıdır olmasıdır.
-
-```bash
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
-```
-
-Güvenli mod bırakarak sonra el ile geçici dosyaları kaldırabilir, veya Hive sonunda otomatik olarak temizlenmesi için bekleyin.
+HDFS blok kopya sayısı beklenen kullanılamayan algıladığında, HDFS güvenli moduna girer ve Ambari uyarılar oluşturur. HDFS bir ölçeklendirme işlemi için güvenli moda girer, ancak çoğaltma için gerekli düğüm sayısını algılanmayan olduğundan güvenli mod ardından çıkamayacağı kümeye güvenli modda takılı duruma.
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Güvenli modda açıldığında örnek hataları
 
-* H070 Hive oturum açamıyor. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Dizini oluşturulamıyor** /tmp/hive/hive/819c215c-6d 87 4311 97 c 8-4f0b9d2adcf0. **Adı düğümüdür güvenli modda**. Bildirilen blokları 75 toplam bloğu 87 0.9900 eşiği ulaşmak için ek 12 blokları gerekir. Canlı datanodes 10 sayısı 0 en düşük sayısı sınırına ulaştı. Eşikleri sınıra ulaşıldıktan sonra güvenli mod otomatik olarak kapatılır.
+```
+org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
+```
 
-* Veritabanları alınamıyor bildirimi göndermek için H100 göster: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Hn0-clustername.servername.internal.cloudapp.net:10001 için [clustername.servername hn0. bağlanma internal.cloudapp.NET/1.1.1.1] başarısız oldu: **Bağlantı reddedildi**
-
-* H020 kuramadı hn0 hdisrv.servername.bx.internal.cloudapp .net bağlantısı: 10001: org.apache.thrift.transport.TTransportException: Http http bağlantısı oluşturulamadı:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Hn0-başarısız hdisrv.servername.bx.internal.cloudapp.net:10001 için [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] bağlanın: Bağlantı reddedildi: org.apache.thrift.transport.TTransportException: Http http bağlantısı oluşturulamadı:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Hn0-başarısız hdisrv.servername.bx.internal.cloudapp.net:10001 için [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] bağlanın: **Bağlantı reddedildi**
-
-* Hive günlükleri: [Ana] UYAR: sunucu. HiveServer2 (60 saniye java.lang.RuntimeException içinde yeniden HiveServer2.java:startHiveServer2(442)) – 21, denemede HiveServer2 başlatılırken hata oluştu: Yetkilendirme İlkesi hive Yapılandırması uygulanırken hata oluştu: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Dizini oluşturulamıyor** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Adı düğümüdür güvenli modda**.
-    Bildirilen blokları 0 toplam bloğu 9 0.9900 eşiği ulaşmak için ek 9 blokları gerekir.
-    Canlı datanodes 10 sayısı 0 en düşük sayısı sınırına ulaştı. **Güvenli mod kapalı otomatik olarak eşikleri sınıra ulaşıldıktan sonra**.
-    at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
+```
+org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+```
 
 Adı düğüm günlüklerini gözden geçirebilirsiniz `/var/log/hadoop/hdfs/` yakın bir zamanda ne zaman küme ölçeği, ne zaman güvenli mod girdiği görmek için bir klasör. Günlük dosyaları adlı `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
 Önceki hataların temel nedenini Hive HDFS geçici dosyaları sorgular çalıştırılırken bağlı olduğunu ' dir. HDFS güvenli mod girdiğinde, HDFS'ye yazamaz Hive sorguları çalıştırılamıyor. HDFS geçici dosyaların yerel diske Vm'leri ayrı ayrı çalışan düğümüne bağlanmış ve diğer çalışan düğümlerinde en az üç kopyaya arasında çoğaltılan bulunur.
 
-`hive.exec.scratchdir` Hive parametresinde içinde yapılandırılmış `/etc/hive/conf/hive-site.xml`:
-
-```xml
-<property>
-    <name>hive.exec.scratchdir</name>
-    <value>hdfs://mycluster/tmp/hive</value>
-</property>
-```
-
-### <a name="view-the-health-and-state-of-your-hdfs-file-system"></a>Sistem durumu ve HDFS dosya sisteminin durumunu görüntüleme
-
-Düğüm, güvenli modda olup olmadığını görmek için her ad düğümden bir durum raporu görüntüleyebilirsiniz. Aşağıdaki komutu çalıştırın ve her baş düğümüne SSH uygulayın raporu görüntülemek için:
-
-```
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
-```
-
-![Güvenli modu kapalı](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
-
-> [!NOTE]  
-> `-D` Anahtar, Azure depolama veya Azure Data Lake Storage HDInsight varsayılan dosya sisteminde olduğu için gereklidir. `-D` komutlar yerel HDFS dosya sisteminin karşı yürütmek belirtir.
-
-Ardından, HDFS durumunun ayrıntılarını gösteren bir raporu görüntüleyebilirsiniz:
-
-```
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -report
-```
-
-Bu komut, aşağıdaki beklenen dereceye kadar tüm blokları çoğaltıldığı sağlıklı bir kümede sonuçlanır:
-
-![Güvenli modu kapalı](./media/hdinsight-scaling-best-practices/report.png)
-
-HDFS'yi desteklemesi `fsck` eksik gibi çeşitli dosyalarla tutarsızlıkları denetlemek için komut, bir dosya veya under-çoğaltılmış blokları için engeller. Çalıştırılacak `fsck` karşı komutunu `scratchdir` (geçici boş disk) dosyaları:
-
-```
-hdfs fsck -D 'fs.default.name=hdfs://mycluster/' /tmp/hive/hive
-```
-
-Hiçbir under-çoğaltılmış bloğu ile sağlam bir HDFS dosya sisteminde çalıştırıldığında, aşağıdakine benzer bir çıktı görürsünüz:
-
-```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
-FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:07:01 UTC 2017
-..Status: HEALTHY
- Total size:    53 B
- Total dirs:    5
- Total files:   2
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2 (avg. block size 26 B)
- Minimally replicated blocks:   2 (100.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       0 (0.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     3.0
- Corrupt blocks:                0
- Missing replicas:              0 (0.0 %)
- Number of data-nodes:          4
- Number of racks:               1
-FSCK ended at Thu Jul 06 20:07:01 UTC 2017 in 3 milliseconds
-
-
-The filesystem under path '/tmp/hive/hive' is HEALTHY
-```
-
-Buna karşılık, `fsck` bir HDFS dosya sisteminde bazı under-çoğaltılmış bloklara sahip komut yürütüldüğünde, aşağıdakine benzer bir çıkış:
-
-```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
-FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:13:58 UTC 2017
-.
-/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info:  Under replicated BP-1867508080-10.0.0.21-1499348422953:blk_1073741826_1002. Target Replicas is 3 but found 1 live replica(s), 0 decommissioned replica(s) and 0 decommissioning replica(s).
-.
-/tmp/hive/hive/e7c03964-ff3a-4ee1-aa3c-90637a1f4591/inuse.info: CORRUPT blockpool BP-1867508080-10.0.0.21-1499348422953 block blk_1073741825
-
-/tmp/hive/hive/e7c03964-ff3a-4ee1-aa3c-90637a1f4591/inuse.info: MISSING 1 blocks of total size 26 B.Status: CORRUPT
- Total size:    53 B
- Total dirs:    5
- Total files:   2
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2 (avg. block size 26 B)
-  ********************************
-  UNDER MIN REPL'D BLOCKS:      1 (50.0 %)
-  dfs.namenode.replication.min: 1
-  CORRUPT FILES:        1
-  MISSING BLOCKS:       1
-  MISSING SIZE:         26 B
-  CORRUPT BLOCKS:       1
-  ********************************
- Minimally replicated blocks:   1 (50.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       1 (50.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     0.5
- Corrupt blocks:                1
- Missing replicas:              2 (33.333332 %)
- Number of data-nodes:          1
- Number of racks:               1
-FSCK ended at Thu Jul 06 20:13:58 UTC 2017 in 28 milliseconds
-
-
-The filesystem under path '/tmp/hive/hive' is CORRUPT
-```
-
-Seçerek Ambari UI içinde HDFS durumunu görüntüleyebilirsiniz **HDFS** sol, ya da ile hizmet `https://<HDInsightClusterName>.azurehdinsight.net/#/main/services/HDFS/summary`.
-
-![Ambari HDFS durumu](./media/hdinsight-scaling-best-practices/ambari-hdfs.png)
-
-Bu gibi durumlarda, bir veya daha fazla kritik hata ayrıca etkin ya da bekleme NameNodes görebilirsiniz. NameNode blokları durumunu görüntülemek için uyarı yanındaki NameNode bağlantısını seçin.
-
-![NameNode blokları sistem durumu](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
-
-Blok çoğaltma hataları Kaldır, karalama dosyalarınızı temizlemek için SSH komutu her düğümü'na gidin ve aşağıdaki komutu çalıştırın:
-
-```
-hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
-```
-
-> [!NOTE]  
-> Bazı iş hala devam ediyorsa, bu komut yığın bozabilir.
-
-### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>HDInsight under-çoğaltılmış blokları nedeniyle güvenli modda takılı gelen engelleme
+### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Güvenli modda takılı HDInsight engelleme
 
 Güvenli modda sol HDInsight önlemek için birkaç yol vardır:
 
@@ -270,20 +123,28 @@ Aşağıdaki bölümlerde, bu seçenekler açıklanmaktadır.
 
 Bir çalışan düğümüne ölçeği önce tüm Hive işleri durdurur. Ardından iş yükünüz zamanlanırsa, Hive iş tamamlandıktan sonra ölçeği yürütün.
 
-Bu, geçici dosyaları (varsa) tmp klasöre sayısını en aza indirmenize yardımcı olur.
+Ölçeklendirmeden önce Hive işleri durdurma yardımcı tmp klasörüne karalama dosya sayısı (varsa) en aza indirin.
 
 #### <a name="manually-clean-up-hives-scratch-files"></a>El ile Hive'nın karalama dosyaları Temizle
 
 Güvenli mod aşağı ölçeklendirmeden önce bu dosyaları el ile temizleyebilirsiniz ardından Hive geçici dosyalar ayrıldı kaçının.
 
-1. Hive hizmetlerini durdurmak ve tüm sorgular ve işleri tamamlandı emin olun.
+1. Hangi konuma bakarak Hive geçici dosyalar için kullanılıyor denetleyin `hive.exec.scratchdir` yapılandırma özellik. İçinde bu parametreyi ayarlayın `/etc/hive/conf/hive-site.xml`:
 
-2. İçeriğini listelemek `hdfs://mycluster/tmp/hive/` dosyalar içerip içermediğini görmek için directory:
+    ```xml
+    <property>
+        <name>hive.exec.scratchdir</name>
+        <value>hdfs://mycluster/tmp/hive</value>
+    </property>
+    ```
+
+1. Hive hizmetlerini durdurmak ve tüm sorgular ve işleri tamamlandı emin olun.
+2. Yukarıda bulunan karalama dizininin içeriğini listelemek `hdfs://mycluster/tmp/hive/` dosyalar içerip içermediğini görmek için:
 
     ```
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
-    
+
     Dosyaları mevcut olduğunda örnek çıktı şöyledir:
 
     ```
@@ -303,27 +164,40 @@ Güvenli mod aşağı ölçeklendirmeden önce bu dosyaları el ile temizleyebil
     ```
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
-    
-#### <a name="scale--hdinsight-to-three-worker-nodes"></a>Üç çalışan düğümü için ölçek HDInsight
 
-Güvenli modda takılırsa, kalıcı bir sorundur ve yalnızca üç çalışan düğümü aşağı ölçeklendirme kaçınmak istiyorsanız önceki adımları seçenekler değildir. Bu, bir düğüm için ölçeği azaltma ile karşılaştırıldığında, maliyet kısıtlamaları nedeniyle uygun olmayabilir. Ancak, yalnızca bir çalışan düğümü ile verilerin üç kopyasını kümeye kullanılabilir HDFS garanti edemez.
+#### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>Üç veya daha fazla çalışan düğümleri için ölçek HDInsight
+
+Ardından kümelerinizi güvenli modda sık Üçten az çalışan düğümü aşağı ölçeklendirme takılabilir ve önceki adımlar işe yaramazsa, kümenizi güvenli moda tamamen en az üç çalışan düğümü tutarak giderek önleyebilirsiniz.
+
+Yalnızca bir çalışan düğümüne ölçeği daha yüksek maliyetli üç çalışan düğümü korunuyor, ancak kümenizi güvenli modda takılı engeller.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Güvenli modundan ayrılmak için komutu çalıştırın
 
-Son seçenek, HDFS güvenli moda girer nadir durumlarda için izlemek için ardından bırakın güvenli mod komutu yürütün. Nedeni HDFS girdiğini belirledikten sonra under-çoğaltılmış olan Hive dosyalar nedeniyle güvenli mod, güvenli modundan ayrılmak için aşağıdaki komutu yürütün:
+Son seçenek bırakın güvenli mod bağlamını sağlamaktır. Güvenli mod girme HDFS nedeni Hive dosya eksik çoğaltma nedeniyle olduğunu biliyorsanız, güvenli modundan ayrılmak için aşağıdaki komutu çalıştırabilirsiniz:
 
-* Linux üzerinde HDInsight:
+
+```bash
+hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
+```
+
+### <a name="scale-down-an-apache-hbase-cluster"></a>Bir Apache HBase kümesi ölçeklendirin
+
+Bölge sunucuları, bir ölçeklendirme işlemi tamamlandıktan sonra birkaç dakika içinde otomatik olarak dengelenir. Bölge sunucuları el ile dengelemek için aşağıdaki adımları tamamlayın:
+
+1. HDInsight kümesine SSH kullanarak bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+2. HBase kabuğunu başlatın:
 
     ```bash
-    hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
+    hbase shell
     ```
-    
-* Windows üzerinde HDInsight:
+
+3. Bölge sunucuları el ile dengelemek için aşağıdaki komutu kullanın:
 
     ```bash
-    hdfs dfsadmin -fs hdfs://headnodehost:9000 -safemode leave
+    balancer
     ```
-    
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure HDInsight kümeleri otomatik olarak ölçeklendirme](hdinsight-autoscale-clusters.md)

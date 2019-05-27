@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: b844c93a1f3e83d682b51db6f9854f11b24d82e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127135"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992142"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>SLES azure'da Red Hat Enterprise Linux üzerinde Pacemaker ayarlama
 
@@ -37,7 +37,7 @@ ms.locfileid: "61127135"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 > [!NOTE]
 > SLES Red Hat Enterprise Linux üzerinde pacemaker Azure sınır Aracısı gerekirse bir küme düğümü Çit için kullanır. Bir yük devretme, bir kaynak durdurma başarısız olursa veya küme düğümleri, birbirine artık iletişim kuramıyor 15 dakika kadar sürebilir. Daha fazla bilgi için okuma [Azure RHEL yüksek kullanılabilirlik kümesi üyesi olarak çalışan VM çevrelenmiş olacak şekilde çok uzun zaman alabilir veya çitlemek başarısız / kez genişletme VM kapatılmadan önce](https://access.redhat.com/solutions/3408711)

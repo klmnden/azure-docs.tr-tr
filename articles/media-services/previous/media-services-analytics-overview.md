@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61245269"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991799"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services platformunda medya analizi 
 
@@ -38,7 +38,7 @@ Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemc
 
 ## <a name="media-analytics-services"></a>Medya analizi Hizmetleri
 
-### <a name="indexer"></a>Dizinleyici
+### <a name="indexer"></a>Dizin Oluşturucu
 Azure Media Indexer ile aranabilir içerik ve Kapalı Açıklamalı Altyazı parçaları oluşturma yapabilirsiniz. Azure Media Indexer 2 Önizleme önceki sürüme kıyasla daha hızlı dizinleme ve daha geniş dil desteği vardır. İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince, Portekizce ve Arapça desteklenen diller şunlardır. Ayrıntılı bilgi ve örnekler için bkz. [Azure Media Indexer 2 ile video işleme](media-services-process-content-with-indexer2.md).
 ### <a name="motion-detector"></a>Hareket Algılayıcısı
 Hareket algılayıcısı, sabit bir arka plan ile bir video hareket algılama için kullanabilirsiniz. Bu hatalı pozitif sonuç ekleme işlemlerini kaydedecek tarafından algılanan hareket olayları denetlemek mümkün kılar. Ayrıntılı bilgi ve örnekler için bkz. [hareket algılama için Azure medya analizi](media-services-motion-detection.md).
@@ -58,7 +58,6 @@ Medya analizi, kuruluşların yardımcı olur ve işletmelerin video ait yeni ö
 
 * **Çağrı merkezleri**. Gelişinden bile sosyal medya ile müşteri çağrı merkezi müşteri hizmetlerine işlemleri büyük bir yüzdesini yine de kolaylaştırır. Bu ses verilerinde daha yüksek müşteri memnuniyeti elde etmek için analiz müşteri bilgileri, büyük bir miktarını kodlanır. Media Indexer'ı kullanarak, kuruluşlar, metni ayıklayın ve arama dizinleri ve panolar oluşturun. Ardından bunlar yaygın şikayetlerinden, şikayetlerinin kaynakları ve diğer ilgili verileri zeka ayıklayabilirsiniz.
 * **Kullanıcı tarafından oluşturulan içerik denetleme**. Polis bölümlerine haber medya kuruluşlarının birçok kuruluşun kullanıcı tarafından oluşturulan medya video ve görüntü gibi kabul genel kullanıma yönelik portallar vardır. İçerik hacmi nedeniyle beklenmedik olaylar artırılabilir. Bu senaryolarda, site için içerik etkili el ile incelemeleri yürütmek zordur. Müşteriler, uygun olan içerik odaklanmak için içerik denetimi hizmette güvenebilirsiniz.
-* **Gözetim**. IP kamera kullanımda büyümesi ile gözetim büyüyen bir envanterini video gelir. El ile gözetim video gözden geçirme, yoğun ve İnsan hatası potansiyeli zamanı geldi. Medya analizi için hareket algılama, yüz algılama ve gözden geçirme, yönetme ve türevleri daha kolay oluşturma işlemini kolaylaştırmak için Hyperlapse gibi hizmetleri sağlar.
 
 ## <a name="media-analytics-media-processors"></a>Medya analizi medya işlemcileri
 Bu bölümde, medya analizi medya işlemcileri listeler ve .NET veya REST medya işlemci (MP) nesnesini almak için nasıl kullanılacağını gösterir.
@@ -66,7 +65,6 @@ Bu bölümde, medya analizi medya işlemcileri listeler ve .NET veya REST medya 
 ### <a name="mp-names"></a>MP adı
 * Azure Media Indexer 2-Önizleme
 * Azure Media Indexer
-* Azure Media Hyperlapse
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
@@ -123,10 +121,10 @@ Yanıt:
        ]
     }
 
-## <a name="demos"></a>Demolar
+## <a name="demos"></a>Tanıtımlar
 Bkz: [Azure medya analizi tanıtımları](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>İlgili makaleler

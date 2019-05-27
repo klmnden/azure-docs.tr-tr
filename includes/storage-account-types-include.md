@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477984"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114930"
 ---
 Azure Storage birkaç depolama hesabı türü sunar. Her tür farklı özellikleri destekler ve kendi fiyatlandırma modeline sahiptir. Uygulamalarınız için en iyi olan hesap türünü belirlemek için bir depolama hesabı oluşturmadan önce bu farklılıkları göz önünde bulundurun. Depolama hesabı türleri şunlardır:
 
@@ -27,11 +27,11 @@ Aşağıdaki tabloda, depolama hesabı türleri ve yeteneklerini açıklar:
 
 | Depolama hesabı türü | Desteklenen hizmetler                       | Desteklenen performans katmanları      | Desteklenen erişim katmanları         | Çoğaltma seçenekleri               | Dağıtım modeli<sup>1</sup> | Şifreleme<sup>2</sup> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Genel amaçlı V2   | BLOB, dosya, kuyruk, tablo ve diski       | Standart, Premium<sup>5</sup> | Sık, seyrek arşiv<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager             | Şifreli              |
-| Genel amaçlı V1   | BLOB, dosya, kuyruk, tablo ve diski       | Standart, Premium<sup>5</sup> | Yok                            | LRS, GRS, RA-GRS                  | Resource Manager, Klasik    | Şifreli              |
-| Blok blobu depolama   | BLOB (blok blobları ve ekleme blobları yalnızca) | Premium                       | Yok                            | LRS                               | Resource Manager             | Şifreli              |
-| Dosya deposundan (Önizleme)   | Yalnızca dosyaları | Premium                       | Yok                            | LRS                               | Resource Manager             | Şifreli              |
-| Blob depolama         | BLOB (blok blobları ve ekleme blobları yalnızca) | Standart                      | Sık, seyrek arşiv<sup>3</sup> | LRS, GRS, RA-GRS                  | Resource Manager             | Şifreli              |
+| Genel amaçlı V2   | BLOB, dosya, kuyruk, tablo ve diski       | Standart, Premium<sup>5</sup> | Sık, seyrek arşiv<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager             | Şifrelendi              |
+| Genel amaçlı V1   | BLOB, dosya, kuyruk, tablo ve diski       | Standart, Premium<sup>5</sup> | Yok                            | LRS, GRS, RA-GRS                  | Resource Manager, Klasik    | Şifrelendi              |
+| Blok blobu depolama   | BLOB (blok blobları ve ekleme blobları yalnızca) | Premium                       | Yok                            | LRS                               | Resource Manager             | Şifrelendi              |
+| Dosya deposundan (Önizleme)   | Yalnızca dosyaları | Premium                       | Yok                            | LRS                               | Resource Manager             | Şifrelendi              |
+| Blob depolama alanı         | BLOB (blok blobları ve ekleme blobları yalnızca) | Standart                      | Sık, seyrek arşiv<sup>3</sup> | LRS, GRS, RA-GRS                  | Resource Manager             | Şifrelendi              |
 
 <sup>1</sup>Azure Resource Manager dağıtım modelini kullanarak önerilir. Depolama hesapları Klasik dağıtım modeli kullanılarak yine de bazı yerlerde oluşturulabilir ve mevcut Klasik hesapları desteklemeye devam eder. Daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım: Dağıtım modellerini ve kaynaklarınızın durumunu anlama](../articles/azure-resource-manager/resource-manager-deployment-model.md).
 

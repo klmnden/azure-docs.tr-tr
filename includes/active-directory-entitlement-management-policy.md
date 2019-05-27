@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866426"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113401"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>İlke: Dizininizdeki kullanıcılar için
 
@@ -34,6 +34,9 @@ ms.locfileid: "64866426"
 ### <a name="policy-for-users-not-in-your-directory"></a>İlke: Kullanıcılar için dizin içinde değil
 
 İlkeniz, dizininizdeki bu erişim paket isteyebileceği olmayan kullanıcılar için olmasını istiyorsanız şu adımları izleyin. Dizinleri izin verilmesi için yapılandırılmalıdır **kuruluş ilişkileri işbirliği kısıtlamaları** ayarları.
+
+> [!NOTE]
+> Henüz dizininizin, istek onaylanamıyor veya otomatik olarak onaylanan'de bir kullanıcı için bir Konuk kullanıcı hesabı oluşturulur. Konuk davet edilir, ancak bir davet e-posta almayacaksınız. Bunun yerine, kendi erişim paket atamasını gönderildiğinde bir e-posta alırsınız. Son kullanıcıların atama süresi doldu veya iptal edilmiş olduğundan varsayılan olarak, Konuk kullanıcının, artık sonraki herhangi bir erişim paket atamaları Konuk kullanıcı hesabı oturum açma engellendi ve silindi, vardır. Hiçbir erişim paket atamalarını olsa bile Konuk kullanıcılar dizininizde önbelleğinde kalıcı olarak kalması olmasını istiyorsanız, hak yönetimi yapılandırmanız için ayarları değiştirebilirsiniz.
 
 1. İçinde **erişim isteğinde bulunabileceği kullanıcılar** bölümünden **sizin dizininizdeki kullanıcılar için**.
 
@@ -66,7 +69,7 @@ ms.locfileid: "64866426"
 
 1. Aşağı atla [İlkesi: Sona erme](#policy-expiration) bölümü.
 
-### <a name="policy-request"></a>İlke: İstek
+### <a name="policy-request"></a>İlke: İste
 
 Kullanıcıların erişim paket istediğinde isteği bölümünde onay ayarlarını belirtin.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926392"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991360"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -246,7 +246,7 @@ Ağ üzerinden bir dosya kopyaladığınızda, dosya kaynak bilgisayarda şifres
 ### <a name="cause"></a>Nedeni
 Şifreleme Dosya Sistemi (EFS) kullanıyorsanız, bu sorun oluşabilir. Azure dosyaları için BitLocker ile şifrelenmiş dosya kopyalanabilir. Ancak, Azure dosyaları NTFS EFS desteklemez.
 
-### <a name="workaround"></a>Geçici çözüm
+### <a name="workaround"></a>Geçici Çözüm
 Ağ üzerinden dosya kopyalamak için önce şifresini çözmelisiniz. Aşağıdaki yöntemlerden birini kullanın:
 
 - Kullanım **/d kopyalama** komutu. Hedef konumda şifresi çözülen dosyalar olarak kaydedilecek şifrelenmiş dosyaları sağlar.
@@ -284,6 +284,8 @@ Hata AadDsTenantNotFound olur, çalıştığınızda [Azure dosyaları için Azu
 ### <a name="solution"></a>Çözüm
 
 AAD DS AAD kiracısı için Dağıtılmış depolama hesabınızın abonelik etkinleştirin. Yönetilen bir etki alanı oluşturmak için AAD Kiracı yönetici ayrıcalıkları gerekir. Azure AD Kiracı yöneticisi değilseniz, yöneticisine başvurun ve adım adım yönergeleri [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
 Hala yardıma ihtiyacınız varsa [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.

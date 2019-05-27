@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154203"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000115"
 ---
 # <a name="sql-data-warehouse-workload-classification"></a>SQL veri ambarı iş yükü sınıflandırma
 
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sınıflandırıcı oluşturmaya başlamak için bkz: [iş YÜKÜ SINIFLANDIRICI oluşturma (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  SQL veri ambarı iş yükü sınıflandırma ve önemi hakkında daha fazla bilgi için bkz. [iş yükü sınıflandırıcı oluşturma](quickstart-create-a-workload-classifier-tsql.md) ve [SQL veri ambarı önem](sql-data-warehouse-workload-importance.md). Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.
+- Sınıflandırıcı oluşturma hakkında daha fazla bilgi için bkz. [iş YÜKÜ SINIFLANDIRICI oluşturma (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Bu hızlı başlangıçta bir iş yükü sınıflandırıcı oluşturma konusunda bkz [iş yükü sınıflandırıcı oluşturma](quickstart-create-a-workload-classifier-tsql.md).
+- Nasıl yapılır makalelerine bakın [iş yükü önem yapılandırma](sql-data-warehouse-how-to-configure-workload-importance.md) ve nasıl [yönetme ve izleme iş yükü yönetimi](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Bkz: [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sorgular ve atanan önem görüntülemek için.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60260999"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Öğretici: Land Gorilla istemci ile Azure Active Directory Tümleştirme
 
@@ -87,7 +87,7 @@ Azure AD'de Land Gorilla istemci tümleştirmesini yapılandırmak için Land Go
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Land Gorilla "Britta Simon" adlı bir test kullanıcı tabanlı istemci test.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Land Gorilla "b adlı bir test kullanıcı tabanlı istemcisiyle test etme Simon".
 
 Tek iş için oturum açma için Azure AD ne Land Gorilla istemci karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı Land Gorilla istemcisinde arasında bir bağlantı ilişki kurulması gerekir.
 
@@ -97,8 +97,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Land Gorilla istemcisiyle test et
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma sınırlı grubu ile test etmek için.
-1. **[Bir kara Gorilla test kullanıcısı oluşturma](#creating-a-land-gorilla-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Bir kara Gorilla test kullanıcısı oluşturma](#creating-a-land-gorilla-test-user)**  - Azure AD çoklu oturum açma b Simon ile test etmek için.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak b Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
@@ -150,7 +150,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleşt
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, bir test kullanıcısı Britta Simon adlı Azure Yönetim Portalı'nda oluşturmaktır.
+Bu bölümün amacı, bir test kullanıcısı b Simon adlı Azure Yönetim Portalı'nda oluşturmaktır.
 
 ![Azure AD kullanıcısı oluşturun][100]
 
@@ -172,9 +172,9 @@ Bu bölümün amacı, bir test kullanıcısı Britta Simon adlı Azure Yönetim 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **b Simon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** B. simon'un.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -186,11 +186,11 @@ Lütfen birlikte çalışarak [Land Gorilla Destek ekibine](https://www.landgori
     
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Azure çoklu oturum açma Land Gorilla istemciye erişim vererek kullanmak Britta Simon etkinleştirin.
+Bu bölümde, B. Land Gorilla istemci erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı Ata][200] 
 
-**Britta Simon Land Gorilla istemciye atamak için aşağıdaki adımları gerçekleştirin:**
+**B. Simon Land Gorilla istemciye atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure Yönetim Portalı'nda uygulamaları görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
@@ -208,7 +208,7 @@ Bu bölümde, Azure çoklu oturum açma Land Gorilla istemciye erişim vererek k
 
     ![Kullanıcı Ata][203]
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **b Simon** kullanıcıları listesinde.
 
 1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
