@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120679"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908133"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Bir Azure SQL veritabanı'na bağlanmak için Azure işlevleri'ni kullanın
 
-Bu makalede bir Azure SQL veritabanı örneğine bağlanan zamanlanmış bir iş oluşturmak için Azure işlevleri kullanmayı gösterir. İşlev kodu bir veritabanı tablosundaki satırları siler. Yeni C# işlevi, bir Visual Studio 2017'de önceden tanımlı bir zamanlayıcı tetikleyici şablonunu temel alarak oluşturulur. Bu senaryoyu desteklemek için ayrıca bir veritabanı bağlantı dizesi bir işlev uygulaması uygulama ayarı olarak ayarlamanız gerekir. Bu senaryo, veritabanında bir toplu işlemi kullanır. 
+Bu makalede bir Azure SQL veritabanı örneğine bağlanan zamanlanmış bir iş oluşturmak için Azure işlevleri kullanmayı gösterir. İşlev kodu bir veritabanı tablosundaki satırları siler. Yeni C# işlevi bir Visual Studio 2019 önceden tanımlı bir zamanlayıcı tetikleyicisi şablonunda temel alınarak oluşturulur. Bu senaryoyu desteklemek için ayrıca bir veritabanı bağlantı dizesi bir işlev uygulaması uygulama ayarı olarak ayarlamanız gerekir. Bu senaryo, veritabanında bir toplu işlemi kullanır. 
 
 Bu çalışma ilk deneyiminizi ise C# İşlevler, kimler [Azure işlevleri C# Geliştirici Başvurusu](functions-dotnet-class-library.md).
 
@@ -64,7 +64,7 @@ Daha önce uygulamanızı Azure'a yayımladığınız gerekir. Bunu zaten bunu y
 
 SqlClient kitaplığını içeren NuGet paketini eklemeniz gerekir. Bu veri erişim kitaplığı, bir SQL veritabanına bağlanmak için gereklidir.
 
-1. Visual Studio 2017'de yerel işlev uygulaması projenizi açın.
+1. Visual Studio 2019 içinde yerel bir işlev uygulaması projenizi açın.
 
 1. Çözüm Gezgini'nde işlevi uygulama projesine sağ tıklayın ve seçin **NuGet paketlerini Yönet**.
 

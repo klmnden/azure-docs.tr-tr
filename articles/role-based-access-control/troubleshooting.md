@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344436"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921150"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>RBAC, Azure kaynakları için sorun giderme
 
@@ -36,7 +36,7 @@ Azure portalı ve rolleri erişimi sorunlarını giderme kullanırken beklenmesi
 - Özel rol öğreticileri kullanarak özel bir rol oluşturmak için adımları gerekirse bkz [Azure PowerShell](tutorial-custom-role-powershell.md) veya [Azure CLI](tutorial-custom-role-cli.md).
 - Mevcut bir özel rolü güncelleştirme bulamıyorsanız, şu anda sahip rolü atanmış bir kullanıcı hesabıyla oturum açtığınız denetleyin `Microsoft.Authorization/roleDefinition/write` izni gibi [sahibi](built-in-roles.md#owner) veya [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator).
 - Özel rolü silemiyor ve "Role başvuran mevcut rol atamaları var (kod: RoleDefinitionHasAssignments)" hata iletisiyle karşılaşıyorsanız, özel rolü kullanan rol atamaları mevcuttur. Bu rol atamalarını kaldırın ve özel rolü silmeyi tekrar deneyin.
-- Yeni bir özel rol oluşturmaya çalıştığınızda "Rol tanımı sınırı aşıldı. Daha fazla hiçbir rol tanımları oluşturulabilir (kod: RoleDefinitionLimitExceeded) "yeni bir özel rol oluşturmaya çalıştığınızda, kullanılmayan herhangi bir özel rolü silme. Azure kadar destekler **2000** bir kiracıdaki özel roller.
+- Yeni bir özel rol oluşturmaya çalıştığınızda "Rol tanımı sınırı aşıldı. Daha fazla hiçbir rol tanımları oluşturulabilir (kod: RoleDefinitionLimitExceeded) "yeni bir özel rol oluşturmaya çalıştığınızda, kullanılmayan herhangi bir özel rolü silme. Azure kadar destekler **5000** bir kiracıdaki özel roller. (Azure kamu, Azure Almanya ve Azure Çin 21Vianet gibi özel Bulutlar için özel roller 2000 sınır yoktur.)
 - "İstemci bağlı abonelik bulunamadı ancak kapsamında '/ subscriptions / {subscriptionıd}', 'Microsoft.Authorization/roleDefinitions/write' eylemini gerçekleştirme izni olan" benzer bir hata alırsanız bir özel rol güncelleştirmeye çalıştığınızda, denetleyin olup olmadığını bir veya daha fazla [atanabilir kapsamlarla](role-definitions.md#assignablescopes) kiracıda silinmiş. Kapsam silinmişse, şu anda bir self servis çözüm olmadığı için destek bileti oluşturun.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Abonelikler kiracılar arasında taşınırken RBAC koşullarını kurtarma
@@ -108,7 +108,7 @@ Bu öğeleri gerektiren **yazma** erişim **sanal makine**:
 * Uç Noktalar  
 * IP adresleri  
 * Diskler  
-* Uzantılar  
+* Genişletmeler  
 
 Bunlar gerektirir **yazma** hem erişim **sanal makine**ve **kaynak grubu** (etki alanı adı ile birlikte) BT'nin zamanı:  
 

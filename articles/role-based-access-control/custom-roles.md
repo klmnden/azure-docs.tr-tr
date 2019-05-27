@@ -11,20 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24c8dd49667a359bb0fe7051dd801062f37f3db9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 25f0258b9e6b11e505bd48222dfbca176f963a5e
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718424"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921054"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure kaynakları için özel roller
 
-Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Yerleşik roller gibi yalnızca kullanıcıları, grupları ve abonelik, kaynak grubu ve kaynak kapsamları hizmet sorumluları için özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) dizinde depolanır ve abonelikler arasında paylaşılabilir. Her bir dizinde en fazla 2000 özel roller olabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API'yi kullanarak oluşturulabilir.
+Varsa [Azure kaynakları için yerleşik roller](built-in-roles.md) kuruluşunuzun belirli gereksinimlerine uymayan, kendi özel rollerinizi oluşturabilirsiniz. Yerleşik roller gibi yalnızca kullanıcıları, grupları ve abonelik, kaynak grubu ve kaynak kapsamları hizmet sorumluları için özel roller atayabilirsiniz.
+
+Özel roller, bir Azure Active Directory (Azure AD) dizinde depolanır ve abonelikler arasında paylaşılabilir. Her dizini kadar olabilir **5000** özel roller. (Azure kamu, Azure Almanya ve Azure Çin 21Vianet gibi özel Bulutlar için özel roller 2000 sınır yoktur.) Özel roller, Azure PowerShell, Azure CLI veya REST API'yi kullanarak oluşturulabilir.
 
 ## <a name="custom-role-example"></a>Özel rol örneği
 
@@ -107,7 +109,7 @@ Yerleşik roller'olduğu gibi `AssignableScopes` özellik kapsamları rol atama 
 | Görev | İşlem | Açıklama |
 | --- | --- | --- |
 | Özel rol oluşturma/silme | `Microsoft.Authorization/ roleDefinitions/write` | Bu işlem tüm izni verilen kullanıcıları `AssignableScopes` özel rolü (Sil bu kapsamları kullanmak için özel roller ya da oluşturabilmeleri). Örneğin, [sahipleri](built-in-roles.md#owner) ve [kullanıcı erişim yöneticileri](built-in-roles.md#user-access-administrator) abonelikler, kaynak grupları ve kaynaklar. |
-| Özel rolü güncelleştirme | `Microsoft.Authorization/ roleDefinitions/write` | Bu işlem tüm izni verilen kullanıcıları `AssignableScopes` özel rolü bu kapsamlarda özel roller güncelleştirebilirsiniz. Örneğin, [sahipleri](built-in-roles.md#owner) ve [kullanıcı erişim yöneticileri](built-in-roles.md#user-access-administrator) abonelikler, kaynak grupları ve kaynaklar. |
+| Özel bir rolü güncelleştirme | `Microsoft.Authorization/ roleDefinitions/write` | Bu işlem tüm izni verilen kullanıcıları `AssignableScopes` özel rolü bu kapsamlarda özel roller güncelleştirebilirsiniz. Örneğin, [sahipleri](built-in-roles.md#owner) ve [kullanıcı erişim yöneticileri](built-in-roles.md#user-access-administrator) abonelikler, kaynak grupları ve kaynaklar. |
 | Özel bir rol görüntüleyin | `Microsoft.Authorization/ roleDefinitions/read` | Bu işlem bir kapsamda izni verilen kullanıcıları bu kapsamda atama için uygun olan özel roller görüntüleyebilirsiniz. Tüm yerleşik roller özel roller atama için kullanılabilir olmasını sağlar. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

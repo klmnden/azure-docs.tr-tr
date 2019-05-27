@@ -9,11 +9,11 @@ ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301772"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116960"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Portalda bakım için zamanlanmış Vm'leri görüntüleme
 

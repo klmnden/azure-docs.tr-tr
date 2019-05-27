@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148841"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906780"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama 
 Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerini doğrudan bir AKS kümesi veya Azure aboneliğindeki tüm AKS kümeleri, iki perspektiften, Azure Kubernetes Service (AKS) kümesinin ve iş yükünü izlemek için kullanabilirsiniz İzleyici. Belirli bir AKS kümesi izlerken Azure Container Instances'a (ACI) görüntüleme olanağı da sağlar.
@@ -26,10 +26,6 @@ Kapsayıcılar için Azure İzleyici ile sistem durumu ve performans grafiklerin
 Bu makalede, iki perspektiften ve hızlı bir şekilde değerlendirmenize, araştırmanıza ve algılanan sorunları gidermek nasıl yardımcı olduğunu arasında deneyim anlamanıza yardımcı olur.
 
 Kapsayıcılar için Azure İzleyici'ı etkinleştirme hakkında daha fazla bilgi için bkz: [kapsayıcılar için yerleşik Azure İzleyici](container-insights-onboard.md).
-
-> [!IMPORTANT]
-> Kapsayıcı desteği için Windows Server 2019 çalıştıran bir AKS kümesi izlemek için azure İzleyici şu anda genel Önizleme aşamasındadır.
-> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure İzleyici, Linux ve Windows Server, Aboneliklerdeki kaynak grupları arasında dağıtılan 2019'nı çalıştıran tüm izlenen AKS kümeleri sistem durumunu gösteren bir çoklu küme görünümü sağlar.  Bu çözüm tarafından izlenmeyen AKS kümeleri bulunan gösterir. Küme durumu hemen anlayabilir ve buradan, düğüm ve denetleyici performans page DOWN ayrıntıya veya küme için performans grafikleri görmek için gidin.  Bulunan ve izlenmeyen olarak tanımlanan AKS kümeler için herhangi bir zamanda bu küme için izlemeyi etkinleştirebilirsiniz.  
 
@@ -135,7 +131,7 @@ Uygulayabileceğiniz [bölme](../platform/metrics-charts.md#apply-splitting-to-a
 
 * Denetleyici
 * Kubernetes ad alanı
-* Node
+* Düğüm
 * Aşama
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Düğümler, denetleyicilere ve kapsayıcı durumunun analiz edin

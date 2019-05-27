@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761684"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916030"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlayabilmemiz ve akış birimleri
 
@@ -51,7 +51,7 @@ Genel olarak, kullanmayan sorgular için 6 SUs başlatmak için en iyi yöntem o
 SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [Verimliliği artırmak için Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Kaç su seçerek belirli bir işin girişler için bölümlendirme yapılandırmasına ve iş için tanımlanan sorguya bağlıdır için gereklidir. SUs kota bir iş için en fazla seçebilirsiniz. Varsayılan olarak, her Azure aboneliği, belirli bir bölgede bir kota analytics işleri için en fazla 200 sus'tan sahiptir. Aboneliğiniz bu kotayı aşan SUs artırmak için bağlantı [Microsoft Support](https://support.microsoft.com). İş başına SUs için geçerli değerler şunlardır: 1, 3, 6 ve 6'lık artışlarla.
+> Kaç su seçerek belirli bir işin girişler için bölümlendirme yapılandırmasına ve iş için tanımlanan sorguya bağlıdır için gereklidir. SUs kota bir iş için en fazla seçebilirsiniz. Varsayılan olarak, her Azure aboneliği, belirli bir bölgede bir kota analytics işleri için en fazla 500 sus'tan sahiptir. Aboneliğiniz bu kotayı aşan SUs artırmak için bağlantı [Microsoft Support](https://support.microsoft.com). İş başına SUs için geçerli değerler şunlardır: 1, 3, 6 ve 6'lık artışlarla.
 
 ## <a name="factors-that-increase-su-utilization"></a>SU kullanım yüzdesi artırmak faktörleri 
 

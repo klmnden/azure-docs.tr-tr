@@ -15,13 +15,13 @@ ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 387adcdf8bdabf90bc1e691a7a8ec9ae0a8e90dc
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993342"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121832"
 ---
-## <a name="register-your-application"></a>Uygulamanızı kaydetme
+## <a name="register-your-application"></a>Uygulamanızı kaydedin
 
 1. Oturum [Azure portalında](https://portal.azure.com/) bir uygulamayı kaydetme.
 1. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.

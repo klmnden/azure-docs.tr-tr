@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730608"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872804"
 ---
 # <a name="what-are-durable-functions"></a>Dayanıklı işlevler nelerdir?
 
@@ -49,9 +49,9 @@ Dayanıklı işlevler şu anda aşağıdaki dilleri desteklemektedir:
 
 Dayanıklı işlevler sahip tüm destekleyici bir hedef [Azure işlevleri diller](../supported-languages.md). Bkz: [dayanıklı işlevler listesi sorunları](https://github.com/Azure/azure-functions-durable-extension/issues) ek dilleri desteklemek için iş en son durumu.
 
-Azure işlevleri gibi dayanıklı işlevler kullanarak geliştirmenize yardımcı olacak şablonlar vardır [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md)ve [Azure portalında](durable-functions-create-portal.md).
+Azure işlevleri gibi dayanıklı işlevler kullanarak geliştirmenize yardımcı olacak şablonlar vardır [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md)ve [Azure portalında](durable-functions-create-portal.md).
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Dayanıklı işlevler faturalandırılır Azure işlevleri ile aynı. Daha fazla bilgi için [Azure işlevleri fiyatlandırması](https://azure.microsoft.com/pricing/details/functions/).
 
@@ -59,7 +59,7 @@ Dayanıklı işlevler faturalandırılır Azure işlevleri ile aynı. Daha fazla
 
 Bu dile özgü hızlı başlangıç öğreticileri birini tamamlayarak 10 dakika içinde dayanıklı işlevler ile başlayabilirsiniz:
 
-* [C#Visual Studio 2017'yi kullanarak](durable-functions-create-first-csharp.md)
+* [C#Visual Studio 2019 kullanma](durable-functions-create-first-csharp.md)
 * [Visual Studio Code kullanarak JavaScript](quickstart-js-vscode.md)
 
 Her iki Hızlı başlangıçlarda yerel olarak oluşturabilir ve bir "hello world" dayanıklı işlevi test etme. Ardından işlev kodunu Azure’da yayımlayacaksınız. Oluşturduğunuz işlev düzenler ve diğer işlevlere yapılan çağrıları zincir.

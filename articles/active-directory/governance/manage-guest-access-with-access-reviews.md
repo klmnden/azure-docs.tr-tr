@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350975"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113253"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD ile konuk erişimini yönetme erişim gözden geçirmeleri
 
@@ -31,16 +31,13 @@ Azure Active Directory'ye (Azure AD), kolayca işbirliği kuruluş sınırların
 Ayrıca, konuk kullanıcıların uygun erişime sahip kolayca sağlayabilirsiniz. Konuklar, kendileri veya konuklar erişim için bir erişim gözden geçirmesi ve yeniden onaylamasını (veya işleyişinin doğrular) katılmak için bir karar verenden sorabilirsiniz. Gözden geçirenler, Azure AD önerilerine dayanarak her kullanıcının erişiminin devam edip etmemesine yönelik girişler ekleyebilir. Erişim gözden geçirmesi tamamlandığında, sonra değişiklikleri yapın ve artık ihtiyaç duymayan konukların erişimini kaldırmak.
 
 > [!NOTE]
-> Bu belge, konuk kullanıcıların erişimini gözden geçirme üzerinde odaklanır. Tüm kullanıcıların erişim, yalnızca Konukları gözden geçirmek istiyorsanız bkz [erişim gözden geçirmeleriyle kullanıcı erişimini yönetme](manage-user-access-with-access-reviews.md). Genel yönetici gibi yönetim rollerindeki kullanıcı üyeliklerini gözden geçirmek istiyorsanız bkz [Azure AD Privileged Identity Management'ta erişim gözden geçirmesi Başlat](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> Bu belge, konuk kullanıcıların erişimini gözden geçirme üzerinde odaklanır. Tüm kullanıcıların erişim, yalnızca Konukları gözden geçirmek istiyorsanız bkz [erişim gözden geçirmeleriyle kullanıcı erişimini yönetme](manage-user-access-with-access-reviews.md). Genel yönetici gibi yönetim rollerindeki kullanıcı üyeliklerini gözden geçirmek istiyorsanız bkz [Azure AD Privileged Identity Management'ta erişim gözden geçirmesi Başlat](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Önkoşullar 
+## <a name="prerequisites"></a>Önkoşullar
 
+- Azure AD Premium P2
 
-Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../fundamentals/active-directory-whatis.md). Bir gözden geçirme oluşturmak, gözden geçirme tamamlamak veya erişimlerini doğrulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir. 
-
-Ayrıca kendi erişimini gözden geçirmek için konuk kullanıcıları sorabilir. Kendi kuruluşunuzun kullanıcılardan birinin atadığınız her Ücretli Azure AD Premium P2 lisansı için B2B, dış kullanıcı indirimi altında en fazla beş Konuk kullanıcıları davet etmek için kullanabilirsiniz. Bu konuk kullanıcılara Azure AD Premium P2 özellikleri de kullanabilirsiniz. Daha fazla bilgi için [Azure AD B2B işbirliği lisanslama](../b2b/licensing-guidance.md).
+Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Oluşturma ve konuklar için erişim gözden geçirmesi gerçekleştirme
 

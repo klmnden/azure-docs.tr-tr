@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713740"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873428"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma
 
@@ -82,7 +82,7 @@ Bu makale, hızlandırılmış ağ ile Azure CLI kullanarak bir sanal makine olu
 Sanal makine oluşturulduktan sonra hızlandırılmış ağ etkin yönergeleri izleyerek doğrulayabilirsiniz [hızlandırılmış ağ etkin olduğunu onaylayın](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="cli-creation"></a>CLI oluşturma
-### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
 
 Son yükleme [Azure CLI](/cli/azure/install-azure-cli) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVm*.
 
@@ -224,6 +224,10 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 Hızlandırılmış ağ, sanal Makineniz için etkinleştirilmiştir.
+
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Dinamik bağlama ve sanal işlev iptali işleme 
+Uygulamalar, VM ile sunulan yapay NIC üzerinde çalıştırmanız gerekir. Uygulamayı doğrudan VF NIC üzerinde çalışıyorsa, almaz **tüm** yapay arabirimi üzerinde bazı paketler görünmesini olduğundan VM gidecek paketler.
+Yapay NIC üzerinde bir uygulama çalıştırıyorsanız, uygulamanın aldığı garanti **tüm** kendisine gidecek paketler. Ana bilgisayarın bakımda olduğu zaman VF iptal edilir olsa da uygulama çalışmaya devam eder, emin olur. Yapay NIC'ye bağlama uygulamaları bir **zorunlu** yararlanarak tüm uygulamalar için gereksinim **hızlandırılmış ağ**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Hızlandırılmış ağ mevcut vm'lerde etkinleştir
 Hızlandırılmış ağ olmayan bir VM oluşturduysanız, varolan bir VM'yi bu özelliği etkinleştirmek mümkündür.  Sanal Makineyi hızlandırılmış ağ, yukarıda özetlenen aşağıdaki gereksinimleri karşılayarak desteklemelidir:

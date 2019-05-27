@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 883042e7c8abb43338c55a76bba3d64844ce1c56
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604351"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66179822"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service için Linux Java uygulaması yapılandırma
 
@@ -65,7 +65,7 @@ Yerleşik Java görüntüleri temel alan [Alpine Linux](https://alpine-linux.rea
 
 Linux için Azure App Service kutusu ayarlama ve Azure portalı ve CLI aracılığıyla özelleştirmeyi destekler. Java'ya özgü web uygulama yapılandırması için aşağıdaki makaleleri inceleyin:
 
-- [App Service ayarlarını yapılandırma](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Uygulama ayarlarını yapılandırma](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [Özel etki alanını ayarlama](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [SSL'yi etkinleştirme](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [CDN ekleme](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -73,7 +73,7 @@ Linux için Azure App Service kutusu ayarlama ve Azure portalı ve CLI aracılı
 
 ### <a name="set-java-runtime-options"></a>Java Çalışma zamanı seçenekleri
 
-Tomcat ve Java SE ortamlarında ayrılan bellek veya diğer JVM çalışma zamanı seçenekleri ayarlamak için oluşturun bir [uygulama ayarı](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) adlı `JAVA_OPTS` seçenekleri. Başlatıldığında app Service Linux Java Çalışma zamanı için bu ayarı bir ortam değişkeni geçirir.
+Tomcat ve Java SE ortamlarında ayrılan bellek veya diğer JVM çalışma zamanı seçenekleri ayarlamak için oluşturun bir [uygulama ayarı](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) adlı `JAVA_OPTS` seçenekleri. Başlatıldığında app Service Linux Java Çalışma zamanı için bu ayarı bir ortam değişkeni geçirir.
 
 Azure portalında altında **uygulama ayarları** adlı yeni bir uygulama ayarı için web app oluşturmak `JAVA_OPTS` gibi ek ayarlar içeren `-Xms512m -Xmx1204m`.
 
@@ -140,11 +140,45 @@ Linux için App Service'te çalışan Java uygulamalarını kümesinin aynısın
 
 ### <a name="authenticate-users"></a>Kullanıcıların kimliklerini doğrulama
 
-Azure portalında uygulama kimlik doğrulamasını ayarlama **kimlik doğrulama ve yetkilendirme** seçeneği. Burada, Azure Active Directory veya Facebook, Google veya GitHub gibi sosyal oturum açma bilgilerini kullanarak kimlik doğrulamasını etkinleştirebilirsiniz. Azure portal yapılandırması yalnızca tek bir kimlik doğrulama sağlayıcısı yapılandırırken çalışır. Daha fazla bilgi için [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) ve diğer kimlik sağlayıcıları için ilgili makaleler.
+Azure portalında uygulama kimlik doğrulamasını ayarlama **kimlik doğrulama ve yetkilendirme** seçeneği. Burada, Azure Active Directory veya Facebook, Google veya GitHub gibi sosyal oturum açma bilgilerini kullanarak kimlik doğrulamasını etkinleştirebilirsiniz. Azure portal yapılandırması yalnızca tek bir kimlik doğrulama sağlayıcısı yapılandırırken çalışır. Daha fazla bilgi için [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) ve diğer kimlik sağlayıcıları için ilgili makaleler. Birden çok oturum açma sağlayıcısı etkinleştirmeniz gerekirse, yönergeleri izleyin [App Service kimlik doğrulaması özelleştirme](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) makalesi.
 
-Birden çok oturum açma sağlayıcısı etkinleştirmeniz gerekirse, yönergeleri izleyin [App Service kimlik doğrulaması özelleştirme](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) makalesi.
+#### <a name="tomcat"></a>Tomcat
 
- Spring önyükleme geliştiriciler [Azure Active Directory Spring Boot Başlatıcı](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) tanıdık Spring güvenlik açıklamalarını ve API'leri kullanarak uygulamaların güvenliğini sağlamak için. Maksimum boyut olarak artırıldığından emin olun, `application.properties` dosya. Değerini öneririz `16384`.
+Tomcat uygulama kullanıcının erişip talep doğrudan sorumlusu atama tarafından Tomcat servlet nesnesinden bir harita nesnesi. Eşlem nesnesine her talep türünü talep türü için bir koleksiyona eşler. Aşağıdaki kodda `request` örneğidir `HttpServletRequest`.
+
+```java
+Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
+```
+
+Şimdi, inceleyebilirsiniz `Map` herhangi belirli bir talep nesnesi. Örneğin, aşağıdaki kod parçacığı tüm talep türleri yinelenir ve her koleksiyonun içeriğini yazdırır.
+
+```java
+for (Object key : map.keySet()) {
+        Object value = map.get(key);
+        if (value != null && value instanceof Collection {
+            Collection claims = (Collection) value;
+            for (Object claim : claims) {
+                System.out.println(claims);
+            }
+        }
+    }
+```
+
+Kullanıcıların oturumu kapatın ve diğer eylemleri gerçekleştirmek için lütfen belgelere bakın [App Service kimlik doğrulaması ve yetkilendirme kullanım](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Ayrıca Tomcat resmi belgelerine olan [HttpServletRequest arabirimi](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) ve yöntemleri. Yöntemleri de hydrated aşağıdaki servlet App Service yapılandırmanızı temel alarak:
+
+```java
+public boolean isSecure()
+public String getRemoteAddr()
+public String getRemoteHost()
+public String getScheme()
+public int getServerPort()
+```
+
+Bu özellik devre dışı bırakmak için adlı bir uygulama ayarı oluşturmak `WEBSITE_AUTH_SKIP_PRINCIPAL` değeriyle `1`. App Service tarafından eklenen tüm servlet filtreleri devre dışı bırakmak için adlı bir ayar oluşturmak `WEBSITE_SKIP_FILTERS` değeriyle `1`.
+
+#### <a name="spring-boot"></a>Spring Boot
+
+Spring önyükleme geliştiriciler [Azure Active Directory Spring Boot Başlatıcı](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) tanıdık Spring güvenlik açıklamalarını ve API'leri kullanarak uygulamaların güvenliğini sağlamak için. Maksimum boyut olarak artırıldığından emin olun, `application.properties` dosya. Değerini öneririz `16384`.
 
 ### <a name="configure-tlsssl"></a>TLS/SSL'yi yapılandırma
 
@@ -232,7 +266,7 @@ Tomcat, Java veritabanı bağlantısı (JDBC) veya Java Kalıcılık API (JPA) k
 </appSettings>
 ```
 
-Veya "Uygulama ayarlar" dikey penceresinde Azure portalında ortam değişkenlerini ayarlayın.
+Veya ortam değişkenlerini kümesinde **yapılandırma** > **uygulama ayarları** Azure portalında sayfası.
 
 Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan tüm uygulamalar için kullanılabilir olup olmayacağını belirler.
 
@@ -327,10 +361,7 @@ Son olarak, sürücü jar dosyaları dışındaki Tomcat sınıf yerleştirin ve
 
 Spring Boot uygulamalarda veri kaynaklarına bağlanmak için bağlantı dizeleri oluşturmak ve bunları ekleme öneririz, `application.properties` dosya.
 
-1. App Service dikey penceresinde "Uygulama ayarları" bölümünde, dize için bir ad ayarlayın, JDBC bağlantı dizesi değer alanına yapıştırın ve türü "Özel" olarak ayarlayın. İsteğe bağlı olarak, bu bağlantı dizesini yuva ayarı olarak ayarlayabilirsiniz.
-
-    ! [Bir bağlantı dizesi portalda oluşturuluyor.]
-    
+1. App Service sayfası "Yapılandırma" bölümünde, dize için bir ad ayarlayın, JDBC bağlantı dizesi değer alanına yapıştırın ve türü "Özel" olarak ayarlayın. İsteğe bağlı olarak, bu bağlantı dizesini yuva ayarı olarak ayarlayabilirsiniz.
 
     Bu bağlantı dizesini uygulamamız adlı bir ortam değişkeni olarak erişilebilir `CUSTOMCONNSTR_<your-string-name>`. Örneğin, yukarıda oluşturduğumuz bağlantı dizesini adlandırılacağını `CUSTOMCONNSTR_exampledb`.
 
@@ -383,13 +414,13 @@ Başlangıç betiği için karşıya yükleme `/home/site/deployments/tools` App
 
 Ayarlama **başlangıç betiği** Azure portalında, başlangıç Kabuk betiği konumunu Örneğin alan `/home/site/deployments/tools/your-startup-script.sh`.
 
-Tedarik [uygulama ayarları](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) kullanmak için ortam değişkenlerini betiğe geçirmek için uygulama yapılandırması. Uygulama ayarları, bağlantı dizeleri ve sürüm denetimi dışında Uygulamanızı yapılandırmak için gerekli diğer gizli dizileri koruyun.
+Tedarik [uygulama ayarları](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) kullanmak için ortam değişkenlerini betiğe geçirmek için uygulama yapılandırması. Uygulama ayarları, bağlantı dizeleri ve sürüm denetimi dışında Uygulamanızı yapılandırmak için gerekli diğer gizli dizileri koruyun.
 
 ### <a name="modules-and-dependencies"></a>Modüller ve bağımlılıkları
 
 JBoss CLI aracılığıyla Wildfly sınıf içine modülleri ve bağımlılıklarını yüklemek için kendi dizininde aşağıdaki dosyalar oluşturmanız gerekir. Çoğu durumda bir bağımlılık yapılandırmak gerekenler, minimum düzeyde bu liste, bu nedenle bazı modüller ve bağımlılıkları JNDI adlandırma gibi ek yapılandırma veya başka bir API özel yapılandırma gerekebilir.
 
-- Bir [XML modülü tanımlayıcısı](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Bu XML dosya adı, öznitelikler ve bağımlılıkları modülünüzün tanımlar. Bu [örnek module.xml dosyası](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) Postgres modülü, JAR dosyasını JDBC bağımlılığı ve gerekli diğer modül bağımlılıklarının tanımlar.
+- Bir [XML modülü tanımlayıcısı](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Bu XML dosya adı, öznitelikler ve bağımlılıkları modülünüzün tanımlar. Bu [örnek module.xml dosyası](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) Postgres modülü, JAR dosyasını JDBC bağımlılığı ve gerekli diğer modül bağımlılıklarının tanımlar.
 - Gerekli JAR dosyası için tüm bağımlılıkların modülünüzde.
 - Yeni modül yapılandırmak için JBoss CLI komutları ile bir komut dosyası. Bu dosya sunucusunu bağımlılık kullanacak şekilde yapılandırmak için JBoss CLI tarafından yürütülecek komutlarınızı içerir. Modüller, veri kaynakları ve mesajlaşma sağlayıcıları eklemek için komutlara ilişkin belgeleri için başvurmak [bu belgeyi](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - JBoss CLI'yı arayın ve önceki adımda komut yürütmek için bir Bash başlangıç betiği. Bu dosya, App Service örneğinizin yeniden başlatıldığında veya ölçek genişletme sırasında yeni örnekleri sağlandığında yürütülür. Bu başlangıç betiği JBoss komutları JBoss CLI için geçirilen diğer tüm yapılandırmaları, uygulamanız için yapabileceğiniz gösterilmiştir. En azından, bu dosya için JBoss CLI JBoss CLI komut geçirilecek tek bir komut olabilir:
@@ -401,7 +432,7 @@ JBoss CLI aracılığıyla Wildfly sınıf içine modülleri ve bağımlılıkla
 Modülünüzün için içeriği ve dosyaları aldıktan sonra modülün Wildfly uygulama sunucusuna eklemek için aşağıdaki adımları izleyin.
 
 1. Dosyalarınıza FTP `/home/site/deployments/tools` App Service Örneğinizdeki. Yönergeler için bu belgede, FTP kimlik bilgilerinizi Forms'dan bakın.
-2. Örneğin, başlangıç Kabuk betiği konumuna Azure portal'ın uygulama ayarları dikey penceresinde "Başlangıç betiği" alanını ayarlayın `/home/site/deployments/tools/your-startup-script.sh` .
+2. İçinde **yapılandırma** > **genel ayarlar** sayfasında Azure portalı, Ayarla "Başlangıç betiği" alanı, başlangıç Kabuk betiği konumuna örneğin `/home/site/deployments/tools/your-startup-script.sh` .
 3. App Service örneğinizin tuşlarına basarak yeniden **yeniden** düğmesine **genel bakış** bölümü portalı veya Azure CLI kullanarak.
 
 ### <a name="configure-data-source-connections"></a>Veri kaynağı bağlantıları yapılandırma

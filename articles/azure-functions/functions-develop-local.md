@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 6486b38040fc92c2ece839801293817c4afc7cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4721d87ab932f2e61346af3a48193e7075128622
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614001"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872726"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod ve Azure işlevleri yerel olarak test etme
 
@@ -27,9 +27,9 @@ Geliştirme ve Azure işlevleri'nde test ederken [Azure portal], birçok gelişt
 
 |Ortam                              |Languages         |Açıklama|
 |-----------------------------------------|------------|---|
-| [Komut istemi veya terminal](functions-run-local.md) | [C# (sınıf kütüphanesi)](functions-dotnet-class-library.md), [C# betiği (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure işlevleri temel araçları] İşlevler, yerel geliştirme sağlayan oluşturmaya yönelik temel çalışma zamanı ve şablonlar sağlar. Sürüm 2.x Linux, MacOS ve Windows üzerinde geliştirme destekler. Tüm ortamlar için yerel işlevler çalışma zamanı Core araçları kullanır. |
+| [Komut istemi veya terminal](functions-run-local.md) | [C# (sınıf kütüphanesi)](functions-dotnet-class-library.md), [C# betiği (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure işlevleri temel araçları] yerel geliştirme etkinleştiren işlevler oluşturmak için temel çalışma zamanı ve şablonlar sağlar. Sürüm 2.x Linux, MacOS ve Windows üzerinde geliştirme destekler. Tüm ortamlar için yerel işlevler çalışma zamanı Core araçları kullanır. |
 |[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (sınıf kütüphanesi)](functions-dotnet-class-library.md), [C# betiği (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [VS Code için Azure işlevleri uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) işlevleri için VS Code desteği ekler. Core araçlarının yüklenmesini gerektirir. Geliştirme sürümü kullanırken, Linux, MacOS ve Windows, destekleyen 2.x çekirdek araçlar. Daha fazla bilgi için bkz. [Visual Studio Code kullanarak ilk işlevinizi oluşturma](functions-create-first-function-vs-code.md). |
-| [Visual Studio 2017](functions-develop-vs.md) | [C# (sınıf kitaplığı)](functions-dotnet-class-library.md) | Azure işlevleri araçları dahil **Azure geliştirme** iş yükünü [Visual Studio 2017 sürüm 15.5](https://www.visualstudio.com/vs/) ve sonraki sürümler. Bir sınıf kitaplığı'nda işlevler derlemek ve DLL'i Azure'a yayımlama sağlar. Yerel test etmek için temel araçlar içerir. Daha fazla bilgi için bkz. [geliştirme Visual Studio kullanarak Azure işlevleri](functions-develop-vs.md). |
+| [Visual Studio 2019](functions-develop-vs.md) | [C# (sınıf kitaplığı)](functions-dotnet-class-library.md) | Azure işlevleri araçları dahil **Azure geliştirme** iş yükünü [Visual Studio 2019](https://www.visualstudio.com/vs/) ve sonraki sürümler. Bir sınıf kitaplığı'nda işlevler derlemek ve DLL'i Azure'a yayımlama sağlar. Yerel test etmek için temel araçlar içerir. Daha fazla bilgi için bkz. [geliştirme Visual Studio kullanarak Azure işlevleri](functions-develop-vs.md). |
 | [Maven](functions-create-first-java-maven.md) (çeşitli) | [Java](functions-reference-java.md) | Java işlevleri geliştirme etkinleştirmek için çekirdek Araçlar ile tümleştirilir. Sürüm 2.x Linux, MacOS ve Windows üzerinde geliştirme destekler. Daha fazla bilgi için bkz. [Java ve Maven ile ilk işlevinizi oluşturma](functions-create-first-java-maven.md). Geliştirme kullanarak da destekler [Eclipse](functions-create-maven-eclipse.md) ve [Intellij Idea](functions-create-maven-intellij.md) |
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
@@ -38,7 +38,7 @@ Bu yerel geliştirme ortamların her birinde işlevi uygulaması projeleri oluş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-+ Visual Studio 2017 kullanarak olan derlenmiş C# işlevlerinin yerel geliştirme hakkında daha fazla bilgi için bkz: [geliştirme Visual Studio kullanarak Azure işlevleri](functions-develop-vs.md).
++ Yerel geliştirme hakkında daha fazla bilgi edinmek için derlenmiş C# işlevleri kullanarak Visual Studio 2019 [geliştirme Visual Studio kullanarak Azure işlevleri](functions-develop-vs.md).
 + VS Code kullanarak Mac, Linux veya Windows bilgisayarda işlevlerinin yerel geliştirme hakkında daha fazla bilgi için bkz: [Azure işlevleri için VS Code belgeleri](https://code.visualstudio.com/tutorials/functions-extension/getting-started).
 + Komut istemi veya terminal işlevleri geliştirme hakkında daha fazla bilgi için bkz. [iş ile Azure işlevleri çekirdek Araçları](functions-run-local.md).
 

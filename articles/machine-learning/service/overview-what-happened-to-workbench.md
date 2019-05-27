@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1bcbaf5ec3b15a36b28aa7d4b3346b85e1a7cc24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 18b5f3877538d26e55bf0550a995ca0c50699de5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785783"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914141"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench’te neler oldu?
 
@@ -40,7 +40,7 @@ Azure Machine Learning hizmetinin en son sürüm, aşağıdaki özellikleri içe
 + Yeni, daha kapsamlı bir Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + Yeni Genişletilmiş [Azure CLI uzantısı](reference-azure-machine-learning-cli.md) machine learning için.
 
-[Mimarisi](concept-azure-machine-learning-architecture.md) kullanım kolaylığı için tasarlanmıştır. Birden çok Azure kaynağı ve hesabı yerine, size gereken yalnızca bir [Azure Machine Learning hizmeti Çalışma Alanı](concept-azure-machine-learning-architecture.md#workspace)'dır. [Azure portal]\((setup-create-workspace.md#portal) içinde. hızlı bir şekilde çalışma alanları oluşturabilir Bir çalışma alanı kullanarak, birden çok kullanıcı eğitimi depolayabilir ve dağıtım işlem hedefleri, model denemeleri, Docker görüntülerini, dağıtılan modellerinde ve benzeri.
+[Mimarisi](concept-azure-machine-learning-architecture.md) kullanım kolaylığı için tasarlanmıştır. Birden çok Azure kaynağı ve hesabı yerine, size gereken yalnızca bir [Azure Machine Learning hizmeti Çalışma Alanı](concept-workspace.md)'dır. [Azure portal]\((setup-create-workspace.md#portal) içinde. hızlı bir şekilde çalışma alanları oluşturabilir Bir çalışma alanı kullanarak, birden çok kullanıcı eğitimi depolayabilir ve dağıtım işlem hedefleri, model denemeleri, Docker görüntülerini, dağıtılan modellerinde ve benzeri.
 
 Geçerli sürümde geliştirilmiş yeni CLI ve SDK'sı istemciler olsa da Masaüstü workbench uygulamasını kullanımdan kaldırılmıştır. Denemeleri yönetilebilir [Azure portalında çalışma alanı Pano](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Deneme geçmişinizi almak, çalışma alanınıza bağlı işlem hedeflerini yönetmek, modellerinizi ve Docker görüntülerinizi yönetmek, hatta web hizmetlerini dağıtmak için panoyu kullanın.
 

@@ -2,26 +2,26 @@
 title: SQL veri ambarı iş zekası iş ortakları | Microsoft Docs
 description: Üçüncü taraf iş zekası destekleyen SQL veri ambarı çözüm iş ortaklarıyla listeler.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87379631cc7f7b9e31def157ba38336e41b693d8
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477118"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873807"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL veri ambarı iş zekası iş ortakları
 Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin.  Bu makalede, Azure SQL veri ambarı destek resmi iş zekası (BI) çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
 
 ## <a name="our-business-intelligence-partners"></a>İş Zekası ortaklarımız
-| İş ortağı | Açıklama | Web sitesi/ürün bağlantısı |
+| İş Ortağı | Açıklama | Web sitesi/ürün bağlantısı |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst kuruluşun tamamına Örgü sanallaştırılmış BI örnekleri-üstte paylaşılan ortak analitik dokunun, bir ağ üzerinden bağlanır.|[Ürün sayfası][birst_website]<br>[Azure Market][birst_marketplace]<br> |
 | ![ClearStory veri][2] |**ClearStory veri (sürekli bir işe yönelik öngörüleri)**<br>ClearStory verileri SQL veri ambarı'nda depolanan farklı veri arasında döngüsü hızlı analiz sağlar. Spark tabanlı platform ve analiz uygulama hızlı veri erişimi ve birbirinden farklı veri kümelerinden harmonization clearStory'nın tümleşik. Öngörüler elde etmek için kendi olmasını iş kullanıcılara da güç kazandırır hızlı, işbirliğine dayalı araştırma tanırlar. |[Ürün sayfası][clearstory_website]<br> |

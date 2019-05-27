@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 69425129d5f049254a60032283ddc6ca2ab84d5c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785954"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872687"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure işlevleri'nde bağlantıları yönetme
 
@@ -21,9 +21,9 @@ Bir işlev uygulaması işlevlerde kaynakları paylaşır. Bu paylaşılan kayna
 
 ## <a name="connection-limit"></a>Bağlantı sınırı
 
-Bir işlev uygulaması kısmen çalıştığı için kullanılabilir bağlantı sayısı sınırlı bir [korumalı ortamda](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Korumalı alan kodunuza uygular kısıtlamaları (şu anda 600 etkin bağlantıları ve 1.200 toplam bağlantıları) bağlantı sayısı için üst sınır örnek başına biridir. Bu sınıra ulaştığınızda, İşlevler çalışma zamanı şu iletiyle bir günlük oluşturur: `Host thresholds exceeded: Connections`.
+Bir işlev uygulaması kısmen çalıştığı için kullanılabilir bağlantı sayısı sınırlı bir [korumalı ortamda](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Korumalı alan kodunuza uygular kısıtlamaları bir giden bağlantı sayısı sınırı şu anda 600 etkin (1.200 toplam) bağlantıları örnek başına olduğu biridir. Bu sınıra ulaştığınızda, İşlevler çalışma zamanı günlüklere şu iletiyi Yazar: `Host thresholds exceeded: Connections`. Daha fazla bilgi için [işlevleri hizmet sınırları](functions-scale.md#service-limits).
 
-Örnek başına sınırdır.  Zaman [ölçek denetleyicisi ekler işlevi uygulama örneği](functions-scale.md#how-the-consumption-and-premium-plans-work) daha fazla isteklerini işlemek için her örnek, bir bağımsız bağlantı sınırı vardır. Genel bağlantı sınırı yoktur ve tüm etkin örnekler arasında 600'den çok fazla etkin bağlantılar olabilir anlamına gelir.
+Örnek başına sınırdır. Zaman [ölçek denetleyicisi ekler işlevi uygulama örneği](functions-scale.md#how-the-consumption-and-premium-plans-work) daha fazla isteklerini işlemek için her örnek, bir bağımsız bağlantı sınırı vardır. Genel bağlantı sınırı yoktur ve tüm etkin örnekler arasında 600'den çok fazla etkin bağlantılar olabilir anlamına gelir.
 
 Sorunlarını giderirken, işlev uygulamanız için Application Insights etkinleştirdiğinizden emin olun. Application Insights, işlev uygulamalarınızı yürütmeleri gibi ölçümlerini görüntülemenizi sağlar. Daha fazla bilgi için [Application Insights'da telemetriyi görüntüleyin](functions-monitoring.md#view-telemetry-in-application-insights).  
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359288"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119359"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -30,7 +30,7 @@ Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulam
 | --- | --- |
 | Parola | MFA ve SSPR |
 | Güvenlik soruları | SSPR yalnızca |
-| E-posta adresi | SSPR yalnızca |
+| E-posta Adresi | SSPR yalnızca |
 | Microsoft Authenticator uygulaması | MFA ve SSPR için genel önizlemeye sunuldu |
 | OATH donanım belirteci | MFA ve SSPR için genel önizlemeye sunuldu |
 | SMS | MFA ve SSPR |
@@ -113,7 +113,7 @@ Bir özel Güvenlik sorusu uzunluğu en fazla 200 karakter olabilir.
 * Herhangi bir karakter kümesi, soruları ve yanıtları Unicode karakterleri dahil olmak üzere, tanımlamak için kullanılabilir.
 * Tanımlanan sorusu kaydetmek için gereken soru sayısına eşit veya daha büyük olmalıdır.
 
-## <a name="email-address"></a>E-posta adresi
+## <a name="email-address"></a>E-posta Adresi
 
 E-posta adresi kullanılabilir **yalnızca Azure AD Self Servis parola sıfırlama**.
 
@@ -165,7 +165,7 @@ Genel Önizleme kapsamında OATH donanım belirteçleri desteklenmektedir. Öniz
 Belirteçleri elde edilen sonra aşağıda gösterildiği örnek olarak UPN, seri numarası, gizli anahtar, zaman aralığı, üretici ve model dahil olmak üzere bir virgülle ayrılmış değerler (CSV) dosya biçiminde yüklenmelidir.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -180,7 +180,7 @@ Hataları giderdikten sonra yönetici ardından her anahtar tıklayarak etkinle�
 
 Kullanıcılar, en fazla beş OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
 
-## <a name="mobile-phone"></a>Cep telefonu
+## <a name="mobile-phone"></a>Mobil telefon
 
 İki seçenek, kullanıcılar cep telefonları ile kullanılabilir.
 
@@ -193,7 +193,7 @@ Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ Count
 >
 > Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
 
-### <a name="text-message"></a>Kısa mesaj
+### <a name="text-message"></a>SMS Mesajı
 
 SMS doğrulama kodu içeren bir cep telefonu numarası için gönderilir. Devam etmek için oturum açma arabiriminde sağlanan doğrulama kodunu girin.
 

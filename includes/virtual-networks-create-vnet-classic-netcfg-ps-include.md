@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869991"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116892"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Ağ yapılandırma dosyasından PowerShell kullanarak bir sanal ağ oluşturma
 Azure aboneliği kullanılabilir tüm sanal ağları tanımlamak için bir xml dosyası kullanır. Bu dosyayı indirin, değiştirmek veya var olan sanal ağları silmek için düzenleyin ve yeni sanal ağ oluşturun. Bu öğreticide indirmek için ağ yapılandırma (veya netcfg) dosyası olarak adlandırılır. Bu dosya, öğrenin ve yeni bir sanal ağ oluşturmak için düzenleyin. Ağ yapılandırma dosyasını hakkında daha fazla bilgi için bkz: [Azure virtual network yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx).

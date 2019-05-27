@@ -2,19 +2,19 @@
 title: "Hızlı Başlangıç: .NET web uygulaması - Azure Key Vault kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama | Microsoft Docs"
 description: Bu hızlı başlangıçta, ayarlayın ve .NET web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 0d2b3f16086bc3dc653124ecfa9e7116f71bc585
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925438"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872535"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama
 
@@ -39,9 +39,9 @@ Size daha fazla ayrıntıya önce okuyun [Key Vault için temel kavramlar](key-v
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Windows'da:
-  * [Visual Studio 2017 sürüm 15.7.3 veya üzeri](https://www.microsoft.com/net/download/windows), aşağıdaki iş yükleriyle birlikte:
+  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) aşağıdaki iş yükleri ile:
     * ASP.NET ve web geliştirme
-    * .NET Core çoklu platform geliştirme
+    * .NET core platformlar arası geliştirme
   * [.NET Core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows)
 
 * Mac'te:
@@ -60,7 +60,7 @@ Azure CLI'yi kullanarak Azure'da oturum açmak için, şunları girin:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Belirlediğiniz anahtar kasanızın adıyla örneği çalıştırmak için program.cs dosyasını düzenleyin:
 
 1. key-vault-dotnet-core-quickstart klasörüne gidin.
-2. Visual Studio 2017'de key-vault-dotnet-core-quickstart.sln dosyasını açın.
+2. Visual Studio 2019 içinde key-vault-dotnet-core-quickstart.sln dosyasını açın.
 3. Program.cs dosyasını açın ve yer tutucu güncelleştirme *YourKeyVaultName* daha önce oluşturduğunuz anahtar kasasının adı.
 
 Bu çözümde [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet kitaplıkları kullanılır.
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-Visual Studio 2017 ana menüsünde **Hata Ayıkla** > **Hata ayıklamadan başlat** seçeneğini belirleyin. Tarayıcı görüntülendiğinde **Hakkında** sayfasına gidin. **AppSecret** değeri görüntülenir.
+Visual Studio 2019 ana menüden seçin **hata ayıklama** > **ayıklamadan Başlat**. Tarayıcı görüntülendiğinde **Hakkında** sayfasına gidin. **AppSecret** değeri görüntülenir.
 
 ## <a name="publish-the-web-application-to-azure"></a>Web uygulamasını Azure’a yayımlama
 

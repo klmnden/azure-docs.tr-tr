@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: acf1608257bc5416ff52ed9fbd4209008712f2d7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: f5837e06f347a4f822ac007dfe54c99fc7457dbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408702"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872986"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Framework uygulaması ile Azure uygulama yapılandırması
 
@@ -29,7 +29,7 @@ Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/vs) ve [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) veya henüz yapmadıysanız sonraki bir sürümü.
+Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2019](https://visualstudio.microsoft.com/vs) ve [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) veya henüz yapmadıysanız sonraki bir sürümü.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

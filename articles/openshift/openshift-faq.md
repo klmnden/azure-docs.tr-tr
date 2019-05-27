@@ -8,16 +8,26 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 4f11eac106fe984aa06e41083c2d4f66c7d0e62c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551733"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872906"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift ile ilgili SSS
 
 Bu makalede, Microsoft Azure Red Hat OpenShift hakkında sık sorulan sorular (SSS) yöneliktir.
+
+## <a name="how-do-i-get-started"></a>Nasıl kullanmaya başlayabilirim?
+
+Azure Red Hat OpenShift kullanabilmeniz için önce en az 4 Azure Red Hat OpenShift ayrılmış uygulama düğüm satın almanız gerekir.
+
+Bir Azure müşterisi olduğunuz[Azure Red Hat OpenShift ayrılmış örnekler satın alma](https://aka.ms/openshift/buy) Azure portalı üzerinden. Satın aldıktan sonra aboneliğinizi sonra sizin için küme sağlama mümkün olacaktır 24 saat içinde etkinleştirilecektir.
+
+Bir Azure müşterisi değilseniz [satış birimiyle iletişime geçin](https://aka.ms/openshift/contact-sales) ve işlemini başlatmak için sayfanın alt kısmındaki Satış formunu doldurun.
+
+Başvurmak [Azure Red Hat OpenShift fiyatlandırma sayfası](https://aka.ms/openshift/pricing) daha fazla bilgi için.
 
 ## <a name="which-azure-regions-are-supported"></a>Azure hangi bölgeler desteklenir?
 

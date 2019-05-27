@@ -14,11 +14,11 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123145"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -89,10 +89,10 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan birine sahip olabil
 
 <table>
 <tr>
-    <th align="left">Durum</th><th align="left">Alt durum</th><th align="left">Açıklama</th>
+    <th align="left">Eyalet</th><th align="left">Alt durum</th><th align="left">Açıklama</th>
 </tr>
 <tr>
-    <td rowspan="8">Bekleniyor</td><td>ScheduleTime</td><td>Dilimin çalıştırılma zamanı gelen edilmemiş.</td>
+    <td rowspan="8">Bekliyor</td><td>ScheduleTime</td><td>Dilimin çalıştırılma zamanı gelen edilmemiş.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Yukarı Akış bağımlılıkları hazır değil.</td>

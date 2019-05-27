@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117695"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Öğretici: Uzaktan izleme çözüm hızlandırıcısının uçta anormallikleri
 
@@ -51,7 +51,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="add-an-iot-edge-device"></a>IoT Edge cihazı ekleme
+## <a name="add-an-iot-edge-device"></a>IoT Edge cihazı ekle
 
 IOT Edge cihazı, Uzaktan izleme çözüm Hızlandırıcısını eklemek için iki adımı vardır. Bu bölümde, nasıl kullanılacağını gösterir:
 
@@ -80,11 +80,11 @@ Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile bir cihaz kaydetti
 
     | Ayar | Değer |
     | ------- | ----- |
-    | İş     | Etiketler  |
+    | İş     | Tags  |
     | İş Adı | AddEdgeTag |
     | Anahtar     | IsOilPump |
     | Değer   | E     |
-    | Type    | Metin  |
+    | Tür    | Text  |
 
     [![Etiket Ekle](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
@@ -100,7 +100,7 @@ Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile bir cihaz kaydetti
     | Alan   | Tags.IsOilPump |
     | İşleç | = Eşittir |
     | Değer    | E |
-    | Type     | Metin |
+    | Tür     | Text |
 
     [![Cihaz grubu oluşturma](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -163,8 +163,8 @@ Bir Edge modülü paketlemeden önce portalda Stream Analytics işi tanımlayın
     | İş adı | EdgeDeviceJob |
     | Abonelik | Azure aboneliğiniz |
     | Kaynak grubu | IoTEdgeDevices |
-    | Konum | Doğu ABD |
-    | Barındırma ortamı | Edge |
+    | Location | Doğu ABD |
+    | Barındırma ortamı | EDGE |
     | Akış birimleri | 1 |
 
 1. Açık **EdgeDeviceJob** Stream Analytics portalında işi, girişleri tıklayın ve Ekle bir **Edge hub'ı** adlı giriş akışı **telemetri**.
@@ -321,7 +321,7 @@ Bir eşiğe ulaşması kadar sıcaklık nasıl yükseldiğinde görebilirsiniz. 
     | Alan | sıcaklık |
     | İşleç | > |
     | Değer | 300 |
-    | Önem derecesi | Bilgi |
+    | Önem düzeyi | Bilgi |
 
     [![Kural oluşturma](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 

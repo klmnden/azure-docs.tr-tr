@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925707"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922128"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma Mobility hizmetini otomatik güncelleştirme
 
@@ -535,3 +535,14 @@ Otomatik Güncelleştirmeler etkinleştirilemedi, aşağıdaki yaygın hatalar v
 - **Hata**: Farklı Çalıştır hesabı bulunamadı. Ya da bunlardan biri silinmiş veya oluşturulmamış: Azure Active Directory uygulaması, hizmet sorumlusu, rol, Otomasyon sertifikası varlığı, Otomasyon bağlantısı varlığı; ya da parmak izi sertifika ve bağlantı arasındaki aynı değil. 
 
     **Önerilen eylem**: Silin ve ardından [farklı çalıştır hesabını yeniden oluşturma](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Hata**: Otomasyon hesabı tarafından kullanılan sertifika farklı çalıştır Azure dolmak üzere olduğu. 
+
+    Farklı Çalıştır hesabı için oluşturulan otomatik olarak imzalanan sertifika, oluşturma tarihinden itibaren bir yıl süresi dolar. Sertifikayı süresi dolmadan önce herhangi bir zamanda yenileyebilirsiniz. E-posta bildirimleri için kaydolduysanız, sizin bir eylem gerektiğinde e-posta alırsınız. Bu hata, sona erme tarihi önce 2 ay gösterilir ve sertifikanın süresi doldu, önemli bir hata değişir. Sertifikanın süresi dolduktan sonra aynı yenileme kadar otomatik güncelleştirme işlevsel olmayacaktır.
+
+   **Önerilen eylem**: 'Onar' ve 'Sertifikayı Yenile' sonra bu sorunu çözmek için tıklatın.
+    
+   ![yenileme-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> Lütfen sertifikayı yenilemek sonra geçerli durumuyla güncelleştirilir, böylece bu sayfayı yenileyin.

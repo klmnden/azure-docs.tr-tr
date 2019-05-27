@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60877448"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900869"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK'sını kullanma
 > [!div class="op_single_selector"]
@@ -32,22 +32,16 @@ Bu makalede, Azure Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK 
 Data Lake depolama Gen1 veri yönetim işlemlerini .NET SDK kullanarak gerçekleştirme talimatları için bkz. [.NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri Data Lake depolama Gen1](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Visual Studio 2013, 2015 veya 2017**. Aşağıdaki yönergelerde Visual Studio 2017 kullanılmıştır.
+* **Visual Studio 2013 veya üzeri**. Visual Studio 2019 aşağıdaki yönergeleri kullanın.
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>.NET uygulaması oluşturma
-1. Visual Studio'yu açın ve bir konsol uygulaması oluşturun.
-2. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın.
-3. **Yeni Proje** bölümünden, aşağıdaki değerleri yazın veya seçin:
+1. Visual Studio'da **dosya** menüsünde **yeni**, ardından **proje**.
+2. Seçin **konsol uygulaması (.NET Framework)** ve ardından **sonraki**.
+3. İçinde **proje adı**, girin `CreateADLApplication`ve ardından **Oluştur**.
 
-   | Özellik | Değer |
-   | --- | --- |
-   | Kategori |Şablonlar/Visual C#/Windows |
-   | Şablon |Konsol Uygulaması |
-   | Ad |CreateADLApplication |
-4. Projeyi oluşturmak için **Tamam**'a tıklayın.
-5. NuGet paketlerini projenize ekleyin.
+4. NuGet paketlerini projenize ekleyin.
 
    1. Çözüm Gezgini'nde proje adına sağ tıklayın ve **NuGet Paketlerini Yönet**'e tıklayın.
    2. **NuGet Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
@@ -58,7 +52,7 @@ Data Lake depolama Gen1 veri yönetim işlemlerini .NET SDK kullanarak gerçekle
 
         ![NuGet kaynağı ekleme](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Yeni bir Azure Data Lake hesabı oluşturma")
    4. **NuGet Paket Yöneticisi**'ni kapatın.
-6. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
+5. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
 
         using System;
         using System.IO;
@@ -74,7 +68,7 @@ Data Lake depolama Gen1 veri yönetim işlemlerini .NET SDK kullanarak gerçekle
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Değişkenleri bildirin ve yer tutucu değerlerini sağlayın. Ayrıca, sağladığınız yerel yolun ve dosya adının bilgisayar üzerinde var olduğundan emin olun.
+6. Değişkenleri bildirin ve yer tutucu değerlerini sağlayın. Ayrıca, sağladığınız yerel yolun ve dosya adının bilgisayar üzerinde var olduğundan emin olun.
 
         namespace SdkSample
         {

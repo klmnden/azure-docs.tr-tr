@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: msmbaldwin
 ms.service: security
 ms.topic: include
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/17/2019
+ms.author: mbaldwin
 ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461416"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114720"
 ---
 Bir güvenlik kalite veya hizmetin özelliği önlemenize, algılamanıza ve bu güvenlik açıklarına yanıt için katkıda bulunan bir Azure hizmeti özelliği özniteliğidir.
 

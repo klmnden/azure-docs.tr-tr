@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: fc303a0ab53c80c91bb29c36a1a7e0f04c4a89e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03c7da3e17e8e606b46c5c5e104a1271e8fbfd33
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006881"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873140"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Hızlı Başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme ve arka uç uygulaması ile (Python) okuyun
 
@@ -33,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıçta çalıştırma örnek uygulaması, Python kullanarak yazılır. Şu anda Python için Microsoft Azure IOT SDK, her platform için Python yalnızca belirli sürümlerini destekler. Daha fazla bilgi için bkz. [Python SDK'sı Benioku](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Bu hızlı başlangıçta, Windows geliştirme makinesi kullandığınızı varsayar. Yalnızca Windows sistemleri için [Python 3.6.x](https://www.python.org/downloads/release/python-368/) desteklenir. Çalıştığınız sistemin mimarisine uygun Python yükleyicisini seçmeniz gerekir. Sisteminiz CPU mimarisi, 32 bit ve ardından indirme x86 yükleyici ise; 64 bit mimari için x86 64 yükleyiciyi indirin. Ayrıca, emin olun [Microsoft Visual C++ yeniden dağıtılabilir için Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) Mimarinizi (x86 veya x64) için yüklenir.
+Bu hızlı başlangıçta, Windows geliştirme makinesi kullandığınızı varsayar. Yalnızca Windows sistemleri için [Python 3.6.x](https://www.python.org/downloads/release/python-368/) desteklenir. Çalıştığınız sistemin mimarisine uygun Python yükleyicisini seçmeniz gerekir. Sisteminiz CPU mimarisi, 32 bit ve ardından indirme x86 yükleyici ise; 64 bit mimari için x86 64 yükleyiciyi indirin. Ayrıca, emin olun [Microsoft Visual C++ yeniden dağıtılabilir için Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) Mimarinizi (x86 veya x64) için yüklenir.
 
 Python için diğer platformlardan indirebileceğiniz [Python.org](https://www.python.org/downloads/).
 
@@ -65,17 +65,17 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 1. Cihaz kimliği oluşturmak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın.
 
-    **YourIoTHubName** : Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
+    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
-    **MyPythonDevice** : Bu, kayıtlı bir cihaz için verilen addır. Gösterilen MyPythonDevice değerini kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
+    **MyPythonDevice**: Bu, kayıtlı bir cihaz için verilen addır. Gösterilen MyPythonDevice değerini kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
-1. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutları Azure Cloud Shell'de çalıştırın:
+1. Azure Cloud Shell içinde almak için aşağıdaki komutları çalıştırın _cihaz bağlantı dizesini_ kaydettiğiniz cihazın:
 
-    **YourIoTHubName** : Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
+    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table

@@ -2,20 +2,20 @@
 title: T-SQL dil öğeleri - Azure SQL veri ambarı | Microsoft Docs
 description: Azure SQL veri ambarı'nda desteklenen T-SQL bildirimleri belgelerine bağlantılar.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 06/13/2018
-ms.author: mausher
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d88d1390f590a86c83273f2170f3854a7972a24b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475924"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873493"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri
 Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri belgelerine bağlantılar.

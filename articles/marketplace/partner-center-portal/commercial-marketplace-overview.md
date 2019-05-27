@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 85e162773f95272ac2af36469480f1786b260e26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebf371c45868d8e620413f8f54b3531b1a17f817
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806259"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949583"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>İş ortağı merkezi ticari Market portalda genel bakış
 
@@ -36,7 +36,7 @@ Var olan Market yayımcıları, sezgisel bir arabirim tanıdık ancak geliştiri
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Kullanıcı deneyimi ve faturalandırma geliştirmeleri
 
-İş ortağı Merkezi, geçişi ile yeni işlevler yayımcılar, kullanıcı deneyimi geliştirmeleri ek olarak kullanılabilir. Kullanıcı başına (lisans tabanlı), site başına yanı sıra (düz oran) lisans destekleyen SaaS teklifleri, bir veya yıllık, aylık olarak faturalandırılır. Bu yeni gelir elde etme modeli, iş yazılım için idealdir. SaaS, kullanıcı başına lisanslama giriş AppSource, Microsoft'un iş ve sektör çözümleri için ticari Market satın alımlar tamamlamak için yeni işlevsellik sağlayarak müşterilerin ile hizalar. 
+İş ortağı Merkezi, geçişi ile yeni işlevler yayımcılar, kullanıcı deneyimi geliştirmeleri ek olarak kullanılabilir. SaaS teklifleri, aylık veya yıllık olarak faturalandırılan, kullanıcı başına site başına lisanslama (düz oran ek olarak), (lisans tabanlı) lisans destekler. Bu yeni gelir elde etme modeli, iş yazılım için idealdir. SaaS, kullanıcı başına lisanslama giriş appsource'ta, iş ve sektör çözümleri için Microsoft ticari Market tam satın alma işlemleri müşterilere sağlayan yeni işlevsellik ile hizalar. 
 
 ### <a name="account-and-user-management-updates"></a>Hesap ve kullanıcı yönetimi güncelleştirmeleri
 
@@ -58,3 +58,4 @@ Ziyaret ederek güncel ve gelecekteki sürümleri hakkında daha fazla bilgi edi
 
 - Pazar için yeni Microsoft iş ortaklarının bir SaaS yayımlamayla ilgilenen sunmak için bkz: [ticari Marketplace hesabı iş ortağı Merkezi'nde oluşturma](./create-account.md).
 - Teklifler bulut iş ortağı Portalı'nda daha önce yayımladığınız var olan iş ortakları için [ticari Market hesabınızdaki iş ortağı merkezi yönetme](./manage-account.md). 
+- Bulut Marketi yönetim iş ortağı merkezi bu taşıma hakkında daha fazla bilgi [iş ortağı Topluluğumuza blog gönderisi](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), tanıtım videosu dahil.

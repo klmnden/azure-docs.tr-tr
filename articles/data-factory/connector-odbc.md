@@ -56,7 +56,7 @@ ODBC bağlı hizmeti için aşağıdaki özellikleri destekler:
 | authenticationType | ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel** ve **anonim**. | Evet |
 | userName | Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. | Hayır |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
-| credential | Erişim kimlik bilgisi sürücüye özel özellik-değer biçiminde belirtilen bağlantı dizesi kısmı. Örnek: `"RefreshToken=<secret refresh token>;"`. Bu alanı bir SecureString işaretleyin. | Hayır |
+| kimlik bilgisi | Erişim kimlik bilgisi sürücüye özel özellik-değer biçiminde belirtilen bağlantı dizesi kısmı. Örnek: `"RefreshToken=<secret refresh token>;"`. Bu alanı bir SecureString işaretleyin. | Hayır |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
 
 **Örnek 1: Temel kimlik doğrulaması kullanma**
@@ -152,7 +152,7 @@ ODBC uyumlu veri deposundan veri kopyalamak için kopyalama etkinliği için kay
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

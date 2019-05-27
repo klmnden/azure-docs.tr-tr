@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beccd3f28cd3f5de3ef777b80c53651c76017619
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: a2d9639c21e201db1df5145caf1345d4f0879af6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545647"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121954"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir .NET Masaüstü (WPF) uygulamasından Microsoft Graph API çağırma
 
@@ -57,13 +57,15 @@ Belirteçleri almak üzere uygulamanızı etkinleştirme için uygulamanızı Az
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda, hesabınızı seçin ve altındaki **dizin** listesinde, uygulamanızı kaydetmek istediğiniz Active Directory kiracısı seçin.
 3. SELECT deyiminde **tüm hizmetleri** , sol taraftaki gezinti ve **Azure Active Directory**.
-4. Üzerinde **uygulama kayıtları**, seçin **Ekle**.
-5. Komut istemlerini izleyin ve yeni bir **yerel** istemci uygulaması.
-    * **Adı** uygulamanız son kullanıcılara uygulamayı açıklanmıştır
-    * **Yeniden yönlendirme URI'si** Azure AD'nin belirteç yanıtlarını döndürmek için kullanacağı bir şema ve dize birleşiminden oluşur. Uygulamanıza özgü bir değer girin, örneğin, `http://DirectorySearcher`.
+4. Üzerinde **uygulama kayıtları**, seçin **yeni kayıt**.
+5. Yeni bir istemci uygulaması oluşturmak için istemleri izleyin.
+    * **Ad**, uygulamanın adıdır ve uygulamanızı son kullanıcılara açıklar.
+    * Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
+    * **Yeniden Yönlendirme URI'si**, Azure AD'nin belirteç yanıtlarını döndürmek için kullandığı şema ve dize bileşimidir. Uygulamanıza özgü olan bir değer girin (örneğin, `http://DirectorySearcher`) ve önceki yeniden yönlendirme URI'si bilgileri temel alır. Ayrıca seçin **genel istemci (Mobil ve Masaüstü)** açılır listeden. 
 
 6. Kayıt tamamlandıktan sonra AAD uygulamanızın benzersiz bir uygulama kimliği atar. Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
-7. Gelen **ayarları** sayfasında **gerekli izinler** ve **Ekle**. Seçin **Microsoft Graph** API olarak ve altında **temsilci izinleri** ekleme **dizin verilerini okuma** izni. Bu izni, uygulamanızın kullanıcıları için Graph API sorgu olanak tanır.
+7. Gelen **API izinleri** sayfasında **bir izin eklemek**. İçinde **bir API seçin** seçin ***Microsoft Graph***.
+8. Altında **temsilci izinleri**, izni seçin **User.Read**, ardından isabet **Ekle** kaydetmek için. Bu izin, uygulamanızı Azure AD Graph API'sini kullanıcılar için sorgulayacak şekilde ayarlar.
 
 ## <a name="step-2-install-and-configure-adal"></a>2. Adım: Yükleme ve ADAL'ı yapılandırma
 

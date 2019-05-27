@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
 ms.openlocfilehash: 7f5aa65b055669a8a4047dffa72d456fed0714f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111572"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Azure CLI kullanarak bölgesel ön uç ile standart yük dengeleyici oluşturma
 
@@ -36,7 +36,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz, en son yüklediğini
 > [!NOTE]
 >  Kullanılabilirlik bölgeleri, seçili Azure kaynakları ve bölgeler ve sanal makine boyutu aileleri için kullanılabilir. Kullanmaya başlamak nasıl daha fazla bilgi ve hangi Azure kaynakları, bölgeleri ve kullanılabilirlik alanları ile deneyebilirsiniz sanal makine boyutu aileleri için bkz. [kullanılabilirlik alanlarına genel bakış](https://docs.microsoft.com/azure/availability-zones/az-overview). Destek için [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) üzerinden bize ulaşabilir veya [bir Azure destek bileti açabilirsiniz](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [az group create](/cli/azure/group#az-group-create) ile bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -113,7 +113,7 @@ az network lb rule create \
 ## <a name="configure-virtual-network"></a>Sanal ağ yapılandırma
 VM’leri dağıtmadan ve dengeleyicinizi test etmeden önce yardımcı sanal ağ kaynaklarını oluşturun.
 
-### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
 
 Adlı bir sanal ağ oluşturma *myVnet* adlı bir alt ağ ile *mySubnet* myResourceGroup kullanarak [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az-network-vnet-create).
 

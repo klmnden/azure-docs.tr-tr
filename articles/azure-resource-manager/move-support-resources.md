@@ -4,14 +4,14 @@ description: Yeni kaynak grubuna veya aboneliğe taşınabilir Azure kaynak tür
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/16/2019
+ms.date: 5/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: d662607eaaabb8ccfad89f625165c542af81b0fa
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794510"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872547"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 Bu makalede, bir Azure kaynak türü taşıma işlemini destekleyip desteklemediğini listelenmektedir. Bir kaynak türü taşıma işlemi desteklemesine rağmen kaynak taşınmasını engellemek koşulları olabilir. Taşıma işlemlerini etkileyen koşullar hakkında daha fazla ayrıntı için bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](resource-group-move-resources.md).
@@ -848,7 +848,7 @@ Virgülle ayrılmış değerler dosyası aynı verileri almak için indirme [ta�
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | ----------- | ---------- |
-| deviceservices | Evet | Evet |
+| deviceservices | Hayır | Hayır |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | Kaynak türü | Kaynak grubu | Abonelik |

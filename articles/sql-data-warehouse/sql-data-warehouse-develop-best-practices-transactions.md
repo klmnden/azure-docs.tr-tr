@@ -2,20 +2,20 @@
 title: Azure SQL veri ambarı için işlemleri iyileştirme | Microsoft Docs
 description: Uzun bir geri alma işlemleri için riski en aza Azure SQL veri ambarı, işlem kodunuzun performansını nasıl iyileştirebileceğinizi öğrenin.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/19/2018
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478836"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873639"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı işlemleri iyileştirme
 Uzun bir geri alma işlemleri için riski en aza Azure SQL veri ambarı, işlem kodunuzun performansını nasıl iyileştirebileceğinizi öğrenin.
@@ -44,7 +44,7 @@ Aşağıdaki işlemleri en düşük düzeyde günlüğe kaydedilmesini yeteneği
 
 * TABLO AS SELECT OLUŞTURMA ([CTAS](sql-data-warehouse-develop-ctas.md))
 * EKLE... SEÇİN
-* DİZİN OLUŞTURMA
+* CREATE INDEX
 * ALTER INDEX YENİDEN OLUŞTURMA
 * DROP INDEX
 * TRUNCATE TABLE
@@ -67,7 +67,7 @@ CTAS ve Ekle... Seçim, hem toplu yük işlemlerdir. Ancak, hem de hedef tablo t
 
 | Birincil dizin | Yükleme senaryosu | Oturum açma modu |
 | --- | --- | --- |
-| Yığın |Herhangi biri |**En az** |
+| Yığın |Herhangi |**En az** |
 | Kümelenmiş dizin |Boş hedef tablo |**En az** |
 | Kümelenmiş dizin |Yüklenen satırları hedef var olan sayfaları ile çakışmaması |**En az** |
 | Kümelenmiş dizin |Hedef mevcut sayfalarında yüklenen satırları çakışıyor |Tam |

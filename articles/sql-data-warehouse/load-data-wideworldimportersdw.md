@@ -2,20 +2,20 @@
 title: "Öğretici: Azure SQL Data warehouse'a veri yükleme | Microsoft Docs"
 description: Öğreticide, genel bir Azure blobundan Azure SQL Veri Ambarı’na WideWorldImportersDW veri ambarını yüklemek için Azure portalı ve SQL Server Management Studio kullanılmaktadır.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61081554"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873768"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Öğretici: Azure SQL Data warehouse'a veri yükleme
 
