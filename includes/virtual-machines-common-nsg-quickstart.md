@@ -2,19 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines-windows
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 11/12/2018
-ms.author: v-yeche
+ms.date: 09/12/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405392"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154774"
 ---
 Bağlantı noktası açma veya bir alt ağ veya VM ağ arabirimi bir ağ filtresi oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturma. Trafiği alan kaynağına bağlı bir ağ güvenlik grubu gelen ve giden trafiği denetlemek, bu filtreler yerleştirin.
 
@@ -34,4 +33,8 @@ Standart TCP bağlantı noktası 80 üzerinde web isteklerine hizmet vermek içi
 
 3. Ağ güvenlik grubu, VM ağ arabirimi ya da alt ağı ile ilişkilendirin.
 
-    Bu örnek HTTP trafiğine izin veren basit bir kuralı kullansa da, daha karmaşık ağ yapılandırmaları oluşturmak için ağ güvenlik gruplarını ve kurallarını da kullanabilirsiniz.
+Bu örnek HTTP trafiğine izin veren basit bir kuralı kullansa da, daha karmaşık ağ yapılandırmaları oluşturmak için ağ güvenlik gruplarını ve kurallarını da kullanabilirsiniz. 
+
+
+
+

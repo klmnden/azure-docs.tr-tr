@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596973"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158951"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -374,7 +374,7 @@ Denetleyicinizi yeniden yüklendikten sonra pod'ların yeniden dağıtın.
 Azure geliştirme alanları denetleyicisi erişen kullanıcı yönetici okuma erişimi olmalıdır *kubeconfig'i denetleyin* AKS kümesinde. Örneğin, bu izni kullanılabilir [yerleşik Azure Kubernetes hizmeti Küme Yöneticisi rolüne](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). Azure geliştirme alanları denetleyicisi erişen bir kullanıcı da olmalıdır *katkıda bulunan* veya *sahibi* denetleyicisi için RBAC rolü.
 
 ### <a name="try"></a>Deneme
-Bir AKS kümesi için bir kullanıcının izinlerini güncelleştirme hakkında daha fazla ayrıntı bulabilirsiniz [burada](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+Bir AKS kümesi için bir kullanıcının izinlerini güncelleştirme hakkında daha fazla ayrıntı bulabilirsiniz [burada](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 Denetleyici için kullanıcının RBAC rolü'nü güncellemek için:
 

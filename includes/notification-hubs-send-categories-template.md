@@ -9,11 +9,11 @@ ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: f0ff729084d194ff2e05e89eadc45782f775b1c5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929467"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156732"
 ---
 Bu bölümde, son dakika haberlerini .NET konsol uygulamasından etiketli şablon bildirimleri olarak yollarsınız. 
 
@@ -22,7 +22,7 @@ Bu bölümde, son dakika haberlerini .NET konsol uygulamasından etiketli şablo
     c. Seçin **konsol uygulaması (.NET Framework)** şablonları listesinde. 
     d. Girin bir **adı** uygulama için. 
     e. Seçin bir **klasör** uygulama için.
-    f. Projeyi oluşturmak için **Tamam**'ı seçin. 
+    f. Seçin **Tamam** projeyi oluşturmak için. 
 2. Visual Studio ana menüden **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu** ve ardından konsol penceresinde aşağıdaki dizeyi girin:
    
     ```

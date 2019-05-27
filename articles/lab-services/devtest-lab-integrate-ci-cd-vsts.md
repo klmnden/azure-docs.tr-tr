@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66157123"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs, Azure DevOps, sürekli tümleştirme ve teslim işlem hattı tümleştirme
 Kullanabileceğiniz *Azure DevTest Labs görevlerini* Azure DevOps kolayca yüklenir uzantısı, Azure DevTest Labs ile CI/CD derleme ve yayın işlem hattınızı tümleştirin. Üç görevin uzantıyı yükleyen: 
@@ -179,7 +179,7 @@ Azure DevTest Labs Örneğinizde yeni dağıtılan VM görüntüsü oluşturmak 
 
    d. (İsteğe bağlı) İçin **açıklama**, daha sonra doğru görüntüyü seçmek kolay hale getirmek için bir açıklama girin.
 
-   e. İçin **kaynak Lab VM - kaynak Laboratuvar VM kimliği**, kimliği ' % s'Laboratuvar VM önceki bir görev tarafından otomatik olarak doldurulan bir ortam değişkeni varsayılan adını değiştirdiyseniz burada düzenleyin. Varsayılan değer **$(labVMId)**.
+   e. İçin **kaynak Lab VM - kaynak Laboratuvar VM kimliği**, kimliği ' % s'Laboratuvar VM önceki bir görev tarafından otomatik olarak doldurulan bir ortam değişkeni varsayılan adını değiştirdiyseniz burada düzenleyin. Varsayılan değer **$(labVMId)** .
 
    f. İçin **çıkış değişkenleri - özel görüntü kimliği**, silmek veya yönetmek istediğinizde, yeni oluşturulan görüntü kimliği gerekir. Bu kimliği ile otomatik olarak doldurulur ortam değişkeni varsayılan adını kümesinde **çıkış değişkenleri** bölümü. Gerekirse değişkeni düzenleyebilirsiniz.
 
@@ -194,7 +194,7 @@ Son aşama, Azure DevTest Labs Örneğinizde dağıttığınız VM'yi silmektir.
 
    a. İçin **Azure RM abonelik**, bir bağlantı seçin **kullanılabilir Azure hizmeti bağlantıları** listelemek ya da Azure aboneliğinize daha kısıtlı izinler bağlantı oluşturun. Daha fazla bilgi için [Azure Resource Manager hizmet uç noktası](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
-   b. İçin **Laboratuvar VM kimliği**, kimliği ' % s'Laboratuvar VM önceki bir görev tarafından otomatik olarak doldurulan bir ortam değişkeni varsayılan adını değiştirdiyseniz burada düzenleyin. Varsayılan değer **$(labVMId)**.
+   b. İçin **Laboratuvar VM kimliği**, kimliği ' % s'Laboratuvar VM önceki bir görev tarafından otomatik olarak doldurulan bir ortam değişkeni varsayılan adını değiştirdiyseniz burada düzenleyin. Varsayılan değer **$(labVMId)** .
 
 1. Yayın işlem hattı için bir ad girin ve kaydedin.
 1. Yeni yayın oluştur, en son derlemeyi seçin ve işlem hattında tek bir ortama dağıtın.

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155143"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Azure Data factory'de şirket içi veri depoları için kimlik bilgilerini şifrele
 Şifreleme ve kimlik bilgilerini şirket içinde barındırılan tümleştirme çalışma zamanı olan bir makinede, şirket içi veri depoları (bağlı hizmetler ile hassas bilgileri) depolamak. 

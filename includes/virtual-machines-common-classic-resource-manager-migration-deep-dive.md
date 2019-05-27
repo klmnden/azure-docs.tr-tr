@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125379"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66167079"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik dağıtım modelinden Azure Resource Manager'a geçirme
 İlk olarak, bir hizmet (Iaas) kaynak olarak altyapıyı veri düzlemi ve yönetim düzlemi işlemleri arasındaki farkı anlamak önemlidir.
@@ -45,7 +45,7 @@ Geçiş iş akışı aşağıdaki gibidir:
 >
 >
 
-### <a name="validate"></a>Doğrulama
+### <a name="validate"></a>Doğrula
 Doğrulama işlemi, geçiş sürecinin ilk adımıdır. Bu adımın amacı, Klasik dağıtım modelinde geçirmek istediğiniz kaynakların durumunu analiz sağlamaktır. İşlem kaynakları (başarı veya başarısızlık) geçişe uygun olup olmadığını değerlendirir.
 
 (Sanal ağ içinde değilse) sanal ağ veya Bulut hizmeti seçin, geçiş için doğrulamak istediğiniz. Kaynak geçişe uygun değilse, Azure neden olma nedenlerini listeler.
@@ -107,7 +107,7 @@ VM'lerin beklendiği gibi çalıştığını ve güncelleştirilen betiklerinizi
 
 Herhangi bir sorun yaşarsanız dilediğiniz zaman geçişi durdurabilir ve klasik dağıtım modeline dönebilirsiniz. Geri döndüğünüzde, Azure Klasik dağıtım modelinde bu VM'ler üzerinde normal işlemleri devam edebilir, kaynaklar üzerindeki yönetim düzlemi işlemlerini açar.
 
-### <a name="abort"></a>Durdurma
+### <a name="abort"></a>Durdur
 Değişikliklerinizi Klasik dağıtım modeline dönmek ve geçiş işlemini durdurmak istiyorsanız, bu isteğe bağlı bir adımdır. Bu işlem, kaynaklarınız için Resource Manager (hazırlama adımda oluşturulan) meta verileri siler. 
 
 ![Abort adım diyagramı](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
@@ -117,7 +117,7 @@ Değişikliklerinizi Klasik dağıtım modeline dönmek ve geçiş işlemini dur
 > Yürütme işlemini tetiklendikten sonra bu işlem gerçekleştirilemez.     
 >
 
-### <a name="commit"></a>İşleme
+### <a name="commit"></a>Yürüt
 Doğrulama adımını tamamladıktan sonra geçişi işleyebilirsiniz. Kaynaklar artık Klasik dağıtım modelinde görünmez ve yalnızca Resource Manager dağıtım modelinde kullanılabilir. Geçirilen kaynaklar yalnızca yeni portalda yönetilebilir.
 
 > [!NOTE]

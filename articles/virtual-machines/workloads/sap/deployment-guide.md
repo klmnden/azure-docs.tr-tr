@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
 ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850879"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153991"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure sanal makineler dağıtım için SAP NetWeaver
 
@@ -693,7 +693,7 @@ Aşağıdaki akış bir şirket içi VM genelleştirilmiş olmayan bir Azure VHD
 
 Disk zaten karşıya yüklendi ve Azure'da tanımlanan varsa (bkz [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını][planning-guide]), yapmak görevleri açıklanan önümüzdeki birkaç bölümler.
 
-#### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+#### <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 
 Azure Portalı aracılığıyla özel bir işletim sistemi diski kullanarak bir dağıtım oluşturmak için yayımlanan SAP şablonu kullanın. [azure hızlı başlangıç şablonları GitHub deposunda][azure-quickstart-templates-github]. Ayrıca el ile bir sanal makine PowerShell kullanarak oluşturabilirsiniz.
 

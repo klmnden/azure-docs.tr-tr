@@ -1,5 +1,5 @@
 ---
-title: Keşfedin ve verileri (veri kümesi sınıfı) hazırlama
+title: Keşfedin ve dönüştürme (veri kümesi sınıfı)
 titleSuffix: Azure Machine Learning service
 description: Özet istatistikleri kullanarak verileri araştırmak ve verileri temizleme, Dönüşüm ve özellik Mühendisliği ile verileri hazırlama
 services: machine-learning
@@ -10,17 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/23/2019
+ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603162"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146290"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Keşfedin ve veri kümesi sınıfı (Önizleme) ile verileri hazırlama
 
-Keşfedin ve ile verileri hazırlama hakkında bilgi edinin [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). [Veri kümesi](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) sınıfı (Önizleme) keşfedin ve işlevleri gibi sağlayarak verilerinizi hazırlamanız olanak tanır: örnekleme, Özet istatistikleri ve akıllı dönüşümler. Dönüştürme adımı kaydedilir [veri kümesi tanımları](how-to-manage-dataset-definitions.md) farklı şemalar birden çok daha büyük dosyaları yüksek düzeyde ölçeklenebilir bir şekilde işleme yeteneğine sahip.
+Keşfedin ve azureml veri kümeleri pakette ile verileri hazırlama hakkında bilgi edinin [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). [Veri kümesi](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) sınıfı (Önizleme) keşfedin ve işlevleri gibi sağlayarak verilerinizi hazırlamanız olanak tanır: örnekleme, Özet istatistikleri ve akıllı dönüşümler. Dönüştürme adımı kaydedilir [veri kümesi tanımları](how-to-manage-dataset-definitions.md) farklı şemalar birden çok daha büyük dosyaları yüksek düzeyde ölçeklenebilir bir şekilde işleme yeteneğine sahip.
 
 > [!Important]
 > Bazı veri kümesi sınıfları (Önizleme) bağımlılıklara sahip [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paket (GA). Dönüştürme işlevleri doğrudan GA'ed ile gerçekleştirilebilir ancak [Data Prep işlevleri](how-to-transform-data.md), yeni bir çözüm oluşturuyorsanız bu makalede açıklanan veri kümesi paket sarmalayıcıları öneririz. Azure Machine Learning veri kümeleri (Önizleme), yalnızca, verilerinizi dönüştürmenizi izin ver aynı zamanda [veri anlık görüntü](how-to-create-dataset-snapshots.md) ve depolamak [tutulan veri kümesi tanımları](how-to-manage-dataset-definitions.md). Veri kümeleri, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan veri hazırlığı SDK ' nın sonraki sürümüdür.
@@ -33,7 +33,7 @@ Keşfedin ve verilerinizi hazırlamanız için gerekir:
 
 * Bir Azure Machine Learning hizmeti çalışma alanı. Bkz: [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* Python için Azure Machine Learning SDK'sını (sürüm 1.0.21 veya üzeri). Yüklemek veya SDK'sının en son sürüme güncelleştirmek için bkz: [yükleme veya SDK'sı güncelleştirme](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Python için Azure Machine Learning SDK'sını (sürüm 1.0.21 veya üzeri), azureml veri kümeleri paketi içerir. Yüklemek veya SDK'sının en son sürüme güncelleştirmek için bkz: [yükleme veya SDK'sı güncelleştirme](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * Azure Machine Learning veri hazırlığı SDK. Yüklemek veya en son sürüme güncelleştirmek için bkz: [yükleme veya güncelleştirme Data Prep SDK'sını](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
 

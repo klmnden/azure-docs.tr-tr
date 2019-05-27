@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60633412"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155874"
 ---
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısını yüklemek için
 1. Yükleyici aynı zamanda SharePoint Merkezi Yönetim web uygulamasını çalıştırmak için yapılandırılmış olan web ön uç (WFE) sunucusuna kopyalayın. 

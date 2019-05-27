@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: MT
+ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502089"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151172"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -34,39 +34,23 @@ Machine learning iş akışı genellikle bu sırayı takip eder:
 1. Tatmin edici bir çalıştırma bulunduktan sonra kalıcı modelde kaydetme **modeli kayıt defteri**.
 1. Geliştirme modelini kullanan Puanlama betiğine ve **model dağıtma** olarak bir **web hizmetini** azure'da yenilemek için bir **IOT Edge cihazı**.
 
+Aşağıdakilerden herhangi biri ile aşağıdaki adımları gerçekleştirin:
++ [Azure Machine için Python SDK'sı Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++  [Azure Machine Learning hizmeti için görsel arabirim (Önizleme)](ui-concept-visual-interface.md)
 
 > [!NOTE]
 > Hüküm ve Azure Machine Learning hizmeti tarafından kullanılan kavramları bu makalede tanımlasa da terimleri ve kavramları Azure platformu tanımlamıyor. Azure platformu hakkında daha fazla bilgi için bkz. [Microsoft Azure sözlüğünü](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="workspace"></a>Çalışma alanı
 
-Çalışma alanı, Azure Machine Learning hizmeti için en üst düzey kaynaktır. Azure Machine Learning hizmeti kullanırken oluşturduğunuz tüm yapıları ile çalışma için merkezi bir yerdir.
-
-Çalışma alanı, modeli eğitmek için kullanabileceğiniz işlem hedefleri listesini tutar. Ayrıca, günlükler, ölçümler, çıkış ve komut dosyalarınızın anlık görüntüsünü de dahil olmak üzere, bir eğitim çalıştırmalarının geçmişini tutar. Hangi eğitim çalıştırmanın en iyi modeli belirlemek için bu bilgileri kullanın.
-
-Model çalışma alanı ile kaydedin. Azure Container Instances, Azure Kubernetes hizmeti veya bir REST tabanlı bir HTTP uç noktası olarak bir alanda programlanabilir kapı dizileri (FPGA) için model dağıtma için kayıtlı bir model ve puanlama komut dosyaları'nı kullanın. Ayrıca, görüntüyü Azure IOT Edge cihazına bir modül olarak dağıtabilirsiniz. Dahili olarak, dağıtılan görüntüye barındırmak için bir docker görüntüsü oluşturulur. Gerekirse, kendi görüntünüzü belirtebilirsiniz.
-
-Her bir çalışma alanı birden çok kişi tarafından paylaşılabilir ve birden çok çalışma alanı oluşturabilirsiniz. Bir çalışma alanı paylaştığınızda, kullanıcılar için aşağıdaki rolleri atayarak erişim iznini kontrol edebilirsiniz:
-
-* Sahibi
-* Katılımcı
-* Okuyucu
-
-Bu roller hakkında daha fazla bilgi için bkz. [yönetmek için bir Azure Machine Learning çalışma alanına erişim](how-to-assign-roles.md) makalesi.
-
-Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kullanılan bazı Azure kaynakları otomatik olarak oluşturur:
-
-* [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/): Eğitim sırasında ve bir modeli dağıtırken kullandığınız docker kapsayıcıları kaydeder.
-* [Azure depolama hesabı](https://azure.microsoft.com/services/storage/): Çalışma alanı için varsayılan veri deposu olarak kullanılır.
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): İzleme, modelleri hakkında bilgi depolar.
-* [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/): Hedefleri ve gerekli olan diğer hassas bilgiler depolar gizli dizileri tarafından kullanılan işlem tarafından çalışma alanı.
-
-> [!NOTE]
-> Yeni sürümler oluşturmaya ek olarak, var olan Azure hizmetleri de kullanabilirsiniz.
+[Çalışma alanı](concept-workspace.md) Azure Machine Learning hizmeti için en üst düzey bir kaynaktır. Azure Machine Learning hizmeti kullanırken oluşturduğunuz tüm yapıları ile çalışma için merkezi bir yerdir.
 
 Çalışma alanının bir taksonomi, aşağıdaki diyagramda gösterilmiştir:
 
 [![Çalışma alanı sınıflandırma](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+Çalışma alanları hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning çalışma alanı nedir?](concept-workspace.md).
 
 ## <a name="experiment"></a>Deneme
 
@@ -170,6 +154,10 @@ Bir modeli eğitmek için bir betik gönderdiğinizde çalıştırma üretir. Bi
 
 Bir model eğitip geleceği üretilen çalıştırmalarını görüntüleme ilişkin bir örnek için bkz [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-run-cloud-notebook.md).
 
+## <a name="github-tracking-and-integration"></a>GitHub izleme ve tümleştirme
+
+Kaynak dizini yerel bir Git deposu olduğu çalıştırma eğitim başlattığınızda, depo bilgilerini çalıştırma geçmişinde depolanır. Örneğin, geçerli işleme kimliği depo için geçmiş bir parçası olarak günlüğe kaydedilir. Bu tahmin, ML işlem hattı ya da komut dosyasını çalıştır kullanılarak gönderilen çalıştırmaları ile çalışır. Ayrıca SDK ya da Machine Learning CLI gönderilen çalıştırmalar için çalışır.
+
 ## <a name="snapshot"></a>Anlık görüntü
 
 Bir farklı çalıştır gönderdiğinizde, Azure Machine Learning komut dosyasına bir zip dosyası olarak içeren ve işlem hedefe gönderir dizini sıkıştırır. Zip dosyası ardından ayıklanır ve komut dosyası var. çalıştırın. Azure Machine Learning, zip dosyası da çalıştırma kaydı bir parçası olarak bir anlık görüntü olarak depolar. Çalışma alanına erişimi olan herkes bir çalıştırma kaydı göz atabilir ve anlık görüntü indirin.
@@ -228,7 +216,7 @@ Azure IOT Edge, modülünü çalıştıran ve onu barındıran cihaz izler sağl
 
 ## <a name="pipeline"></a>İşlem hattı
 
-Makine öğrenmesini kullanma oluşturup birleştirmek iş akışları yönetmek için işlem hatları machine learning aşamaları. Örneğin, bir işlem hattı, veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım aşamaları içerebilir. Her aşamada, her biri çeşitli işlem hedeflerini katılımsız çalışabilir, birden çok adım kapsayabilir.
+Makine öğrenmesini kullanma oluşturup birleştirmek iş akışları yönetmek için işlem hatları machine learning aşamaları. Örneğin, bir işlem hattı, veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım ve puanlama aşamaları içerebilir. Her aşamada, her biri çeşitli işlem hedeflerini katılımsız çalışabilir, birden çok adım kapsayabilir.
 
 Machine learning işlem hatlarını bu hizmeti hakkında daha fazla bilgi için bkz: [işlem hatları ve Azure Machine Learning](concept-ml-pipelines.md).
 

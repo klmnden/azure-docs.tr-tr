@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929469"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158261"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarının Klasik modelden Azure Resource Manager'a Platform destekli geçiş
 Bu makalede hizmet (Iaas) kaynaklar Klasikten Resource Manager dağıtım modelleri ve ayrıntıları olarak aboneliğinizde sanal ağ'ı kullanarak birlikte bulunan iki dağıtım modellerindeki kaynaklara bağlanma altyapı geçirme siteden siteye ağ geçitleri. Daha fazla bilgi edinebilirsiniz [Azure Resource Manager özelliklerine ve avantajlarına](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -102,7 +102,7 @@ Bazı özellikleri ve yapılandırmalar şu anda desteklenmiyor; Aşağıdaki b�
 ### <a name="unsupported-features"></a>Desteklenmeyen özellikler
 Aşağıdaki özellikler şu anda desteklenmemektedir. İsteğe bağlı olarak bu ayarları kaldırabilir, Vm'leri geçirme ve Resource Manager dağıtım modelinde ayarlar'ı yeniden etkinleştirin.
 
-| Kaynak sağlayıcısı | Özellik | Öneri |
+| Kaynak sağlayıcı | Özellik | Öneri |
 | --- | --- | --- |
 | İşlem | İlişkilendirilmemiş sanal makine diskleri. | Depolama hesabı geçiş yaptığında bu diskleri arkasında VHD bloblarını geçişi |
 | İşlem | Sanal makine görüntüleri. | Depolama hesabı geçiş yaptığında bu diskleri arkasında VHD bloblarını geçişi |
@@ -131,5 +131,4 @@ Aşağıdaki yapılandırmalar şu anda desteklenmemektedir.
 | Azure HDInsight |HDInsight hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Microsoft Dynamics yaşam döngüsü Hizmetleri |Dynamics yaşam döngüsü Hizmetleri tarafından yönetilen sanal makineleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Azure AD Domain Services |Azure AD etki alanı hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
-| Azure RemoteApp |Azure RemoteApp dağıtımlarını içeren sanal ağlar |Bu şu anda desteklenmiyor. |
-| Azure API Management |Azure API Management dağıtımlarını içeren sanal ağlar |Bu şu anda desteklenmiyor. Iaas sanal ağ'ı geçirmek için herhangi bir kapalı kalma süresi işlemi API Management dağıtımınızın VNET değiştirin. |
+| Azure API Yönetimi |Azure API Management dağıtımlarını içeren sanal ağlar |Bu şu anda desteklenmiyor. Iaas sanal ağ'ı geçirmek için herhangi bir kapalı kalma süresi işlemi API Management dağıtımınızın VNET değiştirin. |

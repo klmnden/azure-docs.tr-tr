@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b36302e349327354e31ef4ea5adb9842d04ed4f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c1c33cab46082d1d3b748b45b40a7928801b2e55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149362"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151256"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -649,6 +649,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                     <h3>Azure Stack</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure-stack">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-stack/">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack Operatörü</p>
@@ -658,6 +664,11 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <a href="/azure/azure-stack/user">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack Kullanıcısı</p>
+                                            </a>
+                                        </li>                                        <li>
+                                            <a href="/azure-stack/asdk/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack Geliştirme Seti (ASDK)</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5959,6 +5970,25 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                         <a href="#stack">Azure Stack</a>
                         <ul id="stack" class="cardsA">
                             <li>
+                                <a href="/azure-stack">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack</h3>
+                                                    <p>Bulut sınırları içinde hibrit bulut ve uç uygulamaları oluşturup dağıtmak için Azure hizmet ve özelliklerini şirket içine genişletme</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5970,7 +6000,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Stack Operatörü</h3>
-                                                    <p>Bu yeni hibrit bulut platformuyla, kendi veri merkezinizden Azure hizmetleri sunun</p>
+                                                    <p>Azure Stack tümleşik sistem altyapısını yönetmeyi ve hizmet sunmayı öğrenme</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5989,6 +6019,23 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <div class="cardText">
                                                 <h3>Azure Stack Kullanıcısı</h3>
                                                 <p>Hizmetleri kullanın ve Azure Stack için uygulamalar oluşturun</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-stack/asdk/">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure Stack Geliştirme Seti (ASDK)</h3>
+                                                <p>Değerlendirme ve test için üretim dışı bir ortam</p>
                                             </div>
                                         </div>
                                     </div>

@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160327"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak Azure kaynaklarına erişimi yönetme
 
@@ -215,7 +215,7 @@ Klasik Abonelik Yöneticisi ve ortak yönetici için rol atamalarını listesind
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>Erişim verme
+## <a name="grant-access"></a>Erişim izni ver
 
 RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir.
 
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Erişimi kaldırma
+## <a name="remove-access"></a>Erişimi kaldır
 
 RBAC, erişimi kaldırmak için rol ataması kullanarak kaldırmanız [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 

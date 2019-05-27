@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72e61a36b58c0bc666f3e19b71fb1abe842208f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111705"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150294"
 ---
 1. Azure portal ve Seç'i açın **kaynak Oluştur**. **Yeni** sayfası açılır.
 
@@ -25,21 +25,21 @@ ms.locfileid: "53111705"
 
 4. Üzerinde **sanal ağ geçidi Oluştur** sayfasında, sanal ağ geçidinize ait değerleri girin:
 
-   - **Ad**: oluşturduğunuz ağ geçidi nesnesi için bir ad girin. Bu ad, ağ geçidi alt ağı adından farklıdır. 
+   - **Ad**: Oluşturmakta olduğunuz ağ geçidi nesnesi için bir ad girin. Bu ad, ağ geçidi alt ağı adından farklıdır. 
 
-   - **Ağ geçidi türü**: seçin **VPN** VPN ağ geçitleri için. 
+   - **Ağ geçidi türü**: Seçin **VPN** VPN ağ geçitleri için. 
 
    - **VPN türü**: Yapılandırmanızla ilgili belirtilen VPN türünü seçin. Çoğu yapılandırma gerektiren bir **rota tabanlı** VPN türü.
 
-   - **SKU**: Açılır listeden ağ geçidi SKU’sunu seçin. Açılır listede sıralanan SKU’lar seçtiğiniz VPN türüne bağlıdır. Ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+   - **SKU**: Açılan listeden ağ geçidi SKU'sunu seçin. Açılır listede sıralanan SKU’lar seçtiğiniz VPN türüne bağlıdır. Ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
       Yalnızca belirli **etkinleştir aktif / aktif modu** bir etkin-etkin ağ geçidi yapılandırması oluşturuyorsanız. Aksi takdirde bu ayarı seçmeyin.
   
-   - **Konum**: görmek için kaydırmanız gerekebilir **konumu**. Ayarlama **konumu** için sanal ağınızın bulunduğu konumu. Örneğin, **Batı ABD**. Konum, sanal ağınızın bulunduğu bölgeye ayarlamazsanız, bir sanal ağ'ı seçtiğinizde açılan listede görünmez.
+   - **Konum**: Görmek için kaydırmanız gerekebilir **konumu**. Ayarlama **konumu** için sanal ağınızın bulunduğu konumu. Örneğin, **Batı ABD**. Konum, sanal ağınızın bulunduğu bölgeye ayarlamazsanız, bir sanal ağ'ı seçtiğinizde açılan listede görünmez.
 
    - **Sanal ağ**: Bu ağ geçidini eklemek istediğiniz sanal ağı seçin. Seçin **sanal ağ** açmak için **sanal ağ Seç** sayfasında ve sanal ağ'ı seçin. Vnet'inizi görmüyorsanız emin **konumu** alanını, sanal ağınızın bulunduğu bölgeye ayarlayın.
 
-   - **Ağ geçidi alt ağ adres aralığı**: sanal ağınız için daha önce bir ağ geçidi alt ağı oluşturmadıysanız Bu ayar yalnızca görürsünüz. Daha önce geçerli bir ağ geçidi alt ağı oluşturduysanız, bu ayar görünmez.
+   - **Ağ geçidi alt ağ adres aralığı**: Bu ayar, yalnızca sanal ağınız için daha önce bir ağ geçidi alt ağı oluşturmadıysanız görürsünüz. Daha önce geçerli bir ağ geçidi alt ağı oluşturduysanız, bu ayar görünmez.
 
    - **Genel IP adresi**: Bu ayar, VPN ağ geçidi ile ilişkili genel IP adresi nesnesi belirtir. VPN ağ geçidi oluşturulduğunda genel IP adresi bu nesneye dinamik olarak atanır. VPN ağ geçidi şu anda yalnızca destekler *dinamik* genel IP adresi ayırma. Ancak, dinamik ayırma IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Yalnızca bir kez ortak IP adresi değişiklikleri olduğunda ağ geçidi silinip yeniden oluşturulması. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
     
@@ -47,7 +47,7 @@ ms.locfileid: "53111705"
 
       - Metin kutusu içinde genel IP adresiniz için bir ad girin.
 
-   - **BGP ASN'sini Yapılandır**: yapılandırmanızı özellikle gerektirmediği sürece bu seçiminin kaldırılmış ayarı bırakın. Bu ayar gerektiriyorsa, ASN varsayılandır *65515*, değiştirebilirsiniz.
+   - **BGP ASN'sini Yapılandır**: Bu ayar seçili, yapılandırmanızı özellikle gerektirmediği sürece bırakın. Bu ayar gerektiriyorsa, ASN varsayılandır *65515*, değiştirebilirsiniz.
      
 5. Ayarları doğrulayın ve seçin **Oluştur** VPN ağ geçidi oluşturmaya başlamak için. Ayarlar doğrulanır ve gördüğünüz **sanal ağ geçidini dağıtma** Panoda kutucuk. Bir ağ geçidi oluşturma 45 dakika kadar sürebilir. Tamamlanma durumunu görmek için portal sayfanızı yenilemeniz gerekebilir.
 

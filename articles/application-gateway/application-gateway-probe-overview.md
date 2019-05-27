@@ -6,14 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
-ms.author: victorh
+origin.date: 08/06/2018
+ms.date: 04/16/2019
+ms.author: v-junlch
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135206"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
 
@@ -83,9 +84,9 @@ Aşağıdaki tabloda, bir özel durum araştırması özelliklerini tanımların
 | Araştırma özelliği | Açıklama |
 | --- | --- |
 | Ad |Araştırma adı. Bu ad, arka uç HTTP ayarlarında araştırma başvurmak için kullanılır. |
-| Protokol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır. |
-| Host |Araştırma göndermek için ana bilgisayar adı. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır. |
-| Yol |Araştırma göreli yolu. Geçerli yol başlatılır '/'. |
+| Protocol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır. |
+| Konak |Araştırma göndermek için ana bilgisayar adı. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM'nin ana bilgisayar adından farklıdır. |
+| `Path` |Araştırma göreli yolu. Geçerli yol başlatılır '/'. |
 | Interval |Aralık saniye cinsinden araştırma. İki ardışık araştırmaları arasındaki zaman aralığını değerdir. |
 | Zaman aşımı |Zaman aşımını saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir.  |
 | İyi durumda olmayan eşik |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
@@ -104,3 +105,5 @@ Buna ek olarak, giden Internet bağlantısı engellenemez ve AzureLoadBalancer e
 Uygulama ağ geçidi sistem durumu izleme hakkında daha fazla edindikten sonra yapılandırdığınız bir [özel durum araştırması](application-gateway-create-probe-portal.md) Azure portalında veya [özel durum araştırması](application-gateway-create-probe-ps.md) PowerShell ve Azure Resource Manager kullanarak dağıtım modeli.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
+
+<!-- Update_Description: wording update -->

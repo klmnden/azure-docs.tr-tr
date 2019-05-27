@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 3a702668418ddf17aa9091317393264458ff4f8b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 82771d005ce38972cdb1484a02e071a30e577a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152166"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir özel kapsayıcı kayıt defteri oluşturma
 
@@ -29,7 +29,7 @@ Ayrıca sisteminizde yerel olarak Docker yüklü olması gerekir. Docker, [macOS
 
 Azure Cloud Shell gerekli tüm Docker bileşenlerini (`dockerd` daemon) içermediğinden, bu hızlı başlangıçta Cloud Shell’i kullanamazsınız.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Azure aboneliğinizde oturum açın [Connect AzAccount] [ Connect-AzAccount] komutunu ve izleyin ekrandaki yönergeleri izleyin.
 
@@ -37,7 +37,7 @@ Azure aboneliğinizde oturum açın [Connect AzAccount] [ Connect-AzAccount] kom
 Connect-AzAccount
 ```
 
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-resource-group"></a>Kaynak grubu oluştur
 
 Azure ile kimlik doğrulaması yapıldıktan sonra bir kaynak grubu oluşturun [yeni AzResourceGroup][New-AzResourceGroup]. Kaynak grubu, Azure kaynaklarınızın dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -45,7 +45,7 @@ Azure ile kimlik doğrulaması yapıldıktan sonra bir kaynak grubu oluşturun [
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
+## <a name="create-container-registry"></a>Kapsayıcı kayıt defteri oluşturuluyor
 
 Ardından, yeni kaynak grubunuz ile kapsayıcı kayıt defteri oluşturun [yeni AzContainerRegistry] [ New-AzContainerRegistry] komutu.
 

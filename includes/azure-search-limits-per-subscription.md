@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212059"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160499"
 ---
 Bir abonelik içindeki birden çok hizmeti oluşturabilirsiniz. Her biri belirli bir katman üzerinden sağlanabilir. Yalnızca her katmanında izin verilen hizmetler sayısına göre sınırlama getirilir. Örneğin, en fazla 12 temel katmanında ve başka bir 12 Hizmetleri aynı abonelik içindeki S1 katmanında oluşturabilirsiniz. Katmanları hakkında daha fazla bilgi için bkz. [bir SKU veya katmanı için Azure Search seçin](../articles/search/search-sku-tier.md).
 

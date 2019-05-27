@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541392"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159756"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Bu komut için aşağıdaki tabloda benzer sonuçlar verir:
 
-| Kullanıcı Kimliği | kullanıcı adı | bölüm | rowkey |
+| userid | username | bölüm | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Bölüm1 | CA |
 | 3 | Christine | Bölüm1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Sonuçları aşağıdaki tabloda benzer görünmelidir:
 
-| Kullanıcı Kimliği | kullanıcı adı | bölüm | rowkey |
+| userid | username | bölüm | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Bölüm1 | CA |
 | 3 | Christine | Bölüm1 | WA |
@@ -101,10 +101,10 @@ Get-AzTableRow -table $cloudTable `
 
 Bu sorgu, bir kaydı alır.
 
-|Alan|değer|
+|Alan|value|
 |----|----|
-| Kullanıcı Kimliği | 1 |
-| kullanıcı adı | Chris |
+| userid | 1 |
+| username | Chris |
 | PartitionKey | Bölüm1 |
 | RowKey      | CA |
 
@@ -118,10 +118,10 @@ Get-AzTableRow `
 
 Bu sorgu, bir kaydı alır.
 
-|Alan|değer|
+|Alan|value|
 |----|----|
-| Kullanıcı Kimliği | 1 |
-| kullanıcı adı | Chris |
+| userid | 1 |
+| username | Chris |
 | PartitionKey | Bölüm1 |
 | RowKey      | CA |
 
@@ -153,10 +153,10 @@ Get-AzTableRow -table $cloudTable `
 
 Sonuçları Jessie2 kaydı gösterir.
 
-|Alan|değer|
+|Alan|value|
 |----|----|
-| Kullanıcı Kimliği | 2 |
-| kullanıcı adı | Jessie2 |
+| userid | 2 |
+| username | Jessie2 |
 | PartitionKey | Bölüm2 |
 | RowKey      | NM |
 

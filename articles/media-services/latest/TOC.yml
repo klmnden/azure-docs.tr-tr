@@ -50,7 +50,7 @@
         - name: Depolama
           href: storage-account-concept.md
           displayName: Storage side encryption
-        - name: Varlıklar API’si
+        - name: Varlıklar
           href: assets-concept.md
     - name: Encoding
       items:

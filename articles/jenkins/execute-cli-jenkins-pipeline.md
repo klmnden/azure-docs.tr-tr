@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
 ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162199"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins ve Azure CLI ile Azure App Service'e dağıtım yapma
 Azure'a Java web uygulaması dağıtmak için [Jenkins İşlem Hattı](https://jenkins.io/doc/book/pipeline/)'ndaki Azure CLI'yi kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
@@ -152,7 +152,7 @@ Jenkins'i bir web tarayıcısında açın ve **New Item**'a (Yeni Öğe) tıklay
 * **Definition** (Tanım) için **Pipeline script from SCM**'yi (SCM'den işlem hattı betiği) seçin.
 * **SCM** için **Git**'i seçin.
 * Çatalını oluşturduğunuz deponuzun GitHub URL'sini girin: https:\<çatalını oluşturduğunuz depo\>.git
-* **Kaydet**’e tıklayın
+* **Kaydet**'e tıklayın.
 
 ## <a name="test-your-pipeline"></a>İşlem hattınızı test etme
 * Oluşturduğunuz işlem hattına gidin ve **Build Now**'a (Şimdi Derle) tıklayın

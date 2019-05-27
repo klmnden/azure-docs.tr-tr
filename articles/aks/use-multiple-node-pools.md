@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506900"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142634"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Önizleme - oluşturma ve Azure Kubernetes Service (AKS) kümesi için birden çok düğüm havuzları yönetme
 
@@ -332,7 +332,7 @@ Uygulanan bu taint sahip pod düğümlerinde zamanlanabilir *gpunodepool*. Diğe
 
 Bu makalede, GPU tabanlı düğümleri içeren bir AKS kümesi oluşturuldu. Gereksiz maliyetini azaltmak için silmek isteyebilirsiniz *gpunodepool*, ya da tüm AKS kümesi.
 
-GPU tabanlı düğüm havuzu silmek için kullanın [az aks düğümü havuzunu silme] [ az-aks-nodepool-delete] komutu aşağıdaki örnekte gösterildiği gibi:
+GPU tabanlı düğüm havuzu silmek için kullanın [az aks nodepool Sil] [ az-aks-nodepool-delete] komutu aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 Bu makalede bir AKS kümesindeki birden çok düğüm havuzları oluşturma ve yönetme öğrendiniz. Pod'ları arasında düğüm havuzları denetleme hakkında daha fazla bilgi için bkz. [aks'deki Gelişmiş Zamanlayıcı özellikleri için en iyi yöntemler][operator-best-practices-advanced-scheduler].
 
+Oluşturma ve Windows Server kapsayıcı düğüm havuzları kullanma hakkında bilgi için bkz: [AKS içinde bir Windows Server kapsayıcı oluşturma][aks-windows].
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ Bu makalede bir AKS kümesindeki birden çok düğüm havuzları oluşturma ve y
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

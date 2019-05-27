@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154346"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesinde Oracle ASM ayarlayın  
 
@@ -40,7 +40,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 ## <a name="prepare-the-environment"></a>Ortamı hazırlama
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Kaynak grubu oluşturmak için [az group create](/cli/azure/group) komutunu kullanın. Bir Azure kaynak grubu, Azure kaynaklarını dağıtıldığı ve yönetildiği mantıksal bir kapsayıcıdır. Bu örnekte, adlı bir kaynak grubu *myResourceGroup* içinde *eastus* bölge.
 
@@ -461,14 +461,14 @@ Oracle kılavuz altyapı yüklemek için aşağıdaki adımları tamamlayın:
 
    ![Yükleyicisi'nin yükleme seçenek sayfasının ekran görüntüsü](./media/oracle-asm/install01.png)
 
-3. Üzerinde **ürün dilleri seçin** sayfasında, olun **İngilizce** veya istediğiniz dili seçilir.  `next` öğesine tıklayın.
+3. Üzerinde **ürün dilleri seçin** sayfasında, olun **İngilizce** veya istediğiniz dili seçilir.  Tıklatın `next`.
 
 4. Üzerinde **ASM Disk grubu oluşturma** sayfası:
    - Disk grubu için bir ad girin.
    - Altında **Yedeklilik**seçin **dış**.
    - Altında **ayırma birimi boyutu**seçin **4**.
    - Altında **diskleri ekleme**seçin **ORCLASMSP**.
-   - `next` öğesine tıklayın.
+   - Tıklatın `next`.
 
 5. Üzerinde **ASM parola belirtin** sayfasında **bu hesaplar için aynı parolaları kullanıp** seçeneği ve bir parola girin.
 
@@ -530,7 +530,7 @@ Oracle ASM yüklemenizi ayarlamak için aşağıdaki adımları tamamlayın:
 5. İçinde **Disk grubu oluşturma** iletişim kutusunda:
 
    - Disk grubu adı girin **FRA**.
-   - Altında **Yedeklilik**seçin **dış (hiçbiri)**.
+   - Altında **Yedeklilik**seçin **dış (hiçbiri)** .
    - Altında **üye diskleri seçin**seçin **ORCL_FRA**.
    - Altında **ayırma birimi boyutu**seçin **4**.
    - Tıklayın `ok` disk grubu oluşturmak için.

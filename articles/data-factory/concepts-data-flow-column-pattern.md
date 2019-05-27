@@ -1,24 +1,23 @@
 ---
 title: Azure veri fabrikası veri akışı sütunu desen eşleştirme
-description: Azure veri fabrikası eşleme veri akışı sütunu desenleri alanları temel alınan şema meta verilerini bakılmaksızın bir veri akışı dönüştürme genelleştirilmiş şablon modellerini oluşturmak için kullanılır
+description: Azure veri fabrikası sütun desenleri alanları temel alınan şema meta verilerini bakılmaksızın bir veri akışı dönüştürme genelleştirilmiş şablon modellerini oluşturmak için veri akışı eşleme kullanmayı öğrenin
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61269713"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155232"
 ---
-# <a name="azure-data-factory-mapping-data-flow-concepts"></a>Azure veri fabrikası veri akışı kavramları eşleme
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure veri fabrikası eşleme veri akışları sütun desenleri
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Sabit kodlanmış sütun adları yerine desenleri temel şablon sütunları oluşturabilmesi çeşitli Azure veri fabrikası, veri akışı dönüşümleri "Sütunları desenleri" fikrini destekler. İfade oluşturucu içinde bu özellik sütunları xact, belirli bir alan adları yerine dönüştürme için eşleştirilecek desenleri tanımlamak için kullanabilirsiniz. Gelen kaynak alanları genellikle, özellikle sütunları metin dosyalarında veya NoSQL veritabanları söz konusu olduğunda değiştirmek için desen yararlıdır. Bu bazen "Şema değişikliklerini" adlandırılır.
+Sabit kodlanmış sütun adları yerine desenleri temel şablon sütunları oluşturabilmesi çeşitli Azure veri fabrikası, veri akışı dönüşümleri "Sütunları desenleri" fikrini destekler. İfade oluşturucu içinde bu özellik sütunları xact, belirli bir alan adları yerine dönüştürme için eşleştirilecek desenleri tanımlamak için kullanabilirsiniz. Gelen kaynak alanları genellikle, özellikle metin dosyalarında veya NoSQL veritabanları sütunları değiştirme söz konusu olduğunda değiştirirseniz desenleri kullanışlıdır. Bu durum bazen "Şema değişikliklerini" adlandırılır.
 
 ![Sütun desenleri](media/data-flow/columnpattern2.png "sütun desenleri")
 

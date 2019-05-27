@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610144"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160731"
 ---
 ## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 
@@ -25,7 +25,7 @@ Bu bölüm geliştirme ortamını ayarlama aracılığıyla size yol gösterir. 
 
 1. Ana menüden **dosya** > **yeni** > **proje**.
 
-1. İçinde **yeni proje** iletişim kutusunda **Web** > **ASP.NET Web uygulaması (.NET Framework)**. İçinde **adı** alanında, belirtin **StorageAspNet**. **Tamam**’ı seçin.
+1. İçinde **yeni proje** iletişim kutusunda **Web** > **ASP.NET Web uygulaması (.NET Framework)** . İçinde **adı** alanında, belirtin **StorageAspNet**. **Tamam**’ı seçin.
 
     ![Yeni Proje iletişim kutusunun ekran görüntüsü](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 

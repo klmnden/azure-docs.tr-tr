@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137774"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162073"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure kaynak Graph hizmetine genel bakış
 
@@ -43,7 +43,7 @@ Azure kaynak grafiği ile şunları yapabilirsiniz:
 ## <a name="how-resource-graph-is-kept-current"></a>Nasıl Kaynak Grafiği geçerli tutulur
 
 Bir Azure kaynak güncelleştirildiğinde Kaynak Grafiği değişikliği kaynak yöneticisi tarafından bildirilir.
-Kaynak Grafiği, sonra veritabanını güncelleştirir. Kaynak Grafiği de yapar normal _tam tarama_. Bu tarama kaynak graf verileri eksik bildirimler veya bir kaynak Resource Manager dışında güncelleştirildiğinde durumunda geçerli olmasını sağlar.
+Kaynak Grafiği, sonra veritabanını güncelleştirir. Kaynak Grafiği de yapar normal _tam tarama_. Bu tarama, kaynak graf verileri eksik bildirimler varsa ya da bir kaynak Resource Manager dışında güncelleştirildiğinde geçerli olmasını sağlar.
 
 ## <a name="the-query-language"></a>Sorgu dili
 
@@ -63,9 +63,15 @@ Kaynak Grafı’nı kullanmak için, sorgulamak istediğiniz kaynaklara en az ok
 
 ## <a name="throttling"></a>Azaltma
 
-Ücretsiz bir hizmet tüm müşteriler için en iyi deneyimi ve yanıt zamanı sağlamak için kaynak graf sorgularını azaltılır. Kuruluşunuz için büyük ölçekli ve sık kullanılan sorgular kaynak Graph API'sini kullanmak istiyorsa, Kaynak Grafiği sayfasından portal 'Geri' kullanın. İşinizin durumunu sağlayın ve sizinle iletişim kurmak takım için sırayla 'Microsoft, hakkındaki görüşlerinizi e-posta' onay kutusunu işaretleyin emin olun.
+Ücretsiz bir hizmet tüm müşteriler için en iyi deneyimi ve yanıt zamanı sağlamak için kaynak graf sorgularını azaltılır. Kuruluşunuz büyük ölçekli ve sık kullanılan sorgular için kaynak Graph API'sini kullanmak isterse, portal 'Geri' kullanmak [Kaynak Grafiği portal sayfasının](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+İşinizin durumunu sağlayın ve sizinle iletişim kurmak takım için sırayla 'Microsoft, hakkındaki görüşlerinizi e-posta' onay kutusunu işaretleyin.
 
-Kaynak Grafiği Kiracı düzeyinde kısıtlar. Hizmet geçersiz kılar ve ayarlar `x-ms-ratelimit-remaining-tenant-reads` kalan belirtmek için yanıt üst bilgisi sorgular kullanılabilir kiracıda bir kullanıcı tarafından. Kaynak Grafiği, kota her 5 saniyede bir yerine saatte sıfırlar. Daha fazla bilgi için [istekleri azaltma Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
+Kaynak Graph sorguları kullanıcı düzeyinde kısıtlar. Hizmet yanıt aşağıdaki HTTP üst bilgileri içerir:
+
+- `x-ms-user-quota-remaining` (int): Kullanıcı için kalan kaynak kotası. Sorgu sayısı bu değeri eşler.
+- `x-ms-user-quota-resets-after` (ss): Bir kullanıcının kota tüketim sıfırlanana kadar süre
+
+Daha fazla bilgi için [istekleri azaltma Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>İlk sorgunuzu çalıştırma
 

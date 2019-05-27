@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818488"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153608"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Azure Machine Learning kullanarak tahmin modellerini eğitin
 
@@ -26,7 +26,7 @@ Kolaylaştırmak için derin öğrenme modeli Eğitimi, Azure Machine Learning P
 
 ## <a name="train-with-an-estimator"></a>Bir tahmin ile eğitme
 
-Oluşturduktan sonra [çalışma](concept-azure-machine-learning-architecture.md#workspace) ve ayarlayın, [geliştirme ortamı](how-to-configure-environment.md), Azure Machine Learning modeli, aşağıdaki adımları içerir:  
+Oluşturduktan sonra [çalışma](concept-workspace.md) ve ayarlayın, [geliştirme ortamı](how-to-configure-environment.md), Azure Machine Learning modeli, aşağıdaki adımları içerir:  
 1. Oluşturma bir [uzak işlem hedef](how-to-set-up-training-targets.md) (Ayrıca kullanabileceğiniz yerel bilgisayar işlem hedefi olarak not)
 2. Karşıya yükleme, [eğitim verilerini](how-to-access-data.md) için veri deposu (isteğe bağlı)
 3. Oluşturma, [eğitim betiği](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ Son olarak, eğitim işini gönder:
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>GitHub izleme ve tümleştirme
+
+Kaynak dizini yerel bir Git deposu olduğu çalıştırma eğitim başlattığınızda, depo bilgilerini çalıştırma geçmişinde depolanır. Örneğin, geçerli işleme kimliği depo için geçmiş bir parçası olarak günlüğe kaydedilir.
 
 ## <a name="examples"></a>Örnekler
 Tahmin deseni temelleri gösteren bir not defteri için bkz:

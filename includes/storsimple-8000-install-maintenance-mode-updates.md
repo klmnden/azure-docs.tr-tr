@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164940"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171176"
 ---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla Bakım modu güncelleştirmeleri yükle
 
@@ -27,13 +27,13 @@ StorSimple cihazını Bakım modu güncelleştirmeleri uygulayabilir, tüm g/ç 
 
     Her iki denetleyici de bakım moduna yeniden başlatın.
 
-3. Bakım modu güncelleştirmeleri yükleyin. Şunu yazın:
+3. Bakım modu güncelleştirmeleri yükleyin. Tür:
 
     `Start-HcsUpdate`
 
     Onaylamanız istenir. Güncelleştirmeleri onayladıktan sonra bunlar şu anda erişen denetleyicisine yüklenir. Güncelleştirmeler yüklendikten sonra denetleyici yeniden başlatılır.
 
-4. Güncelleştirmelerin durumunu izleyin. Geçerli denetleyici güncelleştiriyor ve diğer tüm komutların işleyebilir değil eş denetleyicisine oturum açın. Şunu yazın:
+4. Güncelleştirmelerin durumunu izleyin. Geçerli denetleyici güncelleştiriyor ve diğer tüm komutların işleyebilir değil eş denetleyicisine oturum açın. Tür:
 
     `Get-HcsUpdateStatus`
 

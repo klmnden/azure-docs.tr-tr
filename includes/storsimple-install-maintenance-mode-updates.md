@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61410014"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171925"
 ---
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla Bakım modu güncelleştirmeleri yüklemek için
 1. Henüz yapmadıysanız, seçenek 1 ve cihaz seri konsoluna erişim **tam erişimle oturum açmak**. 
@@ -20,7 +20,7 @@ ms.locfileid: "61410014"
 4. Güncelleştirmeler varsa ve yıkıcı veya kesintiye uğratmayan güncelleştirmelerin olup olmadığını size bildirilir. Kesintiye uğratan güncelleştirmeleri uygulamak için cihaz, bakım moduna almanız gerekir. Bkz: [2. adım: Bakım moduna](../articles/storsimple/storsimple-update-device.md#step2) yönergeler için.
 5. Cihazınızın bakım modunda olduğunda komut isteminde aşağıdakini yazın: `Start-HcsUpdate`
 6. Onaylamanız istenir. Güncelleştirmeleri onayladıktan sonra şu anda erişen denetleyicisine yüklenir. Güncelleştirmeler yüklendikten sonra denetleyici yeniden başlatılır. 
-7. Güncelleştirmelerin durumunu izleyin. Şunu yazın:
+7. Güncelleştirmelerin durumunu izleyin. Tür:
    
     `Get-HcsUpdateStatus`
    

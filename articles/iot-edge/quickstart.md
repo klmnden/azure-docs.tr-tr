@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148076"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146750"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma
 
@@ -138,6 +138,13 @@ PowerShell'i kullanarak IoT Edge çalışma zamanını indirin ve yükleyin. Cih
 1. Henüz yapmadıysanız, adımları [yeni bir Azure IOT Edge cihazı kaydedin](how-to-register-device-portal.md) Cihazınızı kaydedemedik ve cihaz bağlantı dizesini almak için. 
 
 2. PowerShell'i yönetici olarak çalıştırın.
+
+   >[!NOTE]
+   >IOT Edge, PowerShell (x86) yüklemek için bir AMD64 PowerShell oturumu kullanın. Kullanmakta olduğunuz hangi oturum türü emin değilseniz, aşağıdaki komutu çalıştırın:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. **Dağıt IoTEdge** komutu Windows makineniz üzerinde desteklenen bir sürümünü, kapsayıcıları özelliğini etkinleştirir, moby çalışma zamanı indirir ve sonra IOT Edge çalışma zamanını indirir olduğunu denetler.
 

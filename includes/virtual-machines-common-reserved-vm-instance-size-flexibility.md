@@ -5,11 +5,11 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
 ms.openlocfilehash: 05820cc5f7b7d61d83f73ea5b62b05f8712e0997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771211"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156236"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Ayrılmış VM örnekleri ile sanal makine boyutu esnekliği
 
@@ -38,7 +38,7 @@ Ayrılmış VM örneği satın aldığınızda, hangi boyutları aynı boyutu se
 
 ## <a name="b-series"></a>B serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_B1s | 1 |
 |Standard_B2s|4|
@@ -47,7 +47,7 @@ Daha fazla bilgi için [B serisi seri aktarıma uygun sanal makine boyutları](.
 
 ## <a name="b-series-high-memory"></a>B serisi yüksek bellek
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_B1ms |1|
 |Standard_B2ms|4|
@@ -58,7 +58,7 @@ Daha fazla bilgi için [B serisi seri aktarıma uygun sanal makine boyutları](.
 
 ## <a name="d-series"></a>D Serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_D1|1|
 |Standard_D2|2|
@@ -69,7 +69,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="d-series-high-memory"></a>D serisi yüksek bellek
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_D11|1|
 |Standard_D12|2|
@@ -80,7 +80,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="ds-series"></a>DS serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_DS1|1|
 |Standard_DS2|2|
@@ -91,7 +91,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="ds-series-high-memory"></a>DS serisi yüksek bellek
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_DS11|1|
 |Standard_DS12|2|
@@ -102,7 +102,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="dsv2-series"></a>DSv2 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_DS1_v2|1|
 |Standard_DS2_v2|2|
@@ -114,7 +114,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="dsv2-series-high-memory"></a>Yüksek bellek DSv2 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_DS11_v2|1|
 |Standard_DS11-1_v2|1|
@@ -133,7 +133,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="dsv3-series"></a>DSv3 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_D2s_v3|1|
 |Standard_D4s_v3|2|
@@ -146,7 +146,7 @@ Daha fazla bilgi için [genel amaçlı sanal makine boyutları](../articles/virt
 
 ## <a name="dv2-series"></a>Dv2 Serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_D1_v2|1|
 |Standard_D2_v2|2|
@@ -158,7 +158,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="dv2-series-high-memory"></a>Dv2 serisi yüksek bellek
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_D11_v2|1|
 |Standard_D12_v2|2|
@@ -170,7 +170,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="dv3-series"></a>Dv3 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_D2_v3|1|
 |Standard_D4_v3|2|
@@ -183,7 +183,7 @@ Daha fazla bilgi için [genel amaçlı sanal makine boyutları](../articles/virt
 
 ## <a name="esv3-series"></a>ESv3 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_E2s_v3|1|
 |Standard_E4s_v3|2|
@@ -206,7 +206,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="ev3-series"></a>Ev3 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_E2_v3|1|
 |Standard_E4_v3|2|
@@ -220,7 +220,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="f-series"></a>F Serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_F1|1|
 |Standard_F2|2|
@@ -232,7 +232,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="fs-series"></a>FS serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_F1s|1|
 |Standard_F2s|2|
@@ -244,7 +244,7 @@ Daha fazla bilgi için [önceki nesil sanal makine boyutları](../articles/virtu
 
 ## <a name="fsv2-series"></a>Fsv2-serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |Standard_F2s_v2|1|
 |Standard_F4s_v2|2|
@@ -258,7 +258,7 @@ Daha fazla bilgi için [işlem için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="h-series"></a>H Serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_H8|1|
 |Standard_H16|2|
@@ -267,7 +267,7 @@ Daha fazla bilgi için [yüksek performanslı işlem VM boyutları](../articles/
 
 ## <a name="h-series-high-memory"></a>H serisi, yüksek bellek
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_H8m|1|
 |Standard_H16m|2|
@@ -276,7 +276,7 @@ Daha fazla bilgi için [yüksek performanslı işlem VM boyutları](../articles/
 
 ## <a name="ls-series"></a>Ls serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standart_L4s|1|
 |Standart_L8s|2|
@@ -287,7 +287,7 @@ Daha fazla bilgi için [depolama için iyileştirilmiş sanal makine boyutları]
 
 ## <a name="m-series"></a>M serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | İşler için standart_m64s|1|
 |İşler için standart_m128s|2|
@@ -296,7 +296,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="m-series-fractional"></a>M serisi kesirli
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | İşler için Standard_M16s|1|
 |Standard_M32s|2|
@@ -305,7 +305,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="m-series-fractional-high-memory"></a>M serisi kesirli yüksek bellek
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 |İşler için Standard_M8ms|1|
 |Standard_M8-2ms|1|
@@ -321,7 +321,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="m-series-fractional-large"></a>M serisi kesirli büyük
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_M32ls|1|
 |İşler için standart_m64ls|2|
@@ -330,7 +330,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="m-series-high-memory"></a>M serisi, yüksek bellek
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_M64ms|1|
 |Standard_M64-16ms|1|
@@ -343,7 +343,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 ## <a name="nc-series"></a>NC serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_NC6|1|
 |Standard_NC12|2|
@@ -353,7 +353,7 @@ Daha fazla bilgi için [GPU için iyileştirilmiş sanal makine boyutları](../a
 
 ## <a name="ncv2-series"></a>NCv2 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_NC6s_v2|1|
 |Standard_NC12s_v2|2|
@@ -363,7 +363,7 @@ Daha fazla bilgi için [GPU için iyileştirilmiş sanal makine boyutları](../a
 
 ## <a name="ncv3-series"></a>NCv3 serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_NC6s_v3|1|
 |Standard_NC12s_v3|2|
@@ -373,7 +373,7 @@ Daha fazla bilgi için [GPU için iyileştirilmiş sanal makine boyutları](../a
 
 ## <a name="nd-series"></a>ND serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_ND6s|1|
 |Standard_ND12s|2|
@@ -383,7 +383,7 @@ Daha fazla bilgi için [GPU için iyileştirilmiş sanal makine boyutları](../a
 
 ## <a name="nv-series"></a>NV serisi
 
-| Boyut | Oranı|
+| Boyutlandır | Oranı|
 |---|---|
 | Standard_NV6|1|
 |Standard_NV12|2|

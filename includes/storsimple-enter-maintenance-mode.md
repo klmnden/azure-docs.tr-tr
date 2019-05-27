@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: d35f0ef783a2c48f8211657bc8829635c19495aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409961"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171969"
 ---
 #### <a name="to-enter-maintenance-mode"></a>Bakım moduna girmek için
 1. Seri konsol menüsünde seçeneği 1 **tam erişimle oturum açmak**.

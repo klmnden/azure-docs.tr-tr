@@ -9,11 +9,11 @@ ms.date: 11/19/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: c3cbfda674abaeea1adf35c3ee0d2b5ddf6b2f84
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853109"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153738"
 ---
 Şimdi bir veritabanı ve koleksiyon oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
 
@@ -32,7 +32,7 @@ ms.locfileid: "52853109"
     Veritabanı aktarım hızı sağlama|Boş bırakın|Azure Cosmos DB, aktarım hızı (aynı aktarım hızı bir veritabanındaki tüm koleksiyonlar paylaşım) veritabanı düzeyinde veya koleksiyon düzeyindeki sağlayabilirsiniz. Bu belirli bir koleksiyon için koleksiyon düzeyinde sağlama aktarım hızı için boş bırakın.
     Depolama kapasitesi|*Sınırsız*|Depolama kapasitesini seçin **sınırsız**. 
     Bölüm anahtarı|*/ Category*|Girin "/ kategorisi" Bölüm anahtarı olarak. Bir bölüm anahtarı ayarı, uygulamanızın depolama ve aktarım hızı gereksinimlerini karşılamak için koleksiyonunuzun ölçeklendirmek Azure Cosmos DB sağlar. Genel olarak, iyi bir seçim bölüm anahtarı, depolama ve istek hacmi eşit dağıtımı iş yükünüz arasında çok çeşitli farklı değerleri ve sonuçları olan biridir. [Bölümleme hakkında daha fazla bilgi edinin.](../articles/cosmos-db/partitioning-overview.md)
-    Aktarım hızı|*400 RU/sn*|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz. 
+    Performans|*400 RU/sn*|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz. 
     
     Önceki ayarlara ek olarak, isterseniz koleksiyon için **Benzersiz anahtarlar** ekleyebilirsiniz. Bu örnekte bu alanı boş bırakalım. Benzersiz anahtarlar sayesinde geliştiriciler veritabanına bir veri bütünlüğü katmanı ekleyebilir. Koleksiyon oluştururken benzersiz anahtar ilkesi oluşturulduğunda, bölüm anahtarı başına bir veya birden çok değerin benzersiz olduğundan emin olursunuz. Daha fazla bilgi edinmek için [Azure Cosmos DB'de benzersiz anahtarlar](../articles/cosmos-db/unique-keys.md) makalesine bakın.
     

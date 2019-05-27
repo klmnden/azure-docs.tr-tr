@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860528"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149641"
 ---
 #### <a name="to-download-hotfixes"></a>Düzeltmeleri indirmek için
 
@@ -26,7 +26,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
    
     ![Katalogda arama](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. **İndir**’e tıklayın. İndirilen öğelerin görünmesini istediğiniz yerel konumu belirtin veya **Gözat** seçeneğiyle konumu bulun. Dosya belirtilen konuma ve klasöre yüklemek için tıklayın. Klasör, cihazdan erişilebilen bir ağ paylaşımına da kopyalanabilir.
+4. **İndir**'e tıklayın. İndirilen öğelerin görünmesini istediğiniz yerel konumu belirtin veya **Gözat** seçeneğiyle konumu bulun. Dosya belirtilen konuma ve klasöre yüklemek için tıklayın. Klasör, cihazdan erişilebilen bir ağ paylaşımına da kopyalanabilir.
 5. Diğer düzeltmeleri arayın, yukarıdaki tabloda listelenen (**4011841**) ve yukarıdaki tabloda listelenen karşılık gelen dosyalar belirli klasörlere yükleyin.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Normal mod düzeltmelerini yüklemek ve doğrulamak için aşağıdaki adımlar�
     > [!NOTE]
     > Bazı durumlarda cmdlet, güncelleştirme hala devam ediyorsa `False` raporu gönderir. Düzeltmenin tamamlandığından emin olmak için birkaç dakika bekleyin, bu komutu yeniden çalıştırın ve `RunInProgress` değerinin `False` olduğunu doğrulayın. Değer değiştiyse düzeltme tamamlanmıştır.
 
-6. Yazılım güncelleştirmesi tamamlandıktan sonra sistem yazılımı sürümlerini doğrulayın. Şunu yazın:
+6. Yazılım güncelleştirmesi tamamlandıktan sonra sistem yazılımı sürümlerini doğrulayın. Tür:
    
     `Get-HcsSystem`
    
@@ -123,7 +123,7 @@ Disk üretici yazılımınız zaten güncelse bu güncelleştirmeleri yüklemeni
 
 Disk üretici yazılımı güncelleştirmelerini yüklemek için aşağıdaki yönergeleri izleyin.
 
-1. Cihazı bakım moduna alın. **Bakım modunda bir cihaza bağlanırken Windows PowerShell uzaktan iletişimini kullanmamanız gerekir. Bunun yerine, cihaz seri konsolu üzerinden bağlanırken bu cmdlet’i cihaz denetleyicisinde çalıştırın.** Şunu yazın:
+1. Cihazı bakım moduna alın. **Bakım modunda bir cihaza bağlanırken Windows PowerShell uzaktan iletişimini kullanmamanız gerekir. Bunun yerine, cihaz seri konsolu üzerinden bağlanırken bu cmdlet’i cihaz denetleyicisinde çalıştırın.** Tür:
    
     `Enter-HcsMaintenanceMode`
    
@@ -164,7 +164,7 @@ Disk üretici yazılımı güncelleştirmelerini yüklemek için aşağıdaki y�
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. `Get-HcsUpdateStatus` komutunu kullanarak yükleme ilerleme durumunu izleyin. `RunInProgress` değeri `False` olarak değiştiğinde güncelleştirme tamamlanır.
-4. Yükleme tamamlandıktan sonra, bakım modu düzeltmesinin yüklendiği denetleyici yeniden başlatılır. Seçenek 1, buna oturum **tam erişimle oturum açmak**ve disk üretici yazılımı sürümünü doğrulayın. Şunu yazın:
+4. Yükleme tamamlandıktan sonra, bakım modu düzeltmesinin yüklendiği denetleyici yeniden başlatılır. Seçenek 1, buna oturum **tam erişimle oturum açmak**ve disk üretici yazılımı sürümünü doğrulayın. Tür:
    
    `Get-HcsFirmwareVersion`
    

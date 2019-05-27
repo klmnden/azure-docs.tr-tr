@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6882c46ec0e4925c42de86c87225e9509c84df84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65757941"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159846"
 ---
 ## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
 Ardından, geliştirme ortamınızı Visual Studio’da ayarlayın; böylece bu kılavuzdaki kod örneklerini denemeye hazır olursunuz.
@@ -22,7 +22,7 @@ Ardından, geliştirme ortamınızı Visual Studio’da ayarlayın; böylece bu 
 Visual Studio'da yeni bir Windows konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de bir konsol uygulaması oluşturmayı gösterir. Adımlar Visual Studio’nun diğer sürümlerinde de benzerdir.
 
 1. **Dosya** > **Yeni** > **Proje**’yi seçin.
-2. **Yüklü** > **Şablonlar** > **Visual C#** > **Windows Klasik Masaüstü** öğesini seçin.
+2. **Yüklü** > **Şablonlar** > **Visual C#**  > **Windows Klasik Masaüstü** öğesini seçin.
 3. **Konsol Uygulaması (.NET Framework)** öğesini seçin.
 4. **Ad** alanına uygulamanız için bir ad girin.
 5. **Tamam**’ı seçin.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754677"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161046"
 ---
 Cihazları Internet bağlantısı yavaşsa veya kesintiye uğrarsa çalışmaya devam etmek için tasarlanmıştır. Normal çalışma koşullarında kullanmanızı öneririz: 
 

@@ -9,13 +9,13 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733757"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146235"
 ---
-| Kaynak | Varsayılan limit | Üst sınır |
+| Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına VM |25.000<sup>1</sup> bölge başına. |Bölge başına 25.000. |
 | [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına toplam VM çekirdeği sayısı |20<sup>1</sup> bölge başına. | Desteğe başvurun. |
