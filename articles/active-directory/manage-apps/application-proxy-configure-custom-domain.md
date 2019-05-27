@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e258670e863ff195190bae5cd50537e50d40d942
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825651"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956924"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'sinde özel etki alanları ile çalışma
 
@@ -71,7 +71,9 @@ Bu üç gereksinimleri hazır olduğunda, özel etki alanı oluşturmak için a�
 ### <a name="certificate-format"></a>Sertifika biçimi
 Sertifika imza yöntemler konusunda bir kısıtlama yoktur. Tüm Eliptik Eğri Şifrelemesi (ECC), konu alternatif adı (SAN) ve diğer ortak sertifika türleri desteklenir. 
 
-İstenen dış URL'yi joker karakter eşleşmesi şartıyla, bir joker sertifikası kullanabilirsiniz. 
+İstenen dış URL'yi joker karakter eşleşmesi şartıyla, bir joker sertifikası kullanabilirsiniz.
+
+Kendi ortak anahtar altyapısı (PKI) nedeniyle güvenlik konuları tarafından verilen bir sertifika kullanamazsınız.
 
 ### <a name="changing-the-domain"></a>Etki alanını değiştirme
 Tüm doğrulanmış etki alanları, uygulamanız için dış URL aşağı açılan listede görünür. Etki alanını değiştirmek için bu alan için uygulamayı güncelleştirmeniz yeterlidir. İstediğiniz etki alanının listesinde değilse [doğrulanmış bir etki alanı ekleme](../fundamentals/add-custom-domain.md). İlişkili bir sertifikanız henüz, sertifika eklemek için 5-7 adımları bir etki alanı seçtiğinizde. Ardından, yeni harici URL'den yönlendirmek için DNS kaydı güncelleştirdiğinizden emin olun. 

@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343469"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978305"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -27,8 +27,13 @@ Azure Event Hubs için ad alanları ve Azure portalı üzerinden tüm ilgili kay
 SAS kuralları ve anahtarlar ya da olay hub'ları için belirli diğer herhangi bir erişim belirteçleri işlemek Azure AD RBAC kullanan bir uygulamayı gerekmez. İstemci uygulaması kimlik doğrulaması bağlamı'kurmak için Azure AD ile etkileşime geçer ve olay hub'ları için bir erişim belirteci alır. Etkileşimli oturum açma gerektiren etki alanı kullanıcı hesaplarını, uygulama hiçbir zaman herhangi bir kimlik bilgisi doğrudan işler.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Olay hub'ları rolleri ve izinleri
+Azure Event Hubs ad alanına erişim yetkisi vermek için aşağıdaki yerleşik RBAC rolleri sağlar:
 
-İlk genel Önizleme için Event Hubs ad alanının "Sahip" veya "Katılımcı" rolleri yalnızca Azure AD hesapları ve hizmet sorumlularını ekleyebilirsiniz. Bu işlem ad alanındaki tüm varlıklar üzerinde kimlik tam denetim verir. Ad topoloji değişikliği yönetim işlemlerini olan başlangıçta yalnızca desteklenen ancak Azure kaynak yönetimi yerel Event Hubs REST yönetim arabirimi üzerinden değil. Bu destek de .NET Framework istemci anlamına [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nesnesi olan bir Azure AD hesabı kullanılamaz.  
+[Olay hub'ları veri sahibi (Önizleme)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) bir Event Hubs ad alanı ve varlıkları (kuyruklar, konular, abonelikler ve filtreleri) veri erişim rolünü etkinleştirir
+
+>[!IMPORTANT]
+> Biz daha önce desteklenen yönetilen kimliğe ekleme **sahibi** veya **katkıda bulunan** rol. Ancak, veri ayrıcalıklarına erişim **sahibi** ve **katkıda bulunan** rolü artık dikkate alınır. Kullanıyorsanız **sahibi** veya **katkıda bulunan** rolü kullanmanın anahtar **olay hub'ları veri sahibi** rol.
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Event Hubs ile bir Azure AD etki alanı kullanıcı hesabı kullanın.
 
@@ -44,7 +49,7 @@ Yine de bu senaryo için özel bir hesap oluşturmak istiyorsanız [adımları](
 
 ### <a name="create-an-event-hubs-namespace"></a>Event Hubs ad alanı oluşturma
 
-Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) RBAC Event Hubs Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa**. 
+Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md). 
 
 Ad alanı oluşturduktan sonra gidin, **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** sahip rolü için Azure AD kullanıcı hesabı eklemek için. Kendi kullanıcı hesabı kullanıyorsanız ve oluşturduğunuz ad alanı, zaten sahip rolüne sahiptirler. Rolü için farklı bir hesap eklemek için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın. Kullanıcı hesabı artık Event Hubs ad alanına erişimi olan ve daha önce oluşturduğunuz olay hub'ına.
  

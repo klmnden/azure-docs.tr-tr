@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407699"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956360"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Küme düğümleri Bakımı veya sorun giderme için Azure Kubernetes Service (AKS) için SSH ile bağlanma
 
-Azure Kubernetes Service (AKS) kümenizi yaşam döngüsü boyunca, bir AKS düğümü erişimi gerekebilir. Bu erişim, bakım, günlük toplama veya diğer sorun giderme işlemleri için olabilir. Bunlara erişebilmesi için Linux Vm'leri, AKS düğümleri olan SSH kullanarak. Güvenlik nedenleriyle, AKS düğümleri internet'e açık değildir.
+Azure Kubernetes Service (AKS) kümenizi yaşam döngüsü boyunca, bir AKS düğümü erişimi gerekebilir. Bu erişim, bakım, günlük toplama veya diğer sorun giderme işlemleri için olabilir. AKS düğümlerini (şu anda önizlemede aks'deki) Windows Server düğümler dahil olmak üzere, SSH kullanarak erişebilirsiniz. Ayrıca [Uzak Masaüstü Protokolü (RDP) bağlantıları kullanarak Windows Server düğümlere bağlanma][aks-windows-rdp]. Güvenlik nedenleriyle, AKS düğümleri internet'e açık değildir.
 
 Bu makalede, özel IP adreslerini kullanarak bir AKS düğümü ile bir SSH bağlantısı oluşturulacağını gösterir.
 
@@ -24,13 +24,16 @@ Bu makalede, özel IP adreslerini kullanarak bir AKS düğümü ile bir SSH bağ
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI Sürüm 2.0.64 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>SSH ortak anahtarınızı ekleme
 
-Bir AKS kümesi oluşturduğunuzda varsayılan olarak, SSH anahtarları oluşturulur. AKS kümenizi oluştururken kendi SSH anahtarları belirtmediyseniz, ortak SSH anahtarları için AKS düğümleri ekleyin.
+Varsayılan olarak, SSH anahtarları alınan veya oluşturulan ve AKS kümesi oluşturma düğümlere eklenmesi. AKS kümenizi oluştururken kullandığınız olanlardan farklı SSH anahtarları belirtmeniz gerekiyorsa, genel SSH anahtarınızı Linux AKS düğümlerine ekleyin. Gerekirse, bir SSH anahtarı kullanarak oluşturabilirsiniz [macOS veya Linux] [ ssh-nix] veya [Windows][ssh-windows]. PuTTY genel anahtar çifti oluşturmak için kullandığınız, bir OpenSSH içindeki anahtar çiftinden kaydetmek yerine varsayılan PuTTy özel anahtar biçimi (.ppk dosyasını) biçimlendirin.
 
-Bir AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları tamamlayın:
+> [!NOTE]
+> SSH anahtarları can şu anda yalnızca Azure CLI kullanarak Linux düğümlere eklenmesi. Windows Server düğümleri kullanırsanız, AKS kümesi oluşturduğunuzda sağlanan SSH anahtarlarını kullanma ve üzerinde. adıma atlayın [AKS düğümü adresini almak nasıl](#get-the-aks-node-address). Veya, [Uzak Masaüstü Protokolü (RDP) bağlantıları kullanarak Windows Server düğümlere bağlanma][aks-windows-rdp].
+
+Bir Linux AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları tamamlayın:
 
 1. Kaynak grubu adını kullanarak AKS kümesi kaynaklarınız için alma [az aks show][az-aks-show]. Kendi temel kaynak grubunun ve AKS kümesinin adını sağlayın:
 
@@ -64,7 +67,12 @@ Bir AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları t
 
 ## <a name="get-the-aks-node-address"></a>AKS düğüm adresi alın
 
-AKS düğümleri genel olarak internet'e açık değildir. AKS düğümleri için SSH için özel IP adresini kullanın. Sonraki adımda, yardımcı pod olanak sağlayan, AKS kümenizin SSH düğümü için bu özel IP adresi oluşturun.
+AKS düğümleri genel olarak internet'e açık değildir. AKS düğümleri için SSH için özel IP adresini kullanın. Sonraki adımda, yardımcı pod olanak sağlayan, AKS kümenizin SSH düğümü için bu özel IP adresi oluşturun. AKS düğümleri özel IP adresini almak için adımları farklı çalıştırdığınız AKS kümesi türüne göre:
+
+* AKS kümeler için adımları [normal AKS kümeler için IP adresini alma](#regular-aks-clusters).
+* Sanal makine ölçek kümeleri, birden çok düğüm havuzları veya Windows Server kapsayıcı desteği gibi kullanan, AKS içinde herhangi bir önizleme özelliği kullanırsanız [sanal makine ölçek kümesi tabanlı AKS kümeleri için adımları](#virtual-machine-scale-set-based-aks-clusters).
+
+### <a name="regular-aks-clusters"></a>Normal AKS kümeleri
 
 Bir AKS kümesi düğümü kullanma özel IP adresini görüntüleyin [az vm-IP-adreslerini] [ az-vm-list-ip-addresses] komutu. Önceki elde kendi AKS küme kaynak grubu adı girin [az aks show] [ az-aks-show] . adım:
 
@@ -80,6 +88,26 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
+### <a name="virtual-machine-scale-set-based-aks-clusters"></a>Sanal makine ölçek kümesi tabanlı AKS kümeler
+
+İç IP adresi kullanarak düğümlerin listesinde [kubectl Al komutu][kubectl-get]:
+
+```console
+kubectl get nodes -o wide
+```
+
+Aşağıdaki örnek çıktıda bir Windows Server düğümü ile birlikte kümeyi tüm düğümleri iç IP adreslerini gösterir.
+
+```console
+$ kubectl get nodes -o wide
+
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
+aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
+```
+
+Sorun giderme istediğiniz düğümün iç IP adresini kaydedin. Daha sonraki bir adımda bu adresi kullanın.
+
 ## <a name="create-the-ssh-connection"></a>SSH bağlantısı oluşturun
 
 Bir AKS düğümü için bir SSH bağlantısı oluşturmak için bir yardımcı pod AKS kümenizin çalıştırın. Bu yardımcı pod kümeyi ve ardından ek SSH düğümü erişimi SSH erişimi sağlar. Oluşturma ve bu Yardımcısı pod kullanmak için aşağıdaki adımları tamamlayın:
@@ -89,6 +117,11 @@ Bir AKS düğümü için bir SSH bağlantısı oluşturmak için bir yardımcı 
     ```console
     kubectl run -it --rm aks-ssh --image=debian
     ```
+
+    > [!TIP]
+    > Windows Server düğümleri (şu anda önizlemede aks'deki) kullanırsanız, düğüm Seçicisi Debian kapsayıcı Linux düğümde şu şekilde zamanlamak için komuta ekleyin:
+    >
+    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
 1. Temel Debian görüntüsünü SSH bileşenlerini içermez. Terminal oturumunda kapsayıcıya bağlandıktan sonra bir SSH istemcisi kullanarak yükleme `apt-get` gibi:
 
@@ -163,3 +196,6 @@ Ek sorun giderme verilerini gerekiyorsa [kubelet günlüklerini görüntüleme] 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-windows-rdp]: rdp.md
+[ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
+[ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md

@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926509"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967055"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesnelerine BLOB Ekle
 
@@ -54,11 +54,11 @@ JSON blob meta verilerini aşağıdaki modele uyar:
 | Öznitelik | Tür | Açıklama |
 | --- | --- | --- |
 | **parentId** | String | Blob (boşluk, cihazları veya kullanıcıları ile) ilişkilendirilecek üst varlık |
-| **Adı** |String | Blob için bir insan kolay ad |
+| **name** |String | Blob için bir insan kolay ad |
 | **type** | String | Blob - türünü kullanamaz *türü* ve *typeId*  |
-| **typeId** | Tamsayı | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
+| **typeId** | Integer | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
 | **Alt tür** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
-| **subtypeId** | Tamsayı | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
+| **subtypeId** | Integer | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
 | **Açıklaması** | String | Blob özelleştirilmiş açıklaması |
 | **Paylaşımı** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
 
@@ -111,12 +111,12 @@ Döndürülen tek tek bloblar için aşağıdaki JSON şeması uyar:
 | Öznitelik | Tür | Açıklama |
 | --- | --- | --- |
 | **id** | String | Blob için benzersiz tanımlayıcı |
-| **Adı** |String | Blob için bir insan kolay ad |
+| **name** |String | Blob için bir insan kolay ad |
 | **parentId** | String | Blob (boşluk, cihazları veya kullanıcıları ile) ilişkilendirilecek üst varlık |
 | **type** | String | Blob - türünü kullanamaz *türü* ve *typeId*  |
-| **typeId** | Tamsayı | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
+| **typeId** | Integer | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
 | **Alt tür** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
-| **subtypeId** | Tamsayı | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
+| **subtypeId** | Integer | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
 | **Paylaşımı** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
 | **Açıklaması** | String | Blob özelleştirilmiş açıklaması |
 | **contentInfos** | Dizi | Sürüm dahil olmak üzere yapılandırılmamış meta veri bilgilerini belirtir. |

@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60953110"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979151"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure İlkesi hizmetine genel bakış
 
@@ -28,7 +28,7 @@ Azure İlkesi, ilkelerinizi oluşturmak, atamak ve yönetmek için kullandığı
 
 ## <a name="how-is-it-different-from-rbac"></a>RBAC ile farkları nelerdir?
 
-İlke ve rol tabanlı erişim denetimi (RBAC) arasında bazı önemli farklar vardır. RBAC farklı kapsamlardaki kullanıcı eylemlerine odaklanır. Bir kaynak grubu için katkıda bulunan rolüne kaynak grubunda değişiklik yapmanıza olanak sağlayan eklenmiş olabilir. İlke, dağıtım sırasında ve zaten varolan kaynaklar için kaynak özelliklerine odaklanır. İlke türleri veya kaynak konumları gibi özellikleri denetler. RBAC'nin aksine, bir varsayılan izin ilkesi olduğu ve açık reddetme sistemidir.
+Azure İlkesi ile rol tabanlı erişim denetimi (RBAC) arasında bazı önemli farklar vardır. RBAC farklı kapsamlardaki kullanıcı eylemlerine odaklanır. Bir kaynak grubu için katkıda bulunan rolüne kaynak grubunda değişiklik yapmanıza olanak sağlayan eklenmiş olabilir. Kaynakları var olan kaynak özellikleri dağıtım sırasında ve zaten için Azure İlkesi odaklanır. Azure İlkesi türleri veya kaynak konumları gibi özellikleri denetler. RBAC'nin aksine, Azure ilkesi varsayılan bir izin olduğu ve açık reddetme sistemidir.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure İlkesi'ndeki RBAC İzinleri
 
@@ -37,7 +37,7 @@ Azure İlkesi iki Kaynak Sağlayıcısı’nda işlemler olarak bilinen bazı iz
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Birçok Yerleşik rol Azure İlkesi kaynaklarına izin verir. **Kaynak ilkesine katkıda bulunan (Önizleme)** rolü çoğu ilke işlemleri içerir. **Sahibi** tam haklarına sahip. Her ikisi de **katkıda bulunan** ve **okuyucu** kullanım tüm ilke işlemleri okuyabilir, ancak **katkıda bulunan** düzeltme de tetikleyebilirsiniz.
+Birçok Yerleşik rol Azure İlkesi kaynaklarına izin verir. **Kaynak ilkesine katkıda bulunan (Önizleme)** rolü, çoğu Azure ilke işlemleri içerir. **Sahibi** tam haklarına sahip. Her ikisi de **katkıda bulunan** ve **okuyucu** tüm okuma Azure İlkesi işlemlerini kullanabilirsiniz ancak **katkıda bulunan** düzeltme de tetikleyebilirsiniz.
 
 Yerleşik rollerin hiçbirinde gerekli izinler yoksa [özel rol](../../role-based-access-control/custom-roles.md) oluşturun.
 
@@ -68,7 +68,7 @@ Bu ilke tanımları (yerleşik ve özel tanımları) uygulamak için onları ata
 
 Örneğin abonelik kapsamında, ağ kaynaklarının oluşturulmasını önleyen bir ilke atayabilirsiniz. Bu abonelikte ağ alt yapısı için hedeflenen bir kaynak grubu hariç. Ağ kaynaklarını oluşturma konusunda güvendiğiniz kullanıcılara bu ağ kaynak grubuna erişim verin.
 
-Başka bir örnekte, yönetim grubu düzeyinde bir kaynak türü beyaz listeye alma ilkesi atamak isteyebilirsiniz. Daha sonra bir alt yönetim grubunda veya doğrudan aboneliklerde daha esnek bir ilke (daha fazla kaynak türüne izin veren) atayın. Ancak ilke, açık bir reddetme sistemi olduğundan bu örnek çalışmaz. Bunun yerine, alt yönetim grubunu veya aboneliğini yönetim grubu düzeyinde ilke atamasının dışında bırakmanız gerekir. Daha sonra alt yönetim grubunda veya abonelik düzeyinde daha esnek ilkeyi atayın. Herhangi bir ilke bir kaynağın reddedilmesiyle sonuçlanırsa kaynağa izin vermenin tek yolu reddetme ilkesinin olduğu.
+Başka bir örnekte, bir kaynak atamak isteyebilirsiniz listesi İlkesi Yönetim grubu düzeyinde izin verebilirsiniz. Daha sonra bir alt yönetim grubunda veya doğrudan aboneliklerde daha esnek bir ilke (daha fazla kaynak türüne izin veren) atayın. Ancak ilke, açık bir reddetme sistemi olduğundan bu örnek çalışmaz. Bunun yerine, alt yönetim grubunu veya aboneliğini yönetim grubu düzeyinde ilke atamasının dışında bırakmanız gerekir. Daha sonra alt yönetim grubunda veya abonelik düzeyinde daha esnek ilkeyi atayın. Herhangi bir ilke bir kaynağın reddedilmesiyle sonuçlanırsa kaynağa izin vermenin tek yolu reddetme ilkesinin olduğu.
 
 Portaldan ilke tanımlarını ve atamalarını ayarlama hakkında daha fazla bilgi için bkz. [Azure ortamınızdaki uyumlu olmayan kaynakları tanımlamak için bir ilke ataması oluşturma](assign-policy-portal.md). [PowerShell](assign-policy-powershell.md) ve [Azure CLI](assign-policy-azurecli.md) adımları da mevcuttur.
 
@@ -115,7 +115,7 @@ Bu senaryoda **initiativeC** için girişim parametreleri tanımlanırken üç s
 
 Bir girişim tanımındaki değer seçenekleri oluştururken, listenin bir parçası olmadığı için girişim ataması sırasında farklı bir değer giriş alamıyoruz.
 
-## <a name="maximum-count-of-policy-objects"></a>İlke nesnelerinin maksimum sayısı
+## <a name="maximum-count-of-azure-policy-objects"></a>Azure İlkesi nesnelerini en yüksek sayısı
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +144,8 @@ Aşağıdaki Azure İlkesi genel bakış videosu Build 2018 etkinliğinde kayded
 
 Artık Azure İlkesi ve bazı önemli kavramlar ile ilgili bir genel bakışa sahipsiniz, önerdiğimiz diğer adımları aşağıda bulabilirsiniz:
 
-- [Portalı kullanarak bir ilke tanımı atama](assign-policy-portal.md)
-- [Azure CLI kullanarak bir ilke tanımı atama](assign-policy-azurecli.md)
-- [PowerShell kullanarak bir ilke tanımı atama](assign-policy-powershell.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](..//management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
-- Channel 9'daki [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Azure ortamınızı Azure İlkesi aracılığıyla yönetme) sayfasını görüntüleyin
+- [Portalı kullanarak bir ilke tanımı atama](assign-policy-portal.md).
+- [Azure CLI kullanarak bir ilke tanımı atama](assign-policy-azurecli.md).
+- [PowerShell kullanarak bir ilke tanımı atama](assign-policy-powershell.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](..//management-groups/overview.md).
+- Görünüm [Azure İlkesi aracılığıyla Azure ortamınızı yöneten](https://channel9.msdn.com/events/Build/2018/THR2030) Channel 9.

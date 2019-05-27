@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 031a460862cf12efa02c139074e5a7066f0526c6
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638630"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132271"
 ---
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Uygulamanızı yayımlamadan önce Azure’da oturum açmanız gerekir.
 
-1. **Azure: İşlevler** alanında **Azure’da oturum aç...** seçeneğini belirleyin. Henüz bir hesabınız yoksa **Ücretsiz bir Azure hesabı oluşturabilirsiniz**.
+1. İçinde **Azure: İşlevleri** alanında seçin **Azure'da oturum aç...** . Henüz bir hesabınız yoksa **Ücretsiz bir Azure hesabı oluşturabilirsiniz**.
 
     ![Tarayıcıdaki işlev localhost yanıtı](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 

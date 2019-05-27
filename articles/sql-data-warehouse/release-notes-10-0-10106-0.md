@@ -4,18 +4,18 @@ description: Azure SQL veri ambarı için sürüm notları.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 215f7c9c65658ddbb10498bb59f3d326bf3a10f1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792424"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988282"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL veri ambarı sürüm notları
 
@@ -23,15 +23,11 @@ Bu makalede yeni özellikler ve geliştirmeler son sürümlerinde özetlenir [Az
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>Azure SQL veri ambarı sürümünüzü kontrol edin
 
-Veri ambarınız SQL Server Management Studio (SSMS) üzerinden bağlanmak ve SQL veri ambarı'nın geçerli sürümü döndürmek için aşağıdaki söz dizimini çalıştırın.
-
-```sql
-SELECT @@VERSION AS 'SQL Data Warehouse';
-```
+Lütfen yeni özellikleri için tüm bölgeler geneline gibi örneğinizin Özellik kullanılabilirliği için en son Azure SQL DW sürüm notları dağıtılan sürümü kontrol edin. Azure SQL DW sürümünüzü denetlemek için SQL Server Management Studio (SSMS) aracılığıyla veri ambarınıza bağlanmak ve çalıştırmak `SELECT @@VERSION AS 'SQL Data Warehouse';` Azure SQL DW geçerli sürümünü döndürmek için.
 
 Örnek çıktı: ![SQL veri ambarı sürümü](./media/release-notes/sql_data_warehouse_version.png)
 
-Azure SQL veri ambarınızın kullanın, yayın onaylamak için belirlenen tarih uygulanmıştır.
+Azure SQL DW'ye kullanın, yayın onaylamak için belirlenen tarih uygulanmıştır.
 
 ## <a name="may-2019"></a>Mayıs 2019
 
@@ -39,7 +35,7 @@ Azure SQL veri ambarınızın kullanın, yayın onaylamak için belirlenen tarih
 | --- | --- |
 |**Dinamik veri maskeleme (Önizleme)**|Dinamik veri maskeleme (DDM), bunu üzerinde halindeyken tanımladığınız maskeleme kurallara göre sorgu sonuçlarında obfuscating hassas verileriniz, veri ambarı'nda yetkisiz erişimi engeller. Daha fazla bilgi için [SQL veritabanı dinamik veri maskeleme](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
 |**İş yükü önem artık kullanıma sunuldu**|İş yükü yönetimi sınıflandırma ve önem sorgular çalıştırma sırasını etkilemek için olanağı sunar. İş yükü önemi hakkında daha fazla bilgi için bkz. [sınıflandırma](sql-data-warehouse-workload-classification.md) ve [önem](sql-data-warehouse-workload-importance.md) genel bakış makalelerini belgelerinde. Kullanıma [iş YÜKÜ SINIFLANDIRICI oluşturma](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) belge de.<br/><br/>İş yükü önem nasıl gerçekleştirildiğini görmek videoları aşağıda:<br/> -[İş yükü yönetimi kavramları](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[İş yükü yönetimi senaryoları](https://www.youtube.com/embed/_2rLMljOjw8)|
-|**Ek T-SQL desteği**|SQL veri ambarı için T-SQL dil yüzey alanı için destek içerecek şekilde genişletildi: </br> - [SAAT DİLİMİ,](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [KIRPMA](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**Ek T-SQL desteği**|SQL veri ambarı için T-SQL dil yüzey alanı için destek içerecek şekilde genişletildi: </br> - [KIRPMA](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON işlevleri**|İş analistleri, tanıdık T-SQL dil sorgu ve Azure veri ambarı'nda aşağıdaki yeni JSON işlevlerini kullanarak JSON verilerini olarak biçimlendirilmiş belgeleri işlemek için artık kullanabilirsiniz:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Sonuç kümesi (Önizleme) önbelleğe alma**|Sonuç kümesi önbelleğe alma yararlanırken iş analistleri için zaman Insight de kullanıcıların raporlama anlık sorgu yanıt süreleri sağlar. Daha fazla bilgi için bkz.</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [Veritabanı seçeneklerini ayarlama (SQL üzerinde işlem yapma) değiştirme](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [KÜMESİ sonuç KÜMESİ (Transact-SQL) önbelleğe alma](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET Statement (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
 

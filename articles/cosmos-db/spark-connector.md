@@ -4,14 +4,14 @@ description: Apache Spark, Azure Cosmos DB'ye bağlama olanak tanıyan Azure Cos
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc0f2044f70c674177f9c9786f56f0441db2e282
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330255"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978899"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB Bağlayıcısı için Apache Spark'ı kullanarak büyük veri analizi hızlandırın
 
@@ -179,7 +179,7 @@ mvn clean package
 * **[Azure Databricks, Azure Cosmos DB'ye bağlanmanın](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)**  kullanarak `azure-cosmosdb-spark`.  Bağlı burada da bir Azure Databricks sürümüdür [zamanında uçuş performans not defteri](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks).
 * **[Azure Cosmos DB ile lambda mimarisi ve HDInsight (Apache Spark)](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)**: Cosmos DB ve Spark'ı kullanarak büyük veri işlem hatları koruma işlemsel ek yükü azaltabilir.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Ek bilgiler
 
 Daha fazla bilgi sahibiz `azure-cosmosdb-spark` [wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki) dahil olmak üzere:
 

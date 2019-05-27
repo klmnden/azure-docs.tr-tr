@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130971"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Application Insights uyarıları ayarlamak için PowerShell kullanma
 
@@ -127,7 +127,7 @@ Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm pa
 
 | Ölçüm grubu | Toplayıcı Modülü |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>görünüm |[JavaScript tarayıcı](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>görüntüle |[JavaScript tarayıcı](../../azure-monitor/app/javascript.md) |
 | PerformanceCounter |[Performans](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Bağımlılık](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | İstek,<br/>requestFailed |[Sunucu isteği](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |

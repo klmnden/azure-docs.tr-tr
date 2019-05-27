@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415727"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977302"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 
@@ -75,7 +75,7 @@ Her yukarıdaki parolaların yasaklı parola "abcdef" özellikle eşleşmiyor. H
 
 Eşleşen alt dizenin normalleştirilmiş parola kullanıcının ilk kontrol edin ve son Kiracı yanı sıra adı için kullanılır (Kiracı adı ile eşleşen bir Active Directory etki alanı denetleyicisindeki parolalarını doğrularken yapılmaz olduğunu unutmayın).
 
-Örnek: bir kullanıcı için "J0hn123fb" parolasını sıfırlamak için istediği John Doe sahibiz varsayalım. Normalleştirme sonra bu parola, "john123fb" hale gelir. Parola kullanıcının ilk adını "John" içeriyor eşleşen alt dizeyi bulur. Özellikle ya da yasaklı parola listesi üzerinde "J0hn123fb" değildi olsa da, altdizgi eşleştirme "John" parola bulundu. Bu parola dolayısıyla reddedilecek.
+Örnek: bir kullanıcı, "P0l123fb" için kullanıcının parolasını sıfırlamasını isteyen Pol sahibiz varsayalım. Normalleştirme sonra bu parola, "pol123fb" hale gelir. Parola kullanıcının ilk adını "Pol" içeriyor eşleşen alt dizeyi bulur. Özellikle ya da yasaklı parola listesi üzerinde "P0l123fb" değildi olsa da, altdizgi eşleştirme "Pol" parola bulundu. Bu parola dolayısıyla reddedilecek.
 
 #### <a name="score-calculation"></a>Puan hesaplanmasında
 

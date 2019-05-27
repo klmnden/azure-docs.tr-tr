@@ -1,26 +1,24 @@
 ---
 author: diberry
-ms.author: v-junlch
+ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 03/25/2019
-ms.date: 04/23/2019
-ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/25/2019
+ms.openlocfilehash: f4925401235aedb341a7e29ca36b079126647f7b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598765"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124268"
 ---
-## <a name="validate-container-is-running"></a>Doğrulama kapsayıcı çalışıyor 
+## <a name="validate-that-a-container-is-running"></a>Bir kapsayıcının çalıştırıldığını doğrula 
 
-Kapsayıcı doğrulamak için birkaç yol çalıştığı vardır: 
+Kapsayıcının çalışır durumda olduğunu doğrulamak için birkaç yolu vardır. 
 
-|İstek|Amaç|
+|İste|Amaç|
 |--|--|
-|`http://localhost:5000/`|Kapsayıcı, bir giriş sağlar.|
-|`http://localhost:5000/status`|GET ile istendi, kapsayıcı doğrulamak için bir uç nokta sorgu neden olmadan çalışıyor. Kubernetes için bu kullanılabilir [canlılık ve hazırlık araştırmaları](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
-|`http://localhost:5000/swagger`|Kapsayıcı uç noktaları için belgeleri tam bir dizi sağlar hem de bir `Try it now` özelliği. Bu özellik, web tabanlı bir HTML formuna ayarlarınızı girdikten ve herhangi bir kod yazmak zorunda kalmadan sorgu yapmanıza olanak tanır. Sorgunun döndürdüğü CURL komutu bir örnek sağlanır sonra HTTP üst bilgilerini gösterme ve gerekli biçim gövde. |
+|`http://localhost:5000/`|Kapsayıcı, bir giriş sayfası sağlar.|
+|`http://localhost:5000/status`|Bir uç nokta sorgu neden olmadan kapsayıcının çalışır durumda olduğunu doğrulamak için GET ile istedi. Bu istek için Kubernetes kullanılabilir [canlılık ve hazırlık araştırmaları](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
+|`http://localhost:5000/swagger`|Kapsayıcı uç noktaları için tam kümesi sağlar ve bir `Try it now` özelliği. Bu özellik, web tabanlı bir HTML formuna ayarlarınızı girdikten ve herhangi bir kod yazmak zorunda kalmadan sorgunun sağlayın. Sorgunun döndürdüğü sonra HTTP üst bilgileri ve gövdesini biçiminde göstermek için gerekli olan bir örnek CURL komutu sağlanır. |
 
 ![Kapsayıcının giriş sayfası](./media/cognitive-services-containers-api-documentation/container-webpage.png)
-

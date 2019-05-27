@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228400"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978807"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus ile Azure kaynakları için yönetilen kimlikleri 
 
@@ -29,7 +29,23 @@ ms.locfileid: "65228400"
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus rolleri ve izinleri
 
-Bu gibi durumlarda, yönetilen bir kimlik yalnızca bir Service Bus ad alanı "Sahip" veya "Katılımcı" rolleri ekleyebilirsiniz. Ad alanındaki tüm varlıklar üzerinde kimlik tam denetim verir. Ancak, ad alanı topolojisini değiştirme işlemleri başlangıçta olan yönetim, ancak yalnızca Azure Resource Manager desteklenmiyor. Yerel bir Service Bus REST yönetim arabirimi aracılığıyla değil. Bu destek, ayrıca .NET Framework istemci kullanamazsınız gelir [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) veya .NET Standard istemci [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) nesnelerin yönetilen bir kimlik.
+Yönetilen bir kimlik bir Service Bus ad alanı "Hizmet veri yolu veri sahibi" rolüne ekleyebilirsiniz. Kimlik (Yönetim ve veri işlemleri için) ad alanındaki tüm varlıklar üzerinde tam denetim verir.
+
+>[!IMPORTANT]
+> Biz daha önce desteklenen yönetilen kimliğe ekleme **"Sahip"** veya **"Katılımcı"** rol.
+>
+> Ancak, veri ayrıcalıklarına erişim **"Sahip"** ve **"Katılımcı"** rolü artık kullanılacaktır. Kullandıysanız **"Sahip"** veya **"Katılımcı"** rolünü ve ardından bu gerekecektir yazılımınız için **"Hizmet veri yolu veri sahibi"** rol.
+
+Yeni yerleşik rolü kullanmak için lütfen tamamlamak aşağıdaki adımları -
+
+1. Devam [Azure portalı](https://portal.azure.com)
+2. Şu anda Kurulum "Sahip" veya "Katılımcı" rolü sahip olduğunuz bir Service Bus ad alanınıza gidin.
+3. Sol bölmede menüsünden "Üzerinde erişim Control(IAM)" tıklayın.
+4. Yeni bir rol ataması aşağıdaki gibi eklemek için devam edin
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. "Kaydet" Yeni rol ataması kaydetmek için basın.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus yönetilen kimliklerle Azure kaynakları için kullanın.
 
@@ -51,7 +67,7 @@ Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmişt
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Yeni bir Service Bus Mesajlaşması ad alanı oluştur
 
-Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md) RBAC Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa**. 
+Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md). 
 
 Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** için yönetilen kimlik eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
 

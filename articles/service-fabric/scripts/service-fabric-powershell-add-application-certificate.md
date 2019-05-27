@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 3d2ab7339a641164a628854c00e22f437b21c3df
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 313a1b7e4f0109a0a5cb94214918d97c25b5cf5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153840"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric kümesine uygulama sertifikası ekleme
 
@@ -38,7 +38,7 @@ Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan y
 
 Bu betik şu komutları kullanır: Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notes |
+| Komut | Notlar |
 |---|---|
 | [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | Kümeyi oluşturan sanal makine ölçek kümesine yeni bir uygulama sertifikası ekleyin.  |
 

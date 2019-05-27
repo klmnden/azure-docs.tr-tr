@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
-ms.author: monhaber
-ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: v-mohabe
+ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236310"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967897"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -94,7 +94,7 @@ Güvenlik Merkezi'nde güvenlik ilkelerinizi görüntüleme:
 > - Görüntülersiniz ilkeleri atandığında, birden çok atamaları görebilir ve nasıl her atama, kendi yapılandırıldığını görebilirsiniz.
 
 ## <a name="edit-security-policies"></a>Güvenlik ilkelerini düzenleme
-Her Azure aboneliği ve'daki yönetim grupları için varsayılan güvenlik ilkesini düzenleyebilirsiniz [Azure İlkesi](../governance/policy/tutorials/create-and-manage.md). Bir güvenlik ilkesini değiştirmek için abonelikte veya ilkeyi içeren yönetim grubunda sahip, katkıda bulunan veya güvenlik yöneticisi rolüne sahip olmanız gerekir.
+[Azure İlkesi](../governance/policy/tutorials/create-and-manage.md)'nde tüm Azure aboneliklerinizin ve yönetim gruplarınızın varsayılan güvenlik ilkesini düzenleyebilirsiniz. Bir güvenlik ilkesini değiştirmek için abonelikte veya ilkeyi içeren yönetim grubunda sahip, katkıda bulunan veya güvenlik yöneticisi rolüne sahip olmanız gerekir.
 
 Azure İlkesi'nde bir güvenlik ilkesi düzenleme hakkında yönergeler için bkz ve [oluşturma ve yönetme uyumluluğu zorlamak için ilke](../governance/policy/tutorials/create-and-manage.md).
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728831"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964757"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Media Services ölçümleri ve tanılama günlüklerini izleyin
 
-[Azure İzleyici](../../azure-monitor/overview.md) ölçümlerini izleme ve yardımcı olacak tanılama günlüklerini anlama, uygulamalarınızın performansını sağlar. Azure İzleyici tarafından toplanan tüm verileri ölçümleri ve günlük olmak üzere iki temel türünden birini uyar. Media Services tanılama günlüklerini izleyin ve uyarılar ve bildirimler için toplanan bir ölçüm ve günlükleri oluşturun. Görselleştirme ve ölçüm verileri kullanarak Analiz [ölçüm Gezgini](../../azure-monitor/platform/metrics-getting-started.md). Günlükleri size gönderebilir [Azure depolama](https://azure.microsoft.com/services/storage/), kendisine akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [Log Analytics](https://azure.microsoft.com/services/log-analytics/), veya 3. taraf hizmetleri kullanın.
+[Azure İzleyici](../../azure-monitor/overview.md) ölçümlerini izleme ve yardımcı olacak tanılama günlüklerini anlama, uygulamalarınızın performansını sağlar. Azure İzleyici tarafından toplanan tüm verileri ölçüm ve günlükleri olmak üzere iki temel türünden birini uyar. Media Services tanılama günlüklerini izleyin ve uyarılar ve bildirimler için toplanan bir ölçüm ve günlükleri oluşturun. Görselleştirme ve ölçüm verileri kullanarak Analiz [ölçüm Gezgini](../../azure-monitor/platform/metrics-getting-started.md). Günlükleri size gönderebilir [Azure depolama](https://azure.microsoft.com/services/storage/), kendisine akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [Log Analytics](https://azure.microsoft.com/services/log-analytics/), veya 3. taraf hizmetleri kullanın.
 
 Ayrıntılı bir bakış için bkz: [Azure İzleyici ölçümleri](../../azure-monitor/platform/data-platform.md) ve [Azure İzleyici tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -34,11 +34,11 @@ Bu konuda şu anda kullanılabilir anlatılmaktadır [Media Services ölçüm](#
 
 Şu anda aşağıdaki Media Services [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints) ölçümleri Azure tarafından yayılan:
 
-|Ad|Açıklama|
-|---|---|
-|İstekler|Akış uç noktası hizmet isteklerinin toplam sayısı etrafında ayrıntılarını verir.|
-|Çıkış|Toplam çıkış bayt sayısı. Örneğin, akış uç noktası tarafından akışa bayt.|
-|Başarı uçtan uca gecikme süresi| Başarılı isteklerin uçtan uca gecikme süresi hakkında bilgi sağlar.|
+|Ölçüm|Display name|Açıklama|
+|---|---|---|
+|İstekler|İstekler|Akış uç noktası hizmet isteklerinin toplam sayısı etrafında ayrıntılarını verir.|
+|Çıkış|Çıkış|Toplam çıkış bayt sayısı. Örneğin, akış uç noktası tarafından akışa bayt.|
+|Başarı E2e|Başarı uçtan uca gecikme süresi| Başarılı isteklerin uçtan uca gecikme süresi hakkında bilgi sağlar.|
 
 Örneğin, "Çıkış" ölçümleri CLI ile almak için aşağıdaki çalıştırırsınız `az monitor metrics` CLI komutunu:
 

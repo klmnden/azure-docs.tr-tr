@@ -9,11 +9,11 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151952"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI'dan IOT Central'ı yönetme
 
@@ -53,8 +53,8 @@ Bu komutlar, ilk Doğu ABD bölgesinde uygulama için bir kaynak grubu oluşturu
 | Parametre         | Açıklama |
 | ----------------- | ----------- |
 | resource-group    | Uygulamayı içeren kaynak grubu. Bu kaynak grubunun aboneliğinizde zaten mevcut olmalıdır. |
-| location          | Varsayılan olarak, bu komut, kaynak grubu konumu kullanır. Şu anda IOT Central uygulamada oluşturabilirsiniz **Doğu ABD**, **Batı ABD**, **Kuzey Avrupa**, veya **Batı Avrupa** bölgeleri. |
-| ad              | Azure portalında uygulama adı. |
+| konum          | Varsayılan olarak, bu komut, kaynak grubu konumu kullanır. Şu anda IOT Central uygulamada oluşturabilirsiniz **Doğu ABD**, **Batı ABD**, **Kuzey Avrupa**, veya **Batı Avrupa** bölgeleri. |
+| name              | Azure portalında uygulama adı. |
 | Alt etki alanı         | Uygulama URL'sini alt etki alanı. Örnekte, uygulama URL'si olan https://mysubdomain.azureiotcentral.com. |
 | sku               | Şu anda yalnızca bir bölüm değerdir **S1** (standart katman). Bkz: [Azure IOT Central fiyatlandırma](https://azure.microsoft.com/pricing/details/iot-central/). |
 | şablon          | Kullanılacak uygulama şablonu. Daha fazla bilgi için aşağıdaki tabloya bakın: |

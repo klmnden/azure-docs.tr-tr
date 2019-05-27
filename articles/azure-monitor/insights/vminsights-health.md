@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522185"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130449"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure sanal makinelerinizin durumunu anlama
 
@@ -85,7 +85,7 @@ Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlana
 
 Tek sanal makine veya VM için sistem durumu özelliğini kullanarak girmeden önce kısa bir giriş sağladığımız bilgileri nasıl görüntülenir ve görselleştirmeler ne temsil anlamak için önemlidir.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>Bir sanal makineden doğrudan durumunu görüntüle 
+### <a name="view-health-directly-from-a-virtual-machine"></a>Bir sanal makineden doğrudan durumunu görüntüle 
 
 Bir Azure VM durumunu görüntülemek için seçin **Insights (Önizleme)** sol bölmesinde sanal makinenin. VM içgörüler sayfasında **sistem durumu** varsayılan olarak açıktır ve VM sistem durumu görünümünü gösterir.  
 
@@ -96,11 +96,21 @@ Bir Azure VM durumunu görüntülemek için seçin **Insights (Önizleme)** sol 
 Bir VM için tanımlanan sistem durumları aşağıdaki tabloda açıklanmıştır: 
 
 |Simge |Sağlık durumu |Anlamı |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |İyi Durumda |VM için algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ve gerektiği gibi çalıştığını sistem durumunu iyi durumda. Üst döküm İzleyicisi ile sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
 | |Kritik |Sistem durumu, bir veya daha fazla kritik sorunlar, normal işlevlerin geri yüklenmesi için ele alınması gereken göstergelerinin algılandığını belirten tanımlanan sistem durumu koşulu içinde değilse önemlidir. Üst döküm İzleyicisi ile sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
 | |Uyarı |Sistem durumu uyarı burada gösterir tanımlanan sistem durumu koşulu, iki eşikleri arasında olup olmadığını bir *uyarı* durumu ve diğer gösteren bir *kritik* (üç sağlık durumu eşikleri için durumu yapılandırılabilir), veya ne zaman kritik olmayan bir sorun algılandığında çözümlenmedi, kritik sorunlarına neden. İle bir üst döküm İzleyicisi, bir veya daha alt bir uyarı durumunda, ardından üst yansıtır *uyarı* durumu. İçinde bir alt varsa bir *kritik* ve başka bir alt bir *uyarı* durumu, üst toplama sistem durumu gösterilir *kritik*.|
-| |Bilinmeyen |Sistem durumu konusu bir *bilinmeyen* pek çok nedenden dolayı sistem durumu gibi hesaplanamıyor olduğunda durumu verileri, hizmeti başlatılmamış toplamak kullanabilirsiniz. Bu sistem durumu yapılandırılabilir değildir.| 
+| |Bilinmeyen |Durumu *bilinmeyen* zaman bunu yapamazsınız hesaplanan çeşitli nedenlerle. Aşağıdaki dipnot bkz <sup>1</sup> ek ayrıntılar ve bunları çözmek için olası çözümleri. |
+
+<sup>1</sup> Bilinmeyen sistem durumu aşağıdaki nedenlerle neden olur:
+
+- Aracıyı yeniden yapılandırıldı ve VM'ler için Azure İzleyici etkin olduğunda, çalışma alanına rapor artık belirtilen. Çalışma alanı görmek bildirmek için aracıyı yapılandırmak için [ekleyerek veya kaldırarak bir çalışma alanı](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- Sanal makine silindi.
+- VM'ler için Azure İzleyici ile ilişkili çalışma alanı silindi. Premier Destek avantajları ile bir destek isteği açabilirsiniz varsa çalışma alanında, kurtarılır [Premier](https://premier.microsoft.com/).
+- Çözüm bağımlılıklarını silinmiş. Log Analytics çalışma alanınızın ServiceMap ve InfrastructureInsights çözümleri yeniden etkinleştirmek için kullanarak yeniden bir [Azure Resource Manager şablonu](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) veya sağlanan bulunan çalışma alanı yapılandırma seçeneğini kullanarak Başlarken sekmesini alın.
+- Sanal makine kapatıldı.
+- Azure VM Hizmet kullanılamıyor veya bakım gerçekleştirilir.
+- Çalışma alanı [günlük verileri veya bekletme sınırı](../platform/manage-cost-storage.md) karşılanır.
 
 Seçme **görüntüleme durumu tanılama** VM, ilişkili durumu ölçütlerini, durum değişikliklerini ve diğer önemli sorunları VM'le ilgili bileşenler izlenerek karşılaşıldı tüm bileşenlerini gösteren bir sayfa açar. Daha fazla bilgi için [sistem tanılama](#health-diagnostics). 
 
@@ -108,7 +118,7 @@ Altında **bileşen sistem durumu** bölümü, tablo gösterir sistem durumu top
 
 Sistem durumu Windows işletim sistemini çalıştıran bir Azure VM'den erişirken üst sistem durumunu beş Hizmetleri bölümünün altında gösterilen Windows çekirdek **çekirdek sistem durumu Hizmetleri**.  Hizmetlerden herhangi birini seçtiğinizde, söz konusu bileşen ve sistem durumunu izleme durumu ölçütlerini listelendiği bir sayfa açılır.  Sistem durumu ölçütlerini adına tıklayarak özellik bölmesi açılır ve burada tanımlanan karşılık gelen bir Azure İzleyici uyarı durumu ölçütlerini varsa dahil olmak üzere yapılandırma ayrıntılarını gözden geçirebilirsiniz. Daha fazla bilgi için bkz. [sistem durumu tanılama ve çalışma durumu ölçütlerini](#health-diagnostics).  
 
-## <a name="aggregate-virtual-machine-perspective"></a>Toplam sanal makine perspektifi
+### <a name="aggregate-virtual-machine-perspective"></a>Toplam sanal makine perspektifi
 
 Portalı Gezinti listeden bir kaynak grubundaki tüm sanal makinelerinizin için sistem durumu toplama görüntülemek için seçin **Azure İzleyici** seçip **sanal makineler (Önizleme)**.  
 
@@ -154,7 +164,7 @@ Hangi örneklerinin altındaki bir değere tıklayarak sağlıksız olduğunu g�
 
 ## <a name="health-diagnostics"></a>Sistem durumu tanılama
 
-Thge **sistem tanılama** sayfası, sistem durumu modeli, sanal makinenin tüm bileşenleri listeleyen bir sanal makinenin görselleştirmenizi durumu ölçütlerini, durum değişikliklerini ilişkili ve ilgili bileşenler tarafından tanımlanan diğer önemli sorunları izlenen sağlar VM.
+**Sistem tanılama** sayfası, sistem durumu modeli, sanal makinenin tüm bileşenleri listeleyen bir sanal makinenin görselleştirmenizi durumu ölçütlerini, durum değişikliklerini ilişkili ve ilgili bileşenler tarafından tanımlanan diğer önemli sorunları izlenen sağlar VM.
 
 ![Bir sanal makine için sistem durumu tanılama sayfası örneği](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -343,7 +353,7 @@ Etkinleştirme veya devre dışı bir uyarı durumu ölçütlerini özelliği gi
 VM sistem durumu için Azure İzleyici, uyarılar oluşturulduğunda SMS ve e-posta bildirimleri destekleyen durumu ölçütlerini olduğunda sağlıksız. Bildirimleri yapılandırmak için SMS veya e-posta bildirimleri göndermek için yapılandırıldığı eylem grubu adını not gerekir. 
 
 >[!NOTE]
->Bu eylem izlenen her bir VM karşı yapılması için bir bildirim almak istediğiniz gerekiyor.
+>Bu eylem izlenen her bir VM karşı gerçekleştirilmesi için bir bildirim almak istiyorsanız, kaynak grubundaki tüm vm'lere uygulanmaz gerekiyor.  
 
 1. Bir terminal penceresinde şunu yazın **armclient.exe oturum açma**. Bunun yapılması Azure'da oturum açmanız istenir.
 

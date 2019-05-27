@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e3110e4018e214e7e7aa591b811246369c029ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a7a86c6a2661a8a1f30491391fc76f4dc5d71f54
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38944022"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66163715"
 ---
 Azure portalı kullanarak IoT Hub oluşturmak için:
 
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+1. [Azure Portal](http://portal.azure.com) oturum açın.
 
 1. **Kaynak oluştur** > **Nesnelerin İnterneti** > **Iot Hub** seçeneğini belirleyin.
 
@@ -30,7 +30,7 @@ Azure portalı kullanarak IoT Hub oluşturmak için:
     | Abonelik | Açılan listeden Azure aboneliğinizi seçin. |
     | Kaynak grubu | Yeni oluşturun. Bu öğretici **tutorials-iot-hub-rg** adını kullanır. |
     | Bölge | Bu öğreticide **West US** kullanılır. Size en yakın bölgeyi seçebilirsiniz. |
-    | Adı | Aşağıdaki ekran görüntüsü **tutorials-iot-hub** adını kullanır. Hub'ınızı oluştururken kendi benzersiz adınızı seçmeniz gerekir. |
+    | Ad | Aşağıdaki ekran görüntüsü **tutorials-iot-hub** adını kullanır. Hub'ınızı oluştururken kendi benzersiz adınızı seçmeniz gerekir. |
 
     ![Hub ayarları 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
 

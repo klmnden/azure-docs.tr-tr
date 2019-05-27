@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "60297751"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120187"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
@@ -41,7 +41,7 @@ Uygulamanız için de istenir sağlamak için oturum ilk kez uygulamanın profil
 
 Oturum açtıktan sonra Microsoft Graph API çağrısı tarafından döndürülen kullanıcı profili bilgilerini görmeniz gerekir. Sonuçları görüntülenir **API çağrısı sonuçları** kutusu. Çağrısı aracılığıyla edinilen belirteci ile ilgili temel bilgileri `AcquireTokenInteractive` veya `AcquireTokenSilent` görünür olmalıdır **belirteci bilgilerini** kutusu. Sonuçlar aşağıdaki özellikleri içerir:
 
-|Özellik  |Biçimlendir  |Açıklama |
+|Özellik  |Biçim  |Açıklama |
 |---------|---------|---------|
 
 |**Kullanıcı adı**  | <span> user@domain.com </span> | Kullanıcıyı tanımlamak için kullanılan kullanıcı adı. | | **Belirtecinin süresi dolmadan** | DateTime | Belirtecin süresinin dolma zamanı. MSAL, gerekirse belirteci yenilemeye tarafından sona erme tarihini genişleten. |

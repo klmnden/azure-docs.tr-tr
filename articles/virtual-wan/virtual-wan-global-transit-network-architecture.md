@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414060"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965973"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Ağ mimarisine genel geçiş ve sanal WAN
 
@@ -48,7 +48,7 @@ Bu modelde, bir bileşen olabilir:
 
 ## <a name="crossregion"></a>Bölgeler arası bağlantı
 
-Bulut kaplama alanı, kuruluş için fiziksel ayak izini genellikle izler. Çoğu kuruluş, bunların fiziksel site ve kullanıcılara en yakın bölgeden buluta erişin. Genel ağ mimarisinin anahtar Sorumlular birini bölgeler arası bağlantı uç noktaları arasındaki ağ varlıklarını etkinleştirmektir. Bulut kaplama alanı, birden çok bölgede yayılabilir. Başka bir deyişle, başka bir dal ya da farklı bir bölgedeki bir sanal ağa trafiği bir bölgede buluta bağlı bir daldan ulaşabilirsiniz.
+Bulut kaplama alanı, kuruluş için fiziksel ayak izini genellikle izler. Çoğu kuruluş, bunların fiziksel site ve kullanıcılara en yakın bölgeden buluta erişin. Genel ağ mimarisinin anahtar Sorumlular birini bölgeler arası bağlantı uç noktaları arasındaki ağ varlıklarını etkinleştirmektir. Bulut kaplama alanı, birden çok bölgede yayılabilir. Başka bir deyişle, başka bir dal ya da farklı bir bölgede şu anda Önizleme aşamasında olan hub hub bağlantısı kullanarak bir sanal ağa trafiği bir bölgede buluta bağlı bir daldan ulaşabilirsiniz.
 
 ## <a name="any"></a>Herhangi bir ağdan herhangi bir bağlantı
 
@@ -89,7 +89,7 @@ Uzak kullanıcı dal yolu, bulut üzerinden'i yapılandırmamız Azure erişimi 
 
 ### <a name="vnetvnet"></a>VNet eşlemesi kullanarak VNet-VNet geçiş
 
-Vnet'leri birbirine birden çok sanal ağlarda uygulanan çok katmanlı uygulamaları desteklemek için bağlamak için VNet eşlemesi'ni kullanın. Azure sanal WAN üzerinden bir VNet-VNet geçiş senaryosu, şu anda desteklenmemektedir, ancak Azure yol haritası kapsamındadır. VNet eşlemesi ile sanal ağları bağlama birbiriyle bağlanması gereken sanal ağlar için önerilen çözümüdür. VNet eşlemesi hakkında daha fazla bilgi için bkz. [VNet eşlemeye genel bakış](../virtual-network/virtual-network-peering-overview.md).
+Vnet'leri birbirine birden çok sanal ağlarda uygulanan çok katmanlı uygulamaları desteklemek için bağlamak için VNet eşlemesi'ni kullanın. Azure sanal WAN üzerinden bir VNet-VNet geçiş senaryosu, şu anda desteklenmemektedir, ancak Azure yol haritası kapsamındadır. VNet eşlemesi ile sanal ağları bağlama birbiriyle bağlanması gereken sanal ağlar için önerilen çözümüdür. [Ağ geçidi geçişi](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (VNet eşlemesi bağlamında) sanal WAN'için gerekli değildir çünkü sanal WAN otomatik olarak bir ağ geçidi geçişinin sağlar.
 
 ### <a name="globalreach"></a>ExpressRoute küresel erişim
 

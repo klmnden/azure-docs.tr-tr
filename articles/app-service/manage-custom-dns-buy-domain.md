@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619729"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978890"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service için bir özel etki alanı adı satın alma
 
@@ -201,7 +201,9 @@ Listelenen ana bilgisayar adları tarayıcıda gidin. Önceki ekran görüntüs�
 
 ## <a name="renew-the-domain"></a>Etki alanını Yenile
 
-Satın aldığınız App Service etki alanı, satın aldığınız tarihten itibaren bir yıl boyunca geçerlidir. Varsayılan olarak, etki alanı otomatik olarak sonraki yıl için Ödeme yönteminizi kurumuna yenilemek için yapılandırılır. Otomatik yenilemeyi devre dışı bırakmak isterseniz veya etki alanınızda el ile yenilemek istiyorsanız, buradaki adımları izleyin.
+Satın aldığınız App Service etki alanı, satın aldığınız tarihten itibaren bir yıl boyunca geçerlidir. Varsayılan olarak, etki alanı otomatik olarak sonraki yıl için Ödeme yönteminizi kurumuna yenilemek için yapılandırılır. Etki alanı adınızı el ile yenileyebilirsiniz.
+
+Otomatik yenilemeyi devre dışı bırakmak isterseniz veya etki alanınızda el ile yenilemek istiyorsanız, buradaki adımları izleyin.
 
 İçinde **uygulama hizmetleri** sekmesinde, uygulamanızı, select adına **ayarları**ve ardından **özel etki alanları**.
 
@@ -211,11 +213,25 @@ Satın aldığınız App Service etki alanı, satın aldığınız tarihten itib
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-Etki alanının sol gezinti bölmesinden seçin **etki alanı yenileme**. Etki alanınız otomatik olarak yenileme durdurmayı seçin **kapalı**, ardından **Kaydet**. 
+Etki alanının sol gezinti bölmesinden seçin **etki alanı yenileme**. Etki alanınız otomatik olarak yenileme durdurmayı seçin **kapalı**, ardından **Kaydet**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Etki alanınızı el ile yenilemek için seçin **yenileme etki alanı**. Ancak, bu düğme etki alanının süresi dolmadan önce 90 güne kadar etkin değil.
+Etki alanınızı el ile yenilemek için seçin **yenileme etki alanı**. Ancak, bu düğmeyi kadar etkin değil [etki alanının süresi dolmadan önce 90 gün](#when-domain-expires).
+
+Etki alanı yenileme başarılı olursa, 24 saat içinde bir e-posta bildirimi alırsınız.
+
+## <a name="when-domain-expires"></a>Etki alanı dolduğunda
+
+Azure, süresi dolan ile ilgilenen veya App Service etki alanları gibi süresi:
+
+* Otomatik yenilemeyi devre dışı bırakılırsa: 90 gün önce etki alanı zaman aşımı, yenileme bildirim e-posta gönderilir ve **yenileme etki alanı** portalda düğmesi etkinleştirilir.
+* Otomatik yenileme etkin olduğunda: Gün, etki alanı sona erme tarihinden sonra Azure için etki alanı adı yenileme faturalandırmak çalışır.
+* Otomatik yenileme sırasında bir hata oluşursa (örneğin, dosya kartınızda süresi doldu) veya Otomatik yenilemeyi devre dışı bırakıldı ve süresi dolacak şekilde etki alanı izin verirseniz, Azure, etki alanı zaman aşımı ve park etki alanı adınızı size bildirir. Yapabilecekleriniz [el ile yenileme](#renew-the-domain) etki alanınız.
+* 4 ile 12 gün günü dolduktan sonra Azure ek bildirim e-postaları gönderir. Yapabilecekleriniz [el ile yenileme](#renew-the-domain) etki alanınız.
+* 19 gün dolduktan sonra etki alanınız beklemeye kalır, ancak bir kullanım ücreti tabi olur. Herhangi bir geçerli yenileme ve kullanım ücretleri, bir etki alanı adı yenilemek için müşteri desteği çağırabilirsiniz.
+* 25 gün dolduktan sonra etki alanınız için bir etki alanı adı sektör artırma hizmeti olan Azure koyar. Herhangi bir geçerli yenileme ve kullanım ücretleri, bir etki alanı adı yenilemek için müşteri desteği çağırabilirsiniz.
+* 30 günü dolduktan sonra artık etki alanınızı kullanabilir.
 
 <a name="custom"></a>
 

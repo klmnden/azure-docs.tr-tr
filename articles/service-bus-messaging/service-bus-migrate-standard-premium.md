@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687076"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991410"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Mevcut Azure Service Bus standart ad alanları premium katmanına geçirme
 Daha önce Azure Service Bus ad alanları yalnızca standart katmanında sunulur. Ad alanları, aktarım hızının düşük olmasını ve geliştirici ortamları için iyileştirilen çok kiracılı kurulumları ' dir. Premium katmanı, tahmin edilebilir gecikme süresi ve sabit bir fiyat karşılığında artan iş hacmi için ad alanı başına ayrılmış kaynaklar sunar. Premium katmanı, yüksek aktarım hızı ve ek Kurumsal özellikleri gerektiren üretim ortamları için optimize edilmiştir.
 
-Bu makalede, var olan bir standart katman ad alanı premium katmanına geçirmek açıklar.
+Bu makalede, var olan bir standart katman ad alanı premium katmanına geçirmek açıklar.  
 
 >[!WARNING]
 > Geçiş, premium katmanına yükseltme Service Bus standart ad alanları için tasarlanmıştır. Geçiş Aracı, eski sürüme düşürmeyi desteklemeyen.
@@ -33,6 +33,7 @@ Bazı dikkat edilecek noktaları:
 - **Premium** ad olmalıdır **varlık** da başarılı olması geçiş için. 
 - Tüm **varlıkları** standart ad alanında **kopyalanan** geçiş işlemi sırasında premium ad alanı. 
 - Geçiş destekler **Mesajlaşma birimi başına 1.000 varlıkları** premium katmanı. Gereksinim duyduğunuz kaç Mesajlaşma birimi tanımlamak için geçerli bir standart ad alanı üzerinde sahip varlıklar sayısı ile başlayın. 
+- Doğrudan geçiş yapamazsınız **temel katman** için **premier katmanı**, ancak bu nedenle dolaylı olarak temel veya standart ilk ve ardından sonraki adımda premium standart geçiş yaparak bunu yapabilirsiniz.
 
 ## <a name="migration-steps"></a>Geçiş adımları
 Bazı koşullar, geçiş işlemi ile ilişkilidir. Hata olasılığını azaltmak için aşağıdaki adımları hakkında bilgi edinin. Bu adımlar, geçiş işlemi özetlemektedir ve adım adım Ayrıntılar aşağıdaki bölümlerde listelenmiştir.
@@ -147,7 +148,7 @@ Hayır, geçiş yapmak için gereken kod veya yapılandırma değişiklik bulunm
 ### <a name="what-happens-when-i-abort-the-migration"></a>Geçişi durdurabilir miyim ne olur?
 Geçiş kullanarak durdurulmasına `Abort` Azure portalı kullanarak veya komutu. 
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>Azure CLI'si
 
 ```azurecli
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace

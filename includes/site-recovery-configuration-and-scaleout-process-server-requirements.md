@@ -10,11 +10,11 @@ ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016673"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127713"
 ---
 **Yapılandırma/işlem sunucusu gereksinimleri**
 
@@ -36,7 +36,7 @@ IIS | -Önceden mevcut olan varsayılan Web sitesi <br> -Önceden var olan Web s
 | 
 **AĞ AYARLARI** | 
 IP adresi türü | Statik 
-Bağlantı noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı) 
+Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı) 
 NIC türü | VMXNET3 (yapılandırma sunucusu VMware VM ise)
  |
 **Internet erişimi** (sunucunun aşağıdaki URL'lere - doğrudan veya proxy üzerinden erişmesi):|

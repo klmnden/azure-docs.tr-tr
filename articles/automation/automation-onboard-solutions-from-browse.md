@@ -9,20 +9,20 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739055"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133135"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM'de etkinleştir
 
 Azure Otomasyonu, stok bilgisayarlarınızda yüklü işletim sistemi güvenlik güncelleştirmelerini yönetmek ve değişiklikleri izlemek için çözümler sağlar. Makine birden çok yolu vardır, bu çözüme ekleyebilir [bir sanal makineden](automation-onboard-solutions-from-vm.md), öğesinden, [Otomasyon hesabı](automation-onboard-solutions-from-automation-account.md), sanal makineler göz atarken veya tarafından [runbook](automation-onboard-solutions.md). Bu makalede onboarding Azure sanal makineler'de göz atarken bu çözümler ele alınmaktadır.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
-https://portal.azure.com adresinden Azure’da oturum açın
+https://portal.azure.com adresinden Azure'da oturum açın
 
 ## <a name="enable-solutions"></a>Çözümleri etkinleştirme
 
@@ -59,27 +59,10 @@ Seçili çalışma alanı bir Otomasyon hesabına bağlı değilse, aşağıdaki
 
 ![Çalışma alanı](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Çözümleri etkinleştirirken Log Analytics çalışma alanı ile Otomasyon Hesabı arasında bağlantı kurma seçeneği yalnızca belirli bölgelerde desteklenmektedir.
-
-Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
-
-|**Log Analytics çalışma alanı bölgesi**|**Azure Otomasyonu bölge**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP ve EastUS eşlemeleri Otomasyon hesapları için Log Analytics çalışma alanları için tam bir bölgeden bölgeye eşleme değildir, ancak doğru eşleme.
-
-<sup>2</sup> kapasitesi kısıtlamaları nedeniyle bölgeyi yeni kaynakları oluşturulurken kullanılabilir değil. Bu, Otomasyon hesaplarını ve Log Analytics çalışma alanlarını içerir. Ancak, önceden var olan bağlı kaynaklar bölgede çalışmaya devam.
+> [!NOTE]
+> Çözümleri etkinleştirirken Log Analytics çalışma alanı ile Otomasyon Hesabı arasında bağlantı kurma seçeneği yalnızca belirli bölgelerde desteklenmektedir.
+>
+> Desteklenen eşleme çiftlerine bir listesi için bkz. [Otomasyon hesabının ve Log Analytics çalışma alanı için bölge eşleme](how-to/region-mappings.md).
 
 Etkinleştirmek için istemediğiniz herhangi bir sanal makineyi yanındaki onay işaretini kaldırın. Zaten seçili sanal makinelerin etkinleştirilemez.
 
@@ -104,7 +87,7 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
-   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png):
 
    Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
 
@@ -121,6 +104,8 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 * Başlatma ve durdurma VM runbook zamanlama
 * VM runbook'ları durdurun ve başlatın
 * Değişkenler
+
+Alternatif olarak, ayrıca çalışma alanınızı Otomasyon hesabınızdan Log Analytics çalışma alanınızdan kesebilir. Çalışma alanınızda seçin **Otomasyon hesabı** altında **ilgili kaynakları**. Otomasyon hesabı sayfasında **hesabı bağlantısını**.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -152,7 +137,7 @@ Zaman ekleme birden çok makine gösterme makineler olabilir **etkinleştirilemi
 
 **Neden**: Klasik dağıtım modelini kullanan sanal makineler desteklenmez.
 
-**Çözüm**: Resource manager dağıtım modeli için sanal makineyi geçirin. Bunu yapma hakkında bilgi için bkz: [Klasik dağıtım modeli kaynakları geçirme](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Çözüm**: Sanal makine, Resource Manager dağıtım modeline geçirilir. Bunu yapma hakkında bilgi için bkz: [Klasik dağıtım modeli kaynakları geçirme](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>VM durduruldu. (serbest bırakıldı)
 

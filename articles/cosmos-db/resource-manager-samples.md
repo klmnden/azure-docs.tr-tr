@@ -4,26 +4,57 @@ description: Azure Resource Manager şablonları oluşturmak ve Azure Cosmos DB 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: c907de019b64a6a9d03206514a1147fd43c78106
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4a32b0497d2457a740e9c082f990bb9112208bfd
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078468"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969172"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Cosmos DB için Azure Resource Manager şablonları
 
-Aşağıdaki tabloda, Azure Cosmos DB için Azure Resource Manager şablonlarının bağlantılarını içerir:
+Aşağıdaki tablolarda Azure Cosmos DB için Azure Resource Manager şablonlarının bağlantılarını içerir:
 
-|**API türü** | **örneğe Bağla**| **Açıklama** |
-|---|---| ---|
-|Core (SQL) API| [(Birden çok ana) bir Azure Cosmos DB hesabı oluşturma](manage-sql-with-resource-manager.md) | Bu şablon bir SQL API hesabı, etkin çok yöneticili iki bölgeleri oluşturur. Azure Cosmos hesabı, veritabanı düzeyinde işleme paylaşan iki kapsayıcı olacaktır. |
-| MongoDB API’si | [(Birden çok ana) bir Azure Cosmos DB hesabı oluşturma](manage-mongodb-with-resource-manager.md) | Bu şablon, etkin çok yöneticili iki bölgede MongoDB için Azure Cosmos DB'nin API'sini kullanarak bir hesap oluşturur. Azure Cosmos hesabı, veritabanı düzeyinde işleme paylaşan iki kapsayıcı olacaktır. |
-| Cassandra API’si | [(Birden çok ana) bir Azure Cosmos DB hesabı oluşturma](manage-cassandra-with-resource-manager.md) | Bu şablon, etkin çok yöneticili iki bölgede Cassandra API hesabı oluşturur. Azure Cosmos hesabı anahtar alanı düzeyinde işleme paylaşan iki tablo olacaktır. |
-| Gremlin API| [(Birden çok ana) bir Azure Cosmos DB hesabı oluşturma](manage-gremlin-with-resource-manager.md) | Bu şablon, iki bölgeleri çok yöneticili etkin bir Gremlin API hesabı oluşturur. Azure Cosmos hesabı, veritabanı düzeyinde işleme paylaşan iki grafik olacaktır. |
-| Tablo API’si | [(Birden çok ana) bir Azure Cosmos DB hesabı oluşturma](manage-table-with-resource-manager.md) | Bu şablon, iki bölgeleri çok yöneticili etkin bir tablo API'si hesabı oluşturur. Azure Cosmos hesabı, tek bir tablo gerekir. |
+## <a name="sql-core-api"></a>SQL (Core) API
+
+|**Şablon**|**Açıklama**|
+|---| ---|
+|[Bir Azure Cosmos hesabı, veritabanı, kapsayıcı oluşturma](manage-sql-with-resource-manager.md#create-resource) | Bu şablon, etkin çok yöneticili iki bölgeleri (çekirdek) SQL API hesabı oluşturur. Azure Cosmos hesabı, veritabanı düzeyinde işleme paylaşan iki kapsayıcı olacaktır. |
+|[İşleme (RU/s) bir veritabanı için güncelleştirme](manage-sql-with-resource-manager.md#database-ru-update) | Bu şablon, bir veritabanı (Temel) SQL API hesabı için aktarım hızı güncelleştirir. |
+|[İşleme (RU/s) bir kapsayıcı için güncelleştirme](manage-sql-with-resource-manager.md#container-ru-update) | Bu şablon, aktarım hızı (çekirdek) SQL API hesabı, kapsayıcı için güncelleştirir. |
+
+## <a name="mongodb-api"></a>MongoDB API’si
+
+|**Şablon**|**Açıklama**|
+|---| ---|
+|[Bir Azure Cosmos hesabı, veritabanı, koleksiyon oluşturma](manage-mongodb-with-resource-manager.md#create-resource) | Bu şablon, etkin çok yöneticili kullanarak iki bölgede MongoDB için Azure Cosmos DB API hesabı oluşturur. Azure Cosmos hesabı, veritabanı düzeyinde işleme paylaşan iki kapsayıcı olacaktır. |
+|[İşleme (RU/s) bir veritabanı için güncelleştirme](manage-mongodb-with-resource-manager.md#database-ru-update) | Bu şablon, bir veritabanında bir MongoDB API hesabı için aktarım hızı güncelleştirir. |
+|[İşleme (RU/s) bir koleksiyon için güncelleştirme](manage-mongodb-with-resource-manager.md#collection-ru-update) | Bu şablon bir MongoDB API hesabı, kapsayıcı için aktarım hızı güncelleştirir. |
+
+## <a name="cassandra-api"></a>Cassandra API’si
+
+|**Şablon**|**Açıklama**|
+|---| ---|
+|[Bir Azure Cosmos hesabı, anahtar alanı, tablo oluşturma](manage-cassandra-with-resource-manager.md#create-resource) | Bu şablon, etkin çok yöneticili iki bölgede Cassandra API hesabı oluşturur. Azure Cosmos hesabı anahtar alanı düzeyinde işleme paylaşan iki tablo olacaktır. |
+|[İşleme (RU/s) için bir anahtar alanı güncelleştirme](manage-cassandra-with-resource-manager.md#keyspace-ru-update) | Bu şablon için bir anahtar alanı Cassandra API hesabı, aktarım hızı güncelleştirir. |
+|[İşleme (RU/s) bir tablo için güncelleştirme](manage-cassandra-with-resource-manager.md#table-ru-update) | Bu şablon, bir tablodaki bir Cassandra API hesabı için aktarım hızı güncelleştirir. |
+
+## <a name="gremlin-api"></a>Gremlin API
+
+|**Şablon**|**Açıklama**|
+|---| ---|
+|[Bir Azure Cosmos hesabı, veritabanı, grafik oluşturma](manage-gremlin-with-resource-manager.md#create-resource) | Bu şablon, iki bölgeleri çok yöneticili etkin bir Gremlin API hesabı oluşturur. Azure Cosmos hesabı, veritabanı düzeyinde işleme paylaşan iki grafik olacaktır. |
+|[İşleme (RU/s) bir veritabanı için güncelleştirme](manage-gremlin-with-resource-manager.md#database-ru-update) | Bu şablon, bir veritabanında bir Gremlin API hesabı için aktarım hızı güncelleştirir. |
+|[Bir grafik işleme (RU/s) güncelleştirme](manage-gremlin-with-resource-manager.md#graph-ru-update) | Bu şablon, bir grafikte bir Gremlin API hesabı için aktarım hızı güncelleştirir. |
+
+## <a name="table-api"></a>Tablo API’si
+
+|**Şablon**|**Açıklama**|
+|---| ---|
+|[Azure Cosmos hesap oluşturma, tablo](manage-table-with-resource-manager.md#create-resource) | Bu şablon, iki bölgeleri çok yöneticili etkin bir tablo API'si hesabı oluşturur. Azure Cosmos hesabı, tek bir tablo gerekir. |
+|[İşleme (RU/s) bir tablo için güncelleştirme](manage-table-with-resource-manager.md#table-ru-update) | Bu şablon, bir tablodaki bir tablo API'si hesabı için aktarım hızı güncelleştirir. |
 
 > [!TIP]
 > Tablo API'sini kullanarak paylaşılan bir aktarım hızı etkinleştirmek için Azure Portalı'nda hesap düzeyinde aktarım hızı sağlar.

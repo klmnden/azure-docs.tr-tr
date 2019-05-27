@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129767"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
@@ -21,7 +21,7 @@ Azure İzleyici'de klasik ölçüm uyarılarını bildirim almak için bir yol s
 
 1. İçinde [portalı](https://portal.azure.com/), izlemek istediğiniz olan kaynağı bulun ve seçin.
 
-2. İçinde **izleme** bölümünden **uyarılar (Klasik)**. Simge ve metin, farklı kaynaklar için biraz farklı olabilir. Bulamazsanız, **uyarılar (Klasik)** içinde burada bulabileceğiniz **uyarılar** veya **uyarı kuralları**.
+2. İçinde **izleme** bölümünden **uyarılar (Klasik)** . Simge ve metin, farklı kaynaklar için biraz farklı olabilir. Bulamazsanız, **uyarılar (Klasik)** içinde burada bulabileceğiniz **uyarılar** veya **uyarı kuralları**.
 
     ![İzleme](media/alerts-classic-portal/AlertRulesButton.png)
 

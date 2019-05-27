@@ -9,11 +9,11 @@ ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152332"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances ile yönetilen kimliklerini kullanma
 
@@ -170,7 +170,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Anahtar Kasası'na kimliğini doğrulamak ve gizli dizi okumak için artık erişim belirtecini kullanın. Anahtar kasanıza URL adı ile değiştirdiğinizden emin olun (*https://mykeyvault.vault.azure.net/...*):
+Anahtar Kasası'na kimliğini doğrulamak ve gizli dizi okumak için artık erişim belirtecini kullanın. Anahtar kasanıza URL adı ile değiştirdiğinizden emin olun (*https://mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

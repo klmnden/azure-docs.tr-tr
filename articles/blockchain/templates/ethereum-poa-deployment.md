@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66126805"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
 
@@ -202,7 +202,7 @@ Bir abonelik güvenli hale getirildikten sonra Azure portalına gidin. Seç '+',
 
 Aşağıdaki bölümde ilk üyenin ayak izini ağ yapılandırması için size yol gösterir. Dağıtım akışı beş adımlarına ayrılmıştır: Temel bilgiler, dağıtım bölgeleri, ağ boyutu ve performansı, Ethereum ayarları, Azure İzleyici.
 
-#### <a name="basics"></a>Temel Bilgiler
+#### <a name="basics"></a>Temel
 
 Altında **Temelleri**, abonelik, kaynak grubu ve temel sanal makine özellikleri gibi herhangi bir dağıtım için standart parametreler için değerler belirtin.
 
@@ -218,7 +218,7 @@ Parola (kimlik doğrulaması türü = parola)|Dağıtılan sanal makinelerin her
 SSH anahtarı (kimlik doğrulaması türü ortak anahtar =)|Uzaktan oturum açma için kullanılan güvenli Kabuk anahtarı.||NA
 Abonelik|Aboneliği Konsorsiyum ağı dağıtmak için||NA
 Kaynak Grubu|Hangi Konsorsiyum ağı dağıtmak kaynak grubu.||NA
-Konum|Kaynak grubu için bir Azure bölgesi.||NA
+Location|Kaynak grubu için bir Azure bölgesi.||NA
 
 Aşağıda bir örnek dağıtımı: ![temel dikey penceresi](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -258,7 +258,7 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 
 Sanal makine ve depolama katmanı, ağ performansını etkiler.  İstenen maliyet verimliliği göre aşağıdaki SKU'ları öneririz:
 
-  Sanal makine SKU'su|Depolama katmanı|Fiyat|Aktarım hızı|Gecikme süresi
+  Sanal makine SKU'su|Depolama katmanı|Fiyat|Performans|Gecikme
   ---|---|---|---|---
   F1|Standart SSD|düşük|düşük|Yüksek
   D2_v3|Standart SSD|orta|orta|orta
@@ -277,7 +277,7 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 Consortium üye kimliği|Çakışma önlemek için IP adresi alanları yapılandırmak için kullanılan consortium ağa katılan her üye ile ilişkili kimlik. Özel bir ağ söz konusu olduğunda, üye kimliği aynı ağda farklı kuruluşlar arasında benzersiz olması gerekir.  Hatta aynı kuruluşa birden fazla bölgeye dağıtırken benzersiz üye kimliği gereklidir. Hiçbir çakışma olduğundan emin olmak için katılan diğer üyeleriyle paylaşmak ihtiyaç duyacağınız bu parametrenin değerini not edin.|0-255|NA
 Ağ kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği.  Her Ethereum ağ kendi ağ 1 olan ortak ağ kimliği ile kimliği vardır.|5 - 999,999,999|10101010
 Yönetici Ethereum adresi|PoA idaresinde katıldığınız için kullanılan hesap adresi Ethereum.  MetaMask Ethereum adresi oluşturmak için kullanmanızı öneririz.|0 x'ile başlayan 42 alfasayısal karakterler|NA
-Gelişmiş Seçenekler|Ethereum ayarları için Gelişmiş Seçenekleri|Etkinleştirmek veya devre dışı|Devre Dışı Bırak
+Gelişmiş Seçenekler|Ethereum ayarları için Gelişmiş Seçenekleri|Etkinleştirmek veya devre dışı|Devre dışı bırak
 Genel IP (Gelişmiş Seçenekler = etkin)|VNet ağ geçidinin arkasında ağ dağıtır ve eşleme erişim kaldırır. Bu seçenek belirlenirse, tüm üyeleri uyumlu olacak şekilde sanal ağ geçidi bağlantısı için kullanmanız gerekir.|Genel IP özel VNet|Genel IP
 Block gaz sınırı (Gelişmiş Seçenekler = etkin)|Ağ başlatma bloğu gaz sınırı|Herhangi bir sayısal|50000000
 Blok yeniden mühürleme süresi (sn)|Ağ üzerinde hiçbir işlem olduğunda, boş bir blok oluşturulur sıklığı. Yüksek sıklık, artan depolama maliyetlerine ancak daha hızlı finality sahip olur.|Herhangi bir sayısal|15

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779855"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986824"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C özel ilkeleri kullanmaya başlama
 
@@ -31,7 +31,7 @@ ms.locfileid: "65779855"
 ## <a name="add-signing-and-encryption-keys"></a>İmzalama ve şifreleme anahtarları Ekle
 
 1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
-2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Tıklayın **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme. 
+2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Tıklayın **dizin ve abonelik filtresi** üst menüdeki ve kiracınız içeren dizini seçin. 
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Genel bakış sayfasında **kimlik deneyimi çerçevesi**.
 
@@ -70,17 +70,17 @@ Azure AD B2C, kaydolma ve kullanıcıların oturum açma için kullanılan iki y
 
 ### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework uygulamayı kaydetme
 
-1. Seçin **tüm hizmetleri** Azure portalının sol üst köşedeki arayın ve seçin **uygulama kayıtları**.
-2. **Yeni uygulama kaydı**’nı seçin.
-3. İçin **adı**, girin `IdentityExperienceFramework`.
-4. İçin **uygulama türü**, seçin **Web uygulaması/API'si**.
-5. İçin **oturum açma URL'si**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`burada `your-tenant-name` , Azure AD B2C Kiracı etki alanı adıdır.
-6. **Oluştur**’a tıklayın. 
-7. Oluşturulduktan sonra uygulama kimliği kopyalayın ve daha sonra kullanmak üzere kaydedin.
+1. Seçin **tüm hizmetleri** Azure portalının sol üst köşedeki arayın ve seçin **Azure Active Directory**.
+2. Menüde **uygulama kayıtları (eski)**.
+3. **Yeni uygulama kaydı**’nı seçin.
+4. İçin **adı**, girin `IdentityExperienceFramework`.
+5. İçin **uygulama türü**, seçin **Web uygulaması/API'si**.
+6. İçin **oturum açma URL'si**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`burada `your-tenant-name` , Azure AD B2C Kiracı etki alanı adıdır. Tüm URL'leri artık kullanması gereken [b2clogin.com](b2clogin.md).
+7. **Oluştur**’a tıklayın. Oluşturulduktan sonra uygulama kimliği kopyalayın ve daha sonra kullanmak üzere kaydedin.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework uygulamayı kaydetme
 
-1. Seçin **uygulama kayıtları**ve ardından **yeni uygulama kaydı**.
+1. İçinde **uygulama kayıtları (eski)** seçin **yeni uygulama kaydı**.
 2. İçin **adı**, girin `ProxyIdentityExperienceFramework`.
 3. İçin **uygulama türü**, seçin **yerel**.
 4. İçin **yeniden yönlendirme URI'si**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`burada `yourtenant` Azure AD B2C kiracınızın.

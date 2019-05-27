@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162049"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid için özel konuya gönderme
 
@@ -100,7 +100,7 @@ Konu başlığı uç noktası için posta sonra bir yanıt alırsınız. Yanıta
 
 |Sonuç  |Yanıt  |
 |---------|---------|
-|Başarılı  | 200 TAMAM  |
+|Başarı  | 200 TAMAM  |
 |Olay verileri hatalı biçimde | 400 Hatalı istek |
 |Geçersiz erişim anahtarı | 401 Yetkisiz |
 |Yanlış uç noktası | 404 Bulunamadı |

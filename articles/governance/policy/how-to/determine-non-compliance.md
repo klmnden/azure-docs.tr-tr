@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868691"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979340"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenlerini belirleme
 
@@ -85,7 +85,7 @@ Bu ayrıntıları neden bir kaynak şu anda uyumlu olduğunu açıklayan, ancak 
 
 Matris her olası eşler _neden_ sorumlu için [koşul](../concepts/definition-structure.md#conditions) ilke tanımı içinde:
 
-|Neden | Koşul |
+|Reason | Koşul |
 |-|-|
 |Geçerli değer, anahtar olarak hedef değeri içermelidir. |containsKey veya **değil** notContainsKey |
 |Geçerli değer hedef değeri içermelidir. |içerir veya **değil** notContains |
@@ -215,11 +215,11 @@ Yeni bir parçası olarak **genel Önizleme**, değişiklik geçmişini son 14 g
 
 1. Seçin **değişiklik geçmişini (Önizleme)** sekmesinde **kaynak Uyumluluk** sayfası. Tüm mevcut görüntüleniyorsa listesini değişiklikleri algıladı.
 
-   ![Kaynak uyumluluk sayfasında ilke değişiklik geçmişi sekmesi](../media/determine-non-compliance/change-history-tab.png)
+   ![Kaynak uyumluluk sayfasında Azure İlkesi değişiklik geçmişi sekmesi](../media/determine-non-compliance/change-history-tab.png)
 
 1. Algılanan değişiklikler birini seçin. _Visual fark_ kaynak üzerinde sunulan için **değişiklik geçmişini** sayfası.
 
-   ![Değişiklik geçmişi sayfasındaki İlkesi değişiklik geçmişi görsel fark](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure İlkesi değişiklik geçmişi görsel fark değişiklik geçmişi sayfasındaki](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _Visual fark_ aides içinde bir kaynak değişikliklerini tanımlama. Algılanan değişiklikler kaynağın geçerli uyumluluk durumu için ilişkili değil.
 
@@ -228,7 +228,7 @@ Değişiklik geçmişi verilerini sağlayan [Azure kaynak Graph](../../resource-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
-- [İlke tanım yapısını](../concepts/definition-structure.md) gözden geçirin.
+- [Azure İlkesi tanımı yapısını](../concepts/definition-structure.md) gözden geçirin.
 - [İlkenin etkilerini anlama](../concepts/effects.md) konusunu gözden geçirin.
 - Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md).
 - Bilgi edinmek için nasıl [uyumluluk verilerini alma](getting-compliance-data.md).

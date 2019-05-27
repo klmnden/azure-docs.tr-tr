@@ -110,3 +110,5 @@
       href: endpoint-custom.md
     - name: Dil ve bölge desteği
       href: language-support.md
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

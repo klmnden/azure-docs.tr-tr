@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: monhaber
-ms.openlocfilehash: 22791fc43ff17d56e1f51e7f7737a10109f47c59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: c23c9a2b9af1947c397b96431ae3c3bcd0e30aaa
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906240"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968294"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenli puanınız geliştirin
 
@@ -43,7 +43,7 @@ Genel güvenli puanınız görüntülemek için:
 
 1. Azure panosunda tıklayın **Güvenlik Merkezi** ve ardından **güvenli puanı**.
 2. Üst kısmında, önemli puan güvenli görebilirsiniz:
-   - **Genel puan güvenli** ilkeleri, seçili abonelik başına puanı temsil eder
+   - **Genel güvenlik puanı**, seçilen aboneliğin ilkelere göre belirlenen puanını gösterir
    - **Kategoriye göre puan güvenli** hangi kaynakların en dikkat gerektiren gösterir
    - **En popüler öneriler göre puan etkisi güvenli** en iyi çözümü kullanırsanız, güvenli puanınız artıracak önerilerden bir listesini sağlar.
  
@@ -52,7 +52,7 @@ Genel güvenli puanınız görüntülemek için:
 3. Aşağıdaki tabloda, her abonelik sayınıza ve genel güvenli puanı her biri için görebilirsiniz.
 
    > [!NOTE]
-   > Genel güvenli puanı her abonelik güvenli puanı toplamına eşit değil. Güvenli puanı sağlıklı kaynaklarınızı ve öneri, değil, abonelikler arasında güvenli puanlarının toplam başına toplam kaynaklarınız arasındaki oran dayalı bir hesaplamadır. 
+   > Aboneliklerinin güvenlik puanının toplamı, genel güvenlik puanına eşit değildir. Güvenlik puanı, iyi durumdaki kaynaklarınızla öneri başına kaynak sayısı arasındaki orana göre hesaplanır ve aboneliklerinizdeki güvenlik puanlarının toplamı değildir. 
    >
 4. Tıklayın **görüntülemek önerileri** güvenli puanınız geliştirmek için düzeltebilir Bu abonelik için önerileri görmek için.
 4. Öneriler listesi içinde her bir öneri olduğunu gösteren bir sütun görebilirsiniz **puanı etkisi güvenli**. Genel güvenli puanınız önerilerine uyarsanız ne kadar artıracak bu sayı temsil eder. Örneğin, aşağıdaki ekran içinde **kapsayıcı güvenlik yapılandırmalarını güvenlik açıklarını düzelt**, güvenli puanınız 35 noktalarıyla artacaktır.
@@ -65,9 +65,9 @@ Genel güvenli puanınız görüntülemek için:
 
 Ayrıca, tek tek güvenli puanları görmek için tek bir öneri dikey penceresi içinde bulabilirsiniz.  
 
-**Öneri güvenli puanı** olduğundan, iyi durumdaki kaynaklar ve toplam kaynaklarınız arasındaki oran temel hesaplama. İyi durumdaki kaynaklar sayısını kaynakların toplam sayısı için eşit ise, en fazla güvenli puanı 50 öneri alın. Güvenli puanınız daha yakın en yüksek puana almayı denemek için iyi durumda olmayan kaynaklar için önerileri takip ederek düzeltin.
+**Öneri güvenlik puanı**, iyi durumdaki kaynaklarınızla toplam kaynak sayısı arasındaki orana göre hesaplanır. İyi durumdaki kaynakların sayısı toplam kaynak sayısına eşitse en yüksek öneri güvenlik puanı olan 50 puanı alırsınız. Güvenlik puanınızı üst sınıra yaklaştırmaya çalışmak için aşağıdaki önerileri izleyerek iyi durumda olmayan kaynakları düzeltin.
 
-**Öneri etkisi** bildiğiniz ne kadar güvenli puanınız artırır sağlar öneri adımları uygularsanız. Örneğin, güvenli puanınız 42 ise ve **öneri etkisi** + 3 arası, olan geliştirmek 45 olacak puanınız öneri de özetlenen adımları gerçekleştirmeden.
+**Öneri etkisi**, önerilen adımları uygulamanız durumunda güvenlik puanınızın ne kadar artacağını gösterir. Örneğin güvenlik puanınız 42 ve **Öneri etkisi** +3 ise öneride belirtilen adımların uygulanması halinde puanınız 45 olacaktır.
 
 Öneri düzeltme adımlarını alınmaz, iş yükünüz Internet'e hangi tehditleri gösterir.
 

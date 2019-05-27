@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779284"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979544"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -100,7 +100,8 @@ Bir parametre ilke tanımında kullanılan aşağıdaki özelliklere sahiptir:
   - `displayName`: Parametre için Portalı'nda gösterilen kolay adı.
   - `strongType`: (İsteğe bağlı) Portal üzerinden ilke tanımlarının atamasını yaparken kullanılır. Bağlam kullanan listesini sağlar. Daha fazla bilgi için [strongType](#strongtype).
   - `assignPermissions`: (İsteğe bağlı) Yap _true_ Azure portalında rol ataması sırasında ilke ataması oluşturmak için. Atama kapsamı dışında izin atamak istediğiniz durumlarda bu özellik yararlıdır. Bir rol ataması rol tanımında, ilke (veya rol tanımı girişim ilkelerinde tümünde başına) yoktur. Parametre değeri, geçerli bir kaynak veya kapsamında olması gerekir.
-- `defaultValue`: (İsteğe bağlı) Hiçbir değer sağlanmışsa atamadaki parametresinin değerini ayarlar. Atanan var olan bir ilke tanımı güncelleştirilirken gereklidir.
+- `defaultValue`: (İsteğe bağlı) Hiçbir değer sağlanmışsa atamadaki parametresinin değerini ayarlar.
+  Atanan var olan bir ilke tanımı güncelleştirilirken gereklidir.
 - `allowedValues`: (İsteğe bağlı) Atama sırasında parametre kabul eden bir değer dizisi sağlar.
 
 Örneğin, kaynakların dağıtıldığı konumları sınırlamak için bir ilke tanımı tanımlayabilirsiniz. Bu ilke tanımı için bir parametre olabilir **allowedLocations**. Bu parametre her ilke tanımı atama tarafından kabul edilen değerler sınırlamak için kullanılacak. Kullanımını **strongType** Portalı aracılığıyla atanabilecek tamamlarken Gelişmiş bir deneyim sağlar:
@@ -268,8 +269,7 @@ Aşağıdaki alanları desteklenir:
 - özellik diğer adları - bir listesi için bkz [diğer adlar](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, ve `tags[tag.with.dots]` etiketlerini alana bildirme hala kabul edilebilir yöntemlerdir.
-> Ancak, tercih edilen ifade yukarıda listelenen olanlardır.
+> `tags.<tagName>`, `tags[tagName]`, ve `tags[tag.with.dots]` etiketlerini alana bildirme hala kabul edilebilir yöntemlerdir. Ancak, tercih edilen ifade yukarıda listelenen olanlardır.
 
 #### <a name="use-tags-with-parameters"></a>Parametrelerle etiketleri kullanma
 

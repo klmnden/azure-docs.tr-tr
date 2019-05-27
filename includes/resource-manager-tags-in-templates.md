@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786337"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128826"
 ---
 Dağıtım sırasında bir kaynağı etiketlemek için ekleme `tags` dağıtmakta kaynağa öğesi. Etiket adını ve değerini belirtin.
 

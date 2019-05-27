@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192283"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966385"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 
@@ -118,3 +118,15 @@ Adlandırma kısıtlamaları Azure platformu ve AKS tarafından uygulanır. Bir 
 
 * AKS *MC_* kaynak grubu adı, kaynak grubu adı ve kaynak adı birleştirir. Otomatik olarak oluşturulan söz dizimi `MC_resourceGroupName_resourceName_AzureRegion` 80 karakterden büyük olması gerekir. Gerekli olursa, kaynak grubu adı veya AKS kümesinin adını kısaltın.
 * *Dnsprefıx* ve alfa sayısal değerler ile bitmelidir. Geçerli karakterler alfasayısal değerler ve kısa çizgi (-) içerir. *Dnsprefıx* bir nokta (.) gibi özel karakterler içeremez.
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Hataları oluşturmak, güncelleştirmek, ölçeklendirme, silmek veya başka bir işlem sürdüğünden, işleme izin verilmiyor Küme yükseltme çalışırken durumuyla karşılaşıyorum.
+
+*Bu sorun giderme Yardımı aka.ms/aks-bekleyen-işlemden yönlendirilir*
+
+Küme işlemlerini, bir önceki işlemi hala devam ederken sınırlıdır. Kümenizi ayrıntılı durumunu almak için kullanın `az aks show -g myResourceGroup -n myAKSCluster -o table` komutu. Kendi kaynak grubunun ve AKS kümesinin adını kullanın.
+
+Küme durumunu üzerinde çıkışını temel:
+
+* Bir küme dışındaki tüm sağlama durumunda ise *başarılı* veya *başarısız*, işlem kadar bekleyin (*yükseltme / güncelleştirme / oluşturma / ölçeklendirme / silme / taşıma*) sona erer. Önceki işlemi tamamlandığında, en son küme işleminizi yeniden deneyin.
+
+* Küme başarısız bir yükseltmeyi varsa, verilen adımları izleyin [kümem hatalı durumda hataları alma ve yükseltme veya ölçeklendirme çalışmaz düzeltilene kadar](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

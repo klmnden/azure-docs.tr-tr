@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130741"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -94,19 +94,19 @@ Office 365 aboneliğinize:
 1. Seçin **gerekli izinler** içinde **ayarları** menüsünü seçin ve ardından **Ekle**.
 1. Tıklayın **bir API seçin** ardından **Office 365 Yönetim API'leri**. tıklayın **Office 365 Yönetim API'leri**. **Seç**'e tıklayın.
 
-    ![API seçin](media/solution-office-365/select-api.png)
+    ![API Seçin](media/solution-office-365/select-api.png)
 
 1. Altında **izinleri seçin** hem de aşağıdaki seçenekleri belirleyin **uygulama izinleri** ve **temsilci izinleri**:
    - Kuruluşunuza ilişkin hizmet durumu bilgilerini okur
    - Kuruluşunuz için etkinlik verilerini okuyun
    - Kuruluşunuza ilişkin etkinlik raporlarını okur
 
-     ![API seçin](media/solution-office-365/select-permissions.png)
+     ![API Seçin](media/solution-office-365/select-permissions.png)
 
 1. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **izinleri verin** ve ardından **Evet** doğrulama için sorulduğunda.
 
-    ![İzinleri verme](media/solution-office-365/grant-permissions.png)
+    ![İzin ver](media/solution-office-365/grant-permissions.png)
 
 ### <a name="add-a-key-for-the-application"></a>Uygulama için bir anahtar ekleyin
 
@@ -388,7 +388,7 @@ At line:12 char:18
 
 ```
 
-## <a name="uninstall"></a>Kaldırma
+## <a name="uninstall"></a>Kaldır
 
 Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabilirsiniz [bir yönetim çözümünü Kaldır](solutions.md#remove-a-monitoring-solution). Bu, Office 365'ten Azure İzleyici ile ancak toplanan verilerin durdurmaz. Office 365'ten aboneliği ve veri toplamayı durdurmak için aşağıdaki yordamı izleyin.
 
@@ -530,9 +530,9 @@ Azure İzleyici'de Log Analytics çalışma alanında Office 365 çözüm taraf�
 
 Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Tür | *OfficeActivity* |
 | Clientıp | Etkinlik günlüğe kaydedildiğinde kullanılan cihazın IP adresi. IP adresi IPv4 veya IPv6 adresi biçiminde görüntülenir. |
 | OfficeWorkload | Kayıt başvurduğu office 365 hizmeti.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |
@@ -567,7 +567,7 @@ Bir Active Directory kullanıcı oturum açmayı denediğinde bu kayıtları olu
 | Uygulama | Office 15 gibi hesap oturum açma olayı tetikleyen uygulama. |
 | İstemci | İstemci ayrıntılarını cihaz, cihaz işletim sistemi ve kullanıldı cihaz tarayıcısı hesabı oturum açma olayı. |
 | LoginStatus | Bu özellik, OrgIdLogon.LoginStatus doğrudan kullanılır. Çeşitli ilgi çekici oturum açma hataları eşleme algoritmaları uyarı tarafından yapılabilir. |
-| USERDOMAIN | Kiracı kimlik bilgilerini (TII). | 
+| UserDomain | Kiracı kimlik bilgilerini (TII). | 
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory

@@ -115,3 +115,5 @@
       href: language-support.md
     - name: Bing Resim Arama API’si analizleri
       href: bing-image-stats.md
+    - name: Uyumluluk
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

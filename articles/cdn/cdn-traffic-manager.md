@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324020"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955274"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Birden fazla Azure CDN uç noktası ile Azure Traffic Manager arasında devretmeyi ayarlayın
 
@@ -80,6 +80,10 @@ CDN ve Traffic Manager profillerinizi ayarladıktan sonra DNS eşlemesi ekleyin 
 2.  Azure CDN profilinizi, ilk CDN uç noktası (Akamai) seçin. Seçin **özel etki alanı Ekle** ve giriş *cdndemo101.dustydogpetcare.online*. Özel etki alanını doğrulamak için onay işareti yeşil olduğundan emin olun. 
 
     Azure CDN kullanan *cdnverify* kayıt işlemini tamamlamak için bir DNS eşlemesi doğrulamak için alt etki alanı. Daha fazla bilgi için [bir CNAME DNS kaydı oluşturma](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Bu adım, Azure CDN, böylece kendi isteklerini yanıtlayan özel etki alanı tanımak etkinleştirir.
+    
+ > [!NOTE]
+    > SSL etkinleştirmek için bir **akamai'den Azure CDN** profillerini uç noktanıza özel etki alanı cname doğrudan gerekir. SSL etkinleştirmek için cdnverify henüz desteklenmiyor. 
+    >
 
 3.  Özel etki alanınızın etki alanı sağlayıcınız için web sitesine dönün ve böylece özel etki alanı için ikinci bir CDN uç noktanızla eşlendi oluşturduğunuz ilk DNS eşlemesini güncelleştirin.
                              

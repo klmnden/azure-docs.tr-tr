@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190163"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967726"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -34,7 +34,7 @@ Azure, bu işlevi gerçekleştirmek için kaynak ağ adresi çevirisi (SNAT) kul
 Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiği şekilde birleştirebilirsiniz. Bunlar, dağıtım modeli için geçerli olan özellikler, kısıtlamalar ve desenleri dikkatli bir şekilde anlamak için bunları gözden geçirin ve uygulama senaryosu. Gözden geçirme Kılavuzu [bu senaryoları yönetme](#snatexhaust).
 
 >[!IMPORTANT] 
->Standart Load Balancer ve standart genel IP yeni yetenekler ve farklı davranışları giden bağlantı sunar.  Bunlar temel SKU'ları ile aynı değildir.  Standart SKU'lar ile çalışırken giden bağlantı istiyorsanız, bunu standart genel IP adresleri veya genel bir Standard Load Balancer ile açıkça tanımlamalısınız.  Bu, kullanırken giden bağlantı ve standart iç Load Balancer oluşturma içerir.  Standart bir genel yük Dengeleyicideki her zaman giden kuralları kullanmanızı öneririz.  [Senaryo 3](#defaultsnat) standart SKU ile kullanılamaz.  Standart bir iç yük dengeleyici kullanıldığında anlamına giden bağlantı istiyorsanız arka uç havuzundaki sanal makineleri için giden bağlantı oluşturmak için adımları uygulamanız gerekir.  Giden bağlantı, bir tek başına VM, tüm sanal makinenin bir kullanılabilirlik kümesi'ndeki bağlamında bir VMSS ağdaki tüm örnekleri bir grup olarak davranır. Bir kullanılabilirlik kümesindeki tek bir sanal makine standart bir SKU ile ilişkili ise standart SKU ile ilişkili oldukları gibi tek bir örneği ile doğrudan ilgili olmasa bile anlamına gelir, bu kullanılabilirlik kümesi içindeki tüm VM örnekleri artık aynı kurallara göre davranır.  Genel kavramları anlamanıza, gözden geçirmek için tüm bu belgeyi dikkatli bir şekilde gözden [Standard Load Balancer](load-balancer-standard-overview.md) SKU'ları gözden geçirme arasındaki farklar için [giden kuralları](load-balancer-outbound-rules-overview.md).  Giden kuralları kullanarak, giden bağlantı tüm yönleri üzerinde ayrıntılı denetim sağlar.
+>Standart Load Balancer ve standart genel IP yeni yetenekler ve farklı davranışları giden bağlantı sunar.  Bunlar temel SKU'ları ile aynı değildir.  Standart SKU'lar ile çalışırken giden bağlantı istiyorsanız, bunu standart genel IP adresleri veya genel bir Standard Load Balancer ile açıkça tanımlamalısınız.  Bu şekilde, standart bir iç Load Balancer kullanırken giden bağlantı oluşturmayı içerir.  Standart bir genel yük Dengeleyicideki her zaman giden kuralları kullanmanızı öneririz.  [Senaryo 3](#defaultsnat) standart SKU ile kullanılamaz.  Standart bir iç yük dengeleyici kullanıldığında anlamına giden bağlantı istiyorsanız arka uç havuzundaki sanal makineleri için giden bağlantı oluşturmak için adımları uygulamanız gerekir.  Giden bağlantı, bir tek başına VM, tüm sanal makinenin bir kullanılabilirlik kümesi'ndeki bağlamında bir VMSS ağdaki tüm örnekleri bir grup olarak davranır. Bir kullanılabilirlik kümesindeki tek bir sanal makine standart bir SKU ile ilişkili ise standart SKU ile ilişkili oldukları gibi tek bir örneği ile doğrudan ilgili olmasa bile anlamına gelir, bu kullanılabilirlik kümesi içindeki tüm VM örnekleri artık aynı kurallara göre davranır.  Genel kavramları anlamanıza, gözden geçirmek için tüm bu belgeyi dikkatli bir şekilde gözden [Standard Load Balancer](load-balancer-standard-overview.md) SKU'ları gözden geçirme arasındaki farklar için [giden kuralları](load-balancer-outbound-rules-overview.md).  Giden kuralları kullanarak, giden bağlantı tüm yönleri üzerinde ayrıntılı denetim sağlar.
 
 ## <a name="scenarios"></a>Senaryoya genel bakış
 

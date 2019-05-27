@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
 ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135643"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -210,7 +210,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 |RequestCount     | Hizmet isteklerinin sayısı.        |
 |gecikme | Hizmet istekleri arka uç örneğinden gelen isteklerin ortalama gecikme süresi (milisaniye cinsinden). |
 |failedRequestCount| Başarısız istek sayısı.|
-|Aktarım hızı| Ortalama aktarım hızını saniye başına bayt cinsinden son günlüğü itibaren.|
+|throughput| Ortalama aktarım hızını saniye başına bayt cinsinden son günlüğü itibaren.|
 
 ```json
 {
@@ -249,7 +249,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 |ruleSetVersion     | Kural kullanılan sürümünü ayarlama. Değerleri 2.2.9 ve 3. 0'ı kullanılabilir.     |
 |RuleId     | Tetikleyici olayın kural kimliği.        |
 |message     | Tetikleyici olay kullanıcı dostu iletisi. Ayrıntılar bölümünde daha ayrıntılı bilgi sağlanır.        |
-|action     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
+|eylem     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
 |site     | Günlük oluşturulduğu site. Genel kurallar olduğundan şu anda yalnızca genel listelenir.|
 |ayrıntılar     | Olay Ayrıntıları.        |
 |details.Message     | Kural açıklaması.        |

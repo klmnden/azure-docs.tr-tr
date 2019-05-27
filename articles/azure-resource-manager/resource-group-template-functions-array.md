@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128701"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Dizi ve nesne işlevleri için Azure Resource Manager şablonları
 
@@ -195,9 +195,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| stringOutput | String | default |
+| stringOutput | String | varsayılan |
 | intOutput | Int | 1 |
-| objectOutput | Nesne | {"first": "varsayılan"} |
+| objectOutput | Object | {"first": "varsayılan"} |
 | arrayOutput | Dizi | [1] |
 | emptyOutput | Bool | True |
 
@@ -338,7 +338,7 @@ Bir dizinin değer içermesi, bir nesne içeren bir anahtar veya bir alt dizenin
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| kapsayıcı |Evet |dizi, nesne veya dize |Bulunacak değer içeren kayıt değeri. |
+| container |Evet |dizi, nesne veya dize |Bulunacak değer içeren kayıt değeri. |
 | itemToFind |Evet |dize veya tamsayı |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -709,7 +709,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| objectOutput | Nesne | {"bir": "a", "üç": "c"} |
+| objectOutput | Object | {"bir": "a", "üç": "c"} |
 | arrayOutput | Dizi | ["iki", "üç"] |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
@@ -733,7 +733,7 @@ Bir JSON nesnesi döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |dize |JSON için dönüştürülecek değer. |
+| arg1 |Evet |string |JSON için dönüştürülecek değer. |
 
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -781,9 +781,9 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| jsonOutput | Nesne | {"a": "b"} |
-| nullOutput | Boole | True |
-| paramOutput | Nesne | {"a": "tanıtım değeri"}
+| jsonOutput | Object | {"a": "b"} |
+| nullOutput | Boolean | True |
+| paramOutput | Object | {"a": "tanıtım değeri"}
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -1363,7 +1363,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| objectOutput | Nesne | {"bir": "a", "iki": "b", "üç": "c2", "dört": "d", "5": "e"} |
+| objectOutput | Object | {"bir": "a", "iki": "b", "üç": "c2", "dört": "d", "5": "e"} |
 | arrayOutput | Dizi | ["bir", "iki", "üç", "dört"] |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:

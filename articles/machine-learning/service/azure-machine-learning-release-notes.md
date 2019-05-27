@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779442"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989858"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -30,6 +30,24 @@ Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların 
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine SDK için Python v1.0.39 Learning
 + **Değişiklikleri**
   + Çalıştırma yapılandırma auto_prepare_environment seçeneği kullanım dışı, varsayılan haline otomatik hazırlama.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Azure Machine Learning veri hazırlama SDK v1.1.3
+
++ **Yeni Özellikler**
+  + Read_postgresql çağırma veya bir veri deposu kullanılarak bir PostgresSQL veritabanından okumak için destek eklendi.
+    + Nasıl yapılır kılavuzlarından örneklere bakın:
+      + [Veri alımı not defteri](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Veri deposu not defteri](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + Tür dönüştürme sütunu giderilen sorunlar:
+  + Artık doğru şekilde Boole veya sayısal bir sütun için bir Boole sütunu dönüştürür.
+  + Artık bir tarih sütunu tarih türü olarak ayarlanacak çalışırken başarısız olmaz.
+  + Geliştirilmiş birleştirmetürü türleri ve eşlik eden başvuru belgeleri. İki veri akışı eklerken, artık bu birleşim türlerinin birini belirtebilirsiniz:
+    + NONE, EŞLEŞEN, İÇ, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, TAM.
+  + Geliştirilmiş veri diğer tarih biçimleri tanımak için çıkarım yazın.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ Azure Machine Learning hizmeti genel kullanıma sunulmuştur.
 Bu sürümle birlikte, yeni bir yönetilen bilgi işlem deneyimi aracılığıyla duyuruyoruz [Azure Machine Learning işlem](how-to-set-up-training-targets.md#amlcompute). Bu işlem hedef Azure Machine Learning için Azure Batch AI işlem değiştirir. 
 
 Bu işlem hedef:
-+ Model eğitimi ve batch çıkarım için kullanılır
++ Eğitim ve batch çıkarımı/Puanlama modeli için kullanılır
 + Tek - için çok - node işlem
 + Küme yönetimi yapar ve proje kullanıcı için planlama
 + Varsayılan olarak Daralttığında

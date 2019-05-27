@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603403"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131438"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -52,51 +52,51 @@ Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x.
 
 ### <a name="v2"></a>Sürüm 2.x
 
-Sürüm 2.x Araçları, Azure işlevleri çalışma zamanı kullanan .NET Core üzerine yapılandırılan 2.x. Bu sürüm dahil olmak üzere, .NET Core 2.x desteklenen tüm platformlarda desteklenir [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). .NET Core yüklemelisiniz 2.x SDK.
+Sürüm 2.x Araçları, Azure işlevleri çalışma zamanı kullanan .NET Core üzerine yapılandırılan 2.x. Bu sürüm dahil olmak üzere, .NET Core 2.x desteklenen tüm platformlarda desteklenir [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). 
+
+> [!IMPORTANT]
+> .NET Core yükleme gerekliliğini atlayabilir 2.x SDK'sını kullanarak [uzantı paketleri].
 
 #### <a name="windows-npm"></a>Windows
 
 Aşağıdaki adımlar, Windows üzerinde temel araçları yüklemek için npm kullanın. Ayrıca [Chocolatey](https://chocolatey.org/). Daha fazla bilgi için [temel araçları Benioku](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Yükleme [Windows için .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows).
+1. Yükleme [Node.js], npm içerir. İçin sürüm 2.x Araçlar, yalnızca Node.js 8.5 ve sonraki sürümlerde desteklenir.
 
-2. Yükleme [Node.js], npm içerir. İçin sürüm 2.x Araçlar, yalnızca Node.js 8.5 ve sonraki sürümlerde desteklenir.
-
-3. Temel Araçları paketi yükleyin:
+1. Temel Araçları paketi yükleyin:
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. Kullanmayı planlamıyorsanız [uzantı paketleri], yükleme [Windows için .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>Homebrew ile MacOS
 
 Aşağıdaki adımları macOS üzerinde temel araçları yüklemek için Homebrew kullanın.
 
-1. Yükleme [.NET Core 2.x SDK macOS için](https://www.microsoft.com/net/download/macos).
+1. Yükleme [Homebrew](https://brew.sh/), zaten yüklü değilse.
 
-2. Yükleme [Homebrew](https://brew.sh/), zaten yüklü değilse.
-
-3. Temel Araçları paketi yükleyin:
+1. Temel Araçları paketi yükleyin:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. Kullanmayı planlamıyorsanız [uzantı paketleri], yükleme [.NET Core 2.x SDK macOS için](https://www.microsoft.com/net/download/macos).
+
 
 #### <a name="linux"></a> APT ile Linux (Debian/Ubuntu)
 
 Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debian Linux dağıtımınıza bağlı Core araçlarını yüklemek için. Diğer Linux dağıtımları için bkz: [temel araçları Benioku](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Yükleme [Linux için .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux).
-
-2. Microsoft ürün anahtarı olarak güvenilir kaydedin:
+1. Microsoft ürün anahtarı olarak güvenilir kaydedin:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. Aşağıdaki tabloda, Ubuntu server uygun sürümlerinden birini çalıştığını doğrulayın. Apt kaynak eklemek için şunu çalıştırın:
+1. Aşağıdaki tabloda, Ubuntu server uygun sürümlerinden birini çalıştığını doğrulayın. Apt kaynak eklemek için şunu çalıştırın:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -110,11 +110,12 @@ Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debi
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-4. Temel Araçları paketi yükleyin:
+1. Temel Araçları paketi yükleyin:
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. Kullanmayı planlamıyorsanız [uzantı paketleri], yükleme [.NET Core 2.x SDK'sı Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Bir yerel işlevler projesi oluşturma
 
@@ -186,6 +187,7 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
   "Host": {
     "LocalHttpPort": 7071,
     "CORS": "*"
+    "CORSCredentials": true
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -200,6 +202,7 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 | **`Host`** | Bu bölümdeki ayarlarını yerel olarak çalıştırılırken işlevleri ana bilgisayar işlemi özelleştirin. |
 | **`LocalHttpPort`** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
 | **`CORS`** | İzin verilen çıkış noktaları tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Kaynakları, boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
+| **`CORSCredentials`** |  İzin vermek için true olarak ayarlanmış `withCredentials` istekleri |
 | **`ConnectionStrings`** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca genellikle bağlantı dizeleri alma çerçeveleri tarafından kullanılan `ConnectionStrings` gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bağlantı dizelerini bu nesne, sağlayıcı türü ortamı eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğelerin diğer uygulama ayarları ile Azure'a yayımlanmaz. Bu değerleri açıkça eklemelidir `Connection strings` , işlev uygulaması ayarları koleksiyonu. Oluşturuyorsanız bir [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) işlev kodunuzu bağlantı dizesi değerindeki saklamalısınız **uygulama ayarları** , diğer bağlantılarla portalında. |
 
 İşlev uygulaması ayarları değerleri, ortam değişkenleri olarak kodunuzda da okunabilir. Daha fazla bilgi için bu dile özgü başvuru konularında ortam değişkenleri bölümüne bakın:
@@ -500,3 +503,4 @@ Bir hata veya özellik isteği için [açık bir GitHub sorunu](https://github.c
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 ['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[Uzantı paketleri]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles

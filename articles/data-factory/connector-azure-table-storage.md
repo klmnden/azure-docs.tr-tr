@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153555"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure tablo depolama ve veri kopyalamak
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -332,7 +332,7 @@ Ne zaman, veri taşıma Azure tablosundan aşağıdaki [Azure Table tarafından 
 
 | Azure tablo veri türü | Veri Fabrikası geçici veri türü | Ayrıntılar |
 |:--- |:--- |:--- |
-| Edm.Binary |bayt] |Bir bayt dizisi en fazla 64 KB. |
+| Edm.Binary |byte[] |Bir bayt dizisi en fazla 64 KB. |
 | Edm.Boolean |bool |Bir Boole değeri. |
 | Edm.DateTime |DateTime |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı 1 Ocak 1601 M.S. gece yarısı başlar. (C.E.), UTC. Aralığın 31 Aralık 9999 sonlandırır. |
 | Edm.Double |double |Bir 64-bit kayan nokta değeri. |

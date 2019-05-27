@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66120428"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Azure SQL veritabanı coğrafi çoğaltma ve yük devretme ile Azure-SSIS tümleştirme çalışma zamanını yapılandırma
 
@@ -52,11 +52,11 @@ Bu bölüm, aşağıdaki koşullardan biri doğru olduğunda geçerlidir:
 
 - Azure-SSIS IR, yük devretme grubunun birincil sunucu uç noktası işaret ediyor. Bu uç nokta yük devretme gerçekleştiğinde değiştirir.
 
-  OR
+  VEYA
 
 - Azure SQL veritabanı sunucusu, sanal ağ hizmet uç noktası kuralı ile yapılandırılır.
 
-  OR
+  VEYA
 
 - Veritabanı, SQL veritabanı yönetilen bir sanal ağ ile yapılandırılan örneği sunucusudur.
 
@@ -107,6 +107,6 @@ Azure-SSIS IR için diğer yapılandırma seçenekleri göz önünde bulundurun:
 
 - [Yüksek performans için Azure-SSIS tümleştirme çalışma zamanı yapılandırma](configure-azure-ssis-integration-runtime-performance.md)
 
-- [Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Azure-SSIS Integration Runtime için kurulumu özelleştirme](how-to-configure-azure-ssis-ir-custom-setup.md)
 
 - [Azure-SSIS tümleştirme çalışma zamanı için Enterprise Edition sağlama](how-to-configure-azure-ssis-ir-enterprise-edition.md)

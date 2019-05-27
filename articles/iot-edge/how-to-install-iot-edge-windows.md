@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152703"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151713"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows üzerinde Azure IOT Edge çalışma zamanı yükleme
 
@@ -76,6 +76,13 @@ Bu örnek, Windows kapsayıcıları ile el ile yükleme göstermektedir:
 
 2. PowerShell'i yönetici olarak çalıştırın.
 
+   >[!NOTE]
+   >IOT Edge, PowerShell (x86) yüklemek için bir AMD64 PowerShell oturumu kullanın. Kullanmakta olduğunuz hangi oturum türü emin değilseniz, aşağıdaki komutu çalıştırın:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. **Dağıt IoTEdge** komutu, Windows makinenizde desteklenen bir sürümü, kapsayıcıları özelliğini açar ve sonra moby çalışma zamanı ve IOT Edge çalışma zamanı yükler denetler. Komutu Windows kapsayıcıları için kullanılacak varsayılan olarak kullanır. 
 
    ```powershell
@@ -111,12 +118,19 @@ Bu ikinci seçenek, IOT Hub cihaz sağlama Hizmeti'ni kullanarak cihaz sağlama.
 
 Aşağıdaki örnek, bir otomatik yükleme Windows kapsayıcıları ile gösterir:
 
-1. Bağlantısındaki [oluşturma ve sağlama Windows sanal bir TPM Edge cihazında](how-to-auto-provision-simulated-device-windows.md) cihaz sağlama hizmetini ayarlama ve almak için kendi **kapsam kimliği**almak ve bir TPM cihazını benzetme kendi  **Kayıt Kimliği**, sonra bireysel kayıt oluşturma. Cihazınızı IOT hub'ına kaydedildiğinde, bu yükleme adımlarla devam edin.  
+1. Bağlantısındaki [oluşturma ve sağlama Windows üzerinde sanal bir TPM IOT Edge cihazı](how-to-auto-provision-simulated-device-windows.md) cihaz sağlama hizmetini ayarlama ve almak için kendi **kapsam kimliği**kendi almakvebirTPMcihazınıbenzetme**Kayıt kimliği**, sonra bireysel kayıt oluşturma. Cihazınızı IOT hub'ına kaydedildiğinde, bu yükleme adımlarla devam edin.  
 
    >[!TIP]
    >TPM simülatörünü yüklenmesi sırasında açık ve test çalıştıran pencereyi tutun. 
 
 2. PowerShell'i yönetici olarak çalıştırın.
+
+   >[!NOTE]
+   >IOT Edge, PowerShell (x86) yüklemek için bir AMD64 PowerShell oturumu kullanın. Kullanmakta olduğunuz hangi oturum türü emin değilseniz, aşağıdaki komutu çalıştırın:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. **Dağıt IoTEdge** komutu, Windows makinenizde desteklenen bir sürümü, kapsayıcıları özelliğini açar ve sonra moby çalışma zamanı ve IOT Edge çalışma zamanı yükler denetler. Komutu Windows kapsayıcıları için kullanılacak varsayılan olarak kullanır. 
 
@@ -252,7 +266,7 @@ Kaldırma seçenekleri hakkında daha fazla bilgi için komutu kullanın `Get-He
 
 Dağıtma-IoTEdge komut indirir ve IOT Edge güvenlik arka plan programı'nı ve bağımlılıklarını dağıtır. Dağıtım komutu, diğerlerinin yanı sıra bu ortak parametreleri kabul eder. Tam liste için komutunu `Get-Help Deploy-IoTEdge -full`.  
 
-| Parametre | Kabul edilen değerler | Yorumlar |
+| Parametre | Kabul edilen değerler | Açıklamalar |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** veya **Linux** | Kapsayıcı işletim sistemi belirtilmezse, Windows varsayılan değerdir.<br><br>Windows kapsayıcıları için IOT Edge yüklemede moby container altyapısı kullanır. Linux kapsayıcıları için bir kapsayıcı altyapısı yüklemeye başlamadan önce yüklemeniz gerekir. |
 | **Proxy** | Proxy URL'si | Cihazınız, İnternet'e erişmek için Ara sunucu üzerinden gitmesi gerekiyorsa, bu parametreyi dahil edin. Daha fazla bilgi için [bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma](how-to-configure-proxy-support.md). |
@@ -262,9 +276,9 @@ Dağıtma-IoTEdge komut indirir ve IOT Edge güvenlik arka plan programı'nı ve
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-Initialize-IoTEdge komutu, cihaz bağlantı dizesini ve işletimsel ayrıntıları ile IOT Edge yapılandırır. Bu komut tarafından oluşturulan bilgilerin çoğunu, ardından iotedge\config.yaml dosyasında depolanır. Başlatma komutu, diğerlerinin yanı sıra bu ortak parametreleri kabul eder. Tam liste için testine kullanın `Get-Help Initialize-IoTEdge -full`. 
+Initialize-IoTEdge komutu, cihaz bağlantı dizesini ve işletimsel ayrıntıları ile IOT Edge yapılandırır. Bu komut tarafından oluşturulan bilgilerin çoğunu, ardından iotedge\config.yaml dosyasında depolanır. Başlatma komutu, diğerlerinin yanı sıra bu ortak parametreleri kabul eder. Tam liste için komutunu `Get-Help Initialize-IoTEdge -full`. 
 
-| Parametre | Kabul edilen değerler | Yorumlar |
+| Parametre | Kabul edilen değerler | Açıklamalar |
 | --------- | --------------- | -------- |
 | **El ile** | None | **Anahtarı parametre**. Varsayılan değer, sağlama türü yok belirtilirse, el ile gerçekleştirilir.<br><br>Cihazı el ile sağlamak için bir cihaz bağlantı dizesi sağlayacak bildirir |
 | **DPS** | None | **Anahtarı parametre**. Varsayılan değer, sağlama türü yok belirtilirse, el ile gerçekleştirilir.<br><br>Bir cihaz sağlama hizmeti (DPS) kapsam kimliği ve sağlama DPS aracılığıyla cihazınızın kayıt kimliği sağlayacak bildirir.  |
@@ -279,7 +293,7 @@ Initialize-IoTEdge komutu, cihaz bağlantı dizesini ve işletimsel ayrıntılar
 
 ### <a name="update-iotedge"></a>Güncelleştirme IoTEdge
 
-| Parametre | Kabul edilen değerler | Yorumlar |
+| Parametre | Kabul edilen değerler | Açıklamalar |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** veya **Linux** | İşletim sistemi belirtilen hiçbir kapsayıcı mevcut değilse, Windows varsayılan değerdir. Windows kapsayıcıları için bir kapsayıcı altyapısı yükleme dahil edilir. Linux kapsayıcıları için bir kapsayıcı altyapısı yüklemeye başlamadan önce yüklemeniz gerekir. |
 | **Proxy** | Proxy URL'si | Cihazınız, İnternet'e erişmek için Ara sunucu üzerinden gitmesi gerekiyorsa, bu parametreyi dahil edin. Daha fazla bilgi için [bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma](how-to-configure-proxy-support.md). |
@@ -290,7 +304,7 @@ Initialize-IoTEdge komutu, cihaz bağlantı dizesini ve işletimsel ayrıntılar
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
-| Parametre | Kabul edilen değerler | Yorumlar |
+| Parametre | Kabul edilen değerler | Açıklamalar |
 | --------- | --------------- | -------- |
 | **Zorla** | yok | Önceki kaldırma girişimi başarısız oldu durumunda bu bayrak kaldırma işlemini zorlar. 
 | **RestartIfNeeded** | yok | Bu bayrak, gerekirse kaldırma betiğini sormadan, makineyi yeniden başlatmanızı sağlar. |

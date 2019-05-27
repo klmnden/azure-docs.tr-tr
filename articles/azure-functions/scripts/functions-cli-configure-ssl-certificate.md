@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84cc4e92419e683f8d2c29883b26148fdef23356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee655dc39fbe7d0e3eb5cb41b091aea24d8dbea3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325740"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131281"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Özel bir SSL sertifikasını bir işlev uygulamasına bağlama
 
@@ -27,7 +27,7 @@ Bu örnek betik, App Service'te ilgili kaynaklarıyla birlikte bir işlev uygula
 * Geçerli bir .PFX dosyası ve karşıya yükleyip bağlamak istediğiniz SSL sertifikası için parolası.
 * Özel etki alanınızda web uygulamanızın varsayılan etki alanı adına işaret eden bir A kaydını yapılandırma. Daha fazla bilgi için bkz. [Azure App Service için özel etki alanını eşleme yönergeleri](https://aka.ms/appservicecustomdns).
 
-Bir SSL sertifikası bağlamak için işlev uygulamanızın bir tüketim planı değil App Service planı içinde oluşturulmuş olması gerekir.
+Bir SSL sertifikası bağlamak için işlev uygulamanızın bir Premium planı ya da bir App Service planı ve bir tüketim planında oluşturulması gerekir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

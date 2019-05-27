@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128290"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR hizmeti kimlik doğrulaması
 
@@ -63,7 +63,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşullara sahip olmanız gerek
     | Uygulama adı | *Azure SignalR Sohbeti* | GitHub kullanıcı tanıması ve uygulamanın ile kimlik doğrulama güven olmalıdır.   |
     | Giriş sayfası URL'si | `http://localhost:5000/home` | |
     | Uygulama açıklaması | *Azure SignalR hizmeti GitHub kimlik doğrulamasını kullanarak bir sohbet odası örneği* | Uygulama kullanıcılarınızın kullanılan kimlik doğrulamanın bağlamını anlayabilmesine yardımcı olacak, yararlı bir uygulama açıklaması. |
-    | Yetkilendirme geri çağırma URL'si | `http://localhost:5000/signin-github` | Bu ayar, OAuth uygulamanız için en önemli ayardır. Bu, başarılı bir kimlik doğrulamasının ardından GitHub'ın kullanıcıyı döndürdüğü geri çağırma URL'sidir. Bu öğreticide, *AspNet.Security.OAuth.GitHub* paketi için varsayılan geri çağırma URL'sini (*/signin-github*) kullanmalısınız.  |
+    | Yetkilendirme geri çağırma URL'si | `http://localhost:5000/signin-github` | Bu ayar, OAuth uygulamanız için en önemli ayardır. Bu, başarılı bir kimlik doğrulamasının ardından GitHub'ın kullanıcıyı döndürdüğü geri çağırma URL'sidir. Bu öğreticide, *AspNet.Security.OAuth.GitHub* paketi için varsayılan geri çağırma URL'sini ( */signin-github*) kullanmalısınız.  |
 
 4. Yeni OAuth uygulama kaydı tamamlandıktan sonra, aşağıdaki komutları kullanarak *İstemci Kimliği* ve *İstemci Parolası*'nı Parola Yöneticisi'ne ekleyin. *Your_GitHub_Client_Id* ve *Your_GitHub_Client_Secret* değerlerini OAuth uygulamanızın değerleriyle değiştirin.
 
@@ -375,7 +375,7 @@ Bu bölümde, hub sınıfına `Authorize` özniteliğini ekleyerek ve hub yönte
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-the-app-to-azure"></a>Uygulamayı Azure’da dağıtma
+## <a name="deploy-the-app-to-azure"></a>Uygulamayı Azure'a dağıtma
 
 Bu bölümde, Azure komut satırı arabirimi (CLI) Azure Cloud Shell'den yeni bir web uygulaması oluşturmak için kullanacağınız [Azure App Service](https://docs.microsoft.com/azure/app-service/) ASP.NET uygulamanızı azure'da barındırmak için. Web uygulaması, yerel Git dağıtımını kullanacak şekilde yapılandırılacak. Web uygulaması ayrıca SignalR bağlantı dizenizle, GitHub OAuth uygulaması parolalarıyla ve dağıtım kullanıcısıyla da yapılandırılacak.
 

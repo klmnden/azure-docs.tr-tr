@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766865"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988569"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Kimlik doğrulaması oturum yönetimi ile koşullu erişimi yapılandırma
 
@@ -50,7 +50,7 @@ Azure AD varsayılan tarayıcı oturum kalıcılığı için kullanıcıların k
 
 ## <a name="configuring-authentication-session-controls"></a>Kimlik doğrulama oturumu denetimlerini yapılandırma
 
-Koşullu erişim, bir Azure AD Premium özelliğidir ve bir premium lisansı gerektirir. Koşullu erişim hakkında daha fazla bilgi edinmek istiyorsanız bkz [Azure Active Directory'de koşullu erişim nedir?](overview.md#license-requirements-for-using-conditional-access)
+Koşullu erişim, bir Azure AD Premium özelliğidir ve bir premium lisansı gerektirir. Koşullu erişim hakkında daha fazla bilgi edinmek istiyorsanız bkz [Azure Active Directory'de koşullu erişim nedir?](overview.md#license-requirements)
 
 > [!WARNING]
 > Kullanıyorsanız [yapılandırılabilir belirteç ömrü](../develop/active-directory-configurable-token-lifetimes.md) özelliği şu anda genel Önizleme sürümünde, aynı kullanıcı veya uygulama birleşimi için iki farklı ilke oluşturmayı desteklemiyoruz olduğunu lütfen unutmayın: Bu özellik ve ile başka bir sahip yapılandırılabilir belirteç ömrü özelliği. Microsoft, yapılandırılabilir bir belirteç ömrü özellik 15 Ekim devre dışı bırakma ve koşullu erişimi kimlik doğrulaması oturum yönetim özelliğini değiştirmek planlamaktadır.  
@@ -66,7 +66,7 @@ Koşullu erişim, bir Azure AD Premium özelliğidir ve bir premium lisansı ger
 1. Git **erişim denetimleri** > **oturumu** tıklatıp **oturum sıklığı**
 1. İlk metin kutusuna günleri ve saatleri gerekli değeri girin
 1. Değerini seçin **saat** veya **gün** açılır listesinden
-1. İlkeyi Kaydet
+1. İlkenizi Kaydet
 
 ![Sıklığı oturum için yapılandırılmış koşullu erişim ilkesi](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

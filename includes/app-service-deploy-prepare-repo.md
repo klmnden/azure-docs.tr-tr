@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 2b9706241bd65ee75869d8b1fe58c6922d9e246a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7ec4028c319749b6a3da019e1d320d3937e9c4b2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951579"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133166"
 ---
 ## <a name="prepare-your-repository"></a>Deponuzu hazırlama
 
 Azure App Service Kudu derleme sunucusundan otomatik derlemeler almak için depo kökünüzde projenize doğru dosya olduğundan emin olun.
 
-| Çalışma Zamanı | Kök dizin dosyaları |
+| Çalışma zamanı | Kök dizin dosyaları |
 |-|-|
 | ASP.NET (yalnızca Windows) | _*.sln_, _*.csproj_, veya _default.aspx_ |
-| ASP.NET Çekirdeği | _*.sln_ veya _*.csproj_ |
+| ASP.NET Core | _*.sln_ veya _*.csproj_ |
 | PHP | _index.php_ |
 | Ruby (yalnızca Linux) | _Gemfile_ |
 | Node.js | _Server.js_, _app.js_, veya _package.json_ bir başlangıç betiği ile |
-| Python (yalnızca Windows) | _\*.PY_, _requirements.txt_, veya _runtime.txt_ |
+| Python | _\*.PY_, _requirements.txt_, veya _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, veya  _iisstart.htm_ |
 | WebJobs | _\<job_name > / çalıştırın. \<uzantısı >_ altında _uygulama\_veri/iş/continuous_ (için sürekli WebJobs) veya _uygulama\_veri/iş/triggered_ (tetiklenen için Web işleri). Daha fazla bilgi için [Kudu Web işleri belgeleri](https://github.com/projectkudu/kudu/wiki/WebJobs). |
 | İşlevler | Bkz: [Azure işlevleri için sürekli dağıtım](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment). |

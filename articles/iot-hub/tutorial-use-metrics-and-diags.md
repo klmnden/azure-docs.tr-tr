@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162543"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Öğretici: Ayarlama ve ölçümleri ve tanılama günlükleri ile IOT hub'ı kullanma
 
@@ -274,7 +274,7 @@ IOT hub'ı değil geçirildiğini [Azure İzleyicisi'nde ölçümler](/azure/azu
 
 Betik ayarlama bölümünün başlarında, IoT cihazı kullanarak simülasyonu yapılacak bir cihaz ayarlamıştınız. Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihazın simülasyonunu yapan bir .NET konsol uygulaması indireceksiniz.  
 
-[IoT Cihaz Simülasyonu](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) çözümünü indirin. Bu bağlantı, çeşitli uygulamalarda depoyla indirir; Aradığınız çözüm IOT-hub/öğreticiler/yönlendirme/SimulatedDevice içinde olan /.
+[IoT Cihaz Simülasyonu](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) çözümünü indirin. Bu bağlantı, çeşitli uygulamalarda depoyla indirir; Aradığınız IOT-hub/öğreticiler/yönlendirme çözümüdür /.
 
 Kodu Visual Studio'da açmak için çözüm dosyasına (SimulatedDevice.sln) çift tıklayın, sonra da Program.cs'yi açın. `{iot hub hostname}` değerini IoT hub'ı konak adıyla değiştirin. IoT hub'ı konak adı **{iot-hub-adı}.azure-devices.net** biçimindedid. bu öğreticide, hub konak adı olarak **ContosoTestHub.azure-devices.net** kullanılır. Ardından, `{device key}` değerini daha önce simülasyon cihazını ayarlarken kaydettiğiniz cihaz anahtarıyla değiştirin. 
 
@@ -298,7 +298,7 @@ Konsol uygulamasını çalıştırın. (10-15 arasında) birkaç dakika bekleyin
 
 ### <a name="see-the-metrics-in-the-portal"></a>Portalda ölçümlerini bakın
 
-Ölçümlerinizin panoyu açın. Saat değerleri için değiştirme *son 30 dakika* zaman ayrıntı düzeyini ile *1 dakika*. Bu, gönderilen telemetri iletilerini ve grafikteki en son numaralarını grafiğin altına ile kullanılan iletilerin toplam sayısını gösterir. 
+Ölçümlerinizin panoyu açın. Saat değerleri için değiştirme *son 30 dakika* zaman ayrıntı düzeyini ile *1 dakika*. Bu, gönderilen telemetri iletilerini ve grafikteki en son numaralarını grafiğin altına ile kullanılan iletilerin toplam sayısını gösterir.
 
    ![Ölçümleri gösteren ekran görüntüsü.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirerek ölçümleri ve tan�
 IoT cihazı durumunun nasıl yönetileceğini öğrenmek için sonraki öğreticiye geçin. 
 
 > [!div class="nextstepaction"]
-[Cihazlarınızı bir arka uç hizmetinden yapılandırma](tutorial-device-twins.md)
+> [Cihazlarınızı bir arka uç hizmetinden yapılandırma](tutorial-device-twins.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277743"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979521"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure İlkesi'nin Konuk yapılandırma anlama
 
@@ -63,7 +63,7 @@ Aşağıdaki tabloda, desteklenen her işletim sisteminde kullanılan yerel Ara�
 
 ### <a name="validation-frequency"></a>Doğrulama sıklığı
 
-Konuk yapılandırma istemcisi için yeni içerik 5 dakikada denetler. Bir konuk ataması alındıktan sonra ayarları 15 dakikalık bir aralıkta denetlenir. Denetim tamamlandıktan hemen sonra sonuçlar Konuk yapılandırma kaynak sağlayıcısı için gönderilir. Bir ilke olduğunda [değerlendirme tetikleyici](../how-to/get-compliance-data.md#evaluation-triggers) gerçekleşir, makinenin durumu, Konuk yapılandırma kaynak sağlayıcısı için yazılır. Bu, Azure İlkesi, Azure Resource Manager özelliklerini değerlendirmek neden olur. İsteğe bağlı bir ilke değerlendirmesi Konuk yapılandırma kaynak Sağlayıcısı'ndan en son değeri alır. Ancak, bu yapılandırma sanal makine içinde yeni bir denetim tetiklemediğini.
+Konuk yapılandırma istemcisi için yeni içerik 5 dakikada denetler. Bir konuk ataması alındıktan sonra ayarları 15 dakikalık bir aralıkta denetlenir. Denetim tamamlandıktan hemen sonra sonuçlar Konuk yapılandırma kaynak sağlayıcısı için gönderilir. Bir ilke olduğunda [değerlendirme tetikleyici](../how-to/get-compliance-data.md#evaluation-triggers) gerçekleşir, makinenin durumu, Konuk yapılandırma kaynak sağlayıcısı için yazılır. Bu, Azure İlkesi, Azure Resource Manager özelliklerini değerlendirmek neden olur. İsteğe bağlı Azure İlkesi değerlendirme Konuk yapılandırma kaynak Sağlayıcısı'ndan en son değeri alır. Ancak, bu yapılandırma sanal makine içinde yeni bir denetim tetiklemediğini.
 
 ### <a name="supported-client-types"></a>Desteklenen istemci türleri
 
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, desteklenen işletim sistemi listesini Azure görüntüler
 |SuSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Konuk yapılandırma, desteklenen bir işletim sistemi çalıştıran düğümleri denetleyebilirsiniz.  Özel bir görüntü kullanan sanal makineleri denetlemek istiyorsanız, çoğaltmak gereken **Deployıfnotexists** tanımı ve değiştirme **varsa** görüntü özelliklerinizi eklemek için bölümü.
+> Konuk yapılandırma, desteklenen bir işletim sistemi çalıştıran düğümleri denetleyebilirsiniz. Özel bir görüntü kullanan sanal makineleri denetlemek istiyorsanız, çoğaltmak gereken **Deployıfnotexists** tanımı ve değiştirme **varsa** görüntü özelliklerinizi eklemek için bölümü.
 
 ### <a name="unsupported-client-types"></a>Desteklenmeyen istemci türleri
 
@@ -93,9 +93,7 @@ Azure Konuk yapılandırma kaynak sağlayıcısı ile iletişim kurmak için san
 IP adresi listeleri için indirebileceğiniz [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bu dosya haftalık olarak güncelleştirilir ve şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri vardır. Vm'lerinizin dağıtıldığı bölgeler IP'ler giden erişime izin vermek yeterlidir.
 
 > [!NOTE]
-> Azure veri merkezi IP adresi XML dosyası Microsoft Azure veri merkezlerinde kullanılan IP adresi aralıklarını listeler. İşlem, SQL ve depolama aralıkları dosyası içerir.
-> Güncelleştirilen bir dosya haftalık olarak gönderilir. Dosya şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtır. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz.
-> Her hafta yeni XML dosyasını indirmek için iyi bir fikirdir. Ardından, Azure'da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde güncelleştirin. Azure ExpressRoute kullanıcıların bu dosyayı her ayın ilk haftasında Azure alanındaki Border Gateway Protocol (BGP) reklamı güncelleştirmek için kullanıldığını unutmamalısınız.
+> Azure veri merkezi IP adresi XML dosyası Microsoft Azure veri merkezlerinde kullanılan IP adresi aralıklarını listeler. İşlem, SQL ve depolama aralıkları dosyası içerir. Güncelleştirilen bir dosya haftalık olarak gönderilir. Dosya şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtır. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Her hafta yeni XML dosyasını indirmek için iyi bir fikirdir. Ardından, Azure'da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde güncelleştirin. Azure ExpressRoute kullanıcıların bu dosyayı her ayın ilk haftasında Azure alanındaki Border Gateway Protocol (BGP) reklamı güncelleştirmek için kullanıldığını unutmamalısınız.
 
 ## <a name="guest-configuration-definition-requirements"></a>Konuk yapılandırma tanımı gereksinimleri
 
@@ -140,7 +138,7 @@ Burada `<version>` geçerli sürüm numarasını ifade eder.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
-- [İlke tanım yapısını](definition-structure.md) gözden geçirin.
+- [Azure İlkesi tanımı yapısını](definition-structure.md) gözden geçirin.
 - [İlkenin etkilerini anlama](effects.md) konusunu gözden geçirin.
 - Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md).
 - Bilgi edinmek için nasıl [uyumluluk verilerini alma](../how-to/getting-compliance-data.md).
