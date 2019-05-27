@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/22/2019
 ms.author: tarcher
 ms.openlocfilehash: 3b2faa3fe095366e0868937220d464b76b1f070d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763370"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142225"
 ---
 1. Cloud Shell'de `rg.yml` adlı bir dosya oluşturun.
 

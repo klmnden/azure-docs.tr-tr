@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: d1cfe3d998c08aef2b845315a16d881dea1cd1f6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ede897054a6cbef254c06bd1d810b933ec09016a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124363"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158651"
 ---
 Bu bölümde bir IOT hub'ı kullanarak oluşturmayı açıklar [Azure portalında](https://portal.azure.com).
 
@@ -23,7 +23,7 @@ Bu bölümde bir IOT hub'ı kullanarak oluşturmayı açıklar [Azure portalınd
 
 3. Tıklayın **IOT hub'ı** sağdaki listeden. IOT hub'ı oluşturmak için ilk ekran görürsünüz.
 
-   ![Azure portalında bir hub'ı oluşturma gösteren ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-1.png)
+   ![Azure portalında bir hub'ı oluşturma gösteren ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
 
    Şu alanları doldurun:
 
@@ -39,7 +39,7 @@ Bu bölümde bir IOT hub'ı kullanarak oluşturmayı açıklar [Azure portalınd
 
 4. Tıklayın **sonraki: Boyut ve ölçek** IOT hub'ınıza oluşturmaya devam etmek için.
 
-   ![Ayarı boyut ve ölçek için Azure portalını kullanarak yeni bir IOT hub'ı gösteren ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-2-free.png)
+   ![Ayarı boyut ve ölçek için Azure portalını kullanarak yeni bir IOT hub'ı gösteren ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
    Bu ekranda varsayılan değerleri alabilir ve tıklamanız yeterli **gözden geçir + Oluştur** altındaki.
 
@@ -51,6 +51,6 @@ Bu bölümde bir IOT hub'ı kullanarak oluşturmayı açıklar [Azure portalınd
 
 5. Tıklayın **gözden + Oluştur** seçimlerinizi gözden geçirmek için. Bu ekranda gösterilene benzer bir şey görürsünüz.
 
-   ![Yeni IOT hub'ı oluşturmak için bilgileri gözden geçirdikten ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-3-free.png)
+   ![Yeni IOT hub'ı oluşturmak için bilgileri gözden geçirdikten ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 
 6. Tıklayın **Oluştur** yeni IOT hub'ınızı oluşturmak için. Hub'ı oluşturuluyor, birkaç dakika sürer.

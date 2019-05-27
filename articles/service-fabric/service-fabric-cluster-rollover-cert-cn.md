@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
 ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159908"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>El ile bir Service Fabric küme sertifikası alma
 Bir Service Fabric küme sertifikasının süresi dolmak üzere olduğunda sertifika güncelleştirmeniz gerekiyor.  Küme ise, Basit sertifika geçişi [ortak adını temel alarak sertifikaları kullan kadar ayarlanmış](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (yerine parmak izi).  Yeni bir sona erme tarihi ile sertifika yetkilisinden yeni bir sertifika alın.  Otomatik olarak imzalanan sertifikaları Azure portalı küme oluşturma iş akışı sırasında oluşturulan sertifikalar dahil etmek için üretim Service Fabric kümeleri için destek değildir. Yeni sertifika, ortak eski sertifikanın adıyla aynı olmalıdır. 

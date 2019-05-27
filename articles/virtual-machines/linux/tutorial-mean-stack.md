@@ -17,18 +17,18 @@ ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: eac10cd735ae16cf1c7c6d6987a3b53060caa1cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155267"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure'da bir Linux sanal makinesi üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturun
 
 Bu öğreticide, Azure’da bir Linux sanal makinesi (VM) üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığınının nasıl uygulanacağı gösterilmektedir. Oluşturduğunuz MEAN yığını bir veritabanına kitap eklenmesine, veritabanındaki kitapların silinmesine ve listelenmesine olanak sağlar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Linux VM oluşturma
+> * Linux VM'i oluşturma
 > * Node.js yükleme
 > * MongoDB yükleme ve sunucuyu ayarlama
 > * Express’i yükleme ve sunucuya rotalar ayarlama
@@ -40,7 +40,7 @@ Bu öğreticide, Azure’da bir Linux sanal makinesi (VM) üzerinde MongoDB, Exp
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 
-## <a name="create-a-linux-vm"></a>Linux VM oluşturma
+## <a name="create-a-linux-vm"></a>Linux VM'i oluşturma
 
 [az group create](https://docs.microsoft.com/cli/azure/group) komutuyla bir kaynak grubu oluşturun ve [az vm create](https://docs.microsoft.com/cli/azure/vm) komutuyla bir Linux sanal makinesi oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -343,7 +343,7 @@ sudo apt-get install -y nodejs
 Bu öğreticide, Linux sanal makinesi üzerinde MEAN yığınını kullanarak kitap kayıtlarını takip eden bir web uygulaması oluşturdunuz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Linux VM oluşturma
+> * Linux VM'i oluşturma
 > * Node.js yükleme
 > * MongoDB yükleme ve sunucuyu ayarlama
 > * Express’i yükleme ve sunucuya rotalar ayarlama

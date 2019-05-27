@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165462"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143286"
 ---
-| **Sınır tanımlayıcı** | **Sınırı** | **Açıklamalar** |
+| **Sınır tanımlayıcı** | **Sınırı** | **Yorumlar** |
 | --- | --- | --- |
 | Toplam Kapasite (bulut dahil) |Sanal cihaz başına 64 TB'a kadar |Tam bir StorSimple Virtual Array için başka bir boş dizi devredebilir. Aynı cihaza geri yüklemeye çalışırsanız, bu işlemi tamamlamak için cihazda yeterli alan olduğundan emin olun. 32 TB'a aştınız sonra aynı cihaza geri yükleyemezsiniz. |
 | Depolama hesabı kimlik bilgilerini cihaz başına en fazla sayısı |1 | |

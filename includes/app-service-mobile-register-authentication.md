@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430054"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66139832"
 ---
 İlk olarak, bir kimlik sağlayıcısının sitesinde uygulamanızı kaydetmeniz gerekir ve ardından Mobile Apps arka uçta sağlayıcısı tarafından oluşturulan kimlik bilgilerini ayarlayacak.
 

@@ -2,19 +2,19 @@
 title: Öğretici - Azure anahtar Kasası'nda gizli dizileri depolamak için bir Linux sanal makinesi ve bir Python uygulamasını kullanın | Microsoft Docs
 description: Bu öğreticide, Azure Key Vault'tan bir gizli dizi okumak için bir Python uygulamasının nasıl yapılandırılacağını öğrenin.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: a5923c3d5ea7888a3737d7976caded8eef9c1661
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702115"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66147750"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Öğretici: Gizli dizileri Azure Key Vault'ta depolamak için bir Linux VM ile bir Python uygulaması'nı kullanın
 
@@ -25,7 +25,7 @@ Bu öğreticide, Azure kaynakları için yönetilen kimliklerle bilgilerini Azur
 > [!div class="checklist"]
 > * Bir anahtar kasası oluşturma
 > * Anahtar kasanızda bir gizli dizi Store
-> * Linux sanal makinesi oluşturma
+> * Linux sanal makinesi oluşturun
 > * Etkinleştirme bir [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) sanal makine için
 > * Anahtar kasasından verileri okumak konsol uygulaması için gerekli izinleri verin
 > * Key vault'ta bir gizli dizi alma
@@ -50,7 +50,7 @@ Sanal makineler, App Service ve işlevler gibi bir Azure hizmeti için MSI etkin
 
 Ardından, kodunuzu bir erişim belirteci almak için Azure kaynak üzerinde kullanılabilir olan bir yerel meta veri hizmeti çağırır. Kodunuzu yerel MSI uç noktasından bir Azure anahtar kasası hizmetinde kimlik doğrularken alır erişim belirtecini kullanır.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Azure CLI'yi kullanarak Azure'da oturum açmanız için şunu girin:
 
@@ -58,7 +58,7 @@ Azure CLI'yi kullanarak Azure'da oturum açmanız için şunu girin:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -95,7 +95,7 @@ Anahtar kasasında *AppSecret* adlı bir gizli dizi oluşturmak için aşağıda
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturma
+## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturun
 
 Kullanarak bir VM oluşturma `az vm create` komutu.
 

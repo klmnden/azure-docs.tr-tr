@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: b4d9a469e46d964055d9459901ebdb9c6d04cf24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66157477"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelini kullanarak zorlamalı tünel yapılandırma
 
@@ -61,7 +61,7 @@ Zorlamalı tünel Azure'da sanal ağ kullanıcı tanımlı yollar yapılandırı
 * Zorlamalı tünel rota tabanlı VPN ağ geçidi olan bir sanal ağ ile ilişkilendirilmiş olması gerekir. "Sanal ağa bağlı bir varsayılan site" şirket içi yerel siteleri arasında ayarlamanız gerekir. Ayrıca, şirket içi VPN cihazının 0.0.0.0/0 trafik seçicileri kullanılarak yapılandırılması gerekir. 
 * Zorlamalı tünel ExpressRoute Bu mekanizma yapılandırılmamış, ancak bunun yerine, bir varsayılan rota üzerinden ExpressRoute BGP eşliği oturumlarını reklam tarafından etkinleştirilir. Daha fazla bilgi için [ExpressRoute belgeleri](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## <a name="configuration-overview"></a>Yapılandırmaya genel bakış
+## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
 
 Aşağıdaki yordam bir kaynak grubunu ve sanal ağ oluşturmanıza yardımcı olur. Ardından, bir VPN gateway oluşturma ve zorlamalı tünel yapılandırma. Bu yordamda, sanal ağ 'MultiTier-VNet' üç alt sahiptir: 'Ön uç', 'Midtier' ve 'Backend' dört ile şirketler arası bağlantılar: 'DefaultSiteHQ' ve üç dalları.
 

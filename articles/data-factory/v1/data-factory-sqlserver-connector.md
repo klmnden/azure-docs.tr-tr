@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: be36f9ab881f2375b14ba0ea36038f9e840d199f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156525"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Azure Data Factory kullanarak verileri ve SQL Server şirket içi veya ıaas (Azure VM) taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -168,7 +168,7 @@ SqlReaderQuery ya da sqlReaderStoredProcedureName belirtmezseniz yapı bölümü
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |Zaman aralığı<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
 | sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. Daha fazla bilgi için [tekrarlanabilir kopyalama](#repeatable-copy) bölümü. |Bir sorgu deyimi. |Hayır |
 | sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilimin verileri temizlemek için kullanılan otomatik dilim tanımlayıcısı ile doldurmak için sütun adı belirtin. Daha fazla bilgi için [tekrarlanabilir kopyalama](#repeatable-copy) bölümü. |Bir sütunun veri türüyle binary(32) sütun adı. |Hayır |
@@ -654,36 +654,36 @@ Eşleme, aynı SQL Server veri türü eşlemesi ADO.NET için bir.
 | SQL Server veritabanı altyapısı türü | .NET framework türü |
 | --- | --- |
 | bigint |Int64 |
-| İkili |Bayt] |
-| Bit |Boole |
-| Char |Dize, Char] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
-| Tarih saat |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| Ondalık |Ondalık |
-| FILESTREAM özniteliğini (varbinary(max)) |Bayt] |
-| Kayan |çift |
-| image |Bayt] |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
 | int |Int32 |
-| para |Ondalık |
-| nchar |Dize, Char] |
-| ntext |Dize, Char] |
-| Sayısal |Ondalık |
-| nvarchar |Dize, Char] |
-| Gerçek |Tek |
-| rowVersion |Bayt] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| küçük para |Ondalık |
-| sql_variant |Nesne * |
-| metin |Dize, Char] |
-| time |Zaman aralığı |
-| timestamp |Bayt] |
-| tinyint |Bayt |
-| benzersiz tanımlayıcı |Guid |
-| varbinary |Bayt] |
-| varchar |Dize, Char] |
+| smallmoney |Decimal |
+| sql_variant |Object * |
+| metin |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
+| tinyint |Byte |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi

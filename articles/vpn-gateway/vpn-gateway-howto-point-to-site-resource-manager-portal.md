@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105932"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157306"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: Azure portal
 
@@ -46,12 +46,12 @@ Aşağıdaki değerleri kullanarak bir test ortamı oluşturabilir veya bu makal
 * **DNS Sunucusu (İsteğe Bağlı):** Ad çözümlemesi için kullanmak istediğiniz DNS sunucusunun IP adresi.
 * **Sanal ağ geçidi adı:** VNet1GW
 * **Ağ geçidi türü:** VPN
-* **VPN türü:** Rota tabanlı
+* **VPN türü:** Rota temelli
 * **Genel IP adresi adı:** VNet1GWpip
 * **Bağlantı türü:** Noktadan siteye
 * **İstemci adres havuzu:** 172.16.201.0/24<br>Sanal ağa bu Noktadan Siteye bağlantıyı kullanarak bağlanan VPN istemcileri, istemci adres havuzdan bir IP adresi alır.
 
-## <a name="createvnet"></a>1. Sanal ağ oluşturma
+## <a name="createvnet"></a>1. Sanal ağ oluştur
 
 Başlamadan önce, bir Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
@@ -76,7 +76,7 @@ Sanal ağınızı oluşturduktan sonra ad çözünürlüğünü işlemek için b
 >Temel SKU, IKEv2 veya RADIUS kimlik doğrulamasını desteklemez. Mac istemcileri, sanal ağınıza bağlanmak zorunda planlıyorsanız, temel SKU kullanmayın.
 >
 
-## <a name="generatecert"></a>5. İstemci sertifikaları oluşturma
+## <a name="generatecert"></a>5. Sertifika oluşturma
 
 Sertifikalar, Noktadan Noktaya VPN bağlantısı üzerinden VNet’e bağlanan istemcilerin kimliğini doğrulamak için Azure tarafından kullanılır. Kök sertifika edindiğinizde, ortak anahtar bilgilerini Azure'a [yüklersiniz](#uploadfile). Bunun üzerine, kök sertifika P2S üzerinden sanal ağa bağlantı için Azure tarafından 'güvenilir' olarak görülür. Ayrıca, güvenilen kök sertifikadan istemci sertifikaları da oluşturur ve bunları her bir istemci bilgisayara yüklersiniz. İstemci sertifikası, sanal ağ ile bağlantı başlattığında istemcinin kimliğini doğrulamak için kullanılır. 
 
@@ -108,7 +108,7 @@ Sertifikalar, Noktadan Noktaya VPN bağlantısı üzerinden VNet’e bağlanan i
 
 ## <a name="tunneltype"></a>7. Tünel türünü yapılandırma
 
-Tünel türünü seçebilirsiniz. SSTP ve IKEv2 olmak üzere iki tünel seçeneği bulunur. Android ve Linux üzerindeki strongSwan istemcisi ile iOS ve OSX üzerindeki yerel IKEv2 VPN istemcisi, bağlanmak için yalnızca IKEv2 tünelini kullanır. Windows istemcileri önce IKEv2’yi dener ve bağlanamazsa SSTP’ye döner. Birini veya ikisini birden etkinleştirmeyi seçebilirsiniz. Çözümünüzün gerektirdiği onay kutularını seçin.
+Tünel türünü seçebilirsiniz. Tünel OpenVPN, SSTP ve Ikev2 seçeneklerdir. Android ve Linux üzerindeki strongSwan istemcisi ile iOS ve OSX üzerindeki yerel IKEv2 VPN istemcisi, bağlanmak için yalnızca IKEv2 tünelini kullanır. Windows istemcileri önce IKEv2’yi dener ve bağlanamazsa SSTP’ye döner. OpenVPN istemci OpenVPN tünel türüne bağlamak için kullanabilirsiniz.
 
 ![Tünel türü](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 

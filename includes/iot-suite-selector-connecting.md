@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449756"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147698"
 ---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -27,7 +27,7 @@ Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdak
 
 * Sıcaklık
 * Basınç
-* Nem oranı
+* Nem
 
 Kolaylık olması için örnek telemetri değerleri için kod oluşturur **Soğutucu**. Gerçek algılayıcılar cihazınıza bağlanma ve gerçek telemetri verileri göndererek örneği genişletebilirsiniz.
 
@@ -37,7 +37,7 @@ Kolaylık olması için örnek telemetri değerleri için kod oluşturur **Soğu
 * Gelen tetiklenen eylemler yanıtlar **cihazları** çözümdeki sayfası.
 * Yapılandırma değişiklikleri yanıtlar göndermek gelen **cihazları** çözümdeki sayfası.
 
-Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Başlamadan önce
 

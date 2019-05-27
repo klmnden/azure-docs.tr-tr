@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 6462673f6c3992aacbaee168eafc6bdb1b2fa944
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fd376728a1ebdf769c7f2ae76d61a60703e13711
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146593"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>New-AzIotHub cmdlet'ini kullanarak IOT hub oluşturma
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Giriş
+## <a name="introduction"></a>Tanıtım
 
 Oluşturma ve Azure IOT hub'ları yönetmek için Azure PowerShell cmdlet'lerini kullanabilirsiniz. Bu öğretici, IOT hub'ı PowerShell ile oluşturma işlemini göstermektedir.
 
@@ -38,7 +38,7 @@ Cloud Shell kullanıyorsanız, zaten aboneliğinize oturum açtınız. PowerShel
 Login-AzAccount
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Bir IOT hub'ı dağıtmak için bir kaynak grubu gerekir. Mevcut bir kaynak grubunu kullanın veya yeni bir tane oluşturun.
 

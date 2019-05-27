@@ -2,19 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 03/09/2018
-ms.date: 04/16/2018
-ms.author: v-yeche
+ms.date: 03/09/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: be71b269e618d13a126e4005754b307e9c6517d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543720"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160059"
 ---
 ## <a name="azure-backup"></a>Azure Backup
 
@@ -23,6 +22,7 @@ ms.locfileid: "60543720"
 Bir basit, uygulamalı Azure Vm'leri için Azure Backup, "Azure sanal makinelerini yedekleme" öğretici için bkz [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) veya [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
 Azure Backup birlikte nasıl çalıştığı hakkında daha fazla bilgi için bkz. [azure'da VM yedekleme altyapınızı planlama](../articles/backup/backup-azure-vms-introduction.md)
+
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -40,6 +40,8 @@ Anlık görüntüleri oluşturma hakkında daha fazla bilgi için bkz:
 
 * [Windows’da Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Linux’ta Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Backup işlemi "Windows sanal makineleri öğretici yedekleme" izleyerek için deneyebileceğiniz [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) veya [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480502"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159296"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak Stream veri
 
@@ -131,6 +131,8 @@ Stream Analytics, olay hub'ına yakalama veya IOT hub'ı Azure depolama kapsayı
 > [!NOTE]
 > Stream Analytics, mevcut bir blob dosyasına ekleyerek içeriği desteklemiyor. Stream Analytics her dosyanın yalnızca bir kez görüntüleyeceği ve dosyayı iş verileri okuma sonra gerçekleşen değişikliklerin işlenmez. En iyi blob dosyası için tüm verileri tek seferde karşıya yükleme ve ardından ek yeni olaylar farklı, yeni blob dosyasını eklemektir.
 > 
+
+Tek seferde çok sayıda BLOB karşıya yükleme, nadir durumlarda, birkaç BLOB'ları okuma atlamak Stream Analytics neden olabilir. En az 2 BLOB depolamaya saniye uzaklıkta blobları karşıya yüklemek için önerilir. Bu seçenek uygun değilse, Event Hubs akış geniş hacimli olaylar için kullanabilirsiniz. 
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Giriş akışı olarak BLOB depolamayı yapılandırma 
 

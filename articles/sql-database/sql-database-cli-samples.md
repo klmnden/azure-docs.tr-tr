@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
 ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150233"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Veritabanı için Azure CLI örnekleri
 
@@ -37,7 +37,7 @@ Aşağıdaki tablo, Azure SQL Veritabanı için Azure CLI betik örneklerinin ba
 |---|---|
 |**Tek bir veritabanı ve elastik havuz oluşturma**||
 | [Tek bir veritabanı oluşturma ve güvenlik duvarı kuralını yapılandırma](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bu CLI betik örneği, tek bir Azure SQL veritabanı oluşturur ve sunucu düzeyinde güvenlik duvarı kuralı yapılandırır. |
-| [Elastik havuzlar oluşturma ve havuza alınmış veritabanlarını taşıma](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bu CLI betik örneği, SQL elastik havuzları oluşturur, havuza alınmış Azure SQL veritabanlarını taşır ve işlem boyutlarını değiştirir.|
+| [Elastik havuzlar oluşturma ve havuza alınan veritabanlarını taşıma](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bu CLI betik örneği, SQL elastik havuzları oluşturur, havuza alınmış Azure SQL veritabanlarını taşır ve işlem boyutlarını değiştirir.|
 |**Tek bir veritabanını ve elastik havuzu ölçekleme**||
 | [Tek bir veritabanını ölçekleme](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bu CLI betiği örneği, veritabanının boyut bilgilerini sorguladıktan sonra tek bir Azure SQL veritabanı örneğini farklı bir işlem boyutuna ölçeklendirir. |
 | [Elastik havuzu ölçekleme](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bu CLI betik örneği, SQL elastik havuzunu farklı bir işlem boyutuna ölçekler.  |

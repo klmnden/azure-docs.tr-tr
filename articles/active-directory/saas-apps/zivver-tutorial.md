@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 95cabef1705cf09f165c1e5ce4434d2c0be61abf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 51db52d5a5bfef6ef5a34fa9a0877516d5786236
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729031"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Öğretici: ZIVVER ile Azure Active Directory Tümleştirme
 
@@ -115,7 +115,7 @@ Azure AD çoklu oturum açma ile ZIVVER yapılandırmak için aşağıdaki adım
 
     | Ad | Ad alanı | Kaynak özniteliği|
     | ---------------| --------------- |
-    | ZivverAccountKey | https://zivver.com/SAML/Attributes | User.objectid |
+    | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | User.objectid |
 
     >[!NOTE]
     >Active Directory şirket içi ve Azure AD Connect aracı ile karma kurulum kullanıyorsanız, değer ayarlanmalıdır `user.objectGUID`

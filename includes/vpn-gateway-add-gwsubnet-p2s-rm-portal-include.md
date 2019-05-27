@@ -9,11 +9,11 @@ ms.date: 10/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5642533fe1015e88c3b27e83139bfd26cb0b1a53
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444432"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157355"
 ---
 1. [Portal](http://portal.azure.com)’da, sanal ağ geçidini oluşturmak istediğiniz Resource Manager sanal ağına gidin.
 2. VNet’inizin sayfasının **Ayarlar** bölümünde, **Alt Ağlar** sayfasını genişletmek için **Alt Ağlar**'a tıklayın.

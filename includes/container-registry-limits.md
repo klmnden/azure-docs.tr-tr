@@ -9,11 +9,11 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787655"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148970"
 ---
 | Resource | Temel | Standart | Premium |
 |---|---|---|---|
@@ -29,7 +29,7 @@ ms.locfileid: "65787655"
 
 <sup>1</sup>miktarı belirtilen depolama sınırları olan *dahil* her katman için depolama. Bir ek bir günlük fiyat GiB başına bu sınırların üzerinde resim depolama için ücret ödersiniz. Hızı için bilgi [Azure Container Registry fiyatlandırma][pricing].
 
-<sup>2</sup>*okuma işlemleri:*, *yazma işlemleri:*, ve *bant genişliği* minimum biriminizdeki tahmini fiyatlardır. Azure Container kayıt defteri kullanımı gerektirdiğinden performansı üstlenmeye çalışır.
+<sup>2</sup>*okuma işlemleri:* , *yazma işlemleri:* , ve *bant genişliği* minimum biriminizdeki tahmini fiyatlardır. Azure Container kayıt defteri kullanımı gerektirdiğinden performansı üstlenmeye çalışır.
 
 <sup>3</sup>A [docker isteği](https://docs.docker.com/registry/spec/api/#pulling-an-image) görüntünün yanı sıra, bildirim alma katmanlarında sayısına bağlı olarak birden çok okuma işlemleri için çevirir.
 

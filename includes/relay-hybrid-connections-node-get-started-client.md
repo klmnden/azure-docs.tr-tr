@@ -1,10 +1,15 @@
 ---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
 ms.openlocfilehash: 9d4f7faa18ee7fae158afb42b8c42287e61dd103
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553907"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150342"
 ---
 ### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
@@ -15,6 +20,7 @@ ms.locfileid: "60553907"
 Proje klasörünüzdeki bir Düğüm komut isteminden `npm install hyco-ws` komutunu çalıştırın.
 
 ### <a name="write-some-code-to-send-messages"></a>İleti göndermek için bazı kodlar yazma
+
 1. Aşağıdaki `constants` öğesini `sender.js` dosyasının başına ekleyin.
    
     ```js

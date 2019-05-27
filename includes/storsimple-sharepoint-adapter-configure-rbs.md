@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60633413"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155814"
 ---
 > [!NOTE]
 > SharePoint KKY yapılandırması için StorSimple bağdaştırıcısı değişiklikler yaparken, Domain Admins grubuna ait bir kullanıcı hesabıyla oturum. Ayrıca, merkezi yönetim olarak aynı konakta çalışan bir tarayıcıdan yapılandırma sayfasında erişmeniz gerekir.

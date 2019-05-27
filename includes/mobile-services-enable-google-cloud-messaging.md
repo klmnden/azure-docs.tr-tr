@@ -9,16 +9,16 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488051"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156834"
 ---
 1. [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager)’a gidin, Google hesabı kimlik bilgilerinizle giriş yapın. 
 2. Araç çubuğunda **Proje Oluştur**’u seçin. 
    
-    ![Yeni proje oluşturma](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
+    ![Yeni proje oluştur](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. **Proje adı** olarak projeniz için bir ad girin ve **Oluştur**’a tıklayın.
 4. Araç çubuğundaki **Uyarılar** düğmesini seçip listeden projenizi seçin. Projenizin panosunu görürsünüz. Doğrudan Pano'ya bağlanabilir, URL'yi kullanarak da gidebilirsiniz: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

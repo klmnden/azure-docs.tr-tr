@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419229"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147488"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Yüksek oranda kullanılabilir bir Service Fabric Mesh uygulaması Service Fabric güvenilir temel alan Disk biriminde bağlama 
 Azure dosya depolama gibi uzak depolama veya Azure Cosmos DB gibi veritabanı kapsayıcı uygulamalar ile kalıcı durumunu genel yöntemini kullanmaktır. Bu önemli okuma ve yazma ağ gecikmesi uzak deposuna artmasına neden olur.
@@ -36,7 +36,7 @@ Bu örnekte, bir sayaç değeri bir tarayıcıda gösteren bir web sayfası ASP.
 
 Bu görevi tamamlamak için Azure Cloud Shell veya Azure CLI'ın yerel bir yüklemesi'ni kullanabilirsiniz. Bu makalede Azure CLI kullanmak için emin olun `az --version` en az döndürür `azure-cli (2.0.43)`.  İzleyerek Azure Service Fabric CLI'sını Mesh uzantısı modülü yüklemek (veya güncelleştirmek) [yönergeleri](service-fabric-mesh-howto-setup-cli.md).
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Azure'da oturum açın ve aboneliğinizi ayarlayın.
 
@@ -45,7 +45,7 @@ az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Uygulamanın dağıtılacağı kaynak grubunu oluşturun. Aşağıdaki komut adlı bir kaynak grubu oluşturur `myResourceGroup` Doğu Amerika Birleşik Devletleri'nde bulunan bir konumda. Kaynak grubu adı aşağıdaki komutu değiştirirseniz, izleyen tüm komutları değiştirmeyi unutmayın.
 
@@ -73,7 +73,7 @@ Kaynak olarak türü olan ağ geçidi kaynağının adını fark `Microsoft.Serv
 
 Uygulama başarıyla dağıttıktan sonra uygulama için ağ geçidi kaynak IP adresi alın. Yukarıdaki bölüme penceresinde ağ geçidi adı kullanın.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 Çıktı bir özelliği olmalıdır `ipAddress` hizmet uç noktası için genel IP adresi olduğu. Bir tarayıcıda açın. Saniyede güncelleştirilmesini sayaç değeri ile bir web sayfası görüntüler.
