@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7c462971f7ac02e35ab8df5b651da7d0a3f39e1f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: e6a7d4bb7452ff8f6b3c2536a5aa100a15a6ec78
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65022253"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539292"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Adlandırılmış varlık tanıma bilişsel beceri
 
 **Adlandırılmış varlık tanıma** beceri adlandırılmış varlıklar metni ayıklar. Var olan varlıkları içeren türler `person`, `location` ve `organization`.
 
 > [!IMPORTANT]
-> Adlandırılmış varlık tanıma beceri şimdi son verildi yerine [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). 15 Şubat 2019'üzerinde destek durduruldu ve API 2 Mayıs 2019 üzerinde üründen kaldırıldı. Önerileri izleyin [kullanım dışı Bilişsel arama yetenekleri](cognitive-search-skill-deprecated.md) için desteklenen bir yetenek geçirilecek.
+> Adlandırılmış varlık tanıma beceri şimdi son verildi yerine [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). 15 Şubat 2019'üzerinde destek durduruldu ve API 2 Mayıs 2019 üzerinde üründen kaldırıldı. Önerileri izleyin [bilişsel arama yetenekleri kullanım dışı](cognitive-search-skill-deprecated.md) desteklenen nitelik geçirilecek.
 
 > [!NOTE]
 > Kapsam işleme sıklığını artırarak daha fazla belgelerin eklenmesi genişletmeniz veya daha fazla yapay ZEKA algoritmalarının eklenmesi gerekir [Faturalanabilir bir Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md). API'leri, Bilişsel hizmetler ve Azure Search'te belge çözme aşamasının bir parçası olarak görüntü ayıklama çağırırken ücretler tahakkuk. Metin ayıklama belgelerden için ücretlendirme yoktur.

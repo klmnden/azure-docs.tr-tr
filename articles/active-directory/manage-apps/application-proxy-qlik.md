@@ -3,23 +3,23 @@ title: Azure AD uygulama ara sunucusu ve Qlik Sense | Microsoft Docs
 description: Azure portalında uygulama ara sunucusunu etkinleştirmek ve için ters proxy bağlayıcıları yükleyin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2fc03751859160f2c234810dcb01e1579cb3e2a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441338"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782664"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama Ara sunucusu ve Qlik Sense 
 Azure Active Directory Uygulama Ara sunucusu ve Qlik Sense kolayca Qlik Sense dağıtımınız için uzaktan erişim sağlamak için uygulama ara sunucusu kullanmanız mümkün olduğundan emin olmak için birlikte kurdu.  
@@ -56,7 +56,7 @@ Aşağıdaki istisnalarla birlikte uygulama #1 olduğu gibi aynı adımları izl
  **#10. adım:** Yoksa SSO'yu ayarlama ve bırakın **çoklu oturum açma devre dışı**
  
  
-## <a name="testing"></a>Test Etme 
+## <a name="testing"></a>Test ediliyor 
 Uygulamanızı şimdi test etmek hazırdır. Her iki uygulama için atanan bir kullanıcı olarak uygulama #1 ve oturum açma QlikSense yayımlamak için kullanılan dış URL erişin.  
 
 ## <a name="additional-references"></a>Ek başvurular

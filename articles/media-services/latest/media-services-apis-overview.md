@@ -12,14 +12,16 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406540"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556239"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
+
+Bir geliştirici olarak, Media Services kullanabileceğiniz [REST API](https://aka.ms/ams-v3-rest-ref) veya kolayca oluşturmak için REST API ile etkileşimde bulunmanızı sağlayan istemci kütüphaneleri, yönetmek ve özel medya iş akışları korumak. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API (eski adıyla bir swagger dosyası da bilinir) Openapı belirtimini temel alır.
 
 Bu makalede, Media Services v3 ile geliştirirken varlıkları ve API'ler için geçerli kurallar açıklanmaktadır.
 
@@ -98,6 +100,32 @@ Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
 * StreamingEndpoint Durdur
 * Ölçek StreamingEndpoint
 
+
+## <a name="sdks"></a>SDK
+
+> [!NOTE]
+> Azure Media Services v3 SDK iş parçacığı açısından güvenli olmasını garanti edilmez. Çok iş parçacıklı bir uygulama geliştirirken, istemci korumak veya iş parçacığı başına yeni bir AzureMediaServicesClient nesnesini kullanmak için kendi iş parçacığı eşitleme mantığı eklemeniz gerekir. Çoklu iş parçacığı oluşturma sorunları (örneğin,. NET'te HttpClient örneği) istemci kodunuz tarafından sağlanan isteğe bağlı nesneler tarafından sunulan, dikkatli olmalıdır.
+
+|SDK|Başvuru|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET başvurusu](https://aka.ms/ams-v3-dotnet-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java başvurusu](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK'sı](https://aka.ms/ams-v3-python-sdk)|[Python başvurusu](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK’sı](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js başvurusu](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Go SDK'sı](https://aka.ms/ams-v3-go-sdk) |[Go başvurusu](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### <a name="see-also"></a>Ayrıca bkz.
+
+- [Medya hizmeti olayları içerdiği EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Media Services olaylarını tanımları](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## <a name="azure-media-services-explorer"></a>Azure Media Services Gezgini
+
+[Azure Media Services Gezgini](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE), Media Services hakkında bilgi edinmek istiyorsanız Windows müşteriler için kullanılabilir bir araçtır. AMSE olduğu bir Winforms /C# karşıya yükleyin, indirin, kodlama, VOD akışı ve Media Services ile içerik Canlı uygulama. Media Services, herhangi bir kod yazmadan test etmek istediğiniz istemciler için AMSE aracıdır. AMSE kod, Media Services ile geliştirmek isteyen müşteriler için bir kaynak olarak sağlanır.
+
+AMSE açık kaynak bir proje, destek, topluluk tarafından sağlanır (sorunları rapor https://github.com/Azure/Azure-Media-Services-Explorer/issues). Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur. Daha fazla bilgi için [kullanım kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya başvurun opencode@microsoft.com herhangi bir ek sorularınız ya da yorumlarınız ile.
+
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services varlıkların filtreleme, sıralama, sayfalama
 
 Bkz: [filtreleme, sıralama, Azure Media Services varlıklarının sayfalandırma](entities-overview.md)
@@ -108,4 +136,7 @@ Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Media Services v3 API SDK'ları / araçlarla geliştirmeye başlayın](developers-guide.md)
+* [Java ile Media Services'e bağlanmak](configure-connect-java-howto.md)
+* [.NET ile Media Services'e bağlanmak](configure-connect-dotnet-howto.md)
+* [Node.js ile Media Services'e bağlanmak](configure-connect-nodejs-howto.md)
+* [Python ile Media Services'e bağlanmak](configure-connect-python-howto.md)

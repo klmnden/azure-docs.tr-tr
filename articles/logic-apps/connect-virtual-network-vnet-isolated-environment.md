@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150663"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544523"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -39,7 +39,7 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
 * Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
   > [!IMPORTANT]
-  > Logic apps, yerleşik Eylemler ve bağlayıcılar, ISE'de çalıştıran farklı bir fiyatlandırma planı, değil tüketim tabanlı fiyatlandırma planı kullanın. Daha fazla bilgi için [Logic Apps fiyatlandırma](../logic-apps/logic-apps-pricing.md).
+  > Logic apps, yerleşik tetikleyicileri, yerleşik Eylemler ve bağlayıcılar ISE kullanımınız fiyatlandırma planı tüketim tabanlı fiyatlandırma planından farklı çalıştır. Daha fazla bilgi için [Logic Apps fiyatlandırma](../logic-apps/logic-apps-pricing.md).
 
 * Bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bir sanal ağınız yoksa, bilgi nasıl [bir Azure sanal ağı oluşturma](../virtual-network/quick-create-portal.md). 
 
@@ -50,7 +50,7 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
     > 
     > **Adı**: <*rota adı*><br>
     > **Adres ön eki**: 0.0.0.0/0<br>
-    > **Sonraki atlama**: Internet
+    > **Sonraki atlama**: İnternet
 
   * Emin olun, sanal ağınızın [Bu bağlantı noktaları kullanılabilmesini](#ports) , işe düzgün şekilde çalışır ve erişilebilir kalır.
 
@@ -69,22 +69,22 @@ Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti 
 > [!IMPORTANT]
 > Alt ağlarınızı içinde iç iletişimi için bu alt ağlardan içindeki tüm bağlantı noktaları açma ISE gerektirir.
 
-| Amaç | Direction | Bağlantı Noktaları | Kaynak hizmeti etiketi | Hedef hizmet etiketi | Notlar |
+| Amaç | Direction | Bağlantı Noktaları | Kaynak hizmeti etiketi | Hedef hizmeti etiketi | Notlar |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Azure Logic Apps gelen iletişimi | Giden | 80 & 443 | VirtualNetwork | Internet | Bağlantı noktası ile iletişim kuran Logic Apps hizmetinin dış hizmete bağlıdır |
+| Azure Logic Apps gelen iletişimi | Giden | 80 & 443 | VirtualNetwork | İnternet | Bağlantı noktası ile iletişim kuran Logic Apps hizmetinin dış hizmete bağlıdır |
 | Azure Active Directory | Giden | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
 | Azure depolama bağımlılık | Giden | 80 & 443 | VirtualNetwork | Depolama | |
 | İntersubnet iletişimi | Gelen ve giden | 80 & 443 | VirtualNetwork | VirtualNetwork | Alt ağlar arasındaki iletişim için |
-| Azure Logic Apps ile iletişim | Gelen | 443 | Internet  | VirtualNetwork | Herhangi bir istek tetikleyicisi veya mantıksal uygulamanızın mevcut Web kancası çağırır hizmet ve bilgisayar için IP adresi. Kapatma veya bu bağlantı noktası engelleyen istek Tetikleyicileri içeren mantıksal uygulamalar için HTTP çağrılarını engeller.  |
-| Mantıksal uygulama çalıştırma geçmişi | Gelen | 443 | Internet  | VirtualNetwork | Bilgisayar, mantıksal uygulamayı görüntülemek için IP adresi çalıştırma geçmişi. Kapatma ya da bu bağlantı noktası engellemelerini çalıştırma geçmişini görüntülemesini engellemez, ancak girişleri görüntüleyemezsiniz ve çıkışlar, her adımda için çalıştırma geçmişi. |
-| Bağlantı Yönetimi | Giden | 443 | VirtualNetwork  | Internet | |
+| Azure Logic Apps ile iletişim | Gelen | 443 | İnternet  | VirtualNetwork | Herhangi bir istek tetikleyicisi veya mantıksal uygulamanızın mevcut Web kancası çağırır hizmet ve bilgisayar için IP adresi. Kapatma veya bu bağlantı noktası engelleyen istek Tetikleyicileri içeren mantıksal uygulamalar için HTTP çağrılarını engeller.  |
+| Mantıksal uygulama çalıştırma geçmişi | Gelen | 443 | İnternet  | VirtualNetwork | Bilgisayar, mantıksal uygulamayı görüntülemek için IP adresi çalıştırma geçmişi. Kapatma ya da bu bağlantı noktası engellemelerini çalıştırma geçmişini görüntülemesini engellemez, ancak girişleri görüntüleyemezsiniz ve çıkışlar, her adımda için çalıştırma geçmişi. |
+| Bağlantı Yönetimi | Giden | 443 | VirtualNetwork  | İnternet | |
 | Tanılama günlükleri ve ölçümleri yayımlama | Giden | 443 | VirtualNetwork  | AzureMonitor | |
 | Azure trafik Yöneticisi'nden iletişimi | Gelen | 443 | AzureTrafficManager | VirtualNetwork | |
-| Logic Apps Tasarımcısı - dinamik özellikleri | Gelen | 454 | Internet  | VirtualNetwork | İstekleri mantıksal uygulamalardan gelen [uç noktasına erişmek gelen IP adreslerini bu bölgede](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Logic Apps Tasarımcısı - dinamik özellikleri | Gelen | 454 | İnternet  | VirtualNetwork | İstekleri mantıksal uygulamalardan gelen [uç noktasına erişmek gelen IP adreslerini bu bölgede](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | App Service Management bağımlılık | Gelen | 454 & 455 | AppServiceManagement | VirtualNetwork | |
-| Bağlayıcı dağıtımı | Gelen | 454 & 3443 | Internet  | VirtualNetwork | Dağıtma ve bağlayıcıları güncelleştirme gerekli. Kapatma ya da bu bağlantı noktası engellemelerini ISE dağıtımları başarısız olmasına neden olur ve bağlayıcı güncelleştirmeler veya düzeltmeler önler. |
+| Bağlayıcı dağıtımı | Gelen | 454 & 3443 | İnternet  | VirtualNetwork | Dağıtma ve bağlayıcıları güncelleştirme gerekli. Kapatma ya da bu bağlantı noktası engellemelerini ISE dağıtımları başarısız olmasına neden olur ve bağlayıcı güncelleştirmeler veya düzeltmeler önler. |
 | Azure SQL bağımlılığı | Giden | 1433 | VirtualNetwork | SQL |
-| Azure Kaynak Durumu | Giden | 1886 | VirtualNetwork | Internet | Kaynak Durumu'nda sistem durumu yayımlamak için |
+| Azure Kaynak Durumu | Giden | 1886 | VirtualNetwork | İnternet | Kaynak Durumu'nda sistem durumu yayımlamak için |
 | API Yönetimi - yönetim uç noktası | Gelen | 3443 | APIManagement  | VirtualNetwork | |
 | Olay hub'ı İlkesi ve İzleme Aracısı günlüğünden bağımlılığı | Giden | 5672 | VirtualNetwork  | EventHub | |
 | Erişim Azure önbelleği için Redis örneği arasında rol örnekleri | Gelen <br>Giden | 6379-6383 | VirtualNetwork  | VirtualNetwork | Ayrıca, Redis için Azure önbellek ile çalışacak şekilde ISE için bunlar açmalısınız [Azure Cache Redis SSS açıklanan giden ve gelen bağlantı noktalarını](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
@@ -146,7 +146,7 @@ Arama kutusuna filtreniz olarak "tümleştirme hizmeti ortamı" girin.
 
      **Adı**: <*rota adı*><br>
      **Adres ön eki**: 0.0.0.0/0<br>
-     **Sonraki atlama**: Internet
+     **Sonraki atlama**: İnternet
 
    1. Altında **alt ağlar** listesinde **Yönet alt ağ yapılandırması**.
 
@@ -154,7 +154,7 @@ Arama kutusuna filtreniz olarak "tümleştirme hizmeti ortamı" girin.
 
    1. Üzerinde **alt ağlar** bölmesinde seçin **alt**.
 
-      ![Alt ağ ekleme](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Alt ağ ekle](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
    1. Üzerinde **alt ağ Ekle** bölmesinde, bu bilgileri sağlayın.
 
@@ -199,33 +199,19 @@ Alt ağ oluşturma hakkında daha fazla bilgi için bkz. [bir sanal ağ alt ağ�
 
 ## <a name="create-logic-app---ise"></a>ISE - mantıksal uygulama oluşturma
 
-Tümleştirme hizmeti ortamı (ISE) kullanan mantıksal uygulamalar oluşturmak için adımları [bir mantıksal uygulama oluşturma işlemini](../logic-apps/quickstart-create-first-logic-app-workflow.md) ancak bu farklılıkla: 
-
-* Oluşturduğunuzda, mantıksal uygulamanızı altında **konumu** özelliği, ISE'den seçin **tümleştirme service ortamları** bölümünde, örneğin:
+Tümleştirme service ortamı (ISE) içinde çalışan mantıksal uygulamalar oluşturmak için [her zamanki yolla logic apps oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) ayarladığınızda dışında **konumu** özelliği, ISE'den seçin  **Tümleştirme service ortamları** bölümünde, örneğin:
 
   ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* Aynı yerleşik tetikleyiciler ve Eylemler HTTP gibi mantıksal olarak aynı işe çalıştırılması kullanabilirsiniz. Bağlayıcılarla **ISE** ayrıca mantıksal olarak aynı işe çalışma etiketleyin. Bağlayıcılar olmadan **ISE** etiket genel Logic Apps hizmetinde çalıştırın.
-
-  ![ISE bağlayıcıları seçme](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* Bir Azure sanal ağa, işe ekleme sonra işe logic apps'te, sanal ağ içindeki kaynaklarla doğrudan erişebilirsiniz. Logic apps bu öğelerden herhangi birini kullanarak bu sistemlerin doğrudan erişerek bir sanal ağa bağlı şirket içi sistemler için bu ağa bir işe ekleme: 
-
-  * Örneğin, SQL Server sistem için işe Bağlayıcısı
-  
-  * HTTP eylemi 
-  
-  * Özel bağlayıcı
-
-  Bir sanal ağda olmayan veya işe bağlayıcıları, ilk yoksa şirket içi sistemler için [şirket içi veri ağ geçidi ayarlama](../logic-apps/logic-apps-gateway-install.md).
+Tetikleyiciler ve Eylemler iş ve genel Logic Apps hizmeti ile karşılaştırıldığında bir işe kullandığınızda nasıl etiketlendikten nasıl görürüm farklar için [karşı yalıtılmış işe genel bakış genel](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>Tümleştirme hesabı - ISE oluşturma
 
-Logic apps'te bir tümleştirme hizmeti ortamı (ISE) ile bir tümleştirme hesabı kullanmak için bu tümleştirme hesabı kullanmalısınız *aynı ortam* mantıksal uygulamalar. Logic apps'te bir işe yalnızca tümleştirme hesapları aynı işe başvurabilirsiniz. 
+Logic apps'te bir tümleştirme hizmeti ortamı (ISE) ile bir tümleştirme hesabı kullanmak istiyorsanız, bu tümleştirme hesabı kullanmalısınız *aynı ortam* mantıksal uygulamalar. Logic apps'te bir işe yalnızca tümleştirme hesapları aynı işe başvurabilirsiniz.
 
-Bir işe kullanan bir tümleştirme hesabı oluşturmak için adımları izleyin. [tümleştirme hesapları oluşturma işlemini](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) dışında **konumu** özelliği burada **tümleştirme service ortamları**  bölümü görünür. Bunun yerine, bir bölgede yerine, işe örneğin seçin:
+Bir işe kullandığı bir tümleştirme hesabı oluşturmak için [her zamanki yolla, tümleştirme hesabı oluşturma](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ayarladığınızda dışında **konumu** özelliği, ISE'den seçin **tümleştirme Servis ortamları** bölümünde, örneğin:
 
 ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

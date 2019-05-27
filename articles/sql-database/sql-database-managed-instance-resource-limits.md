@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233513"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560575"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -56,8 +56,8 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
 | Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
 | Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/sanal çekirdek) |
-| Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 3 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
-| Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/sn başına sanal çekirdek |
+| Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 4 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
+| Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
 | En fazla tempDB boyutu | 192 - 1,920 GB (24 GB sanal çekirdek başına) | Maksimum örnek depolama boyutuyla sınırlı hiçbir kısıtlama- |
 

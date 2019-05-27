@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50dadb7ae401a5655745a799e6e9fcebb8bb886
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 455be9ba95975ba5c3bd870cbe01ca916d85ef41
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935938"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544417"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -44,8 +44,8 @@ Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret. 
 ### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure Active Directory (Azure AD) yetkilendirme management artık kullanılabilir (genel Önizleme)
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kimlik Yönetimi  
-**Ürün özelliği:** Kimlik Yönetimi
+**Hizmet kategorisi:** Identity Governance  
+**Ürün özelliği:** Identity Governance
 
 Azure AD hak yönetimi, artık genel önizlemede nasıl çalışanların ve iş ortaklarına erişim isteğinde bulunabileceği, kimin tarafından onaylanması gerekir ve ne kadar süreyle erişimleri tanımlayan yönetim erişim paketlerin temsilci müşterilere yardımcı olur. Erişim paketleri üyelik Azure AD'de ve Office 365 grupları, kurumsal uygulamalar bölümündeki rol atamaları ve SharePoint Online siteleri için rol atamalarını yönetebilir. Hak Yönetimi hakkında daha fazla bilgiyi [Azure AD Hak Yönetimi'ne genel bakış](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Avantajlarına Privileged Identity Management, erişim gözden geçirmeleri ve kullanım şartları dahil olmak üzere Azure AD kimlik yönetimi özellikleri hakkında daha fazla bilgi için bkz: [Azure AD kimlik yönetimi nedir?](../governance/identity-governance-overview.md).
 
@@ -55,7 +55,7 @@ Azure AD hak yönetimi, artık genel önizlemede nasıl çalışanların ve iş 
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Grup Yönetimi  
-**Ürün özelliği:** İş Birliği
+**Ürün özelliği:** İşbirliği
 
 Yöneticiler artık bir adlandırma ilkesini Azure AD portalı kullanarak, Office 365 grupları için yapılandırabilirsiniz. Bu değişiklik veya kuruluşunuzdaki kullanıcılar tarafından düzenlenemiyor Office 365 grupları için tutarlı adlandırma kuralları uygulanmasına yardımcı olur. 
 
@@ -97,7 +97,7 @@ Daha fazla bilgi için [raporları Azure Active Directory için Azure İzleyici 
 
 Federasyon ile 21 bu yeni uygulamalar için uygulama Galerisi destek Nisan 2019 ' ekledik:
 
-[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial), [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial), [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol--tutorial), [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [ Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial), [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial), [Mitel bağlanma](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial), [Alibaba bulut (rol tabanlı SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent sermayesi Yönetimi](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo Sertifika Yöneticisi](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial), [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial), [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [ SurveyMonkey Kurumsal](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
+[SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial), [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial), [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol-tutorial), [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [ Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial), [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial), [Mitel bağlanma](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial), [Alibaba bulut (rol tabanlı SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent sermayesi Yönetimi](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo Sertifika Yöneticisi](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial), [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial), [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [ SurveyMonkey Kurumsal](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
 
 Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial). Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilgi için bkz. [uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin](https://aka.ms/azureadapprequest).
 
@@ -107,7 +107,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Erişim Gözden Geçirmeleri  
-**Ürün özelliği:** Kimlik Yönetimi
+**Ürün özelliği:** Identity Governance
 
 Yeni güncelleştirmeler Azure ad erişim gözden geçirmeleriyle olanak sağlar:
 
@@ -229,7 +229,7 @@ Daha iyi otomatik kullanıcı hesabı sağlama üzerinden kuruluşunuzun güvenl
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Grup Yönetimi  
-**Ürün özelliği:** İş Birliği
+**Ürün özelliği:** İşbirliği
 
 Şimdi, görüntüleyin ve Azure AD Portalı'ndan silinmiş, Office 365 grupları yönetin. Bu değişikliği geri yükleme, kuruluşunuz tarafından artık gerekmeyen tüm grupları kalıcı olarak süreniz birlikte silmek hangi grupların kullanılabildiğini görmek için yardımcı olur.
 
@@ -582,10 +582,10 @@ Aşağıdaki alanları denetim şemada değiştiriyorsunuz:
 
 |Alan adı|Değişiklikler|Eski değer|Yeni değerleri|
 |----------|------------|----------|----------|
-|Kategori|Bu **hizmet adı** alan. Artık **denetim kategorisini** alan. **Hizmet adı** adlandırıldı **loggedByService** alan.|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self Servis parola sıfırlama</li></ul>|<ul><li>Kullanıcı Yönetimi</li><li>Grup Yönetimi</li><li>Uygulama Yönetimi</li></ul>|
+|Category|Bu **hizmet adı** alan. Artık **denetim kategorisini** alan. **Hizmet adı** adlandırıldı **loggedByService** alan.|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self Servis parola sıfırlama</li></ul>|<ul><li>Kullanıcı Yönetimi</li><li>Grup Yönetimi</li><li>Uygulama Yönetimi</li></ul>|
 |targetResources|İçerir **TargetResourceType** en üst düzeyde.|&nbsp;|<ul><li>İlke</li><li>Uygulama</li><li>Kullanıcı</li><li>Grup</li></ul>|
 |loggedByService|Denetim günlüğü oluşturulan hizmetin adını sağlar.|Null|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self servis parola sıfırlama</li></ul>|
-|Sonuç|Denetim günlüklerini sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1</li></ul>|<ul><li>Başarılı</li><li>Hata</li></ul>|
+|Sonuç|Denetim günlüklerini sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1</li></ul>|<ul><li>Başarı</li><li>Hata</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Oturum açma şema değiştirilen alanları
 Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
@@ -593,8 +593,8 @@ Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
 |Alan adı|Değişiklikler|Eski değer|Yeni değerleri|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|Bu **conditionalaccessPolicies** alan. Artık **appliedConditionalAccessPolicies** alan.|Değişiklik yok|Değişiklik yok|
-|conditionalAccessStatus|Oturum açma işlemi sırasında koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
-|appliedConditionalAccessPolicies: sonuç|Oturum açma işlemi sırasında bireysel koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
+|conditionalAccessStatus|Oturum açma işlemi sırasında koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre Dışı Bırakıldı</li></ul>|
+|appliedConditionalAccessPolicies: sonuç|Oturum açma işlemi sırasında bireysel koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1.</li><li>2</li><li>3</li></ul>|<ul><li>Başarı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre Dışı Bırakıldı</li></ul>|
 
 Şeması hakkında daha fazla bilgi için bkz. [yorumlama Azure AD denetim günlükleri şema Azure İzleyici (Önizleme)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
@@ -624,11 +624,11 @@ Azure AD yöneticileri artık Microsoft Authenticator uygulama içi bildirimler 
 
 - Diğer Mobil kimlik doğrulayıcısı uygulaması / donanım belirteç kodu
 
-- Email
+- E-posta
 
 - Telefon araması
 
-- Kısa mesaj
+- SMS Mesajı
 
 Parola sıfırlama için Microsoft Authenticator uygulamasını kullanma hakkında daha fazla bilgi için bkz. [Azure AD Self Servis parola sıfırlama - mobil uygulama ve SSPR (Önizleme)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
 

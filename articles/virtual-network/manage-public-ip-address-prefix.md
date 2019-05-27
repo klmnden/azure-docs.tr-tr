@@ -10,23 +10,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: ece6a6efa2f4424fb1c9d7f5a7e12a4e707faf45
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649314"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601501"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
 Genel bir IP adresi ön eki ve oluşturmak, değiştirmek ve silmek hakkında bilgi edinin. Genel bir IP adresi ön eki belirttiğiniz genel IP adresleri sayısına göre adreslerinin bitişik bir aralıktır. Adresleri aboneliğinize atanır. Bir genel IP adresi kaynağı oluşturduğunuzda, bir statik genel IP adresi ön ekini atayabilir ve sanal makineler, yük Dengeleyiciler veya internet bağlantısını etkinleştirmek için diğer kaynaklar adresini ilişkilendirmek. Genel IP adresi ön ekleri bilmiyorsanız bkz [genel IP adresi ön eki genel bakış](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-
-> [!IMPORTANT]
-> Genel IP öneki sınırlı sayıda bölgedeki bir genel Önizleme aşamasındadır. Yapabilecekleriniz [önizlemede olmasını geldiğini öğrenin](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel IP önek, şu anda kullanılabilir: Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya. Bölgelerin güncelleştirilmiş bir listesi için lütfen bkz [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -58,7 +55,7 @@ Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [fiyatl
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az ağ public-ip ön eki oluşturma](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
@@ -68,7 +65,7 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 
 1. Metni içeren kutuya *kaynak Ara* Azure portalının üst kısmında, yazın *genel IP adresi ön eki*. Zaman **genel IP adresi ön eklerini** arama sonuçlarında görünmesini, onu seçin.
 2. Ortak Ip'lerden oluşturmak istediğiniz ön eki seçin.
-3. Arama sonuçlarında görüntülendiğinde seçin ve tıklayın **+ IP adresi Ekle** genel bakış bölümünde. Durumunda bu görmüyorsanız, Önizleme için doğru bağlantı kullandığınızdan emin olun: https://aka.ms/publicipprefixportal
+3. Arama sonuçlarında görüntülendiğinde seçin ve tıklayın **+ IP adresi Ekle** genel bakış bölümünde.
 4. Girin veya seçin, aşağıdaki ayarları için değerleri **genel IP adresi oluşturma**. Bir önek, standart SKU, IPv4 ve statik olduğundan, yalnızca aşağıdaki bilgileri vermeniz gerekir:
 
    |Ayar|Gerekli mi?|Ayrıntılar|
@@ -87,7 +84,7 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 
 **Komutları**
 
-|Aracı|Komut|
+|Tool|Komut|
 |---|---|
 |CLI|[az ağ public-ip ön ek listesini](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) listesi genel IP adreslerine [az ağ public-ip önek show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) ayarları; göstermek için [az ağ public-ip önek güncelleştirme](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) güncelleştirmek için; [az ağ public-ip ön eki Sil](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) silmek için|
 |PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) genel bir IP adresi nesnesi almak ve ilişkili ayarları görüntülemek için [kümesi AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) ; ayarlarını güncelleştirmek için [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) silmek için|

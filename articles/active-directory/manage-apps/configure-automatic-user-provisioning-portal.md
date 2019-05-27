@@ -3,8 +3,8 @@ title: Kullanıcı Yönetimi Azure Active Directory'de kurumsal uygulamalar içi
 description: Kullanıcı hesabı Azure Active Directory'yi kullanarak kurumsal uygulamalar için sağlama yönetmeyi öğrenin
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/01/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03ca64f3f3d2f034433f2aaa49f6babb7f9e5b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a7319a108cb52c603396f8c654697e16438fa7d6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442124"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780976"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalının kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme
 

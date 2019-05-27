@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fcedc74cde9e26ea53d2475f0e9805788787f2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228620"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560766"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -516,6 +516,66 @@ Bu bölümde, elde edilen davranışını özyinelemeli ve copyBehavior değer f
 | false |preserveHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/><br/>Subfolder1 dosya3 File4 ve File5 ile toplanmış değil. |
 | false |flattenHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;fıle1'de otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan ad<br/><br/>Subfolder1 dosya3 File4 ve File5 ile toplanmış değil. |
 | false |mergeFiles | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısı ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fıle1'de + dosya2 içeriği otomatik olarak oluşturulan dosya adıyla bir dosya halinde birleştirilir. fıle1'de otomatik olarak oluşturulan adı<br/><br/>Subfolder1 dosya3 File4 ve File5 ile toplanmış değil. |
+
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>Data Lake depolama Gen1 ACL'sinden koru
+
+>[!TIP]
+>Kopyalama için genel olarak, Azure Data Lake depolama Gen1 Gen2 içine verileri görmek [veri kopyalama Azure Data Lake depolama Gen1 Azure Data Factory ile Gen2'ye](load-azure-data-lake-storage-gen2-from-gen1.md) gözden geçirme ve en iyi yöntemler.
+
+Kopyalama Gen2 için Azure Data Lake Storage (ADLS) Gen1 dosyaları, POSIX erişim denetim listeleri (ACL'ler) verileriyle birlikte korumak seçebilirsiniz. Ayrıntılı erişim denetimi için başvurmak [erişim denetimi, Azure Data Lake depolama Gen1](../data-lake-store/data-lake-store-access-control.md) ve [Azure Data Lake depolama Gen2'deki erişim denetimi](../storage/blobs/data-lake-storage-access-control.md).
+
+Azure Data Factory kopyalama etkinliğini kullanarak ACL'leri aşağıdaki türde korunabilir, bir veya daha fazla türlerini seçebilirsiniz:
+
+- **ACL**: Kopyalama ve korumak **POSIX erişim denetim listeleri** dosyaları ve dizinleri. Bu tam mevcut ACL'leri havuz kaynağından kopyalayın. 
+- **Sahibi**: Kopyalama ve korumak **sahip olan kullanıcı** dosya ve dizinleri. Havuz ADLS Gen2 süper kullanıcı erişimi gereklidir.
+- **Grup**: Kopyalama ve korumak **sahip olan grup** dosya ve dizinleri. Süper kullanıcı erişimi (sahip olan kullanıcı aynı zamanda hedef grubun bir üyesi ise) ADLS Gen2'ye veya sahip olan kullanıcı havuz için gereklidir.
+
+Bir klasöre kopyalamak için belirtirseniz, Data Factory, verilen klasörün yanı sıra dosyaları ve dizinleri altındaki ACL'leri çoğaltır (varsa `recursive` ayarlanır true). Bu dosya üzerinde tek bir dosyadan, ACL'ler kopyalamak için belirtirseniz kopyalanır.
+
+>[!IMPORTANT]
+>ACL'ler korumak seçtiğinizde, yüksek havuzunuzu Gen2 ADLS hesabına karşı çalışılacak ADF için yeterli izinleri vermeniz emin olun. Örneğin, hesap anahtar kimlik doğrulamasını kullanmak veya hizmet sorumlusu ve yönetilen kimliği için depolama Blob verileri sahip rolü atayabilirsiniz.
+
+Kaynak ADLS Gen1 ikili kopyalama seçeneği/ikili biçimi ve havuz ADLS Gen2'ye ikili kopyalama seçeneği/ikili biçim ile yapılandırdığınızda, bulabilirsiniz **korumak** seçeneğini **kopyalama veri Aracı Ayarları sayfasını** veya içinde **kopyalama etkinliği -> Ayarlar** etkinlik yazma için sekmesinde.
+
+![Gen2'ye ADLS Gen1 ACL koru](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+
+İşte bir örnek JSON yapılandırma (bkz `preserve`): 
+
+```json
+"activities":[
+    {
+        "name": "CopyFromGen1ToGen2",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "AzureDataLakeStoreSource",
+                "recursive": true
+            },
+            "sink": {
+                "type": "AzureBlobFSSink",
+                "copyBehavior": "PreserveHierarchy"
+            },
+            "preserve": [
+                "ACL",
+                "Owner",
+                "Group"
+            ]
+        },
+        "inputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen1 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "type": "DatasetReference"
+            }
+        ]
+    }
+]
+```
 
 ## <a name="mapping-data-flow-properties"></a>Veri akışı özellikleri eşleme
 

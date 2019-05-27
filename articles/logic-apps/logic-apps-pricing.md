@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598482"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544531"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598482"
 
 ## <a name="consumption-pricing-model"></a>Tüketim fiyatlandırma modeli
 
-Genel veya "Genel" Azure Logic Apps hizmetinde çalışan yeni logic apps için yalnızca kullandığınız kadarı için ödeme yaparsınız. Bu mantıksal uygulamalar, bir tüketim tabanlı plan ve fiyatlandırma modeli kullanın. Mantıksal uygulama tanımında her adımı bir eylemdir. Örneğin, eylemler şunlardır: 
+Genel veya "Genel" Azure Logic Apps hizmetinde çalışan yeni logic apps için yalnızca kullandığınız kadarı için ödeme yaparsınız. Bu mantıksal uygulamalar, bir tüketim tabanlı plan ve fiyatlandırma modeli kullanın. Mantıksal uygulama tanımında her adımı bir eylemdir. Örneğin, eylemler şunlardır:
 
 * Özel eylem tetikler. Tüm mantıksal uygulamalar, ilk adım olarak bir tetikleyici gerektirir.
 * "Yerleşik" ya da yerel gibi eylemler HTTP, Azure işlevleri ve API Management ve benzeri çağrıları
@@ -38,12 +38,16 @@ Azure Logic Apps, mantıksal uygulamanızı çalıştıran tüm eylemleri ölç�
 
 ## <a name="fixed-pricing-model"></a>Sabit fiyatlandırma modeli
 
-Bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) oluşturmak ve bir Azure sanal ağdaki kaynaklara erişebilen mantık uygulamaları çalıştırmak, özel, yalıtılmış ve adanmış bir yol sağlar. Çalıştırma içinde bir işe yeni logic apps için aylık sabit fiyata, yerleşik Eylemler ve standart bağlayıcılar için ödeme. İŞE da istediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı içerir. Kullanımı için ek Kurumsal bağlayıcılar kuruluş tüketim fiyatı üzerinden ücretlendirilir. 
+Bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) oluşturmak ve bir Azure sanal ağdaki kaynaklara erişebilen mantık uygulamaları çalıştırmak, özel, yalıtılmış ve adanmış bir yol sağlar. Çalıştırma içinde bir işe yeni logic apps için aylık sabit fiyata, yerleşik Eylemler, tetikleyiciler ve standart bağlayıcılar için de ödeme.
 
-ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa, bu nedenle [daha fazla ölçek birimi ekleme](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), oluşturma sırasında veya daha sonra.
+İŞE da istediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı içerir. Kullanımı için ek Kurumsal bağlayıcılar kuruluş tüketim fiyatı üzerinden ücretlendirilir.
 
 > [!NOTE]
-> ISE bulunduğu [ *genel Önizleme*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
+> Görüntü bir işe, yerleşik tetikleyiciler ve Eylemler içinde **çekirdek** etiket ve logic apps ile aynı ıse'de çalıştırın. Standart ve görüntüleme Kurumsal Bağlayıcılar **ISE** etiket logic apps ile aynı ıse'de çalıştırın. ISE etiketini gösterme bağlayıcılar genel Logic Apps hizmetinde çalıştırın.
+
+ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa, bu nedenle [daha fazla ölçek birimi ekleme](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), oluşturma sırasında veya daha sonra. 
+
+NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
