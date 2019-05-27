@@ -1,7 +1,7 @@
 ---
 title: Oluşturun, çalıştırın ve ML işlem hatlarını izleyin
 titleSuffix: Azure Machine Learning service
-description: Oluşturun ve Python için Azure Machine Learning SDK'sı ile işlem hattı öğrenme bir makine çalıştırın. İşlem hatları oluşturmak ve iş akışları, Birleştir birlikte machine learning (ML) aşamalarını yönetmek için kullanın. Veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım bu aşamaları içerir.
+description: Oluşturun ve Python için Azure Machine Learning SDK'sı ile işlem hattı öğrenme bir makine çalıştırın. İşlem hatları oluşturmak ve iş akışları, Birleştir birlikte machine learning (ML) aşamalarını yönetmek için kullanın. Veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım ve puanlama bu aşamaları içerir.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914886"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165868"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Önceki sonuçlara kullanılmasını (`allow_reuse`) işlem hatları, işbirliğine dayalı bir ortamda kullanırken gereksiz yeniden çalıştırma ortadan çevikliği sunan bu yana anahtardır. Bu, script_name, giriş ve bir adımı parametrelerini aynı kalır, varsayılan davranıştır. Çıkış adımın yeniden, işlem için iş gönderildiğinde değil, bunun yerine, önceki çalıştırma sonuçları sonraki adım çalışmaya hemen kullanılabilir. Yeni bir çalıştırma false olarak ayarlanırsa her zaman bu adım için işlem hattı yürütme sırasında oluşturulur 
+
 Adımlarınız tanımladıktan sonra bazılarını veya tümünü bu adımları kullanarak işlem hattını oluşturun.
 
 > [!NOTE]
@@ -315,6 +317,10 @@ pipeline_run1.wait_for_completion()
 
 Daha fazla bilgi için [deneme sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) başvuru.
 
+## <a name="github-tracking-and-integration"></a>GitHub izleme ve tümleştirme
+
+Kaynak dizini yerel bir Git deposu olduğu çalıştırma eğitim başlattığınızda, depo bilgilerini çalıştırma geçmişinde depolanır. Örneğin, geçerli işleme kimliği depo için geçmiş bir parçası olarak günlüğe kaydedilir.
+
 ## <a name="publish-a-pipeline"></a>Bir işlem hattı yayımlama
 
 Bir işlem hattı çalıştırma için farklı girişlerle daha sonra yeniden yayımlayabilirsiniz. REST uç noktası parametreler kabul etmek için önce yayımlanmış bir Ardışık düzenin için yayımlamadan önce işlem hattı parametreleştirin gerekir. 
@@ -360,7 +366,7 @@ response = requests.post(published_pipeline1.endpoint,
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Sonuçları görüntüleme
+## <a name="view-results"></a>Sonuçları görüntüle
 
 Tüm işlem hatlarınızı ve çalıştırma ayrıntıları listesine bakın:
 1. [Azure Portal](https://portal.azure.com/) oturum açın.  
@@ -373,11 +379,11 @@ Tüm işlem hatlarınızı ve çalıştırma ayrıntıları listesine bakın:
 ## <a name="caching--reuse"></a>Önbelleğe alma ve yeniden kullanma  
 
 En iyi duruma getirmek ve işlem hatlarınızı davranışını özelleştirmek için önbelleğe alma etrafında birkaç şeyi yapmak ve yeniden kullanabilirsiniz. Örneğin, şunlar için seçim yapabilirsiniz:
-+ **Çıkış adımdan varsayılan kullanılmasını devre dışı kapatma** ayarlayarak `allow_reuse=False` sırasında [adım tanımı](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Çıkış adımdan varsayılan kullanılmasını devre dışı kapatma** ayarlayarak `allow_reuse=False` sırasında [adım tanımı](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Yeniden gereksiz çalıştırmaları ortadan çevikliği sunar bu yana işbirliğine dayalı bir ortamda işlem hatları kullanırken anahtardır. Ancak, bunun dışında tercih edebilirsiniz.
 + **Betik karma genişletmek**, mutlak bir yol veya başka dosya ve dizinleri kullanma kaynak_dizin göreli yolları da eklemek için `hash_paths=['<file or directory']` 
 + **Çıkış anahtarınızın yeniden oluşturulması çalıştırmada tüm adımlar için zorlama** ile `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Varsayılan olarak adımı yeniden kullanımı etkindir ve ana komut dosyası yalnızca karma. Bunu, belirli bir adım için komut dosyası aynı kalırsa (`script_name`, giriş ve parametreleri), bir önceki adımdan çıktısı yeniden, proje için işlem gönderilmeyen ve sonuçları önceki çalıştırmaya bunun yerine bir sonraki adıma hemen kullanılabilir .  
+Varsayılan olarak, `allow-reuse` adımları etkindir ve ana komut dosyası yalnızca karma. Bunu, belirli bir adım için komut dosyası aynı kalırsa (`script_name`, giriş ve parametreleri), bir önceki adımdan çıktısı yeniden, proje için işlem gönderilmeyen ve sonuçları önceki çalıştırmaya bunun yerine bir sonraki adıma hemen kullanılabilir .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

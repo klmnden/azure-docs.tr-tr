@@ -9,11 +9,11 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57908697"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159246"
 ---
 Resource Manager dağıtım modeliyle çalışıyorsanız, yeni ağ geçidi SKU'ları değiştirebilirsiniz. Eski ağ geçidi SKU'sunu yeni bir SKU'ya değiştirdiğinizde, mevcut VPN ağ geçidini silin ve yeni bir VPN ağ geçidi oluşturun.
 

@@ -17,11 +17,11 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160266"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -62,7 +62,7 @@ Mümkün olan en iyi deneyimi sağlamak için en düşük aracı sürümü vard�
 Windows Konuk Aracısı, uzantıları framework limiti işletim sistemleri için bu uzantılar vardır ancak birden çok Oses'te çalıştırır. Daha fazla bilgi için [bu makaleye](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ) bakın.
 
-Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'*. Desteklenebilirlik için ayrı bir uzantı belgelerine bakın.
+Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'* . Desteklenebilirlik için ayrı bir uzantı belgelerine bakın.
 
 #### <a name="network-access"></a>Ağ erişimi
 
@@ -260,7 +260,7 @@ Uzantıları ve aracıları aynı güncelleştirme mekanizmasını paylaşın. B
 Bir güncelleştirme kullanılabilir olduğunda, bir değişikliği uzantılarını ve diğer VM Model değişiklikleri gibi olduğunda yalnızca sanal makinede yüklü:
 
 - Veri diskleri
-- Uzantılar
+- Genişletmeler
 - Önyükleme tanılama kapsayıcı
 - Konuk işletim sistemi gizli dizileri
 - VM boyutu
@@ -291,7 +291,7 @@ Windows Konuk Aracısı yalnızca içeren *kod uzantısı işleme*, *Windows sa�
 
 #### <a name="extension-updates"></a>Uzantı güncelleştirmeleri
 
-Bir uzantı güncelleştirme kullanılabilir olduğunda, Windows Konuk Aracısı indirir ve uzantısını yükseltir. Uzantı otomatik güncelleştirmelerin ya da *küçük* veya *düzeltme*. Kabul et veya uzantıları dışında iyileştirilmiş *küçük* uzantı sağladığınızda güncelleştirir. Aşağıdaki örnek bir Resource Manager şablonu ile küçük sürümlerde otomatik olarak yükseltme gösterir *autoUpgradeMinorVersion ": true,'*:
+Bir uzantı güncelleştirme kullanılabilir olduğunda, Windows Konuk Aracısı indirir ve uzantısını yükseltir. Uzantı otomatik güncelleştirmelerin ya da *küçük* veya *düzeltme*. Kabul et veya uzantıları dışında iyileştirilmiş *küçük* uzantı sağladığınızda güncelleştirir. Aşağıdaki örnek bir Resource Manager şablonu ile küçük sürümlerde otomatik olarak yükseltme gösterir *autoUpgradeMinorVersion ": true,'* :
 
 ```json
     "properties": {
@@ -368,7 +368,7 @@ Tüm VM uzantıları için aşağıdaki sorun giderme adımlarını uygulayın.
 
 ### <a name="view-extension-status"></a>Uzantı durumu görüntüle
 
-Bir VM'ye karşı VM uzantısı çalıştırıldıktan sonra kullanmak [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) uzantı Durumu döndürülecek. *Alt durumlar [0]* uzantı sağlama başarılı, VM'ye dağıttınız BT'nin başarılı anlamına gelir, ancak uzantı VM içindeki yürütülemedi, gösterir *alt durumlar [1]*.
+Bir VM'ye karşı VM uzantısı çalıştırıldıktan sonra kullanmak [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) uzantı Durumu döndürülecek. *Alt durumlar [0]* uzantı sağlama başarılı, VM'ye dağıttınız BT'nin başarılı anlamına gelir, ancak uzantı VM içindeki yürütülemedi, gösterir *alt durumlar [1]* .
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

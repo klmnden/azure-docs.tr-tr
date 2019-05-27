@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125009"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171182"
 ---
 #### <a name="to-download-hotfixes"></a>Düzeltmeleri indirmek için
 
@@ -26,7 +26,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
    
     ![Katalogda arama](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. **İndir**’e tıklayın. İndirilen öğelerin görünmesini istediğiniz yerel konumu belirtin veya **Gözat** seçeneğiyle konumu bulun. Dosya belirtilen konuma ve klasöre yüklemek için tıklayın. Klasör, cihazdan erişilebilen bir ağ paylaşımına da kopyalanabilir.
+4. **İndir**'e tıklayın. İndirilen öğelerin görünmesini istediğiniz yerel konumu belirtin veya **Gözat** seçeneğiyle konumu bulun. Dosya belirtilen konuma ve klasöre yüklemek için tıklayın. Klasör, cihazdan erişilebilen bir ağ paylaşımına da kopyalanabilir.
 5. Diğer düzeltmeleri arayın, yukarıdaki tabloda listelenen (**4037266**) ve yukarıdaki tabloda listelenen karşılık gelen dosyalar belirli klasörlere yükleyin.
 
 > [!NOTE]
@@ -93,7 +93,7 @@ Normal mod düzeltmelerini yüklemek ve doğrulamak için aşağıdaki adımlar�
     > [!NOTE]
     > Bazı durumlarda cmdlet, güncelleştirme hala devam ediyorsa `False` raporu gönderir. Düzeltmenin tamamlandığından emin olmak için birkaç dakika bekleyin, bu komutu yeniden çalıştırın ve `RunInProgress` değerinin `False` olduğunu doğrulayın. Değer değiştiyse düzeltme tamamlanmıştır.
 
-7. Yazılım güncelleştirmesi tamamlandıktan sonra sistem yazılımı sürümlerini doğrulayın. Şunu yazın:
+7. Yazılım güncelleştirmesi tamamlandıktan sonra sistem yazılımı sürümlerini doğrulayın. Tür:
    
     `Get-HcsSystem`
    
@@ -175,7 +175,7 @@ Disk üretici yazılımı güncelleştirmelerini yüklemek için aşağıdaki y�
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. `Get-HcsUpdateStatus` komutunu kullanarak yükleme ilerleme durumunu izleyin. `RunInProgress` değeri `False` olarak değiştiğinde güncelleştirme tamamlanır.
-4. Yükleme tamamlandıktan sonra, bakım modu düzeltmesinin yüklendiği denetleyici yeniden başlatılır. Seçenek 1, buna oturum **tam erişimle oturum açmak**ve disk üretici yazılımı sürümünü doğrulayın. Şunu yazın:
+4. Yükleme tamamlandıktan sonra, bakım modu düzeltmesinin yüklendiği denetleyici yeniden başlatılır. Seçenek 1, buna oturum **tam erişimle oturum açmak**ve disk üretici yazılımı sürümünü doğrulayın. Tür:
    
    `Get-HcsFirmwareVersion`
    

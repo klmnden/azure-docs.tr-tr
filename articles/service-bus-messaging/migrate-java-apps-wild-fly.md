@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: 2392d0ef9d6257b93b76f13a5354eeba57d78ddd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 60f4e410c7c4e3854235029acade550c9279c981
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800289"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158704"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Java enterprise edition (EE) uygulamaları Azure'a geçirme
 Bu makalede Azure'da mevcut Java EE iş yüklerinin geçirme işlemini göstermektedir:
@@ -67,7 +67,7 @@ WildFly/JBoss örnek uygulamaları Azure'a geçirme. Bu uygulamaları kullanın:
 Geçişten sonra Azure Service Bus'ı kullanarak uygulamaları çalıştıracaksınız.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bir Java web uygulamasını Azure'a dağıtmak için bir Azure aboneliği gerekir. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir Azure hesabı](https://azure.microsoft.com/en-us/free/) için kaydolabilirsiniz.
+Bir Java web uygulamasını Azure'a dağıtmak için bir Azure aboneliği gerekir. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
 
 Ayrıca, aşağıdaki önkoşulları karşılamanız gerekir:
 
@@ -1070,7 +1070,7 @@ Aşağıdaki makalelere bakın:
 
 - [Linux'ta App Service için Java Enterprise Kılavuzu](../app-service/containers/app-service-java-enterprise.md)
 - [Azure App Service için maven eklentisi](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
-- [Genel JMS RA bağdaştırıcısı JBoss/WildFly dağıtma](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+- [Genel JMS RA bağdaştırıcısı JBoss/WildFly dağıtma](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
 - [WildFly/JBoss Mesajlaşma yapılandırma](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
 - [JBoss/WildFly CLI Kılavuzu](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
 - [Geliştirme makinenizde bir SSH bağlantısı açma](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)

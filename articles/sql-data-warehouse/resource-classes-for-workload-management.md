@@ -2,21 +2,20 @@
 title: İş yükü yönetimi - Azure SQL veri ambarı için kaynak sınıfları | Microsoft Docs
 description: Eşzamanlılık yönetmek ve işlem kaynakları için sorgular Azure SQL veri ambarı için kaynak sınıfları kullanma yönergeleri.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 05/22/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475091"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165973"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak sınıfları ile iş yükü yönetimi
 
@@ -80,18 +79,19 @@ Dinamik kaynak sınıfları ile bu önceden tanımlanmış veritabanı rolleri u
 
 Dinamik kaynak sınıflarında Gen1 detayına olarak bakıldığında, davranışlarını anlamak için ek karmaşıklığı artıran birkaç ayrıntıya daha vardır:
 
-- Smallrc kaynaklar sınıfı statik kaynak sınıfı gibi bir sabit bellek modeli ile çalışır.  Smallrc sorguları dinamik olarak hizmet düzeyi arttıkça daha fazla bellek almıyor.
+**Üzerinde Gen1**
+- Smallrc kaynaklar sınıfı statik kaynak sınıfı gibi bir sabit bellek modeli ile çalışır.  Smallrc sorguları dinamik olarak hizmet düzeyi arttıkça daha fazla bellek almıyor. 
 - Hizmet düzeyleri değiştikçe, kullanılabilir sorgu eşzamanlılık yukarı veya aşağı gidebilirsiniz.
-- Hizmetleri düzeylerini ölçeklendirme orantılı bir değişiklik aynı kaynak sınıfları için ayrılan bellek sağlamaz.
+- Hizmet düzeylerini ölçeklendirme aynı kaynak sınıfları için ayrılan bellek orantılı bir değişiklik sağlamaz.
 
-Üzerinde **Gen2'ye yalnızca**, yukarıda belirtilen noktaları adresleme tamamen dinamik dinamik kaynak sınıfları.  3-10-22-70 küçük-Orta-büyük-xlarge kaynak sınıfları için bellek yüzdesi ayırma için yeni kuralıdır **hizmet düzeyi ne olursa olsun**.  Bellek ayırma yüzdeleri ve en az sayıda çalışan, hizmet düzeyi bağımsız olarak eş zamanlı sorguları birleştirilmiş ayrıntıları aşağıdaki tabloda sahiptir.
+**Gen2 üzerinde**, yukarıda belirtilen noktaları adresleme tamamen dinamik dinamik kaynak sınıfları.  3-10-22-70 küçük-Orta-büyük-xlarge kaynak sınıfları için bellek yüzdesi ayırma için yeni kuralıdır **hizmet düzeyi ne olursa olsun**.  Bellek ayırma yüzdeleri ve en az sayıda çalışan, hizmet düzeyi bağımsız olarak eş zamanlı sorguları birleştirilmiş ayrıntıları aşağıdaki tabloda sahiptir.
 
 | Kaynak Sınıfı | Bellek yüzdesi | Min eş zamanlı sorguları |
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3%                | 32                     |
 | mediumrc       | %10               | 10                     |
 | largerc        | 22%               | 4                      |
-| xlargerc       | %70               | 1                      |
+| xlargerc       | 70%               | 1                      |
 
 ### <a name="default-resource-class"></a>Varsayılan kaynak sınıfı
 
@@ -116,7 +116,7 @@ Bu işlemler, kaynak sınıfları tarafından yönetilir:
 - (Kullanıcı tablosu sorgulanırken) seçin
 - -ALTER INDEX REORGANIZE ya da yeniden oluşturma
 - ALTER TABLO YENİDEN OLUŞTURMA
-- DİZİN OLUŞTURMA
+- CREATE INDEX
 - KÜMELENMİŞ COLUMNSTORE DİZİNİ OLUŞTURUN
 - TABLO AS SELECT (CTAS) OLUŞTURMA
 - Veri yükleme
@@ -942,7 +942,6 @@ Veritabanı kullanıcıları yönetme ve güvenlik hakkında daha fazla bilgi i�
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

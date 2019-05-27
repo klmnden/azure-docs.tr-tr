@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795007"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169647"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure İlkesi ile uyumlu olmayan kaynakları Düzelt
 
-İçin uyumlu olmayan kaynakları bir **Deployıfnotexists** İlkesi koyabilir ile uyumlu bir duruma **düzeltme**. Düzeltme çalıştırmak için ilke yönlendirerek gerçekleştirilir **Deployıfnotexists** atanan ilke mevcut kaynaklarınız üzerindeki etkisi. Bu makalede, anlama ve düzeltme İlkesi ile gerçekleştirmek için gerekli olan adımları gösterilmektedir.
+İçin uyumlu olmayan kaynakları bir **Deployıfnotexists** İlkesi koyabilir ile uyumlu bir duruma **düzeltme**. Azure İlkesi'ı çalıştırmaya yönlendirerek düzeltme gerçekleştirilir **Deployıfnotexists** atanan ilke mevcut kaynaklarınız üzerindeki etkisi. Bu makalede, anlama ve düzeltme Azure İlkesi ile gerçekleştirmek için gerekli olan adımları gösterilmektedir.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Düzeltme güvenliği nasıl çalışır
 
-İlke çalıştığında şablonu **Deployıfnotexists** ilke tanımı, mevcut bunu kullanarak bir [yönetilen kimliği](../../../active-directory/managed-identities-azure-resources/overview.md).
-İlke, her atama için yönetilen bir kimlik oluşturur, ancak yönetilen kimlik vermek üzere hangi rolleri hakkında ayrıntılar olmalıdır. Yönetilen kimlik rolleri eksikse, ilke veya girişim ataması sırasında bu hata görüntülenir. Atama başlatıldıktan sonra portalı kullanırken, ilke otomatik olarak yönetilen kimlik listelenen rollere izin vermiş olursunuz.
+Azure İlkesi çalıştırıldığında şablonu **Deployıfnotexists** ilke tanımı, mevcut bunu kullanarak bir [yönetilen kimliği](../../../active-directory/managed-identities-azure-resources/overview.md).
+Azure İlkesi, her atama için yönetilen bir kimlik oluşturur, ancak yönetilen kimlik vermek üzere hangi rolleri hakkında ayrıntılar olmalıdır. Yönetilen kimlik rolleri eksikse, ilke veya girişim ataması sırasında bu hata görüntülenir. Atama başlatıldıktan sonra portalı kullanırken, Azure ilkesi otomatik olarak yönetilen kimlik listelenen rollere izin vermiş olursunuz.
 
 ![Yönetilen kimlik - eksik rol](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ Rol tanımlamak için ilk adımıdır, **Deployıfnotexists** , dahil şablon i�
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -57,7 +57,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Yönetilen kimlik el ile yapılandırma
 
-Portalı kullanarak bir atama oluştururken, ilkeyi hem yönetilen kimlik oluşturur ve tanımlanan rolleri verir **roleDefinitionIds**. Aşağıdaki durumlarda, yönetilen bir kimlik oluşturmak ve izinleri atamak için adımları el ile yapılması gerekir:
+Portalı kullanarak bir atama oluştururken, Azure ilkesi hem yönetilen kimlik oluşturur ve içinde tanımlanan rolleri verir **roleDefinitionIds**. Aşağıdaki durumlarda, yönetilen bir kimlik oluşturmak ve izinleri atamak için adımları el ile yapılması gerekir:
 
 - (Örneğin, Azure PowerShell) SDK'sı kullanırken
 - Atama kapsamı dışında bir kaynağa şablon tarafından değiştirildiğinde
@@ -126,7 +126,8 @@ Rol atama için yönetilen kimlik eklemek için aşağıdaki adımları izleyin:
 
 1. Tıklayın **erişim denetimi (IAM)** tıklayın ve bağlantı Kaynaklar sayfasında **+ rol ataması Ekle** erişim denetimi sayfanın üstünde.
 
-1. Eşleşen uygun rolü seçin bir **roleDefinitionIds** ilke tanımından. Bırakın **erişim Ata** 'Azure AD kullanıcı, Grup veya uygulama' varsayılan olarak ayarla. İçinde **seçin** kutusuna yapıştırın veya önceden bulunan ataması kaynak kimliği bölümünü yazın. Arama tamamlandığında, kimliği'ni seçin ve aynı ada sahip nesneye tıklayın **Kaydet**.
+1. Eşleşen uygun rolü seçin bir **roleDefinitionIds** ilke tanımından.
+   Bırakın **erişim Ata** 'Azure AD kullanıcı, Grup veya uygulama' varsayılan olarak ayarla. İçinde **seçin** kutusuna yapıştırın veya önceden bulunan ataması kaynak kimliği bölümünü yazın. Arama tamamlandığında, kimliği'ni seçin ve aynı ada sahip nesneye tıklayın **Kaydet**.
 
 ## <a name="create-a-remediation-task"></a>Düzeltme görev oluşturma
 
@@ -193,9 +194,9 @@ Diğer düzeltme cmdlet ve örnekler için bkz. [Az.PolicyInsights](/powershell/
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md)
-- Gözden geçirme [İlkesi tanım yapısı](../concepts/definition-structure.md)
-- Gözden geçirme [ilke etkilerini anlama](../concepts/effects.md)
-- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md)
-- Bilgi edinmek için nasıl [uyumluluk verilerini al](getting-compliance-data.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
+- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
+- [Azure İlkesi tanımı yapısını](../concepts/definition-structure.md) gözden geçirin.
+- [İlkenin etkilerini anlama](../concepts/effects.md) konusunu gözden geçirin.
+- Anlamak için nasıl [programlı olarak ilkeler oluşturma](programmatically-create.md).
+- Bilgi edinmek için nasıl [uyumluluk verilerini alma](getting-compliance-data.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/overview.md).

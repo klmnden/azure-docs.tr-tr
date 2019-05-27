@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171635"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -154,13 +154,13 @@ Sunucuyu aşağıdaki gibi yükseltin:
     ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Güncelleştirme yükleyicisi dosya yapılandırma sunucusuna indirin.
 
-    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Güncelle](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Yükleyiciyi çalıştırmak için çift tıklayın.
 5. Yükleyici, makine üzerinde çalışan geçerli sürümünü algılar. Tıklayın **Evet** yükseltmeyi başlatmak için.
 6. Yükseltme tamamlandığında sunucu yapılandırmasını doğrular.
 
-    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Güncelle](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Tıklayın **son** yükleyici kapatın.
 8. Diğer Site Recovery bileşenlerini yükseltmek için başvurmak bizim [Yükseltme Kılavuzu](https://aka.ms/asr_vmware_upgrades).
@@ -183,21 +183,21 @@ Yükleme dosyasını aşağıdaki gibi çalıştırın:
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre Adı| Type | Açıklama| Değerler|
+|Parametre Adı| Tür | Açıklama| Değerler|
 |-|-|-|-|
-| /ServerMode|Gereklidir|Hem yapılandırma hem de işlem sunucusunun mu yoksa yalnızca işlem sunucusunun mu yükleneceğini belirtir|CS<br>PS|
-|/InstallLocation|Gereklidir|Bileşenlerin yüklendiği klasör| Bilgisayardaki herhangi bir klasör|
-|/MySQLCredsFilePath|Gereklidir|MySQL sunucusu kimlik bilgilerinin depolandığı dosya yolu|Dosya aşağıda belirtilen biçimde olmalıdır|
-|/VaultCredsFilePath|Gereklidir|Kasa kimlik bilgileri dosyasının yolu|Geçerli dosya yolu|
-|/EnvType|Gereklidir|Korumak istediğiniz ortam türü |VMware<br>NonVMware|
-|/PSIP|Gereklidir|Çoğaltma veri aktarımı için kullanılacak NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
-|/CSIP|Gereklidir|Yapılandırma sunucusunun dinleme yaptığı NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
-|/PassphraseFilePath|Gereklidir|Parola dosyası konumunun tam yolu|Geçerli dosya yolu|
+| /ServerMode|Gerekli|Hem yapılandırma hem de işlem sunucusunun mu yoksa yalnızca işlem sunucusunun mu yükleneceğini belirtir|CS<br>PS|
+|/InstallLocation|Gerekli|Bileşenlerin yüklendiği klasör| Bilgisayardaki herhangi bir klasör|
+|/MySQLCredsFilePath|Gerekli|MySQL sunucusu kimlik bilgilerinin depolandığı dosya yolu|Dosya aşağıda belirtilen biçimde olmalıdır|
+|/VaultCredsFilePath|Gerekli|Kasa kimlik bilgileri dosyasının yolu|Geçerli dosya yolu|
+|/EnvType|Gerekli|Korumak istediğiniz ortam türü |VMware<br>NonVMware|
+|/PSIP|Gerekli|Çoğaltma veri aktarımı için kullanılacak NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
+|/CSIP|Gerekli|Yapılandırma sunucusunun dinleme yaptığı NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
+|/PassphraseFilePath|Gerekli|Parola dosyası konumunun tam yolu|Geçerli dosya yolu|
 |/BypassProxy|İsteğe bağlı|Yapılandırma sunucusunun Azure'a bir ara sunucu olmadan bağlandığını belirtir|Yapmak için bu değeri Venu’den alın|
 |/ProxySettingsFilePath|İsteğe bağlı|Ara sunucu ayarları (Varsayılan ara sunucu kimlik doğrulaması gerektirir ya da özel bir ara sunucu kullanılır)|Dosya aşağıda belirtilen biçimde olmalıdır|
 |DataTransferSecurePort|İsteğe bağlı|Çoğaltma verileri için kullanılacak PSIP’deki bağlantı noktası numarası| Geçerli Bağlantı Noktası Numarası (varsayılan değer: 9433)|
 |/SkipSpaceCheck|İsteğe bağlı|Önbellek diski için alan denetimini atlama| |
-|/AcceptThirdpartyEULA|Gereklidir|Bayrak, üçüncü taraf EULA'nın kabul edildiğini gösterir| |
+|/AcceptThirdpartyEULA|Gerekli|Bayrak, üçüncü taraf EULA'nın kabul edildiğini gösterir| |
 |/ShowThirdpartyEULA|İsteğe bağlı|Üçüncü taraf EULA belgesini görüntüler. Giriş olarak sağlanırsa, diğer tüm parametreler yoksayılır| |
 
 

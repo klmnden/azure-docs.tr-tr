@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167390"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan özel API'lere giden çağrıların güvenliğini sağlama
 
@@ -190,11 +190,11 @@ Açık mantıksal uygulama tanımınızı kod Görünümü'nde Git **HTTP** eyle
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| kiracı | Evet | Azure AD kiracısı için GUID | 
+| tek | Evet | Azure AD kiracısı için GUID | 
 | Hedef kitle | Evet | İstemci kimlik, web veya API uygulaması için uygulama kimliği, erişmek istediğiniz hedef kaynağı için GUID | 
-| ClientID | Evet | Uygulama Kimliği mantıksal uygulamanızın istemci kimliği olan erişim isteğinde bulunan istemci için GUID | 
+| clientId | Evet | Uygulama Kimliği mantıksal uygulamanızın istemci kimliği olan erişim isteğinde bulunan istemci için GUID | 
 | gizli dizi | Evet | Anahtar veya parolayı erişim belirteci istenirken istemci uygulama kimliği | 
-| type | Evet | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
+| tür | Evet | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
 |||| 
 
 Örneğin:
@@ -236,14 +236,14 @@ Web uygulamanızı veya API uygulaması için mantıksal uygulamadan gelen istek
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| type | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için bir değer olmalıdır `ClientCertificate`. | 
+| tür | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için bir değer olmalıdır `ClientCertificate`. | 
 | password | Evet | İstemci sertifikası (PFX dosyası) erişmek için parola | 
 | PFX | Evet | İstemci sertifikası (PFX dosyası) base64 ile kodlanmış içeriği | 
 |||| 
 
 <a name="basic"></a>
 
-#### <a name="basic-authentication"></a>Temel kimlik doğrulama
+#### <a name="basic-authentication"></a>Temel kimlik doğrulaması
 
 Web uygulamanızı veya API uygulaması, mantıksal uygulamadan gelen istekleri doğrulamak için bir kullanıcı adı ve parola gibi temel kimlik doğrulaması kullanabilirsiniz. Temel kimlik doğrulaması ortak desendir ve web uygulamanızı veya API uygulaması oluşturmak için kullanılan herhangi bir dilde bu kimlik doğrulaması kullanabilirsiniz.
 
@@ -253,8 +253,8 @@ Web uygulamanızı veya API uygulaması, mantıksal uygulamadan gelen istekleri 
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| type | Evet | Kullanmak istediğiniz kimlik doğrulaması türü. Temel kimlik doğrulaması için bir değer olmalıdır `Basic`. | 
-| kullanıcı adı | Evet | Kimlik doğrulaması için kullanmak istediğiniz kullanıcı adı | 
+| tür | Evet | Kullanmak istediğiniz kimlik doğrulaması türü. Temel kimlik doğrulaması için bir değer olmalıdır `Basic`. | 
+| username | Evet | Kimlik doğrulaması için kullanmak istediğiniz kullanıcı adı | 
 | password | Evet | Kimlik doğrulaması için kullanmak istediğiniz parolayı | 
 |||| 
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755087"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161337"
 ---
 Ayrıca, cihaz ve cihaz sorunlarını gidermek için bazı durumlarda performansını izlemek için ölçümleri görüntüleyebilir.
 
@@ -17,7 +17,7 @@ Seçili cihaz ölçümler için bir grafik oluşturmak için Azure portalında a
 
 1. Azure portalında, kaynak için Git **İzleme > ölçümleri** seçip **ölçüm Ekle**.
 
-    ![Ölçüm ekleme](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
+    ![Ölçüm ekle](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
 2. Kaynak otomatik olarak doldurulur.  
 
@@ -65,4 +65,4 @@ Seçili cihaz ölçümler için bir grafik oluşturmak için Azure portalında a
 
 8. Grafik verileri bir Excel elektronik tablosuna dışarı aktarma veya paylaşabileceğiniz grafik bağlantısını almak için komut çubuğundan paylaş seçeneğini seçin.
 
-    ![Verileri dışarı aktarma](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)
+    ![Verileri dışarı aktar](media/data-box-edge-gateway-view-metrics/view-metrics-8.png)

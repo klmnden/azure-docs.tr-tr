@@ -10,11 +10,11 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162101"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Oluşturma ve Azure dijital İkizlerini rol atamalarını yönetme
 
@@ -44,7 +44,7 @@ Aşağıdaki tabloda her bir öznitelik açıklanmaktadır:
 | Rol Kimliği | Rol tanımı tanımlayıcısı | Evet | String | İstenen rol atama benzersiz kimliği. Rol tanımları ve bunların tanımlayıcısı sistem API sorgulama veya aşağıdaki tabloda gözden geçirme bulun. |
 | objectId | Nesne tanımlayıcısı | Evet | String | Bir Azure Active Directory Kimliğini, hizmet sorumlusu nesne kimliği veya etki alanı adı. Hangi veya rol ataması atandığı. Rol ataması, ilişkili türüne göre biçimlendirilmelidir. İçin `DomainName` objectIdType, nesne kimliği ile başlamalıdır `“@”` karakter. |
 | objectIdType | Nesne tanımlayıcı türü | Evet | String | Nesne tanımlayıcısı kullanılan tür. Bkz: **ObjectIdTypes desteklenen** aşağıda. |
-| yol | Alan yolu | Evet | String | Tam erişim yolu `Space` nesne. `/{Guid}/{Guid}` bunun bir örneğidir. Tanımlayıcı için tüm grafı rol ataması gerekiyorsa belirtin `"/"`. Bu karakteri kök belirler ancak kullanımı önerilmez. Her zaman ilkesine en düşük öncelik ilkesini uygulayın. |
+| path | Alan yolu | Evet | String | Tam erişim yolu `Space` nesne. `/{Guid}/{Guid}` bunun bir örneğidir. Tanımlayıcı için tüm grafı rol ataması gerekiyorsa belirtin `"/"`. Bu karakteri kök belirler ancak kullanımı önerilmez. Her zaman ilkesine en düşük öncelik ilkesini uygulayın. |
 | Kiracı kimliği | Kiracı tanımlayıcısı | Değişir | String | Çoğu durumda, bir Azure Active Directory Kiracı kimliği İçin izin verilmeyen `DeviceId` ve `TenantId` ObjectIdTypes. Gerekli `UserId` ve `ServicePrincipalId` ObjectIdTypes. DomainName ObjectIdType için isteğe bağlı. |
 
 ### <a name="supported-role-definition-identifiers"></a>Desteklenen rol tanımı tanımlayıcıları

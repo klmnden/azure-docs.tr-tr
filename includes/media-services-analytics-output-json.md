@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272695"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160948"
 ---
 İş, algılanan ve izlenen yüzleri hakkında meta veriler içeren bir JSON çıktı dosyası üretir. Meta veriler, ayrı ayrı izlenmesi belirten bir yüz kimliği sayı yanı sıra yüz konumunu belirten koordinatları içerir. Yüz Kimliği numaraları atanan birden çok kimlikler bazı kişiler kaynaklanan koşullar altında tamamen çıplak yüz kayıp veya çerçevede çakışan sıfırlama eğilimlidir.
 
@@ -32,10 +32,10 @@ ms.locfileid: "52272695"
 |---|---|
 | start |"Ticks." ilk olay başlangıç saati |
 | süre |Uzunluğu parçasında "ticks." |
-| dizin | (Yalnızca Azure Media Redactor için geçerlidir) geçerli olay çerçeve dizinini tanımlar. |
+| index | (Yalnızca Azure Media Redactor için geçerlidir) geçerli olay çerçeve dizinini tanımlar. |
 | interval |Her olay girişi parçasında "ticks." içinde aralığı |
-| etkinlikler |Her bir olay algılandı ve bu süre içinde izlenen yüzleri içerir. Olayların bir dizidir. Dış dizi bir zaman aralığını temsil eder. İç dizi belirtilen noktada gerçekleşen 0 veya daha fazla olaydan oluşur. Bir boş köşeli ayraç [] yok yüz algılandı anlamına gelir. |
-| id |İzlenmekte olan yüz kimliği. Bu sayı, yanlışlıkla bir yüz algılanmayan hale gelirse değişebilir. Belirli bir kişiye genel video boyunca aynı Kimliğe sahip olmalıdır, ancak bu (kapatma, vb.) algılama algoritması sınırlamaları nedeniyle garanti edilemez. |
+| olaylar |Her bir olay algılandı ve bu süre içinde izlenen yüzleri içerir. Olayların bir dizidir. Dış dizi bir zaman aralığını temsil eder. İç dizi belirtilen noktada gerçekleşen 0 veya daha fazla olaydan oluşur. Bir boş köşeli ayraç [] yok yüz algılandı anlamına gelir. |
+| kimlik |İzlenmekte olan yüz kimliği. Bu sayı, yanlışlıkla bir yüz algılanmayan hale gelirse değişebilir. Belirli bir kişiye genel video boyunca aynı Kimliğe sahip olmalıdır, ancak bu (kapatma, vb.) algılama algoritması sınırlamaları nedeniyle garanti edilemez. |
 | x, y |Sol üst tarafında X ve Y koordinatları sınırlayıcı kutu normalleştirilmiş bir ölçek 0.0 ile 1.0, yüz tanıma. <br/>-X ve Y koordinatları her zaman yatay olarak göreli bir dikey görüntü (veya baş aşağı, iOS söz konusu olduğunda) varsa, buna göre koordinatlar sırasını değiştirmek zorunda. |
 | Genişlik, yükseklik |0.0 ile 1.0 normalleştirilmiş bir ölçek kümesinde genişlik ve yükseklik yüz sınırlayıcı kutu. |
 | facesDetected |Bu JSON sonuçları sonunda bulunan ve algoritma videonun sırasında algılanan yüzlerin sayısı özetler. Bir yüzü algılanmayan hale gelirse, yanlışlıkla kimlikleri sıfırlanabilir olmadığından (örneğin, yüz tanıma hemen görünür ekranı kapattıktan sağlanabilir), bu sayı her zaman true videoda yüzlerin sayısı eşit değil. |

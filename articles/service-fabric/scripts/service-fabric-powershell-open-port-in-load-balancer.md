@@ -16,11 +16,11 @@ ms.date: 05/18/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 942dd995651f4c672d50163e5c380b62155b2227
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161935"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer’da bir uygulama bağlantı noktasını açma
 
@@ -38,7 +38,7 @@ Gerekirse, [Service Fabric SDK’sı](../service-fabric-get-started.md) ile Serv
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notes |
+| Komut | Notlar |
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Bir Azure kaynağını alır.  |
 | [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) | Azure Load Balancer’ı alır. |

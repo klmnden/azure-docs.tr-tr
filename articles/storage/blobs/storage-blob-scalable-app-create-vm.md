@@ -11,11 +11,11 @@ ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: a5b6c22b3917784b20ad11bddf200d1546c48597
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66168223"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Ölçeklenebilir bir uygulama için sanal makine ve depolama hesabı oluşturma
 
@@ -25,7 +25,7 @@ Serinin birinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Depolama hesabı oluşturma
-> * Sanal makine oluşturma
+> * Bir sanal makine oluştur
 > * Özel betik uzantısı yapılandırma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici Azure PowerShell modülü Az 0.7 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzAccount` komutunu da çalıştırmanız gerekir.
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Bir Azure kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -58,7 +58,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
   -Kind Storage `
 ```
 
-## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+## <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 
 Sanal makine yapılandırması oluşturun. Bu yapılandırma, sanal makineyi dağıtırken kullanılan sanal makine görüntüsü, boyutu ve kimlik doğrulama yapılandırması gibi ayarları içerir. Bu adımı çalıştırırken kimlik bilgileri istenir. Girdiğiniz değerler, sanal makinenin kullanıcı adı ve parolası olarak yapılandırılır.
 
@@ -130,7 +130,7 @@ Serinin birinci bölümünde, bir depolama hesabı oluşturmayı, bir sanal maki
 
 > [!div class="checklist"]
 > * Depolama hesabı oluşturma
-> * Sanal makine oluşturma
+> * Bir sanal makine oluştur
 > * Özel betik uzantısı yapılandırma
 
 Üstel yeniden deneme ve paralelliği kullanarak depolama hesabına büyük miktarlarda veri yüklemek için serinin ikinci bölümüne ilerleyin.

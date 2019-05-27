@@ -9,11 +9,11 @@ ms.date: 11/24/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: 3915df46495e754843009a761e9a07aa2daddae2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686797"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153762"
 ---
 1. Yeni bir tarayıcı penceresinde [Azure portalında](https://portal.azure.com/) oturum açın.
 2. **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB** seçeneğine tıklayın.
@@ -29,8 +29,8 @@ ms.locfileid: "60686797"
     Hesap Adı|*Benzersiz bir ad girin*|Azure Cosmos DB hesabınızı tanımlayan benzersiz bir ad girin. Girdiğiniz kimliğe *documents.azure.com* eklenerek URI'niz oluşturulacağından benzersiz bir kimlik kullanın.<br><br>Kimlik yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini içerebilir ve uzunluğu 3 ile 31 karakter arasında olmalıdır...
     API|Çekirdek (SQL)|API, oluşturulacak hesap türünü belirler. Azure Cosmos DB, beş API sunar: SQL (belge veritabanı), Gremlin (grafik veritabanı), MongoDB (belge veritabanı), tablo API'si ve Cassandra API'si. Her API şu anda ayrı bir hesap oluşturmanızı gerektirir. <br><br>Seçin **çekirdek (SQL)** bu makalede, bir belge veritabanı oluşturur ve SQL söz dizimini kullanarak sorgulamak için. <br><br>[SQL API’si hakkında daha fazla bilgi edinme](../articles/cosmos-db/documentdb-introduction.md)|
     Location|*Kullanıcılarınıza en yakın bölgeyi seçin*|Azure Cosmos DB hesabınızın barındırılacağı coğrafi konumu seçin. Verilere en hızlı erişimi sağlamak için kullanıcılarınıza en yakın olan konumu kullanın.
-    Coğrafi yedekliliği etkinleştir| Boş bırakın | Bu, ikinci (eşleştirilmiş) bir bölgede veritabanınızın çoğaltılmış bir sürümünü oluşturur. Bunu boş bırakın.  
-    Çok bölgeli Yazar| Boş bırakın | Bu, her iki okuma ve yazma bölgesi, veritabanı bölgeleri sağlar. Bunu boş bırakın.  
+    Coğrafi yedekliliği etkinleştir| Boş bırakın | Bu, ikinci (eşleştirilmiş) bir bölgede veritabanınızın çoğaltılmış bir sürümünü oluşturur. Burayı boş bırakın.  
+    Çok bölgeli Yazar| Boş bırakın | Bu, her iki okuma ve yazma bölgesi, veritabanı bölgeleri sağlar. Burayı boş bırakın.  
 
     Ardından **Gözden geçir + oluştur**’a tıklayın. Atlayabilirsiniz **ağ** ve **etiketleri** bölümü. 
 

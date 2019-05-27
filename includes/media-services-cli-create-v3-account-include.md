@@ -5,23 +5,25 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733904"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155743"
 ---
 ## <a name="create-a-media-services-account"></a>Media Services hesabı oluşturma
 
 İlk olarak bir Media Services hesabı oluşturmanız gerekir. Bu bölümde, Azure CLI kullanarak hesap oluşturma için gerekenler gösterilmektedir.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Aşağıdaki komutu kullanarak bir kaynak grubu oluşturun. Azure kaynak grubu; Azure Media Services hesapları ve ilişkili Depolama hesapları gibi kaynakların dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+
+Yerine, `amsResourceGroup` , değerine sahip.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -35,7 +37,7 @@ Tek bir **Birincil** depolama hesabınız olması gerekir, ancak Media Services 
 
 Bu örnekte, oluştururuz genel amaçlı v2, standart LRS hesabı. Depolama hesapları ile denemek istiyorsanız, kullanın `--sku Standard_LRS`. Ancak, üretim için bir SKU seçilmesi sırasında dikkate almanız gereken, `--sku Standard_RAGRS`, coğrafi çoğaltma için iş sürekliliği sağlar. Daha fazla bilgi için [depolama hesapları](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-Aşağıdaki komut, Media Services Hesabı ile ilişkilendirilecek Depolama hesabını oluşturur. Aşağıdaki betikte `storageaccountforams` öğesini kendi değeriniz ile değiştirebilirsiniz. Hesap adı en fazla 24 karakter uzunluğunda olmalıdır.
+Aşağıdaki komut, Media Services Hesabı ile ilişkilendirilecek Depolama hesabını oluşturur. Aşağıdaki betikte `storageaccountforams` öğesini kendi değeriniz ile değiştirebilirsiniz. `amsResourceGroup` Önceki adımda kaynak grubu için verdiğiniz değerle eşleşmelidir. Depolama hesabı adı, 24'den az uzunlukta olmalıdır.
 
 ```azurecli
 az storage account create --name storageaccountforams \  

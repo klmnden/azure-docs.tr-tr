@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407794"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170184"
 ---
 1. Sanal ağ geçidinizin sayfasına gidip bu sayfayı açın. Buraya çeşitli yollardan gidebilirsiniz. 'VNet1GW' ağ geçidine gitmek için **TestVNet1 -> Genel bakış -> Bağlı cihazlar -> VNet1GW** seçeneğine gidebilirsiniz.
 2. VNet1GW sayfasında **Bağlantılar**'a tıklayın. Bağlantılar sayfasının üstündeki **+Ekle**’ye tıklayarak **Bağlantı ekle** sayfasını açın.
@@ -22,7 +22,7 @@ ms.locfileid: "60407794"
 3. **Bağlantı ekle** sayfasında, bağlantınız için değerleri yapılandırın.
 
    - **Adı:** Bağlantınızı adlandırın.
-   - **Bağlantı türü:** Seçin **Site-to-site(IPSec)**.
+   - **Bağlantı türü:** Seçin **Site-to-site(IPSec)** .
    - **Sanal ağ geçidi:** Bu ağ geçidinden bağlandığınız için değer sabittir.
    - **Yerel ağ geçidi:** Tıklayın **bir yerel ağ geçidi seçin** ve kullanmak istediğiniz yerel ağ geçidini seçin.
    - **Paylaşılan Anahtar:** Buradaki değer, yerel şirket için VPN cihazınız için kullandığınız değerle eşleşmelidir. Örnekte 'abc123' değeri kullanılmıştır, ancak siz daha karmaşık bir değer kullanabilirsiniz (ve kullanmalısınız). Önemli olan, burada belirttiğiniz değerin VPN cihazınızı yapılandırırken belirttiğiniz değerle aynı olmasıdır.

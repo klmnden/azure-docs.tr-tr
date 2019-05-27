@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320221"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157357"
 ---
 Noktadan siteye bağlantı ile sanal ağdan sanal ağa bağlanan her istemci bilgisayara bir istemci sertifikası yüklü olmalıdır. Kök sertifikadan oluşturur ve her istemci bilgisayara yükleyin. Geçerli bir istemci sertifikası yüklemezseniz, istemci sanal ağa bağlanmaya çalıştığında, kimlik doğrulaması başarısız olur.
 

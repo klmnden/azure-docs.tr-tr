@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 6635b572d11339307083b8aa2aaaba69dc731101
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5bec627f114a20033ca4364c39c048763df36b67
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161463"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure PowerShell'i kullanma
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Hesabı, silme, bir Azure Data Lake depolama Gen1 hesabı oluşturmak ve klasör
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 veya üstü**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Kimlik Doğrulaması
 Bu makalede Data Lake depolama burada Azure hesabı kimlik bilgilerinizi girmeniz istenir Gen1 ile basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake depolama hesabı ve dosya sistemi sonra oturum açmış olan kullanıcının erişim düzeyi tarafından yönetilir Gen1 için erişim düzeyi. Ancak, diğer yaklaşımlar da Data Lake depolama Gen1 ile kimlik doğrulaması için olan vardır **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulaması**. Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabı oluşturun

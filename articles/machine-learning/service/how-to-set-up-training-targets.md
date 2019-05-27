@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236958"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160474"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
+# <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama 
 
 Azure Machine Learning hizmeti ile kaynakları veya ortamlar için olarak anılan, çeşitli modelinizi eğitmek [ __hedefleri işlem__](concept-azure-machine-learning-architecture.md#compute-target). İşlem hedefi, bir yerel makineye veya bir Azure Machine Learning işlem, Azure HDInsight veya uzak bir sanal makine gibi bir bulut kaynağı olabilir.  Model dağıtımı için işlem hedefleri açıklandığı gibi oluşturabilirsiniz ["nerede ve nasıl Modellerinizi dağıtmak"](how-to-deploy-and-where.md).
 
@@ -38,7 +38,7 @@ Bu makalede, model yönetimi için çeşitli bilgisayar hedefine kullanmayı ö�
 Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe sahiptir. Az miktarda veriniz üzerinde dev/deneme ile tipik model geliştirme yaşam döngüsü başlatır. Bu aşamada, yerel bir ortamı kullanmanızı öneririz. Örneğin, yerel bilgisayarınıza veya bulut tabanlı bir VM. Büyük veri kümeleri üzerinde eğitim ölçeğini veya dağıtılmış eğitimi yapmak gibi bir Farklı Çalıştır gönderdiğiniz her zaman bu daralttığında tek veya çok node küme oluşturmak için Azure Machine Learning işlem kullanmanızı öneririz. Çeşitli senaryolarda olarak değişiklik gösterebilir destek aşağıda ayrıntılarıyla olsa da, kendi işlem kaynağı ekleyebilirsiniz:
 
 
-|Eğitim için hedef işlem| GPU hızlandırma | Otomatik<br/> Hiper parametre ayarı | Otomatik</br> makine öğrenimi | Azure Machine Learning işlem hatlarını |
+|Eğitim için hedef işlem| GPU hızlandırma | Otomatik<br/> Hiper parametre ayarı | Otomatik<br/> makine öğrenimi | Azure Machine Learning işlem hatlarını |
 |----|:----:|:----:|:----:|:----:|
 |[Yerel bilgisayar](#local)| Belki de | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning işlem](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -418,6 +418,10 @@ Veya, şunları yapabilirsiniz:
 
 * İle deneme gönderme bir `Estimator` nesne gösterildiği [estimators Train ML modelleriyle](how-to-train-ml-models.md). 
 * Bir denemeyi göndermek [CLI uzantısını kullanarak](reference-azure-machine-learning-cli.md#experiments).
+
+## <a name="github-tracking-and-integration"></a>GitHub izleme ve tümleştirme
+
+Kaynak dizini yerel bir Git deposu olduğu çalıştırma eğitim başlattığınızda, depo bilgilerini çalıştırma geçmişinde depolanır. Örneğin, geçerli işleme kimliği depo için geçmiş bir parçası olarak günlüğe kaydedilir.
 
 ## <a name="notebook-examples"></a>Not Defteri örnekleri
 

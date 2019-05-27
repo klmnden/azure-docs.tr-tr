@@ -9,11 +9,11 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631083"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162645"
 ---
 [İleti yönlendirme](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) blob depolama, Service Bus kuyrukları, Service Bus konu başlıklarına ve Event Hubs telemetri verilerini IOT cihazlarınızdan yerleşik Event Hub ile uyumlu uç noktalar veya özel uç noktalar gibi gönderilmesini sağlar. Özel ileti yönlendirmeyi yapılandırmak için oluşturduğunuz [yönlendirme sorguları](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) belirli bir koşul ile eşleşen bir rota özelleştirmek için. Ayarlandıktan sonra, gelen veriler IoT Hub'ı tarafından otomatik olarak uç noktalara yönlendirilir. Bir ileti herhangi bir tanımlı yönlendirme sorgular eşleşmiyorsa, varsayılan uç noktaya yönlendirilir.
 

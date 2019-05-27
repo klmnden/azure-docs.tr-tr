@@ -17,11 +17,11 @@ ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169322"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Öğretici: Oluşturma ve Azure CLI ile Linux sanal makineleri için Azure sanal ağları yönetme
 
@@ -66,7 +66,7 @@ Sanal ağ oluşturabilmek için önce [az group create](/cli/azure/group) ile bi
 az group create --name myRGNetwork --location eastus
 ```
 
-### <a name="create-virtual-network"></a>Sanal ağ oluşturma
+### <a name="create-virtual-network"></a>Sanal ağ oluştur
 
 Sanal ağ oluşturmak için [az network vnet create](/cli/azure/network/vnet) komutunu kullanın. Bu örnekte ağ, *mvVNet* olarak adlandırılmaktadır ve *10.0.0.0/16* adres öneki belirtilmiştir. Ayrıca *myFrontendSubnet* adıyla ve *10.0.1.0/24* önekiyle bir alt ağ oluşturulmaktadır. Bu öğreticinin ilerleyen bölümlerinde bu alt ağa bir ön uç bağlanmaktadır. 
 

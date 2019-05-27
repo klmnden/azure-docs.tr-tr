@@ -9,11 +9,11 @@ ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708517"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158670"
 ---
 Azure Blob depolama, Microsoft’un buluta yönelik nesne depolama çözümüdür. BLOB Depolama, büyük miktarda yapılandırılmamış verileri depolamak için optimize edilmiştir. Yapılandırılmamış verileri belirli bir veri modeli veya tanım, metin veya ikili veri gibi kalmıyor verilerdir.
 

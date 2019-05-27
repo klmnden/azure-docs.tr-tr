@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161407"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Varsayılan depolama alanı olarak Azure Data Lake depolama Gen1 ile PowerShell kullanarak HDInsight kümeleri oluşturma
 
@@ -45,7 +45,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşıladığınd
 
 * **Bir Azure aboneliğine**: Git [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 veya üstü**: Bkz: [PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
-* **Windows Yazılım Geliştirme Seti (SDK)**: Windows SDK'sını yüklemek için Git [Windows 10 için indirmeler ve Araçlar](https://dev.windows.com/downloads). SDK, bir güvenlik sertifikası oluşturmak için kullanılır.
+* **Windows Yazılım Geliştirme Seti (SDK)** : Windows SDK'sını yüklemek için Git [Windows 10 için indirmeler ve Araçlar](https://dev.windows.com/downloads). SDK, bir güvenlik sertifikası oluşturmak için kullanılır.
 * **Azure Active Directory Hizmet sorumlusu**: Bu öğretici, bir hizmet sorumlusu, Azure Active Directory'de (Azure AD) oluşturma işlemini açıklamaktadır. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir yöneticiyseniz, bu önkoşulu atlayabilirsiniz ve öğreticiyle devam edin.
 
     >[!NOTE]

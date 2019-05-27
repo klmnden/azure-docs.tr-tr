@@ -9,22 +9,30 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 12d1576c3bfbf96c0445fcd2a6f0bc37d6a68f11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02ef0d6c7c8ddc7088938d9c8ea379e3b97f3045
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753466"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158735"
 ---
-1. Tamamlamak [Azure Machine Learning Python hızlı](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) bir çalışma alanı oluşturmak için.  Atlayabilirsiniz **not defterini kullanma** istiyorsanız bölümü.
+1. [Bir Azure Machine Learning hizmeti çalışma alanı oluşturma](../articles/machine-learning/service/setup-create-workspace.md).
+
 1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
 
     ```
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
-1. Bu yöntemlerden birini kullanarak bir çalışma alanı yapılandırma dosyası ekleyin:
-    * Kopyalama **aml_config\config.json** kopyalanmış dizine önkoşul Hızlı Başlangıç'ı kullanarak oluşturduğunuz dosya.
+
+1. Bir çalışma alanı yapılandırma dosyası, bu yöntemlerden birini kullanarak kopyalanmış dizine ekleyin:
+
+    * İçinde [Azure portalında](https://ms.portal.azure.com)seçin **config.json indirme** gelen **genel bakış** çalışma alanınızın bir bölümü. 
+
+    ![Config.json dosyasını indir](./media/aml-dsvm-server/download-config.png)
+
     * Kod kullanarak yeni bir çalışma alanı oluşturma [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) kopyalanan dizininizdeki dizüstü bilgisayar.
+
+
 1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
     
     ```shell

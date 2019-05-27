@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66166200"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
@@ -118,7 +118,7 @@ Cihaz kimlik işlem kategorisi oluşturmak, güncelleştirmek veya IOT hub'ını
 }
 ```
 
-#### <a name="routes"></a>Yollar
+#### <a name="routes"></a>Rotalar
 
 İleti yönlendirme kategorisi ileti yönlendirme değerlendirme ve IOT Hub tarafından algılanan uç nokta sistem durumu sırasında oluşan hataları izler. Bu kategori, olayları gibi içerir:
 
@@ -345,7 +345,7 @@ Burada, `durationMs` hesaplanmaz IOT Hub'ın saati cihaz saatiyle eşitlenmiş o
 
 | Özellik | Tür | Açıklama |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Tamsayı | CİHAZDAN buluta ileti bayt cinsinden boyutu |
+| **messageSize** | Integer | CİHAZDAN buluta ileti bayt cinsinden boyutu |
 | **cihaz kimliği** | ASCII 7 bit alfasayısal karakter dizesi | Cihaz kimliği |
 | **callerLocalTimeUtc** | UTC zaman damgası | Cihaz yerel saat tarafından belirlendiği şekilde iletinin oluşturma zamanı |
 | **calleeLocalTimeUtc** | UTC zaman damgası | IOT Hub Hizmet tarafı saat tarafından belirlendiği şekilde, IOT Hub'ının geçidinde ileti geliş saati |

@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
 ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66168387"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  

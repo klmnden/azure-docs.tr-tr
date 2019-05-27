@@ -10,11 +10,11 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66163051"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Öğretici: 2. Kısım - yönlendirilmiş iletileri görüntüleyin
 
@@ -26,15 +26,15 @@ ms.locfileid: "59045842"
 
 Bu ileti yönlendirme için kurallar şunlardır; Bunlar bu öğreticinin 1 ayarlanmış ve bunları bu ikinci bölümünde görürsünüz.
 
-|değer |Sonuç|
+|value |Sonuç|
 |------|------|
 |level="storage" |Azure Depolama'ya yazın.|
 |level="critical" |Service Bus kuyruğuna yazın. Mantıksal Uygulama iletiyi kuyruktan alır ve Office 365 kullanarak iletiyi e-postayla gönderir.|
-|default |Power BI'ı kullanarak bu verileri görüntüleyin.|
+|varsayılan |Power BI'ı kullanarak bu verileri görüntüleyin.|
 
 Şimdi iletileri hub'ına ileti göndermek için bir uygulamayı çalıştırmayı yönlendirilir ve yönlendirme eylemini bkz kaynakları oluşturun.
 
-## <a name="create-a-logic-app"></a>Mantıksal Uygulama oluşturma  
+## <a name="create-a-logic-app"></a>Mantıksal Uygulama Oluştur  
 
 Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanılacaktır. Service Bus kuyruğunu izlemek ve kuyruğa ileti eklendiğinde bir e-posta göndermek için bir Mantıksal uygulama ayarlayın.
 
