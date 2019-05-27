@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 96e3a24b0c9f9ab21652ffcd1b29deeb512581e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202713"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833981"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma
 
@@ -54,7 +54,7 @@ Birkaç deposunda Azure Resource Manager şablonlarınızı düzenlemek için iz
     ![Anahtar Azure Resource Manager şablon dosyaları](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Bir parametre dosyasında tanımlanan parametre değerlerini kullanmak istiyorsanız, parametre dosyası adlandırılmalıdır `azuredeploy.parameters.json`.
-- Parametreleri kullanabilirsiniz `_artifactsLocation` ve `_artifactsLocationSasToken` parametersLink URI değerini oluşturmak için otomatik olarak iç içe geçmiş şablonlarını yönetmek DevTest Labs izin verme. Daha fazla bilgi için [nasıl Azure DevTest Labs kolaylaştırır iç içe geçmiş Resource Manager şablon dağıtımları için test ortamlarında](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
+- Parametreleri kullanabilirsiniz `_artifactsLocation` ve `_artifactsLocationSasToken` parametersLink URI değerini oluşturmak için otomatik olarak iç içe geçmiş şablonlarını yönetmek DevTest Labs izin verme. Daha fazla bilgi için [dağıtmak için test ortamlarında iç içe geçmiş Azure Resource Manager şablonları](deploy-nested-template-environments.md).
 - Meta veri tanımı ve şablon görünen adı belirtmek için tanımlanabilir. Bu meta verileri, adlı bir dosyaya olmalıdır `metadata.json`. Aşağıdaki örnek meta veri dosyası, görünen ad ve açıklama belirtin gösterilmektedir: 
 
     ```json

@@ -10,18 +10,18 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19873256f8253fff75cfd42df7b876106a9e98e5
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 70f9c34957b977aff9fc6211bf79415ed9abe255
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464783"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016519"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code için Azure Machine Learning'i kullanmaya başlayın
 
-Bu makalede, uzantı Azure Machine Learning için Visual Studio Code için eğitmek ve makine öğrenimi ve derin öğrenme modellerini Visual Studio Code'da Azure Machine Learning hizmetini kullanarak dağıtmak için nasıl kullanılacağını öğreneceksiniz.
+Bu makalede, uzantı Azure Machine Learning için Visual Studio Code için eğitmek ve makine öğrenimi ve derin öğrenme modelleri dağıtmak için nasıl kullanılacağını öğreneceksiniz.
 
-Azure Machine Learning hizmeti, yerel ve uzak işlem hedefleri çalıştırın, denemeler için destek sağlar. Her bir deneme için birden çok çalıştırma çalıştırmalarınızı farklı teknikleri, hiperparametreleri ve daha fazlasını deneyin genellikle gerektiği şekilde takip edebilirsiniz. Azure Machine Learning, özel ölçümler izlemek ve çalıştırma, veri bilimi yeniden üretilebilirliğini ve denetlenebilirlik etkinleştirme denemek için kullanabilirsiniz.
+[Azure Machine Learning hizmeti](overview-what-is-azure-ml.md) hedefleri yerel olarak ve uzaktan çalışan denemeleri işlem için destek sağlar. Her bir deneme için birden çok çalıştırma çalıştırmalarınızı farklı teknikleri, hiperparametreleri ve daha fazlasını deneyin genellikle gerektiği şekilde takip edebilirsiniz. Azure Machine Learning, özel ölçümler izlemek ve çalıştırma, veri bilimi yeniden üretilebilirliğini ve denetlenebilirlik etkinleştirme denemek için kullanabilirsiniz.
 
 Bu gibi durumlarda, bu modeller ayrıca test ve üretim ihtiyaçlarınız için dağıtabilirsiniz.
 
@@ -69,13 +69,13 @@ Azure Machine Learning uzantıyı yüklemek için:
 
    ![Yorumlayıcı seçin](./media/vscode-tools-for-ai/python.png)
 
-1. Penceresinin sağ alt köşesinde bir bildirim, Azure Machine Learning SDK'sını otomatik olarak yüklü olduğunu belirten görüntülenir. Yeni oluşturulan Python ortamını yerel ve özel ve Azure Machine Learning hizmeti ile çalışmak için Visual Studio Code önkoşulları vardır.
+1. Penceresinin sağ alt köşesinde bir bildirim, gösteren görünür [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) otomatik olarak yükleniyor. Yeni oluşturulan Python ortamını yerel ve özel ve Azure Machine Learning hizmeti ile çalışmak için Visual Studio Code önkoşulları vardır.
 
    ![Azure Machine için Python SDK'sı Learning yükleme](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Azure Machine Learning kullanmaya başlayın
 
-Visual Studio code'da makine öğrenimi modelleri dağıtma, oluşturmanız gerekir ve eğitim başlamadan önce bir [Azure Machine Learning hizmeti çalışma alanında](concept-azure-machine-learning-architecture.md#workspace) bulutta. Bu çalışma alanı modelleri ve kaynakları içerir. 
+Visual Studio code'da makine öğrenimi modelleri dağıtma, oluşturmanız gerekir ve eğitim başlamadan önce bir [Azure Machine Learning hizmeti çalışma alanında](concept-workspace.md) bulutta. Bu çalışma alanı modelleri ve kaynakları içerir. 
 
 Bir çalışma alanı oluşturun ve İlk denemenizi eklemek için:
 

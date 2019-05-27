@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025244"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851018"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Alanda programlanabilir kapı dizileri (FPGA) nedir
 
@@ -33,13 +33,13 @@ Aşağıdaki tablo ve diyagram nasıl FPGA diğer işlemcilere karşılaştırma
 |İşlemci||Açıklama|
 |---|:-------:|------|
 |Özel uygulama tümleşik devreler|ASICS|Özel bağlantı hatları, Google TensorFlow işlemci birimi (TPU) gibi yüksek verimlilik sağlar. Gereksinimleriniz değiştikçe bunlar yapılandırılamaz.|
-|Alanda programlanabilir kapı dizileri|FPGA'lar|FPGA, azure'da kullanılabilen gibi ASICS yakın bir performans sağlar. Bunlar ayrıca yeni mantığını uygulamak için zaman içinde esnek ve sunmanın.|
+|Alanda programlanabilir kapı dizileri|FPGA|FPGA, azure'da kullanılabilen gibi ASICS yakın bir performans sağlar. Bunlar ayrıca yeni mantığını uygulamak için zaman içinde esnek ve sunmanın.|
 |Grafik işleme birimleri|GPU'ları|Yapay ZEKA hesaplamalar için popüler bir seçimdir. GPU'ları, daha hızlı CPU'lar daha görüntü işleme sırasında kolaylaştırır, paralel işleme özellikleri sunar.|
-|Merkezi işlem birimleri|CPU’lar|Genel amaçlı işlemcilerde, performansını, grafik ve video işleme için ideal değildir.|
+|Merkezi işlem birimleri|CPU'lar|Genel amaçlı işlemcilerde, performansını, grafik ve video işleme için ideal değildir.|
 
 Azure'da FPGA, gerçek zamanlı AI hesaplamalar hızlandırmak için hangi veri bilimcilerine ve geliştiricilere kullanmak Intel FPGA cihazlarda temel alır. FPGA özellikli bu mimari, performans, esneklik ve ölçek sağlar ve Azure'da kullanıma sunuldu.
 
-FPGA gerçek zamanlı çıkarım istekleri için düşük gecikme süresine ulaşmanız mümkün kılar. Zaman uyumsuz istekler (toplu) gerekli değildir. Toplu işlem gecikme süresi, daha fazla veri işlenmesi gerektiğinden neden olabilir. Toplu işlem uygulamaları sinir işleme birimlerinin gerektirmeyen; Bu nedenle gecikmesi CPU ve GPU işlemcilerle karşılaştırıldığında birçok kez daha düşük olabilir.
+FPGA istekleri gerçek zamanlı çıkarımı (veya model Puanlama) için düşük gecikme süresi elde etmek mümkün kılar. Zaman uyumsuz istekler (toplu) gerekli değildir. Toplu işlem gecikme süresi, daha fazla veri işlenmesi gerektiğinden neden olabilir. Toplu işlem uygulamaları sinir işleme birimlerinin gerektirmeyen; Bu nedenle gecikmesi CPU ve GPU işlemcilerle karşılaştırıldığında birçok kez daha düşük olabilir.
 
 ### <a name="reconfigurable-power"></a>Sunmanın güç
 Makine öğrenimi modellerini farklı türleri için FPGA yeniden yapılandırabilirsiniz. Bu esneklik en iyi sayısal duyarlık ve kullanılan bellek modeli göre uygulamaları hızlandırmak kolaylaştırır. FPGA sunmanın olduğundan, yapay ZEKA algoritmalarının hızla değişen gereksinimleri ile güncel kalın.

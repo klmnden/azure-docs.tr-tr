@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: c7a80ae704d13934a5d51bc5538bc28693b49e5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890636"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860338"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Hızlı Başlangıç: MongoDB için .NET SDK'sını ve Azure Cosmos DB'nin API'sini bir Xamarin.Forms uygulaması oluşturma
 
@@ -34,7 +34,7 @@ Bu hızlı başlangıçta nasıl oluşturulacağını gösterir. bir [MongoDB i�
 
 Örneği çalıştırmak için [Visual Studio](https://www.visualstudio.com/downloads/) veya [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/) ve geçerli bir Azure CosmosDB hesabı olması gerekir.
 
-Visual Studio yoksa [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirin ve **.NET ile mobil geliştirme** iş yükünü kurulumla birlikte yükleyin.
+Visual Studio zaten yoksa, indirme [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) ile **.NET ile Mobil Geliştirme** iş yükünü kurulumla birlikte yükleyin.
 
 Mac'te çalışmayı tercih ediyorsanız [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/)'yu indirin ve kurulumu çalıştırın.
 
@@ -164,7 +164,7 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. Visual Studio'nun **Çözüm Gezgini** bölümünde her bir projeye sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
 2. **Tüm NuGet paketlerini geri yükle**'ye tıklayın.

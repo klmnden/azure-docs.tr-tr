@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522937"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833567"
 ---
 # <a name="remote-desktop-client-connections"></a>Uzak Masaüstü istemcisi bağlantıları
 
@@ -28,9 +28,9 @@ Başka bir web sitesini açarak internet bağlantısı olduğunu doğrulayın; �
 
 Kullanım **nslookup** DNS FQDN giderebilir onaylamak için:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Windows 7 veya Windows 10 ve onay web istemcisi açarsanız görmek uzak masaüstü istemcisini gibi başka bir istemci ile bağlanmayı deneyin.
 
@@ -54,7 +54,7 @@ Windows 7 veya Windows 10 ve onay web istemcisi açarsanız görmek uzak masaüs
 
 1. Tarayıcı yeniden başlatın.
 2. Açık tarayıcı tanımlama bilgileri. Bkz: [Internet Explorer'da tanımlama bilgisi dosyalarını nasıl sileceğinizi](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Açık tarayıcı önbelleğini. Bkz: [tarayıcınızın tarayıcı önbelleğini Temizle](https://binged.it/2RKyfdU).
+3. Tarayıcı önbelleğini temizleyin. Bkz: [tarayıcınızın tarayıcı önbelleğini Temizle](https://binged.it/2RKyfdU).
 4. Açık tarayıcı özel modda.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Web istemci yanıt vermiyor veya bağlantısını keser
@@ -74,7 +74,7 @@ Web istemcisi için kimlik bilgilerini isteyen tutar, bu yönergeleri izleyin.
 1. Web istemci URL'nin doğru olduğunu onaylayın.
 2. Kimlik bilgilerinin Windows sanal masaüstü ortamı URL'sine bağlı olduğunu onaylayın.
 3. Açık tarayıcı tanımlama bilgileri. Bkz: [Internet Explorer'da tanımlama bilgisi dosyalarını nasıl sileceğinizi](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Açık tarayıcı önbelleğini. Bkz: [tarayıcınızın tarayıcı önbelleğini Temizle](https://binged.it/2RKyfdU).
+4. Tarayıcı önbelleğini temizleyin. Bkz: [tarayıcınızın tarayıcı önbelleğini Temizle](https://binged.it/2RKyfdU).
 5. Açık tarayıcı özel modda.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Windows 7 veya Windows 10 için Uzak Masaüstü İstemcisi yanıt vermiyor veya açılamıyor
@@ -111,20 +111,20 @@ Bu istemci bağlantısı hata kodları için genel sorun giderme yönergeleri iz
 4. Kullanarak **Get-RdsHostPool** ve **Get-RdsSessionHost** cmdlet'leri, sorun giderme doğru konak havuzunda yapıldığını onaylayın.
 5. Belirtilen zaman penceresi için bağlantı türü tüm başarısız etkinlikler listesini almak için aşağıdaki komutu yürütün:
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. Kullanarak **ActivityID** önceki cmdlet'inin çıktısı, aşağıdaki komutu çalıştırın:
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. Komutu, aşağıda gösterilen çıktıya benzer bir çıktı üretir. Kullanım **ErrorCodeSymbolic** ve **ErrorMessage** kökenini giderilir.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ Bir kullanıcı, Uzak Masaüstü istemcilerini başlayabilir ve kimlik doğrulam
 
 Bu komut satırını kullanarak sorunları raporlama kullanıcı uygulama gruplarına atanmış onaylayın:
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

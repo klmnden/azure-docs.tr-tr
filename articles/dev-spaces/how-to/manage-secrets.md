@@ -9,12 +9,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
-ms.openlocfilehash: 9fe29e8717c76c353f3e95d4693011f3925c4e1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686455"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851428"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yönetme
 
@@ -24,7 +24,7 @@ Azure geliştirme alanları, iki önerilen gizli dizileri depolamak için seçen
  
 ## <a name="method-1-valuesdevyaml"></a>Yöntem 1: values.dev.yaml
 1. VS Code için Azure geliştirme alanları etkin projenizle açın.
-2. Adlı bir dosya ekleyin _values.dev.yaml_ aynı klasörde mevcut olarak _values.yaml_ ve gizli anahtarı ve değerleri, aşağıdaki örnekte gösterildiği gibi tanımlayın:
+2. Adlı bir dosya ekleyin _values.dev.yaml_ aynı klasörde mevcut olarak _azds.yaml_ ve gizli anahtarı ve değerleri, aşağıdaki örnekte gösterildiği gibi tanımlayın:
 
     ```yaml
     secrets:
@@ -34,12 +34,13 @@ Azure geliştirme alanları, iki önerilen gizli dizileri depolamak için seçen
         key: "secretkeyhere"
     ```
      
-3. Güncelleştirme _azds.yaml_ yeni kullanmak için Azure geliştirme alanları bildirmek için _values.dev.yaml_ dosya. Bunu yapmak için bu yapılandırma configurations.develop.container bölümünde ekleyin:
+3. _azds.yaml_ zaten başvuruyor _values.dev.yaml_ varsa dosya. Farklı bir dosya adı tercih ederseniz, install.values bölüm güncelleştirin:
 
     ```yaml
-           container:
-             values:
-             - "charts/webfrontend/values.dev.yaml"
+    install:
+      values:
+      - values.dev.yaml?
+      - secrets.dev.yaml?
     ```
  
 4. Bu gizli dizileri için aşağıdaki örnekte olduğu gibi ortam değişkenleri olarak başvurmak için hizmet kodunuzu değiştirin:
@@ -76,17 +77,17 @@ Azure geliştirme alanları, iki önerilen gizli dizileri depolamak için seçen
           set:
             secrets:
               redis:
-                port: "$REDIS_PORT_DEV"
-                host: "$REDIS_HOST_DEV"
-                key: "$REDIS_KEY_DEV"
+                port: "$REDIS_PORT"
+                host: "$REDIS_HOST"
+                key: "$REDIS_KEY"
     ```
      
 2.  Oluşturma bir _.env_ dosya aynı klasörde _azds.yaml_. Standart bir anahtar kullanarak parolaları girin = değer gösterimi. İşleme yok _.env_ dosya kaynak denetimine. (Kaynak denetiminden git tabanlı sürüm denetim sistemleri atlamak için eklemeniz _.gitignore_ dosyası.) Aşağıdaki örnekte gösterildiği bir _.env_ dosyası:
 
     ```
-    REDIS_PORT_DEV=3333
-    REDIS_HOST_DEV=myredishost
-    REDIS_KEY_DEV=myrediskey
+    REDIS_PORT=3333
+    REDIS_HOST=myredishost
+    REDIS_KEY=myrediskey
     ```
 2.  Bu kod, aşağıdaki örnekte olduğu gibi gizli başvurmak için hizmet kaynak kodunuzu değiştirin:
 

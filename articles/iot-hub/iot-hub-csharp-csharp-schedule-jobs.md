@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
-ms.openlocfilehash: db34734e9fbb8635f1a62def8a877d83d02e2206
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216382"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864474"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>İşleri (.NET/.NET) zamanlama ve yayınlama
 
@@ -49,7 +49,7 @@ Bu öğreticinin sonunda, iki .NET (C#) konsol uygulamanız olacak:
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Visual Studio 2017.
+* Visual Studio.
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma

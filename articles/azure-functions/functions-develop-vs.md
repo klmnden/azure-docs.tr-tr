@@ -1,6 +1,6 @@
 ---
 title: Visual Studio kullanarak Azure işlevleri geliştirme | Microsoft Docs
-description: Geliştirin ve Visual Studio 2017 için Azure işlevleri araçları kullanarak Azure işlevlerini test etme hakkında bilgi edinin.
+description: Azure işlevleri için Visual Studio 2019 Azure işlevleri araçları kullanarak test ve geliştirme hakkında bilgi edinin.
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403892"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864524"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
-Visual Studio 2017 için Azure işlevleri araçları, geliştirme, test etme ve C# işlevlerini Azure'a dağıtma sayesinde Visual Studio uzantısıdır. Bu deneyim, Azure işlevleri ile ilk ise, daha fazla bilgi edinebilirsiniz [Azure işlevleri giriş](functions-overview.md).
+Azure işlevleri araçları Visual Studio 2019 için'olan geliştirme, test ve dağıtmanıza olanak sağlayan Visual Studio için uzantı C# Azure işlevleri. Bu deneyim, Azure işlevleri ile ilk ise, daha fazla bilgi edinebilirsiniz [Azure işlevleri giriş](functions-overview.md).
 
 Azure işlevleri araçları aşağıdaki avantajları sağlar: 
 
@@ -29,16 +29,16 @@ Azure işlevleri araçları aşağıdaki avantajları sağlar:
 * Geliştirin ve önceden derlenmiş C# işlevlerini dağıtın. Önceden derlenmiş işlevleri C# betiği tabanlı İşlevler'den daha iyi soğuk başlangıç performans sağlar. 
 * Tüm Visual Studio geliştirme avantajları yaparken işlevlerinizi C# kod. 
 
-Bu makalede geliştirmek için Visual Studio 2017 için Azure işlevleri Araçları'nı kullanma hakkında ayrıntılar sunulmaktadır C# işlevler ve bunları Azure'a yayımlayın. Bu makaleyi okuyun önce tamamlamanız gereken [Visual Studio için işlevleri hızlı](functions-create-your-first-function-visual-studio.md). 
+Bu makalede geliştirmek için Visual Studio 2019 için Azure işlevleri Araçları'nı kullanma hakkında ayrıntılar sunulmaktadır C# işlevler ve bunları Azure'a yayımlayın. Bu makaleyi okuyun önce tamamlamanız gereken [Visual Studio için işlevleri hızlı](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Yerel geliştirme portalı geliştirme aynı işlev uygulaması ile karıştırmayın. Bir işlev uygulaması için yerel bir projeden yayımladığınızda, dağıtım işlemi portalda geliştirilen tüm işlevleri üzerine yazar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure işlevleri araçları Azure geliştirme iş yükü dahil [Visual Studio 2017 sürüm 15.5](https://www.visualstudio.com/vs/), veya sonraki bir sürümü. Dahil olduğundan emin olun **Azure geliştirme** iş yükünde, Visual Studio 2017'yi yükleme:
+Azure işlevleri araçları Azure geliştirme iş yükü dahil [Visual Studio 2017](https://www.visualstudio.com/vs/), veya sonraki bir sürümü. Dahil olduğundan emin olun **Azure geliştirme** iş yükünü Visual Studio 2019 yüklemenize:
 
-![Azure geliştirme iş yüküyle Visual Studio 2017’yi yükleyin](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Azure geliştirme iş yüküyle Visual Studio 2019 yükleyin](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Visual Studio güncel olduğunu ve kullandığınız emin [en son sürüm](#check-your-tools-version) Azure işlevleri araçları.
 
@@ -181,7 +181,7 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 Azure işlevleri çekirdek araçları kullanma hakkında daha fazla bilgi edinmek için [kod ve Azure işlevleri yerel olarak test](functions-run-local.md).
 
-## <a name="publish-to-azure"></a>Azure’da Yayımlama
+## <a name="publish-to-azure"></a>Azure'a Yayımla
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 

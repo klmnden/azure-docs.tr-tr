@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a4702ac0f70e3fc280501cd9524ccbfb528678
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546259"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832493"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft Identity Platform'un gelişimi
 
-Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Kullanıcılar oturum, gibi Microsoft Graph API'leri veya geliştiricilerin geliştirdim API'leri çağırmak için belirteçleri almak uygulamalar oluşturmalarını sağlar. Bir kimlik doğrulama hizmeti, açık kaynak kitaplıkları, uygulama kaydı ve yapılandırması (aracılığıyla bir geliştirici portal ve API uygulaması) oluşan tam bir geliştirici belgeleri, hızlı başlangıç örnekleri, kod örnekleri, öğreticiler, nasıl yapılır kılavuzları, ve diğer Geliştirici içeriği. Microsoft Identity Platform OAuth 2.0 ve OpenID Connect gibi sektör standardı protokolleri destekler.
+Microsoft kimlik platformu, Azure Active Directory (Azure AD) geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Kullanıcılar oturum, gibi Microsoft Graph API'leri veya geliştiricilerin geliştirdim API'leri çağırmak için belirteçleri almak uygulamalar oluşturmalarını sağlar. Bir kimlik doğrulama hizmeti, açık kaynak kitaplıkları, uygulama kaydı ve yapılandırması (aracılığıyla bir geliştirici portal ve API uygulaması) oluşan tam bir geliştirici belgeleri, hızlı başlangıç örnekleri, kod örnekleri, öğreticiler, nasıl yapılır kılavuzları, ve diğer Geliştirici içeriği. Microsoft Identity Platform OAuth 2.0 ve OpenID Connect gibi sektör standardı protokolleri destekler.
 
 Şimdiye kadar Çoğu geliştirici iş kimliğini doğrulamak ve Okul hesapları (Azure AD tarafından sağlanan) için Azure AD v1.0 platformuyla Azure AD v1.0 uç noktasından belirteç talep ederek Azure AD Authentication Library (ADAL) için Azure portalı kullanarak çalıştı Uygulama kaydı ve yapılandırması ve programlı uygulama yapılandırması için Azure AD Graph API'si.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192204"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849844"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Küme güvenliği ve yükseltmeler Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -50,7 +50,7 @@ Azure AD tümleştirmesi ve RBAC hakkında daha fazla bilgi için bkz. [en iyi u
 
 En az kullanıcılar veya gruplar vermelisiniz aynı şekilde ayrıcalıkları sayısı gerekli, kapsayıcılar da eylemleri ve ihtiyaç duydukları işlemleri yalnızca sınırlı olmalıdır. Saldırı riskini en aza indirmek için uygulamaları ve ilerletilen ayrıcalıkları gerektiren veya kök erişim kapsayıcıları yapılandırmayın. Örneğin, `allowPrivilegeEscalation: false` pod katıştırır. Bunlar *güvenlik kapsamları pod* Kubernetes ve kullanıcı veya grup gibi ek izinler olarak çalıştırmak için tanımlamanıza imkan tanır yerleşiktir ya da Linux özellikleri göstermek için. Diğer en iyi yöntemleri için bkz. [kaynaklara erişimi güvenli pod][pod-security-contexts].
 
-Kapsayıcı işlemlerin daha ayrıntılı denetim için yerleşik Linux güvenlik özellikleri gibi kullanabilirsiniz *AppArmor* ve *seccomp*. Bu özellikler düğümü düzeyinde tanımlanan ve ardından bir pod bildirimi aracılığıyla uygulanır.
+Kapsayıcı işlemlerin daha ayrıntılı denetim için yerleşik Linux güvenlik özellikleri gibi kullanabilirsiniz *AppArmor* ve *seccomp*. Bu özellikler düğümü düzeyinde tanımlanan ve ardından bir pod bildirimi aracılığıyla uygulanır. Yerleşik Linux güvenlik özellikleri, yalnızca Linux düğümleri ve pod'ları üzerinde kullanılabilir.
 
 > [!NOTE]
 > AKS veya başka bir yerde, Kubernetes ortamlarını tehlikeli çok kiracılı kullanım için tamamen güvenli değildir. Ek güvenlik özellikleri gibi *AppArmor*, *seccomp*, *Pod güvenlik ilkeleri*, veya daha fazla ayrıntılı rol tabanlı erişim denetimleri (RBAC) düğümleri için davranışları daha zor. Ancak, tehlikeli çok kiracılı iş yüklerini çalıştırırken doğru güvenlik için bir hiper yönetici yalnızca güvenip güvenmeyeceğini güvenlik düzeyidir. Kubernetes için güvenlik etki alanı, tüm küme, tek bir düğüm olur. Bu tür tehlikeli çok kiracılı iş yükleri için fiziksel olarak izole edilmiş kümeleri kullanmanız gerekir.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 AKS yükseltmeler hakkında daha fazla bilgi için bkz. [aks'deki Kubernetes desteklenen sürümlerini] [ aks-supported-versions] ve [AKS kümesini yükseltme][aks-upgrade].
 
-## <a name="process-node-updates-and-reboots-using-kured"></a>İşlem düğümü güncelleştirir ve kured kullanarak yeniden başlatır.
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>İşlem Linux düğümü güncelleştirir ve kured kullanarak yeniden başlatır.
 
-**En iyi uygulama kılavuzunu** - AKS otomatik olarak indirir ve yükler güvenlik düzeltmeleri her çalışan düğümü, ancak otomatik olarak gerekirse yeniden başlatmaz. Kullanım `kured` izlemesi yeniden başlatmalar, ardından güvenli bir şekilde kordon altına alma ve düğümü yeniden başlatmak izin vermek için düğüm boşaltma için güncelleştirmelerini ve işletim sistemi ile ilgili mümkün olduğu kadar güvenli.
+**En iyi uygulama kılavuzunu** - AKS otomatik olarak indirir ve yükler güvenlik düzeltmeleri her Linux düğümlerinde, ancak otomatik olarak gerekirse yeniden başlatmaz. Kullanım `kured` izlemesi yeniden başlatmalar, ardından güvenli bir şekilde kordon altına alma ve düğümü yeniden başlatmak izin vermek için düğüm boşaltma için güncelleştirmelerini ve işletim sistemi ile ilgili mümkün olduğu kadar güvenli. (Şu anda önizlemede aks'deki) Windows Server düğümleri için düzenli olarak güvenli bir şekilde kordon altına alma ve pod'ların boşaltabilir ve güncelleştirilmiş düğümlerini dağıtmak için bir AKS yükseltme işlemi gerçekleştirin.
 
-Her Akşam AKS düğümleri güvenlik düzeltme ekleri, distro güncelleştirme kanalı kullanıma alın. Bu davranış, bir AKS kümesinde düğümlere dağıtılmış olarak otomatik olarak yapılandırılır. Kesintisi ve çalışan iş yükleri için olası etkisini en aza indirmek için düğümleri otomatik olarak bir güvenlik düzeltme eki, yeniden başlatılır değil veya çekirdek güncelleştirme gerektiriyor.
+Her Akşam aks'deki Linux düğümleri güvenlik düzeltme ekleri, distro güncelleştirme kanalı kullanıma alın. Bu davranış, bir AKS kümesinde düğümlere dağıtılmış olarak otomatik olarak yapılandırılır. Kesintisi ve çalışan iş yükleri için olası etkisini en aza indirmek için düğümleri otomatik olarak bir güvenlik düzeltme eki, yeniden başlatılır değil veya çekirdek güncelleştirme gerektiriyor.
 
-Açık kaynak [kured (KUbernetes yeniden arka plan programı)] [ kured] Weaveworks tarafından proje düğümünü yeniden başlatma için izler. Bir düğümü yeniden başlatma gerektiren güncelleştirmeler uygulandığında, düğüm güvenli bir şekilde kordonlanır ve taşıma ve kümedeki diğer düğümlere pod'ları planlamak için boşaltılır. Düğüm yeniden başlatıldıktan sonra Kubernetes sürdürür üzerindeki pod'ları zamanlama ve küme yeniden içine eklenir. Uğramasını azaltmak için aynı anda yalnızca tek bir düğüm tarafından başlatılması izin `kured`.
+Açık kaynak [kured (KUbernetes yeniden arka plan programı)] [ kured] Weaveworks tarafından proje düğümünü yeniden başlatma için izler. Bir Linux düğümü yeniden başlatma gerektiren güncelleştirmeler uygulandığında, düğüm güvenli bir şekilde kordonlanır ve taşıma ve kümedeki diğer düğümlere pod'ları planlamak için boşaltılır. Düğüm yeniden başlatıldıktan sonra Kubernetes sürdürür üzerindeki pod'ları zamanlama ve küme yeniden içine eklenir. Uğramasını azaltmak için aynı anda yalnızca tek bir düğüm tarafından başlatılması izin `kured`.
 
 ![Kured kullanarak AKS düğümü yeniden başlatma işlemi](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

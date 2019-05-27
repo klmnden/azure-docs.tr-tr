@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: beee76bdc443b3a66b4500b83d228075b84eed1e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413873"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864763"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure Web Apps'te dağıtım hakkında SSS
 
@@ -38,9 +38,9 @@ Web uygulaması kodunuzu yayımlamak için bazı seçenekler şunlardır:
 
 Daha fazla bilgi için [uygulamanızı App Service'e dağıtma](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Visual Studio'dan dağıtmak çalıştığınızda bir hata iletisi konusuna bakın. Bu nasıl giderebilirim?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Visual Studio'dan dağıtmak çalıştığınızda bir hata iletisi konusuna bakın. Bu hatanın nasıl giderebilirim?
 
-Aşağıdaki iletiyi görürseniz, SDK'ın eski bir sürümünü kullanıyor olabilirsiniz: "'YourResourceGroup' kaynak grubundaki 'YourResourceName' kaynağının dağıtımı sırasında hata oluştu: MissingRegistrationForLocation: Abonelik, 'Orta ABD' konum ' Bileşenler' kaynak türü için kayıtlı değil. Lütfen bu sağlayıcı için bu konuma erişimi olması için yeniden kaydedin." 
+Aşağıdaki iletiyi görürseniz, SDK'ın eski bir sürümünü kullanıyor olabilirsiniz: "'YourResourceGroup' kaynak grubundaki 'YourResourceName' kaynağının dağıtımı sırasında hata oluştu: MissingRegistrationForLocation: Abonelik, 'Orta ABD' konum ' Bileşenler' kaynak türü için kayıtlı değil. Bu sağlayıcı için bu konuma erişimi olması için yeniden kaydedin." 
 
 Bu hatayı gidermek için yükseltme [en son SDK'sı](https://azure.microsoft.com/downloads/). Bu iletiyi görürseniz ve en son SDK'sına sahip bir destek isteği gönderin.
 
@@ -69,11 +69,11 @@ Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox ve diğer Git depoları da da
 
 Yardım için GitHub veya Bitbucket sürekli dağıtım sorunlarını araştırma [sürekli dağıtım araştırma](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Sitem için FTP olamaz ve kodum yayımlayın. Bu nasıl giderebilirim?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Sitem için FTP olamaz ve kodum yayımlayın. Bu sorunu nasıl giderebilirim?
 
 FTP sorunları çözmek için:
 
-1. Doğru ana bilgisayar adı ve kimlik bilgilerini girip girmediğinizi denetleyin. Farklı türde kimlik bilgileri ve bunların nasıl kullanılacağı hakkında ayrıntılı bilgi için bkz: [dağıtım kimlik bilgileri](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Doğru ana bilgisayar adı ve kimlik bilgilerini girdiğinizden emin olun. Farklı türde kimlik bilgileri ve bunların nasıl kullanılacağı hakkında ayrıntılı bilgi için bkz: [dağıtım kimlik bilgileri](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. FTP bağlantı noktalarının bir güvenlik duvarı tarafından engellenmediğinden emin olun. Bağlantı noktalarını bu ayarlara sahip olmalıdır:
     * FTP denetim bağlantı noktası: 21
     * FTP veri bağlantı noktası: 989, 10001-10300

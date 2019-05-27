@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230139"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850522"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -70,9 +70,9 @@ Destek Hizmetleri ve uygulamaları çalıştırmak için bir Kubernetes gerekir 
 
 Azure VM boyutu, düğümleri için kaç CPU'lar, tanımlar ne kadar bellek ve boyutu ile türünü depolama (yüksek performanslı SSD veya HDD normal gibi) kullanılabilir. Büyük miktarda CPU ve bellek veya yüksek performanslı depolama gerektiren uygulamalar için bir öngörüyorsanız düğüm boyutunu buna göre planlayın. Ayrıca, talebi karşılamak üzere, AKS kümenizin sayıda düğüm ölçeklendirebilirsiniz.
 
-AKS kümenizde düğümleri için VM görüntüsü şu anda Ubuntu Linux üzerinde temel alır. AKS kümesi oluşturma veya düğüm sayısını, Azure platformu istenen VM sayısını oluşturur ve bunları yapılandırır. Gerçekleştirmeniz için el ile yapılandırma yoktur.
+AKS kümenizde düğümleri için VM görüntüsü şu anda Ubuntu Linux veya Windows Server 2019 temel alır. AKS kümesi oluşturma veya düğüm sayısını, Azure platformu istenen VM sayısını oluşturur ve bunları yapılandırır. Gerçekleştirmeniz için el ile yapılandırma yoktur.
 
-İşletim sistemi, kapsayıcı çalışma zamanı, farklı bir konak kullanın veya özel paketler dahil gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [aks altyapısı][aks-engine]. Yukarı Akış `aks-engine` özellikleri serbest bırakır ve resmi olarak AKS kümelerde desteklenen önce yapılandırma seçenekleri sağlar. Örneğin, Windows kapsayıcıları veya bir kapsayıcı çalışma zamanı Moby dışında kullanmak isterseniz kullanabileceğiniz `aks-engine` yapılandırmak ve geçerli ihtiyaçlarınıza uygun bir Kubernetes kümesi dağıtmak için.
+İşletim sistemi, kapsayıcı çalışma zamanı, farklı bir konak kullanın veya özel paketler dahil gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [aks altyapısı][aks-engine]. Yukarı Akış `aks-engine` özellikleri serbest bırakır ve resmi olarak AKS kümelerde desteklenen önce yapılandırma seçenekleri sağlar. Örneğin, bir kapsayıcı çalışma zamanı Moby dışında kullanmak isterseniz, kullanabileceğiniz `aks-engine` yapılandırmak ve geçerli ihtiyaçlarınıza uygun bir Kubernetes kümesi dağıtmak için.
 
 ### <a name="resource-reservations"></a>Kaynak ayırmalar
 
@@ -104,6 +104,27 @@ Aynı yapılandırmaya sahip düğümler halinde gruplandırılır birlikte *dü
 Ölçeklendirme ya da bir AKS kümesini yükseltme eylemi varsayılan düğüm havuzu karşı yapılır. Ölçeklendirin veya belirli bir düğüm havuzu yükseltmek seçebilirsiniz. Tüm düğümleri başarıyla yükseltilene kadar yükseltme işlemlerinde, düğüm havuzdaki diğer düğüm üzerinde çalışan kapsayıcıları zamanlanır.
 
 AKS içindeki birden çok düğüm havuzları kullanma hakkında daha fazla bilgi için bkz. [oluşturun ve bir AKS kümesi için birden çok düğüm havuzları yönetme][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Düğüm Seçici
+
+Birden fazla düğüm havuzu içeren bir AKS kümesinde belirli bir kaynak için kullanılacak hangi düğüm havuzu Kubernetes Zamanlayıcı bildirmeniz gerekebilir. Örneğin, giriş denetleyicileri (şu anda önizlemede aks'deki) Windows Server düğümlerinde çalıştırmamalısınız. Düğüm seçici bir pod burada zamanlanması gerektiğini denetlemek için işletim sistemi, düğüm gibi çeşitli parametreleri tanımlamanıza olanak sağlar.
+
+Aşağıdaki temel örnek, NGINX örneğini düğüm Seçicisi'ni kullanarak bir Linux düğümde zamanlar *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Pod'ların nereden zamanlanır denetleme hakkında daha fazla bilgi için bkz. [aks'deki Gelişmiş Zamanlayıcı özellikleri için en iyi yöntemler][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pod'ları
 
@@ -248,3 +269,4 @@ Bu makale, bazı temel Kubernetes bileşenleri ve bunların AKS kümeye nasıl u
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

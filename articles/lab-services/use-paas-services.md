@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233130"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833922"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Azure DevTest Labs'de olarak bir-hizmet Platform (PaaS) Hizmetleri kullanın
 PaaS, DevTest Labs'de ortamları özelliği aracılığıyla desteklenir. DevTest Labs ortamlarda bir Git deposunda önceden yapılandırılmış Azure Resource Manager şablonları tarafından desteklenir. Ortamlar hem PaaS ve Iaas kaynakları içerebilir. Sanal makineler, veritabanları, sanal ağlar gibi Azure kaynaklarını içeren karmaşık sistemleri ve birlikte çalışmak için özelleştirilmiş Web uygulamaları oluşturmanıza olanak sağlar. Bu şablonlar, tutarlı dağıtım ve kaynak kodu denetimi kullanarak ortamlar geliştirilmiş yönetimi sağlar. 
@@ -53,7 +53,7 @@ Kaynak grubu dışında ve şablona erişebilmesi ortamlar için belirli bazı �
 [Ortamlarını Laboratuvar sanal ağa bağlama](connect-environment-lab-virtual-network.md) makalede kullanmak için Resource Manager şablonu nasıl değiştireceğiniz `$(LabSubnetId)` belirteci. Bir ortam oluşturulduğunda `$(LabSubnetId)` belirteci ilk alt ağ işareti yerine burada **sanal makinesinde kullanımı oluşturma** seçeneği **true**. Daha önce oluşturulan ağlarının ortamımızda kullanmayı sağlar. Hazırlama ve üretim aynı Resource Manager şablonları test ortamlarında kullanmak istiyorsanız, kullanın `$(LabSubnetId)` Resource Manager şablon parametresi varsayılan değer olarak. 
 
 #### <a name="environment-storage-account"></a>Ortamı depolama hesabı
-DevTest Labs kullanılmasını desteklediği [Resource Manager şablonları iç içe geçmiş](../azure-resource-manager/resource-group-linked-templates.md). [Nasıl Azure DevTest Labs kolaylaştırır iç içe geçmiş Resource Manager şablon dağıtımları için test ortamlarında](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) makalesi, nasıl kullanılacağını açıklar `_artifactsLocation` ve `_artifactsLocationSasToken` belirteçleri için bir Resource Manager şablonunda bir URI oluşturmak için aynı klasör olarak veya ana şablonunun iç içe bir klasör. Bu iki belirteçleri hakkında daha fazla bilgi için bkz: **dağıtım yapıtları** bölümünü [Azure Resource Manager – en iyi uygulamalar Kılavuzu](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs kullanılmasını desteklediği [Resource Manager şablonları iç içe geçmiş](../azure-resource-manager/resource-group-linked-templates.md). [[Dağıtmak için test ortamlarında iç içe geçmiş Azure Resource Manager şablonları](deploy-nested-template-environments.md) makalesi, nasıl kullanılacağını açıklar `_artifactsLocation` ve `_artifactsLocationSasToken` belirteçleri aynı klasörde veya iç içe bir Resource Manager şablonu için bir URI oluşturmak için ana şablon klasörü. Bu iki belirteçleri hakkında daha fazla bilgi için bkz: **dağıtım yapıtları** bölümünü [Azure Resource Manager – en iyi uygulamalar Kılavuzu](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Kullanıcı deneyimi
 

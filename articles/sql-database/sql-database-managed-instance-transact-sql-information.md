@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866858"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852141"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -46,7 +46,7 @@ Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı alt
 - [BIRAKMA KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) yan tümcesi [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) deyimi
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Yedekle
 
 Yönetilen örneğiniz kullanıcılara tam bir veritabanı oluşturabilmesi için otomatik yedeklemeler, `COPY_ONLY` yedekler. Fark, günlük ve dosya anlık görüntüsü yedekleri desteklenmez.
 
@@ -115,7 +115,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Kimlik Bilgisi
+### <a name="credential"></a>Kimlik bilgisi
 
 Azure Key Vault ve `SHARED ACCESS SIGNATURE` kimlikleri desteklenir. Windows kullanıcıları desteklenmez.
 
@@ -276,11 +276,11 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - SQL Server Aracısı ayarları salt okunur. Yordamı `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor. 
-- İşler
+- İşler (Job)
   - T-SQL iş adımları desteklenir.
   - Şu çoğaltma işleri desteklenir:
     - İşlem günlüğü okuyucusu
-    - Anlık Görüntü
+    - Anlık görüntü
     - Dağıtıcı
   - SSIS iş adımları desteklenir.
   - İş adımları diğer türleri şu anda desteklenmemektedir:
@@ -471,7 +471,7 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 
 ### <a name="tempdb-size"></a>TEMPDB boyutu
 
-En büyük dosya boyutu `tempdb` genel amaçlı katmanında çekirdek başına 24 GB değerinden fazla olamaz. En fazla `tempdb` boyutu iş açısından kritik katmanında Örnek Depolama boyutuyla sınırlıdır. `tempdb` Veritabanı her zaman 12 veri dosyalarıyla bölünür. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyaları eklenebilir `tempdb`. Bazı sorgular, çekirdek başına birden fazla 24 GB'a ihtiyacınız varsa bir hata döndürebilir `tempdb`.
+En büyük dosya boyutu `tempdb` genel amaçlı katmanında çekirdek başına 24 GB değerinden fazla olamaz. En fazla `tempdb` boyutu iş açısından kritik katmanında Örnek Depolama boyutuyla sınırlıdır. `tempdb` Veritabanı her zaman 12 veri dosyalarıyla bölünür. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyalar için eklenemez `tempdb`. Bazı sorgular, çekirdek başına birden fazla 24 GB'a ihtiyacınız varsa bir hata döndürebilir `tempdb`. `tempdb` örnek başlatma veya yük devretme ve tüm içinde yapılan değiştirdiğinizde her zaman boş bir veritabanı yeniden oluşturulur `tempdb` korunmaz. 
 
 ### <a name="cant-restore-contained-database"></a>Kapsanan veritabanı geri yüklenemiyor
 

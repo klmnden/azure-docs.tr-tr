@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458906"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019763"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure DevOps hizmetlerinde, Azure kaynak grubu dağıtım projeleri kullanarak sürekli tümleştirme
 Azure şablonu dağıtmak için çeşitli aşamalarda görevleri gerçekleştirin: Azure yapı, Test, Kopyala (aynı zamanda "Hazırlama" olarak adlandırılır) ve şablonu dağıtın. Azure DevOps hizmetler için şablonları dağıtmak için iki farklı yolu vardır. Her iki yöntem de aynı sonuçları sağlar, bu nedenle, iş akışınızı en uygun olanı seçin.
@@ -93,7 +93,7 @@ Aşağıdaki yordamları, Azure DevOps Services projenizde PowerShell Betiği ç
       
       Azure CLI için şunu kullanın:
       
-      `azure account show`
+      `az account show`
    8. Bir hizmet sorumlusu kimliği ve hizmet sorumlusu anahtarı Kiracı kimliği, izleme yordamı almak için [oluşturma Active Directory uygulaması ve hizmet sorumlusu portalını kullanarak](active-directory/develop/howto-create-service-principal-portal.md) veya [Azure hizmet sorumlusuyla kimlik doğrulaması Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Hizmet sorumlusu kimliği ve hizmet sorumlusu anahtarı Kiracı kimliği değerlere Ekle **Azure aboneliği Ekle** iletişim kutusuna ve ardından **Tamam** düğmesi.
       

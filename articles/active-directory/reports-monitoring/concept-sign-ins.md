@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288087"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864461"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -100,7 +100,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 - Uygulama
 - Oturum açma durumu
 - Koşullu Erişim
-- Tarih
+- Date
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/04.png "oturum açma etkinliği")
 
@@ -118,7 +118,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 
 - Tümü
 - Uygulanmadı
-- Başarılı
+- Başarı
 - Hata
 
 **Tarih** filtresi, döndürülen veriler için bir zaman çerçevesi tanımlamanıza olanak sağlar.  
@@ -131,21 +131,28 @@ Olası değerler şunlardır:
 
 Özel bir zaman çerçevesi seçerken başlangıç ve bitiş zamanını yapılandırabilirsiniz.
 
-Oturum açma görünümüne başka alanlar eklerseniz bu alanlar filtre listesine otomatik olarak eklenir. Örneğin, listenize **İstemci Uygulama** alanını ekleyerek, aşağıdaki filtreleri ayarlamanıza olanak tanıyan başka bir filtre seçeneği de alırsınız:
-
-- Tarayıcı      
-- Exchange ActiveSync (desteklenir)               
-- Exchange ActiveSync (desteklenmez)
-- Diğer istemciler               
-    - IMAP
-    - MAPI
-    - Eski Office istemcileri
-    - POP
-    - SMTP
-
-
+Oturum açma görünümüne başka alanlar eklerseniz bu alanlar filtre listesine otomatik olarak eklenir. Örneğin, listenize **İstemci Uygulama** alanını ekleyerek, aşağıdaki filtreleri ayarlamanıza olanak tanıyan başka bir filtre seçeneği de alırsınız:  
 ![Oturum açma etkinliği](./media/concept-sign-ins/12.png "oturum açma etkinliği")
 
+- **Tarayıcı**  
+    Bu filtre tüm gösteren tarayıcı akışlarını kullanarak olayları burada oturum açma denemesi gerçekleştirildi.
+- **Exchange ActiveSync (destekleniyor)**  
+    Bu filtre, iOS, Android ve Windows Phone gibi desteklenen platformlarından Exchange ActiveSync (EAS) protokolü burada bulunuldu tüm oturum açma denemesi gösterir.
+- **Exchange ActiveSync (desteklenmiyor)**  
+    Bu filtre, EAS protokolünü gibi Linux dağıtım paketlerini desteklenmeyen platformlarından burada bulunuldu tüm oturum açma denemesi gösterir.
+- **Mobil uygulamalar ve masaüstü istemciler** Bu filtre, tarayıcı akışlar kullanmadıysanız tüm oturum açma denemesi gösterir. Bu, herhangi bir protokol kullanarak herhangi bir platform veya Windows veya MacOS üzerinde Office gibi masaüstü istemci uygulamaları, mobil uygulamalar olabilir.
+  
+- **Diğer istemciler**
+    - **IMAP**  
+        IMAP e-posta almak için kullanarak eski posta istemcisi.
+    - **MAPI**  
+        Office 2013, ADAL etkinleştirdiğiniz ve MAPI kullanıyor.
+    - **Eski Office istemcileri**  
+        MAPI veya Office 2016 ADAL burada devre dışı bırakıldı burada ADAL etkin varsayılan yapılandırması ve Office 2013 kullanıyor.
+    - **POP**  
+        POP3 e-posta almak için kullanarak eski posta istemcisi.
+    - **SMTP**  
+        SMTP e-posta gönderme kullanarak eski posta istemcisi.
 
 ## <a name="download-sign-in-activities"></a>Oturum açma etkinliklerini indirme
 
@@ -183,7 +190,7 @@ Oturum açma etkinlikleri listesinin her satırında aşağıdakiler gösterilir
 
 Bir öğeye tıklayarak oturum açma işlemi hakkında daha fazla bilgi alabilirsiniz:
 
-- Kullanıcı Kimliği
+- Kullanıcı kimliği
 - Kullanıcı
 - Kullanıcı adı
 - Uygulama Kimliği
@@ -191,7 +198,7 @@ Bir öğeye tıklayarak oturum açma işlemi hakkında daha fazla bilgi alabilir
 - İstemci
 - Location
 - IP adresi
-- Tarih
+- Date
 - MFA Gerekli
 - Oturum açma durumu
 

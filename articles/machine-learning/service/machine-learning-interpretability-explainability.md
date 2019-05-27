@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926452"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851987"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile model interpretability
 
 Bu makalede, neden modelinizi tahmin yapılan açıklamak nasıl öğreneceksiniz interpretability paketi Azure Machine Learning Python SDK'sının vermedi.
 
 Bu paketin sınıflar ve yöntemler kullanarak alabilirsiniz:
-+ Eğitim süresini ve çıkarım sırasında interpretability uygun ölçekte, gerçek veri kümeleri üzerinde. 
++ Eğitim ve çıkarım sırasında interpretability uygun ölçekte, gerçek veri kümeleri üzerinde. 
 + Eğitim zaman bulma verileri ve açıklamalar desenlerinin yardımcı olmak için etkileşimli görselleştirmeler
 + Özellik önem değerleri: ham ve mühendislik uygulanan özellikler
 
 Geliştirme döngüsü eğitim aşamasında, model tasarımcılar ve değerlendiricilerini güven oluşturmak için proje katılımcılarına bir model çıktısını açıklamak için kullanabilirsiniz.  Ayrıca modelin Öngörüler hata ayıklama için kullandıkları, model davranışı doğrulama eşleşen kendi hedefleri sapması denetlemenizi sağlar.
 
-Çıkarım aşamasında, veri bilimcileri interpretability modelinizi kullanan kişilerin predictions'a açıklamak için kullanabilirsiniz. Örneğin, neden modeli bir kredisinin Reddet veya tahmin yatırım Portföy daha yüksek risk taşır?
+Çıkarım veya Puanlama modeli, dağıtılan model için tahmin, üretim veri çubuğunda en yaygın olarak kullanıldığı aşamasıdır. Bu aşamada, veri bilimcileri modelinizi kullananların elde edilen predictions'a açıklayabilir. Örneğin, neden modeli bir kredisinin Reddet veya tahmin yatırım Portföy daha yüksek risk taşır?
 
 Bu teklifi kullanarak makine öğrenimi modelleri açıklayabilir **genel olarak tüm veriler üzerinde**, veya **yerel olarak belirli bir veri noktasında** kullanımı kolay ve ölçeklenebilir bir şekilde-ürünü teknolojilerini kullanarak.
 
@@ -126,7 +126,7 @@ Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. 
     # "features" and "classes" fields are optional
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
-    or
+    veya
     
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
@@ -157,7 +157,7 @@ Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. 
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
     ```
-    or
+    veya
     ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4])
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>Çıkarım içinde interpretability
+## <a name="interpretability-in-inference"></a>Çıkarım içinde interpretability
 
 Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel açıklama bilgilerini sağlamak için kullanılabilir. Puanlama açıklama dağıtma işlemi, bir model dağıtımına benzer ve aşağıdaki adımları içerir:
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192116"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849884"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -23,7 +23,6 @@ Bu makalede, AKS ve Azure AD için önkoşulları dağıtma ve Azure AD etkin k�
 Aşağıdaki sınırlamalar geçerlidir:
 
 - Azure AD, yalnızca yeni, RBAC özellikli bir küme oluşturduğunuzda etkinleştirilebilir. Azure AD var olan bir AKS kümesi üzerinde etkinleştirilemiyor.
-- *Konuk* kullanıcıların Azure AD'de gibi farklı bir dizinden bir Federasyon oturum açma kullanıyorsanız olarak desteklenmez.
 
 ## <a name="authentication-details"></a>Kimlik doğrulama ayrıntıları
 
@@ -114,6 +113,10 @@ Kubernetes CLI ile oturum açarken kullanılan ikinci Azure AD uygulaması (`kub
         İzinler başarıyla verildi, aşağıdaki bildirim portalda görüntülenir:
 
         ![Bildirim başarıyla izin verildi](media/aad-integration/permissions-granted.png)
+
+1. Azure AD uygulamasının sol taraftaki gezinti üzerinde **kimlik doğrulaması**.
+
+    * Altında **varsayılan istemci türü**seçin **Evet** için *istemci genel bir istemci kabul*.
 
 1. Azure AD uygulamasının sol gezintide Not **uygulama kimliği**. Azure AD etkin AKS kümesi dağıtırken, bu değer olarak adlandırılır `Client application ID`.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 Tamamlandığında, kimlik doğrulama belirteci önbelleğe alınır. Yalnızca ne zaman belirtecinin süresi doldu veya yeniden oluşturulduğunda Kubernetes yapılandırma dosyası oturum reprompted.
 
 Başarıyla oturum açtıktan sonra bir yetkilendirme hata iletisini görüyorsanız, kontrol olmadığını:
-1. Bir konuk değil (farklı bir dizinden birleştirilmiş bir hesap kullanırsanız, bu senaryo genellikle bir durumdur) Azure AD örneğinde olduğu gibi kullanıcı, oturum açan.
-2. Kullanıcı, 200'den fazla grupların bir üyesi değil.
-3. Uygulama kayıt sunucusu için tanımlanan gizli--aad-server-app-secret kullanarak yapılandırılan değerle eşleşmiyor
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. Uygun nesne Kimliğini veya UPN'sini, kullanıcı hesabının aynı Azure AD kiracısında olup olmadığını bağlı olarak, tanımladığınız.
+2. Kullanıcı, 200'den fazla grupların bir üyesi değil.
+3. Uygulama kayıt sunucusu için tanımlanan gizli kullanılarak yapılandırılan değerle eşleşir `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

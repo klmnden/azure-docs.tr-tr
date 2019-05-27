@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: b426399f73375618a2084eff82abba5d4934b914
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074202"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849864"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Linux düğümleri Azure Kubernetes Service (AKS) için geçerli güvenlik ve çekirdek güncelleştirmeleri
 
@@ -57,14 +57,13 @@ Aynı Kubernetes sürümüne yükseltme sırasında olay kalamaz. Kubernetes dah
 Dağıtılacak `kured` DaemonSet, YAML bildirim kendi GitHub proje sayfasından aşağıdaki örnek uygulayın. Bu bildirim için bir rol ve küme rolünü, bağlamalar ve bir hizmet hesabı oluşturur, ardından bu DaemonSet kullanarak dağıtır `kured` 1.1.0 sürümü 1.9 veya üzeri AKS kümelerini destekler.
 
 ```console
-kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.1.0/kured-1.1.0.yaml
-```
+kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
 
-Ek parametreler için de yapılandırabilirsiniz `kured`, Prometheus veya Slack ile tümleştirme gibi. Ek yapılandırma parametreleri hakkında daha fazla bilgi için bkz. [kured yükleme docs][kured-install].
+You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
 
-## <a name="update-cluster-nodes"></a>Küme düğümlerini güncelleştirme
+## Update cluster nodes
 
-Varsayılan olarak, Linux düğümleri aks'deki tüm Akşam güncelleştirmeleri denetleyin. Beklemek istemiyorsanız, el ile denetlemek için bir güncelleştirme yapabilirsiniz `kured` düzgün çalışır. İlk olarak, adımları [AKS düğümlerinizi birinde SSH][aks-ssh]. Linux düğümü için bir SSH bağlantısı oluşturduktan sonra güncelleştirmeleri denetleyin ve bunları aşağıdaki gibi uygulayın:
+By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y

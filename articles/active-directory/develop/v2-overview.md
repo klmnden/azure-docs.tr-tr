@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3a1525d7b1f9c0a0b6516014ea83fb8abd0376
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544821"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833037"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft kimlik Platformu (v2.0) genel bakış
 
-Microsoft kimlik platformu, Azure Active Directory (Azure AD) kimlik hizmeti ve geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu, geliştiricilerin Microsoft Graph'i ya da geliştiriciler için tasarlanmış API'leri gibi Microsoft APIs çağırmak için belirteçleri almak ve tüm Microsoft kimliklerini oturum uygulamaları oluşturmalarına olanak sağlar. Microsoft kimlik platformu oluşur:
+Microsoft kimlik platformu, Azure Active Directory (Azure AD) geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu, geliştiricilerin Microsoft Graph'i ya da geliştiriciler için tasarlanmış API'leri gibi Microsoft APIs çağırmak için belirteçleri almak ve tüm Microsoft kimliklerini oturum uygulamaları oluşturmalarına olanak sağlar. Microsoft kimlik platformu oluşur:
 
 - **OAuth 2.0 ve Openıd Connect uyumlu standart kimlik doğrulama hizmeti** geliştiricilerin herhangi bir Microsoft kimliği kimlik doğrulaması sağlayan dahil olmak üzere:
   - İş veya Okul hesapları (Azure AD sağlanan)
@@ -79,4 +79,4 @@ Uygulamanıza başlatmaya hazır olduğunuzda bir **üretim ortamına**, bu en i
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 
-Sosyal ve yerel kimliklerini imzalar müşteri Internet'e yönelik bir uygulama oluşturmak Planlama olsaydı göz atın [Azure AD B2C genel bakış](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+Sosyal ve yerel kimlikler, oturum açtığında göreceği bir müşteriye dönük uygulaması oluşturmayı planlıyorsanız [Azure AD B2C genel bakış](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

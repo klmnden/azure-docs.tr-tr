@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/17/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214d984388869431453267ef18ebf6eb976bc496
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783533"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859618"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -59,7 +59,8 @@ Active Directory yapılandırması, uygulama ara sunucusu bağlayıcısını ve 
 2. Bağlayıcısını çalıştıran sunucuyu seçin.
 3. Sağ tıklayıp **özellikleri** > **temsilci**.
 4. Seçin **bu bilgisayara yalnızca belirtilen hizmetlere temsilci seçmek için güven**. 
-5. Altında **için bu hesabın temsilci seçilen kimlik bilgilerini sunacağı Hizmetler** uygulama sunucusunun SPN kimlik için bir değer ekleyin. Bu listede tanımlanan uygulamalarla AD'de kullanıcının kimliğine bürünmek uygulama ara sunucusu Bağlayıcısı sağlar.
+5. Seçin **herhangi bir kimlik doğrulama protokolünü kullan**.
+6. Altında **için bu hesabın temsilci seçilen kimlik bilgilerini sunacağı Hizmetler** uygulama sunucusunun SPN kimlik için bir değer ekleyin. Bu listede tanımlanan uygulamalarla AD'de kullanıcının kimliğine bürünmek uygulama ara sunucusu Bağlayıcısı sağlar.
 
    ![Bağlayıcı SVR Özellikler penceresi ekran görüntüsü](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 

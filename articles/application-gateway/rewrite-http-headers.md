@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947172"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000965"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Uygulama ağ geçidi ile yeniden yazma HTTP üstbilgileri
 
@@ -69,7 +69,7 @@ Application gateway, bu sunucu değişkenleri destekler:
 | client_port                | İstemci bağlantı noktası.                                                  |
 | client_tcp_rtt             | TCP bağlantısı istemci hakkında bilgiler. TCP_INFO olarak yuva seçeneği destekleyen sistemleri üzerinde kullanılabilir. |
 | client_user                | HTTP kimlik doğrulaması kullanılırken kullanıcı adı kimlik doğrulaması için sağlanan. |
-| konak                       | Bu öncelik sırasına: İstek satırından ana bilgisayar adı, konak isteği üstbilgi alanından ana bilgisayar adı veya sunucu adı ile eşleşen bir istek. |
+| host                       | Bu öncelik sırasına: İstek satırından ana bilgisayar adı, konak isteği üstbilgi alanından ana bilgisayar adı veya sunucu adı ile eşleşen bir istek. |
 | cookie_*adı*              | *Adı* tanımlama bilgisi.                                            |
 | http_method                | URL isteği yapmak için kullanılan yöntem. Örneğin, GET veya POST. |
 | http_status                | Oturum durumu. Örneğin, 200, 400 veya 403.                       |
@@ -157,9 +157,7 @@ Bir HTTP istek veya yanıt üst bir üst bilgi veya sunucu değişkeni varlığ�
 
 - Üst bilgi adları içerebilir herhangi bir alfasayısal karakter ve belirli simgeleri sınıfında tanımlandığı gibi [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Alt çizgi şu anda desteklemiyoruz (\_) üst bilgi adları özel karakterler.
 
-## <a name="need-help"></a>Yardıma mı ihtiyacınız var?
-
-Şu adresten bizimle [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) bu özellikle yardıma ihtiyacınız varsa.
+- Ardından bu üstbilgi değerini yeniden yazma, yanıt aynı ada sahip birden çok üst bilgi varsa, diğer üstbilgilerini yanıta bırakma neden olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

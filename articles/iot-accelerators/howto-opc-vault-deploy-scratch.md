@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450338"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835159"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>OPC Vault'u sıfırdan dağıtma
 
@@ -45,7 +45,7 @@ Depo yapılandırma dosyasında oluşturulan en az bir kez gereken bazı ortam d
 
 Visual Studio IDE dışında herhangi bir şey yapılandırmadan bir komut istemi kullanarak olmadan uygulamayı hızla açmanızı sağlar.
 
-Visual Studio 2017 kullanılarak adımlar:
+Çalıştırmak ve Visual Studio'yu kullanarak uygulamada hata ayıklamak için:
 
 1. Kullanarak çözümü açın `iot-opc-gds-service.sln` dosya.
 

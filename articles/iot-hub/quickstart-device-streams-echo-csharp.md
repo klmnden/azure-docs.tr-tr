@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Hub cihaz akışları C# Hızlı Başlangıç (Önizleme) | Microsoft Docs
+title: Bir cihaz uygulaması için iletişim C# aracılığıyla Azure IOT Hub cihaz akışları (Önizleme) | Microsoft Docs
 description: Bu hızlı başlangıçta, iki örnek çalışacak C# , IOT hub'ı aracılığıyla kurulan bir cihaz akışını aracılığıyla iletişim kuran uygulamaları.
 author: rezasherafat
 manager: briz
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 2853bd5539a40e3b38927f619756fe37a4cec984
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8df57d3d36dcae851c9c0e23ea609e200a429605
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006868"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832887"
 ---
-# <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Cihaz uygulamaları kullanıcılara C# aracılığıyla IOT Hub cihaz akışları (Önizleme)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Bir cihaz uygulaması'na iletişim C# aracılığıyla IOT Hub cihaz akışları (Önizleme)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -31,14 +31,15 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki bölgelerde oluşturulan için desteklenir:
+*  Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki bölgelerde oluşturulan için desteklenir:
 
-  - **Orta ABD**
-  - **Orta ABD EUAP**
+   *  **Orta ABD**
+
+   *  **Orta ABD EUAP**
 
 Bu hızlı başlangıçta çalıştırdığınız iki örnek uygulama, C# kullanılarak yazılır. Geliştirme makinenizde .NET Core SDK 2.1.0 veya üzeri bir sürüm olması gerekir.
 
-[.NET](https://www.microsoft.com/net/download/all)’ten birden fazla platform için .NET Core SDK’sını indirebilirsiniz.
+*  İndirme [net'ten birden çok platform için .NET Core SDK](https://www.microsoft.com/net/download/all).
 
 Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli C# sürümünü doğrulayabilirsiniz:
 
@@ -46,17 +47,17 @@ Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli C# sürümünü 
 dotnet --version
 ```
 
-Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
+*  Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
 
-https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip adresinden örnek C# projesini indirin ve ZIP arşivini ayıklayın. Hem cihaz hem de hizmet tarafında ihtiyacınız.
+* https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip adresinden örnek C# projesini indirin ve ZIP arşivini ayıklayın. Hem cihaz hem de hizmet tarafında ihtiyacınız.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Cihaz kaydetme
 
@@ -86,7 +87,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
     Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
 
-3. Ayrıca gerekir _hizmet bağlantı dizesini_ IOT hub'ınıza bağlanmak ve bir cihaz akışını kurmak Hizmet tarafı uygulamasını etkinleştirmek için IOT hub'ından. Aşağıdaki komut, IOT hub'ınız için bu değeri alır:
+3. Ayrıca gerekir *hizmet bağlantı dizesini* IOT hub'ınıza bağlanmak ve bir cihaz akışını kurmak Hizmet tarafı uygulamasını etkinleştirmek için IOT hub'ından. Aşağıdaki komut, IOT hub'ınız için bu değeri alır:
 
    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
@@ -99,6 +100,8 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Cihaz ve hizmet aracılığıyla cihaz akışları arasında iletişim
+
+Bu bölümde, hem cihaz tarafında uygulama hem de hizmet tarafı uygulamayı çalıştırın ve ikisi arasındaki iletişim.
 
 ### <a name="run-the-service-side-application"></a>Hizmet tarafı uygulamayı çalıştırın
 
@@ -154,15 +157,17 @@ dotnet run <DeviceConnectionString>
 
 Son adımın sonunda, hizmet tarafı program cihazınıza ve kurulan sonra bir akışı başlatacak bir dize arabelleğine akış üzerinden hizmete gönderin. Bu örnekte, hizmet tarafı programı yalnızca geri başarılı çift yönlü iletişim iki uygulama arasındaki gösteren bir cihaza aynı verileri görüntülemektedir. Aşağıdaki şekle bakın.
 
-Konsol çıktısı cihaz tarafında: ![alternatif metin](./media/quickstart-device-streams-echo-csharp/device-console-output.png "konsol çıktısı cihaz tarafında")
+Konsol, cihaz tarafında çıktısı:
 
-Konsol çıktısı hizmet tarafında: ![alternatif metin](./media/quickstart-device-streams-echo-csharp/service-console-output.png "konsol çıktısı hizmet tarafında")
+![Aygıt tarafı konsol çıktısı](./media/quickstart-device-streams-echo-csharp/device-console-output.png)
 
-Akış üzerinden gönderilen trafik, IOT hub'ı yerine doğrudan gönderilen tünel. Bu sağlar [yararlar](./iot-hub-device-streams-overview.md#benefits).
+Hizmet tarafı üzerinde çıkışını konsolu: ![Hizmet tarafında, konsol çıktısı](./media/quickstart-device-streams-echo-csharp/service-console-output.png )
+
+Akış üzerinden gönderilen trafik, IOT hub'ı yerine doğrudan gönderilen tünel. Sağlanan avantajların ayrıntıları [cihaz akışları avantajları](./iot-hub-device-streams-overview.md#benefits).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

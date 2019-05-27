@@ -5,19 +5,22 @@ description: Azure’ın sanal ağ trafiğini nasıl yönlendirdiğini ve bu yö
 services: virtual-network
 documentationcenter: na
 author: malopMSFT
+manager: ''
+editor: v-miegge
+tags: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop;kumud
-ms.openlocfilehash: 011ce61f9ac0656db8804c203000f54a7146afe0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.author: malop; kumud
+ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408190"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851137"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -31,8 +34,7 @@ Azure, sistem yollarını otomatik olarak oluşturur ve bir sanal ağ içindeki 
 
 Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrılan trafik, bir yolun adres ön eki içinde IP adresine gönderildiğinde ön eki içeren yol, Azure’ın kullandığı yoldur. Birden fazla yolun aynı ön eki içermesi veya ön eklerin çakışması durumunda [Azure’ın nasıl yol seçtiği](#how-azure-selects-a-route) hakkında daha fazla bilgi edinin. Bir sanal ağ oluşturulduğunda Azure, sanal ağ içindeki her alt ağ için aşağıdaki varsayılan sistem yollarını otomatik olarak oluşturur:
 
-
-|Source |Adres ön ekleri                                        |Sonraki atlama türü  |
+|Kaynak |Adres ön ekleri                                        |Sonraki atlama türü  |
 |-------|---------                                               |---------      |
 |Varsayılan|Sanal ağa özel                           |Sanal ağ|
 |Varsayılan|0.0.0.0/0                                               |İnternet       |
@@ -43,13 +45,12 @@ Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrı
 
 Önceki tabloda listelenen sonraki atlama türleri, Azure’ın listelenen adres ön ekine yönelik giden trafiği nasıl yönlendirdiğini göstermektedir. Sonraki atlama türlerinin açıklamaları:
 
-- **Sanal ağ**: İçindeki adres aralıkları arasında gerçekleşen trafiği yönlendirir [adres alanı](manage-virtual-network.md#add-or-remove-an-address-range) sanal ağ. Azure, bir sanal ağın adres alanı içinde tanımlanmış her bir adres aralığına karşılık gelen bir adres ön eki ile yol oluşturur. Sanal ağ adres alanında tanımlanmış birden fazla adres aralığı varsa, Azure her bir adres aralığı için ayrı bir yol oluşturur. Azure her bir adres aralığı için oluşturulan yolları kullanarak alt ağlar arasındaki trafiği otomatik olarak yönlendirir. Azure’ın alt ağlar arasında trafiği yönlendirmesi için ağ geçitleri tanımlamanız gerekmez. Bir sanal ağ, alt ağlar içerebilir ve her bir alt ağ için tanımlı adres aralıkları olabilir. Ancak alt ağ adres aralıklarının tümü, bir sanal ağın adres alanı içindeki adres aralığında bulunduğundan Azure, alt ağ adres aralıkları için varsayılan yollar *oluşturmaz*.
+* **Sanal ağ**: İçindeki adres aralıkları arasında gerçekleşen trafiği yönlendirir [adres alanı](manage-virtual-network.md#add-or-remove-an-address-range) sanal ağ. Azure, bir sanal ağın adres alanı içinde tanımlanmış her bir adres aralığına karşılık gelen bir adres ön eki ile yol oluşturur. Sanal ağ adres alanında tanımlanmış birden fazla adres aralığı varsa, Azure her bir adres aralığı için ayrı bir yol oluşturur. Azure her bir adres aralığı için oluşturulan yolları kullanarak alt ağlar arasındaki trafiği otomatik olarak yönlendirir. Azure’ın alt ağlar arasında trafiği yönlendirmesi için ağ geçitleri tanımlamanız gerekmez. Bir sanal ağ, alt ağlar içerebilir ve her bir alt ağ için tanımlı adres aralıkları olabilir. Ancak alt ağ adres aralıklarının tümü, bir sanal ağın adres alanı içindeki adres aralığında bulunduğundan Azure, alt ağ adres aralıkları için varsayılan yollar *oluşturmaz*.<br>
+* **Internet**: İnternet'e adres ön eki ile belirtilen trafiği yönlendirir. Sistemin varsayılan yolu 0.0.0.0/0 adres ön ekini belirtir. Azure’ın varsayılan yollarını geçersiz kılmazsanız Azure, bir sanal ağ içinde bulunan ve bir adres aralığı ile belirtilmemiş olan tüm adresler için trafiği İnternet’e yönlendirir (bir özel durum dışında). Hedef adres Azure hizmetlerinden biriyse Azure, trafiği İnternet’e yönlendirmek yerine, Azure'ın temel ağı üzerinden doğrudan hizmete yönlendirir. Sanal ağın içinde bulunduğu Azure bölgesi veya Azure hizmeti örneğinin dağıtıldığı Azure bölgesi ne olursa olsun, Azure hizmetleri arasındaki trafik İnternet'i dolaşmaz. 0.0.0.0/0 adres ön eki için Azure'ın varsayılan sistem yolunu bir [özel yol](#custom-routes) ile geçersiz kılabilirsiniz.<br>
+* **Hiçbiri**: Yönlendirilen trafik **hiçbiri** sonraki atlama türü bırakılmış yerine alt ağın dışına yönlendirilmek. Azure aşağıdaki adres ön ekleri için otomatik olarak varsayılan yollar oluşturur:<br>
 
-- **Internet**: İnternet'e adres ön eki ile belirtilen trafiği yönlendirir. Sistemin varsayılan yolu 0.0.0.0/0 adres ön ekini belirtir. Azure’ın varsayılan yollarını geçersiz kılmazsanız Azure, bir sanal ağ içinde bulunan ve bir adres aralığı ile belirtilmemiş olan tüm adresler için trafiği İnternet’e yönlendirir (bir özel durum dışında). Hedef adres Azure hizmetlerinden biriyse Azure, trafiği İnternet’e yönlendirmek yerine, Azure'ın temel ağı üzerinden doğrudan hizmete yönlendirir. Sanal ağın içinde bulunduğu Azure bölgesi veya Azure hizmeti örneğinin dağıtıldığı Azure bölgesi ne olursa olsun, Azure hizmetleri arasındaki trafik İnternet'i dolaşmaz. 0.0.0.0/0 adres ön eki için Azure'ın varsayılan sistem yolunu bir [özel yol](#custom-routes) ile geçersiz kılabilirsiniz.
-
-- **Hiçbiri**: Yönlendirilen trafik **hiçbiri** sonraki atlama türü bırakılmış yerine alt ağın dışına yönlendirilmek. Azure aşağıdaki adres ön ekleri için otomatik olarak varsayılan yollar oluşturur:
-  - **10.0.0.0/8, 172.16.0.0/12 ve 192.168.0.0/16**: RFC 1918'de özel kullanım için ayrılmıştır.
-  - **100.64.0.0/10**: RFC 6598'de ayrılmıştır.
+    * **10.0.0.0/8, 172.16.0.0/12 ve 192.168.0.0/16**: RFC 1918'de özel kullanım için ayrılmıştır.<br>
+    * **100.64.0.0/10**: RFC 6598'de ayrılmıştır.
 
     Bir sanal ağın adres alanı içinde önceki adres aralıklarından herhangi birini atamanız durumunda Azure, yolun **Hiçbiri** olan sonraki atlama türünü **Sanal ağ** şeklinde otomatik olarak değiştirir. Ayrılmış dört adres ön ekini içeren, ancak bunlarla aynı olmayan bir sanal ağın adres alanına bir adres aralığı atamanız durumunda Azure, ön ekin yolunu kaldırır ve sizin eklediğiniz adres ön eki için, sonraki atlama türü **Sanal ağ** olacak şekilde bir yol ekler.
 
@@ -57,48 +58,48 @@ Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrı
 
 Azure, farklı Azure özellikleri için ek olarak varsayılan sistem yolları ekler. Ancak bunun için ilgili özellikleri etkinleştirmiş olmanız gerekir. Özelliğe bağlı olarak Azure, sanal ağ içindeki belirli alt ağlara veya sanal ağ içindeki tüm alt ağlara isteğe bağlı varsayılan yollar ekler. Farklı özellikleri etkinleştirdiğinizde Azure’ın ekleyebileceği ek sistem yolları ve sonraki atlama türleri şunlardır:
 
-|Source                 |Adres ön ekleri                       |Sonraki atlama türü|Yolun eklendiği sanal ağ içindeki alt ağ|
+|Kaynak                 |Adres ön ekleri                       |Sonraki atlama türü|Yolun eklendiği sanal ağ içindeki alt ağ|
 |-----                  |----                                   |---------                    |--------|
 |Varsayılan                |Benzersiz sanal ağa, örneğin: 10.1.0.0/16|Sanal ağ eşleme                 |Tümü|
 |Sanal ağ geçidi|Şirket içinden BGP aracılığıyla tanıtılan veya yerel ağ geçidinde yapılandırılan ön ekler     |Sanal ağ geçidi      |Tümü|
 |Varsayılan                |Birden Çok                               |VirtualNetworkServiceEndpoint|Yalnızca bir hizmet uç noktasının etkinleştirildiği alt ağ.|
 
-- **Sanal ağ (VNet) eşlemesi**: Bir sanal ağ eşlemesi iki sanal ağ arasında oluşturduğunuzda, bir eşdüzey hizmet sağlama için oluşturduğunuz her bir sanal ağın adres alanı içindeki her bir adres aralığı için bir yol eklenir. [Sanal ağ eşlemesi](virtual-network-peering-overview.md) hakkında daha fazla bilgi edinin.  
-- **Sanal ağ geçidi**: Bir veya daha fazla rotalarla *sanal ağ geçidi* sonraki atlama türüne eklenir gibi bir sanal ağa bir sanal ağ geçidi eklendiğinde listelenir. Ağ geçidi yolları alt ağa eklediğinden, kaynak da *sanal ağ geçidi* olur. Şirket içi ağ geçidiniz, sınır ağ geçidi protokolü ([BGP](#border-gateway-protocol)) yollarını bir Azure sanal ağ geçidi ile değiştirirse şirket içi ağ geçidinden yayılan her yol için bir yol eklenir. Bir Azure sanal ağ geçidine en az sayıda yolun yayılması için, şirket içi yolları mümkün olan en büyük adres aralıklarında özetlemeniz önerilir. Bir Azure sanal ağ geçidine yayabileceğiniz yolların sayısı sınırlıdır. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) makalesini inceleyin.
-- **VirtualNetworkServiceEndpoint**: Hizmet için bir hizmet uç noktasını etkinleştirdiğinizde belirli hizmetler için genel IP adresleri Azure tarafından yol tablosuna eklenir. Hizmet uç noktaları bir sanal ağdaki belirli alt ağlar için etkinleştirildiğinden, yol yalnızca bir hizmet uç noktasının etkinleştirildiği alt ağın yol tablosuna eklenir. Azure hizmetlerinin genel IP adresleri düzenli olarak değişir. Adresler değiştiğinde Azure, yol tablosundaki adresleri otomatik olarak yönetir. [Sanal ağ hizmet uç noktaları](virtual-network-service-endpoints-overview.md) ve hizmet uç noktaları oluşturabileceğiniz hizmetler hakkında daha fazla bilgi edinin. 
+* **Sanal ağ (VNet) eşlemesi**: Bir sanal ağ eşlemesi iki sanal ağ arasında oluşturduğunuzda, bir eşdüzey hizmet sağlama için oluşturduğunuz her bir sanal ağın adres alanı içindeki her bir adres aralığı için bir yol eklenir. [Sanal ağ eşlemesi](virtual-network-peering-overview.md) hakkında daha fazla bilgi edinin.<br>
+* **Sanal ağ geçidi**: Bir veya daha fazla rotalarla *sanal ağ geçidi* sonraki atlama türüne eklenir gibi bir sanal ağa bir sanal ağ geçidi eklendiğinde listelenir. Ağ geçidi yolları alt ağa eklediğinden, kaynak da *sanal ağ geçidi* olur. Şirket içi ağ geçidiniz, sınır ağ geçidi protokolü ([BGP](#border-gateway-protocol)) yollarını bir Azure sanal ağ geçidi ile değiştirirse şirket içi ağ geçidinden yayılan her yol için bir yol eklenir. Bir Azure sanal ağ geçidine en az sayıda yolun yayılması için, şirket içi yolları mümkün olan en büyük adres aralıklarında özetlemeniz önerilir. Bir Azure sanal ağ geçidine yayabileceğiniz yolların sayısı sınırlıdır. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) makalesini inceleyin.<br>
+* **VirtualNetworkServiceEndpoint**: Hizmet için bir hizmet uç noktasını etkinleştirdiğinizde belirli hizmetler için genel IP adresleri Azure tarafından yol tablosuna eklenir. Hizmet uç noktaları bir sanal ağdaki belirli alt ağlar için etkinleştirildiğinden, yol yalnızca bir hizmet uç noktasının etkinleştirildiği alt ağın yol tablosuna eklenir. Azure hizmetlerinin genel IP adresleri düzenli olarak değişir. Adresler değiştiğinde Azure, yol tablosundaki adresleri otomatik olarak yönetir. [Sanal ağ hizmet uç noktaları](virtual-network-service-endpoints-overview.md) ve hizmet uç noktaları oluşturabileceğiniz hizmetler hakkında daha fazla bilgi edinin.<br>
 
-> [!NOTE]
-> **Sanal ağ eşlemesi** ve **VirtualNetworkServiceEndpoint** türündeki sonraki atlamalar yalnızca Azure Resource Manager dağıtım modeli ile oluşturulmuş sanal ağlardaki alt ağların yol tablolarına eklenir. Sonraki atlama türleri, klasik dağıtım modeli ile oluşturulmuş sanal ağ alt ağlarıyla ilişkili yol tablolarına eklenmez. Azure [dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hakkında daha fazla bilgi edinin.
+    > [!NOTE]
+    > **Sanal ağ eşlemesi** ve **VirtualNetworkServiceEndpoint** türündeki sonraki atlamalar yalnızca Azure Resource Manager dağıtım modeli ile oluşturulmuş sanal ağlardaki alt ağların yol tablolarına eklenir. Sonraki atlama türleri, klasik dağıtım modeli ile oluşturulmuş sanal ağ alt ağlarıyla ilişkili yol tablolarına eklenmez. Azure [dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hakkında daha fazla bilgi edinin.
 
 ## <a name="custom-routes"></a>Özel yollar
 
 [Kullanıcı tanımlı](#user-defined) yollar oluşturarak veya [sınır ağ geçidi protokolü](#border-gateway-protocol) (BGP) yollarını şirket içi ağ geçidiniz ile bir Azure sanal ağ geçidi arasında değiştirerek özel yollar oluşturabilirsiniz. 
- 
+
 ### <a name="user-defined"></a>Kullanıcı tanımlı
 
 Azure’ın varsayılan sistem yollarını geçersiz kılmak veya bir alt ağın yol tablosuna başka yollar eklemek için Azure’da özel veya kullanıcı tanımlı yollar oluşturabilirsiniz. Azure’da bir yol tablosu oluşturun ve sonra yol tablosunu sıfır veya daha fazla sanal ağ alt ağı ile ilişkilendirin. Her alt ağ ile ilişkili sıfır veya bir yol tablosu olabilir. Bir yol tablosuna ekleyebileceğiniz en fazla yol sayısı ve bir Azure aboneliği için oluşturabileceğiniz en fazla kullanıcı tanımlı yol tablosu sayısı hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) makalesini inceleyin. Yol tablosu oluşturup bunu bir alt ağ ile ilişkilendirirseniz, tablo içindeki yollar, Azure’ın bir alt ağa varsayılan olarak eklediği yollarla birleştirilir veya bu varsayılan yolları geçersiz kılar.
 
 Kullanıcı tanımlı bir yol oluştururken belirtebileceğiniz sonraki atlama türleri:
 
-- **Sanal gereç**: Genellikle bir güvenlik duvarı gibi bir ağ uygulaması çalıştıran bir sanal makineyi bir sanal gereçtir. Bir sanal ağa dağıtabileceğiniz önceden yapılandırılmış çeşitli ağ sanal gereçleri hakkında bilgi edinmek için [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)’e bakın. **Sanal gereç** atlama türü ile bir rota oluşturduğunuzda, sonraki atlama IP adresi de belirtirsiniz. IP adresi şu özelliklerde olabilir:
+* **Sanal gereç**: Genellikle bir güvenlik duvarı gibi bir ağ uygulaması çalıştıran bir sanal makineyi bir sanal gereçtir. Bir sanal ağa dağıtabileceğiniz önceden yapılandırılmış çeşitli ağ sanal gereçleri hakkında bilgi edinmek için [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)’e bakın. **Sanal gereç** atlama türü ile bir rota oluşturduğunuzda, sonraki atlama IP adresi de belirtirsiniz. IP adresi şu özelliklerde olabilir:
 
-  - Bir sanal makineye bağlı ağ arabiriminin [özel IP adresi](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses). Ağ trafiğini kendi adresi dışında bir adrese ileten bir sanal makineye bağlı olan tüm ağ arabirimlerinde *IP iletimini etkinleştir* seçeneği açık olmalıdır. Ayar, bir ağ arabirimi için Azure’ın kaynak ve hedef denetimini devre dışı bırakır. [Bir ağ arabirimi için IP iletimini etkinleştirme](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) hakkında daha fazla bilgi edinin. *IP iletimini etkinleştir* seçeneği bir Azure ayarı olmasına rağmen, cihazın Azure ağ arabirimlerine atanmış özel IP adresleri arasındaki trafiği iletmesi için sanal makinenin işletim sistemi içinde IP iletimini etkinleştirmeniz de gerekebilir. Cihazın trafiği bir genel IP adresine yönlendirmesi gerekirse, trafiği ara sunucuyla yönlendirmelidir veya ağ adresi kaynağın özel IP adresini kendi özel IP adresine çevirmelidir (ardından, trafiği İnternet'e göndermeden önce Azure'da ağ adresi genel IP adresine çevrilir). Sanal makine içindeki gerekli ayarları belirlemek için işletim sisteminize veya ağ uygulamanıza ait belgelere bakın. Azure'da giden bağlantıları anlamak için, bkz. [Giden bağlantıları anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    * Bir sanal makineye bağlı ağ arabiriminin [özel IP adresi](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses). Ağ trafiğini kendi adresi dışında bir adrese ileten bir sanal makineye bağlı olan tüm ağ arabirimlerinde *IP iletimini etkinleştir* seçeneği açık olmalıdır. Ayar, bir ağ arabirimi için Azure’ın kaynak ve hedef denetimini devre dışı bırakır. [Bir ağ arabirimi için IP iletimini etkinleştirme](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) hakkında daha fazla bilgi edinin. *IP iletimini etkinleştir* seçeneği bir Azure ayarı olmasına rağmen, cihazın Azure ağ arabirimlerine atanmış özel IP adresleri arasındaki trafiği iletmesi için sanal makinenin işletim sistemi içinde IP iletimini etkinleştirmeniz de gerekebilir. Cihazın trafiği bir genel IP adresine yönlendirmesi gerekirse, trafiği ara sunucuyla yönlendirmelidir veya ağ adresi kaynağın özel IP adresini kendi özel IP adresine çevirmelidir (ardından, trafiği İnternet'e göndermeden önce Azure'da ağ adresi genel IP adresine çevrilir). Sanal makine içindeki gerekli ayarları belirlemek için işletim sisteminize veya ağ uygulamanıza ait belgelere bakın. Azure'da giden bağlantıları anlamak için, bkz. [Giden bağlantıları anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 
-    > [!NOTE]
-    > Sanal gereci, sanal gereçten yönlendirilen kaynakların dağıtıldığı alt ağdan farklı bir alt ağa yönlendirin. Sanal gerecin aynı alt ağa dağıtılması ve sonra sanal gereçten trafiği yönlendiren alt ağa bir yol tablosunun uygulanması, trafiğin alt ağdan asla ayrılmadığı yönlendirme döngüleri ile sonuçlanabilir.
+        > [!NOTE]
+        > Sanal gereci, sanal gereçten yönlendirilen kaynakların dağıtıldığı alt ağdan farklı bir alt ağa yönlendirin. Sanal gerecin aynı alt ağa dağıtılması ve sonra sanal gereçten trafiği yönlendiren alt ağa bir yol tablosunun uygulanması, trafiğin alt ağdan asla ayrılmadığı yönlendirme döngüleri ile sonuçlanabilir.
 
-  - Bir Azure [iç yük dengeleyicisinin](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) özel IP adresi. İç yük dengeleyici genellikle [ağ sanal gereçleri için yüksek kullanılabilirlik stratejisinin](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json) bir parçasıdır.
+    * Bir Azure [iç yük dengeleyicisinin](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) özel IP adresi. İç yük dengeleyici genellikle [ağ sanal gereçleri için yüksek kullanılabilirlik stratejisinin](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json) bir parçasıdır.
 
     Adres ön eki 0.0.0.0/0 ve sonraki atlama türü sanal gereç olan bir yol tanımlayabilir ve gerecin trafiği inceleyip trafiği ileteceğini veya bırakacağını belirlemesini sağlayabilirsiniz. 0.0.0.0/0 adres ön ekini içeren kullanıcı tanımlı bir ol oluşturmak isterseniz öncelikle [0.0.0.0/0 adres ön eki](#default-route) bölümünü okuyun.
 
-- **Sanal ağ geçidi**: Bir sanal ağ geçidini yönlendirilen belirli adres önekleri hedefleyen trafiği ne zaman istediğinizi belirtin. Sanal ağ geçidi **VPN** türü ile oluşturulmalıdır. Türü olarak oluşturulan bir sanal ağ geçidi belirtemezsiniz **ExpressRoute** kullanıcı tanımlı bir yol içinde olduğundan, ExpressRoute ile özel yollar için BGP kullanmanız gerekir. 0.0.0.0/0 adres ön ekini hedefleyen trafiği [yol tabanlı](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) sanal ağ geçidine yönlendiren bir yol tanımlayabilirsiniz. Şirket içinde trafiği inceleyen ve trafiğin iletileceğini veya bırakılacağını belirleyen bir cihazınız olabilir. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir ol oluşturmak isterseniz öncelikle [0.0.0.0/0 adres ön eki](#default-route) bölümünü okuyun. [VPN sanal ağ geçidi için BGP’yi etkinleştirdiyseniz](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir yol yapılandırmak yerine 0.0.0.0/0 ön eki ile BGP üzerinden bir yol tanıtabilirsiniz.
-- **Hiçbiri**: Trafiği bir hedefe iletmek yerine bir adres ön eki trafiği bırakmaya istediğinizde belirtin. Bir özelliği tam olarak yapılandırmadıysanız, Azure bazı isteğe bağlı sistem yolları için *Hiçbiri* seçeneğini listeleyebilir. Örneğin, *Sanal ağ geçidi* ya da *Sanal gereç* **Sonraki atlama türü** ile **Sonraki atlama IP adresi** olarak *Hiçbiri* seçeneğinin listelendiğini görürseniz, bunun nedeni cihazın çalışmaması veya tam olarak yapılandırılmamış olması olabilir. Azure, sonraki atlama türü **Hiçbiri** olan ayrılmış adres ön ekleri için sistem [varsayılan yolları](#default) oluşturur.
-- **Sanal ağ**: Bir sanal ağ içindeki varsayılan yönlendirmesini geçersiz kılmak istediğiniz zaman belirtin. **Sanal ağ** atlama türü ile neden yol oluşturabileceğinize ilişkin bir örnek için [Yönlendirme örneği](#routing-example) makalesini inceleyin.
-- **Internet**: Açıkça İnternet'e bir adres ön ekini hedefleyen trafiği yönlendirmek istediğinizde ya da Azure Hizmetleri için Azure omurga ağında tutulup genel IP adresleri hedefleyen trafik istiyorsanız bu seçeneği belirtin.
+* **Sanal ağ geçidi**: Bir sanal ağ geçidini yönlendirilen belirli adres önekleri hedefleyen trafiği ne zaman istediğinizi belirtin. Sanal ağ geçidi **VPN** türü ile oluşturulmalıdır. Türü olarak oluşturulan bir sanal ağ geçidi belirtemezsiniz **ExpressRoute** kullanıcı tanımlı bir yol içinde olduğundan, ExpressRoute ile özel yollar için BGP kullanmanız gerekir. 0.0.0.0/0 adres ön ekini hedefleyen trafiği [yol tabanlı](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) sanal ağ geçidine yönlendiren bir yol tanımlayabilirsiniz. Şirket içinde trafiği inceleyen ve trafiğin iletileceğini veya bırakılacağını belirleyen bir cihazınız olabilir. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir ol oluşturmak isterseniz öncelikle [0.0.0.0/0 adres ön eki](#default-route) bölümünü okuyun. [VPN sanal ağ geçidi için BGP’yi etkinleştirdiyseniz](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), 0.0.0.0/0 adres ön eki için kullanıcı tanımlı bir yol yapılandırmak yerine 0.0.0.0/0 ön eki ile BGP üzerinden bir yol tanıtabilirsiniz.<br>
+* **Hiçbiri**: Trafiği bir hedefe iletmek yerine bir adres ön eki trafiği bırakmaya istediğinizde belirtin. Bir özelliği tam olarak yapılandırmadıysanız, Azure bazı isteğe bağlı sistem yolları için *Hiçbiri* seçeneğini listeleyebilir. Örneğin, *Sanal ağ geçidi* ya da *Sanal gereç* **Sonraki atlama türü** ile **Sonraki atlama IP adresi** olarak *Hiçbiri* seçeneğinin listelendiğini görürseniz, bunun nedeni cihazın çalışmaması veya tam olarak yapılandırılmamış olması olabilir. Azure, sonraki atlama türü **Hiçbiri** olan ayrılmış adres ön ekleri için sistem [varsayılan yolları](#default) oluşturur.<br>
+* **Sanal ağ**: Bir sanal ağ içindeki varsayılan yönlendirmesini geçersiz kılmak istediğiniz zaman belirtin. **Sanal ağ** atlama türü ile neden yol oluşturabileceğinize ilişkin bir örnek için [Yönlendirme örneği](#routing-example) makalesini inceleyin.<br>
+* **Internet**: Açıkça İnternet'e bir adres ön ekini hedefleyen trafiği yönlendirmek istediğinizde ya da Azure Hizmetleri için Azure omurga ağında tutulup genel IP adresleri hedefleyen trafik istiyorsanız bu seçeneği belirtin.
 
 Kullanıcı tanımlı yollarda sonraki atlama türü olarak **VNet eşlemesi** veya **VirtualNetworkServiceEndpoint** seçeneğini belirtemezsiniz. Sonraki atlama türü **VNet eşlemesi** veya **VirtualNetworkServiceEndpoint** olan yollar yalnızca bir sanal ağ eşlemesi ya da hizmet uç noktası yapılandırdığınızda Azure tarafından oluşturulur.
 
-**Azure araçlarında sonraki atlama türleri**
+## <a name="next-hop-types-across-azure-tools"></a>**Azure araçlarında sonraki atlama türleri**
 
 Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile komut satırı araçları ve Azure Resource Manager ile klasik dağıtım modelleri arasında farklıdır. Aşağıdaki tabloda farklı araçlar ve [dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ile her bir sonraki atlama türüne başvurmak için kullanılan adlar listelenir:
 
@@ -116,12 +117,12 @@ Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile 
 
 Şirket içi ağ geçidi, sınır ağ geçidi protokolünü (BGP) kullanarak bir Azure sanal ağ geçidi ile yolları değiştirebilir. BGP’nin bir Azure sanal ağ geçidi ile kullanılması, ağ geçidini oluştururken seçtiğiniz türe bağlıdır. Seçtiğiniz tür aşağıdakilerden biri ise:
 
-- **ExpressRoute**: Şirket içi yolları Microsoft uç yönlendiricisinde tanıtmak için BGP kullanmanız gerekir. Türünde dağıtılan bir sanal ağ geçidi dağıtıyorsanız trafiği ExpressRoute sanal ağ geçidine zorlamak için kullanıcı tanımlı yollar oluşturamazsınız: ExpressRoute. Örneğin, Express Route’tan bir Sanal Ağ Gerecine trafiği zorlamak için kullanıcı tanımlı yolları kullanabilirsiniz.
-- **VPN**: İsteğe bağlı olarak BGP kullanabilirsiniz. Ayrıntılar için [Siteden siteye VPN bağlantıları ile BGP](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) konusunu inceleyin.
+* **ExpressRoute**: Şirket içi yolları Microsoft Edge yönlendiricisinde tanıtmak için BGP kullanmanız gerekir. Türünde dağıtılan bir sanal ağ geçidi dağıtıyorsanız trafiği ExpressRoute sanal ağ geçidine zorlamak için kullanıcı tanımlı yollar oluşturamazsınız: ExpressRoute. Örneğin, Express Route’tan bir Sanal Ağ Gerecine trafiği zorlamak için kullanıcı tanımlı yolları kullanabilirsiniz.<br>
+* **VPN**: İsteğe bağlı olarak BGP kullanabilirsiniz. Ayrıntılar için [Siteden siteye VPN bağlantıları ile BGP](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) konusunu inceleyin.
 
 BGP kullanarak Azure ile yolları değiştirdiğinizde, tanıtılan her ön ek için bir sanal ağdaki tüm alt ağların yol tablosuna ayrı bir yol eklenir. Yol, kaynak ve sonraki atlama türü olarak *Sanal ağ geçidi* listelenerek eklenir. 
 
-ER ve VPN ağ geçidi rota yayma bir yol tablosundaki özellik kullanılarak bir alt ağ üzerinde devre dışı bırakılabilir. BGP kullanarak Azure ile yolları değiştirdiğinizde, yollar BGP yayma özelliği devre dışıyken tüm alt ağların yol tablosuna eklenmez. VPN bağlantıları, sonraki atlama türü *Sanal ağ geçidi* olan [özel yollar](#custom-routes) kullanılarak gerçekleştirilir. Ayrıntılar için bkz. [BGP yol yaymayı devre dışı bırakma](manage-route-table.md#create-a-route-table).
+ER ve VPN ağ geçidi rota yayma bir yol tablosundaki özellik kullanılarak bir alt ağ üzerinde devre dışı bırakılabilir. BGP kullanarak Azure ile yolları değiştirdiğinizde, yollar ile sanal ağ geçidi yol yaymayı devre dışı tüm alt ağların yol tablosuna eklenmez. VPN bağlantıları, sonraki atlama türü *Sanal ağ geçidi* olan [özel yollar](#custom-routes) kullanılarak gerçekleştirilir. Ayrıntılar için bkz [sanal ağ geçidi yol yaymayı devre dışı bırakma](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Azure yolu nasıl seçer?
 
@@ -130,8 +131,8 @@ Giden trafik bir alt ağ üzerinden gönderildiğinde, Azure en uzun ön ek eşl
 Birden fazla yol aynı adres ön ekini içeriyorsa, Azure aşağıdaki öncelik sırasına göre yol türünü seçer:
 
 1. Kullanıcı tanımlı yol
-2. BGP yolu
-3. Sistem yolu
+1. BGP yolu
+1. Sistem yolu
 
 > [!NOTE]
 > BGP rotaları daha belirli olsa bile, sanal ağ, sanal ağ eşlemesi veya sanal ağ hizmet uç noktaları ile ilgili trafik için sistem rotaları, tercih edilen rotalardır.
@@ -139,7 +140,7 @@ Birden fazla yol aynı adres ön ekini içeriyorsa, Azure aşağıdaki öncelik 
 Örneğin, bir yol tablosu aşağıdaki yolları içerir:
 
 
-|Source   |Adres ön ekleri  |Sonraki atlama türü           |
+|Kaynak   |Adres ön ekleri  |Sonraki atlama türü           |
 |---------|---------         |-------                 |
 |Varsayılan  | 0.0.0.0/0        |İnternet                |
 |Kullanıcı     | 0.0.0.0/0        |Sanal ağ geçidi |
@@ -154,15 +155,18 @@ Adres ön eki 0.0.0.0/0 olan bir yol, Azure’a bir alt ağın yol tablosundaki 
 
 0.0.0.0/0 adres ön ekini geçersiz kıldığınızda, alt ağdan çıkarak sanal ağ geçidi veya sanal gerece giden trafiğe ek olarak Azure'ın varsayılan yönlendirmesinde aşağıdaki değişiklikler gerçekleşir: 
 
-- Azure, Azure hizmetlerinin genel IP adreslerini hedefleyen trafiği dahil etmek üzere tüm trafiği yolda belirtilen sonraki atlama türüne gönderir. Adres ön eki 0.0.0.0/0 olan yol için sonraki atlama türü **İnternet** ise, sanal ağın veya Azure hizmet kaynağının bulunduğu bölge ne olursa olsun, alt ağdan giden ve Azure hizmetlerinin genel IP adreslerini hedefleyen trafik Azure’ın temel ağından hiçbir zaman ayrılmaz. Ancak, sonraki atlama türü **Sanal ağ geçidi** veya **Sanal gereç** olan kullanıcı tanımlı bir yol veya BGP yolu oluşturduğunuzda, [hizmet uç noktalarını](virtual-network-service-endpoints-overview.md) etkinleştirmediğiniz Azure hizmetlerinin genel IP adreslerine gönderilen trafiği dahil etmek için tüm trafik yolda belirtilen sonraki atlama türüne gönderilir. Bir hizmet için hizmet uç noktasını etkinleştirdiyseniz, adres ön eki 0.0.0.0/0 olan bir yolda hizmete giden trafik sonraki atlama türüne yönlendirilmez. Bunun nedeni, hizmete yönelik adres ön eklerinin, hizmet uç noktasını etkinleştirdiğinizde Azure’ın oluşturduğu yolda belirtilmesi ve hizmetin adres ön eklerinin 0.0.0.0/0 değerinden uzun olmasıdır.
-- Bundan böyle alt ağdaki kaynaklara İnternet’ten doğrudan erişemezsiniz. Gelen trafik sanal ağdaki kaynağa ulaşmadan önce 0.0.0.0/0 adres ön ekine sahip bir yol için sonraki atlama türü tarafından belirtilen cihaz üzerinden geçiyorsa, alt ağdaki kaynaklara İnternet’ten dolaylı olarak erişebilirsiniz. Yol sonraki atlama türü için aşağıdaki değerleri içeriyorsa:
-    - **Sanal gereç**: Gereç gerekir:
-        - İnternet üzerinden erişilebilir olması
-        - Kendisine atanmış bir genel IP adresine sahip olması,
-        - Cihazla iletişimi engelleyen ilişkili bir ağ güvenlik grubu kuralına sahip olmaması
-        - İletişimi reddetmemesi
-        - Ağ adresini çevirip iletebilmesi veya trafik ile alt ağdaki hedef kaynak arasında ara sunucu oluşturabilmesi ve trafiği İnternet’e geri döndürebilmesi. 
-    - **Sanal ağ geçidi**: Ağ geçidi bir ExpressRoute sanal ağ geçidi, İnternet'e bağlı bir cihaz şirket içi ağ adresini çevirip ve İleri veya hedef kaynak arasında Expressroute'un aracılığıyla alt ağ trafiği proxy ise [özel eşdüzey hizmet sağlama ](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering). 
+* Azure, Azure hizmetlerinin genel IP adreslerini hedefleyen trafiği dahil etmek üzere tüm trafiği yolda belirtilen sonraki atlama türüne gönderir. Adres ön eki 0.0.0.0/0 olan yol için sonraki atlama türü **İnternet** ise, sanal ağın veya Azure hizmet kaynağının bulunduğu bölge ne olursa olsun, alt ağdan giden ve Azure hizmetlerinin genel IP adreslerini hedefleyen trafik Azure’ın temel ağından hiçbir zaman ayrılmaz. Ancak, sonraki atlama türü **Sanal ağ geçidi** veya **Sanal gereç** olan kullanıcı tanımlı bir yol veya BGP yolu oluşturduğunuzda, [hizmet uç noktalarını](virtual-network-service-endpoints-overview.md) etkinleştirmediğiniz Azure hizmetlerinin genel IP adreslerine gönderilen trafiği dahil etmek için tüm trafik yolda belirtilen sonraki atlama türüne gönderilir. Bir hizmet için hizmet uç noktasını etkinleştirdiyseniz, adres ön eki 0.0.0.0/0 olan bir yolda hizmete giden trafik sonraki atlama türüne yönlendirilmez. Bunun nedeni, hizmete yönelik adres ön eklerinin, hizmet uç noktasını etkinleştirdiğinizde Azure’ın oluşturduğu yolda belirtilmesi ve hizmetin adres ön eklerinin 0.0.0.0/0 değerinden uzun olmasıdır.
+* Bundan böyle alt ağdaki kaynaklara İnternet’ten doğrudan erişemezsiniz. Gelen trafik sanal ağdaki kaynağa ulaşmadan önce 0.0.0.0/0 adres ön ekine sahip bir yol için sonraki atlama türü tarafından belirtilen cihaz üzerinden geçiyorsa, alt ağdaki kaynaklara İnternet’ten dolaylı olarak erişebilirsiniz. Yol sonraki atlama türü için aşağıdaki değerleri içeriyorsa:<br>
+
+    * **Sanal gereç**: Gereç gerekir:<br>
+
+        * İnternet üzerinden erişilebilir olması<br>
+        * Kendisine atanmış bir genel IP adresine sahip olması,<br>
+        * Cihazla iletişimi engelleyen ilişkili bir ağ güvenlik grubu kuralına sahip olmaması<br>
+        * İletişimi reddetmemesi<br>
+        * Ağ adresini çevirip iletebilmesi veya trafik ile alt ağdaki hedef kaynak arasında ara sunucu oluşturabilmesi ve trafiği İnternet’e geri döndürebilmesi.
+
+    * **Sanal ağ geçidi**: Ağ geçidi bir ExpressRoute sanal ağ geçidi, İnternet'e bağlı bir cihaz şirket içi ağ adresini çevirip ve İleri veya hedef kaynak arasında Expressroute'un aracılığıyla alt ağ trafiği proxy ise [özel eşdüzey hizmet sağlama ](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering). 
 
 Sanal ağınız bir Azure VPN ağ geçidine bağlıysa, rota tablosunu 0.0.0.0/0 hedefine sahip bir rota içeren [ağ geçidi alt ağına](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) ilişkilendirmeyin. Bunun yapılması, ağ geçidinin düzgün çalışmasını engelleyebilir. Ayrıntılı bilgi için [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports) sayfasındaki (VPN Gateway ile ilgili SSS) *Why are certain ports opened on my VPN gateway?* (VPN ağ geçidimde belirli bağlantı noktalarının açık olma nedeni nedir?) sorusuna bakın.
 
@@ -171,9 +175,10 @@ Sanal ağınız bir Azure VPN ağ geçidine bağlıysa, rota tablosunu 0.0.0.0/0
 ## <a name="routing-example"></a>Yönlendirme örneği
 
 Bu makaledeki kavramları göstermek için aşağıdaki bölümlerde şu konular açıklanmaktadır:
-- Gereksinimleri içeren bir senaryo
-- Gereksinimleri karşılamak için gereken özel yollar
-- Gereksinimleri karşılamak için gereken varsayılan ve özel yolları içeren bir alt ağ için mevcut olan yol tablosu
+
+* Gereksinimleri içeren bir senaryo<br>
+* Gereksinimleri karşılamak için gereken özel yollar<br>
+* Gereksinimleri karşılamak için gereken varsayılan ve özel yolları içeren bir alt ağ için mevcut olan yol tablosu
 
 > [!NOTE]
 > Bu örnek, önerilen veya en iyi yöntem uygulaması olacak şekilde tasarlanmamıştır. Bunun yerine, yalnızca bu makaledeki kavramları göstermek için verilmektedir.
@@ -181,15 +186,15 @@ Bu makaledeki kavramları göstermek için aşağıdaki bölümlerde şu konular
 ### <a name="requirements"></a>Gereksinimler
 
 1. Aynı Azure bölgesinde iki sanal ağı uygulayın ve kaynakların sanal ağlar arasında iletişim kurmasını etkinleştirin.
-2. Bir şirket içi ağı, İnternet üzerinden bir VPN tüneli aracılığıyla her iki sanal ağ ile güvenli bir şekilde iletişim kurmak için etkinleştirin. *Alternatif olarak bir ExpressRoute bağlantısı kullanılabilir, ancak bu örnekte VPN bağlantısı kullanılmaktadır.*
-3. Bir sanal ağdaki alt ağ için:
- 
-    - Azure Depolama’ya giden trafik ve alt ağ içindeki trafik dışında alt ağdan giden tüm trafiği, inceleme ve günlüğe kaydetme amacıyla bir ağ sanal gerecinden geçmeye zorlayın.
-    - Alt ağ içindeki özel IP adresleri arasında gerçekleşen trafiği incelemeyin; trafiğin tüm kaynaklar arasında akmasına izin verin. 
-    - Diğer sanal ağı hedefleyen tüm giden trafiği bırakın.
-    - Azure depolamaya giden trafiği bir ağ sanal gerecinden geçmeye zorlamadan doğrudan depolamaya gitmesini sağlayın.
+1. Bir şirket içi ağı, İnternet üzerinden bir VPN tüneli aracılığıyla her iki sanal ağ ile güvenli bir şekilde iletişim kurmak için etkinleştirin. *Alternatif olarak bir ExpressRoute bağlantısı kullanılabilir, ancak bu örnekte VPN bağlantısı kullanılmaktadır.*
+1. Bir sanal ağdaki alt ağ için:
 
-4. Diğer tüm alt ağlar ile sanal ağlar arasındaki tüm trafiğe izin verin.
+    * Azure Depolama’ya giden trafik ve alt ağ içindeki trafik dışında alt ağdan giden tüm trafiği, inceleme ve günlüğe kaydetme amacıyla bir ağ sanal gerecinden geçmeye zorlayın.<br>
+    * Alt ağ içindeki özel IP adresleri arasında gerçekleşen trafiği incelemeyin; trafiğin tüm kaynaklar arasında akmasına izin verin.<br>
+    * Diğer sanal ağı hedefleyen tüm giden trafiği bırakın.<br>
+    * Azure depolamaya giden trafiği bir ağ sanal gerecinden geçmeye zorlamadan doğrudan depolamaya gitmesini sağlayın.
+
+1. Diğer tüm alt ağlar ile sanal ağlar arasındaki tüm trafiğe izin verin.
 
 ### <a name="implementation"></a>Uygulama
 
@@ -205,7 +210,7 @@ Oklar trafik akışını gösterir.
 
 Resimdeki *Subnet1* için yol tablosu aşağıdaki yolları içerir:
 
-|Kimlik  |Source |Eyalet  |Adres ön ekleri    |Sonraki atlama türü          |Sonraki atlama IP adresi|Kullanıcı tanımlı yol adı| 
+|Kimlik  |Kaynak |Eyalet  |Adres ön ekleri    |Sonraki atlama türü          |Sonraki atlama IP adresi|Kullanıcı tanımlı yol adı| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Varsayılan|Geçersiz|10.0.0.0/16         |Sanal ağ        |                   |              |
 |2   |Kullanıcı   |Etkin |10.0.0.0/16         |Sanal gereç      |10.0.100.4         |VNet1 içinde  |
@@ -233,13 +238,13 @@ Her bir yol kimliğinin açıklaması aşağıdaki gibidir:
 9. 10.10.0.0/16 adres ön eki için *Subnet1* ile ilişkili yol tablosuna bir kullanıcı tanımlı yol eklendiğinde Azure bu yolu eklemiştir. Bu yol ID8’i geçersiz kılar. Yol, trafiği doğrudan şirket içine yönlendirmek yerine şirket içi ağı hedefleyen tüm trafiği inceleme için bir NVA’ya gönderir. Bu yol [gereksinim](#requirements) 3’ü karşılamak amacıyla oluşturulmuştur.
 10. Alt ağ için bir Azure hizmetinde hizmet uç noktası etkinleştirildiğinde Azure bu yolu alt ağa otomatik olarak eklemiştir. Azure, trafiği Azure altyapı ağı üzerinden alt ağdan hizmetin genel IP adresine yönlendirir. Ön ek 0.0.0.0/0’dan daha uzundur ve başka bir yolun adres ön ekleri dahilinde değildir. Azure Depolama’yı hedefleyen trafiğin doğrudan Azure Depolama’ya gitmesini sağlamaya yönelik [gereksinim](#requirements) 3’ü karşılamak üzere bir hizmet uç noktası oluşturulmuştur.
 11. Azure bu yolu *Virtual-network-1* ve *Virtual-network-2* içindeki tüm alt ağların yol tablosuna otomatik olarak eklemiştir. 0.0.0.0/0 adres ön eki en kısa ön ektir. Daha uzun bir adres ön ekindeki adrese gönderilen her türlü trafik, diğer yollara göre yönlendirilir. Varsayılan olarak, Azure diğer yollardan birinde belirtilen adresler dışındaki adresleri hedefleyen tüm trafiği İnternet’e yönlendirir. 0.0.0.0/0 adres ön eki (ID12) için kullanıcı tanımlı bir yol alt ağ ile ilişkili olduğunda Azure, *Subnet1* alt ağının *Etkin* olan durumunu otomatik olarak *Geçersiz* yapmıştır. Yol başka bir sanal ağdaki başka bir alt ağ ile ilişkili olmadığından, bu yolun durumu her iki sanal ağdaki diğer tüm alt ağlar için hala *Etkin* şeklindedir.
-12. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı yol *Subnet1* alt ağı ile ilişkili olduğunda Azure bu yolu eklemiştir. Kullanıcı tanımlı yol, sanal gerecin IP adresi olarak 10.0.100.4’ü belirtir. Bu yol *Subnet2* ile ilişkili değildir, bu nedenle *Subnet2* yol tablosunda görünmez. Başka bir yolun adres ön eklerine dahil olmayan adreslere yönelik tüm trafik sanal gerece gönderilir. Kullanıcı tanımlı bir yol varsayılan yolu geçersiz kıldığından, bu yolun eklenmesi 0.0.0.0/0 adres ön ekinin (ID11) *Subnet1* için *Etkin* olan varsayılan yol durumunu *Geçersiz* olarak değiştirmiştir. Bu yol [gereksinim](#requirements) 3’ü karşılar.
+12. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı yol *Subnet1* alt ağı ile ilişkili olduğunda Azure bu yolu eklemiştir. Kullanıcı tanımlı yol, sanal gerecin IP adresi olarak 10.0.100.4’ü belirtir. Bu yol *Subnet2* ile ilişkili değildir, bu nedenle *Subnet2* yol tablosunda görünmez. Başka bir yolun adres ön eklerine dahil olmayan adreslere yönelik tüm trafik sanal gerece gönderilir. Kullanıcı tanımlı bir yol varsayılan yolu geçersiz kıldığından, bu yolun eklenmesi 0.0.0.0/0 adres ön ekinin (ID11) *Subnet1* için *Etkin* olan varsayılan yol durumunu *Geçersiz* olarak değiştirmiştir. Üçüncü karşılamak için bu yol zaten [gereksinim](#requirements).
 
 #### <a name="subnet2"></a>Subnet2
 
 Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 
-|Source  |Eyalet  |Adres ön ekleri    |Sonraki atlama türü             |Sonraki atlama IP adresi|
+|Kaynak  |Eyalet  |Adres ön ekleri    |Sonraki atlama türü             |Sonraki atlama IP adresi|
 |------- |-------|------              |-------                   |--------           
 |Varsayılan |Etkin |10.0.0.0/16         |Sanal ağ           |                   |
 |Varsayılan |Etkin |10.1.0.0/16         |Sanal ağ eşleme              |                   |
@@ -255,8 +260,8 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Yollar ve ağ sanal gereci içeren bir kullanıcı tanımlı yol tablosu oluşturma](tutorial-create-route-table-portal.md)
-- [Azure VPN Gateway için BGP yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [ExpressRoute ile BGP kullanma](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Bir alt ağ için tüm yolları görüntüleme](diagnose-network-routing-problem.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan yollarını değil, yalnızca kullanıcı tanımlı ve BGP yollarını gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.
-- Sanal makine ile hedef IP adresi arasında [sonraki atlama türünü belirleyin](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Ağ İzleyicisi sonraki atlama özelliği, trafiğin bir alt ağdan ayrıldığını ve olması gereken yere yönlendirildiğini belirlemenizi sağlar.
+* [Yollar ve ağ sanal gereci içeren bir kullanıcı tanımlı yol tablosu oluşturma](tutorial-create-route-table-portal.md)<br>
+* [Azure VPN Gateway için BGP yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+* [ExpressRoute ile BGP kullanma](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)<br>
+* [Bir alt ağ için tüm yolları görüntüleme](diagnose-network-routing-problem.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan yollarını değil, yalnızca kullanıcı tanımlı ve BGP yollarını gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.<br>
+* Sanal makine ile hedef IP adresi arasında [sonraki atlama türünü belirleyin](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Ağ İzleyicisi sonraki atlama özelliği, trafiğin bir alt ağdan ayrıldığını ve olması gereken yere yönlendirildiğini belirlemenizi sağlar.

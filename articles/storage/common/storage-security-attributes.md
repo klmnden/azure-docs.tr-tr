@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711963"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001455"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Azure depolama için genel güvenlik öznitelikleri
+# <a name="security-attributes-for-azure-storage"></a>Azure depolama için güvenlik öznitelikleri
 
-Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Azure Depolama'ya yerleşik genel güvenlik öznitelikleri belgeler. 
+Bu makale, Azure Depolama'ya yerleşik güvenlik özniteliklerini içermektedir. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -55,14 +55,14 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede, Az
 | Yetkilendirme| Evet | RBAC, POSIX ACL ve SAS belirteçleri ile yetkilendirme desteği |
 
 
-## <a name="audit-trail"></a>Denetim Kaydı
+## <a name="audit-trail"></a>Denetim izi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|
 | Denetim ve yönetim düzlemi günlüğe kaydetme ve Denetim | Evet | Azure Resource Manager etkinlik günlüğü |
 | Veri düzlemi günlük kaydı ve Denetim| Evet | Hizmet tanılama günlükleri ve Azure izleyici günlüğü başlangıç Önizleme  |
 
-## <a name="configuration-management"></a>Yapılandırma Yönetimi
+## <a name="configuration-management"></a>Yapılandırma yönetimi
 
 | Güvenlik özniteliği | Evet/Hayır | Notlar|
 |---|---|--|

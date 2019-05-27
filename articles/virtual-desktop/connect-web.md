@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142458"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834024"
 ---
-# <a name="connect-from-a-web-browser"></a>Bir web tarayıcısından bağlanma
+# <a name="connect-from-a-web-browser"></a>Web tarayıcısından bağlanma
 
 Web istemcisi uzun yükleme işlemi olmadan bir web tarayıcısından Windows sanal masaüstü Önizleme kaynaklarınıza erişmenize olanak tanır.
 
@@ -38,6 +38,6 @@ HTML5 özellikli bir tarayıcıya çalışır ancak resmi olarak aşağıdaki i�
 Bir tarayıcıda gidin [Windows sanal masaüstü web istemcisi](https://rdweb.wvd.microsoft.com/webclient) ve kullanıcı hesabınızla oturum açın.
 
 >[!NOTE]
->Zaten farklı bir Windows sanal masaüstü için kullanmak istediğiniz bir Azure AD hesabı kullanarak'yı açtıysanız, oturumu kapatın veya özel bir tarayıcı penceresinde kullanmak gerekebilir.
+>Sanal Windows Masaüstü için kullanmak istediğiniz farklı bir Azure Active Directory hesabıyla bir zaten açtıysanız, oturumunuzu veya özel bir tarayıcı penceresinde kullanmanız gerekir.
 
 Oturum açtıktan sonra artık kaynakların listesini görmeniz gerekir. Normal bir uygulamada olduğu gibi bunları seçerek kaynakları başlatabilirsiniz **tüm kaynakları** sekmesi.

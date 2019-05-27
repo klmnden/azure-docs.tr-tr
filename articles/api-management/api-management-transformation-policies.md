@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407602"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833422"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -375,7 +375,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>JSON için sıvı şablon kullanarak SOAP Dönüştür
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -405,7 +405,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 |Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
-|şablon|İlkesi ayarlama gövdesi içinde çalışacağı şablon oluşturma modunu değiştirmek için kullanılır. Şu anda desteklenen tek değerdir:<br /><br />-liquid - gövdesi İlkesi ayarlama liquid şablon oluşturma altyapısı da kullanır |Hayır|Sıvı|
+|şablon|İlkesi ayarlama gövdesi içinde çalışacağı şablon oluşturma modunu değiştirmek için kullanılır. Şu anda desteklenen tek değerdir:<br /><br />-liquid - gövdesi İlkesi ayarlama liquid şablon oluşturma altyapısı da kullanır |Hayır||
 
 İstek ve yanıt hakkında bilgi erişmek için sıvı şablon aşağıdaki özelliklere sahip bir bağlam nesnesi bağlayabilirsiniz: <br />
 <pre>context.

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad6570a3f30e40e4074502a8ce85bf739f58d3f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866431"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832699"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD hak yönetimi (Önizleme) yeni bir erişim paketi oluştur
 
@@ -56,7 +56,7 @@ Aşağıdaki diyagram, yeni bir erişim paketi oluşturmak için üst düzey bir
 
 1. Tıklayın **yeni erişim paket**.
 
-## <a name="basics"></a>Temel Bilgiler
+## <a name="basics"></a>Temel
 
 Üzerinde **Temelleri** sekmesinde, erişim paket bir ad verin ve erişim paketi oluşturmak için hangi Katalog değerini belirtin.
 
@@ -126,5 +126,5 @@ Aşağıdaki diyagram, yeni bir erişim paketi oluşturmak için üst düzey bir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Düzenleme ve var olan erişim paketini yönetme](entitlement-management-access-package-edit.md)
+- [Var olan bir erişim paketini düzenleme ve yönetme](entitlement-management-access-package-edit.md)
 - [Oluşturma ve kataloğunu yönetme](entitlement-management-catalog-create.md)

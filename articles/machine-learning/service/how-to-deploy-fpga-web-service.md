@@ -1,7 +1,7 @@
 ---
 title: FPGA modelleri dağıtma
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmeti için çıkarım Ultra düşük gecikme süresi ile bir FPGA üzerinde çalışan bir modeli ile bir web hizmetini dağıtma konusunda bilgi edinin.
+description: Son derece düşük gecikme süresi çıkarımı için Azure Machine Learning hizmeti ile bir FPGA üzerinde çalışan bir modeli ile bir web hizmetini dağıtma konusunda bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149601"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852041"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile bir FPGA üzerinde bir web hizmeti olarak model dağıtma
 
-Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanabilir kapı dizileri (FPGA)](concept-accelerate-with-fpgas.md) Azure Machine Learning donanım hızlandırılmış modelleri ile. FPGA kullanarak, bir tek bir toplu iş boyutu ile bile son derece düşük gecikme süresi çıkarım sağlar.
+Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanabilir kapı dizileri (FPGA)](concept-accelerate-with-fpgas.md) Azure Machine Learning donanım hızlandırılmış modelleri ile. FPGA kullanarak, bir tek bir toplu iş boyutu ile bile son derece düşük gecikme süresi çıkarımı sağlar. Çıkarım veya Puanlama modeli, dağıtılan model için tahmin, üretim veri çubuğunda en yaygın olarak kullanıldığı aşamasıdır.
 
 Bu model şu anda kullanılabilir:
   - ResNet 50
@@ -162,7 +162,7 @@ print(output_tensors)
 > [!IMPORTANT]
 > Giriş kaydedin ve model dönüştürme ve çıkarım istekleri için gerekeceğinden tensors çıktı.
 
-Kullanılabilir modelleri ve karşılık gelen varsayılan sınıflandırıcı varsayılan sınıflandırıcı kullandıysanız hangi çıkarım sırasında kullanacağınız olduğu aşağıda tensors olan çıktı.
+Kullanılabilir modelleri ve karşılık gelen varsayılan sınıflandırıcı varsayılan sınıflandırıcı kullandıysanız ne için çıkarım kullanacağınız olduğu aşağıda tensors olan çıktı.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

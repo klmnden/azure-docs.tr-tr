@@ -123,7 +123,7 @@ Teradata verileri kopyalamak için kopyalama etkinliği için kaynak türünü a
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
-| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
@@ -193,7 +193,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemeler Teradata ver
 | Period(Time With Time Zone) |String |
 | Period(Timestamp) |String |
 | Period(Timestamp With Time Zone) |String |
-| SmallInt |Int16 |
+| Integer |Int16 |
 | Time |TimeSpan |
 | Time With Time Zone |String |
 | Timestamp |DateTime |

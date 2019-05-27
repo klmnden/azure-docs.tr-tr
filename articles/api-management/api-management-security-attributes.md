@@ -1,24 +1,23 @@
 ---
-title: Azure API Yönetimi genel güvenlik öznitelikleri
+title: Azure API yönetimi için güvenlik öznitelikleri
 description: API Management'ı değerlendirmek için genel güvenlik öznitelikleri listesi
 services: api-management
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 040d628f9fe89f68a1c5ab91a1522c6a3cb724d9
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64508148"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001083"
 ---
-# <a name="common-security-attributes-for-api-management"></a>API Yönetimi genel güvenlik öznitelikleri
+# <a name="security-attributes-for-api-management"></a>API yönetimi için güvenlik öznitelikleri
 
-Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede oluşturulan API yönetime genel güvenlik öznitelikleri belgeler.
+Bu makale, API yönetime yerleşik güvenlik özniteliklerini içermektedir.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -30,7 +29,7 @@ Güvenlik, bir Azure hizmeti her yönüyle tümleştirilmiştir. Bu makalede olu
 | Aktarım sırasında şifreleme:<ul><li>Express route şifreleme</li><li>VNet şifreleme</li><li>VNet-VNet şifreleme</ul>| Evet | [Express route](../expressroute/index.yml) ve VNet şifreleme tarafından sağlanır [Azure ağı](../virtual-network/index.yml). |
 | Şifreleme anahtarı işleme (CMK, BYOK, vb.)| Hayır | Tüm şifreleme anahtarları Hizmet örneği içindir ve yönetilen bir hizmet. |
 | Sütun düzeyinde şifrelemeyi (Azure Data Services)| Yok | |
-| Şifrelenmiş API çağrıları| Evet | Yönetim düzlemi çağrılar aracılığıyla yapılan [Azure Resource Manager](../azure-resource-manager/index.yml) TLS üzerinden. Geçerli bir JSON web token (JWT) gereklidir.  Veri düzlemi çağrıları, TLS ve desteklenen kimlik doğrulama mekanizmaları (örn. istemci sertifikası veya JWT) biri ile güvenli hale getirilebilir.
+| Şifrelenmiş API çağrıları| Evet | Yönetim düzlemi çağrılar aracılığıyla yapılan [Azure Resource Manager](../azure-resource-manager/index.yml) TLS üzerinden. Geçerli bir JSON web token (JWT) gereklidir.  Veri düzlemi çağrıları, TLS ve desteklenen kimlik doğrulama mekanizmaları (örneğin, istemci sertifikası veya JWT) ile güvenli hale getirilebilir.
  |
 
 ## <a name="network-segmentation"></a>Ağ kesimleme
@@ -75,4 +74,4 @@ Bu bölümde, Azure API Management etkilemez yaygın güvenlik açıklarına bel
 
 | Güvenlik açığı               | Açıklama                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ticketbleed (CVE-2016-9244) | Ticketbleed bazı F5 ürünlerde bulunan TLS SessionTicket uzantısı uygulamasında güvenlik açığı var. ("Kadar 31 bayt başlatılmamış belleği verileri taşmasını") sızıntı sağlar. Bu istemciden 32-bit olmak için verileri ile geçen bir oturum kimliği doldurma TLS yığın kaynaklanır uzun. |
+| Ticketbleed (CVE-2016-9244) | Ticketbleed bazı F5 ürünlerde bulunan TLS SessionTicket uzantısı uygulamasında güvenlik açığı var. ("Kadar 31 bayt başlatılmamış belleği verileri taşmasını") sızıntı sağlar. Bu istemciden 32 bit uzunluğunda olmak için verileri ile geçen bir oturum kimliği doldurma TLS yığın kaynaklanır. |

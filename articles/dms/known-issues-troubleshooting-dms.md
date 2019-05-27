@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/14/2019
-ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/22/2019
+ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604430"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002204"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Yaygın Azure veritabanı geçiş hizmeti sorunlarını ve hatalarını giderme
 
@@ -28,7 +28,7 @@ Bir Azure veritabanı geçiş hizmeti projede yeni etkinlikler oluşturun, etkin
 
 | Nedeni         | Çözüm |
 | ------------- | ------------- |
-| Azure veritabanı geçiş hizmeti örneği aynı anda çalıştırılması devam eden görevleri için maksimum kapasite sınırına ulaştığında Bu sorun ortaya çıkar. Yeni etkinlik, Kapasite kullanılabilir olana kadar kuyruğa alınır. | Veri geçiş hizmeti örneği projeler arasında etkinlikleri çalıştıran var doğrulayın. Yürütme için sıraya otomatik olarak eklenin yeni etkinlikler oluşturmaya devam edebilirsiniz. Çalışan mevcut etkinliklerden birini tamamlar tamamlamaz, kuyruğa alınmış bir sonraki etkinliğe çalışmaya başlar ve durumu otomatik olarak çalışması için durum değiştirir. Sıralı etkinlik geçişi başlatmak için herhangi bir ek eylemde bulunmanız gerekmez.<br> |
+| Azure veritabanı geçiş hizmeti örneği aynı anda çalıştırılması devam eden görevleri için maksimum kapasite sınırına ulaştığında Bu sorun ortaya çıkar. Yeni etkinlik, Kapasite kullanılabilir olana kadar kuyruğa alınır. | Veri geçiş hizmeti örneği projeler arasında etkinlikleri çalıştıran var doğrulayın. Yürütme için sıraya otomatik olarak eklenin yeni etkinlikler oluşturmaya devam edebilirsiniz. Çalışan mevcut etkinliklerden birini tamamlar tamamlamaz, kuyruğa alınmış bir sonraki etkinliğe çalışmaya başlar ve durumu otomatik olarak çalışması için durum değiştirir. Sıralı etkinlik geçişi başlatmak için herhangi bir ek eylemde bulunmanız gerekmez.<br><br> |
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>En fazla geçiş için seçilen veritabanı sayısı
 
@@ -48,7 +48,7 @@ Azure veritabanı geçiş hizmetini kullanarak MySQL için Azure veritabanı'na 
 
 | Nedeni         | Çözüm |
 | ------------- | ------------- |
-| Geçiş işlemi gerçekleştiren kullanıcı ReplicationAdmin rolüne ve/veya çoğaltma istemci, çoğaltma ve Süper (MySQL 5.6.6 öncesi'den önceki sürümler) ayrıcalıkları eksik olduğunda bu hata oluşabilir.<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Emin [önkoşul ayrıcalıkları](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) kullanıcı için hesap yapılandırılmış olan doğru MySQL örneği için Azure veritabanı. Örneğin, gerekli ayrıcalıklara sahip ' migrateuser' adlı bir kullanıcı oluşturmak için aşağıdaki adımlar izlenebilir:<br>1. Kullanıcı oluştur migrateuser@'%' tarafından TANIMLANAN 'gizli'; <br>2. Db_name.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için tüm ayrıcalıkları verin Daha fazla veritabanı erişimi vermek için bu adımı yineleyin <br>3. GRANT çoğaltma ikincil üzerinde *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>4. GRANT çoğaltma istemcide *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>5. Flush ayrıcalıkları; |
+| Geçiş yapan kullanıcı ReplicationAdmin rolüne ve/veya çoğaltma istemci, çoğaltma ve Süper (MySQL 5.6.6 öncesi'den önceki sürümler) ayrıcalıkları eksik olduğunda bu hata oluşabilir.<br><br><br><br><br><br><br><br><br><br><br><br><br> | Emin [önkoşul ayrıcalıkları](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) kullanıcı için hesap yapılandırılmış olan doğru MySQL örneği için Azure veritabanı. Örneğin, gerekli ayrıcalıklara sahip ' migrateuser' adlı bir kullanıcı oluşturmak için aşağıdaki adımlar izlenebilir:<br>1. Kullanıcı oluştur migrateuser@'%' tarafından TANIMLANAN 'gizli'; <br>2. Db_name.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için tüm ayrıcalıkları verin Daha fazla veritabanı erişimi vermek için bu adımı yineleyin <br>3. GRANT çoğaltma ikincil üzerinde *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>4. GRANT çoğaltma istemcide *.* '' gizli'; tarafından tanımlanan migrateuser'@'%' için<br>5. Flush ayrıcalıkları; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti durdurulmaya çalışılırken hata oluştu
 
@@ -68,7 +68,7 @@ SQL Server'dan Azure SQL veritabanı yönetilen örneği için çevrimiçi bir g
 
 | Nedeni         | Çözüm    |
 | ------------- | ------------- |
-| Bu hata, SQL Server'dan bir Azure SQL veritabanı yönetilen örneği'ne kadar çevrimiçi geçiş için kullanılan uygulama sorumlusu, abonelikte izin katkıda sahip olmayan gösterir. Şu anda yönetilen örneği ile belirli API çağrıları geri yükleme işlemi için abonelik bu izni gerektirir. <br><br><br><br><br><br><br><br><br><br> | Kullanım `Get-AzureADServicePrincipal` PowerShell cmdlet'iyle `-ObjectId` kullanılan uygulama kimliği görünen adını listelemek için hata iletisindeki kullanılabilir.<br><br> Bu uygulama izinleri doğrulayın ve var. olmak [katkıda bulunan rolü](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) abonelik düzeyinde. <br><br> Gerekli kısıtlamak için Azure veritabanı geçiş hizmeti mühendislik ekibi çalışma geçerli erişim rolü abonelik üzerinde katkıda bulunan. Kullanılmasına izin vermeyen bir iş gereksinimi varsa katkıda bulunan rolü, Ek Yardım için Azure desteğine başvurun. |
+| Bu hata, SQL Server'dan bir Azure SQL veritabanı yönetilen örneği'ne kadar çevrimiçi geçiş için kullanılan uygulama sorumlusu, abonelikte izin katkıda sahip olmayan gösterir. Şu anda yönetilen örneği ile belirli API çağrıları geri yükleme işlemi için abonelik bu izni gerektirir. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Kullanım `Get-AzureADServicePrincipal` PowerShell cmdlet'iyle `-ObjectId` kullanılan uygulama kimliği görünen adını listelemek için hata iletisindeki kullanılabilir.<br><br> Bu uygulama izinleri doğrulayın ve var. olmak [katkıda bulunan rolü](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) abonelik düzeyinde. <br><br> Gerekli kısıtlamak için Azure veritabanı geçiş hizmeti mühendislik ekibi çalışma geçerli erişim rolü abonelik üzerinde katkıda bulunan. Kullanılmasına izin vermeyen bir iş gereksinimi varsa katkıda bulunan rolü, Ek Yardım için Azure desteğine başvurun. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti ile ilişkili NIC silme hatası
 
@@ -78,7 +78,7 @@ Azure veritabanı geçiş hizmeti ile ilişkili bir ağ arabirimi kartı silmeye
 
 | Nedeni         | Çözüm    |
 | ------------- | ------------- |
-| Azure veritabanı geçiş hizmeti örneği hala var olabilir, bu sorun ortaya çıkar ve NIC kullanma <br><br><br><br><br><br> | Bu NIC silmek için hizmet tarafından kullanılan NIC, otomatik olarak siler DMS hizmeti örneğini silin.<br><br> **Önemli**: Çalışan etkinlik silinmesini Azure veritabanı geçiş hizmeti örneği olduğundan emin olun.<br><br> Tüm projeler ve etkinlikler için Azure veritabanı geçiş hizmeti örneği ilişkili silindikten sonra hizmet örneği silebilirsiniz. Hizmet örneği tarafından kullanılan NIC, hizmet silme işleminin bir parçası olarak otomatik olarak temizlenir. |
+| Azure veritabanı geçiş hizmeti örneği hala var olabilir, bu sorun ortaya çıkar ve NIC kullanma <br><br><br><br><br><br><br><br> | Bu NIC silmek için hizmet tarafından kullanılan NIC, otomatik olarak siler DMS hizmeti örneğini silin.<br><br> **Önemli**: Çalışan etkinlik silinmesini Azure veritabanı geçiş hizmeti örneği olduğundan emin olun.<br><br> Tüm projeler ve etkinlikler için Azure veritabanı geçiş hizmeti örneği ilişkili silindikten sonra hizmet örneği silebilirsiniz. Hizmet örneği tarafından kullanılan NIC, hizmet silme işleminin bir parçası olarak otomatik olarak temizlenir. |
 
 ## <a name="connection-error-when-using-expressroute"></a>Expressroute'u kullanırken bağlantı hatası
 
@@ -86,7 +86,7 @@ Azure veritabanı geçişi hizmeti projesi Sihirbazı kaynağına bağlanmaya ç
 
 | Nedeni         | Çözüm    |
 | ------------- | ------------- |
-| Kullanırken [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure veritabanı geçiş hizmeti [gerektirir](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) sağlama hizmeti ile ilişkilendirilen sanal ağ alt ağda üç hizmet uç noktaları:<br> --Service Bus uç noktası<br> --Depolama uç noktası<br> --Hedef veritabanı uç noktası (örneğin, SQL uç noktası, Cosmos DB uç noktası)<br><br><br><br> | [Etkinleştirme](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) gerekli hizmet uç noktaları için Azure veritabanı geçiş hizmeti ile kaynak arasında ExpressRoute bağlantısı. <br><br><br><br><br><br><br><br> |
+| Kullanırken [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure veritabanı geçiş hizmeti [gerektirir](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) sağlama hizmeti ile ilişkilendirilen sanal ağ alt ağda üç hizmet uç noktaları:<br> --Service Bus uç noktası<br> --Depolama uç noktası<br> --Hedef veritabanı uç noktası (örneğin, SQL uç noktası, Cosmos DB uç noktası)<br><br><br><br><br> | [Etkinleştirme](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) gerekli hizmet uç noktaları için Azure veritabanı geçiş hizmeti ile kaynak arasında ExpressRoute bağlantısı. <br><br><br><br><br><br><br><br> |
 
 ## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Bir MySQL veritabanı için Azure MySQL geçişi sırasında zaman aşımı hatası
 
@@ -96,7 +96,17 @@ Bir MySQL veritabanı için Azure veritabanı geçiş hizmeti aracılığıyla M
 
 | Nedeni         | Çözüm    |
 | ------------- | ------------- |
-| Geçişi, geçiş sırasında kilit bekleme zaman aşımı nedeniyle başarısız olduğunda bu hata oluşur.<br><br> | Sunucu parametresinin değerini artırmayı **'innodb_lock_wait_timeout'**. İzin verilen en yüksek değer 1073741824 ' dir. |
+| Geçişi, geçiş sırasında kilit bekleme zaman aşımı nedeniyle başarısız olduğunda bu hata oluşur. | Sunucu parametresinin değerini artırmayı **'innodb_lock_wait_timeout'**. İzin verilen en yüksek değer 1073741824 ' dir. |
+
+## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Kaynak SQL Server dinamik bağlantı noktası kullanırken bağlanma veya adlandırılmış örneğine hata
+
+Adlandırılmış örnek veya dinamik bir bağlantı noktası üzerinde çalışan SQL Server kaynak için Azure veritabanı geçiş hizmeti bağlanmaya çalıştığınızda, bağlantı şu hatayla başarısız olur:
+
+* **Hata**: -1 - SQL bağlantısı başarısız oldu. SQL Server ile bağlantı kurulmaya çalışılırken ağ ile ilişkili veya örneğe özgü bir hata oluştu. Sunucu bulunamadı veya erişilebilir değildi. Örnek adının doğru olduğundan ve SQL Server Uzak bağlantılara izin verecek şekilde yapılandırıldığını doğrulayın. (sağlayıcısı: SQL ağ arabirimleri, hata: 26 - Server/örneği belirtilen bulma hatası)
+
+| Nedeni         | Çözüm    |
+| ------------- | ------------- |
+| Bağlanmak için Azure veritabanı geçiş Hizmeti'nin çalıştığı kaynak SQL Server örneğine dinamik bir bağlantı noktası veya adlandırılmış bir örnek kullanarak bu sorun ortaya çıkar. SQL Server Browser hizmetini UDP bağlantı noktası 1434 gelen bağlantılar için adlandırılmış bir örnek veya dinamik bir bağlantı noktası kullanırken dinler. Dinamik bağlantı noktası, SQL Server hizmeti her başladığında değişebilir. Bir örneği SQL Server Yapılandırma Yöneticisi'ndeki ağ yapılandırması ile atanan dinamik bağlantı noktası kontrol edebilirsiniz.<br><br><br> |Kaynak SQL Server Browser hizmetini UDP bağlantı noktası 1434'e ve uygunsa dinamik olarak atanan TCP bağlantı noktası üzerinden SQL Server örneği için Azure veritabanı geçiş hizmeti bağlanabildiğinizi doğrulayın. |
 
 ## <a name="additional-known-issues"></a>Bilinen diğer sorunlar
 

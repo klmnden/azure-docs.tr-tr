@@ -3,18 +3,18 @@ title: İçin Azure IOT Edge modülleri geliştirme | Microsoft Docs
 description: Azure IOT Edge çalışma zamanı ve IOT Hub ile iletişim kurabilen için modüllerinizi geliştirebilir.
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 02/25/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.custom: seodec18
+ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322464"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833432"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Kendi IOT Edge modülleri geliştirin
 
@@ -67,7 +67,7 @@ Modülünüzün nasıl DeviceClient örnekleri IOT cihazları IOT Hub'ına bağl
 
 [IOT Edge için geliştirme ve test ortamı hazırlama](development-environment.md)
 
-[Geliştirmek için Visual Studio 2017'yi kullanma C# IOT Edge modülleri](how-to-visual-studio-develop-csharp-module.md)
+[Geliştirmek için Visual Studio kullanma C# IOT Edge modülleri](how-to-visual-studio-develop-module.md)
 
 [Visual Studio Code için IOT Edge modülleri geliştirmek için kullanın](how-to-vs-code-develop-module.md)
 
