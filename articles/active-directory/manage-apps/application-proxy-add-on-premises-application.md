@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8b9709e7294e8cb7819afe3ec9f6eb5a06427
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 31992a08c1b6c4fda4053032458879661fe2b740
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015419"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233775"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -51,9 +51,9 @@ Uygulama proxy'si kullanmak için Windows Server 2012 R2 çalıştıran bir Wind
 
 2. Bağlayıcı sunucusu ve web uygulama sunucuları aynı Active Directory etki alanına ait veya gerekir güvenen etki alanlarına yayılan. Sunucuların aynı etki alanında olması veya güvenen etki alanlarına tümleşik Windows kimlik doğrulaması (IWA) ve Kerberos Kısıtlı temsilci (KCD) ile çoklu oturum açma (SSO) kullanarak bir gereksinimdir. Bağlayıcı sunucusu ve web uygulama sunucuları farklı Active Directory etki alanlarında ise, kaynak tabanlı temsilci seçme için çoklu oturum açmayı kullanmanız gerekir. Daha fazla bilgi için [uygulama proxy'si ile çoklu oturum açma için KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
-#### <a name="software-requirements"></a>Yazılım gereksinimleri
+#### <a name="tls-requirements"></a>TLS gereksinimleri
 
-Windows bağlayıcı sunucusu TLS 1.2 uygulama ara sunucusu bağlayıcısını yüklemeden önce etkin olmalıdır. Var olan Bağlayıcılarla 1.5.612.0 sürümleri yapılana kadar önceki TLS sürümlerini üzerinde çalışmaya devam eder. 
+Windows bağlayıcı sunucusu TLS 1.2 uygulama ara sunucusu bağlayıcısını yüklemeden önce etkin olmalıdır.
 
 TLS 1.2 etkinleştirmek için:
 
@@ -67,6 +67,9 @@ TLS 1.2 etkinleştirmek için:
     ```
 
 2. Sunucuyu yeniden başlatın.
+
+>[!Important] 
+> Müşterilerimiz için sınıfının en iyisi şifreleme sağlamak, güncelleştirmeleri yalnızca TLS 1.2 protokolleri erişimi sınırlamak için uygulama proxy'si hizmeti yapıyoruz. Değişiklik aşamalı olarak yalnızca TLS 1.2 protokolleri kullanıyorsanız ve bu değişiklik herhangi bir etki görmez müşterilere sunulacaktır müşteri hazırlık temel. TLS 1.0 ve 1.1 kullanımdan kaldırma 31 Ağustos 2019 üzerinde tamamlanır ve müşterilerin bu değişikliğe hazırlanmak için gelişmiş uyarı alırsınız. Tüm istemci-sunucu ve tarayıcı sunucu birleşimleri için bu değişiklik yapma, emin hazırlamak için uygulama ara Sunucusu hizmetine bağlantıyı korumak için TLS 1.2 kullanmak üzere güncelleştirilir. Bunlar, kullanıcılarınızın uygulama proxy'si aracılığıyla yayımlanan uygulamalara erişmek için kullandığınız istemci içerir. Hazırlama için bkz. [TLS 1.2 Office 365'te](https://docs.microsoft.com/en-us/office365/troubleshoot/prepare-tls-1.2-in-office-365) yararlı başvurular ve kaynaklar.
 
 ## <a name="prepare-your-on-premises-environment"></a>Şirket içi ortamınızı hazırlama
 
@@ -89,7 +92,7 @@ Uygulama Ara sunucusu zaten kullanıyorsanız, yüklü bağlayıcı daha eski bi
 
 Aşağıdaki URL'lere erişim izin ver:
 
-| URL | Nasıl kullanılır |
+| URL'si | Nasıl kullanılır |
 | --- | --- |
 | \*. msappproxy.net<br>\*. servicebus.windows.net | Bağlayıcı ve uygulama proxy'si bulut hizmeti arasında iletişim |
 | mscrl.microsoft.com:80<br>CRL.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure, bu URL'ler sertifikaları doğrulamak için kullanır. |

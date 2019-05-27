@@ -1,7 +1,7 @@
 ---
 title: Pano - dil anlama
 titleSuffix: Azure Cognitive Services
-description: Intents analytics Özet panosu ile görselleştirilmiş bir raporlama aracına düzeltin.
+description: Intents analytics panosunu, görselleştirilmiş bir raporlama aracına düzeltin.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072587"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236955"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Uygulamanızı geliştirmek için Panoyu kullanma
 
-Bulup örnek konuşma kullanırken eğitilen uygulamanızın ıntents sorunları düzeltin. Özet Panosu, düzeltilmesi gereken hedefleri en önemli özellikleri ile genel uygulama bilgilerini görüntüler. 
+Bulup örnek konuşma kullanırken eğitilen uygulamanızın ıntents sorunları düzeltin. Pano, düzeltilmesi gereken hedefleri en önemli özellikleri ile genel uygulama bilgilerini görüntüler. 
 
 Gözden geçirme Pano analizi değiştikçe ve modelinizin geliştirilmesine Yinelenen yinelemeli bir işlemdir.
 
@@ -33,16 +33,16 @@ Panoda ele üç sorunlar şunlardır:
 |Sorun|Çizelge rengi|Açıklama|
 |--|--|--|
 |Veri dengesizliği|-|Bu durum, örnek konuşma miktarını önemli ölçüde değişir oluşur. Tüm hedefleri gerek _kabaca_ aynı sayıda örnek konuşma - hiçbiri hedefi dışında. Bu gibi durumlarda, % 10-%15 konuşma toplam miktarı yalnızca uygulamada olmalıdır.<br><br> Veri imbalanced ancak hedefi doğruluğu belirli bir eşiğin üstünde, bu dengesizliği bir sorun bildirilmedi.<br><br>**Başlatmak bu sorunu ile - diğer sorunların kök nedenini olabilir.**|
-|Belirsiz Öngörüler|Orange|Üst amaç ve sonraki amaç 's puanları bunlar nedeniyle sonraki eğitimle Çevir yeterince yakın olduğunda gerçekleşir [negatif örnekleme](luis-how-to-train.md#train-with-all-data) ya da daha fazla örnek konuşma ıntent'e eklendi. |
+|Belirsiz Öngörüler|Turuncu|Üst amaç ve sonraki amaç 's puanları bunlar nedeniyle sonraki eğitimle Çevir yeterince yakın olduğunda gerçekleşir [negatif örnekleme](luis-how-to-train.md#train-with-all-data) ya da daha fazla örnek konuşma ıntent'e eklendi. |
 |Yanlış tahmin|Kırmızı|Bu durum, bir örnek utterance etiketli amaç (durumda amacı) için öngörülen değil oluşur.|
 
 Doğru tahminler mavi ile gösterilir.
 
-Özet Panosu bu sorunları gösterir ve hangi ıntents etkilendiğini bildirir ve uygulamayı iyileştirmek için ne yapmanız gerektiğini önerir. 
+Pano bu sorunları gösterir ve hangi ıntents etkilendiğini bildirir ve uygulamayı iyileştirmek için ne yapmanız gerektiğini önerir. 
 
 ## <a name="before-app-is-trained"></a>Uygulama eğitildi önce 
 
-Uygulamayı eğitme önce Özet Panosu düzeltmeleri için herhangi bir öneri içermiyor. Bu önerileri görmek için uygulamanızı eğitin.  
+Uygulamayı eğitme önce Pano düzeltmeleri için herhangi bir öneri içermiyor. Bu önerileri görmek için uygulamanızı eğitin.  
 
 ## <a name="check-your-publishing-status"></a>Yayımlama durumunuzu denetleme
 
@@ -50,7 +50,7 @@ Uygulamayı eğitme önce Özet Panosu düzeltmeleri için herhangi bir öneri i
 
 Etkin sürüm çözmek istediğiniz sürüm olduğundan emin olun. 
 
-![Özet Panosu gösterilir uygulamanın dış hizmetler, bölgeler yayımlanan ve uç noktası İsabeti bir araya getirilir.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Pano gösterir uygulamanın dış hizmetler, bölgeler yayımlanan ve uç noktası İsabeti bir araya getirilir.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Bu da herhangi bir dış hizmetler, yayımlanan bölgeleri gösterir ve uç noktası isabet sayısı toplanır. 
 
@@ -96,7 +96,7 @@ Başlatmak bu sorunu ile - diğer sorunların kök nedenini olabilir.
 
 * Daha fazla konuşma ıntent'e ekleme daha sonra yeniden eğitin. 
 
-Özet panosunda önerilen sürece konuşma hiçbiri hedefi eklemeyin.
+Panoda önerilen sürece konuşma hiçbiri hedefi eklemeyin.
 
 > [!Tip]
 > Sayfasında, üçüncü bölüm kullanmak **konuşma amacı başına** ile **konuşma (sayı)** , hedefleri daha fazla konuşma gereken hızlı görsel bir kılavuz olarak ayarlama.  
@@ -154,10 +154,10 @@ Kartın bu bölümü, hata eşiği dışında kalan örnek konuşma bulmanızı 
 
 Filtre belirli hedefleri bulmanıza olanak tanır:
 
-|Filtre|Önerilen yüzdesi|Amaç|
+|Filtrele|Önerilen yüzdesi|Amaç|
 |--|--|--|
 |En sorunlu hedefleri|-|**Buradan başlayın** -konuşma bu amaca düzeltme artıracak diğer düzeltmeleri birden çok uygulama.|
-|Aşağıya doğru tahminler|%60|Seçili amacını doğru ancak bir güven puanı eşiğin altına konuşma yüzdesidir. |
+|Aşağıya doğru tahminler|60%|Seçili amacını doğru ancak bir güven puanı eşiğin altına konuşma yüzdesidir. |
 |Yukarıdaki belirsiz Öngörüler|%15|Seçili amacı, en yakın müsabık hedefle birbiriyle karıştırılabilecek konuşma yüzdesidir.|
 |Yukarıdaki yanlış tahmin|%15|Seçili amacı, yanlış tahmin edilen konuşma yüzdesidir. |
 

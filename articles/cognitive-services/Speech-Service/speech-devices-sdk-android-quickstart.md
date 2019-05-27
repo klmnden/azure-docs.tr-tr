@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: d5af2bb61eeb986f02a31d45ff9236ecc0c8427e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026202"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234515"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Hızlı Başlangıç: Android'de konuşma cihaz SDK'sı örnek uygulamayı çalıştırma
 
-Bu hızlı başlangıçta, konuşma tanıma özellikli bir ürün geliştirmeye Android için konuşma cihaz SDK'yı kullanmayı öğreneceksiniz.
+Bu hızlı başlangıçta, konuşma tanıma özellikli bir ürün oluşturun veya olarak kullanmak için Android için konuşma cihaz SDK'yı kullanmayı öğreneceksiniz. bir [konuşma Transkripsiyonu](conversation-transcription-service.md) cihaz.
 
 Bu kılavuzda gerektiren bir [Azure Bilişsel Hizmetler](get-started.md) konuşma Hizmetleri kaynak hesabı. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
@@ -33,9 +33,11 @@ Konuşma cihaz SDK'sını kullanmaya başlamadan önce yapmanız gerekir:
 
 * En son sürümünü indirin [konuşma cihaz SDK'sı](https://aka.ms/sdsdk-download)ve çalışma dizininize .zip ayıklayın.
    > [!NOTE]
-   > .Zip dosyasını Android örnek uygulamasını içerir.
+   > Android örnek uygulaması Android örnek Release.zip dosyasını içerir ve bu hızlı başlangıçta uygulama için C:\SDSDK\Android-Sample-Release ayıklanır varsayar.
 
 * Alınacak bir [konuşma Hizmetleri için Azure abonelik anahtarı](get-started.md)
+
+* Konuşma Transkripsiyonu kullanmayı planlıyorsanız kullanmalısınız bir [döngüsel mikrofon cihaz](get-speech-devices-sdk.md) ve hizmet şu anda yalnızca "en-US" ve "zh-CN" bölgeleri, "centralus" ve "ping'in ekran" için kullanılabilir. Bir konuşma anahtarı konuşma Transkripsiyonu kullanmak için bu bölgelerden birinde olmalıdır.
 
 * Konuşma Hizmetleri hedefleri (veya Eylemler) kullanıcı konuşma tanımlamak için kullanmayı planlıyorsanız, ihtiyacınız olacak bir [Language Understanding hizmeti (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) abonelik. LUIS ve niyeti tanıma hakkında daha fazla bilgi için bkz: [amaçlarıyla LUIS, konuşma tanıma C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -82,16 +84,23 @@ Geliştirme Seti kurulumunuzu doğrulamak için derleme ve örnek uygulamayı y�
 
 1. Konuşma abonelik anahtarınız için kaynak kodu ekleyin. Amaç tanıma denemek istiyorsanız, ayrıca ekleyin, [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonelik anahtarı ve uygulama kimliği
 
-   Uygulama bilgilerini ve anahtarları MainActivity.java kaynak dosyası aşağıdaki satırları gidin:
+   Konuşma ve LUIS bilgilerinizi MainActivity.java geçer:
 
    ```java
-   // Subscription
-   private static final String SpeechSubscriptionKey = "[your speech key]";
-   private static final String SpeechRegion = "westus";
-   private static final String LuisSubscriptionKey = "[your LUIS key]";
-   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-   private static final String LuisAppId = "[your LUIS app ID]"
+    // Subscription
+    private static String SpeechSubscriptionKey = "<enter your subscription info here>";
+    private static String SpeechRegion = "westus"; // You can change this if your speech region is different.
+    private static String LuisSubscriptionKey = "<enter your subscription info here>";
+    private static String LuisRegion = "westus2"; // you can change this, if you want to test the intent, and your LUIS region is different.
+    private static String LuisAppId = "<enter your LUIS AppId>";
    ```
+
+    Konuşma transkripsiyonu kullanıyorsanız konuşma anahtarı ve bölge bilgilerinizi de conversation.java içinde gerekli:
+
+   ```java
+    private static final String CTSKey = "<Conversation Transcription Service Key>";
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    ```
 
 1. Varsayılan Uyandırma sözcüğünü (anahtar) "Bilgisayar" dir. Sağlanan diğer birini de deneyebilirsiniz "Machine" veya "Yardımcısı" gibi sözcükleri Uyandırma. Bu alternatif Uyandırma sözcükler için kaynak dosyaları konuşma cihazları SDK'da anahtar sözcüğü klasörü arasındadır. Örneğin, C:\SDSDK\Android-Sample-Release\keyword\Computer Uyandırma için "Bilgisayar" word kullanılan dosyaları içerir.
 
@@ -135,6 +144,10 @@ Geliştirme Seti kurulumunuzu doğrulamak için derleme ve örnek uygulamayı y�
 1. Konuşma cihaz SDK'sı örnek bir uygulama başlar ve şu seçeneklerini gösterir:
 
    ![Örnek konuşma cihaz SDK'sı örnek uygulama ve seçenekleri](media/speech-devices-sdk/qsg-8.png)
+
+1. Yeni eklenen konuşma Transkripsiyonu tanıtım olur. 'Start Session' ile çoğaltmaya başlayın. Katılımcının ses imzaları varsa bunlar bir cihazdaki dosyayı /video/participants.properties içine yerleştirilebilir ancak varsayılan olarak herkesin bir konuk şeklindedir. Ses imza göz oluşturulacak [konuşmaları (SDK) konuşmaların](how-to-use-conversation-transcription-service.md).
+
+   ![Tanıtım konuşma Transkripsiyonu uygulaması](media/speech-devices-sdk/qsg-15.png)
 
 1. Deneyin!
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190269"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243858"
 ---
 # <a name="what-is-conversation-transcription"></a>Konuşma tanıma nedir?
 
@@ -67,6 +67,11 @@ Konuşma Transkripsiyonu, çok kanallı ses akışları ve kullanıcı profiller
 > Belirtimi ve tasarım ayrıntıları için bkz. [Microsoft konuşma cihaz SDK'sı mikrofon](https://aka.ms/cts/microphone). Daha fazla bilgi edinin veya Geliştirme Seti satın almak için bkz: [alma Microsoft konuşma cihaz SDK'sı](https://aka.ms/cts/getsdk).
 
 Konuşma Transkripsiyonu konuşma cihaz SDK'sı ile kullanmayı öğrenmek için bkz [konuşma transkripsiyonu kullanmayı](https://aka.ms/cts/howto).
+
+
+## <a name="quick-start-with-a-sample-app"></a>Örnek uygulama ile hızlı başlangıç
+
+Microsoft konuşma cihaz SDK'sı olan Hızlı Başlangıç örnek bir uygulama için tüm cihaz ilgili örnek. Konuşma Transkripsiyonu, bunlardan biridir. İçinde bulabilirsiniz [konuşma cihaz SDK'sı android Hızlı Başlangıç](https://aka.ms/sdsdk-quickstart) örnek uygulama ve kaynak koduna referans.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

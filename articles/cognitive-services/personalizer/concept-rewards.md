@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/13/2019
 ms.author: edjez
-ms.openlocfilehash: 536aad0fac4e833cd9a30bad2cfd10e25b0f1300
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607080"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244244"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Kişiselleştirme başarısını ödül puanlar
 
-Ödül puan ne kadar iyi kişiselleştirme seçimi belirtir [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/rank#rankresponse), kullanıcı ile sonuçlandı. Ödül puanı değeri gözlemlere kullanıcı davranışına dayalı iş mantığınızı tarafından belirlenir.
+Ödül puan ne kadar iyi kişiselleştirme seçimi belirtir [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), kullanıcı ile sonuçlandı. Ödül puanı değeri gözlemlere kullanıcı davranışına dayalı iş mantığınızı tarafından belirlenir.
 
 Kendi makine öğrenimi modellerini ödül değerlendirerek personalizer eğitir. 
 

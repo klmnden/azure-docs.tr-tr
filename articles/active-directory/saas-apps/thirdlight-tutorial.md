@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure Active Directory Tümleştirmesi ile ThirdLight | Microsoft Docs'
-description: Azure Active Directory ve ThirdLight arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+description: Bu öğreticide, Azure Active Directory ve ThirdLight arasında çoklu oturum açmayı yapılandırma öğreneceksiniz.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,218 +15,219 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: caee6bad1b944b6d1396ea2e26f163629b3c444f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 67c8dcfffd78d4c0114a96622235d6548627fa92
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888806"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Öğretici: ThirdLight ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile ThirdLight tümleştirme konusunda bilgi edinin.
-Azure AD ile ThirdLight tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile ThirdLight tümleştirme öğreneceksiniz. Bu tümleştirme aşağıdaki avantajları sağlar:
 
-* ThirdLight erişimi, Azure AD'de kontrol edebilirsiniz.
-* Otomatik olarak (çoklu oturum açma) ThirdLight için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Azure AD ThirdLight erişimi denetlemek için kullanabilirsiniz.
+* Kullanıcılarınız için ThirdLight (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak oturum açmanız etkinleştirebilirsiniz.
+* Hesaplarınızı tek bir merkezi konumda yönetebilir: Azure portalı.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi edinmek istiyorsanız bkz [Azure Active Directory'de uygulamalar için çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD Tümleştirmesi ile ThirdLight yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD Tümleştirmesi ile ThirdLight yapılandırmak için sahip olmanız gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free/)
-* Abonelik ThirdLight çoklu oturum açma etkin
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa alabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
+* Tekli etkin oturum sahip ThirdLight abonelik.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* ThirdLight destekler **SP** tarafından başlatılan
+* ThirdLight SP tarafından başlatılan SSO'yu destekler.
 
-## <a name="adding-thirdlight-from-the-gallery"></a>Galeriden ThirdLight ekleme
+## <a name="add-thirdlight-from-the-gallery"></a>Galeriden ThirdLight Ekle
 
-Azure AD'de ThirdLight tümleştirmesini yapılandırmak için ThirdLight Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de ThirdLight tümleştirmesini ayarlamak için yönetilen SaaS uygulamaları listenize Galeriden ThirdLight eklemeniz gerekir.
 
-**Galeriden ThirdLight eklemek için aşağıdaki adımları gerçekleştirin:**
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**:
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+    ![Azure Active Directory'yi seçin](common/select-azuread.png)
 
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
-
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
+2. Git **kurumsal uygulamalar** > **tüm uygulamaları**:
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Bir uygulama eklemek için seçin **yeni uygulama** pencerenin üst kısmındaki:
 
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
+    ![Yeni uygulama seçme](common/add-new-app.png)
 
-4. Arama kutusuna **ThirdLight**seçin **ThirdLight** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **ThirdLight**. Seçin **ThirdLight** seçin ve arama sonuçlarını **Ekle**.
 
-     ![Sonuç listesinde ThirdLight](common/search-new-app.png)
+     ![Arama sonuçları](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ThirdLight adlı bir test kullanıcı tabanlı test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısının ThirdLight ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma ile ThirdLight Britta Simon adlı bir test kullanıcısı kullanarak test edin.
+Çoklu oturum açmayı etkinleştirmek için ThirdLight içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir ilişki yapmanız gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma ThirdLight ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma ThirdLight ile test etmek için bu adımları tamamlamak gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[ThirdLight çoklu oturum açmayı yapılandırma](#configure-thirdlight-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[ThirdLight test kullanıcısı oluşturma](#create-thirdlight-test-user)**  - kullanıcı Azure AD gösterimini bağlı ThirdLight Britta simon'un bir karşılığı vardır.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  kullanıcılarınız için özelliği etkinleştirmek için.
+2. **[ThirdLight çoklu oturum açmayı yapılandırma](#configure-thirdlight-single-sign-on)**  uygulama tarafında.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açmayı test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Azure AD çoklu oturum açma için kullanıcı etkinleştirmek için.
+5. **[ThirdLight test kullanıcısı oluşturma](#create-a-thirdlight-test-user)**  kullanıcı Azure AD gösterimini bağlı.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalındaki etkinleştirmeniz.
 
-Azure AD çoklu oturum açma ile ThirdLight yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile ThirdLight yapılandırmak için şu adımları uygulayın:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **ThirdLight** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), ThirdLight uygulama tümleştirme sayfasında **çoklu oturum açma**:
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
+    ![Çoklu oturum açma seçin](common/select-sso.png)
 
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
+2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
+    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
-    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+    ![Düzenle simgesi](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. İçinde **temel SAML yapılandırma** iletişim kutusunda, aşağıdaki adımları tamamlayın.
 
-    ![ThirdLight etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![Temel SAML yapılandırma iletişim kutusu](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.thirdlight.com/`
+    1. İçinde **oturum açma URL'si** kutusuna, bu düzende bir URL girin:
+    
+          `https://<subdomain>.thirdlight.com/`
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.thirdlight.com/saml/sp`
+    1. İçinde **tanımlayıcı (varlık kimliği)** kutusuna, bu düzende bir URL girin:
 
-    > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [ThirdLight istemci Destek ekibine](https://www.thirdlight.com/support) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+       `https://<subdomain>.thirdlight.com/saml/sp`
 
-5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+       > [!NOTE]
+       > Bu değerler yer tutuculardır. Gerçek oturum açma URL'si ve tanımlayıcı kullanmanız gerekir. İlgili kişi [ThirdLight Destek ekibine](https://www.thirdlight.com/support) değerleri alabilirsiniz. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** Azure portalında iletişim kutusu.
+
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünden **indirme** yanındaki bağlantı **Federasyon meta veri XML** , gereksinimlerinize göre ve bilgisayarınızda dosyayı kaydedin:
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-6. Üzerinde **ThirdLight kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+6. İçinde **ThirdLight kümesi** bölümünde, gereksinimlerinize göre uygun URL'ler kopyalayın:
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
+    1. **Oturum açma URL'si**.
 
-    b. Azure AD Tanımlayıcısı
+    1. **Azure AD tanımlayıcısı**.
 
-    c. Oturum Kapatma URL'si
+    1. **Oturum kapatma URL'si**.
 
-### <a name="configure-thirdlight-single-sign-on"></a>ThirdLight tek oturum açmayı yapılandırın
+### <a name="configure-thirdlight-single-sign-on"></a>ThirdLight çoklu oturum açmayı yapılandırın
 
-1. Farklı bir web tarayıcı penceresinde ThirdLight şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Yeni bir web tarayıcısı penceresinde ThirdLight şirketinizin sitesi için bir yönetici olarak oturum açın
 
-1. Git **yapılandırma \> Sistem Yönetimi**ve ardından **SAML2**.
+1. Git **yapılandırma** > **Sistem Yönetimi** > **SAML2**:
 
     ![Sistem Yönetimi](./media/thirdlight-tutorial/ic805843.png "Sistem Yönetimi")
 
-1. Olduğu saml2 tabanlı yapılandırma bölümünde aşağıdaki adımları gerçekleştirin:
+1. Olduğu saml2 tabanlı yapılandırma bölümünde aşağıdaki adımları uygulayın.
   
-    ![SAML çoklu oturum açma](./media/thirdlight-tutorial/ic805844.png "SAML çoklu oturum açma")
+    ![SAML2 yapılandırma bölümü](./media/thirdlight-tutorial/ic805844.png "olduğu saml2 tabanlı yapılandırma bölümü")
 
-    a. Seçin **olduğu saml2 tabanlı çoklu oturum açmayı etkinleştirme**.
+    1. Seçin **olduğu saml2 tabanlı çoklu oturum açmayı etkinleştirme**.
 
-    b. Olarak **IDP meta veri kaynağı**seçin **yük IDP meta verileri XML**.
+    1. Altında **IDP meta veri kaynağı**seçin **yük IDP meta verileri XML**.
 
-    c. Azure portalından indirilen meta veri dosyası açın, içeriği kopyalayın ve ardından yapıştırın **IDP meta veri XML** metin.
+    1. Azure portalından önceki bölümde indirdiğiniz meta veri dosyasını açın. Dosyanın içeriğini kopyalayın ve yapıştırın **IDP meta veri XML** kutusu.
 
-    d. Tıklayın **Kaydet SAML2 ayarları**.
+    1. Seçin **Kaydet SAML2 ayarları**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturacaksınız.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+1. Azure portalında **Azure Active Directory** seçin sol bölmede **kullanıcılar**ve ardından **tüm kullanıcılar**:
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
+    ![Tüm kullanıcıları seçin](common/users.png)
 
-2. Seçin **yeni kullanıcı** ekranın üstünde.
+2. Seçin **yeni kullanıcı** pencerenin üst kısmındaki:
 
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
+    ![Yeni bir kullanıcı seçin](common/new-user.png)
 
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
+3. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın.
 
     ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    a. İçinde **adı** alana **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü `brittasimon@yourcompanydomain.extension`. Örneğin, BrittaSimon@contoso.com.
+    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >** . (Örneğin, BrittaSimon@contoso.com.)
 
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    1. Seçin **Göster parola**ve ardından içinde bir değer yazın **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’u seçin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için ThirdLight erişim vererek Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için ThirdLight erişim vererek Britta Simon tıklatmalarını sağlarsınız.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **ThirdLight**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**ve ardından **ThirdLight**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **ThirdLight**.
+2. Uygulamalar listesinde seçin **ThirdLight**.
 
-    ![Uygulamalar listesinde ThirdLight bağlantı](common/all-applications.png)
+    ![Uygulama listesi](common/all-applications.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+    ![Kullanıcıları ve grupları seçin](common/users-groups-blade.png)
 
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+4. Seçin **Kullanıcı Ekle**ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
 
-    ![Atama Ekle bölmesi](common/add-assign-user.png)
+    ![Kullanıcı Ekle seçeneğini belirleme](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıların listesini ve ardından **seçin** pencerenin alt kısmındaki düğmesi.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+6. SAML onaylaması rol değeri de beklediğiniz **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin. Tıklayın **seçin** pencerenin alt kısmındaki düğmesi.
 
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+7. İçinde **atama Ekle** iletişim kutusunda **atama**.
 
-### <a name="create-thirdlight-test-user"></a>ThirdLight test kullanıcısı oluşturma
+### <a name="create-a-thirdlight-test-user"></a>ThirdLight test kullanıcısı oluşturma
 
-ThirdLight için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların ThirdLight sağlanması gerekir.  
-ThirdLight söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
+ThirdLight için oturum açmak Azure AD kullanıcılarının sağlamak için ThirdLight eklemeniz gerekir. Bunları el ile eklemeniz gerekir.
 
-**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+Bir kullanıcı hesabı oluşturmak için şu adımları uygulayın:
 
-1. Oturum açın, **ThirdLight** yönetici olarak şirketin site.
+1. ThirdLight şirketinizin sitesi için bir yönetici olarak oturum açın
 
 1. Git **kullanıcılar** sekmesi.
 
 1. Seçin **kullanıcılar ve gruplar**.
 
-1. Tıklayın **yeni kullanıcı ekleme** düğmesi.
+1. Seçin **yeni kullanıcı ekleme**.
 
-1. Girin **kullanıcı adı, ad veya e-posta, açıklama seçin hazır ya da yeni üyeler grubu** sağlamak istediğiniz geçerli bir AAD hesabı.
+1. Kullanıcı adını girin, sağlamak istediğiniz hesap adını veya açıklamasını ve e-posta adresi geçerli bir Azure ad. Hazır ya da yeni üyeleri grubu seçin.
 
-1. **Oluştur**’a tıklayın.
+1. **Oluştur**’u seçin.
 
 > [!NOTE]
-> Herhangi diğer Thirdlight kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Thirdlight tarafından sağlanan.
+> Herhangi bir kullanıcı hesabı oluşturma aracı kullanabilir veya API Azure AD'ye kullanıcı hesapları sağlamak için ThirdLight tarafından sağlanan.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Şimdi Azure AD çoklu oturum açma yapılandırmanızı erişim panelini kullanarak test gerekir.
 
-Erişim paneli ThirdLight kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama ThirdLight için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim Paneli'nde ThirdLight kutucuğu seçtiğinizde, otomatik olarak SSO'yu ayarlama ThirdLight örneği için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim ve kullanım uygulamaları uygulamalarım portalında](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

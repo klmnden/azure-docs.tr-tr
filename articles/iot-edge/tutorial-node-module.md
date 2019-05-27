@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2725f0a34ace3a353df5f746df299aeaf0ea92b3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5147a0d164f1fac67a1c70429fc2e9b1caa00685
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574230"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244831"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Öğretici: Linux cihazlar için bir Node.js IOT Edge modülü geliştirme ve dağıtma
 
@@ -61,7 +61,7 @@ Node.js'de bir IOT Edge modülü geliştirme için geliştirme makinenizde aşa�
 ## <a name="create-a-module-project"></a>Bir modülü projesi oluşturma
 Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir IOT Edge Node.js modülünü nasıl oluşturulacağını gösterir.
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 Temel olarak kullanabileceğiniz bir Node.js çözüm şablonu oluşturmak için **npm** kullanın. 
 
@@ -73,7 +73,7 @@ Temel olarak kullanabileceğiniz bir Node.js çözüm şablonu oluşturmak için
     npm install -g yo generator-azure-iot-edge-module
     ```
 
-3. VS Code komut paletini açmak için **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçin. 
+3. VS Code komut paletini açmak için **View (Görünüm)**  > **Command Palette (Komut Paleti)** öğesini seçin. 
 
 3. Yazın ve şu komutu çalıştırın komut Paleti'nde **Azure: Oturum** ve Azure hesabınızda oturum açmak için yönergeleri izleyin. Oturumu önceden açtıysanız bu adımı atlayabilirsiniz.
 
@@ -220,10 +220,9 @@ Dağıtım bildirimini IoT Edge cihazınıza uyguladıktan sonra cihazdaki IoT E
 
 IoT Edge cihazınızın durumunu görüntülemek için Visual Studio Code gezgininin **Azure IoT Hub Cihazları** bölümünü kullanabilirsiniz. Dağıtılan ve çalışan modüllerin listesini görmek için cihazınızın ayrıntılarını genişletin.
 
-1. Visual Studio Code Gezgininde, IOT Edge cihazınızın adına sağ tıklayıp **izleme D2C iletileri Başlat**.
+1. Visual Studio Code Gezgininde, IOT Edge cihazınızın adına sağ tıklayıp **Başlat yerleşik olay uç nokta izleme**.
 
 2. IOT hub'da gelen iletileri görüntüleyin. IOT Edge cihazı, yeni dağıtım almak ve tüm modülleri başlatmak olduğundan bunu ulaşması iletileri için biraz zaman alabilir. Daha sonra iletileri göndermeden önce 25 derece makine sıcaklık ulaşana kadar biz NodeModule koda yapılan değişiklikleri bekleyin. İleti türü de ekler **uyarı** sıcaklık eşiğe ulaşan tüm iletileri. 
-
 
 ## <a name="edit-the-module-twin"></a>Modül ikizi Düzenle
 
@@ -239,7 +238,7 @@ Biz NodeModule modül ikizi dağıtım bildiriminde sıcaklık eşik 25 derecede
 
 5. Modül ikizi düzenleme bölmesinde ve seçme içinde herhangi bir yeri sağ **güncelleştirme modül ikizi**. 
 
-5. CİHAZDAN buluta gelen iletileri izleyin. Yeni sıcaklık eşiği ulaşılana kadar Durdur iletileri görmeniz gerekir. 
+6. CİHAZDAN buluta gelen iletileri izleyin. Yeni sıcaklık eşiği ulaşılana kadar Durdur iletileri görmeniz gerekir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
@@ -248,7 +247,6 @@ Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kayna
 Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

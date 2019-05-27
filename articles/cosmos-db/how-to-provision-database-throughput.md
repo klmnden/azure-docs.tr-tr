@@ -4,14 +4,14 @@ description: Azure Cosmos DB’de aktarım hızını veritabanı düzeyinde sağ
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: da56c06e215e02ee3eefe3d0552c962a8c59011e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d73dd5ffe8cc8ed00288209b628d7175b795b335
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054344"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243765"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB veritabanı aktarım hızını sağlama
 
@@ -19,7 +19,7 @@ Bu makalede, Azure Cosmos DB veritabanı aktarım hızını sağlamak açıklanm
 
 ## <a name="provision-throughput-using-azure-portal"></a>Azure portalını kullanarak aktarım hızı sağlama
 
-### <a id="portal-sql"></a>SQL (Core) API
+### <a id="portal-sql"></a>SQL (Core) API'si
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 

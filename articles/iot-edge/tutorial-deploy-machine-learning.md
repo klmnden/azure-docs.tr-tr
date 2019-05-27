@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6c48aaf404803c45122ed3fad0d6af1345406f7b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142755"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239677"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning (Önizleme) IOT Edge modülü dağıtma
 
@@ -145,7 +145,7 @@ Aşağıdaki adımlar, IoT hub'ınıza ulaşan cihazdan buluta iletileri izlemek
 
 3. Sayfanın üstünde açılan metin kutusuna IoT Hub'ınız için iothubowner bağlantı dizesini girin. IoT Edge cihazınız IoT Hub Cihazları listesinde görünmelidir.
 
-4. Yeniden **...** öğesini, sonra **D2C iletisini izlemeye başla**'yı seçin.
+4. Seçin **...**  seçip tekrar **Başlat yerleşik olay uç nokta izleme**.
 
 5. tempSensor her beş saniyede bir gelen iletileri gözlemleyin. İleti gövdesi adlı bir özellik içeren **anomali**, doğru veya yanlış değeriyle machinelearningmodule sağlar. Model başarıyla çalıştıysa, **AzureMLResponse** özelliği "OK" değerini içerir.
 

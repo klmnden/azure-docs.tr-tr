@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 4a48bb4a6e988d4352f957c6435a9c1bf0a3e5fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b11446c84ede0e8ecfce23eda1026919777fc66
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712751"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072065"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Bir LUIS uygulaması için önceden oluşturulmuş varlık e-posta
 Bir utterance tüm e-posta adresinden e-posta ayıklama içerir. Bu varlık zaten eğitildi çünkü içeren e-posta uygulaması hedefleri için örnek Konuşma ekleme gerekmez. E-posta varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Önceden oluşturulmuş bir e-posta için çözümleme
+
+### <a name="api-version-2x"></a>API sürüm 2.x
+
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.email** varlık.
 
 ```json
@@ -48,6 +51,65 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.email** varlık.
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Önizleme API sürümü 3.x
+
+Aşağıdaki JSON ile olan `verbose` parametresini `false`:
+
+```json
+{
+    "query": "please send the information to patti.owens@microsoft.com",
+    "prediction": {
+        "normalizedQuery": "please send the information to patti.owens@microsoft.com",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5023781
+            }
+        },
+        "entities": {
+            "email": [
+                "patti.owens@microsoft.com"
+            ]
+        }
+    }
+}
+```
+
+
+Aşağıdaki JSON ile olan `verbose` parametresini `true`:
+
+```json
+{
+    "query": "please send the information to patti.owens@microsoft.com",
+    "prediction": {
+        "normalizedQuery": "please send the information to patti.owens@microsoft.com",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5023781
+            }
+        },
+        "entities": {
+            "email": [
+                "patti.owens@microsoft.com"
+            ],
+            "$instance": {
+                "email": [
+                    {
+                        "type": "builtin.email",
+                        "text": "patti.owens@microsoft.com",
+                        "startIndex": 31,
+                        "length": 25,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

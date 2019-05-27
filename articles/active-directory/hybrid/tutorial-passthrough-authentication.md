@@ -11,12 +11,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b951cc81d2f957214eb4c78125bde36b61ff64b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d848202840d49dde18d358769519329141c2b35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456316"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233900"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Öğretici:  Geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirme
 
@@ -39,7 +39,7 @@ Bu öğreticiyi tamamlamak için gereken önkoşulları şunlardır:
 >
 > Bu öğreticide kullanılan PowerShell betikleri kopyalarını Github'da bulunmaktadır [burada](https://github.com/billmath/tutorial-phs).
 
-## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+## <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 Şirket içi Active Directory Sunucumuz kullanılacak bir sanal makine oluşturmak için çalışan yapmak için karma kimlik ortamımızda ürününü ihtiyacımız ve ilk şey.  
 
 >[!NOTE]
@@ -86,7 +86,7 @@ Sanal makine oluşturma işlemini tamamlamak için işletim sistemi yüklemesini
 6. Lisans anahtarınızı girip __iade **sonraki**.
 7. Denetleme ** lisans koşullarını kabul edin ve tıklayın **sonraki**.
 8. Seçin **özel:  Yalnızca Windows yükleyin (Gelişmiş)**
-9. **İleri**’ye tıklayın
+9. **İleri**'ye tıklayın.
 10. Yükleme tamamlandıktan sonra VM'yi en güncel olduğundan emin olmak için oturum açma ve çalıştırma Windows güncelleştirmeleri, sanal makineyi yeniden başlatın.  En son güncelleştirmeleri yüklersiniz.
 
 ## <a name="install-active-directory-prerequisites"></a>Active Directory önkoşulları yükleyin
@@ -143,6 +143,7 @@ $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
 $Password = "Pass1w0rd"
+$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -153,7 +154,7 @@ Wait-Job -Name addFeature
 Get-WindowsFeature | Where installed >>$featureLogPath
 
 #Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Bir Windows Server AD kullanıcısı oluşturun
@@ -222,7 +223,7 @@ Artık Azure AD Connect karşıdan yüklenip kurulacak zamanı geldi.  Yüklendi
 2. **AzureADConnect.msi** öğesine gidin ve çift tıklayın.
 3. Hoş Geldiniz ekranında, lisans koşullarını kabul ettiğinizi belirten kutuyu seçin ve **Devam**'a tıklayın.  
 4. Hızlı ayarlar ekranında tıklayın **Özelleştir**.  
-5. Gerekli bileşenleri yükleme ekranında. **Yükle**'ye tıklayın.  
+5. Gerekli bileşenleri yükleme ekranında. **Yükle**'ye tıklatın.  
 6. Kullanıcı oturum açma ekranında seçin **geçişli kimlik doğrulaması** ve **çoklu oturum açmayı etkinleştirme** tıklatıp **sonraki**.</br>
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
 7. Azure AD ekranına bağlanma, kullanıcı ve yukarıda oluşturduğumuz genel yönetici parolasını girin ve tıklatın **sonraki**.

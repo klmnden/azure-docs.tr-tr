@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035429"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239889"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Personalizer sorumlu uygulaması için yönergeler
 
@@ -128,17 +128,13 @@ Sorumlu yapay ZEKA uygulamaları için tasarım alanları şunlardır: Bu framew
 * Bilgi ve varlıklar - modelleri ve öğrenme ilkeleri Personalizer çalışması için sonuçları yeniden kullanabilmek için kullandığı diğer veriler - gibi arşivleyebilirsiniz.
 
 ### <a name="transparency"></a>Saydamlık
-*Yapay ZEKA sistemleri olması Understandable*. Personalizer ile
+*Yapay ZEKA sistemleri olması Understandable*. Personalizer ile:
 
-• Kullanıcıların içeriği nasıl kişiselleştirilmiş hakkında bilgi verin. Örneğin, kullanıcılarınız etiketli bir düğme gösterebilirsiniz "neden bu önerileri?" kullanıcı eylemleri ve en iyi hangi özellikler bir rol Personalizer sonuçlarında yürütülen gösteriliyor.
-• Kullanım oluşturma deneyimini kişiselleştirmek için kullanıcılar ve davranışları hakkında bilgi kullanacağınız bahsetmek koşullarınızın emin olun.
-
-
-* *Kullanıcılara nasıl içerik kişiselleştirilmiş hakkında bilgi verin.* Örneğin, kullanıcılarınız etiketli bir düğme gösterebilirsiniz `Why These Suggestions?` kullanıcı eylemleri ve en iyi hangi özellikler kişiselleştirmeyi rol yürütülen gösteriliyor.
-* Kullanıcılar hakkında bilgileri deneyimini kişiselleştirmek için kullanacağınız kullanım koşullarınızı bahsetmek emin olun.
+* *Kullanıcılara nasıl içerik kişiselleştirilmiş hakkında bilgi verin.* Örneğin, kullanıcılarınız etiketli bir düğme gösterebilirsiniz `Why These Suggestions?` kullanıcı eylemleri ve en iyi hangi özellikler bir rol Personalizer sonuçlarında yürütülen gösteriliyor.
+* Kullanım oluşturma deneyimini kişiselleştirmek için kullanıcılar ve davranışları hakkında bilgi kullanacağınız bahsetmek koşullarınızın emin olun.
 
 ### <a name="fairness"></a>Eşitliği
-* AI sistemleri tüm kişileri oldukça değerlendirmeniz gerekir.
+*Yapay ZEKA sistemleri kabul tüm kişileri oldukça*.
 
 * Personalizer olduğu sonuçlarını uzun vadeli, arızi ya da gerçek zarar ilgili kullanım durumları için kullanmayın.
 * İçerikle kişiselleştirmek uygun olmayan veya istenmeyen sapmaları yaymak yarayabilir özellikler kullanmayın. Örneğin, finansal benzer koşullarda kimseyle finansal ürünler için aynı kişiselleştirilmiş öneriler görmeniz gerekir.

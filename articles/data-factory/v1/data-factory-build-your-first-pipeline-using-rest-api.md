@@ -125,8 +125,8 @@ Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için a
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| ClusterSize |HDInsight kümesinin boyutudur. |
-| TimeToLive |Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
+| clusterSize |HDInsight kümesinin boyutudur. |
+| timeToLive |Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
 | linkedServiceName |HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir |
 
 Aşağıdaki noktalara dikkat edin:

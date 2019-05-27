@@ -96,7 +96,7 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 
 | Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
-| name |İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "\*", "%", "&", ":","\\"</li></ul> |Evet |
+| ad |İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "\*", "%", "&", ":","\\"</li></ul> |Evet |
 | description | İşlem hattının ne için kullanıldığını açıklayan metni belirtin. |Evet |
 | activities | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için sonraki bölüme bakın. | Evet |
 | start | İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: `2016-10-14T16:32:41Z`. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00-05:00`", 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
@@ -134,15 +134,15 @@ Aşağıdaki tabloda, etkinlik JSON tanımındaki özellikler açıklamaktadır:
 
 | Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
-| name | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
 | description | Etkinliğin ne olduğunu veya ne için kullanıldığını açıklayan metin |Evet |
 | type | Etkinliğin türü. Bkz: [veri taşıma etkinlikleri](#data-movement-activities) ve [veri dönüştürme etkinlikleri](#data-transformation-activities) bölümleri farklı etkinlik türleri için. |Evet |
-| inputs |Etkinlik tarafından kullanılan giriş tablosu<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Evet |
-| outputs |Etkinlik tarafından kullanılan çıkış tablolar.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Evet |
+| girişler |Etkinlik tarafından kullanılan giriş tablosu<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Evet |
+| çıkışlar |Etkinlik tarafından kullanılan çıkış tablolar.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Evet |
 | linkedServiceName |Etkinlik tarafından kullanılan bağlı hizmetin adı. <br/><br/>Bir etkinlik için gerekli işlem ortamına bağlanan bağlı hizmeti belirtmeniz gerekebilir. |HDInsight etkinliği ve Azure Machine Learning toplu işlem Puanlandırma etkinliği için Evet <br/><br/>Diğer tümü için hayır |
 | typeProperties |Özelliklerinde **typeProperties** bölümü etkinlik türüne bağlıdır. Bir etkinliğin tür özelliklerini görmek için önceki bölümde verilen etkinlik bağlantılarına tıklayın. | Hayır |
 | policy |Etkinliğin çalışma zamanı davranışını etkileyen ilkeler. Belirtilmezse, varsayılan ilkeler kullanılır. |Hayır |
-| scheduler | "Zamanlayıcı" özelliği, istenen etkinlik için zamanlama tanımlamak için kullanılır. Onun alt dışındaki aynıdır [bir veri kümesi kullanılabilirlik özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
+| Zamanlayıcı | "Zamanlayıcı" özelliği, istenen etkinlik için zamanlama tanımlamak için kullanılır. Onun alt dışındaki aynıdır [bir veri kümesi kullanılabilirlik özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
 
 ### <a name="policies"></a>İlkeler
 Özellikle, bir tablonun dilim işlendiğinde ilkeler bir etkinliğin çalışma zamanı davranışını etkiler. Aşağıdaki tabloda ayrıntılar sağlar.

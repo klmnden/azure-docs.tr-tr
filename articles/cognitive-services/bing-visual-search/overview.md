@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
 ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "64916615"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Görsel Arama API’si nedir?
@@ -26,7 +26,7 @@ Kullanırsanız [Bing resim arama API'si](../bing-image-search/overview.md), bir
 > [!IMPORTANT]
 > Bing resim arama API'si kullanarak resim öngörüleri alırsanız, Bing görsel arama daha kapsamlı içgörüler sağlayan API'sine, değiştirmeyi göz önünde bulundurun.
 
-## <a name="insights"></a>Insights
+## <a name="insights"></a>İçgörüler
 
 Bing görsel arama'yı kullanarak aşağıdaki Öngörüler bulabilir:
 
@@ -43,7 +43,7 @@ Insights yanı sıra, Bing görsel arama terimleri (diğer bir deyişle, etiketl
 
 Bing görsel arama sonuçları, sınırlayıcı kutular bölgeler için görüntüde faiz de içerir. Örneğin, görüntüyü birkaç ünlüleri içeriyorsa, sonuçları her tanınan ünlüleri için sınırlayıcı kutular içerebilir. Veya bir ürün veya görüntüde giysi Bing tanır, sonuç tanınmış öğe için bir sınırlayıcı kutu içerebilir.
 
-## <a name="workflow"></a>İş akışı
+## <a name="workflow"></a>İş Akışı
 
 Bing görsel arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. REST API veya SDK hizmeti için kullanabilirsiniz.
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/22/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce6c5f3059041d8dbb097470cf4a415e73d9156b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518981"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237247"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Soru-cevap Oluşturucu Bilgi Bankası sınırları ve sınır
 Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
@@ -51,19 +51,19 @@ Bilgi Bankası'nda içeriği genel sınırlamaları:
 * Meta veri değeri için desteklenen karakterler: Hariç: ve | 
 * Dosya adının uzunluğu: 200
 * Desteklenen dosya biçimleri: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
-* Diğer sorular sayısı üst sınırı: 100
+* Diğer sorular sayısı üst sınırı: 300
 * Soru-cevap çiftlerini sayısı üst sınırı: Bağımlı [Azure arama katmanı](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) seçildi. Azure Search dizini bir belgeyi bir soru ve yanıt çifti eşlenir. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Bilgi Bankası araması sınırları oluşturun:
 Bu temsil Bilgi Bankası eylem her sınırları oluşturmak; diğer bir deyişle, tıklayıp *oluşturma KB* veya CreateKnowledgeBase API'ye çağrı yapma.
-* Diğer sorular yanıt başına en fazla sayısı: 100
+* Diğer sorular yanıt başına en fazla sayısı: 300
 * URL maksimum sayısı: 10
 * En fazla dosya sayısı: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Bilgi Bankası araması sınırları güncelleştir
 Bunlar, her güncelleştirme eylemi sınırlarını temsil eder; diğer bir deyişle, tıklayıp *kaydedin ve eğitme* veya UpdateKnowledgeBase API'ye çağrı yapma.
 * Her kaynak adının uzunluğu: 300
-* En fazla sayı eklendiğinde veya silindiğinde diğer sorular: 100
+* En fazla sayı eklendiğinde veya silindiğinde diğer sorular: 300
 * En fazla eklendiğinde veya silindiğinde meta verileri alan sayısı: 10
 * Yenilenebilir URL'leri sayısı üst sınırı: 5
 

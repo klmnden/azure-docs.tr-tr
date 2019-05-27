@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146688"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239767"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Öğretici: IOT Edge modülleri Linux cihazlar için geliştirme
 
@@ -190,7 +190,7 @@ Her modülü birden çok olabilir *giriş* ve *çıkış* kuyrukları bildirilen
 
 7. Dosyanın sonunda bulmak için istenen Özellikler **$edgeHub** modülü. 
 
-   IOT Edge hub'ı modülündeki işlevlerin bir dağıtımdaki tüm modüller arasında iletileri yönlendirmek için biridir. Değerleri gözden **yollar** özelliği. İlk yol **SampleModuleToIoTHub**, bir joker karakter kullanan (**\***) SampleModule modüldeki tüm çıkış sıraları gelen iletileri belirtmek için. Bu iletiler kısımlarda *Yukarı Akış $*, IOT hub'ı gösteren ayrılmış bir ad olduğu. İkinci rota, sensorToSampleModule, tempSensor modülünden gelen iletileri alır ve bunları yönlendirir *input1* başlatılan SampleModule kodunda gördüğünüz giriş sırası. 
+   IOT Edge hub'ı modülündeki işlevlerin bir dağıtımdaki tüm modüller arasında iletileri yönlendirmek için biridir. Değerleri gözden **yollar** özelliği. İlk yol **SampleModuleToIoTHub**, bir joker karakter kullanan ( **\*** ) SampleModule modüldeki tüm çıkış sıraları gelen iletileri belirtmek için. Bu iletiler kısımlarda *Yukarı Akış $* , IOT hub'ı gösteren ayrılmış bir ad olduğu. İkinci rota, sensorToSampleModule, tempSensor modülünden gelen iletileri alır ve bunları yönlendirir *input1* başlatılan SampleModule kodunda gördüğünüz giriş sırası. 
 
    ![Yollar deployment.template.json gözden geçirin](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -284,7 +284,7 @@ Doğrulamanız yapıldı, oluşturulmuş kapsayıcı görüntüleri bir cihaz i�
 
 SampleModule kod kendi giriş kuyruk aracılığıyla iletileri alır ve bunları boyunca kendi çıkış kuyruğuna aktarır. Dağıtım bildirimi iletileri tempSensor SampleModule için geçirilen ve IOT Hub'ına iletilen SampleModule iletileri yollar bildirilmiş. Visual Studio Code için Azure IOT araçları, IOT hub'da tek cihazlarınızdan geldikçe iletilerini görmek izin verin. 
 
-1. Visual Studio Code Gezgininde sağ tıklayın, izleyin ve ardından istediğiniz IOT Edge cihazı **D2C iletisini İzlemeyi Başlat**. 
+1. Visual Studio Code Gezgininde sağ tıklayın, izleyin ve ardından istediğiniz IOT Edge cihazı **Başlat yerleşik olay uç nokta izleme**. 
 
 2. Visual Studio Code, IOT hub'da gelen iletileri görmek için çıkış penceresine bakın. 
 

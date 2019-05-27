@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715809"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233885"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak iki sanal makine arasındaki ağ iletişimini izleme
 
@@ -35,7 +35,7 @@ Bir sanal makine (VM) ve başka bir sanal makine gibi bir uç nokta arasındaki 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -77,7 +77,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 | 3 | Ad                                  | myVm2                                                                   |
 | 3 | Kimlik doğrulaması türü                   | SSH genel anahtarınızı yapıştırın veya **Parola**’yı seçin bir parola girin. |
 | 3 | Kaynak grubu                        | **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.                 |
-| 6 | Uzantılar                            | **Linux için Ağ Aracısı**                                             |
+| 6 | Genişletmeler                            | **Linux için Ağ İzleyicisi Aracısı**                                             |
 
 Sanal makinenin dağıtılması birkaç dakika sürer. Kalan adımlara devam etmeden önce sanal makinenin dağıtımı tamamlamasını bekleyin.
 
@@ -97,9 +97,9 @@ Sanal makinenin dağıtılması birkaç dakika sürer. Kalan adımlara devam etm
     | Kaynak                   |                     |
     | Sanal makine          | myVm1               |
     | Hedef              |                     |
-    | Sanal makine seçme |                     |
+    | Sanal makine seçin |                     |
     | Sanal makine          | myVm2               |
-    | Bağlantı noktası                     | 22                  |
+    | Port                     | 22                  |
 
     ![Bağlantı İzleyicisi ekleme](./media/connection-monitor/add-connection-monitor.png)
 
@@ -150,7 +150,7 @@ Varsayılan olarak Azure, aynı sanal ağ üzerindeki sanal makineler arasında 
     | Ayar                 | Değer          |
     | ---                     | ---            |
     | Hedef bağlantı noktası aralıkları | 22             |
-    | Eylem                  | Reddet           |
+    | Eylem                  | Engelle           |
     | Öncelik                | 100            |
     | Ad                    | DenySshInbound |
 

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: MySQL'den MySQL için Azure Veritabanı'na Çevrimiçi Geçiş Gerçekleştirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanma | Microsoft Docs"
-description: Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi MySQL'den MySQL için Azure Veritabanı'na çevrimiçi geçiş gerçekleştirmeyi öğrenin.
+title: 'Öğretici: MySQL için çevrimiçi bir MySQL için Azure veritabanı geçişi gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanın. | Microsoft Docs'
+description: Bir çevrimiçi geçiş MySQL şirket içinden Azure veritabanı'na MySQL için Azure veritabanı geçiş hizmeti kullanarak gerçekleştirmek öğrenin.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,23 +10,24 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 409fa3a501b80e225fff299980f374f73f0dbf13
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 5a35df5b72f51f4ef725b3d764e7dc2c80c19ec2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415721"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240761"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Öğretici: DMS hizmetini kullanarak MySQL'i MySQL için Azure Veritabanı'na çevrimiçi geçirme
 
-Şirket içi bir MySQL örneğindeki veritabanlarını minimum çalışmama süresi ile [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/)'na geçirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanabilirsiniz. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, Azure Veritabanı Geçiş Hizmeti'nde çevrimiçi bir geçiş etkinliğini kullanarak şirket içi bir MySQL 5.7 örneğindeki **Employees** örnek veritabanını MySQL için Azure Veritabanı'na geçireceksiniz.
+Şirket içi MySQL örneğine veritabanlarını geçirmek için Azure veritabanı geçiş hizmeti kullanabilirsiniz [MySQL için Azure veritabanı](https://docs.microsoft.com/azure/mysql/) en düşük kapalı kalma süresi. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, geçiş **çalışanlar** Azure veritabanı geçiş hizmeti bir çevrimiçi geçiş etkinliğini kullanarak örnek veritabanına MySQL 5.7 şirket içi örneğinden MySQL için Azure veritabanı.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
+>
 > * mysqldump yardımcı programını kullanarak örnek şemayı geçirme.
-> * Azure Veritabanı Geçiş Hizmeti örneği oluşturma.
-> * Azure Veritabanı Geçiş Hizmeti'ni kullanarak geçiş projesi oluşturma.
+> * Azure veritabanı geçiş Hizmeti'nin bir örneğini oluşturun.
+> * Azure veritabanı geçiş hizmeti kullanarak bir geçiş projesi oluşturun.
 > * Geçişi çalıştırma.
 > * Geçişi izleme.
 
@@ -34,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > Azure veritabanı geçiş hizmeti çevrimiçi bir geçiş gerçekleştirmek için Premium fiyatlandırma katmanını temel alan bir örneği oluşturmanız gerekir.
 
 > [!IMPORTANT]
-> En iyi geçiş deneyimi için Microsoft, Azure Veritabanı Geçiş Hizmeti’nin bir örneğini hedef veritabanıyla aynı Azure bölgesinde oluşturmayı önerir. Verileri bölgeler veya coğrafyalar arasında taşımak, geçiş sürecini yavaşlatabilir ve hatalara neden olabilir.
+> En iyi geçiş deneyimi için Microsoft, hedef veritabanı ile aynı Azure bölgesindeki Azure veritabanı geçiş hizmeti örneği oluşturmayı önerir. Verileri bölgeler veya coğrafyalar arasında taşımak, geçiş sürecini yavaşlatabilir ve hatalara neden olabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -42,7 +43,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 * [MySQL Community Edition](https://dev.mysql.com/downloads/mysql/) 5.6 veya 5.7'yi indirme ve yükleme. Şirket içi MySQL sürümü ile MySQL için Azure Veritabanı sürümü eşleşmelidir. Örneğin, MySQL 5.6 yalnızca MySQL için Azure Veritabanı 5.6'ya geçirilebilir; 5.7 sürümüne yükseltilemez.
 * [MySQL için Azure Veritabanı örneği oluşturma](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Azure portal'ı kullanarak veritabanı oluşturma ve veritabanlarına bağlanma ile ilgili ayrıntılar için [MySQL Workbench kullanarak bağlanma ve veri sorgulama](https://docs.microsoft.com/azure/mysql/connect-workbench) başlıklı makaleye bakın.  
-* Kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlar Azure Resource Manager dağıtım modelini kullanarak bir Azure sanal ağı (VNet) için Azure veritabanı geçiş hizmeti oluşturma [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [sanal ağ belgeleri](https://docs.microsoft.com/azure/virtual-network/)ve özellikle hızlı başlangıç makalelerini ile adım adım ayrıntıları.
+* Kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlayan, Azure Resource Manager dağıtım modeli kullanarak bir Azure sanal ağı (VNet) için Azure veritabanı geçiş hizmeti oluşturma [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [sanal ağ belgeleri](https://docs.microsoft.com/azure/virtual-network/)ve özellikle hızlı başlangıç makalelerini ile adım adım ayrıntıları.
 
     > [!NOTE]
     > Microsoft Ağ eşlemesi ile ExpressRoute kullanıyorsanız, sanal ağ kurulumu sırasında şu Hizmet Ekle [uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) hangi hizmet sağlanacağı alt ağ için:
@@ -54,9 +55,9 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 * VNet ağ güvenlik grubu kurallarınızı aşağıdaki gelen iletişim bağlantı noktaları için Azure veritabanı geçiş hizmeti engelleme emin olun: 443, 53, 9354, 445, 12000. Azure VNet NSG trafik filtreleme hakkında daha fazla ayrıntı için bkz [ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * [Windows Güvenlik Duvarınızı veritabanı altyapısı erişimi](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) için yapılandırın.
-* Azure Veritabanı Geçiş Hizmeti'ne kaynak MySQL Server erişimi sağlamak için Windows güvenlik duvarınızı açın. Varsayılan ayarlarda 3306 numaralı TCP bağlantı noktası kullanılır.
-* Kaynak veritabanlarınızın önünde bir güvenlik duvarı cihazı kullanıyorsanız, Azure Veritabanı Geçiş Hizmeti'nin geçiş amacıyla kaynak veritabanlarına erişmesi için güvenlik duvarı kuralları eklemeniz gerekebilir.
-* Azure Veritabanı Geçiş Hizmeti'nin hedef veritabanlarına erişmesini sağlama amacıyla MySQL için Azure Veritabanı'na yönelik olarak sunucu düzeyinde [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) oluşturun. Azure veritabanı geçiş hizmeti için kullanılan sanal ağ alt ağ aralığını belirtin.
+* Varsayılan olarak TCP bağlantı noktası olan 3306 MySQL Server kaynağına erişmek Azure veritabanı geçiş hizmeti, Windows Güvenlik Duvarı'nı açın.
+* Kaynak veritabanlarınız önünde bir güvenlik duvarı Gereci kullanırken oluşan kaynak veritabanları geçiş için erişmek Azure veritabanı geçiş hizmeti izin vermek için güvenlik duvarı kuralları eklemeniz gerekebilir.
+* Sunucu düzeyinde oluşturma [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) için Azure veritabanı geçiş hizmeti hedef veritabanlarına erişim izni vermek MySQL için Azure veritabanı. Azure veritabanı geçiş hizmeti için kullanılan sanal ağ alt ağ aralığını belirtin.
 * Kaynak MySQL'in desteklenen MySQL Community Edition sürümünde olması gerekir. MySQL örneğinin sürümünü belirlemek için, MySQL yardımcı programında veya MySQL Workbench'te şu komutu çalıştırın:
 
     ```
@@ -67,20 +68,18 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 * Şu yapılandırmayı kullanarak kaynak veritabanındaki my.ini (Windows) veya my.cnf (Unix) dosyasında ikili günlük dosyası kaydetmeyi etkinleştirin:
 
-    * **server_id** = 1 veya üzeri (yalnızca MySQL 5.6 için geçerlidir)
-    * **log-bin** =\<yolu > (MySQL 5.6 için yalnızca ilgili)
-
-        Örneğin: log-bin = E:\MySQL_logs\BinLog
-    * **binlog_format** = row
-    * **Expire_logs_days** = 5 (sıfır; kullanmamanız önerilir yalnızca MySQL 5.6 ilgili)
-    * **Binlog_row_image** = full (yalnızca MySQL 5.6 için geçerlidir)
-    * **log_slave_updates** = 1
+  * **server_id** = 1 veya üzeri (yalnızca MySQL 5.6 için geçerlidir)
+  * **log-bin** = \<yolu > (MySQL 5.6 için yalnızca ilgili) örnek: log-bin = E:\MySQL_logs\BinLog
+  * **binlog_format** = row
+  * **Expire_logs_days** = 5 (sıfır; kullanmamanız önerilir yalnızca MySQL 5.6 ilgili)
+  * **Binlog_row_image** = full (yalnızca MySQL 5.6 için geçerlidir)
+  * **log_slave_updates** = 1
 
 * Kullanıcının, şu ayrıcalıkları içeren ReplicationAdmin rolüne sahip olması gerekir:
 
-    * **ÇOĞALTMA İSTEMCİSİ** - Yalnızca değişiklik işleme görevleri için gereklidir. Başka bir deyişle, bu ayrıcalık yalnızca Tam Yük görevleri için gerekli değildir.
-    * **ÇOĞALTMA ÇOĞALTMASI** - Yalnızca değişiklik işleme görevleri için gereklidir. Başka bir deyişle, bu ayrıcalık yalnızca Tam Yük görevleri için gerekli değildir.
-    * **SÜPER** - yalnızca MySQL 5.6.6'dan önceki sürümlerde gereklidir.
+  * **ÇOĞALTMA İSTEMCİSİ** - Yalnızca değişiklik işleme görevleri için gereklidir. Başka bir deyişle, bu ayrıcalık yalnızca Tam Yük görevleri için gerekli değildir.
+  * **ÇOĞALTMA ÇOĞALTMASI** - Yalnızca değişiklik işleme görevleri için gereklidir. Başka bir deyişle, bu ayrıcalık yalnızca Tam Yük görevleri için gerekli değildir.
+  * **SÜPER** - yalnızca MySQL 5.6.6'dan önceki sürümlerde gereklidir.
 
 ## <a name="migrate-the-sample-schema"></a>Örnek şemayı geçirme
 
@@ -149,7 +148,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
    ![Portal aboneliklerini gösterme](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
 
-2. Azure Veritabanı Geçiş Hizmeti örneğini oluşturmak istediğiniz aboneliği seçin ve sonra **Kaynak sağlayıcıları**’nı seçin.
+2. Azure veritabanı geçiş hizmeti örneği oluşturun ve ardından istediğiniz aboneliği seçin **kaynak sağlayıcıları**.
 
     ![Kaynak sağlayıcılarını gösterme](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
 
@@ -171,7 +170,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 4. Mevcut bir VNet seçin veya yeni bir tane oluşturun.
 
-    Sanal ağ, erişim kaynak SQL Server için Azure veritabanı geçiş hizmeti ve hedef Azure SQL veritabanı örneği sağlar.
+    Sanal ağ, Azure veritabanı geçiş hizmeti ile SQL Server kaynak erişimi ve hedef Azure SQL veritabanı örneği sağlar.
 
     Azure portalında VNet oluşturma hakkında daha fazla bilgi için bkz [Azure portalını kullanarak bir sanal ağ oluşturma](https://aka.ms/DMSVnet).
 
@@ -189,11 +188,11 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 
 1. Azure portalda **Tüm hizmetler**'i seçin, Azure Veritabanı Geçiş Hizmeti araması yapın ve **Azure Veritabanı Geçiş Hizmeti**'ni seçin.
 
-      ![Azure Veritabanı Geçiş Hizmeti’nin tüm örneklerini bulma](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
+      ![Azure veritabanı geçiş hizmeti tüm örneklerini bulun](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
 
-2. **Azure Veritabanı Geçiş Hizmeti** ekranında oluşturduğunuz Azure Veritabanı Geçiş Hizmeti örneğinin adını arayın ve sonuçlardan bu örneği seçin.
+2. Üzerinde **Azure veritabanı geçiş hizmetleri** ekranında, adın Azure veritabanı geçiş hizmeti örneği oluşturduğunuz arayın ve sonra örneği seçin.
 
-     ![Azure Veritabanı Geçiş Hizmeti örneğinizi bulma](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
+     ![Azure veritabanı geçiş hizmeti örneğinizi bulun](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
 
 3. +**Yeni Geçiş Projesi**'ni seçin.
 4. **Yeni geçiş projesi** ekranında proje için bir ad belirtin, **Kaynak sunucu türü** metin kutusunda **MySQL**, **Hedef sunucu türü** metin kutusunda ise **AzureDbForMySQL** seçeneğini belirleyin.
@@ -220,7 +219,7 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 
 2. **Kaydet**'i seçin ve **Hedef veritabanlarıyla eşleyin** ekranında geçiş yapılacak kaynak ve hedef veritabanlarını eşleyin.
 
-    Hedef veritabanı, kaynak veritabanıyla aynı veritabanı adına sahipse Azure Veritabanı Geçiş Hizmeti varsayılan olarak hedef veritabanını seçer.
+    Hedef veritabanını kaynak veritabanıyla aynı veritabanı adı içeriyorsa, Azure veritabanı geçiş hizmeti hedef veritabanı varsayılan olarak seçer.
 
     ![Hedef veritabanlarıyla eşleyin](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
 
@@ -263,5 +262,5 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * MySQL için Azure Veritabanı'na yönelik çevrimiçi geçiş gerçekleştirirken karşılaşılan bilinen sorunlar ve sınırlamalar hakkında bilgi için [MySQL için Azure Veritabanı geçiş işlemleri ile ilgili bilinen sorunlar ve geçici çözümler](known-issues-azure-mysql-online.md) başlıklı makaleye bakın.
-* Azure Veritabanı Geçiş Hizmeti hakkında bilgi için [What is the Azure Database Migration Service? (Azure Veritabanı Geçiş Hizmeti nedir?)](https://docs.microsoft.com/azure/dms/dms-overview) başlıklı makaleye bakın.
-* MySQL için Azure Veritabanı hakkında bilgi için [What is the Azure Database for MySQL? (MySQL için Azure Veritabanı nedir?)](https://docs.microsoft.com/azure/mysql/overview) başlıklı makaleye bakın.
+* Azure veritabanı geçiş hizmeti hakkında daha fazla bilgi için bkz [Azure veritabanı geçiş hizmeti nedir?](https://docs.microsoft.com/azure/dms/dms-overview).
+* MySQL için Azure veritabanı hakkında bilgi için bkz [MySQL için Azure veritabanı nedir?](https://docs.microsoft.com/azure/mysql/overview).

@@ -4,15 +4,15 @@ description: Azure DevOps'ta Cosmos DB öykünücüsü derleme görevini kullana
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: d6250b778cdaec47ccbe2f45d35adea0b676a20a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115474"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242551"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps'ta Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
 
@@ -35,7 +35,7 @@ Ardından uzantının yükleneceği kuruluşu seçin.
 
 ![Azure DevOps kuruluştaki bir uzantı yüklemek için seçin](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
-## <a name="create-a-build-definition"></a>Derleme tanımı oluşturma
+## <a name="create-a-build-definition"></a>Bir yapı tanımı oluşturun
 
 Artık uzantı yüklendiğine göre Azure DevOps hesabınızda oturum açın ve projeler panosundan projenizi bulun. Projenize bir [derleme işlem hattı](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ekleyebilir veya var olan derleme işlem hattını değiştirebilirsiniz. Bir derleme işlem hattınız varsa [Derleme tanımına Öykünücü derlemesi ekleme](#addEmulatorBuildTaskToBuildDefinition) bölümüne geçebilirsiniz.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124338"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240220"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -136,7 +136,7 @@ Yayımlanan uygulamanın paket kullanılabilir **uygulamalarım** listesi sayfas
 1. LUIS için oturum açma [portalı](https://www.luis.ai).
 1. Listeden uygulama adının sol tarafındaki onay kutusunu seçin. 
 1. Seçin **dışarı** bağlamsal listesinin üstündeki araç çubuğundan öğesi.
-1. Seçin **dışarı aktarmak için kapsayıcı (GZIP)**.
+1. Seçin **dışarı aktarmak için kapsayıcı (GZIP)** .
 1. Ortamını seçin **üretim yuvasına** veya **hazırlama yuvası**.
 1. Paket tarayıcıdan yüklenir.
 
@@ -152,7 +152,7 @@ Eğitilen uygulamanın paket kullanılabilir **sürümleri** listesi sayfası.
 1. Seçin **sürümleri** sol gezinti çubuğundaki.
 1. Listeden sürüm adının sol tarafındaki onay kutusunu seçin.
 1. Seçin **dışarı** bağlamsal listesinin üstündeki araç çubuğundan öğesi.
-1. Seçin **dışarı aktarmak için kapsayıcı (GZIP)**.
+1. Seçin **dışarı aktarmak için kapsayıcı (GZIP)** .
 1. Paket tarayıcıdan yüklenir.
 
 ![Kapsayıcı için eğitilen paket sürümleri sayfanın verme Menüsü'nden dışarı aktarma](./media/luis-container-how-to/export-trained-package-for-container.png)
@@ -223,20 +223,24 @@ Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/
 |{ENDPOINT_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır. Başlangıç anahtarı kullanmayın. |
 |{BILLING_ENDPOINT} | Azure portal üzerinde fatura uç nokta değerinde kullanılabilir `Cognitive Services` genel bakış sayfası. Eklemenize gerek `luis/v2.0` aşağıdaki örnekte gösterildiği gibi uç nokta URI'si yönlendirme: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Bu parametreleri aşağıdaki örnekte kendi değerlerinizle değiştirin `docker run` komutu.
+Bu parametreleri aşağıdaki örnekte kendi değerlerinizle değiştirin `docker run` komutu. Komutu Windows konsolunda çalıştırın.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> Yukarıdaki komut dizini aracınızdan `c:` sürücü Windows üzerinde hiçbir izni çakışmalarını önlemek için. Giriş dizini belirli bir dizini kullanmak istiyorsanız, docker vermeniz gerekebilir hizmet izni. Yukarıdaki komut docker ters eğik çizgi kullanır `\`, satır devamı karakteri olarak. Bu temel kaldırın veya değiştirin, [ana bilgisayar](#the-host-computer) işletim sisteminin gereksinimleri. Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
+* Bu örnek dizin aracınızdan `c:` sürücü Windows üzerinde hiçbir izni çakışmalarını önlemek için. Giriş dizini belirli bir dizini kullanmak istiyorsanız, docker vermeniz gerekebilir hizmet izni. 
+* Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
+* Farklı bir işletim sistemi kullanıyorsanız, başlatmalar ve satır devamı karakteri sisteminiz için doğru konsol/terminal, klasörü söz dizimi kullanın. Bu örnekler bir satır devamı karakteri ile bir Windows konsol varsayar `^`. Kapsayıcı bir Linux işletim sistemi olduğundan, hedef bağlama bir Linux stili klasör sözdizimini kullanır.
+
 
 
 Bu komut:

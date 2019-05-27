@@ -10,22 +10,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: c147023635f337e203f02779ef6df3d0a0f0088c
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 0d78e6eaca708073c3a216507b320fe8783a25b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015562"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239251"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Öğretici: Resource Manager şablon dağıtımı Azure anahtar kasası tümleştirme
 
 Azure Key Vault'tan gizli dizileri almak ve gizli dizileri, Resource Manager dağıtım sırasında parametre olarak geçirmeniz hakkında bilgi edinin. Anahtar kasası kimliğini yalnızca başvuru değeri hiçbir zaman sunulur Daha fazla bilgi için bkz. [Dağıtım sırasında gizli parametre değeri geçirmek için Azure Key Vault'u kullanma](./resource-manager-keyvault-parameter.md)
 
-[Kaynak dağıtım sırasını ayarlama](./resource-manager-tutorial-create-templates-with-dependent-resources.md) öğreticisinde bir sanal makine ve bir sanal ağ dahil olmak üzere ek birkaç bağımlı kaynak oluşturmuştunuz. Bu öğreticide, sanal makine yöneticisi parolası anahtar kasasından almak için bu şablonu özelleştirin.
+İçinde [kaynak dağıtım sırasını Ayarla](./resource-manager-tutorial-create-templates-with-dependent-resources.md) öğretici, bir sanal makine oluşturun. Sanal makine yönetici kullanıcı adı ve parola sağlamanız gerekir. Parolayı sağlamak yerine, önceden bir Azure anahtar Kasası'nda parola depolamak ve ardından parola, dağıtım sırasında anahtar kasasından almak için şablonu özelleştirmek.
 
 ![Resource Manager şablon anahtar kasası tümleştirme diyagramı](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
@@ -57,80 +57,52 @@ Bu makaleyi tamamlamak için gerekenler:
 
 ## <a name="prepare-a-key-vault"></a>Bir anahtar Kasası'nı hazırlama
 
-Bu bölümde, bir anahtar kasası ve gizli dizi oluşturmak için Resource Manager şablonu kullanın. Bu şablonu şu işlemleri gerçekleştirir:
+Bu bölümde, anahtar kasası oluşturma ve gizli dizi alabilmeleri, şablonu dağıttığınızda bir gizli dizi anahtar Kasası'na ekleyin. Bir anahtar kasası oluşturmak için birçok yolu vardır. Bu öğreticide, Azure PowerShell dağıtmak için kullandığınız bir [Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Bu şablonu şu işlemleri gerçekleştirir:
 
 * Key vault ile oluşturma `enabledForTemplateDeployment` özelliği sağlar. Bu anahtar Kasası'nda tanımlanan gizli dizileri şablon dağıtım işlemi erişebilmeniz için önce bu özelliği true olmalıdır.
 * Gizli anahtar Kasası'na ekleyin.  Gizli dizi, sanal makine yönetici parolasını depolar.
 
-(Gibi sanal makine şablonu dağıtmak için kullanıcının) sahibi veya katkıda bulunan anahtar kasasının emin değilseniz, sahibi veya katkıda bulunan anahtar kasasının anahtar kasası için erişim Microsoft.KeyVault/vaults/deploy/action izin vermeniz gerekir. Daha fazla bilgi için bkz. [Dağıtım sırasında gizli parametre değeri geçirmek için Azure Key Vault'u kullanma](./resource-manager-keyvault-parameter.md)
+> [!NOTE]
+> (Gibi sanal makine şablonu dağıtmak için kullanıcının) sahibi veya katkıda bulunan anahtar kasasının emin değilseniz, sahibi veya katkıda bulunan anahtar kasasının anahtar kasası için erişim Microsoft.KeyVault/vaults/deploy/action izin vermeniz gerekir. Daha fazla bilgi için bkz. [Dağıtım sırasında gizli parametre değeri geçirmek için Azure Key Vault'u kullanma](./resource-manager-keyvault-parameter.md)
 
-Şablonda izinlerin yapılandırılması için Azure AD kullanıcı nesnesi kimliğiniz gerekir. Aşağıdaki yordam ' % s'nesne kimliği (GUID) alır.
+Aşağıdaki PowerShell betiğini çalıştırmak için seçin **deneyin** Cloud Shell'i açmak için. Betik yapıştırmak için kabuk bölmesinde sağ tıklayın ve ardından **yapıştırın**.
 
-1. Aşağıdaki Azure PowerShell veya Azure CLI komutunu çalıştırın.  
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
+$secretValue = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```azurecli-interactive
-    echo "Enter your email address that is associated with your Azure subscription):" &&
-    read upn &&
-    az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```   
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
-    ```azurepowershell-interactive
-    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
-    (Get-AzADUser -UserPrincipalName $upn).Id
-    ```
-    veya
-    ```azurepowershell-interactive
-    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
-    (Get-AzADUser -DisplayName $displayName).Id
-    ```
-    ---
-2. Nesne Kimliği yazma Bu öğreticinin ilerleyen bölümlerinde gerekir.
+$resourceGroupName = "${projectName}rg"
+$keyVaultName = $projectName
+$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json"
 
-Bir anahtar kasası oluşturmak için:
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+```
 
-1. Aşağıdaki görüntüyü seçerek Azure'da oturum açıp bir şablon açın. Şablon, bir anahtar kasası ve gizli dizi oluşturur.
+Önemli bilgiler birkaç parçalarını:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
+* Kaynak grubu adı ile proje adınızdır **rg** eklenir. Daha kolay hale getirmek için [Bu öğreticide oluşturulan kaynakları temizlemeyin](#clean-up-resources), aynı proje adı ve kaynak grubu adı kullanın, [sonraki şablonu dağıtma](#deploy-the-template).
+* Gizli dizi adı varsayılan addır **vmAdminPassword**. Bu şablondaki olur.
+* Gizli diziyi almak şablon için kullanabilmek için adlandırılan bir erişim ilkesini etkinleştirirseniz **şablon dağıtımı için Azure Resource Manager'a erişimi etkinleştir** anahtar kasası için. Bu ilke, şablonda etkinleştirilir. Bu erişim ilkesi hakkında daha fazla bilgi için bkz. [anahtar kasalarını ve gizli anahtarları dağıtma](./resource-manager-keyvault-parameter.md#deploy-key-vaults-and-secrets).
 
-2. Aşağıdaki değerleri seçin veya girin.  Değerleri girdikten sonra **Satın al**'ı seçmeyin.
+Adlı bir çıktı değeri şablonda **keyVaultId**. Değeri yazın. Sanal makineyi dağıtırken bu kimliğe ihtiyacınız olacak. Kaynak Kimliği biçimi şu şekildedir:
 
-    ![Resource Manager şablonu Key Vault tümleştirmesi portal dağıtımı](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
+```json
+/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
+```
 
-    * **Abonelik**: Bir Azure aboneliği seçin.
-    * **Kaynak grubu**: Benzersiz bir ad girin. Bu kaynak grubunu bir sonraki oturumda sanal makineyi dağıtmak için de kullanacağınızdan bu adı not edin. Aynı kaynak grubunda anahtar kasası hem de sanal makine yerleştirme öğreticinin sonunda kaynağı temizlemek kolaylaştırır.
-    * **Konum**: Bir konum seçin.  Varsayılan konum: **Orta ABD**.
-    * **Anahtar Kasası Adı**: Benzersiz bir ad girin. 
-    * **Kiracı Kimliği**: Şablon işlevi kiracı kimliğinizi otomatik olarak alır.  Varsayılan değeri değiştirmeyin
-    * **AD Kullanıcı Kimliği**: Son yordamdan aldığınız Azure AD kullanıcı nesnesi kimliğinizi girin.
-    * **Gizli dizi adı**: Varsayılan ad **vmAdminPassword**. Buradaki gizli adı değiştirirseniz sanal makine dağıtma adımında da gizli adı güncelleştirmeniz gerekir.
-    * **Gizli değer**: Gizli anahtarı girin.  Gizli dizi, sanal makinede oturum açmak için kullanılan paroladır. Son yordamda oluşturduğunuz parolayı kullanmanız önerilir.
-    * **Yukarıdaki hüküm ve koşulları durumu için kabul ediyorum**: Seçin.
-3. Şablona göz atmak için yukarıdan **Parametreleri düzenle**'yi seçin.
-4. JSON dosyasının 28. satırına göz atın. Anahtar kasası kaynak tanımı budur.
-5. 35. satıra göz atın:
+KODU kopyalayıp, kimliği çoklu satırlara ayrılmış. Satırları birleştirme ve fazladan boşlukları trim gerekir.
 
-    ```json
-    "enabledForTemplateDeployment": true,
-    ```
-    `enabledForTemplateDeployment`, anahtar kasası özelliğidir. Dağıtım sırasında bu anahtar kasasından gizli dizileri almadan önce bu özelliği true olmalıdır.
-6. 89. satıra göz atın. Bu, anahtar kasası gizli dizi tanımıdır.
-7. Sayfanın en altındaki **Kapat**'ı seçin. Dosyada herhangi bir değişiklik yapmadınız.
-8. Yukarıdaki ekran görüntüsünde görünen tüm değerleri sağladığınızdan emin olun ve sayfanın en altında **Satın al**'a tıklayın.
-9. Sayfanın üst tarafındaki zil simgesini (bildirim) seçerek **Bildirimler** bölmesini açın. Kaynak başarıyla dağıtılana kadar bekleyin.
-10. **Bildirimler** bölmesinden **Kaynak grubuna git**'i seçin. 
-11. Açmak için anahtar kasası adı seçin.
-12. Seçin **gizli dizileri** sol bölmeden. **vmAdminPassword** listelenip.
-13. Sol bölmede **Erişim ilkeleri**'ni seçin. Listede adınız (Active Directory) bulunmalıdır. Aksi takdirde anahtar kasasına erişemezsiniz.
-14. **Gelişmiş erişim ilkelerini görüntülemek için tıklayın**'ı seçin. **Şablon dağıtımı için Azure Resource Manager'a erişimi etkinleştir** ayarının seçili olduğunu görebilirsiniz. Bu ayar çalışmak için anahtar kasası tümleştirme yapmak için başka bir durumdur.
+Dağıtımı doğrulama için düz metin parolayı almak için aynı Kabuk bölmesinde aşağıdaki PowerShell komutunu çalıştırın. Bir değişken önceki PowerShell komut dosyasında tanımlanan $keyVaultName kullandığından komutu yalnızca aynı Kabuk oturumda çalışır.
 
-    ![Resource Manager şablonu Key Vault tümleştirmesi erişim ilkeleri](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-15. Soldaki bölmeden **Özellikler**'i seçin.
-16. **Kaynak Kimliği** değerini kopyalayın. Sanal makineyi dağıtırken bu kimliğe ihtiyacınız olacak.  Kaynak Kimliği biçimi şu şekildedir:
+```azurepowershell
+(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+```
 
-    ```json
-    /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-    ```
+Artık bir anahtar kasası ve gizli dizi, aşağıdaki bölümlerde şunları nasıl yapacağınız dağıtım sırasında gizli diziyi almak için mevcut bir şablonu özelleştirmek için hazırladığınız.
 
 ## <a name="open-a-quickstart-template"></a>Hızlı başlangıç şablonunu açma
 
@@ -142,6 +114,7 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Dosyayı açmak için **Aç**’ı seçin. [Öğretici: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md) bölümünde kullanılan senaryoyla aynıdır.
 4. Şablonun tanımladığı beş kaynak vardır:
 
@@ -177,24 +150,28 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
     },
     ```
 
-    Değiştirin **kimliği** anahtar kasanız son yordamda oluşturduğunuz kaynak kimliği.  
+    > [!IMPORTANT]
+    > Değiştirin **kimliği** anahtar kasanız son yordamda oluşturduğunuz kaynak kimliği.
 
     ![Key Vault ve Resource Manager şablonu sanal makine dağıtımını tümleştirme parametre dosyası](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. Şu değerleri verin:
 
     * **adminUsername**: Sanal makine yönetici hesabının adı.
     * **dnsLabelPrefix**: dnsLablePrefix’i adlandırın.
+
+    Önceki ekran görüntüsünde bir örneğe bakın.
+
 4. Değişiklikleri kaydedin.
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-[Şablonu dağıtma](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) bölümündeki yönergeleri izleyerek şablonu dağıtın. Hem **azuredeploy.json** hem de **azuredeploy.parameters.json** dosyasını Cloud Shell'e yükledikten sonra aşağıdaki PowerShell betiğini kullanarak şablonu dağıtmanız gerekir:
+[Şablonu dağıtma](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) bölümündeki yönergeleri izleyerek şablonu dağıtın. Her ikisi de yüklemeniz gerekir **azuredeploy.json** ve **azuredeploy.parameters.json** Cloud Shell'i ve şablonu dağıtmak için aşağıdaki PowerShell betiğini kullanın:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+$resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "$HOME/azuredeploy.json" `
@@ -208,7 +185,7 @@ New-AzResourceGroupDeployment `
 Başarılı bir şekilde sanal makineyi dağıttıktan sonra anahtar kasasında depolanan parola kullanarak oturum açmayı test edin.
 
 1. [Azure portalı](https://portal.azure.com) açın.
-2. **Kaynak grupları**/**KaynakGrubunuzunAdı>**/**simpleWinVM** yolunu izleyin.
+2. **Kaynak grupları**/**KaynakGrubunuzunAdı>** /**simpleWinVM** yolunu izleyin.
 3. En üstte **Bağlan**'ı seçin.
 4. Seçin **RDP dosyasını indir** ve ardından anahtar Kasası'nda depolanan parola kullanarak sanal makinede oturum açmak için yönergeleri izleyin.
 
@@ -216,10 +193,12 @@ Başarılı bir şekilde sanal makineyi dağıttıktan sonra anahtar kasasında 
 
 Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığınız kaynakları temizleyin.
 
-1. Azure portalda, sol menüden **Kaynak grubu**’nu seçin.
-2. **Ada göre filtrele** alanına kaynak grubu adını girin.
-3. Kaynak grubu adını seçin.  Kaynak grubundaki toplam altı kaynak görüyor olmalısınız.
-4. Üstteki menüden **Kaynak grubunu sil**’i seçin.
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+$resourceGroupName = "${projectName}rg"
+
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

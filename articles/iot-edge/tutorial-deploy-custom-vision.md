@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575813"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239680"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Öğretici: Uç cihazlarında özel görüntü işleme hizmeti ile görüntü sınıflandırma gerçekleştirin
 
@@ -147,7 +147,7 @@ Artık geliştirme makinenizde görüntü sınıflandırıcınızın kapsayıcı
    >[!Note]
    >Komut isteminden çağrılabilmesi için cookiecutter paketinin yükleneceği dizinin ortamınızın `Path` yolunda olduğundan emin olun.
 
-3. VS Code komut paletini açmak için **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçin. 
+3. VS Code komut paletini açmak için **View (Görünüm)**  > **Command Palette (Komut Paleti)** öğesini seçin. 
 
 4. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin: 
 
@@ -437,7 +437,7 @@ Cihazdan cameraCapture modülü günlüklerini görüntüleyerek iletilerin gön
    iotedge logs cameraCapture
    ```
 
-Visual Studio Code'da IoT Edge cihazınızın adına sağ tıklayın ve **Start monitoring D2C message** (D2C iletisini izlemeye başla) öğesini seçin. 
+Visual Studio code'dan, IOT Edge cihazınızın adına sağ tıklayın ve **Başlat yerleşik olay uç nokta izleme**. 
 
 cameraCapture modülünden iletiler olarak gönderilen Özel Görüntü İşleme Hizmeti modülü sonuçları, görüntünün köknar veya kiraz ağacı olma ihtimalini içerir. Görüntü köknar ağacına ait olduğundan olasılık değeri 1.0 olmalıdır. 
 

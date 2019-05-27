@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: b73249a9f72e4616f6d36e16f110913278f04590
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 0b3af3d29e6e938f0301d751a79170c7c1964b45
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415612"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243794"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Öğretici: Oracle, PostgreSQL için Azure veritabanı'na geçirme çevrimiçi DMS (Önizleme) kullanma
 
@@ -24,6 +24,7 @@ Azure veritabanı geçiş hizmeti veritabanlarını Oracle veritabanları barın
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
+>
 > * Ora2pg Aracı'nı kullanarak geçiş çaba değerlendirin.
 > * Örnek şemanın ora2pg Aracı'nı kullanarak geçirin.
 > * Azure veritabanı geçiş Hizmeti'nin bir örneğini oluşturun.
@@ -411,5 +412,5 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * PostgreSQL için Azure Veritabanı'na yönelik çevrimiçi geçiş gerçekleştirirken karşılaşılan bilinen sorunlar ve sınırlamalar hakkında bilgi için [PostgreSQL için Azure Veritabanı geçiş işlemleri ile ilgili bilinen sorunlar ve geçici çözümler](known-issues-azure-postgresql-online.md) başlıklı makaleye bakın.
-* Azure Veritabanı Geçiş Hizmeti hakkında bilgi için [What is the Azure Database Migration Service? (Azure Veritabanı Geçiş Hizmeti nedir?)](https://docs.microsoft.com/azure/dms/dms-overview) başlıklı makaleye bakın.
+* Azure veritabanı geçiş hizmeti hakkında daha fazla bilgi için bkz [Azure veritabanı geçiş hizmeti nedir?](https://docs.microsoft.com/azure/dms/dms-overview).
 * PostgreSQL için Azure veritabanı hakkında bilgi için bkz [PostgreSQL için Azure veritabanı nedir?](https://docs.microsoft.com/azure/postgresql/overview).

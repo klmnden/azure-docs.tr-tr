@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797001"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235826"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -54,7 +54,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>İsteğe bağlı parametre</em>.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan <a href="../customization.md">özel Translator</a>. Kategori Kimliği özel Translator projenizden dağıtılan özelleştirilmiş sisteminizi kullanabilmek için bu parametreyi ekleyin. Varsayılan değer: <code>general</code>.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan <a href="../customization.md">özel Translator</a>. Kategori Kimliği ekleyin, özel Translator <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">proje ayrıntıları</a> , dağıtılan kullanmak için bu parametreyi sistemi özelleştirilebilir. Varsayılan değer: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>

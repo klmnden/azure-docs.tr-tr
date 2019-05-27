@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 046398af8678e708784614dfdc231778454ed945
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ca321b8a073f709b55093fde6ff32ae876f3ef12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576603"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238064"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Öğretici: Geliştirme bir C# Windows cihazları için IOT Edge Modülü
 
@@ -57,7 +57,7 @@ Bu öğreticiye başlamadan önce geliştirme ortamınızı ayarlama için önce
 
 Aşağıdaki adımlar Visual Studio ve Azure IOT Edge araçları uzantısını kullanarak bir IOT Edge modülü projesi oluşturur. Oluşturulan proje şablonu oluşturduktan sonra böylece modül bildirilen özelliklerine göre iletileri filtreler yeni kod ekleyin. 
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 Azure IOT araçları uzantısı proje şablonları için desteklenen tüm IOT Edge modülü dilleri Visual Studio 2017'de sağlar. Bu şablonları tüm dosyaları ve IOT Edge test etmek için bir çalışma modül dağıtmak için ihtiyacınız olan kod veya kendi iş mantığına sahip şablonu özelleştirmek için bir başlangıç noktası sağlar. 
 
@@ -65,7 +65,7 @@ Azure IOT araçları uzantısı proje şablonları için desteklenen tüm IOT Ed
 
 2. **Dosya** > **Yeni** > **Proje**’yi seçin. 
 
-3. Yeni Proje penceresini seçin **Azure IOT** seçin ve proje türü **Azure IOT Edge** proje. Proje ve çözüm için açıklayıcı bir şey benzer Yeniden Adlandır **CSharpTutorialApp**. Projeyi oluşturmak için **Tamam**'ı seçin. 
+3. Yeni Proje penceresini seçin **Azure IOT** seçin ve proje türü **Azure IOT Edge** proje. Proje ve çözüm için açıklayıcı bir şey benzer Yeniden Adlandır **CSharpTutorialApp**. Seçin **Tamam** projeyi oluşturmak için. 
 
    ![Yeni Azure IOT Edge projesi oluşturma](./media/tutorial-csharp-module-windows/new-project.png)
 
@@ -322,7 +322,7 @@ IOT Edge araçları uzantısı IOT Hub'ınıza geldikçe iletilerini görüntül
 
 1. Visual Studio cloud explorer'ın IOT Edge Cihazınızı adını seçin. 
 
-2. İçinde **eylemleri** listesinden **D2C iletisini İzlemeyi Başlat**. 
+2. İçinde **eylemleri** listesinden **Başlat yerleşik olay uç nokta izleme**. 
 
 3. IOT hub'da gelen iletileri görüntüleyin. Biz CSharpModule koda yapılan değişiklikleri iletileri göndermeden önce 25 derece makine sıcaklık ulaşana kadar bekleyin, çünkü bu ulaşması iletileri için biraz zaman alabilir. İleti türü de ekler **uyarı** sıcaklık eşiğe ulaşan tüm iletileri. 
 

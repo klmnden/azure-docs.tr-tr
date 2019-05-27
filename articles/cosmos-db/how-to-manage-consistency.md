@@ -4,14 +4,14 @@ description: Azure Cosmos DB'de tutarlılığı yönetmeyi öğrenin
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 68a1a757b5c5e4ce63d7f12a8502d57942d4ec42
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925326"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240911"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeylerini yönetme
 
@@ -59,9 +59,9 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure portalı
 
-Görüntülemek veya varsayılan tutarlılık düzeyini değiştirmek için Azure portalında oturum açın. Azure Cosmos hesabınızı bulun ve açın **varsayılan tutarlılık** bölmesi. Yeni varsayılan olarak istediğiniz ve ardından tutarlılık düzeyini seçin **Kaydet**.
+Görüntülemek veya varsayılan tutarlılık düzeyini değiştirmek için Azure portalında oturum açın. Azure Cosmos hesabınızı bulun ve açın **varsayılan tutarlılık** bölmesi. Yeni varsayılan olarak istediğiniz ve ardından tutarlılık düzeyini seçin **Kaydet**. Azure portalı, müzik notları farklı tutarlılık düzeyi görselleştirmesini de sağlar. 
 
 ![Azure Portalı'nda tutarlılığı menüsü](./media/how-to-manage-consistency/consistency-settings.png)
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Olasılığa Dayalı Sınırlanmış Eskime Durumu (PBS) ölçümünü izleme
 
-Son tutarlılık nasıl nihai mi? Ortalama çalışması için de sürüm geçmişi ve zaman açısından eskime sınırları sunuyoruz. [ **Probabilistically sınırlanmış eskime durumu (PBS)** ](https://pbs.cs.berkeley.edu/) ölçüm eskime olasılığını ölçmek çalışır ve bir ölçüm gösterir. PBS ölçüm görüntülemek için Azure portalında Azure Cosmos hesabınıza gidin. Açık **ölçümleri** bölmesi ve select **tutarlılık** sekmesi. Ara adlı grafik **dayalı iş yükünüze dayalı kesinlikle tutarlı okumaların olasılığı (PBS bakın)**.
+Son tutarlılık nasıl nihai mi? Ortalama çalışması için de sürüm geçmişi ve zaman açısından eskime sınırları sunuyoruz. [ **Probabilistically sınırlanmış eskime durumu (PBS)** ](https://pbs.cs.berkeley.edu/) ölçüm eskime olasılığını ölçmek çalışır ve bir ölçüm gösterir. PBS ölçüm görüntülemek için Azure portalında Azure Cosmos hesabınıza gidin. Açık **ölçümleri** bölmesi ve select **tutarlılık** sekmesi. Ara adlı grafik **dayalı iş yükünüze dayalı kesinlikle tutarlı okumaların olasılığı (PBS bakın)** .
 
 ![Azure portalında PBS grafiği](./media/how-to-manage-consistency/pbs-metric.png)
 

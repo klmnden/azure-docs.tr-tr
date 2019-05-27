@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 93910fd0baeace9da474073960dbdb83251a1a63
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ee64e5a49bf2825c83c74167d7eb75aa3dc59387
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576561"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239828"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Öğretici: Windows cihazlar için bir C IOT Edge modülü geliştirme
 
@@ -57,7 +57,7 @@ Bu öğreticiye başlamadan önce Windows kapsayıcı geliştirme için gelişti
 
 Aşağıdaki adımlar üzerinde .NET Core 2.0 SDK'sı Visual Studio ve Azure IOT Edge araçları uzantısı kullanarak temel alan bir IOT Edge modülü projesi oluşturur. Oluşturulan proje şablonu oluşturduktan sonra böylece modül bildirilen özelliklerine göre iletileri filtreler yeni kod ekleyin. 
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 Kendi yazacağınız kodla özelleştirebileceğiniz bir C çözüm şablonu oluşturun.
 
@@ -65,7 +65,7 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C çözüm şablonu olu
 
 2. **Dosya** > **Yeni** > **Proje**’yi seçin. 
 
-3. Yeni Proje penceresini seçin **Azure IOT** seçin ve proje türü **Azure IOT Edge** proje. Proje ve çözüm için açıklayıcı bir şey benzer Yeniden Adlandır **CTutorialApp**. Projeyi oluşturmak için **Tamam**'ı seçin. 
+3. Yeni Proje penceresini seçin **Azure IOT** seçin ve proje türü **Azure IOT Edge** proje. Proje ve çözüm için açıklayıcı bir şey benzer Yeniden Adlandır **CTutorialApp**. Seçin **Tamam** projeyi oluşturmak için. 
 
    ![Yeni Azure IOT Edge projesi oluşturma](./media/tutorial-c-module-windows/new-project.png)
 
@@ -326,7 +326,7 @@ IOT Edge araçları uzantısı IOT Hub'ınıza geldikçe iletilerini görüntül
 
 1. Visual Studio cloud explorer'ın IOT Edge Cihazınızı adını seçin. 
 
-2. İçinde **eylemleri** listesinden **D2C iletisini İzlemeyi Başlat**. 
+2. İçinde **eylemleri** listesinden **Başlat yerleşik olay uç nokta izleme**. 
 
 3. IOT hub'da gelen iletileri görüntüleyin. IOT Edge cihazı, yeni dağıtım almak ve tüm modülleri başlatmak olduğundan bunu ulaşması iletileri için biraz zaman alabilir. Daha sonra iletileri göndermeden önce 25 derece makine sıcaklık ulaşana kadar biz CModule koda yapılan değişiklikleri bekleyin. İleti türü de ekler **uyarı** sıcaklık eşiğe ulaşan tüm iletileri. 
 

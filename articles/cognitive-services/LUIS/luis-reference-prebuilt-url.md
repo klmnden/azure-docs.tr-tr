@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5fb62c38bde98d946694790adb860240eaa59fa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709721"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072239"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>URL bir LUIS uygulaması için önceden oluşturulmuş varlık
 URL varlık URL'leri ile etki alanı adlarını veya IP adreslerini ayıklar. Bu varlık zaten eğitildi olduğundan, uygulamaya URL'ler içeren örnek Konuşma ekleme gerekmez. URL varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
@@ -25,6 +25,9 @@ URL varlık URL'leri ile etki alanı adlarını veya IP adreslerini ayıklar. Bu
 URL, gelen yönetilir [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub deposu
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Önceden oluşturulmuş URL varlık için çözümleme
+
+### <a name="api-version-2x"></a>API sürüm 2.x
+
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.url** varlık.
 
 ```json
@@ -48,6 +51,64 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.url** varlık.
       "endIndex": 17
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Önizleme API sürümü 3.x
+
+Aşağıdaki JSON ile olan `verbose` parametresini `false`:
+
+```json
+{
+    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+    "prediction": {
+        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.421936184
+            }
+        },
+        "entities": {
+            "url": [
+                "https://www.luis.ai"
+            ]
+        }
+    }
+}
+```
+
+Aşağıdaki JSON ile olan `verbose` parametresini `true`:
+
+```json
+{
+    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+    "prediction": {
+        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.421936184
+            }
+        },
+        "entities": {
+            "url": [
+                "https://www.luis.ai"
+            ],
+            "$instance": {
+                "url": [
+                    {
+                        "type": "builtin.url",
+                        "text": "https://www.luis.ai",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

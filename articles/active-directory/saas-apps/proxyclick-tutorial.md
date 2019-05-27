@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Proxyclick | Microsoft Docs'
-description: Azure Active Directory ve Proxyclick arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+description: Bu öğreticide, Azure Active Directory ve Proxyclick arasında çoklu oturum açmayı yapılandırma öğreneceksiniz.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,240 +15,245 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b797c7d49495aac90abb31a9214bf2928784a866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa146ad5a36cc74a65ec6d3dee98b2ef35bc65ad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868742"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Öğretici: Proxyclick ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Proxyclick tümleştirme konusunda bilgi edinin.
-Azure AD ile Proxyclick tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile Proxyclick tümleştirme öğreneceksiniz.
+Bu tümleştirme aşağıdaki avantajları sağlar:
 
-* Proxyclick erişimi, Azure AD'de kontrol edebilirsiniz.
-* Otomatik olarak (çoklu oturum açma) Proxyclick için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
-* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Azure AD Proxyclick erişimi denetlemek için kullanabilirsiniz.
+* Kullanıcılarınız için Proxyclick (çoklu oturum açma) ile Azure AD hesaplarına otomatik olarak oturum açmanız etkinleştirebilirsiniz.
+* Hesaplarınızı tek bir merkezi konumda yönetebilir: Azure portalı.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'de uygulamalar için çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD Tümleştirmesi ile Proxyclick yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD Tümleştirmesi ile Proxyclick yapılandırmak için sahip olmanız gerekir:
 
-* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Abonelik Proxyclick çoklu oturum açma etkin
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, oturum açabileceğiniz bir [bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
+* Tekli etkin oturum sahip Proxyclick abonelik.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* Proxyclick destekler **SP** ve **IDP** tarafından başlatılan
+* Proxyclick SP tarafından başlatılan ve IDP tarafından başlatılan SSO'yu destekler.
 
-## <a name="adding-proxyclick-from-the-gallery"></a>Galeriden Proxyclick ekleme
+## <a name="add-proxyclick-from-the-gallery"></a>Galeriden Proxyclick Ekle
 
-Azure AD'de Proxyclick tümleştirmesini yapılandırmak için Proxyclick Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de Proxyclick tümleştirmesini ayarlamak için yönetilen SaaS uygulamaları listenize Galeriden Proxyclick eklemeniz gerekir.
 
-**Galeriden Proxyclick eklemek için aşağıdaki adımları gerçekleştirin:**
+1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**:
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+    ![Azure Active Directory'yi seçin](common/select-azuread.png)
 
-    ![Azure Active Directory düğmesi](common/select-azuread.png)
-
-2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
+2. Git **kurumsal uygulamalar** > **tüm uygulamaları**:
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Bir uygulama eklemek için seçin **yeni uygulama** pencerenin üst kısmındaki:
 
-    ![Yeni Uygulama düğmesi](common/add-new-app.png)
+    ![Yeni uygulama seçme](common/add-new-app.png)
 
-4. Arama kutusuna **Proxyclick**seçin **Proxyclick** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Proxyclick**. Seçin **Proxyclick** seçin ve arama sonuçlarını **Ekle**.
 
-     ![Sonuç listesinde Proxyclick](common/search-new-app.png)
+     ![Arama sonuçları](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Proxyclick adlı bir test kullanıcı tabanlı test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısının Proxyclick ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma ile Proxyclick Britta Simon adlı bir test kullanıcısı kullanarak test edin.
+Çoklu oturum açmayı etkinleştirmek için Proxyclick içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir ilişki yapmanız gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Proxyclick ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Proxyclick ile test etmek için bu adımları tamamlamak gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Proxyclick çoklu oturum açmayı yapılandırma](#configure-proxyclick-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Proxyclick test kullanıcısı oluşturma](#create-proxyclick-test-user)**  - kullanıcı Azure AD gösterimini bağlı Proxyclick Britta simon'un bir karşılığı vardır.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on)**  kullanıcılarınız için özelliği etkinleştirmek için.
+2. **[Proxyclick çoklu oturum açmayı yapılandırma](#configure-proxyclick-single-sign-on)**  uygulama tarafında.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  Azure AD çoklu oturum açmayı test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  Azure AD çoklu oturum açma için kullanıcı etkinleştirmek için.
+5. **[Proxyclick test kullanıcısı oluşturma](#create-a-proxyclick-test-user)**  kullanıcı Azure AD gösterimini bağlı.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalındaki etkinleştirmeniz.
 
-Azure AD çoklu oturum açma ile Proxyclick yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile Proxyclick yapılandırmak için şu adımları uygulayın:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **Proxyclick** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), Proxyclick uygulama tümleştirme sayfasında **çoklu oturum açma**:
 
-    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
+    ![Çoklu oturum açma seçin](common/select-sso.png)
 
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
+2. İçinde **tek bir oturum açma yönteminizi seçmeniz** Seç iletişim kutusunda **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için:
 
-    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
+    ![Çoklu oturum açma yöntemi seçin](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim kutusunda:
 
-    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+    ![Düzenle simgesi](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
+4. İçinde **temel SAML yapılandırma** iletişim kutusu, IDP tarafından başlatılan modunda uygulama yapılandırmak istiyorsanız aşağıdaki adımları uygulayın.
 
-    ![Proxyclick etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
+    ![Temel SAML yapılandırma iletişim kutusu](common/idp-intiated.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://saml.proxyclick.com/init/<companyId>`
+    1. İçinde **tanımlayıcı** kutusuna, bu düzende bir URL girin:
+   
+       `https://saml.proxyclick.com/init/<companyId>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://saml.proxyclick.com/consume/<companyId>`
+    1. İçinde **yanıt URL'si** kutusuna, bu düzende bir URL girin:
 
-5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+       `https://saml.proxyclick.com/consume/<companyId>`
+
+5. SP tarafından başlatılan modunda uygulama yapılandırmak isteyip istemediğinizi seçin **ek URL'lerini ayarlayın**. İçinde **oturum açma URL'si** kutusuna, bu düzende bir URL girin:
+   
+   `https://saml.proxyclick.com/init/<companyId>`
 
     ![Proxyclick etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://saml.proxyclick.com/init/<companyId>`
+    
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma, öğreticinin ilerleyen bölümlerinde açıklanan URL ile güncelleştirir.
+    > Bu değerler yer tutuculardır. Gerçek tanımlayıcısı kullanın, yanıt URL'si ve oturum açma URL'si gerekiyor. Bu değerleri almak için adımları Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır.
 
-6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünden **indirme** yanındaki bağlantı **sertifika (Base64)** , gereksinimlerinize göre ve bilgisayarınızdaki sertifika Kaydet:
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-7. Üzerinde **Proxyclick kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+7. İçinde **Proxyclick kümesi** bölümünde, gereksinimlerinize göre uygun URL'ler kopyalayın:
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
+    1. **Oturum açma URL'si**.
 
-    b. Azure AD Tanımlayıcısı
+    1. **Azure AD tanımlayıcısı**.
 
-    c. Oturum Kapatma URL'si
+    1. **Oturum kapatma URL'si**.
 
-### <a name="configure-proxyclick-single-sign-on"></a>Proxyclick tek oturum açmayı yapılandırın
+### <a name="configure-proxyclick-single-sign-on"></a>Proxyclick çoklu oturum açmayı yapılandırın
 
-1. Farklı bir web tarayıcı penceresinde Proxyclick şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Yeni bir web tarayıcısı penceresinde Proxyclick şirketinizin sitesi için bir yönetici olarak oturum açın
 
-2. Seçin **hesabı & ayarları**.
+2. Seçin **hesabı & ayarları**:
 
-    ![Proxyclick yapılandırma](./media/proxyclick-tutorial/configure1.png)
+    ![Hesap & ayarlarını seçin](./media/proxyclick-tutorial/configure1.png)
 
-3. Ekranı aşağı kaydırarak **TÜMLEŞTİRMELER** seçip **SAML**.
+3. Ekranı aşağı kaydırarak **tümleştirmeler** seçin ve bölüm **SAML**:
 
-    ![Proxyclick yapılandırma](./media/proxyclick-tutorial/configure2.png)
+    ![SAML seçin](./media/proxyclick-tutorial/configure2.png)
 
-4. İçinde **SAML** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. İçinde **SAML** bölümünde, aşağıdaki adımları uygulayın.
 
-    ![Proxyclick yapılandırma](./media/proxyclick-tutorial/configure3.png)
+    ![SAML bölümü](./media/proxyclick-tutorial/configure3.png)
 
-    a. Kopyalama **SAML tüketici URL** yapıştırın ve değer **yanıt URL'si** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
+    1. Kopyalama **SAML tüketici URL** yapıştırın ve değer **yanıt URL'si** kutusunda **temel SAML yapılandırma** Azure portalında iletişim kutusu.
 
-    b. Kopyalama **SAML SSO tekrar yönlendirme URL'sini** yapıştırın ve değer **oturum açma URL'si** ve **tanımlayıcı** metin kutuları içinde **temel SAML yapılandırma** bölümü Azure portalında.
+    1. Kopyalama **SAML SSO tekrar yönlendirme URL'sini** yapıştırın ve değer **oturum açma URL'si** ve **tanımlayıcı** kutularındaki **temel SAML yapılandırma** Azure portalında iletişim kutusu.
 
-    c. Seçin **SAML isteği yöntemi** olarak **HTTP yeniden yönlendirme**.
+    1. İçinde **SAML isteği yöntemi** listesinden **HTTP yeniden yönlendirme**.
 
-    d. İçinde **veren** metin değerini yapıştırın **Azure AD tanımlayıcısı** Azure Portalı'ndan kopyaladığınız değeri.
+    1. İçinde **veren** kutusu, yapıştırma **Azure AD tanımlayıcısı** Azure portaldan kopyaladığınız değeri.
 
-    e. İçinde **SAML 2.0 uç nokta URL'si** metin değerini yapıştırın **oturum açma URL'si** Azure portaldan kopyaladığınız.
+    1. İçinde **SAML 2.0 uç nokta URL'si** kutusu, yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
 
-    f. Not Defteri'nde Azure portalından indirilen sertifika dosyanızı açın ve ardından yapıştırın **sertifika** metin.
+    1. Azure portalından indirdiğiniz sertifika dosyasını Not Defteri'nde açın. İçinde bu dosyanın içeriğini yapıştırın **sertifika** kutusu.
 
-    g. Tıklayın **değişiklikleri kaydetmek**.
+    1. Seçin **değişiklikleri kaydetmek**.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
+Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturacaksınız.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
+1. Azure portalında **Azure Active Directory** seçin sol bölmede **kullanıcılar**ve ardından **tüm kullanıcılar**:
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
+    ![Tüm kullanıcıları seçin](common/users.png)
 
-2. Seçin **yeni kullanıcı** ekranın üstünde.
+2. Seçin **yeni kullanıcı** ekranın üst kısmındaki:
 
-    ![Yeni kullanıcı düğmesi](common/new-user.png)
+    ![Yeni bir kullanıcı seçin](common/new-user.png)
 
-3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
+3. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın.
 
     ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    a. İçinde **adı** alana **BrittaSimon**.
+    1. İçinde **adı** kutusuna **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü brittasimon@yourcompanydomain.extension. Örneğin, BrittaSimon@contoso.com
+    1. İçinde **kullanıcı adı** kutusuna **@ BrittaSimon\<yourcompanydomain >.\< Uzantı >** . (Örneğin, BrittaSimon@contoso.com.)
 
-    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    1. Seçin **Göster parola**ve ardından içinde bir değer yazın **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    1. **Oluştur**’u seçin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için Proxyclick erişim vererek Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Proxyclick erişim vererek Britta Simon tıklatmalarını sağlarsınız.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Proxyclick**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**ve ardından **Proxyclick**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **Proxyclick**.
+2. Uygulamalar listesinde seçin **Proxyclick**.
 
-    ![Uygulamalar listesinde Proxyclick bağlantı](common/all-applications.png)
+    ![Uygulama listesi](common/all-applications.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+3. Sol bölmede seçin **kullanıcılar ve gruplar**:
 
-    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+    ![Kullanıcıları ve grupları seçin](common/users-groups-blade.png)
 
-4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+4. Seçin **Kullanıcı Ekle**ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
 
-    ![Atama Ekle bölmesi](common/add-assign-user.png)
+    ![Kullanıcı Ekle seçeneğini belirleme](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıların listesini ve ardından **seçin** pencerenin alt kısmındaki düğmesi.
 
-6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+6. SAML onaylaması rol değeri de beklediğiniz **rolü Seç** iletişim kutusunda, listeden bir kullanıcı için uygun rolü seçin. Tıklayın **seçin** pencerenin alt kısmındaki düğmesi.
 
-7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+7. İçinde **atama Ekle** iletişim kutusunda **atama**.
 
-### <a name="create-proxyclick-test-user"></a>Proxyclick test kullanıcısı oluşturma
+### <a name="create-a-proxyclick-test-user"></a>Proxyclick test kullanıcısı oluşturma
 
-Proxyclick için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Proxyclick sağlanması gerekir. Proxyclick söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
+Proxyclick için oturum açmak Azure AD kullanıcılarının sağlamak için Proxyclick eklemeniz gerekir. Bunları el ile eklemeniz gerekir.
 
-**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+Bir kullanıcı hesabı oluşturmak için şu adımları uygulayın:
 
-1. Proxyclick şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Proxyclick şirketinizin sitesi için bir yönetici olarak oturum açın
 
-1. Tıklayın **iş arkadaşlarınıza** üst gezinti çubuğundan.
+1. Seçin **iş arkadaşlarınıza** pencerenin üst kısmındaki:
 
-    ![Çalışan Ekle](./media/proxyclick-tutorial/user1.png)
+    ![İş arkadaşlarını seçin](./media/proxyclick-tutorial/user1.png)
 
-1. Tıklayın **iş arkadaşı Ekle**
+1. Seçin **iş arkadaşı ekleme**:
 
-    ![Çalışan Ekle](./media/proxyclick-tutorial/user2.png)
+    ![İş arkadaşı Ekle'yi seçin](./media/proxyclick-tutorial/user2.png)
 
-1. İçinde **bir iş arkadaşınız ekleme** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **bir iş arkadaşınız ekleme** bölümünde, aşağıdaki adımları uygulayın.
 
-    ![Çalışan Ekle](./media/proxyclick-tutorial/user3.png)
+    ![Bir iş arkadaşınız bölümü ekleyin](./media/proxyclick-tutorial/user3.png)
 
-    a. İçinde **e-posta** metin kutusuna kullanıcı e-posta adresi türünü ister brittasimon@contoso.com.
+    1. İçinde **e-posta** kutusuna, kullanıcının e-posta adresi girin. Bu durumda, **brittasimon\@contoso.com**.
 
-    b. İçinde **ad** metin kutusu, kullanıcının Britta gibi ilk tür adı.
+    1. İçinde **ad** kutusuna, kullanıcının ilk adını girin. Bu durumda, **Britta**.
 
-    c. İçinde **Soyadı** metin son Simon gibi kullanıcı adını yazın.
+    1. İçinde **Soyadı** kutusunda, son kullanıcının adını girin. Bu durumda, **Simon**.
 
-    d. Tıklayın **kullanıcı ekleme**.
+    1. Seçin **kullanıcı ekleme**.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Şimdi Azure AD çoklu oturum açma yapılandırmanızı erişim panelini kullanarak test gerekir.
 
-Erişim paneli Proxyclick kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Proxyclick için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim Paneli'nde Proxyclick kutucuğu seçtiğinizde, otomatik olarak SSO'yu ayarlama Proxyclick örneği için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim ve kullanım uygulamaları uygulamalarım portalında](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

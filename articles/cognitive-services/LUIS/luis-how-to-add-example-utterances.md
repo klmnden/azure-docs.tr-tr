@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198014"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072847"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Bir varlık için örnek Konuşma ekleme 
 
@@ -89,25 +89,6 @@ Utterance varsayılarak `Does John Smith work in Seattle?`, bileşik bir utteran
 
     ![Bileşik varlığı ile ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Hiyerarşik varlık ekleme
-
-**Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır. Kullanım [varlık rolleri](luis-concept-roles.md) hiyerarşik varlıkları yerine varlık subtypes belirlemek için.**
-
-Hiyerarşik bir varlık, bağlamsal öğrenilen ve kavramsal olarak ilişkili varlıkları kategorisidir. Aşağıdaki örnekte, kaynak ve hedef konumları varlık içerir. 
-
-Utterance içinde `Move John Smith from Seattle to Cairo`, Seattle kaynak konumu ve Cairo hedef konumu. Her kelime sırasını ve sözcük seçenek utterance bağlamsal olarak farklı ve öğrenilen konumdur.
-
-1. Hedefi sayfasında utterance seçin `Seattle`, varlık adı enter `Location`ve ardından klavyedeki Enter'ı seçin.
-
-1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?** açılır kutusunda _hiyerarşik_ için **varlık türü**, eklersiniz `Origin` ve `Destination` alt olarak ve ardından **Bitti**.
-
-    ![Vurgulanan ToLocation varlıkla ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. Utterance sözcüğü üst hiyerarşik varlıkla etiketlendi. Word'ün bir alt varlığına atamanız gerekir. Utterance için hedefi ayrıntı sayfasında dönün. Word ' ü seçin sonra oluşturduğunuz varlık adı aşağı açılan listeden seçin ve sağa doğru alt varlığı seçmeniz için menü izleyin.
-
-    >[!CAUTION]
-    >Tek bir uygulamada tüm varlıklar üzerinde alt varlık adlarının benzersiz olması gerekir. Alt varlıklar aynı ada sahip iki farklı hiyerarşik varlıklar içerebilir. 
-
 ## <a name="add-entitys-role-to-utterance"></a>Utterance için varlığın rolünü ekleyin
 
 Adlandırılmış alt utterance bağlamında tarafından belirlenen bir varlığın rolüdür. Bir varlık içindeki bir utterance varlık olarak işaretleyin ya da söz konusu varlık içinde bir rol seçin. Herhangi bir varlık makine öğrenilen özel varlıklar da dahil olmak üzere rolleri (Basit varlıkları ve bileşik varlıklar) sahip olabilir, makine öğrenilen (önceden oluşturulmuş varlıklar, normal ifade varlıkları listesi varlıklar) değildir. 
@@ -143,9 +124,6 @@ Aşağıdaki çözümlerden varlık tahmin tutarsızlık gidermek:
 |Etiketlenmemiş metin|kırmızı alt çizgi|Yanlış tahmin|Yanlış bu varlığı kullanan geçerli konuşma tüm amaçlarını gözden geçirilmesi gerekir. Geçerli konuşma LUIS, bu metin tahmin ettiği varlık olduğunu mistaught.
 |Etiketli metin doğru|Mavi varlık vurgulayın, kırmızı alt çizgi|Yanlış tahmin|Daha fazla konuşma yerler ve kullanımları çeşitli doğru etiketli varlıkla sağlar. Geçerli konuşma bu LUIS öğretmeyi yeterli olduğu varlık ya da benzer varlıkları aynı bağlam içinde görünür olan. LUIS kafanız bu nedenle tek bir varlığa benzer varlık birleştirilmelidir. Başka bir çözüm bir kelimelerin önemi artırmak için bir ifade listesi eklemektir. |
 |Yanlış etiketli metin|Mavi varlık vurgulayın, kırmızı alt çizgi|Doğru tahmin| Daha fazla konuşma yerler ve kullanımları çeşitli doğru etiketli varlıkla sağlar. 
-
-> [!Note]
-> Örnek utterance satırının etiketli amaca etrafında kırmızı kutu olduğunda bir [hedefi tahmin hata](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) oluştu. Düzeltmeniz gerekir. 
 
 ## <a name="other-actions"></a>Diğer eylemler
 

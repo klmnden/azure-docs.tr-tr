@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
 ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "64866852"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Bing varlık arama API'si nedir?
@@ -27,7 +27,7 @@ Bing Varlık Arama API'si, Bing'e bir arama sorgusu gönderip varlıkları ve ye
 | [Varlık Kesinleştirme](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | Birden çok olası anlamı içeren sorgular için birden çok varlık alın. |
 | [Yerler bulun](concepts/search-for-entities.md#find-places) | Arayın ve yerel işletmeler ve varlıklar hakkında bilgi döndürür  |
 
-## <a name="workflow"></a>İş akışı
+## <a name="workflow"></a>İş Akışı
 
 Bing varlık arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. REST API veya SDK'sını kullanarak hizmetini kullanabilirsiniz.
 

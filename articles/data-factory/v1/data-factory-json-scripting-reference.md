@@ -49,7 +49,7 @@ Aşağıdaki tabloda, işlem hattı JSON tanımını içindeki özellikleri aç�
 
 | Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
-| name | İşlem hattının adı. Eylemi temsil eden bir ad belirtin etkinlik veya işlem hattı yapmak için yapılandırılır<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| ad | İşlem hattının adı. Eylemi temsil eden bir ad belirtin etkinlik veya işlem hattı yapmak için yapılandırılır<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
 | description |Ne işlem hattı ve etkinlik için kullanıldığını açıklayan metin | Hayır |
 | activities | Etkinliklerin listesini içerir. | Evet |
 | start |İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00**-05:00`, 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
@@ -87,15 +87,15 @@ Tablo, içinde etkinlik JSON tanımındaki özellikler açıklanmaktadır:
 
 | Etiket | Açıklama | Gerekli |
 | --- | --- | --- |
-| name |Etkinliğin adı. Eylemi temsil eden bir ad belirtin, etkinlik yapılandırılması<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
+| ad |Etkinliğin adı. Eylemi temsil eden bir ad belirtin, etkinlik yapılandırılması<br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
 | description |Etkinliğin ne için kullanıldığını açıklayan metin. |Hayır |
 | type |Etkinlik türünü belirtir. Bkz: [veri DEPOLARI](#data-stores) ve [veri dönüştürme etkinlikleri](#data-transformation-activities) bölümleri farklı etkinlik türleri için. |Evet |
-| inputs |Etkinlik tarafından kullanılan giriş tablosu<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Hdınsightstreaming ve SqlServerStoredProcedure etkinlikler için Hayır <br/> <br/> Diğer tümü için Evet |
-| outputs |Etkinlik tarafından kullanılan çıkış tablolar.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
+| girişler |Etkinlik tarafından kullanılan giriş tablosu<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Hdınsightstreaming ve SqlServerStoredProcedure etkinlikler için Hayır <br/> <br/> Diğer tümü için Evet |
+| çıkışlar |Etkinlik tarafından kullanılan çıkış tablolar.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Evet |
 | linkedServiceName |Etkinlik tarafından kullanılan bağlı hizmetin adı. <br/><br/>Bir etkinlik için gerekli işlem ortamına bağlanan bağlı hizmeti belirtmeniz gerekebilir. |HDInsight etkinlikleri, Azure Machine Learning etkinlikleri ve saklı yordam etkinliği için Evet. <br/><br/>Diğer tümü için hayır |
 | typeProperties |TypeProperties bölümündeki özellikler etkinlik türüne bağlıdır. |Hayır |
 | policy |Etkinliğin çalışma zamanı davranışını etkileyen ilkeler. Belirtilmezse, varsayılan ilkeler kullanılır. |Hayır |
-| scheduler |"Zamanlayıcı" özelliği, istenen etkinlik için zamanlama tanımlamak için kullanılır. Onun alt dışındaki aynıdır [bir veri kümesi kullanılabilirlik özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
+| Zamanlayıcı |"Zamanlayıcı" özelliği, istenen etkinlik için zamanlama tanımlamak için kullanılır. Onun alt dışındaki aynıdır [bir veri kümesi kullanılabilirlik özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
 
 ### <a name="policies"></a>İlkeler
 Özellikle, bir tablonun dilim işlendiğinde ilkeler bir etkinliğin çalışma zamanı davranışını etkiler. Aşağıdaki tabloda ayrıntılar sağlar.
@@ -292,7 +292,7 @@ Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 | typeProperties | Seçili türüne karşılık gelen özellikleri. Bkz: [veri DEPOLARI](#data-stores) desteklenen türleri ve bunların özelliklerini bölümü. |Evet |NA |
 | external | Bir veri kümesi açıkça bir veri fabrikası işlem hattı tarafından veya üretilen olup olmadığını belirlemek için Boole bayrağı. |Hayır |false |
 | availability | Veri kümesi üretim için dilimleme modelinin veya işleme penceresini tanımlar. Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
-| ilke |Ölçüt veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar. <br/><br/>Ayrıntılar için bkz: veri kümesi İlkesi bölümü. |Hayır |NA |
+| policy |Ölçüt veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar. <br/><br/>Ayrıntılar için bkz: veri kümesi İlkesi bölümü. |Hayır |NA |
 
 Her sütunda **yapısı** bölümü aşağıdaki özellikleri içerir:
 

@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB'de gerçek örneği kullanarak model ve bölüm verilerini
 description: Model ve Azure Cosmos DB Core API'si kullanarak bir gerçek örnek bölümü hakkında bilgi edinin
-author: rockboyfor
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 03/27/2019
-ms.date: 04/15/2019
-ms.author: v-yeche
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/23/2019
+ms.author: thweiss
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61057627"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240995"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Azure Cosmos DB'de gerçek örneği kullanarak model ve bölüm verilerini
 
@@ -141,7 +140,7 @@ Bir kullanıcı alma yapılır karşılık gelen öğeden okuyarak `users` kapsa
 
 ### <a name="c2-createedit-a-post"></a>[C2] Bir gönderi Oluştur/Düzenle
 
-Benzer şekilde **[C1]**, biz yalnızca yazmak zorunda `posts` kapsayıcı.
+Benzer şekilde **[C1]** , biz yalnızca yazmak zorunda `posts` kapsayıcı.
 
 ![Tek bir öğe için gönderileri kapsayıcı yazma](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -200,7 +199,7 @@ Ana sorguda kapsayıcının bölüm anahtarına göre filtre olsa da, kullanıc�
 
 ### <a name="c4-like-a-post"></a>[C4] Bir iletiyi beğenme
 
-Olduğu gibi **[C3]**, karşılık gelen öğe ile oluştururuz `posts` kapsayıcı.
+Olduğu gibi **[C3]** , karşılık gelen öğe ile oluştururuz `posts` kapsayıcı.
 
 ![Tek bir öğe için gönderileri kapsayıcı yazma](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -210,7 +209,7 @@ Olduğu gibi **[C3]**, karşılık gelen öğe ile oluştururuz `posts` kapsayı
 
 ### <a name="q5-list-a-posts-likes"></a>[S5] Post's beğenilerin listesi
 
-Olduğu gibi **[4]**, size bu gönderi için beğenilerin sorgu sonra kullanıcıların kullanıcı adlarını toplama.
+Olduğu gibi **[4]** , size bu gönderi için beğenilerin sorgu sonra kullanıcıların kullanıcı adlarını toplama.
 
 ![Bir post ve ek verilerini toplamak için beğeni, tüm alınıyor](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -283,7 +282,7 @@ Biz de açıklamayı değiştirin ve bunları oluşturan kullanıcının kullan�
 
 Elde etmek istediğimiz bir açıklama veya LIKE eklediğimiz her seferinde, biz de artırma olan `commentCount` veya `likeCount` karşılık gelen gönderisinde. Olarak bizim `posts` kapsayıcı bölümlenmiş tarafından `postId`, yeni bir öğe (açıklama satırı yapın veya ister) ve aynı mantıksal bölümde sit, karşılık gelen post. Sonuç olarak, kullanabiliriz bir [saklı yordamı](stored-procedures-triggers-udfs.md) bu işlemi gerçekleştirmek için.
 
-Artık yorum oluştururken (**[C3]**), yalnızca içinde yeni bir öğe eklemek yerine `posts` kapsayıcı diyoruz aşağıdaki saklı yordamı bu kapsayıcıdaki:
+Artık yorum oluştururken ( **[C3]** ), yalnızca içinde yeni bir öğe eklemek yerine `posts` kapsayıcı diyoruz aşağıdaki saklı yordamı bu kapsayıcıdaki:
 
 ```javascript
 function createComment(postId, comment) {
@@ -334,7 +333,7 @@ Bizim kullandığımız değişiklik akışını `users` kullanıcılar, kullan�
 ```javascript
 function updateUsernames(userId, username) {
   var collection = getContext().getCollection();
-
+  
   collection.queryDocuments(
     collection.getSelfLink(),
     `SELECT * FROM p WHERE p.userId = '${userId}'`,
@@ -397,7 +396,7 @@ Beğenilerin listelerken tam aynı durum.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Tüm istekleri sağlamaktan ölçeklenebilir
 
-Bizim genel performans geliştirmeleri arama, hala var. tamamen iyileştirdik henüz iki isteği: **[Q3]** ve **[S6]**. Bunlar, hedefledikleri kapsayıcılar bölüm anahtarına göre filtre yoksa sorgular ile ilgili isteklerdir.
+Bizim genel performans geliştirmeleri arama, hala var. tamamen iyileştirdik henüz iki isteği: **[Q3]** ve **[S6]** . Bunlar, hedefledikleri kapsayıcılar bölüm anahtarına göre filtre yoksa sorgular ile ilgili isteklerdir.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Kısa form kullanıcının posta listesi
 
@@ -438,7 +437,7 @@ Biz tüm gönderimleri çoğaltarak normalleştirilmişlikten çıkarma ikinci b
       "creationDate": "<post-creation-date>"
     }
 
-Şunlara dikkat edin:
+Aşağıdakilere dikkat edin:
 
 - ekledik bir `type` gönderilerinden, kullanıcıları ayırt etmek için kullanıcı öğesi alan
 - de ekledik bir `userId` ile gereksiz kullanıcı öğesini alanındaki `id` ancak alandır olarak gerekli `users` kapsayıcı tarafından bölümlenmiş artık `userId` (ve `id` daha önce)
@@ -577,6 +576,3 @@ Pratik veri modelleme ve bölümleme bu giriş sonra kapsamına kavramlarını g
 - [Veritabanları, kapsayıcılar ve öğeleri ile çalışma](databases-containers-items.md)
 - [Azure Cosmos DB'de bölümleme](partitioning-overview.md)
 - [Azure Cosmos DB'de akış değiştirme](change-feed.md)
-
-<!--Update_Description: new articles on how to model partition example -->
-<!--ms.date: 04/15/2019-->

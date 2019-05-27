@@ -1,10 +1,15 @@
 ---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
 ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798464"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238111"
 ---
 ## <a name="append-other-apis"></a>Diğer API'leri ekleme
 
@@ -19,5 +24,3 @@ Var olan API'nize farklı bir API'yi eklemek için aşağıdaki adımları izley
 3. Başka bir API eklemek istediğiniz API'nin yanındaki **...** simgesine tıklayın.
 4. Açılan menüden **İçeri aktar**'ı seçin.
 5. API'nin içeri aktarılacağı hizmeti seçin.
-
-

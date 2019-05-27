@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906999"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235603"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verileri ayıklayın
 
@@ -108,7 +108,7 @@ Ardından, bir belge çözümleyin ve anahtar-değer çiftleri ve tabloları bur
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
 1. Değiştirin `<modelID>` önceki bölümde aldığınız model kimliği.
-1. Değiştirin `<path to your form>` ile formunuzu dosyasının yolu.
+1. Değiştirin `<path to your form>` ile formunuzu dosyasının yolu. Örneğin c:\temp\file.pdf. 
 1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: pdf, görüntü/jpeg, görüntü/png.
 1. `<subscription key>` değerini abonelik anahtarınızla değiştirin.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2694d0f22acfb34c07220ad0145b933457961931
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575930"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239651"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Öğretici: Azure'da dağıtma işlevleri IOT Edge modülleri
 
@@ -57,13 +57,13 @@ Azure işlevleri ile IOT Edge modülü geliştirme için geliştirme makinenizde
 
 Önkoşullar yüklü Visual Studio Code için Azure IOT araçları, bazı kod şablonları yanı sıra, yönetim özellikleri sağlar. Bu bölümde Visual Studio Code'u kullanarak Azure işlevi içeren bir IoT Edge çözümü oluşturacaksınız. 
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
 
 Oluşturma bir C# kendi kodunuzla özelleştirebilirsiniz işlevi çözüm şablonu.
 
 1. Geliştirme makinenizde Visual Studio Code'u açın.
 
-2. **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
+2. **View (Görünüm)**  > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
 
 3. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Çözümünüzü oluşturmak için komut paletindeki yönergeleri izleyin.
 
@@ -222,12 +222,11 @@ Hızlı başlangıçlarda yaptığınız gibi işlev modülünüzü IoT Edge cih
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Çalıştırarak IOT hub'ınıza gelen tüm iletileri görebilirsiniz **Azure IOT Hub: D2C iletisini İzlemeyi Başlat** komut Paleti'nde.
+Çalıştırarak IOT hub'ınıza gelen tüm iletileri görebilirsiniz **Azure IOT Hub: Yerleşik olay uç nokta izleme Başlat** komut Paleti'nde.
 
-IoT hub'ınıza belirli bir cihazdan gelen iletilerin gösterilmesi için görünüme filtre de uygulayabilirsiniz. **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünde cihaza sağ tıklayıp **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.
+IoT hub'ınıza belirli bir cihazdan gelen iletilerin gösterilmesi için görünüme filtre de uygulayabilirsiniz. Nda cihaza sağ **Azure IOT Hub cihazları** seçin ve bölüm **Başlat yerleşik olay uç nokta izleme**.
 
-İletileri izlemeyi durdurmak için komutu çalıştırmak **Azure IOT Hub: D2C iletisini İzlemeyi Durdur** komut Paleti'nde. 
-
+İletileri izlemeyi durdurmak için komutu çalıştırmak **Azure IOT Hub: Yerleşik olay uç nokta izleme durdurma** komut Paleti'nde. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -245,4 +244,3 @@ Azure IoT Edge'in verileri iş içgörüsüne çevirmenize yardımcı olabilecek
 
 > [!div class="nextstepaction"]
 > [Azure Stream Analytics'te kayan pencere kullanarak ortalamaları bulma](tutorial-deploy-stream-analytics.md)
-

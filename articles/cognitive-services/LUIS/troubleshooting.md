@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766940"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225872"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -49,7 +49,7 @@ Bkz: [Bing yazım denetimi API'si V7](luis-tutorial-bing-spellcheck.md) öğreti
 Program aracılığıyla LUIS uygulamanızı düzenlemek için kullanın [yazma API](https://go.microsoft.com/fwlink/?linkid=2092087). Bkz: [API geliştirme LUIS çağrı](./luis-quickstart-node-add-utterance.md) ve [Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma](./luis-tutorial-node-import-utterances-csv.md) yazma API'nin nasıl çağrılacağını örnekleri için. Yazma API kullanmanızı gerektirir. bir [anahtar yazma](luis-concept-keys.md#authoring-key) yerine bir uç noktası anahtarı. Programlı yazma, ayda en fazla 1.000.000 çağrısı ve beş saniyede sağlar. LUIS ile kullandığınız anahtarları hakkında daha fazla bilgi için bkz. [anahtarları Yönet](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Burada sağlanan normal ifade deseni özelliği eşleşiyor mu?
-Önceki **deseni özelliği** şu anda kullanım dışı, değiştirilen  **[desenleri](luis-concept-patterns.md)**.
+Önceki **deseni özelliği** şu anda kullanım dışı, değiştirilen  **[desenleri](luis-concept-patterns.md)** .
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Bir varlık doğru veri çekmek için nasıl kullanırım?
 Bkz: [varlıkları](luis-concept-entity-types.md) ve [veri ayıklama](luis-concept-data-extraction.md).
@@ -297,6 +297,10 @@ Aşağıdaki özellikleri, derleme 2019 konferansında yayımlanan:
 * [Geliştirilmiş önceden oluşturulmuş etki alanları](luis-reference-prebuilt-domains.md) 
 * [Dinamik liste varlıklar](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Dış varlıklar](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+Videolar:
+
+* [İşletmeniz için yeni nesil ölçeklendirmek için Azure damıtarak konuşma bağlamında kullanılabilen yapay ZEKA kullanma](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

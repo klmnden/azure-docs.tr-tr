@@ -216,7 +216,7 @@ Parametreli bir Hive betiği kullanmak için aşağıdakileri yapın
       }
     }
     ```
-* Parametresini kullanarak Hive Betiğinde bakın **${hiveconf:parameterName}**. 
+* Parametresini kullanarak Hive Betiğinde bakın **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

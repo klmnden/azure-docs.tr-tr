@@ -1,5 +1,5 @@
 ---
-title: Anomali algılayıcısı API nedir? | Microsoft Docs
+title: Anomali Algılayıcısı API'si nedir? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Zaman serisi verilerinizdeki anormallikleri belirlemek için gelişmiş algoritmalar Anomali algılayıcısı API'nin kullanın.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473277"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415817"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>Anomali algılayıcısı API nedir?
+# <a name="what-is-the-anomaly-detector-api"></a>Anomali Algılayıcısı API'si nedir?
 
 Anomali algılayıcısı API'si, izleme ve machine learning ile zaman serisi verilerinizdeki prosesler algılamak sağlar. Anomali algılayıcısı API tanımlayarak ve sektör, senaryo veya veri hacmi bağımsız olarak verilerinize en sığdırma modelleri uygulama otomatik olarak uyum sağlar. Zaman serisi verilerinizi kullanarak, API sınırları anomali algılama, beklenen değerleri belirler ve anomalileri hangi veri noktalarıdır.
 
@@ -48,7 +48,7 @@ Tanıtım çalıştırmak için aşağıdaki adımları tamamlayın:
 5. Geçerli Anomali algılayıcısı API abonelik anahtarınızı ekleme `subscription_key` değişkeni. Değişiklik `endpoint` uç noktanıza değişken. Örneğin, `https://westus2.api.cognitive.microsoft.com`
 1. Üst menü çubuğunda **hücre**, ardından **tümünü Çalıştır**.
 
-## <a name="workflow"></a>İş akışı
+## <a name="workflow"></a>İş Akışı
 
 Anomali algılayıcısı API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6a6600a0294eaef9f3b8ee6e7f6f021eb5c1e60b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d5e10a7a4fe7fb12bc4140690fcabffa16b32be
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709704"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072103"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Sıcaklık LUIS uygulaması için önceden oluşturulmuş varlık
 Sıcaklık sıcaklık türleri çeşitli ayıklar. Bu varlık zaten eğitildi çünkü uygulama sıcaklık içeren örnek Konuşma ekleme gerekmez. Sıcaklık varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 
@@ -25,6 +25,9 @@ Sıcaklık sıcaklık türleri çeşitli ayıklar. Bu varlık zaten eğitildi ç
 Sıcaklık yönetilen engelle [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) GitHub deposu
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Önceden oluşturulmuş sıcaklık varlık için çözümleme
+
+### <a name="api-version-2x"></a>API sürüm 2.x
+
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.temperature** varlık.
 
 ```json
@@ -52,6 +55,70 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.temperature** var
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Önizleme API sürümü 3.x
+
+Aşağıdaki JSON ile olan `verbose` parametresini `false`:
+
+```json
+{
+    "query": "set the temperature to 30 degrees",
+    "prediction": {
+        "normalizedQuery": "set the temperature to 30 degrees",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.656305432
+            }
+        },
+        "entities": {
+            "temperature": [
+                {
+                    "number": 30,
+                    "unit": "Degree"
+                }
+            ]
+        }
+    }
+}
+```
+
+Aşağıdaki JSON ile olan `verbose` parametresini `true`:
+
+```json
+{
+    "query": "set the temperature to 30 degrees",
+    "prediction": {
+        "normalizedQuery": "set the temperature to 30 degrees",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.656305432
+            }
+        },
+        "entities": {
+            "temperature": [
+                {
+                    "number": 30,
+                    "unit": "Degree"
+                }
+            ],
+            "$instance": {
+                "temperature": [
+                    {
+                        "type": "builtin.temperature",
+                        "text": "30 degrees",
+                        "startIndex": 23,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

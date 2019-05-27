@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389568"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241392"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Öğretici: Bağlı Azure Resource Manager şablonları oluşturma
 
@@ -89,7 +89,7 @@ Bağlı şablon bir depolama hesabı oluşturur. Bağlı şablonun şablon olara
 2. Aşağıdaki değişiklikleri yapın:
 
     * Dışında tüm parametrelerini kaldırın **konumu**.
-    * **storageAccountName** adlı bir parametre ekleyin. 
+    * **storageAccountName** adlı bir parametre ekleyin.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Bağlı şablon bir depolama hesabı oluşturur. Bağlı şablonun şablon olara
         },
         ```
         Depolama hesabı adını ve konumunu ana şablonu için bağlantılı şablon parametreleri olarak geçirilir.
-        
+
     * Kaldırma **değişkenleri** öğenin ve tüm değişken tanımlar.
     * Depolama hesabı dışındaki tüm kaynakları kaldırın. Toplam dört kaynağı kaldırırsınız.
     * Değerini güncelleştirin **adı** depolama hesabı kaynak öğesi:
@@ -109,7 +109,7 @@ Bağlı şablon bir depolama hesabı oluşturur. Bağlı şablonun şablon olara
         ```
 
     * **outputs** öğesini güncelleştirdiğinizde aşağıdaki gibi görünür:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ Ana şablon azuredeploy.json olarak adlandırılır.
     Şu ayrıntılara dikkat edin:
 
     * Ana şablonda bir `Microsoft.Resources/deployments` kaynağı, başka bir şablona bağlamak için kullanılır.
-    * `deployments` kaynağının adı `linkedTemplate` şeklindedir. Bu ad [bağımlılık yapılandırma](#configure-dependency) için kullanılır.  
+    * `deployments` kaynağının adı `linkedTemplate` şeklindedir. Bu ad [bağımlılık yapılandırma](#configure-dependency) için kullanılır.
     * Bağlı şablonları çağırırken yalnızca [Artımlı](./deployment-modes.md) dağıtım modunu kullanabilirsiniz.
     * `templateLink/uri` bağlı şablon URI’sini içerir. Bağlı (bir SAS belirteci ile) şablonu karşıya yüklediğinizde, almak URI'ye değerini güncelleştirin.
     * Değerleri ana şablondan bağlı şablona geçirmek için `parameters` kullanın.
@@ -305,7 +305,7 @@ Depolama hesabı artık bağlı şablonda tanımlandığı için, `Microsoft.Com
 
     ![Azure Resource Manager bağlı şablonları bağımlılığı yapılandırma](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate*, dağıtım kaynağının adıdır.  
+    *linkedTemplate*, dağıtım kaynağının adıdır.
 3. Güncelleştirme **özellikleri/diagnosticsProfile/bootDiagnostics/storageUri** önceki ekran görüntüsünde gösterildiği gibi.
 4. Değiştirilen şablonu kaydedin.
 
@@ -334,4 +334,4 @@ Projeyi geliştirmek için tamamlanan projeye aşağıdaki ek değişiklikleri y
 Bu öğreticide, modularized, bir ana şablon ve bağlı bir şablona bir şablona. Post dağıtım görevlerini gerçekleştirmek için sanal makine uzantıları kullanmayı öğrenmek için bkz:
 
 > [!div class="nextstepaction"]
-> [Sanal makine uzantılarını dağıtma](./deployment-manager-tutorial.md)
+> [Sanal makine uzantılarını dağıtma](./resource-manager-tutorial-deploy-vm-extensions.md)

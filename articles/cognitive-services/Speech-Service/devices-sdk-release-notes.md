@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
-ms.openlocfilehash: f915a03e2596e6439cbe184bfc8405910f56e2bd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.date: 05/22/2019
+ms.author: wellsi
+ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002300"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237929"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihazları SDK sürüm notları
 Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
+
+## <a name="speech-devices-sdk-151"></a>Konuşma cihaz SDK'sı 1.5.1:
+
+*   Dahil [konuşma Transkripsiyonu](conversation-transcription-service.md) örnek uygulamada.
+*   Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.5.1 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.5.0: Mayıs 2019 sürüm
 

@@ -4,14 +4,14 @@ description: Azure Cosmos DB veritabanı hesaplarında güvenlik duvarı desteğ
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 24ebc7eb4c9abc72a89419611e4b4b3fa2db88b4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068729"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241956"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB'de IP Güvenlik Duvarı yapılandırma
 
@@ -173,10 +173,10 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 Aşağıdaki seçenekleri kullanarak bir IP erişim denetimi İlkesi ile ilgili sorunları giderebilirsiniz: 
 
-### <a name="azure-portal"></a>Azure portal 
+### <a name="azure-portal"></a>Azure portalı 
 Azure Cosmos DB hesabınız için bir IP erişim denetimi İlkesi etkinleştirerek, tüm istekleri hesabınıza izin verilen IP adresi aralıkları listesi dışındaki makinelerden engelleyin. Kapsayıcıları göz atma ve belgelerin sorgulanmasını gibi portal veri düzlemi işlemlerini etkinleştirmek için kullanarak Azure portala erişim açıkça izin vermeniz gerekir **Güvenlik Duvarı** portalındaki bölmesinde.
 
-### <a name="sdks"></a>SDK’lar 
+### <a name="sdks"></a>SDK 
 İzin verilenler listesinde genel olmayan makineler SDK'larını kullanarak Azure Cosmos DB kaynaklarını eriştiğinizde **403 Yasak** ek ayrıntı yok yanıt döndürülür. Hesabınız için izin verilen IP listesi doğrulayın ve doğru ilke yapılandırmasının Azure Cosmos DB hesabınıza uygulandığından emin olun. 
 
 ### <a name="source-ips-in-blocked-requests"></a>Engellenen istekleri kaynak IP'leri

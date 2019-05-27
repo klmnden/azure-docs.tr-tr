@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/4/2019
 ms.author: aahi
 ms.openlocfilehash: e788da047cb0567fc00f27130621a2f21e575dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "61335537"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Bing Özel Arama API'si nedir?
@@ -30,7 +30,7 @@ Bing özel arama API'si, önem verdiğiniz konulara Reklamsız özel arama deney
 |[Özel video arama deneyimleri](get-videos-from-instance.md)     | Etki alanları ve özel arama örneğinizin belirtilen siteleri videolardan aramak etkinleştirin.        |    
 |[Özel arama örneği kullanımınızın paylaşın](share-your-custom-search.md)     | İşbirliğine dayalı bir şekilde düzenleyin ve takım üyeleri ile paylaşarak arama örneğinizin test edin.        | 
 |[Bir kullanıcı Arabirimi uygulamalarınız ve Web siteleri için yapılandırma](hosted-ui.md)     | İşbirliğine dayalı bir şekilde düzenleyin ve takım üyeleri ile paylaşarak arama örneğinizin test edin.        | 
-## <a name="workflow"></a>İş akışı
+## <a name="workflow"></a>İş Akışı
 
 Özel arama örneği kullanarak oluşturabileceğiniz [Bing özel arama portalı](https://customsearch.ai). Portal, etki alanı, Web siteleri ve Bing arama yapmak istemediğiniz olanları birlikte aranacak istediğiniz Web sayfalarını belirten bir özel arama örneği oluşturmanızı sağlar. Portal için de kullanabilirsiniz: arama deneyimini Önizleme, API'nin sağladığı arama sonuçlarımızda ayarlama ve isteğe bağlı olarak, Web sitelerinin ve uygulamaların oluşturulması için aranabilir kullanıcı arabirimi yapılandırın.
 

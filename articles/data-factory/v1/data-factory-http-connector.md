@@ -161,7 +161,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikler
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** veri kümesini ayarlanmalıdır **Http**. | Evet |
-| relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlı hizmet tanımında belirtilen URL yolu belirtilmemiş olduğunda kullanılır. <br><br> Dinamik bir URL oluşturmak için kullanabileceğiniz [Data Factory işlevleri ve sistem değişkenleri](data-factory-functions-variables.md). Örnek: **relativeUrl**: **$$Text.Format ('/ my/rapor? ay = {0: yyyy}-{0:MM} & fmt csv =', SliceStart)**. | Hayır |
+| relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlı hizmet tanımında belirtilen URL yolu belirtilmemiş olduğunda kullanılır. <br><br> Dinamik bir URL oluşturmak için kullanabileceğiniz [Data Factory işlevleri ve sistem değişkenleri](data-factory-functions-variables.md). Örnek: **relativeUrl**: **$$Text.Format ('/ my/rapor? ay = {0: yyyy}-{0:MM} & fmt csv =', SliceStart)** . | Hayır |
 | requestMethod | HTTP yöntemi. İzin verilen değerler **alma** ve **POST**. | Hayır <br />(varsayılan değer **alma**) |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
 | Includesearchresults: true | HTTP isteğinin gövdesi. | Hayır |

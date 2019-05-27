@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813832"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073021"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Bağlamsal alt türleri için varlık rolleri
 
@@ -79,12 +79,6 @@ Aşağıdaki örnek konuşma varlıklarını ve rolleri kullanın:
 |--|--|
 |Hakkında daha çok ilginizi çeken ben **Seattle**|{Location} hakkında daha fazla bilgi ilgileniyorum|
 |Bir bilet Seattle'dan New York'ta satın alın.|{Konumu: Origin} öğesinden {konumu: hedef} bilet satın alma|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>Rolleri, hiyerarşik varlıklara nasıl ilişkilendirildiğini?
-
-Rolleri desenleri önceki kullanımını yanı sıra örnek konuşma alanındaki tüm varlıklar için kullanıma sunulmuştur. Bunlar her yerde kullanılabilir olmadığından, bunların hiyerarşik varlıklar için gereken değiştirin. Yeni varlıklar, hiyerarşik varlıkları kullanmak yerine rolleri ile oluşturulmalıdır. 
-
-Hiyerarşik varlıkları sonunda kullanımdan kaldırılacaktır.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Rolleri, modelleri nasıl kullanılır?
 Bir desenin şablon utterance içinde rolleri içinde utterance kullanılır: 

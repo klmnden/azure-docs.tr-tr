@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101413"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243026"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma
 
@@ -116,9 +116,9 @@ Azure İşlev Uygulamasını var olan bir API'ye eklemek için aşağıdaki adı
 Bir Azure İşlev Uygulaması içeri aktarıldığında aşağıdakiler otomatik olarak oluşturulur:
 
 * İşlev uygulaması ile apim - ad içinde ana bilgisayar anahtarı {*Azure API Management hizmet örneği adınızı*},
-* Azure API Management örneği içindeki değeri adı olan {*, Azure işlev uygulaması örneği adı*}-oluşturulan ana bilgisayar anahtarı içeren anahtar.
+* Azure API Management örneği içindeki değeri adı olan { *, Azure işlev uygulaması örneği adı*}-oluşturulan ana bilgisayar anahtarı içeren anahtar.
 
-4 Nisan 2019'den sonra oluşturulan API için ana bilgisayar anahtarı HTTP isteklerini API Yönetimi'nden bir üst işlev uygulamasına geçirilir. Daha eski API'lar ana bilgisayar anahtarı olarak geçirmek [bir sorgu parametresi](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Bu davranış aracılığıyla değiştirilebilir `PATCH Backend` [REST API çağrısı](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) üzerinde *arka uç* işlev uygulaması ile ilişkili varlık.
+4 Nisan 2019'den sonra oluşturulan API için ana bilgisayar anahtarı HTTP isteklerini API Yönetimi'nden bir üst işlev uygulamasına geçirilir. Daha eski API'lar ana bilgisayar anahtarı olarak geçirmek [bir sorgu parametresi](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Bu davranış aracılığıyla değiştirilebilir `PATCH Backend` [REST API çağrısı](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) üzerinde *arka uç* işlev uygulaması ile ilişkili varlık.
 
 > [!WARNING]
 > Azure İşlev Uygulaması ana bilgisayar anahtarının veya Azure API Management adlandırılmış değerinin kaldırılması veya değiştirilmesi, hizmetler arasındaki iletişimin kopmasına neden olur. Değerler otomatik olarak eşitlenmez.

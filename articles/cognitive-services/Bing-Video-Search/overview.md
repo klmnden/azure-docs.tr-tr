@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "62124654"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Arama API'si nedir?
@@ -31,7 +31,7 @@ Bing Video arama API'si, hizmetler ve uygulamalar, video arama özellikleri ekle
 | [Popüler videolar Al](trending-videos.md) | Dünyanın dört bir yanındaki popüler videoları arayın.                                                                                                          |
 | [Video Öngörüler elde edin](video-insights.md) | Dünyanın dört bir yanındaki popüler videolar için arama özelleştirin.                                                                                                          |
 
-## <a name="workflow"></a>İş akışı
+## <a name="workflow"></a>İş Akışı
 
 Bing Video arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. Hizmeti [REST API](csharp.md) veya [SDK](video-search-sdk-quickstart.md) kullanarak kullanabilirsiniz.
 
