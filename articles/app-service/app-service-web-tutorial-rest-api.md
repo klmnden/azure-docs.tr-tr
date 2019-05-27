@@ -16,11 +16,11 @@ ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138581"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Öğretici: Azure App Service'de CORS ile RESTful API barındırma
 
@@ -90,7 +90,7 @@ Bu adımda, SQL Veritabanı’na bağlı .NET Core uygulamanızı App Service’
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
@@ -98,7 +98,7 @@ Bu adımda, SQL Veritabanı’na bağlı .NET Core uygulamanızı App Service’
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Web uygulaması oluşturma
+### <a name="create-a-web-app"></a>Web uygulaması oluşturun
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 

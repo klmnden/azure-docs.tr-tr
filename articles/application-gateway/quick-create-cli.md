@@ -9,11 +9,11 @@ ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: a4f6cc2af7b9e044e5a72767898f876932fbf973
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66133933"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Hızlı Başlangıç: Azure Application Gateway - Azure CLI ile doğrudan web trafiği
 
@@ -25,7 +25,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0.4 sürüm çalıştırın veya üzeri. Sürümü bulmak için çalıştırın **az--version**. Yükleme veya yükseltme hakkında daha fazla bilgi için bkz: [Azure CLI yükleme]( /cli/azure/install-azure-cli).
 

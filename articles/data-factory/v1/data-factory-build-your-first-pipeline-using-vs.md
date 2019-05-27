@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66164248"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Öğretici: Visual Studio kullanarak veri fabrikası oluşturma
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -173,7 +173,7 @@ Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek ver
 
     Özellik | Açıklama |
     -------- | ----------- |
-    type |Veriler Azure Blob Depolamada yer aldığından type özelliği **AzureBlob** olarak ayarlanmıştır.
+    tür |Veriler Azure Blob Depolamada yer aldığından type özelliği **AzureBlob** olarak ayarlanmıştır.
     linkedServiceName | Daha önce oluşturduğunuz AzureStorageLinkedService1’i ifade eder.
     fileName |Bu özellik isteğe bağlıdır. Bu özelliği atarsanız, tüm folderPath dosyaları alınır. Bu durumda, yalnızca input.log işlenir.
     type | Günlük dosyaları metin biçiminde olduğundan TextFormat kullanacağız. |

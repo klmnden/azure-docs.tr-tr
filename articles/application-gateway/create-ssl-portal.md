@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/17/2019
 ms.author: victorh
 ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677859"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134494"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak SSL sonlandırma ile bir uygulama ağ geçidi yapılandırma
 
@@ -30,7 +30,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
@@ -81,7 +81,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
    - *myAGSubnet* - Alt ağın adı.
    - *10.0.0.0/24* - Alt ağın adres alanı.
 
-     ![Sanal ağ oluşturma](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluştur](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Seçin **Tamam** sanal ağ ve alt ağ oluşturmak için.
 7. Seçin **genel bir IP adresi seçin**seçin **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
@@ -98,7 +98,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 1. Seçin **tüm kaynakları** seçin ve soldaki menüden **myVNet** ve kaynak listesinden.
 2. Seçin **alt ağlar**ve ardından **alt**.
 
-    ![Alt ağ oluşturma](./media/create-ssl-portal/application-gateway-subnet.png)
+    ![Alt ağ oluştur](./media/create-ssl-portal/application-gateway-subnet.png)
 
 3. Girin *myBackendSubnet* seçin ve alt ağ adı için **Tamam**.
 
@@ -106,7 +106,7 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 
 Bu örnekte, application gateway için arka uç sunucular olarak kullanılan iki sanal makine oluşturun. Ayrıca uygulama ağ geçidinin başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS yüklersiniz.
 
-### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+### <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
 
 1. **Yeni**'yi seçin.
 2. **İşlem**’i ve sonra Öne Çıkanlar listesinde **Windows Server 2016 Datacenter**’ı seçin.

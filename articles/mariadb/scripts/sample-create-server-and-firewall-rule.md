@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: a7e8a4c8f8572cfdd236b1752e89b3a1b4e7b758
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171375"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>MariaDB sunucusu oluşturmak ve Azure CLI kullanarak bir güvenlik duvarı kuralı yapılandırma
 Bu örnek CLI betiği, MariaDB server için Azure veritabanı oluşturur ve sunucu düzeyinde güvenlik duvarı kuralı yapılandırır. Betik başarıyla çalıştırıldıktan sonra MariaDB sunucu tarafından tüm Azure hizmetlerinden ve yapılandırılmış IP adresinden erişilebilir.
@@ -33,7 +33,7 @@ Betik çalıştırıldıktan sonra aşağıdaki komutu kullanarak kaynak grubunu
 ## <a name="script-explanation"></a>Betik açıklaması
 Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 
-| **Komut** | **Notlar** |
+| **Komutu** | **Notlar** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az mariadb sunucusu oluşturma](/cli/azure/mariadb/server#az-mariadb-server-create) | Veritabanlarını barındıran bir MariaDB sunucu oluşturur. |

@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 6e1ac5dfd1972e406a1bd8dcd26e6aef2c4ea6d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919876"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142413"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps ile yenileme
 
@@ -65,15 +65,15 @@ HTTP etkinliğini aşağıdaki gibi yapılandırın:
 
 |Özellik  |Değer  |
 |---------|---------|
-|**Yöntem**     |POST         |
-|**URI**     | https://*sunucu bölgenizi*/servers/*aas sunucu adı*/models/*veritabanı adınız*/ <br /> <br /> Örneğin: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**Üst Bilgiler**     |   İçerik türü, uygulama/json <br /> <br />  ![Üst bilgiler](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Yöntemi**     |POST         |
+|**URI**     | https://*sunucu bölgenizi*/servers/*aas sunucu adı*/models/*veritabanı adınız*/ <br /> <br /> Örneğin: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**Üst bilgileri**     |   İçerik türü, uygulama/json <br /> <br />  ![Üst bilgiler](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Gövde**     |   İstek gövdesi oluşturma hakkında daha fazla bilgi için bkz: [zaman uyumsuz yenileme REST API - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
-|**Kimlik doğrulaması**     |Active Directory OAuth         |
+|**Kimlik Doğrulaması**     |Active Directory OAuth         |
 |**Kiracı**     |Azure Active Directory Tenantıd'nizi doldurun         |
 |**Hedef kitle**     |https://*.asazure.windows.net         |
 |**İstemci kimliği**     |Hizmet sorumlusu adı ClientID girin         |
-|**Kimlik bilgisi türü**     |Gizli dizi         |
+|**Kimlik bilgisi türü**     |Secret         |
 |**Gizli dizi**     |Hizmet sorumlusu adı gizli anahtarı girin         |
 
 Örnek:

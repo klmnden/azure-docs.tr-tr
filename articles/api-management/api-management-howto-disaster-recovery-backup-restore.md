@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7b5df31c3e1d07cc9ac93f73362e853fab728fa9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793807"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141744"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -63,7 +63,7 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 6. Bir yer tutucu URL'yi girin `http://resources` için **yeniden yönlendirme URI'si**, gerekli bir alandır, ancak değeri daha sonra kullanılmaz. Uygulamayı kaydetmek için onay kutusuna tıklayın.
 7. **Oluştur**’a tıklayın.
 
-### <a name="add-an-application"></a>Uygulama ekleme
+### <a name="add-an-application"></a>Uygulama ekle
 
 1. Uygulama oluşturulduktan sonra tıklayın **ayarları**.
 2. Tıklayın **gerekli izinler**.
@@ -72,7 +72,7 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 5. Seçin **Windows** **Azure Hizmet Yönetimi API**.
 6. Tuşuna **seçin**.
 
-    ![İzin ekleme](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![İzin ekle](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Tıklayın **Temsilcili izinler** için yeni eklenen uygulamanın kutuyu **Azure Hizmet Yönetimi (Önizleme) erişim**.
 8. Tuşuna **seçin**.
@@ -223,7 +223,7 @@ Yedekleme/geri yükleme işleminin farklı izlenecek yollar için aşağıdaki k
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

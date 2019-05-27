@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 1897193f0ae781029a7303c42ca8eeaa51389892
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920590"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142967"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Otomasyonu ile yenileme
 
@@ -112,7 +112,7 @@ Bunu şu şekilde yapılandırılabilir:
 
     ![Parametreleri Yapılandır](./media/analysis-services-refresh-azure-automation/16.png)
 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 ## <a name="consume-with-data-factory"></a>Data Factory ile kullanma
 
@@ -148,7 +148,7 @@ Azure Data Factory kullanarak runbook kullanmak için öncelikle oluşturma bir 
 |Özellik  |Değer  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services veritabanının adı <br/> Örnek: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Azure Analysis Services sunucu adı. <br/> Örnek: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |Azure Analysis Services sunucu adı. <br/> Örnek: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |Yenileme gerçekleştirmek için türü. <br/> Örnek: Tam         |
 
 Örnek JSON gövdesi:

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730522"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66129020"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell'den şablon dağıtma
 
@@ -23,7 +23,7 @@ ms.locfileid: "60730522"
 
 1. Cloud Shell için depolama hesabınızı seçin.
 
-   ![Depolama hesabı seçme](./media/resource-manager-cloud-shell-deploy/select-storage.png)
+   ![Depolama hesabı seçin](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
 1. **Bloblar**'ı seçin.
 
@@ -31,7 +31,7 @@ ms.locfileid: "60730522"
 
 1. **+ Kapsayıcı**'yı seçin.
 
-   ![Kapsayıcı ekleme](./media/resource-manager-cloud-shell-deploy/add-container.png)
+   ![Kapsayıcı ekle](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
 1. Kapsayıcı, bir ad ve bir erişim düzeyi verin. Bu makaledeki örnek şablonu hiçbir hassas bilgi içeriyor, böylece anonim okuma erişimi verin. **Tamam**’ı seçin.
 
@@ -47,7 +47,7 @@ ms.locfileid: "60730522"
 
 1. Şablonunuzu bulup karşıya yükleyin.
 
-   ![Dosya yükleme](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   ![Dosya yükle](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
 1. Karşıya yüklendikten sonra şablonu seçin.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: f42a97cdd74d360bc047ef561cbe626d526f9e4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124497"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136333"
 ---
 Etki alanı adı sistemi (DNS), internet'te şeyler bulmak için kullanılır. Örneğin, tarayıcınızda bir adres girin veya bir web sayfası bağlantısına tıklayın, etki alanı bir IP adresine çevirmek için DNS kullanır. IP adresi, bir açık adres gibi tür olmakla birlikte çok İnsan kolay değil. Örneğin, bir DNS adı gibi çok kolay olan **contoso.com** 192.168.1.88 veya 2001:0:4137:1f67:24a2:3888:9cce:fea3 gibi bir IP adresi hatırlamak yerine.
 

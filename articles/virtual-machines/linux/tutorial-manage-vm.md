@@ -17,11 +17,11 @@ ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171853"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Öğretici: Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
 
@@ -38,7 +38,7 @@ Azure sanal makineleri tam olarak yapılandırılabilir ve esnek bir bilgi işle
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-resource-group"></a>Kaynak grubu oluştur
 
 [az group create](https://docs.microsoft.com/cli/azure/group) komutuyla bir kaynak grubu oluşturun. 
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupVM --location eastus
 
 Kaynak grubu, bu öğretici boyunca görülebileceği gibi bir VM oluşturulurken veya değiştirilirken belirtilir.
 
-## <a name="create-virtual-machine"></a>Sanal makine oluşturma
+## <a name="create-virtual-machine"></a>Sanal makine oluştur
 
 [az vm create](https://docs.microsoft.com/cli/azure/vm) komutuyla bir sanal makine oluşturun. 
 
@@ -155,7 +155,7 @@ Bir sanal makinenin boyutu sanal makine tarafından kullanılabilen CPU, GPU ve 
 
 Aşağıdaki tabloda boyutlar kullanım durumlarına göre kategorilere ayrılmaktadır.  
 
-| Type                     | Boyutlar           |    Açıklama       |
+| Tür                     | Boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Genel amaçlı](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU/bellek. Küçük ve orta ölçekli uygulama ve veri çözümlerini geliştirmek/test etmek için idealdir.  |
 | [İşlem için iyileştirilmiş](sizes-compute.md)   | Fs, F             | Yüksek CPU/bellek. Orta düzey trafiğe sahip uygulamalar, ağ gereçleri ve toplu işlemler için idealdir.        |
@@ -305,7 +305,7 @@ az vm stop --resource-group myResourceGroupVM --name myVM
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-### <a name="delete-resource-group"></a>Kaynak grubunu silme
+### <a name="delete-resource-group"></a>Kaynak grubunu sil
 
 Bir kaynak grubunu silmek ayrıca grubun içindeki VM, sanal ağ ve disk gibi tüm kaynakları da siler. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 

@@ -9,11 +9,11 @@ ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 35f987f26ce47c19e3d5eb1ca5d2bb32d0c7ad1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407806"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170123"
 ---
 1. Portal sayfasının sol tarafına **+** simgesine tıklayın ve arama alanına ‘Sanal Ağ Geçidi’ yazın. **Sonuçlar** alanında **Sanal Ağ Geçidi**’ni bulup tıklayın.
 2. ‘Sanal ağ geçidi’ sayfasının alt tarafındaki **Oluştur**'a tıklayın. Bu işlem **Sanal ağ geçidi oluşturma** sayfasını açar.

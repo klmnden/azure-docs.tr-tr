@@ -16,11 +16,11 @@ ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: eddccc9897380e3ff47de49771a617bf6cacc407
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138350"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Öğretici: PHP ve MySQL uygulaması azure'da oluşturun
 
@@ -37,7 +37,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Azure’da MySQL veritabanı oluşturma
 > * PHP uygulamasını MySQL’e bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki tanılama günlüklerinin akışını sağlama
 > * Uygulamayı Azure portalında yönetme
@@ -157,7 +157,7 @@ PHP sunucusu durdurmak için terminale `Ctrl + C` yazın.
 
 Bu adımda, [MySQL için Azure Veritabanı](/azure/mysql) içinde bir MySQL veritabanı oluşturursunuz. Daha sonra, PHP uygulamasını bu veritabanına bağlanacak şekilde yapılandırırsınız.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
@@ -345,7 +345,7 @@ Bu adımda, MySQL’e bağlı PHP uygulamasını Azure App Service'e dağıtırs
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>Web uygulaması oluşturma
+### <a name="create-a-web-app"></a>Web uygulaması oluşturun
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
@@ -629,7 +629,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Azure’da MySQL veritabanı oluşturma
 > * PHP uygulamasını MySQL’e bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki tanılama günlüklerinin akışını sağlama
 > * Uygulamayı Azure portalında yönetme

@@ -16,11 +16,11 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136189"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 
@@ -267,7 +267,7 @@ Bu sorun, aşağıdaki nedenlerden biri için oluşur:
 
     **Çözüm**: CNAME veya bir kayıt doğru şekilde yapılandırıldığını doğrulayın. Bir uygulamaya özel bir etki alanını eşlemek için bir CNAME kaydı ya da bir A kaydı oluşturun. Bir kök etki alanı kullanmak istiyorsanız, A ve TXT kayıtlarını kullanmanız gerekir:
 
-    |Kayıt türü|Host|Üzerine gelin|
+    |Kayıt türü|Konak|Üzerine gelin|
     |------|------|-----|
     |A|@|Bir uygulama için IP adresi|
     |TXT|@|`<app-name>.azurewebsites.net`|

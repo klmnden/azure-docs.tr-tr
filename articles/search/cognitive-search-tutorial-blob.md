@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 55d4f4bdf204453ccfe353e0d79abedb118bd9d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: 0ce1c8b811c11d0268cde79a609c05e740a529b6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021618"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171582"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST Öğreticisi: Bir Azure Search dizini oluşturma ardışık düzen Bilişsel hizmetler API'lerini çağırma
 
@@ -45,13 +45,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu öğreticide, aşağıdaki hizmetleri, araçları ve verileri kullanılır. 
 
-[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
++ [Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri depolamak için. Azure Search ile aynı bölgede depolama hesabı olduğundan emin olun.
 
-[Bir Azure depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) örnek verileri depolamak için.
++ [Postman masaüstü uygulaması](https://www.getpostman.com/) Azure Search REST çağrıları yapmak için kullanılır.
 
-[Postman masaüstü uygulaması](https://www.getpostman.com/) Azure Search REST çağrıları yapmak için kullanılır.
++ [Örnek verileri](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) farklı türlerde küçük bir dosya kümesinden oluşur. 
 
-[Örnek verileri](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) farklı türlerde küçük bir dosya kümesinden oluşur. 
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
 
 ## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
@@ -98,7 +98,7 @@ Bu öğreticide kullanılan istek yöntemler **POST**, **PUT**, ve **alma**. Üs
 Bir veri kaynağı, bir beceri kümesi, bir dizin ve dizin oluşturucu oluşturmak için dört API çağrısı arama hizmetiniz için Postman kullanıyoruz. Veri kaynağı, depolama hesabınıza ve JSON verilerinize yönelik bir işaretçi içerir. Arama hizmetiniz, veriler yüklenirken bağlantı kurar.
 
 
-## <a name="create-a-data-source"></a>Veri kaynağı oluşturma
+## <a name="create-a-data-source"></a>Bir veri kaynağı oluşturun
 
 Hizmetleriniz ve kaynak dosyalarınız hazırlandığına göre şimdi dizin oluşturma işlem hattınızın bileşenlerini derlemeye başlayabilirsiniz. Azure Search’e, dış kaynak verilerinin nasıl alınacağını bildiren bir [veri kaynağı nesnesi](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ile başlayın.
 

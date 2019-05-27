@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 79459be30a5a2018dc82486a84895b1a954941bc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114354"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140492"
 ---
 1. İçinde [Azure portalında](https://portal.azure.com/)seçin **tümüne Gözat** > **uygulama hizmetleri**. Ardından select, Mobile Apps arka ucu. Altında **ayarları**seçin **App Service gönderim**. Ardından, bildirim hub'ı adı seçin.
 2. Git **Windows (WNS)**. Enter **güvenlik anahtarı** (gizli) ve **paket SID'si** Live Services siteden aldığınız. Ardından, **Kaydet**.

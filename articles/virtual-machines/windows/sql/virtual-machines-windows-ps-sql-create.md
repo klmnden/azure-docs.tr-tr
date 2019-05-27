@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 68fa8510b45d5bd00128b57ffcccd19b1c55359b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: edf5f2b681123243f55b1c2bf19a500e68171c0e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165743"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell ile SQL Server sanal makineleri sağlama
 
@@ -130,7 +130,7 @@ Sanal makine için kullanılacak SQL Server görüntüsünü tanımlamak için a
    $Sku = "SQLDEV"
    ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 Resource Manager dağıtım modeliyle, oluşturduğunuz ilk nesnenin kaynak grubudur. Kullanım [yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) bir Azure kaynak grubu ve kaynaklarını oluşturmak için cmdlet'i. Kaynak grubu adı ve konumu için daha önce başlatılmış değişkenleri belirtin.
 
 Yeni kaynak grubunuzu oluşturmak için bu cmdlet'i çalıştırın.
@@ -172,7 +172,7 @@ Sanal alt ağ yapılandırmanızı oluşturmak için bu cmdlet'i çalıştırın
 $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
-### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
 Ardından, yeni kaynak grubu kullanarak sanal ağınızı oluşturma [yeni AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) cmdlet'i. Adı, konumu ve adres ön eki için daha önce başlatılmış değişkenleri belirtin. Önceki adımda tanımlanan alt ağ yapılandırmasını kullanın.
 
 Sanal ağınızı oluşturmak için bu cmdlet'i çalıştırın.

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729416"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140616"
 ---
 1. [Azure portal] oturum açın.
 2. Seçin **+ yeni** > **Web + mobil** > **mobil uygulama**ve, Mobile Apps arka ucu için bir ad belirtin.

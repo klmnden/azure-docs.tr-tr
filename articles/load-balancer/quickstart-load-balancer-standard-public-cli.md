@@ -18,11 +18,11 @@ ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66170906"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Hızlı Başlangıç: Bir standart Azure CLI kullanarak sanal Makinelerin Yük Dengelemesi için yük dengeleyici oluşturma
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıçta nasıl Standart Yük Dengeleyici oluşturulacağı gö
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.28 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [az group create](https://docs.microsoft.com/cli/azure/group) ile bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
@@ -108,7 +108,7 @@ Yük dengeleyici kuralı, gerekli kaynak ve hedef bağlantı noktalarının yan�
 
 VM’leri dağıtmadan ve dengeleyicinizi test etmeden önce yardımcı sanal ağ kaynaklarını oluşturun.
 
-### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
+### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
 
 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) komutunu kullanarak *myResourceGroup* içinde *mySubnet* adlı bir alt ağ ile *myVnet* adlı bir sanal ağ oluşturun.
 

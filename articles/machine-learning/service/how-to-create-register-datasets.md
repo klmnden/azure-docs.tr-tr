@@ -1,5 +1,5 @@
 ---
-title: Oluşturma ve veri kümeleri ile çalışma alanınızı kaydetme
+title: Azureml veri kümeleri ile verilerine erişmek için veri kümeleri oluşturma
 titleSuffix: Azure Machine Learning service
 description: Çeşitli kaynaklardan veri kümeleri oluşturma ve veri kümeleri ile çalışma alanınızı kaydetme hakkında bilgi edinin
 services: machine-learning
@@ -10,34 +10,59 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/21/2019
+ms.openlocfilehash: 949468dfe26b076b5c5cf5cab8bbdc2038c7bd2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800823"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165892"
 ---
-# <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Oluşturma ve Azure Machine Learning veri kümeleri (Önizleme) kaydetme
+# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Oluşturma ve veri kümeleri (Önizleme) Azure Machine learning'de erişme
 
-Bu makalede, Azure Machine Learning iş akışları oluşturmak ve veri kümeleri ve bunları yeniden kullanım için yerel ve uzak denemeler arasında nasıl kaydetmek için öğrenin.
+Bu makalede, Azure Machine Learning veri kümeleri (Önizleme) oluşturma ve yerel ve uzak denemelerle verilere erişmek nasıl öğreneceksiniz.
 
-Azure Machine Learning veri kümeleri (Önizleme) erişip ile çalışmanızı kolaylaştırır. Veri kümeleri, veri modeli eğitimi ve işlem hattı oluşturma gibi çeşitli senaryolarda yönetin. Kullanarak [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), çalışabilir popüler biçimlerde verilerle, temel alınan depolama alanına erişmek, keşfedin ve verileri hazırlama, farklı bir veri kümesi tanımları yaşam döngüsünü yönetme ve kullanılan veri kümeleri arasında karşılaştırma Eğitim ve üretim.
+Yönetilen veri kümeleri ile şunları yapabilirsiniz: 
+* **Veri modeli eğitimi sırasında kolayca erişim** olmadan, temel alınan mağazalara yeniden bağlanıyor
+
+* **Veri tutarlılığı & yeniden üretilebilirliğini olun** denemeler arasında aynı işaretçiyi kullanarak: dizüstü bilgisayarlar, otomatik ml, işlem hatları, görsel arabirim
+
+* **Veri paylaşın ve işbirliği** diğer kullanıcılarla
+
+* **Verileri keşfedin** & veri anlık görüntülerinin & sürümleri yaşam döngüsünü yönetme
+
+* **Veri karşılaştırma** üretime eğitim
+
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Oluşturma ve veri kümeleri kaydetmek için ihtiyacınız vardır:
+Oluşturma ve veri kümeleriyle çalışmak için ihtiyacınız vardır:
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
-* Bir Azure Machine Learning hizmeti çalışma alanı. Bkz: [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Bir [Azure Machine Learning hizmeti çalışma Azure Machine Learning hizmeti çalışma alanı](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
-* Azure Machine için Python SDK'sı Learning. Yüklemek veya SDK'sının en son sürüme güncelleştirmek için bkz: [yükleme veya SDK'sı güncelleştirme](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* [Yüklü Python için Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), azureml veri kümeleri paketi içerir.
 
 > [!Note]
 > Bazı veri kümesi sınıfları (Önizleme) bağımlılıklara sahip [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paket (GA). Linux kullanıcıları için bu sınıflar üzerinde yalnızca aşağıdaki dağıtımlar desteklenir:  Red Hat Enterprise Linux, Ubuntu, Fedora ve CentOS.
 
-## <a name="create-datasets-from-local-files"></a>Yerel veri kümeleri oluşturun
+## <a name="data-formats"></a>Veri biçimleri
+
+Aşağıdaki veriler bir Azure Machine Learning veri kümesi oluşturabilirsiniz:
++ [ayrılmış](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-)
++ [İkili](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
++ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
++ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
++ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
++ [Azure SQL Veritabanı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
++ [Azure Data Lake genel. 1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
+
+## <a name="create-datasets"></a>Veri kümeleri oluşturma 
+
+Azureml veri kümeleri pakette, veri kümeleriyle etkileşim kurabileceğiniz [Azure Machine Learning Python SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ve özellikle [ `Dataset` sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py).
+
+### <a name="create-from-local-files"></a>Yerel dosyaları oluşturma
 
 Yükleme dosyaları yerel makinenizden ile dosya veya klasör yolunu belirterek [ `auto_read_files()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) yönteminden `Dataset` sınıfı.  Bu yöntem, dosya türü belirtmenizi gerektiren veya bağımsız değişkenlerini ayrıştırma aşağıdaki adımları gerçekleştirir:
 
@@ -52,13 +77,14 @@ from azureml.core.dataset import Dataset
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
 
-Alternatif olarak, ayrıştırma dosyanızın açıkça denetlemek için dosya özel işlevleri kullanın. Veri kümeleri SDK'sı şu anda destekler [ayrılmış](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-), [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-), [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-), [ikili](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-), ve [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-) dosya biçimleri.
+Alternatif olarak, ayrıştırma dosyanızın açıkça denetlemek için dosya özel işlevleri kullanın. 
 
-## <a name="create-datasets-from-azure-datastores"></a>Azure veri depoları veri kümeleri oluşturma
 
-Bir Azure veri deposundan veri kümeleri oluşturmak için emin olun:
+### <a name="create-from-azure-datastores"></a>Azure veri depoları oluşturma
 
-* Katkıda bulunan veya kayıtlı Azure veri deposuna erişim sahibi olduğunuz doğrulayın.
+Bir Azure veri deposundan veri kümeleri oluşturmak için:
+
+* Doğrulayın `contributor` veya `owner` kayıtlı Azure veri deposuna erişim.
 
 * İçeri aktarma [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) ve [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) ve `Dataset` SDK paketleri.
 
@@ -90,17 +116,11 @@ dataset = Dataset.from_delimited_files(datapath)
 dataset.head(5)
 ```
 
-||Kimlik|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|Açıklama|Konum açıklaması|Arrest|Yurt içi|...|İleri Git|Topluluk alan|FBI kod|X koordinatı|Y koordinatı|Yıl|Güncelleştirme tarihi|Enlem|Boylam|Konum|
-|--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
-|0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|YANILTICI YÖNTEMİ|FİNANSAL KİMLİK HIRSIZLIĞINDAN 300 ABD DOLARI ÜZERİNDEN|DİĞER|FALSE|FALSE|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
-1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|HIRSIZLIĞI| ÖĞESİNDEN YAPI|İKAMET|FALSE|FALSE|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48|41.74410697|-87.66449429|(41.744106973, -87.664494285)
-2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|YANILTICI YÖNTEMİ|FİNANSAL KİMLİK HIRSIZLIĞINDAN 300 ABD DOLARI VE ALTINDA|İKAMET|FALSE|FALSE|...|19|74|11|||2016|5/12/2016 15:50
-3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE KAYDET|1120|YANILTICI YÖNTEMİ|KARŞI KORUMA|İKAMET|FALSE|FALSE|...|9|49|10|||2016|5/13/2016 15:51
-4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE KAYDET|890|HIRSIZLIĞI|ÖĞESİNDEN YAPI|OKUL, OLUŞTURMA, GENEL|FALSE|FALSE|...|40|13|6|||2016|5/25/2016 15:59|
+## <a name="register-datasets"></a>DataSet kaydetme
 
-## <a name="register-your-datasets-with-workspace"></a>Veri kümelerinizi çalışma alanı ile kaydolun
+Oluşturma işlemini tamamlamak için veri kümeleri ile çalışma kaydedin:
 
-Kullanım [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) veri kümeleri paylaşmak için çalışma alanınıza kaydolup kuruluşunuzda ve çeşitli denemeler arasında yeniden yöntemi.
+Kullanım [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) bunlar diğer kullanıcılarla paylaşılabilir ve çeşitli denemeler arasında yeniden şekilde veri kümeleri, çalışma alanına kaydetmek için yöntemi.
 
 ```Python
 dataset = dataset.register(workspace = workspace,
@@ -111,38 +131,19 @@ dataset = dataset.register(workspace = workspace,
 ```
 
 >[!NOTE]
-> Varsayılan parametre ayarı `register()` olduğu `exist_ok = False`. Bu ayarı değiştirmeden aynı ada sahip bir veri kümesi kaydettirmeye çalışırsanız, bir hata oluşur.
+> Varsa `exist_ok = False` (varsayılan), ve bir hata oluşursa, aynı ada sahip bir veri kümesi kaydolmaya çalışın. Kümesine `True` var olanın üzerine yaz için.
 
-`register()` Yöntem zaten kayıtlı veri kümesi parametre ayarıyla döndürür `exist_ok = True`.
-
-```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = True
-                           )
-```
-
-Kullanım `list()` kayıtlı veri kümeleri çalışma alanınızdaki tüm görmek için.
-
-```Python
-Dataset.list(workspace_name)
-```
-
-Yukarıdaki kod, aşağıdaki sonuçları:
-
-```Python
-[Dataset(Name: dataset_crime,
-         Workspace: workspace_name)]
-```
-
-## <a name="access-datasets-in-workspace"></a>Çalışma alanındaki veri kümelerine erişme
+## <a name="access-data-in-datasets"></a>Erişim veri kümelerindeki verileri
 
 Kayıtlı veri kümeleri yerel olarak, uzaktan ve Azure Machine Learning işlem gibi işlem kümeleri üzerinde erişilebilir ve kullanılabilir. Kayıtlı Veri kümenizi yeniden denemeler arasında ve işlem ortamları için kayıtlı veri kümesi ve çalışma alanı tarafından adını almak için aşağıdaki kodu kullanın.
 
 ```Python
 workspace = Workspace.from_config()
 
+# See list of datasets registered in workspace.
+Dataset.list(workspace)
+
+# Get dataset by name
 dataset = workspace.datasets['dataset_crime']
 ```
 

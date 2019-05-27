@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 0b0e03b163d4de7a441bb7d2714be23b58c95028
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561270"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170369"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -98,15 +98,57 @@ Premium depolama önbelleğe alma: Desteklenen
 
 Hızlandırıcı yazma: [Destekleniyor](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
+Mv2 serisi özellikleri yüksek aktarım hızı, düşük gecikme süresi, doğrudan bir tüm çekirdek temel sıklığını 2.5 GHz ve 3.8 GHz max turbo sıklığını ile 8180 M 2.5 GHz (Skylake) işlemci bir hiper iş parçacıklı Intel® Xeon® Platinum üzerinde çalışan yerel NVMe depolama eşlendi. Tüm Mv2 serisi sanal makine boyutları, hem standart hem de premium kalıcı diskler kullanabilir. Mv2 serisi örnekler VM boyutları, büyük bellek içi veritabanları ve ilişkisel veritabanı sunucuları, büyük boyutlu önbellekler ve bellek içi için ideal olan, yüksek bellek CPU oranı ile iş yüklerini desteklemek için eşsiz işlem performansı sağlayarak bellek için iyileştirilmiş olan Analytics. 
+
 |Boyutlandır | vCPU | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
-| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
 
 Mv2 serisi sanal makineler Intel® Hyper-Threading teknolojisine sahiptir  
 
-<sup>1</sup> bu büyük vCPU ait şu desteklenen konuk işletim sistemlerinden birini gerektirir: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 ve RHEL 7.6
+<sup>1</sup> bu büyük sanal makinelerin bu desteklenen konuk işletim sistemlerinden birini gerektirir: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
+<sup>2</sup> Mv2 serisi VM'ler, 2. nesil yalnızca şunlardır. Linux kullanıyorsanız, bulma ve SUSE Linux görüntüsünü seçin için aşağıdaki bölüme bakın.
+
+#### <a name="find-a-suse-image"></a>SUSE görüntüsü bulunamadı
+
+Azure portalında uygun bir SUSE Linux görüntüsünü seçmek için: 
+
+1. Azure portalında **kaynak oluştur** 
+1. "SUSE SAP" için arama 
+1. 2. nesil görüntüleri SAP için SLES ya da Kullandıkça Öde kullanılabilir veya (BYOS) kendi aboneliğini getiren. Arama sonuçlarında istediğiniz görüntüyü kategoriyi genişletin:
+
+    * SAP için SUSE Linux Enterprise Server (SLES)
+    * (BYOS) SAP için SUSE Linux Enterprise Server (SLES)
+    
+1. SUSE görüntüleri Mv2 serisi ile uyumlu adı ön eki `GEN2:`. Aşağıdaki SUSE görüntüleri Mv2 serisi VM'ler için kullanılabilir:
+
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 SAP uygulamaları için
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 SAP uygulamaları için
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 (BYOS) SAP uygulamaları için
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 SAP uygulamaları (BYOS) için
+
+#### <a name="select-a-suse-image-via-azure-cli"></a>Azure CLI aracılığıyla bir SUSE görüntüsü seçme
+
+Mv2 serisi VM'ler için şu anda kullanılabilir SLES SAP görüntü için bir listesini görmek için aşağıdakileri kullanın [ `az vm image list` ](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) komutu:
+
+```azurecli
+az vm image list --output table --publisher SUSE --sku gen2 --all
+```
+
+Komut şu anda kullanılabilir 2. kuşak VM'ler SUSE kullanılabilir Mv2 serisi VM'ler için çıkarır. 
+
+Örnek çıktı:
+
+```
+Offer          Publisher  Sku          Urn                                        Version
+-------------  ---------  -----------  -----------------------------------------  ----------
+SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
+SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
+```
 
 ## <a name="m-series"></a>M serisi 
 

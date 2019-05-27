@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 4cfe8b02697fe8234c29995a611cb99a89e2e54b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134088"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
@@ -167,9 +167,9 @@ Azure CLI kullanarak indirdiğiniz Azure Resource Manager şablonu dağıtmak i�
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (veya --name)**. Yeni kaynak grubunun adı. Senaryomuz için bu ad, *appgatewayRG*.
+    **-n (veya --name)** . Yeni kaynak grubunun adı. Senaryomuz için bu ad, *appgatewayRG*.
     
-    **-l (veya --location)**. Yeni kaynak grubunun oluşturulduğu Azure bölgesi. Bizim senaryomuz için sahip *westus*.
+    **-l (veya --location)** . Yeni kaynak grubunun oluşturulduğu Azure bölgesi. Bizim senaryomuz için sahip *westus*.
 
 1. Çalıştırma `az group deployment create` şablonu ve parametre kullanarak yeni sanal ağı dağıtmak için cmdlet indirdiğiniz ve değiştirdiğiniz önceki adımda dosyaları. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
 

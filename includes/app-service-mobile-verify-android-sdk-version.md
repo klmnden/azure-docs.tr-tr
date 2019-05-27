@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134260"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141224"
 ---
 Sürmekte olan geliştirme nedeniyle, Android Studio'da yüklü Android SDK'sı sürüm kodu sürümünde eşleşmeyebilir. Bu öğreticide başvurulan Android SDK 26, yazma sırasında en son sürümüdür. SDK'sının daha yeni sürümleri görünür ve kullanılabilir en son sürümünü kullanmanızı öneririz, sürüm numarasını artırmanızı.
 
@@ -22,7 +22,7 @@ Bunlardan biri görünürse, Android, Android Studio'da yüklü SDK sürümü in
 
 1. Android Studio'da **Araçları** > **Android** > **SDK Yöneticisi**. SDK platformunu en son sürümü yüklü değilse, daha sonra yüklemek için tıklayın. Sürüm numarasını not edin.
 
-2. Üzerinde **Proje Gezgini** sekmesindeki **Gradle betiklerini**, dosyayı açma **build.gradle (modül: uygulama)**. Emin **compileSdkVersion** ve **targetSdkVersion** yüklü en son SDK sürümüne ayarlanır. `build.gradle` Şuna benzeyebilir:
+2. Üzerinde **Proje Gezgini** sekmesindeki **Gradle betiklerini**, dosyayı açma **build.gradle (modül: uygulama)** . Emin **compileSdkVersion** ve **targetSdkVersion** yüklü en son SDK sürümüne ayarlanır. `build.gradle` Şuna benzeyebilir:
 
     ```gradle
     android {
