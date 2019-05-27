@@ -121,6 +121,12 @@
           items:
             - name: Data Box Heavy nedir?
               href: data-box-heavy-overview.md
+        - name: Kavramlar
+          items:
+            - name: Gereksinimleri inceleme
+              href: data-box-heavy-system-requirements.md
+            - name: Sınırları anlama
+              href: data-box-heavy-limits.md
     - name: Kaynaklar
       items:
         - name: Data Box ürünü

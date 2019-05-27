@@ -186,18 +186,6 @@
               href: ../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
             - name: ExpressRoute ile ağ yapılandırma ayrıntıları
               href: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-    - name: Geçiş
-      items:
-        - name: App Service ile Mobile Services arasındaki farklar nelerdir?
-          href: app-service-mobile-value-prop-migration-from-mobile-services.md
-        - name: Mevcut Mobile Services’ı App Service’a dönüştürme
-          href: app-service-mobile-migrating-from-mobile-services.md
-        - name: Mevcut Mobile Services’ı App Service’a yükseltme
-          items:
-            - name: .NET arka ucu
-              href: app-service-mobile-net-upgrading-from-mobile-services.md
-            - name: Node.js arka ucu
-              href: app-service-mobile-node-backend-upgrading-from-mobile-services.md
     - name: Güvenlik
       items:
         - name: Kimlik sağlayıcıları ile kimlik doğrulama
