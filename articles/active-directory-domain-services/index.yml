@@ -5,10 +5,10 @@ metadata:
   title: Azure AD Etki Alanı Hizmetleri belgeleri
   description: 'Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.'
   keywords: 'Azure AD, Azure, etki alanına katılma, grup ilkesi, LDAP, Kerberos, etki alanı denetleyicisi, DC, lift-and-shift'
-  author: mahesh-unnikrishnan
-  ms.author: maheshu
+  author: MikeStephens-MS
+  ms.author: mstephen
   manager: daveba
-  ms.date: 6/1/2018
+  ms.date: 05/22/2019
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
@@ -23,17 +23,17 @@ sections:
         className: cardsM
         columns: 2
         items:
-          - href: active-directory-ds-overview.md
+          - href: overview.md
             html: <p>Azure AD Domain Services'in sizin için neler yapabileceğini okuyun.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_investigate.svg'
             title: Azure AD Etki Alanı Hizmetleri nedir?
-          - href: active-directory-ds-getting-started.md
+          - href: create-instance.md
             html: <p>Bu basit yönergelerle kendi yönetilen etki alanınızı oluşturun.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
             title: başlarken
-          - href: active-directory-ds-contact-us.md
+          - href: contact-us.md
             html: <p>İhtiyacınız olduğunda yardım alın.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_support.svg'
@@ -52,39 +52,39 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-comparison.md">Hizmetin sizin için doğru olup olmadığına karar verin?</a>
+          - html: <a href="comparison.md">Hizmetin sizin için doğru olup olmadığına karar verin?</a>
           - html: <a href="active-directory-ds-features.md">Azure AD Domain Services özellikleri</a>
-          - html: <a href="active-directory-ds-scenarios.md">Hizmeti nasıl kullanabilirsiniz?</a>
-          - html: <a href="active-directory-ds-synchronization.md">Azure AD Domain Services'te eşitlemenin nasıl çalıştığını öğrenin</a>
+          - html: <a href="scenarios.md">Hizmeti nasıl kullanabilirsiniz?</a>
+          - html: <a href="synchronization.md">Azure AD Domain Services'te eşitlemenin nasıl çalıştığını öğrenin</a>
           - html: '<a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Azure AD Domain Services fiyatlandırması</a>'
   - title: Uygulamalar ve Azure AD Domain Services
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Azure AD Uygulama Ara Sunucusu</a>
-          - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">SharePoint Server için profil eşitleme</a>
-          - html: <a href="active-directory-ds-enable-kcd.md">Kerberos Kısıtlanmış Temsilini Yapılandırma</a>
+          - html: <a href="deploy-azure-app-proxy.md">Azure AD Uygulama Ara Sunucusu</a>
+          - html: <a href="deploy-sp-profile-sync.md">SharePoint Server için profil eşitleme</a>
+          - html: <a href="deploy-kcd.md">Kerberos Kısıtlanmış Temsilini Yapılandırma</a>
   - title: Nasıl yapılır makaleleri
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-check-health.md">Yönetilen bir etki alanının sistem durumunu denetleme </a>
-          - html: <a href="active-directory-ds-csp.md">Azure CSP Abonelikleri ve Azure AD Domain Services</a>
-          - html: <a href="active-directory-ds-admin-guide-administer-dns.md">DNS'yi yönetme</a>
-          - html: <a href="active-directory-ds-networking.md">Sanal ağ seçme</a>
-          - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">Güvenli LDAP'yi yapılandırma</a>
-          - html: <a href="active-directory-ds-admin-guide-create-ou.md">OU oluşturma</a>
-          - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">Grup İlkesi'ni yönetme</a>
+          - html: <a href="check-health.md">Yönetilen bir etki alanının sistem durumunu denetleme </a>
+          - html: <a href="csp.md">Azure CSP Abonelikleri ve Azure AD Domain Services</a>
+          - html: <a href="manage-dns.md">DNS'yi yönetme</a>
+          - html: <a href="network-considerations.md">Sanal ağ seçme</a>
+          - html: <a href="configure-ldaps.md">Güvenli LDAP'yi yapılandırma</a>
+          - html: <a href="create-ou.md">OU oluşturma</a>
+          - html: <a href="manage-group-policy.md">Grup İlkesi'ni yönetme</a>
   - title: Sorun giderme makaleleri
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="active-directory-ds-troubleshooting.md">Sorun giderme kılavuzu</a>
-          - html: <a href="active-directory-ds-troubleshoot-alerts.md">Yönetilen etki alanınızdaki uyarılarla ilgili sorun giderme</a>
-          - html: <a href="active-directory-ds-faqs.md">Sık Sorulan Sorular</a>
+          - html: <a href="troubleshoot.md">Sorun giderme kılavuzu</a>
+          - html: <a href="troubleshoot-alerts.md">Yönetilen etki alanınızdaki uyarılarla ilgili sorun giderme</a>
+          - html: <a href="faqs.md">Sık Sorulan Sorular</a>
           - html: '<a href="https://azure.microsoft.com/support/options/">Destek alın</a>'
   - title: Diğer kaynaklar
     items:

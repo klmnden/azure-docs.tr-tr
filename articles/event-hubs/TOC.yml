@@ -51,8 +51,6 @@
           href: event-hubs-capture-python.md
     - name: Apache Kafka için Event Hubs’da akış yapma
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: Ayrılmış Event Hubs kümesi oluşturma
-      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Öğreticiler
   items:
     - name: Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme
@@ -86,14 +84,18 @@
       href: event-hubs-event-processor-host.md
     - name: Programlama kılavuzu
       href: event-hubs-programming-guide.md
-    - name: Azure kaynakları için yönetilen kimlik
-      href: event-hubs-managed-service-identity.md
-    - name: Rol Tabanlı Erişim Denetimi (önizleme)
-      href: event-hubs-role-based-access-control.md
-    - name: Coğrafi olağanüstü durum kurtarma ve Coğrafi çoğaltma
-      href: event-hubs-geo-dr.md
-    - name: Kimlik doğrulama ve güvenlik modeline genel bakış
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Güvenlik
+      items:
+        - name: Azure kaynakları için yönetilen kimlik
+          href: event-hubs-managed-service-identity.md
+        - name: Rol Tabanlı Erişim Denetimi (önizleme)
+          href: event-hubs-role-based-access-control.md
+        - name: Coğrafi olağanüstü durum kurtarma ve Coğrafi çoğaltma
+          href: event-hubs-geo-dr.md
+        - name: Kimlik doğrulama ve güvenlik modeline genel bakış
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Güvenlik Öznitelikleri
+          href: event-hubs-security-attributes.md
     - name: Kullanılabilirlik ve tutarlılık
       href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0 protokol kılavuzu

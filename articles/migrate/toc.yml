@@ -28,36 +28,8 @@
           href: migrate-best-practices-networking.md
         - name: Geçiş sonrasında maliyetlendirme ve boyutlandırma için en iyi yöntemler
           href: migrate-best-practices-costs.md
-    - name: Contoso geçiş serisi
-      items:
-        - name: 1. Contoso-Geçişe genel bakış
-          href: contoso-migration-overview.md
-        - name: 2. Contoso-Azure altyapısını dağıtma
-          href: contoso-migration-infrastructure.md
-        - name: 3. Contoso-Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
-          href: contoso-migration-assessment.md
-        - name: 4. Contoso-Azure VM'lerde ve Azure SQL Veritabanı Yönetilen Örneğinde bir uygulamayı yeniden barındırma
-          href: contoso-migration-rehost-vm-sql-managed-instance.md
-        - name: 5. Contoso-Bir uygulamayı Azure VM’lerde yeniden barındırma
-          href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso-Azure VM’lerde ve Azure SQL Server AlwaysOn Kullanılabilirlik Grupları’nda bir uygulamayı yeniden barındırma
-          href: contoso-migration-rehost-vm-sql-ag.md
-        - name: 7. Contoso-Bir Linux uygulamasını Azure VM’lerde yeniden barındırma
-          href: contoso-migration-rehost-linux-vm.md
-        - name: 8. Contoso-Bir Linux uygulamasını Azure VM’lerde ve Azure MySQL’de yeniden barındırma
-          href: contoso-migration-rehost-linux-vm-mysql.md
-        - name: 9. Contoso-Azure Web Apps ve Azure SQL Veritabanı üzerinde bir uygulamayı yeniden düzenleyin
-          href: contoso-migration-refactor-web-app-sql.md
-        - name: 10. Contoso-Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulamasını yeniden düzenleyin
-          href: contoso-migration-refactor-linux-app-service-mysql.md
-        - name: 11. Contoso-TFS'yi Azure DevOps Services'e geçirme
-          href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso-Bir uygulamayı Azure Kapsayıcıları ve Azure SQL Veritabanı üzerinde yeniden tasarlama
-          href: contoso-migration-rearchitect-container-sql.md
-        - name: 13. Contoso-Bir uygulamayı Azure’da yeniden derleme
-          href: contoso-migration-rebuild.md
-        - name: 14. Contoso - Geçişi ölçeklendirme
-          href: contoso-migration-scale.md
+    - name: Geçiş örnekleri-Contoso serisi
+      href: contoso-migration-overview.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme
       href: how-to-scale-assessment.md
     - name: Grup makineleri

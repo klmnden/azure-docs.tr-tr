@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Güvenlik Merkezi’nin desteklenen platformları ve özellikleri
       href: security-center-os-coverage.md
+    - name: Uç nokta koruma değerlendirmesi ve önerileri
+      href: security-center-endpoint-protection.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:

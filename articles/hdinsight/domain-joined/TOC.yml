@@ -8,6 +8,8 @@
   items:
     - name: ESP kümeleri için planlama
       href: apache-domain-joined-architecture.md
+    - name: ESP kümeleri oluşturma ve şirket içi ile eşitleme
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Azure AD DS kullanarak ESP kümelerini yapılandırma
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Azure AD kullanıcılarını HDInsight kümesine eşitleme

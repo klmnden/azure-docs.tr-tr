@@ -171,7 +171,7 @@ Uzak erişim istemcilerini yapılandırmak için indirilen profili kullanın. He
 ### <a name="mac-os-x"></a>Mac (OS X)
 #### <a name="openvpn"></a>OpenVPN
 
-1.  https://tunnelblick.net/downloads.html sayfasından TunnelBlik gibi bir OpenVPN istemcisi indirip yükleyin 
+1.  [https://tunnelblick.net/downloads.html](https://tunnelblick.net/downloads.html) sayfasından TunnelBlik gibi bir OpenVPN istemcisi indirip yükleyin 
 2.  Ağ geçidinin VPN profilini indirin. Bu noktadan siteye yapılandırma sekmesinde Azure portalında veya PowerShell New-AzVpnClientConfiguration yapılabilir.
 3.  Profilin sıkıştırmasını açın. OpenVPN klasöründeki vpnconfig.ovpn yapılandırma dosyasını not defterinde açın.
 4.  P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Kodlanmış ortak anahtarı almak üzere sertifikayı dışarı aktarma işlemi için buraya bakın.

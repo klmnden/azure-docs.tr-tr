@@ -63,28 +63,24 @@
       href: azure-management.md
     - name: Sürekli izleme
       href: continuous-monitoring.md
+    - name: Veri kaynakları
+      href: platform/data-sources.md
     - name: Veri platformu
       items:
         - name: Genel Bakış
           href: platform/data-platform.md
+        - name: Veri konumları
+          href: platform/data-locations.md
         - name: Ölçümler
           href: platform/data-platform-metrics.md
         - name: Günlükler
           href: platform/data-platform-logs.md
-    - name: Veri kaynakları
-      items:
-        - name: Veri kaynaklarının özeti
-          href: platform/data-sources.md
-        - name: Azure veri kaynakları
-          href: platform/data-sources-reference.md
-        - name: Etkinlik günlüğü
-          href: platform/activity-logs-overview.md
-        - name: Tanılama günlükleri
-          href: platform/diagnostic-logs-overview.md
         - name: Günlük verisi alımı zamanı
           href: platform/data-ingestion-time.md
-        - name: Ölçüm deposu için özel ölçümler
-          href: platform/metrics-custom-overview.md
+    - name: Insights
+      href: insights/insights-overview.md
+    - name: İzleme çözümleri
+      href: insights/solutions-inventory.md
     - name: Veri güvenliği
       items:
         - name: Günlük verileri
@@ -93,24 +89,6 @@
           href: platform/personal-data-mgmt.md
         - name: 'Uygulama verilerini toplama, bekletme ve depolama'
           href: app/data-retention-privacy.md
-    - name: Insights
-      items:
-        - name: Application Insights
-          items:
-            - name: Genel Bakış
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: Dağıtılmış izleme
-              href: app/distributed-tracing.md
-            - name: Günlük tabanlı ve önceden toplanmış ölçümler
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Kapsayıcılar
-          href: insights/container-insights-overview.md
-        - name: Virtual Machines
-          href: insights/vminsights-overview.md
-        - name: İzleme çözümleri
-          href: insights/solutions-inventory.md
     - name: Olaylara yanıt verme
       items:
         - name: Uyarılar
@@ -189,6 +167,42 @@
               href: platform/service-providers.md
     - name: Veri toplama
       items:
+        - name: Azure kaynakları
+          items:
+            - name: Etkinlik günlüğü
+              items:
+                - name: Genel Bakış
+                  href: platform/activity-logs-overview.md
+                - name: Görüntüleme ve alma
+                  href: platform/activity-log-view.md
+                - name: Toplama ve analiz etme
+                  href: platform/activity-log-collect.md
+                - name: Kiracılar genelinde toplama
+                  href: platform/activity-log-collect-tenants.md
+                - name: Dışarı Aktarma
+                  href: platform/activity-log-export.md
+                - name: Şema
+                  href: platform/activity-log-schema.md
+            - name: Tanılama günlükleri
+              items:
+                - name: Genel Bakış
+                  href: platform/diagnostic-logs-overview.md
+                - name: Günlüklerde toplama
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Azure Depolama'dan toplama
+                  href: platform/collect-azure-metrics-logs.md
+                - name: Depolamaya arşivleme
+                  href: platform/archive-diagnostic-logs.md
+                - name: Event Hubs’a veri akışı sağlama
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: Resource Manager şablonlarıyla etkinleştirme
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: Hizmet günlükleri ve ölçümleri
+                  href: platform/azure-storage-iis-table.md
+            - name: Event Hubs’a akış sağlama
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: Özel veri kaynaklarını ilişkilendirme
+              href: app/custom-data-correlation.md
         - name: Aracıları yükleme ve yapılandırma
           items:
             - name: İzleme aracılarına genel bakış
@@ -221,17 +235,15 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: Sorun giderme
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: Tanılama Ayarlarını Kaynak Yöneticisi şablonlarıyla etkinleştirme
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: JSON Satır tanılama günlükleri biçimine hazırlanma
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: Ölçüm deposu için konuk VM
+                - name: Ölçümler için konuk sanal makine
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: Ölçüm deposu için konuk sanal makine ölçüm kümesi
+                - name: Ölçümler için konuk sanal makine ölçüm kümesi
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Ölçüm deposu için VM klasik konuğu
+                - name: Ölçümler için sanal makine klasik konuğu
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Ölçüm deposu için konuk bulut hizmeti
+                - name: Ölçümler için konuk bulut hizmeti
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: Sorun giderme
               items:
@@ -341,8 +353,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Windows hizmetleri
-                  href: app/windows-services.md
                 - name: Windows masaüstü
                   href: app/windows-desktop.md
                 - name: Konsol
@@ -432,83 +442,46 @@
                   href: app/proactive-email-notification.md
             - name: Kaynak oluşturma
               href: app/create-new-resource.md
-            - name: Sorun giderme
+            - name: Uygulama verilerini Log Analytics'e gönderme
+              href: platform/app-insights-connector.md
+            - name: Uygulama verilerini dışarı aktarma
               items:
                 - name: .NET için veri yok
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: Anlık görüntü hata ayıklayıcısı
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Analiz
-                  href: app/analytics-troubleshooting.md
                 - name: Java
                   href: app/java-troubleshoot.md
                 - name: Kullanım analizi
                   href: app/usage-troubleshoot.md
-        - name: Azure kaynakları
-          items:
-            - name: Azure etkinlik günlükleri
-              items:
-                - name: Analiz
-                  href: platform/collect-activity-logs.md
-                - name: Abonelikler arasında toplama
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Hizmet günlükleri ve ölçümleri
-              href: platform/collect-azure-metrics-logs.md
-            - name: Azure depolama biriminden tanılama veya günlük verileri
-              href: platform/azure-storage-iis-table.md
-            - name: Azure PaaS kaynakları
-              href: platform/collect-azurepass-posh.md
-            - name: Özel veri kaynaklarını ilişkilendirme
-              href: app/custom-data-correlation.md
         - name: Özel verileri toplama
           items:
+            - name: Özel ölçümler
+              href: platform/metrics-custom-overview.md
             - name: Log Analytics Veri toplayıcı API’si
               href: platform/data-collector-api.md
             - name: Log Analytics Veri Toplayıcı API’si İşlem Hattı örneği
               href: platform/create-pipeline-datacollector-api.md
-            - name: Ölçüm deposu REST API
+            - name: Ölçümler REST API'si
               href: platform/metrics-store-custom-rest-api.md
-            - name: Ölçüm deposu için konuk işletim sistemi Linux VM (Telegraf)
+            - name: Ölçümler için konuk işletim sistemi Linux VM (Telegraf)
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: Configuration Manager
               href: platform/collect-sccm.md
-            - name: SCOM Kullanarak Uygulama Performansı İzleme
-              href: app/scom.md
-        - name: Veri yönlendirme
-          items:
-            - name: Etkinlik günlüğünü arşivleme
-              href: platform/archive-activity-log.md
-            - name: Tanılama günlüklerini arşivleme
-              href: platform/archive-diagnostic-logs.md
-            - name: Tanılama günlüklerini depolama
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: Etkinlik günlüğünün Event Hubs’a akışını sağlama
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: Günlükleri ve ölçümleri olay hub'ına gönderme
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: Tanılama günlüklerini olay hub'ına gönderme
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: Uygulama verilerini Log Analytics'e gönderme
-              href: platform/app-insights-connector.md
-            - name: Uygulama verilerini dışarı aktarma
-              items:
-                - name: Sürekli dışarı aktarma
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Kod örnekleri
-                      items:
-                        - name: Stream Analytics kullanarak SQL’ye aktarma
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Stream Analytics'e giriş
-                          href: app/export-stream-analytics.md
-                - name: Veri modelini dışarı aktarma
-                  href: app/export-data-model.md
     - name: İçgörü edinme
       items:
         - name: Uygulamaları izleme
           items:
+            - name: Application Insights'a genel bakış
+              items:
+                - name: Genel Bakış
+                  href: app/app-insights-overview.md
+                - name: Dağıtılmış izleme
+                  href: app/distributed-tracing.md
+                - name: Günlük tabanlı ve önceden toplanmış ölçümler
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Application Insights portalı
               items:
                 - name: Arama
@@ -982,6 +955,8 @@
               href: app/api-filtering-sampling.md
             - name: Örnekleme
               href: app/sampling.md
+            - name: TelemetryChannels
+              href: app/telemetry-channels.md
         - name: İzleme çözümleri
           items:
             - name: Tasarım ve derleme
@@ -1060,8 +1035,6 @@
       items:
         - name: 'Tanılama günlüklerine yönelik hizmetler, kategoriler ve şemalar'
           href: platform/diagnostic-logs-schema.md
-        - name: Etkinlik günlüğü olay şeması
-          href: platform/activity-log-schema.md
         - name: Azure Tanılama uzantı şeması
           href: platform/diagnostics-extension-schema.md
           items:
