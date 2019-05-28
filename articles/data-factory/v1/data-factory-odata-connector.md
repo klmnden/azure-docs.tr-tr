@@ -66,7 +66,7 @@ Aşağıdaki tabloda, bağlı bir OData hizmetine özel JSON öğeleri için bir
 | type |Type özelliği ayarlanmalıdır: **OData** |Evet |
 | url |OData hizmeti URL'si. |Evet |
 | authenticationType |OData kaynağına bağlanmak için kullanılan kimlik doğrulaması türü. <br/><br/> Bulut OData anonim, temel ve OAuth (Not Azure Active Directory tabanlı OAuth Azure Data Factory şu anda yalnızca destek) olası değerler şunlardır. <br/><br/> Anonim, temel ve Windows, şirket içi OData için olası değerler şunlardır. |Evet |
-| kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
+| username |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Evet (yalnızca temel kimlik doğrulaması kullanıyorsanız) |
 | authorizedCredential |OAuth kullanıyorsanız **Authorize** Data Factory Kopyalama Sihirbazı'nı veya düzenleyicide düğmesine tıklayın ve sonra da bu özelliğin değeri otomatik olarak oluşturulan kimlik bilgilerinizi girin. |Evet (yalnızca OAuth kimlik doğrulaması kullanıyorsanız) |
 | gatewayName |Data Factory hizmetinin şirket içi OData hizmetine bağlanmak için kullanması gereken ağ geçidi adı. Yalnızca şirket içi OData kaynağı üzerindeki veri kopyalama, belirtin. |Hayır |
@@ -148,7 +148,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| yol |OData kaynağı yolu |Hayır |
+| path |OData kaynağı yolu |Hayır |
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 Bölümleri & etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları oluşturma](data-factory-create-pipelines.md) makalesi. İlke adı ve açıklaması, girdi ve çıktı tabloları gibi özellikler, tüm etkinlik türleri için kullanılabilir.
@@ -159,7 +159,7 @@ Kaynak türü olduğunda **RelationalSource** (OData içeren) typeProperties bö
 
 | Özellik | Açıklama | Örnek | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |"? $select adı, açıklama ve $top = 5 =" |Hayır |
+| query |Verileri okumak için özel sorgu kullanın. |"? $select adı, açıklama ve $top = 5 =" |Hayır |
 
 ## <a name="type-mapping-for-odata"></a>OData için tür eşlemesi
 Belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi, kopyalama etkinliği, aşağıdaki iki adımlı yaklaşım türleriyle havuz için kaynak türünden otomatik tür dönüştürmeleri gerçekleştirir.
