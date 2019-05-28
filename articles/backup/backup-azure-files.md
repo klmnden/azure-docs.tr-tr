@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 30544a49f49714eeefbf54d70e54275d2cf9a7ef
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518916"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243542"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure dosya paylaşımlarını yedekleme
 Bu makalede, Azure portalını kullanarak [Azure dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme ve geri yükleme işlemlerinin nasıl yapılacağı açıklanmaktadır.
@@ -32,7 +32,6 @@ Azure dosya paylaşımını yedekleyebilmeniz için önce [desteklenen Depolama 
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Önizleme sırasında Azure dosya paylaşımı yedeklemesine yönelik sınırlamalar
 Azure dosya paylaşımları için yedekleme Önizleme aşamasındadır. Hem genel amaçlı v1'de Azure dosya paylaşımları ve genel amaçlı v2 depolama hesapları desteklenmektedir. Aşağıdaki yedekleme senaryoları, Azure dosya paylaşımları için desteklenmemektedir:
-- [Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması* ile Depolama Hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
 - Sanal Ağların veya Güvenlik Duvarının etkin olduğu depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
 - Azure Backup'ı kullanarak Azure dosyaları korumak için kullanılabilir hiçbir CLI yoktur.
 - Günlük zamanlanan maksimum yedekleme sayısı birdir.
@@ -40,8 +39,6 @@ Azure dosya paylaşımları için yedekleme Önizleme aşamasındadır. Hem gene
 - Kurtarma Hizmetleri kasanızdaki yedeklemelerin yanlışlıkla silinmesini önlemek için depolama hesabındaki [kaynak kilitlerini](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) kullanın.
 - Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, kurtarma noktalarının kaybolması ve/veya geri yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir
 - Azure Backup tarafından korunan dosya paylaşımları silmeyin. Geçerli çözüm dosya paylaşımı silindiğinde, Azure Backup tarafından alınan tüm anlık görüntüleri silin ve bu nedenle tüm geri yükleme noktalarını kaybedersiniz.
-
-\*[Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması ile Depolama Hesaplarında Azure Dosya Paylaşımları, GRS olarak çalışır ve GRS fiyatlarıyla faturalandırılır.
 
 İle depolama hesaplarında Azure dosya paylaşımları için Yedekleme [bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md) (ZRS) çoğaltma şu anda yalnızca orta ABD (CUS), Doğu ABD (EUS), Doğu ABD 2 (EUS2), Kuzey Avrupa (NE), Güneydoğu Asya (SEA), Batı Avrupa (WE) ve Batı ABD 2 (WUS2).
 
@@ -52,7 +49,7 @@ Bu öğreticide zaten yerleşik bir Azure dosya paylaşımınız olduğu varsay�
 
     ![Yedekleme hedefi olarak Azure Dosya Paylaşımı'nı seçin](./media/backup-file-shares/overview-backup-page.png)
 
-2. İçinde **yedekleme hedefi** menüsünde, gelen **neleri yedeklemek istiyorsunuz?**, Azure dosya paylaşımını seçin.
+2. İçinde **yedekleme hedefi** menüsünde, gelen **neleri yedeklemek istiyorsunuz?** , Azure dosya paylaşımını seçin.
 
     ![Yedekleme hedefi olarak Azure Dosya Paylaşımı'nı seçin](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
