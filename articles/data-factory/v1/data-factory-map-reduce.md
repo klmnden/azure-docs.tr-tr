@@ -188,7 +188,7 @@ Bu örnekteki işlem hattı, türü yalnızca bir etkinlik içerir: HDInsightMap
 | className |Sınıf adı: **wordcount** |
 | jarFilePath |Sınıfını içeren jar dosyası yolu. Kopyala/yapıştır aşağıdaki kod, kümenin adını değiştirmeyi unutmayın. |
 | jarLinkedService |Jar dosyasını içeren azure depolama bağlı hizmeti. Bu bağlı hizmeti, HDInsight kümesi ile ilişkili depolama ifade eder. |
-| bağımsız değişkenler |Wordcount program iki bağımsız değişkeni, girdi ve çıktı alır. Giriş dosyası davinci.txt dosyasıdır. |
+| arguments |Wordcount program iki bağımsız değişkeni, girdi ve çıktı alır. Giriş dosyası davinci.txt dosyasıdır. |
 | frequency/interval |Bu özelliklerin değerlerini, çıktı veri kümesi eşleştirin. |
 | linkedServiceName |daha önce oluşturmuştunuz HDInsight bağlı hizmetini ifade eder. |
 
