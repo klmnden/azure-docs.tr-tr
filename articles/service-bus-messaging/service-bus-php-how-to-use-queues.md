@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-Gönderilen (ve öğesinden alınan) hizmeti kuyrukları örnekleridir Bus iletileri [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage] [ BrokeredMessage] nesnelerin bir dizi standart yöntemleri ve özel uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi tutmak için kullanılan özellikleri vardır.
+Gönderilen (ve öğesinden alınan) hizmeti kuyrukları örnekleridir Bus iletileri [BrokeredMessage][BrokeredMessage] sınıfı. [BrokeredMessage][BrokeredMessage] nesnelerin bir dizi standart yöntemleri ve özel uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi tutmak için kullanılan özellikleri vardır.
 
 Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu üst sınırı 5 GB'tır.
 

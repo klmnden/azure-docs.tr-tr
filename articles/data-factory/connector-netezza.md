@@ -145,7 +145,7 @@ Netezza'dan verileri kopyalamak için ayarlanmış **kaynak** türü için kopya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **NetezzaSource**. | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örnek: `"SELECT * FROM MyTable"` | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| query | Verileri okumak için özel bir SQL sorgusu kullanın. Örnek: `"SELECT * FROM MyTable"` | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
