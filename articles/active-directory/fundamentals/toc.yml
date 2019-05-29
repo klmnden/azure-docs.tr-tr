@@ -29,6 +29,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Avrupa müşterileri için kimlik verisi depolama
       href: active-directory-data-storage-eu.md
+    - name: Microsoft 365 Kamu’daki yenilikler
+      href: whats-new-microsoft-365-government.md
 - name: Nasıl yapılır kılavuzları
   expanded: true
   items:
