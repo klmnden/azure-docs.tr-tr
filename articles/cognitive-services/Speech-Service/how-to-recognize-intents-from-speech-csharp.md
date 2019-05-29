@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699944"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257340"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Öğretici: Amaçlardan tutun Speech SDK'sı kullanarak konuşma tanımaC#
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 Bilişsel Hizmetler [Konuşma SDK’sı](~/articles/cognitive-services/speech-service/speech-sdk.md) **amaç tanımayı** sağlamak için [Language Understanding hizmetiyle (LUIS)](https://www.luis.ai/home) tümleştirilmiştir. Amaç, kullanıcının yapmak istediği herhangi bir şeydir: uçak rezervasyonu, hava durumuna bakma veya telefon etme. Kullanıcı kendisine hangi terim doğal geliyorsa onu kullanabilir. LUIS, makine öğrenimini kullanarak kullanıcı isteklerini tanımladığınız amaçlarla eşler.
 

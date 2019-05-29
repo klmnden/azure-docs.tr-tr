@@ -15,21 +15,21 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bb8a635c3699828376390c489697b6315030937
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157959"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306670"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure'da bir Service Fabric kümesinin çalışma zamanını yükseltme
 
-Bu öğretici bir serinin dördüncü bölümüdür ve bir Azure Service Fabric kümesinde Service Fabric çalışma zamanının nasıl yükseltileceğini gösterir. Bu öğretici bölümü, Azure’da çalışan Service Fabric kümeleri için yazılmıştır ve tek başına Service Fabric kümeleri için geçerli değildir.
+Bu öğretici bir serinin dördüncü bölümüdür ve bir Azure Service Fabric kümesinde Service Fabric çalışma zamanının nasıl yükseltileceğini gösterir. Bu öğretici bölümü, Azure'da çalışan Service Fabric kümeleri için yazılmıştır ve tek başına Service Fabric kümeleri geçerli değildir.
 
 > [!WARNING]
 > Öğreticinin bu bölümü PowerShell gerektirir. Henüz Azure CLI araçları tarafından küme çalışma zamanını yükseltme desteği sağlanmamaktadır. Alternatif olarak, kümeler portalda da yükseltilebilir. Daha fazla bilgi için bkz. [Bir Azure Service Fabric kümesini yükseltme](service-fabric-cluster-upgrade.md).
 
-Kümeniz zaten en son Service Fabric çalışma zamanında çalışıyorsa bu adımı gerçekleştirmeniz gerekmez. Bununla birlikte, bir Azure Service Fabric kümesinde desteklenen herhangi bir çalışma zamanının yüklenmesi için bu makale kullanılabilir.
+Kümenizi en son Service Fabric çalışma zamanı zaten çalışıyorsa, bu adım gerekmez. Bununla birlikte, bir Azure Service Fabric kümesinde desteklenen herhangi bir çalışma zamanının yüklenmesi için bu makale kullanılabilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -55,7 +55,7 @@ Bu öğreticiye başlamadan önce:
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
 * Yükleme [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) veya [Azure CLI](/cli/azure/install-azure-cli).
 * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) azure'da
-* Bir Windows dağıtım ortamı ayarlayın. [Visual Studio 2017](https://www.visualstudio.com)'yi ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ayrıca **.NET Core çoklu platform geliştirme** iş yüklerini yükleyin.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
+* Bir Windows dağıtım ortamı ayarlayın. Yükleme [Visual Studio 2019](https://www.visualstudio.com) ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ve **.NET Core çoklu platform geliştirme**iş yükleri.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
 
 ### <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
@@ -69,14 +69,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>Çalıştırma sürümünü alma
 
-Azure'a bağlanıp Service Fabric kümesini içeren aboneliği seçtiğinizde kümenin çalışma zamanı sürümünü öğrenebilirsiniz.
+Azure'a bağlandıktan sonra seçili Service Fabric kümesini içeren aboneliği, kümenin çalışma zamanı sürümünü edinebilirsiniz.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Dilerseniz de aşağıdaki kodla aboneliğinizdeki tüm kümelerin listesini alabilirsiniz:
+Veya yalnızca aşağıdaki örnekte, aboneliğinizdeki tüm kümelerin listesini alın:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -207,8 +207,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Küme çalışma zamanını yükseltme
 > * Yükseltme işlemini izleme
 
-[!div class="checklist"]
-> * Küme çalışma zamanının sürümünü öğrenme
-> * Küme çalışma zamanını yükseltme
-> * Yükseltme işlemini izleme
+Sonraki öğreticiye ilerleyin:
 
+> [!div class="nextstepaction"]
+> [Küme silme](service-fabric-tutorial-delete-cluster.md)

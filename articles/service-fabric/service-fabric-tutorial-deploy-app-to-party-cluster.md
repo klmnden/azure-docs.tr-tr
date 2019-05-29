@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61391409"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302449"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Öğretici: Bir Service Fabric uygulamasının azure'da bir kümeye dağıtma
 
@@ -44,7 +44,7 @@ Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
 Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-* **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017’yi yükleyin](https://www.visualstudio.com/).
+* [Visual Studio 2019 yükleme](https://www.visualstudio.com/), yükleyip **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
 * [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>Voting örnek uygulamasını indirme
@@ -75,7 +75,7 @@ Oylama uygulamasının web ön uç hizmeti, belirli bir bağlantı noktasında d
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Bir sonraki adımda gerekli hizmet uç noktası not alın.  Mevcut bir kümeye dağıtıyorsanız, bir Yük Dengeleme kuralı ve araştırma kullanarak Azure yük dengeleyici oluşturarak bu bağlantı noktası açık bir [PowerShell Betiği](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) veya bu küme için yük dengeleyici aracılığıyla [Azure portalı ](https://portal.azure.com).
+Bir sonraki adımda gerekli hizmet uç noktası not alın.  Mevcut bir kümeye dağıtıyorsanız, bir Yük Dengeleme kuralı ve araştırma kullanarak Azure yük dengeleyici oluşturarak bu bağlantı noktasını açın bir [PowerShell Betiği](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) veya bu küme için yük dengeleyici aracılığıyla [Azure portalı ](https://portal.azure.com).
 
 ### <a name="create-a-test-cluster-in-azure"></a>Azure'da bir test kümesi oluşturma
 Çözüm Gezgini’nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin.
@@ -86,7 +86,7 @@ Bir sonraki adımda gerekli hizmet uç noktası not alın.  Mevcut bir kümeye d
 
 ![Küme oluşturma](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-İçinde **sertifika** sekmesinde, küme sertifikası için parola ve çıkış yolunu girin. Kendinden imzalı bir sertifika bir PFX dosyası olarak oluşturulur ve belirtilen çıkış yoluna kaydedilir.  Sertifika, düğümden düğüme hem istemci düğüme güvenlik için kullanılır.  Kendinden imzalı sertifika üretim kümeleri için kullanılmamalıdır.  Bu sertifika, kümeyle kimlik doğrulaması ve uygulamaları dağıtmak için Visual Studio tarafından kullanılır. Seçin **sertifikayı içeri aktarma** PFX bilgisayarınızı CurrentUser\My sertifika deposuna yüklemek için.  **İleri**’ye tıklayın.
+İçinde **sertifika** sekmesinde, küme sertifikası için parola ve çıkış yolunu girin. Kendinden imzalı bir sertifika bir PFX dosyası olarak oluşturulur ve belirtilen çıkış yoluna kaydedilir.  Sertifika, düğümden düğüme hem istemci düğüme güvenlik için kullanılır.  Üretim kümeleri için otomatik olarak imzalanan bir sertifika kullanmayın.  Bu sertifika, kümeyle kimlik doğrulaması ve uygulamaları dağıtmak için Visual Studio tarafından kullanılır. Seçin **sertifikayı içeri aktarma** PFX bilgisayarınızı CurrentUser\My sertifika deposuna yüklemek için.  **İleri**’ye tıklayın.
 
 ![Küme oluşturma](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

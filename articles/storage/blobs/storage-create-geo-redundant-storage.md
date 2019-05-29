@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787925"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306766"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Öğretici: Blob Depolama ile yüksek oranda kullanılabilir bir uygulama oluşturun
 
@@ -40,7 +40,7 @@ Bu öğreticiyi tamamlamak için:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
+* Yükleme [Visual Studio 2019](https://www.visualstudio.com/downloads/) aşağıdaki iş yükleri ile:
   - **Azure geliştirme**
 
   ![Azure geliştirme (Web ve Bulut altında)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşa�
    | **Dağıtım modeli** | Resource Manager  | Resource Manager en son özellikleri içerir.|
    | **Hesap türü** | StorageV2 | Hesap türleri hakkında ayrıntılı bilgi almak için bkz. [depolama hesabı türleri](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performans** | Standart | Standart, örnek senaryo için yeterli olacaktır. |
+   | **Çoğaltma**| Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) | Bu ayar, iş için gereklidir. |
+   |**Abonelik** | aboneliğiniz |Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
    | **Çoğaltma**| Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) | Örneğin çalışması için bunun seçilmesi gereklidir. |
    |**Abonelik** | aboneliğiniz |Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
@@ -167,7 +169,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Bu örnek, güvenli bir şekilde adını ve anahtarını depolama hesabınızın depolama gerektirir. Bunları örneği çalıştıran makinede yerel ortam değişkenlerini Store. Linux veya Windows örnek, işletim sisteminize bağlı olarak, ortam değişkenlerini oluşturmak için kullanın. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk.
+Bu örnek, güvenli bir şekilde adını ve anahtarını depolama hesabınızın depolama gerektirir. Bunları örneği çalıştıran makinede yerel ortam değişkenlerini Store. Linux veya Windows örnek, işletim sisteminize bağlı olarak, ortam değişkenlerini oluşturmak için kullanın. Windows yeniden yükleninceye kadar ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk.
 
 ### <a name="linux-example"></a>Linux örneği
 
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Bu bilgiler, depolama hesabınıza gidin ve seçerek Azure portalında bulabilirsiniz **erişim anahtarları** içinde **ayarları** bölümü.
 
-Gerekli bağımlılıkları da yüklemeniz gerekir. Bunu yapmak için bir komut istemi açın, örnek klasörüne gidin ve sonra girin `npm install`.
+Gerekli bağımlılıkları yükleyin. Bunu yapmak için bir komut istemi açın, örnek klasörüne gidin ve sonra girin `npm install`.
 
 ---
 
@@ -220,7 +222,7 @@ Uygulamayı bir terminalde veya komut isteminde çalıştırmak için **circuitb
 
 Depolama nesnesi yeniden deneme işlevi, doğrusal bir yeniden deneme ilkesine ayarlıdır. Yeniden deneme işlevi, isteklerin yeniden denenip denenmeyeceğini belirler ve isteği yeniden denemeden önce kaç saniye bekleneceğini belirtir. Birincile yapılan istek başarısız olursa aynı isteğin ikincile yeniden denenmesini istiyorsanız **retry\_to\_secondary** değerini true olarak ayarlayın. Örnek uygulamada depolama nesnesinin `retry_callback` işlevinde özel bir yeniden deneme ilkesi tanımlanmıştır.
 
-İndirme işlemi öncesinde Hizmet nesnesinin [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) ve [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) işlevleri tanımlanır. Bu işlevler, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.
+Hizmet nesnesi indirme önce [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) ve [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) işlevleri tanımlanır. Bu işlevler, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -231,11 +233,11 @@ Depolama nesnesi yeniden deneme işlevi, doğrusal bir yeniden deneme ilkesine a
 
 Bu örnek, varsayılan dizininizde bir sınama dosyası oluşturur. Windows kullanıcıları için bu dizindir **AppData\Local\Temp**. Örnek daha sonra girebilirsiniz komutların aşağıdaki seçenekler sunar:
 
-- Girin **P** blob koyma işlemi yürütmek için bu geçici bir dosya, depolama hesabına yükler.
-- Girin **L** blobu listeleme işlemi gerçekleştirmek için şu anda kapsayıcıdaki blobları listeler.
-- Girin **G** blob alma işlemi gerçekleştirmek için bu dosya depolama hesabınızdan yerel makinenize indirir.
-- Girin **D** blob silme işlemi yürütmek için bu blob depolama hesabınızdan siler.
-- Girin **E** örnek kapatmak için bu da tüm kaynakları oluşturulan örnek siler.
+- Girin **P** bu komut bir blob koyma işlemi yürütmek için depolama hesabına geçici bir dosya yükler.
+- Girin **L** bu komut bir liste blob işlemi gerçekleştirmek için şu anda kapsayıcıdaki blobları listeler.
+- Girin **G** blob alma işlemi gerçekleştirmek için bu komut bir dosyası depolama hesabınızdan yerel makinenize indirir.
+- Girin **D** bu komut blob silme işlemi yürütmek için depolama hesabınızdaki blob siler.
+- Girin **E** örnek kapatmak için bu komut ayrıca tüm kaynakları oluşturulan örnek siler.
 
 Bu örnekte uygulamayı Windows'da çalıştırdığınızda elde edeceğiniz çıkış gösterilmiştir.
 

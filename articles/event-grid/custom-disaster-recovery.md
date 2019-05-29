@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562923"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305071"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Kendi olağanüstü durum kurtarma için Event Grid özel konulardaki oluşturun
-
 Olağanüstü durum kurtarma uygulama işlevselliği ciddi bir kaybından kurtarma üzerinde odaklanır. Bu öğreticide, Event Grid hizmeti bozulursa, belirli bir bölgede, kurtarılır olay Mimarinizi ayarlama konusunda size yol gösterir.
 
 Bu öğreticide, Event Grid özel konu için bir Aktif-Pasif yük devretme mimarisi oluşturulacağını öğreneceksiniz. Konuları ve abonelikleri iki bölgede yansıtma ve bir konu sistem durumu kötü olduğunda bir yük devretme ardından yönetme yük devretme gerçekleştirilmesi. Bu öğreticide bir mimari üzerinden tüm yeni trafiğe başarısız olur. Bu kurulum ile uyumlu olması önemli olan, güvenliği aşılmış bölge yeniden sağlıklı duruma gelene kadar zaten uçuş olayları kurtarılması gerekmez.
+
+> [!NOTE]
+> Event Grid, otomatik coğrafi olağanüstü durum kurtarma (GeoDR) artık sunucu tarafında destekler. Yük devretme işlemi hakkında daha fazla denetlenebilmesine istiyorsanız hala istemci-tarafı olağanüstü durum kurtarma mantığı uygulayabilir. Otomatik GeoDR hakkında daha fazla ayrıntı için bkz: [Azure Event Grid, sunucu tarafı coğrafi olağanüstü durum kurtarma](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 

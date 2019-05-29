@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/24/2019
+ms.date: 05/28/2019
 ms.author: assafi
-ms.openlocfilehash: 4b0f4c4768c68e2fa58fb0577d0586095c6fb716
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: HT
+ms.openlocfilehash: a8b41f6853e9c91e64de903960b880e44f22ed55
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256327"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297810"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Hızlı Başlangıç: .NET SDK'yı kullanın ve C# metin analizi hizmeti çağırmak için
 <a name="HOLTop"></a>
@@ -29,16 +29,11 @@ Teknik Ayrıntılar için .NET için SDK'sına başvurun [metin analizi başvuru
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+* Herhangi bir sürümünü [visual studio 2017 veya sonraki]
+* Metin analizi [.NET için SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Ayrıca gerekir [uç noktası ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) oluşturulan, kayıt sırasında.
-
-> [!Tip]
->  Çağırabilirsiniz sırada [HTTP uç noktalarını](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) doğrudan C#, Microsoft.Azure.CognitiveServices.Language SDK'sı, JSON seri hale getrime ve gerek kalmadan hizmet çağrısı çok daha kolay kılar.
->
-> Birkaç faydalı bağlantı:
-> - [SDK'sı NuGet sayfası](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK kodu](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 ## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Visual Studio çözümü oluşturun ve SDK'sını yükleyin
 

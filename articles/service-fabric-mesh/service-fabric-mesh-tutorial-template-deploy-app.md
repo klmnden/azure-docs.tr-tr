@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810429"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306941"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Öğretici: Şablon kullanarak Service Fabric Mesh’e uygulama dağıtma
 
@@ -59,7 +59,7 @@ Service Fabric Mesh uygulamanızdaki hizmetlerle ilişkilendirilmiş olan kapsay
 
 ACR örneği oluşturmak için aşağıdaki adımları kullanın.  Kurulu bir ACR örneğiniz varsa bu adımı atlayabilirsiniz.
 
-### <a name="sign-in-to-azure"></a>Azure'da oturum açma
+### <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 Azure'da oturum açın ve etkin aboneliğinizi ayarlayın.
 
@@ -68,7 +68,7 @@ az login
 az account set --subscription "<subscriptionName>"
 ```
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki komutu kullanarak *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturun.
 
@@ -139,7 +139,7 @@ docker tag seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 mycontainer
 docker tag seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 ```
 
-Azure Container Registry'de oturum açın.
+Azure Container Registry'ye oturum açın.
 
 ```azurecli
 az acr login -n myContainerRegistry
@@ -347,7 +347,7 @@ Parametreler dosyasında şu parametre değerlerini güncelleştirin:
 
 |Parametre|Değer|
 |---|---|
-|location|Uygulamanın dağıtılacağı bölge.  Örneğin: "eastus".|
+|konum|Uygulamanın dağıtılacağı bölge.  Örneğin: "eastus".|
 |registryPassword|[Kayıt defteri kimlik bilgilerini alma](#retrieve-credentials-for-the-registry) bölümünde aldığınız parola. Bu şablon parametresi güvenli bir dizedir ve dağıtım durumunda veya `az mesh service show` komutlarında görüntülenmez.|
 |registryUserName|[Kayıt defteri kimlik bilgilerini alma](#retrieve-credentials-for-the-registry) bölümünde aldığınız kullanıcı adı.|
 |registryServer|[Kayıt defteri kimlik bilgilerini alma](#retrieve-credentials-for-the-registry) bölümünde aldığınız kayıt defteri sunucusu adı.|

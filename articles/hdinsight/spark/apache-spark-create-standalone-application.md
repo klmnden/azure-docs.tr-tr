@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 01/30/2019
-ms.openlocfilehash: 2d431659e46465bf16f6e597f3a49f7008432bb5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: 212a2ca89b91de518f07d097b00b31e785216cb0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722866"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304000"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Öğretici: Intellij kullanarak HDInsight, Apache Spark Scala Maven uygulama oluşturma
 
@@ -80,7 +80,7 @@ Scala eklentisini yüklemek için aşağıdaki adımları gerçekleştirin:
   	|Proje adı| Bir ad girin.|  
   	|Proje&nbsp;konumu| Projenizi kaydetmek istediğiniz konumu girin.|
   	|Proje SDK'sı| Bu, ilk fikir kullanımınız boş olacaktır.  Seçin **yeni...**  ve, JDK için gidin.|
-  	|Spark sürümü|Oluşturma Sihirbazı'nı, Spark SDK'sı ve Scala SDK'sı için doğru sürüm tümleştirir. Spark kümesi sürümü 2.0’dan eskiyse **Spark 1.x** seçeneğini belirleyin. Aksi takdirde, **Spark2.x** seçeneğini belirleyin. Bu örnekte **Spark 2.3.0 (Scala 2.11.8)**.|
+  	|Spark sürümü|Oluşturma Sihirbazı'nı, Spark SDK'sı ve Scala SDK'sı için doğru sürüm tümleştirir. Spark kümesi sürümü 2.0’dan eskiyse **Spark 1.x** seçeneğini belirleyin. Aksi takdirde, **Spark2.x** seçeneğini belirleyin. Bu örnekte **Spark 2.3.0 (Scala 2.11.8)** .|
 
     ![Spark SDK’sını seçme](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
@@ -123,7 +123,7 @@ Scala eklentisini yüklemek için aşağıdaki adımları gerçekleştirin:
 
 15. Seçin **Import Maven projelerinde otomatik olarak** onay kutusu.
 
-16. **Uygula**’yı ve sonra **Tamam**’ı seçin.  Ardından Proje penceresine döndürülür.
+16. Seçin **Uygula**ve ardından **Tamam**.  Ardından Proje penceresine döndürülür.
    
     ![Maven’i otomatik yüklemeler için yapılandırma](./media/apache-spark-create-standalone-application/configure-maven.png)
    
@@ -175,7 +175,7 @@ Scala eklentisini yüklemek için aşağıdaki adımları gerçekleştirin:
     
     1. Gelen **dosya** menüsünde **Proje yapısı...** .
 
-    2. Gelen **Proje yapısı** penceresinde gidin **Yapıtları** > **artı simgesini +** > **JAR**  >  **Bağımlılıkları olan modüllerden...** .
+    2. Gelen **Proje yapısı** penceresinde gidin **Yapıtları** > **artı simgesini +**  > **JAR**  >  **Bağımlılıkları olan modüllerden...** .
        
         ![JAR oluşturma](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
@@ -189,7 +189,7 @@ Scala eklentisini yüklemek için aşağıdaki adımları gerçekleştirin:
        
         ![JAR oluşturma](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
-    6. **Çıkış Düzen** Maven projenin bir parçası olarak dahil edilen tüm jar dosyaları dışındaki sekmesinde listelenir. Scala uygulamasının doğrudan bağımlılığı olmayan jar dosyalarını seçip silebilirsiniz. Burada oluşturduğunuz uygulama için sonuncu (**SparkSimpleApp derleme çıktısı**) hariç tüm jar dosyalarını kaldırabilirsiniz. Jar dosyaları dışındaki silin ve ardından eksi sembolünün seçin **-**.
+    6. **Çıkış Düzen** Maven projenin bir parçası olarak dahil edilen tüm jar dosyaları dışındaki sekmesinde listelenir. Scala uygulamasının doğrudan bağımlılığı olmayan jar dosyalarını seçip silebilirsiniz. Burada oluşturduğunuz uygulama için sonuncu (**SparkSimpleApp derleme çıktısı**) hariç tüm jar dosyalarını kaldırabilirsiniz. Jar dosyaları dışındaki silin ve ardından eksi sembolünün seçin **-** .
        
         ![JAR oluşturma](./media/apache-spark-create-standalone-application/delete-output-jars.png)
        

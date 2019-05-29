@@ -55,6 +55,8 @@
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Kavramlar
   items:
+    - name: Kimlik Doğrulaması
+      href: concepts/authentication.md
     - name: Sabit nokta ilişkileri
       href: concepts/anchor-relationships-way-finding.md
     - name: Deneyim yönergeleri

@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31992a08c1b6c4fda4053032458879661fe2b740
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233775"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299072"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -69,7 +69,7 @@ TLS 1.2 etkinleştirmek için:
 2. Sunucuyu yeniden başlatın.
 
 >[!Important] 
-> Müşterilerimiz için sınıfının en iyisi şifreleme sağlamak, güncelleştirmeleri yalnızca TLS 1.2 protokolleri erişimi sınırlamak için uygulama proxy'si hizmeti yapıyoruz. Değişiklik aşamalı olarak yalnızca TLS 1.2 protokolleri kullanıyorsanız ve bu değişiklik herhangi bir etki görmez müşterilere sunulacaktır müşteri hazırlık temel. TLS 1.0 ve 1.1 kullanımdan kaldırma 31 Ağustos 2019 üzerinde tamamlanır ve müşterilerin bu değişikliğe hazırlanmak için gelişmiş uyarı alırsınız. Tüm istemci-sunucu ve tarayıcı sunucu birleşimleri için bu değişiklik yapma, emin hazırlamak için uygulama ara Sunucusu hizmetine bağlantıyı korumak için TLS 1.2 kullanmak üzere güncelleştirilir. Bunlar, kullanıcılarınızın uygulama proxy'si aracılığıyla yayımlanan uygulamalara erişmek için kullandığınız istemci içerir. Hazırlama için bkz. [TLS 1.2 Office 365'te](https://docs.microsoft.com/en-us/office365/troubleshoot/prepare-tls-1.2-in-office-365) yararlı başvurular ve kaynaklar.
+> Müşterilerimiz için sınıfının en iyisi şifreleme sağlamak, güncelleştirmeleri yalnızca TLS 1.2 protokolleri erişimi sınırlamak için uygulama proxy'si hizmeti yapıyoruz. Değişiklik aşamalı olarak yalnızca TLS 1.2 protokolleri kullanıyorsanız ve bu değişiklik herhangi bir etki görmez müşterilere sunulacaktır müşteri hazırlık temel. TLS 1.0 ve 1.1 kullanımdan kaldırma 31 Ağustos 2019 üzerinde tamamlanır ve müşterilerin bu değişikliğe hazırlanmak için gelişmiş uyarı alırsınız. Tüm istemci-sunucu ve tarayıcı sunucu birleşimleri için bu değişiklik yapma, emin hazırlamak için uygulama ara Sunucusu hizmetine bağlantıyı korumak için TLS 1.2 kullanmak üzere güncelleştirilir. Bunlar, kullanıcılarınızın uygulama proxy'si aracılığıyla yayımlanan uygulamalara erişmek için kullandığınız istemci içerir. Hazırlama için bkz. [TLS 1.2 Office 365'te](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) yararlı başvurular ve kaynaklar.
 
 ## <a name="prepare-your-on-premises-environment"></a>Şirket içi ortamınızı hazırlama
 

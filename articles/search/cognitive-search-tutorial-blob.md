@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09cef1758b247810f4ef03be9ebe01b498238ac9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fb45d2e36939a53d6242cf7cd5a0b9f1990780c3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242839"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299045"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST Öğreticisi: Bir Azure Search dizini oluşturma ardışık düzen Bilişsel hizmetler API'lerini çağırma
 
@@ -445,74 +445,8 @@ Ek alanlar için işlemi tekrarlayın: içeriği, languageCode, keyPhrases ve bu
 
 Sorgu dizesinin karmaşıklık ve uzunluğuna bağlı olarak GET veya POST dizesini kullanabilirsiniz. Daha fazla bilgi için bkz. [REST API kullanarak sorgu](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-<a name="access-enriched-document"></a>
 
-## <a name="accessing-the-enriched-document"></a>Zenginleştirilmiş belgeye erişme
 
-Bilişsel arama, zenginleştirilmiş belgenin yapısını görmenizi sağlar. Zenginleştirilmiş belgeler, zenginleştirme sırasında oluşturulan geçici yapılardır ve işlem tamamlandığında silinir.
-
-Dizin oluşturma sırasında oluşturulan zenginleştirilmiş belgenin anlık görüntüsünü yakalamak için dizininize ```enriched``` adlı bir alan ekleyin. Dizin oluşturucu, otomatik olarak alana, o belgenin tüm zenginleştirmelerinin dize gösteriminin dökümünü alır.
-
-```enriched``` alanı, JSON’da bellek içi zenginleştirilmiş belgenin mantıksal gösterimi olan bir dize içerir.  Ancak alan değeri geçerli bir JSON belgesidir. Tırnak işaretlerine kaçış karakteri eklenir, böylece belgeyi biçimlendirilmiş JSON olarak görüntülemek için `\"` öğesini `"` ile değiştirmeniz gerekir.  
-
-İfadelerin değerlendirildiği içeriğin mantıksal şeklini anlamanıza yardımcı olması için ```enriched``` alanı yalnızca hata ayıklama için tasarlanmıştır. Beceri kümenizi anlamak ve hatasını ayıklamak için bu faydalı bir araç olabilir.
-
-Zenginleştirilmiş belgenin içeriklerini yakalamak için bir `enriched` alanını ekleyerek önceki çalışmayı yineleyin:
-
-### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
-```json
-{
-  "fields": [
-    {
-      "name": "id",
-      "type": "Edm.String",
-      "key": true,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false,
-      "sortable": true
-    },
-    {
-      "name": "content",
-      "type": "Edm.String",
-      "sortable": false,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "languageCode",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "keyPhrases",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "organizations",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "enriched",
-      "type": "Edm.String",
-      "searchable": false,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    }
-  ]
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Sıfırlama ve yeniden çalıştırma

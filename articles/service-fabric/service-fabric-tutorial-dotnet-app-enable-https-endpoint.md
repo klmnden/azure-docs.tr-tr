@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158113"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302403"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel'i kullanarak bir ASP.NET Core Web API'si ön uç hizmetine HTTPS uç noktası ekleme
 
@@ -52,7 +52,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
-* [Azure geliştirme](https://www.visualstudio.com/) ve **ASP.NET ve Web geliştirme** iş yükleriyle **Visual Studio 2017** sürüm 15.5 veya üstünü yükleyin.
+* [Visual Studio 2019 yükleme](https://www.visualstudio.com/) sürüm 15.5 veya üstünü **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
 * [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Sertifika edinme veya otomatik olarak imzalanan geliştirme sertifikası oluşturma
@@ -185,7 +185,7 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Sertifikanın özel anahtarına AĞ HİZMETİ erişimi verme
 
-Önceki adımlardan birinde sertifikayı geliştirme bilgisayarındaki `Cert:\LocalMachine\My` deposuna aktarmıştınız.  Ayrıca, hizmeti (varsayılan olarak, AĞ HİZMETİ) çalıştıran hesaba sertifikanın özel anahtarı için açık erişim vermeniz gerekir. Bu işlemi el ile (certlm.msc aracını kullanarak) yapabilirsiniz, ancak hizmet bildiriminin **SetupEntryPoint** noktasında [bir başlangıç betiği yapılandırarak](service-fabric-run-script-at-service-startup.md) otomatik olarak bir PowerShell betiği çalıştırmanız daha iyi olur.
+Önceki adımlardan birinde sertifikayı geliştirme bilgisayarındaki `Cert:\LocalMachine\My` deposuna aktarmıştınız.  Şimdi, açıkça hizmetini (varsayılan olarak, ağ hizmeti) çalıştıran hesabın vermek sertifikanın özel anahtarı erişim. Bu adımı el ile yapabilirsiniz (certlm.msc aracını kullanarak), ancak otomatik olarak bir PowerShell Betiği çalıştırmanız daha iyidir [bir başlangıç betiği yapılandırarak](service-fabric-run-script-at-service-startup.md) içinde **SetupEntryPoint** hizmet bildiriminin.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Hizmet kurulumu giriş noktasını yapılandırma
 

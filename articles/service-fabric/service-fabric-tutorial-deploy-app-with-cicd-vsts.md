@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/02/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c805d2bc03ad07635b01a5e978822ecab2425457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba0975486039546d5be0f704fb617beb1a9e0908
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61390627"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306902"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesine CI/CD ile uygulama dağıtma
 
@@ -47,7 +47,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
-* **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017’yi yükleyin](https://www.visualstudio.com/).
+* [Visual Studio 2019 yükleme](https://www.visualstudio.com/) yükleyip **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
 * [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
 * Azure’da Windows Service Fabric kümesi oluşturun; örneğin, [bu öğreticiyi izleyin](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * [Azure DevOps kuruluşu](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) oluşturun. Bu, Azure DevOps içinde bir proje oluşturun ve Azure işlem hatları kullanmanıza olanak sağlar.
@@ -88,7 +88,7 @@ Depoyu yayımlamak, hesabınızda yerel depoyla aynı ada sahip yeni bir proje o
 
 Bir Azure işlem hatları derleme işlem hattı, sırayla yürütülen derleme adımları kümesinden oluşan bir iş akışını açıklar. Service Fabric kümenize dağıtmak üzere Service Fabric uygulama paketini ve diğer yapıtları üreten bir derleme işlem hattı oluşturun. [Azure Pipelines derleme işlem hatları](https://www.visualstudio.com/docs/build/define/create) hakkında daha fazla bilgi edinin. 
 
-Bir Azure işlem hatları yayın işlem hattı bir kümeye bir uygulama paketi dağıtan bir iş akışını açıklar. Derleme işlem hattı ve yayın işlem hattı ile birlikte kullanıldığında kaynak dosyalardan başlayıp kümenizde çalışan bir uygulamada biten iş akışının tamamını yürütür. Daha fazla bilgi edinin [yayın işlem hatları Azure işlem hatları](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Bir Azure Pipelines yayın işlem hattı, kümeye uygulama paketi dağıtan bir iş akışını açıklar. Derleme işlem hattı ve yayın işlem hattı ile birlikte kullanıldığında kaynak dosyalardan başlayıp kümenizde çalışan bir uygulamada biten iş akışının tamamını yürütür. Daha fazla bilgi edinin [yayın işlem hatları Azure işlem hatları](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-pipeline"></a>Derleme işlem hattı oluşturma
 
@@ -128,13 +128,13 @@ Yeni küme bağlantısı eklemek için **Görevler**->**Ortam 1** ve sonra da **
 
 **Yeni Service Fabric Bağlantısı ekle** görünümünde **Sertifika Tabanlı** veya **Azure Active Directory** kimlik doğrulamasını seçin.  Bağlantı adı olarak "mysftestcluster" ve küme uç noktası olarak "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (veya dağıtım yaptığınız kümenin uç noktası) belirtin.
 
-Sertifika tabanlı kimlik doğrulaması için, kümeyi oluştururken kullanılan sunucu sertifikasının **Sunucu sertifikası parmak izi**'ni ekleyin.  **İstemci sertifikası** alanında, istemci sertifika dosyasının base-64 kodlamasını ekleyin. Sertifikanın bu base-64 kodlamalı gösterimini nasıl alacağınızı öğrenmek için bu alanın yardım açılan kutusuna bakın. Ayrıca sertifika için **Parola** ekleyin.  Ayrı bir istemci sertifikanız yoksa, küme veya sunucu sertifikasını kullanabilirsiniz.
+Sertifika tabanlı kimlik doğrulaması ekleme **sunucu sertifikası parmak izi** kümeyi oluşturmak için kullanılan sunucu sertifikasının.  **İstemci sertifikası** alanında, istemci sertifika dosyasının base-64 kodlamasını ekleyin. Sertifikanın bu base-64 kodlamalı gösterimini nasıl alacağınızı öğrenmek için bu alanın yardım açılan kutusuna bakın. Ayrıca sertifika için **Parola** ekleyin.  Ayrı bir istemci sertifikanız yoksa, küme veya sunucu sertifikasını kullanabilirsiniz.
 
 Azure Active Directory kimlik bilgileri için, kümeyi oluştururken kullanılan sunucu sertifikasının **Sunucu sertifikası parmak izi**'ni ve ayrıca **Kullanıcı adı** ve **Parola** alanlarına kümeye bağlanırken kullanmak istediğiniz kimlik bilgilerini girin.
 
 **Ekle**'ye tıklayarak küme bağlantısını kaydedin.
 
-Ardından, yayın işlem hattının derlemeden çıkışı bulabilmesi için işlem hattına bir derleme yapıtı ekleyin. **İşlem Hattı**'nı ve **Yapıtlar**->**+Ekle**'yi seçin.  **Kaynak (Derleme tanımı)** alanında, daha önce oluşturmuş olduğunuz derleme işlem hattını seçin.  **Ekle**’ye tıklayarak derleme yapıtını kaydedin.
+Ardından, yayın işlem hattının derlemeden çıkışı bulabilmesi için işlem hattına bir derleme yapıtı ekleyin. **İşlem Hattı**'nı ve **Yapıtlar**-> **+Ekle**'yi seçin.  **Kaynak (Derleme tanımı)** alanında, daha önce oluşturmuş olduğunuz derleme işlem hattını seçin.  **Ekle**’ye tıklayarak derleme yapıtını kaydedin.
 
 ![Yapıt ekleme][add-artifact]
 
@@ -191,6 +191,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Uygulamayı otomatik olarak dağıtma ve yükseltme
 
 Sonraki öğreticiye ilerleyin:
+> [!div class="nextstepaction"]
 > [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->

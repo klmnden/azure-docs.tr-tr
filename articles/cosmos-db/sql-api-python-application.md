@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9ac2cb5e269f84b0a047d7838918492f9b83059
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554243"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298775"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 
@@ -23,7 +23,6 @@ ms.locfileid: "60554243"
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
-> 
 
 Bu öğreticide, Azure App Service'te barındırılan bir Python Flask Web uygulamasından veri depolamak ve veriye erişmek için Azure Cosmos DB'nin nasıl kullanılacağı gösterilmektedir. Bu öğretici, Python ve Azure Web sitelerini kullanma konusunda önceden biraz deneyim sahibi olduğunuzu varsayar.
 
@@ -39,6 +38,7 @@ Bu öğreticiyi izleyerek, bir yoklama için oy kullanmanıza olanak tanıyan ba
 ![Bu veritabanı Öğreticisi tarafından oluşturulan oylama uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Veritabanı öğreticisi önkoşulları
+
 Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğundan emin olmanız gerekir:
 
 * [Bir Azure aboneliği](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -51,14 +51,13 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 
 > [!IMPORTANT]
 > Python 2.7'yi ilk kez yüklüyorsanız Python 2.7.13'i Özelleştirme ekranında **Python.exe'yi yola ekle** seçeneğini belirlediğinizden emin olun.
-> 
+>
 > ![Yola Python.exe'yi Ekle seçin gerek duyduğunuz senaryolara Python 2.7.11'i özelleştirme ekranının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-install.png)
-> 
-> 
 
 * [Python 2.7 için Microsoft Visual C++ Derleyicisi](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>1. Adım: Bir Azure Cosmos DB veritabanı hesabı oluşturma
+
 İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, adımına atlayabilirsiniz [2. adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -67,65 +66,75 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 Şimdi en başından başlayarak yeni bir Python Flask web uygulamasının nasıl oluşturulacağını görelim.
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>2. Adım: Yeni bir Python Flask web uygulaması oluşturma
+
 1. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine gidin ve ardından **Proje**'ye tıklayın.
-   
+
     **Yeni Proje** iletişim kutusu görünür.
 2. Sol bölmede **Şablonlar**'ı ve ardından **Python**'u genişletin ve sonra **Web**'e tıklayın. 
 3. Orta bölmede **Flask Web Projesi**'ni seçin ve ardından **Ad** kutusuna **öğretici** yazın ve sonra **Tamam**'a tıklayın. Python paket adlarının [Python Kodu için Stil Kılavuzu](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)'nda açıklandığı gibi tamamen küçük harflerden oluşması gerektiğini unutmayın.
-   
+
     Yeni olanlar için bilgi vermek gerekirse Python Flask, Python'da web uygulamalarını daha hızlı oluşturmanıza yardımcı olan bir web uygulaması geliştirme altyapısıdır.
-   
+
     ![Orta ve adı öğreticinin ad kutusuna seçili Python Flask Web projesi sol tarafta vurgulanan Python ile Visual Studio'da yeni proje penceresinin ekran görüntüsü](./media/sql-api-python-application/image9.png)
+
 4. **Visual Studio için Python Araçları** penceresinde **Sanal bir ortama yükleme**'ye tıklayın. 
-   
+
     ![Veritabanı Öğreticisi - penceresi Visual Studio için Python araçları ekran görüntüsü](./media/sql-api-python-application/python-install-virtual-environment.png)
 5. **Sanal Ortam Ekle** penceresinde, Yorumlayıcı seç kutusunda Python 2.7'yi veya Python 3.5'i seçin, diğer varsayılanları kabul edin ve **Oluştur**'u tıklatın. Böylece projeniz için gereken Python sanal ortamı kurulmuş olur.
-   
+
     ![Veritabanı Öğreticisi - penceresi Visual Studio için Python araçları ekran görüntüsü](./media/sql-api-python-application/image10_A.png)
-   
+
     Ortam başarılı bir şekilde yüklendiğinde çıktı penceresi şunu görüntüler: `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`
 
-## <a name="step-3-modify-the-python-flask-web-application"></a>3. Adım: Python Flask web uygulamasını değiştirme
+## <a name="step-3-modify-the-python-flask-web-application"></a>3. adım: Python Flask web uygulamasını değiştirme
+
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Python Flask paketlerini projenize ekleme.
+
 Projeniz kurulduktan sonra, Azure Cosmos DB SQL API'si için Python paketi olan pydocumentdb dahil olmak üzere gerekli Flask paketlerini projenize eklemeniz gerekir.
 
 1. Çözüm Gezgini'nde **requirements.txt** adlı dosyayı açın ve içeriği aşağıdakiyle değiştirin:
-   
-        flask==0.9
-        flask-mail==0.7.6
-        sqlalchemy==0.7.9
-        flask-sqlalchemy==0.16
-        sqlalchemy-migrate==0.7.2
-        flask-whooshalchemy==0.55a
-        flask-wtf==0.8.4
-        pytz==2013b
-        flask-babel==0.8
-        flup
-        pydocumentdb>=1.0.0
-2. **requirements.txt** dosyasını kaydedin. 
+
+    ```text
+    flask==0.9
+    flask-mail==0.7.6
+    sqlalchemy==0.7.9
+    flask-sqlalchemy==0.16
+    sqlalchemy-migrate==0.7.2
+    flask-whooshalchemy==0.55a
+    flask-wtf==0.8.4
+    pytz==2013b
+    flask-babel==0.8
+    flup
+    pydocumentdb>=1.0.0
+    ```
+
+2. **requirements.txt** dosyasını kaydedin.
 3. Çözüm Gezgini'nde **env**'e sağ tıklayın ve **requirements.txt'ten yükle**'ye tıklayın.
-   
+
     ![Listede vurgulanmış requirements.txt yüklemesiyle seçildiği ekran görüntüsü gösteren env (Python 2.7)](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
-   
+
     Başarılı yüklemeden sonra, çıktı penceresi aşağıdakini görüntüler:
-   
-        Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
-   
+
+    ```output
+    Successfully installed Babel-2.3.2 Tempita-0.5.2 WTForms-2.1 Whoosh-2.7.4 blinker-1.4 decorator-4.0.9 flask-0.9 flask-babel-0.8 flask-mail-0.7.6 flask-sqlalchemy-0.16 flask-whooshalchemy-0.55a0 flask-wtf-0.8.4 flup-1.0.2 pydocumentdb-1.6.1 pytz-2013b0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.7.2
+    ```
+
    > [!NOTE]
    > Nadir durumlarda çıktı penceresinde bir hata görebilirsiniz. Bu durumda hatanın temizleme ile ilgili olup olmadığını denetleyin. Bazen temizleme başarısız, ancak yükleme yine de başarılı olabilir (bunu doğrulamak için çıktı penceresini yukarı kaydırın). [Sanal ortamı doğrulama](#verify-the-virtual-environment) ile yüklemenizi denetleyebilirsiniz. Yükleme başarısız ancak doğrulama başarılı olduysa devam etmede bir sorun yoktur.
-   > 
-   > 
 
 ### <a name="verify-the-virtual-environment"></a>Sanal ortamı doğrulama
+
 Her şeyin doğru şekilde yüklendiğinden emin olmamız gerekir.
 
 1. **Ctrl**+**Shift**+**B** tuşlarına basarak çözümü oluşturun.
 2. Derleme başarılı olduktan sonra, **F5**'e basarak web sitesini başlatın. Böylece Flask geliştirme sunucusu başlatılmış ve web tarayıcınız başlamış olur. Aşağıdaki sayfayı göreceksiniz.
-   
+
     ![Bir tarayıcıda görüntülenen boş Python Flask web geliştirme projesi](./media/sql-api-python-application/image12.png)
+
 3. Visual Studio'da **Shift**+**F5**'e basarak web sitesinin hata ayıklamasını durdurun.
 
 ### <a name="create-database-collection-and-document-definitions"></a>Veritabanı, koleksiyon ve belge tanımları oluşturma
+
 Şimdi yeni dosyalar ekleyip diğer dosyaları güncelleştirerek oylama uygulamanızı oluşturalım.
 
 1. Çözüm Gezgini'nde **öğretici** projeye sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Yeni Öğe**'ye tıklayın. **Boş Python Dosyası**'nı seçin ve dosyaya **forms.py** adını verin.  
@@ -142,11 +151,11 @@ class VoteForm(Form):
         ('Virtual Machine', 'Virtual Machine')], default='Web Site')
 ```
 
-
 ### <a name="add-the-required-imports-to-viewspy"></a>Gerekli içeri aktarmaları views.py'ye ekleme
+
 1. Çözüm Gezgini'nde **öğretici** klasörünü genişletin ve **views.py** dosyasını açın. 
 2. Aşağıdaki içeri aktarma deyimlerini **views.py** dosyasının üstüne ekleyin ve ardından dosyayı kaydedin. Bunlar, Azure Cosmos DB'nin PythonSDK'sını ve Flask paketlerini içeri aktarır.
-   
+
     ```python
     from forms import VoteForm
     import config_cosmos
@@ -154,6 +163,7 @@ class VoteForm(Form):
     ```
 
 ### <a name="create-database-collection-and-document"></a>Veritabanı, koleksiyon ve belge oluşturma
+
 * Yine **views.py**'de dosyanın sonuna aşağıdaki kodu ekleyin. Böylece form tarafından kullanılan veritabanı oluşturulmuş olur. **views.py**'de var olan hiçbir kodu silmeyin. Yalnızca bunu sona ekleyin.
 
 ```python
@@ -191,8 +201,8 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-
 ### <a name="read-database-collection-document-and-submit-form"></a>Veritabanı, koleksiyon ve belge okuma ve form gönderme
+
 * Yine **views.py**'de dosyanın sonuna aşağıdaki kodu ekleyin. Böylece form kurma ve veritabanı, koleksiyon ve belge okuma gerçekleşmiş olur. **views.py**'de var olan hiçbir kodu silmeyin. Yalnızca bunu sona ekleyin.
 
 ```python
@@ -242,13 +252,13 @@ def vote():
             form = form)
 ```
 
-
 ### <a name="create-the-html-files"></a>HTML dosyaları oluşturma
+
 1. Çözüm Gezgini'ndeki **öğretici** klasöründe **şablonlar** klasörüne sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Yeni Öğe**'ye tıklayın. 
 2. **HTML Sayfası**'nı seçin ve ardından ad kutusuna **create.html** yazın. 
 3. İki ek HTML dosyası oluşturmak için 1 ve 2. adımı tekrarlayın: results.html ve vote.html.
 4. Aşağıdaki kodu `<body>` öğesindeki **create.html**'ye ekleyin. Yeni bir veritabanı, koleksiyon ve belge oluşturduğumuzu bildiren bir ileti görüntülenir.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
@@ -257,14 +267,15 @@ def vote():
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
     {% endblock %}
     ```
+
 5. Aşağıdaki kodu `<body` öğesindeki **results.html**'ye ekleyin. Yoklama sonuçları görüntülenir.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
     <h2>Results of the vote</h2>
         <br />
-   
+
     {% for choice in vote_object.choices %}
     <div class="row">
         <div class="col-sm-5">{{choice}}</div>
@@ -277,13 +288,14 @@ def vote():
             </div>
     </div>
     {% endfor %}
-   
+
     <br />
     <a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
     {% endblock %}
     ```
+
 6. Aşağıdaki kodu `<body` öğesindeki **vote.html**'ye ekleyin. Yoklamayı görüntüler ve oyları kabul eder. Oy kaydetmede denetim, Azure Cosmos DB'nin atılan oyları tanıyacağı ve belgeyi buna göre ekleyeceği views.py'ye geçirilir.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
@@ -295,8 +307,9 @@ def vote():
     </form>
     {% endblock %}
     ```
+
 7. **Şablonlar** klasöründe, **index.html** içeriğini aşağıdakiyle değiştirin. Bu, uygulamanız için giriş sayfası görevi görür.
-   
+
     ```html
     {% extends "layout.html" %}
     {% block content %}
@@ -308,30 +321,32 @@ def vote():
     ```
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Bir yapılandırma dosyası ekleme ve \_\_init\_\_.py'yi değiştirme
+
 1. Çözüm Gezgini'nde **öğretici** projesine sağ tıklayın, **Ekle**'ye tıklayın, **Yeni Öğe**'ye tıklayın, **Boş Python Dosyası**'nı seçin ve ardından dosyaya **config_cosmos.py** adını verin. Bu yapılandırma dosyası, Flask'taki formlar için gereklidir. Bunu gizli bir anahtar sağlamak için de kullanabilirsiniz. Ancak bu anahtar bu öğretici için gerekli değildir.
 2. Config_cosmos.py dosyasına aşağıdaki kodu ekleyin; sonraki adımda **COSMOSDB\_HOST** ve **COSMOSDB\_KEY** değerlerini değiştirmeniz gerekecektir.
-   
+
     ```python
     CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
-   
+
     COSMOSDB_HOST = 'https://YOUR_COSMOSDB_NAME.documents.azure.com:443/'
     COSMOSDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
-   
+
     COSMOSDB_DATABASE = 'voting database'
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
+
 3. [Azure Portalı](https://portal.azure.com/)'nda **Anahtarlar** sayfasına gitmek için **Gözat**, **Azure Cosmos DB Hesapları**'na tıklayın, kullanılacak hesabın adına çift tıklayın ve ardından **Temel Bileşenler** alanındaki **Anahtarlar** düğmesine tıklayın. **Anahtarlar** sayfasında **URI** değerini kopyalayın ve **COSMOSDB\_HOST** özelliğinin değeri olarak **config.py** dosyasına yapıştırın. 
 4. Azure Portalı'ndaki **Anahtarlar** sayfasında **Birincil Anahtar** veya **İkincil Anahtar** değerini kopyalayın ve **COSMOSDB\_KEY** özelliğinin değeri olarak **config.py** dosyasına yapıştırın.
-5. **\_\_init\_\_.py** dosyasına, yapılandırma dosyası okuma ve bazı temel günlük kaydı işlemlerini dahil etmek için aşağıdaki satırları ekleyin: 
-   
+5. **\_\_init\_\_.py** dosyasına, yapılandırma dosyası okuma ve bazı temel günlük kaydı işlemlerini dahil etmek için aşağıdaki satırları ekleyin:
+
         app.config.from_object('config_cosmos')
         logging.basicConfig(level=logging.INFO,format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         logger = logging.getLogger(__name__)
-   
+
     Böylece dosyanın içeriği şu olur:
-   
+
     ```python
     import logging
     from flask import Flask
@@ -342,33 +357,39 @@ def vote():
 
     import tutorial.views
     ```
+
 6. Tüm dosyaları ekledikten sonra, Çözüm Gezgini şöyle görünecektir:
-   
+
     ![Visual Studio Çözüm Gezgini penceresinin ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
 ## <a name="step-4-run-your-web-application-locally"></a>4. Adım: Web uygulamanızı yerel olarak çalıştırma
+
 1. **Ctrl**+**Shift**+**B** tuşlarına basarak çözümü oluşturun.
 2. Derleme başarılı olduktan sonra, **F5**'e basarak web sitesini başlatın. Ekranınızda şunu göreceksiniz:
-   
+
     ![Python + Azure Cosmos DB oylama bir web tarayıcısında görüntülenen uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+
 3. Veritabanını oluşturmak için **Oylama Veritabanını Oluştur/Temizle**'ye tıklayın.
-   
+
     ![Ekran görüntüsü-geliştirme ayrıntıları web uygulamasının oluşturma sayfası](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+
 4. Ardından **Oy Ver**'e tıklayın ve seçiminizi belirleyin.
-   
+
     ![İle bir oylama sorusu sorulmuş web uygulamasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-vote.png)
 5. Verdiğiniz her oy için uygun sayaç artırılır.
-   
+
     ![Sonuçları gösterilen oy sayfasının ekran görüntüsü](./media/sql-api-python-application/cosmos-db-voting-results.png)
+
 6. Shift + F5'e basarak projenin hata ayıklamasını durdurun.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>5. Adım: Web uygulamasını azure'a dağıtma
+
 Artık uygulamanın tamamının Azure Cosmos DB ile yerel olarak düzgün çalıştığından emin olduğunuza göre, bir web.config dosyası oluşturacak, sunucudaki dosyaları yerel ortamla uyuşacak şekilde güncelleştirecek ve sonra tamamlanan uygulamayı Azure'da görüntüleyeceğiz. Bu yordam, Visual Studio 2017'ye özeldir. Visual Studio'nun farklı bir sürümünü kullanıyorsanız, bkz. [Azure App Service'te Yayımlama](/visualstudio/python/publishing-to-azure).
 
-1. Visual Studio **Çözüm Gezgini**'nde, projeye sağ tıklayın ve **Ekle > Yeni Öğe...**'yi seçin. Açılan iletişim kutusunda, **Azure web.config (Fast CGI)** şablonunu ve **Tamam**'ı seçin. Bu, proje kök dizininizde bir `web.config` dosyası oluşturur. 
+1. Visual Studio **Çözüm Gezgini**'nde, projeye sağ tıklayın ve **Ekle > Yeni Öğe...** 'yi seçin. Açılan iletişim kutusunda, **Azure web.config (Fast CGI)** şablonunu ve **Tamam**'ı seçin. Bu, proje kök dizininizde bir `web.config` dosyası oluşturur. 
 
 2. Yolun Python yüklemesiyle eşleşmesi için `web.config` içindeki `<system.webServer>` bölümünü değiştirin. Örneğin Python 2.7 x64 için giriş aşağıdaki gibi görünmelidir:
-    
+
     ```xml
     <system.webServer>
         <handlers>
@@ -384,32 +405,34 @@ Artık uygulamanın tamamının Azure Cosmos DB ile yerel olarak düzgün çalı
     <add key="WSGI_HANDLER" value="tutorial.app"/>
     ```
 
-4. Visual Studio **Çözüm Gezgini**'nde, **öğretici** klasörünü genişletin, `static` klasörünü sağ tıklatın, **Ekle > Yeni Öğe...**'yi seçin, "Azure statik dosyaları web.config" şablonunu ve **Tamam**'ı seçin. Bu eylem `static` klasöründe, Python işlemesini bu klasör için devre dışı bırakan başka bir `web.config` oluşturur. Bu yapılandırma, statik dosyalar için, Python uygulamasını kullanmak yerine varsayılan web sunucusuna istekleri gönderir.
+4. Visual Studio **Çözüm Gezgini**'nde, **öğretici** klasörünü genişletin, `static` klasörünü sağ tıklatın, **Ekle > Yeni Öğe...** 'yi seçin, "Azure statik dosyaları web.config" şablonunu ve **Tamam**'ı seçin. Bu eylem `static` klasöründe, Python işlemesini bu klasör için devre dışı bırakan başka bir `web.config` oluşturur. Bu yapılandırma, statik dosyalar için, Python uygulamasını kullanmak yerine varsayılan web sunucusuna istekleri gönderir.
 
 5. Dosyaları kaydedin, sonra Çözüm Gezgini'nde projeye sağ tıklayın (projeyi hala yerel olarak çalıştırmadığınızdan emin olun) ve **Yayımla**'yı seçin.  
-   
+
      ![Çözüm Gezgini'nde Yayımla seçeneğinin vurgulandığı seçili Öğreticisi ekran görüntüsü](./media/sql-api-python-application/image20.png)
+
 6. **Yayımla** iletişim kutusunda, **Microsoft Azure App Service**'i, **Yeni Oluştur**'u seçin ve **Yayımla**'ya tıklayın.
-   
+
     ![Microsoft Azure App Service vurgulanmış Web'i Yayımla penceresinin ekran](./media/sql-api-python-application/cosmos-db-python-publish.png)
+
 7. **Uygulama Hizmeti Oluştur** iletişim kutusunda, Web uygulamanızın adının yanı sıra **Abonelik**, **Kaynak Grubu** ve **App Service Planı** bilgilerinizi girin ve **Oluştur**'a tıklayın.
-   
+
     ![Microsoft Azure Web Apps penceresi penceresinin ekran görüntüsü](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. Visual Studio birkaç saniye içinde dosyalarınızı sunucuya kopyalamayı bitirir ve "İç sunucu hatası oluştuğundan sayfa görüntülenemiyor." iletisini `http://<your app service>.azurewebsites.net/` sayfasında görüntüler.
 
 9. Azure portalında yeni App Service hesabınızı açın, sonra gezinti menüsünde **Geliştirme Araçları** bölümüne ilerleyin, **Uzantılar**'ı seçin ve **+ Ekle**'ye tıklayın.
 
 10. **Uzantı seç** sayfasında, en yeni Python 2.7 yüklemesine ilerleyin ve x86 veya x64 bit seçeneğini belirleyin, sonra yasal koşulları kabul etmek için **Tamam**'a tıklayın.  
-   
+
 11. Uygulamanızın`requirements.txt` dosyasında listelenen paketleri yüklemek için, `https://<your app service name>.scm.azurewebsites.net/DebugConsole` üzerinde göz atabileceğiniz Kudu konsolunu kullanın. Bunu yapmak için, Kudu Tanılama Konsolu'nda `D:\home\Python27` Python klasörünüze gidin, sonra aşağıdaki komutu [Kudu konsolu](/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) bölümünde anlatıldığı şekilde çalıştırın:
 
-    ```
+    ```ps
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
-    ```          
+    ```
 
-12. Yeni paketleri yükledikten sonra, Azure portalında App Service'i, **Yeniden Başlat** düğmesine basarak yeniden başlatın. 
+12. Yeni paketleri yükledikten sonra, Azure portalında App Service'i, **Yeniden Başlat** düğmesine basarak yeniden başlatın.
 
-    > [!Tip] 
+    > [!Tip]
     > Uygulamanızın `requirements.txt` dosyasında herhangi bir değişiklik yaparsanız, bu dosyada listelenen paketleri yüklemek için yeniden Kudu konsolunu kullanmayı unutmayın. 
 
 13. Sunucu ortamını tamamen yapılandırdıktan sonra, sayfayı tarayıcıda yenilediğinizde Web uygulamasının görünmesi gerekir.
@@ -420,6 +443,7 @@ Artık uygulamanın tamamının Azure Cosmos DB ile yerel olarak düzgün çalı
     > Web sayfası görünmüyorsa veya hala "İç sunucu hatası oluştuğundan sayfa görüntülenemiyor." iletisini almaya devam ediyorsanız, web.config dosyasını Kudo'da açın ve system.webServer bölümüne `<httpErrors errorMode="Detailed"></httpErrors>` ifadesini ekleyin, sonra sayfayı yenileyin. Bu, tarayıcıya ayrıntılı hata çıkışı sağlar. 
 
 ## <a name="troubleshooting"></a>Sorun giderme
+
 Bilgisayarınızda çalıştırdığınız ilk Python uygulaması buysa YOL değişkeninize aşağıdaki klasörlerin (veya eşdeğer yükleme konumlarının) dahil olduğundan emin olun:
 
     C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
@@ -427,10 +451,11 @@ Bilgisayarınızda çalıştırdığınız ilk Python uygulaması buysa YOL değ
 Oy sayfanızda bir hata alırsanız ve projenize **öğretici** dışında bir ad verdiyseniz **\_\_init\_\_.py**'nin doğru proje adına şu satırda başvurduğundan emin olun: `import tutorial.view`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Tebrikler! Azure Cosmos DB kullanan ilk Python web uygulamanızı tamamladınız ve bunu Azure'da yayımladınız.
 
 Web uygulamanıza ek işlevsellik eklemek için [Azure Cosmos DB Python SDK'sında](sql-api-sdk-python.md) bulunan API'leri inceleyin.
 
 Azure, Visual Studio ve Python hakkında daha fazla bilgi için bkz. [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/). 
 
-Ek Python Flask öğreticileri için bkz. [Flask Mega-Eğitmeni, bölüm ı: Merhaba Dünya! ](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
+Ek Python Flask öğreticileri için bkz. [Flask Mega-Eğitmeni, bölüm ı: Merhaba Dünya! ](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).

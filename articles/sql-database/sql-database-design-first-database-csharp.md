@@ -10,12 +10,12 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553222"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303292"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Öğretici: Azure SQL veritabanı C içindeki tek bir veritabanında ilişkisel veritabanı tasarlama&#x23; ve ADO.NET
 
@@ -33,7 +33,7 @@ Azure SQL veritabanı, bir ilişkisel veritabanı olarak-hizmet (DBaaS), Microso
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Yüklemesini [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+Yüklemesini [Visual Studio 2019](https://www.visualstudio.com/downloads/) veya üzeri.
 
 ## <a name="create-a-blank-single-database"></a>Boş bir tek veritabanı oluşturma
 

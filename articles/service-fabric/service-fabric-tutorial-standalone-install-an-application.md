@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Tek başına Service Fabric kümenize uygulama yükleme - Azure Service Fabric | Microsoft Docs'
-description: Bu öğreticide, tek başına Service Fabric kümenize bir uygulama yüklemeyi öğreneceksiniz.
+description: Bu öğreticide, tek başına Service Fabric kümesine uygulama yükleme konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717953"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302431"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Öğretici: Service Fabric tek başına kümenizde bir uygulamayı dağıtma
 
-Service Fabric tek başına kümeleri, kendi ortamınızı seçme ve Service Fabric’in benimsediği "her işletim sistemi, her bulut" yaklaşımının bir parçası olarak bir küme oluşturma seçeneği sunar. Bu öğretici serisinde, AWS üzerinde barındırılan bir tek başına küme oluşturacak ve içine bir uygulama dağıtacaksınız.
+Service Fabric tek başına kümeleri, kendi ortamınızı seçme ve Service Fabric’in benimsediği "her işletim sistemi, her bulut" yaklaşımının bir parçası olarak bir küme oluşturma seçeneği sunar. Bu öğretici serisinde, AWS üzerinde barındırılan tek başına küme oluşturma ve bir uygulamasına dağıtırsınız.
 
-Bu öğretici, bir serinin üçüncü bölümüdür.  Service Fabric tek başına kümeleri, kendi ortamınızı seçme ve Service Fabric ile ilgili "her işletim sistemi, her bulut" yaklaşımımızın bir parçası olarak bir küme oluşturma seçeneği sunar. Bu öğreticide, bu tek başına kümeyi barındırmak için gereken AWS altyapısını oluşturma işlemi gösterilmektedir.
+Bu öğretici, bir serinin üçüncü bölümüdür.  Service Fabric tek başına kümeler ortamınızı seçin ve "Herhangi bir işletim sistemi, herhangi bir buluttaki" yaklaşımımız ile Service Fabric'i bir parçası olarak küme oluşturma seçeneğini sunar. Bu öğreticide, bu tek başına kümeyi barındırmak için gereken AWS altyapısını oluşturma işlemi gösterilmektedir.
 
 Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
@@ -38,7 +38,7 @@ Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
 Bu öğreticiye başlamadan önce:
 
-* **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017’yi yükleyin](https://www.visualstudio.com/).
+* [Visual Studio 2019 yükleme](https://www.visualstudio.com/) yükleyip **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
 * [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Voting örnek uygulamasını indirme

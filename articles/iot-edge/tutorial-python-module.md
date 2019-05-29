@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 09a3ff744e5e3d4a8c62bf8337179b9d8699c3c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244545"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303823"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Öğretici: Linux cihazlar için bir Python IOT Edge modülü geliştirme ve dağıtma
 
@@ -40,7 +40,7 @@ Bu öğreticide bir modülde nasıl geliştirilebileceğini gösterir **Python**
 
 Geliştirme ve Python modüllerini Linux'a dağıtma seçeneklerinizi anlamak için aşağıdaki tabloyu kullanın: 
 
-| Python | Visual Studio Code | Visual Studio 2017 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Python modüllerde Linux AMD64 için VS Code kullanma](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Linux ARM32 Python modüllerde için VS Code kullanma](./media/tutorial-c-module/green-check.png) |  |

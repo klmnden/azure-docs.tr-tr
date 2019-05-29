@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239767"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303860"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Öğretici: IOT Edge modülleri Linux cihazlar için geliştirme
 
@@ -42,18 +42,18 @@ Bu öğretici, IOT Edge modülü geliştirmeden açıklar. Bir *IOT Edge Modül�
 
 IOT Edge modülleri geliştirirken, bir geliştirme makineniz ve IOT Edge cihazı modülü sonunda dağıtılacağı hedef arasındaki farkı anlamak önemlidir. İşletim sistemi (OS) modülü kodunuzu saklamak için yapı kapsayıcı eşleşmelidir *hedef cihaz*. Örneğin, en sık karşılaşılan bir senaryodur IOT Edge çalıştıran bir Linux cihazı hedeflemeniz amaçlanıyorsa bir Windows bilgisayarda bir modül geliştirme kişidir. Bu durumda, kapsayıcı işletim sistemi Linux olacaktır. Bu öğreticide ilerlerken, arasındaki farkı akılda tutulması *geliştirme makine işletim sistemi* ve *kapsayıcı işletim sistemi*.
 
-Bu öğreticide, Linux IOT Edge çalıştıran cihazlara hedefler. Geliştirme makinenizde Linux kapsayıcıları çalıştırabilirsiniz sürece, tercih ettiğiniz geliştirme makine işletim sistemi kullanabilirsiniz. Linux cihazlar için bu öğreticiyi kullanın, bu nedenle geliştirmek için Visual Studio Code kullanılması önerilir. Destek iki aracı arasındaki farklılıkları olsa da Visual Studio 2017'yi kullanabilirsiniz.
+Bu öğreticide, Linux IOT Edge çalıştıran cihazlara hedefler. Geliştirme makinenizde Linux kapsayıcıları çalıştırabilirsiniz sürece, tercih ettiğiniz geliştirme makine işletim sistemi kullanabilirsiniz. Linux cihazlar için bu öğreticiyi kullanın, bu nedenle geliştirmek için Visual Studio Code kullanılması önerilir. Destek iki aracı arasındaki farklılıkları olsa da Visual Studio'yu kullanabilirsiniz.
 
-Aşağıdaki tabloda desteklenen geliştirme senaryoları için **Linux kapsayıcıları** Visual Studio Code ve Visual Studio 2017.
+Aşağıdaki tabloda desteklenen geliştirme senaryoları için **Linux kapsayıcıları** Visual Studio Code ve Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux cihaz mimarisi** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure Hizmetleri** | Azure İşlevleri <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Diller** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Daha fazla bilgi** | [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IOT Edge için Visual Studio 2017 Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IOT Edge için Visual Studio 2019 araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-Bu öğretici, Visual Studio Code için geliştirme adımlarını öğretir. Bunun yerine Visual Studio 2017'yi kullanmayı tercih ediyorsanız, yönergeleri başvurmak [kullanan Visual Studio geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için 2017](how-to-visual-studio-develop-module.md).
+Bu öğretici, Visual Studio Code için geliştirme adımlarını öğretir. Bunun yerine Visual Studio kullanmayı tercih ediyorsanız, yönergeleri başvurmak [kullanan Visual Studio geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için 2019](how-to-visual-studio-develop-module.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

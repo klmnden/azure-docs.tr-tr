@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: pafarley
-ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f65375bfd826660f8583068875a1fddc545a86d7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507799"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306542"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Yüklemek ve forma tanıyıcı kapsayıcılarını çalıştırın
 Form tanıyıcı tanımlamak ve anahtar-değer çiftleri ve tabloları formlardan ayıklamak için makine öğrenimi teknolojisi geçerlidir. Bu değerler ve tablo girişleri onlara ilişkilendirir ve ardından özgün dosyayı ilişkileri içeren yapılandırılmış verileri çıkarır. İş akışı Otomasyonu işleminiz veya başka bir uygulama içinde kolayca tümleştirin ve karmaşıklığını azaltmak için basit bir REST API kullanarak özel Form tanıyıcı modelinizi çağırabilirsiniz. Yalnızca beş belge (veya boş bir form) gerekli sonuçları alabilmeniz için hızlı bir şekilde, doğru bir şekilde ve ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gerek kalmadan özel içeriğinize uyarlanmış. Veri ek açıklama verileri etiketleme veya gerektirmez.
@@ -101,7 +101,7 @@ Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı i
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) üç kapsayıcı birini çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Value |
+| Yer tutucu | Değer |
 |-------------|-------|
 |{BILLING_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır ve Azure portalının Form tanıyıcı anahtarlar sayfasında bulabilirsiniz.  |
 |{BILLING_ENDPOINT_URI} | Fatura uç noktası URI değerini Azure portalının Form tanıyıcı genel bakış sayfasında kullanılabilir.|
@@ -282,6 +282,10 @@ Azure için fatura, kullanarak Form tanıyıcı kapsayıcıları Gönder bir _Fo
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Bu seçenekler hakkında daha fazla bilgi için bkz. [kapsayıcıları yapılandırma](form-recognizer-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Özet
 

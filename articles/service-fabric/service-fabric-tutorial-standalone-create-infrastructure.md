@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: aa50cbe640c928c4113fb64c1b503548a95ee0a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718352"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302468"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesini barındırmak için AWS altyapı oluşturun
 
@@ -33,7 +33,7 @@ Serinin birinci bölümünde şunları öğrenirsiniz:
 > [!div class="checklist"]
 > * Bir EC2 örnekleri kümesi oluşturma
 > * Güvenlik grubunu değiştirme
-> * Örneklerden birinde oturum açma
+> * Örneklerinden birinde oturum açın
 > * Service Fabric örneğini hazırlama
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -42,7 +42,7 @@ Bu öğreticiyi tamamlamak için bir AWS hesabınızın olması gerekir.  Henüz
 
 ## <a name="create-ec2-instances"></a>EC2 örnekleri oluşturma
 
-AWS Konsolunda oturum açın > arama kutusuna **EC2** yazın > **Bulutta EC2 Sanal Sunucuları**’nı seçin
+AWS konsolunda oturum açın > Enter **EC2** arama kutusuna > **EC2 sanal sunucularını bulutta**
 
 ![AWS konsol araması][aws-console]
 
@@ -151,7 +151,7 @@ Serinin birinci bölümünde üç EC2 örneğini başlatmayı ve Service Fabric 
 > [!div class="checklist"]
 > * Bir EC2 örnekleri kümesi oluşturma
 > * Güvenlik grubunu değiştirme
-> * Örneklerden birinde oturum açma
+> * Örneklerinden birinde oturum açın
 > * Service Fabric örneğini hazırlama
 
 Service Fabric’i kümenizde yapılandırmak için serinin ikinci bölümüne ilerleyin.

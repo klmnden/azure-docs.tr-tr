@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: allensu
-ms.openlocfilehash: fdae6f9f83cace2d2da08ae2494dbc82a94b1e5d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f9e2b6f6a45279c52e19a63509c57fb34e739330
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238905"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258381"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Öğretici: Denetim trafik Traffic Manager'ı kullanarak ağırlıklı uç noktalar ile yönlendirme
 
@@ -51,7 +51,7 @@ Bu bölümde Traffic Manager profili için iki farklı Azure bölgesinde iki hiz
 
 #### <a name="create-vms-for-running-websites"></a>Web sitelerini çalıştırmak için VM oluşturma
 
-Bu bölümde Doğu ABD ve Batı Avrupa Azure bölgelerinde *myIISVMEastUS* ve *myIISVMWEurope* adlı iki VM oluşturacaksınız.
+Bu bölümde, iki VM oluşturun (*myIISVMEastUS* ve *myIISVMWestEurope*) Doğu ABD ve Batı Avrupa Azure bölgelerinde.
 
 1. Üst üzerinde köşe seçin Azure portalının sol **kaynak Oluştur** > **işlem** > **Windows Server 2019 Datacenter**.
 2. İçinde **sanal makine oluşturma**yazın veya aşağıdaki değerleri seçin **Temelleri** sekmesinde:
@@ -67,14 +67,14 @@ Bu bölümde Doğu ABD ve Batı Avrupa Azure bölgelerinde *myIISVMEastUS* ve *m
 3. Seçin **Yönetim** sekmesinde veya seçin **sonraki: Diskleri**, ardından **sonraki: Ağ**, ardından **sonraki: Yönetim**. Altında **izleme**ayarlayın **önyükleme tanılaması** için **kapalı**.
 4. **İncele ve oluştur**’u seçin.
 5. Ayarları gözden geçirin ve ardından **Oluştur**.  
-6. Adlı ikinci bir VM oluşturmak için adımları *myIISVMWEurope*, ile bir **kaynak grubu** adını *myResourceGroupTM2*, **konumu** ' ın *Batı Avrupa*ve diğer ayarları aynı *myIISVMEastUS*.
+6. Adlı ikinci bir VM oluşturmak için adımları *myIISVMWestEurope*, ile bir **kaynak grubu** adını *myResourceGroupTM2*, **konumu**, *Batı Avrupa*ve diğer ayarları aynı *myIISVMEastUS*.
 7. Sanal makinelerin oluşturulması birkaç dakika sürebilir. Her iki sanal makine de oluşturulmadan kalan adımlara devam etmeyin.
 
 ![VM oluşturma](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
 #### <a name="install-iis-and-customize-the-default-webpage"></a>IIS yükleme ve varsayılan web sayfasını özelleştirme
 
-Bu bölümde, IIS sunucusu iki sanal makinelerine myIISVMEastUS ve myIISVMWEurope yüklemek ve sonra varsayılan Web sayfasını güncelleştirin. Özelleştirilmiş web sayfası, web sitesini bir web tarayıcısından ziyaret ettiğinizde bağlandığınız VM'nin adını gösterecek.
+Bu bölümde, iki VM myIISVMEastUS ve myIISVMWestEurope IIS sunucusu yükleyin ve sonra varsayılan Web sayfasını güncelleştirin. Özelleştirilmiş web sayfası, web sitesini bir web tarayıcısından ziyaret ettiğinizde bağlandığınız VM'nin adını gösterecek.
 
 1. Soldaki menüden **Tüm kaynaklar**’ı seçin. Kaynak listesinden, **myResourceGroupTM1** kaynak grubundaki **myIISVMEastUS** seçeneğini belirleyin.
 2. **Genel Bakış** sayfasında **Bağlan**'ı seçin. **Sanal makineye bağlanma** bölümünde **RDP dosyasını indir**'i seçin.
@@ -83,6 +83,7 @@ Bu bölümde, IIS sunucusu iki sanal makinelerine myIISVMEastUS ve myIISVMWEurop
 5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin.
 6. Sunucu masaüstünde **Windows Yönetimsel Araçları** > **Sunucu Yöneticisi** bölümüne gidin.
 7. VM1'de Windows PowerShell'i açın. IIS sunucusunu yükleyip varsayılan htm dosyasını güncelleştirmek için aşağıdaki komutları kullanın.
+
     ```powershell-interactive
     # Install IIS
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -97,20 +98,20 @@ Bu bölümde, IIS sunucusu iki sanal makinelerine myIISVMEastUS ve myIISVMWEurop
     ![IIS yükleme ve web sayfasını özelleştirme](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 
 8. **myIISVMEastUS** ile RDP bağlantısını kapatın.
-9. 1-8 arası adımları tekrarlayın. **myResourceGroupTM2** kaynak grubu içindeki **myIISVMWEurope** adlı VM ile RDP bağlantısı kurarak IIS yükleyip varsayılan web sayfasını özelleştirin.
+9. 1-8 arası adımları tekrarlayın. VM ile RDP bağlantısı oluşturma **myIISVMWestEurope** içinde **myResourceGroupTM2** kaynak grubu, IIS yükleyebilir ve kendi varsayılan Web sayfasını özelleştirme.
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>IIS çalıştıran VM'lerin DNS adlarını yapılandırma
 
-Traffic Manager, kullanıcı trafiğini hizmet uç noktalarının DNS adına göre yönlendirir. Bu bölümde myIISVMEastUS ve myIISVMWEurope adlı IIS sunucularının DNS adlarını yapılandıracaksınız.
+Traffic Manager, kullanıcı trafiğini hizmet uç noktalarının DNS adına göre yönlendirir. Bu bölümde, IIS sunucuları myIISVMEastUS ve myIISVMWestEurope DNS adlarını yapılandırın.
 
 1. Soldaki menüden **Tüm kaynaklar**’ı seçin. Kaynak listesinden, **myResourceGroupTM1** kaynak grubundaki **myIISVMEastUS** seçeneğini belirleyin.
 2. **Genel bakış** sayfasının **DNS adı** bölümünde **Yapılandır**'ı seçin.
 3. **Yapılandır** sayfasının DNS adı bölümünde benzersiz bir ad ekleyin. Daha sonra **Kaydet**’e tıklayın.
-4. Yineleme adlı VM için 1-3 adımları **myIISVMWEurope** içinde **myResourceGroupTM2** kaynak grubu.
+4. Yineleme adlı VM için 1-3 adımları **myIISVMWestEurope** içinde **myResourceGroupTM2** kaynak grubu.
 
 ### <a name="create-a-test-vm"></a>Test VM’si oluşturma
 
-Bu bölümde, bir VM oluşturun (*myVMEastUS* ve *myVMWestEurope*) her bir Azure bölgesinde (**Doğu ABD** ve **Batı Avrupa**. Traffic Manager trafiği yüksek ağırlık değerine sahip Web sitesi uç noktası nasıl yönlendirdiğini test etmek için bu sanal makineler kullanır.
+Bu bölümde, bir VM oluşturun (*myVMEastUS* ve *myVMWestEurope*) her bir Azure bölgesinde (**Doğu ABD** ve **Batı Avrupa**). Traffic Manager trafiği yüksek ağırlık değerine sahip Web sitesi uç noktası nasıl yönlendirdiğini test etmek için bu sanal makineler kullanır.
 
 1. Üst üzerinde köşe seçin Azure portalının sol **kaynak Oluştur** > **işlem** > **Windows Server 2019 Datacenter**.
 2. İçinde **sanal makine oluşturma**yazın veya aşağıdaki değerleri seçin **Temelleri** sekmesinde:
@@ -148,7 +149,7 @@ Bu bölümde, bir VM oluşturun (*myVMEastUS* ve *myVMWestEurope*) her bir Azure
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager uç noktalarını ekleme
 
-IIS sunucuları myIISVMEastUS ve myIISVMWEurope, kullanıcı trafiği yönlendirmek için bunları çalıştıran iki sanal makine ekleyin.
+IIS sunucuları myIISVMEastUS ve myIISVMWestEurope, kullanıcı trafiği yönlendirmek için bunları çalıştıran iki sanal makine ekleyin.
 
 1. Portalın arama çubuğunda önceki bölümde oluşturduğunuz Traffic Manager profili adını arayın. Görüntülenen sonuçlardan profili seçin.
 2. **Traffic Manager profilinin** **Ayarlar** bölümünde **Uç noktalar** > **Ekle**'yi seçin.
@@ -156,14 +157,14 @@ IIS sunucuları myIISVMEastUS ve myIISVMWEurope, kullanıcı trafiği yönlendir
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Tür                    | Azure uç noktasını girin.                                   |
+    | Type                    | Azure uç noktasını girin.                                   |
     | Ad           | **myEastUSEndpoint** yazın.                                        |
     | Hedef kaynak türü           | **Genel IP adresi**'ni seçin.                          |
     | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için genel IP adresi seçin. **Kaynak** bölümünde **myIISVMEastUS-ip** adlı genel IP adresini seçin. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|
     |  Ağırlık      | **100** değerini girin.        |
     |        |           |
 
-4. 2 ve 3 numaralı adımları tekrarlayarak **myIISVMWEurope-ip** genel IP adresi için **myWestEuropeEndpoint** adlı başka bir uç nokta ekleyin. Bu adres, myIISVMWEurope adlı IIS sunucusu VM'si ile ilişkilendirilir. **Ağırlık** için **25** değerini girin.
+4. 2 ve 3 adlı başka bir uç nokta ekleme **myWestEuropeEndpoint** genel IP adresi için **myIISVMWestEurope IP**. Bu IIS sunucusu myIISVMWestEurope adlı VM ile ilişkili adresidir. **Ağırlık** için **25** değerini girin.
 5. Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte Traffic Manager profili bölümünde gösterilir.
 
 ## <a name="test-the-traffic-manager-profile"></a>Traffic Manager profilini test etme
@@ -194,7 +195,7 @@ Bu bölümde Traffic Manager'ın nasıl çalıştığını görebilirsiniz.
 3. İndirilen .rdp dosyasını açın. İstendiğinde **Bağlan**’ı seçin. Sanal makine oluştururken belirttiğiniz kullanıcı adını ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler** > **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir.
 4. **Tamam**’ı seçin.
 5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin.
-6. Web sitesini görüntülemek için myVMEastUS adlı VM'de bir web tarayıcısında Traffic Manager profilinizin DNS adını girin. Ağırlık değeri **100** ile daha yüksek olduğundan myIISVMEastUS üzerindeki IIS sunucusunda barındırılan web sitesine yönlendirilirsiniz. myIISVMWEurope adlı IIS sunucusu, **25** ile daha düşük bir uç nokta ağırlık değerine sahiptir.
+6. Web sitesini görüntülemek için myVMEastUS adlı VM'de bir web tarayıcısında Traffic Manager profilinizin DNS adını girin. Ağırlık değeri **100** ile daha yüksek olduğundan myIISVMEastUS üzerindeki IIS sunucusunda barındırılan web sitesine yönlendirilirsiniz. IIS server myIISVMWestEurope daha düşük bir uç nokta ağırlık değeri atanır **25**.
 
    ![Traffic Manager profilini test etme](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 

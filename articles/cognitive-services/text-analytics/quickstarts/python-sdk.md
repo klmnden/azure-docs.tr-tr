@@ -10,22 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: aahi
-ms.openlocfilehash: 2e9e26243511972c7d05dc55c8e041d83efcbc7d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b319abf22f9aa4cdd9a5fef91be0628672d47bd4
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546590"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297796"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Hızlı Başlangıç: Python SDK'sını kullanarak metin analizi hizmeti çağırma 
 <a name="HOLTop"></a>
 
-Bu hızlı başlangıçta Python için metin analizi SDK'sı ile dil incelemeye başlamak için kullanın. Metin analizi REST API'si ile çoğu programlama dilinden uyumlu olsa da, SDK hizmeti seri hale getirme ve JSON seri durumdan çıkarılırken uygulamalarınızla tümleştirmek için kolay bir yol sağlar.
-
-
-> [!Note]
-> * API'lerle ilgili teknik bilgiler için [API tanımları](//go.microsoft.com/fwlink/?LinkID=759346) sayfasını inceleyin.
-> * Bu örnek için kaynak kodu bulunabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).  
+Bu hızlı başlangıçta Python için metin analizi SDK'sı ile dil incelemeye başlamak için kullanın. Metin analizi REST API'si ile çoğu programlama dilinden uyumlu olsa da, SDK hizmeti seri hale getirme ve JSON seri durumdan çıkarılırken uygulamalarınızla tümleştirmek için kolay bir yol sağlar. Bu örnek için kaynak kodu bulunabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

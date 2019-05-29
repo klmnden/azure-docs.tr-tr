@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f712cc34a3d41ea9472bf9428606cb378eef8c18
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b0e48a0db63eded9e9c4921d33b03af39656ce0d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244255"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299273"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Öğretici: .NET Core uygulamasında özellik bayraklarını kullanma
 
-.NET Core özellik yönetim kitaplıkları, .NET veya ASP.NET Core uygulamada özellik bayraklarını uygulamak için kullanılan deyimsel desteği sağlar. Böylece tüm yazmak zorunda değil özellik kodunuza daha bildirimli olarak işaretler. eklemenize izin `if` deyimleri için bunları el ile. Özellik bayrağı yaşam döngüleri (örneğin, yenileme ve durumları bayrak, istek araması sırasında sabit olması için bir bayrak durumunu garanti önbelleği) yönettikleri sahnenin arkasına. Ayrıca, ASP.NET Core kitaplığı MVC denetleyici eylemleri, görünümler, yollar ve ara yazılım gibi kullanıma hazır Tümleştirmelerin sunar.
+.NET Core özellik yönetim kitaplıkları, .NET veya ASP.NET Core uygulamada özellik bayraklarını uygulamak için kullanılan deyimsel desteği sağlar. Böylece tüm yazmak zorunda değil özellik kodunuza daha bildirimli olarak işaretler. eklemenize izin `if` deyimleri için bunları el ile. Özellik bayrağı yaşam döngüleri (örneğin, yenileme ve durumları bayrak, istek araması sırasında sabit olması için bir bayrak durumunu garanti önbelleği) yönettikleri arka planda. Ayrıca, ASP.NET Core kitaplığı MVC denetleyici eylemleri, görünümler, yollar ve ara yazılım gibi kullanıma hazır Tümleştirmelerin sunar.
 
 [ASP.NET Core uygulaması için özellik bayraklarını ekleme](./quickstart-feature-flag-aspnet-core.md) hızlı başlangıç, birkaç özellik bayrakları bir ASP.NET Core uygulaması eklemek için yol gösterir. Bu öğreticide, bunları daha ayrıntılı açıklanmaktadır. Bkz: [ASP.NET Core özellik yönetim belgelerine](https://go.microsoft.com/fwlink/?linkid=2091410) için eksiksiz bir başvuru.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Özellik bayrakları, anahtar Özellik kullanılabilirliği kontrol etmek için uygulamanızın parçalarını içinde ekleyin.
@@ -66,7 +66,7 @@ public class Startup
 }
 ```
 
-Filtre, özellik bayrakları kullanıyorsanız, ek bir kitaplık içerir ve kaydetmek gerekir. Aşağıdaki örnekte adlı bir yerleşik özellik filtresini kullanma işlemi gösterilmektedir **PercentageFilter "** .
+Filtreler, özellik bayrakları kullanıyorsanız, ek bir kitaplık içerir ve kaydetmek gerekir. Aşağıdaki örnekte adlı bir yerleşik özellik filtresini kullanma işlemi gösterilmektedir **PercentageFilter "** .
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -82,7 +82,7 @@ public class Startup
 }
 ```
 
-Etkili bir şekilde çalışması için özellik bayraklarını uygulama dışında tutun ve ayrı olarak yönetin. Bunun yapılması, dilediğiniz zaman bayrağı durumlarını değiştirme ve uygulamaya hemen etkili bu değişiklikleri sağlar. Uygulama yapılandırması, düzenleme ve tüm özelliğinizi denetlemek için merkezi bir yerde adanmış bir portal kullanıcı Arabirimi bayraklar ve kitaplıkları, .NET Core istemcisi üzerinden doğrudan uygulamanıza bayrakları sunar sağlar. Yapılandırma sağlayıcısı uygulama yapılandırması için ASP.NET Core uygulamanızı bağlamak için en kolay yolu olan `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Aşağıdakileri ekleyerek bu NuGet paketi kodunuza kullanabilirsiniz *Program.cs* dosyası:
+Etkili bir şekilde çalışması için özellik bayraklarını uygulama dışında tutun ve ayrı olarak yönetin. Bunun yapılması, dilediğiniz zaman bayrağı durumlarını değiştirme ve etkili uygulama hemen bu değişiklikleri sağlar. Uygulama yapılandırması, düzenleme ve tüm özelliğinizi denetlemek için merkezi bir yerde adanmış bir portal kullanıcı Arabirimi bayraklar ve kitaplıkları, .NET Core istemcisi üzerinden doğrudan uygulamanıza bayrakları sunar sağlar. Yapılandırma sağlayıcısı uygulama yapılandırması için ASP.NET Core uygulamanızı bağlamak için en kolay yolu olan `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Aşağıdakileri ekleyerek bu NuGet paketi kodunuza kullanabilirsiniz *Program.cs* dosyası:
 
 ```csharp
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;

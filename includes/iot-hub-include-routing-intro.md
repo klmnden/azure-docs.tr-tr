@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162645"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271578"
 ---
 [İleti yönlendirme](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) blob depolama, Service Bus kuyrukları, Service Bus konu başlıklarına ve Event Hubs telemetri verilerini IOT cihazlarınızdan yerleşik Event Hub ile uyumlu uç noktalar veya özel uç noktalar gibi gönderilmesini sağlar. Özel ileti yönlendirmeyi yapılandırmak için oluşturduğunuz [yönlendirme sorguları](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) belirli bir koşul ile eşleşen bir rota özelleştirmek için. Ayarlandıktan sonra, gelen veriler IoT Hub'ı tarafından otomatik olarak uç noktalara yönlendirilir. Bir ileti herhangi bir tanımlı yönlendirme sorgular eşleşmiyorsa, varsayılan uç noktaya yönlendirilir.
 
 2-bir parçası olan Bu öğreticide, kurma ve IOT Hub ile bu özel yönlendirme sorguları kullanma konusunda bilgi edinin. Blob depolama ve Service Bus kuyruğuna dahil olmak üzere birden fazla uç nokta birine iletileri IOT cihazından yol. Service Bus kuyruğuna ileti bir mantıksal uygulama tarafından teslim alındı ve e-postayla gönderilir. Tanımlanan özel ileti yönlendirme olmayan iletiler varsayılan uç noktaya gönderdi sonra Azure Stream Analytics tarafından teslim alındı ve Power BI görselleştirmelerinde görüntülenen.
 
- Tam bölümleri için 1 ve 2. Bu öğretici aşağıdaki görevleri gerçekleştirin:
+Tam bölümleri için 1 ve 2. Bu öğretici aşağıdaki görevleri gerçekleştirmiştir:
 
 **Bölümü I: İleti yönlendirmeyi'kurmak, kaynakları oluşturma**
 > [!div class="checklist"]
