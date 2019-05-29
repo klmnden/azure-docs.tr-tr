@@ -685,8 +685,6 @@
               href: platform/powerbi.md
             - name: Uygulama verilerini dışarı aktarma
               href: app/export-power-bi.md
-        - name: Panolar
-          href: app/app-insights-dashboards.md
         - name: Grafana'ya veri gönderme
           href: platform/grafana-plugin.md
     - name: Verileri çözümleme
@@ -1072,8 +1070,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: SDK sürüm notları
           href: app/release-notes.md
-        - name: Developer Analytics Tools için sürüm notları
-          href: app/release-notes-vsix.md
     - name: Windows Analizi
       href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Bölgesel kullanılabilirlik

@@ -6,20 +6,20 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 87efac96aa0120bfcc804f7a2a49a5ac3da1036b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ed6a8f83d2ef31513aeadbc6741dd77c30c30070
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719060"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252892"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Öğretici: HDInsight uygulama öğrenme bir Apache Spark makine oluşturun 
 
 Bu öğreticide, şunların nasıl kullanılacağını [Jupyter not defteri](https://jupyter.org/) oluşturmak için bir [Apache Spark](https://spark.apache.org/) makine öğrenimi uygulaması Azure HDInsight için. 
 
-[MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html); sınıflandırma, regresyon, kümeleme, ortak filtreleme, boyut düzeyi azaltma gibi genel öğrenme algoritmaları ve yardımcı programlarının yanı sıra temel alınan iyileştirme temellerinden oluşan, Spark’ın makine öğrenimi kitaplığıdır.
+[MLlib](https://spark.apache.org/docs/latest/ml-guide.html); sınıflandırma, regresyon, kümeleme, ortak filtreleme, boyut düzeyi azaltma gibi genel öğrenme algoritmaları ve yardımcı programlarının yanı sıra temel alınan iyileştirme temellerinden oluşan, Spark’ın makine öğrenimi kitaplığıdır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
@@ -27,15 +27,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar:
+## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdakiler gerekir:
+* HDInsight üzerinde bir Apache Spark kümesi. Bkz: [bir Apache Spark kümesi oluşturma](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-* [Azure HDInsight’ta Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md) bölümünü tamamlamak.
+* HDInsight üzerinde Spark ile Jupyter Notebook kullanma bilgisi. Daha fazla bilgi için [veri yükleme ve HDInsight üzerinde Apache Spark ile sorguları çalıştırma](./apache-spark-load-data-run-query.md).
 
 ## <a name="understand-the-data-set"></a>Veri kümesini anlamak
 
-Uygulama, varsayılan olarak tüm kümelerde bulunan örnek HVAC.csv verilerini kullanır. Dosya şu konumdadır: **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Veriler, HVAC sistemlerinin yüklü olduğu bazı binaların hedef sıcaklığı ile gerçek sıcaklığını gösterir. **System** sütunu sistem kimliğini, **SystemAge** sütunu ise HVAC sisteminin binada kaç yıldır kullanıldığını ifade eder. Verileri kullanarak, bir sistem kimliği ve sistem yaşı için binanın hedef sıcaklığa göre daha sıcak ya da daha soğuk olacağını öngörebilirsiniz.
+Uygulama, varsayılan olarak tüm kümelerde bulunan örnek HVAC.csv verilerini kullanır. Dosya şu konumdadır `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Veriler, HVAC sistemlerinin yüklü olduğu bazı binaların hedef sıcaklığı ile gerçek sıcaklığını gösterir. **System** sütunu sistem kimliğini, **SystemAge** sütunu ise HVAC sisteminin binada kaç yıldır kullanıldığını ifade eder. Verileri kullanarak, bir sistem kimliği ve sistem yaşı için binanın hedef sıcaklığa göre daha sıcak ya da daha soğuk olacağını öngörebilirsiniz.
 
 ![Spark makine öğrenimi örneği için kullanılan verilerin anlık görüntüsü](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark makine öğrenimi örneği için kullanılan verilerin anlık görüntüsü")
 
@@ -60,6 +60,7 @@ Bu uygulamada bir belge sınıflandırması gerçekleştirmek için Spark [ML i�
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
+
 3. Verileri yükleyin (hvac.csv), ayrıştırın ve modeli eğitmek için kullanın. 
 
     ```PySpark
@@ -96,7 +97,7 @@ Bu uygulamada bir belge sınıflandırması gerçekleştirmek için Spark [ML i�
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    İşlem hattı ve nasıl çalıştığı hakkında daha fazla bilgi için bkz. <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark makine öğrenimi işlem hattı</a>.
+    İşlem hattı ve nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Apache Spark makine öğrenimi işlem hattı](https://spark.apache.org/docs/latest/ml-pipeline.html).
 
 5. İşlem hattını eğitim belgesine uygun hale getirin.
    
@@ -187,12 +188,7 @@ HDInsight’ta Apache Spark kümeleri, Anaconda kitaplıklarını içerir. Ayrı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-* Bir Apache Spark makine öğrenimi uygulama geliştirin
-
-Spark işleri için IntelliJ IDEA kullanma hakkında bilgi edinmek üzere sonraki öğreticiye ilerleyin. 
+Bu öğreticide, Azure HDInsight için uygulama öğrenme bir Apache Spark machine oluşturmak için Jupyter not defterini kullanma öğrendiniz. Spark işleri için IntelliJ IDEA kullanma hakkında bilgi edinmek üzere sonraki öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
 > [Intellij kullanarak Scala Maven uygulama oluşturma](./apache-spark-create-standalone-application.md)
-

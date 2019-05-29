@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861526"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253080"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -29,7 +29,7 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* En az çalıştırılması gereken Windows 10, sürüm Nisan 2018 güncelleştirme ve cihazlara aşağıdakilerden biri olması gerekir:
+* En az çalıştırılması gereken Windows 10, sürüm Nisan 2018 Güncelleştirmesi (v1803) ve cihazları aşağıdakilerden biri olması gerekir:
    * [Azure AD'ye katılmış](../device-management-azure-portal.md) veya
    * [Hibrit Azure AD'ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
 * Etkinleştirmeniz Azure AD Self Servis parola sıfırlama.
@@ -122,7 +122,7 @@ Uzak Masaüstü veya bir Gelişmiş VM oturumu kullanarak bu işlevi test ederke
 
 * Şu anda Uzak Masaüstü'nden parola sıfırlama desteklenmiyor.
 
-Ctrl + Alt + Del İlkesi'nde Windows 10 sürümleri tarafından 1809 önce gerekiyorsa **parolayı Sıfırla** çalışmaz.
+Windows 10 sürümleri v1809 önce İlkesi tarafından Ctrl + Alt + Del gerekiyorsa **parolayı Sıfırla** çalışmaz.
 
 Kilitleme ekranı bildirimleri devre dışı ise **parolayı Sıfırla** çalışmaz.
 
