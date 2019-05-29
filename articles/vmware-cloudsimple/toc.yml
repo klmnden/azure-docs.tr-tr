@@ -6,7 +6,7 @@
         - name: CloudSimple tarafından sunulan VMware Çözümü nedir?
           href: cloudsimple-vmware-solutions-overview.md
         - name: Yönetimle ilgili önemli kavramlar
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: Hızlı Başlangıç
       expanded: true
       items:
@@ -21,7 +21,7 @@
     - name: Kavramlar
       items:
         - name: Hizmet
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: Düğümler
           href: cloudsimple-node.md
         - name: Özel bulut
@@ -45,13 +45,13 @@
         - name: Özel bulut üzerinde VMware
           href: vmware-components.md
         - name: Güvenliğe genel bakış
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: Düğüm kotası
           href: node-quota.md
         - name: Bakım ve güncelleştirmeler
           href: cloudsimple-maintenance-updates.md
         - name: SSS
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: Öğreticiler
       items:
         - name: Kaynak sağlayıcısını etkinleştirme

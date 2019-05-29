@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990776"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357822"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Öğretici: Azure Resource Manager şablonlarını koşul kullanın
 
@@ -39,7 +39,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 Bu öğretici yalnızca koşullarını kullanarak temel bir senaryoyu kapsar. Daha fazla bilgi için bkz.
 
 * [Şablon dosya yapısı: Koşul](./resource-group-authoring-templates.md#condition).
-* [Koşullu olarak kaynak içinde bir Azure Resource Manager şablonu dağıtma](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [Koşullu olarak kaynak içinde bir Azure Resource Manager şablonu dağıtma](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Şablon işlevi: Varsa](./resource-group-template-functions-logical.md#if).
 * [Karşılaştırma işlevleri için Azure Resource Manager şablonları](./resource-group-template-functions-comparison.md)
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 929e9c1e53354832db9e3b73f5596cd4b0fdd774
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d057628f79eb5edbbd3424d29aa7683b5d99eb7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60408912"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357216"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Java ve REST API kullanarak resimlerdeki el yazısı metinleri ayıklamak
 
@@ -98,9 +98,6 @@ public class Main {
             // for processing, the other to retrieve the text found in the image.
 
             URIBuilder builder = new URIBuilder(uriBase);
-
-            // Request parameter.
-            builder.setParameter("mode", "Handwritten");
 
             // Prepare the URI for the REST API method.
             URI uri = builder.build();

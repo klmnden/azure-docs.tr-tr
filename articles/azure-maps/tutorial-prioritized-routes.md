@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0d201baec253abee9ad8a998dd36968927a25a6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692115"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357600"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Haritalar’ı kullanarak farklı seyahat modları için yolları bulma
 
@@ -216,7 +216,7 @@ Bu bölümde, yolların belirtilen başlangıç noktasından ulaşım aracınız
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` Oluşturur bir `SubscriptionKeyCredentialPolicy` abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. `atlas.service.MapsURL.newPipeline()` Alır `SubscriptionKeyCredential` ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) örneği. `routeURL` Azure haritalar için URL'yi temsil [rota](https://docs.microsoft.com/rest/api/maps/route) operations.
+   `SubscriptionKeyCredential` Oluşturur bir `SubscriptionKeyCredentialPolicy` abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. `atlas.service.MapsURL.newPipeline()` Alır `SubscriptionKeyCredential` ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) örneği. `routeURL` Azure haritalar için URL'yi temsil [rota](https://docs.microsoft.com/rest/api/maps/route) operations.
 
 2. Kimlik bilgileri ve URL'yi aşağıdaki JavaScript ekleme ayarlandıktan sonra başından uç noktası USHazmatClass2 taşıyan bir kamyon için bir yol oluşturmak için kod Kargo sınıflandırılan ve sonuçları görüntülemek.
 
@@ -245,7 +245,7 @@ Bu bölümde, yolların belirtilen başlangıç noktasından ulaşım aracınız
     });
     ```
 
-    Yukarıdaki Bu kod parçacığında bir Azure haritalar yönlendirme hizmeti aracılığıyla sorgular [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) yöntemi. Rota satırı kullanarak ayıklanan yanıtından GeoJSON özellik koleksiyondan ayıklanır `geojson.getFeatures()` yöntemi. Rota satırın ardından veri kaynağına eklenir. Ayrıca, herhangi bir veri kaynağı satırlarında önce işlenen emin olmak için 0 dizinini ekler. Bunun nedeni, tır rotası hesaplama işlemlerinin araba rotası hesaplama işlemlerinden genellikle daha yavaş gerçekleştirilmesi ve tır rotasının araba rotasından sonra veri kaynağına eklenmesi durumunda üstünde işlenecek olmasıdır. İki özellik, kamyon rotası satırı yeşilin güzel bir tonunda mavi ve bir darbe genişliği dokuz piksel bir vuruş rengi eklenir.
+    Yukarıdaki Bu kod parçacığında bir Azure haritalar yönlendirme hizmeti aracılığıyla sorgular [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) yöntemi. Rota satırı kullanarak ayıklanan yanıtından GeoJSON özellik koleksiyondan ayıklanır `geojson.getFeatures()` yöntemi. Rota satırın ardından veri kaynağına eklenir. Ayrıca, herhangi bir veri kaynağı satırlarında önce işlenen emin olmak için 0 dizinini ekler. Bunun nedeni, tır rotası hesaplama işlemlerinin araba rotası hesaplama işlemlerinden genellikle daha yavaş gerçekleştirilmesi ve tır rotasının araba rotasından sonra veri kaynağına eklenmesi durumunda üstünde işlenecek olmasıdır. İki özellik, kamyon rotası satırı yeşilin güzel bir tonunda mavi ve bir darbe genişliği dokuz piksel bir vuruş rengi eklenir.
 
 3. Bir otomobil için bir yol oluşturmak ve sonuçları görüntülemek için aşağıdaki JavaScript kodunu ekleyin.
 
@@ -265,7 +265,7 @@ Bu bölümde, yolların belirtilen başlangıç noktasından ulaşım aracınız
     });
     ```
 
-    Yukarıdaki Bu kod parçacığında bir Azure haritalar yönlendirme hizmeti aracılığıyla sorgular [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) yöntemi. Rota satırı kullanarak ayıklanan yanıtından GeoJSON özellik koleksiyondan ayıklanır `geojson.getFeatures()` yöntemi. Rota satırın ardından veri kaynağına eklenir. İki özellik, araba rotası satırı gölge mor ve bir darbe genişliği beş piksel olan bir vuruş rengi eklenir.  
+    Yukarıdaki Bu kod parçacığında bir Azure haritalar yönlendirme hizmeti aracılığıyla sorgular [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) yöntemi. Rota satırı kullanarak ayıklanan yanıtından GeoJSON özellik koleksiyondan ayıklanır `geojson.getFeatures()` yöntemi. Rota satırın ardından veri kaynağına eklenir. İki özellik, araba rotası satırı gölge mor ve bir darbe genişliği beş piksel olan bir vuruş rengi eklenir.  
 
 4. **MapTruckRoute.html** dosyasını kaydedin ve tarayıcınızı yenileyerek sonucu gözlemleyin. Haritalar API’leriyle başarılı bir şekilde bağlantı kurulması için aşağıdakine benzer bir harita görürsünüz.
 

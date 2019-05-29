@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a2d793a1fbd68d6a71f48b556a77ddcaaaf111
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93a1ad1f9fbc01cd06b3aaffc8a718634e8454d6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66112176"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357038"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Öğretici: Displayr Azure Active Directory ile tümleştirme
 
@@ -91,11 +91,11 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. Displayr uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** kullanıcı öznitelikleri iletişim kutusunu açmak için simge.
+1. Displayr uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** kullanıcı öznitelikleri iletişim kutusunu açmak için simge.
 
     ![image](common/edit-attribute.png)
 
-1. Yukarıdaki için ayrıca Displayr uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı öznitelikleri ve talepler** bölümünde **grup talepleri (Önizleme)** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. Yukarıdaki için ayrıca Displayr uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı öznitelikleri ve talepler** bölümünde **grup talepleri (Önizleme)** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     a. Tıklayın **kalem** yanındaki **grupları döndürülen talebi**.
 
@@ -133,7 +133,7 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
     ![Yapılandırma](./media/displayr-tutorial/config01.png)
 
-5. Geçiş **ayarları** tıklayarak için sayfayı aşağı kaydırın ve üstteki menüden **yapılandırma tek oturum üzerinde (SAML)**.
+5. Geçiş **ayarları** tıklayarak için sayfayı aşağı kaydırın ve üstteki menüden **yapılandırma tek oturum üzerinde (SAML)** .
 
     ![Yapılandırma](./media/displayr-tutorial/config02.png)
 

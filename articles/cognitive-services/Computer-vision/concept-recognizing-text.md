@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368020"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357194"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
 
@@ -24,12 +24,12 @@ Görüntü işleme, birkaç resimlerde görüntülenen yazdırılan veya el yaz�
 
 ## <a name="read-api"></a>Okuma API'si
 
-Okuma API'si, sunduğumuz en son tanıma modelleri ile bir resimdeki metin içeriğini algılar ve bir makine tarafından okunabilir bir karakter akışı halinde tanımlanan metin dönüştürür. Çok fazla görsel gürültü ile görüntü ve metin ağırlıklı görüntüleri (örneğin, dijital olarak taranan belgeleri için) için optimize edilmiştir. Daha büyük belgelere bir sonuç döndürmek için birkaç dakika sürebilir çünkü zaman uyumsuz olarak yürütür.
+Okuma API'si, sunduğumuz en son tanıma modelleri ile bir resimdeki metin içeriğini algılar ve bir makine tarafından okunabilir bir karakter akışı halinde tanımlanan metin dönüştürür. Çok fazla görsel gürültü ile görüntü ve metin ağırlıklı görüntüleri (örneğin, dijital olarak taranan belgeleri için) için optimize edilmiştir. Her metin satırı olarak yazdırılan ve el yazısı metinleri görüntülerle desteklemek için kullanılacak hangi tanıma modeli, belirler. Okuma API'si, daha büyük belgelere bir sonuç döndürmek için birkaç dakika sürebilir çünkü zaman uyumsuz olarak yürütür.
 
 Okuma işleminin çıktısını tanınan sözcükleri özgün satır gruplandırmalarına tutar. Her satırın sınırlama kutusu koordinatları ile gelir ve her sözcük satır içinde kendi koordinatları de içerir. Bir sözcük düşük güvenle tanınırsa bu bilgileri de aktarılır. Bkz: [okuma API başvuru belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) daha fazla bilgi için.
 
 > [!NOTE]
-> Bu özellik şu anda Önizleme aşamasındadır ve yalnızca İngilizce metinlerde kullanılabilir.
+> Bu özellik yalnızca İngilizce metinlerde kullanılabilir.
 
 ### <a name="image-requirements"></a>Görüntü gereksinimleri
 
@@ -80,7 +80,7 @@ Metin tanıma API'si, aşağıdaki gereksinimleri karşılaması ve görüntüle
 - Görüntü boyutları 50 x 50 ile 4200 x 4200 piksel arasında olmalıdır.
 - Görüntü dosyasının boyutu küçüktür 4 megabayt (MB) olmalıdır.
 
-## <a name="improve-results"></a>Sonuçları iyileştirin
+## <a name="limitations"></a>Sınırlamalar
 
 Metin tanıma işlemlerini doğruluğunu görüntü kalitesini bağlıdır. Aşağıdaki faktörleri yanlış bir okuma neden olabilir:
 
