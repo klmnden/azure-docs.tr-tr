@@ -69,7 +69,7 @@ Aşağıdaki tabloda, JSON öğeleri için ODBC belirli için açıklama bağlı
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesOdbc** |Evet |
 | connectionString |Bağlantı dizesini ve isteğe bağlı bir şifrelenmiş kimlik bilgileri olmayan erişim kimlik bilgileri bölümü. Aşağıdaki bölümlerde örneklere bakın. <br/><br/>Desen gibi ile bağlantı dizesini belirtin `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, veya sistem DSN'si ayarladığınız ile ağ geçidi makinesinde (veri kaynağı adı) kullanmak `"DSN=<name of the DSN>;"` (hala kimlik bilgisi bölümü bağlı hizmette uygun şekilde belirttiğiniz). |Evet |
-| credential |Erişim kimlik bilgisi sürücüye özel özellik-değer biçiminde belirtilen bağlantı dizesi kısmı. Örnek: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Hayır |
+| kimlik bilgisi |Erişim kimlik bilgisi sürücüye özel özellik-değer biçiminde belirtilen bağlantı dizesi kısmı. Örnek: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Hayır |
 | authenticationType |ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: Anonim ve temel. |Evet |
 | userName adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |

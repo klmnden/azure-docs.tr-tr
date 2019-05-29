@@ -159,7 +159,7 @@ Kaynak türü olduğunda **RelationalSource** (OData içeren) typeProperties bö
 
 | Özellik | Açıklama | Örnek | Gerekli |
 | --- | --- | --- | --- |
-| query |Verileri okumak için özel sorgu kullanın. |"? $select adı, açıklama ve $top = 5 =" |Hayır |
+| sorgu |Verileri okumak için özel sorgu kullanın. |"? $select adı, açıklama ve $top = 5 =" |Hayır |
 
 ## <a name="type-mapping-for-odata"></a>OData için tür eşlemesi
 Belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi, kopyalama etkinliği, aşağıdaki iki adımlı yaklaşım türleriyle havuz için kaynak türünden otomatik tür dönüştürmeleri gerçekleştirir.
