@@ -3,18 +3,18 @@ title: Tanılama ve sorun giderme Azure Cosmos DB Java zaman uyumsuz SDK'sı
 description: İstemci tarafı günlüğe kaydetme ve tanımlamak, tanılamak ve Azure Cosmos DB sorunlarını gidermek için diğer üçüncü taraf araçları gibi özellikleri kullanın.
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshooting
 ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
+ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f0dc45f104e05fde083489604865aaae8282d6a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146201"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519973"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullandığınızda sorunlarını giderme
 Bu makalede kullanırken yaygın sorunlar, geçici çözümler, tanılama adımları ve araçları kapsayan [Async Java SDK'sı](sql-api-sdk-async-java.md) Azure Cosmos DB SQL API hesabı olan.

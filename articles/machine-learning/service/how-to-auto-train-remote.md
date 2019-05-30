@@ -1,7 +1,7 @@
 ---
 title: Otomatik ML uzak işlem hedefleri
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmeti ile veri bilimi sanal makinesi (DSVM) uzak işlem hedefi üzerinde otomatik makine öğrenimini kullanarak model oluşturmayı öğrenin
+description: Azure Machine Learning hizmeti ile bir Azure Machine Learning uzak işlem hedefi üzerinde otomatik makine öğrenimini kullanarak model oluşturmayı öğrenin
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -12,26 +12,26 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f2d71abeacee531b21a8276f621367dd39a39d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820369"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551346"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Bulutta otomatik machine learning ile modellerini eğitin
 
 Azure Machine Learning'de yönettiğiniz işlem kaynaklarının farklı türlerde modelinizi eğitin. İşlem hedefi, yerel bir bilgisayar veya bulutta bir bilgisayar olabilir.
 
-Kolayca artırın veya ek işlem hedefleri ekleyerek machine learning denemenizi ölçeklendirin. Bilgi işlem Ubuntu tabanlı veri bilimi sanal makinesi (DSVM) veya Azure Machine Learning işlem hedef seçenekleri içerir. Microsoft Azure bulutunda veri bilimi yapmak için özel olarak oluşturulmuş özel bir VM görüntüsü dsvm'dir. Bu, çok sayıda popüler veri bilimi ve önceden yüklenmiş ve önceden yapılandırılmış diğer araçları vardır.  
+Kolayca artırın veya Azure Machine Learning işlem (AmlCompute) gibi ek işlem hedefleri ekleyerek machine learning denemenizi ölçeklendirin. AmlCompute tek veya çok düğümlü bir işlem kolayca oluşturmanıza olanak sağlayan bir yönetilen işlem altyapısıdır.
 
-Bu makalede, otomatik ML DSVM'nin kullanarak model oluşturma konusunda bilgi edinin.
+Bu makalede, otomatik ML ile AmlCompute kullanarak model oluşturma konusunda bilgi edinin.
 
 ## <a name="how-does-remote-differ-from-local"></a>Uzaktan yerel bilgisayardan farkı nedir?
 
-Öğreticiyi "[otomatik machine learning ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md)" yerel bilgisayarda otomatik ML ile modeli eğitmek için nasıl kullanılacağını size öğretir.  Yerel olarak da eğitimindeki iş akışı uzak hedefleri için de geçerlidir. Ancak, uzak işlem ile otomatik ML deneme yinelemelerini zaman uyumsuz olarak yürütülür. Bu işlevsellik, belirli bir yinelemeye iptal etme, yürütme durumunu izlemek veya diğer Jupyter not defteri hücrelerde üzerinde çalışmaya devam sağlar. Uzaktan eğitmek için öncelikle bir Azure DSVM gibi uzak işlem hedefi oluşturun.  Ardından uzak kaynak yapılandırın ve kodunuzu var. gönderin.
+Öğreticiyi "[otomatik machine learning ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md)" yerel bilgisayarda otomatik ML ile modeli eğitmek için nasıl kullanılacağını size öğretir.  Yerel olarak da eğitimindeki iş akışı uzak hedefleri için de geçerlidir. Ancak, uzak işlem ile otomatik ML deneme yinelemelerini zaman uyumsuz olarak yürütülür. Bu işlevsellik, belirli bir yinelemeye iptal etme, yürütme durumunu izlemek veya diğer Jupyter not defteri hücrelerde üzerinde çalışmaya devam sağlar. Uzaktan eğitmek için önce uzak işlem hedefi AmlCompute gibi oluşturun. Ardından uzak kaynak yapılandırın ve kodunuzu var. gönderin.
 
-Bu makalede, bir uzak DSVM'nin otomatik ML deneme çalıştırmak için gereken ek adımlar gösterilmektedir.  Çalışma alanı nesnesi `ws`, öğreticinin buraya kod kullanılır.
+Bu makalede, bir uzak AmlCompute hedefte otomatik ML deneme çalıştırmak için gereken ek adımlar gösterilmektedir. Çalışma alanı nesnesi `ws`, öğreticinin buraya kod kullanılır.
 
 ```python
 ws = Workspace.from_config()
@@ -39,67 +39,32 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Kaynak Oluştur
 
-Çalışma alanınızda DSVM oluşturma (`ws`) zaten mevcut değilse. DSVM daha önce oluşturulmuş olsa bile, bu kod oluşturma işlemini atlar ve mevcut kaynak ayrıntıya yükler `dsvm_compute` nesne.  
+AmlCompute hedef çalışma alanınızda oluşturun (`ws`) zaten mevcut değilse.  
 
-**Tahmini Süre**: VM'nin oluşturulması yaklaşık 5 dakika sürer.
-
-```python
-from azureml.core.compute import DsvmCompute
-
-dsvm_name = 'mydsvm' #Name your DSVM
-try:
-    dsvm_compute = DsvmCompute(ws, dsvm_name)
-    print('found existing dsvm.')
-except:
-    print('creating new dsvm.')
-    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
-    dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-    dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
-    dsvm_compute.wait_for_completion(show_output = True)
-```
-
-Artık `dsvm_compute` uzak işlem hedefi olarak nesnesi.
-
-DSVM adı kısıtlamaları şunlardır:
-+ 64 karakterden kısa olmalıdır.  
-+ Aşağıdaki karakterlerden herhangi birini içeremez: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\", < > /?. `
-
->[!Warning]
->Market satın alma uygunluk hakkında bir ileti ile oluşturulması başarısız olursa:
->    1. [Azure portal](https://portal.azure.com)'a gidin
->    1. Bir DSVM oluşturmaya başlayın 
->    1. Seç "Program aracılığıyla oluşturmak istiyorsanız" programlı oluşturmayı etkinleştirmek için
->    1. VM oluşturmadan Çık
->    1. Yeniden oluşturma kodu
-
-Bu kod, bir kullanıcı adı veya parola, sağlanan DSVM için oluşturmaz. Doğrudan VM'ye bağlanmak istiyorsanız, Git [Azure portalında](https://portal.azure.com) kimlik bilgilerini oluşturmak için.  
-
-### <a name="attach-existing-linux-dsvm"></a>Var olan bir Linux DSVM'sini ekleme
-
-Bu gibi durumlarda, var olan bir Linux DSVM'sini da işlem hedefi olarak ekleyebilirsiniz. Bu örnekte, mevcut bir DSVM kullanır, ancak yeni bir kaynak oluşturmaz.
-
-> [!NOTE]
->
-> Aşağıdaki kod [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) hedef, işlem hedefi olarak varolan bir VM'yi eklemek için sınıf.
-> [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) sınıfı kullanımdan kaldırılacaktır gelecek sürümlerde bu tasarım deseni ile değiştiriliyor.
-
-Önceden var olan bir Linux DSVM'sini işlem hedefi oluşturmak için aşağıdaki kodu çalıştırın.
+**Tahmini Süre**: AmlCompute hedefinin oluşturulması yaklaşık 5 dakika sürer.
 
 ```python
-from azureml.core.compute import ComputeTarget, RemoteCompute 
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
 
-attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_address_or_fqdn>',
-                                                   ssh_port=22,
-                                                   private_key_file='./.ssh/id_rsa')
-compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached-vm',
-                                      attach_configuration=attach_config)
+amlcompute_cluster_name = "automlcl" #Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+                                                            # for GPU, use "STANDARD_NC6"
+                                                            #vm_priority = 'lowpriority', # optional
+                                                            max_nodes = 6)
 
-compute_target.wait_for_completion(show_output=True)
+compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
+    
+# Can poll for a minimum number of nodes and for a specific timeout.
+# If no min_node_count is provided, it will use the scale settings for the cluster.
+compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
 ```
 
 Artık `compute_target` uzak işlem hedefi olarak nesnesi.
+
+Küme adı kısıtlamaları şunlardır:
++ 64 karakterden kısa olmalıdır.  
++ Aşağıdaki karakterlerden herhangi birini içeremez: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\", < > /?. `
 
 ## <a name="access-data-using-getdata-file"></a>Verilere get_data dosyası kullanma
 
@@ -161,7 +126,7 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                             )
@@ -175,7 +140,7 @@ automl_config = AutoMLConfig(task='classification',
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
@@ -250,12 +215,12 @@ Günlükleri altında DSVM bulmak `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Model açıklaması verileri alınırken arka ucunda çalışan ne, konusunda saydamlık artırmak için modelleri hakkında ayrıntılı bilgi sağlar. Bu örnekte yalnızca en iyi uygun model için model açıklamaları çalıştırın. İşlem hattındaki tüm modeller için çalıştırırsanız, önemli çalışma zamanında neden olur. Model açıklaması bilgileri içerir:
 
-* shap_values: Şekil lib tarafından oluşturulan açıklama bilgileri
+* shap_values: Şekil lib tarafından oluşturulan açıklama bilgiler.
 * expected_values: Beklenen değer X_train verilerin ayarlamak için uygulanan modeli.
-* overall_summary: Azalan düzende sıralanmış model düzeyi özelliği önem değerleri
-* overall: Özellik adları overall_summary olduğu gibi aynı sırada sıralandı
-* per_class_summary: Azalan düzende sıralanmış sınıf düzeyi özelliği önem değerleri. Yalnızca sınıflandırma çalışması için kullanılabilir
-* per_class: Özellik adları per_class_summary olduğu gibi aynı sırada sıralanır. Yalnızca sınıflandırma çalışması için kullanılabilir
+* overall_summary: Azalan düzende sıralanmış model düzeyi özelliği önem değerleri.
+* overall: Özellik adları overall_summary olduğu gibi aynı sırada sıralanır.
+* per_class_summary: Azalan düzende sıralanmış sınıf düzeyi özelliği önem değerleri. Yalnızca sınıflandırma çalışması için kullanılabilir.
+* per_class: Özellik adları per_class_summary olduğu gibi aynı sırada sıralanır. Yalnızca sınıflandırma çalışması için kullanılabilir.
 
 En iyi işlem hattı yinelemelerinizi seçmek için aşağıdaki kodu kullanın. `get_output` Yöntemi, en iyi çalıştırmanın ve ekrana sığdırılmış modeli son çağırma sığdırmak için döndürür.
 
@@ -291,7 +256,7 @@ Yazdırma `best_run` açıklama Özet değişkenleri sonuçları aşağıdaki ç
 
 ## <a name="example"></a>Örnek
 
-[How-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb) Not Defteri, bu makaledeki kavramları göstermektedir. 
+[How-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) Not Defteri, bu makaledeki kavramları göstermektedir. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

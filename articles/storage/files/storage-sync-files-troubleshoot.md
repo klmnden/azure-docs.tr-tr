@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510834"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555955"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme'de sorun giderin
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -95,7 +95,7 @@ Aşağıdaki yerleşik rolleri gerekli Microsoft Authorization izinlere sahip:
 
 Kullanıcı hesabı rolü gerekli izinlere sahip olup olmadığını belirlemek için:  
 1. Azure portalında **kaynak grupları**.
-2. Depolama hesabının bulunduğu kaynak grubunu seçin ve ardından **erişim denetimi (IAM)**.
+2. Depolama hesabının bulunduğu kaynak grubunu seçin ve ardından **erişim denetimi (IAM)** .
 3. Seçin **rol atamaları** sekmesi.
 4. Seçin **rol** (örneğin, sahibi veya katkıda bulunan) kullanıcı hesabınız için.
 5. İçinde **kaynak sağlayıcısı** listesinden **Microsoft Authorization**. 
@@ -105,7 +105,7 @@ Kullanıcı hesabı rolü gerekli izinlere sahip olup olmadığını belirlemek 
 <a id="server-endpoint-createjobfailed"></a>**Sunucu uç noktası oluşturma, şu hatayla başarısız olur: "MgmtServerJobFailed" (hata kodu:-2134375898)**  
 Sunucu uç noktası yolu sistem birimi ve bulut üzerinde ise bu sorun oluşur katmanlama etkinleştirilir. Bulut katmanlaması sistem birimi üzerinde desteklenmiyor. Sunucu uç noktası sistem biriminde oluşturmak için sunucu uç noktası oluşturulurken katmanlama Bulut devre dışı bırakın.
 
-<a id="server-endpoint-deletejobexpired"></a>**Sunucu uç noktasını silme işlemi, şu hatayla başarısız olur: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**Sunucu uç noktasını silme işlemi, şu hatayla başarısız olur: "MgmtServerJobExpired"**                 
 Sunucu çevrimdışı veya ağ bağlantısı yok, bu sorun oluşur. Sunucu artık kullanılabilir değilse, sunucu uç noktalarını siler portalında sunucunun kaydını silin. Sunucu uç noktalarını silmek için açıklanan adımları [Azure dosya eşitleme ile bir sunucu kaydını](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Sunucu uç noktası özellikler sayfasını açın veya Bulut katmanlama İlkesi güncelleştirilemedi**  
@@ -300,6 +300,17 @@ Eşitleme oturumları, sunucunun yeniden veya güncelleştirilmiş, VSS anlık g
 | **Düzeltme gerekli** | Hayır |
 
 Eylem gerekmiyor; Sunucu yeniden deneyecek. Bu hata iki saatten daha uzun bir süre devam ederse bir destek isteği oluşturun.
+
+<a id="-2134364043"></a>**Değişiklik algılama post geri yükleme işlemi tamamlanana kadar eşitleme engellendi**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (ondalık)** | -2134364043 |
+| **Hata dizesi** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Düzeltme gerekli** | Hayır |
+
+Eylem gerekmiyor. Bir dosya veya dosya paylaşımından (bulut uç noktası), Azure Backup kullanarak geri yüklenir, Azure dosya paylaşımı üzerindeki değişiklik algılama tamamlanana kadar eşitleme engellendi. Değişiklik algılama süresi Dosya paylaşımındaki dosyaları sayısını temel alır ve hemen geri yükleme tamamlandıktan sonra çalışır.
 
 <a id="-2134364065"></a>**Eşitleme bulut uç noktası belirtilen Azure dosya paylaşımına erişemiyor.**  
 

@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici - Kubernetes için barındırılan uygulamaları izlemeyi sıfır izleme uygulama | Microsoft Docs
-description: Barındırılan Kubernetes uygulamaları için izlemeyi sıfır izleme uygulaması tarafından Kubernetes kümenizde çalıştırılıyor pod'ların gelen ve gelen ve giden istekleri ilgili Application Insights telemetri toplamak izin veren izleme çözümüdür hizmeti kafes teknolojisini kullanan Istio çağrılır.
+title: Azure Kubernetes Service (AKS) veya diğer Kubernetes izlemek için Application ınsights'ı kullanmak barındırılan uygulamalar - Azure İzleyici | Microsoft Docs
+description: Azure İzleyici hizmeti kafes teknolojisi, Istio, Kubernetes kümenizde uygulama, barındırılan Kubernetes herhangi bir uygulama için izleme sağlamak için kullanır. Bu, kümenizde çalışan pod'ların gelen ve gelen ve giden istekleri ilgili Application Insights telemetri toplamak sağlar.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408221"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555826"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Sıfır izleme uygulama Kubernetes için izleme barındırılan uygulamalar
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Barındırılan uygulamalarını sıfır izleme uygulama için Kubernetes izleme
 
 > [!IMPORTANT]
 > Bu işlevsellik şu anda genel Önizleme aşamasındadır.
@@ -78,7 +78,7 @@ Hizmet kafes dışında çalışan uygulamalar etkilenmez.
 3. Düzen *application-insights-istio-mixer-adapter-deployment.yaml*
     - değeri Düzenle *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* telemetri içerecek şekilde, Azure portalındaki Application Insights kaynağına ait izleme anahtarını içeren ortam değişkeni.
     - Gerekirse, değerini düzenlemek *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* ad alanları için istediğiniz izlemeyi etkinleştirmek, virgülle ayrılmış listesini içeren ortam değişkeni. Tüm ad alanlarını izlemek için boş bırakın.
-4. Uygulama *her* YAML dosyası bulundu altında *src/kubernetes/* aşağıdakileri çalıştırarak (hala içinde olmalıdır */src/kubernetes/*):
+4. Uygulama *her* YAML dosyası bulundu altında *src/kubernetes/* aşağıdakileri çalıştırarak (hala içinde olmalıdır */src/kubernetes/* ):
 
    ```console
    kubectl apply -f .

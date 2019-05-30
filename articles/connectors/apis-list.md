@@ -8,26 +8,33 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 08/23/2018
-ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/08/2019
+ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722981"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551861"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps için bağlayıcılar
 
 Bağlayıcılar hızlı erişim Azure Logic Apps'ten olayları, veri ve eylemleri için diğer uygulamaları, hizmetleri, sistemleri, protokoller ve platformlar arasında sağlar. Logic apps bağlayıcıları kullanarak, özellikleri oluşturan ve zaten sahip verilerle görevleri gerçekleştirmek Bulut ve şirket içi uygulamalarınız için genişletin.
 
-Logic Apps teklifler while [~ 200'den fazla bağlayıcı](https://docs.microsoft.com/connectors), başarıyla binlerce uygulama ve milyonlarca yürütme işlemi tarafından veri ve bilgi işlem için kullanılan popüler ve yaygın olarak kullanılan bağlayıcılar bu makalede açıklanır. Bağlayıcılar ve bağlayıcıların başvuru bilgileri, sınırları, tetikleyiciler ve Eylemler gibi tam listesini bulmak için bağlayıcı başvuru sayfaları'nın altında gözden [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors). Ayrıca, daha fazla bilgi edinin [tetikleyiciler ve Eylemler](#triggers-actions).
+Logic Apps teklifler while [~ 200'den fazla bağlayıcı](https://docs.microsoft.com/connectors), başarıyla binlerce uygulama ve milyonlarca yürütme işlemi tarafından veri ve bilgi işlem için kullanılan popüler ve yaygın olarak kullanılan bağlayıcılar bu makalede açıklanır. Bağlayıcılar ve bağlayıcıların başvuru bilgileri, sınırları, tetikleyiciler ve Eylemler gibi tam listesini bulmak için bağlayıcı başvuru sayfaları'nın altında gözden [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors). Ayrıca, daha fazla bilgi edinin [tetikleyiciler ve Eylemler](#triggers-actions), [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md), ve [Logic Apps fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
 > Bir hizmet ya da bağlayıcı yok API ile tümleştirmek için doğrudan bir protokol gibi HTTP üzerinden hizmet çağrısı veya oluşturma bir [özel bağlayıcı](#custom).
 
 Bağlayıcılar, yerleşik tetikleyiciler ve Eylemler veya yönetilen bağlayıcılar olarak kullanılabilir:
 
-* [**Yerleşik olanları**](#built-ins): Bu yerleşik Eylemler ve Tetikleyiciler "Azure Logic Apps ve Yardım özel zamanlamalara göre çalıştırın, diğer uç noktalar ile iletişim kurmak, alabilir ve isteklere yanıt ve Azure işlevleri, Azure API Apps (Web uygulamaları), kendi API çağrısı, mantıksal uygulamalar oluşturmak için yerel" Yönetilen ve yayımlanan ile Azure API Management ve istekleri alabilecek iç içe mantıksal uygulamalar. Ayrıca yerleşik kullanabileceğiniz yardımcı eylemleri düzenlemek ve mantıksal uygulamanızın iş akışı denetim ve ayrıca verileri ile çalışma.
+* [**Yerleşik olanları**](#built-ins): "Azure Logic Apps ve Yardım özel zamanlamalara göre çalıştırın, diğer uç noktalar ile iletişim kurmak, alabilir ve isteklere yanıt ve Azure işlevleri, Azure API Apps (Web uygulamaları), kendi API çağrısı, mantıksal uygulamalar oluşturmak için yerel", bu yerleşik tetikleyiciler ve Eylemler Yönetilen ve yayımlanan ile Azure API Management ve istekleri alabilecek iç içe mantıksal uygulamalar. Ayrıca yerleşik kullanabileceğiniz yardımcı eylemleri düzenlemek ve mantıksal uygulamanızın iş akışı denetim ve ayrıca verileri ile çalışma.
+
+  > [!NOTE]
+  > Logic apps içinde bir [tümleştirme hizmeti ortamı (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) bir Azure sanal ağ içindeki kaynaklarla doğrudan erişebilirsiniz.
+  > Bir işe kullandığınızda, yerleşik tetikleyiciler ve Eylemler, görüntüleme **çekirdek** etiket logic apps ile aynı ıse'de çalıştırın. Logic apps, yerleşik tetikleyiciler ve ISE kullanımınız fiyatlandırma planı tüketim tabanlı fiyatlandırma planından farklı çalıştır yerleşik eylemler.
+  >
+  > ISEs oluşturma hakkında daha fazla bilgi için bkz. [Azure Logic Apps için Azure sanal ağları Connect'ten](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Fiyatlandırma hakkında daha fazla bilgi için bkz. [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md).
 
 * **Yönetilen Bağlayıcılar**: Bu bağlayıcılar, dağıtılan ve Microsoft tarafından yönetilen, tetikleyiciler ve Eylemler cloud services, şirket içi sistemler veya her ikisi de Office 365, Azure Blob Depolama, SQL Server, Dynamics, Salesforce, SharePoint ve daha fazlası dahil olmak üzere erişim sağlar. Bazı bağlayıcılar, özellikle işletmeler arası (B2B) iletişimi senaryoları desteklemek ve gerektiren bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) mantıksal uygulamanıza bağlı. Bazı bağlayıcılar kullanmadan önce ilk Azure Logic Apps tarafından yönetilen bağlantıları oluşturmanız gerekebilir. 
 
@@ -36,7 +43,7 @@ Bağlayıcılar, yerleşik tetikleyiciler ve Eylemler veya yönetilen bağlayıc
 
   Bağlayıcılar, standart veya Kurumsal sınıflandırılır. 
   [Kurumsal Bağlayıcılar](#enterprise-connectors) Kurumsal sistemlere SAP, IBM MQ ve IBM 3270 gibi ek ücret karşılığında erişim sağlar. Bir bağlayıcı Standard veya Enterprise olup olmadığını belirlemek için her bağlayıcı'nın altında başvuru sayfası teknik ayrıntılara bakın [bağlayıcılara genel bakış](https://docs.microsoft.com/connectors). 
-  
+
   Bazı bağlayıcılar birden çok kategori çapraz olsa da bu kategorileri kullanarak bağlayıcılar da tanımlayabilirsiniz. 
   Örneğin, SAP, Kurumsal bağlayıcı ve bir şirket içi Bağlayıcısı şöyledir:
 
@@ -47,8 +54,15 @@ Bağlayıcılar, yerleşik tetikleyiciler ve Eylemler veya yönetilen bağlayıc
   | [**Tümleştirme hesabı bağlayıcıları**](#integration-account-connectors) | Oluştururken ve bu bağlayıcılar dönüştürme bir tümleştirme hesabı için ödeme yaparsınız ve XML doğrulama, kodlamak ve düz dosyaları kodlayıp kod çözebilirsiniz, ve işletmeler arası işlem kullanılabilir (B2B) AS2, EDIFACT ve X12 protokolleri iletileri. |
   |||
 
-> [!NOTE]
-> Bir Openapı tarafından tanımlanan bağlayıcılar ve Eylemler ve hiçbir tetikleyici gibi her bir bağlayıcının başvuru bilgileri tam listesi için (önceki adıyla Swagger) açıklama yanı sıra, herhangi bir sınırlama altında tam listesini bulabilirsiniz [bağlayıcılara genel bakış ](/connectors/). Fiyatlandırma bilgileri için bkz: [Logic Apps fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/) ve [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md). 
+  > [!NOTE]
+  > Logic apps içinde bir [tümleştirme hizmeti ortamı (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) bir Azure sanal ağ içindeki kaynaklarla doğrudan erişebilirsiniz. Bir işe kullandığınızda, standart ve kurumsal bağlayıcılarımızın görüntüleme **ISE** etiket logic apps ile aynı ıse'de çalıştırın. ISE etiketini gösterme bağlayıcılar genel Logic Apps hizmetinde çalıştırın.
+  >
+  > Bir Azure sanal ağa bağlı şirket içi sistemler ekleme için işe bu ağa mantıksal uygulamalarınızı doğrudan bu sistemlerin sahip bir herhangi bir bağlayıcıyı kullanarak erişebilmesi için bir **ISE** etiketi, bir HTTP eylemi veya bir [özel bağlayıcı](#custom). Logic apps ve bağlayıcıları bir fiyatlandırma ISE kullanımınız çalıştıran tüketim tabanlı fiyatlandırma planından farklı planlayın. 
+  >
+  > ISEs oluşturma hakkında daha fazla bilgi için bkz. [Azure Logic Apps için Azure sanal ağları Connect'ten](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Fiyatlandırma hakkında daha fazla bilgi için bkz. [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md).
+
+  Bir Openapı tarafından tanımlanan bağlayıcılar ve Eylemler ve hiçbir tetikleyici gibi her bir bağlayıcının başvuru bilgileri tam listesi için (önceki adıyla Swagger) açıklama yanı sıra, herhangi bir sınırlama altında tam listesini bulabilirsiniz [bağlayıcılara genel bakış ](/connectors/). Fiyatlandırma bilgileri için bkz: [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md), ve [Logic Apps fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 <a name="built-ins"></a>
 
@@ -66,7 +80,7 @@ Logic Apps yerleşik Tetikleyiciler sağlar ve zamanlama tabanlı iş akışlar�
 
 ### <a name="control-workflow"></a>Denetim iş akışı
 
-Yapılandırma ve mantıksal uygulamanızın iş akışında eylemleri denetlemek için yerleşik eylemler şunlardır:
+Logic Apps, yapılandırılması ve mantıksal uygulamanızın iş akışında eylemleri denetlemek için yerleşik Eylemler sağlar:
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -77,7 +91,7 @@ Yapılandırma ve mantıksal uygulamanızın iş akışında eylemleri denetleme
 
 ### <a name="manage-or-manipulate-data"></a>Verileri değiştirebilen veya yönetme
 
-Veri çıktıları ve bunların biçimleri ile çalışmak için yerleşik eylemler şunlardır:  
+Mantıksal uygulamalar, veri çıkış ve bunların biçimleri ile çalışmak için yerleşik Eylemler sağlar:  
 
 |   |   | 
 |---|---| 
@@ -90,7 +104,7 @@ Veri çıktıları ve bunların biçimleri ile çalışmak için yerleşik eylem
 
 ## <a name="managed-api-connectors"></a>Yönetilen API bağlayıcıları
 
-Görevler, işlemler ve bu hizmetleri ve sistemleri ile iş akışlarını otomatik hale getirmek için daha popüler bağlayıcılar şunlardır:
+Logic Apps, görevler, işlemler ve bu hizmetleri ve sistemleri ile iş akışlarını otomatik hale getirmek için bu popüler standart bağlayıcılar sağlar.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -100,25 +114,25 @@ Görevler, işlemler ve bu hizmetleri ve sistemleri ile iş akışlarını otoma
 | [![API simgesi][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Oluşturabilir ve kayıtları, öğeleri ve daha fazlasını yönetmek için Dynamics 365 hesabınıza bağlanın. | [![API simgesi][ftp-icon]<br/>**FTP**][ftp-doc] | FTP sunucuları, dosya ve klasörlerle çalışabilmesi için internet'ten erişmek için bağlanın. | 
 | [![API simgesi][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Oluşturabilir ve kayıtları, işleri, nesneleri ve diğer öğeleri yönetmek için Salesforce hesabınıza bağlanın. | [![API simgesi][twitter-icon]<br/>**Twitter**][twitter-doc] | Tweetleri, takipçi, zaman çizelgeniz ve yönetmek için Twitter hesabınıza bağlanın. SQL, Excel veya SharePoint tweetlerinizi kaydedin. | 
 | [![API simgesi][azure-event-hubs-icon]<br/>**Azure Event Hubs**][azure-event-hubs-doc] | Kullanma ve bir olay hub'ı üzerinden olayları yayımlama. Örneğin, Event Hubs ile mantıksal uygulamanızdan çıkış alırsınız ve çıkarılan bir gerçek zamanlı bir analiz sağlayıcısına gönderebilirsiniz. | [![API simgesi][azure-event-grid-icon]<br/>**Azure olay**</br>**kılavuz**][azure-event-grid-doc] | Olayları bir Event Grid tarafından Örneğin, Azure veya üçüncü taraf kaynaklar değiştirdiğinizde yayımlanan izleyin. | 
-||||| 
+|||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>Şirket içi bağlayıcılar 
 
-Şirket içi sistemlerde veri ve kaynaklara erişim sağlayan bazı yaygın olarak kullanılan bağlayıcılar aşağıda verilmiştir. Bir şirket içi sistemi bağlantısı oluşturabilmeniz için önce [indirin, yükleyin ve bir şirket içi veri ağ geçidi ayarlama][gateway-doc]. Bu ağ geçidi, gerekli ağ altyapısını ayarlamak zorunda kalmadan güvenli bir iletişim kanalı sağlar. 
+Logic Apps, şirket içi sistemlerde verilerine ve kaynaklarına erişmek için sağlar. yaygın olarak kullanılan bazı standart bağlayıcılar aşağıda verilmiştir. Bir şirket içi sistemi bağlantısı oluşturabilmeniz için önce [indirin, yükleyin ve bir şirket içi veri ağ geçidi ayarlama][gateway-doc]. Bu ağ geçidi, gerekli ağ altyapısını ayarlamak zorunda kalmadan güvenli bir iletişim kanalı sağlar. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
 | ![API simgesi][biztalk-server-icon]<br/>**BizTalk**</br> **Sunucu** | [![API simgesi][file-system-icon]<br/>**dosya</br> sistem**][file-system-doc] | [![API simgesi][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API simgesi][ibm-informix-icon]<br/>**IBM** </br> **Informix**][ibm-informix-doc] | ![API simgesi][mysql-icon]<br/>**MySQL** | 
 | [![API simgesi][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API simgesi][postgre-sql-icon]<br/>**PostgreSQL** | [![API simgesi][sharepoint-server-icon]<br/>**SharePoint</br> sunucusu**][sharepoint-server-doc] | [![API simgesi][sql-server-icon]<br/>**SQL</br> sunucusu**][sql-server-doc] | ![API simgesi][teradata-icon]<br/>**Teradata** | 
-||||| 
+|||||
 
 <a name="integration-account-connectors"></a>
 
-## <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları 
+## <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları
 
-Bağlayıcılar oluştururken ve ödeme logic apps ile işletmeden işletmeye (B2B) çözümleri oluşturmak için İşte bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), azure'da Enterprise Integration Pack (EIP) aracılığıyla kullanılabilen. Bu Hesapla oluşturabilir ve iş ortakları, sözleşmeler, haritalar, şemalar, sertifikaları ve benzeri ticari gibi B2B yapıtları depolayın. Bu yapılar kullanmak için logic apps tümleştirmesi hesabınızla ilişkilendirir. BizTalk Server'ı şu anda kullanıyorsanız, bu bağlayıcıları zaten alışık olduğunuz görünebilir.
+Logic Apps oluşturma ve ödeme logic apps ile işletmeden işletmeye (B2B) çözümleri oluşturmak için standart bağlayıcılar sağlar bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), Enterprise Integration Pack (EIP) aracılığıyla kullanılabilen Azure'da. Bu Hesapla oluşturabilir ve iş ortakları, sözleşmeler, haritalar, şemalar, sertifikaları ve benzeri ticari gibi B2B yapıtları depolayın. Bu yapılar kullanmak için logic apps tümleştirmesi hesabınızla ilişkilendirir. BizTalk Server'ı şu anda kullanıyorsanız, bu bağlayıcıları zaten alışık olduğunuz görünebilir.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -131,7 +145,7 @@ Bağlayıcılar oluştururken ve ödeme logic apps ile işletmeden işletmeye (B
 
 ## <a name="enterprise-connectors"></a>Kurumsal bağlayıcılar
 
-Logic apps, Kurumsal sistemleri, SAP ve IBM MQ gibi erişebilirsiniz:
+Logic Apps, Kurumsal sistemleri, SAP ve IBM MQ gibi erişmek için bu kurumsal bağlayıcıları sağlar:
 
 |   |   |   | 
 |---|---|---| 
@@ -172,11 +186,13 @@ Bu hizmet veya sistem izin verdiği sürece bağlantıları hedef hizmet veya si
 Özel kod çalıştıran veya bağlayıcı olarak kullanılamayan API'leri çağırmak için Logic Apps platformunu genişletebilirsiniz [özel API Apps oluşturarak](../logic-apps/logic-apps-create-api-app.md). Ayrıca [özel bağlayıcılar oluşturma](../logic-apps/custom-connector-overview.md) için *herhangi* REST veya bu API'lerle Azure aboneliğinizdeki herhangi bir mantıksal uygulama için kullanılabilir hale getirmek SOAP tabanlı API'ler.
 Özel API Apps veya bağlayıcıları herkesin Azure'da kullanması genel hale getirmek için [bağlayıcıları Microsoft sertifikası için gönderme](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="get-support"></a>Destek alın
-
-* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-
-* Gönderin veya Azure Logic Apps ve bağlayıcıları için fikirleri oylamak için şurayı ziyaret edin [Logic Apps kullanıcı geri bildirim sitesinde](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> Logic apps içinde bir [tümleştirme hizmeti ortamı (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) bir Azure sanal ağ içindeki kaynaklarla doğrudan erişebilirsiniz.
+> Şirket içi veri ağ geçidi gerektiren özel bağlayıcılara sahiptir ve söz konusu bağlayıcıların bir işe dışında oluşturduğunuz, bir işe logic apps'te de bu bağlayıcıları kullanabilirsiniz.
+>
+> Bir işe içinde oluşturulan özel bağlayıcıları, şirket içi veri ağ geçidi ile çalışmaz. Ancak, bu bağlayıcıları doğrudan ISE barındıran Azure sanal ağına bağlı şirket içi veri kaynaklarına erişebilir. Bu nedenle, logic apps'te bir işe büyük olasılıkla veri ağ geçidi bu kaynaklarla iletişim kurarken gerekmez.
+>
+> ISEs oluşturma hakkında daha fazla bilgi için bkz. [Azure Logic Apps için Azure sanal ağları Connect'ten](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

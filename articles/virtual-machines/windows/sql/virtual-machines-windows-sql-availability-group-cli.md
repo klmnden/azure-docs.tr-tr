@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591281"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518972"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure VM'de SQL Server Always On kullanılabilirlik grubu yapılandırmak için Azure SQL VM CLI'yı kullanın
 Bu makalede nasıl kullanılacağını [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-latest/) Windows Yük devretme kümesi (WSFC) dağıtın ve SQL Server Vm'leri kümeye eklemek, hem de iç Load Balancer ve Always On kullanılabilirlik grubu dinleyicisi oluşturmak için.  Gerçek dağıtım Always On kullanılabilirlik grubu hala el ile SQL Server Management Studio (SSMS) aracılığıyla gerçekleştirilir. 
@@ -42,7 +42,7 @@ Azure SQL VM CLI kullanarak Always On kullanılabilirlik grubu yapılandırmak a
 Küme bulut tanığı olarak görev yapacak bir depolama hesabı gerekir. Var olan herhangi bir depolama hesabı kullanabilir veya yeni bir depolama hesabı oluşturabilirsiniz. Mevcut bir depolama hesabı kullanmak istiyorsanız, sonraki bölüme atlayabilirsiniz. 
 
 Aşağıdaki kod parçacığı, depolama hesabı oluşturur: 
-```azurecli
+```azurecli-interactive
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
 #  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
@@ -58,7 +58,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 Azure SQL VM CLI [az sql vm grubu](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) komut grubu kullanılabilirlik grubunu barındıran Windows Yük devretme kümesi (WSFC) hizmeti meta verileri yönetir. Küme meta verileri, AD etki alanı, küme hesapları, bulut tanığı ve SQL Server sürümü kullanılacak depolama hesapları dahildir. Kullanım [az sql vm grubu oluştur](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) ilk SQL Server VM eklendiğinde, meta veriler için WSFC tanımlamak için küme tanımlandığı şekilde oluşturulur. 
 
 Aşağıdaki kod parçacığı, küme için meta verileri tanımlar:
-```azurecli
+```azurecli-interactive
 # Define the cluster metadata
 # example: az sql vm group create -n Cluster -l 'West US' -g SQLVM-RG `
 #  --image-offer SQL2017-WS2016 --image-sku Enterprise --domain-fqdn domain.com `
@@ -79,7 +79,7 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 
 Aşağıdaki kod parçacığı, kümeyi oluşturur ve ilk SQL Server VM ekler: 
 
-```azurecli
+```azurecli-interactive
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n SQLVM1 -g SQLVM-RG --sqlvm-group Cluster `
 #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -105,7 +105,7 @@ Always On kullanılabilirlik grubu (ağ) dinleyicisi, iç Azure yük dengeleyici
 
 Aşağıdaki kod parçacığı, iç yük dengeleyici oluşturur:
 
-```azurecli
+```azurecli-interactive
 # Create the Internal Load Balancer
 # example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard `
 # --vnet-name SQLVMvNet --subnet default
@@ -133,7 +133,7 @@ Kullanılabilirlik grubu el ile oluşturulduktan sonra kullanarak dinleyici olu�
 
 Aşağıdaki kod parçacığı, kullanılabilirlik grubu dinleyicisi oluşturur:
 
-```azurecli
+```azurecli-interactive
 # Create the AG listener
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
@@ -157,7 +157,7 @@ Kaynakları artık kaynak sağlayıcısı tarafından ve tarafından yönetildi�
 Yeni bir çoğaltma kullanılabilirlik grubuna eklemek için aşağıdakileri yapın:
 
 1. SQL Server VM kümeye ekleyin:
-   ```azurecli
+   ```azurecli-interactive
    # Add SQL Server VM to the Cluster
    # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
    # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -167,7 +167,7 @@ Yeni bir çoğaltma kullanılabilirlik grubuna eklemek için aşağıdakileri ya
    ```
 1. SQL Server örneği bir çoğaltma kullanılabilirlik grubundaki olarak eklemek için SQL Server Management Studio (SSMS) kullanın.
 1. SQL Server VM meta veriler için bir dinleyici ekleyin:
-   ```azurecli
+   ```azurecli-interactive
    # Update the listener metadata with the new VM
    # example: az sql vm group ag-listener update -n AGListener `
    # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
@@ -182,7 +182,7 @@ Bir çoğaltma kullanılabilirlik grubundan kaldırmak için aşağıdakileri ya
 
 1. Çoğaltma, SQL Server Management Studio (SSMS) kullanarak kullanılabilirlik grubundan kaldırın. 
 1. SQL Server VM meta verilerini dinleyicisinden kaldırın:
-   ```azurecli
+   ```azurecli-interactive
    # Update the listener metadata by removing the VM from the SQLVMs list
    # example: az sql vm group ag-listener update -n AGListener `
    # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
@@ -191,7 +191,7 @@ Bir çoğaltma kullanılabilirlik grubundan kaldırmak için aşağıdakileri ya
    -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
    ```
 1. SQL Server VM kümeden kaldırın:
-   ```azurecli
+   ```azurecli-interactive
    # Remove SQL VM from cluster
    # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
 
@@ -203,7 +203,7 @@ Daha sonra Azure CLI ile yapılandırılmış kullanılabilirlik grubu dinleyici
 
 Aşağıdaki kod parçacığı, hem SQL kaynak sağlayıcısı ve kullanılabilirlik grubunuzun SQL kullanılabilirlik grubu dinleyicisini siler: 
 
-```azurecli
+```azurecli-interactive
 # Remove the AG listener
 # example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
 

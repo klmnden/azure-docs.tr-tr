@@ -3,8 +3,8 @@ title: Azure Active Directory Graph API'si | Microsoft Docs
 description: Azure AD'ye REST API uç noktaları yoluyla programlı erişim sağlayan Azure AD Graph API için bir genel bakış ve Hızlı Başlangıç Kılavuzu.
 services: active-directory
 documentationcenter: ''
-author: lleonard-msft
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/01/2019
-ms.author: alleonar
+ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77730ea7302b4abd6c17ebfe5620c0dc55fa407c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300436"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544579"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 
@@ -56,7 +56,7 @@ Azure AD Graph API'sini aşağıdaki özellikleri sağlar:
 
 * **REST API uç noktalarını**: Azure AD Graph API, standart HTTP isteklerini kullanarak erişilen uç oluşan bir RESTful hizmeti olduğu. Azure AD Graph API, istekleri ve yanıtları için XML veya Javascript nesne gösterimi (JSON) içerik türlerini destekler. Daha fazla bilgi için [Azure AD Graph REST API Başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 * **Azure AD ile kimlik doğrulaması**: Azure AD Graph API'sine yapılan her isteği bir JSON Web Token (JWT) isteğin yetkilendirme üst bilgisinde ekleyerek kimlik doğrulaması gerekir. Bu belirteç, Azure AD'nin belirteç uç noktası için bir istekte ve geçerli kimlik bilgileri alınır. OAuth 2.0 istemci kimlik bilgileri akışı kullanabilir veya yetki kodu izin akışı Graph'i çağırmaya yönelik bir belirteç almak için. Daha fazla bilgi için [OAuth 2.0, Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx).
-* **Rol tabanlı yetkilendirme (RBAC)**: Güvenlik grupları, Azure AD Graph API RBAC gerçekleştirmek için kullanılır. Örneğin, bir kullanıcı belirli bir kaynağa erişim izni olup olmadığını, uygulamayı çağırabilir belirlemek istiyorsanız [denetleyin (geçici) grup üyeliğini](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) işlemi, true veya false döndürür.
+* **Rol tabanlı yetkilendirme (RBAC)** : Güvenlik grupları, Azure AD Graph API RBAC gerçekleştirmek için kullanılır. Örneğin, bir kullanıcı belirli bir kaynağa erişim izni olup olmadığını, uygulamayı çağırabilir belirlemek istiyorsanız [denetleyin (geçici) grup üyeliğini](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) işlemi, true veya false döndürür.
 * **Fark sorgusu**: Fark sorgusu, Azure AD Graph API için sık kullanılan sorgular yapmak zorunda kalmadan iki dönemleri arasında bir dizinde değişiklik izlemenize imkan tanır. Bu istek türü yalnızca geçerli istek ve önceki fark sorgusu istek arasında yapılan değişiklikleri döndürür. Daha fazla bilgi için [Azure AD Graph API değişiklik sorgu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
 * **Dizin genişletmeleri**: Dış veri deposuna gerek kalmadan directory nesnelerine özel özellikler ekleyebilirsiniz. Örneğin, uygulamanızın her bir kullanıcı için bir Skype kimliği özelliği gerektiriyorsa, dizinde yeni özellik kaydedebilirsiniz ve her kullanıcı nesnesi üzerinde kullanılabilir. Daha fazla bilgi için [Azure AD Graph API'si directory şema uzantıları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **İzin kapsamları tarafından güvenliği sağlanan**: Azure AD Graph API'si izin kapsamları, OAuth 2.0 kullanarak Azure AD verilerine güvenli erişim sağlamak kullanıma sunar. Bunu çeşitli dahil olmak üzere istemci uygulama türlerini destekler:

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527879"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780350"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Azure API Management'ta Redis için bir dış Azure önbellek kullanma
 
@@ -40,11 +40,6 @@ Dış bir önbellek kullanmak, bazı sınırlamalar yerleşik bir önbellek üst
 
 > [!div class="checklist"]
 > * API Yönetimi'nde bir dış önbellek Ekle
-
-## <a name="availability"></a>Kullanılabilirlik
-
-> [!NOTE]
-> Bu özellik şu anda yalnızca kullanılabilir **tüketim** Azure API Yönetimi katmanı.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -94,6 +89,7 @@ Dış bir Azure önbelleği için Redis Azure API Management'ta eklemek için a�
 Dış önbellek, Azure API Yönetimi'nde yapılandırıldıktan sonra önbelleğe alma ilkeleri aracılığıyla kullanılabilir. Bkz: [Azure API Management performansını artırmak için önbelleğe alma ekleme](api-management-howto-cache.md) ayrıntılı adımlar için.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
+
 * Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusunda][API Management policy reference] [Önbelleğe alma ilkeleri][Caching policies].
 * Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
 

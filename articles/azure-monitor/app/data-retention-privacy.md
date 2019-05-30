@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204883"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518834"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -86,6 +86,9 @@ Bu yazarak yazılabilir bir [telemetri işlemci eklentisi](../../azure-monitor/a
 Ham veri noktalarını (diğer bir deyişle, Analytics'te sorgu ve arama İnceleme öğeleri) 90 gün boyunca tutulur. Daha uzun verileri tutmak gerekirse kullanabileceğiniz [sürekli dışarı aktarma](../../azure-monitor/app/export-telemetry.md) bir depolama hesabına kopyalamak için.
 
 Toplanan verileri (diğer bir deyişle, sayıları, ortalamalar ve ölçüm Gezgini'nde gördüğünüz diğer istatistiksel veriler), 90 gün boyunca 1 dakikalık bir dilimi korunur.
+
+> [!NOTE]
+> Application Insights için değişken bekletme artık Önizleme aşamasındadır. [Burada](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031) daha fazla bilgi edinin. 
 
 [Anlık görüntü hata ayıklama](../../azure-monitor/app/snapshot-debugger.md) beş gün boyunca depolanır. Bu bekletme ilkesi, bir uygulama başına temelinde ayarlanır. Bu değeri arttırmak gerekiyorsa, Azure portalında bir destek talebi açarak artışı isteyebilirsiniz.
 
@@ -190,7 +193,7 @@ Açıkça sürece yalnızca TLS 1.2 kullanmak için uygulamanızı otomatik olar
 
 ### <a name="platformlanguage-specific-guidance"></a>Platform/dil özel Kılavuzu
 
-|Platform/dili | Destek | Daha Fazla Bilgi |
+|Platform/dili | Destek | Ek bilgiler |
 | --- | --- | --- |
 | Azure Uygulama Hizmetleri  | Desteklenen yapılandırması gerekli olabilir. | Destek Nisan 2018'de Duyuruldu. İçin duyuruyu okuyun [yapılandırma ayrıntılarını](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Azure işlev uygulamaları | Desteklenen yapılandırması gerekli olabilir. | Destek Nisan 2018'de Duyuruldu. İçin duyuruyu okuyun [yapılandırma ayrıntılarını](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
@@ -237,9 +240,9 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 
 | Eylem | (Sonraki tabloya bakın) toplanan veri sınıfları |
 | --- | --- |
-| [.NET web projeye Application Insights SDK'sı ekleme][greenbrown] |ServerContext<br/>Olayla<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
+| [.NET web projeye Application Insights SDK'sı ekleme][greenbrown] |ServerContext<br/>Olayla<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcı |
 | [IIS Durum İzleyicisi'ni yükleyin][redfield] |Bağımlılıklar<br/>ServerContext<br/>Olayla<br/>Performans sayaçları |
-| [Java web uygulaması için Application Insights SDK'sını ekleyin][java] |ServerContext<br/>Olayla<br/>İstek<br/>Oturum<br/>kullanıcılar |
+| [Java web uygulaması için Application Insights SDK'sını ekleyin][java] |ServerContext<br/>Olayla<br/>İste<br/>Oturum<br/>kullanıcı |
 | [Web sayfası için JavaScript SDK'sını ekleyin][client] |ClientContext <br/>Olayla<br/>Sayfa<br/>ClientPerf<br/>Ajax |
 | [Varsayılan özellikleri tanımlama][apiproperties] |**Özellikleri** tüm standart ve özel olaylar |
 | [Çağrı TrackMetric][api] |Sayısal değerleri<br/>**Özellikleri** |

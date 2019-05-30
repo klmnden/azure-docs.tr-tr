@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 514c034c23eed3a87111331724f3a33104651a43
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
-ms.translationtype: MT
+ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514912"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523703"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Bir IP kısıtlama kuralı Azure ön kapısı (Önizleme) web uygulaması güvenlik duvarı yapılandırma
  Bu makalede Azure CLI, Azure PowerShell veya Azure Resource Manager şablonu kullanarak Azure web uygulaması Güvenlik Duvarı (WAF) IP kısıtlama kuralları için ön kapı yapılandırma gösterilmektedir.
@@ -137,24 +137,24 @@ Install-Module -Name Az.FrontDoor
 Açıklanan yönergeleri izleyerek bir ön kapısı profili oluşturma [hızlı başlangıç: Bir ön kapısı profili oluşturma](quickstart-create-front-door.md)
 
 ### <a name="define-ip-match-condition"></a>IP eşleşme koşulu tanımla
-Kullanım [yeni AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) bir IP eşleşme koşulu tanımlamak için komutu. İçinde aşağıdaki örnekte, değiştirin *IP adresi aralığı 1*, *IP adres aralığı 2* kendi aralığına sahip.
+Kullanım [yeni AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) bir IP eşleşme koşulu tanımlamak için komutu. İçinde aşağıdaki örnekte, değiştirin *IP adresi aralığı 1*, *IP adres aralığı 2* kendi aralığına sahip.
 
 ```powershell
-  $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
     -MatchValue ["ip-address-range-1", "ip-address-range-2"]
 ```
 Bir IP eşleşen tüm koşul kuralı oluşturma
 ```powershell
-  $IPMatchALlCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty Any
     
 ```
 
 ### <a name="create-a-custom-ip-allow-rule"></a>Bir özel Oluştur IP kuralı izin ver
-   Kullanım [yeni AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) bir eylem tanımlayın ve bir önceliğini ayarlamak için komutu. Aşağıdaki örnekte, istemci IP'leri listesiyle eşleşen isteği izin verilir. 
+   Kullanım [yeni AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) bir eylem tanımlayın ve bir önceliğini ayarlamak için komutu. Aşağıdaki örnekte, istemci IP'leri listesiyle eşleşen isteği izin verilir. 
 
 ```powershell
   $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -175,10 +175,10 @@ Bir blok kuralı önceki IP'ın izin verdiğinden daha düşük öncelikli tüm 
    ```
 
 ### <a name="configure-waf-policy"></a>WAF ilkesini yapılandırma
-Ön kapısı profili kullanılarak içeren kaynak grubunun adını bulma `Get-AzResourceGroup`. Ardından, IP Blok kullanarak kural ile bir WAF ilkesini yapılandırma [yeni AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+Ön kapısı profili kullanılarak içeren kaynak grubunun adını bulma `Get-AzResourceGroup`. Ardından, IP Blok kullanarak kural ile bir WAF ilkesini yapılandırma [yeni AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
-  $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
+  $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName <resource-group-name> `
     -Customrule $IPAllowRule $IPBlockAll `

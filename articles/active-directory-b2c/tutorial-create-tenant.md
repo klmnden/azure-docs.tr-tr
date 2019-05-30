@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12ce37579a6f93ba600c39416c7566ac673e9560
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6bcb8e8d5b8b6ef1ebac8141dd13964ecf62af6f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723333"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601696"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Öğretici: Azure Active Directory B2C kiracısı oluşturma
 
@@ -24,14 +24,14 @@ Uygulamalarınızı Azure Active Directory (Azure AD) B2C ile etkileşim kurabil
 Bu makalede şunları öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure AD B2C kiracısı oluşturma
+> * Azure AD B2C kiracısı oluşturun
 > * Kiracı aboneliğinize bağlayın
 
 Sonraki öğreticide bir uygulamayı kaydetme öğrenin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı oluşturma
+## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı oluşturun
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Tıklayarak aboneliğinizi içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve onu içeren dizine seçme. Bu dizin, Azure AD B2C kiracınızı içerecek hesaptan farklıdır.
@@ -40,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 3. Seçin **kaynak Oluştur** Azure portalının sol üst köşedeki içinde.
 4. Arayın ve seçin **Active Directory B2C**ve ardından **Oluştur**.
-5. Seçin **yeni bir Azure AD B2C Kiracısı oluşturma**bir kuruluş adı ve Kiracı adı kullanılan ilk etki alanı adı girin (bunu daha sonra değiştirilemez) ülkeyi seçin ve ardından **Oluştur**.
+5. Seçin **yeni bir Azure AD B2C Kiracısı oluşturma**bir kuruluş adı ve Kiracı adı kullanılan ilk etki alanı adı girin (bunu daha sonra değiştirilemez) ülke/bölge seçin ve ardından **Oluştur** .
 
     ![Kiracı oluşturma](./media/tutorial-create-tenant/create-tenant.png)
 
@@ -57,7 +57,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu makalede, öğrendiğiniz nasıl yapılır:
 
 > [!div class="checklist"]
-> * Azure AD B2C kiracısı oluşturma
+> * Azure AD B2C kiracısı oluşturun
 > * Kiracı aboneliğinize bağlayın
 
 > [!div class="nextstepaction"]

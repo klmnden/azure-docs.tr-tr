@@ -14,12 +14,12 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140985"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602150"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Azure AD PIM rolleri, erişim değerlendirmesi tamamlama
 Ayrıcalıklı rol yöneticileri gözden geçirebileceğiniz ayrıcalıklı erişim kez bir [erişim gözden geçirmesi çalışmaya](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişim gözden geçirilecek kullanıcılar isteyen bir e-posta gönderir. Bir kullanıcı bir e-posta alma değil, onlara yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-how-to-perform-security-review.md).
@@ -33,7 +33,7 @@ Erişim gözden geçirmesi dönemi bittikten veya tüm kullanıcılar, kendi ken
 
 Erişim gözden geçirmesi ait ayrıntıları dikey penceresinde, gözden geçirme yönetmek için bir sayı seçenek vardır.
 
-![PIM erişimi gözden geçirme düğmeleri - ekran görüntüsü](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![PIM erişimi gözden geçirme düğmeleri - ekran görüntüsü](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Anımsat
 Kullanıcılar kendilerine gözden geçirin. böylece erişim gözden geçirmesi ayarlanıp ayarlanmadığını **Anımsat** düğmesi bir bildirim gönderir. 

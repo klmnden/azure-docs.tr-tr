@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425971"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560843"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları
 Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyici günlük sorguları aynı Kusto sorgu dil sürümü kullanın. [Kusto sorgu dili belgeleri](/azure/kusto/query) tüm dil ayrıntılarını sahiptir ve Azure İzleyici günlük sorguları yazmak için birincil kaynak olmalıdır. Bu sayfa, sorgu yazmayı öğrenmek ve farkları dilinin Azure İzleyici uygulaması ile diğer kaynakların bağlantılarını sağlar.
@@ -61,7 +61,7 @@ Azure İzleyici günlüklerine Azure Veri Gezgini oluşturulur ve Azure İzleyic
 ## <a name="cheatsheets"></a>Başvuru sayfaları
 
 -  [Azure İzleyici günlük sorgusu SQL](sql-cheatsheet.md) SQL ile ilgili bilgi sahibi olan kullanıcılara yardımcı olur.
--  [Azure İzleyici günlük sorgusu için Splunk](sql-cheatsheet.md) Splunk ile ilgili bilgi sahibi olan kullanıcılara yardımcı olur.
+-  [Azure İzleyici günlük sorgusu için Splunk](splunk-cheatsheet.md) Splunk ile ilgili bilgi sahibi olan kullanıcılara yardımcı olur.
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

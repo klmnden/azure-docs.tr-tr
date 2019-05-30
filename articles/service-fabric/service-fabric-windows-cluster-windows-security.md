@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccc726f54821d316c745f6af9c63d7ed13986d79
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863972"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761941"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows güvenliğini kullanarak Windows üzerinde tek başına küme güvenliğini sağlama
 Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik altına almanız gerekir. Üretim iş yükleri küme çalıştırdığında, güvenlik özellikle önemlidir. Bu makalede Windows güvenliği kullanarak düğümden düğüme ve düğümden istemci güvenlik yapılandırma *ClusterConfig.JSON* dosya.  İşleme için yapılandırma güvenlik adımı, karşılık gelen [Windows üzerinde çalışan tek başına küme oluşturma](service-fabric-cluster-creation-for-windows-server.md). Service Fabric Windows Güvenlik nasıl kullandığı hakkında daha fazla bilgi için bkz. [küme güvenliği senaryoları](service-fabric-cluster-security.md).
@@ -61,7 +61,7 @@ Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik al
 | IsAdmin |Etki alanı kullanıcı istemci erişim yönetici veya kullanıcı istemci erişimi için yanlış olduğunu belirtmek için true olarak ayarlayın. |
 
 > [!NOTE]
-> ClustergMSAIdentity değeri etki alanı adı içermemesi ve Grup yönetilen hizmet hesabı adı yalnızca olabilir. I.E. "mysfgmsa" doğru ve her ikisi de "mydomain / / mysfgmsa" veya "mysfgmsa@mydomain" etki alanı, konak makine tarafından örtük olarak; geçersizdir.
+> ClustergMSAIdentity değer biçiminde olması "mysfgmsa@mydomain".
 
 [Düğüm düğüm güvenlik](service-fabric-cluster-security.md#node-to-node-security) ayarlayarak yapılandırılmış **ClustergMSAIdentity** gerektiğinde service fabric gMSA altında çalıştırın. Düğümler arasındaki güven ilişkileri oluşturmak için bunlar birbirinden haberdar olmanız gerekir. Bu, iki farklı yollarla gerçekleştirilebilir: Grup yönetilen hizmet kümedeki tüm düğümleri içeren hesabı veya kümedeki tüm düğümleri içeren etki alanı makine grubu belirtin. Kullanmanızı öneririz [Grup yönetilen hizmet hesabı (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) yaklaşım, özellikle daha büyük kümeleri (10'dan fazla düğümler) veya büyük olasılıkla büyütmesine veya küçültmesine izin kümeleri.  
 Bu yaklaşım, küme yöneticileri için ekleme ve kaldırma üyeleri için erişim hakkı verilmiş bir etki alanı grubu oluşturulmasını gerektirmez. Bu hesaplar otomatik parola yönetimi için de yararlıdır. Daha fazla bilgi için [Grup yönetilen hizmet hesapları ile çalışmaya başlama](https://technet.microsoft.com/library/jj128431.aspx).  

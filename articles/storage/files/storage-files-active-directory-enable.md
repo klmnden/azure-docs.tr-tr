@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: 974a4341bd140da60c5e229a644657fe7ab02535
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721608"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602012"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme) için etkinleştirin.
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -79,7 +79,7 @@ SMB kullanarak üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için
 
 1. Azure portalında, mevcut depolama hesabınıza gidin veya [depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
 2. İçinde **ayarları** bölümünden **yapılandırma**.
-3. Etkinleştirme **Azure Active Directory kimlik doğrulaması için Azure dosyaları (Önizleme)**.
+3. Etkinleştirme **Azure Active Directory kimlik doğrulaması için Azure dosyaları (Önizleme)** .
 
 Aşağıdaki resimde, Azure AD kimlik doğrulaması üzerinden SMB depolama hesabınız için etkinleştirmek gösterilmektedir.
 
@@ -103,15 +103,9 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
     -EnableAzureFilesAadIntegrationForSMB $true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
-    -Name "<storage-account-name>" `
-    -EnableAzureFilesAadIntegrationForSMB $true```
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI'si
 
 Azure CLI 2.0 SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için önce yükleme `storage-preview` uzantısı:
 
@@ -124,10 +118,6 @@ Ardından, yeni bir depolama oluşturma çağrı sonra hesap [az depolama hesab�
 ```azurecli-interactive
 # Create a new storage account
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-az storage account update -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
 ## <a name="assign-access-permissions-to-an-identity"></a>Bir kimlik için erişim izinleri atayın 

@@ -3,8 +3,8 @@ title: Oturum açma için otomatik hızlandırmayı bir giriş bölgesi bulma il
 description: Azure Active Directory kimlik doğrulaması için otomatik hızlandırmayı ve etki alanı ipuçları da dahil olmak üzere, Federasyon kullanıcıları için giriş bölgesi bulma ilke yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18f7f6588cb4fb3b3b480402c3dad13be4a0ed2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443105"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781035"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Bir giriş bölgesi bulma ilke kullanarak Azure Active Directory oturum davranışı bir uygulama için yapılandırma
 
@@ -211,7 +211,7 @@ Gereksinim duyduğunuz **objectID** ilkeyi atamak istediğiniz hizmet sorumlular
 
 Portalı kullanabilirsiniz veya sorgulayabilirsiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ayrıca gidebilirsiniz [Graph Gezgini aracını](https://developer.microsoft.com/graph/graph-explorer) ve oturum açma için Azure AD hesabınız kuruluşunuzun tüm hizmet sorumlularını görmek için. PowerShell kullanıldığı için hizmet sorumlularını ve kimliklerini listelemek için get-azureadserviceprincipal cmdlet'ini cmdlet'ini kullanabilirsiniz.
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. Adım: Hizmet sorumlunuzu ilke atama  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. adım: Hizmet sorumlunuzu ilke atama  
 Sonra **objectID** otomatik hızlandırmayı yapılandırmak istediğiniz uygulama hizmet sorumlusu, aşağıdaki komutu çalıştırın. Bu komut, 2. adımda bulduğunuz hizmet sorumlusu ile 1. adımda oluşturduğunuz HRD İlkesi'ni ilişkilendirir.
 
 ``` powershell
@@ -257,7 +257,7 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. Adım: Temizleme İlkesi atandığı hizmet sorumlularını listeleyerek kontrol edin. 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. adım: Temizleme İlkesi atandığı hizmet sorumlularını listeleyerek kontrol edin. 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

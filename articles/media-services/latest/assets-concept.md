@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235670"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551772"
 ---
 # <a name="assets"></a>Varlıklar
 
-Azure Media Services, bir [varlık](https://docs.microsoft.com/rest/api/media/assets) dijital dosyalar (video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil) ve bu dosyalar hakkındaki meta veriler içerir. Dijital dosyalar bir varlığa karşıya yüklendikten sonra medya kodlama, akış, içerik iş akışları çözümleme Hizmetleri'nde kullanılabilir. Daha fazla bilgi için [varlıklarına dijital dosyaları karşıya yükleme](#upload-digital-files-into-assets) bölümüne bakın.
+Azure Media Services, bir [varlık](https://docs.microsoft.com/rest/api/media/assets) (video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil) Azure Depolama'da depolanan dijital dosyalar hakkındaki bilgileri içerir. 
 
 Bir varlık, bir blob kapsayıcısını eşlendi [Azure depolama hesabı](storage-account-concept.md) ve varlık içindeki dosyalara kapsayıcıdaki blok blobları olarak depolanır. Media Services hesabı genel amaçlı v2 kullandığında Blob katmanları destekler (GPv2) depolama. GPv2 ile dosyalarını taşıyabilirsiniz [seyrek erişimli veya arşiv depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Arşiv** depolama (örneğin, bunlar kodlanmış sonra) artık gerekli olmadığında kaynak dosyalarını arşivlemek için uygundur.
 
 **Arşiv** kodlama iş çıktısı bir çıkış blob kapsayıcısında koyulmuş ve depolama katmanı yalnızca zaten kodlanmış çok büyük kaynak dosyaları için önerilir. Bir varlık ve akış veya içeriğinizi çözümlemek için kullanım ile ilişkilendirmek istediğiniz çıkış kapsayıcıdaki blobları bulunması gereken bir **etkin** veya **seyrek erişimli** depolama katmanı.
 
-> [!NOTE]
-> Datetime türündeki varlığın özellikleri her zaman UTC biçimindedir.
-
 ## <a name="upload-digital-files-into-assets"></a>Dijital dosyalar varlıklarına karşıya yükleme
 
-Genel medya Hizmetleri iş akışlarını karşıya yükleme, kodlama ve bir dosya akışı biridir. Bu bölümde, genel adımlar anlatılmaktadır.
+Dijital dosyaları Depolama'ya yükleyip bir varlıkla ilişkilendirilen sonra medya kodlama, akış, içerik iş akışları çözümleme Hizmetleri'nde kullanılabilir. Genel medya Hizmetleri iş akışlarını karşıya yükleme, kodlama ve bir dosya akışı biridir. Bu bölümde, genel adımlar anlatılmaktadır.
 
 > [!TIP]
 > Geliştirmeye başlamadan önce gözden [Media Services v3 API'leri ile geliştirme](media-services-apis-overview.md) (API, adlandırma kurallarını, vb. erişme hakkında bilgi içerir.)
@@ -54,6 +51,9 @@ Genel medya Hizmetleri iş akışlarını karşıya yükleme, kodlama ve bir dos
 Gösteren tam bir .NET örneği için nasıl yapılır: varlık oluşturma, depolama kapsayıcısını varlığın yazılabilir bir SAS URL'si almak, SAS URL'sini kullanarak depolama kapsayıcısına dosya karşıya yükleme, bkz [yerel bir dosyadan iş girdisi oluşturma](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Yeni varlık oluşturma
+
+> [!NOTE]
+> Datetime türündeki varlığın özellikleri her zaman UTC biçimindedir.
 
 #### <a name="rest"></a>REST
 

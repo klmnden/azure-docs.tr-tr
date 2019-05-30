@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702516"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602085"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performans ve bağlantı ölçümü, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Log Analytics çalışma alanına Azure İzleyici'de iletir.  Bu veriler için kullanılabilir [sorgu](../../azure-monitor/log-query/log-query-overview.md) Azure İzleyici'de. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -44,7 +44,7 @@ Aşağıdaki alanlar ve kuralları VMConnection hem VMBoundPort için geçerlidi
 - Bilgisayar: Makine raporlama tam etki alanı adı 
 - Agentıd: Log Analytics aracısını sahip bir makine için benzersiz tanımlayıcı  
 - Makine: ServiceMap tarafından sunulan makine için Azure Resource Manager kaynak adı. Formu şöyledir *m-{GUID}* burada *GUID* Agentıd olarak aynı GUID  
-- İşlem: ServiceMap tarafından kullanıma sunulan işlem için Azure Resource Manager kaynak adı. Formu şöyledir *p-{onaltılık dize}*. Eşsiz işlem kimliği makinelerde üretmek için makine ve işlem alanları birleştirmek ve makine kapsamında benzersiz işlemidir. 
+- İşlem: ServiceMap tarafından kullanıma sunulan işlem için Azure Resource Manager kaynak adı. Formu şöyledir *p-{onaltılık dize}* . Eşsiz işlem kimliği makinelerde üretmek için makine ve işlem alanları birleştirmek ve makine kapsamında benzersiz işlemidir. 
 - ProcessName: Raporlama işlemi yürütülebilir adı.
 - Tüm IP adresleri IPv4 kurallı biçimde örneğin dizelerdir *13.107.3.160* 
 
@@ -57,7 +57,7 @@ Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlant
 |Process |İşlem ya da işlemleri, bağlantıyı başlatan/kabul grupları kimliği |
 |SourceIp |Kaynak IP adresi |
 |DestinationIp |Hedef IP adresi |
-|protocolDestinationPort |Hedef bağlantı noktası numarası |
+|DestinationPort |Hedef bağlantı noktası numarası |
 |Protocol |Bağlantı için kullanılan protokol.  Değerler *tcp*. |
 
 Gruplandırma etkisini için hesap için kaydın şu özelliklerde gruplanmış bir fiziksel bağlantı sayısı hakkında bilgi sağlanır:
@@ -101,7 +101,7 @@ Kolaylık olması için bir bağlantı uzak bitiş IP adresi RemoteIp özelliği
 
 | Özellik | Description |
 |:--|:--|
-|RemoteCountry |RemoteIp barındırma ülke adı.  Örneğin, *Amerika Birleşik Devletleri* |
+|RemoteCountry |RemoteIp barındırma ülke/bölge adı.  Örneğin, *Amerika Birleşik Devletleri* |
 |RemoteLatitude |Coğrafi konum enlem. Örneğin, *47.68* |
 |RemoteLongitude |Coğrafi konum boylam. Örneğin, *-122.12* |
 
@@ -130,7 +130,7 @@ Etkin olarak gelen trafiği kabul veya potansiyel olarak trafiği kabul edebilec
 >- Doğu ABD  
 >- Batı Avrupa
 >
-> Bu verilerin toplanması etkin diğerinde [desteklenen bölgeler](vminsights-onboard.md#log-analytics) VM'ler için Azure İzleyici için. 
+> Bu verilerin toplanması etkin diğerinde [desteklenen bölgeler](vminsights-enable-overview.md#log-analytics) VM'ler için Azure İzleyici için. 
 
 Her kayıtta VMBoundPort aşağıdaki alanlara göre tanımlanır: 
 

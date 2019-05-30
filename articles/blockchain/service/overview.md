@@ -10,19 +10,19 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406413"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544713"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain hizmeti nedir?
 
 Azure Blockchain kullanıcılar büyütün ve uygun ölçekte azure'da blok zinciri ağları olanağı sağlayan tam olarak yönetilen kayıt defteri hizmeti hizmetidir. Hem altyapı Yönetimi yanı sıra blok zinciri ağ idare birleşik denetimi sağlayarak, Azure Blockchain hizmeti sunar:
 
 * Basit ağ dağıtımı ve işlemleri
-* Yerleşik consortium Yönetimi
+* Yerleşik konsorsiyum yönetimi
 * Nitelikli akıllı anlaşmalar aşina olduğunuz geliştirme araçları ile geliştirme
 
 Azure Blockchain hizmeti, birden çok kayıt defteri protokol desteklemek için tasarlanmıştır. Şu anda Ethereum desteği sağladığı [çekirdek](https://www.jpmorgan.com/Quorum) muhasebe kullanarak [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) fikir birliğine varılmış mekanizması.
@@ -55,7 +55,7 @@ Ayrıca, Azure Blockchain hizmet düğümlerinin CPU, bellek ve depolama kullan�
 
 Azure Log Analytics, kullanıcıların çekirdek muhasebe ya da diğer önemli bilgiler gibi çalıştı bağlantıları işlem düğümlerine ilgili günlüklerini görüntüleyebilirsiniz.
 
-## <a name="built-in-consortium-management"></a>Yerleşik consortium Yönetimi
+## <a name="built-in-consortium-management"></a>Yerleşik konsorsiyum yönetimi
 
 İlk blok zinciri üyelik dağıtırken katılın veya yeni bir konsorsiyum oluşturun.  Konsorsiyumu, idare ve çok taraflı bir işlemde transact blockchain üyeleri arasında bağlantı yönetmek için kullanılan mantıksal bir gruptur.  Azure blok zinciri hizmeti aracılığıyla hangi eylemleri üyeleri consortium sürebilir belirlemek için önceden tanımlanmış akıllı sözleşmeler, yerleşik idare denetimleri sağlar.  Bu idare denetimleri gerektiği şekilde consortium yönetici tarafından özelleştirilebilir. Yeni consortium oluşturduğunuzda, blok zinciri diğer taraflar, consortium katılmaya davet özelliğini etkinleştirme varsayılan yönetici Consortium üyesidir.  Yalnızca daha önce davet edildiniz varsa Konsorsiyumu katılabilirsiniz.  Konsorsiyumu eklerken, blok zinciri üyelik consortium'ın Yöneticisi tarafından yerleştirdiniz idare denetimleri tabidir.
 
@@ -77,7 +77,7 @@ Ethereum uygulamalarınız için yaptığınız gibi açık kaynaklı çekirdek 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Başlamak için bir hızlı başlangıcı deneyin veya bu kaynaklar daha ayrıntılı bilgi edinin.
-* [Azure portalını kullanarak blok zinciri üye oluşturmak](create-member.md) veya [Azure CLI kullanarak bir blok zinciri üye oluştur]()
+* [Azure portalını kullanarak blok zinciri üye oluşturmak](create-member.md) veya [Azure CLI kullanarak bir blok zinciri üye oluştur](create-member-cli.md)
 * Maliyet karşılaştırmaları ve hesaplayıcıları için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/blockchain-service).
 * İlk kullanıp uygulamanızın derleme [Azure blok zinciri Geliştirme Seti](https://github.com/Azure-Samples/blockchain-devkit)
 * Azure Blockchain VSCode uzantısı [Kullanıcı Kılavuzu](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

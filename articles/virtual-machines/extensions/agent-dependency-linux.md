@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 16491ccc8a9cdc24b82c4c4e27705fa30da61088
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 750393e6dba17ab8ba024f9f1fbb2f9127dd81ab
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800239"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521694"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Linux için Azure İzleyici bağımlılık sanal makine uzantısı
 
@@ -30,7 +30,7 @@ Vm'leri Haritası özelliği için Azure İzleyici verilerini Microsoft Dependen
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Linux için Azure VM bağımlılık Aracısı uzantısı listelenen desteklenen işletim sistemlerine karşı çalıştırabilirsiniz [desteklenen işletim sistemleri](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) Vm'leri dağıtma makalesi için Azure İzleyici bölümü.
+Linux için Azure VM bağımlılık Aracısı uzantısı listelenen desteklenen işletim sistemlerine karşı çalıştırabilirsiniz [desteklenen işletim sistemleri](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) Vm'leri dağıtma makalesi için Azure İzleyici bölümü.
 
 ## <a name="extension-schema"></a>Uzantı şeması
 

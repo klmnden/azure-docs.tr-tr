@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0fa252fa2cdab7bb3790153f2d118fea13739852
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153510"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520249"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 
@@ -229,7 +229,7 @@ Adres aralıkları kullanarak izin verilen internet sağlamak [CIDR gösterimind
    > [!NOTE]
    > Küçük adres aralıkları kullanarak "/ 31" veya "/ 32" öneki boyutları desteklenmez. Bu aralıklar, tek tek IP adresi kurallarını kullanarak yapılandırılmalıdır.
 
-IP ağ kuralları için yalnızca verilir **genel internet** IP adresleri. IP adres aralıkları özel ağlar için ayrılmış (sınıfında tanımlandığı gibi [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres dahil _10.*_, _172.16. *_ - _172.31. *_, ve _192.168. *_.
+IP ağ kuralları için yalnızca verilir **genel internet** IP adresleri. IP adres aralıkları özel ağlar için ayrılmış (sınıfında tanımlandığı gibi [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres dahil _10.*_ , _172.16. *_  - _172.31. *_ , ve _192.168. *_ .
 
    > [!NOTE]
    > IP ağ kuralları için aynı Azure bölgesindeki depolama hesabı kaynaklanan taleplere üzerinde etkisi yoktur. Kullanım [sanal ağ kuralları](#grant-access-from-a-virtual-network) aynı bölgede isteklere izin vermek için.
@@ -350,14 +350,14 @@ Etkinleştirirseniz **izin güvenilen Microsoft Hizmetleri...**  özel durum, a�
 
 |Hizmet|Kaynak sağlayıcı adı|Amaç|
 |:------|:---------------------|:------|
-|Azure Backup|Microsoft.Backup|Yedekleme ve geri yüklemeler yönetilmeyen diskler, IAAS sanal makinelerde çalıştırır. (yönetilen diskler için gerekli değildir). [Daha fazla bilgi edinin](/azure/backup/backup-introduction-to-azure-backup).|
+|Azure Backup|Microsoft.RecoveryServices|Yedekleme ve geri yüklemeler yönetilmeyen diskler, IAAS sanal makinelerde çalıştırır. (yönetilen diskler için gerekli değildir). [Daha fazla bilgi edinin](/azure/backup/backup-introduction-to-azure-backup).|
 |Azure Data Box|Microsoft.DataBox|Data Box'ı kullanarak azure'a veri aktarımını sağlar. [Daha fazla bilgi edinin](/azure/databox/data-box-overview).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Özel görüntü oluşturma ve yapıt yükleme. [Daha fazla bilgi edinin](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|BLOB Depolama olayı yayımlamayı etkinleştirme ve depolama kuyrukları yayımlamak Event Grid sağlar. Hakkında bilgi edinin [blob depolama olayları](/azure/event-grid/event-sources) ve [sıralara yayımlama](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs yakalama ile verileri arşivleme. [Daha fazla bilgi edinin](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|Yeni bir HDInsight kümesinin varsayılan dosya sistemi ilk içeriğini sağlayın. [Daha fazla bilgi edinin](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure İzleyici|Microsoft.Insights|İzleme verilerinin bir güvenli depolama hesabına yazma sağlayan [daha fazla bilgi edinin](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
-|Azure Ağı|Microsoft.Networking|Store ve ağ trafik günlüklerini analiz edin. [Daha fazla bilgi edinin](/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure Ağı|Microsoft.Network|Store ve ağ trafik günlüklerini analiz edin. [Daha fazla bilgi edinin](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Olağanüstü durum kurtarma, Azure Iaas sanal makineler için çoğaltma etkinleştirerek yapılandırın. Güvenlik Duvarı etkin önbellek depolama hesabı veya kaynak depolama hesabı veya hedef depolama hesabı kullanıyorsanız, bu gereklidir.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure SQL Veri Ambarı|Microsoft.Sql|İçeri aktarma sağlar ve PolyBase kullanarak belirli SQL veritabanları örneklerden senaryoları verin. [Daha fazla bilgi edinin](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 

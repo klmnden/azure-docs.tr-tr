@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: 2d16893420f27caf4f8b00dc32069e3296d7c236
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7a167deb511347798fa609e2aca2a19f8bf12d21
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459785"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523716"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Azure web uygulaması güvenlik duvarı için özel bir yanıt yapılandırın
 
@@ -42,7 +42,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 Azure'da, bir kaynak grubu için ilgili kaynakları ayırın. Bu örnekte, bir kaynak grubu kullanarak oluşturduğunuz [yeni AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
 
@@ -52,11 +52,11 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## <a name="create-a-new-waf-policy-with-custom-response"></a>Özel yanıtı ile yeni bir WAF ilkesi oluşturma 
 
-405 ve ileti için ayarlanan özel yanıt durum kodu ile yeni bir WAF ilkesi oluşturma örneği aşağıda verilmiştir **bloke edilir.** kullanarak [yeni AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy).
+405 ve ileti için ayarlanan özel yanıt durum kodu ile yeni bir WAF ilkesi oluşturma örneği aşağıda verilmiştir **bloke edilir.** kullanarak [yeni AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
 # WAF policy setting
-New-AzFrontDoorFireWallPolicy `
+New-AzFrontDoorWafPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -EnabledState enabled `

@@ -9,18 +9,18 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573002"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556213"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ek güvence için Azure anahtar Kasası'nı kullandığınızda alabilir veya HSM sınırını asla terk donanım güvenlik modüllerinde (HSM'ler) anahtarları oluşturun. Bu senaryo, genellikle olarak adlandırılır *kendi anahtarını Getir*, bYok. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Azure Key Vault, anahtarlarınızı korumak için Thales nShield ailesi Hsm'leri kullanır.
+Ek güvence için Azure anahtar Kasası'nı kullandığınızda alabilir veya HSM sınırını asla terk donanım güvenlik modüllerinde (HSM'ler) anahtarları oluşturun. Bu senaryo, genellikle olarak adlandırılır *kendi anahtarını Getir*, bYok. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Azure Key Vault, anahtarlarınızı korumak için HSM'ler nCipher nShield ailesini kullanır.
 
 Bilgileri, planlama, oluşturma ve Azure anahtar kasası ile kullanmak için kendi HSM korumalı anahtarlar'ı aktarım yardımcı olması için bu konudaki kullanın.
 
@@ -34,16 +34,16 @@ Oluşturma ve HSM korumalı bir anahtar Internet üzerinden aktarmaktan hakkınd
 
 * Saldırı yüzeyini azaltan bir çevrimdışı iş istasyonundan, anahtarı üret
 * Anahtar ile bir anahtar değişim anahtarı (Azure anahtar kasası Hsm'lerine aktarılmasına kadar şifrelenmiş olarak kalır, KEK), şifreli. Anahtarınızın yalnızca şifrelenmiş sürümü özgün iş istasyonundan bırakır.
-* Araç takımı, Kiracı anahtarınızdaki anahtarınızı Azure anahtar kasası güvenlik dünyasına bağlayan özelliklerini ayarlar. Bu sayede Azure anahtar kasası Hsm'lerine almak ve anahtarınızı şifresini sonra yalnızca bu HSM'ler bunu kullanabilirsiniz. Anahtarınız dışarı aktarılamaz. Bu bağlama Thales Hsm'leri tarafından zorlanır.
-* Anahtarınızı şifrelemek için kullanılan anahtar değişim anahtarı (KEK) Azure anahtar kasası Hsm'lerinin içinde oluşturulur ve dışarı aktarılamaz. HSM'ler KEK Hsm'lerin dışında NET bir sürümü olabilir uygular. Ayrıca, araç takımı KEK'nin dışarı aktarılabilir olmadığı ve Thales tarafından üretilmiş orijinal bir HSM içinde oluşturulduğu thales'ten kanıtlama içerir.
-* Araç takımı gelen Azure anahtar kasası güvenlik Dünyası Thales tarafından üretilmiş orijinal bir HSM üzerinde de oluşturulduğu yönünde Thales kanıtı içerir. Bu kanıtlama için Microsoft orijinal donanım kullandığını kanıtlar.
+* Araç takımı, Kiracı anahtarınızdaki anahtarınızı Azure anahtar kasası güvenlik dünyasına bağlayan özelliklerini ayarlar. Bu sayede Azure anahtar kasası Hsm'lerine almak ve anahtarınızı şifresini sonra yalnızca bu HSM'ler bunu kullanabilirsiniz. Anahtarınız dışarı aktarılamaz. Bu bağlama, nCipher Hsm'leri tarafından zorlanır.
+* Anahtarınızı şifrelemek için kullanılan anahtar değişim anahtarı (KEK) Azure anahtar kasası Hsm'lerinin içinde oluşturulur ve dışarı aktarılamaz. HSM'ler KEK Hsm'lerin dışında NET bir sürümü olabilir uygular. Ayrıca, araç takımı KEK'nin dışarı aktarılabilir olmadığı ve nCipher tarafından üretilmiş orijinal bir HSM içinde oluşturulduğu nCipher kanıtlamayı içerir.
+* Araç takımı, Azure Key Vault güvenlik Dünyası nCipher tarafından üretilen orijinal bir HSM üzerinde de oluşturulan nCipher kanıtlamayı içerir. Bu kanıtlama için Microsoft orijinal donanım kullandığını kanıtlar.
 * Microsoft, ayrı Dünyaları kullanır ve her coğrafi bölgede güvenlik Dünyaları ayırın. Bu ayrım anahtarınızı içinde şifrelendiği bölgedeki veri merkezlerinde yalnızca kullanılabilir sağlar. Örneğin, Avrupalı bir müşterinin bir anahtarı Kuzey Amerika veya Asya'daki veri merkezlerinde kullanılamaz.
 
-## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Thales Hsm'leri ve Microsoft Hizmetleri hakkında daha fazla bilgi
+## <a name="more-information-about-ncipher-hsms-and-microsoft-services"></a>Daha fazla bilgi hakkında nCipher HSM'ler ve Microsoft Hizmetleri
 
-Thales e güvenlikli bir siber güvenlik çözümleri finansal hizmetler, yüksek teknoloji, üretim, kamu ve teknoloji sektörlerine veri şifreleme ve önde gelen genel sağlayıcısıdır. 40 yıllık tecrübesiyle Kurumsal ve kamu bilgi ile Thales çözümleri dört enerji ve Havacılık beş en büyük şirketleri tarafından kullanılır. Çözümleri ayrıca 22 NATO ülkeler/bölgeler tarafından kullanılır ve daha yüzde 80'den tüm dünyadaki ödeme işlemlerinin güvenli.
+Güvenlik nCipher bir siber güvenlik çözümleri finansal hizmetler, yüksek teknoloji, üretim, kamu ve teknoloji sektörlerine veri şifreleme ve önde gelen genel sağlayıcısıdır. 40 yıllık tecrübesiyle Kurumsal ve resmi bilgileri ile şifreleme güvenlik çözümleri, nCipher dört enerji ve Havacılık beş en büyük şirketleri tarafından kullanılır. Çözümleri ayrıca 22 NATO ülkeler/bölgeler tarafından kullanılır ve daha yüzde 80'den tüm dünyadaki ödeme işlemlerinin güvenli.
 
-Microsoft, HSM'ler için resim durumu için Thales ile CISCO. Bu geliştirmeler tanımaktadır anahtarlarınızın denetimi sizin bırakmadan, barındırılan hizmetlere tipik avantajlardan yararlanmanıza olanak tanıyacak. Özellikle, bu geliştirmeler, böylece gerekmez HSM'ler Microsoft yürütebilmektedir. Bir bulut hizmeti olan Azure Key Vault, kuruluşunuzun ani artışları karşılamak üzere kullanımındaki. Aynı zamanda, anahtarınızı Microsoft'un Hsm'leri içerisinde korunur: Anahtar oluşturma ve Microsoft'un Hsm'lerine aktarmak için anahtar yaşam döngüsü denetim korur.
+Microsoft, nCipher HSM'ler için resim durumunu geliştirmek için güvenlik ile CISCO. Bu geliştirmeler tanımaktadır anahtarlarınızın denetimi sizin bırakmadan, barındırılan hizmetlere tipik avantajlardan yararlanmanıza olanak tanıyacak. Özellikle, bu geliştirmeler, böylece gerekmez HSM'ler Microsoft yürütebilmektedir. Bir bulut hizmeti olan Azure Key Vault, kuruluşunuzun ani artışları karşılamak üzere kullanımındaki. Aynı zamanda, anahtarınızı Microsoft'un Hsm'leri içerisinde korunur: Anahtar oluşturma ve Microsoft'un Hsm'lerine aktarmak için anahtar yaşam döngüsü denetim korur.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Uygulama kendi anahtarını getir (BYOK) için Azure anahtar kasası
 
@@ -57,8 +57,8 @@ Kendi anahtarını getir (BYOK) için Azure anahtar kasası için bir önkoşul 
 | --- | --- |
 | Azure aboneliği |Bir Azure anahtar kasası oluşturmak için bir Azure aboneliğinizin olması gerekir: [Ücretsiz deneme için kaydolun](https://azure.microsoft.com/pricing/free-trial/) |
 | HSM korumalı anahtarları desteklemek için Azure anahtar kasası Premium hizmet katmanı |Azure Key Vault için hizmet katmanları ve özellikler hakkında daha fazla bilgi için bkz. [Azure anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) Web sitesi. |
-| Thales HSM, akıllı kartlar ve destek yazılımı |Thales donanım güvenlik modülü ve Thales HSM'ler hakkında temel operasyonel bilginiz erişimi olmalıdır. Bkz: [Thales donanım güvenlik modülü](https://www.thales-esecurity.com/msrms/buy) uyumlu modellerin ya da bir yoksa bir HSM satın almak için listesi. |
-| Aşağıdaki donanım ve yazılım:<ol><li>Çevrimdışı bir x64 iş istasyonunda en az bir Windows işletim sistemi en az Windows 7 ve Thales nShield yazılımı sürümü ile 11.50 sürümü.<br/><br/>Bu iş istasyonu Windows 7 çalıştırıyorsa, şunları yapmalısınız [Microsoft .NET Framework 4.5 sürümünü yüklemeniz](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Internet'e bağlı ve Windows 7'in en az bir Windows işletim sistemi olan bir iş istasyonu ve [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **en düşük sürüm 1.1.0** yüklü.</li><li>Bir USB sürücü veya en az 16 MB boş alanı olan başka bir taşınabilir depolama cihazı.</li></ol> |Güvenlik nedenleriyle ilk iş istasyonunun bir ağa bağlı değilse öneririz. Ancak, bu öneriyi program aracılığıyla zorlanmaz.<br/><br/>Aşağıdaki yönergelerde bu iş istasyonu, bağlantısı kesilmiş iş istasyonu olarak adlandırılır.</p></blockquote><br/>Kiracı anahtarınız bir üretim ağı için ise, ayrıca, araç takımını indirmek için ikinci ve ayrı bir iş istasyonu kullanın ve Kiracı anahtarınızı karşıya öneririz. Ancak test amacıyla Birincisi aynı iş istasyonunu kullanabilirsiniz.<br/><br/>Aşağıdaki yönergelerde bu ikinci iş istasyonu İnternet'e bağlı iş istasyonu olarak adlandırılır.</p></blockquote><br/> |
+| nCipher nShield HSM, akıllı kartlar ve destek yazılımı |Bir donanım güvenlik modülü nCipher erişimi ve nCipher nShield HSM'ler hakkında temel operasyonel bilginiz olmalıdır. Bkz: [nCipher nShield donanım güvenlik modülü](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) uyumlu modellerin ya da bir yoksa bir HSM satın almak için listesi. |
+| Aşağıdaki donanım ve yazılım:<ol><li>Çevrimdışı bir x64 iş istasyonunda en az bir Windows işletim sistemi en az Windows 7 ve nCipher nShield yazılımı sürümü ile 11.50 sürümü.<br/><br/>Bu iş istasyonu Windows 7 çalıştırıyorsa, şunları yapmalısınız [Microsoft .NET Framework 4.5 sürümünü yüklemeniz](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Internet'e bağlı ve Windows 7'in en az bir Windows işletim sistemi olan bir iş istasyonu ve [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **en düşük sürüm 1.1.0** yüklü.</li><li>Bir USB sürücü veya en az 16 MB boş alanı olan başka bir taşınabilir depolama cihazı.</li></ol> |Güvenlik nedenleriyle ilk iş istasyonunun bir ağa bağlı değilse öneririz. Ancak, bu öneriyi program aracılığıyla zorlanmaz.<br/><br/>Aşağıdaki yönergelerde bu iş istasyonu, bağlantısı kesilmiş iş istasyonu olarak adlandırılır.</p></blockquote><br/>Kiracı anahtarınız bir üretim ağı için ise, ayrıca, araç takımını indirmek için ikinci ve ayrı bir iş istasyonu kullanın ve Kiracı anahtarınızı karşıya öneririz. Ancak test amacıyla Birincisi aynı iş istasyonunu kullanabilirsiniz.<br/><br/>Aşağıdaki yönergelerde bu ikinci iş istasyonu İnternet'e bağlı iş istasyonu olarak adlandırılır.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma
 
@@ -74,7 +74,7 @@ Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma beş aşağı
 
 Birinci adım için Internet'e bağlı iş istasyonunuzu üzerinde aşağıdaki yordamları gerçekleştirin.
 
-### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleme
+### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleyin
 
 İnternet'e bağlı iş istasyonundan indirin ve Azure anahtar Kasası'nı yönetmek için cmdlet'ler içeren Azure PowerShell modülünü yükleyin. Yükleme yönergeleri için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
@@ -162,7 +162,7 @@ Anahtar kasası BYOK araç Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
-[**Azure kamu:**](https://azure.microsoft.com/features/gov/)
+[**Azure kamu:** ](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -232,17 +232,17 @@ Paketi bir USB sürücüye veya başka bir taşınabilir depolama kopyalayın.
 
 Bu ikinci adım için bir ağa (İnternet'e veya iç ağınıza) bağlı olmayan bir iş istasyonunda aşağıdaki yordamları gerçekleştirin.
 
-### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>2.1. adım: Bağlantısı kesilmiş iş istasyonunuzu Thales HSM ile hazırlama
+### <a name="step-21-prepare-the-disconnected-workstation-with-ncipher-nshield-hsm"></a>2.1. adım: Bağlantısı kesilmiş iş istasyonunuzu nCipher nShield HSM ile hazırlama
 
-Bir Windows bilgisayara nCipher (Thales) destek yazılımını yükleyin ve ardından o bilgisayara bir Thales HSM ekleyin.
+Bir Windows bilgisayara nCipher destek yazılımını yükleyin ve ardından o bilgisayara nCipher nShield HSM ekleyin.
 
-Thales araçlarının yolunuzda olduğundan emin olun (**%nfast_home%\bin**). Örneğin, aşağıdaki komutu yazın:
+NCipher araçları yolunuzda olduğundan emin olun ( **%nfast_home%\bin**). Örneğin, aşağıdaki komutu yazın:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
   ```
 
-Daha fazla bilgi için Thales HSM ile kullanıcı kılavuzuna bakın.
+Daha fazla bilgi için HSM nShield ile kullanıcı kılavuzuna bakın.
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>2.2. adım: BYOK araç takımını, bağlantısı kesilmiş iş istasyonunda yükleyin
 
@@ -252,17 +252,17 @@ USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketin
 2. Bu klasörden vcredist_x64.exe çalıştırın.
 3. Yönergeleri, Visual Studio 2013 için Visual C++ çalışma zamanı bileşenlerini yüklemeyi izleyin.
 
-## <a name="step-3-generate-your-key"></a>3. Adım: Anahtarınızı
+## <a name="step-3-generate-your-key"></a>3. adım: Anahtarınızı
 
 Bu üçüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin. Bu adımı tamamlamak için HSM tedarikçinize başlatma modunda olması gerekir. 
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Adım 3.1: 'I' HSM modunu değiştirme
 
-Modu değiştirmek için Thales nShield Edge kullanıyorsanız: 1. Gerekli modu vurgulamak için Modu düğmesini kullanın. 2. Birkaç saniye içinde basın ve Temizle düğmesine birkaç saniye basılı tutun. Modu değişirse, yeni modun LED yanıp durdurur ve aydınlatılmış kalır. Durum LED birkaç saniye düzensiz flash ve düzenli olarak cihaz hazır olduğunda, ardından yanıp. Aksi takdirde cihaz kalır LED uygun moduyla geçerli modunda aydınlatma.
+Modu değiştirmek için Edge, nCipher nShield kullanıyorsanız: 1. Gerekli modu vurgulamak için Modu düğmesini kullanın. 2. Birkaç saniye içinde basın ve Temizle düğmesine birkaç saniye basılı tutun. Modu değişirse, yeni modun LED yanıp durdurur ve aydınlatılmış kalır. Durum LED birkaç saniye düzensiz flash ve düzenli olarak cihaz hazır olduğunda, ardından yanıp. Aksi takdirde cihaz kalır LED uygun moduyla geçerli modunda aydınlatma.
 
 ### <a name="step-32-create-a-security-world"></a>Adım 3.2: Bir güvenlik Dünyası oluşturma
 
-Bir komut istemi başlatın ve Thales yeni dünya programını çalıştırın.
+Bir komut istemi başlatın ve nCipher yeni dünya programını çalıştırın.
 
    ```cmd
     new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
@@ -279,14 +279,14 @@ Ardından şunları yapın:
 
 ### <a name="step-33-change-the-hsm-mode-to-o"></a>Adım 3.3: HSM moduna '
 
-Modu değiştirmek için Thales nShield Edge kullanıyorsanız: 1. Gerekli modu vurgulamak için Modu düğmesini kullanın. 2. Birkaç saniye içinde basın ve Temizle düğmesine birkaç saniye basılı tutun. Modu değişirse, yeni modun LED yanıp durdurur ve aydınlatılmış kalır. Durum LED birkaç saniye düzensiz flash ve düzenli olarak cihaz hazır olduğunda, ardından yanıp. Aksi takdirde cihaz kalır LED uygun moduyla geçerli modunda aydınlatma.
+Modu değiştirmek için Edge, nCipher nShield kullanıyorsanız: 1. Gerekli modu vurgulamak için Modu düğmesini kullanın. 2. Birkaç saniye içinde basın ve Temizle düğmesine birkaç saniye basılı tutun. Modu değişirse, yeni modun LED yanıp durdurur ve aydınlatılmış kalır. Durum LED birkaç saniye düzensiz flash ve düzenli olarak cihaz hazır olduğunda, ardından yanıp. Aksi takdirde cihaz kalır LED uygun moduyla geçerli modunda aydınlatma.
 
 ### <a name="step-34-validate-the-downloaded-package"></a>Adım 3.4: İndirilen paketi doğrulama
 
 Bu adım isteğe bağlıdır ancak aşağıdakileri doğrulayabilmeniz böylece önerilir:
 
-* Araç takımında yer anahtar değişim anahtarı, orijinal bir Thales HSM'den oluşturulmuştur.
-* Araç takımında yer güvenlik Dünyası karması, orijinal bir Thales HSM'de oluşturulmuştur.
+* Araç takımında yer anahtar değişim anahtarı bir orijinal nCipher nShield HSM oluşturuldu.
+* Araç takımında yer güvenlik Dünyası karması, orijinal nCipher nShield HSM oluşturuldu.
 * Anahtar değişim anahtarı aktarılamaz.
 
 > [!NOTE]
@@ -346,18 +346,18 @@ Bu adım isteğe bağlıdır ancak aşağıdakileri doğrulayabilmeniz böylece 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
 
      > [!TIP]
-     > Thales yazılımı, %NFAST_HOME%\python\bin python içerir
+     > NCipher nShield yazılımı, %NFAST_HOME%\python\bin python içerir
      >
      >
 2. Doğrulama başarılı gösteren aşağıdaki gördüğünüzü onaylayın: **Sonuç: BAŞARILI**
 
-Bu betik, Thales kök anahtarına kadar doğru imzalayan zincirini doğrular. Bu kök anahtarın karması betiğe ekli olduğunu ve değeri **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Ayrıca bu değeri ayrı olarak ederek doğrulayabilirsiniz [Thales Web sitesini](http://www.thalesesec.com/).
+Bu betik nShield kök anahtarı kadar doğru imzalayan zincirini doğrular. Bu kök anahtarın karması betiğe ekli olduğunu ve değeri **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Ayrıca bu değeri ayrı olarak ederek doğrulayabilirsiniz [nCipher Web sitesi](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 Şimdi yeni bir anahtar oluşturmaya hazırsınız.
 
 ### <a name="step-35-create-a-new-key"></a>Adım 3.5: Yeni anahtar oluştur
 
-Thales kullanarak bir anahtar oluşturmak **generatekey** program.
+NCipher nShield kullanarak bir anahtar oluşturmak **generatekey** program.
 
 Anahtarı oluşturmak için aşağıdaki komutu çalıştırın:
 
@@ -367,14 +367,14 @@ Bu komutu çalıştırdığınızda, aşağıdaki yönergeleri kullanın:
 
 * Parametre *korumak* değerine ayarlanmalıdır **Modülü**gösterildiği gibi. Bu, modül korumalı bir anahtar oluşturur. BYOK araç takımı, OCS korumalı anahtarları desteklemez.
 * Değiştirin *contosokey* için **ident** ve **plainname** ile herhangi bir dize değeri. Yönetim ek yüklerini en aza indirmek ve hataları riskini azaltmak için her ikisi için aynı değeri kullanmanızı öneririz. **İdent** değer yalnızca sayı, tire ve küçük harf içermelidir.
-* Bu örnekte pubexp (varsayılan) boş kaldı, ancak belirli bir değer belirtebilirsiniz. Daha fazla bilgi için Thales belgelerine bakın.
+* Bu örnekte pubexp (varsayılan) boş kaldı, ancak belirli bir değer belirtebilirsiniz. Daha fazla bilgi için [nCipher belgeleri.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
 Bu komut, %NFAST_KMDATA%\local klasörünüzde adı ile bir simgeleştirilmiş anahtar dosyası oluşturur. **key_simple_** çizgidir **ident** komutu belirtildi. Örneğin: **key_simple_contosokey**. Bu dosya şifreli bir anahtar içerir.
 
 Bu simgeleştirilmiş anahtar dosyasını güvenli bir yere yedekleyin.
 
 > [!IMPORTANT]
-> Anahtarınızı daha sonra Azure anahtar Kasası'na aktardığınızda, anahtarınızı ve güvenlik dünyanızı güvenle yedeklemeniz çok önemli hale gelir için Microsoft bu anahtarı size geri dışarı aktaramazsınız. Yönergeler ve anahtarınızı yedekleme için en iyi yöntemler için Thales başvurun.
+> Anahtarınızı daha sonra Azure anahtar Kasası'na aktardığınızda, anahtarınızı ve güvenlik dünyanızı güvenle yedeklemeniz çok önemli hale gelir için Microsoft bu anahtarı size geri dışarı aktaramazsınız. İlgili kişi [nCipher](https://www.ncipher.com/about-us/contact-us) rehberlik ve anahtarınızı yedekleme için en iyi uygulamalar için.
 >
 
 
@@ -443,7 +443,7 @@ Güvenlik Dünyası yönetim kartlarınızı takmanız istenir.
 
 Komut tamamlandığında, gördüğünüz **sonucu: Başarı** ve anahtarınızın sınırlı izinlere sahip kopyası, key_xferacıd_ adlı dosyada olan\<contosokey >.
 
-İnceler ACL'leri Thales yardımcı programını kullanarak aşağıdaki komutları kullanarak:
+İnceler ACL'leri nCipher nShield Araçları'nı kullanarak aşağıdaki komutları kullanarak:
 
 * aclprint.PY:
 

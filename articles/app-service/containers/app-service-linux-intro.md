@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d40b28103e24214ef00864b032266cc95889eff
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850426"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780343"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -33,12 +33,12 @@ Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşit
 
 | Dil | Desteklenen Sürümler |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE WildFly 14 (tüm çalışan JRE 8) |
 | PHP | 5.6, 7.0, 7.2 |
-| Python (Önizleme) | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1 |
-| Ruby | 2.3 |
+| Python | 2.7, 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
+| Ruby | 2.3, 2.4 |
 
 ## <a name="deployments"></a>Dağıtımlar
 
@@ -71,9 +71,9 @@ Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşit
 
 Azure portalı, yalnızca şu anda Kapsayıcılar için Web App ile kullanılabilen özellikleri gösterir. Yeni özellikler etkinleştirildikçe portalda görünmeye başlayacaktır.
 
-Linux’ta App Service yalnızca [Temel, Standart ve Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız.  
+Linux'ta App Service ile desteklenen yalnızca [ücretsiz, temel, standart ve Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) app service planları ve olmayan bir [paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katmanı. Zaten Linux dışı Web App'ler barındıran bir App Service planında bir Linux Web uygulaması oluşturulamıyor.  
 
-Geçerli bir sınırlama bağlı olarak, Windows ve Linux uygulamaları aynı kaynak grubunda karıştırılamaz.
+Geçerli bir sınırlama göre aynı kaynak grubunun aynı bölgede Windows ve Linux uygulamaları karıştırılamaz.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

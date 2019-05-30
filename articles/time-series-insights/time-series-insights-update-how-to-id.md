@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695062"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519431"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Zaman serisi kimliği seçmeye yönelik en iyi uygulamalar
 
@@ -29,6 +29,7 @@ Zaman serisi kimliği seçerek bir veritabanı için bir bölüm anahtarı seçm
 > Zaman serisi kimliği büyük/küçük harfe ve sabit (ayarlandıktan sonra değiştirilemez).
 
 Uygun zaman serisi kimliği seçerek, aklınızda kritik öneme sahiptir. Zaman serisi kimliği seçtiğinizde, bu en iyi uygulamaları göz önünde bulundurun:
+
 * Çok çeşitli değerleri ve hatta erişim desenleri sahip bir özellik adı seçin. Bir bölüm anahtarı (örneğin, yüzlerce veya binlerce) birçok farklı değerlere sahip en iyi bir uygulamadır. Birçok müşteri için bu sorun, json'da SensorID veya DeviceID gibi olacaktır.
 * Zaman serisi kimliği yaprak düğümü düzeyinde benzersiz olmalıdır, [zaman serisi modeli](./time-series-insights-update-tsm.md).
 * Zaman serisi kimlik özelliği adı karakter dizesi en fazla 128 karakter olabilir ve zaman serisi kimliği özelliği değerleri en fazla 1024 karakter olabilir.
@@ -41,13 +42,13 @@ Ayrıca, en fazla seçebileceğiniz *üç* zaman serisi kimliğinizi olarak (3) 
 
 Aşağıdaki senaryolarda, birden fazla anahtar özellik, zaman serisi Kimliğiniz seçerek açıklanmaktadır:  
 
-### <a name="scenario-1"></a>Senaryo 1
+### <a name="scenario-one"></a>Senaryo bir
 
-* Varlıklar, her bir benzersiz anahtarla eski filolarına var. 
-* Örneğin, bir fleet özelliği tarafından benzersiz şekilde tanımlanır *DeviceID* ve başka bir benzersiz özelliği olduğu *objectID*. Hiçbiri fleet diğer filonun benzersiz özellik içerir. Bu örnekte, iki anahtar, cihaz kimliği ve objectID, benzersiz anahtarlar olarak seçersiniz. 
+* Varlıklar, her bir benzersiz anahtarla eski filolarına var.
+* Örneğin, bir fleet özelliği tarafından benzersiz şekilde tanımlanır *DeviceID* ve başka bir benzersiz özelliği olduğu *objectID*. Hiçbiri fleet diğer filonun benzersiz özellik içerir. Bu örnekte, iki anahtar, cihaz kimliği ve objectID, benzersiz anahtarlar olarak seçersiniz.
 * Biz null değerleri kabul edin ve olay yükü bir özelliğin bulunması eksikliği sayar olarak bir `null` değeri. Ayrıca her bir olay kaynağı verilerdeki benzersiz bir zaman serisi kimliği sahip olduğu iki farklı olay kaynakları için gönderme verileri işlemek için en uygun yolu budur
 
-### <a name="scenario-2"></a>Senaryo 2
+### <a name="scenario-two"></a>Senaryo iki
 
 * Birden çok özellik varlıklar aynı filosundan içinde benzersiz olması gerekir. 
 * Örneğin, bir akıllı yapı üretici olduğunuz ve her bir odada sensörlerden dağıtma varsayalım. Her bir odada genellikle aynı olduğundan *sensorId*, gibi *sensor1*, *sensor2*, ve *sensor3*.

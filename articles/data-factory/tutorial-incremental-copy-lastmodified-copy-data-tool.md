@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61099043"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519124"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Artımlı olarak veri kopyalama aracını kullanarak LastModifiedDate göre yeni ve değiştirilen dosyaları kopyalama
 
 Bu öğreticide, bir veri fabrikası oluşturmak için Azure portalını kullanacaksınız. Göre yeni ve değiştirilmiş dosyalar yalnızca artımlı olarak kopyalayan bir işlem hattı oluşturmak için veri kopyalama aracını daha sonra kullanacağınız kendi **LastModifiedDate** Azure Blob depolamadan Azure Blob Depolama.
+
+Bunu yaptığınızda, ADF kaynak deposundan tüm dosyaları tarama, dosya filtresi'kendi LastModifiedDate tarafından uygulamak ve yeni ve güncelleştirilmiş dosyayı yalnızca son daraltılmasından için hedef depoyu kopyalayın.  Lütfen ADF tarama büyük miktarlarda dosyaları sağlar, ancak yalnızca birkaç dosyaları kopyalama hedefi için hala dosya tarama nedeniyle uzun süreli de zaman alıcı beklediğiniz olduğunu unutmayın.   
 
 > [!NOTE]
 > Azure Data Factory kullanmaya yeni başlıyorsanız bkz. [Azure Data Factory'ye giriş](introduction.md).
@@ -61,7 +63,7 @@ Blob Depolama hesabınızda aşağıdaki adımları uygulayarak öğretici için
    
    ![Yeni veri fabrikası hata iletisi](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-   Ad değeriyle ilgili bir hata iletisi alırsanız, veri fabrikası için farklı bir ad girin. Örneğin, _**adınız**_**ADFTutorialDataFactory** adını kullanın. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
+   Ad değeriyle ilgili bir hata iletisi alırsanız, veri fabrikası için farklı bir ad girin. Örneğin, _**adınız**_ **ADFTutorialDataFactory** adını kullanın. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
 3. Azure'ı seçin **abonelik** içinde yeni veri fabrikası oluşturacaksınız. 
 4. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
      

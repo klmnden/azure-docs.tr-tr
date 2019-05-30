@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031249"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544746"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure işlevleri Premium planı (Önizleme)
 
@@ -44,7 +44,7 @@ Hiçbir olay ve yürütmeleri tüketim planında bugün meydana gelirse, sıfır
 
 Premium planı içinde belirtilen örnekleri, en az bir plan boyutunuzu en fazla sayıdaki önceden warmed uygulamanız olabilir.  Önceden warmed örnekleri yüksek yük önce bir uygulamayı önceden ölçek sağlar. Uygulama Ölçeklendirmesi eşitlenene gibi ilk önceden warmed örneklerine ölçeklendirir. Ek örnekleri kullanıma ve sonraki ölçeklendirme işlemi hemen hazırlığında sıcak arabellek geçin. Önceden warmed örneklerinin bir arabellek sağlayarak, soğuk başlangıç gecikmeleri etkili bir şekilde önleyebilirsiniz.  Önceden warmed örnekleri Premium planı, bir özelliğidir, çalışan en az bir örneğinin çalışır durumda bulundurmanıza gerek ve tüm saatler planı adresinde etkindir.
 
-Azure portalında önceden warmed örneklerinin seçerek yapılandırabilirsiniz **ölçeği genişletme** içinde **Platform özellikleri** sekmesi.
+Azure'da önceden warmed örneklerinin yapılandırabilirsiniz portal tarafından seçilen, **işlev uygulaması**, için giderek **Platform özellikleri** sekme ve seçerek **ölçeği genişletme**seçenekleri. İşlevi uygulaması düzenleme penceresinde, önceden warmed örnekleri bu uygulamaya özeldir, ancak minimum ve maksimum örnek, tüm planınız için geçerlidir.
 
 ![Esnek ölçek ayarları](./media/functions-premium-plan/scale-out.png)
 
@@ -93,7 +93,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Planınızı ölçeklendirme oluştururken, üç örnek boyutları arasında seçim yapabilirsiniz.  Toplam çekirdek sayısını ve saniye başına tüketilen bellek miktarı için faturalandırılır.  Uygulamanızı otomatik olarak birden fazla örneğe gerektiği şekilde genişletebilir.  
 
-|SKU|Çekirdek|Bellek|Depolama|
+|SKU|Çekirdekler|Bellek|Depolama|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7GB|250 GB|
@@ -107,18 +107,19 @@ Planınızı ölçeklendirme oluştururken, üç örnek boyutları arasında se�
 |--|
 |Avustralya Doğu|
 |Avustralya Güneydoğu|
-|Orta Kanada|
+|Kanada Orta|
 |Orta ABD|
 |Doğu Asya|
 |Doğu ABD 2|
 |Fransa Orta|
 |Japonya Batı|
 |Kore Orta|
+|Orta Kuzey ABD|
 |Kuzey Avrupa|
 |Orta Güney ABD|
 |Güney Hindistan|
 |Güneydoğu Asya|
-|Birleşik Krallık Batı|
+|BK Batı|
 |Batı Avrupa|
 |Batı Hindistan|
 |Batı ABD|

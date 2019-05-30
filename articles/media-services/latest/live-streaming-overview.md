@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153373"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556217"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 Bu makalede, bir genel bakış ve Media Services ve ilgili diğer makalelere bağlantılar ile canlı akış rehberlik sağlar.
 
 > [!NOTE]
-> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](developers-guide.md) birini kullanın.
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](media-services-apis-overview.md#sdks) birini kullanın.
 
 ## <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -67,9 +67,9 @@ Media Services ile gerçek zamanlı kodlama özelliğini kullandığınızda şi
 
 Media Services v3 canlı akış iş akışı anlamak için ilk gözden geçirme için sahip ve aşağıdaki kavramları anlama: 
 
-- [Akış Uç Noktaları](streaming-endpoint-concept.md)
-- [Canlı Etkinlikler ve Canlı Çıkışlar](live-events-outputs-concept.md)
-- [Akış Bulucular](streaming-locators-concept.md)
+- [Akış API uç noktaları](streaming-endpoint-concept.md)
+- [Canlı olayları ve canlı çıkışları API](live-events-outputs-concept.md)
+- [Akış bulucuları API'si](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Genel adımlar
 

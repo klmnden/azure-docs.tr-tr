@@ -3,16 +3,16 @@ title: Bir Azure Görüntü Oluşturucu şablonu (Önizleme) oluşturma
 description: Azure Görüntü Oluşturucu ile kullanılacak bir şablon oluşturmayı öğrenin.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159608"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538287"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Önizleme: Azure Görüntü Oluşturucu şablonu oluşturma 
 
@@ -32,7 +32,7 @@ Bu temel şablonu biçimi şu şekildedir:
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -57,7 +57,7 @@ Bu temel şablonu biçimi şu şekildedir:
 
 - Doğu ABD
 - Doğu ABD 2
-- Batı Orta ABD
+- Orta Batı ABD
 - Batı ABD
 - Batı ABD 2
 
@@ -270,7 +270,7 @@ Yeniden başlatma Özelleştirici Windows VM'yi yeniden başlatın ve bekleyin y
  
 Özellikleri Özelleştir:
 - **Tür**: WindowsRestart
-- **restartCommand** -(isteğe bağlı) yeniden çalıştırılacak komutu. Varsayılan değer: `'shutdown /r /f /t 0 /c \"packer restart\"'`.
+- **restartCommand** -(isteğe bağlı) yeniden çalıştırılacak komutu. Varsayılan, `'shutdown /r /f /t 0 /c \"packer restart\"'` değeridir.
 - **restartCheckCommand** – yeniden başlatma (isteğe bağlı) başarılı olup olmadığını denetlemek için komutu. 
 - **restartTimeout** -magnitude ve birimi bir dize olarak belirtilen zaman aşımı'ı yeniden başlatın. Örneğin, `5m` (5 dakika) veya `2h` (2 saat). Varsayılan değer: ' 5 milyon '
 

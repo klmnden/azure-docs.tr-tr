@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869522"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556322"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN, kural altyapısı eşleşen koşulları 
 Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (CDN) kullanılabilir eşleştirme koşulları listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -101,8 +101,11 @@ Ad | Amaç
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Kural altyapısı eşleştirme koşulları için başvuru
+
 <a name="main"></a>
+
 ---
+
 ### <a name="always"></a>Her Zaman
 
 Her zaman eşleşme koşulu, tüm istekler için varsayılan bir özellikler kümesi uygular.
@@ -784,7 +787,7 @@ Anahtar bilgileri:
 
    Karakter | URL kodlaması
    ----------|---------
-   Uzay     | %20
+   Boşluk     | %20
    &         | %25
 
 - Hangi önbellek ayarları izlenen şekilde nedeniyle bu eşleşme koşulu aşağıdaki özellikleri ile uyumsuzdur:
@@ -820,7 +823,7 @@ Anahtar bilgileri:
 
        Karakter | URL kodlaması
        ----------|---------
-       Uzay     | %20
+       Boşluk     | %20
        &         | %25
 
 - Her biri tek bir boşluk ile sınırlayan tarafından birden çok sorgu dizesi parametresi değerlerini belirtin. Bir istek belirtilen ad/değer birleşimleri içerdiğinde bu eşleşme koşulu karşılanır.
@@ -872,7 +875,7 @@ Ad  | Değer |  Sonuç
 ------|-------|--------
 Kullanıcı  | ALi   | İstenen URL sorgu dizesi olduğunda bu deseni eşleştirilen "? kullanıcı = joe."
 Kullanıcı  | *     | Bir kullanıcı parametresi için istenen URL'ye sorgu dizesi içerdiğinde, bu düzen eşleştirilir.
-Email | ALi\* | İstenen URL'ye sorgu dizesi "ALi" ile başlayan bir e-posta parametresini içerdiğinde bu düzen eşleşiyor
+E-posta | ALi\* | İstenen URL'ye sorgu dizesi "ALi" ile başlayan bir e-posta parametresini içerdiğinde bu düzen eşleşiyor
 
 [Başa dön](#main)
 
@@ -897,7 +900,7 @@ Anahtar bilgileri:
 
    Karakter | URL kodlaması | Değer
    ----------|--------------|------
-   Uzay     | %20          | \%20
+   Boşluk     | %20          | \%20
    &         | %25          | \%25
 
    Yüzde sembolleri atlanması gereken unutmayın.
@@ -939,7 +942,7 @@ Anahtar bilgileri:
 
      Karakter | URL kodlaması
      ----------|---------
-     Uzay     | %20
+     Boşluk     | %20
      &         | %25
 
 - Her biri tek bir boşluk ile sınırlayan tarafından birden çok değer belirtin.

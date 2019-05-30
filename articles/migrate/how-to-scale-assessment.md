@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596711"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518750"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -52,13 +52,13 @@ Vm'leri bulmak için planlama sayısına bağlı olarak, birden çok proje oluş
 (Artık kullanım dışı), tek seferlik bir bulma bulma yangın içinde çalışır ve bir bulma tamamlandıktan sonra modeli unutmanız durumunda, farklı bir vCenter sunucusu veri toplamak veya farklı bir geçiş projesine göndermek için aynı Toplayıcısı'nı kullanabilirsiniz.
 
 > [!NOTE]
-> Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır. Tek seferlik gerecine taşımanız önerilir.
+> Bu yöntem, vCenter Server'ın performans veri noktası kullanılabilirlik için istatistik ayarları yararlandı ve sanal makinelerin Azure'a geçiş için eksik boyutlandırma içinde sonuçlanan ortalama performans sayaçlarının toplanan gibi tek seferlik gereç artık kullanım dışı bırakılmıştır. Sürekli bulma gerecine taşımanız önerilir.
 
 Bulma ve değerlendirme şu sınırlara göre planlayın:
 
 | **Varlık** | **Makine sınırı** |
 | ---------- | ----------------- |
-| Project    | 1.500             |
+| PROJE    | 1.500             |
 | Bulma  | 1.500             |
 | Değerlendirme | 1.500             |
 
@@ -102,7 +102,7 @@ Kiracılar genelinde paylaşılan bir ortamda varsa ve bir kiracının başka bi
 
 Planınızla hazır olduktan sonra şirket içi sanal makineleri bulma başlatabilirsiniz:
 
-### <a name="create-a-project"></a>Proje oluşturma
+### <a name="create-a-project"></a>Proje oluştur
 
 Gereksinimlerinize uygun olarak bir Azure geçişi projesi oluşturun:
 

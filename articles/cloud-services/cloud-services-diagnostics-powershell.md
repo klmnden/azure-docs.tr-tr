@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: b20fa7a1f43369cde85c2535637eec7ceb1d3c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13a855c5770281e2578523bfc1813b2e03df6651
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337310"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539241"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>PowerShell kullanarak Azure bulut hizmetlerinde tanılamayı etkinleştirme
 Uygulama günlükleri gibi Tanılama verileri toplayabilirsiniz performans sayaçları vb. Azure tanılama uzantısını kullanarak bir bulut hizmetinden. Bu makalede, PowerShell kullanarak bir bulut hizmeti için Azure tanılama uzantısını etkinleştirmeyi açıklar.  Bkz: [Azure PowerShell'i yükleme ve yapılandırma konusunda](/powershell/azure/overview) Bu makale için gereken önkoşulları için.
@@ -85,7 +85,7 @@ foreach ($extPath in $diagnosticsExtensions)
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 ```
 
-Visual Studio Online, bulut Hizmetleri tanılama uzantısını otomatik dağıtımlar için benzer bir yaklaşım kullanır. Bkz: [Yayımla AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) tam bir örnek.
+Visual Studio Online, bulut Hizmetleri tanılama uzantısını otomatik dağıtımlar için benzer bir yaklaşım kullanır. Bkz: [Yayımla AzureCloudDeployment.ps1](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureCloudPowerShellDeploymentV1/Publish-AzureCloudDeployment.ps1) tam bir örnek.
 
 Hayır ise `StorageAccount` olarak geçirmenize gerek sonra tanılama Yapılandırması'nda belirtilen *StorageAccountName* cmdlet'e parametre. Varsa *StorageAccountName* parametresi belirtilmediyse, ardından cmdlet her zaman bir tanılama yapılandırma dosyasında belirtilen ve bir parametre içinde belirtilen depolama hesabı kullanır.
 
@@ -120,13 +120,13 @@ Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>Tanılama uzantısını kaldırma
-Kullanabileceğiniz bir bulut hizmeti tanılama devre dışı bırakmak üzere [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet'i.
+Bir bulut hizmeti tanılama kapatmak için kullanabileceğiniz [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet'i.
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Tanılama uzantısını kullanarak etkinleştirilirse *kümesi AzureServiceDiagnosticsExtension* veya *yeni AzureServiceDiagnosticsExtensionConfig* olmadan *rol*parametresi seçeneğini kaldırabilirsiniz uzantısını kullanarak *Remove-AzureServiceDiagnosticsExtension* olmadan *rol* parametresi. Varsa *rol* parametresi, uzantıyı daha sonra etkinleştirme de uzantı kaldırılırken kullanılmalıdır kullanıldı.
+Tanılama uzantısını kullanarak etkinleştirilirse *kümesi AzureServiceDiagnosticsExtension* veya *yeni AzureServiceDiagnosticsExtensionConfig* olmadan *rol*parametresi, ardından kaldırabilirsiniz uzantısını kullanarak *Remove-AzureServiceDiagnosticsExtension* olmadan *rol* parametresi. Varsa *rol* parametresi uzantı etkinleştirilirken kullanıldı ve ardından uzantı kaldırılırken de kullanılmalıdır.
 
 Tanılama uzantısını her bir rolden kaldırmak için:
 

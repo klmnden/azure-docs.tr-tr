@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646743"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551374"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -100,7 +100,7 @@ Windows 10 64 bit | Enterprise, Pro, Home | Makineler en son hizmet paketleri ve
 Windows 8.1 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 8 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 7 64-bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
-Sunucu | |
+Sunucu  | |
 Windows Server 2019 64 bit | Standard, Datacenter, Essentials | En son hizmet paketleri/güncelleştirmelerle.
 Windows Server 2016 64 bit | Standard, Datacenter, Essentials | En son hizmet paketleri/güncelleştirmelerle.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | En son hizmet paketleri/güncelleştirmelerle.
@@ -174,8 +174,8 @@ Hayır. En eski kurtarma süresi veya en yeni noktanın aynıdır. Her kurtarma 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Her kurtarma noktası bir tam nokta gibiyse bu durum toplam faturalanabilir yedekleme alanını etkiler mi?
 Genel uzun vadeli bekletme noktası ürünleri, yedekleme verilerini tam noktalar olarak depolar.
 
-    - Tam noktalar depolama açısından *verimsizdir* ancak daha kolay ve hızlı şekilde geri yüklenir.
-    - Artımlı kopyalar depolama olan *verimli* ancak bir zincir, kurtarma süresini etkileyecek verileri geri yüklemek ihtiyaç duyduğunuz
+- Tam noktalar depolama açısından *verimsizdir* ancak daha kolay ve hızlı şekilde geri yüklenir.
+- Artımlı kopyalar depolama olan *verimli* ancak bir zincir, kurtarma süresini etkileyecek verileri geri yüklemek ihtiyaç duyduğunuz
 
 Azure Backup alanı mimarisi, hızlı geri yükleme özelliğiyle optimum veri depolama olanağı sunarken aynı zamanda düşük depolama maliyetleri oluşturarak iki açıdan da avantaj sağlar. Bu, giriş ve çıkış bant genişliğiniz verimli bir şekilde kullanılmasını sağlar. Veri depolama ve verileri kurtarmak için gereken süre miktarını, bir en düşük düzeyde tutulur. Daha fazla bilgi edinin [artımlı yedeklemeler](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 

@@ -6,13 +6,13 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 3c7f0b263cc775b7f9fec62e4d5388250e5124fb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.date: 05/13/2019
+ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079128"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551696"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift için Azure AD kiracısı oluşturma
 
@@ -34,7 +34,7 @@ Bir kiracı oluşturmak için:
 
     ![Portalın sağ üst köşede Kiracı adını gösteren ekran görüntüsü][tenantcallout]  
 
-8. Not *Kiracı kimliği* böylece daha sonra Azure Red Hat OpenShift kümenizi oluşturmak nereye belirtebilirsiniz. Portalda yeni kiracınız için artık Azure Active Directory genel bakış dikey penceresini görmeniz gerekir. Seçin **özellikleri** ve değeri kopyalayın, **dizin kimliği**. Bu değer anılacaktır `tenant id` içinde [Azure Red Hat OpenShift küme oluşturma](tutorial-create-cluster.md) öğretici.
+8. Not *Kiracı kimliği* böylece daha sonra Azure Red Hat OpenShift kümenizi oluşturmak nereye belirtebilirsiniz. Portalda yeni kiracınız için artık Azure Active Directory genel bakış dikey penceresini görmeniz gerekir. Seçin **özellikleri** ve değeri kopyalayın, **dizin kimliği**. Bu değer anılacaktır `TENANT` içinde [Azure Red Hat OpenShift küme oluşturma](tutorial-create-cluster.md) öğretici.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

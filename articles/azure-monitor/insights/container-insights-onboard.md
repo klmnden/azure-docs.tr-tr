@@ -1,6 +1,6 @@
 ---
-title: Kapsayıcılar için yerleşik Azure izleme | Microsoft Docs
-description: Bu makalede nasıl eklemenize ve kapsayıcınızı nasıl performans gösterdiğini ve performans ile ilgili sorunları tanımlanan anlayabilmeniz kapsayıcılar için Azure İzleyicisi'ni yapılandırabilirsiniz.
+title: Kapsayıcılar için Azure İzleyici'ı etkinleştirme | Microsoft Docs
+description: Bu makalede, nasıl olanak açıklanmaktadır ve kapsayıcınızı nasıl performans gösterdiğini ve performans ile ilgili sorunları tanımlanan anlayabilmeniz kapsayıcılar için Azure İzleyicisi'ni yapılandırabilirsiniz.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073305"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521910"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>Kapsayıcılar için yerleşik Azure izleme  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici'ı etkinleştirme  
 
 Bu makalede Kubernetes ortamlara dağıtılmış ve barındırılan iş yüklerinin performansını izlemek için Azure İzleyici'kapsayıcıları için kurulumu için kullanılabilir seçenekleri'ne genel bakış sağlar [Azure Kubernetes hizmeti](https://docs.microsoft.com/azure/aks/).
 

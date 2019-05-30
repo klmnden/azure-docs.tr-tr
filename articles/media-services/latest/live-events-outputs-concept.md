@@ -11,18 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 87620cb0c7aafb78b2c8fe610f42ad092313d305
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153474"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550974"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
-Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. Media Services v3 sürümünde, canlı akış olayları yapılandırmak için bu makalede ele alınan kavramları anlamanız gerekir. <br/>Bölüm listesi, sayfanın sağ tarafındaki listelenir.
+Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. Media Services v3 sürümünde, canlı akış olayları yapılandırmak için bu makalede ele alınan kavramları anlamanız gerekir.
+
+> [!TIP]
+> Media Services v2 API'lerinden geçişini gerçekleştiren müşteriler için **canlı olay** varlık değiştirir **kanal** v2'de ve **Canlı çıkış** değiştirir **Program**.
+
 
 ## <a name="live-events"></a>Canlı Etkinlikler
 

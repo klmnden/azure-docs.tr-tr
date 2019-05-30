@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737218"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521389"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure işlevleri için Host.JSON başvurusu 2.x  
 
@@ -35,7 +35,6 @@ Bazı host.json ayarları yalnızca yerel olarak çalıştırırken kullanılan 
 ## <a name="sample-hostjson-file"></a>Örnek host.json dosyası
 
 Aşağıdaki örnek *host.json* dosyaları belirtilen tüm olası seçeneklerin sahiptir.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ Aşağıdaki örnek *host.json* dosyaları belirtilen tüm olası seçeneklerin 
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -194,6 +196,9 @@ Application Insights da dahil olmak üzere, bir işlev uygulaması günlük davr
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -274,6 +279,18 @@ Bir dizi [kod dizinlerini paylaşılan](functions-reference-csharp.md#watched-di
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+Yönetilen bağımlılığıdır şu anda bir önizleme özelliği ile yalnızca PowerShell işlevleri temel. Bu hizmet tarafından otomatik olarak yönetilecek bağımlılıkları sağlar. Enabled özelliği ayarlandığında true olarak [requirements.psd1](functions-reference-powershell.md#dependency-management) dosya işlenmeyecek. Tüm ikincil sürümleri yayımlandığında bağımlılıkları güncelleştirilecektir.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

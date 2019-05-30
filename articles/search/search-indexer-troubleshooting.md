@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 81987115ba0406e704f2198061c6ee3cae8a72df
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024683"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539271"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search'te yaygın dizin oluşturucu sorunları giderme
 
@@ -27,7 +27,7 @@ Dizin oluşturucular bir dizi soruna Azure Search'e veri dizin oluşturulurken �
 
 ## <a name="data-source-connection-errors"></a>Veri kaynağı bağlantı hataları
 
-### <a name="blob-storage"></a>Blob Depolama
+### <a name="blob-storage"></a>Blob Depolama Alanı
 
 #### <a name="storage-account-firewall"></a>Depolama hesabı güvenlik duvarı
 
@@ -42,7 +42,7 @@ Güvenlik Duvarı etkin olduğunu doğrulayabilirsiniz [portalı](https://docs.m
 
 `nslookup <service name>.search.windows.net`
 
-Özel durumlar için çalışmıyor [Bilişsel arama](cognitive-search-concept-intro.md). Tek geçici çözüm, Güvenlik Duvarı'nı devre dışı bırakmaktır.
+Özel durumlar için çalışmıyor [bilişsel arama](cognitive-search-concept-intro.md). Tek geçici çözüm, Güvenlik Duvarı'nı devre dışı bırakmaktır.
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
@@ -71,7 +71,7 @@ api-key: [admin key]
 
 Blob dizin oluşturucu [bulur ve bir kapsayıcıdaki blobları metin ayıklar](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). İle metin ayıklama bazı sorunlar şunlardır:
 
-* Belgeyi yalnızca Taranan görüntüleri içerir. Taranan görüntüleri (JPG formatından) gibi metin olmayan içeriğe sahip olan PDF BLOB'ları, standart blob dizini oluşturma ardışık düzeninde sonuçlar yok. Görüntü içeriğini metin öğeleriyle varsa, kullanabileceğiniz [Bilişsel arama](cognitive-search-concept-image-scenarios.md) bulup metni ayıklayın.
+* Belgeyi yalnızca Taranan görüntüleri içerir. Taranan görüntüleri (JPG formatından) gibi metin olmayan içeriğe sahip olan PDF BLOB'ları, standart blob dizini oluşturma ardışık düzeninde sonuçlar yok. Görüntü içeriğini metin öğeleriyle varsa, kullanabileceğiniz [bilişsel arama](cognitive-search-concept-image-scenarios.md) bulup metni ayıklayın.
 * Blob dizin oluşturucu, yalnızca dizin meta verisi için yapılandırılır. İçeriğini ayıklamak için blob dizin oluşturucu için yapılandırılmalıdır [hem içeriği hem de meta verileri ayıklar](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
@@ -94,5 +94,5 @@ Dizin oluşturucular belgeleri bulun bir [veri kaynağı](https://docs.microsoft
 * Belge dizine alınmadı. Başarılı bir dizin oluşturucuyu çalıştırma için portalı denetleyin.
 * Belge, dizin oluşturucuyu Çalıştır sonra güncelleştirildi. Dizin üzerinde ise bir [zamanlama](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), bu sonunda yeniden çalıştırın ve belgeyi seçin.
 * [Sorgu](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) verilerinde belirtilen kaynak belge dışlar. Dizin oluşturucular veri kaynağının bir parçası olmayan belgelere dizin oluşturulamıyor.
-* [Alan eşlemeleri](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) veya [Bilişsel arama](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) belge değiştirilmiş ve beklediğinizden farklı görünüyor.
+* [Alan eşlemeleri](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) veya [bilişsel arama](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) belge değiştirilmiş ve beklediğinizden farklı görünüyor.
 * Kullanım [arama belge API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) belgenizi bulunacak.

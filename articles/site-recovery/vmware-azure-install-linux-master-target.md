@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60600193"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602074"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Bir Linux ana hedef sunucusu yeniden çalışma için yükleyin
 Sanal makinelerinizi azure'a yük devretme sonra sanal makineleri şirket içi siteye geri dönebilirsiniz. Yeniden çalışma için sanal makine azure'dan şirket içi siteye yeniden korumanız gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -67,7 +67,7 @@ DVD sürücüsüne bir Ubuntu 16.04.2 en az 64 bit ISO tutun ve sistem başlatı
 
 1.  Seçin **İngilizce** olarak tercih edilen dili ve ardından **Enter**.
     
-    ![Dil Seçin](./media/vmware-azure-install-linux-master-target/image1.png)
+    ![Dil seç](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Seçin **Ubuntu sunucusu yükleme**ve ardından **Enter**.
 
     ![Ubuntu Server yükleme seçin](./media/vmware-azure-install-linux-master-target/image2.png)
@@ -83,7 +83,7 @@ DVD sürücüsüne bir Ubuntu 16.04.2 en az 64 bit ISO tutun ve sistem başlatı
 1. Seçin **Hayır** (varsayılan seçenek) ve ardından **Enter**.
 
      ![Klavye yapılandırın](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Seçin **İngilizce (ABD)** klavye ve ardından ülkeyi olarak **Enter**.
+1. Seçin **İngilizce (ABD)** ülke/bölge klavye ve seçin için kaynak olarak **Enter**.
 
 1. Seçin **İngilizce (ABD)** klavye düzeni tıklayın ve ardından olarak **Enter**.
 
@@ -245,7 +245,7 @@ Bekletme diski oluşturmak için aşağıdaki adımları kullanın:
 
     ![Çok yollu kimliği](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Sürücüyü biçimlendirmek ve ardından yeni sürücüsünde bir dosya sistemi oluşturun: **mkfs.ext4 /dev/Eşleyici/< bekletme diskin çok yollu kimliği >**.
+3. Sürücüyü biçimlendirmek ve ardından yeni sürücüsünde bir dosya sistemi oluşturun: **mkfs.ext4 /dev/Eşleyici/< bekletme diskin çok yollu kimliği >** .
     
     ![Dosya sistemi](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -262,7 +262,7 @@ Bekletme diski oluşturmak için aşağıdaki adımları kullanın:
     
     Seçin **Ekle** dosyayı düzenlemeye başlayabilmesi için. Yeni bir satır oluşturun ve sonra aşağıdaki metni ekleyin. Önceki komutta alınan vurgulanan çok yollu kimliği temel disk çok yollu Kimliğini düzenleyin.
 
-     **/dev/Eşleyici/ <Retention disks multipath id> /mnt/saklama ext4 rw 0 0**
+    **/dev/Eşleyici/\<bekletme diskler çok yollu kimliği >/mnt/saklama ext4 rw 0 0**
 
     Seçin **Esc**, Anahtar'a tıklayın ve **: wq** (yazma ve Çık) Düzenleyicisi penceresini kapatın.
 
@@ -343,7 +343,7 @@ Yükleyiciyi çalıştırın. Ana hedef sunucudaki aracı yüklendiğini otomati
 
 Göreceksiniz **sürüm** alanı ana hedef uygulamanın sürüm sayısını verir.
 
-## <a name="common-issues"></a>Genel sorunlar
+## <a name="common-issues"></a>Sık karşılaşılan sorunlar
 
 * Üzerinde herhangi bir ana hedef gibi yönetim bileşenleri Storage VMotion'ı kapatmayın emin olun. Sanal makine disklerinin (Vmdk) ana hedef sonra başarılı bir yeniden koruma geçerse ayrılamıyor. Bu durumda, yeniden çalışma başarısız olur.
 

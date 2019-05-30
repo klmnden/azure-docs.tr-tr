@@ -3,8 +3,8 @@ title: Azure AD Federasyon meta verileri | Microsoft Docs
 description: Bu makalede, Azure Active Directory belirteçleri kabul Hizmetleri için Azure Active Directory yayımladığı Federasyon meta veri belgesi açıklanır.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcabf51b3a368841f7f135a32c4824eb3db571ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299830"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544496"
 ---
 # <a name="federation-metadata"></a>Federasyon meta verileri
 Azure Active Directory (Azure AD), hizmetler için Azure AD sorunlarını güvenlik belirteçleri kabul edecek şekilde yapılandırılmış bir Federasyon meta veri belgesi yayımlar. Federasyon meta veri belge biçimi açıklanan [Web Hizmetleri Federasyon dili (WS-Federation) sürüm 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), genişleten [OASISgüvenlikonaylamaişlemibiçimlendirmedili(SAML)v2.0içinmetaverileri](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).

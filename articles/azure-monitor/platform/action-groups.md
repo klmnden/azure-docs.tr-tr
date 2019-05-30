@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919080"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544464"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -26,8 +26,8 @@ Bu makalede, Azure portalında Eylem grupları oluşturma ve yönetme işlemini 
 Her eylem aşağıdaki özelliklerinden oluşur:
 
 * **Ad**: Eylem grubu içinde benzersiz bir tanımlayıcı.  
-* **Eylem türü**: Gerçekleştirilen eylem. Bir ses araması, SMS, e-posta gönderme verilebilir; veya otomatik eylemler çeşitli türlerde tetikleniyor. Bu makalenin devamındaki türleri bakın. 
-* **Ayrıntılar**: Göre farklılık gösteren ilgili ayrıntıları *eylem türü*. 
+* **Eylem türü**: Gerçekleştirilen eylem. Bir ses araması, SMS, e-posta gönderme verilebilir; veya otomatik eylemler çeşitli türlerde tetikleniyor. Bu makalenin devamındaki türleri bakın.
+* **Ayrıntılar**: Göre farklılık gösteren ilgili ayrıntıları *eylem türü*.
 
 Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kullanma hakkında daha fazla bilgi için bkz: [eylem grubu Resource Manager şablonları](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
@@ -69,7 +69,7 @@ Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü
 > [!NOTE]
 > Bkz: [izleme için abonelik hizmeti limitleri](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) sayısal sınırlar aşağıdaki öğelerin her biri için.  
 
-**Azure uygulaması anında iletme** -sınırlı sayıda Azure uygulaması eylemleri bir eylem grubu içinde olabilir. Şu anda Azure uygulama eylemi yalnızca ServiceHealth uyarıları da destekler. Herhangi bir uyarı türünü göz ardı edilir. Bkz: [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure uygulaması anında iletme** -sınırlı sayıda Azure uygulaması eylemleri bir eylem grubu içinde olabilir.
 
 **E-posta** -aşağıdaki e-posta adreslerinden e-postalar gönderilecek. E-posta filtreleme uygun şekilde yapılandırıldığından emin olun
 - azure-noreply@microsoft.com
@@ -101,6 +101,7 @@ Kaynak IP adresi aralıkları
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

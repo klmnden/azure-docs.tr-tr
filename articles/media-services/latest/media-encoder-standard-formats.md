@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Standard biçimleri ve codec bileşenleri - Azure
-description: Bu konu, Media Encoder Standard biçimleri ve codec bileşenleri hakkında genel bir bakış sağlar.
+title: Standart Kodlayıcı biçimleri ve codec bileşenleri - Azure
+description: Bu konu, standart Kodlayıcı biçimleri ve codec bileşenleri genel bir bakış sağlar.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 4c7e0e091aeecb205c63b8fa7e97d7592f15b856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322276"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520023"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard biçimleri ve codec bileşenleri
+# <a name="standard-encoder-formats-and-codecs"></a>Standart Kodlayıcı biçimleri ve codec bileşenleri
 
 Bu makalede en yaygın içeri aktarma ve ile kullanabileceğiniz dışarı aktarma dosya biçimlerinin listesini içerir [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Kullanarak özel önayarların kullanılmasına oluşturma hakkında daha fazla bilgi için **StandardEncoderPreset**, bkz: [dönüşüm ile özel önayarın oluşturma](customize-encoder-presets-how-to.md).
 
@@ -41,16 +41,16 @@ Bu makalede en yaygın içeri aktarma ve ile kullanabileceğiniz dışarı aktar
 | QuickTime (.mov) |Evet |
 
 > [!NOTE]
-> Yukarıdaki daha sık karşılaşılan dosya uzantılarının listesi var. Media Encoder Standard destekleyen diğer birçok (örneğin: .m2ts, .mpeg2video, .qt). Dosya kodlama deneyin ve biçimi desteklenmiyor ilgili bir hata iletisi alırsanız, geri bildirim sağlamanız [burada](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Giriş-kapsayıcılarında ses biçimleri
-Media Encoder Standard giriş kapsayıcılarında aşağıdaki ses biçimlerinin taşınmasını destekler:
+
+Standart Kodlayıcı, giriş kapsayıcılarında aşağıdaki ses biçimlerinin taşınmasını destekler:
 
 * Araya eklemeli stereo veya 5.1 örnekler içeren ses parçaları sahip MXF, GXF ve QuickTime dosyaları
 
-or
+veya
 
 * Burada sesin ayrı PCM parçaları yürütülür, ancak kanal eşlemesinin (stero'ya veya 5. 1) dosya meta verilerinden çıkarılabildiği MXF, GXF ve QuickTime dosyaları
 

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160553"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602124"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ekleme ve kod parçacıkları, Azure Logic Apps'te satır içi kod kullanarak çalıştırma
 
@@ -23,7 +23,10 @@ Mantıksal uygulamanız içinde kod parçası çalıştırmak istediğinizde, ye
 * JavaScript içinde çalışır. Çok yakında daha fazla dil.
 * Beş saniye veya daha az çalışan biter.
 * Veri işleme boyutu en fazla 50 MB.
-* Node.js sürümü 8.11.1 kullanır. Daha fazla bilgi için [standart yerleşik nesneleri](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Node.js sürümü 8.11.1 kullanır. Daha fazla bilgi için [standart yerleşik nesneleri](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > Require() işlevi tarafından desteklenmeyen **satır içi kod** JavaScript çalıştırma için eylem.
 
 Bu eylem, kod parçacığı çalıştırır ve çıktıyı bu kod parçacığından adlı bir belirteç döndürür. **sonucu**, hangi mantıksal uygulamanızda sonraki eylemlerde kullanabiliriz. İstediğiniz, kodunuzda bir işlev oluşturmak için diğer senaryolar için deneyin [oluşturma ve bir Azure işlevi çağırma](../logic-apps/logic-apps-azure-functions.md) mantıksal uygulamanızda.
 
@@ -49,7 +52,7 @@ Bu makalede, bir Office 365 Outlook hesabı yeni bir e-posta geldiğinde örnek 
 
    * İş akışınızı sonunda eylem eklemek için **yeni adım**.
 
-   * Var olan adımlar arasında bir eylem eklemek için bu adımları bağlanan okun üzerine fare işaretçisini taşıyın. Artı işaretini seçin (**+**) seçip **Eylem Ekle**.
+   * Var olan adımlar arasında bir eylem eklemek için bu adımları bağlanan okun üzerine fare işaretçisini taşıyın. Artı işaretini seçin ( **+** ) seçip **Eylem Ekle**.
 
    Bu örnek ekler **satır içi kod** eylemi Office 365 Outlook tetikleyicinin altında.
 
@@ -201,7 +204,7 @@ Bu konunun örnekte `workflowContext` nesne kodunuzu erişebileceği şu özelli
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Parametre ekleme
+## <a name="add-parameters"></a>Parametre ekle
 
 Bazı durumlarda, açıkça gerektiren gerekebilir **satır içi kod** eylem sonuçlardan ekleyerek kod bağımlılıkları olarak başvuran tetikleyicisi veya belirli eylemler içeriyorsa **tetikleyici** veya **Eylemleri** parametreleri. Bu seçenek, çalışma zamanında başvurulan sonuçları bulunduğu olmayan senaryolar için kullanışlıdır.
 
@@ -212,7 +215,7 @@ Bazı durumlarda, açıkça gerektiren gerekebilir **satır içi kod** eylem son
 
 Bu parametre eklemek için açık **yeni parametre Ekle** listelemek ve istediğiniz parametreleri seçin:
 
-   ![Parametre ekleme](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Parametre ekle](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
    | Parametre | Açıklama |
    |-----------|-------------|

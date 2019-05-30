@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: HT
+ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415889"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519012"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları kullanmaya başlama
 
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**genişletme** özgün tüm sütunları sonuç kümesinde tutar ve bulunmakla tanımlar. Aşağıdaki sorguda kullandığı **genişletmek** eklemek için bir *localtime* yerelleştirilmiş TimeGenerated değeri içeren sütun.
+**genişletme** özgün tüm sütunları sonuç kümesinde tutar ve bulunmakla tanımlar. Aşağıdaki sorguda kullandığı **genişletmek** eklemek için *EventCode* sütun. Bu sütun tablo sonuçları sonunda bu durumda, görüntülenmeyebilir olduğunu not görüntülemek için bir kaydın ayrıntılarını genişletmek gerekir.
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated -8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Özetlenmektedir: toplam satır gruplarını

@@ -4,16 +4,16 @@ description: Bir kaynak değiştirildiği bulma işlemini anlama ve değiştiril
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/20/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142530"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551552"
 ---
 # <a name="get-resource-changes"></a>Kaynak değişikliklerini alma
 
@@ -44,7 +44,7 @@ Bir kaynakta yapılan değişiklikler görmeye ilk adımı, bir zaman penceresi 
 **ResourceChanges** uç nokta, iki parametre istek gövdesindeki gerektirir:
 
 - **ResourceId**: Azure kaynak değişiklikler için aranacak.
-- **Aralığı**: Bir özellik _Başlat_ ve _son_ ne zaman denetleneceğini değişiklik kullanarak olay için tarihlerini **Zulu saat dilimi (Z)**.
+- **Aralığı**: Bir özellik _Başlat_ ve _son_ ne zaman denetleneceğini değişiklik kullanarak olay için tarihlerini **Zulu saat dilimi (Z)** .
 
 Örnek istek gövdesi:
 
@@ -69,7 +69,7 @@ Yanıt şu örneğe benzer:
 ```json
 {
     "changes": [{
-            "changeId": "2db0ad2d-f6f0-4f46-b529-5c4e8c494648",
+            "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
             "beforeSnapshot": {
                 "timestamp": "2019-03-29T01:32:05.993Z"
             },
@@ -107,7 +107,7 @@ Bazı zaman noktasında Bu pencerede değişiklik olayı oluştu.
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 
@@ -121,7 +121,7 @@ Yanıt şu örneğe benzer:
 
 ```json
 {
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556",
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
     "beforeSnapshot": {
         "timestamp": "2019-03-29T01:32:05.993Z",
         "content": {

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405214"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544475"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
@@ -32,7 +32,7 @@ Ağ geçidinin desteklediği [şirket içi Bağlayıcılar](../connectors/apis-l
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle Veritabanı
+*   Oracle Database
 *   PostgreSQL
 *   SAP Uygulama Sunucusu 
 *   SAP İleti Sunucusu
@@ -51,7 +51,7 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* A [iş veya Okul hesabı](../active-directory/fundamentals/sign-up-organization.md) olan bir [Azure aboneliği](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+* A [iş veya Okul hesabı](../active-directory/fundamentals/sign-up-organization.md) olan bir [Azure aboneliği](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) 
 
   Ağ geçidi yüklemesi Azure aboneliğinizle ilişkilendirebilmeniz için ağ geçidi yüklemesi sırasında bu hesap için oturum açın. 
   Daha sonra Azure portalında, ağ geçidi yüklemesi için bir Azure kaynağı oluştururken de aynı hesabı kullanın. 
@@ -430,7 +430,7 @@ Gidermenize yardımcı olması için toplama ve ağ geçidi günlükleri gözden
 Ağ geçidi için olay günlüklerini bulmak için aşağıdaki adımları izleyin:
 
 1. Ağ geçidi yüklemesi ile bilgisayarda açın **Olay Görüntüleyicisi'ni**. 
-2. Genişletin **Olay Görüntüleyicisi'ni (yerel)** > **uygulama ve hizmet günlükleri**. 
+2. Genişletin **Olay Görüntüleyicisi'ni (yerel)**  > **uygulama ve hizmet günlükleri**. 
 3. Seçin **şirket içi veri ağ geçidi hizmeti**.
 
    ![Ağ geçidi için olay günlüklerini görüntüleme](./media/logic-apps-gateway-install/event-viewer.png)

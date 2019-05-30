@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472490"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780532"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
 
@@ -37,7 +37,7 @@ Yönetici devralma işlemi sırasında, [Azure AD’ye özel etki alanı adı ek
 
 SharePoint ve OneDrive, Office 365 gibi bazı ürünler, dış devralma desteklemez. Senaryonuz olan veya bir Yöneticiyseniz ve yönetilmeyen almak istiyorsanız veya "gölge" Kiracı Self Servis kayıt kullanan kullanıcılar tarafından oluşturursanız, bir iç yönetici devralma işlemini ile bunu yapabilirsiniz.
 
-1. Kullanıcı bağlamı gibi Power BI ile kaydolma aracılığıyla yönetilmeyen Kiracı oluşturun. Örneğin kolaylık olması için aşağıdaki adımları bu yolu varsayılır.
+1. Power BI'a kaydolma aracılığıyla yönetilmeyen bir Kiracı Kullanıcı bağlamı oluşturun. Örneğin kolaylık olması için aşağıdaki adımları bu yolu varsayılır.
 
 2. Açık [Power BI sitenizde](https://powerbi.com) seçip **ücretsiz Başlat**. Kuruluş etki alanı adını kullanan bir kullanıcı hesabı girin; Örneğin, `admin@fourthcoffee.xyz`. Doğrulama kodu girdikten sonra onay kodu için e-postanızı kontrol edin.
 

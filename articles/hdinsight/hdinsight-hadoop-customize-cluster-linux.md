@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545340"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518900"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Azure HDInsight kümelerinizi özelleştirebilirsiniz.
 
@@ -45,23 +45,21 @@ Erişim yönetimiyle çalışma hakkında daha fazla bilgi alın:
 Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bash komut dosyasıdır. Özellikleri ve betik eylemleri özelliklerini aşağıdaki gibidir:
 
 * HDInsight kümesinden erişilebilir bir URI üzerinde depolanmış olması gerekir. Olası depolama konumlarını şunlardır:
+    
+    * Normal kümeleri için:
+    
+      * ADLS Gen1: HDInsight, Data Lake depolamaya erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir. Data Lake depolama Gen1 içinde depolanan bir komut dosyası için URI biçimi `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * Ya da bir Azure depolama hesabındaki bir blob HDInsight küme için birincil ya da ek depolama hesabı. HDInsight, küme oluşturma sırasında hem de bu türlerde depolama hesapları için erişim izni verilir.
 
-    * HDInsight kümesi tarafından erişilebilir olan bir Azure Data Lake Storage hesabı. Azure Data Lake Store ile HDInsight kullanma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: HDInsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-
-        Data Lake depolama Gen1 içinde depolanan bir komut dosyası için URI biçimi `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > HDInsight, Data Lake depolamaya erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir.
-
-    * Ya da bir Azure depolama hesabındaki bir blob HDInsight küme için birincil ya da ek depolama hesabı. HDInsight, küme oluşturma sırasında hem de bu türlerde depolama hesapları için erişim izni verilir.
-
-    * Genel Dosya Paylaşımı hizmet. Azure Blob, GitHub, OneDrive ve Dropbox verilebilir.
+      * Genel Dosya Paylaşımı hizmet http:// yolları erişilebilir. Azure Blob, GitHub'ı OneDrive verilebilir.
 
         URI, örneğin bkz [örnek betik eylemi betikleri](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight yalnızca Azure depolama hesapları ile standart performans katmanı Blob destekler. 
-
+     * ESP ile kümeleri için:
+         
+         * Wasb [s] :// veya http [s] :// URI'ler desteklenir.
+            
 * Yalnızca belirli düğüm türleri üzerinde çalıştırılacak kısıtlanabilir. Baş düğümlerinden veya alt düğümlerinden verilebilir.
 
 * Kalıcı veya geçici olabilir.
@@ -148,7 +146,7 @@ HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için komu
 | Ad | Betik |
 | --- | --- |
 | Azure Depolama hesabı ekleme |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Bkz: [HDInsight için ek depolama hesapları ekleme](hdinsight-hadoop-add-storage.md). |
-| Hue yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Bkz: [yükleme ve kullanma, HDInsight, Hadoop üzerinde Hue kümeleri](hdinsight-hadoop-hue-linux.md). |
+| Hue Yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Bkz: [yükleme ve kullanma, HDInsight, Hadoop üzerinde Hue kümeleri](hdinsight-hadoop-hue-linux.md). |
 | Presto yükleme |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Bkz: [yüklemeden ve kullanmadan Presto üzerinde Hadoop tabanlı HDInsight kümeleri](hdinsight-hadoop-install-presto.md). |
 | Giraph Yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Bkz: [HDInsight Hadoop üzerinde Apache Giraph'ı yükleme kümeleri](hdinsight-hadoop-giraph-install-linux.md). |
 | Hive kitaplıklarını önceden yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Bkz: [HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md). |
@@ -468,7 +466,7 @@ Küme oluşturma bir betik hatası nedeniyle başarısız olursa, günlükler k�
 
 * Bir betik eylemi küme tekrar tekrar aynı ada sahip oluşturmak mümkündür. Bu durumda, ilgili günlükler göre ayırt edebilir **tarih** klasör adı. Örneğin, bir küme için klasör yapısı **mycluster**, oluşturulmuş farklı tarihler için aşağıdaki günlük girişlerini benzer görünür:
 
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04``\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
 * Aynı gün aynı ada sahip bir komut dosyası eylemi kümesi oluşturursanız, ilgili günlük dosyalarını tanımlamak için benzersiz önekini kullanabilirsiniz.
 

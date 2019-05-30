@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596669"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601651"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Azure PaaS veritabanlarında güvenliğini sağlamaya yönelik en iyi yöntemler
 
@@ -78,7 +78,7 @@ Azure SQL TDE için anahtar ilgili sorunlarını yönetir. TDE ile kurtarılabil
 
 Azure SQL sütunlar için şifreleme sağlar [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Bu, gizli sütunlara yalnızca yetkili uygulamalar erişim sağlar. Bu tür bir şifreleme kullanarak SQL sorguları için değer eşitliği tabanlı şifrelenmiş sütunlar için sınırlar.
 
-Uygulama düzeyinde şifreleme, ayrıca seçilen veriler için kullanılmalıdır. Veri egemenliği sorunları, bazen bir anahtarla doğru ülke tutulan verileri şifreleyerek azaltılabilir. Bu, bile yanlışlıkla veri aktarımı, güçlü bir algoritma (AES 256 gibi) kullanılan varsayılarak anahtarı içermeyen ve verilerin şifresini çözmek mümkün olduğundan soruna neden olmasını engeller.
+Uygulama düzeyinde şifreleme, ayrıca seçilen veriler için kullanılmalıdır. Veri egemenliği sorunları, bazen bir anahtarla doğru ülke/bölge tutulan verileri şifreleyerek azaltılabilir. Bu, bile yanlışlıkla veri aktarımı, güçlü bir algoritma (AES 256 gibi) kullanılan varsayılarak anahtarı içermeyen ve verilerin şifresini çözmek mümkün olduğundan soruna neden olmasını engeller.
 
 Güvenli sistem tasarımı, gizli varlıkları şifreleme ve veritabanı sunucular etrafında bir güvenlik duvarı oluşturma gibi veritabanı güvenliğini sağlamaya yardımcı olmak için ek önlemler kullanabilirsiniz.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926278"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761914"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -59,12 +59,7 @@ Azure tarafından onaylanan değil Linux sunucusu dağıtımı, Azure Disk şifr
 | CentOS | 7.4 | İşletim sistemi ve veri diski |
 | CentOS | 7.3 | İşletim sistemi ve veri diski |
 | CentOS | 7.2n | İşletim sistemi ve veri diski |
-| CentOS | 6.8 | İşletim sistemi ve veri diski |
-| CentOS | 7.1 | Veri diski |
-| CentOS | 7.0 | Veri diski |
-| CentOS | 6.7 | Veri diski |
-| CentOS | 6.6 | Veri diski |
-| CentOS | 6.5 | Veri diski |
+| CentOS | 6.8 | Veri diski |
 | openSUSE | 42.3 | Veri diski |
 | SLES | 12-SP4 | Veri diski |
 | SLES | 12-SP3 | Veri diski |
@@ -158,7 +153,7 @@ Windows üzerinde ADE BitLocker AES256 şifreleme yöntemini kullanır. (Windows
 Hayır, veri zaten Azure Disk şifrelemesi kullanılarak şifrelenmiş veri sürücülerden silinmesi gerekmez. Benzer şekilde nasıl EncryptFormatAll işletim sistemi sürücüsünü yeniden şifrele siz, bunu zaten şifrelenmiş veri sürücüsü yeniden şifrele olmaz. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>XFS dosya sistemi destekleniyor mu?
-Veri disk şifrelemesi yalnızca EncryptFormalAll XFS birimleri desteklenir. Bu, tüm veriler var daha önce silme birimin biçimlendirilmektedir. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+Veri disk şifrelemesi yalnızca EncryptFormatAll XFS birimleri desteklenir. Bu, tüm veriler var daha önce silme birimin biçimlendirilmektedir. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Yedekleme ve miyim şifrelenmiş bir sanal Makineyi geri yükleme mi? 
 
