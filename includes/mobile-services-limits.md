@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 5e58429b6a3e2f7c7c39c13dc65af48b064f9771
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553927"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238771"
 ---
-| Katman | Ücretsiz | Temel | Standart |
+| Katman | Boş | Temel | Standart |
 | --- | --- | --- | --- |
 | API çağrıları |500,000 |Birim başına 1,5 milyon |Birim başına 15 milyon |
 | Etkin cihazlar |500 |Sınırsız |Sınırsız |
 | Ölçek |Yok |En fazla 6 birimleri |Sınırsız birim |
-| Anında iletme bildirimleri |Azure bildirim hub'ları ücretsiz katman dahil, en fazla 1 milyon bildirim |Bildirim hub'ları temel katman dahil, en fazla 10 milyon bildirim |Bildirim hub'ları standart katman dahil, en fazla 10 milyon bildirim |
+| Anında bildirimler |Azure bildirim hub'ları ücretsiz katman dahil, en fazla 1 milyon bildirim |Bildirim hub'ları temel katman dahil, en fazla 10 milyon bildirim |Bildirim hub'ları standart katman dahil, en fazla 10 milyon bildirim |
 | Gerçek zamanlı mesajlaşmayı /<br/>Web Yuvaları |Sınırlı |350 / mobil hizmet |Sınırsız |
 | Çevrimdışı eşitlemeler |Sınırlı |Dahil |Dahil |
 | Zamanlanan işler |Sınırlı |Dahil |Dahil |

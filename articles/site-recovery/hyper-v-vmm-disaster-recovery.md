@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 067040349a5d435860492497dddbf39aad2635eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124160"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398399"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Hyper-V VM'leri için ikincil bir şirket içi siteye olağanüstü durum kurtarma ayarlama
 
@@ -123,7 +123,7 @@ Hedef VMM sunucusunu ve bulutu seçin:
 
 Başlamadan önce ilkeyi kullanan tüm konakların aynı işletim sistemine sahip olduğundan emin olun. Konaklar farklı Windows Server sürümlerini çalıştırıyorsa birden fazla çoğaltma ilkesi oluşturmanız gerekir.
 
-1. Yeni bir çoğaltma ilkesi oluşturmak için **Altyapıyı hazırlama** > **Çoğaltma Ayarları** > **+Oluştur ve ilişkilendir** seçeneklerine tıklayın.
+1. Yeni bir çoğaltma ilkesi oluşturmak için **Altyapıyı hazırlama** > **Çoğaltma Ayarları** >  **+Oluştur ve ilişkilendir** seçeneklerine tıklayın.
 2. **İlke oluştur ve ilişkilendir** bölümünde bir ilke adı belirtin. Kaynak ve hedef türü **Hyper-V** olmalıdır.
 3. **Hyper-V konak sürümü** alanında konakta çalışan işletim sistemini seçin.
 4. **Kimlik doğrulaması türü** ve **Kimlik doğrulaması bağlantı noktası** alanlarında birincil ve kurtarma amaçlı Hyper-V konağı sunucuları arasındaki trafiğe nasıl kimlik doğrulaması uygulanacağını belirtin.

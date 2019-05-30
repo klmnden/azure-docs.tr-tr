@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: 083d59a2d8720a08abc7ea8998c1fbe048db3f28
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554055"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238245"
 ---
-| Kaynak | Varsayılan limit | Üst sınır |
+| Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | [Sanal makineler](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bulut hizmeti başına<sup>1</sup> |50 |50 |
 | Giriş uç noktaları bulut hizmeti başına<sup>2</sup> |150 |150 |
