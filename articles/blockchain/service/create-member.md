@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 51775c5534a13fb2515fafa182658beafd38c1eb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 357dc47027582d5c638bb3c7344c839f37f93dc5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026896"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399144"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure blok zinciri hizmeti oluşturma
 
@@ -32,7 +32,7 @@ Azure Blockchain hizmeti, bir dizi işlem ve depolama kaynakları oluşturulur.
 1. Seçin **blok zinciri** > **Azure blok zinciri hizmet**.
 1. Şablon tamamlayın.
 
-    ![Hizmet Oluşturma](./media/create-member/create-member.png)
+    ![Hizmet oluşturma](./media/create-member/create-member.png)
 
     Ayar | Açıklama
     --------|------------
@@ -40,11 +40,12 @@ Azure Blockchain hizmeti, bir dizi işlem ve depolama kaynakları oluşturulur.
     Abonelik | Hizmetiniz için kullanmak istediğiniz Azure aboneliğini seçin. Birden fazla aboneliğiniz varsa kaynağın faturalandığı aboneliği seçin.
     Kaynak grubu | Yeni bir kaynak grubu adı veya aboneliğinizde var olan bir kaynak grubu.
     Bölge | Konum consortium tüm üyeleri için aynı olması gerekir.
-    Üye hesabı parolası | Üye hesabı için yeni bir parola sağlayın. Üye hesabı parolası, temel kimlik doğrulaması kullanarak blok zinciri üyenin genel uç kimlik doğrulaması için kullanılır.
+    Üye hesabı parolası | Üye hesabı parolası, bu üye için oluşturulan Ethereum hesabı için özel anahtarını şifrelemek için kullanılır. Üye hesabı ve üyesi hesap parolası consortium yönetimi için kullanın.
     Consortium adı | Yeni bir Konsorsiyumu için benzersiz bir ad girin. Davet aracılığıyla Konsorsiyumu birleştirilecekse, katıldığınız consortium değerdir.
     Açıklama | Consortium açıklaması.
-    Protokol |  Önizleme çekirdek protokolünü destekler.
+    Protocol |  Önizleme çekirdek protokolünü destekler.
     Fiyatlandırma | Düğüm yapılandırması yeni hizmetiniz için. Seçin **standart**. 2 Doğrulayıcı düğümü ve 1 işlem varsayılan ayar düğümüdür.
+    İşlem düğümü parola | Üyenin varsayılan işlem düğümü için parola. Parola, blok zinciri üyenin varsayılan işlem düğümü genel uç bağlanırken için temel kimlik doğrulaması kullanın.
 
 1. Seçin **Oluştur** hizmeti sağlanamadı. Sağlama yaklaşık 10 dakika sürer.
 1. Seçin **bildirimleri** dağıtım işlemini izlemek için araç çubuğunda.

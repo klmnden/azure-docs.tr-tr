@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 01/03/2019
+ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788014"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258417"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob depolamaya giriş
 
@@ -68,8 +68,8 @@ Blob depolama alanına geçirme var olan veriler için birkaç çözüm mevcuttu
 - **Azure depolama veri taşıma Kitaplığı** Azure depolama hizmetleri arasında verileri taşımak için bir .NET kitaplığı. AzCopy yardımcı programı ile veri taşıma kitaplığı yerleşik olarak bulunur. Daha fazla bilgi için [başvuru belgeleri](/dotnet/api/microsoft.azure.storage.datamovement) veri taşıma kitaplığı. 
 - **Azure Data Factory** paylaşılan erişim imzası hesap anahtarını kullanarak verileri ve Blob depolama alanından kopyalama destekler hizmet sorumlusu veya yönetilen kimliklerini Azure kaynaklarında kimlik doğrulama için. Daha fazla bilgi için [veri kopyalama ya da Azure Blob depolamadan Azure Data Factory kullanarak](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** bir Azure Blob Depolama için sanal dosya sistemi sürücüsüdür. Blobfuse mevcut blok blobu verileriniz depolama hesabınızda Linux dosya sistemi üzerinden erişmek için kullanabilirsiniz. Daha fazla bilgi için [bağlama Blob depolamaya bir dosya sistemi ile blobfuse olarak nasıl](storage-how-to-mount-container-linux.md).
-- **Azure Data Box Disk** aktarma verileri Blob Depolama için büyük veri kümeleri veya ağ kısıtlamaları veri yüklemeyi kablo üzerinden kullanışsız değişiklik yaptığınızda şirket için bir hizmettir. Microsoft’tan katı hal sürücüleri (SSD’ler) istemek için [Azure Data Box Disk](../../databox/data-box-disk-overview.md)’i kullanabilirsiniz. Daha sonra verilerinizi bu disklere kopyalayabilir ve Blob depolama alanında yüklenmelerini sağlamak için Microsoft’a geri gönderebilirsiniz.
-- **Azure içeri/dışarı aktarma hizmeti** sağladığınız ve sizin verilerinizi Microsoft ardından birlikte gelen sabit sürücüleri depolama hesabınızdan büyük miktarlarda veri aktarmak için bir yol sağlar. Daha fazla bilgi için [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanmak](../common/storage-import-export-service.md).
+- **Azure Data Box** büyük veri kümeleri veya ağ kısıtlamaları veri yüklemeyi kablo üzerinden kullanışsız değişiklik yaptığınızda şirket içi verileri Blob depolama alanına aktarmak hizmet kullanılabilir. Veri boyutuna bağlı olarak talep edebilir [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md), veya [Azure veri kutusu ağır](../../databox/data-box-heavy-overview.md) Microsoft cihazlardan. Ardından, verileri kopyalamak için bu cihazları ve bunları Blob Depolama'ya geri Microsoft'a gönderin.
+- **Azure içeri/dışarı aktarma hizmeti** için ve sağladığınız sabit sürücülerini kullanarak depolama hesabından büyük miktarlarda veri dışarı aktarma veya içeri aktarma için bir yol sağlar. Daha fazla bilgi için [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanmak](../common/storage-import-export-service.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

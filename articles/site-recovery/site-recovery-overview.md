@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3121c7e4b1b1adfb079368aa86c272e9ea473ead
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab1f0a72137ace1942cb8016ae1bfa5c3fd964fb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61276309"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396408"
 ---
 # <a name="about-site-recovery"></a>Site Recovery Hakkında
 
@@ -35,7 +35,7 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery ne sağlar?
 
 
-**Özellik** | **Ayrıntılar**
+**Özelliği** | **Ayrıntılar**
 --- | ---
 **Basit BCDR çözümü** | Site Recovery hizmetini kullanarak Azure portalındaki tek bir konumdan çoğaltma, yük devretme ve yeniden çalışmayı yönetebilirsiniz.
 **Azure VM çoğaltma** | Azure VM’lerin olağanüstü durum kurtarma özelliğini birincil bir bölgeden ikincil bölgeye ayarlayabilirsiniz.

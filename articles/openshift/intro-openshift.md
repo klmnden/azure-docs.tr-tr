@@ -2,19 +2,19 @@
 title: Azure Red Hat OpenShift giriş | Microsoft Docs
 description: Kapsayıcı tabanlı uygulamaları dağıtmak ve yönetmek için Microsoft Azure Red Hat OpenShift avantajları ve özellikleri öğrenin.
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 7cabedaec1190437aa9f225397afa8871cb06e88
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466163"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306368"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 

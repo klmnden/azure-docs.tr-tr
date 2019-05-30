@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465538"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073825"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS)
 
 Azure Kubernetes Service (AKS), Azure'a yönetilen bir Kubernetes kümesi dağıtmayı kolaylaştırır. AKS, sorumluluğun çoğunu Azure'a devrederek Kubernetes yönetiminin karmaşıklığını ve işlemsel yükünü azaltır. Barındırılan bir Kubernetes hizmeti olarak, Azure sistem durumu izleme ve bakım gibi kritik görevleri sizin için gerçekleştirir. Kubernetes ana düğümler Azure tarafından yönetilir. Siz yalnızca aracı düğümlerini yönetir ve sürdürürsünüz. AKS, yönetilen bir Kubernetes servisi olarak ücretsizdir; ana düğümler için değil, yalnızca kümelerinizdeki aracı düğümleri için ücret ödersiniz.
 
-Azure portalda, Azure CLI ile veya Resource Manager şablonları ve Terraform gibi şablon temelli dağıtım seçenekleri ile bir AKS kümesi oluşturabilirsiniz. Bir AKS kümesini dağıttığınızda ana düğümler ve diğer tüm Kubernetes düğümleri sizin yerinize dağıtılır ve yapılandırılır. Gelişmiş ağ özellikleri, Azure Active Directory tümleştirmesi ve izleme gibi ek özellikler de dağıtım işlemi sırasında yapılandırılabilir.
+Azure portalda, Azure CLI ile veya Resource Manager şablonları ve Terraform gibi şablon temelli dağıtım seçenekleri ile bir AKS kümesi oluşturabilirsiniz. Bir AKS kümesini dağıttığınızda ana düğümler ve diğer tüm Kubernetes düğümleri sizin yerinize dağıtılır ve yapılandırılır. Gelişmiş ağ özellikleri, Azure Active Directory tümleştirmesi ve izleme gibi ek özellikler de dağıtım işlemi sırasında yapılandırılabilir. Windows Server kapsayıcıları desteği Önizleme aks'deki şu anda kullanılabilir.
 
 Kubernetes hakkında temel bilgiler hakkında daha fazla bilgi için bkz. [Kubernetes kavramlarını AKS için çekirdek][concepts-clusters-workloads].
 
@@ -43,9 +43,9 @@ AKS kümenizin ve dağıtılan uygulamalarınızın nasıl çalıştığını an
 
 Daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti kapsayıcısı sistem durumunu izleme][container-health].
 
-## <a name="cluster-and-node"></a>Küme ve düğüm
+## <a name="clusters-and-nodes"></a>Kümeler ve düğümler
 
-Azure sanal makinelerinde çalışan AKS düğümleri. Depoları düğümlere ve pod’lara bağlayabilir, küme bileşenlerini yükseltebilir ve GPU’lar kullanabilirsiniz.
+Azure sanal makinelerinde çalışan AKS düğümleri. Depoları düğümlere ve pod’lara bağlayabilir, küme bileşenlerini yükseltebilir ve GPU’lar kullanabilirsiniz. AKS karma işletim sistemleri ve Windows Server kapsayıcıları (şu anda önizlemede) desteklemek için birden çok düğüm havuzları çalışan Kubernetes kümelerini destekler. Linux düğümleri özelleştirilmiş bir Ubuntu işletim sistemi görüntüsü ve Windows Server düğümleri özelleştirilmiş bir Windows Server 2019 işletim sistemi görüntüsünü çalıştırın.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Küme düğümü ve pod ölçeklendirme
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.date: 05/29/2019
+ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898930"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357678"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma
 
@@ -46,7 +46,7 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
 
 1. Olay hub'ının oluşturulmasını istediğiniz aboneliği seçin ve *test-hub-rg* adlı bir kaynak grubu oluşturun.
 
-    ![Kaynak grubu oluşturun](media/ingest-data-event-hub/create-resource-group.png)
+    ![Kaynak grubu oluşturma](media/ingest-data-event-hub/create-resource-group.png)
 
 1. Formu aşağıdaki bilgilerle doldurun.
 
@@ -111,22 +111,25 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Veri bağlantısı adı | *test-hub-connection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
-    | Olay hub'ı ad alanı | Benzersiz bir ad alanı adı | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
+    | Olay hub’ı ad alanı | Benzersiz bir ad alanı adı | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
     | Olay hub'ı | *test-hub* | Oluşturduğunuz olay hub'ı. |
     | Tüketici grubu | *test-group* | Oluşturduğunuz olay hub'ında tanımlanan tüketici grubu. |
     | | |
 
     Hedef Tablo:
 
-    İki yönlendirme seçeneği vardır: *statik* ve *dinamik*. Bu hızlı başlangıçta tablo adını, dosya biçimini ve eşlemeyi belirterek statik yönlendirme (varsayılan) gerçekleştireceksiniz. Bu nedenle, bırakın **verilerimi yönlendirme bilgilerini içeren** seçilmemiş.
-    Verilerinizde gerekli yönlendirme bilgilerinin bulunduğu dinamik yönlendirme seçeneğini de kullanabilirsiniz.
+    Alınan veri yönlendirme için iki seçenek vardır: *statik* ve *dinamik*. 
+    Bu makale için statik yönlendirme, tablo adı, veri biçimi ve eşleme belirttiğiniz kullanın. Bu nedenle, bırakın **verilerimi yönlendirme bilgilerini içeren** seçilmemiş.
 
      **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Tablo | *TestTable* | **TestDatabase** içinde oluşturduğunuz tablo. |
     | Veri biçimi | *JSON* | Avro, CSV, JSON, çok SATIRLI JSON, PSV, SOH, SCSV, TSV ve TXT desteklenen biçimler:. |
-    | Sütun eşleme | *TestMapping* | **TestDatabase** içinde oluşturduğunuz ve gelen JSON verilerini **TestTable** tablosunun sütun adları ve veri türleriyle eşleyen eşleme.|
+    | Sütun eşleme | *TestMapping* | **TestDatabase** içinde oluşturduğunuz ve gelen JSON verilerini **TestTable** tablosunun sütun adları ve veri türleriyle eşleyen eşleme. JSON, çok SATIRLI JSON veya AVRO için gerekli ve isteğe bağlı diğer biçimleri için.|
     | | |
+
+    > [!NOTE]
+    > Seçin **verilerimi yönlendirme bilgilerini içeren** dinamik yönlendirme kullanmak için burada verilerinizi gerekli yönlendirme bilgileri içerir görüldüğü [örnek uygulaması](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) yorumlar. Dinamik özellikler hem statik hem de Dinamik özellikler ayarlarsanız, statik geçersiz kılar. 
 
 ## <a name="copy-the-connection-string"></a>Bağlantı dizesini kopyalayın
 

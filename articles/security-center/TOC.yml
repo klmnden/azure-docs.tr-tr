@@ -45,6 +45,8 @@
       href: security-center-onboarding.md
     - name: Windows Defender ATP ile sunucu koruması
       href: security-center-wdatp.md
+    - name: IaaS için gelişmiş veri güvenliği
+      href: security-center-iaas-advanced-data.md
     - name: App Service'i koruma
       href: security-center-app-services.md
     - name: Güvenlik ilkeleriyle çalışma
@@ -62,8 +64,6 @@
       items:
         - name: Veri toplama
           href: security-center-enable-data-collection.md
-        - name: IaaS için gelişmiş veri güvenliği
-          href: security-center-iaas-advanced-data.md
         - name: Yerleşik güvenlik ilkeleri
           href: security-center-policy-definitions.md
         - name: E-posta bildirimleri

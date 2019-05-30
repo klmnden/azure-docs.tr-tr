@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408570"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393543"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile bir Java Spring uygulaması oluşturma
 
@@ -29,7 +29,7 @@ Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenle
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıç yapmak için desteklenen bir yükleme [Java Development Kit (JDK)](https://aka.ms/azure-jdks) sürüm 8 ile ve [Apache Maven](https://maven.apache.org/) sürüm 3.0 veya üzeri.
+Bu hızlı başlangıç yapmak için desteklenen bir yükleme [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) sürüm 8 ile ve [Apache Maven](https://maven.apache.org/) sürüm 3.0 veya üzeri.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıç yapmak için desteklenen bir yükleme [Java Development 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seçin **yapılandırması Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
+6. Seçin **yapılandırması Gezgini** >  **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
     | Anahtar | Değer |
     |---|---|

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787830"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389214"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Öğretici: Bir machine learning modeli görsel arabirim ile dağıtma
 
@@ -95,7 +95,7 @@ Kullanıcı giriş verilerini girer, dağıtılan modeliyle **Web hizmeti giriş
 
 Web hizmeti sekmesinde görsel arabirim bir web hizmetini test edebilirsiniz.
 
-1. Web hizmeti bölümüne gidin. Adı ile dağıtılan web hizmeti göreceğiniz **Öğreticisi - otomobil fiyatını tahmin [Tahmine dayalı ifade]**.
+1. Web hizmeti bölümüne gidin. Adı ile dağıtılan web hizmeti göreceğiniz **Öğreticisi - otomobil fiyatını tahmin [Tahmine dayalı ifade]** .
 
      ![Vurgulanan son oluşturulan web hizmeti ile web hizmeti sekmesini gösteren ekran görüntüsü](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
@@ -107,7 +107,7 @@ Web hizmeti sekmesinde görsel arabirim bir web hizmetini test edebilirsiniz.
 
     ![Sayfasını test etme web hizmetini gösteren ekran görüntüsü](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Giriş verileri test etme veya autofilled örnek verileri kullanarak ve seçin **Test** altındaki. Test amaçlı istek web hizmetine gönderilir ve sonuçları sayfasında gösterilir.
+1. Giriş verileri test etme veya autofilled örnek verileri kullanarak ve seçin **Test** altındaki. Test amaçlı istek web hizmetine gönderilir ve sonuçları sayfasında gösterilir. Giriş verileri için fiyat değerini oluşturulmasına rağmen tahmin değer oluşturmak için kullanılmaz.
 
 ## <a name="manage-the-web-service"></a>Web hizmetini yönetme
 

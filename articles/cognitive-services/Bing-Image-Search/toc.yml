@@ -67,9 +67,9 @@
 - name: Başvuru
   items:
     - name: Bing Resim Arama API’si v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference'
     - name: Bing Resim Arama API’si v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference'
     - name: Azure PowerShell başvurusu
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: Azure CLI başvurusu

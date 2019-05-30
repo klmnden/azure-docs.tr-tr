@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408735"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393598"
 ---
 # <a name="keys-and-values"></a>Anahtarları ve değerleri
 
@@ -27,7 +27,7 @@ Azure uygulama yapılandırması, yapılandırma verilerini anahtar-değer çift
 
 Anahtarlar, anahtar-değer çiftleri için ad olarak görev yapar ve depolamak ve ilgili değerleri almak için kullanılır. Bir karakter sınırlayıcı kullanarak bir hiyerarşik ad alanına anahtarları düzenlemek için yaygın bir uygulamadır `/` veya `:`. Uygulamanız için en uygun bir kuralı kullanın. Uygulama yapılandırma anahtarlarını bir bütün olarak değerlendirir. Tuşlarını kullanarak nasıl adlarıyla yapılandırılmış veya bunlar üzerinde herhangi bir kural zorlama ekleyeceğimi ayrıştırmak değil.
 
-Belirli bir adlandırma düzeni anahtar değerleri için uygulama çerçeveleri içinde yapılandırma deposu kullanımını zorunlu tutabilir. Örneğin, Java'nın Spring Cloud çerçevesi tanımlar `Environment` içeren değişkenleri tarafından parametre haline getirilip için Spring uygulaması ayarları sağlamak kaynakları *uygulama adı* ve *profili*. Spring Bulutla ilgili yapılandırma verileri için anahtarlar genellikle bu iki öğenin bir sınırlayıcıyla ayrılmış başlayın.
+Yapılandırma verilerinin uygulama çerçeveleri içinde kullanım anahtar değerleri için belirli bir adlandırma düzeni belirleyebilir. Örneğin, Java'nın Spring Cloud çerçevesi tanımlar `Environment` içeren değişkenleri tarafından parametre haline getirilip için Spring uygulaması ayarları sağlamak kaynakları *uygulama adı* ve *profili*. Spring Bulutla ilgili yapılandırma verileri için anahtarlar genellikle bu iki öğenin bir sınırlayıcıyla ayrılmış başlayın.
 
 Uygulama Yapılandırması içinde depolanan anahtarlar büyük/küçük harfe, unicode tabanlı dizelerdir. Anahtarları *app1* ve *App1* bir uygulama yapılandırma deposunda farklıdır. Bazı çerçeveleri yapılandırma anahtarları case-insensitively işlediğinden, bir uygulama yapılandırma ayarlarında kullandığınızda bunu aklınızda bulundurun. Örneğin, ASP.NET Core yapılandırma sistemi anahtarlarını büyük küçük harf duyarsız dize olarak değerlendirir. Bir ASP.NET Core uygulaması içinde uygulama yapılandırması sorguladığınızda öngörülemeyen davranışları önlemek için yalnızca büyük/küçük harfleri tarafından farklı tuşlarını kullanmayın.
 

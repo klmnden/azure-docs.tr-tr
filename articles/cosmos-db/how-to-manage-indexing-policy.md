@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 179b67306803437ccad085cccfb1b5fd40888261
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240856"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386792"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri yönetme
 
@@ -167,7 +167,7 @@ Dizin oluşturma ilkeleri, Azure portalında nasıl açığa kendi JSON biçimin
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Seçime bağlı olarak bazı özellik yolları hariç tutmak için ilke çevirme
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -201,7 +201,7 @@ Dizin oluşturma ilkeleri, Azure portalında nasıl açığa kendi JSON biçimin
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Bazı özellik yolları seçerek eklenecek kabul etme İlkesi
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -235,7 +235,7 @@ Not: Genel olarak kullanılması önerilir bir **çevirme** dizin oluşturma ilk
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Belirli özellik yolda yalnızca bir uzamsal dizin kullanma
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -280,7 +280,7 @@ Bu ilke durumlarda kullanılabilir olduğu [özelliği için-yaşam süresi (TTL
 ### <a name="no-indexing"></a>Dizin oluşturma
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 

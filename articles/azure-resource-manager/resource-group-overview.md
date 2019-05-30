@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589325"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225909"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 
@@ -55,7 +55,7 @@ Resource Manager çeşitli avantajlar sunar:
 
 Azure, dört yönetim kapsam düzeyleri sağlar: [Yönetim grupları](../governance/management-groups/index.md), abonelikler, [kaynak grupları](#resource-groups)ve kaynaklar. Aşağıdaki resimde bu katmanlara ait bir örnek gösterilir.
 
-![Kapsam](./media/resource-group-overview/scope-levels.png)
+![`Scope`](./media/resource-group-overview/scope-levels.png)
 
 Yönetim ayarlarını bu kapsam düzeylerinden birinde uygularsınız. Seçtiğiniz düzey, ayarın ne kadar yaygın olarak uygulanacağını belirler. Düşük düzeyler, yüksek düzeylerdeki ayarları devralır. Uyguladığınızda Örneğin, bir [ilke](../governance/policy/overview.md) aboneliğe tüm kaynak grupları ve aboneliğinizdeki kaynaklara ilke uygulanır. Bir ilke uygulandığında ilke kaynak grubunu, kaynak grubunu ve tüm kaynaklarını uygulanır. Ancak, başka bir kaynak grubu, ilke ataması yok.
 
@@ -91,7 +91,7 @@ Kaynak grubunun bölge geçici olarak kullanılamıyorsa, kaynak grubundaki kayn
 
 Her kaynak sağlayıcısı, bir dizi kaynak ve bu kaynaklarla çalışmak için işlem sunar. Örneğin, anahtarları ve parolaları saklamak isterseniz **Microsoft.KeyVault** kaynak sağlayıcısı ile çalışırsınız. Bu kaynak sağlayıcısı, anahtar kasasını oluşturmak için **vaults** adlı bir kaynak türü sağlar.
 
-Kaynak türü adı şu biçimdedir: **{kaynak-sağlayıcısı}/{kaynak-türü}**. Kaynak türü için bir anahtar kasası **Microsoft.KeyVault/vaults**.
+Kaynak türü adı şu biçimdedir: **{kaynak-sağlayıcısı}/{kaynak-türü}** . Kaynak türü için bir anahtar kasası **Microsoft.KeyVault/vaults**.
 
 Kaynaklarınızı dağıtmaya başlamadan önce kullanılabilir kaynak sağlayıcılarını anlamanız gerekir. Kaynak sağlayıcılarının ve kaynakların adlarını bilmeniz, Azure’a dağıtmak istediğiniz kaynakları tanımlamanıza yardımcı olur. Ayrıca her bir kaynak türü için geçerli konumları ve API sürümlerini bilmeniz gerekir. Daha fazla bilgi için bkz. [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md).
 
@@ -174,7 +174,21 @@ Son olarak, uygulamanızın kaynak kodunun bir parçası haline gelir. Bunu kayn
 
 Karmaşık bir hizmeti Azure’a dağıtırken, hizmetinizi birden çok bölgeye dağıtmanız ve bir sonraki adıma geçmeden önce sistem durumunu kontrol etmeniz gerekebilir. Hizmetin aşamalı kullanıma sunulmasını koordine etmek için [Azure Deployment Manager](deployment-manager-overview.md)’ı kullanın. Hizmetinizi aşamalı kullanıma sunarak, tüm bölgelere dağıtılmadan önce olası sorunları bulabilirsiniz. Bu önlemlere ihtiyacınız yoksa, önceki bölümde yer alan dağıtım işlemleri daha iyi seçenektir.
 
-Dağıtım Yöneticisi şu anda özel önizleme aşamasındadır.
+Dağıtım Yöneticisi şu anda genel önizleme aşamasındadır.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager'ın esnekliği
+
+Azure Resource Manager hizmeti, dayanıklılık ve sürekli kullanılabilirlik için tasarlanmıştır. Resource Manager ve denetim düzlemi işlemleri (management.azure.com için gönderdiği istekleri), REST API şunlardır:
+
+* Bölgeler arasında dağıtılmış. Bazı bölgesel hizmetleridir.
+
+* Kullanılabilirlik alanları (olarak iyi bölge) sahip birden fazla kullanılabilirlik konumlarda dağıtılmış.
+
+* Tek bir mantıksal veri merkezine bağlı değil.
+
+* Bakım etkinlikleri için hiçbir zaman yayından.
+
+Bu esneklik isteklerini Resource Manager üzerinden almak hizmetlere uygular. Örneğin, anahtar kasası avantajlarından bu esneklik.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

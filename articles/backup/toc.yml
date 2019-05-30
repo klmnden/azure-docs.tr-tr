@@ -219,18 +219,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Windows Server Sistem Durumunu geri yükleme
           href: backup-azure-restore-system-state.md
-        - name: Kurtarma Hizmetleri kasalarını izleme ve yönetme
-          href: backup-azure-manage-windows-server.md
     - name: Kurtarma Hizmetleri kasası
       items:
         - name: Kurtarma Hizmetleri kasalarına genel bakış
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Backup kasasının Kurtarma Hizmetleri kasasına yükseltme
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Kurtarma Hizmetleri kasası oluşturma
+          href: backup-create-rs-vault.md
         - name: Kurtarma Hizmetleri kasasını silme
           href: backup-azure-delete-vault.md
         - name: Kurtarma Hizmetleri kasasını taşıma
           href: backup-azure-move-recovery-services-vault.md
+        - name: Kurtarma Hizmetleri kasalarını izleme ve yönetme
+          href: backup-azure-manage-windows-server.md
     - name: Sorun giderme
       items:
         - name: Azure VM

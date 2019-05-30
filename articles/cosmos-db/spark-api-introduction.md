@@ -3,15 +3,15 @@ title: Azure Cosmos DB'de Apache Spark ile yerleşik işlem analizi giriş
 description: Nasıl yerleşik desteği Azure Cosmos DB'de Apache Spark için işlem analizi ve yapay ZEKA çalıştırmak için kullanabileceğiniz öğrenin
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/10/2019
+ms.date: 05/23/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: c62639feed7ced9d92e29715e350b952465a94a1
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: b392f7fd6438b25a741aecb86a72f142d785f0e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517715"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237882"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Azure Cosmos DB'de Apache Spark (Önizleme) ile yerleşik işlem analizi 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB'de Apache Spark için yerleşik destek, bir Azure Cosmos hesabı
 Spark işlem otomatik olarak kullanılabilir tüm Azure bölgelerinde Azure Cosmos hesabınızla ilişkili olan. Spark işlerinde Azure Cosmos DB'nin çok yöneticili özelliğini kullanın ve yazma veya her bölgede yerel kopya karşı sorgu. 
 
 > [!NOTE]
-> Azure Cosmos DB'de Apache Spark için yerleşik destek, şu anda sınırlı Önizleme aşamasındadır. Önizleme için kaydolma, gitmek [Önizleme için kaydolun](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) sayfası. 
+> Azure Cosmos DB'de Apache Spark için yerleşik destek, şu anda sınırlı Önizleme aşamasındadır. Önizleme için kaydolma, gitmek [Önizleme sayfası için kaydolma](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB). 
 
 Azure Cosmos DB'de Apache Spark desteği aşağıdaki faydaları sunar:
 
@@ -67,7 +67,7 @@ Azure Cosmos DB ile geleneksel analitik veritabanlarının aksine veri mühendis
 
 Apache Spark işleri, Azure Cosmos veritabanı veri bölümlerini çalıştırıldığından, sorguları alırsınız [beş iyi tanımlanmış tutarlılık seçeneği](consistency-levels.md). Bu tutarlılık modeli makine öğrenimi algoritması gecikme süresi ve yüksek kullanılabilirlik ödün vermeden en doğru sonuçlar sağlamak için katı tutarlılık seçme esnekliğini sunar. 
 
-### <a name="slas"></a>SLA’lar
+### <a name="comprehensive-slas"></a>Kapsamlı SLA’lar
 
 Apache Spark işleri gibi sektör lideri kapsamlı Azure Cosmos DB avantajları olacaktır [SLA'lar](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) (99,999) ayrı bir Apache Spark kümeleri yönetme herhangi ek yükü olmadan... Bu SLA, aktarım hızı, düşük gecikme süresi 99. yüzdebirlik dilimde, tutarlılık ve yüksek kullanılabilirlik kapsayabilir. 
 
@@ -77,7 +77,7 @@ Küresel ölçekte bulutta çalışan uygulamalar oluştururken büyük müşter
 
 ## <a name="built-in-jupyter-notebooks-support"></a>Jupyter not defterleri için yerleşik destek
 
-Azure Cosmos DB Cassandra, MongoDB, SQL, Gremlin ve tablo gibi tüm API'leri için Jupyter not defterleri destekler. Jupyter not defterlerini içinde Azure Cosmos DB hesapları çalıştırın ve bunlar Geliştirici deneyimini geliştirin. Tüm Azure Cosmos DB API ve veri modelleri için yerleşik not defteri destek etkileşimli sorguları çalıştırmak sağlar. Makine öğrenimi modelleri yürütün ve Azure Cosmos veritabanınızda depolanan verileri analiz edin. Jupyter not defteri deneyimi kullanarak depolanan verileri analiz etmek, derleme ve makine öğrenimi modellerini eğitmenize ve aşağıdaki görüntüde gösterildiği gibi Azure portalında veri çubuğunda çıkarım gerçekleştirin:
+Azure Cosmos DB Cassandra, MongoDB, SQL, Gremlin ve tablo gibi tüm API'ler için yerleşik Jupyter not defterleri destekler. Jupyter not defterlerini içinde Azure Cosmos hesapları çalıştırın ve bunlar Geliştirici deneyimini geliştirin. Tüm Azure Cosmos DB API ve veri modelleri için yerleşik not defteri destek etkileşimli sorguları çalıştırmak sağlar. Makine öğrenimi modelleri yürütün ve Azure Cosmos veritabanınızda depolanan verileri analiz edin. Jupyter not defteri deneyimi kullanarak depolanan verileri analiz etmek, derleme ve makine öğrenimi modellerini eğitmenize ve aşağıdaki görüntüde gösterildiği gibi Azure portalında veri çubuğunda çıkarım gerçekleştirin:
 
 ![Azure Cosmos DB'de Jupyter not defterleri desteği](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 

@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 668c380f38f410083ffe7d2cd6690be447f614dc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798330"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390039"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Öğretici: Bing Web araması API'si kullanarak tek sayfalı uygulama oluşturma
 
@@ -80,7 +80,7 @@ Bu öğretici `scripts.js` dosyasına ve Bing Web Araması API'sini çağırıp 
 
 ## <a name="query-options"></a>Sorgu seçenekleri
 
-HTML formu, [Bing Web Araması API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters)'deki sorgu parametrelerine eşlenen seçenekler içerir. Bu tabloda, örnek uygulamayı kullanarak kullanıcıların arama sonuçlarını nasıl filtreleyebileceğini gösteren bir döküm sağlanır:
+HTML formu, [Bing Web Araması API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters)'deki sorgu parametrelerine eşlenen seçenekler içerir. Bu tabloda, örnek uygulamayı kullanarak kullanıcıların arama sonuçlarını nasıl filtreleyebileceğini gösteren bir döküm sağlanır:
 
 | Parametre | Açıklama |
 |-----------|-------------|
@@ -93,7 +93,7 @@ HTML formu, [Bing Web Araması API'si v7](https://docs.microsoft.com/rest/api/co
 | `offset` | Gizli alan. İstekteki ilk arama sonucunun göreli konumu; sayfalama için kullanılır. Her yeni istekle birlikte `0` değerine sıfırlanır. |
 
 > [!NOTE]
-> Bing Web Araması API'si arama sonuçlarını daraltmak için ek sorgu parametreleri sağlar. Bu örnekte yalnızca birkaç parametre kullanılır. Sağlanan parametrelerin tam listesi için bkz. [Bing Web Araması API'si v7 başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
+> Bing Web Araması API'si arama sonuçlarını daraltmak için ek sorgu parametreleri sağlar. Bu örnekte yalnızca birkaç parametre kullanılır. Sağlanan parametrelerin tam listesi için bkz. [Bing Web Araması API'si v7 başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 `bingSearchOptions()` işlevi, Bing Arama API'sinin gerektirdiği biçime uyacak şekilde bu seçenekleri dönüştürür.
 

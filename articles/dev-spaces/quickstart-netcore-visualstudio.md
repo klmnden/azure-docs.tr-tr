@@ -1,5 +1,5 @@
 ---
-title: Azure geliştirme alanları ve Visual Studio 2017 ile AKS üzerinde .NET Core ile geliştirme
+title: Azure geliştirme alanları ve Visual Studio ile AKS üzerinde .NET Core ile geliştirme
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,30 +13,29 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcıl
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765313"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399218"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Hızlı Başlangıç: Azure geliştirme alanları (Visual Studio 2017) ile Kubernetes üzerinde .NET Core ile geliştirin
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Hızlı Başlangıç: Azure geliştirme alanları (Visual Studio) ile Kubernetes üzerinde .NET Core ile geliştirin
 
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 - Azure’da yönetilen bir Kubernetes ile Azure Dev Spaces’ı ayarlayın.
-- Yinelemeli olarak Visual Studio 2017 kullanarak kapsayıcılardaki kod geliştirin.
-- Visual Studio 2017'yi kullanarak kümenizde çalışan kodda hata ayıklama.
+- Visual Studio kullanarak kapsayıcılarda yinelemeli kod geliştirin.
+- Visual Studio kullanarak kümenizde çalışan kodda hata ayıklama.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Hesabınız yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
-- Visual Studio 2017'de Windows yüklü Web geliştirme iş yüküyle birlikte sağlanır. Yüklü değilse, [buradan](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) indirin.
-- [Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools) yüklü.
+- Azure geliştirme iş yükü yüklenmiş olan Windows üzerinde Visual Studio 2019. Visual Studio 2017 Windows üzerinde Web geliştirme iş yüküyle kullanabilirsiniz ve [Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools) yüklü. Visual Studio yüklü yoksa indirdiği [burada](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service kümesi oluşturma
 
-Bir AKS kümesinde oluşturmalısınız bir [bölge desteklenen](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Bir küme oluşturmak için:
+Bir AKS kümesinde oluşturmalısınız bir [bölge desteklenen][supported-regions]. Bir küme oluşturmak için:
 
 1. [Azure portalda](https://portal.azure.com) oturum açma
 1. Seçin *+ kaynak Oluştur > Kubernetes hizmeti*. 
@@ -55,8 +54,8 @@ Azure portalında AKS kümenizin gelin ve tıklayın *geliştirme alanları*. De
 
 ## <a name="create-a-new-aspnet-web-app"></a>Yeni bir ASP.NET web uygulaması oluşturma
 
-1. Visual Studio 2017'yi açın.
-1. Yeni bir proje oluşturun.
+1. Visual Studio'yu açın.
+1. Yeni bir proje oluşturma.
 1. Seçin *ASP.NET Core Web uygulaması* ve projenizi adlandırın *webfrontend*.
 1. *Tamam* düğmesine tıklayın.
 1. İstendiğinde, *Web uygulaması (Model-View-Controller)* şablonu için.
@@ -69,7 +68,7 @@ Projenizde, seçin **Azure geliştirme alanları** aşağıda gösterildiği gib
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam* düğmesine tıklayın.
+Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam*'ı tıklatın.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
@@ -101,7 +100,7 @@ Bu işlem genel erişim hizmetiniz devre dışı bırakmış olabilir. Genel eri
 
 ## <a name="update-code"></a>Kodu güncelleştirme
 
-Visual Studio 2017 hala geliştirme alanınıza bağlıysa, Durdur düğmesini tıklatın. Satır 20 değiştirme `Controllers/HomeController.cs` için:
+Visual Studio hala geliştirme alanınıza bağlıysa, Durdur düğmesini tıklatın. Satır 20 değiştirme `Controllers/HomeController.cs` için:
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -113,9 +112,9 @@ Yeniden oluşturma ve kod düzenleme yapılan her zaman, yeni bir kapsayıcı g�
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Ayarlama ve hata ayıklama için kesme noktaları kullanma
 
-Visual Studio 2017 hala geliştirme alanınıza bağlıysa, Durdur düğmesini tıklatın. Açık `Controllers/HomeController.cs` yere imlecinizi buraya koymanız ila 20 satıra tıklayın. Bir kesme noktası ayarlamak için isabet *F9* veya *hata ayıklama* ardından *iki durumlu kesme noktası*. Hata ayıklama modunda geliştirme alanınızı hizmetinizi başlatmak için isabet *F5* veya *hata ayıklama* ardından *hata ayıklamayı Başlat*.
+Visual Studio hala geliştirme alanınıza bağlıysa, Durdur düğmesini tıklatın. Açık `Controllers/HomeController.cs` yere imlecinizi buraya koymanız ila 20 satıra tıklayın. Bir kesme noktası ayarlamak için isabet *F9* veya *hata ayıklama* ardından *iki durumlu kesme noktası*. Hata ayıklama modunda geliştirme alanınızı hizmetinizi başlatmak için isabet *F5* veya *hata ayıklama* ardından *hata ayıklamayı Başlat*.
 
-Hizmetinizi bir tarayıcıda açın ve herhangi bir ileti görüntülenir dikkat edin. Visual Studio 2017 için geri dönün ve 20 satırı vurgulanır gözlemleyin. Kesme satırı 20 hizmeti duraklatıldı. Hizmeti sürdürmek için isabet *F5* veya *hata ayıklama* ardından *devam*. Tarayıcınıza dönün ve ileti görüntülenecektir dikkat edin.
+Hizmetinizi bir tarayıcıda açın ve herhangi bir ileti görüntülenir dikkat edin. Visual Studio'ya geri dönün ve 20 satırı vurgulanır gözlemleyin. Kesme satırı 20 hizmeti duraklatıldı. Hizmeti sürdürmek için isabet *F5* veya *hata ayıklama* ardından *devam*. Tarayıcınıza dönün ve ileti görüntülenecektir dikkat edin.
 
 Bir hata ayıklayıcısı ekli Kubernetes'te hizmetinizi çalışırken, çağrı yığını, yerel değişkenleri ve özel durum bilgileri gibi bilgileri hata ayıklamak için tam erişime sahip olursunuz.
 
@@ -135,3 +134,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Birden çok kapsayıcı ve takım geliştirme ile çalışma](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations

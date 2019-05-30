@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9c8d1fb234efd5df297082cfc1001f28ca1656
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990323"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388877"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Öğretici: Workday Azure Active Directory ile tümleştirme
 
@@ -88,7 +88,7 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. Yanıt URL'si, örneğin bir alt etki alanı olmalıdır: www, wd2, wd3, wd3 Impl, wd5 wd5 Impl).
-    > Aşağıdaki gibi kullanarak `http://www.myworkday.com` çalışır ancak `http://myworkday.com` desteklemez. İlgili kişi [Workday istemci Destek ekibine](https://www.workday.com/partners-services/services/support.html) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Aşağıdaki gibi kullanarak `http://www.myworkday.com` çalışır ancak `http://myworkday.com` desteklemez. İlgili kişi [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 6. Workday uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Workday uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**, **UPN**vb. tıklayarak özellik eşlemesi düzenlemek gereken şekilde  **Düzen** simgesi ve değişiklik öznitelik eşlemesi.
 
@@ -138,7 +138,7 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
    > [!NOTE]
    > Ortam özniteliğinin değeri, Kiracı URL'si değerine bağlıdır:  
    > -Workday kiracısı URL'si etki alanı adı ile Impl örneğin başlayıp başlamadığını: *https:\//impl.workday.com/\<Kiracı\>/login-saml2.flex*), **ortam**özniteliği, uygulama için ayarlanmış olması gerekir.  
-   > -Etki alanı adı başka bir şey ile başlar, iletişime geçmeniz [Workday istemci Destek ekibine](https://www.workday.com/partners-services/services/support.html) eşleşen almak için **ortam** değeri.
+   > -Etki alanı adı başka bir şey ile başlar, iletişime geçmeniz [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) eşleşen almak için **ortam** değeri.
 
 4. İçinde **SAML Kurulumu** bölümünde, aşağıdaki adımları gerçekleştirin:
 
@@ -191,13 +191,13 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
     e.  İçinde **sertifika** metin kutusu, panonuzun içeriğini yapıştırın.
 
-    f.  **Tamam**'ı tıklatın.
+    f.  **Tamam** düğmesine tıklayın.
 
 7. Aşağıdaki adımları gerçekleştirin:
 
     ![SSO yapılandırma](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO yapılandırma")
 
-    a.  İçinde **hizmet sağlayıcı kimliği** metin kutusuna **https://www.workday.com**.
+    a.  İçinde **hizmet sağlayıcı kimliği** metin kutusuna **https://www.workday.com** .
 
     b. Seçin **SP tarafından başlatılan kimlik doğrulama isteği Deflate değil**.
 

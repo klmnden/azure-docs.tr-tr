@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: bb04d6c8b16a6b9bdbbb95b0b4f577cf4cc3ed86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596569"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235072"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
 
@@ -48,7 +48,7 @@ Veri bilimi yazılım yarışmaları/müsabakaları veya büyük ölçekli veri 
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Özel işlem gücü için Azure Not Defterleri
 
-[Azure not defterleri](/azure/notebooks/azure-notebooks-overview.md) geliştirin, çalıştırın ve bulutta Jupyter not defterleri ile yükleme paylaşmak için ücretsiz bir barındırılan hizmet. Ücretsiz bir hizmet katmanı, ancak veri 1 GB ile 4 GB bellek ile sınırlıdır. Tüm sınırları serbest bırakmak için ardından not defterlerini proje bir veri bilimi sanal makinesi veya Jupyter server çalıştıran başka bir VM ekleyebilirsiniz. Azure Active Directory (bir kurumsal hesap gibi) kullanarak bir hesapla Azure not defterleri ile oturum açarsanız, dizüstü bilgisayarlar otomatik olarak gösterir veri bilimi Vm'lerini ilgili hesapla ilişkili tüm Aboneliklerdeki. Daha fazla bilgi için [yönetme ve projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+[Azure not defterleri](/azure/notebooks/azure-notebooks-overview) geliştirin, çalıştırın ve bulutta Jupyter not defterleri ile yükleme paylaşmak için ücretsiz bir barındırılan hizmet. Ücretsiz bir hizmet katmanı, ancak veri 1 GB ile 4 GB bellek ile sınırlıdır. Tüm sınırları serbest bırakmak için ardından not defterlerini proje bir veri bilimi sanal makinesi veya Jupyter server çalıştıran başka bir VM ekleyebilirsiniz. Azure Active Directory (bir kurumsal hesap gibi) kullanarak bir hesapla Azure not defterleri ile oturum açarsanız, dizüstü bilgisayarlar otomatik olarak gösterir veri bilimi Vm'lerini ilgili hesapla ilişkili tüm Aboneliklerdeki. Daha fazla bilgi için [yönetme ve projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Kısa süreli deneme ve değerlendirme
 Veri Bilimi Sanal Makinesi; Microsoft ML Server, SQL Server, Visual Studio araçları, Jupyter, derin öğrenme / ML araç setleri gibi araçları ve toplulukta popüler olan yeni araçları çok az kurulum çabasıyla değerlendirmek veya öğrenmek için kullanılabilir. Veri Bilimi Sanal Makinesi hızlıca kurulabildiğinden, yayımlanmış denemeleri çoğaltma, tanıtımları uygulama, çevrimiçi oturumlarda ve konferans öğreticilerinde kılavuzları takip etme gibi diğer kısa süreli kullanım senaryolarında uygulanabilir.

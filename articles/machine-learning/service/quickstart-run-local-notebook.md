@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864375"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237805"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için kendi notebook sunucusu kullanma
 
@@ -33,14 +33,29 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 * Azure Machine Learning SDK ile bir Python 3.6 Not Defteri sunucusu
 * Bir Azure Machine Learning hizmeti çalışma
-* Bir çalışma alanı yapılandırma dosyası (**.azureml/config.json** ).
+* Bir çalışma alanı yapılandırma dosyası ( **.azureml/config.json**).
 
-Tüm bu önkoşulları alma [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md#portal).
+Tüm bu önkoşulları alma [bir Azure Machine Learning hizmeti çalışma alanı oluşturma](setup-create-workspace.md#sdk).
+
 
 
 ## <a name="use-the-workspace"></a>Çalışma alanını kullanma
 
-Bir betik oluşturabilir veya çalışma alanı yapılandırma dosyanız ile aynı dizinde bir not defteri başlatın. Deneme çalıştırmalarınızın izlemek için SDK'ın temel API'leri kullanır. Bu kodu çalıştırın.
+Bir betik oluşturabilir veya bir not defteri, çalışma alanı yapılandırma dosyası ile aynı dizinde Başlat ( **.azureml/config.json**).
+
+### <a name="attach-to-workspace"></a>Çalışma alanına ekleme
+
+Bu kod, çalışma alanınıza eklemek için yapılandırma dosyasından bilgilerini okur.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>Günlük değerleri
+
+Deneme çalıştırmalarınızın izlemek için SDK'ın temel API'leri kullanır. Bu kodu çalıştırın.
 
 1. Bir deney, çalışma alanınızda oluşturun.
 1. Tek bir değer alanına oturum açın.

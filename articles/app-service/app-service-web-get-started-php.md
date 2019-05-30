@@ -4,7 +4,7 @@ description: Azure App Service Web Uygulamalarında ilk PHP Hello World uygulama
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f1a5c3a57c60b30855f7bfaaa1ee3ab85285011d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129680"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298534"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure’da PHP web uygulaması oluşturma
 
@@ -111,7 +111,7 @@ Git dağıtımı etkin boş bir yeni web uygulaması oluşturdunuz.
 > Git uzak URL’si `deploymentLocalGitUrl` özelliği içinde `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git` biçiminde gösterilir. Bu URL’ye daha sonra ihtiyacınız olacağı için URL’yi kaydedin.
 >
 
-Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;uygulama adı>_’nı, önceki adımda oluşturulan benzersiz uygulama adınızla değiştirin.
+Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;uygulama adı>_ ’nı, önceki adımda oluşturulan benzersiz uygulama adınızla değiştirin.
 
 ```bash
 http://<app name>.azurewebsites.net

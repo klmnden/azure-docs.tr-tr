@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/30/2019
 ms.author: aljo,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 1487c9e3e57a2fe4dcdcab04aa81cd81315decfd
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122362"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302378"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Hızlı Başlangıç: Linux kapsayıcıları Service Fabric'e dağıtma
 
@@ -179,7 +179,7 @@ Kümeden uygulama örneğini silmek ve uygulama türünün kaydını silmek içi
 
 Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir.
 
-Azure’da oturum açın ve kümeyi kaldırmak istediğiniz abonelik kimliğini seçin. Abonelik Kimliğinizi, Azure portalında oturum açarak bulabilirsiniz. Kaynak grubu ve kullanarak tüm küme kaynaklarını silin [az group delete komutu](/cli/azure/group?view=azure-cli-latest).
+Azure'da oturum açın ve kümeyi kaldırmak istediğiniz abonelik Kimliğini seçin. Abonelik Kimliğinizi, Azure portalında oturum açarak bulabilirsiniz. Kaynak grubu ve kullanarak tüm küme kaynaklarını silin [az group delete komutu](/cli/azure/group?view=azure-cli-latest).
 
 ```azurecli
 az login

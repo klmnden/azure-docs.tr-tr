@@ -39,9 +39,9 @@
 - name: Başvuru
   items:
     - name: Bing Otomatik Öneri API’si v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference'
     - name: Bing Otomatik Öneri API’si v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference'
     - name: SDK’lar
       items:
         - name: .NET

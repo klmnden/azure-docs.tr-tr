@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707017"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241738"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Sanal Ağı nedir?
 
-Azure Sanal Ağı, Azure Sanal Makineleri (VM) gibi birçok Azure kaynağı türünün birbiriyle, İnternet ile ve şirket içi ağlarla güvenli şekilde iletişim kurmasına olanak sağlar. Bir sanal ağ, tek bir bölgeye kapsamlıdır; Ancak, farklı bölgelerdeki birden fazla sanal ağ sanal ağ eşlemesi kullanarak birbirine bağlanabilir.
+Azure Sanal Ağı, Azure Sanal Makineleri (VM) gibi birçok Azure kaynağı türünün birbiriyle, İnternet ile ve şirket içi ağlarla güvenli şekilde iletişim kurmasına olanak sağlar. Bir sanal ağ, tek bir Azure bölgesine kapsamlıdır. Bir Azure [bölge](https://azure.microsoft.com/global-infrastructure/regions/) gecikme süresine göre tanımlanmış bir çember içinde dağıtılmış ve adanmış bir bölgesel düşük gecikmeli ağla birbirine bağlanmış veri merkezlerinden oluşan bir kümedir. 
+
+Sanal ağlar, alt ağların yapılır. Bir IP adresi aralığı sanal ağınızdaki bir alt ağdır. Alt ağlar, sanal ağlar gibi tek bir Azure bölgesine belirlenir. 
+
+Farklı bölgelerdeki birden fazla sanal ağ, sanal ağ eşlemesi kullanarak birbirine bağlanabilir.
 
 Azure Sanal Ağı aşağıdaki temel özellikleri sağlar:
 

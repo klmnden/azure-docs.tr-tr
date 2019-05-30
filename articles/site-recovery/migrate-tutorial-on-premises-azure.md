@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193902"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396535"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -118,7 +118,7 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 > [!WARNING]
 > **Devam eden bir yük devretme işlemini iptal etmeyin**: Yük devretme başlatılmadan önce VM çoğaltma durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.
 
-Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işlem gerekebilir. Fiziksel sunucularda, VMware Linux makinelerinde, DHCP hizmeti etkinleştirilmemiş VMware VM’lerinde ve storvsc, vmbus, storflt, intelide, atapi önyükleme sürücülerine sahip olmayan VMware VM’lerinde uzun yük devretme sınama süreleriyle karşılaşabilirsiniz.
+Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işlem gerekir. Uzun yük devretme testi süreleriyle fiziksel sunucuları, VMware Linux makineler, DHCP hizmetinin etkinleştirilmiş sahip olmayan VMware Vm'leri ve önyükleme sürücülerine sahip olmayan VMware Vm'lerini: storvsc, vmbus, storflt, intelide, atapi.
 
 ## <a name="after-migration"></a>Geçişten sonra
 

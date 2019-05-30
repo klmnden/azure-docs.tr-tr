@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 05/16/2019
-ms.openlocfilehash: ded2011111262eb45818ea149949989eef885f24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789598"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393979"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Akış Analizi Nedir?
 
@@ -49,7 +49,7 @@ Azure Stream Analytics kullanımı kolay, esnek, güvenilir ve her boyuttaki iş
 
 ## <a name="ease-of-getting-started"></a>Başlama kolaylığı
 
-Azure Stream Analytics, başlatmak kolay bir işlemdir. Yalnızca birkaç tıklamayla çeşitli kaynaklar ve havuzlar, için uçtan uca bir işlem hattı oluşturma bağlamak için alır. Stream Analytics bağlanabilir [Azure Event Hubs](/azure/event-hubs/) ve [Azure IOT hub'ı](/azure/iot-hub/) akış verilerini almak için de [Azure Blob Depolama](/azure/storage/storage-introduction) geçmiş verilerin alımı için. İş girdisi, statik veya yavaş değişen başvuru verilerini Azure Blob Depolama ayrıca içerebilir veya [SQL veritabanı](stream-analytics-use-reference-data.md#azure-sql-database-preview) arama işlemleri gerçekleştirmek için veri akış katılabilirsiniz.
+Azure Stream Analytics, başlatmak kolay bir işlemdir. Yalnızca birkaç tıklamayla çeşitli kaynaklar ve havuzlar, için uçtan uca bir işlem hattı oluşturma bağlamak için alır. Stream Analytics bağlanabilir [Azure Event Hubs](/azure/event-hubs/) ve [Azure IOT hub'ı](/azure/iot-hub/) akış verilerini almak için de [Azure Blob Depolama](/azure/storage/storage-introduction) geçmiş verilerin alımı için. İş girdisi, statik veya yavaş değişen başvuru verilerini Azure Blob Depolama ayrıca içerebilir veya [SQL veritabanı](stream-analytics-use-reference-data.md#azure-sql-database) arama işlemleri gerçekleştirmek için veri akış katılabilirsiniz.
 
 Stream Analytics yönlendirebilir iş çıktısı için birçok depolama sistemleri gibi [Azure Blob Depolama](/azure/storage/storage-introduction), [Azure SQL veritabanı](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/), ve [Azure Cosmos DB](/azure/cosmos-db/introduction). Saklı çıktıyı Azure HDInsight ile toplu analiz çalıştırabilir veya çıktıyı tüketim için Event Hubs gibi başka bir hizmete gönderebilirsiniz veya [Power BI](https://docs.microsoft.com/power-bi/) gerçek zamanlı görselleştirme için.
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7aaa0de87ffa8280a6db34c5497779a5ded41c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4bd3e7d47b6e3083af6f388a5cd750da240a76b6
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545861"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392895"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Microsoft kimlik doğrulama kitaplığı (MSAL) genel bakış
 Microsoft Authentication Library (MSAL), geliştiricilerin almaya sağlar [belirteçleri](developer-glossary.md#security-token) Microsoft kimlik platformu endpoint erişmek için Web API'leri güvenli. Bu Web API'leri, Microsoft Graph, diğer Microsoft APIS, üçüncü taraf Web API'leri veya kendi Web API'nizi olabilir. MSAL, .NET, JavaScript, Android ve iOS, birçok farklı uygulama mimarileri ve platformları destekler için kullanılabilir.
@@ -55,7 +55,7 @@ MSAL, aşağıdakiler dahil birçok uygulama senaryolarda kullanılabilir:
 | Kitaplık | Desteklenen platformlar ve çerçeveler|
 | --- | --- | 
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET framework, .NET Core, Xamarin Android, Xamarin iOS, Evrensel Windows platformu|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js (Önizleme)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| AngularJS, Ember.js veya Durandal.js gibi JavaScript/TypeScript çerçeveleri|
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| AngularJS, Ember.js veya Durandal.js gibi JavaScript/TypeScript çerçeveleri|
 | ![Android için MSAL](media/sample-v2-code/logo_Android.png) <br/>[MSAL Android (Önizleme)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | ![İOS için MSAL](media/sample-v2-code/logo_iOS.png) <br/>[MSAL. Objective-C (Önizleme)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
 

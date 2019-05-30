@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f6be01a3aee4e156b7af184fa2537455fc73f3f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "62124654"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386528"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Arama API'si nedir?
 
@@ -31,7 +31,7 @@ Bing Video arama API'si, hizmetler ve uygulamalar, video arama özellikleri ekle
 | [Popüler videolar Al](trending-videos.md) | Dünyanın dört bir yanındaki popüler videoları arayın.                                                                                                          |
 | [Video Öngörüler elde edin](video-insights.md) | Dünyanın dört bir yanındaki popüler videolar için arama özelleştirin.                                                                                                          |
 
-## <a name="workflow"></a>İş Akışı
+## <a name="workflow"></a>İş akışı
 
 Bing Video arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. Hizmeti [REST API](csharp.md) veya [SDK](video-search-sdk-quickstart.md) kullanarak kullanabilirsiniz.
 
@@ -50,6 +50,6 @@ Kullanım [hızlı](csharp.md) ilk API isteğinizle birlikte hızlıca başlamak
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing Video arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) başvuru sayfası uç noktaları, üst bilgiler ve arama sonuçlarını istemek için kullanılan sorgu parametreleri listesini içerir.
+* [Bing Video arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) başvuru sayfası uç noktaları, üst bilgiler ve arama sonuçlarını istemek için kullanılan sorgu parametreleri listesini içerir.
 
 * Bing Arama API'leri ile edinilen içeriğin ve bilgilerin kabul edilebilir kullanımları [Bing Kullanımı ve Görüntü Gereksinimleri](./useanddisplayrequirements.md) konusunda belirtilmektedir.

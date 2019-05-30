@@ -1,26 +1,26 @@
 ---
-title: Azure Logic Apps ile kurumsal tümleştirme | Microsoft Docs
-description: Bu genel bakışta kurumlardaki ve kuruluşlardaki uygulamaları, verileri, hizmetleri ve sistemleri tümleştiren görevleri, iş akışlarını ve iş süreçlerini otomatikleştirerek kurumsal tümleştirme çözümleri oluşturma adımları anlatılmaktadır. Veri tümleştirmesi, sistem tümleştirmesi, kuruluş uygulaması tümleştirme (EAI) ve düzenleme senaryolarına yönelik çözümler oluşturun.
+title: Azure Logic Apps ile Kurumsal tümleştirme
+description: Otomatikleştirme ve görevleri, iş akışları ve kurum ve kuruluşlardaki uygulamaları, verileri, hizmetleri ve sistemleri tümleştiren iş süreçlerini işlemlerini, Kurumsal tümleştirme çözümleri oluşturmak hakkında genel bakış. Veri tümleştirmesi, sistem tümleştirmesi, kuruluş uygulaması tümleştirme (EAI) ve düzenleme senaryolarına yönelik çözümler oluşturun.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61318541"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299119"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps nedir?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), farklı kurumlardaki veya kuruluşlardaki uygulamaları, verileri, sistemleri ve hizmetleri tümleştirmeye ihtiyaç duyduğunuzda görevleri, iş süreçlerini ve [iş akışlarını](#logic-app-concepts) otomatikleştirmenize ve düzenlemenize yardımcı olan bir bulut hizmetidir. Mantıksal uygulamalar tasarlama ve uygulama için ölçeklenebilen çözümler oluşturun basitleştirir [tümleştirme](https://azure.microsoft.com/product-categories/integration/), veri tümleştirmesi, sistem tümleştirmesi, kuruluş uygulaması tümleştirme (EAI) ve işletmeden işletmeye (B2B) iletişimi elinizin altında Bulut, şirket içi veya her ikisi de.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) zamanlayabilir, otomatikleştirin ve görevleri, iş süreçlerini yardımcı olan bir bulut hizmetidir ve [iş akışları](#logic-app-concepts) uygulamaları, verileri, sistemleri ve Hizmetleri kuruluşlar arasında tümleştirmek gerektiğinde veya kuruluşlar. Mantıksal uygulamalar tasarlama ve uygulama için ölçeklenebilen çözümler oluşturun basitleştirir [tümleştirme](https://azure.microsoft.com/product-categories/integration/), veri tümleştirmesi, sistem tümleştirmesi, kuruluş uygulaması tümleştirme (EAI) ve işletmeden işletmeye (B2B) iletişimi elinizin altında Bulut, şirket içi veya her ikisi de.
 
 Mantıksal uygulamalarla otomatikleştirebileceğiniz birkaç iş yükü örneği aşağıda verilmiştir:
 
@@ -35,7 +35,7 @@ Azure Logic Apps ile kurumsal tümleştirme çözümleri oluşturmak için Azure
 
 ## <a name="how-does-logic-apps-work"></a>Logic Apps nasıl çalışır? 
 
-Her mantıksal uygulama, belirli bir olay gerçekleştiğinde veya yeni kullanılabilir veriler belirli ölçütleri karşıladığında tetiklenen bir tetikleyici ile başlar. Birçok tetikleyici, iş yüklerinizin ne düzende çalıştırılacağını belirtebilmeniz için temel zamanlama özellikleri içerir. Diğer özel zamanlama senaryoları için iş akışlarınızı Zamanlama tetikleyicisiyle başlatın. [Zamanlama tabanlı iş akışları oluşturma](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md) hakkında daha fazla bilgi edinin.
+Her mantıksal uygulama, belirli bir olay gerçekleştiğinde veya yeni kullanılabilir veriler belirli ölçütleri karşıladığında tetiklenen bir tetikleyici ile başlar. İş yüklerinizi çalışması nasıl düzenli olarak ayarlayabilirsiniz böylece birçok tetikleyici Logic apps'teki bağlayıcılar tarafından sağlanan temel zamanlama özellikleri içerir. Daha karmaşık zamanlama veya Gelişmiş yinelenme için bir iş akışındaki ilk adım olarak yinelenme tetikleyicisini kullanabilirsiniz. Daha fazla bilgi edinin [zamanlama tabanlı iş akışları](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Tetikleyici her tetiklendiğinde, Logic Apps altyapısı iş akışındaki eylemleri çalıştıran bir mantıksal uygulama örneği oluşturur. Bu eylemlere koşullu deyimler, switch deyimleri, döngüler ve dallanma gibi veri dönüşümleri ve akış denetimleri de dahil olabilir. Örneğin, bu mantıksal uygulama yerleşik olarak “Bir kayıt güncelleştirildiğinde” ölçütüne sahip olan bir Dynamics 365 tetikleyicisi ile başlatılır. Tetikleyici bu ölçütle eşleşen bir olay algıladığında tetiklenir ve iş akışının eylemlerini çalıştırır. Burada, bu eylemlere XML dönüşümü, veri güncelleştirmeleri, karar dallanması ve e-posta bildirimleri dahildir.
 
@@ -132,14 +132,9 @@ Bu hizmetlerin tümü, bir "yapıştırıcı" ile bağımsız sistemleri birleş
 
 ## <a name="get-started"></a>başlarken 
 
-Logic Apps, Microsoft Azure’da barındırılan birçok hizmetten biridir. Bu nedenle, başlamak için önce bir Azure aboneliğine sahip olmanız gerekir. Aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+Logic Apps, Microsoft Azure’da barındırılan birçok hizmetten biridir. Bu nedenle, başlamak için önce bir Azure aboneliğine sahip olmanız gerekir. Aboneliğiniz yoksa, [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/). 
 
 Azure aboneliğiniz varsa, bir RSS akışı aracılığıyla bir web sitesindeki yeni içerikleri izleyen ve yeni içerik göründüğünde e-posta gönderen [ilk mantıksal uygulamanızı oluşturmak için bu hızlı başlangıcı](../logic-apps/quickstart-create-first-logic-app-workflow.md) deneyin.
-
-## <a name="support-and-feedback"></a>Destek ve geri bildirim
-
-* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

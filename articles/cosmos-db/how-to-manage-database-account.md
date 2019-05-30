@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240899"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399879"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabı yönetme
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 ```azurepowershell-interactive
-# Create an Azure Cosmos Account for Core (SQL) API
+# Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
@@ -71,7 +71,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager şablonu
 
-Bu Azure Resource Manager şablonu iki bölgeleri ve tutarlılık düzeyi, otomatik yük devretme ve çok yöneticili seçmek için seçenekleri ile yapılandırılmış herhangi bir desteklenen API için bir Azure Cosmos DB hesabı oluşturun. Bu şablonu dağıtmak için Benioku sayfasında azure'a Dağıt tıklayarak [oluşturma Azure Cosmos DB hesabı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Bu Azure Resource Manager şablonu iki bölgeleri ve tutarlılık düzeyi, otomatik yük devretme ve çok yöneticili seçmek için seçenekleri ile yapılandırılmış herhangi bir desteklenen API için bir Azure Cosmos hesabı oluşturun. Bu şablonu dağıtmak için Benioku sayfasında azure'a Dağıt tıklayarak [oluşturma Azure Cosmos hesabı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Veritabanı hesabınızda bölge ekleme/çıkarma işlemi gerçekleştirme
 
@@ -185,7 +185,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --ena
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account from single to multi-master
+# Update an Azure Cosmos account from single to multi-master
 
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
@@ -200,7 +200,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager şablonu
 
-Bir hesap tek ana çok asıl hesap ve ayarı oluşturmak için kullanılan Resource Manager şablonu dağıtarak geçirilebilir `enableMultipleWriteLocations: true`. Aşağıdaki Azure Resource Manager şablonu, Azure Cosmos DB hesabı SQL API'si için bir tek bölge ve çok yöneticili etkin ile dağıtan bir çıplak en düşük şablonudur.
+Bir hesap tek ana çok asıl hesap ve ayarı oluşturmak için kullanılan Resource Manager şablonu dağıtarak geçirilebilir `enableMultipleWriteLocations: true`. Aşağıdaki Azure Resource Manager şablonu, bir Azure Cosmos hesabı SQL API'si için bir tek bölge ve çok yöneticili etkin ile dağıtan bir çıplak en düşük şablonudur.
 
 ```json
 {
@@ -239,13 +239,13 @@ Bir hesap tek ana çok asıl hesap ve ayarı oluşturmak için kullanılan Resou
 }
 ```
 
-## <a id="automatic-failover"></a>Azure Cosmos DB hesabınız için otomatik yük devretmeyi etkinleştir
+## <a id="automatic-failover"></a>Azure Cosmos hesabınız için otomatik yük devretmeyi etkinleştir
 
 Otomatik Yük devretme seçeneğini bir bölge kullanılamaz duruma gelmesi durumunda yük devretme önceliği en yüksek kullanıcı eylemi ile bölgeye yük devretme için Azure Cosmos DB sağlar. Otomatik Yük devretme etkinleştirildiğinde, bölge öncelik değiştirilebilir. Hesabın, otomatik yük devretmeyi etkinleştirmek için iki veya daha fazla bölgede olmalıdır.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure portal
 
-1. Azure Cosmos DB hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi.
+1. Azure Cosmos hesabınızdan açın **verileri genel olarak çoğaltma** bölmesi.
 
 2. Bölmenin en üstünde seçin **otomatik yük devretme**.
 
@@ -344,7 +344,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 Elle yük devretme gerçekleştirmek için işlem hesabın yazma bölgesini değiştirmek içerir (yük devretme öncelik = 0) hesabı için yapılandırılmış başka bir bölgeye.
 
 > [!NOTE]
-> Çok yöneticili hesapları el ile yük devredilemez. Azure Cosmos DB SDK'sını kullanan uygulamalar için SDK'sı bir bölge kullanılamaz duruma geldiğinde algılayabilir, ardından sonraki en yakın bölgeyi çok girişli API SDK'yı kullanıyorsanız, otomatik olarak yeniden yönlendirme.
+> Çok yöneticili hesapları el ile yük devredilemez. Azure Cosmos SDK'sını kullanarak uygulamalar için SDK'sı bir bölge kullanılamaz duruma geldiğinde algılayabilir, ardından sonraki en yakın bölgeyi çok girişli API SDK'yı kullanıyorsanız, otomatik olarak yeniden yönlendirme.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 

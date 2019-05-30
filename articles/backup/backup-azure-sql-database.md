@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: f69c2ea334109a42d63b85cb71de0deb7174beab
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a6319565aa05f34ce31a14c5fc57e591248f4ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701664"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399703"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM'lerindeki SQL Server Backup hakkında
 
@@ -127,11 +127,11 @@ Yalnızca kopya tam |  İkincil
 
       ![Oturum Aç - yeni iletişim kutusu, Ara'yı seçin](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin**. Seçin **Adları Denetle** adı çözümlenemedi. **Tamam** düğmesine tıklayın.
+  4. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin**. Seçin **Adları Denetle** adı çözümlenemedi. **Tamam**'ı tıklatın.
 
       ![Bilinmeyen hizmet adını çözümlemek için adları denetle seçin](./media/backup-azure-sql-database/check-name.png)
 
-  5. İçinde **sunucu rolleri**, emin **sysadmin** rolü seçilir. **Tamam** düğmesine tıklayın. Gerekli izinleri olması gerekir.
+  5. İçinde **sunucu rolleri**, emin **sysadmin** rolü seçilir. **Tamam**'ı tıklatın. Gerekli izinleri olması gerekir.
 
       ![Sysadmin sunucu rolünün seçili olduğundan emin olun](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -143,6 +143,8 @@ Yalnızca kopya tam |  İkincil
 
       ![Dağıtım başarılı iletisi](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
+> [!NOTE]
+> SQL Server SQL Server'ın yüklü birden çok örneğe sahip sonra sysadmin iznine eklemelisiniz **NT Service\AzureWLBackupPluginSvc** hesap için tüm SQL örnekleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

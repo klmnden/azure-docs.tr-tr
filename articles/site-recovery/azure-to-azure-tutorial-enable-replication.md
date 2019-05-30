@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 74f7d8a1a828732d5448bf29c0878adb5f74b5e1
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795760"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398259"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure Vm'leri için olağanüstü durum kurtarmayı ayarlayın
 
@@ -133,7 +133,7 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
 1. Hedef ve çoğaltma ayarlarını görüntülemek için **Ayarlar**’a tıklayın.
 2. Varsayılan hedef ayarlarını geçersiz kılmak için tıklayın **Özelleştir** yanındaki **kaynak grubu, ağ, depolama ve kullanılabilirlik**.
 
-   ![Ayarları yapılandır](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Ayarları yapılandırma](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 3. Hedef ayarlarını tabloda özetlendiği gibi özelleştirin.

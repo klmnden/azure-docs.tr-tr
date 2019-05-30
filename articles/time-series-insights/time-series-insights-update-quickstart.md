@@ -4,19 +4,19 @@ description: Azure zaman serisi öngörüleri önizlemesi tanıtım ortamı anla
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: dbdbfc797d37ed38936d6cfd354383d412c6b52d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e35d46607e0a186c8a3a38669c68a6ea52711b51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205815"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242084"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Hızlı Başlangıç: Azure zaman serisi öngörüleri önizlemesi tanıtım ortamı keşfedin
 
@@ -40,14 +40,14 @@ Zaman serisi öngörüleri Önizleme Gezgini geçmiş verileri gösteren ve kök
 
 1. Konum Rüzgar türbinin **W7** içinde **Contoso tesis 1**.  
 
-    * Görüntüleme aralığı için güncelleştirme **1/1/17 20:00 3/10/17 için 20:00 (UTC)**.
+    * Görüntüleme aralığı için güncelleştirme **1/1/17 20:00 3/10/17 için 20:00 (UTC)** .
     * Seçin **Contoso tesis 1** > **W7** > **Oluşturucu sistem** > **GeneratorSpeed** algılayıcı. Sonra sonuç değerlerini gözden geçirin.
 
       [![W7 bulunan Contoso 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Kısa bir süre önce Contoso yangın Rüzgar türbinin içinde bulunan **W7**. Ateş yakındaki nedeni neydi hakkındaki düşünceleri son derece değişir. Daha yakından incelemesi sırasında yangın uyarı algılayıcı sırasında yangın etkinleştirildi bakın.
 
-    * Görüntüleme aralığı için güncelleştirme **3/9/17 20:00 3/10/17 için 20:00 (UTC)**.
+    * Görüntüleme aralığı için güncelleştirme **3/9/17 20:00 3/10/17 için 20:00 (UTC)** .
     * Seçin **güvenlik sistemi** > **FireAlert** algılayıcı.
 
       [![Contoso yangın Rüzgar türbinin W7 bulunamadı.](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -61,7 +61,7 @@ Zaman serisi öngörüleri Önizleme Gezgini geçmiş verileri gösteren ve kök
 
 1. Etkin uyarı sensörlerden ve Petrol baskısı hemen önce yangın civarında. Diğer işaretleri mevcut yangın için öncesinde görmek için görüntülenen zaman serisi genişletin. Her iki sensörlerden kalıcı ve içimiz rahat bir desen gösteren zaman içinde tutarlı bir şekilde fluctuated.
 
-    * Görüntüleme aralığı için güncelleştirme **2/24/17 20:00 3/10/17 için 20:00 (UTC)**.
+    * Görüntüleme aralığı için güncelleştirme **2/24/17 20:00 3/10/17 için 20:00 (UTC)** .
 
       [![Petrol baskısı ve ayrıca civarında etkin uyarı algılayıcılar](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -82,7 +82,7 @@ Azure Time Series Insights'ı ve bizim algılayıcı telemetri kullanarak geçmi
 
 1. Bazı senaryolarda veri Zarif ipuçları ortaya çıkarmak için Gelişmiş bir analiz gerektirir. Yeldeğirmeni seçin **W6** tarihinde **6/25**
 
-    * Görüntüleme aralığı için güncelleştirme **6/1/17 20:00 için 7/1/17 20:00 (UTC)**.
+    * Görüntüleme aralığı için güncelleştirme **6/1/17 20:00 için 7/1/17 20:00 (UTC)** .
     * Ardından **Contoso tesis 1** > **W6** > **güvenlik sistemi** > **VoltageActuatorSwitchWarning**  algılayıcı.
 
       [![Görüntüleme aralığı güncelleştirin ve W6 seçin](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)

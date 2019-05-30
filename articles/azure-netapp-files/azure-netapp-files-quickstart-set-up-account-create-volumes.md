@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 4ea511bec75557bc6f7d37b1724b4b0db65ba9cc
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523020"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299442"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Hızlı Başlangıç: Azure NetApp Files’ı ayarlama ve NFS birimi oluşturma 
 
@@ -57,7 +57,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-a-netapp-account"></a>NetApp hesabı oluşturma
 
-1. Azure portalında arama kutusuna **Azure NetApp dosyaları** seçip **Azure NetApp dosyalar (Önizleme)** görünen listeden.
+1. Azure portalında arama kutusuna **Azure NetApp dosyaları** seçip **Azure NetApp dosyaları** görünen listeden.
 
       ![Azure NetApp dosya seçin](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
@@ -68,7 +68,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 3. Yeni NetApp hesabı penceresinde aşağıdaki bilgileri sağlayın: 
    1. Girin **myaccount1** hesap adı için. 
    2. Aboneliğinizi seçin.
-   3. Seçin **Yeni Oluştur** yeni kaynak grubu oluşturun. Girin **myRG1** için kaynak grubu adı. **Tamam** düğmesine tıklayın. 
+   3. Seçin **Yeni Oluştur** yeni kaynak grubu oluşturun. Girin **myRG1** için kaynak grubu adı. **Tamam**'ı tıklatın. 
    4. Hesap konumunuzu seçin.  
 
       ![Yeni NetApp hesabı penceresi](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
@@ -96,7 +96,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     2. Seçin **Premium** hizmet düzeyi için. 
     3. Belirtin **4 (TiB)** havuz boyutunu olarak. 
 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 ## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure için NetApp dosyaları bir NFS birimini oluşturma
 
@@ -156,13 +156,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 3. Kaynak grubu sayfasındaki tıklayın **kaynak grubunu Sil**.
 
-    ![Kaynak grubunu sil](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Kaynak grubunu silme](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     Bir pencere açılır ve kaynak grubuyla birlikte silinecek kaynaklar hakkında bir uyarı görüntüler.
 
 4. Kaynak grubunu ve tüm kaynaklarla birlikte kalıcı olarak silmek ve ardından istediğinizi onaylamak için kaynak grubu (myRG1) adını **Sil**.
 
-    ![Kaynak grubunu sil](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Kaynak grubunu silme](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 

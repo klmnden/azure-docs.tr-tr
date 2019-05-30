@@ -1,222 +1,134 @@
 ---
-title: Java web uygulaması - Azure App Service oluşturma
-description: Basit bir Java uygulaması dağıtarak App Service'te web uygulamalarının nasıl çalıştırılacağını öğrenin.
+title: Windows - Azure App Service'te Java web uygulaması oluşturma
+description: Bu hızlı başlangıçta, ilk Java Merhaba Dünya uygulamanızı Windows üzerinde Azure App Service'te dakikalar içinde dağıtın.
+keywords: Azure app service, web uygulaması, windows, java, maven, hızlı başlangıç
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: routlaw
+author: msangapu-msft
+manager: jeconnoc
 editor: ''
-ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
+ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: java
+ms.devlang: Java
 ms.topic: quickstart
-ms.date: 04/23/2019
-ms.author: cephalin;robmcm
-ms.custom: seodec18
-ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.author: jasonfreeberg
+ms.custom: mvc
+ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706146"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393229"
 ---
-# <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
+# <a name="quickstart-create-a-java-app-in-app-service"></a>Hızlı Başlangıç: App Service'te bir Java uygulaması oluşturma
 
-Azure App Service, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan web barındırma hizmeti sağlar. Bu hızlı başlangıçta, Java EE geliştiricileri için Eclipse IDE'yi kullanarak Java web uygulamasını App Service'e dağıtma işlemi gösterilmektedir.
+> [!NOTE]
+> Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. App Service dağıtmak için _Linux_, bkz: [Linux üzerinde web uygulaması oluşturma Java](./containers/quickstart-java.md).
+>
 
-> [!IMPORTANT]
-> Linux üzerinde Azure App Service ayrıca bir Java web uygulamalarını barındırmak için yerel olarak, yönetilen Tomcat, Java SE ve WildFly tekliflerini kullanarak Linux'ta seçenektir. Linux'ta App Service ile çalışmaya başlama ilgileniyorsanız bkz [hızlı başlangıç: Linux üzerinde App Service'te bir Java uygulaması oluşturma](containers/quickstart-java.md).
+[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıçta nasıl kullanılacağını gösterir [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ile [Azure App Service için Maven Plugin](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bir Java web arşivi (WAR) dosyasına dağıtılacak.
 
-Bu hızlı başlangıcı tamamladığınızda, uygulamanız bir web tarayıcısında görüntülendiğinde aşağıdaki çizime benzer:
-
-!["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
+> [!NOTE]
+> Aynı şeyi de yapılabilir Intellij ve Eclipse gibi popüler Ide'leri kullanarak. Bizim benzer belgeleri kullanıma [Intellij Hızlı Başlangıç için Azure Araç Seti](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) veya [Eclipse Hızlı Başlangıç için Azure Araç Seti](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+>
+![Azure'da çalışan örnek uygulama](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
->
-> Bu hızlı başlangıçtaki adımlar, Eclipse IDE kullanarak Uygulama Hizmetine nasıl Java web uygulaması yayımlanacağını göstermektedir; ancak IntelliJ IDEA Ultimate Edition veya Community Edition’ı da kullanabilirsiniz. Daha fazla bilgi için bkz. [IntelliJ kullanarak Azure için Merhaba Dünya web uygulaması oluşturma](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
->
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="create-a-java-app"></a>Java uygulaması oluşturma
 
-Bu hızlı başlangıcı tamamlamak için şunları yükleyin:
+Cloud Shell isteminde adlı yeni bir uygulama oluşturmak için aşağıdaki Maven komutunu yürütün `helloworld`:
 
-* Ücretsiz <a href="https://www.eclipse.org/downloads/" target="_blank">Java EE Geliştiricileri için Eclipse IDE</a>. Bu hızlı başlangıçta Eclipse Neon kullanılır.
-* <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Eclipse için Azure Araç Takımı</a>.
-
-> [!NOTE]
->
-> Bu hızlı başlangıçtaki adımları tamamlamak için Eclipse için Azure Araç Seti kullanarak Azure hesabınızda oturum açmanız gerekir. Bunu yapmak için bkz. [Eclipse için Azure Araç Seti’nde Azure Oturum Açma Yönergeleri](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions)
->
-
-## <a name="create-a-dynamic-web-project-in-eclipse"></a>Eclipse’te dinamik web projesi oluşturma
-
-Eclipse’te **Dosya** > **Yeni** > **Dinamik Web Projesi**’ni seçin.
-
-**Yeni Dinamik Web Projesi** iletişim kutusunda, projeyi **MyFirstJavaOnAzureWebApp** olarak adlandırın ve **Son**’u seçin.
-   
-![Yeni Dinamik Web Projesi iletişim kutusu](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
-
-### <a name="add-a-jsp-page"></a>JSP sayfası ekleme
-
-Proje Gezgini görüntülenmiyorsa, gezgini geri yükleyin.
-
-![Eclipse için Java EE çalışma alanı](./media/app-service-web-get-started-java/pe.png)
-
-Proje Gezgini'nde **MyFirstJavaOnAzureWebApp** projesini genişletin.
-**WebContent**’e sağ tıklayın ve **Yeni** > **JSP Dosyası**’nı seçin.
-
-![Proje Gezgini'nde yeni JSP dosyasına yönelik menü](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
-
-**Yeni JSP Dosyası** iletişim kutusunda:
-
-* Dosyayı **index.jsp** olarak adlandırın.
-* **Son**’u seçin.
-
-  ![Yeni JSP Dosyası iletişim kutusu](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
-
-index.jsp dosyasında, `<body></body>` öğesini aşağıdaki işaretlemeyle değiştirin:
-
-```jsp
-<body>
-<h1><% out.println("Hello Azure!"); %></h1>
-</body>
+```bash
+mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
 ```
 
-Değişiklikleri kaydedin.
+## <a name="configure-the-maven-plugin"></a>Maven eklentisini yapılandırma
 
-> [!NOTE]
->
-> 1. satırda, eksik bir Java Servlet sınıfına başvuran hata görürseniz bu hatayı yoksayabilirsiniz.
-> 
-> ![Zararsız Java servlet hatası](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
->
+Maven'dan dağıtım için, Cloud Shell'deki kod düzenleyiciyi kullanarak `helloworld` dizinindeki proje `pom.xml` dosyasını açın. 
 
-## <a name="publish-the-web-app-to-azure"></a>Web uygulamasını Azure’da yayımlama
-
-Proje Gezgini’nde projenize sağ tıklayın ve sonra **Azure** > **Azure Web App olarak yayımla**’yı seçin.
-
-![Azure Web App Olarak Yayımla bağlam menüsü](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
-
-**Azure Oturum Açma** iletişim kutusu karşınıza çıkarsa, kimlik bilgilerinizi girmek için [Eclipse için Azure Araç Seti’nde Azure Oturum Açma Yönergeleri](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions) makalesindeki adımları izlemeniz gerekir.
-
-### <a name="deploy-web-app-dialog-box"></a>Web Uygulaması Dağıtma iletişim kutusu
-
-Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** iletişim kutusu açılır.
-
-**Oluştur**’u seçin.
-
-![Web Uygulaması Dağıtma iletişim kutusu](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
-
-### <a name="create-app-service-dialog-box"></a>App Service Oluşturma iletişim kutusu
-
-**App Service Oluşturma** iletişim kutusu varsayılan değerlerle açılır. Aşağıdaki görüntüde gösterilen **170602185241** sayısı, sizin iletişim kutunuzda farklıdır.
-
-![App Service Oluşturma iletişim kutusu](./media/app-service-web-get-started-java/cas1.png)
-
-**App Service Oluşturma** iletişim kutusunda:
-
-* Web uygulamanız için benzersiz bir ad girin veya oluşturulan adı değiştirmeyin. Bu ad Azure genelinde benzersiz olmalıdır. Ad, web uygulamasının URL adresinin bir parçasıdır. Örneğin, web uygulamasının adı **MyJavaWebApp** ise URL şu şekildedir: *myjavawebapp.azurewebsites.net*.
-* Bu hızlı başlangıç için, varsayılan web kapsayıcısını değiştirmeyin.
-* Bir Azure aboneliği seçin.
-* **App Service planı** sekmesinde:
-
-  * **Yeni Oluştur**: App Service planının adı olan varsayılan değeri değiştirmeyin.
-  * **Konum**: Seçin **Batı Avrupa** veya size yakın bir konum.
-  * **Fiyatlandırma katmanı**: Ücretsiz seçeneğini belirleyin. Özellikler için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-    ![App Service Oluşturma iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-### <a name="resource-group-tab"></a>Kaynak grubu sekmesi
-
-**Kaynak grubu** sekmesini seçin. Kaynak grubu için oluşturulmuş varsayılan değeri değiştirmeyin.
-
-![Kaynak grubu sekmesi](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
-
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
-
-**Oluştur**’u seçin.
-
-<!--
-### The JDK tab
-
-Select the **JDK** tab. Keep the default, and then select **Create**.
-
-![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
--->
-
-Azure Araç Takımı web uygulamasını oluşturur ve bir ilerleme durumu iletişim kutusu görüntüler.
-
-![App Service Oluşturma İlerleme Durumu iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
-
-### <a name="deploy-web-app-dialog-box"></a>Web Uygulaması Dağıtma iletişim kutusu
-
-**Web Uygulaması Dağıtma** iletişim kutusunda **Köke dağıt**’ı seçin. *wingtiptoys.azurewebsites.net* adresinde bir uygulama hizmetiniz varsa ve köke dağıtmazsanız, **MyFirstJavaOnAzureWebApp** adlı web uygulaması *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp* adresine dağıtılır.
-
-![Web Uygulaması Dağıtma iletişim kutusu](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
-
-İletişim kutusunda Azure, JDK ve web kapsayıcısı seçimleri gösterilir.
-
-Web uygulamasını Azure’da yayımlamak için **Dağıt**’ı seçin.
-
-Yayımlama işlemi tamamlandığında, **Azure Etkinlik Günlüğü** iletişim kutusundaki **Yayımlandı** bağlantısını seçin.
-
-![Azure Etkinlik Günlüğü iletişim kutusu](./media/app-service-web-get-started-java/aal.png)
-
-Tebrikler! Web uygulamanızı başarılı bir şekilde Azure’da dağıttınız. 
-
-!["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
-
-## <a name="update-the-web-app"></a>Web uygulamasını güncelleştirme
-
-Örnek JSP kodunu farklı bir ileti olarak değiştirin.
-
-```jsp
-<body>
-<h1><% out.println("Hello again Azure!"); %></h1>
-</body>
+```bash
+code pom.xml
 ```
 
-Değişiklikleri kaydedin.
+Sonra `pom.xml` dosyasının `<build>` öğesinin içine aşağıdaki eklenti tanımını ekleyin.
 
-Proje Gezgini’nde projeye sağ tıklayın ve **Azure** > **Azure Web App olarak yayımla**’yı seçin.
+```xml
+<plugins>
+    <!--*************************************************-->
+    <!-- Deploy to Tomcat in App Service Windows         -->
+    <!--*************************************************-->
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.4</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+            <!-- Java Runtime Stack for App Service on Windows-->
+            <runtime>
+                <os>windows</os>
+                <javaVersion>1.8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
+    </plugin>
+</plugins>
+```
 
-**Web Uygulaması Dağıtma** iletişim kutusu açılır ve daha önce oluşturduğunuz uygulama hizmetini gösterir. 
+> [!NOTE]
+> Bu makalede yalnızca WAR dosyalarıyla paketlenmiş Java uygulamalarıyla çalışacağız. Eklenti ayrıca JAR web uygulamalarını da destekler. Denemek için [Linux'ta App Service'e Java SE JAR dosyası dağıtma](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
-> [!NOTE] 
-> Her yayımlama işleminde **Köke dağıt**’ı seçin. 
-> 
 
-Web uygulamasını seçip **Dağıt**’ı seçin. Bunu yaptığınızda değişiklikler yayımlanır.
+Eklenti yapılandırmasında aşağıdaki yer tutucuları güncelleştirin:
 
-**Yayımlanıyor** bağlantısı göründüğünde, web uygulamasına gitmek ve değişiklikleri görmek için bu bağlantıyı seçin.
+| Yer tutucu | Açıklama |
+| ----------- | ----------- |
+| `SUBSCRIPTION_ID` | Uygulamanıza dağıtmak istediğiniz abonelik benzersiz kimliği. Cloud Shell veya CLI kullanarak varsayılan aboneliğin kimliği bulunabilir `az account show` komutu. Kullanılabilir abonelikler tüm için kullanmak `az account list` komutu.|
+| `RESOURCEGROUP_NAME` | Uygulamanızın oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. Bu değeri *TestResources* gibi benzersiz bir yeni kaynak grubu adı ile güncelleştirin. Bu kaynak grubunu daha sonraki bir bölümde tüm Azure kaynaklarını temizlemek için kullanacaksınız. |
+| `WEBAPP_NAME` | Uygulama adı bölümü (WEBAPP_NAME.azurewebsites.net) Azure'a dağıtırken uygulama için ana bilgisayar adı olacaktır. Bu değer Java uygulamanızı örneğin barındıracak yeni App Service uygulaması için benzersiz bir adla güncelleştirin *contoso*. |
+| `REGION` | Uygulamanın barındırıldığı, örneğin bir Azure bölgesi `westus2`. Cloud Shell'den veya CLI'dan `az account list-locations` komutunu kullanarak bölgelerin bir listesini alabilirsiniz. |
 
-## <a name="manage-the-web-app"></a>Web uygulamasını yönetme
+## <a name="deploy-the-app"></a>Uygulamayı dağıtma
 
-Oluşturduğunuz web uygulamasını görmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
+Aşağıdaki komutu kullanarak Java uygulamanızı Azure'a dağıtın:
 
-Soldaki menüden **Kaynak Grupları**'nı seçin.
+```bash
+mvn package azure-webapp:deploy
+```
 
-![Portalda kaynak gruplarına gitme](media/app-service-web-get-started-java/rg.png)
+Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kullanarak dağıtılan uygulamanın konumuna gidin; örneğin `http://<webapp>.azurewebsites.net/`.
 
-Kaynak grubunu seçin. Sayfada bu hızlı başlangıçta oluşturduğunuz kaynaklar gösterilir.
+![Azure'da çalışan örnek uygulama](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-![Kaynak grubu](media/app-service-web-get-started-java/rg2.png)
+**Tebrikler!** Windows üzerinde App Service'e ilk Java uygulamanızı dağıttınız.
 
-Web uygulamasını (önceki resimde **webapp-170602193915**) seçin.
-
-**Genel Bakış** sayfası açılır. Bu sayfada uygulamanın nasıl çalıştığına ilişkin bir görünüm sağlanır. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırmaları gösterir. 
-
-![Azure portalında App Service sayfası](media/app-service-web-get-started-java/web-app-blade.png)
-
-[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Azure için Java geliştiricilerinin kaynakları](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Özel etki alanı eşleme](app-service-web-tutorial-custom-domain.md)

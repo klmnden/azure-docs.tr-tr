@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950174"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389162"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Ön kapısı bir coğrafi filtreleme WAF İlkesi ayarlama
 Bu öğreticide, örnek bir coğrafi filtreleme ilkesi oluşturmak ve bu ilkeyi mevcut bir Front Door ön uç konağı ile ilişkilendirmek için Azure PowerShell kullanma gösterilmektedir. Bu örnek coğrafi filtreleme İlkesi, tüm diğer ülkeler/bölgeler dışında Amerika Birleşik Devletleri gelen istekleri engeller.
@@ -110,6 +110,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > Yalnızca bir WAF ilke ön kapısı frontend ana bilgisayara bağlamak için bir kez WebApplicationFirewallPolicyLink özelliği ayarlayın gerekir. Sonraki ilke güncelleştirmeleri otomatik olarak ön uç konağa uygulanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-- [Front Door ile uygulama katmanı güvenliği](front-door-application-security.md) hakkında bilgi edinin.
+- Hakkında bilgi edinin [Azure web uygulaması güvenlik duvarı](waf-overview.md).
 - [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.

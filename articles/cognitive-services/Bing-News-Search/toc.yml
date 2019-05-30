@@ -67,9 +67,9 @@
 - name: Başvuru
   items:
     - name: Bing Haber Arama API’si v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference'
     - name: Bing Haber Arama API’si v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference'
     - name: SDK’lar
       items:
         - name: .NET

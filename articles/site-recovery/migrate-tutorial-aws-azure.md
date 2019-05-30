@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519228"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400062"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -119,7 +119,7 @@ Azure portalda kasanızın sayfasında, **Başlarken** bölümünden **Site Reco
 
 **Dağıtım planlamasını tamamladınız mı?** bölümünde, **Daha sonra yapacağım**’ı seçin ve **Tamam**’ı seçin.
 
-### <a name="3-prepare-source"></a>3: Kaynağı hazırla
+### <a name="3-prepare-source"></a>3: Kaynak hazırlama
 
 **Kaynağı hazırla** sayfasında **+ Yapılandırma Sunucusu** seçeneğini belirleyin.
 
@@ -192,7 +192,7 @@ Geçirmek istediğiniz her sanal makine için çoğaltmayı etkinleştirin. Ço�
      | Yük devretme sonrası Azure ağı: | [Azure kaynaklarını hazırlama](#prepare-azure-resources) bölümünde oluşturduğunuz ağı seçin.|
      | Alt ağ: | Açılır listeden **varsayılan** seçeneğini belirleyin.|
 
-   - 3: Fiziksel makine seçin
+   - 3: Fiziksel makineleri seçme
 
      **Fiziksel makine** seçeneğini belirleyin ve ardından geçirmek istediğiniz EC2 örneğinin **Ad**, **IP Adresi** ve **İşletim Sistemi Türü** bilgilerini girin. **Tamam**’ı seçin.
 
@@ -234,7 +234,7 @@ Portalda yük devretme testini çalıştırın:
 
 Bazı senaryolarda, yük devretme için ek işlemler gerekir. İşlemin tamamlanması 8-10 dakika sürer.
 
-## <a name="migrate-to-azure"></a>Azure'a geçirme
+## <a name="migrate-to-azure"></a>Azure’a geçiş
 
 EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devretme çalıştırın:
 
@@ -246,7 +246,7 @@ EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devre
    - Böylece geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
    - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez. 
 
-     ![Tam geçiş](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Geçişi tamamlama](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Devam eden yük devretme işlemini iptal etmeyin*. Yük devretme başlatılmadan önce VM çoğaltması durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.  

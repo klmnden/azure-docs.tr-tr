@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150454"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236294"
 ---
-# <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
+# <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sıkça Sorulan Sorular
 
 Microsoft Azure Data Box hibrit çözümü, bir aktarım cihazı kullanarak terabaytlarca veriyi Azure'a hızlı, uygun maliyetli ve güvenilir bir şekilde göndermenizi sağlar. Bu SSS belgesinde Azure portaldaki Data Box kullanımınızla ilgili sorulara ve yanıtlarına yer verilmiştir. 
 
@@ -124,7 +124,7 @@ A. Azure portalda kilit açma parolasına erişemiyorsanız aboneliğinizin ve d
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>S. Bağlantı noktası kanalı yapılandırması üzerinde Data Box destekleniyor mu? MPIO ne dersiniz?
 A. Bağlantı noktası kanalı yapılandırma, çok yollu GÇ (MPIO) yapılandırması veya vLAN yapılandırması üzerinde Data Box desteklemiyoruz.
 
-## <a name="track-status"></a>Durumu izle
+## <a name="track-status"></a>Durumu izleme
 
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>S. Data Box'ı geri göndermek için sipariş oluşturduktan sonra cihazı nasıl takip edebilirim? 
 A.  Data Box siparişinin durumunu Azure portaldan takip edebilirsiniz. Siparişi oluşturduğunuzda bildirimlerin gönderileceği bir e-posta adresi girmeniz de istenir. E-posta adresi girdiyseniz sipariş durumundaki tüm değişiklikler bu adrese gönderilir. [Bilgilendirme e-postalarını yapılandırma](data-box-portal-ui-admin.md#edit-notification-details) hakkında daha fazla bilgi edinin.
@@ -184,7 +184,7 @@ A. Hasarlı bir şekilde ulaşan veya bariz kurcalama izleri bulunan cihazları 
 A. Data Box hizmetinde cihazların Azure veri merkezine geliş gidişi Microsoft tarafından koordine edilir. Kendi gönderim şirketinizi kullanmak istiyorsanız Azure İçeri/Dışarı Aktarma hizmetini kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure İçeri/Dışarı Aktarma hizmeti nedir?](../storage/common/storage-import-export-service.md)
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>S. Gönderim sırasında Data Box cihazlarım çapraz ülke Kenarlıklar olur?
-A. Tüm Data Box cihazlar gelen hedeflerine aynı ülkede içinde gönderilir ve uluslararası Kenarlıklar çapraz değil. Siparişler, Avrupa Birliği (AB herhangi bir ülkede gelen ve giden cihazlar nereye sevk edebilir AB), tek özel durumu içindir.
+A. Tüm Data Box cihazlar gelen hedeflerine aynı ülkede içinde gönderilir ve uluslararası Kenarlıklar çapraz değil. Siparişler, Avrupa Birliği (AB herhangi bir ülkede gelen ve giden cihazlar nereye sevk edebilir AB), tek özel durumu içindir. Bu, hem Data Box hem de veri kutusu ağır cihazlar için geçerlidir.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>S. E-mürekkep üzerinde iade sevkiyat etiketi gösterilmiyor. Ne yapmalıyım?
 A. E-mürekkepte iade sevkiyat etiketi gösterilmiyorsa aşağıdaki adımları uygulayın:

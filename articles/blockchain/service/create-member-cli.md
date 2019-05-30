@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: e1b7558ea83c8948a8984215e15040e4d929cb1b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4589a9de4c2a8fa43e4e653d4447c7a7715a6e42
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141373"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399953"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak bir Azure blok zinciri hizmet blockchain üye oluştur
 
@@ -39,58 +39,25 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz, bu hızlı başlang�
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-blockchain-member"></a>Blok zinciri üye oluştur
+## <a name="create-a-blockchain-member"></a>Blok zinciri üyesi oluşturma
 
-Blok zinciri üyesi yeni bir konsorsiyum çekirdek muhasebe Protokolü çalışan Azure blok zinciri hizmeti oluşturun.
+Blok zinciri üyesi yeni bir konsorsiyum çekirdek muhasebe Protokolü çalışan Azure blok zinciri hizmeti oluşturun. Çeşitli parametreleri ve özellikleri geçirmek için ihtiyacınız vardır. Örnek parametre değerleriniz ile değiştirin.
 
-Çeşitli parametreleri ve özellikleri geçirmek için ihtiyacınız vardır. Aşağıdaki parametre değerleriniz ile değiştirin.
+```azurecli-interactive
+az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
+```
 
 | Parametre | Açıklama |
 |---------|-------------|
 | **kaynak grubu** | Azure Blockchain hizmet kaynaklarının oluşturulduğu kaynak grubu adı. Önceki bölümde oluşturduğunuz kaynak grubunu kullanın.
 | **name** | Azure Blockchain hizmet blok zinciri üyelik tanımlayan benzersiz bir ad. Ad için genel bir uç nokta adresi kullanılır. Örneğin, `myblockchainmember.blockchain.azure.com`.
 | **konum** | Blok zinciri üye oluşturulduğu azure bölgesi. Örneğin, `eastus`. Kullanıcılarınıza veya diğer Azure uygulamalarınıza en yakın konumu seçin.
-| **Parola** | Üye hesabı parolası. Üye hesabı parolası, temel kimlik doğrulaması kullanarak blok zinciri üyenin genel uç kimlik doğrulaması için kullanılır.
+| **Parola** | Üyenin varsayılan işlem düğümü için parola. Parola, blok zinciri üyenin varsayılan işlem düğümü genel uç bağlanırken için temel kimlik doğrulaması kullanın.
 | **Consortium** | Katılma veya oluşturma consortium adı.
-| **consortiumManagementAccountPassword** | Consortium yönetim parolası. Bu, bir konsorsiyum birleştirmek için kullanılır.
+| **consortiumAccountPassword** | Consortium hesap parolası olarak da bilinen üye hesabı paroladır. Üye hesabı parolası, bu üye için oluşturulan Ethereum hesabı için özel anahtarını şifrelemek için kullanılır. Üye hesabı ve üyesi hesap parolası consortium yönetimi için kullanın.
 | **skuName** | Katman türü. S0 standart ve B0 için temel için kullanın.
 
-```azurecli-interactive
-az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
-```
-
 Blockchain üye ve destekleyen kaynaklar oluşturmak için yaklaşık 10 dakika sürer.
-
-Aşağıdaki gösterildiği örnek çıkış, başarılı bir oluşturma işlemi.
-
-```json
-{
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/mymembername",
-  "kind": null,
-  "location": "eastus",
-  "name": "mymembername",
-  "properties": {
-    "ConsortiumMemberDisplayName": "mymembername",
-    "consortium": "myConsortiumName",
-    "consortiumManagementAccountAddress": "0xfe5fbb9d1036298abf415282f52397ade5d5beef",
-    "consortiumManagementAccountPassword": null,
-    "consortiumRole": "ADMIN",
-    "dns": "mymembername.blockchain.azure.com",
-    "protocol": "Quorum",
-    "provisioningState": "Succeeded",
-    "userName": "mymembername",
-    "validatorNodesSku": {
-      "capacity": 2
-    }
-  },
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "name": "S0",
-    "tier": "Standard"
-  },
-  "type": "Microsoft.Blockchain/blockchainMembers"
-}
-```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -8,26 +8,24 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8f2e956603fbb9aec81b08260eade846eb6a622c
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133076"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393303"
 ---
 Sonraki öğreticiye devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları tutun. Sonraki öğreticide bunları yeniden kullanabilirsiniz.
 
 İşiniz bittiğinde hızlı başlangıç örnek uygulaması ile Azure kaynaklarını silmeniz ücretlerden kaçınmak için bu hızlı başlangıçta oluşturduğunuz.
 
 > [!IMPORTANT]
-> Silinen kaynak grupları geri alınamaz. Kaynak grubunu ve tüm kaynakları kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. Belki de bu örnek, korumak istediğiniz kaynakları içeren kaynak grubu içinde barındırmak için kaynaklar oluşturdunuz. Kaynak grubunun silinmesi yerine kendi ilgili dikey gelen her kaynak ayrı olarak silebilirsiniz.
->
->
+> Silinen kaynak grupları geri alınamaz. Kaynak grubunu ve tüm kaynakları kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. Bu örnek, korumak istediğiniz kaynakları içeren bir kaynak grubu içinde barındırmak için kaynaklar oluşturduysanız, her kaynak ayrı ayrı yerine kaynak grubunun silinmesi, ilgili bölmesinden silin.
 
-Oturum [Azure portalında](https://aka.ms/azconfig/portal)seçip **kaynak grupları**.
+1. Oturum [Azure portalında](https://portal.azure.com)seçip **kaynak grupları**.
+1. İçinde **ada göre filtrele** kutusunda, kaynak grubunuzun adını girin. Adlı bir kaynak grubu yönergeleri için bu hızlı başlangıçta kullanılan *AppConfigTestResources*.
+1. Sonuç listesinden, kaynak grubunu seçin ve ya da satırın sağ tıklayın veya kullanın **üç nokta** ( **...** ) düğmesine tıklayarak bağlam menüsünü açın.
+1. **Kaynak grubunu sil**'i seçin.
+1. Kaynak grubunun silinmesini onaylamanız istenir. Onayla ve kaynak grubunuzun adını girin **Sil**.
 
-İçinde **ada göre filtrele** kutusunda, kaynak grubunuzun adını girin. Adlı bir kaynak grubu yönergeleri için bu hızlı başlangıçta kullanılan *AppConfigTestResources*. Sonuç listesinde, kaynak grubu üzerinde seçin **...**  seçip **kaynak grubunu Sil**.
-
-Kaynak grubunun silinmesini onaylamanız istenir. Onayla ve kaynak grubunuzun adını girin **Sil**.
-
-Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
+Birkaç dakika sonra kaynak grubunu ve tüm kaynaklar silinir.

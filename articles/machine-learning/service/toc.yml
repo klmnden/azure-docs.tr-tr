@@ -176,7 +176,7 @@
           href: how-to-train-ml-models.md
         - name: PyTorch'u kullanma
           href: how-to-train-pytorch.md
-        - name: TensorFlow ve Keras’ı kullanma
+        - name: TensorFlow'u kullanma
           href: how-to-train-tensorflow.md
         - name: Hiperparametreleri ayarlama
           displayName: parameter

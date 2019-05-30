@@ -9,18 +9,18 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 02ef0d6c7c8ddc7088938d9c8ea379e3b97f3045
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a882a874574395095e98079cd0f8aa4a4987c749
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158735"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391775"
 ---
 1. [Bir Azure Machine Learning hizmeti çalışma alanı oluşturma](../articles/machine-learning/service/setup-create-workspace.md).
 
 1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
 
-    ```
+    ```CLI
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
@@ -28,13 +28,12 @@ ms.locfileid: "66158735"
 
     * İçinde [Azure portalında](https://ms.portal.azure.com)seçin **config.json indirme** gelen **genel bakış** çalışma alanınızın bir bölümü. 
 
-    ![Config.json dosyasını indir](./media/aml-dsvm-server/download-config.png)
+    ![Config.JSON indirin](./media/aml-dsvm-server/download-config.png)
 
     * Kod kullanarak yeni bir çalışma alanı oluşturma [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) kopyalanan dizininizdeki dizüstü bilgisayar.
 
-
 1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
-    
+
     ```shell
     jupyter notebook
     ```

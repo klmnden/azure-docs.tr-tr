@@ -49,9 +49,9 @@
 - name: Başvuru
   items:
     - name: Bing Yazım Denetimi API’si v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'
     - name: Bing Yazım Denetimi API’si v5 (Eski sürüm)
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference'
     - name: SDK’lar
       items:
         - name: .NET

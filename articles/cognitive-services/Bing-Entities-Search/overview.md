@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 679a3d9efbeeb75e0aa8e3986fa85b7ecf0d77bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64866852"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388491"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Bing varlık arama API'si nedir?
 
@@ -27,7 +27,7 @@ Bing Varlık Arama API'si, Bing'e bir arama sorgusu gönderip varlıkları ve ye
 | [Varlık Kesinleştirme](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | Birden çok olası anlamı içeren sorgular için birden çok varlık alın. |
 | [Yerler bulun](concepts/search-for-entities.md#find-places) | Arayın ve yerel işletmeler ve varlıklar hakkında bilgi döndürür  |
 
-## <a name="workflow"></a>İş Akışı
+## <a name="workflow"></a>İş akışı
 
 Bing varlık arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. REST API veya SDK'sını kullanarak hizmetini kullanabilirsiniz.
 
@@ -39,5 +39,5 @@ Bing varlık arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır t�
 
 * Deneyin [etkileşimli tanıtım](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) Bing varlık arama API'si için. 
 * İlk isteğinizi hızlıca başlamak için deneyin bir [hızlı](quickstarts/csharp.md).
-* [Bing varlık arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) başvuru bölümü.
+* [Bing varlık arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) başvuru bölümü.
 * Bing Arama API'leri ile edinilen içeriğin ve bilgilerin kabul edilebilir kullanımları [Bing Kullanımı ve Görüntü Gereksinimleri](./use-display-requirements.md) konusunda belirtilmektedir.

@@ -47,6 +47,10 @@
       href: concept-point-time-snapshot.md
     - name: Özellik yönetimi
       href: concept-feature-management.md
+    - name: Yüksek kullanılabilirlik
+      items:
+        - name: Dayanıklılık ve olağanüstü durum kurtarma
+          href: concept-disaster-recovery.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure Yönetilen Hizmet Kimliği ile tümleştirme
@@ -66,7 +70,7 @@
         - name: .NET Framework derleyicisi
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
         - name: Java Spring sağlayıcısı
-          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: .NET Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: REST
@@ -74,8 +78,6 @@
     - name: Özellik yönetimi
       items:
         - name: .NET Core kitaplığı
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
-        - name: ASP.NET Core kitaplığı
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: .NET Core filtre kitaplığı
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'

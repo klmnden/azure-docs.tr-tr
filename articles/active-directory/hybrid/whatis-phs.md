@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f588115e38ded07b79568c91b8d166949b34a886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294969"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253853"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Azure AD'ye parola karması eşitleme nedir?
 Parola Karması eşitleme karma kimlik gerçekleştirmek için kullanılan oturum açma yöntemleri biridir. Karma bir karma Azure AD Connect eşitlendiğinde, şirket içi Active Directory örneğinden kullanıcılar parola bulut tabanlı bir Azure ad örneği.
@@ -47,7 +47,7 @@ Daha fazla bilgi için [karma kimlik nedir?](whatis-hybrid-identity.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- [Hibrit kimlik nedir?](whatis-phs.md)
+- [Hibrit kimlik nedir?](whatis-hybrid-identity.md)
 - [Azure AD Connect ve Connect Health nedir?](whatis-azure-ad-connect.md)
 - [Geçişli kimlik doğrulaması (PTA) nedir?](how-to-connect-pta.md)
 - [Federasyon nedir?](whatis-fed.md)

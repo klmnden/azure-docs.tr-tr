@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e02f81ef6bdf8bf4dc39b70cb7a2d9330660d1d6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539171"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390308"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing Haber Arama API’si nedir?
 
@@ -54,6 +54,6 @@ Bing haber arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing haber arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) başvuru bölümünde, tanımları ve uç noktaları, üst bilgileri, API yanıtları ve görüntü tabanlı arama sonuçları istemek için kullanabileceğiniz sorgu parametreleri hakkında bilgi içerir.
+* [Bing haber arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) başvuru bölümünde, tanımları ve uç noktaları, üst bilgileri, API yanıtları ve görüntü tabanlı arama sonuçları istemek için kullanabileceğiniz sorgu parametreleri hakkında bilgi içerir.
 
 * Bing Arama API'leri ile edinilen içeriğin ve bilgilerin kabul edilebilir kullanımları [Bing Kullanımı ve Görüntü Gereksinimleri](./useanddisplayrequirements.md) konusunda belirtilmektedir.

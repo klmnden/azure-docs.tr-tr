@@ -216,7 +216,7 @@
           href: online-backup-and-restore.md
         - name: Uyumluluk
           href: compliance.md
-    - name: Sınırlar
+    - name: Kaynak sınırları
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB ve diğer API''ler'
   expanded: true
