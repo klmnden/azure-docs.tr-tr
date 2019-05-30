@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a3b67e9b0dc41eeb14000400912892fbf29acfe2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951794"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399493"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Azure bölgeleri arasında Azure VM ilk duruma döndürme
 
@@ -50,7 +50,7 @@ VM'ler yeniden korunduktan sonra gerektiği gibi birincil bölgeye geri dönebil
 5. Yük devretme testi başarıyla tamamlandıktan sonra Seç **yük devretme testini Temizle** yük devretme testi için kaynak bölgede oluşturulan kaynakları temizlemek için.
 6. İçinde **çoğaltılan öğeler**VM'yi seçin ve ardından **yük devretme**.
 7. İçinde **yük devretme**, yük devretme için bir kurtarma noktası seçin:
-    - **En son (varsayılan)**: Site Recovery hizmetindeki tüm verileri işler ve en düşük kurtarma noktası hedefi (RPO) sağlar.
+    - **En son (varsayılan)** : Site Recovery hizmetindeki tüm verileri işler ve en düşük kurtarma noktası hedefi (RPO) sağlar.
     - **En son işlenen**: VM'nin Site Recovery tarafından işlenen en son kurtarma noktasına geri döner.
     - **Özel**: Belirli kurtarma noktasına devreder. Bu seçenek, bir yük devretme testi gerçekleştirmek için faydalıdır.
 
