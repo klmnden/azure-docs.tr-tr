@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 41e75a946f51f67b2b77a36dc0525cd4ff5fcd64
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543130"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66171380"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure veritabanı'nda bir sunucu geri nasıl
 
@@ -70,6 +70,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 ```
 
 `az mariadb server restore` Komut takip eden parametreleri gerektiriyor:
+
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
@@ -109,6 +110,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 ```
 
 `az mariadb server georestore` Komut takip eden parametreleri gerektiriyor:
+
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Kaynak grubunun adı için yeni sunucuya ait.|

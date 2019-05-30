@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787637"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238384"
 ---
 <a name="virtual-networking-limits-classic"></a>Yalnızca ağ aracılığıyla yönetilen kaynakları için aşağıdaki sınırlar geçerlidir **Klasik** abonelik başına dağıtım modeli. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -54,7 +54,7 @@ Yalnızca ağ aracılığıyla yönetilen kaynakları için aşağıdaki sınır
 | Ağ Güvenlik Grupları |5,000 |
 | NSG başına NSG kuralları |1000 |
 | IP adresleri ve aralıkları kaynak veya hedef bir güvenlik grubu için belirtilen |4,000 |
-| Uygulama güvenlik grupları |3,000 |
+| Uygulama güvenliği grupları |3,000 |
 | IP yapılandırması, NIC başına başına uygulama güvenlik grupları |20 |
 | Uygulama güvenlik grubu başına IP yapılandırmaları |4,000 |
 | İçindeki bir ağ güvenlik grubunun tüm güvenlik kuralları belirtilen uygulama güvenlik grupları |100 |
@@ -70,7 +70,7 @@ Yalnızca ağ aracılığıyla yönetilen kaynakları için aşağıdaki sınır
 | Genel IP adresi - dinamik | 1.000 temel. |Desteğe başvurun. |
 | Genel IP adresleri - statik | 1.000 temel. |Desteğe başvurun. |
 | Genel IP adresleri - statik | Standart için 200.|Desteğe başvurun. |
-| Genel IP ön ek boyutu (Önizleme) | /28 | Desteğe başvurun. |
+| Genel IP ön ek boyutu | /28 | Desteğe başvurun. |
 
 #### <a name="load-balancer"></a>Yük Dengeleyici sınırları
 Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).

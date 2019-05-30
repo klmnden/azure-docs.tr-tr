@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e50314d80f3b773d2ea3bbc8abd4709b574aae65
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149859"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226237"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
-Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
+Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya Telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
 
 Yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`, uygulamanın türüne bağlı olarak. Otomatik olarak projenize eklenir, siz [SDK'ın çoğu sürümünü birden yüklemek][start]. Ayrıca bir web uygulaması tarafından eklenir [Durum İzleyicisi bir IIS sunucusunda][redfield], veya Application ınsights'ı seçtiğinizde, [için bir Azure Web sitesinde veya sanal makine uzantısı](azure-web-apps.md).
 
@@ -30,10 +30,10 @@ Denetimi eşdeğer bir dosyaya hiç [SDK'sı bir web sayfasında][client].
 Bu belgede, dosya, bunlar SDK'sı bileşenlerinin nasıl kontrol ve bu bileşenlerin hangi NuGet paketlerini yükleme yapılandırma konusuna bakın bölümleri açıklanmaktadır.
 
 > [!NOTE]
-> Applicationınsights.config veya .xml yönergelerini .NET Core SDK'sı için geçerli değildir. Değişiklikler bir .NET Core uygulaması için genellikle appsettings.json dosyasını kullanırız. Bunun bir örneği bulunabilir [anlık görüntü hata ayıklayıcısı belgeleri.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+> Applicationınsights.config veya .xml yönergelerini .NET Core SDK'sı için geçerli değildir. .NET Core uygulamaları yapılandırmak için [bu](../../azure-monitor/app/asp-net-core.md) Kılavuzu.
 
 ## <a name="telemetry-modules-aspnet"></a>Telemetri modülleri (ASP.NET)
-Her telemetri modülü, belirli türde bir veri toplar ve veri göndermek için çekirdek API kullanır. Modüller, ayrıca gerekli satır .config dosyasına ekleyin farklı NuGet paketleri tarafından yüklenir.
+Her Telemetri modülü, belirli türde bir veri toplar ve veri göndermek için çekirdek API kullanır. Modüller, ayrıca gerekli satır .config dosyasına ekleyin farklı NuGet paketleri tarafından yüklenir.
 
 Yapılandırma dosyasında her bir modül için bir düğüm yok. Bir modül devre dışı bırakmak için düğüm silin veya açıklama teslim.
 
@@ -52,10 +52,12 @@ Yapılandırma dosyasında her bir modül için bir düğüm yok. Bir modül dev
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet paketi.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights tanılama Telemetrisi
-`DiagnosticsTelemetryModule` Application Insights izleme kodu kendisini hataları bildirir. Örneğin, kodun performans sayaçları erişemiyorsanız veya bir `ITelemetryInitializer` bir özel durum oluşturur. Bu modülü tarafından izlenen izleme telemetrisi görünür [tanılama araması][diagnostic]. Tanılama verileri için dc.services.vsallin.net gönderir.
+`DiagnosticsTelemetryModule` Application Insights izleme kodu kendisini hataları bildirir. Örneğin, kodun performans sayaçları erişemiyorsanız veya bir `ITelemetryInitializer` bir özel durum oluşturur. Bu modülü tarafından izlenen izleme telemetrisi görünür [tanılama araması][diagnostic].
 
+```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Yalnızca bu paketi yüklerseniz, Applicationınsights.config dosyası otomatik olarak oluşturulmaz.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+```
 
 ### <a name="developer-mode"></a>Geliştirici modu
 `DeveloperModeWithDebuggerAttachedTelemetryModule` Application Insights zorlar `TelemetryChannel` veri hemen bir hata ayıklayıcı uygulama işlemi için bağlı olduğunda, bir kerede bir telemetri öğesinin göndermek. Uygulamanızın telemetri izler ve Application Insights portalında görüntülendiğinde bu şu arasındaki süre miktarını azaltır. CPU ve ağ bant genişliğini önemli ölçüde neden olur.
@@ -91,16 +93,16 @@ Raporları [yanıt süresi ve sonuç kodu](../../azure-monitor/app/asp-net.md) H
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-Microsoft.applicationınsights paket sağlar [API çekirdek](https://msdn.microsoft.com/library/mt420197.aspx) SDK. Bunu diğer telemetri modüller kullanın ve ayrıca [kendi telemetrinizi tanımlamak için kullanmak](../../azure-monitor/app/api-custom-events-metrics.md).
+Microsoft.applicationınsights paket sağlar [API çekirdek](https://msdn.microsoft.com/library/mt420197.aspx) SDK. Bunu diğer Telemetri modüller kullanın ve ayrıca [kendi telemetrinizi tanımlamak için kullanmak](../../azure-monitor/app/api-custom-events-metrics.md).
 
 * Applicationınsights.config girdisi yok.
 * [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet paketi. Bu NuGet yüklerseniz, hiçbir .config dosyası oluşturulur.
 
 ## <a name="telemetry-channel"></a>Telemetri kanal
-Telemetri kanal arabelleğe alma ve Application Insights hizmetine telemetri iletimini yönetir.
+[Telemetri kanal](telemetry-channels.md) arabelleğe alma ve Application Insights hizmetine telemetri iletimini yönetir.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` Hizmetler için varsayılan kanalıdır. Veri bellekte arabelleğe alır.
-* `Microsoft.ApplicationInsights.PersistenceChannel` konsol uygulamaları için bir alternatiftir. Uygulamanızı listeyi kapatır ve bu uygulama yeniden başlatıldığında gönderecek unflushed veri kalıcı depolama için kaydedebilirsiniz.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` web uygulamaları için varsayılan kanalıdır. Bellekte veri arabelleği ve gösteren mekanizmalar ve daha güvenilir telemetri teslimi için yerel disk depolama alanı yeniden deneyin.
+* `Microsoft.ApplicationInsights.InMemoryChannel` diğer bir kanalı yapılandırılmışsa kullanılan basit telemetri kanalı noktasıdır. 
 
 ## <a name="telemetry-initializers-aspnet"></a>Telemetri başlatıcıları (ASP.NET)
 Telemetri başlatıcılar, birlikte telemetrinin her öğesine gönderilen bağlam özelliklerini ayarlayın.
@@ -137,9 +139,9 @@ Service Fabric'te çalışan .NET uygulamaları için dahil edebileceğiniz `Mic
 ## <a name="telemetry-processors-aspnet"></a>Telemetri işlemci (ASP.NET)
 Telemetri işlemcileri filtreleyebilir ve yalnızca SDK'sından portala göndermeden önce her telemetri öğesinin değiştirin.
 
-Yapabilecekleriniz [kendi telemetri işlemci yazma](../../azure-monitor/app/api-filtering-sampling.md#filtering).
+Yapabilecekleriniz [kendi Telemetri işlemci yazma](../../azure-monitor/app/api-filtering-sampling.md#filtering).
 
-#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Uyarlamalı örnekleme telemetri işlemciden (2.0.0-beta3)
+#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Uyarlamalı örnekleme Telemetri işlemci (Başlangıç 2.0.0-beta3)
 Bu, varsayılan olarak etkindir. Uygulamanız çok miktarda telemetri gönderir, bu işlemci bazıları da kaldırır.
 
 ```xml
@@ -156,8 +158,8 @@ Parametre elde etmek için algoritma çalışır bir hedef sağlar. Sunucunuz bi
 
 [Örnekleme hakkında daha fazla bilgi](../../azure-monitor/app/sampling.md).
 
-#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Sabit fiyat örnekleme telemetri işlemciden (2.0.0-beta1)
-Ayrıca bir standart olan [telemetri işlemci örnekleme](../../azure-monitor/app/api-filtering-sampling.md) (Başlangıç 2.0.1):
+#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Sabit fiyat örnekleme Telemetri işlemci (Başlangıç 2.0.0-beta1)
+Ayrıca bir standart olan [Telemetri işlemci örnekleme](../../azure-monitor/app/api-filtering-sampling.md) (Başlangıç 2.0.1):
 
 ```XML
 
@@ -261,7 +263,7 @@ Bu, verilerinizi göründüğü Application Insights kaynağını belirler. Gene
 
 Farklı kaynaklar - uygulamanızdan sonuçları göndermek istiyorsanız, dinamik olarak - örneğin anahtar ayarlamak istiyorsanız, yapılandırma dosyasından anahtarı atlayın ve bunun yerine kod içinde ayarlayabilirsiniz.
 
-TelemetryClient öğesinin tüm örneklerini anahtarını ayarlamak için standart telemetri modülleriyle birlikte ayarlayın anahtar TelemetryConfiguration.Active içinde. Bu, bir ASP.NET hizmetinde global.aspx.cs gibi başlatma yöntemini yapın:
+TelemetryClient öğesinin tüm örneklerini anahtarını ayarlamak için standart Telemetri modülleriyle birlikte ayarlayın anahtar TelemetryConfiguration.Active içinde. Bu, bir ASP.NET hizmetinde global.aspx.cs gibi başlatma yöntemini yapın:
 
 ```csharp
 

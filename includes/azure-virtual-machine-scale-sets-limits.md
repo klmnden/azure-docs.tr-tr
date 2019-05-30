@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: 16add1531db769d0e06f0a7034a36b568b69e602
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554023"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238370"
 ---
-| Kaynak | Varsayılan limit | Üst sınır |
+| Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | Bir ölçek kümesindeki en fazla sanal makine sayısı |1000 |1000 |
 | Bir ölçek özel bir VM görüntüsü göre VM sayısı üst sınırı ayarlayın|600 |600 |

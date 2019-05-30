@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130837"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226260"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler ' ı kullanarak bir Azure sanal makine veya sanal makine ölçek çalışan profili web uygulamalarını ayarlama
 
@@ -31,7 +31,8 @@ Ayrıca, bu hizmetleri Azure Application Insights Profiler dağıtabilirsiniz:
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Bir sanal makine veya sanal makine ölçek kümesi üzerinde Profiler'ı dağıtma
 Bu makalede, Azure sanal makinesi (VM) veya Azure sanal makine ölçek kümesi üzerinde çalışan Application Insights Profiler ' ı almak nasıl gösterir. Profiler VM'ler için Azure tanılama uzantısı ile yüklenir. Profiler'ı çalıştırmak için uzantısını yapılandırın ve uygulamanıza Application Insights SDK'sını derleme.
 
-1. Application Insights SDK'sini ekleyin, [ASP.NET uygulaması](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) veya normal [.NET uygulaması](windows-services.md?toc=/azure/azure-monitor/toc.json).  
+1. Application Insights SDK'sini ekleyin, [ASP.NET uygulaması](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
    İsteklerinizi profillerini görüntülemek için Application Insights istek telemetrisi göndermeniz gerekir.
 
 1. Azure tanılama uzantısı, sanal Makinenize yükleyin. Tam Resource Manager şablonu örnekleri için bkz:  

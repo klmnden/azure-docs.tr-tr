@@ -10,13 +10,13 @@ ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: fc945a7e9389c8aec48a6a1dba969fbf92002d3a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553879"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238638"
 ---
-| Kaynak | Sınır |
+| Resource | Sınır |
 | --- | --- |
 | Ölçek birimi sayısı | Bölge başına 10<sup>1</sup> |
 | Önbellek boyutu | Birim başına 5 GB<sup>2</sup> |

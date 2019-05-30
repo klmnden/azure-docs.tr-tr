@@ -1,19 +1,18 @@
 ---
 title: JavaScript dil ile tümleşik sorgu API'si, Azure Cosmos DB ile çalışma
 description: Bu makalede, Azure Cosmos DB'de saklı yordamları ve Tetikleyicileri oluşturmak JavaScript dil ile tümleşik sorgu API'si için kavramlar tanıtılmaktadır.
-author: rockboyfor
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/08/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
+ms.date: 05/23/2019
+ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc1815ce4a7a9ed40848e4a67a7fd9e032c1daa1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043260"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226205"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB'de JavaScript sorgu API'si
 
@@ -70,5 +69,3 @@ Kavramları ve nasıl yapılır yazma daha fazla bilgi edinin ve saklı yordamla
 - [Azure Cosmos DB'de saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler kullanma](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript sunucu tarafı API Başvurusu](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
-
-<!-- Update_Description: update meta properties -->

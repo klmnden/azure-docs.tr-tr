@@ -9,13 +9,13 @@ ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: e8fe694cc757f5bcb9cf470f17306e8aa0028744
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805371"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238733"
 ---
-| Kaynak | Varsayılan limit | Üst sınır |
+| Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | Vcpu başına [abonelik](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10,000 |
 | [Diğer yöneticiler](../articles/billing-add-change-azure-subscription-administrator.md) abonelik başına |200 |200 |

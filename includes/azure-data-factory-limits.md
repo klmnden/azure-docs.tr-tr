@@ -9,26 +9,26 @@ ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733781"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238533"
 ---
 Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Aboneliğiniz için en sınırları artırmak için desteğe başvurun.
 
 ### <a name="version-2"></a>Sürüm 2
 
-| Kaynak | Varsayılan limit | Üst sınır |
+| Resource | Varsayılan limit | Üst sınır |
 | -------- | ------------- | ------------- |
 | Bir Azure aboneliğinde veri fabrikaları | 50 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| İşlem hatları, veri kümeleri, Tetikleyiciler, bağlı hizmetler ve data factory içinde tümleştirme çalışma zamanları gibi varlıkları toplam sayısı | 5.000 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| İşlem hatları, veri kümeleri, Tetikleyiciler, bağlı hizmetler ve data factory içinde tümleştirme çalışma zamanları gibi varlıkları toplam sayısı | 5,000 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Bir abonelik altında toplam CPU çekirdeği için Azure-SSIS tümleştirme çalışma zamanları | 256 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Tüm işlem hatları fabrikasında arasında paylaşılan bir veri fabrikası başına eşzamanlı işlem hattını çalışır | 10,000  | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Kapsayıcılar için iç etkinliklerini içeren işlem hattı başına en fazla etkinlikleri | 40 | 40 |
 | Bir tek şirket içinde barındırılan tümleştirme çalışma zamanı karşı oluşturulabilir bağlı tümleştirme çalışma zamanları sayısı | 100 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | İşlem hattı başına en fazla parametreleri | 50 | 50 |
-| ForEach öğeleri | 100.000 | 100.000 |
+| ForEach öğeleri | 100,000 | 100,000 |
 | ForEach paralelliği | 20 | 50 |
 | Karakter başına ifadesi | 8,192 | 8,192 |
 | En az bir atlayan pencere tetikleyicisi aralığı | 15 dakika | 15 dakika |
@@ -48,7 +48,7 @@ Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini k
 | --- | --- | --- |
 | Bir Azure aboneliğinde veri fabrikaları |50 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Data factory içindeki işlem hatları |2,500 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Data factory içinde veri kümeleri |5.000 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Data factory içinde veri kümeleri |5,000 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Veri kümesi başına eşzamanlı dilimleri |10 |10 |
 | İşlem hattı nesneleri için nesne başına bayt<sup>1</sup> |200 KB |200 KB |
 | Veriler için nesne başına bayt kümesi ve bağlı hizmet nesneleri<sup>1</sup> |100 KB |2. 000'KB |

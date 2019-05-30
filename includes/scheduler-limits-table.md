@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531277"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238459"
 ---
 Aşağıdaki tabloda her bir ana kotaları, sınırları, Varsayılanları ve Azure scheduler'da kısıtlamalar açıklanmaktadır.
 
-| Kaynak | Sınırı açıklaması |
+| Resource | Sınırı açıklaması |
 | -------- | ----------------- |
 | **İş boyutu** | 16.000 en fazla iş boyutudur. Bu sınırdan büyük bir işin boyutu PUT veya PATCH işlemi sonuçlanırsa, 400 Hatalı istek durum kodu döndürülür. | 
 | **İş koleksiyonları** | En fazla Azure aboneliği başına iş koleksiyonları 200.000 sayısıdır. | 

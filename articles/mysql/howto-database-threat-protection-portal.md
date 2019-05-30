@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: 76f6c15fc1e186e254c4edbb53a2a0ccf7050b3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "61458980"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>MySQL için Azure veritabanı için Gelişmiş tehdit koruması
@@ -28,7 +28,7 @@ Gelişmiş tehdit koruması için Gelişmiş güvenlik özellikleri birleştiril
 
 ## <a name="set-up-threat-detection"></a>Tehdit algılama ' ayarlayın
 1. Adresinden Azure portalında başlatma [ https://portal.azure.com ](https://portal.azure.com).
-2. Korumak istediğiniz MySQL sunucusu için Azure veritabanı'nın yapılandırma sayfasına gidin. Güvenlik Ayarları'nda seçin **Gelişmiş tehdit Koruması (Önizleme)**.
+2. Korumak istediğiniz MySQL sunucusu için Azure veritabanı'nın yapılandırma sayfasına gidin. Güvenlik Ayarları'nda seçin **Gelişmiş tehdit Koruması (Önizleme)** .
 3. Üzerinde **Gelişmiş tehdit Koruması (Önizleme)** yapılandırma sayfası:
 
    - Sunucuda Gelişmiş tehdit koruması sağlar.
