@@ -223,6 +223,14 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Azure PowerShell kullanma
               href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Ölçek kümesini değiştirme
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Ölçek kümeleri için ağ oluşturma
+          href: virtual-machine-scale-sets-networking.md
+        - name: Otomatik işletim sistemi yükseltmeleri
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Örnek koruması (Önizleme)
+          href: virtual-machine-scale-sets-instance-protection.md
         - name: Paylaşılan görüntü galerileri
           items:
             - name: Genel Bakış
@@ -237,14 +245,8 @@
               href: troubleshooting-shared-images.md
         - name: Ölçek kümesinde dikey ölçeklendirme
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Otomatik işletim sistemi yükseltmeleri
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Ölçek kümesini değiştirme
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: DSC ve ölçek kümelerini kullanma
           href: virtual-machine-scale-sets-dsc.md
-        - name: Ölçek kümeleri için ağ oluşturma
-          href: virtual-machine-scale-sets-networking.md
         - name: Bir şablonu yönetilen disklere dönüştürme
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Planlı bakım

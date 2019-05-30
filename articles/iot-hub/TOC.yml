@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: 2. Bölüm - İleti yönlendirme sonuçlarını görüntüleme
           href: tutorial-routing-view-message-routing-results.md
+    - name: İleti zenginleştirmeleri
+      href: tutorial-message-enrichments.md
     - name: Ölçümleri ve tanılama günlüklerini kullanma
       href: tutorial-use-metrics-and-diags.md
     - name: El ile yük devretme işlemi gerçekleştirme
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: Kavramlar
   items:
+    - name: İleti zenginleştirmelerine genel bakış
+      href: iot-hub-message-enrichments-overview.md
     - name: Cihaz yönetimine genel bakış
       href: iot-hub-device-management-overview.md
     - name: IoT Hub ile Event Hubs’ı karşılaştırma

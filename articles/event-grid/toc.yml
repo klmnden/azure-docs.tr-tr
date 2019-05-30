@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: Olay işleyicileri
       href: event-handlers.md
+    - name: Coğrafi olağanüstü durum kurtarma
+      href: geo-disaster-recovery.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Özel konuya gönderme

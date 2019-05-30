@@ -13,6 +13,8 @@
       href: view-applications-portal.md
 - name: Öğreticiler
   items:
+    - name: SaaS uygulaması Öğreticileri
+      href: 'https://docs.microsoft.com/azure/active-directory/saas-apps/'
     - name: Çoklu oturum açmayı yapılandırma - portal
       href: configure-single-sign-on-portal.md
     - name: Şirket içi uygulaması ekleme - portal
@@ -77,19 +79,13 @@
       href: end-user-experiences.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Bulut uygulaması tümleştirme
+    - name: Bulut uygulaması ekleme
       items:
-        - name: Uygulama ekleme
-          items:
-            - name: Uygulama türünü seçme
-              href: choose-application-type.md
-            - name: Yaygın sorunlar - galeri uygulamaları
-              href: adding-gallery-app-common-problems.md
-            - name: Yaygın sorunlar - galeri dışındaki uygulamalar
-              href: adding-non-gallery-app-common-problems.md
+        - name: Uygulama türünü seçme
+          href: choose-application-type.md
         - name: Ad veya logo değiştirme
           href: change-name-or-logo-portal.md
-    - name: Şirket içi uygulama tümleştirmesi
+    - name: Şirket içi uygulamayı tümleştirme
       items:
         - name: Bağlayıcıları yapılandırma
           href: application-proxy-configure-connectors-with-proxy-servers.md
@@ -125,7 +121,139 @@
               href: application-proxy-integrate-with-tableau.md
             - name: Qlik ile tümleştirme
               href: application-proxy-qlik.md
-        - name: Uygulama Ara Sunucusu sorunlarını giderme
+    - name: Çoklu oturum açmayı yapılandırma
+      items:
+        - name: Galeri dışındaki uygulamaları yapılandırma
+          href: configure-single-sign-on-non-gallery-applications.md
+        - name: Federasyon yapılandırma - galeri uygulamaları
+          href: configure-federated-single-sign-on-gallery-applications.md
+        - name: Federasyon yapılandırma - galeri dışındaki uygulamalar
+          href: configure-federated-single-sign-on-non-gallery-applications.md
+        - name: Parola yapılandırma - galeri uygulamaları
+          href: configure-password-single-sign-on-gallery-applications.md
+        - name: Parola yapılandırma - galeri dışındaki uygulamalar
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Uygulama Ara Sunucusu ile çoklu oturum açma
+          items:
+            - name: Kerberos Kısıtlanmış Temsili (KCD)
+              href: application-proxy-configure-single-sign-on-with-kcd.md
+            - name: Parola kasası oluşturma
+              href: application-proxy-configure-single-sign-on-password-vaulting.md
+            - name: Üst bilgiler
+              href: application-proxy-configure-single-sign-on-with-ping-access.md
+            - name: SAML SSO
+              href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: Kullanıcı sağlamayı yapılandırma
+      items:
+        - name: Sağlamanın tamamlanma süresi
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Kullanıcı sağlamayı yapılandırma - galeri uygulaması
+          href: application-provisioning-config-how-to.md
+        - name: Eşleme için özniteliği eşitleme - galeri uygulaması
+          href: user-provisioning-sync-attributes-for-mapping.md
+    - name: Kullanıcı atama ve uygulamalara erişimi yönetme
+      items:
+        - name: Kullanıcı onayını yapılandırma
+          href: configure-user-consent.md
+        - name: Kullanıcıları ve grupları bir uygulamaya atama yöntemleri
+          href: methods-for-assigning-users-and-groups.md
+        - name: Kullanıcıyı uygulamaya atama
+          href: assign-user-or-group-access-portal.md
+        - name: Self servis uygulama erişimini kullanma
+          href: access-panel-manage-self-service-access.md
+        - name: Bir kullanıcının uygulamaya erişimini kaldırma yöntemleri
+          href: methods-for-removing-user-access.md
+        - name: Kullanıcı veya grup erişimini kaldırma
+          href: remove-user-or-group-access-portal.md
+        - name: Kullanıcıdan uygulama gizleme
+          href: hide-application-from-user-portal.md
+        - name: Kullanıcılar için oturum açmayı devre dışı bırakma
+          href: disable-user-sign-in-portal.md
+        - name: Self servis uygulama atamasını yapılandırma
+          href: manage-self-service-access.md
+        - name: Giriş Bölgesi Bulma
+          href: configure-authentication-for-federated-users-portal.md
+    - name: Uygulamaları Azure AD’ye geçirme
+      items:
+        - name: Geçiş kaynakları
+          href: migration-resources.md
+        - name: ADFS uygulamasını Azure’a geçirme
+          href: migrate-adfs-apps-to-azure.md
+    - name: Sorun giderme
+      items:
+        - name: Uygulama ekleme sorunlarını giderme
+          items:
+            - name: Yaygın sorunlar - galeri uygulamaları
+              href: adding-gallery-app-common-problems.md
+            - name: Yaygın sorunlar - galeri dışındaki uygulamalar
+              href: adding-non-gallery-app-common-problems.md
+        - name: Kullanıcı oturum açma sorunlarını giderme
+          items:
+            - name: Beklenmeyen izin alma istemi
+              href: application-sign-in-unexpected-user-consent-prompt.md
+            - name: Kullanıcı onayı hatası
+              href: application-sign-in-unexpected-user-consent-error.md
+            - name: Özel portaldan oturum açma sorunları
+              href: application-sign-in-other-problem-deeplink.md
+            - name: Özel bölmeden oturum açma sorunları
+              href: application-sign-in-other-problem-access-panel.md
+            - name: Uygulama oturum açma sayfasında hata
+              href: application-sign-in-problem-application-error.md
+            - name: Parolayla çoklu oturum açma sorunu - galeri dışındaki uygulama
+              href: application-sign-in-problem-password-sso-non-gallery.md
+            - name: Parolayla çoklu oturum açma sorunu - galeri uygulaması
+              href: application-sign-in-problem-password-sso-gallery.md
+            - name: Microsoft uygulamasında oturum açma sorunu
+              href: application-sign-in-problem-first-party-microsoft.md
+            - name: Federasyonda çoklu oturum açma sorunu - galeri dışındaki uygulama
+              href: application-sign-in-problem-federated-sso-non-gallery.md
+            - name: Federasyonda çoklu oturum açma sorunu - galeri uygulaması
+              href: application-sign-in-problem-federated-sso-gallery.md
+            - name: Özel geliştirilmiş uygulama ile ilgili sorun
+              href: application-sign-in-problem-custom-dev.md
+        - name: Çoklu oturum açma sorunlarını giderme
+          items:
+            - name: Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları
+              href: configure-federated-single-sign-on-gallery-applications-problems.md
+            - name: Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar
+              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+            - name: Parola yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları
+              href: configure-password-single-sign-on-gallery-applications-problems.md
+            - name: Parola yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar
+              href: configure-password-single-sign-on-non-gallery-applications-problems.md
+        - name: Kullanıcı hazırlama sorunlarını giderme
+          items:
+            - name: Saatler sürüyor - galeri uygulaması
+              href: application-provisioning-when-will-provisioning-finish.md
+            - name: Kullanıcı sağlamayı yapılandırma sorunu - galeri uygulaması
+              href: application-provisioning-config-problem.md
+            - name: Kullanıcı sağlama galeri uygulamasını yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Kullanıcılar sağlanmıyor - galeri uygulaması
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Yanlış kullanıcılar sağlanıyor - galeri uygulaması
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Uygulama listesi ve atama sorunlarını giderme
+          items:
+            - name: Kiracınızın uygulama listesini yönetme
+              href: application-types.md
+            - name: Beklenmeyen kullanıcı ataması
+              href: ways-users-get-assigned-to-applications.md
+        - name: Erişim paneli sorunlarını giderme
+          items:
+            - name: Tarayıcı uzantısı yönetme
+              href: manage-access-panel-browser-extension.md
+            - name: Uygulama görüntülenmiyor
+              href: access-panel-troubleshoot-application-not-appearing.md
+            - name: Beklenmeyen uygulama görüntüleniyor
+              href: access-panel-troubleshoot-unexpected-application.md
+            - name: Oturum açılamıyor
+              href: access-panel-troubleshoot-web-sign-in-problem.md
+            - name: Tarayıcı uzantısı yüklenirken hata oluşuyor
+              href: access-panel-extension-problem-installing.md
+            - name: Self servis uygulama erişiminin kullanırken hata oluşuyor
+              href: access-panel-troubleshoot-self-service-access.md
+        - name: Uygulama Ara Sunucusu ile ilgili sorunları giderme
           items:
             - name: Bağlayıcı sorun çözümü akış çizelgesi
               href: application-proxy-debug-connectors.md
@@ -159,124 +287,6 @@
               href: application-proxy-connector-installation-problem.md
             - name: Oturum açma sorunu
               href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: Kullanıcı sağlama
-      items:
-        - name: Gereken süre
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Saatler sürüyor - galeri uygulaması
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Kullanıcı sağlamayı yapılandırma - galeri uygulaması
-          href: application-provisioning-config-how-to.md
-        - name: Kullanıcı sağlamayı yapılandırma sorunu - galeri uygulaması
-          href: application-provisioning-config-problem.md
-        - name: Kullanıcı sağlama galeri uygulamasını yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Eşleme için özniteliği eşitleme - galeri uygulaması
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Kullanıcılar sağlanmıyor - galeri uygulaması
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Yanlış kullanıcılar sağlanıyor - galeri uygulaması
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Uygulama erişimi
-      items:
-        - name: Uygulama türleri
-          href: application-types.md
-        - name: Kullanıcı onayını yapılandırma
-          href: configure-user-consent.md
-        - name: Kullanıcıları ve grupları bir uygulamaya atama yöntemleri
-          href: methods-for-assigning-users-and-groups.md
-        - name: Kullanıcıyı uygulamaya atama
-          href: assign-user-or-group-access-portal.md
-        - name: Bir kullanıcının uygulamaya erişimini kaldırma yöntemleri
-          href: methods-for-removing-user-access.md
-        - name: Beklenmeyen kullanıcı ataması
-          href: ways-users-get-assigned-to-applications.md
-        - name: Kullanıcı veya grup erişimini kaldırma
-          href: remove-user-or-group-access-portal.md
-        - name: Kullanıcıdan uygulama gizleme
-          href: hide-application-from-user-portal.md
-        - name: Kullanıcılar için oturum açmayı devre dışı bırakma
-          href: disable-user-sign-in-portal.md
-        - name: Self servis uygulama atamasını yapılandırma
-          href: manage-self-service-access.md
-        - name: Giriş Bölgesi Bulma
-          href: configure-authentication-for-federated-users-portal.md
-    - name: Çoklu oturum açma
-      items:
-        - name: Galeri dışındaki uygulamaları yapılandırma
-          href: configure-single-sign-on-non-gallery-applications.md
-        - name: Federasyon yapılandırma - galeri uygulamaları
-          href: configure-federated-single-sign-on-gallery-applications.md
-        - name: Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Federasyon yapılandırma - galeri dışındaki uygulamalar
-          href: configure-federated-single-sign-on-non-gallery-applications.md
-        - name: Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Parola yapılandırma - galeri uygulamaları
-          href: configure-password-single-sign-on-gallery-applications.md
-        - name: Parola yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Parola yapılandırma - galeri dışındaki uygulamalar
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Parola yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: Uygulama Ara Sunucusu
-          items:
-            - name: Kerberos Kısıtlanmış Temsili (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Parola kasası oluşturma
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: Üst bilgiler
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Erişim paneli
-      items:
-        - name: Tarayıcı uzantısı yönetme
-          href: manage-access-panel-browser-extension.md
-        - name: Uygulama görüntülenmiyor
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Beklenmeyen uygulama görüntüleniyor
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Oturum açılamıyor
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Tarayıcı uzantısı yüklenirken hata oluşuyor
-          href: access-panel-extension-problem-installing.md
-        - name: Self servis uygulama erişiminin kullanma
-          href: access-panel-manage-self-service-access.md
-        - name: Self servis uygulama erişiminin kullanırken hata oluşuyor
-          href: access-panel-troubleshoot-self-service-access.md
-    - name: Geçiş
-      items:
-        - name: Geçiş kaynakları
-          href: migration-resources.md
-        - name: ADFS uygulamasını Azure’a geçirme
-          href: migrate-adfs-apps-to-azure.md
-    - name: Kullanıcı oturum açma sorunlarını giderme
-      items:
-        - name: Beklenmeyen izin alma istemi
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: Kullanıcı onayı hatası
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Özel portaldan oturum açma sorunları
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Özel bölmeden oturum açma sorunları
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Uygulama oturum açma sayfasında hata
-          href: application-sign-in-problem-application-error.md
-        - name: Parolayla çoklu oturum açma sorunu - galeri dışındaki uygulama
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Parolayla çoklu oturum açma sorunu - galeri uygulaması
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: Microsoft uygulamasında oturum açma sorunu
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: Federasyonda çoklu oturum açma sorunu - galeri dışındaki uygulama
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Federasyonda çoklu oturum açma sorunu - galeri uygulaması
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Özel geliştirilmiş uygulama ile ilgili sorun
-          href: application-sign-in-problem-custom-dev.md
 - name: Başvuru
   items:
     - name: Uygulama Proxy’si sürüm geçmişi

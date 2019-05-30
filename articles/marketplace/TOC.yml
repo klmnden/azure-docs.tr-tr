@@ -8,15 +8,6 @@
     - name: Azure Market ve AppSource genel bakış bilgileri ve avantajları
       href: ./marketplace-publishers-guide.md
       items:
-        - name: Markette yayımcı olma
-          href: ./become-publisher.md
-          items:
-            - name: Microsoft hesabı oluşturma
-              href: ./guidelines.md
-            - name: Geliştirme Merkezi'ne Kaydolma
-              href: ./register-dev-center.md
-            - name: Azure iş ortağı müşteri kullanımı ilişkilendirmesi
-              href: ./azure-partner-customer-usage-attribution.md
         - name: 'Bir market, iki vitrin'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Yayımlama seçenekleri ve dikkat edilmesi gerekenler
@@ -30,6 +21,8 @@
               href: ./private-offers.md
             - name: Standart Sözleşme
               href: ./standard-contract.md
+            - name: Azure iş ortağı müşteri kullanımı ilişkilendirmesi
+              href: ./azure-partner-customer-usage-attribution.md
         - name: Teklif türüne göre yayımlama kılavuzu
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -481,6 +474,15 @@
       items:
         - name: SaaS teklifi oluşturma
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS gerçekleştirme API'leri
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: SaaS uygulaması kaydetme
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: SaaS Gerçekleştirme API’leri v2
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: SaaS Gerçekleştirme API’leri v1 (kullanım dışı)
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: Yayın durumu
       href: ./partner-center-portal/publishing-status.md
     - name: Mevcut teklifleri güncelleştirme

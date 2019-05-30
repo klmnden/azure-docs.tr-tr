@@ -423,7 +423,7 @@
       items:
         - name: HDInsight sanal ağ mimarisi
           href: ../hdinsight-virtual-network-architecture.md
-        - name: HDInsight giden trafiği kısıtlama
+        - name: Giden trafiği kısıtlamak için güvenlik duvarı kullanma
           href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet’te HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md

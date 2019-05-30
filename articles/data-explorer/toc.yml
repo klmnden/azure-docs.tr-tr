@@ -41,14 +41,6 @@
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: Verileri görselleştirme
-      items:
-        - name: Power BI - bağlayıcı
-          href: power-bi-connector.md
-        - name: Power BI - içeri aktarılan sorgu
-          href: power-bi-imported-query.md
-        - name: Power BI - SQL sorgusu
-          href: power-bi-sql-query.md
 - name: Öğreticiler
   items:
     - name: Kod kullanmadan verileri alma
@@ -80,6 +72,20 @@
           href: anomaly-detection.md
         - name: Makine öğrenimi
           href: machine-learning-clustering.md
+    - name: Verileri görselleştirme
+      items:
+        - name: Power BI
+          items:
+            - name: bağlayıcı
+              href: power-bi-connector.md
+            - name: içeri aktarılan sorgu
+              href: power-bi-imported-query.md
+            - name: SQL sorgusu
+              href: power-bi-sql-query.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
     - name: Yönetme
       items:
         - name: Veritabanı izinlerini yönetme
@@ -108,8 +114,6 @@
           href: kqlmagic.md
         - name: Azure Data Factory kullanarak veri kopyalama
           href: data-factory-load-data.md
-        - name: Grafana’da verileri görselleştirme
-          href: grafana.md
         - name: ODBC ile bağlanma
           href: connect-odbc.md
     - name: Sorun giderme

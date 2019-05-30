@@ -78,6 +78,9 @@
         - name: Değişim sıklığı tahmini
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+    - name: Azure Açık Veri Kümeleri
+      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
+      maintainContext: true
 - name: Kavramlar
   items:
     - name: Çalışma alanı
@@ -130,6 +133,9 @@
         - name: Günlü kaydını etkinleştir
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
+        - name: Giriş ve çıkış dizinlerini ayarlama
+          displayName: 'large data, write, experiment files, size limit'
+          href: how-to-save-write-experiment-files.md
         - name: VS Code uzantısı kullanma
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md

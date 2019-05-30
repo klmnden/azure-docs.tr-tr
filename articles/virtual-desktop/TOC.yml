@@ -48,6 +48,8 @@
       href: delegated-access-virtual-desktop.md
     - name: Ana bilgisayar havuzu yük dengeleme yöntemleri
       href: host-pool-load-balancing.md
+    - name: FSLogix profil kapsayıcıları ve Azure dosyaları
+      href: fslogix-containers-azure-files.md
 - name: Sorun giderme
   items:
     - name: 'Sorun çözümüne genel bakış, geri bildirim ve destek'

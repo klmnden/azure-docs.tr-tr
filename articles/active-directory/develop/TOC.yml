@@ -229,16 +229,20 @@
                   href: msal-js-initializing-client-applications.md
             - name: Hataları ve özel durumları işleme
               href: msal-handling-exceptions.md
+            - name: MSAL uygulamalarını test etme
+              href: msal-testing.md
             - name: Günlüğe kaydetme
               href: msal-logging.md
             - name: Çoklu oturum açma (JS)
               href: msal-js-sso.md
             - name: Komut istemi davranışı (JS)
               href: msal-js-prompt-behavior.md
-            - name: Kendi HttpClient değerinizi sağlama (.NET)
-              href: msal-net-provide-httpclient.md
             - name: Azure AD B2C ile tümleştirme
-              href: msal-b2c-overview.md
+              items:
+                - name: JavaScript
+                  href: msal-b2c-overview.md
+                - name: .NET
+                  href: msal-net-aad-b2c-considerations.md
             - name: Dikkat edilmesi gerekenler ve bilinen sorunlar
               items:
                 - name: MSAL.NET
@@ -253,8 +257,6 @@
                       href: msal-net-xamarin-ios-considerations.md
                     - name: Evrensel Windows Platformu
                       href: msal-net-uwp-considerations.md
-                    - name: AAD B2C ilkesi uygulama
-                      href: msal-net-aad-b2c-considerations.md
                 - name: MSAL.js
                   items:
                     - name: IE kullanmaya ilişkin dikkat edilmesi gerekenler
@@ -360,6 +362,8 @@
                   href: msal-net-instantiate-confidential-client-config-options.md
                 - name: Çeşitli kaynaklar için onay alma
                   href: msal-net-user-gets-consent-for-multiple-resources.md
+                - name: Kendi HttpClient değerinizi sağlama
+                  href: msal-net-provide-httpclient.md
         - name: Visual Studio ile çalışma
           items:
             - name: Active Directory bağlı hizmetini kullanma

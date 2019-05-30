@@ -296,6 +296,8 @@
               href: transparent-data-encryption-byok-azure-sql.md
         - name: Güvenlik öznitelikleri
           href: sql-database-security-attributes.md
+        - name: Özellik kısıtlamaları
+          href: sql-database-feature-restrictions.md
     - name: Ölçeklenebilirlik
       items:
         - name: Ölçeklenebilirliğe genel bakış
@@ -368,12 +370,20 @@
           href: sql-database-temporal-tables.md
         - name: İş otomasyonu
           href: sql-database-job-automation-overview.md
+        - name: Bağlı sunucular
+          href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json'
+        - name: Hizmet Aracısı
+          href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json'
+        - name: Veritabanı posta
+          href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json'
         - name: Machine Learning Services
           items:
             - name: Genel Bakış
               href: sql-database-machine-learning-services-overview.md
             - name: Temel farklılıklar
               href: sql-database-machine-learning-services-differences.md
+        - name: Sunucu tarafı CLR/.NET tümleştirmesi
+          href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json'
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Genel Bakış

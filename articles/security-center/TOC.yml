@@ -57,6 +57,8 @@
       href: security-center-powershell-onboarding.md
     - name: Güvenlik Merkezi ayarları
       href: security-center-policies-overview.md
+    - name: Dosya Bütünlüğünü İzleme kullanarak ana hatları karşılaştırma
+      href: security-center-file-integrity-monitoring-baselines.md
       items:
         - name: Veri toplama
           href: security-center-enable-data-collection.md

@@ -14,12 +14,14 @@
       href: virtual-wan-point-to-site-portal.md
 - name: Kavramlar
   items:
-    - name: Konumlar ve iş ortakları
+    - name: Konumlar ve iş ortakları hakkında
       href: virtual-wan-locations-partners.md
-    - name: Genel geçiş ağ mimarisi
+    - name: Genel geçiş ağ mimarisi hakkında
       href: virtual-wan-global-transit-network-architecture.md
-    - name: Sanal WAN Office 365 denetim düzlemi
+    - name: Sanal WAN Office 365 denetim düzlemi hakkında
       href: virtual-wan-office365-overview.md
+    - name: IPsec ilkeleri hakkında
+      href: virtual-wan-ipsec.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Sanal hub'dan NVA'ya trafik yönlendirme
