@@ -4,14 +4,14 @@ description: Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954122"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388475"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -160,7 +160,7 @@ Sonuçlar şu şekildedir:
 
 Önceki örneklerde, Cosmos sorgu dili çeşitli yönlerini gösterir:  
 
-* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3…..Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
+* SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine ağaç şeklinde varlıklarla ilgilenir. Rastgele herhangi derinliği ağaç düğümleri gibi başvurabilirsiniz `Node1.Node2.Node3….Nodem`iki parçalı başvurusunu benzer `<table>.<column>` ANSI SQL.
 
 * Sorgu dili şemasız verilerle çalışır çünkü tür sistemi dinamik olarak bağlı olmalıdır. Farklı türlerde farklı öğeye aynı ifadesi üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olmasını garanti yoktur.  
 
@@ -756,7 +756,7 @@ Bu sorgu ailesi alır `id` artan düzende şehir adı. Birden çok öğe aynı �
 
 ## <a id="OffsetLimitClause"></a>UZAKLIK sınırlama yan tümcesi
 
-UZAKLIK bazı sayısı değerleri sorgudan Al atlamak için isteğe bağlı bir yan tümcesi sınırdır. UZAKLIK sayımı ve sınırı sayısı sınırı UZAKLIĞI yan tümcesinde gereklidir.
+UZAKLIK bazı sayısı değerleri sorgudan Al atlamak için isteğe bağlı bir yan tümcesi sınırdır. UZAKLIK sayımı ve sınırı sayısı sınırı UZAKLIĞI yan tümcesinde gereklidir. Şu anda yalnızca tek bir bölüm içinde sorguları için bu yan tümce desteklenir, bölümler arası sorgu henüz bunu desteklemez. 
 
 UZAKLIK sınırı, ORDER BY yan tümcesi ile birlikte kullanıldığında, sonuç kümesi Atla yaparak oluşturulur ve sıralı değerlerine gerçekleştirin. ORDER BY yan tümce kullandıysanız, değer belirleyici bir sırada neden olur.
 

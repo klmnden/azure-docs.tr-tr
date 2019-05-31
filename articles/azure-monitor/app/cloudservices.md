@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903304"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256297"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application ınsights'ı Azure bulut Hizmetleri
 [Application Insights] [ start] izleyebilirsiniz [Azure cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/) kullanılabilirlik, performans, hatalar ve kullanım verileri Application Insights SDK'ları ile birleştirerek[Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) , bulut hizmetlerinden veri. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
@@ -41,7 +41,7 @@ Bu seçenek, uygulamanızın çalışma zamanında, istekler, özel durumları v
 
 Bu seçenek, tüm yapmanız gereken ise, hazırsınız. 
 
-Sonraki adımlarda olan [uygulamanızdan alınan ölçümleri görüntüleme](../../azure-monitor/app/metrics-explorer.md), [Analytics ile verilerinizi sorgulama](../../azure-monitor/app/analytics.md)ve ayarlama üzerinedir bir [Pano](../../azure-monitor/app/app-insights-dashboards.md). 
+Sonraki adımlarda olan [uygulamanızdan alınan ölçümleri görüntüleme](../../azure-monitor/app/metrics-explorer.md), [Analytics ile verilerinizi sorgulama](../../azure-monitor/app/analytics.md). 
 
 Tarayıcıda performansı izlemek için de ayarlamak isteyebileceğiniz [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md) ve [kod eklemek için Web sayfalarınızı](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ Uygulamanızdan alınan telemetri depolanan, analiz ve Application Insights tür
 Her kaynak bir kaynak grubuna aittir. Kaynak grupları maliyetleri, takım üyeleri için erişim vermek ve güncelleştirmeleri tek bir Eşgüdümlü işlemle dağıtmak için kullanılır. Örneğin, şunları yapabilirsiniz [dağıtmak için bir betik yazma](../../azure-resource-manager/resource-group-template-deploy.md) Azure bulut hizmeti ve kendi Application Insights kaynakları tek bir işlemde izleme.
 
 ### <a name="resources-for-components"></a>Bileşenler için kaynaklar
-Uygulamanızın her bileşen için ayrı bir kaynak oluşturmanızı öneririz. Diğer bir deyişle, her bir web rolü ve çalışan rolü için bir kaynak oluşturun. Her bir bileşeni ayrı ayrı analiz edebileceğiniz, ancak oluşturduğunuz bir [Pano](../../azure-monitor/app/app-insights-dashboards.md) bir araya getiren anahtar grafikleri tüm bileşenlerden toplanan karşılaştırmak ve bunları tek bir görünümde birlikte izleyin. 
+Uygulamanızın her bileşen için ayrı bir kaynak oluşturmanızı öneririz. Diğer bir deyişle, her bir web rolü ve çalışan rolü için bir kaynak oluşturun. Her bir bileşeni ayrı ayrı analiz edebileceğiniz, ancak oluşturduğunuz bir [Pano](../../azure-monitor/app/overview-dashboard.md) bir araya getiren anahtar grafikleri tüm bileşenlerden toplanan karşılaştırmak ve bunları tek bir görünümde birlikte izleyin. 
 
 Birden fazla rolden aynı kaynağa telemetri göndermek alternatif bir yaklaşım olan ancak [her telemetri öğesine bir boyut özelliği eklemek](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) kaynak tanımlar. Bu yaklaşım, özel durumlar gibi ölçüm grafikleri normalde çeşitli rollerden alınan sayımların toplamını gösterir, ancak grafik gerektiğinde rol tanımlayıcısına göre bölümlere ayırabilirsiniz. Bu gibi durumlarda, aramalar da aynı boyuta göre filtreleyebilirsiniz. Bu alternatif her şeyi aynı anda görüntülemek biraz daha kolay getirir, ancak bu aynı zamanda rolleri arasında karışıklığa için açabilir.
 
@@ -91,7 +91,7 @@ Her rol için ayrı bir kaynak oluşturmaya karar verdiyseniz ve belki de her de
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Her rol için Azure Tanılama ayarlama
 Uygulamanızı Application Insights ile izlemek için bu seçeneği ayarlayın. Bu seçenek, Web rolleri için performans izleme, uyarılar, tanılama ve kullanım analizi sağlar. Diğer roller için arama yapın ve yeniden başlatma, performans sayaçları ve System.Diagnostics.Trace çağrıları gibi Azure Tanılama'yı izleyin. 
 
-1. Visual Studio Çözüm Gezgini'nde, altında  **\<bulut hizmetinizin >** > **rolleri**, her rolün özelliklerini açın.
+1. Visual Studio Çözüm Gezgini'nde, altında  **\<bulut hizmetinizin >**  > **rolleri**, her rolün özelliklerini açın.
 
 1. İçinde **yapılandırma**seçin **tanılama verilerini Application Insights'a Gönder** onay kutusunu işaretleyin ve ardından daha önce oluşturduğunuz Application Insights kaynağını seçin.
 
@@ -229,7 +229,7 @@ Sayfa görüntüleme sayıları, sayfa yükleme sürelerinin veya betik özel du
 Canlı ve duyarlı, uygulamanızı kaldığından emin olmak için [web testleri ayarlayın][availability].
 
 ## <a name="display-everything-together"></a>Her şeyi birlikte görüntüleme
-Sisteminizin genel bir resmini için grafikler birlikte bir izleme anahtarı görüntüleyebilirsiniz [Pano](../../azure-monitor/app/app-insights-dashboards.md). Örneğin, her rolün istek ve hata sayılarını sabitleyebilirsiniz. 
+Sisteminizin genel bir resmini için grafikler birlikte bir izleme anahtarı görüntüleyebilirsiniz [Pano](../../azure-monitor/app/overview-dashboard.md). Örneğin, her rolün istek ve hata sayılarını sabitleyebilirsiniz. 
 
 Diğer Azure Hizmetleri sisteminizi kullanıyorsa, Stream Analytics gibi izleme grafiklerini de içerir. 
 
