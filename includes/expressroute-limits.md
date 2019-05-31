@@ -5,30 +5,30 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c025c431d826d3a2951a9eb5c09308695e172887
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170709"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299712"
 ---
 | Resource | Varsayılan/üst sınır |
 | --- | --- |
 | Abonelik başına ExpressRoute devreleri |10 |
 | ExpressRoute bağlantı hatları ile Azure Resource Manager, abonelik başına bölge başına |10 |
-| Yollar, ExpressRoute standart Azure özel eşleme sayısı |4,000 |
-| ExpressRoute Premium eklentisi ile Azure özel eşleme için yol sayısı |10,000 |
-| Azure özel bir ExpressRoute bağlantısı için sanal ağ adresi alanından eşleme rotaları sayısı |200 | 
-| Microsoft Azure ile standart ExpressRoute eşdüzey hizmet sağlama için rota sayısı |200 |
-| Microsoft Azure ExpressRoute Premium eklentisi ile eşleme için yol sayısı |200 |
+| Azure özel standart ExpressRoute eşdüzey hizmet sağlama için en fazla yol sayısı tanıtılan |4,000 |
+| Azure özel ExpressRoute Premium eklentisi ile eşleme için en fazla yol sayısı tanıtılan |10,000 |
+| Maksimum sayısı, Azure özel bir ExpressRoute bağlantısı için sanal ağ adresi alanından eşlemeden tanıtılan |200 |
+| En fazla yol sayısı ile standart ExpressRoute eşlemesi Microsoft'a tanıtılan |200 |
+| Maksimum sayısı, ExpressRoute Premium eklentisi ile eşleme Microsoft'a tanıtılan |200 |
 | ExpressRoute bağlantı hatları ile aynı konumda eşleme aynı sanal ağa bağlı en fazla sayısı |4 |
 | ExpressRoute devreleri farklı eşleme konumları aynı sanal ağa bağlı en fazla sayısı |4 |
-| ExpressRoute bağlantı hattı izin verilen sanal ağ bağlantılarının sayısı |Aşağıdaki tabloya bakın. |
+| ExpressRoute bağlantı hattı izin verilen sanal ağ bağlantılarının sayısı |Bkz: [ExpressRoute bağlantı hattı başına sanal ağ sayısı](#vnetpercircuit) tablo.  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>ExpressRoute bağlantı hattı başına sanal ağ sayısı
+#### <a name="vnetpercircuit"></a> ExpressRoute bağlantı hattı başına sanal ağ sayısı
 | **Bağlantı hattı boyutu** | **Standart sanal ağ bağlantılarının sayısı** | **Premium eklenti ile sanal ağ bağlantılarının sayısı** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |

@@ -4,14 +4,14 @@ description: Azure CLI, Azure Cosmos DB hesabı, veritabanı ve kapsayıcıları
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 4/8/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 144515fef9da714ab80f15bb39757ed2283c6dd0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151205"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243369"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Azure CLI kullanarak Azure Cosmos kaynaklarını yönetme
 
@@ -21,7 +21,7 @@ Aşağıdaki kılavuzda, Azure Cosmos DB hesapları, veritabanları ve Azure CLI
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturun
+## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
 
 Oturum tutarlılığı bölgelerde, Doğu ABD ve Batı ABD SQL API'si ile bir Azure Cosmos DB hesabı oluşturmak için aşağıdaki komutu çalıştırın:
 

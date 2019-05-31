@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bde1983f89cb2fcd0a6fddadc2c3379dee4310be
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495463"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399626"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS sonuçlarını Application Insights ve Azure işlevleri ekleme
 Bu öğreticide LUIS istek ve yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
 
-Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
+Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu. A [Bot Framework 4.x LUIS öğreticisiyle](luis-nodejs-tutorial-bf-v4.md) de kullanılabilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -112,7 +112,7 @@ LUIS girişlerini görmek için Application ınsights'ı açın.
 
 1. Portalında **tüm kaynakları** ardından web app botu adına göre filtreleyin. Kaynak türü ile tıklayın **Application Insights**. Application ınsights bir ampul simgedir. 
 
-    ! [[App ınsights Azure Portalı'nda arayın](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ! [[Azure portalında app ınsights arayın](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. Kaynak açıldığında tıklayarak **arama** Sağdaki panelde Büyüteç simgesi. Yeni bir panel için doğru görüntüler. Bağlı olarak ne kadar telemetri verilerini bulunduğunda paneli görüntülemek için birkaç saniye sürebilir. Arama `LUIS-results` ve klavyede girin. Listede yalnızca, bu öğreticiyle eklenen LUIS sorgu sonuçlarına daraltıldığı.
 
@@ -129,7 +129,7 @@ LUIS girişlerini görmek için Application ınsights'ı açın.
 > Bağımlılık listesi kaydedin ve daha sonra döndürmek isterseniz tıklayın **... Daha fazla** tıklatıp **Kaydet sık**.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Amacını ve score utterance için Application Insights sorgu
-Application Insights ile verileri sorgulamak için power size [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) dışarı aktarma yanı dil [Powerbı](https://powerbi.microsoft.com). 
+Application Insights ile verileri sorgulamak için power size [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) dışarı aktarma yanı dil [Power BI](https://powerbi.microsoft.com). 
 
 1. Tıklayarak **Analytics** üst kısmında, filtre kutusuna listeleme bağımlılık. 
 
@@ -152,7 +152,7 @@ Application Insights ile verileri sorgulamak için power size [Kusto](https://do
     ![Analytics üst hedefi](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-Daha fazla bilgi edinin [Kusto sorgu dili](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) veya [Power BI için verileri dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Daha fazla bilgi edinin [Kusto sorgu dili](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) veya [verileri Power BI'a aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

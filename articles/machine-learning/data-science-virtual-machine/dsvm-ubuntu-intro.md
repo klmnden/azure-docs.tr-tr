@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597129"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236486"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makinesi sağlama
 
@@ -121,7 +121,7 @@ Ubuntu DSVM üç yöntemle erişebilirsiniz:
 1. Grafik oturumlarını X2Go
 1. JupyterHub ve Jupyter not defterleri için JupyterLab
 
-Ayrıca, Azure VM üzerinde Jupyter not defterlerini çalıştırmak ve ücretsiz bir hizmet katmanının kısıtlamaları atlama için not defterleri için veri bilimi sanal makinesi ekleyebilirsiniz. Daha fazla bilgi için [yönetme ve Not Defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Ayrıca, Azure VM üzerinde Jupyter not defterlerini çalıştırmak ve ücretsiz bir hizmet katmanının kısıtlamaları atlama için not defterleri için veri bilimi sanal makinesi ekleyebilirsiniz. Daha fazla bilgi için [yönetme ve Not Defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="ssh"></a>SSH
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002489"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389102"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -71,7 +71,8 @@ Vm'leri başlatma/durdurma sırasında saat çözüm kapalı bir Otomasyon hesab
 | Microsoft.OperationsManagement/solutions/write | Kaynak Grubu |
 | Microsoft.OperationalInsights/workspaces/* | Kaynak Grubu |
 | Microsoft.Insights/diagnosticSettings/write | Kaynak Grubu |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Kaynak Grubu |
+| Microsoft.Insights/ActionGroups/Write | Kaynak Grubu |
+| Microsoft.Insights/ActionGroups/read | Kaynak Grubu |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak Grubu |
 | Microsoft.Resources/deployments/* | Kaynak Grubu |
 
@@ -138,7 +139,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
 
    Burada, sizden istenir:
    - Belirtin **hedef ResourceGroup adları**. Bu değerler, bu çözüm tarafından yönetilecek Vm'leri içeren kaynak grubu adları. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Abonelikte yer alan tüm kaynak gruplarındaki sanal makineleri hedeflemek istiyorsanız, joker karakter kullanılması desteklenir. Bu değer depolanan **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** değişkenleri.
-   - Belirtin **VM çıkarma listesini (dize)**. Bu değer, hedef kaynak grubu bir veya daha fazla sanal makinelerden adıdır. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Joker karakter kullanılması desteklenir. Bu değer depolanan **External_ExcludeVMNames** değişkeni.
+   - Belirtin **VM çıkarma listesini (dize)** . Bu değer, hedef kaynak grubu bir veya daha fazla sanal makinelerden adıdır. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Joker karakter kullanılması desteklenir. Bu değer depolanan **External_ExcludeVMNames** değişkeni.
    - Seçin bir **zamanlama**. Bu, bir yinelenen tarih ve saat için başlatma ve durdurma hedef kaynak gruplarındaki VM'lerin değerdir. Varsayılan olarak, zamanlama, 30 dakika sonra için yapılandırılır. Başka bir bölge seçmeyi kullanılabilir değil. Çözüm yapılandırdıktan sonra belirli bir saat dilimi için zamanlama yapılandırmak için bkz [başlatma ve kapatma zamanlamasını değiştirme](#modify-the-startup-and-shutdown-schedules).
    - Almaya **e-posta bildirimleri** bir eylem grubundan varsayılan değerini kabul **Evet** ve geçerli bir eposta adresi belirtin. Seçerseniz **Hayır** ancak daha sonraki bir tarihte karar e-posta bildirimleri almak istediğinizi, güncelleştirebilirsiniz [eylem grubu](../azure-monitor/platform/action-groups.md) virgülle ayrılmış geçerli e-posta adresi ile oluşturulur. Aşağıdaki uyarı kurallarını etkinleştirmeniz gerekir:
 
@@ -147,7 +148,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > İçin varsayılan değer **hedef ResourceGroup adları** olduğu bir **&ast;**. Bu, bir Abonelikteki tüm sanal makineler hedefler. Aboneliğinizdeki tüm sanal makineleri hedeflemek için çözüm istemiyorsanız bu değeri zamanlamaları etkinleştirilmeden önce kaynak grubu adları listesine güncelleştirilmesi gerekiyor.
+     > İçin varsayılan değer **hedef ResourceGroup adları** olduğu bir **&ast;** . Bu, bir Abonelikteki tüm sanal makineler hedefler. Aboneliğinizdeki tüm sanal makineleri hedeflemek için çözüm istemiyorsanız bu değeri zamanlamaları etkinleştirilmeden önce kaynak grubu adları listesine güncelleştirilmesi gerekiyor.
 
 8. Çözüm için gereken ve ilk ayarları yapılandırdıktan sonra tıklayın **Tamam** kapatmak için **parametreleri** sayfasından seçim yapıp **Oluştur**. Tüm ayarlar doğrulandıktan sonra çözümün aboneliğinize dağıtılır. Bu işlemin tamamlanması birkaç saniye sürebilir ve altında ilerleme durumunu izleyebilir **bildirimleri** menüsünde.
 
@@ -250,9 +251,9 @@ Tüm üst runbook'ları dahil _WhatIf_ parametresi. Ayarlandığında **True**, 
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Üst runbook'tan çağrılır. Bu runbook DISPLAYFILTER senaryosu için kaynak başına temelinde uyarılar oluşturur.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: TRUE veya False  | Oluşturur veya hedef abonelik veya kaynak gruplarındaki VM'lerin Azure uyarı kuralları güncelleştirir. <br> VMList: Vm'leri virgülle ayrılmış listesi. Örneğin, _vm1, vm2, vm3_.<br> *WhatIf* çalıştırmadan runbook mantığının doğrular.|
-|AutoStop_Disable | yok | DISPLAYFILTER uyarıları ve varsayılan zamanlama devre dışı bırakır.|
+|AutoStop_Disable | Yok | DISPLAYFILTER uyarıları ve varsayılan zamanlama devre dışı bırakır.|
 |AutoStop_StopVM_Child | WebHookData | Üst runbook'tan çağrılır. Uyarı kuralları, bu runbook için VM'yi durdurmak çağırın.|
-|Bootstrap_Main | yok | Bir kez webhookURI gibi genellikle Azure Kaynak Yöneticisi'nden erişilebilir olmayan önyükleme yapılandırmaları ayarlamak için kullanılır. Bu runbook başarılı dağıtımdan sonra otomatik olarak kaldırılır.|
+|Bootstrap_Main | Yok | Bir kez webhookURI gibi genellikle Azure Kaynak Yöneticisi'nden erişilebilir olmayan önyükleme yapılandırmaları ayarlamak için kullanılır. Bu runbook başarılı dağıtımdan sonra otomatik olarak kaldırılır.|
 |ScheduledStartStop_Child | VMName <br> Eylem: Başlatma veya durdurma <br> ResourceGroupName | Üst runbook'tan çağrılır. Zamanlanmış Durdur için bir başlatma veya durdurma eylemi yürütür.|
 |ScheduledStartStop_Parent | Eylem: Başlatma veya durdurma <br>VMList <br> WhatIf: TRUE veya False | Bu ayar, abonelik içindeki tüm sanal makineleri etkiler. Düzen **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** yalnızca bunları yürütmek için kaynak gruplarını hedeflenen. Belirli sanal makineler güncelleştirerek de hariç tutabilirsiniz **External_ExcludeVMNames** değişkeni.<br> VMList: Vm'leri virgülle ayrılmış listesi. Örneğin, _vm1, vm2, vm3_.<br> _WhatIf_ çalıştırmadan runbook mantığının doğrular.|
 |SequencedStartStop_Parent | Eylem: Başlatma veya durdurma <br> WhatIf: TRUE veya False<br>VMList| Adlı etiketler oluşturma **sequencestart** ve **sequencestop** dizisi Başlat/Durdur etkinliğinin istediğiniz her VM'de. Bu etiket adları büyük/küçük harfe duyarlıdır. Etiket değeri başlatmak veya durdurmak istediğiniz siparişin karşılık gelen bir pozitif tamsayı (1, 2, 3) olmalıdır. <br> VMList: Vm'leri virgülle ayrılmış listesi. Örneğin, _vm1, vm2, vm3_. <br> _WhatIf_ çalıştırmadan runbook mantığının doğrular. <br> **Not**: VM'ler, Azure Otomasyonu değişken External_Start_ResourceGroupNames External_Stop_ResourceGroupNames ve External_ExcludeVMNames tanımlanmış kaynak grubu içinde olmalıdır. Uygun etiketleri etkili olması eylemler için olmaları gerekir.|
@@ -421,7 +422,7 @@ Artık çözümü kullanmak gereken karar verirseniz, Otomasyon hesabı silebili
 1. Otomasyon hesabınızdan altında **ilgili kaynakları**seçin **bağlantılı çalışma**.
 1. Seçin **çalışma alanına gidin**.
 1. Altında **genel**seçin **çözümleri**. 
-1. Üzerinde **çözümleri** sayfasında, çözümü seçin **Başlat-Durdur-VM [çalışma alanı]**. Üzerinde **VMManagementSolution [çalışma alanı]** sayfasından menüsünde, select **Sil**.<br><br> ![VM yönetimi çözümü Sil](media/automation-solution-vm-management/vm-management-solution-delete.png)
+1. Üzerinde **çözümleri** sayfasında, çözümü seçin **Başlat-Durdur-VM [çalışma alanı]** . Üzerinde **VMManagementSolution [çalışma alanı]** sayfasından menüsünde, select **Sil**.<br><br> ![VM yönetimi çözümü Sil](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. İçinde **Sil çözüm** penceresinde çözümü silmek istediğinizi onaylayın.
 1. Bilgiler doğrulanır ve çözümün silinmiş, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde. Döndürülürsünüz **çözümleri** Çözüm kaldırma işlemini başladıktan sonra sayfa.
 

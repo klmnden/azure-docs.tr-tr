@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931e44f85131e8cbdd7aecddd6398f6f59d1b166
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 90577ea9f24bc5f36113bc1bdb913949772325c9
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937285"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305494"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Yenilikler için arşiv? Azure Active Directory'de
 
@@ -38,7 +38,7 @@ Yeni sürüm notları nedir bilgilerle ilgili sağlar:
  
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Dinamik gruplar için güncelleştirilmiş yönetici rolü izinleri
 
-**Türü:** Sabit  
+**Türü:** düzeltildi  
 **Hizmet kategorisi:** Grup Yönetimi  
 **Ürün özelliği:** İş Birliği
 
@@ -48,9 +48,9 @@ Rolü şunlardır:
 
 - Genel yönetici
 
-- Intune yöneticisi
+- Intune Yöneticisi
 
-- Kullanıcı yöneticisi
+- Kullanıcı Yöneticisi
 
 Daha fazla bilgi için [dinamik bir grup oluşturun ve durumunu denetle](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 
@@ -59,7 +59,7 @@ Daha fazla bilgi için [dinamik bir grup oluşturun ve durumunu denetle](https:/
 ### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Bazı üçüncü taraf uygulamalar için Basitleştirilmiş Çoklu Oturum Açma (SSO) yapılandırma ayarları
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
 
 Biz yukarı çoklu oturum açma (SSO) için yazılım (SaaS) hizmet olarak ayarlama uygulamalar her apps yapılandırması benzersiz niteliği nedeniyle zor olabileceğini unutmayın. Aşağıdaki üçüncü taraf SaaS uygulamaları için SSO yapılandırma ayarlarını otomatik olarak doldurmak için Basitleştirilmiş yapılandırma deneyimi oluşturduk:
@@ -74,7 +74,7 @@ Bu tek tıklamayla deneyimi kullanmaya başlamak için Git **Azure portalında**
 
 ---
 
-### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory - Verileriniz nerede bulunuyor? sayfası
+### <a name="azure-active-directory---where-is-your-data-located-page"></a>Verilerinizin bulunduğu azure Active Directory -? Sayfa
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Diğer  
@@ -89,7 +89,7 @@ Daha fazla bilgi için bu özelliğe erişmek için [Azure etkin verilerinizin b
 ### <a name="new-deployment-plan-available-for-the-my-apps-access-panel"></a>Uygulamalarım Erişim paneli için yeni dağıtım planı kullanılabilir
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamalarım  
+**Hizmet kategorisi:** My Apps  
 **Ürün özelliği:** SSO
 
 My Apps erişim panelinde kullanılabilen yeni dağıtım planını göz atın (https://aka.ms/deploymentplans).
@@ -156,7 +156,7 @@ Daha fazla bilgi için [parola Windows 7, 8 ve 8.1 sıfırlama olanağı tanıma
 ### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>Değişiklik bildirimi: Bu yetkilendirme kodları için yeniden kullanılabilir 
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
 
 15 Kasım 2018'de başlayarak, Azure AD uygulamaları için daha önce kullanılan kimlik doğrulama kodlarını kabul durdurur. Bu güvenlik değişiklik v1 ve v2 Uç noktalara zorlanmasını sağlar ve Azure AD OAuth belirtimi ayarlarına uygun olarak çıkarmak yardımcı olur.
@@ -170,8 +170,8 @@ Bu ve diğer protokolleri güvenlikle ilgili değişiklikler için bkz. [kimlik 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---september-2018"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanılabilir - Eylül 2018
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Eylül 2018'de Federasyon ile 16 Bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
 
@@ -184,7 +184,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 ### <a name="support-for-additional-claims-transformations-methods"></a>Ek talep dönüşümü yöntemleri için destek
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
 
 ToLower() ve SAML belirteçlerini SAML tabanlı uygulanabilir ToUpper(), yeni talep dönüştürme yöntemleri tanıttık **çoklu oturum açma yapılandırması** sayfası.
@@ -196,7 +196,7 @@ Daha fazla bilgi için [Azure AD'de kurumsal uygulamalar için SAML belirtecinde
 ### <a name="updated-saml-based-app-configuration-ui-preview"></a>Güncelleştirilmiş SAML tabanlı uygulama yapılandırması kullanıcı arabirimi (önizleme)
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
 
 Bizim güncelleştirilmiş SAML tabanlı uygulama yapılandırması kullanıcı Arabirimi bir parçası olarak, elde edecekleriniz:
@@ -240,7 +240,7 @@ Tüm ağ trafiğinizin taşındı kadar yeni aralıklar için eski IP adres aral
 ### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>Değişiklik bildirimi: Bu yetkilendirme kodları için yeniden kullanılabilir 
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
 
 15 Kasım 2018'de başlayarak, Azure AD uygulamaları için daha önce kullanılan kimlik doğrulama kodlarını kabul durdurur. Bu güvenlik değişiklik v1 ve v2 Uç noktalara zorlanmasını sağlar ve Azure AD OAuth belirtimi ayarlarına uygun olarak çıkarmak yardımcı olur.
@@ -268,7 +268,7 @@ Bu bir katılım genel önizlemesidir. Yöneticilerin yeni deneyimi (istenirse) 
 ### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Azure AD Uygulama Ara Sunucusu uygulamalarında yeni Yalnızca HTTP tanımlama bilgileri ayarı
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Proxy'si  
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
 **Ürün özelliği:** Erişim Denetimi
 
 Çağrılan, bir yeni ayar yoktur **azaltmaya** uygulamalarınızdaki uygulama proxy'si. Bu ayar, her iki uygulama ara sunucusu erişim ve oturum tanımlama bilgileri HTTP yanıt üst bilgisinde HTTPOnly bayrağı dahil olmak üzere, erişim tanımlama bilgisine istemci tarafı komut dosyasından durduruluyor ve daha da kopyalama gibi eylemleri engelleyen ek güvenlik sağlamaya yardımcı olur veya tanımlama bilgisi değiştiriliyor. Bu bayrak daha önce kullanılmamış olsa da, tanımlama bilgilerinizi her zaman silinmiş şifrelenir ve aktarılan yanlış değişikliklere karşı korumaya yardımcı olmak için bir SSL bağlantısı kullanma.
@@ -306,8 +306,8 @@ Bugün, PIM kullanarak rol etkinleştirme yapılırken, üzerinde etkili olması
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---august-2018"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanılabilir - Ağustos 2018
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Ağustos 2018'de Federasyon ile 16 Bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
 
@@ -320,7 +320,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 ### <a name="native-tableau-support-is-now-available-in-azure-ad-application-proxy"></a>Yerel Tableau desteği artık Azure AD Uygulama Ara Sunucusu içinde kullanılabilir
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Uygulama Proxy'si  
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
 **Ürün özelliği:** Erişim Denetimi
 
 Bizim güncelleştirmesi ile Openıd Connect bizim ön kimlik doğrulama protokolü için OAuth 2.0 kodu verme protokolü, artık Tableau uygulaması Ara sunucusu ile kullanılacak tüm ek yapılandırma adımları gerekir. Bu protokol değişiklik uygulama proxy'si, JavaScript ve HTML etiketleri yaygın olarak desteklenen HTTP yönlendirmeleri kullanarak daha modern uygulamalar daha iyi destek de yardımcı olur.
@@ -389,7 +389,7 @@ Blogumuzu bu yeni özellikler hakkında daha fazla bilgi için bkz. [Azure AD et
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Raporlama  
-**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+**Ürün özelliği:** Kimlik güvenliği ve koruması
  
 Bu güncelleştirme, hangi ilkelerin ilke sonucu ile birlikte bir kullanıcı oturum açtığı zaman değerlendirilen görmenize olanak tanır. Ayrıca, rapor artık eski protokol trafiğini belirleyebilmeniz kullanıcı tarafından kullanılan istemci uygulaması türünü içerir. Rapor girişleri kullanıcıya yönelik hata iletisinde bulunabilir ve belirleme ve giderme eşleşen oturum açma isteği için kullanılan bir bağıntı kimliği için artık aranabilir.
 
@@ -408,8 +408,8 @@ Sunulmasıyla birlikte **istemci uygulaması** alan oturum açma etkinlik günl�
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanılabilir - Temmuz 2018
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Temmuz 2018'de Federasyon ile 16 Bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
 
@@ -422,8 +422,8 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 ### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Yeni kullanıcı sağlama SaaS uygulama tümleştirmeleri - Temmuz 2018
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Sağlama  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Uygulama sağlama  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Azure AD, oluşturma, Bakım ve Dropbox, Salesforce, ServiceNow ve diğer SaaS uygulamalarına kullanıcı kimliklerini kaldırılmasını otomatik hale getirmenizi sağlar. Kullanıcı Azure AD uygulama galerisinde şu uygulamalar için destek sağlama Temmuz 2018 tarihinden itibaren ekledik:
 
@@ -440,7 +440,7 @@ Azure AD Galerisi'nde kullanıcı sağlamayı destekleyen tüm uygulamalar liste
 ### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Eşitleme için Connect Health - Yalnız bırakılmış ve çoğaltışmış öznitelik eşitleme hatalarını kolaylıkla düzeltme
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** AD Connect  
+**Hizmet kategorisi:** AD bağlayın  
 **Ürün özelliği:** İzleme ve Raporlama
  
 Azure AD Connect Health kendi kendine düzeltme vurgulayın ve eşitleme hatalarını düzeltmeyi yardımcı olması için ortaya çıkarır. Bu özellik, yinelenen öznitelik Eşitleme hataları giderir ve yalnız bırakılmış nesneler, Azure AD'den giderir. Bu tanılama aşağıdaki faydaları sağlar:
@@ -468,8 +468,8 @@ Microsoft online services oturum açma deneyimi için kullanıcı Arabirimi gibi
 ### <a name="new-release-of-azure-ad-connect---july-2018"></a>Yeni Azure AD Connect sürümü - Temmuz 2018
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Uygulama Sağlama  
-**Ürün özelliği:** Kimlik Yaşam Döngüsü Yönetimi
+**Hizmet kategorisi:** Uygulama sağlama  
+**Ürün özelliği:** Kimlik yaşam döngüsü yönetimi
 
 Azure AD Connect'in en son sürümünü içerir: 
 
@@ -483,10 +483,10 @@ Bu güncelleştirme hakkında daha fazla bilgi için bkz. [Azure AD Connect: Sü
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Kullanım Koşulları (ToU) son kullanıcı arabirimi güncelleştirmeleri
+### <a name="updates-to-the-terms-of-use-end-user-ui"></a>Son kullanıcı UI kullanım koşullarını güncelleştirme
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kullanım Koşulları  
+**Hizmet kategorisi:** Kullanım koşulları  
 **Ürün özelliği:** İdare
 
 Kabul dize TOU son kullanıcı arabiriminde güncelleştiriyoruz.
@@ -500,7 +500,7 @@ Kabul dize TOU son kullanıcı arabiriminde güncelleştiriyoruz.
 ### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>Doğrudan kimlik doğrulama eski protokolleri ve uygulamaları destekliyor
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Geçişli kimlik doğrulaması artık eski protokolleri ve uygulamaları destekler. Aşağıdaki sınırlamalar artık tam olarak desteklenir:
@@ -612,8 +612,8 @@ Güncel olmayan tarayıcılar, TLS 1.2 gibi yeni TLS sürümlerini desteklemiyor
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Haziran 2018
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Haziran 2018'de Federasyon ile 15 bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
 
@@ -641,25 +641,25 @@ Azure AD parola koruması hakkında daha fazla bilgi için bkz. [yanlış parola
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Kullanım koşulları (ToU) oluşturma sırasında oluşturulan yeni "tüm konuklar" koşullu erişim ilkesi şablonu
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Koşulları kullanım oluşturma sırasında oluşturulan yeni "tüm konuklar" koşullu erişim ilkesi şablonu
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım Koşulları  
+**Hizmet kategorisi:** Kullanım koşulları  
 **Ürün özelliği:** İdare
 
-Kullanım koşulları (ToU) oluşturma sırasında "tüm konuklar" ve "tüm uygulamalar" için yeni koşullu erişim ilkesi şablonu da oluşturulur. Bu yeni bir ilke şablonu oluşturma ve zorlama işlemi konuklar için hızlandırma, yeni oluşturulan ToU geçerlidir.
+Kullanım koşullarınızın oluşturma sırasında "tüm konuklar" ve "tüm uygulamalar" için yeni koşullu erişim ilkesi şablonu da oluşturulur. Bu yeni bir ilke şablonu oluşturma ve zorlama işlemi konuklar için hızlandırma, yeni oluşturulan ToU geçerlidir.
 
 Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Kullanım koşulları (ToU) oluşturma sırasında oluşturulan yeni "özel" koşullu erişim ilkesi şablonu
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Koşulları kullanım oluşturma sırasında oluşturulan yeni "özel" koşullu erişim ilkesi şablonu
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım Koşulları  
+**Hizmet kategorisi:** Kullanım koşulları  
 **Ürün özelliği:** İdare
 
-Kullanım koşulları (ToU) oluşturma sırasında ayrıca yeni bir "özel" koşullu erişim ilkesi şablonu oluşturulur. Bu yeni bir ilke şablonu ToU oluşturmanızı ve el ile portal üzerinden gitmek zorunda kalmadan koşullu erişim ilkesi oluşturma dikey penceresine hemen Git sağlar.
+Kullanım koşullarınızın oluşturma sırasında ayrıca yeni bir "özel" koşullu erişim ilkesi şablonu oluşturulur. Bu yeni bir ilke şablonu ToU oluşturmanızı ve el ile portal üzerinden gitmek zorunda kalmadan koşullu erişim ilkesi oluşturma dikey penceresine hemen Git sağlar.
 
 Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -669,7 +669,7 @@ Daha fazla bilgi için [kullanım özelliği, Azure Active Directory koşulları
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Diğer  
-**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+**Ürün özelliği:** Kimlik güvenliği ve koruması
  
 Yeni bir Azure multi-Factor Authentication (MFA) kuruluşunuzda dağıtma hakkında adım adım kılavuz yayımladık.
 
@@ -680,7 +680,7 @@ MFA Dağıtım Kılavuzu'nu görüntülemek için Git [kimlik dağıtım kılavu
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD rolleri genel Önizleme aşamasındadır uygulama yönetimi temsilcisi
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** Erişim Denetimi
 
 Yöneticiler, artık genel yönetici rolü atama olmadan uygulama yönetim görevlerini devredebilirsiniz. Yeni rol ve özellikleri şunlardır:
@@ -708,7 +708,7 @@ Genel önizleme hakkında daha fazla bilgi için bkz: [Azure AD rolleri, genel �
 ### <a name="expressroute-support-changes"></a>ExpressRoute destek değişiklikleri
 
 **Türü:** Değişiklik planı  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Platform  
 
 Doğrudan Internet gidip ExpressRoute veya diğer özel VPN tünelleri gerek kalmadan iyi çalışacak şekilde tasarlanan Azure Active Directory (Azure AD) gibi bir hizmet olarak yazılım. Bu nedenle, üzerinde **1 Ağustos 2018**, size Azure AD Hizmetleri kullanarak Azure ortak eşleme ve Microsoft eşlemesi içinde Azure topluluklar için ExpressRoute destekleme durdurur. Bu değişiklikten etkilenen tüm hizmetler Azure fark edebilirsiniz AD trafik ExpressRoute Internet'e giderek kaydırma.
@@ -726,17 +726,17 @@ Adanmış devreler kullanmaya devam etmeniz gerekiyorsa Microsoft Account ekibin
 ### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API'leri için TOU yönetim senaryoları için
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım Koşulları  
-**Ürün özelliği:** Geliştirici Deneyimi
+**Hizmet kategorisi:** Kullanım koşulları  
+**Ürün özelliği:** Bir geliştirici deneyimi
  
-Azure AD kullanım koşulları için yönetim işlemi Microsoft Graph API'leri ekledik. Oluştur, Güncelleştir, kullanım koşulları nesneyi silmek kullanabilirsiniz.
+Azure AD kullanım koşulları için yönetim işlemi Microsoft Graph API'leri ekledik. Oluştur, Güncelleştir, nesne kullanım koşullarını silmek kullanabilirsiniz.
 
 ---
 
 ### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Bir Azure AD B2C kimlik sağlayıcısı olarak Azure AD çok kiracılı uç noktası ekleme
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** B2C - Tüketici Kimlik Yönetimi  
+**Hizmet kategorisi:** B2C - tüketici Kimlik Yönetimi  
 **Ürün özelliği:** B2B/B2C
  
 Özel ilkeleri kullanarak, Azure AD genel uç noktası kimlik sağlayıcısı olarak Azure AD B2C artık ekleyebilirsiniz. Bu, tek bir uygulamalarınızda oturum açtığınız tüm Azure AD kullanıcıları için giriş noktası olmasını sağlar. Daha fazla bilgi için [Azure Active Directory B2C: Özel ilkeleri kullanarak çok kiracılı Azure AD kimlik sağlayıcısı için oturum açmasına imkan tanıyın](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-commonaad-custom).
@@ -746,7 +746,7 @@ Azure AD kullanım koşulları için yönetim işlemi Microsoft Graph API'leri e
 ### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>Her yerden uygulamalara erişmek için iç URL'lerini kullanan My Apps oturum açma Uzantımızı ve Azure AD uygulama proxy'si ile
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamalarım  
+**Hizmet kategorisi:** My Apps  
 **Ürün özelliği:** SSO
  
 Kullanıcılar artık uygulamalar üzerinden şirket ağınıza olduğunda bile dışında İç URL My Apps güvenli oturum açma uzantısı için Azure AD'yi kullanarak erişebilirsiniz. Bu, Azure AD uygulama ara sunucusu, ayrıca erişim paneli tarayıcı uzantısının yüklü olan herhangi bir tarayıcı üzerinde kullanarak yayımladığınız herhangi bir uygulama ile çalışır. URL yeniden yönlendirme işlevi, uzantısı'na bir kullanıcı oturumu sonra otomatik olarak etkinleştirilir. Uzantı, ücretsiz olarak kullanılabilir [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367), ve [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
@@ -766,8 +766,8 @@ Avrupa'da bulunan müşteriler verilerine Avrupa'da kalmasını gerektirir ve to
 ### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>SaaS uygulama tümleştirmeleri - Mayıs 2018 sağlama yeni kullanıcı
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Sağlama  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Uygulama sağlama  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Azure AD, oluşturma, Bakım ve Dropbox, Salesforce, ServiceNow ve diğer SaaS uygulamalarına kullanıcı kimliklerini kaldırılmasını otomatik hale getirmenizi sağlar. Mayıs 2018 için kullanıcı sağlama desteği aşağıdaki uygulamalar Azure AD uygulama galerisinde ekledik:
 
@@ -818,8 +818,8 @@ Oturum açma işlemleri ve Denetim günlükleri'nı içeren azure AD etkinlik g�
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Mayıs 2018
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Mayıs 2018'de uygulama galerimizden Federasyon ile 18 Bu yeni uygulamaları desteği ekledik:
 
@@ -846,7 +846,7 @@ Dağıtım kılavuzlarını görüntülemek için Git [kimlik dağıtım kılavu
 ### <a name="enterprise-applications-search---load-more-apps"></a>Kurumsal uygulamaları arayın: daha fazla uygulama yükleme
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
  
 Hizmet sorumluları / uygulamalarınızı bulma konusunda sorun mu yaşıyorsunuz? Tüm uygulamalar listesini, Kurumsal uygulamalarınızda daha fazla uygulama yükleme olanağı ekledik. Varsayılan olarak 20 uygulamaları göstereceğiz. Artık tıklatabilir, **daha fazla Yükle** ek uygulamaları görüntülemek için. 
@@ -856,8 +856,8 @@ Hizmet sorumluları / uygulamalarınızı bulma konusunda sorun mu yaşıyorsunu
 ### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>Genel Önizleme aşamasında, PingFederate ile tümleştirme AADConnect sürümünü içeren Mayıs önemli güvenlik güncelleştirmeleri, birçok hata düzeltmeleri ve yeni harika yeni sorun giderme araçları. 
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** AD Connect  
-**Ürün özelliği:** Kimlik Yaşam Döngüsü Yönetimi
+**Hizmet kategorisi:** AD bağlayın  
+**Ürün özelliği:** Kimlik yaşam döngüsü yönetimi
  
 Genel Önizleme aşamasında, PingFederate ile tümleştirme AADConnect sürümünü içeren Mayıs önemli güvenlik güncelleştirmeleri, birçok hata düzeltmeleri ve yeni harika yeni sorun giderme araçları. Sürüm notlarında bulabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
@@ -876,7 +876,7 @@ Erişim gözden geçirmeleri, grupları ve uygulamaları sunulmuştur Azure AD P
 ### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>Kimlik belirteçlerini, artık yeni uygulamalar için sorgu response_mode kullanarak döndürülebilir. 
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Ya da 25 Nisan 2018'den sonra oluşturulan uygulamaların artık oluşturabileceksiniz istemek bir **id_token** kullanarak **sorgu** response_mode.  Yardımcı uygulama saldırı yüzeyinizi azaltmak ve bu Azure AD satır içi OIDC belirtimleri ile getirir.  25 Nisan 2018 tarihinden önce oluşturulan uygulamaların, kullanımından değil engellenir **sorgu** ile bir response_type response_mode **id_token**.  Döndürülen bir id_token, AAD'den istenirken hata **AADSTS70007: 'query' değil 'response_mode' ın desteklenen bir değer bir belirteç isterken**.
@@ -890,7 +890,7 @@ Ya da 25 Nisan 2018'den sonra oluşturulan uygulamaların artık oluşturabilece
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Azure AD B2C erişim belirteci olan genel kullanım
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** B2C - Tüketici Kimlik Yönetimi  
+**Hizmet kategorisi:** B2C - tüketici Kimlik Yönetimi  
 **Ürün özelliği:** B2B/B2C 
 
 Azure AD B2C ile güvenliği sağlanan Web API'leri artık erişebilirsiniz erişim belirteçleri kullanarak. Özellik genel Önizleme için büyüyecek taşınıyor Azure AD B2C uygulamaları ve web API'leri yapılandırmak için kullanıcı Arabirimi deneyimi İyileştirildi ve başka küçük geliştirmeler yapıldı.
@@ -902,7 +902,7 @@ Daha fazla bilgi için [Azure AD B2C: Erişim belirteci istenirken](https://docs
 ### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>SAML tabanlı uygulamalar için çoklu oturum açma yapılandırması test
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
 
 SAML tabanlı SSO uygulamaları yapılandırırken, yapılandırma sayfasında tümleştirme test edebilirsiniz. Oturum açma sırasında bir hatayla karşılaşırsanız, hata test deneyiminde sağlayabilir ve Azure AD ile çözüm adımları belirli sorunu çözmek için sağlar.
@@ -914,10 +914,10 @@ Daha fazla bilgi için bkz.
 
 ---
  
-### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD kullanım koşulları, artık raporlama kullanıcı başına sahiptir
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD kullanım koşulları artık sahip kullanıcı raporlama başına
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım Koşulları  
+**Hizmet kategorisi:** Kullanım koşulları  
 **Ürün özelliği:** Uyumluluk
  
 Yöneticiler artık belirli bir ToU'ı seçin ve ToU ve hangi, tarih yer aldığı onay tüm kullanıcılar görür.
@@ -945,7 +945,7 @@ Daha fazla bilgi için [riskli IP raporu](https://aka.ms/aadchriskyip).
 ### <a name="easy-app-config-with-metadata-file-or-url"></a>Meta veri dosyası veya URL ile kolay uygulama yapılandırması
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
 
 Kurumsal uygulamalar sayfasında Yöneticiler SAML tabanlı oturum açma AAD galeri ve galeri dışı bir uygulama için yapılandırmak için bir SAML meta veri dosyasını karşıya yükleyebilirsiniz.
@@ -959,7 +959,7 @@ Daha fazla bilgi için [Azure Active Directory Uygulama galerisinde bulunmayan u
 ### <a name="azure-ad-terms-of-use-now-generally-available"></a>Azure AD kullanım koşulları artık kullanıma sunuldu
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım Koşulları  
+**Hizmet kategorisi:** Kullanım koşulları  
 **Ürün özelliği:** Uyumluluk
  
 
@@ -989,8 +989,8 @@ Daha fazla bilgi için [B2B kullanıcıları için izin verilenler veya Engellen
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
 
 Nisan 2018'de uygulama galerimizden Federasyon ile 13 bu yeni uygulamaları desteği ekledik:
 
@@ -1018,7 +1018,7 @@ Daha fazla bilgi için [verme B2B kullanıcıları Azure AD'de, şirket içi uyg
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Diğer  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Ürün özelliği:** 3. taraf tümleştirme
 
 Listelenen bir uygulama bildirimi [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) destekleyen SAML tabanlı çoklu tıklayarak oturum, **şimdi edinin** bu uygulamayla ilişkili tümleştirme öğreticisiyle sağlar. 
 
@@ -1027,8 +1027,8 @@ Listelenen bir uygulama bildirimi [Azure Market](https://azuremarketplace.micros
 ### <a name="faster-performance-of-azure-ad-automatic-user-provisioning-to-saas-applications"></a>Azure AD SaaS uygulamaları için otomatik kullanıcı hazırlama, daha hızlı performans
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Uygulama Sağlama  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Uygulama sağlama  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Daha önce Azure AD kiracıları 100. 000'den birleşik kullanıcılar içeriyorsa sağlama bağlayıcılar (örneğin Salesforce, ServiceNow ve kutusu) SaaS uygulamaları için Azure Active Directory kullanıcı kullanan müşteriler yavaş performans karşılaşması ve Gruplar ve hangi kullanıcıların sağlanan belirlemek için kullanıcı ve Grup atamaları kullanıyordu.
 
@@ -1043,7 +1043,7 @@ Daha fazla bilgi için [sağlama sırasında ne olur?](https://docs.microsoft.co
 ### <a name="self-service-password-reset-from-windows-10-lock-screen-for-hybrid-azure-ad-joined-machines"></a>Self Servis parola sıfırlama için hibrit Azure AD'ye Windows 10 kilit ekranından makineler katılmış
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Self Servis Parola Sıfırlama  
+**Hizmet kategorisi:** Self Servis parola sıfırlama  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Hibrit Azure AD'ye katılmış olan makineler için destek eklemek için Windows 10 SSPR özelliğini güncelleştirdik. Bu özellik kullanılabilir Windows 10 RS4 bir Windows 10 makinenin kilit ekranında parolalarını sıfırlamalarına olanak tanır. Etkin ve Self Servis parola sıfırlama için kaydolan kullanıcılar, bu özelliği kullanabilir.
@@ -1056,8 +1056,8 @@ Daha fazla bilgi için [Azure AD parola sıfırlama oturum açma ekranından](ht
  
 ### <a name="certificate-expire-notification"></a>Sertifika sona bildirimi
 
-**Türü:** Sabit  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Türü:** düzeltildi  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
  
 Galeri dışı uygulama dolmak üzere olduğu ya da Azure AD galeri için bir sertifika olduğunda bir bildirim gönderir. 
@@ -1074,7 +1074,7 @@ Daha fazla bilgi için bkz.
 ### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Azure AD B2C, twitter ve GitHub kimlik sağlayıcıları
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** B2C - Tüketici Kimlik Yönetimi  
+**Hizmet kategorisi:** B2C - tüketici Kimlik Yönetimi  
 **Ürün özelliği:** B2B/B2C
  
 Artık, bir Azure AD B2C kimlik sağlayıcısı olarak Twitter veya GitHub ekleyebilirsiniz. Twitter büyüyecek için genel preview'dan taşınıyor GitHub genel önizlemede yayınlanır.
@@ -1087,7 +1087,7 @@ Daha fazla bilgi için [Azure AD B2B işbirliği nedir?](https://docs.microsoft.
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Koşullu Erişim  
-**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+**Ürün özelliği:** Kimlik güvenliği ve koruması
  
 **Artık genel önizlemede!**
 
@@ -1108,7 +1108,7 @@ Daha fazla bilgi için bkz.
 ### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>Uygulama proxy'si GA Powershell modülündeki cmdlet'leri
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Proxy'si  
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
 **Ürün özelliği:** Erişim Denetimi
  
 Uygulama proxy'si cmdlet'leri için desteği Powershell GA modülünde sunuldu! Bu Powershell modülleri - daha fazla bir yıl, bazı cmdlet'ler hale gelirse çalışmayı durdurabilir güncel gerektirir. 
@@ -1120,7 +1120,7 @@ Daha fazla bilgi için [AzureAD](https://docs.microsoft.com/powershell/module/Az
 ### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Office 365 için yerel istemcileri tarafından etkileşimli olmayan bir protokol kullanarak sorunsuz SSO desteklenir
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Office 365 yerel istemci kullanarak kullanıcı (sürüm 16.0.8730.xxxx ve üstü) sorunsuz çoklu oturum açma kullanarak sessiz oturum açma deneyimi alın. Bu destek, Azure AD'ye etkileşimli olmayan bir protokol (WS-Trust) ekleyerek sağlanır.
@@ -1132,7 +1132,7 @@ Daha fazla bilgi için [nasıl sorunsuz çoklu oturum açma çalışma ile yerel
 ### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenant-endpoints"></a>Bir uygulamayı Azure AD'nin Kiracı uç noktalar için oturum açma isteği gönderirse bir sessiz oturum açma deneyimini sorunsuz SSO ile kullanıcılar Al
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Kullanıcılar bir sessiz oturum açma deneyimini sorunsuz SSO ile bir uygulama bildirimi alır (örneğin, `https://contoso.sharepoint.com`) oturum açma istekleri için Azure AD'nin Kiracı uç noktası; diğer bir deyişle, gönderir `https://login.microsoftonline.com/contoso.com/<..>` veya `https://login.microsoftonline.com/<tenant_ID>/<..>` - Azure AD'nin ortak uç nokta yerine (`https://login.microsoftonline.com/common/<...>`).
@@ -1144,7 +1144,7 @@ Daha fazla bilgi için [Azure Active Directory sorunsuz çoklu oturum açma](htt
 ### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Sorunsuz çoklu oturum açma almak için kullanıcıların Intranet bölgesi ayarlarını daha önce iki URL yerine yalnızca bir Azure AD URL'sini eklemeniz gerekir
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Kullanıcılarınız için sorunsuz SSO alma için yalnızca bir Azure AD URL kullanıcıların intranet bölgesi ayarlarını Active Directory'de Grup İlkesi'ni kullanarak eklemeniz gerekir: `https://autologon.microsoftazuread-sso.com`. Daha önce müşterilerin iki URL'si eklemek için zorunluluğundaydı.
@@ -1156,8 +1156,8 @@ Daha fazla bilgi için [Azure Active Directory sorunsuz çoklu oturum açma](htt
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama Galerisi
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
 
 Mart 2018'de bu 15 yeni Federasyon uygulamalarla uygulama galerimizden desteği ekledik:
 
@@ -1184,7 +1184,7 @@ Daha fazla bilgi için [(Önizleme) Azure kaynakları için PIM](https://docs.mi
 ### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>Uygulamaları belirteçlerinizi (genel Önizleme) için isteğe bağlı bir talep ekleme
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Özel veya isteğe bağlı isteği Jwt'ler veya SAML belirteçlerini talep artık Azure AD uygulamanızı geçirebilirsiniz.  Bu, varsayılan boyutu veya Uygulanabilirlik kısıtlamaları nedeniyle bir belirteç olarak bulunmayan bir kullanıcı ya da Kiracı hakkında taleplerdir.  Şu anda genel önizlemede Azure AD uygulamaları v1.0 ve v2.0 uç noktalarda budur.  Bilgi için bkz. hangi talepleri temel eklenebilir ve bunları istemek için uygulama bildirimini düzenleme.  
@@ -1196,7 +1196,7 @@ Daha fazla bilgi için [isteğe bağlı Azure AD'de talep](https://docs.microsof
 ### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>Azure AD PKCE daha güvenli OAuth akışlar için destekler.
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Azure AD belgeleri, OAuth 2.0 yetkilendirme kodu verme akışı sırasında daha güvenli iletişime izin veren PKCE desteği Not güncelleştirildi.  S256 hem düz metin code_challenges v1.0 ve v2.0 Uç noktalara desteklenir. 
@@ -1208,8 +1208,8 @@ Daha fazla bilgi için [bir yetkilendirme kodu istek](https://docs.microsoft.com
 ### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Tüm kullanıcı öznitelik değerleri Workday Get_Workers API'SİNDE kullanılabilir sağlama desteği
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Sağlama  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Uygulama sağlama  
+**Ürün özelliği:** 3. taraf tümleştirme
  
 Gelen Workday'den Active Directory artık Azure AD için sağlama ve genel Önizleme çıkarma ve sağlama Workday Get_Workers API'SİNDE kullanılabilir tüm öznitelik değerleri destekler. Bu ek standart yüzlerce destekler ekler ve ilk sürümü Workday ile birlikte gelen olanlar dışında özel öznitelikler gelen bağlayıcı sağlama.
 
@@ -1233,7 +1233,7 @@ Daha fazla bilgi için [Azure Active Directory'de gruplar için dinamik Üyelik 
 ### <a name="improved-sign-out-behavior-with-seamless-sso"></a>Sorunsuz çoklu oturum açma ile geliştirilmiş oturum kapatma davranışı
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Kullanıcılar, Azure AD tarafından güvenli hale getirilmiş bir uygulamaya dışında açıkça imzalanmış olsa bile, daha önce bunlar otomatik olarak etki alanına katılmış cihazlarından bir Azure AD uygulaması, corpnet içinde yeniden erişmeye çalışıyorsanız geri sorunsuz SSO kullanarak oturum açmış olmanız. Bu değişiklik, oturumunuzu desteklenir.  Bu aynı veya farklı Azure seçmelerini sağlar geri, otomatik olarak sorunsuz SSO kullanarak oturum açmış yerine oturum açmak için bir AD hesabı.
@@ -1245,8 +1245,8 @@ Daha fazla bilgi için [Azure Active Directory sorunsuz çoklu oturum açma](htt
 ### <a name="application-proxy-connector-version-154020-released"></a>Uygulama Proxy Bağlayıcısı sürümü yayımlanan 1.5.402.0
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Uygulama Proxy'si  
-**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
+**Ürün özelliği:** Kimlik güvenliği ve koruması
  
 Bu bağlayıcı sürüm kademeli olarak Kasım kullanıma sunulacaktır. Bu yeni bağlayıcı sürüm, aşağıdaki değişiklikleri içerir:
 
@@ -1310,7 +1310,7 @@ Daha fazla bilgi için bu raporları kullanmak üzere nasıl [Azure Active Direc
 ### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>Kullanıcı özniteliği ve kullanıcı tanımlayıcısı olarak kullanılabilir EmployeeID talebi
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
 **Ürün özelliği:** SSO
  
 Yapılandırabileceğiniz **EmployeeID** üye kullanıcılar ve B2B Konukları uygulamalarda Kurumsal Uygulama UI'dan SAML tabanlı oturum açma için kullanıcı özniteliği ve kullanıcı tanımlayıcısı olarak.
@@ -1322,7 +1322,7 @@ Daha fazla bilgi için [Azure Active Directory'de kurumsal uygulamalar için SAM
 ### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Azure AD uygulama ara Sunucusu'nda joker kullanarak Basitleştirilmiş uygulama yönetimi
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Proxy'si  
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
 **Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
  
 Uygulama dağıtımını kolaylaştırın ve yönetim yükünüzü azaltmak için artık joker karakter kullanan uygulamalar yayımlama olanağı desteklenmektedir. Bir joker uygulama yayımlamak için standart bir uygulama yayımlama akışını takip edin, ancak iç ve dış URL'lerinde bir joker karakter kullanın.
@@ -1334,7 +1334,7 @@ Daha fazla bilgi için [joker karakteri uygulamalarında Azure Active Directory 
 ### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Uygulama Ara Sunucusu'nun yapılandırılmasını desteklemeye yönelik yeni cmdlet'ler
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Proxy'si  
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
 **Ürün özelliği:** Platform
 
 AzureAD PowerShell Önizleme modülünün en son sürümü, müşterilerin PowerShell kullanarak uygulama Proxy uygulamaları yapılandırmanıza imkan tanıyan yeni cmdlet'ler içerir.
@@ -1364,7 +1364,7 @@ Yeni cmdlet'ler şunlardır:
 ### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Grupların yapılandırılmasını desteklemeye yönelik yeni cmdlet'ler
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulama Proxy'si  
+**Hizmet kategorisi:** Uygulama Ara sunucusu  
 **Ürün özelliği:** Platform
 
 AzureAD PowerShell modülünün en son sürümü Azure AD'de grupları yönetmek için cmdlet'leri içerir. Bu cmdlet'ler, daha önce AzureADPreview modülünde kullanılabilen ve şimdi AzureAD modülüne eklendi
@@ -1388,7 +1388,7 @@ AzureAD PowerShell modülünün en son sürümü Azure AD'de grupları yönetmek
 ### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Azure AD Connect'in yeni bir sürüm kullanılabilir
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** AD Eşitleme  
+**Hizmet kategorisi:** AD eşitleme  
 **Ürün özelliği:** Platform
  
 Azure AD Connect, Azure AD arasında ve Windows Server Active Directory ve LDAP dahil olmak üzere şirket içi veri kaynakları verileri eşitlemek için tercih edilen bir araçtır.
@@ -1444,7 +1444,7 @@ Bu sürüm aşağıdaki güncelleştirmeleri ve değişiklikleri sahiptir:
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Koşullu Erişim  
-**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+**Ürün özelliği:** Kimlik güvenliği ve koruması
 
 Uygulama tabanlı koşullu erişimi destekleyen daha fazla uygulama ekledik. Artık, Office 365 ve bu onaylı istemci uygulamalarını kullanarak diğer Azure AD bağlantılı bulut uygulamalarınıza erişimi alabilirsiniz.
 
@@ -1463,10 +1463,10 @@ Daha fazla bilgi için bkz.
 
 ---
 
-### <a name="terms-of-use-update-to-mobile-experience"></a>Mobil deneyimde kullanım koşulları güncelleştirmesi 
+### <a name="terms-of-use-update-to-mobile-experience"></a>Mobil deneyimde kullanım güncelleştirme koşulları 
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kullanım Koşulları  
+**Hizmet kategorisi:** Kullanım koşulları  
 **Ürün özelliği:** Uyumluluk
 
 Kullanım koşulları görüntülendiğinde artık tıklayabilirsiniz **görüntüleme konusunda sorun mu yaşıyorsunuz? Buraya**. Bu bağlantıya tıkladığınızda kullanım Cihazınızda yerel olarak açılır. Belgenin yazı tipi boyutu veya cihazın ekran boyutu ne olursa olsun yakınlaştırma ve gerektiğinde belgeyi okuyalım. 
@@ -1478,8 +1478,8 @@ Kullanım koşulları görüntülendiğinde artık tıklayabilirsiniz **görünt
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama Galerisi 
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal Uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
 
 Ocak 2018'de app Galerisi'nde aşağıdaki yeni uygulamaları ile Federasyonu Desteği eklendi:
 
@@ -1495,7 +1495,7 @@ Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilg
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kimlik Koruması  
-**Ürün özelliği:** Kimlik Güvenliği ve Koruması
+**Ürün özelliği:** Kimlik güvenliği ve koruması
 
 Algılanan risk olayı için alma öngörü için Azure AD aboneliğiniz bağlıdır. Azure AD Premium P2 sürümü ile temel alınan tüm algılamalar hakkında en ayrıntılı bilgileri alın.
 
@@ -1508,7 +1508,7 @@ Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](https://docs
 ### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Son kullanıcı erişim panellerinde Office 365 uygulamalarından gizleme
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamalarım  
+**Hizmet kategorisi:** My Apps  
 **Ürün özelliği:** SSO
 
 Artık, nasıl Office 365 uygulamaları üzerinde yeni bir kullanıcı ayarı ile kullanıcı erişim panellerinde görünmesi daha iyi yönetebilirsiniz. Bu seçenek Office uygulamalarını yalnızca Office Portalı'nda gösterilecek tercih ederseniz bir kullanıcının erişim panellerinde uygulamaları sayısını azaltmak için yararlıdır. Ayar bulunan **kullanıcı ayarları** ve olarak etiketlenen **kullanıcılar yalnızca Office 365 uygulamaları Office 365 portalında görebilir**.
@@ -1520,7 +1520,7 @@ Daha fazla bilgi için [bir uygulamadan Azure Active Directory'de kullanıcı de
 ### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Uygulamanın URL'sini doğrudan parola SSO için etkinleştirildiği uygulamalar sorunsuz oturum 
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamalarım  
+**Hizmet kategorisi:** My Apps  
 **Ürün özelliği:** SSO
 
 Uygulamalarım tarayıcı uzantısı aracılığıyla uygulamalarım çoklu oturum tarayıcınızda bir kısayol olarak özellik hakkında size uygun bir aracı kullanıma sunuldu. Kullanıcının yükledikten sonra tarayıcılarında bunları uygulamalarına hızlı erişim sağlayan bir waffle menüsü simgesi görürsünüz. Kullanıcılar artık yararlanabilirsiniz:
@@ -1560,7 +1560,7 @@ MFA yapılandırması, şu konumdadır: **Azure Active Directory \> MFA sunucusu
 
 **Türü:** Kullanım Dışı  
 **Hizmet kategorisi:** Raporlama  
-**Ürün özelliği:** Kimlik Yaşam Döngüsü Yönetimi  
+**Ürün özelliği:** Kimlik yaşam döngüsü yönetimi  
 
 
 Genel kullanılabilirlik yeni API'ler hem etkinlik ve güvenlik raporları için rapor API'leri kullanıma sunuldu ve yeni Azure Active Directory Yönetim Konsolu ile altında "/ reports" uç nokta son 31 Aralık 2017 itibariyle devre dışı bırakılmış.
@@ -1657,7 +1657,7 @@ Daha fazla bilgi için [Azure AD Privileged Identity Management nedir?](https://
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kurumsal uygulamalar  
-**Ürün özelliği:** 3. Taraf Tümleştirme
+**Ürün özelliği:** 3. taraf tümleştirme
 
 Aralık 2017'de, bu yeni Federasyon uygulamalarla uygulama galerimizden desteği ekledik:
 
@@ -1684,7 +1684,7 @@ Ayrıcalıklı rol kullanabilmeniz için önce onay iş akışı ile ayrıcalık
 ### <a name="pass-through-authentication-skype-for-business-support"></a>Geçişli kimlik doğrulaması: Skype for Business desteği
 
 **Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kimlik Doğrulamaları (Oturum Açma İşlemleri)  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
 **Ürün özelliği:** Kullanıcı kimlik doğrulaması
 
 Geçişli kimlik doğrulaması artık kullanıcı oturum açma işlemleri Skype Kurumsal çevrimiçi içeren modern kimlik doğrulamasını destekleyen iş istemci uygulamalarını ve karma topolojiler için destekler. 
@@ -1936,7 +1936,7 @@ Temel alınan gerçek zamanlı algılama, kullanıcı oturum açtığı her zama
 
 **Türü:** Değişiklik planı  
 **Hizmet kategorisi:** Raporlama  
-**Ürün özelliği:** Kimlik Yaşam Döngüsü Yönetimi  
+**Ürün özelliği:** Kimlik yaşam döngüsü yönetimi  
 
 Azure portalı ile sağlar:
 
@@ -1949,8 +1949,8 @@ Bu yeni özellikler nedeniyle/Reports uç nokta altında API'ler rapor kullanım
 
 ### <a name="automatic-sign-in-field-detection"></a>Otomatik oturum açma alanı algılaması
 
-**Türü:** Sabit   
-**Hizmet kategorisi:** Uygulamalarım  
+**Türü:** düzeltildi   
+**Hizmet kategorisi:** My Apps  
 **Ürün özelliği:** Çoklu oturum açma  
 
 Azure AD, bir HTML kullanıcı adı ve parola alanı işlemek uygulamalar için otomatik oturum açma alanı algılaması destekler. Bu adımları bölümünde belgelendirilen [nasıl otomatik olarak bir uygulama için oturum açma alanlarını Yakala](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Bu özellik ekleyerek bulabilirsiniz bir *galeri dışı* uygulaması **kurumsal uygulamalar** sayfasını [Azure portalında](https://aad.portal.azure.com). Buna ek olarak, yapılandırabileceğiniz **çoklu oturum açma** bu yeni uygulama modu **parola tabanlı çoklu oturum açma**web URL'si girin ve ardından sayfanın kaydedin.
@@ -2032,7 +2032,7 @@ Daha fazla bilgi için [Azure AD erişim gözden geçirmeleri](https://docs.micr
 ### <a name="hide-third-party-applications-from-my-apps-and-the-office-365-app-launcher"></a>Üçüncü taraf uygulamalardan uygulamalarım ve Office 365 uygulama başlatıcısında Gizle
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamalarım  
+**Hizmet kategorisi:** My Apps  
 **Ürün özelliği:** Çoklu oturum açma  
 
 Şimdi yeni bir aracılığıyla kullanıcılarınızın portalı üzerinde görünen uygulamalar daha iyi yönetebilirsiniz **uygulama Gizle** özelliği. Arka uç hizmetlerine veya yinelenen kutucukları ve dağınıklık kullanıcıların uygulama launchers uygulama kutucuklarına burada görünmesi durumlarda yardımcı olması için uygulamanızı gizleyebilirsiniz. İki durumlu düğme bulunduğu **özellikleri** üçüncü taraf uygulama bölümünü ve etiketli **kullanıcıya görünür?** Ayrıca PowerShell üzerinden program aracılığıyla uygulama gizleyebilirsiniz. 

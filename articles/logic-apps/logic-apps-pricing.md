@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990184"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299098"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps fiyatlandırma modeli
 
@@ -38,14 +38,14 @@ Azure Logic Apps, mantıksal uygulamanızı çalıştıran tüm eylemleri ölç�
 
 ## <a name="fixed-pricing-model"></a>Sabit fiyatlandırma modeli
 
-Bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) oluşturmak ve bir Azure sanal ağdaki kaynaklara erişebilen mantık uygulamaları çalıştırmak, özel, yalıtılmış ve adanmış bir yol sağlar. Çalıştırma içinde bir işe yeni logic apps için aylık sabit fiyata, yerleşik Eylemler, tetikleyiciler ve standart bağlayıcılar için de ödeme.
+Bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) oluşturmak ve bir Azure sanal ağdaki kaynaklara erişebilen mantık uygulamaları çalıştırmak, özel, yalıtılmış ve adanmış bir yol sağlar. İçinde bir işe çalışan yeni logic apps için ödeme yaptığınız bir [aylık sabit fiyat](https://azure.microsoft.com/pricing/details/logic-apps) yerleşik Eylemler, tetikleyiciler ve ayrıca standart bağlayıcılar.
 
-İŞE da istediğiniz kadar çok bağlantısı içeren bir ücretsiz Kurumsal bağlayıcı içerir. Kullanımı için ek Kurumsal bağlayıcılar kuruluş tüketim fiyatı üzerinden ücretlendirilir.
+İŞE kadar içeren bir ücretsiz Kurumsal bağlayıcı ayrıca içerir *bağlantıları* istediğiniz. Ek Kurumsal bağlayıcılar kullanımı temel alınarak ücretlendirilir [Kurumsal tüketim fiyatı](https://azure.microsoft.com/pricing/details/logic-apps). Yalnızca genel olarak kullanılabilir Kurumsal bağlayıcılar Kurumsal tüketim fiyatı Ücret ödersiniz. Genel Önizleme Kurumsal bağlayıcılar ücretlendirilir [standart bağlayıcı oranı](https://azure.microsoft.com/pricing/details/logic-apps).
 
 > [!NOTE]
 > Görüntü bir işe, yerleşik tetikleyiciler ve Eylemler içinde **çekirdek** etiket ve logic apps ile aynı ıse'de çalıştırın. Standart ve görüntüleme Kurumsal Bağlayıcılar **ISE** etiket logic apps ile aynı ıse'de çalıştırın. ISE etiketini gösterme bağlayıcılar genel Logic Apps hizmetinde çalıştırın.
 
-ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa, bu nedenle [daha fazla ölçek birimi ekleme](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), oluşturma sırasında veya daha sonra. 
+ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa, bu nedenle [daha fazla ölçek birimi ekleme](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), oluşturma sırasında veya daha sonra. Veri koruma maliyetlerini bir ISE'de çalışan mantıksal uygulamalar uygulanmaz.
 
 NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 
@@ -108,7 +108,7 @@ NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https:
 
 ## <a name="data-retention"></a>Veri saklama
 
-Tüm giriş ve çıkışları mantıksal uygulamanızın çalıştırma geçmişinde depolanır, bir mantıksal uygulamanın üzerinde göre faturalandırılır mıyım [saklama süresi çalıştırma](logic-apps-limits-and-config.md#run-duration-retention-limits). NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
+Logic apps dışında bir tümleştirme hizmeti ortamı (ISE) Çalıştır'ün tüm giriş ve mantıksal uygulamanızın çalıştırma geçmişinde depolanan çıkışları faturalandırılırsınız bir mantıksal uygulamanın üzerinde temel [saklama süresi çalıştırma](logic-apps-limits-and-config.md#run-duration-retention-limits). Veri koruma maliyetlerini bir ISE'de çalışan mantıksal uygulamalar uygulanmaz. NET fiyatlandırma bilgileri için bkz. [Azure Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Mantıksal uygulamanızın depolama tüketimini izlemek yardımcı olmak için şunları yapabilirsiniz:
 

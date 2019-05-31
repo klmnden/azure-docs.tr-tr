@@ -1,40 +1,58 @@
 ---
 title: Azure yönetilen uygulamalar için kullanıcı Arabirimi tanımını test etme | Microsoft Docs
 description: Azure yönetilen uygulamanızın portal aracılığıyla oluşturmak için kullanıcı deneyimi sınamak açıklar.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2018
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746338"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257647"
 ---
-# <a name="test-azure-portal-interface-for-your-managed-application"></a>Yönetilen uygulamanız için Azure portal arabirimi testi
-Sonra [createUiDefinition.json dosyası oluşturma](create-uidefinition-overview.md) Azure yönetilen uygulama için kullanıcı deneyimini test gerekir. Test etmeyi kolaylaştırmak için portal dosyanızda yükleyen bir betik kullanın. Aslında, yönetilen uygulamayı dağıtmak gerekmez.
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Azure yönetilen uygulamalar için portal arabirimi testi
+
+Sonra [createUiDefinition.json dosyası oluşturma](create-uidefinition-overview.md) yönetilen uygulamanız için kullanıcı deneyimi sınamak gerekir. Test etmeyi kolaylaştırmak için portal dosyanızda yükler ve korumalı bir ortamda kullanın. Aslında, yönetilen uygulamayı dağıtmak gerekmez. Korumalı alan geçerli, tam ekran portal deneyiminde, kullanıcı arabirimi sunar. Veya, arabirim, ancak test portal'ın eski bir görünüm kullanan bir PowerShell betiğini kullanabilirsiniz. Bu makalede her iki yaklaşım gösterilmektedir. Korumalı alan arabirimi önizlemek için önerilen yoldur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* A **createUiDefinition.json** dosya. Bu dosya yoksa, kopyalama [örnek dosyası](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) ve yerel olarak kaydedin.
+* A **createUiDefinition.json** dosya. Bu dosya yoksa, kopyalama [örnek dosyası](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="download-test-script"></a>Test betiği indirin
+## <a name="use-sandbox"></a>Korumalı alanını kullanma
+
+1. Açık [UI tanımı korumalı alanı oluşturun](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+
+   ![Korumalı alan göster](./media/test-createuidefinition/show-sandbox.png)
+
+1. Boş tanımı createUiDefinition.json dosyanızı içeriğiyle değiştirin. Seçin **Önizleme**.
+
+   ![Önizleme'yi seçin](./media/test-createuidefinition/select-preview.png)
+
+1. Oluşturduğunuz formu görüntülenir. Bir kullanıcı deneyiminin adım ve değerleri doldurun.
+
+   ![Form Göster](./media/test-createuidefinition/show-ui-form.png)
+
+### <a name="troubleshooting"></a>Sorun giderme
+
+Formunuza seçtikten sonra görüntülenmiyorsa **Önizleme**, sözdizimi hatası olabilir. Bu sayfaya gidin ve sağ kaydırma çubuğundaki kırmızı göstergesi bulun.
+
+![Sözdizimi hatası Göster](./media/test-createuidefinition/show-syntax-error.png)
+
+Formunuza görüntülemez ve bunun yerine bir bulutun etiket bırakma ile bir simge görürsünüz, formunuzu özelliği eksik gibi bir hata var. Web geliştirici araçları, tarayıcınızda açın. **Konsol** Arabiriminizin hakkında önemli iletileri görüntüler.
+
+![Hatayı Göster](./media/test-createuidefinition/show-error.png)
+
+## <a name="use-test-script"></a>Test betiği kullanın
 
 Portalda Arabiriminizin Test etmek için aşağıdaki komut dosyalarından birini yerel makinenize kopyalayın:
 
 * [PowerShell dışarıdan yükleme betiği](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Azure CLI dışarıdan yükleme betiği](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
-
-## <a name="run-script"></a>Betiği çalıştırın
 
 Portal arabirimi dosyanızda görmek için indirdiğiniz betiğin çalıştırın. Betik, Azure Aboneliğinize bir depolama hesabı oluşturur ve createUiDefinition.json dosyanızı depolama hesabına yükler. Depolama hesabı tarafından silindiği veya depolama hesabı, ilk kez çalıştırdığınızda, komut dosyası oluşturulur. Depolama hesabı, Azure aboneliğinizde zaten varsa bu betiği kullanır. Betik portalı açılır ve depolama hesabından dosyanızı yükler.
 
@@ -70,19 +88,9 @@ Azure CLI için şunu kullanın:
 ./sideload-createuidef.sh
 ```
 
-## <a name="test-your-interface"></a>Test, arabirimi
-
 Betik, tarayıcınızda yeni bir sekmede açılır. Yönetilen uygulama oluşturma arabiriminize portalıyla gösterir.
 
 ![Portalı görüntüle](./media/test-createuidefinition/view-portal.png)
-
-Web geliştirici araçları, alanı doldurarak önce tarayıcınızda açın. **Konsol** Arabiriminizin hakkında önemli iletileri görüntüler.
-
-![Konsol seçin](./media/test-createuidefinition/select-console.png)
-
-Arabirim tanımı, bir hata varsa, konsolu açıklamaya bakın.
-
-![Hatayı göster](./media/test-createuidefinition/show-error.png)
 
 Alanlar için değerler sağlayın. İşiniz bittiğinde şablona geçirilen değerlerin bakın.
 
@@ -90,15 +98,7 @@ Alanlar için değerler sağlayın. İşiniz bittiğinde şablona geçirilen de�
 
 Bu değerler, dağıtım şablonu test parametre dosyası olarak kullanabilirsiniz.
 
-## <a name="troubleshooting-the-interface"></a>Arabirimi sorunlarını giderme
-
-Görebileceğiniz bazı yaygın hatalar şunlardır:
-
-* Portal Arabiriminizin yüklenmiyor. Bunun yerine bir etiket bırakma bulutla simgesi gösterir. Genellikle, dosyanızda bir sözdizimi hatası olduğunda bu simgeye bakın. VS Code (veya şema doğrulaması sahip başka bir JSON Düzenleyici) dosyasını açın ve söz dizimi hataları için bakın.
-
-* Özet ekranında portal kilitleniyor. Genellikle, çıktı bölümünde bir hata olduğunda bu gerçekleşir. Örneğin, mevcut olmayan bir denetim başvurulan.
-
-* Çıktıda bir parametre boştur. Parametre, mevcut olmayan bir özelliğe başvurma. Örneğin, Denetim başvurusu geçerli, ancak özellik başvurusu geçerli değil.
+Özet ekranında portalda yanıt vermemeye başlıyor, çıktı bölümünde bir hata olabilir. Örneğin, mevcut olmayan bir denetim başvurulan. Çıktıda bir parametre boş ise, parametre mevcut olmayan bir özelliğe başvurma. Örneğin, Denetim başvurusu geçerli, ancak özellik başvurusu geçerli değil.
 
 ## <a name="test-your-solution-files"></a>Çözüm dosyalarınızı test
 

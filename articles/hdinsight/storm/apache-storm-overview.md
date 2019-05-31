@@ -7,14 +7,14 @@ keywords: apache storm kullanım örnekleri,storm kümesi,apache storm nedir
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696104"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257774"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight’ta Apache Storm nedir?
 
@@ -26,7 +26,7 @@ ms.locfileid: "64696104"
 
 HDInsight üzerinde Storm aşağıdaki özellikleri sunar:
 
-* __% 99 'un üzerinde Storm çalışma süresi hizmet düzeyi sözleşmesi (SLA)__: Daha fazla bilgi için [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) belgesine bakın.
+* __% 99 'un üzerinde Storm çalışma süresi hizmet düzeyi sözleşmesi (SLA)__ : Daha fazla bilgi için [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) belgesine bakın.
 
 * Oluşturma sırasında veya sonrasında Storm kümesinde betik çalıştırarak kolay özelleştirmeyi destekler. Daha fazla bilgi için bkz. [HDInsight kümelerini betik eylemi kullanarak özelleştirme](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -47,7 +47,7 @@ HDInsight üzerinde Storm aşağıdaki özellikleri sunar:
 
 Gerçek zamanlı analiz çözümleri için Apache Storm kullanan şirketlerin listesi için bkz. [Apache Storm Kullanan Şirketler](https://storm.apache.org/documentation/Powered-By.html).
 
-Storm kullanmaya başlamak için bkz: [HDInsight üzerinde Apache Storm ile çalışmaya başlama][gettingstarted].
+Storm kullanmaya başlamak için bkz: [HDInsight üzerinde Apache Storm ile çalışmaya başlama](apache-storm-tutorial-get-started-linux.md).
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm nasıl çalışır
 
@@ -116,7 +116,7 @@ HDInsight üzerinde Storm kullanabileceğiniz bazı yaygın senaryolar aşağıd
 * Sosyal analiz
 * Ayıklama, dönüşüm ve yükleme (ETL)
 * Ağ izleme
-* Arama
+* Ara
 * Mobil katılım
 
 Gerçek senaryolar hakkında daha fazla bilgi için bkz: [şirketler Apache Storm'u nasıl kullanıyor](https://storm.apache.org/documentation/Powered-By.html) belge.
@@ -177,10 +177,5 @@ Günlüğün nasıl yapılandırılacağını gösteren örnek bir topoloji içi
 
 HDInsight üzerinde Apache Storm ile gerçek zamanlı analiz çözümleri hakkında daha fazla bilgi edinin:
 
-* [HDInsight üzerinde Apache Storm kullanmaya başlama][gettingstarted]
+* [HDInsight üzerinde Apache Storm ile çalışmaya başlama](apache-storm-tutorial-get-started-linux.md)
 * [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

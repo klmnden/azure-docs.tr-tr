@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574269"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255632"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights analiz
 Analytics, güçlü arama ve sorgulama aracı [Application Insights](app-insights-overview.md). Analytics web aracı olduğundan kurulum gerekli değildir.
-Application Insights uygulamalarınızı biri için yapılandırmış sonra uygulamanızın Analytics açarak uygulamanızın verilerini çözümleyebilirsiniz [genel bakış dikey penceresinde](app-insights-dashboards.md).
+Ardından, zaten Application Insights, uygulamalarınızın biri için yapılandırdıysanız, uygulamanızın genel bakış dikey penceresinden Analytics açarak uygulamanızın verileri analiz edebilirsiniz.
 
 ![Portal.Azure.com açın, Application Insights kaynağınızı açın ve analiz tıklayın.](./media/analytics/001.png)
 
 Ayrıca [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) birçok örnek veri ücretsiz tanıtım ortamıyla olduğu.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Azure İzleyici günlüklerine ilişkisi
 Application Insights analytics temel [Azure Veri Gezgini](/azure/data-explorer) gibi Azure izleme günlükleri ve ayrıca kullanan [Kusto sorgu dili](/azure/kusto/query). Aynı kullanan [log analytics portalı](../log-query/get-started-portal.md) verilerini ayrı bir bölümde depolanır ancak Azure İzleyici günlükleri gibi.

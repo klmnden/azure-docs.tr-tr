@@ -15,12 +15,12 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: b22f52ce9aa7f57e5b6638eef580a2675d5c9b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b2f429129c0bb9098f4f5029cb07ce06bc5db13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372593"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255126"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Uygulamalarınızı Visual Studio'da Azure Application Insights ile hata ayıklama
 Visual Studio’da (2015 ve sonraki sürümler) hem hata ayıklama hem de üretim sırasında [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)’tan alınan telemetri verilerini kullanarak, ASP.NET web uygulamanızdaki performansı çözümleyebilir ve sorunları tanılayabilirsiniz.
@@ -105,5 +105,5 @@ Telemetriyi portala göndermeden önce hatalarını ayıklamak istediğiniz [öz
 |  |  |
 | --- | --- |
 | **[Daha fazla veri ekleme](../../azure-monitor/app/asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/visual-studio/64.png) |
-| **[Application Insights portalıyla çalışma](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, Canlı bağımlılık haritası, uygulama ve dışarı aktarılan telemetri verileri görüntüleyin. |![Visual studio](./media/visual-studio/62.png) |
+| **[Application Insights portalıyla çalışma](../../azure-monitor/app/overview-dashboard.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, Canlı bağımlılık haritası, uygulama ve dışarı aktarılan telemetri verileri görüntüleyin. |![Visual studio](./media/visual-studio/62.png) |
 

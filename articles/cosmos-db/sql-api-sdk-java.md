@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f7f050e158ba30d2f89e79ffcc9e8723eb5268
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626783"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298682"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -215,6 +215,11 @@ Geçerli SDK'sı yalnızca eklenen yeni özellikler ve işlevsellik ve en iyi du
 Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm istekleri hizmet tarafından reddedilir.
 
 > [!WARNING]
+> Tüm sürümler **1.x** Java için SQL SDK'sının üzerinde kullanımdan kaldırılacak **30 Mayıs 2020**.
+> 
+>
+
+> [!WARNING]
 > Java için SQL SDK'sının sürümden önceki tüm sürümler **1.0.0** kullanımdan kaldırılmıştır **29 Şubat 2016**.
 > 
 > 
@@ -228,37 +233,37 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 | [2.1.1](#2.1.1) |13 Aralık 2018 |--- |
 | [2.1.0](#2.1.0) |20 Kasım 2018 |--- |
 | [2.0.0](#2.0.0) |21 Eylül 2018 |--- |
-| [1.16.4](#1.16.4) |10 Eylül 2018 |--- |
-| [1.16.3](#1.16.3) |09 Eylül 2018 |--- |
-| [1.16.2](#1.16.2) |29 Haziran 2018'e |--- |
-| [1.16.1](#1.16.1) |16 Mayıs 2018 |--- |
-| [1.16.0](#1.16.0) |15 Mart 2018 |--- |
-| [1.15.0](#1.15.0) |14 Kasım 2017 |--- |
-| [1.14.0](#1.14.0) |28 Ekim 2017 |--- |
-| [1.13.0](#1.13.0) |25 Ağustos 2017 |--- |
-| [1.12.0](#1.12.0) |11 Temmuz 2017 |--- |
-| [1.11.0](#1.11.0) |10 Mayıs 2017 |--- |
-| [1.10.0](#1.10.0) |11 Mart 2017 |--- |
-| [1.9.6](#1.9.6) |21 Şubat 2017 |--- |
-| [1.9.5](#1.9.5) |31 Ocak 2017 |--- |
-| [1.9.4](#1.9.4) |24 Kasım 2016 |--- |
-| [1.9.3](#1.9.3) |30 Ekim 2016 |--- |
-| [1.9.2](#1.9.2) |28 Ekim 2016 |--- |
-| [1.9.1](#1.9.1) |26 Ekim 2016 |--- |
-| [1.9.0](#1.9.0) |03 Ekim 2016 |--- |
-| [1.8.1](#1.8.1) |30 Haziran 2016 |--- |
-| [1.8.0](#1.8.0) |14 Haziran 2016 |--- |
-| [1.7.1](#1.7.1) |30 Nisan 2016 |--- |
-| [1.7.0](#1.7.0) |27 Nisan 2016 |--- |
-| [1.6.0](#1.6.0) |29 Mart 2016 |--- |
-| [1.5.1](#1.5.1) |31 Aralık 2015 |--- |
-| [1.5.0](#1.5.0) |04 Aralık 2015 |--- |
-| [1.4.0](#1.4.0) |05 Ekim 2015 |--- |
-| [1.3.0](#1.3.0) |05 Ekim 2015 |--- |
-| [1.2.0](#1.2.0) |05 Ağustos 2015 |--- |
-| [1.1.0](#1.1.0) |09 Temmuz 2015 |--- |
-| 1.0.1 |12 Mayıs 2015 |--- |
-| [1.0.0](#1.0.0) |07 Nisan 2015 |--- |
+| [1.16.4](#1.16.4) |10 Eylül 2018 |30 Mayıs 2020 |
+| [1.16.3](#1.16.3) |09 Eylül 2018 |30 Mayıs 2020 |
+| [1.16.2](#1.16.2) |29 Haziran 2018'e |30 Mayıs 2020 |
+| [1.16.1](#1.16.1) |16 Mayıs 2018 |30 Mayıs 2020 |
+| [1.16.0](#1.16.0) |15 Mart 2018 |30 Mayıs 2020 |
+| [1.15.0](#1.15.0) |14 Kasım 2017 |30 Mayıs 2020 |
+| [1.14.0](#1.14.0) |28 Ekim 2017 |30 Mayıs 2020 |
+| [1.13.0](#1.13.0) |25 Ağustos 2017 |30 Mayıs 2020 |
+| [1.12.0](#1.12.0) |11 Temmuz 2017 |30 Mayıs 2020 |
+| [1.11.0](#1.11.0) |10 Mayıs 2017 |30 Mayıs 2020 |
+| [1.10.0](#1.10.0) |11 Mart 2017 |30 Mayıs 2020 |
+| [1.9.6](#1.9.6) |21 Şubat 2017 |30 Mayıs 2020 |
+| [1.9.5](#1.9.5) |31 Ocak 2017 |30 Mayıs 2020 |
+| [1.9.4](#1.9.4) |24 Kasım 2016 |30 Mayıs 2020 |
+| [1.9.3](#1.9.3) |30 Ekim 2016 |30 Mayıs 2020 |
+| [1.9.2](#1.9.2) |28 Ekim 2016 |30 Mayıs 2020 |
+| [1.9.1](#1.9.1) |26 Ekim 2016 |30 Mayıs 2020 |
+| [1.9.0](#1.9.0) |03 Ekim 2016 |30 Mayıs 2020 |
+| [1.8.1](#1.8.1) |30 Haziran 2016 |30 Mayıs 2020 |
+| [1.8.0](#1.8.0) |14 Haziran 2016 |30 Mayıs 2020 |
+| [1.7.1](#1.7.1) |30 Nisan 2016 |30 Mayıs 2020 |
+| [1.7.0](#1.7.0) |27 Nisan 2016 |30 Mayıs 2020 |
+| [1.6.0](#1.6.0) |29 Mart 2016 |30 Mayıs 2020 |
+| [1.5.1](#1.5.1) |31 Aralık 2015 |30 Mayıs 2020 |
+| [1.5.0](#1.5.0) |04 Aralık 2015 |30 Mayıs 2020 |
+| [1.4.0](#1.4.0) |05 Ekim 2015 |30 Mayıs 2020 |
+| [1.3.0](#1.3.0) |05 Ekim 2015 |30 Mayıs 2020 |
+| [1.2.0](#1.2.0) |05 Ağustos 2015 |30 Mayıs 2020 |
+| [1.1.0](#1.1.0) |09 Temmuz 2015 |30 Mayıs 2020 |
+| 1.0.1 |12 Mayıs 2015 |30 Mayıs 2020 |
+| [1.0.0](#1.0.0) |07 Nisan 2015 |30 Mayıs 2020 |
 | 0.9.5-prelease |09 Mar 2015 |29 Şubat 2016 |
 | 0.9.4-prelease |17 Şubat 2015 |29 Şubat 2016 |
 | 0.9.3-prelease |13 Ocak 2015 |29 Şubat 2016 |

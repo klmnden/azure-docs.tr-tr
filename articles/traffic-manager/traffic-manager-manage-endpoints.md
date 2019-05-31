@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057810fa8030321f9a94085f66bc1ea93dbc3830
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238939"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Uç noktaları ekleme, devre dışı bırakma, etkinleştirme veya silme
 
@@ -52,7 +52,7 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Ayarlar** bölümündeki **Traffic Manager profili** dikey penceresinde **Uç noktalar** öğesine tıklayın. 
-4. Devre dışı bırakmak istediğiniz uç noktaya tıklayın ve sonra gösterilen **Uç Nokta** dikey penceresinde **Düzenle**’ye tıklayın.
+4. Devre dışı bırakmak istediğiniz uç noktaya tıklayın.
 5. **Uç Nokta** dikey penceresinde, uç nokta durumunu **Devre Dışı** olarak değiştirip **Kaydet**’e tıklayın.
 6. İstemciler, Yaşam Süresi (TTL) boyunca uç noktaya trafik göndermeye devam eder. Traffic Manager profilinin Yapılandırma sayfasında TTL'yi değiştirebilirsiniz.
 
@@ -61,7 +61,7 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Ayarlar** bölümündeki **Traffic Manager profili** dikey penceresinde **Uç noktalar** öğesine tıklayın. 
-4. Devre dışı bırakmak istediğiniz uç noktaya tıklayın ve sonra gösterilen **Uç Nokta** dikey penceresinde **Düzenle**’ye tıklayın.
+4. Etkinleştirmek istediğiniz uç noktaya tıklayın.
 5. **Uç Nokta** dikey penceresinde, uç nokta durumunu **Etkin** olarak değiştirip **Kaydet**’e tıklayın.
 6. İstemciler, Yaşam Süresi (TTL) boyunca uç noktaya trafik göndermeye devam eder. Traffic Manager profilinin Yapılandırma sayfasında TTL'yi değiştirebilirsiniz.
 
@@ -70,8 +70,8 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Ayarlar** bölümündeki **Traffic Manager profili** dikey penceresinde **Uç noktalar** öğesine tıklayın. 
-4. Devre dışı bırakmak istediğiniz uç noktaya tıklayın ve sonra gösterilen **Uç Nokta** dikey penceresinde **Düzenle**’ye tıklayın.
-5. **Uç Nokta** dikey penceresinde, uç nokta durumunu **Etkin** olarak değiştirip **Kaydet**’e tıklayın.
+4. Silmek istediğiniz uç noktaya tıklayın.
+5. İçinde **uç nokta** dikey penceresinde tıklayın **Sil**
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,18 +1,18 @@
 ---
 title: Azure Red Hat OpenShift için Azure AD kiracısı oluşturma | Microsoft Docs
 description: Microsoft Azure Red Hat OpenShift kümenizi barındırmak için bir Azure Active Directory (Azure AD) kiracısı oluşturmayı açıklanmıştır.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: HT
+ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551696"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306454"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift için Azure AD kiracısı oluşturma
 

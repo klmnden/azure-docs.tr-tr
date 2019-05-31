@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510693"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304952"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Nasıl oluşturmak ve yönetmek, Azure CLI kullanarak MySQL için Azure veritabanı çoğaltmalarını okuyun
 
 Bu makalede, oluşturmak ve yönetmek için aynı Azure bölgesindeki Azure CLI kullanarak MySQL hizmeti için Azure veritabanı yöneticisi olarak okundu çoğaltmaları öğreneceksiniz.
 
-> [!NOTE]
-> Azure CLI'yı henüz oluştururken çoğaltmaları ana sunucudan farklı bir bölgede desteklemez. Bölgeler arası çoğaltma oluşturmak için kullanın [Azure portalında]( howto-read-replicas-portal.md) yerine.
+> [!IMPORTANT]
+> Salt okunur bir çoğaltması, ana sunucunuz ile aynı bölgede ya da diğer Azure bölgesinde, tercih ettiğiniz oluşturabilirsiniz. Bölgeler arası çoğaltma şu anda genel Önizleme aşamasındadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,6 +43,12 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 | resource-group |  myresourcegroup |  Çoğaltma sunucusu oluşturulacağı kaynak grubu.  |
 | ad | mydemoreplicaserver | Oluşturulan yeni çoğaltma sunucusunun adı. |
 | source-server | mydemoserver | Adı veya çoğaltma kaynağı için mevcut ana sunucu kimliği. |
+
+Çapraz oluşturmak için bölge çoğaltma okuma, kullanın `--location` parametresi. Aşağıdaki CLI örneği, Batı ABD bölgesinde çoğaltmasını oluşturur.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
 
 > [!NOTE]
 > Okuma çoğaltmaları aynı sunucu yapılandırma yöneticisi olarak oluşturulur. Çoğaltma sunucusu yapılandırması, oluşturulduktan sonra değiştirilebilir. Çoğaltma sunucusunun yapılandırmasını çoğaltma ana ayak olduğundan emin olmak için ana daha eşit veya daha fazla değerlerinde tutulması gereken önerilir.

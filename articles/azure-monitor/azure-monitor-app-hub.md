@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494618"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255692"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -56,22 +56,7 @@ ms.locfileid: "60494618"
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                           </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -79,7 +64,13 @@ ms.locfileid: "60494618"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Hızlı Başlangıçlar</h3>
+                                                        <h3>Yenilikler</h3>
+                                                        <p>
+                                                            <a href="./app/kubernetes.md">Kubernetes uygulamaları izleme</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Durum İzleyicisi v2 için IIS uygulamaları</a><br>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3>Hızlı girişler</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
@@ -192,12 +183,12 @@ ms.locfileid: "60494618"
                                                     <div class="cardText">
                                                         <h3>Kullanıcı davranış analizi</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">Genel Bakış</a><br>
+                                                            <a href="./app/usage-overview.md">Genel bakış</a><br>
                                                             <a href="./app/usage-send-user-context.md">Kimlikleri kullanıcı bağlamı gönderme</a><br>
                                                             <a href="./app/usage-segmentation.md">Kullanıcılar, oturumlar ve olaylar</a><br>
                                                             <a href="./app/usage-funnels.md">Huniler</a><br>
                                                             <a href="./app/usage-cohorts.md">Kohortlar</a><br>
-                                                            <a href="./app/usage-impact.md">Etki</a><br>
+                                                            <a href="./app/usage-impact.md">Etkisi</a><br>
                                                             <a href="./app/usage-retention.md">Bekletme</a><br>
                                                             <a href="./app/usage-flows.md">Kullanıcı akışları</a>
                                                         </p>
@@ -225,7 +216,7 @@ ms.locfileid: "60494618"
                                                         <br><br>
                                                         <h3>Veri modeli</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">Genel Bakış</a><br>
+                                                            <a href="./app/data-model.md">Genel bakış</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">İstek</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">Bağımlılık</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Özel durum</a><br>

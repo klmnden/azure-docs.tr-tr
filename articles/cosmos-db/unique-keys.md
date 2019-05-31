@@ -5,14 +5,14 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c3524f27cc14050647c457fdb5e87b2b83dbdfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: af3c7771ce977cf248c5f1b61ba1c535a10ccd3c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595870"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242505"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB'de benzersiz anahtar kısıtlamaları
 
@@ -26,7 +26,7 @@ Aynı e-posta ile öğeleri oluşturmak için benzersiz anahtar ilkesi için dah
 
 Örneğin, kapsayıcı öğeleri burada her öğeyi benzersiz anahtar kısıtlaması geliştirir aşağıdaki değerlerle içerebilir.
 
-|Companyıd|Ad|Soyadı|E-posta Adresi|
+|Companyıd|Ad|Soyadı|E-posta adresi|
 |---|---|---|---|
 |Contoso|Gaby|Duperre|gaby@contoso.com |
 |Contoso|Gaby|Duperre|gaby@fabrikam.com|

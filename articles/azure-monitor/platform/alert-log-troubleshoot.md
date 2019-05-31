@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683401"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399179"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları giderme  
 
@@ -38,7 +38,7 @@ Gecikmelerini azaltmak için sistem bekler ve uyarı sorgusu, gerekli verileri d
 
 Makalesinde açıklandığı [günlük uyarıları için terimler](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), yapılandırmada belirtilen süre sorgu için zaman aralığını belirtir. Sorgu yalnızca bu aralığı içinde oluşturulmuş olan kayıtları döndürür. 
 
-Kötüye kullanımı önlemek günlük sorgusu için alınan verileri zaman aralığını kısıtlar ve hiçbir zaman komut bozar (gibi **önce**) bir günlük sorguda kullanılan. Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırılan 12:15 PM arasında 13: 15'te oluşturulan kayıtları için günlük sorgusu kullanılır. Günlük sorgu süresi komutu gibi kullanıyorsa **önce (1d)**, bu aralık için zaman dilimini ayarlandığından sorgu hala yalnızca 13: 15'te 12:15 PM arasında verileri kullanır.
+Kötüye kullanımı önlemek günlük sorgusu için alınan verileri zaman aralığını kısıtlar ve hiçbir zaman komut bozar (gibi **önce**) bir günlük sorguda kullanılan. Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırılan 12:15 PM arasında 13: 15'te oluşturulan kayıtları için günlük sorgusu kullanılır. Günlük sorgu süresi komutu gibi kullanıyorsa **önce (1d)** , bu aralık için zaman dilimini ayarlandığından sorgu hala yalnızca 13: 15'te 12:15 PM arasında verileri kullanır.
 
 Yapılandırma dönemde sorgunuzu eşleşip eşleşmediğini denetleyin. Daha önce gösterilen örnek için günlük sorgusu kullanıyorsa **önce (1d)** yeşil işaretleyiciyle zaman aralığı 24 saat veya 1,440 dakika (kırmızı renkte gösterilir) olarak ayarlanmalıdır. Bu ayar, sorgu beklendiği gibi çalışmasını sağlar.
 
@@ -48,7 +48,7 @@ Yapılandırma dönemde sorgunuzu eşleşip eşleşmediğini denetleyin. Daha ö
 
 Makalenin 8 adımda açıklandığı [Azure portalında günlük uyarı kuralı oluşturma](../platform/alerts-log.md#managing-log-alerts-from-the-azure-portal), günlük uyarıları sağlayan bir **uyarıları bastır** seçeneği için yapılandırılmış bir süre tetikleme ve bildirim eylemlerini gizlemek için zamanı. Sonuç olarak, bir uyarı yangın yaramadı düşünebilirsiniz. Aslında, harekete ancak engellendi.  
 
-![Uyarıları gösterme](media/alert-log-troubleshoot/LogAlertSuppress.png)
+![Uyarıları bastır](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>Ölçüm ölçüsü uyarı kuralı yanlış
 
@@ -181,6 +181,7 @@ Aşağıdaki örnek Azure etkinlik günlüğü olayında, sürekli bir hata nede
 Her günlük uyarı kuralı yapılandırmasına bir parçası olarak Azure İzleyici'de oluşturulan uyarı hizmetinin düzenli aralıklarla çalışacak bir analytics sorgusunun belirtmeniz gerekir. Analiz sorgusu doğru sözdizimi kuralı oluşturma veya güncelleştirme zaman olabilir. Ancak bazı durumlarda, bir süre, günlük uyarı kuralı içinde sağlanan sorgu söz dizimi sorunu geliştirebilir ve kural yürütme başarısız olmasına neden olur. Günlük uyarı kuralı sunulan bir analytics sorgusunu hataları neden geliştirebilirsiniz bazı yaygın nedenleri şunlardır:
 
 - Sorgu yazılan [birden çok kaynaklarınız](../log-query/cross-workspace-query.md). Ve bir veya daha fazla belirtilen kaynakları artık yok.
+- [Ölçüm ölçüsü türü günlüğü Uyarısı](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) yapılandırılmış bir uyarı sahip sorgu söz dizimi normları ile uyumlu değil
 - Hiçbir veri akışını analiz platformu için oluştu. [Sorgu yürütme hata verir](https://dev.loganalytics.io/documentation/Using-the-API/Errors) olmadığı için sağlanan sorgu için veri yok.
 - Değişiklikleri [sorgu dilini](https://docs.microsoft.com/azure/kusto/query/) komutlar ve İşlevler için gözden geçirilmiş bir biçim içerir. Bu nedenle daha önce bir uyarı kuralı içinde sağlanan sorgusu artık geçerli değil.
 

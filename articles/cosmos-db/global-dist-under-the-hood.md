@@ -4,15 +4,15 @@ description: Bu makalede Azure Cosmos DB genel dağıtımını ilgili teknik ayr
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c490657eb67a34e79c8dbaea31cb59b49cc6448e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071957"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241102"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB - başlık altında genel veri dağılımı
 
@@ -68,7 +68,7 @@ Nedensellik ilişkilerini izlemek ve algılamak ve çözmek için vektörleri g�
 
 Birden çok yazma bölgeleri ile yapılandırılmış Cosmos veritabanları için sistem esnek otomatik çakışma çözümleme ilkeler arasından, geliştiriciler için de dahil olmak üzere sunar: 
 
-- **Son yazma WINS (LWW)**, varsayılan olarak kullanır (zaman eşitleme saati protokolünü temel alır) bir sistem tanımlı bir zaman damgası özelliği. Cosmos DB Çakışma çözümlemesi için kullanılan diğer özelliklerden herhangi birini özel sayısal belirtmenizi sağlar.  
+- **Son yazma WINS (LWW)** , varsayılan olarak kullanır (zaman eşitleme saati protokolünü temel alır) bir sistem tanımlı bir zaman damgası özelliği. Cosmos DB Çakışma çözümlemesi için kullanılan diğer özelliklerden herhangi birini özel sayısal belirtmenizi sağlar.  
 - **Uygulama tanımlı (özel) çakışma çözüm İlkesi** (birleştirme yordamları ifade edilir), uygulama tanımlı semantiği mutabakat çakışmaları için tasarlanmıştır. Bu yordamlar, bir veritabanı işlemi sunucu tarafı şirket himayesinde yazma yazma çakışmaları algılanması üzerine çağrılır. Tam olarak sistemidir taahhüt protokolünün bir parçası olarak bir birleştirme yordamının yürütülmesi için bir kez garanti. Vardır [birkaç çözüm örnekleri çakışan](how-to-manage-conflicts.md) ile yürütmek kullanılabilir.  
 
 ## <a name="consistency-models"></a>Tutarlılık modeli

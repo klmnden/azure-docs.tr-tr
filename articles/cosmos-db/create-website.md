@@ -4,14 +4,14 @@ description: Azure Cosmos DB hesabı, Azure App Service Web Apps ve Azure Resour
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93cdea453050df8899abf9233991715ae237bcd4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889854"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257231"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Cosmos DB ile bir Azure Resource Manager şablonu kullanarak Azure App Service Web Apps'e dağıtın
 Bu öğretici bir Azure Resource Manager şablonu dağıtma ve tümleştirme için nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)e [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web uygulaması ve bir örnek web uygulaması.
@@ -41,7 +41,7 @@ Bu öğretici şablon dosyaları yükleyerek başlayalım.
 
 <a id="Build"></a>
 
-## <a name="step-2-deploy-the-azure-cosmos-db-account-app-service-web-app-and-demo-application-sample"></a>2. Adım: Azure Cosmos DB hesabı, App Service web uygulaması ve tanıtım uygulaması örneği dağıtma
+## <a name="step-2-deploy-the-azure-cosmos-db-account-app-service-web-app-and-demo-application-sample"></a>2. adım: Azure Cosmos DB hesabı, App Service web uygulaması ve tanıtım uygulaması örneği dağıtma
 Artık ilk şablonunuzu dağıtalım.
 
 > [!TIP]
@@ -78,7 +78,7 @@ Artık ilk şablonunuzu dağıtalım.
 
 <a id="Build"></a> 
 
-## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>3. Adım: Belge hesabı ve web uygulaması örneği dağıtma
+## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>3. adım: Belge hesabı ve web uygulaması örneği dağıtma
 Şimdi ikinci şablonunuzu dağıtalım.  Bu şablonu nasıl, uygulama ayarları veya özel bir bağlantı dizesi olarak web uygulamasıyla Azure Cosmos DB hesabınızın uç noktası ve ana anahtarı gibi bağlantı bilgilerini ekleyebilir göstermek kullanışlıdır. Örneğin, bir Azure Cosmos DB hesabı dağıtabiliyorum ve dağıtım sırasında otomatik olarak doldurulur bağlantı bilgilerini istediğiniz kendi web Uygulamam var belki de.
 
 > [!TIP]

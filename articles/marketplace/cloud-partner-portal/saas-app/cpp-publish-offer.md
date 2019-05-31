@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5f4c38ed6ee19beacc67e29d094a20f5576668d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 5574a7ba216eed42896d6fcb1890585f76561834
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833478"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258080"
 ---
 # <a name="publish-a-saas-application-offer"></a>Bir SaaS uygulaması teklifi yayımlama
 
@@ -20,6 +20,8 @@ ms.locfileid: "65833478"
 
 > [!IMPORTANT] 
 > SaaS teklif işlevselliği geçirilecek için [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tüm yeni yayımcılar, iş ortağı merkezi yeni SaaS teklifleri oluşturma ve mevcut teklifler yönetmek için kullanmanız gerekir.  SaaS teklifleri ile geçerli yayımcılar iş ortağı Merkezi'ne batchwise bulut iş ortağı Portalı'ndan geçiriliyor.  Bulut iş ortağı portalı belirli mevcut teklifler zaman geçirilmiş belirtmek için durum iletilerini görüntüler.
+> Daha fazla bilgi için [yeni SaaS teklifi oluşturma](../../partner-center-portal/create-new-saas-offer.md).
+
 
 Aşağıdaki diyagramda, yeni bir SaaS uygulaması teklif yayımlamak için üst düzey adımları gösterilmektedir.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 17c0d19ad0c4a846d5f75905fe9072f2fe0e0f78
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127557"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386760"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Barındırılan UI deneyiminizi yapılandırın
 
@@ -78,7 +78,7 @@ Barındırılan kullanıcı Arabirimi, ya da kullanmak için:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Aşağıdaki sorgu parametreleri, URL'ye gerektiği gibi ekleyin. Bu parametreler hakkında daha fazla bilgi için bkz: [özel arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) başvuru.
+  > Aşağıdaki sorgu parametreleri, URL'ye gerektiği gibi ekleyin. Bu parametreler hakkında daha fazla bilgi için bkz: [özel arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) başvuru.
   >
   > - q
   > - Mkt

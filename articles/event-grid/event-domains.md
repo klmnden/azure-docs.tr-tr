@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562033"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304292"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid konuları yönetmek için olay etki alanlarını anlama
 
@@ -22,8 +22,6 @@ Bu makalede, çeşitli iş kuruluşlar, müşteriler veya uygulamalar için öze
 * Yetkilendirme ve kimlik doğrulama yönetin.
 * Her ayrı ayrı yönetmenize gerek kalmadan, konuları bölümleme.
 * Tek tek her konuda uç noktalarınızı yayımlamaktan kaçının.
-
-Bu özellik önizlemede. Bunu kullanmak için bir önizleme uzantısı veya modül yüklemeniz gerekir. Yönergeler için [konuları Yönet ve olay etki alanları kullanarak olay yayımlama](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Olay etki alanı genel bakış
 
@@ -49,7 +47,7 @@ RBAC olay etki alanlarında aynı şekilde çalışır [yönetilen erişim denet
 
 ### <a name="built-in-roles"></a>Yerleşik roller
 
-Event Grid olay etki alanı ile çalışmak için RBAC kolaylaştırmak için iki yerleşik rol tanımları vardır. Bu roller **EventGrid EventSubscription katkıda bulunan (Önizleme)** ve **EventGrid EventSubscription Okuyucu (Önizleme)**. Bu roller, konular, olay etki alanı, abone olmak için ihtiyaç duyan kullanıcılar atayın. Size gereken kullanıcıların abone olmak için konunun rol ataması kapsam.
+Event Grid olay etki alanı ile çalışmak için RBAC kolaylaştırmak için iki yerleşik rol tanımları vardır. Bu roller **EventGrid EventSubscription katkıda bulunan (Önizleme)** ve **EventGrid EventSubscription Okuyucu (Önizleme)** . Bu roller, konular, olay etki alanı, abone olmak için ihtiyaç duyan kullanıcılar atayın. Kullanıcıların abone olmak için gereken konuya rol ataması kapsam.
 
 Bu roller hakkında daha fazla bilgi için bkz. [Event Grid için yerleşik roller](security-authentication.md#built-in-roles).
 
@@ -99,18 +97,18 @@ Bir olay etki alanındaki herhangi bir konunun olayları yayımlamak için etki 
 Olay etki alanı konuları için bir yayımlama sizin için işler. Tek tek yönettiğiniz her bir konuda yayımlama olaylarına yerine tüm olaylarınızı etki alanının uç noktasına yayımlayabilirsiniz. Olay Kılavuzu her olay doğru konuya gönderilen emin olur.
 
 ## <a name="limits-and-quotas"></a>Limitler ve kotalar
+Limitler ve kotalar olay etki alanlarıyla ilgili şunlardır:
 
-### <a name="control-plane"></a>Denetim düzlemi
+- Olay etki alanı başına 100.000 konuları 
+- Azure aboneliği başına 100 olay etki alanı 
+- bir olay etki alanı, konu başına 500 olay abonelikleri
+- 50 etki alanı kapsamı abonelikler 
+- İkinci alımı oranı (içine, bir etki alanı) başına 5.000 olayları
 
-Önizleme sırasında bir etki alanı içinde 1.000 konuları ve konu içerisinde bir etki alanı başına 50 olay abonelikleri için olay etki alanı sınırlıdır. Olay etki alanı kapsamı Abonelikleri, ayrıca 50 sınırlıdır.
-
-### <a name="data-plane"></a>Veri düzlemi
-
-Önizleme sırasında bir olay etki alanı için olay işleme hızı aynı 5.000 olaylara başına özel konu için sınırlı ikinci alımı oranı sınırlı olacaktır.
+Bu sınırlar, uymuyorsa ürün ekibi bir destek bileti açarak veya bir e-posta göndererek ulaşmak [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
 
 ## <a name="pricing"></a>Fiyatlandırma
-
-Önizleme sırasında olay etki alanları aynı kullanın [fiyatlandırma operations](https://azure.microsoft.com/pricing/details/event-grid/) , Event Grid diğer tüm özelliklerini kullanın.
+Olay etki alanları kullanır aynı [fiyatlandırma operations](https://azure.microsoft.com/pricing/details/event-grid/) , Event Grid diğer tüm özelliklerini kullanın.
 
 Özel konulardaki yaptıkları gibi işlemleri aynı olay alanlarındaki çalışır. Her bir olay etki alanı için bir olay girişi bir işlemdir ve her bir olay için teslim denemesi bir işlemdir.
 

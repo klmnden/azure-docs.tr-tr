@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447137"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399923"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana Azure veri Gezgini'nde verileri görselleştirin
 
@@ -154,8 +154,8 @@ Atanan hizmet sorumlusu ile *görüntüleyiciler* artık rol özellikleri Grafan
     | Grafana UI | Azure portal | Azure CLI |
     | --- | --- | --- |
     | Abonelik Kimliği | ABONELİK KİMLİĞİ | SubscriptionId |
-    | Kiracı Kimliği | Dizin Kimliği | kiracı |
-    | İstemci Kimliği | Uygulama Kimliği | appId |
+    | Kiracı kimliği | Dizin kimliği | kiracı |
+    | İstemci kimliği | Uygulama Kimliği | appId |
     | Gizli anahtar | Parola | password |
     | | | |
 
@@ -208,6 +208,6 @@ Azure Veri Gezgini, Grafana için veri kaynağı olarak yapılandırma bitirdikt
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Veri Gezgini için sorgu yazma](write-queries.md)
+* [Azure Veri Gezgini için sorgu yazma](write-queries.md)
 
-[Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)
+* [Öğretici: Azure Power BI veri Gezgini'nde verileri görselleştirin](visualize-power-bi.md)

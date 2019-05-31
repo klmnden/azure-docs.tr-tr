@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142975"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357725"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SUSE Linux Enterprise Server SAP uygulamaları için Azure NetApp dosya çubuğunda Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -58,7 +58,7 @@ ms.locfileid: "65142975"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Bu makalede sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP NetWeaver 7.50 sistemini yüklemek nasıl kullanarak [Azure NetApp dosyaları (genel önizlemede)](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Bu makalede sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP NetWeaver 7.50 sistemini yüklemek nasıl kullanarak [Azure NetApp dosyaları](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 Örnek yapılandırma, yükleme komutlarını vs., ASCS örneğini sayıdır 00, 01, birincil uygulama örneğini (Pa'ları) Ağıranlar örnek numarasını 02 ve 03 uygulama örneğini (AAS) şeklindedir. SAP sistemi kimliği QAS kullanılır. 
 
 Bu makalede, Azure NetApp dosyaları ile SAP NetWeaver uygulaması için yüksek kullanılabilirlik elde etmek açıklanmaktadır. Veritabanı katmanı, bu makalede ayrıntılı kapsamında değildir.
@@ -139,13 +139,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar ve SAP HANA ver
 
 SAP NetWeaver taşıma ve profil dizin için paylaşılan depolama gerektirir.  Azure NetApp dosya altyapısı için kurulum devam etmeden önce ile kendinizi alıştırın [Azure NetApp dosyaları belgeleri][anf-azure-doc]. Seçili Azure bölgeniz Azure NetApp dosyaları sağlayıp denetleyin. Aşağıdaki bağlantıda Azure NetApp dosyaları Azure bölgelere göre kullanılabilirliğini gösterir: [Azure bölgesi tarafından Azure NetApp dosyaları kullanılabilirlik][anf-avail-matrix].
 
-Çeşitli Azure bölgelerinde genel önizlemede Azure NetApp dosyaları özelliği var. Azure NetApp dosyaları dağıtmadan önce aşağıdaki Azure NetApp dosyaları Önizleme için kaydolun [kaydetmek için Azure NetApp dosya yönergeleri][anf-register]. 
+Azure NetApp dosyaları kullanılabilir çeşitli [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Azure NetApp dosyaları dağıtmadan önce aşağıdaki Azure NetApp dosyaları ekleme isteği [kaydetmek için Azure NetApp dosya yönergeleri][anf-register]. 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>NetApp dosya Azure kaynaklarını dağıtma  
 
-Zaten dağıttıysanız, adımlarda varsayılır [Azure sanal ağı](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). NetApp dosya Azure kaynakları ve Azure NetApp dosyaları kaynakları burada bağlanır sanal makinelerin aynı Azure sanal ağında dağıtılmalıdır aklınızda bulundurun.  
+Zaten dağıttıysanız, adımlarda varsayılır [Azure sanal ağı](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). NetApp dosya Azure kaynakları ve Azure NetApp dosyaları kaynakları burada bağlanır sanal makinelerin aynı Azure sanal ağdaki veya eşlenmiş Azure sanal ağlarda bulunan dağıtılması gerekir.  
 
-1. Bunu, zaten yapmadıysanız, isteği [Azure NetApp önizlemede kaydetme](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
+1. Bunu, zaten yapmadıysanız, istek [Azure NetApp dosyaları ekleme](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).  
 
 2. Aşağıdaki seçili Azure bölgesinde, NetApp hesabı oluşturma [NetApp hesap oluşturmaya ilişkin yönergeler](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
 3. Aşağıdaki Azure NetApp dosyaları kapasitesi havuzu oluşturmak [Azure NetApp dosyaları kapasitesi havuzu oluşturmak yönergeler](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
@@ -153,7 +153,7 @@ Bu makalede sunulan SAP Netweaver mimari, tek Azure NetApp dosyaları kapasitesi
 
 4. Bölümünde anlatıldığı gibi bir alt ağ Azure NetApp dosyaları için temsilci [yönergeleri temsilci bir alt ağ Azure NetApp dosyaları](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Aşağıdaki Azure NetApp dosyaları birimleri dağıtma [Azure NetApp dosyaları için bir birim oluşturmak için yönergeler](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Belirtilen Azure NetApp dosyaları birimlerin dağıtma [alt](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). NetApp dosya Azure kaynakları ve Azure Vm'leri aynı Azure sanal ağında olmalıdır aklınızda bulundurun. Örneğin sapmnt<b>QAS</b>, usrsap<b>QAS</b>, vs. birim adları ve sapmnt<b>qas</b>, usrsap<b>qas</b>, vs. için Azure filepaths olan NetApp dosya birimler.  
+5. Aşağıdaki Azure NetApp dosyaları birimleri dağıtma [Azure NetApp dosyaları için bir birim oluşturmak için yönergeler](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Belirtilen Azure NetApp dosyaları birimlerin dağıtma [alt](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). NetApp dosya Azure kaynakları ve Azure Vm'leri aynı Azure sanal ağdaki veya eşlenmiş Azure sanal ağlarda bulunan olmalıdır aklınızda bulundurun. Örneğin sapmnt<b>QAS</b>, usrsap<b>QAS</b>, vs. birim adları ve sapmnt<b>qas</b>, usrsap<b>qas</b>, vs. için Azure filepaths olan NetApp dosya birimler.  
 
    1. Birim sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. Birim usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -182,7 +182,7 @@ SAP Netweaver SUSE yüksek kullanılabilirlik mimarisi için Azure NetApp dosyal
 İlk Azure NetApp dosyaları birimler oluşturmak gerekir. Vm'leri dağıtın. Ardından, yük dengeleyici oluşturma ve arka uç havuzlarında sanal makinelerini kullanın.
 
 1. Kaynak Grubu oluşturma
-1. Sanal Ağ Oluştur
+1. Sanal ağ oluşturma
 1. ASCS için kullanılabilirlik kümesi oluşturma  
    Kümesi en çok güncelleştirme etki alanı
 1. 1 sanal makine oluşturma  
@@ -364,7 +364,7 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    > [!NOTE]
    > Şu anda Azure NetApp dosyaları yalnızca NFSv3 destekler. Nfsvers atlamak yok = 3 anahtarı.
    
-   Yeni paylaşımlar bağlamak autofs yeniden başlatın
+   Yeniden `autofs` yeni paylaşımlar bağlamak için
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -734,7 +734,7 @@ Aşağıdaki öğeler ile önek **[A]** - Pa'ları hem AAS, uygulanabilir **[P]*
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
    </code></pre>
 
-   Yeni paylaşımlar bağlamak autofs yeniden başlatın
+   Yeniden `autofs` yeni paylaşımlar bağlamak için
 
    <pre><code>
    sudo systemctl enable autofs
@@ -759,7 +759,7 @@ Aşağıdaki öğeler ile önek **[A]** - Pa'ları hem AAS, uygulanabilir **[P]*
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   Yeni paylaşımlar bağlamak autofs yeniden başlatın
+   Yeniden `autofs` yeni paylaşımlar bağlamak için
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1230,7 +1230,7 @@ Test çalışmalarını bir kopyasını aşağıdaki testlerdir [en iyi uygulama
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   Yalnızca komutu bir kez çalıştırırsanız, sapstart işlemini yeniden başlatır. Bunu çalıştırırsanız, genellikle yeterli sapstart işlem yeniden ve kaynak durdurulmuş durumda olacaktır. Kaynak durumunu Ağıranlar örneğinin sonra test temizlemek için kök olarak aşağıdaki komutları çalıştırın.
+   Komutu yalnızca bir kez çalıştırırsanız, `sapstart` işlemini yeniden başlatır. Bu çalıştırırsanız yeterli, sıklıkla `sapstart` işlemi başlatılmaz ve kaynak durdurulmuş durumda olacaktır. Kaynak durumunu Ağıranlar örneğinin sonra test temizlemek için kök olarak aşağıdaki komutları çalıştırın.
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>

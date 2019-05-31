@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b983c534ab92218759175655bbf396788e4c39d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243576"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Önizleme - IP adresi aralıklarını Azure Kubernetes Service (AKS) kullanarak API sunucusu için güvenli erişim yetkili
 
@@ -21,9 +21,10 @@ Kubernetes API sunucusu kaynakları oluşturmak veya düğüm sayısını ölçe
 Bu makalede denetim düzlemi isteklerine sınırlamak için API yetkili sunucusu IP adresi aralıklarını kullanmayı gösterir. Bu özellik şu anda önizleme sürümündedir.
 
 > [!IMPORTANT]
-> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+> AKS Önizleme özellikleri, Self Servis, kabul etme. Görüş ve hata topluluğumuza toplamak için sağlanır. Önizleme'de, bu özelliklerin üretim kullanılmak üzere geliştirilmiş değildir. Genel Önizleme Özellikleri 'en yüksek çaba' destek kapsamında ayrılır. İş saatleri Pasifik Saat dilimi sırasında (Pasifik Saati) yalnızca AKS teknik destek ekipleri Yardım kullanılabilir. Ek bilgi için lütfen aşağıdaki destek makaleleri bakın:
 >
-> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+> * [AKS destek ilkeleri][aks-support-policies]
+> * [Azure desteği SSS][aks-faq]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -242,7 +243,6 @@ Bu makalede, API sunucu yetkili IP aralıkları etkin. Bu yaklaşım, güvenli b
 Daha fazla bilgi için [uygulama ve kümelerin aks'deki için güvenlik kavramları] [ concepts-security] ve [küme güvenliği ve AKS yükseltmeler için en iyi yöntemler] [ operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
@@ -265,3 +265,5 @@ Daha fazla bilgi için [uygulama ve kümelerin aks'deki için güvenlik kavramla
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

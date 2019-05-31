@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 28893e0782a7fa928757bbbba42662e6d3fa272c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ddc1f673ffec793bbca643ec1057215067f761a9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153576"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255141"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -64,7 +64,7 @@ Filters:
  - Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
 - [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için
 - Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
-- [Panolar oluşturun](../../azure-monitor/app/app-insights-dashboards.md)
+- [Panolar oluşturun](../../azure-monitor/app/overview-dashboard.md)
  
  Daha fazla telemetri ekleyin:
  - [Web testleri oluşturun](monitor-web-app-availability.md) sitenizin Canlı kalması için.

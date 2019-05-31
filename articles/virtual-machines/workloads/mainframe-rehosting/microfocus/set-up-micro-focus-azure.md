@@ -8,22 +8,22 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45d6f8606c665d78783f987c2f2b49a77801639c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487736"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304597"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Micro odak Enterprise Server 4.0 ve kurumsal Geliştirici 4.0 Azure'a yükleme
 
 Bu makalede nasıl ayarlandığı gösterilmektedir [Micro odak Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) ve [Micro odak Kurumsal Geliştirici 4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) azure'da.
 
-Azure'da ortak bir iş yükü geliştirme ve test ortamı, çünkü böylece ekonomik ve kolay dağıtmak ve kapatabilirsiniz. Kurumsal sunucusuyla Micro odak en büyük anabilgisayar rehosting platformlarından biri kullanılabilir oluşturdu. Z/OS iş yükleri üzerinde daha ucuz bir x86 çalıştırabileceğiniz Windows veya Linux sanal makineleri (VM'ler) kullanarak azure'da bir platform.
+Azure'da ortak bir iş yükü geliştirme ve test ortamıdır. Bu nedenle ekonomik ve kolay dağıtmak ve kapatabilirsiniz olduğundan bu yaygın bir senaryodur. Kurumsal sunucusuyla Micro odak en büyük anabilgisayar rehosting platformlarından biri kullanılabilir oluşturdu. Z/OS iş yükleri üzerinde daha ucuz bir x86 çalıştırabileceğiniz Windows veya Linux sanal makineleri (VM'ler) kullanarak azure'da bir platform.
 
 Bu kurulum, Microsoft SQL Server 2017 yüklü olan Azure Market'teki Windows Server 2016 görüntüsü çalıştıran Azure Vm'leri kullanır. Bu kurulum, Azure Stack için de geçerlidir.
 
-Ya da Microsoft Visual Studio 2017'de Visual Studio Community (ücretsiz) çalıştığında, Kurumsal Geliştirici kuruluş sunucusu için karşılık gelen geliştirme ortamı olan veya Eclipse. Bu makalede, yüklü Visual Studio 2017 ile birlikte gelen bir Windows Server 2016 sanal makine kullanarak dağıtma gösterilmektedir.
+Visual Studio Community (ücretsiz) ya da Microsoft Visual Studio 2017 veya sonraki sürümleri çalıştıran kurumsal Geliştirici kuruluş sunucusu için karşılık gelen geliştirme ortamı olan veya Eclipse. Bu makalede, Visual Studio 2017'yle birlikte gelen veya üzeri yüklü olan bir Windows Server 2016 sanal makine kullanarak dağıtma gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -31,7 +31,7 @@ Başlamadan önce şu önkoşulların denetleyin:
 
 - Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-- Micro odak yazılım ve bir geçerli lisans (veya deneme lisansı). Varolan bir Micro odak müşteri ise Micro odak temsilcinize başvurun. Aksi takdirde, [bir deneme sürümü isteyin](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
+- Micro odak yazılım ve bir geçerli lisans (veya deneme lisansı). Mevcut bir Micro odak müşterisi iseniz Micro odak temsilcinize başvurun. Aksi takdirde, [bir deneme sürümü isteyin](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
 - Belgeleri alma [Enterprise Server ve kurumsal Geliştirici](https://www.microfocus.com/documentation/enterprise-developer/#").
 
@@ -40,7 +40,7 @@ Başlamadan önce şu önkoşulların denetleyin:
 
 ## <a name="install-enterprise-server"></a>Enterprise Server’ı yükleme
 
-1. Daha iyi güvenlik ve yönetilebilirlik için yalnızca bu proje için yeni bir kaynak grubu oluşturmayı göz önünde bulundurun — Örneğin, **RGMicroFocusEntServer**. Adının ilk bölümü, Azure'da bir listedeki nokta kolaylaştırmak için kaynak türünü belirlemek için kullanın.
+1. Daha iyi güvenlik ve yönetilebilirlik için yalnızca bu proje için yeni bir kaynak grubu oluşturmayı göz önünde bulundurun — Örneğin, **RGMicroFocusEntServer**. Adın ilk kısmı Azure'da listesindeki nokta kolaylaştırmak için kaynak türünü seçmek için kullanın.
 
 2. Sanal makine oluşturur. Azure Market'ten sanal makine ve istediğiniz işletim sistemi seçin. Önerilen bir Kurulum şu şekildedir:
 
@@ -48,7 +48,7 @@ Başlamadan önce şu önkoşulların denetleyin:
 
     - **Kurumsal Geliştirici**: B2ms VM, Windows 10 ve yüklü Visual Studio ile (2 Vcpu ve 8 GB bellek) seçin. Bu görüntü Azure Market'te kullanılabilir.
 
-3. Üzerinde **Temelleri** dikey penceresinde, kullanıcı adı ve parola girin. Seçin **abonelik** ve **konum/bölge** VM'ler için kullanmak istiyorsunuz. Seçin **RGMicroFocusEntServer** kaynak grubu için.
+3. İçinde **Temelleri** bölümünde, kullanıcı adı ve parola girin. Seçin **abonelik** ve **konum/bölge** VM'ler için kullanmak istiyorsunuz. Seçin **RGMicroFocusEntServer** kaynak grubu için.
 
 4. Birbiriyle iletişim kurabilmesi iki sanal makine aynı sanal ağa ekleyin.
 
@@ -56,13 +56,13 @@ Başlamadan önce şu önkoşulların denetleyin:
 
 6. Sanal makine oluşturulduğunda, gelen bağlantı noktalarını 9003, açma 86 ve HTTP için 80 ve kurumsal Server makinesinde RDP için 3389 ve geliştirici makinesinde 3389.
 
-7. Kurumsal Server sanal makinesi, Azure portalında oturum açmak için ES2 v3 VM'yi seçin. Git **genel bakış** dikey penceresinde ve select **Connect** bir RDP oturumu başlatmak için. Sanal makine için oluşturduğunuz kimlik bilgilerini kullanarak oturum açın.
+7. Kurumsal Server sanal makinesi, Azure portalında oturum açmak için ES2 v3 VM'yi seçin. Git **genel bakış** seçin ve bölüm **Connect** bir RDP oturumu başlatmak için. Sanal makine için oluşturduğunuz kimlik bilgilerini kullanarak oturum açın.
 
-8. Aşağıdaki iki dosyada RDP oturumundan yükleyin. Bu Windows olduğundan, RDP oturumu dosyalarına sürükleyip bırakabilirsiniz:
+8. Aşağıdaki iki dosyada RDP oturumundan yükleyin. Windows kullandığınız için sürükleyin ve RDP oturumu dosyalarına bırakın:
 
     - **ES\_40. exe**, kuruluş sunucusu yükleme dosyası.
 
-    - **mflic**, karşılık gelen lisans dosyası — kuruluş sunucusu olmadan yüklenmez.
+    - **mflic**, karşılık gelen lisans dosyası — kurumsal sunucu olmadan yükü olmaz.
 
 9. Yüklemeyi başlatmak için dosyaya çift tıklayın. İlk penceresinde yükleme konumunu seçin ve son kullanıcı lisans sözleşmesini kabul edin.
 
@@ -92,7 +92,7 @@ Yükleme sonrasında gibi Kurumsal sunucusu ile birlikte Microsoft C++ yeniden d
 
 1. Daha önce oluşturduğunuz kaynak grubunu seçin (örneğin, **RGMicroFocusEntServer**), ardından developer görüntüsünü seçin.
 
-2. Sanal makineye oturum açmak için Git **genel bakış** dikey penceresinde ve select **Connect**. Bu, bir RDP oturumu başlatır. Sanal makine için oluşturduğunuz kimlik bilgilerini kullanarak oturum açın.
+2. Sanal makineye oturum açmak için Git **genel bakış** seçin ve bölüm **Connect**. Bu oturum açma, bir RDP oturumu başlatır. Sanal makine için oluşturduğunuz kimlik bilgilerini kullanarak oturum açın.
 
 3. RDP oturumundan (Sürükle, bırak, isterseniz) aşağıdaki iki dosya yükle:
 
@@ -112,7 +112,7 @@ Yükleme sonrasında gibi Kurumsal sunucusu ile birlikte Microsoft C++ yeniden d
 
 7. Karşıya yüklemek için lisans biçim türünü seçin: Lisans dosyası veya bir 16 karakterlik lisans kodu. Örneğin, bir dosya içinde **lisans dosyası**, göz atın **mflic** dosya karşıya daha önce seçin ve VM **Lisansları Yükle**.
 
-     ![Micro odak lisans yönetimi iletişim kutusu](/edia/07-enterprise-server.png)
+     ![Micro odak lisans yönetimi iletişim kutusu](media/07-enterprise-server.png)
 
 Kurumsal Geliştirici yüklediğinde, Micro odak geliştirme ve test ortamı azure'da dağıtımını tamamlandı!
 

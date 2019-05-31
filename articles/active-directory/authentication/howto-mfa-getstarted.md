@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359356"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235544"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı bir Azure multi-Factor Authentication'ı planlama
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Bulut tabanlı bir Azure multi-Factor Authentication dağıtımı planlama
 
 Kişiler, kuruluş kaynaklarına giderek daha karmaşık senaryolarda bağlanırsınız. Akıllı telefonlar, tabletler, bilgisayarlar ve dizüstü bilgisayarlar, genellikle birden çok platformda kullanarak şirket ağına ve kuruluşa ait, kişisel ve genel cihazları kişiler bağlanın. Bu her zaman bağlı, birden çok cihazlı ve çok platformlu dünyada güvenlik kullanıcı hesaplarının her zamankinden çok daha önemlidir. Parolalar, cihazlar, ağlar ve platformlar arasında kullanılan karmaşıklık, ne olursa olsun, artık kullanıcıların özellikle hesaplarda parolaları yeniden kullanma eğilimindedir olduğunda kullanıcı hesabının güvenliğini sağlamak yeterli değildir. Gelişmiş. kimlik avı ve diğer sosyal mühendislik saldırılarına kullanıcı adları ve parolalar nakledilen ve koyu web üzerinden satılan neden olabilir.
 
@@ -46,7 +46,7 @@ Planlanan iletişimleri, kullanıcılara yaklaşan değişiklikleri, Azure MFA k
 
 Microsoft'un sağladığı [iletişim şablonları](https://aka.ms/mfatemplates) ve [son kullanıcı belgelerini](../user-help/security-info-setup-signin.md) iletişimlerin taslak yardımcı olmak için. Kullanıcılara gönderdiğiniz [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com) doğrudan seçerek kaydedilecek **güvenlik bilgisi** bu sayfadaki bağlantıları.
 
-## <a name="deployment-considerations"></a>Dağıtım konuları
+## <a name="deployment-considerations"></a>Dağıtma konuları
 
 Azure multi-Factor Authentication ile koşullu erişim ilkelerini zorlayarak dağıtılır. A [koşullu erişim ilkesi](../conditional-access/overview.md) gibi belirli ölçütler karşılandığında, çok faktörlü kimlik doğrulaması gerçekleştirmek üzere kullanıcıların isteyebilirsiniz:
 
@@ -60,14 +60,12 @@ Azure multi-Factor Authentication ile koşullu erişim ilkelerini zorlayarak da�
 * Uyumlu cihaz
 * Hibrit Azure AD'ye katılmış
 * Onaylı istemci uygulaması
- 
 
-Özelleştirilebilir Posterler ve e-posta şablonları kuruluşunuz için çok faktörlü kimlik doğrulaması almak için [dağıtım malzemeleri multi factor authentication] kullanın. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+Özelleştirilebilir posterler kullanın ve e-posta şablonlarını [çok faktörlü kimlik doğrulaması ürün reçetesi](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all) kuruluşunuz için çok faktörlü kimlik doğrulaması almak için.
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Koşullu erişim ile çok faktörlü kimlik doğrulamasını etkinleştirme
 
-Koşullu erişim ilkeleri zorunlu tutmanıza gerek ilk oturum açma sırasında bir önemli güvenlik önlemleri kaydı tamamlamak kaydolmamış kullanıcılar kayıt.
-
+Koşullu erişim ilkeleri gerektiren ilk oturum açma sırasında bir önemli güvenlik önlemleri kaydı tamamlamak kaydolmamış kullanıcılar kayıt uygular.
 
 [Azure AD kimlik koruması](../identity-protection/howto-configure-risk-policies.md) bir kayıt ilkesi için hem otomatik risk algılama ve düzeltme ilkeleri Azure multi-Factor Authentication hikayeye katkıda bulunur. İlkeleri güvenliği aşılmış kimlik kesilmeyen parola değişikliklerini zorlamak için oluşturduğunuz veya bir oturum açma aşağıdaki riskli bulunduğu zaman MFA gerektirecek [olayları](../reports-monitoring/concept-risk-events.md):
 
@@ -97,8 +95,8 @@ Kuruluşlar, ağ kullanarak tanımlamak için koşullu erişim kullanmak öneril
       2. IP aralıklarını belirtin.
    2. Ülkeler/bölgeler kullanıyorsanız
       1. Aşağı açılan menüsünü genişletin ve ülke veya bölgelerde bu adlandırılmış konumu tanımlamak istediğiniz seçin.
-      2. Bilinmeyen alanlar dahil edilip edilmeyeceğini karar verin. Bilinmeyen alanlar, bir ülke/bölge ile eşleştirilemeyen IP adresleridir.
-7. **Oluştur**'a tıklayın
+      2. Bilinmeyen alanlar dahil edilip edilmeyeceğini karar verin. Bilinmeyen alanlar, bir ülke/bölge eşlenemez IP adresleridir.
+7. **Oluştur**'a tıklayın.
 
 ## <a name="plan-authentication-methods"></a>Kimlik doğrulama yöntemleri planlama
 
@@ -151,7 +149,7 @@ Kuruluşunuz kimlik korumasını etkinleştirmek lisansları yoksa, kullanıcıl
 
 #### <a name="enforcing-registration"></a>Kayıt zorlama
 
-Aşağıdaki adımları kullanarak bir koşullu erişim ilkesi çok faktörlü kimlik doğrulamasına kaydolacak şekilde kullanıcılar zorlayabilir
+Koşullu erişim aşağıdaki adımları kullanarak ilke çok faktörlü kimlik doğrulamasına kaydolacak şekilde kullanıcılar zorlayabilir
 
 1. Şu anda kayıtlı olan tüm kullanıcılar ekleyin, bir grup oluşturun.
 2. Koşullu erişim kullanarak, bu grubun tüm kaynaklara erişim için multi-Factor authentication uygular.
@@ -169,6 +167,72 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 
 ```PowerShell
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
+```
+
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>MFA kullanıcı başına MFA dönüştürme kullanıcıların koşullu erişim için temel
+
+Kullanıcılarınızın, kullanıcı başına etkin kullanarak etkinleştirilen ve zorlanan Azure multi-Factor Authentication aşağıdaki PowerShell koşullu erişim dönüştürme yaparken size yardımcı olabilir, Azure multi-Factor Authentication temel.
+
+```PowerShell
+# Disable MFA for all users, keeping their MFA methods intact
+Get-MsolUser -All | Disable-MFA -KeepMethods
+
+# Enforce MFA for all users
+Get-MsolUser -All | Set-MfaState -State Enforced
+
+# Wrapper to disable MFA with the option to keep the MFA
+# methods (to avoid having to proof-up again later)
+function Disable-Mfa {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        $User,
+        [switch] $KeepMethods
+    )
+
+    Process {
+
+        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
+        $User | Set-MfaState -State Disabled
+
+        if ($KeepMethods) {
+            # Restore the MFA methods which got cleared when disabling MFA
+            Set-MsolUser -ObjectId $User.ObjectId `
+                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
+        }
+    }
+}
+
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
 ```
 
 ## <a name="plan-conditional-access-policies"></a>Koşullu erişim ilkelerini planlayın
@@ -210,7 +274,7 @@ Doğrudan Azure AD'de kimlik doğrulaması yapmaz bazı eski ve şirket içi uyg
 * Böylece, şirket içi RADIUS uygulamalar, MFA bağdaştırıcısı ile NPS sunucusu kullanmanız gerekir.
 * Böylece, şirket içi AD FS uygulamalar, AD FS 2016 ile MFA bağdaştırıcı kullanmanız gerekir.
 
-Doğrudan Azure AD kimlik doğrulaması ve modern kimlik doğrulaması (WS-Federasyon, SAML, OAuth, Openıd Connect) sahip uygulamalar yapabilir doğrudan koşullu erişim ilkelerini kullanın.
+Doğrudan Azure AD kimlik doğrulaması ve modern kimlik doğrulaması (WS-Federasyon, SAML, OAuth, Openıd Connect) sahip uygulamalar koşullu erişimi kullanın yapabilir ilkeleri doğrudan.
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile Azure mfa'yı kullanın
 
@@ -227,7 +291,7 @@ Azure MFA için ağ ilkesi sunucusu (NPS) uzantısı, var olan sunucuları kulla
 * Yalnızca kimlik doğrulayıcısı uygulaması anında iletme bildirimleri ve sesli arama CHAPv2 protokolü ile desteklenir.
 * Koşullu erişim ilkeleri uygulanamaz.
 
-Bir bağdaştırıcı arasında RADIUS ve korumak için Azure MFA bulut tabanlı bir ikinci faktör kimlik doğrulaması sağlamak için NPS uzantısı görür [VPN](howto-mfa-nps-extension-vpn.md), [Uzak Masaüstü Ağ Geçidi bağlantıları](howto-mfa-nps-extension-rdg.md), ya da diğer RADIUS uyumlu uygulamalar. Azure mfa kaydı bu ortamdaki tüm kimlik doğrulama girişimlerini sınanır kullanıcıları, koşullu erişim ilkeleri ortalama MFA eksikliği her zaman gereklidir.
+Bir bağdaştırıcı arasında RADIUS ve korumak için Azure MFA bulut tabanlı bir ikinci faktör kimlik doğrulaması sağlamak için NPS uzantısı görür [VPN](howto-mfa-nps-extension-vpn.md), [Uzak Masaüstü Ağ Geçidi bağlantıları](howto-mfa-nps-extension-rdg.md), ya da diğer RADIUS uyumlu uygulamalar. Azure mfa kaydı bu ortamdaki tüm kimlik doğrulama girişimleri, koşullu erişim ilkeleri olmaması için zorluğu olan kullanıcılar, mfa'yı her zaman gerekli olan anlamına gelir.
 
 #### <a name="implementing-your-nps-server"></a>NPS sunucunuzu uygulama
 

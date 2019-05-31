@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 646e9bf844477b3d8e1c4c42fb5956e015805433
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 9ca85e4414739bff05176eddc1f31963e453dcf0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833493"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258115"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Yeni bir SaaS uygulaması teklif oluşturma
 
@@ -20,7 +20,7 @@ Bu makalede, oluşturma ve bir SaaS uygulama (uygulama) Teklif girişi için Azu
 
 > [!IMPORTANT] 
 > SaaS teklif işlevselliği geçirilecek için [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tüm yeni yayımcılar, iş ortağı merkezi yeni SaaS teklifleri oluşturma ve mevcut teklifler yönetmek için kullanmanız gerekir.  SaaS teklifleri ile geçerli yayımcılar iş ortağı Merkezi'ne batchwise bulut iş ortağı Portalı'ndan geçiriliyor.  Bulut iş ortağı portalı belirli mevcut teklifler zaman geçirilmiş belirtmek için durum iletilerini görüntüler.
-
+> Daha fazla bilgi için [yeni SaaS teklifi oluşturma](../../partner-center-portal/create-new-saas-offer.md).
 
 ## <a name="offer-process"></a>Teklif işlem
 
@@ -37,7 +37,7 @@ SaaS uygulama teklifini aşağıdaki tabloda açıklanan beş bölümlerden olu�
 |    Teklif ayarları  |  SaaS uygulaması için benzersiz bir kimliğe yapılandırmak için kullanın.                 |
 |  Teknik bilgileri    |  SaaS çözümünün türünü yapılandırmak için kullanın ve uygulamanız için bağlantı ayrıntılarını sağlayın.                |
 |  Kanal bilgileri      |   GTM malzemeler ve kişiler gibi kanal bilgileri sağlar.                |
-|  Test Drive        |   Müşteriler sağlayan bir hizmet tanımlamak için isteğe bağlı bir bölüm teklifiniz, satın almadan önce sınayın.                |
+|  Test Sürüşü        |   Müşteriler sağlayan bir hizmet tanımlamak için isteğe bağlı bir bölüm teklifiniz, satın almadan önce sınayın.                |
 |  StoreFront ayrıntıları       | Pazarlama, yasal ve müşteri adayı yönetim varlıkları ve özellikleri içerir.  <ul><li> Teklif adı, açıklama ve logoları pazarlama varlıkları içerir</li> <li> Gizlilik İlkesi, kullanım koşullarını ve diğer yasal belgeler yasal varlıkları içerir</li>  <li> Azure Marketi Son Kullanıcı Portalı'ndan nasıl işleneceğini belirtmenizi müşteri adayları sağlama yönetim ilkesi sağlar.</li> </ul> |
 | Kişiler            | Destek ilgili kişisi ve ilke bilgilerini içerir |
 

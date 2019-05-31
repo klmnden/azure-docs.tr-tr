@@ -1,65 +1,201 @@
 ---
-title: TensorFlow & Keras modellerini eğitin
+title: TensorFlow modelleri eğitme ve kaydetme
 titleSuffix: Azure Machine Learning service
-description: Tek düğümlü ve dağıtılmış eğitimi TensorFlow ve Keras modelleri ile TensorFlow ve Keras estimators çalıştırmayı öğrenin
+description: Bu makalede eğitme ve Azure Machine Learning hizmetini kullanarak bir TensorFlow modeli kaydetmeyi gösterilmektedir.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
-ms.reviewer: sgilley
-ms.date: 05/06/2019
+ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82c9aa961221b582bb16438f30a0584232164393
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65915107"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400223"
 ---
-# <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile TensorFlow ve Keras modellerini eğitin
+# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>TensorFlow modelleri eğitme ve Azure Machine Learning hizmetini kullanın
 
-Azure işlemi üzerinde kolayca TensorFlow eğitim işleri çalıştırabilirsiniz kullanarak [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Azure Machine Learning SDK'da estimator sınıfı. `TensorFlow` Estimator TensorFlow özellikli bir kapsayıcı için derin sinir ağı (DNN) eğitim işinizi çalıştırmak için Azure Machine Learning hizmetine yönlendirir.
+Bu makalede eğitme ve Azure Machine Learning hizmetini kullanarak bir TensorFlow modeli kaydetmeyi gösterilmektedir. Popüler kullanacağız [MNIST dataset](http://yann.lecun.com/exdb/mnist/) TensorFlow üzerinde oluşturulmuş bir derin sinir ağı kullanarak resimlerdeki el yazısı basamak sınıflandırmak için.
 
-`TensorFlow` Estimator ayrıca sağlar bir Soyutlama Katmanı üzerinden kolayca farklı işlem hedefleri parametreli çalışır, eğitim betikleriniz değiştirmeden yapılandırabilirsiniz, yani yürütme.
+Azure Machine Learning hizmeti ile hızlı bir şekilde elastik bulut bilgi işlem kaynakları kullanarak, açık kaynaklı eğitim işleri ölçeklendirmek mümkün olacaktır. Ayrıca mümkün olacaktır İzle eğitim çalıştırmaları, sürüm modelleri, modelleri ve daha fazlasını dağıtın. Sıfırdan TensorFlow modelden geliştiriyor ister mevcut bir model buluta getirdiğiniz, üretime hazır modelleri oluşturmanıza yardımcı olmak üzere Azure Machine Learning hizmeti aşağıda verilmiştir.
 
-## <a name="get-started"></a>başlarken
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu yana `TensorFlow` estimator sınıfı için temel benzer [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), ilk okuma öneririz [tahmin aracı ile ilgili nasıl yapılır makalesi](how-to-train-ml-models.md) ıpam'da kavramları anlamak için.
+- Azure Machine için Python SDK'sı Learning yükleme
+- İsteğe bağlı: Çalışma alanı yapılandırma dosyası oluşturma
+- İndirme [örnek komut dosyalarını](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` ve `utils.py`
 
-Azure Machine Learning hizmeti ile kullanmaya başlamak için [hızlı başlangıcı tamamlamak](quickstart-run-cloud-notebook.md). İşleminizi tamamladıktan sonra sahip olacaksınız bir [Azure Machine Learning çalışma alanı](concept-workspace.md) ve tüm müşterilerimize [örnek not defterleri](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) eğitim Dnn'leri TensorFlow ve Keras için dahil olmak üzere.
+İzleyebileceğiniz [Python SDK'sı Kurulum Kılavuzu](setup-create-workspace.md#sdk) ortamınızı ayarlarken ilişkin adım adım yönergeler. Örnek eğitim dosyaları bulunabilir bizim [GitHub örnekleri sayfası](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) genişletilmiş, bu kılavuzun Juypter not defteri sürümünü yanı sıra.
 
-## <a name="single-node-training"></a>Tek düğümlü eğitim
+## <a name="set-up-the-experiment"></a>Deneme ayarlama
 
-TensorFlow işi çalıştırmak için örneği bir [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) nesnesi ve bir deney olarak gönderin.
+### <a name="import-packages"></a>Paketleri içeri aktarma
 
-Aşağıdaki kod, TensorFlow estimator örneğini oluşturur ve bir deney gönderir. Eğitim betiğini `train.py` belirtilen betik parametreleri kullanılarak çalıştırılır. İş, bir GPU özellikli üzerinde çalıştırılacak [hedef işlem](how-to-set-up-training-targets.md)ve scikit-olacak bilgi yüklenmesi için bir bağımlılık olarak `train.py`.
+İlk olarak biz gerekli Python kitaplıkları içeri aktarma gerekecektir.
 
 ```Python
-from azureml.train.dnn import TensorFlow
+import os
+import urllib
+import shutil
+import azureml
 
-# training script parameters passed as command-line arguments
+from azureml.core import Experiment
+from azureml.core import Workspace, Run
+
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+```
+
+### <a name="initialize-a-workspace"></a>Bir çalışma alanını Başlat
+
+Çalışma alanı nesnesi hizmeti için en üst düzey bir kaynaktır. Oluşturduğunuz tüm yapıları ile çalışma için merkezi bir yerde sağlar.
+
+İsteğe bağlı bir adım tamamladıysanız [Önkoşullar bölümüne](#prerequisites), kullanabileceğiniz `Workspace.from_config()` hızla yapılandırma dosyasında depolanan ayrıntılarından bir çalışma alanı nesnesi oluşturmak için.
+
+```Python
+ws = Workspace.from_config()
+```
+
+Ayrıca bir çalışma alanı açıkça oluşturabileceğiniz.
+
+```Python
+ws = Workspace.create(name='<workspace-name>',
+                      subscription_id='<azure-subscription-id>',
+                      resource_group='<choose-a-resource-group>',
+                      create_resource_group=True,
+                      location='<select-location>' # For example: 'eastus2'
+                      )
+```
+
+### <a name="create-an-experiment"></a>Deneme oluşturma
+
+Bir deney ve eğitim betiklerinizi tutmak için bir klasör oluşturun. Bu örnekte, "tf-mnıst" adlı bir deneme oluşturma
+
+```Python
+script_folder = './tf-mnist'
+os.makedirs(script_folder, exist_ok=True)
+
+exp = Experiment(workspace=ws, name='tf-mnist')
+```
+
+### <a name="upload-dataset-and-scripts"></a>Veri kümesi ve komut dosyaları karşıya yükle
+
+[Veri deposu](how-to-access-data.md) burada veri depolanabilir ve bağlama ya da işlem hedefi için verileri kopyalayarak erişilen bir yerdir. Her çalışma alanı bir varsayılan veri deposu sağlar. Eğitim sırasında kolayca erişilebilir emin ediyoruz verilerimizi ve eğitim betikleriniz yükleyeceksiniz.
+
+1. Yerel olarak MNIST veri kümesini indirin
+
+    ```Python
+    os.makedirs('./data/mnist', exist_ok=True)
+
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename = './data/mnist/train-images.gz')
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename = './data/mnist/train-labels.gz')
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename = './data/mnist/test-images.gz')
+    urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/mnist/test-labels.gz')
+    ```
+
+1. MNIST veri kümesi, varsayılan veri deposuna yükleyin.
+
+    ```Python
+    ds = ws.get_default_datastore()
+    ds.upload(src_dir='./data/mnist', target_path='mnist', overwrite=True, show_progress=True)
+    ```
+
+1. TensorFlow eğitimi betiğini yükleme `tf_mnist.py`ve yardımcı dosyanın `utils.py`.
+
+    ```Python
+    shutil.copy('./tf_mnist.py', script_folder)
+    shutil.copy('./utils.py', script_folder)
+    ```
+
+## <a name="create-a-compute-target"></a>İşlem hedefi oluşturmak
+
+TensorFlow işinizi çalıştırmak işlem hedefi oluşturmak. Bu örnekte, bir GPU özellikli AmlCompute küme oluştururuz. Kullanılabilir eğitim listesi için hedef işlem, bkz: [bu makalede](how-to-set-up-training-targets.md#compute-targets-for-training)
+
+```Python
+cluster_name = "gpucluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+                                                           max_nodes=4)
+
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+```
+
+## <a name="create-a-tensorflow-estimator"></a>TensorFlow tahmin oluşturma
+
+[TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) işlem hedefi üzerinde bir TensorFlow eğitimi işini başlatmak için basit bir yol sağlar. Otomatik olarak TensorFlow yüklü olan bir docker görüntüsü de sağlayacaktır.
+
+Ek paketler pip ya da conda adlarını aracılığıyla geçirerek elde edilen docker görüntüsünü dahil edebilirsiniz `pip_packages` ve `conda_packages` bağımsız değişkenler.
+
+```Python
 script_params = {
+    '--data-folder': ws.get_default_datastore().as_mount(),
     '--batch-size': 50,
-    '--learning-rate': 0.01,
+    '--first-layer-neurons': 300,
+    '--second-layer-neurons': 100,
+    '--learning-rate': 0.01
 }
 
-# TensorFlow constructor
-tf_est = TensorFlow(source_directory='./my-tf-proj',
-                    script_params=script_params,
-                    compute_target=compute_target,
-                    entry_script='train.py', # relative path to your TensorFlow job
-                    conda_packages=['scikit-learn'],
-                    use_gpu=True)
+est = TensorFlow(source_directory=script_folder,
+                 script_params=script_params,
+                 compute_target=compute_target,
+                 entry_script='tf_mnist.py',
+                 use_gpu=True)
+```
 
-# submit the TensorFlow job
-run = exp.submit(tf_est)
+## <a name="submit-a-run"></a>Bir farklı çalıştır gönderin
+
+[Nesnesini çalıştırmak](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) işi devam ederken ve tamamlandıktan sonra çalıştırma geçmişini arabirim sağlar.
+
+```Python
+run = exp.submit(est)
+run.wait_for_completion(show_output=True)
+```
+
+Çalıştırma yürütülür gibi aşağıdaki aşamalarının verilmektedir:
+
+- **Hazırlama**: Bir docker görüntüsü TensorFlow estimator göre oluşturulur. Görüntü çalışma alanınızın container registry'ye yüklendi ve sonraki çalıştırmalar için önbelleğe alınır. Günlükler için çalıştırma geçmişi de aktarılır ve ilerleme durumunu izlemek için görüntülenebilir.
+
+- **Ölçeklendirme**: Küme if ölçeğini deneyecek Batch AI kümesi çalıştırma şu anda mevcut olandan yürütmek için daha fazla düğüm gerektirir.
+
+- **Çalışan**: Betik klasöründeki tüm betikler işlem hedefine yüklenen, veri depoları bağlı veya kopyalanır ve entry_script yürütülür. Stdout'den çıktı ve. / Günlükler klasöründe için çalıştırma geçmişi aktarılır ve çalıştırmasını izlemek için kullanılabilir.
+
+- **İşleme sonrası**: . / Çalışma klasörüne kopyalanır üzerinden için çalıştırma geçmişi çıkarır.
+
+## <a name="register-or-download-a-model"></a>Kaydolun veya bir model indirin
+
+Modeli eğittiğimize sonra çalışma alanınıza kaydedebilirsiniz. Model kaydı sağlar, depolama ve sürüm Modellerinizi basitleştirmek için çalışma alanınızdaki [model yönetimi ve dağıtım](concept-model-management-and-deployment.md).
+
+```Python
+model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
+```
+
+Ayrıca, çalışma nesnesini kullanarak model yerel bir kopyasını indirebilirsiniz. Eğitim betiğinde `mnist-tf.py`, TensorFlow koruyucu nesne modeli (işlem hedefine yerel) yerel bir klasöre devam ettirir. Bir kopyasını indirmek için çalışma nesnesi kullanabiliriz.
+
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
 ```
 
 ## <a name="distributed-training"></a>Dağıtılmış eğitimi
 
-[ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Estimator ayrıca CPU ve GPU kümeleri arasında dağıtılmış eğitimi destekler. Dağıtılmış TensorFlow işleri kolayca çalıştırabilir ve Azure Machine Learning hizmeti için düzenleme ve altyapı yönetir.
+[ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Estimator ayrıca CPU ve GPU kümeleri arasında dağıtılmış eğitimi destekler. Dağıtılmış TensorFlow işleri kolayca çalıştırabilir ve düzenleme için Azure Machine Learning hizmeti yönetir.
 
 Azure Machine Learning hizmeti TensorFlow, dağıtılmış Eğitim'in iki yöntemi destekler:
 
@@ -70,51 +206,40 @@ Azure Machine Learning hizmeti TensorFlow, dağıtılmış Eğitim'in iki yönte
 
 [Horovod](https://github.com/uber/horovod) için Dağıtılmış eğitimi Uber tarafından geliştirilen bir açık kaynak çerçevesidir. Dağıtılmış TensorFlow GPU işleri kolay bir yolunu sunar.
 
-Aşağıdaki örnek, iki düğüm arasında dağıtılmış iki arkadaşlarınızla Horovod kullanarak dağıtılmış eğitim işini çalıştırır.
+Horovod kullanılacağını belirtin `mpi` için `distributed_training` TensorFlow estimator oluşturucuda parametresi. Horovod eğitim betiğinizde kullanabilmeniz için yüklenir.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
 # Tensorflow constructor
-tf_est = TensorFlow(source_directory='./my-tf-proj',
-                    script_params={},
-                    compute_target=compute_target,
-                    entry_script='train.py', # relative path to your TensorFlow job
-                    node_count=2,
-                    process_count_per_node=1,
-                    distributed_backend='mpi', # specifies Horovod backend
-                    use_gpu=True)
-
-# submit the TensorFlow job
-run = exp.submit(tf_est)
-```
-
-Eğitim betiğinizde alabilmeniz Horovod ve bağımlılıklarını sizin için yüklenecek.
-
-```Python
-import tensorflow as tf
-import horovod
+estimator= TensorFlow(source_directory=project_folder,
+                      compute_target=compute_target,
+                      script_params=script_params,
+                      entry_script='script.py',
+                      node_count=2,
+                      process_count_per_node=1,
+                      distributed_backend='mpi',
+                      use_gpu=True)
 ```
 
 ### <a name="parameter-server"></a>Parametre sunucusu
 
 Ayrıca çalıştırabileceğiniz [yerel dağıtılmış TensorFlow](https://www.tensorflow.org/deploy/distributed), parametre sunucu modeli kullanır. Bu yöntemde, parametre sunucularının ve çalışan bir küme genelinde eğitin. Parametre sunucuları gradyanlar toplama sırasında çalışan gradyanlar eğitim sırasında hesaplayın.
 
-Aşağıdaki örnek, iki düğüm arasında dağıtılmış dört arkadaşlarınızla parametresi sunucu yöntemi kullanarak dağıtılmış eğitim işini çalıştırır.
+Parametre sunucusu yönteminin kullanılacağını belirtin `ps` için `distributed_training` TensorFlow estimator oluşturucuda parametresi.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
 # Tensorflow constructor
-tf_est = TensorFlow(source_directory='./my-tf-proj',
-                    script_params={},
-                    compute_target=compute_target,
-                    entry_script='train.py', # relative path to your TensorFlow job
-                    node_count=2,
-                    worker_count=2,
-                    parameter_server_count=1,
-                    distributed_backend='ps', # specifies parameter server backend
-                    use_gpu=True)
+estimator= TensorFlow(source_directory=project_folder,
+                      compute_target=compute_target,
+                      script_params=script_params,
+                      entry_script='script.py',
+                      node_count=2,
+                      process_count_per_node=1,
+                      distributed_backend='ps',
+                      use_gpu=True)
 
 # submit the TensorFlow job
 run = exp.submit(tf_est)
@@ -126,7 +251,7 @@ Ayrıca küme için bağlantı noktaları ve ağ adresleri gerekir [ `tf.train.C
 
 `TF_CONFIG` Ortam değişkenidir bir JSON dizesi. Parametre sunucusu için değişkenin bir örnek aşağıda verilmiştir:
 
-```
+```JSON
 TF_CONFIG='{
     "cluster": {
         "ps": ["host0:2222", "host1:2222"],
@@ -153,33 +278,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## <a name="keras-support"></a>Keras desteği
-
-[Keras](https://keras.io/) bir popüler, üst düzey DNN Python TensorFlow, CNTK ve arka uçları olarak Theano destekleyen bir API'dir. TensorFlow arka uç olarak kullanıyorsanız, Keras ekleme dahil olmak üzere olarak basit bir `pip_package` Oluşturucu parametresi.
-
-Aşağıdaki örnek örnekleyen bir [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) tahmin aracı ve bir deney gönderir. Tahmin Keras eğitim betiği çalıştıran `keras_train.py`. İş, bir gpu özellikli üzerinde çalıştırılacak [hedef işlem](how-to-set-up-training-targets.md) Keras pip aracılığıyla bağımlılık olarak yüklü olan.
-
-```Python
-from azureml.train.dnn import TensorFlow
-
-keras_est = TensorFlow(source_directory='./my-keras-proj',
-                       script_params=script_params,
-                       compute_target=compute_target,
-                       entry_script='keras_train.py', # relative path to your TensorFlow job
-                       pip_packages=['keras'], # add keras through pip
-                       use_gpu=True)
-```
-
-## <a name="export-to-onnx"></a>ONNX için dışarı aktarma
-
-İle en iyi duruma getirilmiş çıkarım almak için [ONNX çalışma zamanı](concept-onnx.md), eğitilen TensorFlow modelinizi ONNX biçimine dönüştürebilirsiniz. Bkz: [örnek](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py).
-
-## <a name="examples"></a>Örnekler
-
-Çeşitli çerçeveleri kullanarak hem tek düğümlü hem de dağıtılmış TensorFlow yürütme için çalışma kod örnekleri bulabilirsiniz [GitHub sayfamızdan](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning).
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İzleme ölçümlerini eğitim sırasında çalıştırın](how-to-track-experiments.md)
-* [Hiperparametreleri ayarlama](how-to-tune-hyperparameters.md)
-* [Eğitilen model dağıtma](how-to-deploy-and-where.md)
+Bu makalede, eğitim ve Azure Machine Learning hizmetinde bir TensorFlow modelin kayıtlı. Model dağıtımı makalemizi açın devam model dağıtma hakkında bilgi edinin.
+
+> [!div class="nextstepaction"]
+> [Nasıl ve nerede modelleri dağıtma](how-to-deploy-and-where.md)

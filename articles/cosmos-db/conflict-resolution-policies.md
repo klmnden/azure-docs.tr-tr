@@ -4,15 +4,15 @@ description: Bu makalede, çakışma kategorileri ve Azure Cosmos DB'de Çakış
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892600"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236541"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Çakışma türleri ve çözme ilkeleri
 

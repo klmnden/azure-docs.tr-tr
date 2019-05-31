@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 05/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4aae8eb29b9e90bd1cb84949e97e21ed68c04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1466614dfeb8fa4d3d095bae070d01c6503c5bb
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812779"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357233"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği sınırlamaları
 Azure Active Directory (Azure AD) B2B işbirliği şu anda, bu makalede açıklanan sınırlamalara tabidir.
@@ -29,6 +29,9 @@ B2B işbirliği akışlardaki dizine kullanıcı ekleme ve Davetiyesi kullanım�
 
 ## <a name="azure-ad-directories"></a>Azure AD dizini
 Azure AD B2B olan tabi Azure AD hizmet directory sınırları. Bir kullanıcı oluşturabilirsiniz dizinlerin sayısını ve dizinleri hakkında ayrıntılı bilgi için bir kullanıcı veya konuk kullanıcıya ait olabilir için bkz: [Azure AD hizmet sınırlamaları ve kısıtlamaları](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+
+## <a name="national-clouds"></a>Ulusal Bulutlar
+[Ulusal Bulutlar](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) fiziksel olarak yalıtılmış Azure örnekleridir. B2B işbirliği Ulusal bulut sınırları arasında desteklenmez. Örneğin, Azure kiracınızın genel, genel bulutta, Ulusal bulutta hesabı bir kullanıcı davet edemezsiniz. Kullanıcı ile işbirliği yapmak için başka bir e-posta adresi isteyin veya bir üye kullanıcı hesabı kendileri için dizininizde oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

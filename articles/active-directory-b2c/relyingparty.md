@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705088"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253770"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -74,7 +74,7 @@ Aşağıdaki örnekte gösterildiği bir **RelyingParty** öğesinde *B2C_1A_sig
 
 İsteğe bağlı **RelyingParty** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | RP uygulaması için varsayılan kullanıcı yolculuğu. |
 | UserJourneyBehaviors | 0:1 | Kullanıcı yolculuğu davranışlarını kapsamı. |
@@ -110,7 +110,7 @@ Aşağıdaki örnekte gösterildiği bir **RelyingParty** öğesinde *B2C_1A_sig
 
 **UserJourneyBehaviors** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Çoklu oturum açma (SSO) oturum davranışını kullanıcı yolculuğu kapsamı. |
 | Ssosession |0:1 | Oturumun kimlik doğrulama davranışı. Olası değerler: `Rolling` veya `Absolute`. `Rolling` Değeri (varsayılan) gösteren kullanıcının uygulamada sürekli olarak etkin olduğu sürece, kullanıcının oturum açmış durumda kalır. `Absolute` Değeri gösterir kullanıcı uygulama oturumu tarafından belirtilen bir süre sonra yeniden kimlik doğrulamaya zorlayabilir zorlanır yaşam süresi. |
@@ -124,7 +124,7 @@ Aşağıdaki örnekte gösterildiği bir **RelyingParty** öğesinde *B2C_1A_sig
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Kapsam | Evet | Çoklu oturum açma davranışı kapsamı. Olası değerler: `Suppressed`, `Tenant`, `Application`, veya `Policy`. `Suppressed` Değeri gösterir davranışı bastırılır. Örneğin, tek bir oturum açma oturumu, söz konusu olduğunda kullanıcı için hiçbir oturumu korunur ve kullanıcı bir kimlik sağlayıcısı seçim için her zaman istemde bulunulacak. `TrustFramework` Değeri gösterir davranışı güven Framework'teki tüm ilkeler için uygulanır. Örneğin, bir güven çerçevesi için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Tenant` Değeri gösterir davranışı kiracıdaki tüm ilkeleri uygulanır. Örneğin, bir kiracı için iki ilke yolculuklarından giderek bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Application` Değeri gösterir davranışı istekte uygulama yönelik tüm ilkeleri uygulanır. Örneğin, bir uygulama için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Policy` Değeri gösterir davranış yalnızca bir ilke için geçerlidir. Örneğin, bir güven çerçevesi için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim ilkeleri arasında geçiş yaparken istenir. |
+| `Scope` | Evet | Çoklu oturum açma davranışı kapsamı. Olası değerler: `Suppressed`, `Tenant`, `Application`, veya `Policy`. `Suppressed` Değeri gösterir davranışı bastırılır. Örneğin, tek bir oturum açma oturumu, söz konusu olduğunda kullanıcı için hiçbir oturumu korunur ve kullanıcı bir kimlik sağlayıcısı seçim için her zaman istemde bulunulacak. `TrustFramework` Değeri gösterir davranışı güven Framework'teki tüm ilkeler için uygulanır. Örneğin, bir güven çerçevesi için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Tenant` Değeri gösterir davranışı kiracıdaki tüm ilkeleri uygulanır. Örneğin, bir kiracı için iki ilke yolculuklarından giderek bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Application` Değeri gösterir davranışı istekte uygulama yönelik tüm ilkeleri uygulanır. Örneğin, bir uygulama için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Policy` Değeri gösterir davranış yalnızca bir ilke için geçerlidir. Örneğin, bir güven çerçevesi için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim ilkeleri arasında geçiş yaparken istenir. |
 | KeepAliveInDays | Evet | kullanıcının oturum açmış durumda kalır ne kadar süreyle denetler. KMSI'yi işlevselliği 0 kapatır değeri ayarlanamadı. Daha fazla bilgi için [Oturumumu açık bırak](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -152,7 +152,7 @@ Aşağıdaki örnekte adlı bir parametre geçirir `campaignId` değeriyle `hawa
 
 **ContentDefinitionParameters** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0: n | İçerik tanımı yük URI sorgu dizesi olarak anahtar değer çifti içeren bir dize. |
 
@@ -170,15 +170,15 @@ Daha fazla bilgi için [özel ilkeler kullanarak dinamik içerik ile kullanıcı
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- | 
-| Kimlik | Evet | Değer olmalıdır `PolicyProfile`. |
+| Id | Evet | Değer olmalıdır `PolicyProfile`. |
 
 **TechnicalProfile** aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Kullanıcılara görüntülenen teknik profili adını içeren dize. |
+| displayName | 0:1 | Kullanıcılara görüntülenen teknik profili adını içeren dize. |
 | Açıklama | 0:1 | Kullanıcılara görüntülenen teknik profil açıklama içeren dize. |
-| Protokol | 1:1 | Federasyon için kullanılan protokol. |
+| Protocol | 1:1 | Federasyon için kullanılan protokol. |
 | Meta Veriler | 0:1 | Koleksiyonu *öğesi* bağlı olan taraf ve diğer topluluk katılımcılar arasındaki etkileşimi yapılandırmak için bir işlem sırasında uç noktasıyla iletişim protokolü tarafından kullanılan anahtar/değer çiftleri. |
 | OutputClaims | 0:1 | Teknik profilde çıktı olarak gerçekleştirilen talep türleri listesi. Bu öğelerin her biri başvuru içeren bir **ClaimType** önceden tanımlanmış **ClaimsSchema** bölüm veya bu ilke dosyası devraldığı bir ilke. |
 | SubjectNamingInfo | 0:1 | Konu adı belirteçleri kullanılır. |
@@ -193,7 +193,7 @@ Daha fazla bilgi için [özel ilkeler kullanarak dinamik içerik ile kullanıcı
 
 **OutputClaims** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | outputClaim | 0: n | Bağlı olan taraf için abone olur ilke için desteklenen bir beklenen talep türü adı. Bu talep, teknik profil için bir çıktı görevi görür. |
 
@@ -208,7 +208,7 @@ Daha fazla bilgi için [özel ilkeler kullanarak dinamik içerik ile kullanıcı
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 İle **SubjectNameingInfo** öğesi, belirteç konu değerini kontrol:
-- **JTW belirteci** - `sub` talep. Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar budur. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Bir kaynağa erişmek için belirteci kullanıldığında gibi güvenli yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. Daha fazla bilgi için [belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md).
+- **JWT belirteci** - `sub` talep. Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar budur. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Bir kaynağa erişmek için belirteci kullanıldığında gibi güvenli yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. Daha fazla bilgi için [belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md).
 - **SAML belirteci** - `<Subject><NameID>` konu öğeyi tanımlayan bir öğe.
 
 **SubjectNamingInfo** öğesi aşağıdaki öznitelik içeriyor:

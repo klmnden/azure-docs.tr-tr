@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035831"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399995"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Oluşturma ve kurtarma planlarını özelleştirme
 
@@ -21,7 +21,7 @@ Bu makalede oluşturma ve bir kurtarma planındaki özelleştirme [Azure Site Re
 
 ## <a name="create-a-recovery-plan"></a>Kurtarma planı oluşturma
 
-1. Kurtarma Hizmetleri Kasası'nda seçin **kurtarma planları (Site Recovery)** > **+ kurtarma planı**.
+1. Kurtarma Hizmetleri Kasası'nda seçin **kurtarma planları (Site Recovery)**  >  **+ kurtarma planı**.
 2. İçinde **kurtarma planı oluştur**, plan için bir ad belirtin.
 3. Kaynak ve hedef makinelerde plana göre seçip **Resource Manager** dağıtım modeli için. Kaynak konumu makineler yük devretme ve kurtarma için etkinleştirilmiş olması gerekir. 
 
@@ -53,7 +53,7 @@ Ek grupları oluşturun ve bu makine, farklı gruplara ekleyebilirsiniz, böylec
 
 ## <a name="add-a-script-or-manual-action"></a>Bir betik veya el ile eylemi ekleme
 
-Bir kurtarma planı betiği veya el ile gerçekleştirilen eylem ekleyerek özelleştirebilirsiniz. Şunlara dikkat edin:
+Bir kurtarma planı betiği veya el ile gerçekleştirilen eylem ekleyerek özelleştirebilirsiniz. Aşağıdakilere dikkat edin:
 
 - Azure'a çoğaltma yapıyorsanız, kurtarma planına Azure Otomasyonu runbook'ları tümleştirebilirsiniz. [Daha fazla bilgi edinin](site-recovery-runbook-automation.md).
 - System Center VMM tarafından yönetilen Hyper-V Vm'lerini çoğaltma yapıyorsanız şirket içi VMM sunucusunda bir komut dosyası oluşturabilir ve kurtarma planında içerir.
@@ -66,17 +66,20 @@ Bir kurtarma planı betiği veya el ile gerçekleştirilen eylem ekleyerek özel
     --- | --- | --- 
     Azure-Azure arası  | Runbook | Runbook
     Vmware’den Azure’a | Runbook | NA 
-    Azure'a VMM ile Hyper-V | Runbook | Betik
+    Azure'a VMM ile Hyper-V | Runbook | Komut Dosyası
     Azure'da Hyper-V sitesi | Runbook | NA
-    İkincil VMM VMM'ye | Betik | Betik
+    İkincil VMM VMM'ye | Komut Dosyası | Komut Dosyası
 
-1. Kurtarma planında hangi eylemi eklenmelidir ve eylemi ne zaman gerçekleşmesi gerektiğini belirtin. Adım'a tıklayın: bir. Gruptaki makinelerin yük devretme sonrasında, select başlamadan gerçekleşecek eylemi istiyorsanız **ön Eylem Ekle**.
-    b. Makine grubu başlangıç sonra Yük devretme işleminden sonra gerçekleşecek şekilde eylem istiyorsanız belirleyin **sonraki eylem Ekle**. Eylemin konumuna taşımak, seçmek **Yukarı Taşı** veya **Aşağı Taşı** düğmeleri.
+1. Kurtarma planında hangi eylemi eklenmelidir ve eylemi ne zaman gerçekleşmesi gerektiğini belirtin. Adım'a tıklayın:
+    1. Gruptaki makinelerin yük devretme sonrasında, select başlamadan gerçekleşecek eylemi istiyorsanız **ön Eylem Ekle**.
+    1. Makine grubu başlangıç sonra Yük devretme işleminden sonra gerçekleşecek şekilde eylem istiyorsanız belirleyin **sonraki eylem Ekle**. Eylemin konumuna taşımak, seçmek **Yukarı Taşı** veya **Aşağı Taşı** düğmeleri.
 2. İçinde **Ekle eylemini**seçin **betik** veya **el ile gerçekleştirilen eylem**.
-3. El ile gerçekleştirilen bir eylem eklemek istiyorsanız, aşağıdakileri"bir. Eylem için bir ad yazın ve eylem yönergeleri yazın. Yük devretme çalıştıran kişinin, bu yönergeler karşınıza çıkar.
-    b. Tüm türleri (Test, yük devretme, (uygunsa) planlı yük devretme) yük devretme için el ile gerçekleştirilen eylem eklemek isteyip istemediğinizi belirtin. Daha sonra, **Tamam**'a tıklayın.
-4. Bir komut dosyası eklemek istiyorsanız, aşağıdakileri yapın: bir. VMM komut ekliyorsanız seçin **yük devretme VMM betiği**hem de **betik yolu** paylaşımına göreli yolunu yazın. Örneğin, paylaşım, bulunuyorsa \\ <VMMServerName>\MSSCVMMLibrary\RPScripts, yolu belirtin: \RPScripts\RPScript.PS1.
-    b. Kitap çalıştıran bir Azure Otomasyonu ekliyorsanız belirtin **Azure Otomasyonu hesabı** , runbook bulunur ve uygun seçin **Azure Runbook betiği**.
+3. El ile gerçekleştirilen bir eylem eklemek istiyorsanız, aşağıdakileri yapın:
+    1. Eylem için bir ad yazın ve eylem yönergeleri yazın. Yük devretme çalıştıran kişinin, bu yönergeler karşınıza çıkar.
+    1. Tüm türleri (Test, yük devretme, (uygunsa) planlı yük devretme) yük devretme için el ile gerçekleştirilen eylem eklemek isteyip istemediğinizi belirtin. Daha sonra, **Tamam**'a tıklayın.
+4. Bir komut dosyası eklemek istiyorsanız, aşağıdakileri yapın:
+    1. VMM komut ekliyorsanız seçin **yük devretme VMM betiği**hem de **betik yolu** paylaşımına göreli yolunu yazın. Örneğin, paylaşım, bulunuyorsa \\ \<VMMServerName > \MSSCVMMLibrary\RPScripts, yolu belirtin: \RPScripts\RPScript.PS1.
+    1. Kitap çalıştıran bir Azure Otomasyonu ekliyorsanız belirtin **Azure Otomasyonu hesabı** , runbook bulunur ve uygun seçin **Azure Runbook betiği**.
 5. Kurtarma planı betiği beklendiği gibi çalıştığından emin olmak için bir yük devretme çalıştırın.
 
 ## <a name="watch-a-video"></a>Bir video izleyin

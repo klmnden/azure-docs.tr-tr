@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306549"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388679"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Yükleme ve konuşma hizmeti kapsayıcıları çalıştırma
 
-Konuşma kapsayıcıları hem güçlü bulut özellikleri hem de edge yerleşim yeri yararlanmak için iyileştirilmiş bir konuşma uygulama mimarisi yapı sağlar. Artık desteklediğimiz iki konuşma kapsayıcılardır **konuşma metin** ve **metin okuma**. 
+Konuşma kapsayıcıları hem güçlü bulut özellikleri hem de edge yerleşim yeri yararlanmak için iyileştirilmiş bir konuşma uygulama mimarisi yapı sağlar. 
 
 İki konuşma kapsayıcılardır **konuşma metin** ve **metin okuma**. 
 
 |İşlev|Özellikler|En son|
 |-|-|--|
-|Konuşmayı Metne Dönüştürme| <li>Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<li>Ses kayıtlarından toplu konuşma dökümü alabilir. <li>Ara sonuçların yanı sıra konuşma sonu algılama, otomatik metin biçimlendirme ve küfür maskeleme özelliklerini destekler. <li>Dökümü alınmış bir konuşmadan kullanıcının amacını anlamak üzere [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)'de (LUIS) çağrı yapabilir.\*|1.1.1|
-|Metin Okuma| <li>Metni, doğal sesli konuşmaya dönüştürür. <li>Desteklenen birçok dil için birden fazla cinsiyet ve/veya diyalekt sunar. <li>Düz metin girişini veya Konuşma Birleştirme İşaretleme Dilini (SSML) destekler. |1.1.0|
+|Konuşmayı Metne Dönüştürme| <li>Sürekli gerçek zamanlı konuşma veya toplu ses kayıtları Ara sonuçlarla metne dönüştürür.|1.1.1|
+|Metin Okuma| <li>Metni, doğal sesli konuşmaya dönüştürür. düz metin girişi veya konuşma sentezi işaretleme dili (SSML'yi). |1.1.0|
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir konuş
 
 Kapsayıcı görüntülerini konuşma için kullanılabilir. 
 
-| Kapsayıcı | Depo |
+| Kapsayıcı | Havuz |
 |-----------|------------|
 | bilişsel hizmetler-konuşma-metne dönüştürme | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 | bilişsel hizmetler-metin-için-konuşma | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
@@ -110,7 +110,7 @@ Aşağıdaki tabloda desteklenen yerel ayarlar için **konuşma metin** 1.1.1, k
 |Dil yerel ayar|Tags|
 |--|--|
 |Çince|`zh-cn`|
-|İngilizce |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|Türkçe |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |Fransızca  |`fr-ca`<br>`fr-fr`|
 |Almanca |`de-de`|
 |İtalyanca|`it-it`|
@@ -139,14 +139,14 @@ Aşağıdaki tabloda desteklenen yerel ayarlar için **metin okuma** 1.1.0 için
 |Dil yerel ayar|Tags|Desteklenen sesleri|
 |--|--|--|
 |Çince|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao apollo|
-|İngilizce |`en-au`|catherine<br>hayleyrus|
-|İngilizce |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
-|İngilizce |`en-in`|heera apollo<br>priyarus<br>ravi apollo<br>|
-|İngilizce |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|Türkçe |`en-au`|catherine<br>hayleyrus|
+|Türkçe |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
+|Türkçe |`en-in`|heera apollo<br>priyarus<br>ravi apollo<br>|
+|Türkçe |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Fransızca |`fr-ca`|caroline<br>harmonierus|
 |Fransızca |`fr-fr`|hortenserus<br>Julie apollo<br>Paul apollo|
 |Almanca |`de-de`|hedda<br>heddarus<br>Stefan apollo|
-|İtalyanca |`it-it`|cosimo apollo<br>luciarus|
+|İtalyanca|`it-it`|cosimo apollo<br>luciarus|
 |Japonca|`ja-jp`|ayumi apollo<br>harukarus<br>ichiro apollo|
 |Korece|`ko-kr`|heamirus|
 |Portekizce|`pt-br`|Daniel apollo<br>heloisarus|
@@ -161,7 +161,7 @@ Aşağıdaki tabloda desteklenen yerel ayarlar için **metin okuma** 1.1.0 için
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
 ```
 
-#### <a name="text-to-speech"></a>Metin Okuma
+#### <a name="text-to-speech"></a>Metin okuma
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
@@ -187,7 +187,7 @@ Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/
 
 Bu parametreleri aşağıdaki örnekte kendi değerlerinizle değiştirin `docker run` komutu.
 
-### <a name="text-to-speech"></a>Metin Okuma
+### <a name="text-to-speech"></a>Metin okuma
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -222,7 +222,7 @@ Bu komut:
 |Kapsayıcı|Uç Nokta|
 |--|--|
 |Konuşmayı Metne Dönüştürme|ws: / / localhost:5000/konuşma/tanıma/yazdırma/cognitiveservices/v1|
-|Metin Okuma|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
+|Metin okuma|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
 
 ### <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
@@ -258,7 +258,7 @@ Bu çağrı, kapsayıcı uç noktasını kullanarak:
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
 ```
 
-### <a name="text-to-speech"></a>Metin Okuma
+### <a name="text-to-speech"></a>Metin okuma
 
 Kapsayıcı REST uç noktasını bulunabilir API'leri sağlar [burada](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) ve örnekler bulunabilir [burada](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
@@ -274,7 +274,7 @@ Kapsayıcı REST uç noktasını bulunabilir API'leri sağlar [burada](https://d
 
 Kapsayıcı çalıştırdığınızda, kapsayıcının kullanan **stdout** ve **stderr** başlatılıyor veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan çıkış bilgiler. 
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Azure için fatura, kullanarak konuşma kapsayıcıları Gönder bir _konuşma_ Azure hesabınız kaynaktaki. 
 

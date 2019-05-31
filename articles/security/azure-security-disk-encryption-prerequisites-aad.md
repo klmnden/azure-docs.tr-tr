@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66118047"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234297"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -73,7 +73,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
 **Grup İlkesi:**
  - Azure Disk şifrelemesi çözümü, BitLocker dış anahtar koruyucusu Windows Iaas Vm'leri için kullanır. Etki alanına katılmış sanal makineleri, TPM koruyucusu zorlamak için tüm grup ilkeleri anında iletme yok. "Uyumlu TPM'siz BitLocker izin ver" için Grup İlkesi hakkında bilgi için bkz: [BitLocker Grup İlkesi başvurusu](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  Özel Grup İlkesi ile etki alanına katılmış sanal makinelerde BitLocker'ı İlkesi şu ayar eklemeniz gerekir: [Kullanıcı depolama alanını yapılandırmak bitlocker kurtarma bilgilerinin -> izin 256 bitlik kurtarma anahtarı](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk şifrelemesi, BitLocker için özel Grup İlkesi ayarları uyumsuz olduğunda başarısız olur. Doğru ilkeyi gerekmedi makinelerde yeni ilkeyi uygulamak, (gpupdate.exe/Force) güncelleştirmek için yeni ilke zorlayın ve daha sonra yeniden başlatmak gerekli olabilir.  
+-  Özel Grup İlkesi ile etki alanına katılmış sanal makinelerde BitLocker'ı İlkesi şu ayar eklemeniz gerekir: [Kullanıcı depolama alanını yapılandırmak BitLocker kurtarma bilgilerinin -> izin 256 bitlik kurtarma anahtarı](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk şifrelemesi, BitLocker için özel Grup İlkesi ayarları uyumsuz olduğunda başarısız olur. Doğru ilkeyi gerekmedi makinelerde yeni ilkeyi uygulamak, (gpupdate.exe/Force) güncelleştirmek için yeni ilke zorlayın ve daha sonra yeniden başlatmak gerekli olabilir.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -246,7 +246,7 @@ Adımları uygulayın [Azure Active Directory kaynaklarına erişmek uygulama ve
 1. [Gerekli izinleri doğrulama](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [Bir Azure Active Directory uygulaması oluşturma](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Herhangi bir ad kullanabilir ve oturum açma URL'si uygulama oluştururken istediğiniz.
-3. [Uygulama kimliği ve kimlik doğrulama anahtarını alma](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
+3. [Uygulama kimliği ve kimlik doğrulama anahtarını alma](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in). 
      - Kimlik doğrulama anahtarı, istemci parolası ve Set-AzVMDiskEncryptionExtension için AadClientSecret kullanılır. 
         - Kimlik doğrulama anahtarı, Azure AD'de oturum açmak için bir kimlik bilgisi olarak bir uygulama tarafından kullanılır. Azure portalında bu gizli anahtarları olarak adlandırılır, ancak anahtar kasalarına ilgisi yoktur. Bu gizli dizi uygun şekilde güvenli hale getirin. 
      - Uygulama kimliği, daha sonra için Set-AzVMDiskEncryptionExtension Aadclientıd ve Set-AzKeyVaultAccessPolicy için ServicePrincipalName olarak kullanılacaktır. 

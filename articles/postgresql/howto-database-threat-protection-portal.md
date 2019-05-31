@@ -1,19 +1,19 @@
 ---
-title: Gelişmiş tehdit koruması - PostgreSQL için Azure veritabanı
+title: Gelişmiş tehdit koruması - PostgreSQL için Azure veritabanı - tek sunucu
 description: Tehdit koruması veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421334"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067460"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı için Gelişmiş tehdit koruması
 
 PostgreSQL için Azure Veritabanı Gelişmiş Tehdit Koruması, veritabanlarınıza erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder.
 
@@ -28,7 +28,7 @@ Gelişmiş tehdit koruması için Gelişmiş güvenlik özellikleri birleştiril
 
 ## <a name="set-up-threat-detection"></a>Tehdit algılama ' ayarlayın
 1. Adresinden Azure portalında başlatma [ https://portal.azure.com ](https://portal.azure.com).
-2. Korumak istediğiniz PostgreSQL sunucusu için Azure veritabanı'nın yapılandırma sayfasına gidin. Güvenlik Ayarları'nda seçin **Gelişmiş tehdit Koruması (Önizleme)**.
+2. Korumak istediğiniz PostgreSQL sunucusu için Azure veritabanı'nın yapılandırma sayfasına gidin. Güvenlik Ayarları'nda seçin **Gelişmiş tehdit Koruması (Önizleme)** .
 3. Üzerinde **Gelişmiş tehdit Koruması (Önizleme)** yapılandırma sayfası:
 
    - Sunucuda Gelişmiş tehdit koruması sağlar.

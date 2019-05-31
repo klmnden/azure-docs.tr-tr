@@ -2,17 +2,17 @@
 title: Önizleme - bir Azure Kubernetes Service (AKS) kümesine bir Windows Server kapsayıcı oluşturma
 description: Hızla bir Kubernetes kümesi oluşturma, bir Windows Server kapsayıcıdaki Azure Kubernetes hizmeti (Azure CLI kullanılarak AKS) uygulama dağıtma hakkında bilgi edinin.
 services: container-service
-author: zr-msft
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: zarhoads
-ms.openlocfilehash: 328fb9707c7151b8696cfb55e13567db90e45b7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.author: twhitney
+ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991148"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305292"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Önizleme - Azure CLI kullanarak bir Azure Kubernetes Service (AKS) kümesine bir Windows Server kapsayıcı oluşturma
 
@@ -35,9 +35,10 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure CLI 
 Windows Server kapsayıcıları çalıştırmak üzere, küme oluşturduktan sonra bir ek düğüm havuzu eklemeniz gerekir. Bir ek düğüm havuzu ekleme, bir sonraki adımda ele alınmıştır, ancak ilk birkaç Önizleme özelliklerini etkinleştirmek gerekir.
 
 > [!IMPORTANT]
-> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+> AKS Önizleme özellikleri, Self Servis, kabul etme. Görüş ve hata topluluğumuza toplamak için sağlanır. Önizleme'de, bu özelliklerin üretim kullanılmak üzere geliştirilmiş değildir. Genel Önizleme Özellikleri 'en yüksek çaba' destek kapsamında ayrılır. İş saatleri Pasifik Saat dilimi sırasında (Pasifik Saati) yalnızca AKS teknik destek ekipleri Yardım kullanılabilir. Ek bilgi için lütfen aşağıdaki destek makaleleri bakın:
 >
-> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+> * [AKS destek ilkeleri][aks-support-policies]
+> * [Azure desteği SSS][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
     
@@ -87,7 +88,7 @@ Bu özellik Önizleme aşamasında olduğu sürece, aşağıdaki ek kısıtlamal
 * Windows Server düğüm havuzu adı, 6 karakterlik bir sınırı vardır.
 * Windows Server düğüm havuzları Kanada bölgeleri şu anda kullanılabilir değil.
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. Bir kaynak grubu oluştururken konum belirtmeniz istenir. Bu kaynak grubu meta verilerini depolandığı bir konumdur başka bir bölgede kaynak oluşturma sırasında belirtmezseniz kaynaklarınızı Azure üzerinde çalıştırdığı de olabilir. Kullanarak bir kaynak grubu oluşturmanız [az grubu oluşturma] [ az-group-create] komutu.
 
@@ -276,7 +277,7 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![ASP.NET örnek uygulamaya göz atma görüntüsü](media/windows-container/asp-net-sample-app.png)
 
-## <a name="delete-cluster"></a>Kümeyi sil
+## <a name="delete-cluster"></a>Kümeyi silme
 
 Kümeye artık ihtiyacınız yoksa [az group delete][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırın.
 
@@ -302,7 +303,6 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
-[aks-github]: https://github.com/azure/aks/issues
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
@@ -328,3 +328,5 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-advanced-networking.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

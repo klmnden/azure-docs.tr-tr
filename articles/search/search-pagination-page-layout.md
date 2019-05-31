@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dc208f3231882a0726733c897e70557c657cddf3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e627de5b22a67051961e70bab56b2d931129281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024518"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244808"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Azure Search'te sonuçlarını arama ile çalışma
 Bu makalede, standart arama sonuçları sayfası, toplam sayısı, belge alma, sıralama düzenleri ve gezinti gibi öğeleri ekleme hakkında yönergeler sağlanır. Veri veya arama sonuçlarındaki bilgileri katkıda sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [belgede arama](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Azure arama hizmetinize gönderilen istekler. 
 
-REST API istekleri GET komutu, yol ve hangi istenen hizmet bildirmek sorgu parametreleri ve yanıt formüle etmek nasıl içerir. .NET SDK'da eşdeğer API'dir [DocumentSearchResult sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+REST API istekleri GET komutu, yol ve hangi istenen hizmet bildirmek sorgu parametreleri ve yanıt formüle etmek nasıl içerir. .NET SDK'da eşdeğer API'dir [DocumentSearchResult sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Birkaç kod örneği, burada bulduğunuz bir web ön uç arabirimi şunlardır: [New York City işleri demo app](https://azjobsdemo.azurewebsites.net/) ve [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 

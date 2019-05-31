@@ -4,15 +4,15 @@ description: Bu belgede, sanal ağ ve alt ağ erişim denetimi için bir Azure C
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765525"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242482"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Azure Cosmos DB'den sanal ağları (VNet) erişim
 

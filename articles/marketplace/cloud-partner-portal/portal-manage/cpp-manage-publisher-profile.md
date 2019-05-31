@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942233"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257548"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Azure Market ve AppSource yayımcı profilinizi yönetin
 
@@ -49,7 +49,7 @@ Yayımcı profilinizi bulut iş ortağı portalı ile mevcut Geliştirici Merkez
 > [!NOTE]
 > Geliştirme Merkezi hesabı kayıt Marketi SKU'ları Ücretli yayımlama için zorunludur.
 
-Bir Geliştirici Merkezi hesabına sahip değilseniz, açıklanan şekilde bir hesap oluşturabilirsiniz [geliştirme Merkezi'ne kaydolun](../../register-dev-center.md).  Ardından, bulut iş ortağı portalı teklifiniz için bir sahip olarak kayıtlı e-posta adresi ekleyin. Sahibi yalnızca yayımlama profiliniz için kayıtlı e-posta adresi ekleyebilirsiniz **kullanıcı** bölümü. Ardından, aynı e-posta adresini kullanarak portalda oturum açın ve Geliştirme Merkezi hesabınıza bağlayın.
+Bir Geliştirici Merkezi hesabına sahip değilseniz, açıklanan şekilde bir hesap oluşturabilirsiniz [geliştirme Merkezi'ne kaydolun](https://docs.microsoft.com/azure/marketplace/register-dev-center).  Ardından, bulut iş ortağı portalı teklifiniz için bir sahip olarak kayıtlı e-posta adresi ekleyin. Sahibi yalnızca yayımlama profiliniz için kayıtlı e-posta adresi ekleyebilirsiniz **kullanıcı** bölümü. Ardından, aynı e-posta adresini kullanarak portalda oturum açın ve Geliştirme Merkezi hesabınıza bağlayın.
 
 ![Yayımcı profil ayrıntıları - yayımcı Profil açıklaması](./media/publisherprofiledescription.png)
 

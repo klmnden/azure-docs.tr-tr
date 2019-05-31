@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562364"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305264"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid kavramları
 
@@ -22,7 +22,8 @@ Bu makalede, Azure Event Grid içindeki ana kavramlar açıklanır.
 
 Sistemde gerçekleşen bir şey tam olarak açıklayan bilgileri en az miktarda bir olaydır. Her bir olay gibi genel bilgiler yok: olayının kaynağı, olay yerinde ve benzersiz tanımlayıcı geçen süre. Her olay, yalnızca belirli olay türü için uygun olan belirli bilgileri de vardır. Örneğin, bir Azure depolamada oluşturulan yeni bir dosya ile ilgili ayrıntıları dosya hakkında gibi olayda `lastTimeModified` değeri. Veya, Event Hubs olay yakalama dosyanın URL'si. 
 
-Her olay için 64 KB veri sınırlıdır.
+Bir olay boyutu en fazla 64 KB, genel kullanılabilirlik (GA) hizmet düzeyi sözleşmesi (SLA) tarafından alınmıştır. Bir olay boyutu en fazla desteği 1 MB şu anda Önizleme aşamasındadır. Olaylar üzerinde 64 KB, 64 KB'lık artışlarla ücretlendirilir. 
+
 
 Bir olayı gönderilir özelliklerini görmek [Azure Event Grid olay şeması](event-schema.md).
 
@@ -59,9 +60,6 @@ Abonelik oluşturma örnekler için bkz:
 Geçerli olay Kılavuzu abonelikleri alma hakkında daha fazla bilgi için bkz: [Event Grid aboneliklerini sorgulama](query-event-subscriptions.md).
 
 ## <a name="event-subscription-expiration"></a>Olay aboneliği süre sonu
-
-[Event Grid uzantısı](/cli/azure/azure-cli-extensions-list) Azure CLI bir sona erme ayarlamanıza olanak sağlar. bir olay aboneliği oluştururken tarih. REST API kullanıyorsanız kullanın `api-version=2018-09-15-preview`
-
 Olay aboneliğinin süresi bu tarihte otomatik olarak sona erer. Sınırlı bir süre için yalnızca gerekli olay aboneliklerine yönelik bir sona erme süresini ayarlayabilir ve bu Aboneliklerdeki temizleme hakkında endişelenmeye gerek istemiyorum. Örneğin, bir senaryoyu test etmek için bir olay aboneliği oluşturulurken bir sona erme süresini ayarlayabilir isteyebilirsiniz. 
 
 Bir süre sonu ayarlama örneği için bkz: [Gelişmiş Filtreler ile abone ol](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -82,7 +80,10 @@ Event Grid olay abonenin uç noktası tarafından alındı doğrulayamazsa olay 
 
 ## <a name="batching"></a>Toplu İşleme
 
-Özel bir konu kullanırken, olayları bir dizide her zaman yayımlanması gerekir. Düşük aktarım hızı senaryoları, Bununla birlikte, yüksek hacimli için kullanım örnekleri için bu bir toplu olabilir, birçok batch önerilir başına birlikte olayları yayımlamak daha yüksek verimlilik elde edin. Toplu iş 1 MB'a kadar olabilir. Her olay hala 64 KB'den büyük olmaması gerekir.
+Özel bir konu kullanırken, olayları bir dizide her zaman yayımlanması gerekir. Düşük aktarım hızı senaryoları, Bununla birlikte, yüksek hacimli için kullanım örnekleri için bu bir toplu olabilir, birçok batch önerilir başına birlikte olayları yayımlamak daha yüksek verimlilik elde edin. Toplu iş 1 MB'a kadar olabilir. Her olay hala 64 KB'lık (Genel kullanım) veya 1 MB (Önizleme) büyük olmamalıdır.
+
+> [!NOTE]
+> Bir olay boyutu en fazla 64 KB, genel kullanılabilirlik (GA) hizmet düzeyi sözleşmesi (SLA) tarafından alınmıştır. Bir olay boyutu en fazla desteği 1 MB şu anda Önizleme aşamasındadır. Olaylar üzerinde 64 KB, 64 KB'lık artışlarla ücretlendirilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

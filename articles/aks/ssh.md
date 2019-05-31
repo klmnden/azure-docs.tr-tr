@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956360"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242026"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Küme düğümleri Bakımı veya sorun giderme için Azure Kubernetes Service (AKS) için SSH ile bağlanma
 
@@ -33,18 +33,25 @@ Varsayılan olarak, SSH anahtarları alınan veya oluşturulan ve AKS kümesi ol
 > [!NOTE]
 > SSH anahtarları can şu anda yalnızca Azure CLI kullanarak Linux düğümlere eklenmesi. Windows Server düğümleri kullanırsanız, AKS kümesi oluşturduğunuzda sağlanan SSH anahtarlarını kullanma ve üzerinde. adıma atlayın [AKS düğümü adresini almak nasıl](#get-the-aks-node-address). Veya, [Uzak Masaüstü Protokolü (RDP) bağlantıları kullanarak Windows Server düğümlere bağlanma][aks-windows-rdp].
 
+AKS düğümleri özel IP adresini almak için adımları farklı çalıştırdığınız AKS kümesi türüne göre:
+
+* AKS kümeler için adımları [normal AKS kümeler için IP adresini alma](#add-ssh-keys-to-regular-aks-clusters).
+* Sanal makine ölçek kümeleri, birden çok düğüm havuzları veya Windows Server kapsayıcı desteği gibi kullanan, AKS içinde herhangi bir önizleme özelliği kullanırsanız [sanal makine ölçek kümesi tabanlı AKS kümeleri için adımları](#add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters).
+
+### <a name="add-ssh-keys-to-regular-aks-clusters"></a>Normal AKS kümeye SSH anahtarları Ekle
+
 Bir Linux AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları tamamlayın:
 
-1. Kaynak grubu adını kullanarak AKS kümesi kaynaklarınız için alma [az aks show][az-aks-show]. Kendi temel kaynak grubunun ve AKS kümesinin adını sağlayın:
+1. Kaynak grubu adını kullanarak AKS kümesi kaynaklarınız için alma [az aks show][az-aks-show]. Kendi temel kaynak grubunun ve AKS küme adı sağlayın. Küme adı adlı değişkene atanan *CLUSTER_RESOURCE_GROUP*:
 
     ```azurecli-interactive
-    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. AKS küme kaynak grubu kullanarak Vm'leri listelemek [az vm listesini] [ az-vm-list] komutu. Bu VM'ler, AKS düğümleri şunlardır:
 
     ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
     ```
 
     Aşağıdaki örnek çıktıda, AKS düğümleri gösterir:
@@ -59,25 +66,61 @@ Bir Linux AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adıml
 
     ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group $CLUSTER_RESOURCE_GROUP \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
+    ```
+
+### <a name="add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters"></a>Sanal makine ölçek kümesi tabanlı AKS kümeye SSH anahtarları Ekle
+
+Bir sanal makine ölçek kümesinin bir parçası olan bir Linux AKS düğümüne SSH anahtarınızı eklemek için aşağıdaki adımları tamamlayın:
+
+1. Kaynak grubu adını kullanarak AKS kümesi kaynaklarınız için alma [az aks show][az-aks-show]. Kendi temel kaynak grubunun ve AKS küme adı sağlayın. Küme adı adlı değişkene atanan *CLUSTER_RESOURCE_GROUP*:
+
+    ```azurecli-interactive
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+    ```
+
+1. Ardından, sanal makine ölçek kümesi kullanarak AKS kümenizin için alın [az vmss listesi] [ az-vmss-list] komutu. Sanal makine ölçek kümesi adı adlı değişkene atanan *SCALE_SET_NAME*:
+
+    ```azurecli-interactive
+    SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+    ```
+
+1. Bir sanal makine ölçek kümesi düğümlerine SSH anahtarlarınızı eklemek için [az vmss uzantı kümesi] [ az-vmss-extension-set] komutu. Küme kaynak grubunu ve sanal makine ölçek kümesi adı, önceki komutlardan sağlanır. Varsayılan olarak, AKS düğümleri için kullanıcı adı: *azureuser*. Gerekirse, kendi SSH ortak anahtar konumunu, konumu gibi güncelleştirme *~/.ssh/id_rsa.pub*:
+
+    ```azurecli-interactive
+    az vmss extension set  \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --vmss-name $SCALE_SET_NAME \
+        --name VMAccessForLinux \
+        --publisher Microsoft.OSTCExtensions \
+        --version 1.4 \
+        --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
+    ```
+
+1. SSH anahtarı kullanarak düğümlerine uygulamak [az vmss update-instances] [ az-vmss-update-instances] komutu:
+
+    ```azurecli-interactive
+    az vmss update-instances --instance-ids '*' \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --name $SCALE_SET_NAME
     ```
 
 ## <a name="get-the-aks-node-address"></a>AKS düğüm adresi alın
 
 AKS düğümleri genel olarak internet'e açık değildir. AKS düğümleri için SSH için özel IP adresini kullanın. Sonraki adımda, yardımcı pod olanak sağlayan, AKS kümenizin SSH düğümü için bu özel IP adresi oluşturun. AKS düğümleri özel IP adresini almak için adımları farklı çalıştırdığınız AKS kümesi türüne göre:
 
-* AKS kümeler için adımları [normal AKS kümeler için IP adresini alma](#regular-aks-clusters).
-* Sanal makine ölçek kümeleri, birden çok düğüm havuzları veya Windows Server kapsayıcı desteği gibi kullanan, AKS içinde herhangi bir önizleme özelliği kullanırsanız [sanal makine ölçek kümesi tabanlı AKS kümeleri için adımları](#virtual-machine-scale-set-based-aks-clusters).
+* AKS kümeler için adımları [normal AKS kümeler için IP adresini alma](#ssh-to-regular-aks-clusters).
+* Sanal makine ölçek kümeleri, birden çok düğüm havuzları veya Windows Server kapsayıcı desteği gibi kullanan, AKS içinde herhangi bir önizleme özelliği kullanırsanız [sanal makine ölçek kümesi tabanlı AKS kümeleri için adımları](#ssh-to-virtual-machine-scale-set-based-aks-clusters).
 
-### <a name="regular-aks-clusters"></a>Normal AKS kümeleri
+### <a name="ssh-to-regular-aks-clusters"></a>Normal AKS kümeleri için SSH
 
 Bir AKS kümesi düğümü kullanma özel IP adresini görüntüleyin [az vm-IP-adreslerini] [ az-vm-list-ip-addresses] komutu. Önceki elde kendi AKS küme kaynak grubu adı girin [az aks show] [ az-aks-show] . adım:
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
 Aşağıdaki örnek çıktıda, AKS düğümleri özel IP adreslerini gösterir:
@@ -88,7 +131,7 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
-### <a name="virtual-machine-scale-set-based-aks-clusters"></a>Sanal makine ölçek kümesi tabanlı AKS kümeler
+### <a name="ssh-to-virtual-machine-scale-set-based-aks-clusters"></a>Sanal makine ölçek kümesi tabanlı AKS kümeler için SSH
 
 İç IP adresi kullanarak düğümlerin listesinde [kubectl Al komutu][kubectl-get]:
 
@@ -199,3 +242,6 @@ Ek sorun giderme verilerini gerekiyorsa [kubelet günlüklerini görüntüleme] 
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
+[az-vmss-list]: /cli/azure/vmss#az-vmss-list
+[az-vmss-extension-set]: /cli/azure/vmss/extension#az-vmss-extension-set
+[az-vmss-update-instances]: /cli/azure/vmss#az-vmss-update-instances

@@ -1,20 +1,20 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda desteklenen sürümler
-description: PostgreSQL için Azure veritabanı'nda desteklenen sürümlerini açıklar.
+title: PostgreSQL - tek bir sunucu için Azure veritabanı'nda desteklenen sürümler
+description: -Tek bir sunucu PostgreSQL için Azure veritabanı'nda desteklenen sürümleri açıklar.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 16064d662c5b101e30f8d2fbb64b39db0848f49f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: 4dcbaf159fce6b5f5495a6a25a2a3420cad9e5e8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702319"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067254"
 ---
 # <a name="supported-postgresql-database-versions"></a>Desteklenen PostgreSQL veritabanı sürümleri
-Microsoft, hizmet PostgreSQL için Azure veritabanı'nda PostgreSQL altyapısının n-2 sürümlerini desteklemek üzere amaçlar. Sürümler, geçerli ana sürüme (n) azure'da ve iki önceki ana sürümü (-2) olacaktır.
+PostgreSQL altyapısının n-2 sürümlerini - tek bir sunucu PostgreSQL için Azure veritabanı'nda desteklemek için Microsoft amaçlar. Sürümler, geçerli ana sürüme (n) azure'da ve iki önceki ana sürümü (-2) olacaktır.
 
 PostgreSQL için Azure veritabanı şu anda aşağıdaki sürümlerini destekler:
 

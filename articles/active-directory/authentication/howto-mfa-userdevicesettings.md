@@ -1,6 +1,6 @@
 ---
 title: Yöneticileri Yönet kullanıcılara ve cihazlara - Azure MFA - Azure Active Directory
-description: Bu kavram işlemimiz yeniden yapmak için kullanıcıların zorlama gibi kullanıcı ayarlarını nasıl değiştireceğinizi açıklar.
+description: Yöneticiler, kullanıcıların kavram artırma işlemi yapmayı tekrar deneyebilir zorlama gibi kullanıcı ayarlarını nasıl değiştirebilir.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415145"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298836"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure multi Factor Authentication ile kullanıcı ayarlarını yönetme
 
@@ -42,6 +42,14 @@ Bu ayar, kullanıcı yeniden kayıt işlemini tamamlamak için zorlar. Tarayıc�
 7. **Kaydet**’e tıklayın.
 8. Tıklayın **kapatmak**.
 
+Kuruluşlar, aşağıdaki adımları temizlemek için bir kılavuz olarak aşağıdaki kullanarak PowerShell ile tamamlayabilir `StrongAuthenticationMethods` özniteliği:
+
+```PowerShell
+$Upn = "theuser@domain.com"
+$noMfaConfig = @()
+Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
+```
+
 ## <a name="delete-users-existing-app-passwords"></a>Kullanıcılar var olan uygulama parolalarını Sil
 
 Bu ayar tüm bir kullanıcının oluşturduğu uygulama parolalarını siler. Bu uygulama parolalarıyla ilişkilendirilmiş, tarayıcı olmayan uygulamalar, yeni bir parola oluşturuluncaya kadar çalışmasını durdurabilir.
@@ -64,7 +72,7 @@ Azure multi-Factor Authentication'ın yapılandırılabilir özelliklerden biri,
 
 Kullanıcılar normal cihazlarından gün yapılandırılabilir bir süre için iki aşamalı doğrulamayı dışında tercih edebilirsiniz. Bir hesap tehlikede ya da güvenilir bir cihaz kaybolursa, güvenilen durumunu kaldırın ve yeniden iki aşamalı kimlik doğrulaması gerekir.
 
-**Geri yükleme multi factor authentication tüm hatırlanan cihazlarda** kullanıcı olacak ayarlamak beden bunlar, ister kendi cihazı olarak işaretlemek seçtikleri bağımsız olarak bir sonraki oturum açışınızda iki aşamalı doğrulamayı gerçekleştirmek için güvenilir.
+Bu onay kutusu işaretlendiğinde, **geri yükleme multi factor authentication tüm hatırlanan cihazlarda** kullanıcıları cihazlarını güvenilen olarak işaretlenmiş olsa bile, oturum açtığınızda iki aşamalı doğrulamayı gerçekleştirmek için gerekli değildir.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Mfa'yı bir kullanıcı için askıya alınmış tüm cihazlarda geri yükleme
 

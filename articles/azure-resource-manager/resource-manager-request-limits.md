@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791355"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399707"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager istekleri azaltma
 
 Her Azure aboneliği ve Kiracı için Resource Manager kadar saat başına istek 12.000 okuma ve yazma istekleri saatte 1.200 sağlar. Bu limitler istekleri yapabilen sorumlu kimliği ve abonelik kimliği için kapsamlı veya Kiracı kimliği. İsteklerinizi birden fazla asıl kimliği geliyorsa, abonelik veya Kiracı genelinde sınırınızı 12.000 ve saatte 1.200 büyüktür.
 
-İstekleri aboneliğiniz veya kiracınız için uygulanır. Abonelik isteği olanları aboneliğinizi geçirme involve kimliği, aboneliğinizdeki kaynak gruplarını almak gibi adı verilir. Kiracı isteklerini, geçerli Azure konumlarının alma gibi abonelik Kimliğinizi dahil değildir.
+İstekleri aboneliğiniz veya kiracınız için uygulanır. Abonelik, aboneliğinizdeki kaynak gruplarını almak gibi abonelik Kimliğinizi geçirme ilgili isteklerdir. Kiracı isteklerini, geçerli Azure konumlarının alma gibi abonelik Kimliğinizi dahil değildir.
 
 Bu limitler her bir Azure Resource Manager örneğine uygulayın. Her Azure bölgesi içinde birden çok örneği vardır ve Azure Resource Manager tüm Azure bölgelerine dağıtılır.  Uygulamada, sınırlar etkili bir şekilde bu sınırlardan daha yüksek olacak şekilde, kullanıcı olarak istekler genellikle birçok farklı örnekleri tarafından sunulur.
 
@@ -45,7 +45,7 @@ Yanıt üst bilgilerini inceleyerek, kalan istek sayısını belirleyebilirsiniz
 ## <a name="retrieving-the-header-values"></a>Üstbilgi değerlerini alma
 Bu kod veya betik üstbilgi değerlerini alma herhangi bir üst bilgi değeri almaktan farklı değildir. 
 
-Örneğin, **C#**, üstbilgi değerini almak bir **HttpWebResponse** adlı nesne **yanıt** aşağıdaki kod ile:
+Örneğin, **C#** , üstbilgi değerini almak bir **HttpWebResponse** adlı nesne **yanıt** aşağıdaki kod ile:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)

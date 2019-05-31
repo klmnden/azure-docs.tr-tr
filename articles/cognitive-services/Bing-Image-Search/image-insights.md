@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: 33dfbe70d75335eca79d32807407b97e32c2dbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8521566087690523359b753b800268e75437a257
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918150"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384264"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Bing resim arama API'si ile resim Öngörüler elde edin
 
@@ -26,7 +26,7 @@ ms.locfileid: "60918150"
 
 Her görüntünün görüntü hakkında bilgi almak için kullanabileceğiniz bir ınsights belirteci içerir. Örneğin, burada görüntüde verilen ürün satın alabilirsiniz ilgili görüntü, görüntü içeren web sayfaları koleksiyonunu veya tüccarların listesini alabilirsiniz.  
 
-Bir görüntü ile ilgili öngörüleri almak için görüntü yakalama [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken) yanıt belirteç.
+Bir görüntü ile ilgili öngörüleri almak için görüntü yakalama [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken) yanıt belirteç.
 
 ```json
 "value" : [{
@@ -41,9 +41,9 @@ Bir görüntü ile ilgili öngörüleri almak için görüntü yakalama [imageIn
 }],
 ```
 
-Ardından, görüntü ayrıntılarını uç noktasını çağırmak ve ayarlama [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) sorgu parametresi için belirteci `imageInsightsToken`.  
+Ardından, görüntü ayrıntılarını uç noktasını çağırmak ve ayarlama [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) sorgu parametresi için belirteci `imageInsightsToken`.  
 
-Almak istediğiniz öngörüleri belirtmek için ayarlayın `modules` sorgu parametresi. Tüm öngörüleri almak için ayarlanmış `modules` için `All`. Yalnızca başlığı ve koleksiyon öngörüleri almak için ayarlanmış `modules` için `Caption%2CCollection`. Olası ınsights tam bir listesi için bkz. [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested). Tüm ınsights, tüm görüntüler için kullanılabilir. Yanıt, istenen tüm ınsights varsa içeriyor.
+Almak istediğiniz öngörüleri belirtmek için ayarlayın `modules` sorgu parametresi. Tüm öngörüleri almak için ayarlanmış `modules` için `All`. Yalnızca başlığı ve koleksiyon öngörüleri almak için ayarlanmış `modules` için `Caption%2CCollection`. Olası ınsights tam bir listesi için bkz. [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Tüm ınsights, tüm görüntüler için kullanılabilir. Yanıt, istenen tüm ınsights varsa içeriyor.
 
 Aşağıdaki örnek, bir önceki resimde için tüm kullanılabilir ınsights ister.
 
@@ -59,7 +59,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-insights-of-a-known-image"></a>Bilinen bir görüntünün öngörü alma
 
-Insights'ın almak için kullanmak istediğiniz resmin URL'si varsa [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl) sorgu parametresi yerine [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parametresini kullanarak görüntüyü belirtin. Veya resim dosyası varsa, bir POST isteğinin gövdesinden ikili görüntünün gönderebilir. Bir POST isteği kullanırsanız `Content-Type` üstbilgi ayarlanmalıdır `multipart/data-form`. Her iki seçenekte de görüntüsünün boyutu 1 MB aşamaz.  
+Insights'ın almak için kullanmak istediğiniz resmin URL'si varsa [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) sorgu parametresi yerine [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) parametresini kullanarak görüntüyü belirtin. Veya resim dosyası varsa, bir POST isteğinin gövdesinden ikili görüntünün gönderebilir. Bir POST isteği kullanırsanız `Content-Type` üstbilgi ayarlanmalıdır `multipart/data-form`. Her iki seçenekte de görüntüsünün boyutu 1 MB aşamaz.  
 
 Görüntünün bir URL'niz varsa, aşağıdaki örnekte ınsights görüntünün nasıl gösterir.
 
@@ -75,7 +75,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-all-image-insights"></a>Tüm görüntü öngörü alma  
 
-Görüntünün tüm ınsights istemek için ayarlanmış [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sorgu parametresi için `All`. İlgili aramalar almak için istek kullanıcının sorgu dizesi içermelidir. Bu örnek gösterir kullanarak [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) görüntüyü belirtmek için.  
+Görüntünün tüm ınsights istemek için ayarlanmış [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) sorgu parametresi için `All`. İlgili aramalar almak için istek kullanıcının sorgu dizesi içermelidir. Bu örnek gösterir kullanarak [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) görüntüyü belirtmek için.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&insightsToken=mid_68364D764J...&modules=All&mkt=en-us HTTP/1.1  
@@ -87,7 +87,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Üst düzey nesnedir bir [ImageInsightsResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse) yerine Nesne bir [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) nesne.  
+Üst düzey nesnedir bir [ImageInsightsResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) yerine Nesne bir [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) nesne.  
 
 ```json
 {
@@ -174,12 +174,12 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="recognizing-entities-in-an-image"></a>Varlıkları bir resim tanıma  
 
-Varlık tanıma özelliği, şu anda yalnızca kişilerin resim varlıkları tanımlar. Görüntü varlıkları tanımlamak üzere ayarlamak [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sorgu parametresi için `RecognizedEntities`.  
+Varlık tanıma özelliği, şu anda yalnızca kişilerin resim varlıkları tanımlar. Görüntü varlıkları tanımlamak üzere ayarlamak [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) sorgu parametresi için `RecognizedEntities`.  
 
 > [!NOTE]
 > Bu modül ile başka bir modül belirtemezsiniz. Bu modül diğer modüllerle belirtirseniz, yanıt tanınan varlıkları içermez.  
 
-Aşağıdaki görüntü kullanarak belirteceğiniz gösterilmektedir [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl) parametresi. URL unutmayın sorgu parametreleri kodlayın.  
+Aşağıdaki görüntü kullanarak belirteceğiniz gösterilmektedir [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) parametresi. URL unutmayın sorgu parametreleri kodlayın.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=faith+hill&insightsToken=mid_68364D764J...&modules=RecognizedEntities&mkt=en-us HTTP/1.1  
@@ -223,16 +223,16 @@ Değerler dikdörtgenin genişliğini ve yüksekliğini özgün resmin göreli v
 
 Bing sonraki ınsights çağrılarında döndürür bölge kullanabilirsiniz. Örneğin, görsel açıdan benzer resimler tanınan bir varlığın almak için şunu yazın. Görüntüleri kırpma görsel olarak benzer ve varlık tanıma modülleri ile kullanmak için daha fazla bilgi için bkz. Aşağıdaki bölge alanları ve sorgu parametreleri arasındaki eşleme, görüntüleri kırpma kullanılacağını gösterir.  
 
--   Sol eşlendiğini [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
--   Top eşlenir [kat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  
--   Sağa doğru eşlendiğini [araba](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
--   Alt eşlenir [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
+-   Sol eşlendiğini [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+-   Top eşlenir [kat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+-   Sağa doğru eşlendiğini [araba](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+-   Alt eşlenir [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
 
 ## <a name="finding-visually-similar-images"></a>Görsel olarak benzer resimler bulma  
 
-Orijinal görüntünün görsel olarak benzer resimler bulmak için ayarlanmış [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sorgu parametresi SimilarImages için.  
+Orijinal görüntünün görsel olarak benzer resimler bulmak için ayarlanmış [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) sorgu parametresi SimilarImages için.  
 
-Aşağıdaki isteği, görsel açıdan benzer resimler alma işlemi gösterilmektedir. Talep kullanan [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) sorgu parametresi özgün resmin tanımlamak için. İlgi düzeyi artırmak için kullanıcının sorgu dizesi içermelidir.  
+Aşağıdaki isteği, görsel açıdan benzer resimler alma işlemi gösterilmektedir. Talep kullanan [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) sorgu parametresi özgün resmin tanımlamak için. İlgi düzeyi artırmak için kullanıcının sorgu dizesi içermelidir.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?insightsToken=mid_68364D764J...&modules=SimilarImages&mkt=en-us HTTP/1.1  
@@ -265,7 +265,7 @@ Aşağıda, bir önceki isteğin yanıtı gösterilmektedir.
 
 ## <a name="cropping-images-to-use-with-visually-similar-and-entity-recognition-modules"></a>Kullanılacak görüntüleri kırpma görsel olarak benzer ve varlık tanıma modülleri  
 
-Bing görsel olarak benzer resimler olup olmadığını belirlemek için veya varlık tanıma gerçekleştirmek için kullandığı görüntünün bölgeyi belirtmek için kullanın [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal), [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat), [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)ve [araba](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car) sorgu parametreleri. Varsayılan olarak, Bing, görüntünün tamamını kullanır.  
+Bing görsel olarak benzer resimler olup olmadığını belirlemek için veya varlık tanıma gerçekleştirmek için kullandığı görüntünün bölgeyi belirtmek için kullanın [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal), [cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat), [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)ve [araba](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car) sorgu parametreleri. Varsayılan olarak, Bing, görüntünün tamamını kullanır.  
 
 Üst, sol üst köşedeki ve altında karşılaştırma için Bing kullanan bölgeye sağ köşesindeki parametreleri belirtin. Değerleri özgün resmin genişliği ve yüksekliği kesirler olarak belirtin. Kesirli değer başlayın (0.0, 0.0) üst, sol üst köşedeki ve sonu (1.0, 1.0) sağ alt köşesindeki konumunda. Örneğin, üst, sol üst köşedeki biçimini çeyreği aşağı üst ve sol taraftaki şekilde çeyreği başladığını belirtmek için ayarlanmış `cal` 0,25 için ve `cat` 0,25.  
 
@@ -374,9 +374,9 @@ Yanıt, tanınan bir varlığın gösterir.
 
 ## <a name="finding-visually-similar-products"></a>Görsel olarak benzer ürünleri bulma  
 
-Ürün Orijinal görüntüdeki bulunamadı görsel olarak benzer ürünleri içeren görüntü bulmak için ayarlanmış [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sorgu parametresi SimilarProducts için.  
+Ürün Orijinal görüntüdeki bulunamadı görsel olarak benzer ürünleri içeren görüntü bulmak için ayarlanmış [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) sorgu parametresi SimilarProducts için.  
 
-Aşağıdaki isteği, görsel olarak benzer çok ürünlerin görüntülerini alma işlemi gösterilmektedir. Talep kullanan [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) sorgu parametresi özgün tanımlamak için görüntü, önceki bir istekte döndürüldü. İlgi düzeyi artırmak için kullanıcının sorgu dizesi içermelidir.  
+Aşağıdaki isteği, görsel olarak benzer çok ürünlerin görüntülerini alma işlemi gösterilmektedir. Talep kullanan [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) sorgu parametresi özgün tanımlamak için görüntü, önceki bir istekte döndürüldü. İlgi düzeyi artırmak için kullanıcının sorgu dizesi içermelidir.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=anne+klein+dresses&modules=SimilarProducts&insightsToken=ccid_WOeyfoSp*mid_4B0A357&mkt=en-us HTTP/1.1    
@@ -408,7 +408,7 @@ Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Yanıt benzer bir �
 }
 ```
 
-Çevrimiçi ürün teklifi tüccarların listesini almak için (bkz [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) alan), API yeniden çağırın ve ayarlama `modules` ShoppingSources için. Ardından, `insightsToken` ürün Özet görüntüde belirtecine sorgu parametresi bulunamadı.  
+Çevrimiçi ürün teklifi tüccarların listesini almak için (bkz [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) alan), API yeniden çağırın ve ayarlama `modules` ShoppingSources için. Ardından, `insightsToken` ürün Özet görüntüde belirtecine sorgu parametresi bulunamadı.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

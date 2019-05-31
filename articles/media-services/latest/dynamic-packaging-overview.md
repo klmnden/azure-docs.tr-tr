@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761957"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299180"
 ---
 # <a name="dynamic-packaging"></a>Dinamik paketleme
 
@@ -31,6 +31,9 @@ Yararlanmak için **dinamik paketleme**, ihtiyacınız bir **varlık** Uyarlamal
 Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. 
 
 Media Services'de, dinamik paketleme, Canlı veya isteğe bağlı Akış olup olmadığını kullanılır. 
+
+> [!NOTE]
+> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](media-services-apis-overview.md#sdks) birini kullanın.
 
 ## <a name="common-on-demand-workflow"></a>İsteğe bağlı ortak iş akışı
 
@@ -92,16 +95,38 @@ Dinamik paketleme ile kodlanmış bir video içeren MP4 dosyalarını destekler 
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Dinamik paketleme tarafından desteklenen ses codec bileşenleri
 
-Dinamik paketleme ile kodlanmış bir ses içeren MP4 dosyalarını destekler [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, v2 HE AAC), [Dolby dijital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Gelişmiş AC 3 veya E-AC3) Dolby Atmos veya [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD kayıpsız DTS HD). Akış Dolby Atmos içeriği yaygın akış biçimi (CSF) ya da ortak medya uygulama biçim (CMAF) ile MPEG-DASH Protokolü parçalanmış MP4 gibi standartları ve aracılığıyla HTTP canlı akışı (HLS) CMAF ile desteklenir.
+### <a name="mp4-files-support"></a>MP4 dosyalarını destekler
 
-> [!NOTE]
-> Dinamik paketleme içeren dosyaları desteklemez [Dolby dijital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ses (eski codec olmadığı).
+Dinamik paketleme ile kodlanmış bir ses içeren MP4 dosyalarını destekler. 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby yanı sıra dijital](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(AC 3 ya da E-AC3 Gelişmiş)
+* Dolby Atmos
+   
+   Akış Dolby Atmos içeriği yaygın akış biçimi (CSF) ya da ortak medya uygulama biçim (CMAF) ile MPEG-DASH Protokolü parçalanmış MP4 gibi standartları ve aracılığıyla HTTP canlı akışı (HLS) CMAF ile desteklenir.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DASH CSF, CMAF DASH, HLS M2TS ve HLS CMAF paketleme biçimlerini tarafından desteklenen DTS codec bileşenleri şunlardır:  
+
+    * DTS dijital Surround (dtsc)
+    * DTS HD yüksek çözünürlüklü ve DTS HD ana ses (dtsh)
+    * DTS Express (dtse)
+    * DTS HD Kayıpsız (çekirdek yok) (dtsl)
+
+### <a name="hls-support"></a>HLS desteği
+
+Dinamik paketleme HLS destekler (sürüm 4 veya üzeri) birden çok codec bileşenleri ve diller birden çok ses parçaları sahip varlıklar için.
+
+### <a name="not-supported"></a>Desteklenmiyor
+
+Dinamik paketleme içeren dosyaları desteklemez [Dolby dijital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ses (eski codec olmadığı).
 
 ## <a name="dynamic-encryption"></a>Dinamik şifreleme
 
 **Dinamik şifreleme** dinamik olarak Canlı veya isteğe bağlı içeriğinizi AES-128 veya üç ana dijital hak yönetimi (DRM) sistemlerinden şifrelemenizi sağlar: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. Daha fazla bilgi için [dinamik şifreleme](content-protection-overview.md).
 
-## <a name="manifests"></a>Bildirimler 
+## <a name="manifests"></a>Bildirimleri 
  
 Media Services, HLS, MPEG DASH, kesintisiz akış protokolleri destekler. Bir parçası olarak **dinamik paketleme**, akış istemci bildirimlerinin (HLS ana çalma listesi, DASH medya sunu açıklaması (MPD) ve kesintisiz akış), URL biçimi seçicide göre dinamik olarak oluşturulur. İçinde teslim protokollerine bkz [Bu bölümde](#delivery-protocols). 
 
@@ -193,10 +218,7 @@ Kesintisiz akış bildirimin bir örnek aşağıda verilmiştir:
 
 ## <a name="dynamic-manifest"></a>Dinamik bildirimi
 
-Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılır. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> Şu anda, v3 kaynaklarını yönetmek için Azure portalını kullanamıyorsunuz. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) veya desteklenen [SDK'lardan](media-services-apis-overview.md#sdks) birini kullanın.
+Dinamik filtreleme izler, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılır. Daha fazla bilgi için [önceden filtreleme bildirimleri ile dinamik Paketleyici](filters-dynamic-manifest-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510918"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225372"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda okunur çoğaltmalar
 
@@ -36,14 +36,13 @@ MySQL zaman uyumsuz çoğaltma okuma çoğaltması özelliğini kullanır. Bu ö
 
 Okuma çoğaltma, olağanüstü durum kurtarma planınızı geliştirebilirsiniz. Bölgesel bir olağanüstü durum yoktur ve ana sunucunuz yoksa, başka bir bölgede bir yineleme için iş yükünüzü yönlendirebilir. Bunu yapmak için ilk çoğaltma durdurma çoğaltma işlevini kullanarak yazma kabul olanak tanır. Ardından, bağlantı dizesini güncelleştirerek uygulamanızı yönlendirebilirsiniz. Daha fazla bilgi [çoğaltma durdurma](#stop-replication) bölümü.
 
-## <a name="create-a-replica"></a>Bir çoğaltma oluşturma
+## <a name="create-a-replica"></a>Çoğaltma oluşturma
 
 Ana sunucu mevcut hiçbir çoğaltma sunucuları varsa, ana ilk çoğaltma için hazırlanması için yeniden başlatılır.
 
 MySQL sunucusu için boş bir Azure veritabanı oluşturma çoğaltma iş akışı başlattığınızda oluşturulur. Yeni sunucunun ana sunucuya olan verilerle doldurulur. Oluşturma zamanı asıl ve haftalık tam yedekleme saatinden veri miktarına bağlıdır. Süre birkaç dakikadan birkaç saate kadar değişebilir.
 
-> [!NOTE]
-> Depolama uyarı kümesi sunucularınızda yoksa, bunu yapmanız önerilir. Uyarı ne zaman bir sunucu çoğaltma etkiler, depolama sınırına yaklaşıyor size bildirir.
+Her çoğaltma için depolama etkin [otomatik büyütme](concepts-pricing-tiers.md#storage-auto-grow). Auto-grow özelliği için yinelenen verileri takip edin ve bir sonu dışında depolama hataları nedeniyle çoğaltma önlemek için çoğaltmayı sağlar.
 
 Bilgi edinmek için nasıl [salt okunur bir çoğaltması Azure Portalı'nda oluşturma](howto-read-replicas-portal.md).
 
@@ -69,7 +68,7 @@ Bu ölçüm kullanılarak hesaplanır `seconds_behind_master` MySQL'ın kullanı
 
 Çoğaltma gecikmesi, iş yükü için kabul edilebilir olmayan bir değer ulaştığında bildirmek için uyarı ayarlama.
 
-## <a name="stop-replication"></a>Çoğaltmayı durdur
+## <a name="stop-replication"></a>Çoğaltmayı Durdur
 
 Bir ana ve çoğaltma arasında çoğaltmayı durdurabilirsiniz. Ana sunucu ile bir salt okunur çoğaltma arasında çoğaltmayı durdurulduktan sonra çoğaltma, tek başına sunucu haline gelir. Tek başına sunucu verileri çoğaltma durdurma komutunun başlatılmasından çoğaltma üzerinde kullanılabilir olan verilerdir. Tek başına sunucu ana sunucu ile Kaçırdığınız değil.
 

@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 12/28/2018
-ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/24/2019
+ms.openlocfilehash: 0bdcc253a57fb55d610d67acd9b6a50182a699e3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704952"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257840"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Öğretici: HDInsight Azure Event Hubs ve Apache Spark'ı kullanarak tweetleri işleyin
 
@@ -28,7 +28,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Makaleyi tamamlamak [Öğreticisi: Veri yükleme ve Azure HDInsight, Apache Spark kümesinde sorguları çalıştırma](./apache-spark-load-data-run-query.md)**.
+* HDInsight üzerinde bir Apache Spark kümesi. Bkz: [bir Apache Spark kümesi oluşturma](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+* HDInsight üzerinde Spark ile Jupyter Notebook kullanma bilgisi. Daha fazla bilgi için [veri yükleme ve HDInsight üzerinde Apache Spark ile sorguları çalıştırma](./apache-spark-load-data-run-query.md).
+
+* A [Twitter hesabımızı](https://twitter.com/i/flow/signup).
 
 ## <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
@@ -40,10 +44,12 @@ Tweet’lerin akışını almak için Twitter’da bir uygulama oluşturursunuz.
 
 1. Aşağıdaki değerleri sağlayın:
 
-    - Ad: uygulama adı sağlayın. Bu öğreticide kullanılan değer **HDISparkStreamApp0423**. Bu ad benzersiz bir adı olması gerekir.
-    - Açıklama: uygulama kısa bir açıklamasını sağlayın. Bu öğreticide kullanılan değer **basit bir HDInsight Spark akış uygulaması**.
-    - Web sitesi: uygulamanın Web sitesini belirtin. Geçerli Web sitesi yok.  Bu öğreticide kullanılan değer **http://www.contoso.com**.
-    - Geri çağırma URL'si: boş bırakılabilir.
+    |Özellik |Değer |
+    |---|---|
+    |Ad|Uygulama adı sağlayın. Bu öğreticide kullanılan değer **HDISparkStreamApp0423**. Bu ad benzersiz bir adı olması gerekir.|
+    |Açıklama|Uygulamanın kısa bir açıklama sağlayın. Bu öğreticide kullanılan değer **basit bir HDInsight Spark akış uygulaması**.|
+    |Web sitesi|Uygulamanın Web sitesini belirtin. Geçerli Web sitesi yok.  Bu öğreticide kullanılan değer **http://www.contoso.com** .|
+    |Geri çağırma URL'si|Boş bırakabilirsiniz.|
 
 1. Seçin **Evet, okuma ve Twitter Geliştirici sözleşmesini kabul**ve ardından **kendi Twitter uygulamanızı oluşturun**.
 
@@ -64,30 +70,28 @@ Tweetleri depolamak için bu olay hub'ı kullanın.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 
-1. Sol menüden **tüm hizmetleri**.  
+2. Sol menüden **tüm hizmetleri**.  
 
-1. Altında **NESNELERİN İNTERNETİ**seçin **Event Hubs**. 
+3. Altında **NESNELERİN İNTERNETİ**seçin **Event Hubs**. 
 
     ![Spark akış örneği için oluşturma olay hub'ı](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Spark akış örneği için oluşturma olay hub'ı")
 
 4. **+ Ekle** öğesini seçin.
+
 5. Yeni Event Hubs ad alanı için aşağıdaki değerleri girin:
 
-    - **Ad**: Olay hub'ı için bir ad girin.  Bu öğreticide kullanılan değer **myeventhubns20180403**.
+    |Özellik |Değer |
+    |---|---|
+    |Ad|Olay hub'ı için bir ad girin.  Bu öğreticide kullanılan değer **myeventhubns20180403**.|
+    |Fiyatlandırma katmanı|Seçin **standart**.|
+    |Abonelik|Uygun aboneliğinizi seçin.|
+    |Kaynak grubu|Aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** yeni bir kaynak grubu oluşturmak için.|
+    |Location|Aynı seçin **konumu** gecikme süresini ve maliyetleri azaltmak için HDInsight, Apache Spark kümenizin olarak.|
+    |Otomatik Şişme (isteğe bağlı) etkinleştir |Otomatik şişme trafiğiniz atanmış üretilen iş Birimi'ne kapasiteyi aştığında, olay hub'ları Namespace için atanan işleme birimleri sayısını otomatik olarak ölçeklendirir.  |
+    |Otomatik Şişme en fazla işleme birimi (isteğe bağlı)|Bu kaydırıcı, iade ederseniz yalnızca görünür **etkinleştirmek otomatik Şişme**.  |
 
-    - **Fiyatlandırma katmanı**: Seçin **standart**.
+    ![Belirtin Spark akış örneği için bir olay hub'ı adı](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "belirtin Spark akış örneği için bir olay hub'ı adı")
 
-    - **Abonelik**: Uygun aboneliğinizi seçin.
-
-    - **Kaynak grubu**: Aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** yeni bir kaynak grubu oluşturmak için.
-
-    - **Konum**: Aynı seçin **konumu** gecikme süresini ve maliyetleri azaltmak için HDInsight, Apache Spark kümenizin olarak.
-
-    - **Otomatik Şişme etkinleştirme**: (İsteğe bağlı)  Otomatik şişme trafiğiniz atanmış üretilen iş Birimi'ne kapasiteyi aştığında, olay hub'ları Namespace için atanan işleme birimleri sayısını otomatik olarak ölçeklendirir.  
-
-    - **Otomatik Şişme en fazla işleme birimi**: (İsteğe bağlı)  Bu kaydırıcı, iade ederseniz yalnızca görünür **etkinleştirmek otomatik Şişme**.  
-
-      ![Belirtin Spark akış örneği için bir olay hub'ı adı](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "belirtin Spark akış örneği için bir olay hub'ı adı")
 6. Seçin **Oluştur** ad alanı oluşturmak için.  Dağıtım birkaç dakika içinde tamamlanır.
 
 ## <a name="create-an-azure-event-hub"></a>Bir Azure olay hub'ı oluşturma
@@ -134,9 +138,9 @@ Jupyter not defteri oluşturun ve adlandırın **SendTweetsToEventHub**.
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-2. Olay hub'ınıza tweetleri göndermek için aşağıdaki kodu çalıştırın:
+2. Aşağıdaki kod değiştirerek Düzenle `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>`, ve `<TOKEN SECRET>` uygun değerlerle. Olay hub'ınıza tweet'ler göndermek için düzenlenen kodu çalıştırın:
 
-    ```
+    ```scala
     import java.util._
     import scala.collection.JavaConverters._
     import java.util.concurrent._
@@ -215,15 +219,16 @@ Başka bir Jupyter not defteri oluşturun ve adlandırın **ReadTweetsFromEventH
     %%configure -f
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
     ```
-2. Olay hub'ından tweetleri okumak için aşağıdaki kodu çalıştırın:
 
-    ```
+2. Aşağıdaki kod değiştirerek Düzenle `<Event hub name>`, ve `<Event hub namespace connection string>` uygun değerlerle. Olay hub'ından tweetleri okumak için düzenlenen kodu çalıştırın:
+
+    ```scala
     import org.apache.spark.eventhubs._
     // Event hub configurations
     // Replace values below with yours        
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
-    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
     
     val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
@@ -253,12 +258,7 @@ Kaynak grubu adını seçerek de kaynak grubu sayfasını açabilir ve sonra **K
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-* Bir olay hub'ından ileti okuyun.
-Bir machine learning uygulama oluşturacağınızı öğrenmek için sonraki makaleye ilerleyin. 
+Bu öğreticide, bir Apache Spark tweetleri bir Azure olay hub'ına göndermek için uygulama akışı oluşturma hakkında bilgi edindiniz ve tweetleri event hub'ından okumak için başka bir uygulama oluşturdunuz.  Bir machine learning uygulama oluşturacağınızı öğrenmek için sonraki makaleye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Bir makine öğrenimi uygulaması oluşturma](./apache-spark-ipython-notebook-machine-learning.md)
-
-

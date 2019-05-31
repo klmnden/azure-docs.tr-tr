@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235769"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258749"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapasite planlama ve ölçekleme
 
@@ -70,6 +70,9 @@ Düğüm özellikleri ve bildirilen yerleştirme kısıtlamaları aşağıdaki a
 2. Çalıştırma `Get-ServiceFabricNode` düğümü devre dışı olarak çözümlemeye geçmiş emin olmak için. Aksi durumda, düğümü devre dışı kadar bekleyin. Bu, her düğüm için birkaç saat sürebilir. Düğümü devre dışı olarak çözümlemeye geçmiş kadar devam yok.
 3. Tek düğüm türü VM'lerin sayısını azaltın. En yüksek VM örneği şimdi kaldırılacak.
 4. 1 ile gerektiği gibi 3. adımları yineleyin, ancak hiçbir zaman ölçeğini birincil düğüm türlerinde ne gerektirdiğini güvenilirlik katmanını daha az örnek sayısı. Bkz: [Service Fabric küme kapasitesini planlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) önerilen örnekleri listesi.
+
+> [!NOTE]
+> Ne zaman bir dikey ölçeklendirme işlemleri gerçekleştirmek için desteklenen bir senaryodur: Ben my Service Fabric kümesi ve uygulama yönetilmeyen diskten yönetilen disklere uygulama kapalı kalma süresi olmadan geçirebilirsiniz. Yeni bir sanal makine sağlama tarafından yönetilen diskler içeren ölçek kümeleri ve yerleştirme kısıtlamaları ile bir uygulama yükseltmesi gerçekleştirilmeden hedefleyen sağlanan kapasite; Service Fabric kümenizi uygulama kapalı kalma süresi olmadan toplu yükseltme etki alanı tarafından sağlanan kümeyi düğüm kapasitesi iş zamanlayabilirsiniz. [Azure yük dengeleyicileri temel SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) arka uç havuzu uç noktaları bir sanal makine tek bir kullanılabilirlik kümesinde veya sanal makine ölçek kümesi olabilir. Service Fabric sistemleri uygulamanızı ölçek kümeleri arasında taşıdığınızda, temel SKU yük dengeleyicide kullanamazsınız başka bir deyişle, geçici inaccessibility, Service fabric'in neden olmadan yönetim uç noktası, olsa bile küme ve uygulaması küme hala çalışıyor; genellikle kullanıcı sağlama standart SKU yük dengeleyici SKU LB temel ve standart SKU LB kaynakları arasındaki sanal bir IP adresi (VIP) değiştirme gerçekleştirirken, tüm gelecek yaklaşık azaltmak için 30 saniye bunu inaccessibility VIP takas için gerekli.
 
 ## <a name="horizontal-scaling"></a>Yatay ölçekleme
 

@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783945"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236263"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Uygulama Ara sunucusu için kısıtlı Kerberos temsilcisi yapılandırmalarıyla ilgili sorunları giderme
 
@@ -182,4 +182,4 @@ Yine de ilerleme yapamıyorsanız, Microsoft desteği size yardımcı olabilir. 
 - Çoklu atlamalı kimlik doğrulaması genellikle senaryolarda burada bir uygulama, bir arka plan ve ön uç ile katmanlı nerede hem de SQL Server Reporting Services gibi kimlik doğrulaması gerektiren kullanılır. Çoklu atlama senaryo yapılandırmak için destek makalesine bakın. [Kerberos Kısıtlı temsilci olabilir gerektiren protokol geçişi çoklu atlamalı senaryolarda](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[KCD, yönetilen bir etki alanı yapılandırma](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[KCD, yönetilen bir etki alanı yapılandırma](../../active-directory-domain-services/deploy-kcd.md).

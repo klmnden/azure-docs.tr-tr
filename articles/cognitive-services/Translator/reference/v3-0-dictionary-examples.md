@@ -3,19 +3,19 @@ title: Translator metin API'si sözlük örnekleri yöntemi
 titlesuffix: Azure Cognitive Services
 description: Translator metin API'si sözlük örnekleri yöntemi kullanın.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: d48349b802023d9a05bf14898440837b7793715d
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: v-pawal
+ms.openlocfilehash: 526fc3e51691773e27530a0fa775f4f07ee94acd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578286"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389766"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator metin çevirisi API'si 3.0: Sözlük Örnekleri
 
@@ -41,7 +41,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td>*Gerekli parametre*.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
   <tr>
-    <td>başlangıç</td>
+    <td>from</td>
     <td>*Gerekli parametre*.<br/>Giriş metninin dilini belirtir. Kaynak dili olmalıdır [desteklenen diller](./v3-0-languages.md) dahil `dictionary` kapsam.</td>
   </tr>
   <tr>
@@ -60,7 +60,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">kimlik doğrulaması için kullanılabilir seçenekler</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>İçerik türü</td>
     <td>*Gerekli istek üst bilgisi*.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: `application/json`.</td>
   </tr>
   <tr>

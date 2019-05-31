@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978233"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356189"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Denemeler ve bir Azure sanal ağ içindeki çıkarım güvenli bir şekilde çalıştırın
 
@@ -141,7 +141,7 @@ Kullanıcı tanımlı yollar eklediğinizde, her bir ilgili Batch IP adresi ön 
 
 ![Örnek bir adres ön eki için kullanıcı tanımlı yol](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-Daha fazla bilgi için [sanal ağ içinde bir Azure Batch havuzu oluşturma](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) makalesi.
+Daha fazla bilgi için [sanal ağ içinde bir Azure Batch havuzu oluşturma](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) makalesi.
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>Machine Learning işlem bir sanal ağ oluşturma
 
@@ -221,7 +221,7 @@ Oluşturma işlemini tamamladığında küme kullanarak modelinizi eğitebilirsi
 
     * __Kaynak hizmet etiketi__: Seçin __AzureMachineLearning__.
 
-    * __Kaynak bağlantı noktası aralıkları__: Seçin __*__.
+    * __Kaynak bağlantı noktası aralıkları__: Seçin __*__ .
 
     * __Hedef__: Seçin __herhangi__.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402050"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304585"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C# kullanarak azure'da Windows Vm'leri oluşturma ve yönetme #
 
@@ -41,7 +41,7 @@ Bu adımların tamamlanması yaklaşık 20 dakika sürer.
 
 1. Henüz yapmadıysanız, yükleme [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Seçin **.NET masaüstü geliştirme** iş yükleri sayfası ve ardından **yükleme**. Özet olarak, gördüğünüz gibi **.NET Framework 4-4.6 geliştirme araçları** sizin için otomatik olarak seçilir. Visual Studio zaten yüklediyseniz, Visual Studio Başlatıcısı'nı kullanarak .NET iş yükü ekleyebilirsiniz.
 2. Visual Studio’da, **Dosya** > **Yeni** > **Proje**’ye tıklayın.
-3. İçinde **şablonları** > **Visual C#** seçin **konsol uygulaması (.NET Framework)**, girin *myDotnetProject* adı Proje, projenin konumunu seçin ve ardından **Tamam**.
+3. İçinde **şablonları** > **Visual C#** seçin **konsol uygulaması (.NET Framework)** , girin *myDotnetProject* adı Proje, projenin konumunu seçin ve ardından **Tamam**.
 
 ## <a name="install-the-package"></a>Paketi yükleyin
 
@@ -80,12 +80,12 @@ Bu adım başlamadan önce erişimi olduğundan emin olun bir [Active Directory 
 4. Windows, oluşturduğunuz yetkilendirme dosyasının tam yolu AZURE_AUTH_LOCATION adında bir ortam değişkeni ayarlayın. Örneğin, aşağıdaki PowerShell komutu kullanılabilir:
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### <a name="create-the-management-client"></a>Yönetim istemcisi oluşturma
 
-1. Oluşturduğunuz proje için Program.cs dosyasını açın ve ardından bu dosyasının en üstüne using deyimlerini mevcut deyimlerini ekleyin:
+1. Oluşturduğunuz proje için Program.cs dosyasını açın. Ardından bu dosyasının en üstüne using deyimlerini mevcut deyimlerini ekleyin:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>VM'ye veri diski ekleme
 
-Sanal makineye veri diski eklemek için han bir LUN 0 ReadWrite önbelleğe alma türü ve boyutu 2 GB olan bir veri diski eklemek için Main yöntemi için bu kodu ekleyin:
+Sanal makineye veri diski eklemek için bu kodu Main yöntemine ekleyin. Bu örnekte, 2 GB boyutundaki han bir LUN 0 ve ReadWrite önbelleğe alma türü olan bir veri diski ekler:
 
 ```
 Console.WriteLine("Adding data disk to vm...");

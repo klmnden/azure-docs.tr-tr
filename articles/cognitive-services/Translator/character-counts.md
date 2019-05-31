@@ -3,20 +3,19 @@ title: Karakter sayısı - Translator metin çevirisi API'si
 titlesuffix: Azure Cognitive Services
 description: Nasıl Translator Text API karakter sayar.
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 03/12/2019
-ms.author: v-junlch
-ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/01/2019
+ms.author: v-pawal
+ms.openlocfilehash: 157b809c1f1707cdaa561ab09486cf4886fff4e0
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513768"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389223"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Translator Text API karakter nasıl sayılır?
 
@@ -42,4 +41,3 @@ Algılama ve BreakSentence yöntemlerine yapılan çağrıda karakter tüketimin
 
 
 Karakter sayıları hakkında daha fazla bilgi yer [Microsoft Translator SSS](https://www.microsoft.com/en-us/translator/faq.aspx).
-

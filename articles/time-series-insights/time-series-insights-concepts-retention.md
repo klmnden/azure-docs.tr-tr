@@ -4,19 +4,19 @@ description: Bu makalede, Azure zaman serisi görüşleri ortamınıza veri tutm
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790422"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237008"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde veri saklamayı anlama
 
@@ -42,7 +42,7 @@ Bekletme davranışları geçiş hakkında daha fazla bilgi için gözden [bekle
 
 Veri saklama davranışını karşılaştırın:
 
-## <a name="purge-old-data"></a>Eski verileri temizleme
+## <a name="purge-old-data"></a>Eski verilerini temizle
 
 - Bu davranış zaman serisi görüşleri ortamları için varsayılan davranıştır.  
 - Kullanıcıların her zaman görmek istediğinizde bu davranışı tercih edilir, *en son verileri* Time Series Insights ortamlarında.
@@ -63,7 +63,7 @@ Bir ortam da yapılandırılmış bekletme davranışı göz önünde bulundurun
 
 Bu ortamın günlük giriş oranı günde 0.166 GB aştığında, bazı veriler temizlendi olduğundan veri 180 gün boyunca depolanamaz. Bu ortamda meşgul bir zaman çerçevesinde göz önünde bulundurun. Gün başına ortalama bir 0.189 GB ortamın giriş oranı artırabilir varsayılır. O meşgul zaman çerçevesi içinde yaklaşık 158 günden verileri korunur (30GB/0.189 = 158,73 gün saklama). Bu süre istenen veri bekletme zaman çerçevesi'dan küçük.
 
-## <a name="pause-ingress"></a>Duraklatma girişi
+## <a name="pause-ingress"></a>Duraklatma giriş
 
 - **Duraklatma giriş** ayarı veri boyutu ve sayısı sınırları, saklama dönemi önce ulaşılırsa değil temizleneceği emin olmak için tasarlanmıştır.  
 - **Duraklatma giriş** kullanıcıların veri bekletme süresi ihlal nedeniyle temizlenir. önce ortamlarında kapasitesini artırmak için ek süre sağlar

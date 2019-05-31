@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621471"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258656"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Uygulamalar ve hizmetler Azure Resource Manager kaynaklarını yönetme
 
@@ -258,6 +258,17 @@ Aşağıdaki kod parçacığında, bir şablon yönetilen kaynaklar farklı tür
    > *ApiVersion* ayarlanmalıdır `"2017-07-01-preview"`. Küme zaten dağıtılmış olduğu sürece bu şablonu ayrıca küme bağımsız olarak dağıtılabilir.
 
 5. Dağıtın! 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Service Fabric kaynak sağlayıcısı uygulaması kaynak Kaldır
+Kümeden beklemediğiniz sağlanmış olması için uygulama paketi aşağıdaki tetikler ve bu kullanılan disk alanı temizleyecek:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Yalnızca ARM şablonunuzu Microsoft.ServiceFabric/clusters/application kaldırma uygulama sağlamasını değil
+
+>[!NOTE]
+> Kaldırma tamamlandığında, Paket sürümü SFX veya ARM artık görmemeniz gerekir. Uygulama ile çalıştığı uygulama türü sürümü kaynak silinemiyor; ARM/SFRP bu engeller. Çalışan paket sağlamayı kaldırmayı denerseniz, SF çalışma zamanı bunu engeller.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Mevcut bir uygulama Kaynak Yöneticisi ile yönetme
 

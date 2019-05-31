@@ -3,22 +3,22 @@ title: Azure Application Insights için kullanımı ve maliyetleri yönetme | Mi
 description: Telemetri birimleri yönetme ve Application ınsights'ta maliyetleri izleyin.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: DaleKoetke
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: Dale.Koetke
-ms.date: 12/21/2018
-ms.author: mbullwin
-ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: mbullwin
+ms.date: 05/29/2019
+ms.author: dalek
+ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254531"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357273"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Kullanımı ve maliyetleri için Application Insights'ı yönetme
 
@@ -35,7 +35,7 @@ Fiyatlandırma [Azure Application Insights] [ start] alınan veri hacmine dayal�
 ### <a name="data-volume-details"></a>Veri hacmi ayrıntıları
 
 * Veri hacmi Application Insights tarafından alınan telemetrinin bayt sayısıdır. Veri hacmi, Application Insights tarafından uygulamanızdan alınan sıkıştırılmamış JSON veri paketi boyutu olarak ölçülür. İçin [Analytics'e içe tablo veri](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), veri hacmi Application Insights'a gönderilen dosyalarının sıkıştırılmamış boyut olarak ölçülür.
-* Uygulamanızın veri hacmi ücreti artık adlı bir yeni fatura ölçümünde üzerinde bildirilen **veri alımı** Nisan 2018'den itibaren. Bu yeni ölçüm, izleme uygulamaları Insights ve Log Analytics gibi teknolojiler arasında paylaşılan ve şu anda hizmet adı altında **Log Analytics**. 
+* Uygulamanızın veri hacmi ücreti artık adlı bir yeni fatura ölçümünde üzerinde bildirilen **veri alımı** Nisan 2018'den itibaren. Bu yeni ölçüm teknolojileri uygulamaları Insights ve Log Analytics gibi izleme arasında paylaşılır ve şu anda hizmet adı altında **Log Analytics**. 
 * [Canlı ölçümler Stream](../../azure-monitor/app/live-stream.md) veri amacıyla sayılan değil.
 
 Para birimi ve bölge için geçerli fiyatlarını görmek [Application Insights fiyatlandırması][pricing].
@@ -132,57 +132,56 @@ Uygulanmış, ne olursa olsun gerçek örnekleme oranını bulmak için kullanma
 
 Her kaydı tutulur `itemCount` temsil ettiği özgün kayıt sayısını belirtir. 1 + önceki atılan kayıt sayısı eşittir. 
 
-## <a name="automation"></a>Otomasyon
-
-Azure kaynak Yönetimi'ni kullanarak fiyatını planı ayarlamak için bir betik yazabilirsiniz. [Nasıl olduğunu öğrenin](powershell.md#price).
-
 ## <a name="limits-summary"></a>Sınırları özeti
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
 ## <a name="disable-daily-cap-e-mails"></a>Günlük sınır e-postalar devre dışı bırak
 
-Günlük birim sınırı e-postalar, altında devre dışı bırakmak için **yapılandırma** Application Insights kaynağınıza bölümünü, **kullanım ve Tahmini maliyetler** bölmesinde **günlük üst sınır** . Sınırına ulaşıldığında, ayarlanabilir bir uyarı düzeyine ulaşıldı yanı sıra e-posta göndermek için ayarları vardır. Tüm günlük devre dışı bırakmak istiyorsanız her iki e-posta kutusunun işaretini kaldırın uç birim ilgili.
+Günlük birim sınırı e-postalar, altında devre dışı bırakmak için **yapılandırma** Application Insights kaynağınıza bölümünü, **kullanım ve Tahmini maliyetler** bölmesinde **günlük üst sınır** . Sınırına ulaşıldığında, ayarlanabilir bir uyarı düzeyine ulaşıldı yanı sıra e-posta göndermek için ayarları vardır. Tüm günlük üst sınır birim ilgili devre dışı bırakmak istiyorsanız her iki e-posta kutusunun işaretini kaldırın.
 
-## <a name="legacy-enterprise-pricing-plan"></a>Eski Kurumsal fiyatlandırma planı
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>Fiyatlandırma katmanı eski Kurumsal (düğüm başına)
 
-Azure Application Insights'ın erken Benimseyenler için yine de iki olası iki fiyatlandırma planı vardır: Temel ve kurumsal. Temel fiyatlandırma planı, yukarıda açıklandığı gibi aynıdır ve varsayılan plan. Bu, ek maliyet olmadan, tüm kurumsal plan özellikleri içerir. Temel plan faturalandırılır öncelikle alınan veri hacmi. 
+Azure Application Insights'ın erken Benimseyenler için yine de iki olası fiyatlandırma katmanı vardır: Temel ve kurumsal. Temel fiyatlandırma katmanını, yukarıda açıklandığı gibi aynıdır ve varsayılan katmandır. Bu, ek maliyet olmadan, tüm kurumsal katman özellikleri içerir. Temel katman faturalandırılır öncelikle alınan veri hacmi. 
 
-Kurumsal plan bir düğüm başına ücret vardır ve her düğüm günlük veri kullanım hakkı alır. Kurumsal fiyatlandırma planını, bulunan indirimi alınan veriler için ücretlendirilirsiniz. Operations Management Suite kullanıyorsanız, Kurumsal plan seçmeniz gerekir. 
+> [!NOTE]
+> Bu eski fiyatlandırma katmanları yeniden adlandırıldı. Fiyatlandırma katmanı Kurumsal artık adlı **düğüm başına** ve temel fiyatlandırma katmanını artık çağrılır **GB başına**. Bu yeni adlar aşağıda hem de Azure portalında kullanılır.  
+
+Her düğüm (eski adıyla Enterprise) katmanında bir düğüm başına ücret bulunur ve her düğüm günlük veri kullanım hakkı alır. Düğüm başına fiyatlandırma katmanında dahil edilen indirimi alınan veriler için ücretlendirilirsiniz. Operations Management Suite kullanıyorsanız, düğüm başına katmanı seçmeniz gerekir. 
 
 Para birimi ve bölge için geçerli fiyatlarını görmek [Application Insights fiyatlandırması](https://azure.microsoft.com/pricing/details/application-insights/).
 
 > [!NOTE]
 > Nisan 2018'de biz [sunulan](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) Azure izleme için yeni bir fiyatlandırma modeli. Bu model, hizmetleri izleme tam Portföyü genelinde basit bir "Kullandıkça Öde" modelini devralır. Daha fazla bilgi edinin [yeni fiyatlandırma modeline](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), nasıl için [bu modeline taşıma etkisini değerlendirmek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) , kullanım modellerini ve [yeni modele nasıl](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model)
 
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>Kurumsal plan ve Operations Management Suite aboneliği destek hakları
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Düğüm katmanı ve Operations Management Suite aboneliği destek hakları
 
-Operations Management Suite E1 ve E2 satın almış olan müşteriler, ek ücret ödemeden başka bir bileşen olarak Application Insights Kurumsal alabilirsiniz [daha önce duyurulduğu gibi](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Özellikle, her bir birimi, Operations Management Suite E1 ve E2 Application Insights Kurumsal planına bir düğüm hakkı içerir. Her Application Insights düğüm başına ek ücret ödemeden 90 günlük veri saklama (ayrı), Log Analytics veri alma günlük içe alınan veri 200 MB'a kadar içerir. Plan daha ayrıntılı makalenin sonraki bölümlerinde açıklanmıştır. 
+Operations Management Suite E1 ve E2 satın almış olan müşteriler, ek ücret ödemeden başka bir bileşen olarak Application Insights düğüm başına alabilirsiniz [daha önce duyurulduğu gibi](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/). Özellikle, her bir birimi, Operations Management Suite E1 ve E2 Application Insights düğüm başına katmanında bir düğüm hakkı içerir. Her Application Insights düğüm başına ek ücret ödemeden 90 günlük veri saklama (ayrı), Log Analytics veri alma günlük içe alınan veri 200 MB'a kadar içerir. Katman, daha fazla bilgi makalenin sonraki bölümlerinde ayrıntılı açıklanmıştır. 
 
-Bu plan yalnızca bir Operations Management Suite aboneliği olan müşteriler için geçerli olduğundan, bir Operations Management Suite aboneliğiniz yoksa müşteriler bu planı seçmek için bir seçenek görmezsiniz.
+Geçerli bir Operations Management Suite aboneliği olan müşteriler bu katmanı olduğundan, bir Operations Management Suite aboneliğiniz yoksa müşteriler bu katmanı seçmek için bir seçenek görmezsiniz.
 
 > [!NOTE]
-> Bu yetkilendirme aldığından emin olmak için Application Insights kaynaklarınızı fiyatlandırma planını Kurumsal olması gerekir. Bu yetkilendirme yalnızca düğümleri uygulanır. Application Insights kaynakları temel planda edilmesinden bir fayda farkında değil. Bu yetkilendirme gösterilen tahmini maliyetleri de görünür olmayan **kullanım ve tahmini maliyet** bölmesi. Ayrıca, yeni fiyatlandırma modeli izleme Nisan 2018'de Azure abonelik taşıma, temel plan yalnızca plan kullanılabilir olur. Bir aboneliği yeni fiyatlandırma modeli izleme Azure'a taşıma, bir Operations Management Suite aboneliğiniz varsa önerilir değil.
+> Bu yetkilendirme aldığından emin olmak için Application Insights kaynaklarınızı başına fiyatlandırma katmanında düğüm olmalıdır. Bu yetkilendirme yalnızca düğümleri uygulanır. Application Insights kaynakları GB başına katmanındaki herhangi bir avantaj farkında değil. Bu yetkilendirme gösterilen tahmini maliyetleri de görünür olmayan **kullanım ve tahmini maliyet** bölmesi. Fiyatlandırma modeli izleme Nisan 2018'de yeni Azure aboneliği taşırsanız, ayrıca, GB başına katmanı yalnızca kullanılabilir katmandır. Bir aboneliği yeni fiyatlandırma modeli izleme Azure'a taşıma, bir Operations Management Suite aboneliğiniz varsa önerilir değil.
 
-### <a name="how-the-enterprise-plan-works"></a>Kurumsal plan nasıl çalışır?
+### <a name="how-the-per-node-tier-works"></a>Düğüm başına katman nasıl çalışır?
 
-* Kurumsal plandaki tüm uygulamaları için telemetri gönderen her düğüm için ödeme yaparsınız.
+* Tüm uygulamalar için telemetri gönderen düğüm başına katmanında her düğüm için ödeme yaparsınız.
   * A *düğüm* sunucusu fiziksel veya sanal makine veya uygulamanızı barındıran bir hizmet olarak platform rolü örneği.
   * Geliştirme makineler, istemci tarayıcıları ve mobil cihazlar düğüm olarak sayılmaz.
   * Uygulamanızı bir web hizmeti ve bir arka uç çalışan gibi telemetriyi göndermek birkaç bileşeni varsa bileşenleri ayrı olarak sayılır.
   * [Canlı ölçümler Stream](../../azure-monitor/app/live-stream.md) veri amacıyla sayılan değil. Bir abonelikte, uygulama başına değil, düğüm başına ücretlerdir. 12 için telemetri gönderen beş düğüm varsa uygulamalar, beş düğüm için ücretlendirme yapılır.
 * Aylık ücret tırnak içinde olsa da, yalnızca içinde ve bir düğümün telemetri bir uygulamadan gönderdiği saat için ücret ödersiniz. Saatlik bir ücret 744 (ayda 31 gün saat sayısı) bölü tırnak işaretli aylık sabit ücrettir.
 * 200 MB veri birimi ayrılması günde (saatlik ayrıntı düzeyiyle) algılanan her düğüm için verilir. Kullanılmayan verileri ayırma günden sonraki devreden değil.
-  * Kurumsal fiyatlandırma planını seçerseniz, her abonelik bir günlük kullanım hakkı bu abonelikte Application Insights kaynaklara telemetri gönderen düğüm sayısına göre verileri alır. Bu nedenle, tüm gün veri gönderen beş düğümünüz varsa, havuza alınmış bir indirimini bu Abonelikteki tüm Application Insights kaynakları için uygulanan 1 GB gerekir. Dahil edilen veri tüm düğümler arasında paylaşıldığından bazı düğümlerin diğerlerine göre daha fazla veri gönderdiğiniz olup olmaması önemli değildir. Belirli bir gün, Application Insights kaynakları Bu abonelik için günlük veri ayırma dahil edilmiş miktardan daha fazla veri almak, GB başına fazla kullanım veri ücretleri uygulanır. 
+  * Düğüm başına fiyatlandırma katmanı seçerseniz, her abonelik bir günlük kullanım hakkı bu abonelikte Application Insights kaynaklara telemetri gönderen düğüm sayısına göre verileri alır. Bu nedenle, tüm gün veri gönderen beş düğümünüz varsa, havuza alınmış bir indirimini bu Abonelikteki tüm Application Insights kaynakları için uygulanan 1 GB gerekir. Dahil edilen veri tüm düğümler arasında paylaşıldığından bazı düğümlerin diğerlerine göre daha fazla veri gönderdiğiniz olup olmaması önemli değildir. Belirli bir gün, bu abonelik için günlük veri ayırma dahil edilmiş miktardan daha fazla veri Application Insights kaynaklarını alırsanız, GB başına fazla kullanım veri ücretleri uygulanır. 
   * Günlük veri Kullanım Hakkı (UTC saat kullanarak) bir gündeki saat sayısı hesaplanır her düğüm 200 MB ile çarpılarak 24 bölü telemetri gönderir. Bu nedenle, 15 gün içinde 24 saat boyunca telemetri gönderen dört düğümünüz varsa, o gün için dahil edilen veri olması ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Düğümleri o gün 1 GB veri gönderiyorsanız fiyatına 2.30 ABD Doları / GB veri fazla kullanımı için ücret 1,15 ABD Doları olacaktır.
-  * Kurumsal plan günlük kullanım hakkı, temel plan tercih ettiğiniz uygulamalarla paylaşılmaz. Kullanılmayan indirimi gelen günlük devreden değil. 
+  * Düğüm başına katmanı günlük kullanım hakkı, GB başına katmanı tercih ettiğiniz uygulamalarla paylaşılmaz. Kullanılmayan indirimi gelen günlük devreden değil. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Ayrı bir düğüm sayısını belirlemek nasıl örnekleri
 
 | Senaryo                               | Günlük toplam düğüm sayısı |
 |:---------------------------------------|:----------------:|
 | 1 uygulama 3 Azure App Service örneği ve 1 sanal sunucusu kullanma | 4 |
-| 2 VM'ler üzerinde çalışan 3 uygulama; Bu uygulamalar için Application Insights kaynaklarını aynı abonelik ve kurumsal plan olan | 2 | 
+| 2 VM'ler üzerinde çalışan 3 uygulama; Bu uygulamalar için Application Insights kaynaklarını aynı abonelik ve düğüm başına katmanında olan | 2 | 
 | aynı abonelikte olan uygulamaları Insights kaynaklarıdır 4 uygulamaları; 16 saatlerde 2 örneğini ve 8 yoğun saatler sırasında 4 örneği çalıştıran her bir uygulama | 13.33 | 
 | Bulut hizmetleriyle 1 çalışan rolü ve 2 örneğini çalıştıran her 1 Web rolü | 4 | 
 | 50 mikro Hizmetleri çalıştıran 5 düğümlü Azure Service Fabric kümesi; Her mikro hizmet 3 örnek çalışıyor | 5|
@@ -192,6 +191,11 @@ Bu plan yalnızca bir Operations Management Suite aboneliği olan müşteriler i
   * SDK ' nın önceki sürümler için [Web SDK'sı](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) yeni SDK sürümleri gibi davranır ancak [Core SDK'sı](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) uygulama ana bilgisayarı sayısından bağımsız olarak yalnızca tek bir düğüme bildirir. 
   * Uygulamanızı ayarlamak için SDK'sı kullanıyorsa **Roleınstance** özel bir değer, düğüm sayısını belirlemek için aynı değeri varsayılan olarak kullanılır. 
   * İstemci makineler veya mobil cihazlardan çalışan bir uygulama ile yeni bir SDK sürümü kullanıyorsanız, düğüm sayısı (çok sayıda istemci makinelere veya mobil cihazları nedeniyle) çok büyük bir sayı döndürebilir. 
+
+## <a name="automation"></a>Otomasyon
+
+Azure kaynak Yönetimi'ni kullanarak fiyatlandırma katmanını ayarlamak için bir betik yazabilirsiniz. [Nasıl olduğunu öğrenin](powershell.md#price).
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

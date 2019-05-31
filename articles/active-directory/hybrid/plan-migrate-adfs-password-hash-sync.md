@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 180464e22b34c7b378643e738ea0c30ee5a4b11e
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455579"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298900"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Federasyon seçeneğinden parola karması eşitleme için Azure Active Directory geçirme
 
@@ -86,7 +86,7 @@ Geçerli kullanıcı oturum açma ayarlarınızı doğrulamak için:
 
    * Varsa **parola karması eşitleme** ayarlanır **devre dışı bırakılmış**, etkinleştirmek için bu makaledeki adımları tamamlayın.
    * Varsa **parola karması eşitleme** ayarlanır **etkin**, bölümü atlayabilirsiniz **1. adım: Parola karma eşitlemesini etkinleştirme** bu makaledeki.
-4. Üzerinde **çözümünüzü İnceleme** sayfasında, kaydırma **Active Directory Federasyon Hizmetleri (AD FS)**.<br />
+4. Üzerinde **çözümünüzü İnceleme** sayfasında, kaydırma **Active Directory Federasyon Hizmetleri (AD FS)** .<br />
 
    * AD FS yapılandırması bu bölümünde görünüyorsa, güvenli bir şekilde Azure AD Connect kullanarak AD FS başlangıçta yapılandırıldığını kabul edilebilir. Azure AD Connect kullanarak yönetilen kimlik için Federasyon kimlik etki alanlarınızı dönüştürebilirsiniz **değiştirme kullanıcı oturum açma** seçeneği. İşlem bölümünde ayrıntılı olarak verilmiştir **seçenek A: Geçiş Federasyon seçeneğinden parola karması eşitleme için Azure AD Connect kullanarak**.
    * AD FS geçerli ayarları listede yoksa, el ile etki alanlarınızı Federal Kimlik için yönetilen kimlik PowerShell kullanarak dönüştürmeniz gerekir. Bu işlem hakkında daha fazla bilgi için bkz **seçenek B: Geçiş Federasyon seçeneğinden parola karması eşitleme için Azure AD Connect ve PowerShell kullanarak**.
@@ -113,7 +113,7 @@ Daha fazla bilgi için şu makalelere bakın:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Varsa **SupportsMfa** ayarlanır **True**, kullanıcı kimlik doğrulaması akışı bir ikinci faktör challenge eklenmek üzere bir şirket içi multi-Factor authentication çözümünü kullanıyorsanız. Bu ayar, artık Azure AD kimlik doğrulama senaryoları için çalışır. 
+> Varsa **SupportsMfa** ayarlanır **True**, kullanıcı kimlik doğrulaması akışı bir ikinci faktör challenge eklenmek üzere bir şirket içi multi-Factor authentication çözümünü kullanıyorsanız. Kimlik doğrulaması bu etki alanından dönüştürmeden sonra Azure AD kimlik doğrulama senaryoları için çalışır Federasyon oluşturan bu ayar artık yönetilen. Federasyon devre dışı bıraktıktan sonra ilişki için şirket içi Federasyon sunucusu ve bu, şirket içi MFA bağdaştırıcıları içerir. 
 >
 > Bunun yerine, bulut tabanlı Azure multi-Factor Authentication hizmeti ile aynı işlevi gerçekleştirmek için kullanın. Devam etmeden önce multi-Factor authentication gereksinimlerini dikkatlice değerlendirin. Etki alanlarınızı dönüştürmeden önce Azure multi-Factor Authentication, lisans etkileri ve kullanıcı kayıt işleminin nasıl kullanılacağını anlamak emin olun.
 
@@ -224,7 +224,7 @@ Parola Karması eşitleme hem sorunsuz çoklu oturum açma dağıtıldıktan son
 * Sorunsuz çoklu oturum açma için hazırlık yapılıyor.
 * Oturum açma yöntemi, parola karma eşitlemesi ve sorunsuz çoklu oturum açmayı etkinleştirme değiştiriliyor.
 
-### <a name="step-1-enable-password-hash-synchronization"></a>1. Adım: Parola karma eşitlemesini etkinleştirme
+### <a name="step-1-enable-password-hash-synchronization"></a>1. adım: Parola karma eşitlemesini etkinleştirme
 
 Bu çözümü uygulamak için ilk adım, Azure AD Connect Sihirbazı'nı kullanarak parola karması eşitlemeyi etkinleştirmektir. Parola Karması eşitleme Federasyon kullanan ortamlarda olanak veren isteğe bağlı bir özelliktir. Kimlik doğrulaması akışı üzerinde hiçbir etkisi yoktur. Bu durumda, Azure AD Connect parola karmalarının Federasyon kullanarak oturum açın kullanıcıları etkilemeden eşitleme başlar.
 
@@ -259,7 +259,7 @@ Parola Karması eşitleme düzgün çalıştığını doğrulamak için tamamlay
 
 Sorunlarını gidermek için bkz: [Azure AD Connect eşitlemesi ile parola karması eşitleme sorunlarını giderme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization).
 
-### <a name="step-2-prepare-for-seamless-sso"></a>2. Adım: Sorunsuz çoklu oturum açma için hazırlama
+### <a name="step-2-prepare-for-seamless-sso"></a>2. adım: Sorunsuz çoklu oturum açma için hazırlama
 
 Cihazlarınızı sorunsuz çoklu oturum açmayı kullanmak, Active Directory'de Grup İlkesi'ni kullanarak bir Azure AD URL'si kullanıcıların intranet bölgesi ayarlarına eklemeniz gerekir.
 
@@ -270,7 +270,7 @@ Adımlarını tamamlamanız [dağıtmadan](https://docs.microsoft.com/azure/acti
 > [!IMPORTANT]
 > Bu değişiklik, kullanıcıların Azure AD'de oturum biçimini değiştirmez. Ancak, devam etmeden önce bu yapılandırma tüm cihazlarınıza uygulama önemlidir. Bu yapılandırmayı almadığını cihazlarda oturum kullanıcılar yalnızca bir kullanıcı adı ve Azure AD'de oturum açmak için parola girmesini gerekir.
 
-### <a name="step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso"></a>3. Adım: Oturum açma yöntemi, parola karma eşitlemesini değiştirmek ve sorunsuz çoklu oturum açmayı etkinleştir
+### <a name="step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso"></a>3. adım: Oturum açma yöntemi, parola karma eşitlemesini değiştirmek ve sorunsuz çoklu oturum açmayı etkinleştir
 
 Parola Karması eşitleme için oturum açma yöntemini değiştirme ve sorunsuz çoklu oturum açmayı etkinleştirmek için iki seçeneğiniz vardır.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85e15b756d2ea241296e11ebfcb5bf3029143de7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768929"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357778"
 ---
 # <a name="show-search-results-on-the-map"></a>Harita üzerinde arama sonuçlarını göster
 
@@ -29,7 +29,7 @@ Bu makalede ilgi konumu aramak ve arama sonuçlarını haritada gösterme göste
 
 Yukarıdaki kodda, ilk kod bloğunu bir harita nesnesi oluşturur ve bir abonelik anahtarı kullanmak için kimlik doğrulama mekanizması ayarlar. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
 
-İkinci kod bloğunu oluşturur bir `SubscriptionKeyCredentialPolicy` abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. Ardından `atlas.service.MapsURL.newPipeline()` alır `SubscriptionKeyCredential` ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) örneği. `searchURL` Azure haritalar için URL'yi temsil [arama](https://docs.microsoft.com/rest/api/maps/search) operations.
+İkinci kod bloğunu oluşturur bir `SubscriptionKeyCredentialPolicy` abonelik anahtarını Azure haritalar için HTTP isteklerinde kimlik doğrulaması için. Ardından `atlas.service.MapsURL.newPipeline()` alır `SubscriptionKeyCredential` ilke ve oluşturan bir [işlem hattı](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) örneği. `searchURL` Azure haritalar için URL'yi temsil [arama](https://docs.microsoft.com/rest/api/maps/search) operations.
 
 Üçüncü kod bloğunun bir veri kaynağı nesnesi kullanılarak oluşturur [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sınıfı ve arama sonuçları ekleyin. A [sembol katman](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) sarmalanmış noktası tabanlı veri işleme için metin veya simge kullanan [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) harita üzerinde simgeler olarak.  Bir sembol katmanı sonra oluşturulur ve ardından eşlemesine eklenen sembol katmanı, veri kaynağı eklenir.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158209"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306807"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure'da Service Fabric ile API Management'ı tümleştirme
 
@@ -288,7 +288,7 @@ Artık doğrudan [Azure Portal](https://portal.azure.com)'dan API Management ara
 
 Küme, küme kaynağının yanı sıra diğer Azure kaynaklarından oluşur. Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir.
 
-Azure’da oturum açın ve kümeyi kaldırmak istediğiniz abonelik kimliğini seçin.  Abonelik kimliğinizi, [Azure portalında](https://portal.azure.com) oturum açarak öğrenebilirsiniz. Kaynak grubu ve kullanarak tüm küme kaynaklarını silin [Remove-AzResourceGroup cmdlet'i](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Azure'da oturum açın ve kümeyi kaldırmak istediğiniz abonelik Kimliğini seçin.  Abonelik kimliğinizi, [Azure portalında](https://portal.azure.com) oturum açarak öğrenebilirsiniz. Kaynak grubu ve kullanarak tüm küme kaynaklarını silin [Remove-AzResourceGroup cmdlet'i](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

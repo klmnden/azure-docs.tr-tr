@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394838"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356219"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 
@@ -35,7 +35,7 @@ Y: Bunlar aynı şeydir. [Log Analytics'e tümleşik Azure İzleyici'de bir öze
 
 ### <a name="q-can-i-still-use-log-search"></a>S: Günlük araması kullanmaya devam miyim? 
 
-Y: Günlük araması hala kullanılabilir OMS portalında ve adla Azure portalında şu anda **günlükleri (Klasik)**. OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacaktır. Azure portalında Klasik günlükleri deneyimi yavaş yavaş kullanımdan kaldırılacak ve yerini yeni günlükleri deneyimi. 
+Y: Günlük araması hala kullanılabilir OMS portalında ve adla Azure portalında şu anda **günlükleri (Klasik)** . OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacaktır. Azure portalında Klasik günlükleri deneyimi yavaş yavaş kullanımdan kaldırılacak ve yerini yeni günlükleri deneyimi. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>S. Gelişmiş analiz portalını kullanabilir miyim? 
 Azure portalında yeni günlükleri deneyimi Gelişmiş analiz portalında bağlıdır, ancak yine de Azure portal dışında erişilebilir. Bu dış portal devre dışı bırakma için yol haritası yakında duyurulacaktır.
@@ -84,7 +84,7 @@ Y: Azure portalında görünümleri ve yüklü çözümleri listesi kullanılabi
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>S. Batı Orta ABD bölgesinde çalışma alanları neden oluşturamıyorum? 
 
-Y: Bu bölge geçici kapasite sınırındadır. 2019'un ilk yarısında sınırın düzenlenmesi planlanmaktadır.
+Y: Bu bölge geçici kapasite sınırındadır. Bu sınır, Eylül 2019 sonunda ilgilenilmesi yayılması planlanmaktadır.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>S. Log Analytics aracı aynı zamanda Azure Güvenlik Merkezi olarak kullanıyor mu?
@@ -195,7 +195,7 @@ Sarı bir uyarı simgesi, aracının Log Analytics ile iletişimi sorunları ya�
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>S: Log Analytics ile iletişim kurmasını Aracı nasıl durdururum?
 
 Y: System Center Operations Manager bilgisayarı OMS yönetilen bilgisayarlar listesinden kaldırın. Operations Manager artık rapor Log analytics'e aracının yapılandırmasını güncelleştirir. Doğrudan log Analytics'e bağlı aracılar için bunları aracılığıyla iletişim kurmasını engellemek: Denetim Masası, güvenlik & ayarları **Microsoft İzleme Aracısı**.
-Altında **Azure Log Analytics (OMS)**, listelenen tüm çalışma alanlarını kaldırın.
+Altında **Azure Log Analytics (OMS)** , listelenen tüm çalışma alanlarını kaldırın.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>S: Çalışma Alanım'ı bir Azure aboneliğine ait diğerine taşımak çalıştığınızda bir hata neden alıyorum?
 

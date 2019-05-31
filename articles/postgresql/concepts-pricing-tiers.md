@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: ed534f910fa1e44d3d53ab61ee86378eba788036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073191"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240375"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı'nda fiyatlandırma katmanları
 
@@ -36,51 +36,9 @@ Fiyatlandırma katmanını seçmek için bir başlangıç noktası olarak aşağ
 
 Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlandırma Katmanı (temel gelen ve giden hariç) yukarı veya aşağı saniyeler içinde değiştirilebilir. Depolama'yı kurma ve uygulamanızda kesinti yaşamadan veritabanınızın yedekleme bekletme süresi yukarı veya aşağı miktarı da bağımsız olarak ayarlayabilirsiniz. Bir sunucu oluşturulduktan sonra yedekleme depolama türünü değiştiremezsiniz. Daha fazla bilgi için [ölçeklendirme kaynakları](#scale-resources) bölümü.
 
-
 ## <a name="compute-generations-and-vcores"></a>İşlem Nesilleri ve sanal çekirdekler
 
-İşlem kaynakları, temel alınan donanım mantıksal CPU'yu temsil eden sanal çekirdekler sağlanır. Şu anda iki işlem Nesilleri, Gen 4 ve 5. nesil seçebilirsiniz. Gen 4 mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri. 5 mantıksal CPU'lar Intel E5-2673 v4 nesil (Broadwell) 2.3 GHz işlemcileri. Gen 4 ve 5. nesil ("X" kullanılabilir gösterir) aşağıdaki bölgelerde kullanılabilir. 
-
-| **Azure bölgesi** | **4. nesil** | **5. nesil** |
-|:---|:----------:|:--------------------:|
-| Orta ABD |  | X |
-| Doğu ABD |  | X |
-| Doğu ABD 2 |  | X |
-| Orta Kuzey ABD |  | X |
-| Orta Güney ABD |  | X |
-| Batı ABD |  | X |
-| Batı ABD 2 |  | X |
-| Güney Brezilya |  | X |
-| Orta Kanada |  | X |
-| Doğu Kanada |  | X |
-| Kuzey Avrupa |  | X |
-| Batı Avrupa |  | X |
-| Fransa Orta |  | X |
-| Birleşik Krallık Güney |  | X |
-| Birleşik Krallık Batı |  | X |
-| Doğu Asya |  | X |
-| Güneydoğu Asya |  | X |
-| Avustralya Doğu |  | X |
-| Avustralya Orta |  | X |
-| Avustralya Orta 2 |  | X |
-| Avustralya Güneydoğu |  | X |
-| Orta Hindistan |  | X |
-| Güney Hindistan |  | X |
-| Batı Hindistan |  | X |
-| Japonya Doğu |  | X |
-| Japonya Batı |  | X |
-| Kore Orta |  | X |
-| Kore Güney |  | X |
-| Çin Doğu 1 | X |  |
-| Çin Doğu 2 |  | X |
-| Çin Kuzey 1 | X |  |
-| Çin Kuzey 2 |  | X |
-| Almanya Orta |  | X |
-| US DoD Orta  | X |  |
-| US DoD Doğu  | X |  |
-| ABD Devleti Arizona |  | X |
-| ABD Devleti Texas |  | X |
-| ABD Devleti Virginia |  | X |
+İşlem kaynakları, temel alınan donanım mantıksal CPU'yu temsil eden sanal çekirdekler sağlanır. Çin Doğu 1, Çin Kuzey 1, US DoD Orta ve ABD DoD Doğu yazılımınız Intel E5-2673 v3 temel 4. nesil mantıksal CPU'lar (Haswell) 2,4 GHz işlemcileri. Diğer tüm bölgeler Intel E5-2673 v4 temel 5. nesil mantıksal CPU'lar yazılımınız (Broadwell) 2.3 GHz işlemcileri.
 
 ## <a name="storage"></a>Depolama
 
@@ -93,19 +51,27 @@ PostgreSQL sunucusu için Azure veritabanı'na kullanılabilir depolama kapasite
 | Depolama artırma boyutu | 1 GB | 1 GB | 1 GB |
 | IOPS | Değişken |3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS |
 
-Ek depolama kapasitesi, sırasında ve sunucunun oluşturulduktan sonra ekleyebilirsiniz. Temel katmanı, bir IOPS garanti sağlamaz. Genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları, IOPS sağlanan depolama boyutu 3:1 oranını ölçeklendirin.
+Sırasında ve sonrasında sunucu oluşturulması ek depolama kapasitesi eklemek ve sistem otomatik olarak iş yükünüz depolama tüketimine göre depolama büyümesine izin verebilirsiniz. Temel katmanı, bir IOPS garanti sağlamaz. Genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları, IOPS sağlanan depolama boyutu 3:1 oranını ölçeklendirin.
 
 G/ç tüketiminiz Azure portalında veya Azure CLI komutlarını kullanarak izleyebilirsiniz. İlgili ölçümleri izlemek için [depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzdesi](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Depolama sınırı ulaşma
 
-Boş depolama alanı miktarı 5 GB veya sağlanan depolama alanının %5'i (hangisi daha düşükse) olduğunda sunucu salt okunur olarak işaretlenir. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımı gider salt okunur 95 GB, sunucunun işaretlenir. Alternatif olarak, 5 GB depolama alanı sağladıysanız boş depolama alanı 250 MB seviyesinin altına düştüğünde sunucu salt okunur olarak işaretlenir.  
+Sağlanan 100 GB depolama alanı miktarından daha azıyla çalışabilse sunucuları boş depolama alanı 512 MB veya sağlanan depolama boyutu %5 küçükse salt okunur olarak işaretlenir. Yalnızca boş depolama alanı 5 GB'tan daha az olduğunda birden çok sağlanan 100 GB depolama sunucularıyla salt okunur olarak işaretlenir.
+
+Örneğin 110 GB depolama alanı sağladığınız ve gerçek kullanımı gider salt okunur 105 GB, sunucunun işaretlenir. 5 GB depolama alanını sağladıysanız, 512 MB boş depolama alanı ulaştığında alternatif olarak, sunucunun salt okunur işaretlenir.
 
 Sunucu salt okunur ayarlandığında, tüm mevcut oturumlarının bağlantısı kesilir ve kaydedilmemiş işlemleri geri alınır. Herhangi bir sonraki yazma işlemleri ve işlem başarısız kaydeder. Tüm sonraki okuma sorguları kesintisiz olarak çalışır.  
 
 Sunucunuz için sağlanan depolama alanı miktarını artırmak veya boş depolama alanı boşaltmak için okuma-yazma modunda ve bırakma verileri yeni bir oturum başlatın. Çalışan `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` yazma modunda okumak üzere geçerli oturumdaki ayarlar. Veri bozulmasını önlemek için sunucu yine de salt okunur durumda olduğunda herhangi bir yazma işlemi gerçekleştirmeyin.
 
-Salt okunur duruma girmesini önlemek için sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamanızı öneririz. Daha fazla bilgi için şirket belgelerine bakın. [bir alarm ayarlama](howto-alert-on-metric.md).
+Depolama alanında açmanızı öneririz otomatik büyütme veya sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamak için bu nedenle, kaçınmak salt okunur duruma alma. Daha fazla bilgi için şirket belgelerine bakın. [bir alarm ayarlama](howto-alert-on-metric.md).
+
+### <a name="storage-auto-grow"></a>Depolama otomatik büyütme
+
+Depolama otomatik büyümesi halinde olan etkin depolama otomatik olarak iş yükünü etkilemeden büyür. Boş depolama alanı 1 GB veya 10 sağlanan depolama yüzdesi büyük olarak sağlanan 100 GB depolama alanı miktarından daha azıyla çalışabilse sunucular için 5 GB ile sağlanan depolama boyutu artar. Boş depolama alanı, sağlanan depolama boyutu %5 altında olduğunda 100 GB'den fazla sağlanan depolama alanı ile sunucular için sağlanan depolama boyutu %5 oranında artar. Yukarıda belirtildiği gibi maksimum depolama sınırları geçerlidir.
+
+Örneğin, 1000 GB depolama alanı sağlamış ve gerçek kullanımı gider 950 GB, sunucu depolama boyutu 1050 GB'a artırdık. 10 GB depolama alanı sağladıysanız, 1 GB'tan az depolama ücretsiz alternatif olarak, depolama boyutu için 15 GB artış olduğunda.
 
 ## <a name="backup"></a>Backup
 

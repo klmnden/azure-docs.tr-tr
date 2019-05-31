@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227912"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305672"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 
@@ -56,7 +56,7 @@ Adlandırılmış bir konuma aşağıdaki bileşenlere sahiptir:
 - **Ülkeler/bölgeler** -bu seçenek, bir veya daha fazla ülke veya bölge adlandırılmış bir konuma tanımlamak için seçmenize olanak sağlar.
 - **Bilinmeyen alanları dahil et** -belirli bir ülke veya bölge için bazı IP adreslerini eşlenmedi. Bu seçenek, bu IP adresleri adlandırılmış bir konumda dahil edilip edilmeyeceğini seçmenize olanak tanır. Belirtilen konum kullanarak ilke bilinmeyen konumlara uygulanmasını gerektiren bu ayarı kullanın.
 
-Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Kuruluşlarda en fazla 90 adlandırılmış konumlar yapılandırabilir, her kadar 12000 IP aralıkları ile yapılandırılmış.
+Adlandırılmış konumlar yapılandırabileceğiniz sayısı, Azure AD'de ilgili nesne boyutu tarafından sınırlanır. Kuruluşlarda en fazla 90 adlandırılmış konumlar yapılandırabilir, her 1200 IP aralıkları ile yapılandırılmış.
 
 Koşullu erişim ilkesi, IPv4 ve IPv6 trafiği için geçerlidir. Şu anda adlandırılmış konumlar yapılandırılması için IPv6 aralıkları izin vermez. Bu sınırlama aşağıdaki durumlarda neden olur:
 
@@ -88,17 +88,17 @@ Her iki adım başarısız olursa, bir kullanıcı artık bir güvenilen IP olar
 
 Konum koşulu yapılandırdığınızda ayırt etmek için seçeneğiniz vardır:
 
-- Herhangi bir konum
-- Tüm güvenilen konumlar
+- Herhangi bir yerde
+- Tüm Güvenilen Konumlar
 - Seçili konumlar
 
 ![Konum koşulu yapılandırma](./media/location-condition/01.png)
 
-### <a name="any-location"></a>Herhangi bir konum
+### <a name="any-location"></a>Herhangi bir yerde
 
 Varsayılan olarak, seçerek **herhangi bir konuma** herhangi bir Internet adresi yani tüm IP adresleri için uygulanacak bir ilke neden olur. Bu ayar adlandırılmış konumu olarak yapılandırdığınız IP adreslerini sınırlı değildir. Seçtiğinizde, **herhangi bir konuma**, belirli konumlara bir ilkeden yine de hariç tutabilirsiniz. Örneğin, şirket ağı dışında tüm konumlara kapsamını ayarlamak için güvenilen konumları hariç tüm konumlara bir ilke uygulayabilirsiniz.
 
-### <a name="all-trusted-locations"></a>Tüm güvenilen konumlar
+### <a name="all-trusted-locations"></a>Tüm Güvenilen Konumlar
 
 Bu seçenek için geçerlidir:
 

@@ -2,19 +2,19 @@
 title: İstek özellikleri Azure Time Series Insights müşteri verilerini | Microsoft Docs
 description: Azure Time Series Insights müşteri verilerini talep özelliklerin özeti.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f99a54f5623100e057e0c02249f5886f46656a21
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546384"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66355921"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Müşteri verilerini talep özelliklerin özeti
 
@@ -36,7 +36,7 @@ Kiracı Yöneticisi, Azure portalını kullanarak müşteri verileri silebilirsi
 
 Portal aracılığıyla müşteri verileri silmeden önce Azure portalındaki zaman serisi görüşleri ortamından kullanıcının erişim ilkelerini kaldırmalısınız. Daha fazla bilgi için [Azure portalını kullanarak zaman serisi görüşleri ortamına veri erişimi verme](time-series-insights-data-access.md).
 
-Ayrıca, REST API kullanarak erişim ilkeleri üzerinde silme işlemleri gerçekleştirebilirsiniz. Daha fazla bilgi için [erişim ilkelerini - Sil](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete).
+Ayrıca, REST API kullanarak erişim ilkeleri üzerinde silme işlemleri gerçekleştirebilirsiniz. Daha fazla bilgi için [erişim ilkelerini - Sil](/rest/api/time-series-insights/management/accesspolicies/delete).
 
 Time Series Insights, ilke dikey penceresinde Azure portalı ile tümleşiktir. Time Series Insights hem de ilke dikey penceresinde görüntülemek için dışarı aktarma ve hizmet içinde depolanan kullanıcı verilerini silmek sağlar. İlke dikey penceresinde Time Series Insights içinde kullanıcı verileri silme işlemi, Azure portal sonuçlarının içinde gerçekleştirilen eylem silin. Örneğin, kullanıcının kişisel kaydedilmiş sorgu varsa bu sorguyu Time Series Insights Gezgini'nden kalıcı olarak silinir. Kullanıcının paylaşılan kaydedilmiş bir sorgu varsa, sorgu devam ediyorsa, ancak kullanıcı bilgilerini kalıcı olarak silinir. Aşağıdaki Not, şu görevleri gerçekleştirmek yönergeler içerir.
 
@@ -48,7 +48,7 @@ Benzer şekilde veri silmek için bir kiracı Yöneticisi görüntüleyebilir ve
 
 Kiracı yöneticisiyseniz, içinde zaman serisi görüşleri ortamına veri erişimi ilkeleri Azure Portalı'nda görüntüleyebilirsiniz. Daha fazla bilgi için [Azure portalını kullanarak zaman serisi görüşleri ortamına veri erişimi verme](time-series-insights-data-access.md).
 
-Erişim ilkeleri "listesi ortama göre" işlemi belirtilen REST API kullanarak dışarı aktarma işlemleri mümkündür. Daha fazla bilgi için [erişim ilkeleri - listesi tarafından ortamı](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/listbyenvironment).
+Erişim ilkeleri "listesi ortama göre" işlemi belirtilen REST API kullanarak dışarı aktarma işlemleri mümkündür. Daha fazla bilgi için [erişim ilkeleri - listesi tarafından ortamı](/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Time Series Insights içinde depolanan verileri silmek için
 

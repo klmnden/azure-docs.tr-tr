@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 5d56c878eab92a7152bc0b248cab5c2ebf7e6dde
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198410"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254302"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IOT Edge Cihazınızda güvenlik modül dağıtma
 
@@ -70,7 +70,7 @@ IOT Edge için IOT güvenlik modül için bir ASC dağıtmak için aşağıdaki 
 
 IOT için Azure Güvenlik Merkezi için bir IOT Edge dağıtımı oluşturmak için üç adım vardır. Aşağıdaki bölümlerde, her birini yol. 
 
-#### <a name="step-1-add-modules"></a>1. Adım: Modül Ekle
+#### <a name="step-1-add-modules"></a>1. adım: Modül Ekle
 
 1. Gelen **Ekle modülleri** sekmesinde **dağıtım modülleri** alanı tıklayın **AzureSecurityCenterforIoT**. 
    
@@ -134,13 +134,13 @@ IOT için Azure Güvenlik Merkezi için bir IOT Edge dağıtımı oluşturmak i�
    
 1. **İleri**’ye tıklayın.
 
-#### <a name="step-2-specify-routes"></a>2. Adım: Rota Belirtme 
+#### <a name="step-2-specify-routes"></a>2. adım: Rota belirtme 
 
-1. İçinde **yolları belirtin** sekmesinde, belirleyin **ASCForIoTToIoTHub** yönlendirmek **"ÖĞESİNDEN/iletileri/modülleri/azureiotsecurity/\* $ Yukarı Akış"**, tıklayın **Sonraki**.
+1. İçinde **yolları belirtin** sekmesinde, belirleyin **ASCForIoTToIoTHub** yönlendirmek **"ÖĞESİNDEN/iletileri/modülleri/azureiotsecurity/\* $ Yukarı Akış"** , tıklayın **Sonraki**.
 
    ![Rota belirtme](media/howto/edge-onboarding-9.png)
 
-#### <a name="step-3-review-deployment"></a>3. Adım: Dağıtımı Gözden Geçirme
+#### <a name="step-3-review-deployment"></a>3. adım: Dağıtım gözden geçirin
 
 1. İçinde **gözden dağıtım** sekmesinde, dağıtım bilgilerinizi gözden geçirin ve ardından seçin **Gönder** dağıtımı tamamlamak için.
 
@@ -158,7 +158,7 @@ Bir sorunla karşılaşırsanız, kapsayıcı günlüklerini güvenlik modülü 
    
    | Ad | GÖRÜNTÜ |
    | --- | --- |
-   | azureIoTSecurity | MCR.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | azureiotsecurity | MCR.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
    | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    

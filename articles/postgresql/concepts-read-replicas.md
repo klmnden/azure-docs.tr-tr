@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510968"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242288"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
 
@@ -35,15 +35,14 @@ PostgreSQL zaman uyumsuz çoğaltma okuma çoğaltması özelliğini kullanır. 
 
 Okuma çoğaltma, olağanüstü durum kurtarma planınızı geliştirebilirsiniz. İlk yöneticisinden farklı bir Azure bölgesinde bir çoğaltma olması gerekir. Bir bölge olağanüstü durum varsa, bu çoğaltma için çoğaltma durdurma ve iş yükünüz yönlendirin. Çoğaltma durdurma yazma kabul başlamak çoğaltmanın sağlar, hem de okur. Daha fazla bilgi [çoğaltma durdurma](#stop-replication) bölümü. 
 
-## <a name="create-a-replica"></a>Bir çoğaltma oluşturma
+## <a name="create-a-replica"></a>Çoğaltma oluşturma
 Ana sunucu olmalıdır `azure.replication_support` parametresini **çoğaltma**. Bu parametre değiştiğinde, değişikliğin etkili olması için sunucunun yeniden başlatılması gereklidir. ( `azure.replication_support` Parametresi yalnızca için genel amaçlı ve bellek için iyileştirilmiş katmanlar için geçerlidir).
 
 PostgreSQL sunucusu için boş bir Azure veritabanı oluşturma çoğaltma iş akışı başlattığınızda oluşturulur. Yeni sunucunun ana sunucuya olan verilerle doldurulur. Oluşturma zamanı asıl ve haftalık tam yedekleme saatinden veri miktarına bağlıdır. Süre birkaç dakikadan birkaç saate kadar değişebilir.
 
-PostgreSQL fiziksel çoğaltma, çoğaltma olmayan mantıksal okuma çoğaltması özelliğini kullanır. Çoğaltma, çoğaltma yuvaları kullanarak akış, varsayılan işlem modu kullanılır. Gerektiğinde, günlük aktarma bilgi edinmek için kullanılır.
+Her çoğaltma için depolama etkin [otomatik büyütme](concepts-pricing-tiers.md#storage-auto-grow). Auto-grow özelliği için yinelenen verileri takip edin ve bir sonu dışında depolama hataları nedeniyle çoğaltma önlemek için çoğaltmayı sağlar.
 
-> [!NOTE]
-> Depolama uyarı kümesi sunucularınızda yoksa, bunu yapmanız önerilir. Uyarı ne zaman bir sunucu çoğaltma etkiler, depolama sınırına yaklaşıyor size bildirir.
+PostgreSQL fiziksel çoğaltma, çoğaltma olmayan mantıksal okuma çoğaltması özelliğini kullanır. Çoğaltma, çoğaltma yuvaları kullanarak akış, varsayılan işlem modu kullanılır. Gerektiğinde, günlük aktarma bilgi edinmek için kullanılır.
 
 Bilgi edinmek için nasıl [salt okunur bir çoğaltması Azure Portalı'nda oluşturma](howto-read-replicas-portal.md).
 
@@ -94,7 +93,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > [!NOTE]
 > Bir ana sunucu veya okuma çoğaltması yeniden başlatılırsa, yeniden başlatın ve güncel duruma gelmesi için gereken süreyi çoğaltma gecikmesi ölçümü yansıtılır.
 
-## <a name="stop-replication"></a>Çoğaltmayı durdur
+## <a name="stop-replication"></a>Çoğaltmayı Durdur
 Bir ana ve çoğaltma arasında çoğaltmayı durdurabilirsiniz. Durdurma eylemi, çoğaltmayı yeniden başlatın ve çoğaltma ayarlarını kaldırmak için neden olur. Ana sunucu ile bir salt okunur çoğaltma arasında çoğaltmayı durdurulduktan sonra çoğaltma, tek başına sunucu haline gelir. Tek başına sunucu verileri çoğaltma durdurma komutunun başlatılmasından çoğaltma üzerinde kullanılabilir olan verilerdir. Tek başına sunucu ana sunucu ile Kaçırdığınız değil.
 
 > [!IMPORTANT]

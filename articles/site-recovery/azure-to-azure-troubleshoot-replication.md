@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9ff756270c368d39b7ef78d7c1046f7c91169668
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bf24b2d1395e128dc73361670ea93ac938574146
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103755"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258778"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Azure'dan Azure'a VM çoğaltması devam eden sorunlarını giderme
 
@@ -62,7 +62,7 @@ Azure Site Recovery veri değişim hızı, disk türüne göre üzerinde limitle
 
 Bir depo olan veri bloğu bir arada sırada veri ve veri değiştirirseniz oranıdır 10 MB/sn (Premium için) 2 MB'dan büyük ve/bazı (standart) s saat ve gelir, çoğaltma yakalar. Değişim sıklığı da desteklenen dışında olup olmadığını, ancak çoğu zaman limit, mümkünse bu seçeneklerden birini göz önünde bulundurun:
 
-* **Bir yüksek veri değişim hızı neden olan bir diski hariç**: Kullanarak bir diski hariç tutabilirsiniz [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
+* **Bir yüksek veri değişim hızı neden olan bir diski hariç**: Kullanarak bir diski hariç tutabilirsiniz [PowerShell](./azure-to-azure-exclude-disks.md). Diski dışlamak için önce çoğaltmayı devre dışı bırakmanız gerekir. 
 * **Olağanüstü Durum Kurtarma Depolama diski katmanını değiştirme**: Bu seçenek yalnızca disk veri değişim sıklığı, 10 MB/sn olması durumunda mümkündür. Bir VM ile bir P10 disk 8 MB/sn ancak 10 MB/sn'den büyük bir veri değişim sıklığı yaşıyor varsayalım. Koruma sırasında müşteri P30 disk için hedef depolama kullanabilir, sorun çözülebilir.
 
 ## <a name="Network-connectivity-problem"></a>Ağ bağlantısı sorunları
@@ -76,3 +76,63 @@ Gecikme süresi için ilgili bir sorun denetlemek için kullanmak [azcopy](https
 
 ### <a name="network-connectivity"></a>Ağ bağlantısı
 Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlarından biri, yüz tanıma. Tüm URL'leri bağlandığınızdan emin olmak için bkz: [Site kurtarma URL'ler için giden bağlantı](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
+
+## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Hata kimliği 153006 - kullanılabilir son 'XXX' dakika içinde VM için uygulamayla tutarlı kurtarma noktası yok
+
+En yaygın sorunlardan bazılarını aşağıda listelenmiştir
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>1. neden: Sorun SQL Server 2008/2008 R2 bilinen 
+**Nasıl düzeltileceğini** : 2008/2008 R2'in SQL server ile ilgili bilinen bir sorun yoktur. Lütfen bu KB makalesinde bakın [başarısız SQL Server 2008 R2 barındıran bir sunucu için Azure Site Recovery aracısı veya diğer bileşen olmayan VSS yedekleme](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>2. neden: Herhangi bir sürümünü None veritabanları ile SQL Server örneklerini barındıran sunucularda Azure Site Recovery işleri başarısız 
+**Nasıl düzeltileceğini** : KB başvuran [makale](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>3. neden: SQL Server 2016 ve 2017'deki bilinen sorun
+**Nasıl düzeltileceğini** : KB başvuran [makale](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+#### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>4. neden: Depolama alanları doğrudan yapılandırması kullanıyorsanız
+**Nasıl düzeltileceğini** : Azure Site Recovery uygulamayla tutarlı kurtarma noktası için depolama alanları doğrudan yapılandırması oluşturulamıyor. Lütfen doğru makaleye başvurun [çoğaltma ilkesi yapılandırma](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms)
+
+### <a name="more-causes-due-to-vss-related-issues"></a>Daha fazla VSS nedeni ilgili sorunlar:
+
+Daha fazla sorun giderme için hata tam hata kodu almak için kaynak makinedeki dosyaları denetleyin:
+    
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+Dosyada hataları bulmak nasıl?
+Üstteki "vacpError" vacp.log dosya bir düzenleyicide açıp arama
+        
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+Yukarıdaki örnekte **2147754994** aşağıda gösterildiği gibi hakkında bir hata bildirir hata kodu.
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS Yazıcı yüklü değil - hata 2147221164 
+
+*Nasıl düzeltileceğini*: Uygulama tutarlılık etiketi oluşturmak için Azure Site Recovery, Microsoft Birim Gölge Kopyası Hizmeti (VSS) kullanır. Uygulama tutarlılığı anlık görüntülerini almak için VSS sağlayıcısı, işlemi için'nı yükler. Bu VSS sağlayıcısı, hizmet olarak yüklenir. VSS sağlayıcısı hizmeti yüklü değil durumunda, uygulama tutarlılığı anlık görüntü oluşturma "Sınıfı kaydedilmemiş" 0x80040154 hata koduyla başarısız oluyor. </br>
+Başvuru [makale için VSS Yazıcı, yükleme sorunlarını giderme](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS yazıcısını devre dışı - hata 2147943458
+
+**Nasıl düzeltileceğini**: Uygulama tutarlılık etiketi oluşturmak için Azure Site Recovery, Microsoft Birim Gölge Kopyası Hizmeti (VSS) kullanır. Uygulama tutarlılığı anlık görüntülerini almak için VSS sağlayıcısı, işlemi için'nı yükler. Bu VSS sağlayıcısı, hizmet olarak yüklenir. VSS sağlayıcısı hizmeti devre dışı durumda uygulama tutarlılığı anlık görüntü oluşturma "Belirtilen hizmet devre dışı bırakılır ve started(0x80070422) olamaz" hata koduyla başarısız. </br>
+
+- VSS devre dışıysa,
+    - VSS sağlayıcısı hizmeti başlangıç türü değerine ayarlandığını doğrulayın **otomatik**.
+    - Şu hizmetleri yeniden başlatın:
+        - VSS hizmeti
+        - Azure Site Recovery VSS sağlayıcısı
+        - VDS hizmeti
+
+####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS SAĞLAYICISI NOT_REGISTERED - hata 2147754756
+
+**Nasıl düzeltileceğini**: Uygulama tutarlılık etiketi oluşturmak için Azure Site Recovery, Microsoft Birim Gölge Kopyası Hizmeti (VSS) kullanır. Azure Site Recovery VSS sağlayıcısı hizmet veya yüklü olup olmadığını denetleyin. </br>
+
+- Aşağıdaki komutları kullanarak sağlayıcı kurulumunu yeniden deneyin:
+- Mevcut sağlayıcısını Kaldır: C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Yeniden yükleyin: C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+VSS sağlayıcısı hizmeti başlangıç türü değerine ayarlandığını doğrulayın **otomatik**.
+    - Şu hizmetleri yeniden başlatın:
+        - VSS hizmeti
+        - Azure Site Recovery VSS sağlayıcısı
+        - VDS hizmeti

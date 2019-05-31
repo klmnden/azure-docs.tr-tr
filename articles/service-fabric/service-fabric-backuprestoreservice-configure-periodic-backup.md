@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 31c5feac577dc5e9e0eed9ced9ccfe25c12d3086
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310471"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237350"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service fabric'te düzenli yedekleme yapılandırması anlama
 
@@ -137,9 +137,6 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> Çalışma zamanında bir sorun nedeniyle, bekletme ilkesi bekletme süresi 24 günden az olacak şekilde yapılandırılır; Aksi takdirde, çekirdek kayıp çoğaltma yük devretme sonrasında gitmek için yedekleme geri yükleme hizmeti neden olacağından emin olun.
 
 ## <a name="enable-periodic-backup"></a>Dönemsel yedeklemeyi etkinleştirme
 Veri yedekleme gereksinimlerini karşılamak için yedekleme İlkesi tanımladıktan sonra yedekleme İlkesi uygun şekilde ya da ile ilişkilendirilmesi gereken bir _uygulama_, veya _hizmet_, veya bir _bölüm_.

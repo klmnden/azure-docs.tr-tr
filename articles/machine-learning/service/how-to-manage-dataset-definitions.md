@@ -1,5 +1,5 @@
 ---
-title: Veri kümesi tanımı ve azureml kümeleriyle sürüm oluşturma
+title: Sürüm ve veri kümesi tanımlarını azureml veri kümeleri ile yönetme
 titleSuffix: Azure Machine Learning service
 description: Veri kümesi tanımlarını güncelleştir ve tanımları yaşam döngüsünü yönetme hakkında bilgi edinin
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146217"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241874"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Güncelleştirme ve veri kümesi tanımları yaşam döngüsünü yönetme
+# <a name="version-and-manage-your-dataset-definitions"></a>Sürüm ve veri kümesi tanımları yönetme
 
 Güncelleştirme ve Azure Machine Learning veri kümeleri (Önizleme) ile veri kümesi tanımları yönetme hakkında bilgi edinin.
 
@@ -37,7 +37,7 @@ Bir Azure aboneliği ve veri kümesi tanımları ömrünü yönetmek için veri 
 
 Bu belgedeki örneklerde kullanılan örnek dosyası şu adresten edinilebilir [ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
-## <a name="update-dataset-definitions"></a>Veri kümesi tanımlarını güncelleştir
+## <a name="create-and-update-definitions"></a>Oluştur ve tanımları güncelleştir
 
 İlk oluşturur ve bir veri kümesi ile çalışma alanınızı kaydedin.
 
@@ -362,7 +362,7 @@ ds_def = dataset.get_definition(version_id = 1)
 ds_def.deprecate(deprecate_by_dataset_id=dataset.id, deprecated_by_definition_version=2)
 ```
 
-### <a name="archive"></a>Arşivle
+### <a name="archive"></a>Arşiv
 
 Veri kümesi tanımları, herhangi bir nedenle (örneğin, temel alınan veriler artık kullanılabilir) kullanılacak tanımları görmemesi olduğunda saklanabilir. Arşivlenen bir veri kümesi tanımı machine learning işlem hatlarını kullanıldığında, yürütme hatası ile engellenir.
 

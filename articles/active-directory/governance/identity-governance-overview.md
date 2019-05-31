@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935824"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307030"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD kimlik yönetimi nedir?
 
@@ -84,6 +84,6 @@ Başlarken sekmesinde de göz atabilirsiniz **Kimlik Yönetimi** incelemeleri, P
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD hak yönetimi nedir? (Önizleme)](entitlement-management-overview.md)
-- [Nelerdir Azure AD erişim gözden geçirmeleri?](access-reviews-overview.md)
+- [Azure AD erişim gözden geçirmesi nedir?](access-reviews-overview.md)
 - [Azure AD Privileged Identity Management nedir?](../privileged-identity-management/pim-configure.md)
 - [Kullanım koşulları ile ne yapabilirim?](active-directory-tou.md)

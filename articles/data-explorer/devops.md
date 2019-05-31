@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161078"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388986"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Azure DevOps görev için Azure Veri Gezgini
 
@@ -49,7 +49,7 @@ Aşağıdaki örnek klasörler oluşturmanız (*işlevleri*, *ilkeleri*, *tablol
 1. Oturum açın, [Azure DevOps kuruluş](https://dev.azure.com/).
 1. Seçin **işlem hatları** > **yayınlar** sol taraftaki menüsünden ve select **yeni işlem hattı**.
 
-    ![Yeni ardışık düzen](media/devops/new-pipeline.png)
+    ![Yeni işlem hattı](media/devops/new-pipeline.png)
 
 1. **Yeni yayın işlem hattı** penceresi açılır. İçinde **işlem hatları** sekmesinde **bir şablon seçin** bölmesinde seçin **boş iş**.
 
@@ -67,7 +67,7 @@ Aşağıdaki örnek klasörler oluşturmanız (*işlevleri*, *ilkeleri*, *tablol
 
     ![Değişken oluşturma](media/devops/create-variable.png)
 
-    Genel bakış sayfasında bulunan, Endpoint_URL bulmak için **Azure Veri Gezgini küme** Azure portalı, Azure Veri Gezgini küme URI'si içerir. URI'yi şu biçimde oluşturmak `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Örneğin, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Genel bakış sayfasında bulunan, Endpoint_URL bulmak için **Azure Veri Gezgini küme** Azure portalı, Azure Veri Gezgini küme URI'si içerir. URI'yi şu biçimde oluşturmak `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Örneğin, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure Veri Gezgini küme URI'si](media/devops/adx-cluster-uri.png)
 

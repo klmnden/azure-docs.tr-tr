@@ -7,14 +7,18 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: pabutler
-ms.openlocfilehash: ec206c2d637f9fb2727d72cf17087050a765672c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e7a01af1eba865b0a088b0fa7226273527abd70e
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941959"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257398"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS gerçekleştirme API'leri
+
+> [!IMPORTANT] 
+> SaaS teklif işlevselliği geçirildiğini [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tüm yeni yayımcılar, iş ortağı merkezi yeni SaaS teklifleri oluşturma ve mevcut teklifler yönetmek için kullanmanız gerekir.  SaaS teklifleri ile geçerli yayımcılar iş ortağı Merkezi'ne batchwise bulut iş ortağı Portalı'ndan geçiriliyor.  Bulut iş ortağı portalı belirli mevcut teklifler zaman geçirilmiş belirtmek için durum iletilerini görüntüler.
+> Daha fazla bilgi için [yeni SaaS teklifi oluşturma](../../partner-center-portal/create-new-saas-offer.md).
 
 SaaS yerine getirme API'leri, bağımsız yazılım satıcılarına (ISV) Azure Market ile SaaS uygulamalarını tümleştirme sağlar. Bu API'leri ISV uygulamaları tüm ticari etkin kanallarında katılmayı etkinleştir: doğrudan, iş ortağı destekli (satıcı) ve alan öncülüğünde.  Bir gereksinim transactable SaaS tekliflerini Azure Marketi'nde listeleme değildirler.
 

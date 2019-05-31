@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467945"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254715"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Azure Danışmanı'nı kullanarak hizmet maliyetlerini azaltın
 
@@ -44,6 +44,13 @@ Danışman, sonraki 30 gün içinde sona erecek olan ayrılmış örnekleri de b
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>İlişkilendirilmemiş genel IP adreslerini tasarruf Sil
 
 Danışman, yük Dengeleyiciler veya VM'ler gibi Azure kaynakları için şu anda ilişkili olmayan genel IP adresleri tanımlar. Bu genel IP adreslerinin nominal bir ücret ile gelir. Bunları kullanmayı planlamıyorsanız silerek maliyet tasarruf sağlayabilir.
+
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Başarısız olan Azure Data Factory işlem hatlarını silin
+
+Azure Danışmanı, Azure Data Factory işlem hatlarını art arda başarısız ve sorunları gidermek veya artık gerekli değilse, başarısız olan işlem hatları silme önerilir algılar. Başarısız olan ancak yine de, hizmet verdikleri değil olsa bile bu işlem hatları için faturalandırılırsınız. 
+
+## <a name="use-standard-snapshots-for-managed-disks"></a>Standart anlık görüntüler için yönetilen diskleri kullanma
+% 60'maliyet kaydetmek için standart depolama, üst disk depolama türü ne olursa olsun, anlık görüntüler depolamanızı öneririz. Yönetilen diskler, anlık görüntüler için varsayılan seçenek budur. Azure Danışmanı saklı Premium depolama ve anlık Premium'dan standart depolama alanına geçirme öneri anlık görüntüleri tanımlar. [Yönetilen Disk fiyatları hakkında daha fazla bilgi edinin](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Maliyet önerileri Azure Danışmanı'nda erişme
 

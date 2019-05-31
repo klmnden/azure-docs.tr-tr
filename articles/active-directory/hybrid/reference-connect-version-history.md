@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2019
+ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 235877ac8f84e695e5f81770d33b6fed89a5f241
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784324"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298789"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -44,10 +44,20 @@ Size bu süreçte çalışırken, sürüm sürüm numarasını "1.3.X.0" - oldu�
 Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale getirilir. Yayın durumu, bir yayın otomatik yükseltme için veya yalnızca karşıdan yükleme için kullanılabilir hale getirileceğini olup olmadığını gösterir. Ardından Azure AD Connect sunucunuzda otomatik yükseltmeyi etkinleştirilmişse, sunucu otomatik olarak otomatik yükseltme için yayımlanan Azure AD Connect'in en son sürümünü yükseltecek. Tüm Azure AD Connect yapılandırmaları otomatik yükseltme için uygun olduğunu unutmayın. Lütfen hakkında daha fazla bilgi için bu bağlantıyı izleyin [otomatik yükseltme](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="13210"></a>1.3.21.0
+>[!IMPORTANT]
+>Azure AD Connect'i başarıyla yükseltildi olsa bile burada O365 portalı güncelleştirilmiş sürümü güncel değil Azure AD Connect için 1.3.21.0 önceki bir sürümden yükseltme ile ilgili bilinen bir sorun yoktur.
+>
+> İçeri aktarmak için bu sorunu çözmek için **AdSync** modülü ve ardından Çalıştır`Set-ADSyncDirSyncConfiguration` Azure AD Connect sunucusu üzerindeki powershell cmdlet'i.  Aşağıdaki adımları kullanabilirsiniz:
+>
+>1. PowerShell'i Yönetici modunda açın
+>2. `Import-Module "ADSync"` öğesini çalıştırın
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""` öğesini çalıştırın
+ 
+
 
 ### <a name="release-status"></a>Yayın durumu 
 
-05/14/2019: TBD
+05/14/2019: İndirme için yayımlanan
 
 
 ### <a name="fixed-issues"></a>Düzeltilen sorunlar 
@@ -290,7 +300,7 @@ Durum 4/12/2018: Kullanıma yalnızca indirme
 >[!NOTE]
 >Bu sürüm için Azure AD Connect düzeltmedir
 
-### <a name="azure-ad-connect-sync"></a>Azure AD Connect eşitleme
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect Eşitleme
 #### <a name="fixed-issues"></a>Düzeltilen sorunlar
 Çin kiracılar zaman zaman başarısız için bulma otomatik bir Azure örneği olan bir sorun düzeltildi.  
 
@@ -398,18 +408,18 @@ Bir geliştirme önerilen izni altında açıklandığı gibi bölümü değişt
 *   Kendi KENDİNE özgü ACE dışında belirli nesne üzerindeki tüm ACE kaldırın. Kendi KENDİNE söz konusu olduğunda, varsayılan izinleri korumak istiyoruz.
 *   Bu özel izinler atayın:
 
-Tür     | Ad                          | Erişim               | Şunun İçin Geçerli
+Type     | Ad                          | Access               | İçin geçerlidir
 ---------|-------------------------------|----------------------|--------------|
-İzin ver    | SİSTEM                        | Tam Denetim         | Bu nesne  |
-İzin ver    | Kuruluş Yöneticileri             | Tam Denetim         | Bu nesne  |
-İzin ver    | Etki alanı yöneticileri                 | Tam Denetim         | Bu nesne  |
-İzin ver    | yöneticiler                | Tam Denetim         | Bu nesne  |
-İzin ver    | Kuruluş etki alanı denetleyicileri | İçeriği Listele        | Bu nesne  |
-İzin ver    | Kuruluş etki alanı denetleyicileri | Tüm özellikleri oku  | Bu nesne  |
-İzin ver    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
-İzin ver    | Kimliği Doğrulanmış Kullanıcılar           | İçeriği Listele        | Bu nesne  |
-İzin ver    | Kimliği Doğrulanmış Kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
-İzin ver    | Kimliği Doğrulanmış Kullanıcılar           | Okuma izinleri     | Bu nesne  |
+İzin Ver    | SİSTEM                        | Tam Denetim         | Bu nesne  |
+İzin Ver    | Kuruluş Yöneticileri             | Tam Denetim         | Bu nesne  |
+İzin Ver    | Etki alanı yöneticileri                 | Tam Denetim         | Bu nesne  |
+İzin Ver    | Yöneticiler                | Tam Denetim         | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | İçeriği Listele        | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | Tüm özellikleri oku  | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | İçeriği Listele        | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Okuma izinleri     | Bu nesne  |
 
 Ayarlar, AD DS hesabı için reddedeceği çalıştırabilirsiniz [bu PowerShell Betiği](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell Betiği, AD DS hesabı için yukarıda bahsedilen izinlerin atar.
 
@@ -561,7 +571,7 @@ Durum: 05 Eylül 2017
 * Kullanıcının AD FS ve WAP sunucularını sağlamanız istenir önce artık gerçekleşmesi AAD Connect kullanarak yeni bir AD FS grup ayarlıyorsanız, ADFS kimlik bilgilerinin sorulmasına sayfaya taşındı.  Bu, belirtilen hesabın doğru izinlere sahip olduğunu denetlemek AAD Connect sağlar.
 * ADFS güveni AAD güncelleştiremediğinde AAD Connect yükseltmesinde biz artık yükseltme başarısız olur.  Bu durumda, kullanıcı uygun bir uyarı iletisi gösterilir ve AAD Connect ek görevi aracılığıyla güveni sıfırlamak için devam etmelisiniz.
 
-### <a name="seamless-single-sign-on"></a>Sorunsuz Çoklu Oturum Açma
+### <a name="seamless-single-sign-on"></a>Sorunsuz çoklu oturum açma
 #### <a name="fixed-issues"></a>Düzeltilen sorunlar
 * Azure AD Connect Sihirbazı'nı etkinleştirmek denerseniz bir hata döndürmek neden bir sorun düzeltildi [sorunsuz çoklu oturum açma](how-to-connect-sso.md). Hata iletisi *"Yapılandırması Microsoft Azure AD Connect kimlik doğrulaması Aracısı başarısız oldu."* Bu sorun için kimlik doğrulama aracılarının önizleme sürümünü el ile yükselten Mevcut müşterileri etkiler [geçişli kimlik doğrulaması](how-to-connect-sso.md) bu konuda açıklanan adımları göre [makale](how-to-connect-pta-upgrade-preview-authentication-agents.md).
 
@@ -650,7 +660,7 @@ Durum: Temmuz 2017
 
 * Initialize-ADSyncDomainJoinedComputerSync cmdlet artık AzureADDomain adlı yeni bir isteğe bağlı parametre var. Bu parametre, hizmet bağlantı noktası yapılandırmak için kullanılacak etki alanını doğruladıysanız belirtmenize olanak sağlar.
 
-### <a name="pass-through-authentication"></a>Geçişli Kimlik Doğrulaması
+### <a name="pass-through-authentication"></a>Doğrudan Kimlik Doğrulama
 
 #### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler
 * Geçişli kimlik doğrulaması değiştirilmiştir için gereken aracı adı *Microsoft Azure AD uygulama ara sunucusu Bağlayıcısı* için *Microsoft Azure AD Connect kimlik doğrulaması Aracısı*.
@@ -741,14 +751,14 @@ CBool(
     |CertFriendlyName|Certthumbprınt|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Seç|
+    |CertVersion|CertSignatureAlgorithmOid|Seçim|
     |CertKeyAlgorithmParams|CertHashString|Konum|
-    |||Şununla birlikte:|
+    |||Avantaj ile|
 
 * Aşağıdaki şema değişiklikleri, sAMAccountName, domainNetBios ve Grup nesneleri için domainFQDN yanı sıra, kullanıcı nesnelerinin distinguishedName flow için özel bir eşitleme kuralları oluşturmak kanıtlayabilecekleri sunulmuştur:
 
   * Aşağıdaki öznitelikler MV şemaya eklenmiştir:
-    * Grup: Hesap adı
+    * Grup: accountName
     * Group: domainNetBios
     * Grup: domainFQDN
     * Kişi: distinguishedName
@@ -792,12 +802,12 @@ Yayımlanma tarihi: Mayıs 2017
 
 **Giderilen sorunlar:**
 
-Azure AD Connect eşitleme
+Azure AD Connect Eşitleme
 
 * Müşteri Set-ADSyncAutoUpgrade cmdlet'ini kullanarak özelliği devre dışı olsa bile Azure AD Connect sunucusu üzerinde gerçekleşmesi otomatik yükseltme neden olan bir sorunu düzelttik. Bu düzeltmeyle sunucusundaki otomatik yükseltme işlemi hala yükseltme için düzenli olarak denetler, ancak otomatik yükseltme yapılandırma indirilen yükleyiciye geliştirir.
 * Azure AD Connect, DirSync yerinde yükseltme sırasında Azure AD ile eşitlemek için Azure AD Bağlayıcısı tarafından kullanılacak bir Azure AD hizmet hesabını oluşturur. Hesap oluşturulduktan sonra hesabı kullanarak Azure AD ile Azure AD Connect kimlik doğrulaması yapar. Bazı durumlarda, kimlik doğrulama sırayla DirSync yerinde yükseltme hatası ile başarısız olmasına neden olan geçici bir sorun nedeniyle başarısız *"yürütme yapılandırma AAD eşitleme görevi bir hata oluştu: AADSTS50034: Bu uygulamaya oturum açmak için hesap xxx.onmicrosoft.com dizine eklenmesi gerekir."* Dırsync yükseltmesi esnekliğini geliştirmek için Azure AD Connect artık kimlik doğrulaması adımını yeniden dener.
 * Başarılı olması bir DirSync yerinde yükseltme neden olan bir derleme 443 sorun oluştu, ancak dizin eşitlemesi için gereken çalıştırma profilleri oluşturulmaz. Mantıksal iyileştirme Azure AD Connect bu derlemeye dahil edilir. Müşteri için bu derleme yükseltildiğinde, Azure AD Connect çalıştırma profillerini eksik algılar ve bunları oluşturur.
-* Parola Eşitleme işlemi, olay kimliği 6900 ve hata ile başarısız olmasına neden olan bir sorun düzeltildi *"aynı anahtara sahip bir öğe zaten eklendi"*. AD yapılandırma bölümü içerecek şekilde OU filtreleme yapılandırmasını güncelleştirirseniz, bu sorun oluşur. Bu sorunu gidermek için parola eşitleme işlemi yalnızca, AD etki alanı bölümleri parola değişikliklerini eşitler. Yapılandırma bölümü gibi etki alanı dışı bölümler atlanır.
+* Parola Eşitleme işlemi, olay kimliği 6900 ve hata ile başarısız olmasına neden olan bir sorun düzeltildi *"aynı anahtara sahip bir öğe zaten eklendi"* . AD yapılandırma bölümü içerecek şekilde OU filtreleme yapılandırmasını güncelleştirirseniz, bu sorun oluşur. Bu sorunu gidermek için parola eşitleme işlemi yalnızca, AD etki alanı bölümleri parola değişikliklerini eşitler. Yapılandırma bölümü gibi etki alanı dışı bölümler atlanır.
 * Express yüklemesi sırasında Azure AD Connect, şirket içi oluşturur tarafından AD Bağlayıcısı ile iletişim kurmak için kullanılacak AD DS hesabı şirket içi AD. Daha önce kullanıcı hesabı denetimi özniteliğini ayarlayın PASSWD_NOTREQD bayrağıyla hesabı oluşturulur ve rastgele bir parola hesabı ayarlanır. Şimdi, Azure AD Connect, açıkça hesapta parola ayarlandıktan sonra PASSWD_NOTREQD bayrağını kaldırır.
 * Dırsync yükseltmesi başarısız olmasına neden olan hata ile bir sorun düzeltildi *"karşılıklı bir kilitlenme sql Server'da hangi bir uygulama kilidi oluştu"* mailNickname özniteliğinin şirket içinde bulunan zaman AD şema için sınırlanmış değil ancak AD kullanıcısı nesne sınıfı.
 * Cihaz geri yazma özelliğini bir yönetici Azure AD Connect Sihirbazı'nı kullanarak Azure AD Connect eşitleme yapılandırmasını güncelleştirirken otomatik olarak devre dışı neden olan bir sorunu düzelttik. Bu sorun, bir önkoşul denetimi mevcut cihaz geri yazma yapılandırması şirket içi AD ve Denetim başarısız gerçekleştirme sihirbaz tarafından neden olur. Cihaz geri yazmayı zaten daha önce etkinleştirilmişse onay atlamak için açıklanmıştır.
@@ -809,7 +819,7 @@ Azure AD Connect eşitleme
 
 **Yeni özellikler/iyileştirmeleri:**
 
-Azure AD Connect eşitleme
+Azure AD Connect Eşitleme
 * Uygulanan eşitleme kuralı değişiklikler – aşağıdaki eşitleme kuralı:
   * Güncelleştirilmiş varsayılan eşitleme kuralı öznitelikleri vermemeniz kümesine **userCertificate** ve **Usersmımecertificate** öznitelikleri 15'ten fazla değer varsa.
   * AD öznitelikleri **EmployeeID** ve **msExchBypassModerationLink** artık varsayılan eşitleme kuralı kümesine eklenir.
@@ -849,7 +859,7 @@ Yayımlanma tarihi: Nisan 2017
 
 **Giderilen sorunlar:**
 
-Azure AD Connect eşitleme
+Azure AD Connect Eşitleme
 * Burada Eşitleme Zamanlayıcısı tüm eşitleme adımını atlar çalıştırma profili bu eşitleme adımı için bir veya daha fazla bağlayıcı eksikse bir sorun düzeltildi. Örneğin, el ile değişikliği içeri aktarma çalıştırma profili için oluşturmadan Eşitleme Hizmeti Yöneticisi'ni kullanarak bir bağlayıcı eklendi. Bu düzeltme, Eşitleme Zamanlayıcısı değişikliği içeri aktarma için diğer bağlayıcıları çalışmaya devam etmesini sağlar.
 * Çalışma adımları bir sorun karşılaştığında olduğunda burada eşitleme hizmetini hemen çalıştırma profili işlemeyi durdurur, bir sorun düzeltildi. Bu düzeltme, eşitleme hizmeti çalıştıran adımı atlar ve kalan işlemeye devam sağlar. Örneğin, değişikliği içeri aktarma (her biri için bir AD etki alanı şirket) ile birden çok çalıştırma adımları çalıştırma profili için AD Bağlayıcınızı var. Bunlardan biri ağ bağlantısı sorunları olsa bile eşitleme hizmeti değişikliği içeri aktarma diğer AD etki alanlarıyla çalıştırın.
 * Otomatik yükseltme sırasında atlanacak Azure AD Bağlayıcısı güncelleştirme neden olan bir sorunu düzelttik.
@@ -865,7 +875,7 @@ Masaüstü SSO
 
 **Yeni özellikler/iyileştirmeleri:**
 
-Azure AD Connect eşitleme
+Azure AD Connect Eşitleme
 * Azure AD Connect Sync artık sanal hizmet hesabı, yönetilen hizmet hesabı ve Grup yönetilen hizmet hesabı hizmet hesabı olarak kullanımını destekler. Bu, yalnızca Azure AD Connect yeni yükleme için geçerlidir. Azure AD Connect yüklerken:
     * Varsayılan olarak, Azure AD Connect Sihirbazı, bir sanal hizmet hesabı oluşturur ve kendi hizmet hesabı olarak kullanır.
     * Bir etki alanı denetleyicisinde yüklüyorsanız, Azure AD Connect için burada bir etki alanı kullanıcı hesabı oluşturur ve bunun yerine hizmet hesabı olarak kullanan önceki davranış geri döner.
@@ -891,7 +901,7 @@ Yayımlanma tarihi: Mart 2017
 
 **Giderilen sorunlar:**
 
-Azure AD Connect eşitleme
+Azure AD Connect Eşitleme
 * Azure AD Connect Sihirbazı, Azure AD Bağlayıcısı görünen adını Azure AD kiracısına atanan ilk onmicrosoft.com etki alanınız yoksa başarısız olmasına neden olan sorun düzeltildi.
 * Azure AD Connect Sihirbazı, eşitleme hizmeti hesabının parolasını kesme işareti, virgül ve boşluk gibi özel karakterler içerdiğinde, SQL veritabanı bağlantısı yaparken başarısız olmasına neden olan sorun düzeltildi.
 * "Görüntü görüntüden daha farklı bir yer işaretine sahip" hataya neden olan bir sorun düzeltildi, geçici olarak bir şirket içi dışarıda sonra hazırlama modunda, bir Azure AD Connect sunucusu üzerinde gerçekleşmesi için AD nesne eşitlenmesini ve ardından yeniden eşitleme için dahil.
@@ -901,7 +911,7 @@ AD FS Yönetimi
 * Burada Azure AD Connect Sihirbazı değil AD FS yapılandırmasını güncelleştirin ve alternatif oturum açma Kimliğini yapılandırıldıktan sonra bağlı olan taraf güvenine sağ taleplere ayarlayın, bir sorun düzeltildi.
 * Azure AD Connect Sihirbazı'nı AD FS sunucuları sAMAccountName biçimi yerine userPrincipalName biçimini kullanarak hizmet hesapları yapılandırılmış olan doğru şekilde işleyemedi olduğu bir sorun düzeltildi.
 
-Geçişli Kimlik Doğrulaması
+Doğrudan Kimlik Doğrulama
 * Azure AD Connect Sihirbazı aracılığıyla başarılı kimlik doğrulaması seçildiğinde ancak kendi bağlayıcı kaydı başarısız olursa başarısız olmasına neden olan sorun düzeltildi.
 * Neden olur, Masaüstü SSO özelliği etkinleştirilmişse seçilen oturum açma yöntemi üzerinde doğrulama atlama için Azure AD Connect Sihirbazı'nı denetler bir sorun düzeltildi.
 
@@ -910,7 +920,7 @@ Parola Sıfırlama
 
 **Yeni özellikler/iyileştirmeleri:**
 
-Azure AD Connect eşitleme
+Azure AD Connect Eşitleme
 * Get-ADSyncScheduler cmdlet artık SyncCycleInProgress adlı yeni bir Boolean özelliğini döndürür. Döndürülen değer true ise, devam eden bir zamanlanmış bir eşitleme döngüsü olduğunu gösterir.
 * Azure AD Connect yükleme ve Kurulum günlüklerini depolamak için hedef klasör %localappdata%\AADConnect günlük dosyaları için erişilebilirliği iyileştirmek üzere %programdata%\AADConnect için taşındı.
 
@@ -1018,7 +1028,7 @@ Yayımlanma tarihi: Mayıs 2016
 
 * Uyarır ve Azure AD Connect çalıştırmadan önce başarmadık etki alanı doğrulama yardımcı olur.
 * İçin destek eklendi [Microsoft Cloud Almanya](reference-connect-instances.md#microsoft-cloud-germany).
-* En son desteği eklendi [Microsoft Azure kamu bulutundaki](reference-connect-instances.md#microsoft-azure-government-cloud) yeni URL gereksinimlerini altyapısıyla.
+* En son desteği eklendi [Microsoft Azure kamu bulutundaki](reference-connect-instances.md#microsoft-azure-government) yeni URL gereksinimlerini altyapısıyla.
 
 **Sorunlar düzeltildi ve geliştirmeleri:**
 

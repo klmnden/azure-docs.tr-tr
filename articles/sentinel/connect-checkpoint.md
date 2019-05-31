@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c487856c7fb959f684700dee1d463783954b1a53
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: cad1f84f611ac3214b8823bb11817ffceb3e2017
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921972"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388709"
 ---
 # <a name="connect-your-check-point-appliance"></a>Denetim noktası gerecinize bağlanma
 
@@ -32,7 +32,7 @@ Azure Gözcü herhangi bir denetim noktası gereç Syslog CEF günlük dosyalar�
 > [!NOTE]
 > Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>1. Adım: Denetim noktası gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>1. adım: Denetim noktası gerecinize bir aracı kullanarak bağlanma
 
 Azure Gözcü için denetim noktası cihazınıza bağlanmak için adanmış bir makinede (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi destekleyen bir aracı dağıtmak gerekir. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
@@ -102,7 +102,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
       1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>2. Adım: İleri kontrol noktası Syslog aracıya günlük
+## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>2. adım: İleri kontrol noktası Syslog aracıya günlük
 
 Denetim noktası gerecinize Syslog aracı üzerinden Azure çalışma alanınıza CEF biçiminde Syslog iletilerini iletecek şekilde yapılandırın.
 
@@ -123,7 +123,7 @@ Denetim noktası gerecinize Syslog aracı üzerinden Azure çalışma alanınız
 
 3. Gönderdiğiniz günlükler ile uyumlu olduğundan emin [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.netman/8/netstat). Düzgün dinliyorsa, görürsünüz:
+4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.net/man/8/netstat). Düzgün dinliyorsa, görürsünüz:
 
    ![Azure Sentinel bağlantı noktaları](./media/connect-cef/ports.png) 
 

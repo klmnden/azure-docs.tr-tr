@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8e5876c9141a3eb85593b12f45b0bde4c7984adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431149"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384900"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Yükseltme Bing Web arama API'si v5 için v7
 
@@ -41,7 +41,7 @@ Bu Yükseltme Kılavuzu, sürüm 5 ve Bing Web araması API'si 7 sürümü aras�
 
 |Kod|Alt|Açıklama
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|Alt kod koşullardan herhangi biri gerçekleştiğinde Bing ServerError döndürür. HTTP durum kodunu 500 ise yanıt bu hataları içerir.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Alt kod koşullardan herhangi biri gerçekleştiğinde Bing ServerError döndürür. HTTP durum kodunu 500 ise yanıt bu hataları içerir.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>Hata HttpNotAllowed ise, HTTP durumu 410 kod.
 |RateLimitExceeded||/ Saniye (QPS) sorguları veya sorgu başına aylık (QPM) kota aştığında Bing RateLimitExceeded döndürür.<br/><br/>Bing QPM aşılırsa QPS ve 403 aşıldı HTTP durum kodu 429 döndürür.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulandığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemi belirtmek, yedeklilik meydana gelir.<br/><br/>Hata InvalidAuthorization ise, HTTP durum kodunu 401 ' dir.
@@ -62,7 +62,7 @@ DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
 HttpNotAllowed|InvalidRequest.HttpNotAllowed
 UserAgentMissing|InvalidRequest.ParameterMissing
-Uygulanmadı|ServerError.NotImplemented
+NotImplemented|ServerError.NotImplemented
 InvalidAuthorization|InvalidAuthorization
 InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
@@ -75,14 +75,14 @@ Engellendi|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Üst bilgiler
 
-- İsteğe bağlı eklenen [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) isteği üstbilgisi. Varsayılan olarak, Bing önbelleğe alınmış içeriği (varsa) döndürür. Bing'in önbelleğe alınmış içeriği döndürmesini önlemek için, Pragma üst bilgisini no-cache olarak ayarlayın (örneğin, Pragma: no-cache).
+- İsteğe bağlı eklenen [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) isteği üstbilgisi. Varsayılan olarak, Bing önbelleğe alınmış içeriği (varsa) döndürür. Bing'in önbelleğe alınmış içeriği döndürmesini önlemek için, Pragma üst bilgisini no-cache olarak ayarlayın (örneğin, Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 
-- Eklenen [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) sorgu parametresi. Yanıta dahil etmek istediğiniz yanıtlar sayısını belirtmek için bu parametreyi kullanın. Yanıtları sıralamasına göre seçilir. Bu parametreyi ayarlayın, örneğin, üç (3) yanıt üst üç dereceli yanıtlarını içerir.  
+- Eklenen [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) sorgu parametresi. Yanıta dahil etmek istediğiniz yanıtlar sayısını belirtmek için bu parametreyi kullanın. Yanıtları sıralamasına göre seçilir. Bu parametreyi ayarlayın, örneğin, üç (3) yanıt üst üç dereceli yanıtlarını içerir.  
 
-- Eklenen [Yükselt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) sorgu parametresi. Bu parametre ile birlikte kullanmak `answerCount` açıkça bir veya daha fazla yanıt türleri, bunların derecelendirme bağımsız olarak eklenecek. Örneğin, videoları ve görüntüleri yanıtına yükseltmek için ayarlarsınız yükseltmek *videoları, resimleri*. Yükseltmek istediğiniz yanıtların listesini karşı sayılmaz `answerCount` sınırı. Örneğin, varsa `answerCount` 2'dir ve `promote` ayarlanır *videoları, resimleri*, yanıt Web sayfaları, Haberler, videolar ve görüntüleri içerebilir.
+- Eklenen [Yükselt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) sorgu parametresi. Bu parametre ile birlikte kullanmak `answerCount` açıkça bir veya daha fazla yanıt türleri, bunların derecelendirme bağımsız olarak eklenecek. Örneğin, videoları ve görüntüleri yanıtına yükseltmek için ayarlarsınız yükseltmek *videoları, resimleri*. Yükseltmek istediğiniz yanıtların listesini karşı sayılmaz `answerCount` sınırı. Örneğin, varsa `answerCount` 2'dir ve `promote` ayarlanır *videoları, resimleri*, yanıt Web sayfaları, Haberler, videolar ve görüntüleri içerebilir.
 
 ### <a name="object-changes"></a>Nesnesi değişiklikleri
 
-- Eklenen `someResultsRemoved` alanı [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) nesne. Yanıt web yanıtı bazı sonuçlara dahil olup olmadığını gösteren bir Boole değeri içeren alan.  
+- Eklenen `someResultsRemoved` alanı [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) nesne. Yanıt web yanıtı bazı sonuçlara dahil olup olmadığını gösteren bir Boole değeri içeren alan.  

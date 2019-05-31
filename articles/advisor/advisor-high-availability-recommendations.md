@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467736"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254677"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Danışmanı ile uygulamanızın kullanılabilirliğini artırın
 
@@ -30,7 +30,7 @@ Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki v
 
 Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makinenin gruplandırılması önerilir. Danışman, tek bir sanal makine içeren kullanılabilirlik kümeleri tanımlar ve bir veya daha fazla sanal makine eklemeyi önerir. Bu yapılandırma ya da bir planlı veya Plansız bakım olayı sırasında en az bir sanal makinenin kullanılabilir ve Azure sanal makine SLA'sına sağlar. Bir sanal makine oluşturun veya mevcut bir sanal makine kullanılabilirlik kümesine eklemek için seçebilirsiniz.  
 
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Veri güvenilirliğini geliştirmek için Yönetilen Diskler kullanın
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Veri güvenilirliğini geliştirmek için yönetilen diskleri kullanma
 
 Bir kullanılabilirlik kümesinde depolama hesaplarını veya depolama ölçek birimlerini paylaşan diskler ile olan sanal makineler kesintiler sırasında tek bir depolama ölçek birimi hatalarına karşı dayanıklı değildir. Danışman bu kullanılabilirlik kümeleri tanımlar ve Azure yönetilen diskler için geçiş yapmanızı öneririz. Bu işlem, kullanılabilirlik kümesindeki farklı sanal makinelerin diskleri bir tek hata noktasını önlemek için ayrı tutulmasını garanti eder. 
 
@@ -69,6 +69,30 @@ Etkin-etkin yapılandırmasında S2S VPN tünelinde şirket içi VPN cihazınız
 ## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Üretim VPN ağ geçitlerinde üretim iş yüklerinizi çalıştırmak için kullanın
 
 Azure Danışmanı'nı temel SKU olan bir VPN ağ geçitleri için denetleyin ve bunun yerine bir üretim SKU'su kullanmanız önerilir. Temel SKU, geliştirme ve test amacıyla tasarlanmıştır. Üretim SKU'ları, daha yüksek bir sayı tüneller, BGP desteği, etkin-etkin yapılandırma seçenekleri, özel IPSec/IKE İlkesi ve daha yüksek kararlılık ve kullanılabilirlik sunar.
+
+## <a name="repair-invalid-log-alert-rules"></a>Onarım geçersiz günlük uyarı kuralları
+
+Azure Danışmanı kendi koşul bölümünde belirtilen geçersiz sorgular sahip uyarı kuralları algılar. Günlük uyarı kuralları, Azure İzleyici'de oluşturulur ve belirli aralıklarla analiz sorguları çalıştırmak için kullanılır. Sorgunun sonuçlarının bir uyarı tetiklenmesi gerekip gerekmediğini belirleyin. Analiz sorguları, başvurulan kaynakları, tablolar veya komutları değişiklikleri nedeniyle geçersiz mesai hale gelebilir. Danışman, otomatik-devre dışı iken önlemek ve Azure kaynaklarınızı izleme kapsamını emin olmak için uyarı kuralı sorguyu düzeltin önerir. [Uyarı kuralları sorun giderme hakkında daha fazla bilgi edinin](https://aka.ms/aa_logalerts_queryrepair)
+
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Cosmos DB koleksiyonunuza tutarlı dizin oluşturma modunu yapılandırma
+
+Azure Cosmos DB kapsayıcıları yavaş dizin oluşturma modu ile yapılandırılmış sorgu sonuçları güncellik etkileyebilir. Advisor kapsayıcıları bu şekilde yapılandırılan algılanır ve tutarlı moduna önerilir. [İlkeleri Cosmos DB'de dizinleme hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Azure Cosmos DB kapsayıcıları bir bölüm anahtarı ile yapılandırma
+
+Azure Danışmanı sağlanan depolama kotasını yaklaşan Azure Cosmos DB bölümlenmemiş koleksiyonlarını tanımlar. Böylece bunlar otomatik olarak hizmet tarafından genişletilebilir bir bölüm anahtarı tanımıyla yeni koleksiyonlar için bu koleksiyonları geçirme önerir. [Bir bölüm anahtarı seçme hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/choose-partitionkey)
+
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Azure Cosmos DB .NET SDK'nızı Nuget'ten en son sürüme yükseltin.
+
+Azure Danışmanı, eski sürümlerini .NET SDK kullanarak ve en son düzeltmeler, performans geliştirmeleri ve yeni özellikler Nuget'ten en son sürüme yükseltme önerilir Azure Cosmos DB hesapları tanımlar. [Cosmos DB .NET SDK'sı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Azure Cosmos DB Java SDK'nızı Maven'dan en son sürüme yükseltin.
+
+Azure Danışmanı Java SDK'sı eski sürümlerini kullanan ve en son düzeltmeler, performans geliştirmeleri ve yeni özellikler Maven'dan en son sürüme yükseltme önerilir Azure Cosmos DB hesapları tanımlar. [Cosmos DB Java SDK'sı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Bağlayıcısı Maven'dan en son sürüme yükseltin.
+
+Azure Danışmanı Maven'dan, en son düzeltmeler, performans geliştirmeleri ve yeni özellikler için en son sürümüne yükseltmeniz önerilir ve Cosmos DB Spark Bağlayıcısı'nün eski sürümlerini kullanan Azure Cosmos DB hesapları tanımlar. [Cosmos DB Spark Bağlayıcısı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/spark-connector)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Yüksek kullanılabilirlik önerileri Danışman erişme
 

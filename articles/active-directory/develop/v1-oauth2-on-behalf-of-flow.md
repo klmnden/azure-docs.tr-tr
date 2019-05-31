@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545465"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235202"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Hizmetten hizmete temsilci kullanım kullanıcı kimliği On-Behalf-Of akışı çağırır.
 
@@ -58,31 +58,32 @@ Orta katman hizmet hem istemci uygulaması, Azure AD'ye kaydetme.
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Üst çubuğunda, hesabınızı seçin ve altına bakın **dizin** uygulamanız için bir Active Directory kiracısı seçin.
 1. Seçin **diğer hizmetler** sol bölmede seçin **Azure Active Directory**.
-1. Seçin **uygulama kayıtları** ardından **yeni uygulama kaydı**.
+1. Seçin **uygulama kayıtları** ardından **yeni kayıt**.
 1. Uygulama için kolay bir ad girin ve uygulama türünü seçin.
-    1. Uygulama türüne bağlı olarak, oturum açma URL'si veya yeniden yönlendirme URL'si için temel URL'yi ayarlayın.
-    1. Seçin **Oluştur** uygulama oluşturmak için.
+1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
+1. Yeniden yönlendirme URI'si için temel URL'yi ayarlayın.
+1. Uygulamayı kaydetmek için **Kaydet**'i seçin.
 1. Azure portalında çıkmadan önce bir gizli anahtar oluşturun.
-   1. Azure portalında, uygulamanızı seçip **ayarları**.
-   1. Seçin **anahtarları** Ayarlar menüsünden ve bir yıl veya iki yıl anahtar süresine sahip bir anahtar ekleyin.
-   1. Bu sayfa kaydettiğinizde, Azure portalında anahtar değeri görüntüler. Kopyalayın ve anahtar değeri güvenli bir konuma kaydedin.
+1. Azure portalında, uygulamanızı seçip **sertifikaları ve parolaları**.
+1. Seçin **yeni gizli** ve gizli dizi süre bir yıl veya iki yıl ekleyin.
+1. Bu sayfa kaydettiğinizde, Azure portalında gizli değeri görüntüler. Kopyalayın ve gizli değer güvenli bir konuma kaydedin.
 
-      > [!IMPORTANT]
-      > Uygulamanızda uygulama ayarlarını yapılandırmak için anahtar ihtiyacınız vardır. Bu anahtar değeri yeniden gösterilmez ve herhangi başka bir yolla alınabilir değil. Azure portalında görünür duruma geldiği kaydedin.
+> [!IMPORTANT]
+> Uygulamanızda uygulama ayarlarını yapılandırmak için gizli anahtar gerekir. Bu gizli değer yeniden gösterilmez ve herhangi başka bir yolla alınabilir değil. Azure portalında görünür duruma geldiği kaydedin.
 
 ### <a name="register-the-client-application"></a>İstemci uygulamayı kaydetme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Üst çubuğunda, hesabınızı seçin ve altına bakın **dizin** uygulamanız için bir Active Directory kiracısı seçin.
 1. Seçin **diğer hizmetler** sol bölmede seçin **Azure Active Directory**.
-1. Seçin **uygulama kayıtları** ardından **yeni uygulama kaydı**.
+1. Seçin **uygulama kayıtları** ardından **yeni kayıt**.
 1. Uygulama için kolay bir ad girin ve uygulama türünü seçin.
-   1. Uygulama türüne bağlı olarak, oturum açma URL'si veya yeniden yönlendirme URL'si için temel URL'yi ayarlayın.
-   1. Seçin **Oluştur** uygulama oluşturmak için.
-1. Uygulama izinlerini yapılandırın.
-   1. Ayarlar menüsünde **gerekli izinler** bölümüne ve ardından **Ekle** ve **bir API seçin**.
-   1. Orta katman hizmet adını metin alanına yazın.
-   1. Seçin **Select izinleri** seçip **erişim hizmet adı**.
+1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları hesaplarında**.
+1. Yeniden yönlendirme URI'si için temel URL'yi ayarlayın.
+1. Uygulamayı kaydetmek için **Kaydet**'i seçin.
+1. Uygulama izinlerini yapılandırın. İçinde **API izinleri**seçin **bir izin eklemek** ardından **Apı'lerim**.
+1. Orta katman hizmet adını metin alanına yazın.
+1. Seçin **Select izinleri** seçip **erişim <service name>** .
 
 ### <a name="configure-known-client-applications"></a>Bilinen istemci uygulamalarını yapılandırın
 
@@ -110,13 +111,13 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type değeri |gerekli | Belirteç isteği türü. Değer olmalıdır bir OBO isteği bir JSON Web Token (JWT) kullanır, bu nedenle **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama |gerekli | İstekte kullanılan erişim belirteci değeri. |
-| client_id |gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Azure portalında uygulama Kimliğini bulmak için seçin **Active Directory**dizini seçin ve ardından uygulama adı seçin. |
-| client_secret |gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değeri kayıt zamanında Not. |
-| kaynak |gerekli | Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). Uygulama Kimliği URI'si Azure Portalı'nda bulmak için seçin **Active Directory** ve dizini seçin. Uygulama adı seçin, **tüm ayarlar**ve ardından **özellikleri**. |
-| requested_token_use |gerekli | İsteğin nasıl işleneceğini belirtir. On-Behalf-Of akışı değer olmalıdır **on_behalf_of**. |
-| kapsam |gerekli | Boşlukla ayrılmış belirteci isteği için kapsam listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
+| grant_type değeri |Gerekli | Belirteç isteği türü. Değer olmalıdır bir OBO isteği bir JSON Web Token (JWT) kullanır, bu nedenle **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| onaylama |Gerekli | İstekte kullanılan erişim belirteci değeri. |
+| client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Azure portalında uygulama Kimliğini bulmak için seçin **Active Directory**dizini seçin ve ardından uygulama adı seçin. |
+| client_secret |Gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değeri kayıt zamanında Not. |
+| Kaynak |Gerekli | Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). Uygulama Kimliği URI'si Azure Portalı'nda bulmak için seçin **Active Directory** ve dizini seçin. Uygulama adı seçin, **tüm ayarlar**ve ardından **özellikleri**. |
+| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On-Behalf-Of akışı değer olmalıdır **on_behalf_of**. |
+| scope |Gerekli | Boşlukla ayrılmış belirteci isteği için kapsam listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
 #### <a name="example"></a>Örnek
 
@@ -144,14 +145,14 @@ Bir sertifika ile hizmetten hizmete erişim belirteci isteği aşağıdaki param
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type değeri |gerekli | Belirteç isteği türü. Değer olmalıdır bir JWT belirteç OBO isteği kullandığı **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama |gerekli | İstekte kullanılan belirteç değeri. |
-| client_id |gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Azure portalında uygulama Kimliğini bulmak için seçin **Active Directory**dizini seçin ve ardından uygulama adı seçin. |
-| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |gerekli | Bir JSON Web oluşturan ve sertifika ile oturum belirteci, kimlik bilgileri olarak uygulamanız için kayıtlı. Bkz: [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı kaydetme ve onaylama biçimi hakkında bilgi edinmek için.|
-| kaynak |gerekli | Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). Uygulama Kimliği URI'si Azure Portalı'nda bulmak için seçin **Active Directory** ve dizini seçin. Uygulama adı seçin, **tüm ayarlar**ve ardından **özellikleri**. |
-| requested_token_use |gerekli | İsteğin nasıl işleneceğini belirtir. On-Behalf-Of akışı değer olmalıdır **on_behalf_of**. |
-| kapsam |gerekli | Boşlukla ayrılmış belirteci isteği için kapsam listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
+| grant_type değeri |Gerekli | Belirteç isteği türü. Değer olmalıdır bir JWT belirteç OBO isteği kullandığı **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| onaylama |Gerekli | İstekte kullanılan belirteç değeri. |
+| client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Azure portalında uygulama Kimliğini bulmak için seçin **Active Directory**dizini seçin ve ardından uygulama adı seçin. |
+| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Gerekli | Bir JSON Web oluşturan ve sertifika ile oturum belirteci, kimlik bilgileri olarak uygulamanız için kayıtlı. Bkz: [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı kaydetme ve onaylama biçimi hakkında bilgi edinmek için.|
+| Kaynak |Gerekli | Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). Uygulama Kimliği URI'si Azure Portalı'nda bulmak için seçin **Active Directory** ve dizini seçin. Uygulama adı seçin, **tüm ayarlar**ve ardından **özellikleri**. |
+| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On-Behalf-Of akışı değer olmalıdır **on_behalf_of**. |
+| scope |Gerekli | Boşlukla ayrılmış belirteci isteği için kapsam listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
 Bu parametreler neredeyse aynı paylaşılan gizli diziyi hariç isteğiyle gibi olan `client_secret parameter` tarafından iki parametre değiştirilir: `client_assertion_type` ve `client_assertion`.
 
@@ -183,10 +184,10 @@ Başarılı yanıt, aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıtındaki
 | Parametre | Açıklama |
 | --- | --- |
 | token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| kapsam |Erişim belirtecinde verilen kapsam. |
+| scope |Erişim belirtecinde verilen kapsam. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
-| kaynak |Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). |
+| Kaynak |Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). |
 | access_token |İstenen erişim belirteci. Arama hizmeti, alıcı hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz. |
 | id_token |İstenen kimlik belirteci. Arama Hizmeti kullanıcının kimliğini doğrulamak ve kullanıcıyı bir oturum başlatmak için bu belirteci kullanabilirsiniz. |
 | refresh_token |İstenen erişim belirtecini yenileme belirteci. Arama hizmeti geçerli erişim belirtecinin süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |
@@ -254,13 +255,13 @@ Hizmetten hizmete istek SAML onaylama işlemi için aşağıdaki parametreleri i
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type değeri |gerekli | Belirteç isteği türü. JWT'nin kullanan bir istek için bir değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama |gerekli | İstekte kullanılan erişim belirteci değeri.|
-| client_id |gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Azure portalında uygulama Kimliğini bulmak için seçin **Active Directory**dizini seçin ve ardından uygulama adı seçin. |
-| client_secret |gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değeri kayıt zamanında Not. |
-| kaynak |gerekli | Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). SAML belirteç hedef kitlesi olacak kaynak budur. Uygulama Kimliği URI'si Azure Portalı'nda bulmak için seçin **Active Directory** ve dizini seçin. Uygulama adı seçin, **tüm ayarlar**ve ardından **özellikleri**. |
-| requested_token_use |gerekli | İsteğin nasıl işleneceğini belirtir. On-Behalf-Of akışı değer olmalıdır **on_behalf_of**. |
-| requested_token_type | gerekli | Belirteç talep türünü belirtir. Değer olabilir **urn: ietf:params:oauth:token-türü: saml2** veya **urn: ietf:params:oauth:token-türü: saml1** erişilen kaynak gereksinimlerine bağlı olarak. |
+| grant_type değeri |Gerekli | Belirteç isteği türü. JWT'nin kullanan bir istek için bir değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| onaylama |Gerekli | İstekte kullanılan erişim belirteci değeri.|
+| client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Azure portalında uygulama Kimliğini bulmak için seçin **Active Directory**dizini seçin ve ardından uygulama adı seçin. |
+| client_secret |Gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değeri kayıt zamanında Not. |
+| Kaynak |Gerekli | Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). SAML belirteç hedef kitlesi olacak kaynak budur. Uygulama Kimliği URI'si Azure Portalı'nda bulmak için seçin **Active Directory** ve dizini seçin. Uygulama adı seçin, **tüm ayarlar**ve ardından **özellikleri**. |
+| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On-Behalf-Of akışı değer olmalıdır **on_behalf_of**. |
+| requested_token_type | Gerekli | Belirteç talep türünü belirtir. Değer olabilir **urn: ietf:params:oauth:token-türü: saml2** veya **urn: ietf:params:oauth:token-türü: saml1** erişilen kaynak gereksinimlerine bağlı olarak. |
 
 Yanıt Base64url UTF8 ile kodlanan bir SAML belirteci içerir.
 
@@ -274,10 +275,10 @@ Yanıt Base64url UTF8 ile kodlanan bir SAML belirteci içerir.
 | Parametre | Açıklama |
 | --- | --- |
 | token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| kapsam |Erişim belirtecinde verilen kapsam. |
+| scope |Erişim belirtecinde verilen kapsam. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
-| kaynak |Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). |
+| Kaynak |Uygulama Kimliği URI'SİNİN alma hizmeti (güvenli kaynak). |
 | access_token |SAML onaylaması döndüren parametre. |
 | refresh_token |Yenileme belirteci. Arama hizmeti, geçerli bir SAML onayı süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |
 

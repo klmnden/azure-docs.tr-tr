@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709221"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073133"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dinamik olarak ölçek en düşük kapalı kalma süresi ile veritabanı kaynakları
 
@@ -36,12 +36,10 @@ Donanım satın alma ve altyapının değiştirme hakkında endişelenmeniz gere
 Azure SQL veritabanı sunar [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
 - [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) işlem, bellek ve hafif ve ağır veritabanı iş yüklerini desteklemek için üç hizmet katmanı g/ç kaynakları karışımını sunar: Temel, Standart ve Premium. Her katman içindeki performans düzeyleri, bu kaynakların farklı bir karışımını sağlar ve bunlara ek depolama kaynakları da eklenebilir.
-- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar. Bu satın alma modeli, üç hizmet katmanı sunmaktadır: Genel amaçlı, iş açısından kritik ve hiper ölçekli (Önizleme).
+- [Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) sanal çekirdek miktarı veya bellek ve miktarını sayısını ve depolama hızını seçmenize olanak sağlar. Bu satın alma modeli, üç hizmet katmanı sunmaktadır: Genel amaçlı, iş açısından kritik ve hiper ölçekli.
 
 Düşük bir maliyetle temel, standart veya genel amaçlı bir hizmet katmanındaki aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturun ve ardından Hizmet katmanını elle veya programlama yoluyla herhangi bir zamanda ne karşılamak için Premium veya iş açısından kritik hizmet katmanına değiştirebilirsiniz çözümünüzün EDS. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
-> [!IMPORTANT]
-> Hiper ölçekli hizmet katmanı genel önizlemeye sunuldu ve şu anda sınırlı Azure bölgelerinde kullanılabilir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
 > [!NOTE]
 > Dinamik ölçeklenebilirlik, otomatik ölçeklendirmeden farklıdır. Bir hizmet ölçütlere dayalı olarak otomatik şekilde ölçeklendirildiğinde otomatik ölçeklendirme oluşurken, dinamik ölçeklenebilirlik ise kesinti süresi olmadan el ile ölçeklendirmeye olanak sağlar.
 

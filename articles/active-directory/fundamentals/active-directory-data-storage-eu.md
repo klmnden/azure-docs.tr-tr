@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: e82a78953c4385f7688705d4ab3f697be9c3ddbd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875633"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235157"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Kimlik Azure Active Directory'de Avrupalı müşteriler için veri depolama
 Kimlik verileri Azure AD tarafından Office 365 ve Azure gibi bir Microsoft Online hizmetine abone olurken, kuruluşunuz tarafından sağlanan adresini temel alarak bir coğrafi konumda depolanır. Kimlik verilerinizi depolandığı hakkında daha fazla bilgi için kullandığınız [bulunan verileriniz nerede?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Microsoft Trust Center bölümünü.
@@ -28,7 +28,9 @@ Avrupa'daki bir adresi sağlanan müşteriler, Azure AD kimlik verilerini Avrupa
     
 - Telefon aramaları kullanarak tüm iki öğeli kimlik doğrulama veya SMS ABD veri merkezleri aracılığıyla kaynaklanan ve ayrıca genel sağlayıcıları tarafından yönlendirilir.
 - Anında iletme bildirimleri uygulama kaynaklanan BİZDEN veri merkezleri için Microsoft Authenticator'ı kullanarak. Ayrıca, cihaz satıcısı belirli hizmetleri play ve hizmetlerin Avrupa dışında belki de gelebilir.
-- OATH kodları her zaman ABD'de doğrulanır. 
+- OATH kodları her zaman ABD'de doğrulanır.
+
+Azure multi-Factor Authentication (MFA sunucusu) ve bulut tabanlı Azure MFA tarafından toplanan kullanıcı bilgiler hakkında daha fazla bilgi için bkz. [Azure multi-Factor Authentication kullanıcı veri toplama](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C'yi (Azure AD B2C)
 

@@ -11,26 +11,27 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494635"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072397"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici'de performans sorunları için uyarılar ayarlama
 Kapsayıcılar için Azure İzleyici, Azure Container Instances veya yönetilen için barındırılan Kubernetes kümeleri için Azure Kubernetes Service'teki (AKS) dağıtılan kapsayıcı iş yüklerinin performansını izler.
 
 Bu makalede aşağıdaki durumlar için uyarılar etkinleştirme:
 
-* Küme düğümlerinde CPU veya bellek kullanımı, tanımlı bir eşiği aştığında
-* Bir denetleyici içinde herhangi bir kapsayıcı CPU veya bellek kullanımı karşılık gelen kaynak üzerinde ayarlanmış olan bir sınır göre tanımlanan bir eşiği aştığında
-* *NotReady* durumu düğümünde sayar
-*  *Başarısız*, *bekleyen*, *bilinmeyen*, *çalıştıran*, veya *başarılı* aşaması pod sayıları
+- Küme düğümlerinde CPU veya bellek kullanımı eşiği aştığında
+- Bir denetleyici içinde herhangi bir kapsayıcı CPU veya bellek kullanımı, karşılık gelen kaynak üzerinde ayarlanmış olan bir sınır karşılaştırıldığında bir eşiği aştığında
+- *NotReady* durumu düğümünde sayar
+- *Başarısız*, *bekleyen*, *bilinmeyen*, *çalıştıran*, veya *başarılı* aşaması pod sayıları
+- Boş disk alanı küme düğümlerinde bir eşiği aştığında 
 
-Yüksek CPU veya bellek kullanımı küme düğümlerinde uyarmak için ölçüm uyarısı veya bir ölçüm ölçüsü uyarı oluşturmak için sağlanan sorgu kullanın. Ölçüm uyarıları günlük uyarıları daha düşük gecikme süresi vardır. Ancak, gelişmiş sorgulama ve daha gelişmiş algoritmaların günlük uyarıları sağlar. Günlük uyarıları kullanarak sorgular için geçerli bir datetime karşılaştırma *artık* işleci ve bir saat geri giderek. (Kapsayıcılar için azure İzleyici, tüm tarihleri Eşgüdümlü Evrensel Saat (UTC) biçiminde depolar.)
+Yüksek CPU veya bellek kullanımı ya da küme düğümlerinde düşük boş disk alanı uyarı için bir ölçüm uyarısı veya bir ölçüm ölçüsü uyarı oluşturmak için sağlanan sorgu kullanın. Ölçüm uyarıları günlük uyarıları daha düşük gecikme süresi vardır. Ancak, gelişmiş sorgulama ve daha gelişmiş algoritmaların günlük uyarıları sağlar. Günlük uyarıları kullanarak sorgular için geçerli bir datetime karşılaştırma *artık* işleci ve bir saat geri giderek. (Kapsayıcılar için azure İzleyici, tüm tarihleri Eşgüdümlü Evrensel Saat (UTC) biçiminde depolar.)
 
 Azure İzleyici uyarılarla ilgili bilgi sahibi değilseniz bkz [Microsoft azure'da uyarılara genel bakış](../platform/alerts-overview.md) başlamadan önce. Günlük sorguları kullanan uyarılar hakkında daha fazla bilgi edinmek için [Azure İzleyici'de günlük uyarıları](../platform/alerts-unified-log.md). Ölçüm Uyarıları hakkında daha fazla bilgi için bkz. [Azure İzleyici ölçüm uyarıları](../platform/alerts-metric-overview.md).
 
@@ -255,6 +256,33 @@ let endDateTime = now();
 >[!NOTE]
 >Gibi belirli pod aşamalarına uyarmak için *bekleyen*, *başarısız*, veya *bilinmeyen*, sorgunun son satırı değiştirin. Örneğin, uyarı için *FailedCount* kullanın: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+Aşağıdaki sorguda kullanılan boş alan % 90'ı aşan küme düğümleri diskleri döndürür. Küme Kimliği almak için önce aşağıdaki sorguyu çalıştırın ve değeri Şuradan Kopyala: `ClusterId` özelliği:
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
+
 ## <a name="create-an-alert-rule"></a>Uyarı kuralı oluşturma
 Daha önce sağlanan günlük arama kurallarını kullanarak günlük uyarısı Azure İzleyici'de oluşturmak için aşağıdaki adımları izleyin.  
 
@@ -272,9 +300,9 @@ Daha önce sağlanan günlük arama kurallarını kullanarak günlük uyarısı 
 8. Uyarı aşağıdaki gibi yapılandırın:
 
     1. Aşağı açılan **Tetikleyici** listesinden **Metrik ölçüm**'ü seçin. Ölçüm ölçüsü, bizim belirtilen eşiğin üstünde bir değere sahip sorgudaki her nesne için bir uyarı oluşturur.
-    1. İçin **koşul**seçin **büyüktür**girin **75** ilk bir temel olarak **eşiği**. Veya ölçütlerinizi karşılayan farklı bir değer girin.
+    1. İçin **koşul**seçin **büyüktür**girin **75** ilk bir temel olarak **eşiği** CPU ve bellek kullanımı uyarılar . Yetersiz disk alanı uyarı için girin **90**. Veya ölçütlerinizi karşılayan farklı bir değer girin.
     1. İçinde **tetikleyici uyarı dayalı** bölümünden **ardışık ihlaller**. Aşağı açılan listesinden **büyüktür**girin **2**.
-    1. Kapsayıcı CPU veya bellek kullanımı için bir uyarı altında yapılandırmak için **bulunan**seçin **ContainerName**. 
+    1. Kapsayıcı CPU veya bellek kullanımı için bir uyarı altında yapılandırmak için **bulunan**seçin **ContainerName**. Küme düğümü için düşük disk uyarı yapılandırmak için seçin **Lclusterıd**.
     1. İçinde **göre Evaluated** bölümünde, **süresi** değerini **60 dakika**. Kural her 5 dakikada çalıştırın ve son bir saat geçerli saatten içinde oluşturulmuş olan kayıtları döndürür. Geniş penceresi hesaplarına olası veri gecikme süresi için süre ayarlama. Sorgu hiçbir zaman içinde uyarı tetikler false negatif önlemek için veri döndüren sağlar.
 
 9. Seçin **Bitti** uyarı kuralını tamamlayın.

@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979340"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298933"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Uyumsuzluk nedenlerini belirleme
 
@@ -87,23 +87,27 @@ Matris her olası eşler _neden_ sorumlu için [koşul](../concepts/definition-s
 
 |Reason | Koşul |
 |-|-|
-|Geçerli değer, anahtar olarak hedef değeri içermelidir. |containsKey veya **değil** notContainsKey |
-|Geçerli değer hedef değeri içermelidir. |içerir veya **değil** notContains |
-|Geçerli değer hedef değere eşit olmalıdır. |eşittir veya **değil** notEquals |
-|Geçerli değer mevcut olmalıdır. |Var. |
-|Geçerli değer hedef değerde bulunmalıdır. |içinde veya **değil** notIn |
-|Geçerli değer hedef değer gibi olmalıdır. |gibi veya **değil** notLike |
-|Geçerli değer, büyük/küçük harfe duyarlı olarak hedef değerle eşleşmelidir. |eşleşen veya **değil** notMatch |
-|Geçerli değer, büyük/küçük harfe duyarlı olmayan şekilde hedef değerle eşleşmelidir. |matchInsensitively veya **değil** notMatchInsensitively |
-|Geçerli değer, anahtar olarak hedef değeri içermemelidir. |notContainsKey veya **değil** containsKey|
-|Geçerli değer hedef değeri içermemelidir. |notContains veya **değil** içerir |
-|Geçerli değer hedef değere eşit olmamalıdır. |notEquals veya **değil** eşittir |
+|Geçerli değer bir anahtar olarak hedef değer içermesi gerekir. |containsKey veya **değil** notContainsKey |
+|Hedef değer geçerli bir değer içermelidir. |içerir veya **değil** notContains |
+|Geçerli değer hedef değerine eşit olmalıdır. |eşittir veya **değil** notEquals |
+|Geçerli değer hedef değerinden daha küçük olmalıdır. |daha az veya **değil** greaterOrEquals |
+|Geçerli değer, hedef değerine eşit veya daha büyük olmalıdır. |greaterOrEquals veya **değil** daha az |
+|Geçerli değer hedef değerinden daha büyük olmalıdır. |büyük veya **değil** lessOrEquals |
+|Geçerli değer hedef değerine eşit veya daha az olmalıdır. |lessOrEquals veya **değil** büyük |
+|Geçerli bir değer bulunmalıdır. |Var. |
+|Hedef değer geçerli bir değer olmalıdır. |içinde veya **değil** notIn |
+|Hedef değer gibi geçerli bir değer olmalıdır. |gibi veya **değil** notLike |
+|Geçerli değeri hedef değer büyük/küçük harfe eşleşmesi gerekir. |eşleşen veya **değil** notMatch |
+|Geçerli değer harf olarak eşleşen hedef değer gerekir. |matchInsensitively veya **değil** notMatchInsensitively |
+|Geçerli değer bir anahtar olarak hedef değer içermemelidir. |notContainsKey veya **değil** containsKey|
+|Hedef değer geçerli bir değer içermemelidir. |notContains veya **değil** içerir |
+|Geçerli değer hedef değerine eşit olmalıdır. |notEquals veya **değil** eşittir |
 |Geçerli değer mevcut olmamalıdır. |**değil** var.  |
-|Geçerli değer hedef değerde bulunmamalıdır. |notIn veya **değil** içinde |
-|Geçerli değer hedef değer gibi olmamalıdır. |notLike veya **değil** gibi |
-|Geçerli değer büyük/küçük harfe duyarlı olarak hedef değerle eşleşmemelidir. |notMatch veya **değil** eşleşmesi |
-|Geçerli değer, büyük/küçük harfe duyarlı olmayan bir şekilde hedef değerle eşleşmemelidir. |notMatchInsensitively veya **değil** matchInsensitively |
-|İlke tanımındaki etki ayrıntılarıyla eşleşen ilgili kaynak yok. |Bir kaynak türünün tanımlanan **then.details.type** ve ilgili tanımlanan kaynağa **varsa** ilke kuralı bölümü yok. |
+|Hedef değer geçerli bir değer olmalıdır. |notIn veya **değil** içinde |
+|Hedef değer gibi geçerli bir değer olmalıdır. |notLike veya **değil** gibi |
+|Geçerli değer hedef değer küçük harf duyarsız eşleşmesi gerekir. |notMatch veya **değil** eşleşmesi |
+|Geçerli bir değer değil harf olarak eşleşen hedef değer gerekir. |notMatchInsensitively veya **değil** matchInsensitively |
+|İlke tanımı etkisi ayrıntılarında hiçbir ilgili kaynakları eşleştirin. |Bir kaynak türünün tanımlanan **then.details.type** ve ilgili tanımlanan kaynağa **varsa** ilke kuralı bölümü yok. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Konuk yapılandırması için Uyumluluk ayrıntıları
 
@@ -128,7 +132,7 @@ Ayrıca VM doğrudan oturum açmak için erişimi olmayabilir ancak VM neden old
    - **Kaynak türü** - _guestConfigurationAssignments_ tam adı.
    - **Son Değerlendirme** - Konuk Yapılandırma hizmeti, Azure İlkesi hedef sanal makinenin durumu hakkında bildirimde en son ne zaman.
 
-   ![Uyumluluk ayrıntılarını görüntüleyin.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+   ![Uyumluluk ayrıntıları görüntüle](../media/determine-non-compliance/guestconfig-assignment-view.png)
 
 1. Konuk yapılandırma atama adı seçin **adı** açmak için sütun **kaynak Uyumluluk** sayfası.
 
@@ -136,7 +140,7 @@ Ayrıca VM doğrudan oturum açmak için erişimi olmayabilir ancak VM neden old
 
 **Konuk atama** sayfası, tüm kullanılabilir uyumluluk ayrıntılarını görüntüler. Her satır Görünümü'nde sanal makinenin içinde gerçekleştirilen değerlendirme temsil eder. İçinde **neden** sütun, Konuk atamanın neden olduğunu tanımlayan bir ifade _uyumlu_ gösterilir. Örneğin, Vm'leri bir etki alanına katılması, Denetim **neden** sütun, geçerli etki alanı üyeliği de dahil olmak üzere metin görüntüler.
 
-![Uyumluluk ayrıntılarını görüntüleyin.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![Uyumluluk ayrıntıları görüntüle](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

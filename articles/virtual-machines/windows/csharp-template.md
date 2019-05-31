@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402192"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305953"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# ve Resource Manager şablonu kullanarak bir Azure sanal makine dağıtma
 
@@ -36,7 +36,7 @@ Bu adımda, Visual Studio'nun yüklü olduğu ve şablonu dağıtmak için kulla
 
 1. Henüz yapmadıysanız, yükleme [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Seçin **.NET masaüstü geliştirme** iş yükleri sayfası ve ardından **yükleme**. Özet olarak, gördüğünüz gibi **.NET Framework 4-4.6 geliştirme araçları** sizin için otomatik olarak seçilir. Visual Studio zaten yüklediyseniz, Visual Studio Başlatıcısı'nı kullanarak .NET iş yükü ekleyebilirsiniz.
 2. Visual Studio’da, **Dosya** > **Yeni** > **Proje**’ye tıklayın.
-3. İçinde **şablonları** > **Visual C#** seçin **konsol uygulaması (.NET Framework)**, girin *myDotnetProject* adı Proje, projenin konumunu seçin ve ardından **Tamam**.
+3. İçinde **şablonları** > **Visual C#** seçin **konsol uygulaması (.NET Framework)** , girin *myDotnetProject* adı Proje, projenin konumunu seçin ve ardından **Tamam**.
 
 ## <a name="install-the-packages"></a>Paketleri yükleme
 
@@ -166,7 +166,7 @@ Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değ
 
 ### <a name="create-the-parameters-file"></a>Parametre dosyasını oluşturma
 
-Şablonda tanımlanan kaynak parametrelerinin değerlerini belirtmek için değerleri içeren bir parametre dosyası oluşturun.
+Şablonda kaynak parametrelerinin değerlerini belirtmek için değerleri içeren bir parametre dosyası oluşturun.
 
 1. Çözüm Gezgini'nde sağ *myDotnetProject* > **Ekle** > **yeni öğe**ve ardından **metindosyası** içinde *Visual C# öğeleri*. Dosya adı *Parameters.json*ve ardından **Ekle**.
 2. Bu JSON kodunu oluşturduğunuz dosyaya ekleyin:
@@ -205,17 +205,17 @@ Bir şablonu dağıtmadan önce erişimi olmasını emin olun. bir [Active Direc
     Değiştirin **&lt;subscrıptıon-ID&gt;** , abonelik tanımlayıcısı ile **&lt;uygulama-kimliği&gt;** ile Active Directory uygulaması tanımlayıcı, **&lt;kimlik doğrulama anahtarı&gt;** uygulama anahtarına sahip ve **&lt;Kiracı-kimliği&gt;** Kiracı tanımlayıcısı ile.
 
 3. Azureauth.properties dosyayı kaydedin.
-4. Windows, oluşturduğunuz örneğin komut kullanılabilir aşağıdaki PowerShell yetkilendirme dosyasının tam yolu AZURE_AUTH_LOCATION adlı bir ortam değişkenini ayarlayın:
+4. Örneğin bir ortam değişkeninde Windows, oluşturduğunuz yetkilendirme dosyasının tam yolu AZURE_AUTH_LOCATION adlı kümesi, aşağıdaki PowerShell komutunu kullanabilirsiniz:
 
     ```powershell
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
     
 
 ## <a name="create-the-management-client"></a>Yönetim istemcisi oluşturma
 
-1. Oluşturduğunuz proje için Program.cs dosyasını açın ve ardından bu dosyasının en üstüne using deyimlerini mevcut deyimlerini ekleyin:
+1. Oluşturduğunuz proje için Program.cs dosyasını açın. Ardından bu dosyasının en üstüne using deyimlerini mevcut deyimlerini ekleyin:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;

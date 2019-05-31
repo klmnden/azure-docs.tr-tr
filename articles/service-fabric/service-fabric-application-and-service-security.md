@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621576"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302234"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric uygulaması ve hizmet güvenliği
 Bir mikro hizmet mimarisi getirebilirsiniz [birçok avantaj](service-fabric-overview-microservices.md). Mikro hizmetler, güvenliğini yönetme ancak sınama ve geleneksel tek parçalı uygulamalarla güvenliğini yönetme farklı olabilir. 
@@ -36,7 +36,7 @@ Kimlik doğrulama API düzeyinde güven kararları için ilk adımdır. Kimlik d
 
 Hizmetleri doğrudan erişilebilir, kimlik doğrulama hizmeti Azure Active Directory veya bir güvenlik belirteci hizmeti (STS), kullanıcıların kimliklerini doğrulamak için kullanılabilir davranan bir özel kimlik doğrulama mikro hizmet gibi. Güven kararları güvenlik belirteçleri veya tanımlama bilgileri ile hizmetler arasında paylaşılır. 
 
-ASP.NET Core için birincil mekanizma [kullanıcıların kimliğini doğrulama](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) ASP.NET Core kimliği üyelik sistemidir. ASP.NET Core kimliği geliştirici tarafından yapılandırılmış bir veri deposu (oturum açma bilgileri, rolleri ve talep dahil) kullanıcı bilgilerini depolar. ASP.NET Core kimliği iki öğeli kimlik doğrulamayı destekler.  Kullanıcıların mevcut kimlik doğrulama işlemi Microsoft, Google, Facebook veya Twitter gibi sağlayıcılarından kullanarak oturum için Dış kimlik doğrulama sağlayıcılarını da desteklenir. 
+ASP.NET Core için birincil mekanizma [kullanıcıların kimliğini doğrulama](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) ASP.NET Core kimliği üyelik sistemidir. ASP.NET Core kimliği geliştirici tarafından yapılandırılmış bir veri deposu (oturum açma bilgileri, rolleri ve talep dahil) kullanıcı bilgilerini depolar. ASP.NET Core kimliği iki öğeli kimlik doğrulamayı destekler.  Microsoft, Google, Facebook veya Twitter gibi sağlayıcılarından mevcut kimlik doğrulama işlemleri kullanarak kullanıcıların oturum için Dış kimlik doğrulama sağlayıcılarını da desteklenir.
 
 ### <a name="authorization"></a>Yetkilendirme
 Kimlik doğrulamasından sonra kullanıcı erişim yetkisi vermek veya belirlemek hizmetlerini gerekir. hangi kullanıcı işlemleri gerçekleştirebilirsiniz. Bu işlem, bazı kimliği doğrulanmış kullanıcılar tarafından kullanılabilir, ancak çok tüm API'leri yapmak bir hizmet sağlar. Yetkilendirme, dikey ve bağımsız bir kullanıcısının kim olduğunu ascertaining işlemidir kimlik doğrulaması'ndan gerçekleşir. Kimlik doğrulaması, geçerli kullanıcı için bir veya daha fazla kimlikleri oluşturabilir.

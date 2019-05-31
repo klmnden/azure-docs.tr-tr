@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991633"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397647"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -211,7 +211,7 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 
 ![Güncelleştirme yönetimi varsayılan görünümü](media/automation-update-management/update-management-view.png)
 
-## <a name="install-updates"></a>Güncelleştirmeleri yükle
+## <a name="install-updates"></a>Güncelleştirmeleri yükleme
 
 Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Bir güncelleştirme dağıtımı oluşturmak için yazma erişimi Otomasyon hesabı ve Azure dağıtımda hedeflenen makineler yazma erişimi olmalıdır. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi için bkz: [bilgisayar grupları Azure İzleyici günlüklerine](../azure-monitor/platform/computer-groups.md).
 
@@ -229,7 +229,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme
 | Özellik | Açıklama |
 | --- | --- |
 | Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
-|İşletim Sistemi| Linux veya Windows|
+|İşletim sistemi| Linux veya Windows|
 | Grupları güncelleştirmek için |Azure makineler için abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. </br></br>Azure olmayan makineler için mevcut bir Azure olmayan makine dağıtımına dahil edilecek bir grubu seçmek için arama kaydedilmiş seçin. </br></br>Daha fazla bilgi için bkz: [dinamik gruplar](automation-update-management.md#using-dynamic-groups)|
 | Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Azure İzleyici günlüklerine bilgisayar grupları oluşturma farklı yöntemleri hakkında bilgi edinmek için bkz: [Azure İzleyici günlüklerine bilgisayar grupları](../azure-monitor/platform/computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
@@ -262,7 +262,7 @@ Seçin **eksik güncelleştirmeler** makinelerinizden eksik olan güncelleştirm
 
 ## <a name="view-update-deployments"></a>Güncelleştirme dağıtımları görüntüle
 
-Seçin **güncelleştirme dağıtımları** var olan güncelleştirme dağıtımlarının listesini görüntülemek için sekmesinde. Tabloda açmak için güncelleştirme dağıtımlarını seçin **güncelleştirme dağıtımı çalıştırın** bölmesinde söz konusu güncelleştirme dağıtımı için.
+Seçin **güncelleştirme dağıtımları** var olan güncelleştirme dağıtımlarının listesini görüntülemek için sekmesinde. Tabloda açmak için güncelleştirme dağıtımlarını seçin **güncelleştirme dağıtımı çalıştırın** bölmesinde söz konusu güncelleştirme dağıtımı için. İş günlükleri, en fazla 30 gün için saklanır.
 
 ![Güncelleştirme dağıtımı sonuçlarına genel bakış](./media/automation-update-management/update-deployment-run.png)
 
@@ -356,7 +356,7 @@ Karma Runbook çalışanı gereken bağlantı noktaları hakkında daha fazla bi
 
 Özel durumlar tanımlarken listelenen adreslerini kullanmak için önerilir. IP adreslerinin indirebilirsiniz [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bu dosya haftalık olarak güncelleştirilir ve şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtır.
 
-## <a name="search-logs"></a>Günlük ara
+## <a name="search-logs"></a>Günlüklerinde arama yapma
 
 Azure portalında sağlanan Ayrıntılar ek olarak, günlükler karşı aramalar yapabilirsiniz. Çözüm sayfasında seçtiğiniz **Log Analytics**. **Günlük araması** bölmesi açılır.
 

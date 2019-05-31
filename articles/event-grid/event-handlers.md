@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345490"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305040"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid olay işleyicileri
 
@@ -71,6 +71,28 @@ Logic Apps olaylarına yanıt verme için iş süreçlerini otomatikleştirmek i
 | [Öğretici: Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme](monitor-virtual-machine-changes-event-grid-logic-app.md) | Mantıksal uygulama, bir sanal makine yapılan değişiklikleri izler ve bu değişiklikler hakkında e-posta gönderir. |
 | [Öğretici: mantıksal uygulamalar'ı kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönder](publish-iot-hub-events-to-logic-apps.md) | IOT hub'ınıza her bir cihaz eklendiğinde bir mantıksal uygulama bir bildirim e-posta gönderir. |
 | [Öğretici: Azure Service Bus-Azure Event Grid tümleştirmesi örnekleri](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid, işlev uygulaması ve mantıksal uygulama için hizmet veri yolu konusu'ndan iletileri gönderir. |
+
+## <a name="service-bus-queue-preview"></a>Service Bus kuyruğu (Önizleme)
+
+Service Bus, kurumsal uygulamalar bölümündeki arabelleğe alma veya komut ve denetim senaryolarında kullanım için hizmet veri yolu Kuyrukları için doğrudan Event grid'de olaylarınızı yönlendirmek için bir olay işleyicisi kullanın. Önizleme, oturumları ve hizmet veri yolu konuları ile çalışmaz, ancak Service Bus kuyruklarına ilişkin tüm katmanlar ile çalışır.
+
+Lütfen unutmayın, bir işleyici genel önizlemede olduğundan sırasında Service Bus, CLI veya PowerShell uzantısı bu olay aboneliği oluşturmak için kullanırken yüklemeniz gerekir.
+
+### <a name="using-cli"></a>CLI kullanma
+
+Aşağıdaki örnekte Azure CLI için abone olan bir bağlanır ve Service Bus kuyruğuna Event Grid konusu:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
 
 ## <a name="queue-storage"></a>Kuyruk Depolama
 

@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65754107"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238743"
 ---
 | Resource | Varsayılan/üst sınır | Not |
 | --- | --- | --- |
@@ -23,6 +23,7 @@ ms.locfileid: "65754107"
 | Arka uç HTTP ayarları |100<sup>1</sup> | |
 | Ağ geçidi başına örnek |32 | |
 | SSL sertifikaları |100<sup>1</sup> |HTTP dinleyicileri başına 1 |
+| SSL sertifikası üst sınırı |V1 SKU - 10 KB<br>V2 SKU - 25 KB| |
 | Kimlik doğrulama sertifikaları |100 | |
 | Güvenilen kök sertifikalar |100 | |
 | İstek zaman aşımı en düşük |1 saniye | |

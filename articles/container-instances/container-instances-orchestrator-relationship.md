@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581131"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072984"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances ve kapsayıcı düzenleyicileri
 
@@ -56,7 +56,7 @@ Kümedeki sanal makinelerin sayısını ölçeklendirmeye yerine sonra bu makine
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Örnek uygulama: sanal düğümü için Azure Kubernetes Service (AKS)
 
-Uygulama iş yükleri, hızlı bir şekilde ölçeklendirmek için bir [Azure Kubernetes hizmeti](../aks/intro-kubernetes.md) kullanabileceğiniz (AKS) kümesini *sanal düğümü* Azure Container Instances'da dinamik olarak oluşturulur. Şu anda Önizleme aşamasında olan sanal düğümü ACI çalıştırma pod'ların ve AKS kümesi arasındaki ağ iletişimini etkinleştirin. 
+Uygulama iş yükleri, hızlı bir şekilde ölçeklendirmek için bir [Azure Kubernetes hizmeti](../aks/intro-kubernetes.md) kullanabileceğiniz (AKS) kümesini *sanal düğümü* Azure Container Instances'da dinamik olarak oluşturulur. Sanal düğümler ACI çalıştırma pod'ların ve AKS kümesi arasındaki ağ iletişimini etkinleştirin. 
 
 Sanal düğümü şu anda Linux kapsayıcı örneklerini destekler. Kullanarak sanal düğümü ile çalışmaya başlama [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) veya [Azure portalında](https://go.microsoft.com/fwlink/?linkid=2047545).
 

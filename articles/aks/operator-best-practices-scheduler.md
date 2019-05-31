@@ -2,18 +2,17 @@
 title: İşleç en iyi uygulamalar - Azure Kubernetes Hizmetleri (AKS) temel Zamanlayıcı Özellikleri
 description: Kaynak kotaları gibi temel Zamanlayıcı özelliklerini kullanmak için küme işleci en iyi adımları öğrenin ve pod kesintisi bütçelerini Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463889"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65074119"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Temel Zamanlayıcı Özellikleri Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -127,6 +126,8 @@ Pod kesintisi bütçelerini kullanma hakkında daha fazla bilgi için bkz. [uygu
 
 [Kube-advisor] [ kube-advisor] , bir Kubernetes kümesi tarar ve bulduğu sorunları ilişkili AKS açık kaynaklı proje bir araçtır. Yararlı bir onay kaynak isteklerini ve sınırları limitiniz olmadığı pod'ların belirlemektir.
 
+Kaynak isteği ve Linux uygulamaları yanı sıra PodSpecs için Windows uygulamaları eksik sınırları kube-Danışman aracı bildirebilirsiniz, ancak kube-Danışman aracı, bir Linux pod zamanlanmalıdır. Bir pod bir düğüm havuzunu kullanarak belirli bir işletim sistemi ile çalışacak şekilde zamanlayabilirsiniz bir [düğüm Seçicisi] [ k8s-node-selector] pod'ın yapılandırması.
+
 Birden çok geliştirme ekipleri ve uygulamaları barındıran bir AKS kümesinde bu kaynağın ister ve kümesi sınırlar olmadan pod'ların izlenmesi zor olabilir. En iyi uygulama, düzenli olarak çalıştırılan `kube-advisor` özellikle ad alanları için kaynak kotaları atamazsanız, AKS kümeleri üzerinde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -148,3 +149,4 @@ Bu makalede, temel Kubernetes Zamanlayıcı özelliklere odaklanan. AKS kümesi 
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

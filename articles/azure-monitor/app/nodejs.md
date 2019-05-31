@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576497"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255278"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), [performans ve diğer sorunları keşfetmeye ve hızlıca tanılamaya](../../azure-monitor/app/detect-triage-diagnose.md) yardımcı olmak üzere, arka uç hizmetlerinizi ve bileşenlerini dağıtımdan sonra izler. Application Insights'ı veri merkezinizde, Azure VM'lerinde, web uygulamalarında ve hatta diğer genel bulutlarda barındırılan Node.js hizmetleri için kullanabilirsiniz.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) arka uç hizmetlerinizi ve bileşenlerinizi keşfetmeye ve hızlıca performans ve diğer sorunları tanılamaya yardımcı olmak için dağıtımdan sonra izler. Application Insights'ı veri merkezinizde, Azure VM'lerinde, web uygulamalarında ve hatta diğer genel bulutlarda barındırılan Node.js hizmetleri için kullanabilirsiniz.
 
 İzleme verilerinizi almak, depolamak ve araştırmak için SDK'yı kodunuza ekleyin ve Azure'da karşılık gelen Application Insights kaynağını ayarlayın. SDK daha fazla analiz ve araştırma için verileri bu kaynağa gönderir.
 
@@ -202,7 +202,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Portalda telemetrinizi izleme](../../azure-monitor/app/app-insights-dashboards.md)
+* [Portalda telemetrinizi izleme](../../azure-monitor/app/overview-dashboard.md)
 * [Telemetriniz üzerinden Analiz sorguları yazma](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

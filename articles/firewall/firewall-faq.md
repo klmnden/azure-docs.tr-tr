@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
-ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016015"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384668"
 ---
 # <a name="azure-firewall-faq"></a>Azure güvenlik duvarı ile ilgili SSS
 
@@ -34,7 +34,7 @@ Azure Güvenlik Duvarı, Azure Sanal Ağ kaynaklarınızı koruyan yönetilen, b
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Güvenlik Duvarı için tipik bir dağıtım modeli nedir?
 
-Azure güvenlik duvarı herhangi bir sanal ağda dağıtabilirsiniz, ancak müşteriler genellikle merkez sanal ağda dağıtmak ve diğer sanal ağlara ona hub-and-spoke modelini eş. Varsayılan yol, bu Merkezi güvenlik duvarı sanal ağa işaret edecek şekilde eşlenen sanal ağlardan sonra ayarlayabilirsiniz. Küresel VNet eşlemesi desteklenir, ancak bu olası performans ve gecikme sorunlarını nedeniyle bölgeler arasında önerilmez. En iyi performans için her bölge bir güvenlik duvarı dağıtın.
+Azure güvenlik duvarı herhangi bir sanal ağda dağıtabilirsiniz, ancak müşteriler genellikle merkez sanal ağda dağıtmak ve diğer sanal ağlara ona hub-and-spoke modelini eş. Varsayılan yol, bu Merkezi güvenlik duvarı sanal ağa işaret edecek şekilde eşlenen sanal ağlardan sonra ayarlayabilirsiniz. Küresel VNet eşlemesi desteklenir ancak bu olası performans ve gecikme sorunlarını nedeniyle bölgeler arasında önerilmez. En iyi performans için her bölge bir güvenlik duvarı dağıtın.
 
 Bu modelin avantajı, merkezi olarak farklı abonelikler arasında birden çok uç sanal ağları denetimde uygulamak olanağıdır. Aynı zamanda her bir sanal ağ içindeki bir güvenlik duvarı ayrı ayrı dağıtmanız gerekmez olarak da maliyet tasarrufu vardır. Maliyet tasarruflarından ile müşteri trafik düzenlerini esas alarak ilişkilendirme eşleme maliyetin ölçülen.
 
@@ -62,7 +62,7 @@ Azure güvenlik duvarı, görüntüleme ve güvenlik duvarı günlükleri analiz
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Azure güvenlik duvarı farklı Market'te nva'ları gibi var olan hizmetlerden nasıl sağlanır?
 
-Azure güvenlik duvarı, belirli müşteri senaryoları ele bir temel güvenlik duvarı hizmetidir. Üçüncü taraf nva'ları ve Azure Güvenlik Duvarı bir karışımını olacağını beklenmektedir. Birlikte daha iyi çalışan temel bir önceliktir.
+Azure güvenlik duvarı, belirli müşteri senaryoları ele bir temel güvenlik duvarı hizmetidir. Üçüncü taraf nva'ları ve Azure Güvenlik Duvarı bir karışımını gerekir beklenmektedir. Birlikte daha iyi çalışan temel bir önceliktir.
 
 ## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Azure güvenlik duvarı ile Application Gateway WAF arasındaki fark nedir?
 
@@ -71,6 +71,11 @@ Web uygulaması Güvenlik Duvarı (WAF), web uygulamalarınızda açıklardan ya
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Ağ güvenlik grupları (Nsg'ler) ile Azure güvenlik duvarı arasındaki fark nedir?
 
 Azure Güvenlik Duvarı hizmeti, ağ güvenlik grubu işlevselliğini tamamlar. Birlikte daha iyi "derinlemesine savunma" ağ güvenliği sağlar. Dağıtılmış ağ katmanı trafik filtreleme trafiğini her bir Abonelikteki sanal ağ içindeki kaynaklarla sınırlama için ağ güvenlik grupları belirtin. Bir tam durum bilgisi olan, merkezi bir ağ güvenlik duvarı-farklı abonelikler ve sanal ağları arasında ağ ve uygulama düzeyinde koruma sağlayan hizmet olarak, Azure güvenlik duvarı olup.
+
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Ağ güvenlik grupları (Nsg'ler), Azure güvenlik duvarı alt ağda destekleniyor mu?
+
+Azure güvenlik duvarı, NIC düzeyinde Nsg'ler (görüntülenemez) ile platform koruması da dahil olmak üzere birden çok koruma katmanları ile yönetilen bir hizmettir.  Alt ağ düzeyindeki Nsg'leri Azure güvenlik duvarı alt ağda gerekmez ve hizmet kesintisine neden olmadan emin olmak için devre dışı bırakılır.
+
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>My hizmet uç noktaları ile Azure Güvenlik Duvarı'nı nasıl ayarlayabilirim?
 
@@ -125,7 +130,7 @@ Varsayılan olarak zorlamalı tünel desteklenmez, ancak destek yardımıyla etk
 
 Azure güvenlik duvarı, doğrudan Internet bağlantısı olması gerekir. Bir varsayılan yolu BGP aracılığıyla şirket içi ağınıza, AzureFirewallSubnet öğrenir, bu ile 0.0.0.0/0 UDR ile geçersiz kılmanız gerekir **NextHopType** değer kümesini olarak **Internet** doğrudan korumak için Internet bağlantısı. Varsayılan olarak, bir şirket içi ağ için zorlamalı tünel, Azure Güvenlik Duvarı'nı desteklemez.
 
-Bir şirket içi ağ için zorlamalı tünel yapılandırma gerektirir, ancak Microsoft bunu tek olay temelinde destekler. Biz durumunuzu gözden geçirmek, desteğe başvurun. Kabul ediyoruz aboneliğinizi beyaz liste göreceksiniz ve gerekli güvenlik duvarı Internet bağlantısı karşılandığından emin olun.
+Bir şirket içi ağ için zorlamalı tünel yapılandırma gerektirir, ancak Microsoft bunu tek olay temelinde destekler. Biz durumunuzu gözden geçirmek, desteğe başvurun. Kabul ediyoruz aboneliğinizi ve gerekli güvenlik duvarı Internet bağlantısı korunduğundan emin olmak.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Kaynak grubu kısıtlaması herhangi bir güvenlik duvarı vardır?
 
@@ -137,7 +142,7 @@ Hayır. NAT kuralları, örtük olarak çevrilmiş trafiğine izin verecek şeki
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Joker karakterler bir uygulama kuralı hedef FQDN nasıl çalışır?
 
-Yapılandırırsanız ***. contoso.com**, veren *anyvalue*. contoso.com, ancak contoso.com (etki alanı tepesinde). Etki alanı tepesinde izin vermek istiyorsanız, bunu açıkça FQDN hedef olarak yapılandırmanız gerekir.
+Yapılandırırsanız * **. contoso.com**, veren *anyvalue*. contoso.com, ancak contoso.com (etki alanı tepesinde). Etki alanı tepesinde izin vermek istiyorsanız, bunu açıkça FQDN hedef olarak yapılandırmanız gerekir.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Ne yaptığını *sağlama durumu: Başarısız* anlama gelir?
 

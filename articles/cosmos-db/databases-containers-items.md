@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954213"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389459"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Veritabanları, kapsayıcıları ve Azure Cosmos DB'de öğeleri ile çalışma
 
@@ -37,7 +37,7 @@ Bir veya birden çok Azure Cosmos veritabanı hesabınız kapsamında oluşturab
 
 Azure Cosmos API'leri ile bir Azure Cosmos veritabanı aşağıdaki tabloda açıklandığı gibi etkileşim kurabilirsiniz:
 
-| İşlem | Azure CLI'si | SQL API’si | Cassandra API’si | MongoDB için Azure Cosmos DB API | Gremlin API | Tablo API’si |
+| İşlem | Azure CLI | SQL API’si | Cassandra API’si | MongoDB için Azure Cosmos DB API | Gremlin API | Tablo API’si |
 | --- | --- | --- | --- | --- | --- | --- |
 |Tüm veritabanları listeleme| Evet | Evet | Evet (veritabanı için bir anahtar alanı eşlendi) | Evet | NA | NA |
 |Okuma veritabanı| Evet | Evet | Evet (veritabanı için bir anahtar alanı eşlendi) | Evet | NA | NA |
@@ -54,6 +54,9 @@ Bir Azure Cosmos kapsayıcısı oluşturduğunuzda, aktarım hızı şu modlarda
 * **Adanmış sağlanan aktarım hızı modu**: Bir kapsayıcı sağlanan aktarım hızı bu kapsayıcı için özel olarak ayrılmış ve SLA'lar ile desteklenir. Daha fazla bilgi için bkz. [nasıl sağlanacağı bir Azure Cosmos kapsayıcısında aktarım hızını](how-to-provision-container-throughput.md).
 
 * **Paylaşılan sağlanan aktarım hızı modu**: Bu kapsayıcıların sağlanan aktarım hızı (adanmış sağlanan aktarım hızı ile yapılandırılmış kapsayıcılar dışında) aynı veritabanında diğer kapsayıcılarla paylaşın. Diğer bir deyişle, veritabanı sağlanan aktarım hızını tüm "paylaşılan aktarım hızı" kapsayıcılar arasında paylaşılır. Daha fazla bilgi için bkz. [nasıl sağlanacağı bir Azure Cosmos veritabanı aktarım hızını](how-to-provision-database-throughput.md).
+
+> [!NOTE]
+> Paylaşılan ve ayrılmış üretilen iş yalnızca veritabanı ve kapsayıcı oluştururken yapılandırabilirsiniz. Kapsayıcı oluşturulduktan sonra adanmış aktarım hızı modundan paylaşılan aktarım modu (ve tersi) geçmek için yeni bir kapsayıcı oluşturmak ve yeni kapsayıcıya verileri geçirmeniz gerekir. Azure Cosmos DB değişiklik akışı özelliğini kullanarak verileri geçirebilirsiniz.
 
 Adanmış veya paylaşılan sağlanan aktarım hızı modlarını kullanarak kapsayıcıları oluşturma olup olmadığını bir Azure Cosmos kapsayıcısı, ölçeklendirebilir.
 
@@ -83,9 +86,9 @@ Bir Azure Cosmos kapsayıcısı, sistem tarafından tanımlanan özellikler küm
 |\_ETag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
 |\_TS | Sistem tarafından oluşturulan | Kapsayıcının son güncelleştirilen zaman damgası | Evet | Hayır | Hayır | Hayır | Hayır |
 |\_Kendi kendine | Sistem tarafından oluşturulan | Kapsayıcının adreslenebilir URI'si | Evet | Hayır | Hayır | Hayır | Hayır |
-|kimlik | Kullanıcı tarafından yapılandırılabilir | Kullanıcı tanımlı kapsayıcının benzersiz adı | Evet | Evet | Evet | Evet | Evet |
+|id | Kullanıcı tarafından yapılandırılabilir | Kullanıcı tanımlı kapsayıcının benzersiz adı | Evet | Evet | Evet | Evet | Evet |
 |indexingPolicy | Kullanıcı tarafından yapılandırılabilir | Dizin yolu, dizin türü ve dizin modunu değiştirme olanağı sağlar | Evet | Hayır | Hayır | Hayır | Evet |
-|TimeToLive | Kullanıcı tarafından yapılandırılabilir | Öğeleri ayarlanmış bir süre sonra otomatik olarak bir kapsayıcıdan silme olanağı sağlar. Ayrıntılar için bkz [yaşam süresi](time-to-live.md). | Evet | Hayır | Hayır | Hayır | Evet |
+|timeToLive | Kullanıcı tarafından yapılandırılabilir | Öğeleri ayarlanmış bir süre sonra otomatik olarak bir kapsayıcıdan silme olanağı sağlar. Ayrıntılar için bkz [yaşam süresi](time-to-live.md). | Evet | Hayır | Hayır | Hayır | Evet |
 |changeFeedPolicy | Kullanıcı tarafından yapılandırılabilir | Bir kapsayıcı içindeki öğelerde yapılan değişiklikleri okumak için kullanılır. Ayrıntılar için bkz [değişiklik akışı](change-feed.md). | Evet | Hayır | Hayır | Hayır | Evet |
 |uniqueKeyPolicy | Kullanıcı tarafından yapılandırılabilir | Mantıksal bir bölümü bir veya daha fazla değerlerin benzersiz olmasını sağlamak için kullanılır. Daha fazla bilgi için [benzersiz anahtar kısıtlamaları](unique-keys.md). | Evet | Hayır | Hayır | Hayır | Evet |
 
@@ -93,11 +96,11 @@ Bir Azure Cosmos kapsayıcısı, sistem tarafından tanımlanan özellikler küm
 
 Azure Cosmos API'lerinin kullandığınızda bir Azure Cosmos kapsayıcı aşağıdaki işlemleri destekler:
 
-| İşlem | Azure CLI'si | SQL API’si | Cassandra API’si | MongoDB için Azure Cosmos DB API | Gremlin API | Tablo API’si |
+| İşlem | Azure CLI | SQL API’si | Cassandra API’si | MongoDB için Azure Cosmos DB API | Gremlin API | Tablo API’si |
 | --- | --- | --- | --- | --- | --- | --- |
 | Bir veritabanı kapsayıcılarda listeleme | Evet | Evet | Evet | Evet | NA | NA |
 | Bir kapsayıcı okuyun | Evet | Evet | Evet | Evet | NA | NA |
-| Yeni kapsayıcı oluştur | Evet | Evet | Evet | Evet | NA | NA |
+| Yeni bir kapsayıcı oluşturma | Evet | Evet | Evet | Evet | NA | NA |
 | Bir kapsayıcıyı güncelleştir | Evet | Evet | Evet | Evet | NA | NA |
 | Kapsayıcı silme | Evet | Evet | Evet | Evet | NA | NA |
 
@@ -126,7 +129,7 @@ Her Azure Cosmos öğesi aşağıdaki sistem tanımlı özelliklerine sahiptir. 
 
 Azure Cosmos öğeyi aşağıdaki işlemleri destekler. Herhangi bir Azure Cosmos API'leri işlemleri gerçekleştirmek için kullanabilirsiniz.
 
-| İşlem | Azure CLI'si | SQL API’si | Cassandra API’si | MongoDB için Azure Cosmos DB API | Gremlin API | Tablo API’si |
+| İşlem | Azure CLI | SQL API’si | Cassandra API’si | MongoDB için Azure Cosmos DB API | Gremlin API | Tablo API’si |
 | --- | --- | --- | --- | --- | --- | --- |
 | Ekleme, değiştirme, silme, Upsert, okuma | Hayır | Evet | Evet | Evet | Evet | Evet |
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587759"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257558"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Yönetilen uygulamanız için Azure portal kullanıcı arabirimi oluşturma
 Bu belge, createUiDefinition.json dosyasının temel kavramlar açıklanmaktadır. Azure portalı, yönetilen bir uygulama oluşturmak için kullanılan kullanıcı arabirimi oluşturmak için bu dosyayı kullanır.
@@ -48,6 +48,8 @@ Parameters özelliği şema sürümü ve belirtilen işleyici birleşimi bağlı
 
 Dahil olmak üzere `$schema` önerilir ancak isteğe bağlıdır. Belirtilmişse, değerin için `version` içinde eşleşmelidir `$schema` URI.
 
+UI tanımı korumalı alan oluşturun ve kullanıcı Arabirimi tanım Önizleme için kullanabileceğiniz veya JSON Düzenleyicisi, UI tanımı oluşturmak için kullanabilirsiniz. Korumalı alan hakkında daha fazla bilgi için bkz: [Azure yönetilen uygulamalar için portal Arabirimi Test](test-createuidefinition.md).
+
 ## <a name="basics"></a>Temel Bilgiler
 Temel bilgileri her zaman ilk adımı Azure portalında dosyasını ayrıştırırken oluşturulan Sihirbazı adımdır. Belirtilen öğelerin görüntüleme yanı sıra `basics`, portal abonelik, kaynak grubu ve dağıtım konumunu seçmek kullanıcıları için öğeleri ekler. Genellikle, bu adımda bir küme veya yönetici kimlik bilgileri adı gibi dağıtım genelinde parametreleri için sorgu öğeleri gitmeniz gerekir.
 
@@ -59,7 +61,7 @@ Adımları özelliği, her biri bir veya daha fazla öğe içeren temel bilgiler
 ## <a name="outputs"></a>Çıkışlar
 Azure portalını kullanır `outputs` öğeleri eşlemek için özellik `basics` ve `steps` Azure Resource Manager dağıtım şablonu parametrelerini için. Bu sözlüğün anahtarlarını şablon parametrelerinin adları ve değerleri başvurulan öğelerin çıkış nesnelerden özellikleridir.
 
-Yönetilen uygulama kaynak adı ayarlamak için adlandırılmış bir değer eklemelisiniz `applicationResourceName` outputs özelliğini de. Bu değer ayarlı değil, uygulama adı için bir GUID atar. Bir ad kullanıcıdan isteyen kullanıcı arabiriminde bir metin kutusu ekleyebilirsiniz.
+Yönetilen uygulama kaynak adı ayarlamak için adlandırılmış bir değer eklemelisiniz `applicationResourceName` outputs özelliğini de. Bu değer ayarlamazsanız, uygulama adı için bir GUID atar. Bir ad kullanıcıdan isteyen kullanıcı arabiriminde bir metin kutusu ekleyebilirsiniz.
 
 ```json
 "outputs": {
@@ -72,7 +74,7 @@ Yönetilen uygulama kaynak adı ayarlamak için adlandırılmış bir değer ekl
 ```
 
 ## <a name="functions"></a>İşlevler
-Benzer şekilde şablon işlevleri, Azure Resource Manager (hem de söz dizimi ve İşlevler), CreateUiDefinition işlevler öğeleri girişleri ve çıkışları yanı koşullular gibi özellikler ile çalışmak için sağlar.
+Benzer şekilde şablon işlevleri, Azure Resource Manager (hem de söz dizimi ve İşlevler), CreateUiDefinition işlevler öğeleri girişleri ve çıkışları ve koşullar gibi özellikler ile çalışmak için sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 CreateUiDefinition.json dosya, basit bir şeması vardır. Tüm desteklenen öğeleri ve işlevleri gerçek derinliğini gelir. Bu öğeler daha ayrıntılı açıklanmıştır:

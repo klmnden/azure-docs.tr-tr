@@ -3,7 +3,7 @@ title: Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 description: Bu belge Azure Güvenlik Merkezi ve Windows Defender Gelişmiş tehdit koruması arasında tümleştirme sağlar.
 services: security-center
 documentationcenter: na
-author: barclayn
+author: monhaber
 manager: barbkess
 editor: ''
 ms.service: security-center
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: barclayn
-ms.openlocfilehash: 75ca1401f72e00454dc3355d31c8b8ea64669a72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/27/2018
+ms.author: monhaber
+ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129136"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258459"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 
-Azure Güvenlik Merkezi genişletme bulut iş yükü koruması platformları teklifini ile tümleştirerek [Windows Defender Gelişmiş tehdit koruması](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
-Bu değişiklik, kapsamlı uç nokta algılama ve yanıt (EDR) özellikleri sunar. Windows Defender ATP ile tümleştirme, prosesler nokta. Ayrıca, algılamak ve sunucu uç noktaları Azure Güvenlik Merkezi tarafından izlenen Gelişmiş saldırıları yanıtlar.
+Azure Güvenlik Merkezi, [Windows Defender Gelişmiş Tehdit Koruması](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP) tümleştirmesiyle Bulut İş Yükü Koruma Platformlarını genişletmektedir.
+Bu değişiklik, kapsamlı Uç Nokta Koruma ve Yanıt (EDR) özelliklerini de beraberinde getirmektedir. Windows Defender ATP ile tümleştirme, prosesler nokta. Ayrıca, algılamak ve sunucu uç noktaları Azure Güvenlik Merkezi tarafından izlenen Gelişmiş saldırıları yanıtlar.
 
-Azure Güvenlik Merkezi müşteriler artık Windows Defender ATP özelliklerini kullanabilirsiniz:
+## <a name="windows-defender-atp-features-in-security-center"></a>Güvenlik Merkezi'nde Windows Defender ATP özellikleri
+
+Windows Defender ATP kullandığınızda olursunuz:
 
 - **Yeni nesil post ihlali algılama sensörlerden**: Windows Defender ATP algılayıcı Windows sunucuları için birçok çeşit davranış sinyalleri toplayın.
 
@@ -33,7 +35,7 @@ Azure Güvenlik Merkezi müşteriler artık Windows Defender ATP özelliklerini 
 
 - **Tehdit bilgileri**: Windows Defender ATP, saldırgan araçları, teknikleri ve yordamları tanımlar. Bunlar algıladığında uyarılar oluşturur. Microsoft tehdit arayanlar tarafından oluşturulan verileri ve iş ortakları tarafından sağlanan zeka tarafından Genişletilmiş Güvenlik takımlar kullanır.
 
-Bu özellikler Azure Güvenlik Merkezi'nde artık kullanılabilir:
+Bu özellikler Azure Güvenlik Merkezi'nde kullanıma sunulmuştur:
 
 - **Otomatik ekleme**: Windows Defender ATP algılayıcı, Azure Güvenlik Merkezi'ne eklenen Windows sunucuları için otomatik olarak etkinleştirilir.
 
@@ -53,9 +55,10 @@ Uyarı Windows Defender ATP'ye özetleme tarafından daha fazla araştırabilirs
 
 ## <a name="platform-support"></a>Platform desteği
 
-Bu özellik, Windows Server 2012 R2 ve Windows Server 2016 algılama destekler.
+Güvenlik Merkezi'nde Windows Defender ATP, Windows Server 2012 R2 ve Windows Server 2016 işletim sistemlerinde standart hizmet aboneliğine ait olan algılama destekler.
 
-Yalnızca sunucu Aboneliklerdeki standart hizmet katmanı için desteklenir.
+> [!NOTE]
+> Azure Güvenlik Merkezi olarak izlemeyi kullandığınızda, Windows Defender ATP Kiracı otomatik olarak oluşturulur ve Windows Defender ATP veriler varsayılan olarak Avrupa'da depolanır. Verilerinizi başka bir konuma taşımanız gerekirse, Kiracı sıfırlamak için Microsoft Support başvurmanız gerekir.
 
 ## <a name="onboarding-servers-to-security-center"></a>Güvenlik Merkezi'ne ekleme sunucuları 
 
@@ -69,7 +72,6 @@ Güvenlik Merkezi'ne ekleme sunucularına tıklayın **Azure Güvenlik Merkezi'n
 4. Ekledikten sonra makineleri altında izleyebilirsiniz **işlem ve uygulamaları**.
 
    ![Bilgisayarları ekleme](media/security-center-wdatp/onboard-computers.png)
-
 
 ## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP tümleştirmesini etkinleştirme
 

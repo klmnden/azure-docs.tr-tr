@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si dilleri yöntemi
 titlesuffix: Azure Cognitive Services
 description: Translator metin API'si dilleri yöntemi kullanın.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797291"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389722"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator metin çevirisi API'si 3.0: Languages
 
@@ -40,7 +40,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli parametre</em>.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
   <tr>
-    <td>kapsam</td>
+    <td>scope</td>
     <td>*İsteğe bağlı parametre*.<br/>Döndürülecek dil grubunu tanımlama adlarının virgülle ayrılmış listesi. Grup adları izin verilir: `translation`, `transliteration` ve `dictionary`. Kapsam verilen sonra geçişine eşdeğer olduğu tüm grupları döndürülür `scope=translation,transliteration,dictionary`. Desteklenen diller hangi kümesini senaryonuz için uygun olduğuna karar vermek için açıklamasını görmek [yanıt nesnesi](#response-body).</td>
   </tr>
 </table> 
@@ -226,13 +226,13 @@ Yanıt nesnesini yapısını API sürümünde bir değişiklik yapmadan değişt
 
 Desteklenen dillerin listesini sık değiştirmez. Ağ bant genişliğinden tasarruf ve yanıt hızını artırmak için bir istemci uygulaması dil kaynakları ve ilgili varlık etiketi önbelleğe alma özelliğini dikkate almanız gerekir (`ETag`). Ardından, istemci uygulaması düzenli aralıklarla (örneğin, 24 saatte bir kez) için desteklenen diller son kümesini getirmek için hizmetini sorgulama. Geçerli geçirme `ETag` değerini bir `If-None-Match` üstbilgi alanı yanıt en iyi duruma getirme hizmeti sağlayacaktır. Kaynak değiştirilmiş değil, hizmet 304 durum kodu ve boş yanıt gövdesi döndürür.
 
-## <a name="response-headers"></a>Yanıt üst bilgileri
+## <a name="response-headers"></a>Yanıt Üstbilgileri
 
 <table width="100%">
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>ETag</td>
+    <td>eTag</td>
     <td>Varlık etiketi istenen gruplarını desteklenen diller için geçerli değeri. İstemcinin sonraki istekleri daha verimli hale getirmek için gönderebilir `ETag` değerini bir `If-None-Match` üstbilgi alanı.
     </td>
   </tr>
@@ -247,7 +247,7 @@ Desteklenen dillerin listesini sık değiştirmez. Ağ bant genişliğinden tasa
 Bir isteği döndüren olası HTTP durum kodları şunlardır: 
 
 <table width="100%">
-  <th width="20%">Durum Kodu</th>
+  <th width="20%">Durum kodu</th>
   <th>Açıklama</th>
   <tr>
     <td>200</td>

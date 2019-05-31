@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 6fd7f36510bdc7ed56ede6a5743a5f131149472e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 32d385416c83f81553e734d9471d0b502a458b07
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834747"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390500"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows için Azure seri konsol
 
@@ -122,7 +122,7 @@ Windows önyükleme yükleyicisi istemleri seri konsolunda görüntülenecek etk
 
 ### <a name="use-cmd-or-powershell-in-serial-console"></a>CMD veya PowerShell seri konsolunu kullanın.
 
-1. Seri konsoluna bağlanın. Başarıyla bağlanmanız durumunda, istemidir **SAC >**:
+1. Seri konsoluna bağlanın. Başarıyla bağlanmanız durumunda, istemidir **SAC >** :
 
     ![SAC için Bağlan](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
@@ -170,7 +170,9 @@ Seri konsol önyükleme tanılama ayarını devre dışı bırakarak belirli san
 > Etkinleştirmek veya seri konsol bir abonelik için devre dışı bırakmak için abonelik için yazma izinleri olmalıdır. Bu izinleri içerir ancak için yönetici veya sahip rollerinin sınırlı değildir. Özel roller ayrıca yazma izinlerine sahip olabilir.
 
 ### <a name="subscription-level-disable"></a>Abonelik düzeyinde devre dışı bırak
-Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](/rest/api/serialconsole/console/disableconsole). Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, "varsayılan" girin **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
+Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](/rest/api/serialconsole/console/disableconsole). Bu eylem, katkıda bulunan düzeyinde erişim gerektirir ya da yukarıdaki abonelik. Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, "varsayılan" girin **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
+
+Seri konsol aboneliği yeniden etkinleştirmek için kullanın [etkinleştirme konsol REST API çağrısı](/rest/api/serialconsole/console/enableconsole).
 
 ![REST API'yi deneyin](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -246,10 +248,10 @@ Geçici hataların çoğu olduğundan, bağlantınızı yeniden deneniyor genell
 
 Hata                            |   Risk azaltma
 :---------------------------------|:--------------------------------------------|
-Önyükleme tanılama ayarları alınamadı  *&lt;VMNAME&gt;*. Seri konsol kullanmak için bu VM için o önyükleme tanılaması etkin emin olun. | Sanal makine olduğundan emin olun [önyükleme tanılaması](boot-diagnostics.md) etkin.
+Önyükleme tanılama ayarları alınamadı  *&lt;VMNAME&gt;* . Seri konsol kullanmak için bu VM için o önyükleme tanılaması etkin emin olun. | Sanal makine olduğundan emin olun [önyükleme tanılaması](boot-diagnostics.md) etkin.
 Durdurulan serbest bırakılmış durumda vm'dir. VM'yi başlatın ve seri konsol bağlantısı yeniden deneyin. | Sanal makinenin seri konsol erişmek için başlatılmış durumda olması gerekir
 Bu sanal makine seri konsolu kullanmak için gerekli izinlere sahip değil. En az olduğundan emin olun sanal makine Katılımcısı rolü izinleri.| Seri konsol erişimi belirli izinler gerektirir. Daha fazla bilgi için [önkoşulları](#prerequisites).
-Önyükleme tanılaması depolama hesabı için kaynak grubu belirlenemiyor  *&lt;STORAGEACCOUNTNAME&gt;*. Bu VM için önyükleme tanılaması etkin ve bu depolama hesabına erişiminiz olduğunu doğrulayın. | Seri konsol erişimi belirli izinler gerektirir. Daha fazla bilgi için [önkoşulları](#prerequisites).
+Önyükleme tanılaması depolama hesabı için kaynak grubu belirlenemiyor  *&lt;STORAGEACCOUNTNAME&gt;* . Bu VM için önyükleme tanılaması etkin ve bu depolama hesabına erişiminiz olduğunu doğrulayın. | Seri konsol erişimi belirli izinler gerektirir. Daha fazla bilgi için [önkoşulları](#prerequisites).
 Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken "Yasak" yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
 Web yuvası kapalı veya açılamadı. | Beyaz listeye gerekebilir `*.console.azure.com`. Daha ayrıntılı ancak uzun yaklaşımdır beyaz listeye [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653), nispeten düzenli olarak değiştiği.
 Yalnızca sistem durumu bilgileri, bir Windows VM'ye bağlanırken gösterilir.| Özel Yönetim Konsolu, Windows görüntüsü için etkin değil, bu hata meydana gelir. Bkz: [eski veya özel görüntüleri seri konsolundan etkinleştirme](#enable-the-serial-console-in-custom-or-older-images) SAC, Windows VM'de el ile etkinleştirme hakkında yönergeler için. Daha fazla bilgi için [Windows durum sinyallerini](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
@@ -262,9 +264,10 @@ Sorun                             |   Risk azaltma
 Tuşuna basarak **Enter** sonra bağlantı başlığı görüntülenecek bir oturum açma istemine neden olmaz. | Daha fazla bilgi için [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel VM, sağlamlaştırılmış gereç veya Windows düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına neden olan önyükleme yapılandırması çalıştırıyorsanız, bu hata oluşabilir. Windows 10 istemci VM çalıştırıyorsanız, yalnızca Windows Server Vm'lerinin EMS etkin olacak şekilde yapılandırılmış olduğundan, bu hata ayrıca ortaya çıkar.
 Çekirdek hata ayıklamasını etkin olduğunda SAC komut istemi türü oluşturulamıyor. | VM ve çalıştırmak için RDP `bcdedit /debug {current} off` yükseltilmiş bir komut isteminden. RDP gerçekleştiremezsiniz, bunun yerine başka bir Azure VM için işletim sistemi diski ve çalıştırarak veri diski olarak bağlı durumdayken değiştirmek `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, ardından diski geri değiştirme.
 Özgün içerik yinelenen bir karakter varsa PowerShell içinde SAC sonuçları üçüncü bir karakter yapıştırma. | Geçici bir çözüm için çalıştırma `Remove-Module PSReadLine` geçerli oturumun PSReadLine modülünü kaldırmak için. Bu eylem silmez veya modül kaldırın.
-Bazı klavye girişleri garip SAC çıkış üretmesi (örneğin, **[A**, **[3 ~**). | [VT100](https://aka.ms/vtsequences) kaçış dizileri SAC istemi tarafından desteklenmez.
+Bazı klavye girişleri garip SAC çıkış üretmesi (örneğin, **[A**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) kaçış dizileri SAC istemi tarafından desteklenmez.
 Uzun dizeler yapıştırma çalışmaz. | Seri konsol seri bağlantı noktası bant genişliği aşırı yüklemesini önlemek için 2048 karakter terminale içine yapıştırdığınız dize uzunluğunu kısıtlar.
 Seri konsol ile bir depolama hesabı güvenlik duvarı çalışmıyor. | Seri konsol tasarıma göre depolama hesabı önyükleme tanılama depolama hesabı etkin güvenlik duvarları ile çalışmaz.
+Seri konsol hiyerarşik ad alanları ile Azure Data Lake depolama Gen2'ı kullanarak bir depolama hesabı ile çalışmaz. | Bu, hiyerarşik ad alanları ile bilinen bir sorundur. Azaltmak için Azure Data Lake depolama Gen2'ı kullanarak sanal makinenizin önyükleme tanılaması depolama hesabı oluşturulmaz emin olun. Bu seçenek yalnızca depolama hesabı oluşturulduktan sonra ayarlayabilirsiniz. Ayrı önyükleme tanılaması depolama hesabı Azure Data Lake depolama bu sorunu gidermek için etkin Gen2 oluşturmanız gerekebilir.
 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular

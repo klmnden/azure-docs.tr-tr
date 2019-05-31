@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441060"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235952"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Otomasyonu durum yapılandırmasına genel bakış
 
@@ -69,7 +69,7 @@ Ubuntu  | 18.04
 
 ### <a name="dsc-requirements"></a>DSC gereksinimleri
 
-Azure üzerinde çalışan tüm Windows düğümleri için [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) ekleme sırasında yüklenir.  Windows Server 2012 ve Windows 7'de, çalışan düğümleri için [WinRM etkinleştirilecek](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Azure üzerinde çalışan tüm Windows düğümleri için [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) ekleme sırasında yüklenir.  Windows Server 2012 ve Windows 7'de, çalışan düğümleri için [WinRM etkinleştirilecek](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Azure üzerinde çalışan tüm Linux düğümleri için [Linux için PowerShell DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) ekleme sırasında yüklenir.
 
@@ -77,7 +77,7 @@ Azure üzerinde çalışan tüm Linux düğümleri için [Linux için PowerShell
 
 Özel bir ağda düğümlerinizi bulunuyorsa, aşağıdaki bağlantı noktası ve URL'leri için durum yapılandırması (otomasyon ile iletişim kurmak için DSC) gereklidir:
 
-* Bağlantı Noktası: Yalnızca TCP 443 giden internet erişimi için gereklidir.
+* Bağlantı noktası: Yalnızca TCP 443 giden internet erişimi için gereklidir.
 * Genel URL: *.azure-automation.net
 * ABD Devleti Virginia genel URL: *.azure-automation.us
 * Aracı hizmeti: https://\<Workspaceıd\>.agentsvc.azure-automation.net
@@ -98,18 +98,18 @@ Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa bu Bölg
 
 | **Bölge** | **DNS kaydı** |
 | --- | --- |
-| Orta Batı ABD | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| Batı Orta ABD | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Orta Güney ABD |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | Doğu ABD 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Kanada Orta |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
+| Orta Kanada |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Batı Avrupa |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Kuzey Avrupa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Güneydoğu Asya |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | Orta Hindistan |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Japonya Doğu |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Avustralya Güneydoğu |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| BK Güney | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| Birleşik Krallık Güney | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
+| ABD Devleti Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Bölge bölge adları yerine IP adresleri listesi için indirme [Azure veri merkezi IP adresi](https://www.microsoft.com/download/details.aspx?id=41653) XML dosyasından Microsoft Download Center.
 

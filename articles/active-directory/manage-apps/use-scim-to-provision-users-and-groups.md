@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
+ms.date: 05/06/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015448"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388152"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -200,9 +200,9 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 * Kullanıcılar tarafından sorgulanabilir `userName` veya `email[type eq "work"]` öznitelikleri.  
 
-#### <a name="create-user"></a>Kullanıcı Oluştur
+#### <a name="create-user"></a>Kullanıcı oluşturma
 
-###### <a name="request"></a>İste
+###### <a name="request"></a>İstek
 *POST/kullanıcılar*
 ```json
 {
@@ -259,7 +259,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-user"></a>Kullanıcı Al
 
-###### <a name="request"></a>İste
+###### <a name="request"></a>İstek
 *GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response"></a>Yanıt
@@ -290,7 +290,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 #### <a name="get-user-by-query"></a>Kullanıcı tarafından sorgu Al
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 *GET/kullanıcılar? filtre kullanıcıadı eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081" =*
 
 ##### <a name="response"></a>Yanıt
@@ -329,7 +329,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-user-by-query---zero-results"></a>Kullanıcı sorgusu - sıfır sonuçlarını Al
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 *GET/kullanıcılar? filtre kullanıcıadı eq "mevcut olmayan kullanıcı" =*
 
 ##### <a name="response"></a>Yanıt
@@ -347,7 +347,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-user-multi-valued-properties"></a>[Birden çok değerli özellikler] kullanıcı güncelleştirme
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 */ Kullanıcı/6764549bef60420686bc HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -396,7 +396,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-user-single-valued-properties"></a>Kullanıcı güncelleştirme [tek değerli özellikler]
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 */ Kullanıcı/5171a35d82074e068ce2 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -437,9 +437,9 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-#### <a name="delete-user"></a>Kullanıcıyı Sil
+#### <a name="delete-user"></a>Kullanıcı silme
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 */Users/5171a35d82074e068ce2 HTTP/1.1 Sil*
 
 ##### <a name="response"></a>Yanıt
@@ -454,7 +454,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="create-group"></a>Grup Oluşturma
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 *POST /Groups HTTP/1.1*
 ```json
 {
@@ -486,9 +486,9 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-#### <a name="get-group"></a>Grubu Al
+#### <a name="get-group"></a>Grubunu Al
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 *GET/Grup/40734ae655284ad3abcc? excludedAttributes üyeleri HTTP/1.1 =*
 
 ##### <a name="response"></a>Yanıt
@@ -509,7 +509,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-group-by-displayname"></a>DisplayName tarafından grubunu Al
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 *GET /Groups? excludedAttributes üyeleri & Filtresi = "displayName" HTTP/1.1 displayName eq =*
 
 ##### <a name="response"></a>Yanıt
@@ -536,7 +536,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 #### <a name="update-group-non-member-attributes"></a>Güncelleştirme grubu [olmayan üye öznitelikleri]
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 */ Grup/fa2ce26709934589afc5 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -554,7 +554,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 ### <a name="update-group-add-members"></a>Güncelleştirme grubu [üye ekleme]
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 */ Grup/a99962b9f99d4c4fac67 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -575,7 +575,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-group-remove-members"></a>Güncelleştirme grubu [Kaldır üyeleri]
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 */ Grup/a99962b9f99d4c4fac67 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -596,7 +596,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="delete-group"></a>Grubu Silme
 
-##### <a name="request"></a>İste
+##### <a name="request"></a>İstek
 */Groups/cdb1ce18f65944079d37 HTTP/1.1 Sil*
 
 ##### <a name="response"></a>Yanıt
@@ -1339,7 +1339,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan `urn:ietf:p
 | streetAddress |adresler [türü eq "İş"] .streetAddress |
 | Soyadı |name.familyName |
 | telefon numarası |PhoneNumber [türü eq "İş"] .value |
-| Kullanıcı PrincipalName |userName adı |
+| Kullanıcı PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tablo 2: Varsayılan grubu öznitelik eşlemesi
 

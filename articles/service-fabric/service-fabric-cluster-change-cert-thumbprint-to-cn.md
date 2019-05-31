@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
-ms.openlocfilehash: c199bd7314cb076def497bc18030f783eb23f4be
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: a94fda5a1f3aedd5842bad92b5348a77177b4137
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620235"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302453"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Küme sertifikası parmak izini ortak ad olarak değiştirme
 İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak sertifika parmak izleri kullanarak dağıtılan bir kümenin geçiş sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanmak için çalışan bir Service Fabric kümesinin güncelleştirileceğini açıklar.

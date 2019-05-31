@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: da594ca5793bbf61f393fb1380309403fd808cef
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8c32043d9bf3ca68563ae01d415bdc0e1f6993f7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942227"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258140"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Bulut iş ortağı portalı hesapları yönetmek için Önkoşullar 
 
@@ -23,12 +23,13 @@ Kullanmadan önce [bulut iş ortağı portalı](https://cloudpartner.azure.com/)
 
 Haklar ve sorumluluklar altında dikkatle inceleyin [Microsoft hizmet sözleşmesi](https://www.microsoft.com/servicesagreement) ve [Microsoft kullanım Terms](https://www.microsoft.com/legal/intellectualproperty/copyright) bir hesap oluşturmadan önce.  
 
-Hesap adınız dikkatle seçin.  Herhangi bir telif haklı veya contentious sözcük içermemelidir için kuruluşunuz, temsil eder.  Örneğin, Microsoft, telif haklı bağlamında, "Azure" ve "Microsoft" gibi hesap adlarını kullanımını engelliyor.  Daha fazla bilgi için [Azure Marketi için yönergeler](../../guidelines.md)
+Hesap adınız dikkatle seçin.  Herhangi bir telif haklı veya contentious sözcük içermemelidir için kuruluşunuz, temsil eder.  Örneğin, Microsoft, telif haklı bağlamında, "Azure" ve "Microsoft" gibi hesap adlarını kullanımını engelliyor.  Daha fazla bilgi için [Azure Marketi için yönergeler](https://docs.microsoft.com/azure/marketplace/guidelines)
 
 
 ## <a name="registration-steps"></a>Kayıt adımları
 
-Aşağıdaki tabloda, tam olarak bir Microsoft bulut yayımcısı kaydetmek gerekli adımları listeler.  Tam yönergeler için bkz: [bulut Market yayımcısı haline](../../become-publisher.md). 
+Aşağıdaki tabloda, tam olarak bir Microsoft bulut yayımcısı kaydetmek gerekli adımları listeler.  Tam yönergeler için bkz: [bulut Market yayımcısı haline](https://docs.microsoft.com/azure/marketplace/become-publisher
+). 
 
 
 |                   Adım                   |  Sonuçta elde edilen kayıt veya kaynak                     |

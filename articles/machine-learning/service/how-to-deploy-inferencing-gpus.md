@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 64d42b9082895e372bb780d2db023294c1a0a380
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ec71165553a1d65ff133d605bf94255100f74e6e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65884721"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388918"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU ile çıkarımı için ayrıntılı öğrenme model dağıtma
 
@@ -160,7 +160,7 @@ AKS kümenizi model dağıtabilir ve hizmetinizi oluşturmak bekleyin.
 aks_service = Model.deploy(ws,
                            models=[model],
                            inference_config=inference_config, 
-                           deployment_config=aks_config,
+                           deployment_config=gpu_aks_config,
                            deployment_target=aks_target,
                            name=aks_service_name)
 

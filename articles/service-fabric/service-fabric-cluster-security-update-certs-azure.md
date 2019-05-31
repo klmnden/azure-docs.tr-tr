@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161918"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306909"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure'da bir Service Fabric küme için sertifikaları kaldırın veya ekleyin
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı hakkında bilgilenmeli ve hakkında bilgi sahibi olmanız önerilir [küme güvenliği senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir bir küme sertifikası ve devam etmeden önce ne için kullanılır.
@@ -48,7 +48,7 @@ Ardından amacınızla birincil olarak işaretlenmiş sertifikayı kaldırmak i�
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell kullanarak bir ikincil sertifika Ekle
 > [!TIP]
-> Artık daha iyi ve daha kolay şekilde kullanarak bir ikincil sertifika eklemek [Ekle AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet'i. Bu bölümdeki adımları izlemeden gerek yoktur.  Ayrıca, ilk olarak oluşturmak ve kullanırken kümeyi dağıtmak için kullanılan şablon gerekmeyen [Ekle AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet'i.
+> Kullanarak bir ikincil sertifika eklemek için daha iyi ve daha kolay bir yolu artık yoktur [Ekle AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet'i. Bu bölümdeki adımları izlemeden gerek yoktur.  Ayrıca, ilk olarak oluşturmak ve kullanırken kümeyi dağıtmak için kullanılan şablon gerekmeyen [Ekle AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet'i.
 
 Bu adımları Resource Manager nasıl çalışır ile ilgili bilgi sahibi olduğunuz ve Resource Manager şablonu kullanarak en az bir Service Fabric kümesi dağıttıysanız ve kullanışlı kümeyi oluşturmak için kullanılan şablonu varsayılır. JSON kullanarak memnun olduğunuz varsayılır.
 

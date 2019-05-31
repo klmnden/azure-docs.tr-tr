@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849819"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254315"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Uygulama ağ geçidi ile uçtan uca SSL ve SSL sonlandırma genel bakış
 
@@ -20,7 +20,7 @@ Güvenli Yuva Katmanı (SSL), bir web sunucusu ve tarayıcı arasındaki şifrel
 
 ## <a name="ssl-termination"></a>SSL sonlandırma
 
-Application Gateway, arka uç sunucularına şifrelenmemiş olarak genellikle hangi trafik akışları sonra geçidinde SSL sonlandırmayı destekler. Application Gateway SSL sonlandırma yapmanın avantajları vardır:
+Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Application Gateway SSL sonlandırma yapmanın avantajları vardır:
 
 - **Geliştirilmiş performans** – SSL şifre çözme yaparken isabet büyük performans ilk el sıkışma olduğu. Performansı artırmak için şifre çözme yapılması sunucu SSL oturum kimliklerini önbelleğe alır ve TLS oturum biletlerini yönetir. Bu uygulama ağ geçidinde yapıldıysa, aynı istemciden gelen tüm isteklerin önbelleğe alınan değerleri kullanabilirsiniz. Arka uç sunucularda gerçekleştirilir, istemci istekleri, istemci farklı bir sunucuya gidin her zaman için re‑authenticate bulunur. TLS biletlerinin kullanılması bu sorunu gidermek yardımcı olabilir, ancak tüm istemciler tarafından desteklenmez ve yapılandırmak ve yönetmek zor olabilir.
 - **Daha iyi kullanımı arka uç sunucularının** – SSL/TLS işleme çok CPU bakımından yoğun olan ve anahtar boyutu arttıkça daha yoğun gelmektedir. Bu işi arka uç sunuculardan kaldırma sağlayan bunları en verimli nedir üzerinde odaklanmak, içerik teslim etme.
@@ -50,13 +50,13 @@ Uygulama ağ geçidi, aşağıdaki sertifika türlerini destekler:
 Daha fazla bilgi için [SSL sonlandırma application gateway ile yapılandırma](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Sertifikanın boyutu
-SSL sertifikası bilgileri kişisel bilgi değişimi (PFX) dosyasıyla 10 KB boyutunda olmamalıdır.
+Denetleme [Application Gateway sınırlar](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) bölüm en fazla SSL bilmek sertifika desteklenen boyutu.
 
 ## <a name="end-to-end-ssl-encryption"></a>SSL şifrelemesini uçtan uca
 
 Bazı müşteriler arka uç sunucularıyla şifrelenmemiş iletişim bağlamasına değil. Bunun nedeni, güvenlik gereksinimleri, uyumluluk gereksinimleri veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Application Gateway, böyle uygulamalar için uçtan uca SSL şifrelemesini desteklemektedir.
 
-Uçtan uca SSL, gizli verileri arka uca hala application Gateway'in sunduğu 7. Katman Yük Dengeleme özelliklerinin avantajlarından alma sağlarken şifrelenmiş güvenli bir şekilde aktarmanıza olanak sağlar. Bu özelliklerin bazıları tanımlama bilgisi temelli oturum benzeşimi, URL tabanlı yönlendirme, sitelere göre yönlendirme desteği veya X-Forwarded-* üst bilgilerini ekleyebilmedir.
+Uçtan uca SSL, gizli verileri şifrelenmiş olarak arka uca aktarmanızı sağlar ve Application Gateway’in sunduğu Katman 7 yük dengeleme özelliklerinin avantajlarından yararlanmaya devam eder. Bu özelliklerin bazıları tanımlama bilgisi temelli oturum benzeşimi, URL tabanlı yönlendirme, sitelere göre yönlendirme desteği veya X-Forwarded-* üst bilgilerini ekleyebilmedir.
 
 Application Gateway uçtan uca SSL iletişimi modu ile yapılandırıldığında, ağ geçidindeki SSL oturumlarını sonlandırır ve kullanıcı trafiğinin şifresini çözer. Ardından trafiğin yönlendirileceği uygun arka uç havuzunu seçmek için yapılandırılan kuralları uygular. Ardından Application Gateway, arka uç sunucusuyla yeni bir SSL bağlantısı başlatır ve isteği arka uca aktarmadan önce arka uç sunucusunun ortak anahtar sertifikasını kullanarak verileri yeniden şifreler. Web sunucusundan alınan herhangi bir yanıt, son kullanıcıya dönerken aynı süreci izler. Uçtan uca SSL etkin protokolünü ayarlayarak [arka uç HTTP ayarı](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) HTTPS için ardından uygulandığı bir arka uç havuzuna.
 

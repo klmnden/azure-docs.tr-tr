@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 358ebfa601ff8e4d2fb6ae91e51516cb0a933af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbeb0a8944b35af2a68080a2b2f1bb4436c6e58d
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716583"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306688"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
 
@@ -36,7 +36,7 @@ Bir masaüstü uygulaması olarak Service Fabric Explorer'ı indirmek için aşa
   - https://aka.ms/sfx-linux-x86
   - https://aka.ms/sfx-linux-x64
 
-- macOS
+- Mac OS
   - https://aka.ms/sfx-macos
 
 > [!NOTE]
@@ -61,7 +61,7 @@ Bir Service Fabric kümesine bağlanmak için küme yönetim uç noktası'nı (F
 ### <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
 Service Fabric kümenize sertifikalar veya Azure Active Directory (AAD) kullanarak istemci erişimi denetleyebilirsiniz.
 
-Güvenli bir kümeye bağlanmayı denerseniz, ardından küme yapılandırmasına bağlı olarak, bir istemci sertifikası sunmak veya AAD kullanarak oturum gerekecektir.
+Güvenli bir kümeye bağlanmayı denerseniz, ardından küme yapılandırmasına bağlı olarak, bir istemci sertifikası sunmak veya AAD oturum gerekecektir.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Service Fabric Explorer düzenini anlama
 Soldaki ağaç kullanarak Service Fabric Explorer gidebilirsiniz. Ağaç kökünde, küme Panosu, kümenize uygulama ve düğüm durumunun özetini de dahil olmak üzere, genel bir bakış sağlar.

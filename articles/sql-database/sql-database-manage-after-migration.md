@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949913"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357321"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı'nda, tek ve havuza alınmış veritabanlarını yönetme
 
@@ -29,6 +29,7 @@ Geleneksel yönetimden kendi kendine yönetilen bir PaaS ortamı için kendiliğ
 
 Bu makalede Azure SQL veritabanı'nın temel özelliklerinden bazıları kolayca çalışırken yararlanabileceğiniz bir platform ele alınmaktadır ile tek veritabanları ve elastik havuza alınmış veritabanları. Bunlar aşağıda verilmiştir:
 
+- Veritabanını Azure portalını kullanarak izleme
 - İş sürekliliği ve olağanüstü durum kurtarma (BCDR)
 - Güvenlik ve uyumluluk
 - Akıllı veritabanı izleme ve Bakım
@@ -36,6 +37,25 @@ Bu makalede Azure SQL veritabanı'nın temel özelliklerinden bazıları kolayca
 
 > [!NOTE]
 > Bu makale Azure SQL veritabanı'nda aşağıdaki dağıtım seçenekleri için geçerlidir: tek veritabanları ve elastik havuzlar. SQL veritabanı yönetilen örnek dağıtım seçeneği geçerli değil.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Azure portalını kullanarak veritabanlarını izleme
+
+İçinde [Azure portalında](https://portal.azure.com/), tek veritabanı s kullanımını veritabanınızı seçip tıklayarak izleyebilirsiniz **izleme** grafiği. Bu işlem sonrasında bir **Ölçüm** penceresi görüntülenir. **Grafiği düzenle** düğmesine tıklayarak değişiklik yapabilirsiniz. Şu ölçümleri ekleyin:
+
+- CPU yüzdesi
+- DTU yüzdesi
+- Veri G/Ç yüzdesi
+- Veri boyutu yüzdesi
+
+Bu ölçümleri ekledikten sonra görüntülemeye devam edebilirsiniz **izleme** grafik hakkında daha fazla bilgi **ölçüm** penceresi. Dört ölçümün tümü de veritabanınızın ortalama **DTU** kullanım yüzdesini gösterir. Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) makaleler hizmet katmanları hakkında daha fazla bilgi için.  
+
+![Hizmet katmanına göre veritabanı performansını izleme.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+Performans ölçümlerine ilişkin uyarıları da yapılandırabilirsiniz. **Ölçüm** penceresindeki **Uyarı ekle** düğmesine tıklayın. Uyarınızı yapılandırmak için sihirbazı takip edin. Ölçümlerin belirli bir eşiği aşması veya belirli bir eşiğin altına düşmesi halinde uyarı alabilirsiniz.
+
+Örneğin, veritabanınızdaki bir iş yükünün artmasını bekliyorsanız bir e-posta uyarısı yapılandırarak veritabanınızın herhangi bir performans ölçümünde %80 sınırına ulaşması halinde uyarı alabilirsiniz. Zaman sonraki en yüksek işlem boyutu geçmeniz gerektiğini anlamak üzere erken bir uyarı olarak kullanabilirsiniz.
+
+Performans ölçümleri, daha düşük bir işlem boyutu için geçemeyeceğinizi belirlemenize de yardımcı olabilir. Standart S2 veritabanını kullandığınızı ve tüm performans ölçümlerinin, veritabanının belirli bir zaman için ortalama %10'dan daha fazla kullanımda bulunmadığını gösterdiğini varsayın. Bu, veritabanının Standart S1'de de düzgün şekilde çalışabileceğini gösterir. Ancak, ani değişiklik veya dalgalanma gösteren bir alt işlem boyutu geçmeye karar vermeden önce iş yüklerini farkında olun.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR)
 
@@ -107,7 +127,7 @@ Elinizin altında uygulamanız için en iyi bağlantı kuruluş elde etmek için
 - Sanal ağ hizmet uç noktaları
 - Ayrılmış IP’ler
 
-#### <a name="firewall"></a>Güvenlik Duvarı
+#### <a name="firewall"></a>Güvenlik duvarı
 
 Bir güvenlik duvarı erişimi sunucunuza bir dış varlık SQL veritabanı sunucunuza yalnızca belirli varlıklara erişimi vererek engeller. Varsayılan olarak, tüm bağlantılar ve SQL veritabanı sunucu içindeki veritabanlarına, diğer Azure hizmetlerinden gelen bağlantılar dışında izin verilmez. Bir güvenlik duvarı kuralı, bu bilgisayarın IP adresini güvenlik duvarı üzerinden izin vererek onayladığınız yalnızca varlıklara (örneğin, bir geliştirici makine), sunucunuza erişim açabilirsiniz. Ayrıca, SQL veritabanı sunucusuna erişmesine izin vermek istediğiniz IP aralığı belirtmenize olanak sağlar. Örneğin, geliştirici Makine IP adresleri kuruluşunuzdaki tek seferde Güvenlik Duvarı ayarları sayfasındaki bir aralığı belirterek eklenebilir.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311134"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399210"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs sanal makineniz için özel yapıtlar oluşturma
 
@@ -57,7 +57,7 @@ Aşağıdaki örnek, bir tanım dosyasının temel yapıyı oluşturan bölümle
 | --- | --- | --- |
 | $schema |Hayır |JSON şema dosyasının konumu. JSON şema dosyası tanım dosyasının geçerliliğini sınamak için yardımcı olabilir. |
 | başlık |Evet |Laboratuar ortamında görüntülenen yapıtın adı. |
-| açıklama |Evet |Laboratuar ortamında görüntülenen yapıt açıklaması. |
+| description |Evet |Laboratuar ortamında görüntülenen yapıt açıklaması. |
 | iconUri |Hayır |Laboratuar ortamında gösterilen simge URI'si. |
 | targetOsType |Evet |Yapıt yüklendiği VM'nin işletim sistemi. Desteklenen Seçenekler şunlardır: Windows ve Linux. |
 | parametreler |Hayır |Yapıt yükleme komutunu bir makinede çalıştırıldığında, sağlanan değerler. Bu, yapıt özelleştirmenize yardımcı olur. |
@@ -78,9 +78,9 @@ Parametreler tanımlamak için aşağıdaki yapısını kullanın:
 
 | Öğe adı | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| type |Evet |Parametre değerinin türü. İzin verilen türler için aşağıdaki listeye bakın. |
+| türü |Evet |Parametre değerinin türü. İzin verilen türler için aşağıdaki listeye bakın. |
 | displayName |Evet |Laboratuvardaki kullanıcıya görüntülenen parametrenin adı. |
-| açıklama |Evet |Laboratuar ortamında görüntülenen parametre açıklaması. |
+| description |Evet |Laboratuar ortamında görüntülenen parametre açıklaması. |
 
 İzin verilen türleri şunlardır:
 
@@ -89,14 +89,39 @@ Parametreler tanımlamak için aşağıdaki yapısını kullanın:
 * bool (tüm geçerli JSON Boolean)
 * dizi (geçerli bir JSON dizisi)
 
+## <a name="secrets-as-secure-strings"></a>Gizli dizileri güvenli bir dize olarak
+Gizli dizileri güvenli bir dize olarak bildirin. İçinde bir güvenli dize parametre bildirmek için sözdizimi aşağıdadır `parameters` bölümünü **artifactfile.json** dosyası:
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+Yapıt için yükleme komutu, ConvertTo-SecureString komutu kullanılarak oluşturulmuş bir güvenli dize alan PowerShell betiğini çalıştırın. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+Tam örnek artifactfile.json ve artifact.ps1 (PowerShell Betiği) için bkz: [github'daki bu örneğe](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+Not için bir diğer önemli nokta, kullanıcı hata ayıklama için çıkış yakalanan gibi gizli anahtarları konsola oturum değil sağlamaktır. 
+
 ## <a name="artifact-expressions-and-functions"></a>Yapıt ifadeler ve İşlevler
 İfadeleri kullanabilirsiniz ve yapı oluşturmak için işlevleri yükleme komutu.
 İfadeleri köşeli parantez ile içine ([ve]) ve yapıt yüklendiğinde değerlendirilir. İfadeleri herhangi bir JSON dizesi değerinin görünebilir. İfadeler her zaman başka bir JSON değeri döndürür. Bir köşeli ayraç ([]) ile başlayan bir sabit dizesi kullanmanız gerekiyorsa, iki köşeli ayraçlar ([[) kullanmanız gerekir.
-Genellikle, ifadeleri işlevleri ile bir değer oluşturmak için kullanırsınız. Yalnızca JavaScript'te işlev çağrıları olarak biçimlendirilmiş gibi **functionName (arg1, arg2, arg3)**.
+Genellikle, ifadeleri işlevleri ile bir değer oluşturmak için kullanırsınız. Yalnızca JavaScript'te işlev çağrıları olarak biçimlendirilmiş gibi **functionName (arg1, arg2, arg3)** .
 
 Aşağıdaki liste, genel işlevleri gösterir:
 
-* **parameters(parameterName)**: Yapıt komutu çalıştırdığınızda, sağlanan bir parametre değeri döndürür.
+* **parameters(parameterName)** : Yapıt komutu çalıştırdığınızda, sağlanan bir parametre değeri döndürür.
 * **concat (arg1, arg2, arg3,...)** : Birden çok dize değerleri birleştirir. Bu işlev bağımsız değişken alabilir.
 
 Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl kullanılacağını gösterir:

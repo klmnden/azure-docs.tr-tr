@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 4a648bd2704e93abedeefae14aee66ae8bfeecef
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27d93f963003cfb30b8827d45c0472405b0ed0a6
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073898"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392673"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) bir giriş denetleyicisine bir iç sanal ağ oluşturma
 
@@ -31,7 +31,7 @@ Aşağıdakileri de yapabilirsiniz:
 
 Bu makalede, NGINX giriş denetleyicisine, Sertifika Yöneticisi ve örnek bir web uygulamasını yüklemek için Helm kullanır. AKS kümenizi içinde başlatılan ve bir hizmet hesabı için Tiller kullanarak Helm olması gerekir. Yapılandırma ve Helm kullanma hakkında daha fazla bilgi için bkz. [Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme][use-helm].
 
-Bu makalede, ayrıca Azure CLI Sürüm 2.0.61 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu makalede, ayrıca Azure CLI Sürüm 2.0.64 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Bir giriş denetleyicisini oluşturma
 
@@ -49,6 +49,8 @@ controller:
 
 Şimdi Dağıt *ngınx giriş* Helm grafiği. Önceki adımda oluşturduğunuz bildirim dosyası kullanmak için ekleme `-f internal-ingress.yaml` parametresi. Eklenen yedeklilik için NGINX giriş denetleyicilerinin iki çoğaltma ile dağıtılan `--set controller.replicaCount` parametresi. Giriş denetleyicisine çoğaltmalarını çalışmasını tam olarak yararlanmak için AKS kümenizde birden fazla düğüm olduğundan emin olun.
 
+Giriş denetleyicisine ayrıca Linux düğümde zamanlanması gerekir. Windows Server düğümleri (şu anda önizlemede aks'deki) giriş denetleyicisine çalıştırmamalısınız. Bir düğüm seçiciyi kullanarak belirtilen `--set nodeSelector` NGINX giriş denetleyicisine Linux tabanlı bir düğümde çalıştırılacak Kubernetes Zamanlayıcı bildirmek için parametre.
+
 > [!TIP]
 > Aşağıdaki örnek, bir Kubernetes ad alanı adlı giriş kaynakları oluşturur *giriş temel*. Bir ad alanı, kendi ortamınız için gerektiği şekilde belirtin. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` Helm komutlar.
 
@@ -60,7 +62,9 @@ kubectl create namespace ingress-basic
 helm install stable/nginx-ingress \
     --namespace ingress-basic \
     -f internal-ingress.yaml \
-    --set controller.replicaCount=2
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 NGINX giriş denetleyici için Kubernetes Yük Dengeleyici Hizmeti oluşturulduğunda, iç IP adresiniz, aşağıdaki örnek çıktıda gösterildiği gibi atanır:
@@ -117,19 +121,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Giriş kullanarak kaynak oluşturma `kubectl apply -f hello-world-ingress.yaml` komutu.
@@ -154,7 +158,7 @@ Yükleme `curl` pod kullanarak `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Şimdi, Kubernetes giriş denetleyicisini kullanarak adresi erişim `curl`, gibi *http://10.240.0.42*. Bu makalede, ilk adımda giriş denetleyicisine dağıttığınızda kendi iç IP adresi belirtilen sağlar.
+Şimdi, Kubernetes giriş denetleyicisini kullanarak adresi erişim `curl`, gibi *http://10.240.0.42* . Bu makalede, ilk adımda giriş denetleyicisine dağıttığınızda kendi iç IP adresi belirtilen sağlar.
 
 ```console
 curl -L http://10.240.0.42
@@ -173,7 +177,7 @@ $ curl -L 10.240.0.42
 [...]
 ```
 
-Şimdi ekleyin */hello-world-two* adresi yolu gibi *http://10.240.0.42/hello-world-two*. Aşağıdaki sıkıştırılmış örneğe çıktıda gösterildiği gibi özel başlıklı ikinci demo uygulamasını döndürülür:
+Şimdi ekleyin */hello-world-two* adresi yolu gibi *http://10.240.0.42/hello-world-two* . Aşağıdaki sıkıştırılmış örneğe çıktıda gösterildiği gibi özel başlıklı ikinci demo uygulamasını döndürülür:
 
 ```
 $ curl -L -k http://10.240.0.42/hello-world-two

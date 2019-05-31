@@ -12,36 +12,43 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3181609bf34a04de4e31b73429f9bc5fa3fe3408
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e321c0b473b110597b5b87a6e67666737116daa2
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411904"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393343"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure uygulama yapılandırması ile ilgili SSS
 
-Bu makalede adresleri, Azure uygulama yapılandırması hakkında sorular sık.
+Bu makalede Azure uygulama yapılandırması hakkında sık sorulan soruları ele alır.
 
-## <a name="how-is-app-configuration-different-from-key-vault"></a>Uygulama yapılandırması Key Vault'tan farklı mı?
+## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>Uygulama Yapılandırması’nın Azure Key Vault’tan farkı nedir?
 
-Uygulama yapılandırması, ayrı bir kullanım örnekleri kümesi için tasarlanmıştır: uygulama ayarlarını yönetme ve Özellik kullanılabilirliği kontrol olanağı tanır. Birçok karmaşık yapılandırma verileriyle çalışma görevlerini basitleştirmek için amaçlar. Bu, hiyerarşik ad alanı, etiketleme, kapsamlı sorgular, batch alma ve özel yönetim işlemlerini ve kullanıcı arabirimlerini destekler. Uygulama yapılandırması anahtar Kasası'na tamamlayıcı ve iki yan yana çoğu uygulama dağıtımda kullanılmalıdır.
+Uygulama yapılandırması, ayrı bir kullanım örnekleri kümesi için tasarlanmıştır: uygulama ayarlarını yönetme ve Özellik kullanılabilirliği kontrol olanağı tanır. Birçok karmaşık yapılandırma verileriyle çalışma görevlerini basitleştirmek için amaçlar.
+
+Uygulama yapılandırması destekler:
+
+- Hiyerarşik ad alanları
+- Etiketleme
+- Kapsamlı sorgular
+- Batch alma
+- Özel yönetim işlemleri
+- Özellik Yönetimi kullanıcı arabirimi
+
+Uygulama yapılandırması, anahtar Kasası'na tamamlayıcı ve iki yan yana çoğu uygulama dağıtımda kullanılmalıdır.
 
 ## <a name="should-i-store-secrets-in-app-configuration"></a>Gizli uygulama yapılandırmasında depolamanız gerekir?
 
-Uygulama yapılandırması sıkı güvenlik sağlarken, anahtar kasası yine de uygulama parolalarını depolamak için en iyi yerdir. Bu, donanım düzeyinde şifreleme, ayrıntılı erişim ilkeleri ve sertifika döndürme gibi yönetim işlemlerini sağlar.
+Uygulama yapılandırması sıkı güvenlik sağlasa da, Key Vault hala uygulama parolalarını depolamak için en iyi yerdir. Key Vault, donanım düzeyinde şifreleme, ayrıntılı erişim ilkeleri ve sertifika döndürme gibi yönetim işlemlerini sağlar.
 
 ## <a name="does-app-configuration-encrypt-my-data"></a>Uygulama yapılandırması, verilerimi şifreleyebilir mi?
 
-Evet. Uygulama yapılandırması tutar ve ağ iletişimi tüm anahtar değerleri şifreler. Anahtar adları dizinlerini yapılandırma verilerini almak için kullanılır ve şifrelenmez.
-
-## <a name="does-app-configuration-support-azure-virtual-network-vnet"></a>Uygulama yapılandırması, Azure sanal ağ (VNET) destekliyor mu?
-
-Henüz değil. VNET desteği genel kullanıma sunulması planlanmaktadır.
+Evet. Uygulama yapılandırması tuttuğu tüm anahtar değerleri şifreler ve ağ iletişimi şifreler. Anahtar adları, yapılandırma verilerini almak için dizin kullanılır ve şifreli değildir.
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>(Test, hazırlama, üretim ve benzeri) birden çok ortam için yapılandırmaları nasıl depolamanız gerekir?
 
-Şu anda mağaza içi düzeyinde kimlerin erişebileceğini uygulama yapılandırmasını kontrol edebilirsiniz. Farklı izinleri gerektiren her bir ortam için ayrı bir depoda kullanmanız gerekir. Bu yaklaşım, en iyi güvenlik yalıtımı sağlar.
+Şu anda mağaza içi düzeyinde kimlerin erişebileceğini uygulama yapılandırmasını kontrol edebilirsiniz. Farklı izinleri gerektiren her bir ortam için ayrı bir deposunu kullanın. Bu yaklaşım, en iyi güvenlik yalıtımı sağlar.
 
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Önerilen uygulama yapılandırmasını kullanma yolları nelerdir?
 

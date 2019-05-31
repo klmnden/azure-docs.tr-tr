@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9368abe7d3b6ad6cf6e86b503dca4fca4f18739c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60916691"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388466"
 ---
 # <a name="page-through-the-images-results"></a>Seçmenin yanı sıra görüntüleri sonuçları
 
-Bing, resim arama API'si çağırdığınızda, sonuçların listesini döndürür. Bu liste sorguyla ilgili tüm sonuçların alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) alan.  
+Bing, resim arama API'si çağırdığınızda, sonuçların listesini döndürür. Bu liste sorguyla ilgili tüm sonuçların alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#totalestimatedmatches) alan.  
 
 Aşağıdaki örnekte gösterildiği `totalEstimatedMatches` görüntüleri yanıt içeren alan.  
 
@@ -34,7 +34,7 @@ Aşağıdaki örnekte gösterildiği `totalEstimatedMatches` görüntüleri yan�
 }  
 ```  
 
-Kullanılabilir görüntüleri sayfasında kullanın [sayısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) ve [uzaklığı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset) sorgu parametreleri.  
+Kullanılabilir görüntüleri sayfasında kullanın [sayısı](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#count) ve [uzaklığı](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) sorgu parametreleri.  
 
 `count` Parametre sonuçları yanıtta döndürülecek sayısını belirtir. Yanıtta isteyebilir sonuçları sayısı 150'dir. 35 varsayılandır. Teslim gerçek sayı istenenden daha az olabilir.
 
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 35 görüntüleri birer sayfa, ayarlamalı beklediğiniz `offset` sorgu parametresi 0 olarak ilk isteğinizi ve ardından Artır `offset` 35 sonraki her istek tarafından. Ancak, bazı sonuçları sonraki yanıt önceki isteğin çoğaltmaları olabilir. Örneğin, ilk iki görüntü yanıt önceki yanıtın son iki görüntülerden aynı olabilir.
 
-Yinelenen sonuçları ortadan kaldırmak için kullanın [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) alanını `Images` nesne. `nextOffset` Alan bildirir `offset` sonraki isteğiniz için kullanılacak. Örneğin, bir kerede 30 görüntüleri sayfasında istiyorsanız ayarlarsınız `count` 30 ve `offset` ilk isteğinizdeki 0. Sonraki isteğiniz ayarlarsınız `count` 30 ve `offset` önceki yanıtın değerine `nextOffset`. Geriye doğru gezinmek için önceki uzaklıkları yığınını bakımını yapma ve en son pencerelerinin öneririz.
+Yinelenen sonuçları ortadan kaldırmak için kullanın [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#nextoffset) alanını `Images` nesne. `nextOffset` Alan bildirir `offset` sonraki isteğiniz için kullanılacak. Örneğin, bir kerede 30 görüntüleri sayfasında istiyorsanız ayarlarsınız `count` 30 ve `offset` ilk isteğinizdeki 0. Sonraki isteğiniz ayarlarsınız `count` 30 ve `offset` önceki yanıtın değerine `nextOffset`. Geriye doğru gezinmek için önceki uzaklıkları yığınını bakımını yapma ve en son pencerelerinin öneririz.
 
 > [!NOTE]
 > Disk belleği, yalnızca resim arama (arama/resimler /) ve resim öngörüleri veya (/ Resimler/popüler) popüler resimler için geçerlidir.

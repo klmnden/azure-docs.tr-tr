@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: de2e57901becad68f3fad16967faf3ae4833177a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 928d741132623bd92dae1097724295691d7f3808
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797866"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398344"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm'leri bir bölgeden diğerine çoğaltma için destek matrisi
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure VM'lerini bir bölgeden diğerine çoğaltma için destek matrisi
 
 Bu makalede Azure Vm'leri olağanüstü durum kurtarma bir Azure bölgesinden ayarladığınızda başka kullanarak desteği ve önkoşullar özetlenmektedir [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 
@@ -150,7 +150,7 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.21 | SP1 3.12.49-11-default 3
 
 **Ayar** | **Destek** | **Ayrıntılar**
 --- | --- | ---
-Boyutlandır | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
+Boyut | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
 Kullanılabilirlik kümeleri | Desteklenen | Varsayılan seçeneklerle bir Azure VM için çoğaltmayı etkinleştirin, bir kullanılabilirlik kümesinde kaynak bölge ayarlara göre otomatik olarak oluşturulur. Bu ayarları değiştirebilirsiniz.
 Kullanılabilirlik alanları | Desteklenen |
 Hibrit kullanım teklifi (HUB) | Desteklenen | Kaynak VM etkin bir HUB lisans yük devretme testi veya yük devretme varsa VM, ayrıca HUB lisansı kullanır.
@@ -160,7 +160,7 @@ Azure Galerisi'ndeki görüntüleri - üçüncü taraf yayımlandı | Desteklene
 Özel görüntüleri - üçüncü taraf yayımlandı | Desteklenen | Sanal Makineyi desteklenen bir işletim sisteminde çalışıyorsa desteklenmiyor.
 Site RECOVERY'yi kullanarak VM'lerin geçişi | Desteklenen | Bir VMware VM veya fiziksel makine için Azure Site Recovery kullanılarak geçirilmiş, makinede çalışan mobilite hizmetinin eski sürümü kaldırın ve makineyi başka bir Azure bölgesine çoğaltmak önce yeniden gerekebilir.
 RBAC ilkeleri | Desteklenmiyor | Rol tabanlı erişim denetimi (RBAC) İlkeleri vm'lerde yük devretme VM'sine hedef bölgede çoğaltılmaz.
-Genişletmeler | Desteklenmiyor | Hedef bölgede VM yük devretmesi için uzantıları çoğaltılmaz. Yük devretmeden sonra elle yüklenmesi gerekir.
+Uzantılar | Desteklenmiyor | Hedef bölgede VM yük devretmesi için uzantıları çoğaltılmaz. Yük devretmeden sonra elle yüklenmesi gerekir.
 
 ## <a name="replicated-machines---disk-actions"></a>Çoğaltılan makineler - disk eylemleri
 
@@ -182,6 +182,7 @@ Azure VM'nin işletim sistemi diski, veri diski ve geçici disk desteği bu tabl
 İşletim sistemi disk maksimum boyutu | 2048 GB | [Daha fazla bilgi edinin](../virtual-machines/windows/managed-disks-overview.md) VM diskleri hakkında.
 Geçici disk | Desteklenmiyor | Geçici disk her zaman çoğaltmadan dışlandı.<br/><br/> Herhangi bir kalıcı veri, geçici diskte depolamayın. [Daha fazla bilgi edinin](../virtual-machines/windows/managed-disks-overview.md).
 Veri diski maksimum boyutu | 4095 GB |
+Minimum disk boyutu, veri | Yönetilmeyen diskler için hiçbir kısıtlama. Yönetilen diskler için 2 GB | 
 Veri diski sayısı | En fazla 64 içinde belge belirli bir Azure VM boyutu için destek | [Daha fazla bilgi edinin](../virtual-machines/windows/sizes.md) VM boyutları hakkında.
 Veri disk değişim hızı | Premium depolama için disk başına 10 MB/sn sayısı. Standart depolama için disk başına 2 MB/sn sayısı. | Üzerindeki ortalama veri değişim oranı disk sürekli olarak en yüksek değerden yüksek olduğundan, çoğaltma catch olmaz.<br/><br/>  Ancak, en fazla tutularak aşılıyorsa, çoğaltma yakalayabilir, ancak biraz Gecikmeli kurtarma noktalarını görebilirsiniz.
 Veri diski - standart depolama hesabı | Desteklenen |
@@ -249,7 +250,7 @@ Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimli
 Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site Recovery trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)  
 Sanal Ağ Hizmeti Uç Noktaları | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, güvenilen Microsoft hizmetlerinin depolama hesabına erişim izni verildiğini emin olun.
-Hızlandırılmış ağ | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Hızlandırılmış ağ iletişimi | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

@@ -3,18 +3,18 @@ title: Azure hizmetlerini ve uygulamalarını Grafana kullanarak izleyin
 description: Grafana içinde görüntülemek için rota Azure İzleyici ve Application Insights verileri.
 services: azure-monitor
 keywords: ''
-author: lingliw
-ms.author: v-lingwu
-ms.date: 04/12/19
+author: rboucher
+ms.author: robb
+ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396096"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387184"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Artık Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklenti çeşitli günlükleri ve ölçümler de dahil olmak üzere Azure İzleyici tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -120,8 +120,6 @@ Bu ölçümleri Prometheus sunucunuzdan içerecek şekilde ayarlamak da kullanab
 Telegraf, InfluxDB Prometheus ve Docker kullanmaya nasıl iyi bir referans makaleleri şunlardır
  - [Ubuntu 16.04 değer ÇİZGİSİ yığında ile sistem ölçümlerini izleme](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
 
- - [Grafana, InfluxDB ve Telegraf Docker kaynak ölçümleri izleme](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
-
  - [Docker ana bilgisayarları, kapsayıcılar ve kapsayıcılı hizmetler için bir izleme çözümü](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Bir Azure İzleyici ve Application Insights ölçüm olan tam bir Grafana panosunun görüntüsü aşağıda verilmiştir.
@@ -168,3 +166,4 @@ Kurulum Grafana ortamı Azure'da belirttiyseniz, VM'ler, bunları veya kullanıp
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure İzleyici ölçümlerine genel bakış](data-platform.md)
+

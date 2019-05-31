@@ -10,16 +10,16 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541078"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258159"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps'ten SAP sistemlerini bağlanma
 
-Bu makalede, SAP bağlayıcısını kullanarak şirket içi SAP kaynaklarınızdan bir mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. Bağlayıcı SAP’nin R/3, şirket için ECC sistemleri gibi klasik sürümleriyle çalışır. Bunlar - şirket içinde veya bulutta barındırılan her yerde bağlayıcı SAP'nin s/4 HANA gibi yeni SAP HANA tabanlı sistemleriyle tümleşme de sağlar. SAP bağlayıcısını SAP NetWeaver tabanlı sistemlerde Ara belge (IDoc) veya iş uygulaması programlama arabirimi (BAPI) veya uzak işlev çağrısı (RFC) aracılığıyla gelen ve giden ileti veya veri tümleştirmeyi destekler.
+Bu makalede, SAP bağlayıcısını kullanarak şirket içi SAP kaynaklarınızdan bir mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. Bağlayıcısı, R/3 ve şirket içi ECC sistemleri gibi SAP’nin klasik yayınlarıyla çalışır. Bunlar - şirket içinde veya bulutta barındırılan her yerde bağlayıcı SAP'nin s/4 HANA gibi yeni SAP HANA tabanlı sistemleriyle tümleşme de sağlar. SAP bağlayıcısını SAP NetWeaver tabanlı sistemlerde Ara belge (IDoc) veya iş uygulaması programlama arabirimi (BAPI) veya uzak işlev çağrısı (RFC) aracılığıyla gelen ve giden ileti veya veri tümleştirmeyi destekler.
 
 SAP bağlayıcısını kullanan [SAP .NET Bağlayıcısı (NCo) kitaplığı](https://support.sap.com/en/product/connectors/msnet.html) ve bu işlemleri veya eylemleri sağlar:
 
@@ -27,7 +27,7 @@ SAP bağlayıcısını kullanan [SAP .NET Bağlayıcısı (NCo) kitaplığı](ht
 * **SAP'den alma**: IDoc tRFC almak, tRFC BAPI işlevlerini veya RFC/tRFC SAP sistemlerinde çağırın.
 * **Şemalar oluşturabilirsiniz**: IDoc, BAPI veya RFC SAP yapıtlar için şemalar oluşturur.
 
-SAP bağlayıcısı yukarıdaki tüm işlemlerde kullanıcı adı ve parola üzerinden temel kimlik doğrulamasını destekler. Bağlayıcı ayrıca destekler [güvenli ağ iletişimi (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), kullanılabileceği için SAP NetWeaver çoklu oturum açma veya bir dış güvenlik ürün tarafından sağlanan ek güvenlik özellikleri.
+SAP bağlayıcısı, yukarıdaki tüm işlemler için kullanıcı adı ve parola aracılığıyla temel kimlik doğrulamasını destekler. Bağlayıcı ayrıca destekler [güvenli ağ iletişimi (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), kullanılabileceği için SAP NetWeaver çoklu oturum açma veya bir dış güvenlik ürün tarafından sağlanan ek güvenlik özellikleri.
 
 SAP bağlayıcısı şirket içi SAP sistemlerini tümleşir [şirket içi veri ağ geçidi](../logic-apps/logic-apps-gateway-connection.md). Gönderme senaryolarda, örneğin, SAP sistemine logic apps'ten ileti gönderilirken veri ağ geçidi bir RFC istemcisi olarak görev yapar ve SAP için logic apps'ten alınan isteklerden iletir.
 Benzer şekilde, alma senaryolarda veri ağ geçidi SAP'den isteklerini alır ve mantıksal uygulamaya ileten bir RFC sunucu görevi görür.
@@ -119,6 +119,8 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
       Varsa **oturum açma türü** özelliği **grubu**, genellikle isteğe bağlı görünür, bu özellikler gereklidir:
 
       ![SAP ileti sunucusu bağlantısını oluşturma](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+      Varsayılan olarak, güçlü, geçersiz değerler için XML doğrulama şemaya gerçekleştirerek denetlemek için kullanılır. Bu davranış, daha önce sorunları belirlemenize yardımcı olabilir. **Güvenli yazarak** seçenek geriye dönük uyumluluk için kullanılabilir ve yalnızca dize uzunluğunu denetler. Daha fazla bilgi edinin [ **güvenli yazarak** seçeneği](#safe-typing).
 
    1. İşiniz bittiğinde **Oluştur**’u seçin.
 
@@ -225,6 +227,8 @@ Bu örnek, bir SAP sistemden bir ileti alındığında Tetikleyiciler bir mantı
 
       ![SAP ileti sunucusu bağlantısını oluşturma](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      Varsayılan olarak, güçlü, geçersiz değerler için XML doğrulama şemaya gerçekleştirerek denetlemek için kullanılır. Bu davranış, daha önce sorunları belirlemenize yardımcı olabilir. **Güvenli yazarak** seçenek geriye dönük uyumluluk için kullanılabilir ve yalnızca dize uzunluğunu denetler. Daha fazla bilgi edinin [ **güvenli yazarak** seçeneği](#safe-typing).
+
 1. SAP sistem yapılandırmanıza göre gerekli parametreleri belirtin.
 
    İsteğe bağlı olarak, bir veya daha fazla SAP eylemleri sağlayabilir. Bu eylemlerin listesi, SAP sunucunuzdan veri ağ geçidi üzerinden tetikleyici aldığı iletileri belirtir. Boş bir liste, tetikleyici tüm mesajlarının iletildiğini belirtir. Liste birden fazla ileti sahipse, tetikleyici yalnızca listesinde belirtilen iletileri alır. SAP sunucunuzdan gönderilen iletiler, ağ geçidi tarafından reddedilir.
@@ -306,7 +310,11 @@ Tasarımcı araç çubuğunda **Kaydet**'i seçin.
 
       ![SAP ileti sunucusu bağlantısını oluşturma](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. İşiniz bittiğinde **Oluştur**’u seçin. Mantıksal uygulamalar, ayarlar ve bağlantının düzgün çalıştığından emin olun, bağlantınızı test eder.
+      Varsayılan olarak, güçlü, geçersiz değerler için XML doğrulama şemaya gerçekleştirerek denetlemek için kullanılır. Bu davranış, daha önce sorunları belirlemenize yardımcı olabilir. **Güvenli yazarak** seçenek geriye dönük uyumluluk için kullanılabilir ve yalnızca dize uzunluğunu denetler. Daha fazla bilgi edinin [ **güvenli yazarak** seçeneği](#safe-typing).
+
+   1. İşiniz bittiğinde **Oluştur**’u seçin. 
+   
+      Mantıksal uygulamalar, ayarlar ve bağlantının düzgün çalıştığından emin olun, bağlantınızı test eder.
 
 1. Şema oluşturmak istediğiniz yapıt yolunu belirtin.
 
@@ -402,6 +410,53 @@ SNC SAP sistemine gelen veya isteklerinizi etkinleştirmek için seçin **kullan
 
    > [!NOTE]
    > Snc_lıb ve snc_lıb_64 ortam değişkenleri, veri ağ geçidi ve SNC kitaplığı sahip olduğu bir makinede ayarlanmamalıdır. Ayarlanırsa, bunlar bağlayıcı aracılığıyla geçirilen SNC kitaplığı değer öncelikli.
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>Güvenli yazma
+
+SAP bağlantınızı oluşturduğunuzda varsayılan olarak, güçlü yazım, yazım geçersiz değerler için XML doğrulama şemaya gerçekleştirerek denetlemek için kullanılır. Bu davranış, daha önce sorunları belirlemenize yardımcı olabilir. **Güvenli yazarak** seçenek geriye dönük uyumluluk için kullanılabilir ve yalnızca dize uzunluğunu denetler. Seçerseniz **güvenli yazarak**, SAP TIMS türü ve DATS türünü dizeleri yerine XML eşdeğerlerine olarak kabul edilir `xs:date` ve `xs:time` nerede `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Güvenli yazarak tüm şema oluşturma, hem "gönderilen" Yük ve yanıt "alındı" ve tetikleyici için gönderilen iletiyi davranışını etkiler. 
+
+Güçlü yazım, yazım kullanıldığında (**güvenli yazarak** etkin değil), şema DATS ve TIMS türleri için daha basit XML türleri eşler:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+Güçlü yazım, yazım kullanarak iletileri gönderirken, eşleşen bir XML türü biçimine DATS ve TIMS yanıt uyumludur:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+Zaman **güvenli yazarak** olan etkin şema DATS eşler ve XML TIMS türlerine dize uzunluğu kısıtlamaları yalnızca alanlarla örneğin:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+İletileri gönderirken **güvenli yazarak** etkin DATS ve TIMS yanıt şu örnekteki gibi görünür:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar
 

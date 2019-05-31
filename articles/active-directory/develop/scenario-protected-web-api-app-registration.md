@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d8c8fcf84cd008957fcdb7cd14c4a07d9f3643
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074913"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254067"
 ---
 # <a name="protected-web-api---app-registration"></a>Korumalı web API'si - uygulama kaydı
 
@@ -34,12 +34,12 @@ Bkz: [hızlı başlangıç: Microsoft kimlik platformu bir uygulamayı kaydetme]
 Microsoft kimlik platformu uç nokta, iki tür belirteçleri verebilir: v1.0 ve v2.0 belirteçler. Bu belirteçleri hakkında daha fazla bilgi [erişim belirteçlerini](access-tokens.md). Kabul edilen belirteci sürüm bağımlı **desteklenen hesap türleri** uygulamanızı oluştururken seçtiğiniz:
 
 - Varsa değerini **desteklenen hesap türleri** olduğu **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları (örneğin, Skype, Xbox, Outlook.com) hesaplarında**, kabul edilen belirteci sürüm v2.0 olacaktır.
-- Aksi takdirde, kabul edilen belirteci sürüm v2.0 olacaktır.
+- Aksi takdirde, kabul edilen belirteci sürüm v1.0 olacaktır.
 
 Uygulamayı oluşturduktan sonra aşağıdaki adımları izleyerek kabul edilen belirteci sürüm değiştirebilirsiniz:
 
 1. Azure portalında, uygulamanızı seçin ve ardından **bildirim** uygulamanız için.
-2. Bildirimde, arama **"accessTokenAcceptedVersion"**, değeri görmek ve **2**. Bu özellik, Azure AD web API'si v2.0 belirteçleri kabul ettiğini bildiğiniz olanak tanır. Eğer öyleyse **null**, kabul edilen belirteci sürüm v1.0 olacaktır.
+2. Bildirimde, arama **"accessTokenAcceptedVersion"** , değeri görmek ve **2**. Bu özellik, Azure AD web API'si v2.0 belirteçleri kabul ettiğini bildiğiniz olanak tanır. Eğer öyleyse **null**, kabul edilen belirteci sürüm v1.0 olacaktır.
 3. **Kaydet**’i seçin.
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Uygulamayı oluşturduktan sonra aşağıdaki adımları izleyerek kabul edilen 
 
 Web API'leri, hiçbir kullanıcı, oturum açmış etkileşimli olarak olduğu gibi bir yeniden yönlendirme URI'si kaydolması gerekmez.
 
-## <a name="expose-an-api"></a>Bir API'yi kullanıma sunma
+## <a name="expose-an-api"></a>Bir API'yi kullanıma sunmak
 
 Başka bir web API'leri için belirli açık bir API ve sunulan kapsamları ayarıdır.
 

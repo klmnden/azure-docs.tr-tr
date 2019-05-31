@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 1edaf89c056918f640a905b99d01775273b2c133
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e31efb9a52ff004e6e35ddfc251732c014eedae9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941938"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257477"
 ---
-# <a name="register-a-saas-application"></a>Bir SaaS uygulaması kaydetme
+# <a name="register-a-saas-application"></a>SaaS uygulaması kaydetme
 
 Bu makalede, Microsoft kullanan bir SaaS uygulaması kaydedilecek açıklanmaktadır [Azure portalında](https://portal.azure.com/).  Başarılı bir kayıt sonrasında SaaS yerine getirme API'lerine erişmek için kullanabileceğiniz bir Azure Active Directory (Azure AD) güvenlik belirteci alırsınız.  Azure AD hakkında daha fazla bilgi için bkz. [kimlik doğrulaması nedir?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+
+> [!IMPORTANT] 
+> SaaS teklif işlevselliği geçirildiğini [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tüm yeni yayımcılar, iş ortağı merkezi yeni SaaS teklifleri oluşturma ve mevcut teklifler yönetmek için kullanmanız gerekir.  SaaS teklifleri ile geçerli yayımcılar iş ortağı Merkezi'ne batchwise bulut iş ortağı Portalı'ndan geçiriliyor.  Bulut iş ortağı portalı belirli mevcut teklifler zaman geçirilmiş belirtmek için durum iletilerini görüntüler.
+> Daha fazla bilgi için [yeni SaaS teklifi oluşturma](../../partner-center-portal/create-new-saas-offer.md).
 
 
 ## <a name="service-to-service-authentication-flow"></a>Hizmetten hizmete kimlik doğrulama akışı
@@ -45,7 +49,7 @@ Azure AD'nin özelliklerini kullanmak isteyen her uygulama önce bir Azure AD ki
         - Seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
     -   **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http://localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
-    -   **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp**.
+    -   **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp** .
 
         ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-v1-2.png)
 
@@ -72,7 +76,7 @@ HTTP yöntemi
 
 *İstek URL'si*
 
-**https://login.microsoftonline.com/*{Tenantıd}*/oauth2/belirteç**
+**https://login.microsoftonline.com/ *{Tenantıd}* /oauth2/belirteç**
 
 *URI parametresi*
 
@@ -86,7 +90,7 @@ HTTP yöntemi
 
 |  **Üst bilgi adı**  | **Gerekli** |  **Açıklama**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | İstekle ilişkili içerik türü. Varsayılan değer `application/x-www-form-urlencoded` şeklindedir.  |
+|  İçerik türü     | True         | İstekle ilişkili içerik türü. Varsayılan değer `application/x-www-form-urlencoded` şeklindedir.  |
 |  |  |  |
 
 
@@ -97,7 +101,7 @@ HTTP yöntemi
 |  Grant_type         | True         | İzin verme türü. Varsayılan değer `client_credentials` şeklindedir.                    |
 |  Client_id          | True         |  Azure AD uygulama ile ilişkili istemci/uygulama tanımlayıcısı.                  |
 |  client_secret      | True         |  Azure AD uygulama ile ilişkili parola.                               |
-|  Kaynak           | True         |  Belirtecin istendiği hedef kaynak. Varsayılan değer `62d94f6c-d599-489b-a797-3e10e42fbe22` şeklindedir. |
+|  Resource           | True         |  Belirtecin istendiği hedef kaynak. Varsayılan değer `62d94f6c-d599-489b-a797-3e10e42fbe22` şeklindedir. |
 |  |  |  |
 
 

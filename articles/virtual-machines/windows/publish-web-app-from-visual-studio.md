@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204443"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305929"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio'dan Azure VM için bir ASP.NET Web uygulaması yayımlama
 
-Bu belgeyi kullanarak bir Azure sanal makinesi (VM) için bir ASP.NET web uygulaması yayımlama açıklanır **Microsoft Azure sanal makineleri** Visual Studio 2017'deki Yayımlama özelliği.  
+Bu belgeyi kullanarak bir Azure sanal makinesi (VM) için bir ASP.NET web uygulaması yayımlama açıklanır **Microsoft Azure sanal makineleri** Yayımlama özelliği, Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bir Azure sanal makinesi için bir ASP.NET projesi yayımlamak için Visual Studio kullanmak için VM doğru şekilde ayarlanması gerekir.
@@ -34,7 +34,7 @@ Bir Azure sanal makinesi için bir ASP.NET projesi yayımlamak için Visual Stud
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>ASP.NET web uygulamanızı Visual Studio kullanarak Azure VM yayımlama
 Aşağıdaki bölümde, Azure sanal makinesi için mevcut bir ASP.NET web uygulamasını yayımlama açıklar.
 
-1. Visual Studio 2017'de, web uygulaması çözümünü açın.
+1. Visual Studio 2019 ', web uygulaması çözümünü açın.
 2. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **Yayımla...**
 3. Yayımlama seçeneklerini bulana kadar kaydırın, sayfanın sağ tarafındaki oku kullanın **Microsoft Azure sanal makineleri**.  
 
@@ -58,7 +58,7 @@ Aşağıdaki bölümde, Azure sanal makinesi için mevcut bir ASP.NET web uygula
 
 7. Yayımlamayı başlatmak için Tamam'ı tıklatın.
 
-8. Kimlik bilgileri istendiğinde, kullanıcı ve hedef rights (genellikle yönetici kullanıcı adı ve parola VM'yi oluştururken kullanılan) yayımlama ile yapılandırılmış sanal makine üzerinde bir kullanıcı hesabının parolasını sağlayın.  
+8. Kimlik bilgileri istendiğinde, kullanıcı ve hedef hakları yayımlama ile yapılandırılmış sanal makine üzerinde bir kullanıcı hesabının parolasını sağlayın. Bu kimlik genellikle bir yönetici kullanıcı adı ve parola VM'yi oluştururken kullanılan bilgileridir.  
 
    ![WebDeploy oturum açma]
 
@@ -99,12 +99,12 @@ Ayarlarınız aşağıdaki gibi görünmelidir:
 ![Yayımlama ayarları - bağlantı sayfası]
 
 #### <a name="save-user-name-and-password"></a>Kullanıcı adı ve Parolayı Kaydet
-- Her yayımladığınızda kimlik doğrulama bilgileri sağlayarak önlemek için doldurabilirsiniz **kullanıcı adı** ve **parola** alanları ve select **Parolayı Kaydet** kutusu.
+- Her yayımladığınızda kimlik doğrulama bilgileri sağlayarak kaçının. Bunu yapmak için doldurma **kullanıcı adı** ve **parola** alanları ' nı seçip **Parolayı Kaydet** kutusu.
 - Kullanım **bağlantıyı doğrula** doğru bilgileri girdiğinizden emin onaylamak için düğme.
 
 #### <a name="deploy-to-clean-web-server"></a>Web sunucusu temizlemek için dağıtma
 
-- Web sunucusu her yükleme sonrasında web uygulaması temiz bir kopyasını aldığından emin olmak istiyorsanız (ve önceki bir dağıtımın asılı geçici olarak başka hiçbir dosya bırakılır) denetleyebilirsiniz **hedefteki ek dosyaları Kaldır** onay kutusu **ayarları** sekmesi.
+- Web sunucusu web uygulamasının her yükleme sonrasında temiz bir kopya olduğunu ve başka hiçbir dosya önceki bir dağıtımdan denetleyebilirsiniz bırakılır emin olmak istiyorsanız **hedefteki ek dosyaları Kaldır** onaykutusu **Ayarları** sekmesi.
 
 - Uyarı: Bu ayar ile yayımlama web sunucusunda (wwwroot dizinini) mevcut tüm dosyaları siler. Bu seçenek etkinleştirildiğinde yayımlamadan önce makinenin durumu bildiğinizden emin olun. 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 42c94188c0c38448660998bcfc122ae626285566
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146974"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248893"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Noktadan Siteye yapılandırmamda kaç VPN istemci uç noktam olabilir?
 
@@ -38,9 +38,11 @@ Aşağıdaki istemci işletim sistemleri desteklenmektedir:
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Noktadan Siteye özelliğini kullanarak ara sunucuları ve güvenlik duvarlarını geçirebilir miyim?
 
-Azure iki Noktadan Siteye VPN seçeneği türünü destekler:
+Azure, üç noktadan siteye VPN seçeneği türünü destekler:
 
 * Güvenli Yuva Tünel Protokolü (SSTP). SSTP, Microsoft’a özel SSL tabanlı bir çözümdür ve çoğu güvenlik duvarı 443 SSL’nin kullandığı TCP bağlantı noktasını açtığı için güvenlik duvarlarından geçebilir.
+
+* OpenVPN. OpenVPN çoğu güvenlik duvarı 443 SSL'nin kullandığı TCP bağlantı noktası açık olduğundan, güvenlik duvarları duvarlarından geçebildiği bir SSL tabanlı bir çözümdür.
 
 * IKEv2 VPN. Standart tabanlı bir IPsec VPN çözümü olan IKEv2 VPN, UDP bağlantı noktası 500 ve 4500 ile 50 numaralı IP protokolünü kullanır. Güvenlik duvarları her zaman bu bağlantı noktalarını açmaz ve bu nedenle IKEv2 VPN’nin proxy ile güvenlik duvarlarını geçememe olasılığı vardır.
 
@@ -66,7 +68,7 @@ VPN tünellerinin tam verimini elde etmek zordur. IPsec ve SSTP şifrelemesi ağ
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>SSTP ve/veya IKEv2 desteği sağlayan Noktadan Siteye bağlantı için herhangi bir yazılım VPN istemcisi kullanabilir miyim?
 
-Hayır. SSTP için yalnızca Windows’daki yerel VPN istemcisini ve IKEv2 için yalnızca Mac’teki yerel VPN istemcisini kullanabilirsiniz. Desteklenen istemci işletim sistemleri listesine başvurun.
+Hayır. SSTP için yalnızca Windows’daki yerel VPN istemcisini ve IKEv2 için yalnızca Mac’teki yerel VPN istemcisini kullanabilirsiniz. Ancak, tüm platformlarda OpenVPN istemci OpenVPN protokolü üzerinden bağlanmak için kullanabilirsiniz. Desteklenen istemci işletim sistemleri listesine başvurun.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure Windows ile IKEv2 VPN destekler mi?
 

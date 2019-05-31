@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251198"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399454"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Sık sorulan sorular - Hyper-V'den Azure'a olağanüstü durum kurtarma
 
@@ -95,7 +95,7 @@ Bir veya daha fazla Vm'niz olmalıdır bir veya daha fazla tek başına veya kü
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Bir Hyper-V kümesinde yer alan VM'ler çoğaltabilirim?
 
-Evet, Site Recovery, kümelenmiş Hyper-V konakları destekler. Şunlara dikkat edin:
+Evet, Site Recovery, kümelenmiş Hyper-V konakları destekler. Aşağıdakilere dikkat edin:
 
 - Kümenin tüm düğümleri aynı kasaya kayıtlı olması gerekir.
 - Kümedeki tüm Hyper-V konakları VMM kullanmıyorsanız, aynı Hyper-V sitesine eklenmesi gerekir.
@@ -206,7 +206,7 @@ Site Recovery açıkça herhangi Hyper-V sanal makinesi, çoğaltma için etkinl
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Yük devretme sonrasında Azure Vm'lerini nasıl erişebilirim?
-Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Yük devretme sonrasında Azure Vm'lerini güvenli bir Internet bağlantısı üzerinden, siteden siteye VPN üzerinden veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>Dayanıklı veriler üzerinde başarısız oldu?
 Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri merkezi, Azure SLA'sı uygun olarak yük devretme için tasarlanmıştır. Yük devretme işlemi gerçekleştiğinde, kasanız için seçtiğiniz aynı coğrafi bölgede kasaları kalır ve biz meta verilerinizi emin olun.

@@ -1,7 +1,7 @@
 ---
 title: Çalışma alanı nedir
 titleSuffix: Azure Machine Learning service
-description: Bilgi hangi bir çalışma alanıdır ve Azure Machine Learning hizmeti için bir neden gerekiyor.
+description: Çalışma alanı, Azure Machine Learning hizmeti için en üst düzey kaynaktır. Bu günlükler, ölçümler, çıkış ve komut dosyalarınızın anlık görüntüsünü de dahil olmak üzere tüm eğitim çalıştırmalarının geçmişini tutar. Hangi eğitim çalıştırmanın en iyi modeli belirlemek için bu bilgileri kullanın
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 5785bf8f6538f1d91e7a23178e29487ebee14f29
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989827"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388965"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı nedir?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Bir Azure Machine Learning hizmeti çalışma alanı nedir?
 
-Çalışma alanı, Azure Machine Learning hizmeti için en üst düzey kaynaktır. Azure Machine Learning hizmeti kullanırken oluşturduğunuz tüm yapıları ile çalışma için merkezi bir yerdir.
+Çalışma alanı, Azure Machine Learning hizmeti, Azure Machine Learning hizmeti kullanırken oluşturduğunuz tüm yapıları ile çalışma için merkezi bir yerde sağlamak için en üst düzey kaynaktır.  Çalışma alanı, günlükler, ölçümler, çıkış ve komut dosyalarınızın anlık görüntüsünü de dahil olmak üzere tüm eğitim çalıştırmalarının geçmişini tutar. Hangi eğitim çalıştırmanın en iyi modeli belirlemek için bu bilgileri kullanın.  
 
-Çalışma alanı, günlükler, ölçümler, çıkış ve komut dosyalarınızın anlık görüntüsünü de dahil olmak üzere, bir eğitim çalıştırmalarının geçmişini tutar. Hangi eğitim çalıştırmanın en iyi modeli belirlemek için bu bilgileri kullanın.  
-
-İstediğiniz bir modeli oluşturduktan sonra çalışma alanı ile kaydedin. Azure Container Instances, Azure Kubernetes hizmeti veya bir REST tabanlı bir HTTP uç noktası olarak bir alanda programlanabilir kapı dizileri (FPGA) dağıtmak için kayıtlı model ve puanlama komut dosyaları'nı kullanın. Ayrıca, Azure IOT Edge cihazına bir modül olarak model dağıtabilirsiniz.
+İstediğiniz bir modeli oluşturduktan sonra çalışma alanı ile kaydedin. Ardından Azure Container Instances, Azure Kubernetes hizmeti veya bir REST tabanlı bir HTTP uç noktası olarak bir alanda programlanabilir kapı dizileri (FPGA) dağıtmak için kayıtlı model ve puanlama betik'ni kullanın. Ayrıca, Azure IOT Edge cihazına bir modül olarak model dağıtabilirsiniz.
 
 ## <a name="taxonomy"></a>Sınıflandırma 
 
@@ -50,7 +48,7 @@ Aşağıdaki bileşenler bir çalışma alanının diyagramda gösterilmektedir:
 Aşağıdaki yollarla çalışma alanınız ile etkileşim kurabilirsiniz:
 
 + Web üzerinde:
-    + [Azure portalı](https://azure.portal.com)
+    + [Azure portalı](https://portal.azure.com)
     + [Görsel arabirim (Önizleme)](ui-concept-visual-interface.md)
 + Azure Machine Learning Python kullanarak [SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Azure Machine Learning kullanarak komut satırında [CLI uzantısı](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)

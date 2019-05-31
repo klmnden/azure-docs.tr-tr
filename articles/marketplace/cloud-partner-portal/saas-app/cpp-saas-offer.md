@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 08baf908d47cdc6a9bc1e97f88eb5ff509d6790e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 813cfb25ebcd3dd15314d7aa05933d0bf1167917
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835048"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258052"
 ---
 # <a name="azure-saas-application-offer"></a>SaaS uygulaması için Azure teklifi
 
@@ -20,6 +20,7 @@ Bu bölümde, bir yazılım olarak hizmet (SaaS) uygulaması teklif yayımlamak 
 
 > [!IMPORTANT] 
 > SaaS teklif işlevselliği geçirilecek için [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tüm yeni yayımcılar, iş ortağı merkezi yeni SaaS teklifleri oluşturma ve mevcut teklifler yönetmek için kullanmanız gerekir.  SaaS teklifleri ile geçerli yayımcılar iş ortağı Merkezi'ne batchwise bulut iş ortağı Portalı'ndan geçiriliyor.  Bulut iş ortağı portalı belirli mevcut teklifler zaman geçirilmiş belirtmek için durum iletilerini görüntüler.
+> Daha fazla bilgi için [yeni SaaS teklifi oluşturma](../../partner-center-portal/create-new-saas-offer.md).
 
 
 Çözümünüzü, kendi Azure aboneliğinize dağıtılır ve müşterilerin tasarlamak ve uygulamayı test etmek için Yönet bir arabirim ile oturum açacak SaaS uygulamaları kullanın. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> mevcut deneme ortamınıza yararlanmak için kullanılır.

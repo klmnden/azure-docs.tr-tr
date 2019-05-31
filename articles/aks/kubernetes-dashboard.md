@@ -2,17 +2,17 @@
 title: Web panosu ile bir Azure Kubernetes Service kümesini yönetme
 description: Azure Kubernetes Service (AKS) kümesini yönetmek için yerleşik Kubernetes web kullanıcı Arabirimi Panosu kullanmayı öğrenin
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: iainfou
-ms.openlocfilehash: e831979e0a9f9c8b4d812f682403ecf466abbd13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: twhitney
+ms.openlocfilehash: 80c0bd630ba2263696b72b003e27c53f1e457704
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465519"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304536"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Kubernetes web panosuna erişme
 

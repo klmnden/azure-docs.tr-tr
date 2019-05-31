@@ -8,16 +8,20 @@ ms.topic: reference
 ms.date: 03/28/2019
 ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9b80f0fd36545de94e7128080dba5e516344c107
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943134"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257510"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS yerine getirme API sürümü 1 (kullanım dışı)
 
 Bu makalede, API'leri ile SaaS teklifi oluşturmak açıklanmaktadır. API uç noktaları, REST yöntemleri ve oluşan sahip satmak, seçili Azure SaaS teklifinizle aboneliklere izin vermek için gereklidir.  
+
+> [!IMPORTANT] 
+> SaaS teklif işlevselliği geçirildiğini [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tüm yeni yayımcılar, iş ortağı merkezi yeni SaaS teklifleri oluşturma ve mevcut teklifler yönetmek için kullanmanız gerekir.  SaaS teklifleri ile geçerli yayımcılar iş ortağı Merkezi'ne batchwise bulut iş ortağı Portalı'ndan geçiriliyor.  Bulut iş ortağı portalı belirli mevcut teklifler zaman geçirilmiş belirtmek için durum iletilerini görüntüler.
+> Daha fazla bilgi için [yeni SaaS teklifi oluşturma](../../partner-center-portal/create-new-saas-offer.md).
 
 > [!WARNING]
 > SaaS yerine getirme API bu ilk sürümünde kullanım dışı; Bunun yerine, [SaaS yerine getirme API V2](./cpp-saas-fulfillment-api-v2.md).  Bu API, yalnızca mevcut yayımcıların Hizmet şu anda sağlanıyor. 
@@ -27,7 +31,7 @@ Aşağıdaki API, SaaS hizmetinizin Azure ile tümleştirmenize yardımcı olmak
 -   Çözümleme
 -   Abone olun
 -   Dönüştür
--   Abonelikten çık
+-   aboneliği iptal et
 
 
 ## <a name="api-methods-and-endpoints"></a>API yöntemleri ve uç noktaları
@@ -121,7 +125,7 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{Subscriptionıd}* ?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -186,7 +190,7 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 
 **DÜZELTME EKİ**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{Subscriptionıd}* ?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -242,7 +246,7 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 | İşlem konumu | Evet          | İşlem durumunu almak için bir kaynak bağlayın.                                                        |
 |  |  |  |
 
-### <a name="delete-subscription"></a>Aboneliği silin
+### <a name="delete-subscription"></a>Aboneliği silme
 
 Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme açmasına olanak sağlar.
 
@@ -250,7 +254,7 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{Subscriptionıd}* ?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -300,7 +304,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{Operationıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/ *{Operationıd}* ?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -334,7 +338,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 | id                 | String        | İşlemin kimliği.                                                                      |
 | durum             | Sabit listesi          | İşlem durumu aşağıdakilerden biri: `In Progress`, `Succeeded`, veya `Failed`.          |
 | resourceLocation   | String        | Oluşturulan veya değiştirilen aboneliğinize bağlayın. Bu, istemci güncelleştirilen durumu post işlemi almak için yardımcı olur. Bu değer için ayarlanmadı `Unsubscribe` operations. |
-| oluşturuldu            | DateTime      | İşlem oluşturma zamanı UTC diliminde saat.                                                           |
+| Oluşturulan            | DateTime      | İşlem oluşturma zamanı UTC diliminde saat.                                                           |
 | Son değiştirme       | DateTime      | Son güncelleştirme işlemi UTC diliminde saat.                                                      |
 |  |  |  |
 
@@ -368,7 +372,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{Subscriptionıd}* ?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -402,11 +406,11 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| offerId                | String        | Teklif kullanıcıya abone kimliği.         |
+| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
-| oluşturuldu                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
+| Oluşturulan                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi. |
 |  |  |  |
 
@@ -474,11 +478,11 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| offerId                | String        | Teklif kullanıcıya abone kimliği.         |
+| OfferId                | String        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | String        | SaaS abonelik adı.                |
 | saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
-| oluşturuldu                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
+| Oluşturulan                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi. |
 |  |  |  |
 
@@ -526,10 +530,10 @@ Bir SaaS Web kancası değişiklikleri SaaS hizmeti için proaktif olarak bildir
 | id  | String       | Tetiklenen işlem benzersiz kimliği.                |
 | activityId   | String        | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır.               |
 | subscriptionId                     | String        | Azure abonelik kaynak kimliği, SaaS.    |
-| offerId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
+| OfferId                | String        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
 | publisherId                | String        | Yayımcı kimliği SaaS teklifi         |
 | Planıd                 | String        | Bir kullanıcı abone kimliği planlayın. Yalnızca "Güncelleştir" eylemi ile sağlanır.          |
-| action                 | String        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |
+| Eylem                 | String        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |
 | Zaman damgası                 | String        | Bu bildirim tetiklendiğinde UTC zaman damgası değeri.          |
 |  |  |  |
 

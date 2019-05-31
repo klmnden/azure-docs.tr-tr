@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: e586ab1bdcca9d6109cf42b6341c333fabb02993
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.date: 05/28/2019
+ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601674"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388351"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -211,41 +211,39 @@ Apache Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için a
 
 ## <a id="networktraffic"></a> Ağ trafiğini denetleme
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>HDInsight kümeleri için gelen trafiği denetleme
+
 Aşağıdaki yöntemleri kullanarak bir Azure sanal ağlarda ağ trafiğini denetlenebilir:
 
 * **Ağ güvenlik grupları** (NSG) ağa gelen ve giden trafiği filtrelemenize olanak tanır. Daha fazla bilgi için [ağ güvenlik grupları ile ağ trafiğini filtreleme](../virtual-network/security-overview.md) belge.
 
-    > [!WARNING]  
-    > HDInsight, giden trafiği kısıtlama desteklemez. Tüm giden trafiğe izin verilmesi.
-
-* **Kullanıcı tanımlı yollar** (UDR) ağdaki kaynakları arasındaki trafiğin nasıl akacağını tanımlayın. Daha fazla bilgi için [kullanıcı tanımlı yollar ve IP iletme](../virtual-network/virtual-networks-udr-overview.md) belge.
-
 * **Ağ sanal Gereçleri** cihazların güvenlik duvarları ve yönlendiriciler gibi çoğaltın. Daha fazla bilgi için [ağ Gereçleri](https://azure.microsoft.com/solutions/network-appliances) belge.
 
-Yönetilen bir hizmet olarak HDInsight, HDInsight sistem sınırsız erişim gerektirir ve sanal ağdan gelen ve giden trafiği için hem de Yönetim Hizmetleri. Nsg'leri ve Udr kullanırken, bu hizmetler HDInsight kümesiyle iletişim kurabildiğinden emin olmanız gerekir.
+Yönetilen bir hizmet olarak HDInsight, HDInsight sistem sınırsız erişim gerektirir ve sanal ağdan gelen ve giden trafiği için hem de Yönetim Hizmetleri. Nsg'leri kullanarak, bu hizmetler HDInsight kümesiyle iletişim kurabildiğinden emin olmanız gerekir.
 
-### <a id="hdinsight-ip"></a> HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar
+![Oluşturulan özel Azure VNET'te HDInsight varlıklar diyagramı](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-Kullanmayı planlıyorsanız **ağ güvenlik grupları** veya **kullanıcı tanımlı yollar** ağ trafiğinizi denetlemek için HDInsight'ı yüklemeden önce aşağıdaki eylemleri gerçekleştirin:
+### <a id="hdinsight-ip"></a> Ağ güvenlik grupları ile HDInsight
+
+Kullanmayı planlıyorsanız **ağ güvenlik grupları** ağ trafiğinizi denetlemek için HDInsight'ı yüklemeden önce aşağıdaki eylemleri gerçekleştirin:
 
 1. HDInsight için kullanmayı düşündüğünüz Azure bölgesinin belirleyin.
 
 2. HDInsight tarafından gerekli IP adresleri belirleyin. Daha fazla bilgi için [HDInsight tarafından gerekli IP adresleri](#hdinsight-ip) bölümü.
 
-3. Oluşturun veya ağ güvenlik grupları veya kullanıcı tanımlı yollar ile HDInsight'ı yüklemeyi planladığınız alt ağ için değiştirin.
+3. Oluşturabilir veya HDInsight içine yüklemeyi planladığınız alt ağ için ağ güvenlik gruplarını değiştirebilirsiniz.
 
-    * __Ağ güvenlik grupları__: izin __gelen__ bağlantı noktası üzerinde trafiğe __443__ IP adresleri. Bu durum, HDI Yönetim Hizmetleri, dış sanal ağdan küme erişebildiğini garanti eder.
-    * __Kullanıcı tanımlı yollar__: Udr'ler kullanmayı planlıyorsanız, her IP adresi için yönlendirme oluşturma ve ayarlama __sonraki atlama türü__ için __Internet__. Ayrıca, hiçbir kısıtlama olmaksızın sanal ağdan herhangi bir giden trafiğe izin vermelidir. Örneğin, izleme amacıyla (Azure'da barındırılan), Azure güvenlik duvarı veya ağ sanal Gereci için diğer tüm trafiği yönlendirebilirsiniz ancak giden trafiği engellenmemesi gerekir.
+    * __Ağ güvenlik grupları__: izin __gelen__ bağlantı noktası üzerinde trafiğe __443__ IP adresleri. Böylece, HDInsight Yönetimi Hizmetleri sanal ağın dışında kümeden ulaşabildiğimizden emin olursunuz.
 
-Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [ağ güvenlik gruplarına genel bakış](../virtual-network/security-overview.md).
 
-* [Ağ güvenlik grubu](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>HDInsight kümeleri giden trafiği denetleme
 
-* [Kullanıcı tanımlı yollar](../virtual-network/virtual-networks-udr-overview.md)
+HDInsight kümeleri giden trafiği denetleme hakkında daha fazla bilgi için bkz: [Azure HDInsight kümeleri için giden ağ trafiği kısıtlama yapılandırma](hdinsight-restrict-outbound-traffic.md).
 
 #### <a name="forced-tunneling-to-on-premise"></a>Şirket içi zorlamalı
 
-Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin bir alt ağdan belirli ağ veya şirket içi ağınız gibi konuma zorlanır yapılandırmadır. HDInsight mu __değil__ destek zorlamalı tünel şirket içi ağlara. Azure güvenlik duvarı veya Azure'da barındırılan bir ağ sanal Gereci kullanıyorsanız, trafiği için izleme amacıyla yönlendirmek ve tüm giden trafiğe izin vermek için Udr'ler kullanabilirsiniz.
+Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin bir alt ağdan belirli ağ veya şirket içi ağınız gibi konuma zorlanır yapılandırmadır. HDInsight mu __değil__ destek zorlamalı tünel şirket içi ağlara trafiği. 
 
 ## <a id="hdinsight-ip"></a> Gerekli IP adresleri
 
@@ -276,9 +274,9 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
     | &nbsp; | Güneydoğu Asya | 13.76.245.160</br>13.76.136.249 | \*:443 | Gelen |
     | Avustralya | Avustralya Doğu | 104.210.84.115</br>13.75.152.195 | \*:443 | Gelen |
     | &nbsp; | Avustralya Güneydoğu | 13.77.2.56</br>13.77.2.94 | \*:443 | Gelen |
-    | Brezilya | Brezilya Güney | 191.235.84.104</br>191.235.87.113 | \*:443 | Gelen |
-    | Kanada | Kanada Doğu | 52.229.127.96</br>52.229.123.172 | \*:443 | Gelen |
-    | &nbsp; | Kanada Orta | 52.228.37.66</br>52.228.45.222 |\*: 443 | Gelen |
+    | Brezilya | Güney Brezilya | 191.235.84.104</br>191.235.87.113 | \*:443 | Gelen |
+    | Kanada | Doğu Kanada | 52.229.127.96</br>52.229.123.172 | \*:443 | Gelen |
+    | &nbsp; | Orta Kanada | 52.228.37.66</br>52.228.45.222 |\*: 443 | Gelen |
     | Çin | Çin Kuzey | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Gelen |
     | &nbsp; | Çin Doğu | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Gelen |
     | &nbsp; | Çin Kuzey 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Gelen |
@@ -294,12 +292,12 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
     | &nbsp; | Japonya Batı | 40.74.125.69</br>138.91.29.150 | \*:443 | Gelen |
     | Güney Kore | Kore Orta | 52.231.39.142</br>52.231.36.209 | \*:433 | Gelen |
     | &nbsp; | Kore Güney | 52.231.203.16</br>52.231.205.214 | \*:443 | Gelen
-    | Birleşik Krallık | BK Batı | 51.141.13.110</br>51.141.7.20 | \*:443 | Gelen |
-    | &nbsp; | BK Güney | 51.140.47.39</br>51.140.52.16 | \*:443 | Gelen |
+    | Birleşik Krallık | Birleşik Krallık Batı | 51.141.13.110</br>51.141.7.20 | \*:443 | Gelen |
+    | &nbsp; | Birleşik Krallık Güney | 51.140.47.39</br>51.140.52.16 | \*:443 | Gelen |
     | Amerika Birleşik Devletleri | Orta ABD | 13.67.223.215</br>40.86.83.253 | \*:443 | Gelen |
     | &nbsp; | Doğu ABD | 13.82.225.233</br>40.71.175.99 | \*:443 | Gelen |
     | &nbsp; | Orta Kuzey ABD | 157.56.8.38</br>157.55.213.99 | \*:443 | Gelen |
-    | &nbsp; | Orta Batı ABD | 52.161.23.15</br>52.161.10.167 | \*:443 | Gelen |
+    | &nbsp; | Batı Orta ABD | 52.161.23.15</br>52.161.10.167 | \*:443 | Gelen |
     | &nbsp; | Batı ABD | 13.64.254.98</br>23.101.196.19 | \*:443 | Gelen |
     | &nbsp; | Batı ABD 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Gelen |
 
@@ -443,7 +441,7 @@ $vnet | Set-AzVirtualNetwork
 > Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 Gelen trafiği kısıtlar ancak HDInsight tarafından gerekli IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturmak için aşağıdaki adımları kullanın.
 

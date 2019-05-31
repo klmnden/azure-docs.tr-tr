@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 67cf15b00e597131afe421bf8306a5df4511af9a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965526"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416099"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Öğretici: Önerilerden maliyetlerini iyileştirme
 
@@ -49,7 +49,17 @@ Bir yönetim grubu için öneriler görüntülemek için istenen kapsamı, Azure
 
 Öneriler listesi, kullanım verimsizliklerini tanımlar veya ek paradan tasarruf etmenize yardımcı olabilecek satın alma önerileri gösterilir. Toplam **olası yıllık tasarrufları** kapatma ya da tüm öneri kurallara uygun olan Vm'leriniz serbest kaydedebileceğiniz toplam tutarı gösterir. Bunları kapatmak istemiyorsanız, bunları daha ucuz bir VM SKU için yeniden boyutlandırma düşünmelisiniz.
 
-**Etkisi** kategori ile birlikte **olası yıllık tasarrufları**, mümkün olduğunca tasarruf etme olasılığı olan önerileri belirlemenize yardımcı olması için tasarlanmıştır. Yüksek etkili önerilerdir [satın alma, Kullandıkça Öde maliyetlerinden tasarruf sağlamak için sanal makine örnekleri ayrılmış](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) ve [İyileştir sanal makine harcama yeniden boyutlandırabilir veya az kullanılan örneklerinikapatılıyor](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances). Orta etki önerilerdir [beklemediğiniz sağlanan bir ExpressRoute bağlantı hatları ortadan kaldırarak Ücretlerle](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits) ve [silme veya boşta olan sanal ağ geçitlerini yeniden Ücretlerle](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways).
+**Etkisi** kategori ile birlikte **olası yıllık tasarrufları**, mümkün olduğunca tasarruf etme olasılığı olan önerileri belirlemenize yardımcı olması için tasarlanmıştır.
+
+Yüksek etkili öneriler şunlardır:
+- [Kullandıkça Öde maliyetlerinden tasarruf sağlamak için ayrılmış sanal makine örnekleri satın alın](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [En iyi duruma getirme sanal makine harcama yeniden boyutlandırabilir veya az kullanılan örneklerini kapatılıyor](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Yönetilen disk anlık görüntülerini depolamak için standart depolama kullanma ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+Orta etki öneriler şunlardır:
+- [Başarısız olan Azure Data Factory işlem hatlarını silin](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Beklemediğiniz sağlanan bir ExpressRoute bağlantı hatları ortadan kaldırarak maliyetleri azaltın](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Silme veya boşta olan sanal ağ geçitlerini yeniden maliyetleri azaltın](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>Bir öneriye hareket
 

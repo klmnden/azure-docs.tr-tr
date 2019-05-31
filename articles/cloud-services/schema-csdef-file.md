@@ -13,12 +13,12 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea373c7b35ef82496690f213b92cc97f3536c57a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613260"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356141"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure Cloud Services Tanım Şeması (.csdef dosyası)
 Hizmet tanım dosyası, bir uygulama için hizmet modelini tanımlar. Dosya bir bulut hizmeti için kullanılabilir olan rolleri için tanımları içerir, hizmet uç noktalarını belirtir ve hizmeti için yapılandırma ayarlarını oluşturur. Yapılandırma ayarı değerleri, hizmet yapılandırma dosyasında ayarlanır, açıklandığı [bulut hizmeti (Klasik) yapılandırma şeması](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -69,7 +69,7 @@ Aşağıdaki tabloda özniteliklerini açıklayan `ServiceDefinition` öğesi.
 
 | Öznitelik               | Açıklama |
 | ----------------------- | ----------- |
-| ad                    |Gereklidir. Hizmetin adı. Ad hizmet hesabı içinde benzersiz olmalıdır.|
+| name                    |Gereklidir. Hizmetin adı. Ad hizmet hesabı içinde benzersiz olmalıdır.|
 | topologyChangeDiscovery | İsteğe bağlı. Topoloji değişikliği bildirimi türünü belirtir. Olası değerler şunlardır:<br /><br /> -   `Blast` -Güncelleştirmeleri tüm rol örneklerine olabildiğince çabuk gönderir. Seçeneği tercih ederseniz, rolü topoloji güncelleştirmeyi yeniden olmadan işleyebilir olması gerekir.<br />-   `UpgradeDomainWalk` – Güncelleştirme her rol örneği için sıralı bir şekilde önceki örneği başarıyla güncelleştirmeyi kabul ettikten sonra gönderir.|
 | schemaVersion           | İsteğe bağlı. Hizmet tanım düzenini sürümünü belirtir. Şema sürümü yan yana Visual Studio SDK'ın birden fazla sürümü yüklüyse, şema doğrulama için kullanılacak doğru SDK Araçları seçmenizi sağlar.|
-| upgradeDomainCount      | İsteğe bağlı. Yükseltme etki alanları arasında bu hizmeti rollerinde ayrılmasına sayısını belirtir. Hizmet dağıtılırken, rol örneklerinin bir yükseltme etki alanına ayrılır. Daha fazla bilgi için [bir bulut hizmeti rolü veya dağıtımını güncelleştirme](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> En fazla 20 yükseltme etki alanları belirtebilirsiniz. Belirtilmezse, yükseltme etki alanlarının varsayılan sayısı 5'tir.|
+| upgradeDomainCount      | İsteğe bağlı. Yükseltme etki alanları arasında bu hizmeti rollerinde ayrılmasına sayısını belirtir. Hizmet dağıtılırken, rol örneklerinin bir yükseltme etki alanına ayrılır. Daha fazla bilgi için [bir bulut hizmeti rolü veya dağıtımını güncelleştirme](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [sanal makinelerin kullanılabilirlik yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) ve [bir bulut hizmeti modeli nedir](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> En fazla 20 yükseltme etki alanları belirtebilirsiniz. Belirtilmezse, yükseltme etki alanlarının varsayılan sayısı 5'tir.|

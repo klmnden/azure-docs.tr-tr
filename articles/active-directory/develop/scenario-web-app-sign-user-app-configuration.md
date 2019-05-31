@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2204fe3e08b3c4b909ddc8b7ade4cec219d34fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406627"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254001"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Web uygulaması oturum açtığında kullanıcıların - kod yapılandırma
 
@@ -110,6 +110,9 @@ Aynı şekilde, URI oturumunuzu ayarlanır `https://localhost:44321/signout-call
 
 ASP.NET Core Web uygulamaları (ve Web API'leri), uygulama başlatma yapılması kod bulunan `Startup.cs` dosyası ve Microsoft Identity Platformu (eski adıyla Azure AD) v2.0 kimlik doğrulama eklemek için aşağıdaki kodu eklemeniz gerekecektir. Kod açıklamaları açıklayıcı olmalıdır.
 
+  > [!NOTE]
+  > Projenizi Visual studio veya kullanarak varsayılan ASP.NET core web projesi ile başlatırsanız `dotnet new mvc` yöntemi `AddAzureAD` ilişkili paketleri otomatik olarak yüklendiği için varsayılan olarak kullanılabilir. Ancak sıfırdan bir projeyi derleme ve kullanmayı denemekte olduğunuz kod NuGet paketini eklemenizi öneririz **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** yapmak için projenize `AddAzureAD` yöntemi kullanılabilir.
+  
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
          .AddAzureAD(options => configuration.Bind("AzureAd", options));

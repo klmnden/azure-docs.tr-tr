@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: d0d6a3d9da2768c2d7b04bd9c4a7c24fba9eb65e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 60190e0f8441d52b3d753e1dc79c67f480434dbb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129017"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240276"
 ---
 # <a name="create-an-ios-app"></a>iOS uygulaması oluşturma
 
@@ -31,15 +31,14 @@ Bu öğreticide, bir iOS uygulamasına bulut tabanlı arka uç hizmeti olan [Azu
 
 Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.com/pricing/free-trial/) ve Azure hesabınızın olması gerekir
 
-## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Adım ı: Yeni bir Azure mobil uygulama arka ucu oluşturma
+## <a name="create-a-new-azure-mobile-app-backend"></a>Yeni bir Azure mobil uygulama arka ucu oluşturma
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="step-ii-configure-the-backend-project"></a>Adım II: Arka uç projesini yapılandırma
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Veritabanı bağlantısı oluşturma ve istemci ve sunucu projesi yapılandırma
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="step-iii-download-and-run-the-ios-app"></a>Adım III: İOS uygulamasını indirme ve çalıştırma
+## <a name="run-the-ios-app"></a>İOS uygulamasını çalıştırma
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546109"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417657"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft kimlik platformu protokolleri
 
@@ -48,7 +48,7 @@ Neredeyse tüm OAuth 2.0 ve Openıd Connect akışlar Exchange'de kullanılan d�
 Hem kişisel ve iş veya Okul hesaplarını almayı isteyen her uygulama aracılığıyla kaydedilmelidir **uygulama kayıtları** deneyimini [Azure portalı](https://aka.ms/appregistrations) OAuth 2.0 kullanarak bu kullanıcıların imzalamadan önce veya Openıd Connect. Uygulama kayıt işlemi, toplamak ve uygulamanız için bazı değerler atayın:
 
 * Bir **uygulama kimliği** uygulamanızı benzersiz şekilde tanımlayan
-* A **yeniden yönlendirme URI'si** veya **paket tanımlayıcısı** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir
+* A **yeniden yönlendirme URI'si** (isteğe bağlı) yanıtları uygulamanıza geri yönlendirmek için kullanılabilir
 * Diğer birkaç senaryoya özel değerler.
 
 Daha ayrıntılı bilgi için [uygulama kaydetmeyi](quickstart-register-app.md) öğrenin.

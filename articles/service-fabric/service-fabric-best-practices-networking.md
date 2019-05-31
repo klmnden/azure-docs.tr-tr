@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038524"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237315"
 ---
 # <a name="networking"></a>Ağ
 
@@ -71,6 +71,8 @@ Altyapıyı ölçeklendirme, var olan bir kümede hızlandırılmış Ağ'ı etk
 * Windows kapsayıcı iş yüklerini çalıştırmak için kullandığınız [ağ modunu açın](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) hizmetten hizmete iletişimi kolaylaştırmak için.
 
 * Ters proxy gibi kullanın [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) veya [Service Fabric ters proxy'si](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) ortak bir uygulama bağlantı noktası 80 veya 443 gibi göstermek için.
+
+* Windows Azure bulut depolama, temel Katmanlar çekme gerçekleştirilemez kablosuz gapped makinelerde barındırılan kapsayıcılar geçersiz kılmak için yabancı katman davranışını kullanarak [--izin ver-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) Docker Daemon programını bayrağı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

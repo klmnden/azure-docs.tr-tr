@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409376"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356422"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -39,7 +39,7 @@ Azure Blob depolama alanına veri aktarmak için içeri aktarma işine oluşturm
         - [FedEX hesabı oluşturma](https://www.fedex.com/en-us/create-account.html), veya 
         - [DHL hesabı oluşturma](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-prepare-the-drives"></a>1. Adım: Sürücüleri hazırlama
+## <a name="step-1-prepare-the-drives"></a>1. adım: Sürücüleri hazırlama
 
 Bu adım, bir günlük dosyası oluşturur. Günlük dosyası sürücü seri numarası, şifreleme anahtarını ve depolama hesabı ayrıntıları gibi temel bilgileri depolar. 
 
@@ -58,7 +58,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
 6.  Disk hazırlamak için aşağıdaki komutu çalıştırın. **Veri boyutu bağlı olarak bu gün olarak birkaç saat sürebilir.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
     Günlük dosyası, Aracı çalıştırdığınız klasörde oluşturulur. İki dosyayı da oluşturulan - bir *.xml* dosyası (aracını çalıştırdığınız klasöre) ve bir *sürücü manifest.xml* dosyası (veri bulunduğu klasörü).
     
@@ -68,18 +68,18 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
     |---------|---------|
     |/j:     |.Jrn uzantısına sahip bir günlük dosyası adı. Sürücü bir günlük dosyası oluşturulur. Disk seri numarası günlük dosyası adı kullanmanızı öneririz.         |
     |/id:     |Oturum kimliği Benzersiz oturum sayısı komutu her örneği için kullanın.      |
-    |/sk:     |Azure depolama hesabı anahtarı.         |
     |/t:     |Gönderilmeye diskinin sürücü harfi. Örneğin, sürücü `D`.         |
     |/bk:     |Sürücüsü için BitLocker anahtarı. Çıktısından sayısal parolası `manage-bde -protectors -get D:`      |
     |/srcdir:     |Ardından gönderilmeye diskinin sürücü harfi `:\`. Örneğin, `D:\`.         |
     |/dstdir:     |Azure depolama alanındaki hedef kapsayıcısının adı.         |
     |/skipwrite:     |Hiçbir kopyalanması gereken yeni verileri ve disk üzerinde var olan veri olduğunu belirten seçeneği hazırlanması sağlamaktır.          |
+    |/enablecontentmd5:     |Seçeneği etkin olduğunda, MD5 Azure blok blobu karşıya yükleme sırasında hesaplanır sağlar.          |
 7. Sevk edilmesi gereken her disk için önceki adımı yineleyin. Her komut satırı çalıştırma için sağlanan ada sahip bir günlük dosyası oluşturulur.
     
     > [!IMPORTANT]
     > - Günlük dosyası ile birlikte bir `<Journal file name>_DriveInfo_<Drive serial ID>.xml` dosyası ayrıca araç bulunduğu aynı klasörde oluşturulur. Günlük dosyası çok büyük ise bir proje oluştururken, .xml dosyasını günlük dosyası yerine kullanılır. 
 
-## <a name="step-2-create-an-import-job"></a>2. Adım: İçeri aktarma işi oluşturma
+## <a name="step-2-create-an-import-job"></a>2. adım: İçeri aktarma işi oluşturma
 
 Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları gerçekleştirin.
 
@@ -98,7 +98,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
    - İçeri aktarma işi için açıklayıcı bir ad girin. İşlerinizi ilerlemesini izlemek için bir ad kullanın.
        - Ad yalnızca küçük harf, sayı ve kısa çizgi içerebilir.
        - Ad bir harf ile başlamalı ve boşluk içeremez.
-   - Abonelik seçin.
+   - Bir abonelik seçin.
    - Bir kaynak grubu seçin veya girin.  
 
      ![1. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob3.png)

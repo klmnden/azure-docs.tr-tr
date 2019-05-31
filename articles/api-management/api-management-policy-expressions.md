@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834539"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304371"
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
 İlke ifadeleri söz dizimi anlatılmaktadır C# 7. Her ifadesi örtük olarak sağlanan erişimi olan [bağlam](api-management-policy-expressions.md#ContextVariables) değişkeni ve izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türleri.
@@ -74,7 +74,7 @@ Birden fazla deyim ifadeleri içine alınmıştır `@{expression}`. Birden fazla
 ## <a name="CLRTypes"></a> .NET framework türleri içinde ilke ifadelere izin veriliyor
 Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri listeler.
 
-|Tür|Desteklenen üyeleri|
+|Type|Desteklenen üyeleri|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Tümü|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -192,7 +192,7 @@ Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri
 |System.Xml.Linq.XComment|Tümü|
 |System.Xml.Linq.XContainer|Tümü|
 |System.Xml.Linq.XDeclaration|Tümü|
-|System.Xml.Linq.XDocument|All, except: Yükle|
+|System.Xml.Linq.XDocument|All, except: Yükleme|
 |System.Xml.Linq.XDocumentType|Tümü|
 |System.Xml.Linq.XElement|Tümü|
 |System.Xml.Linq.XName|Tümü|
@@ -210,26 +210,26 @@ Adlı bir değişken `context` her ilkede örtük olarak kullanılabilir [ifade]
 
 |Bağlam değişkeni|Yöntemler, özellikler ve parametre değerlerini izin|
 |----------------------|-------------------------------------------------------|
-|Bağlam|API: IApi<br /><br /> Dağıtım<br /><br /> Geçen: TimeSpan - zaman damgası değeri ve geçerli saat arasındaki zaman aralığı<br /><br /> LastError<br /><br /> İşlem<br /><br /> Product<br /><br /> İste<br /><br /> RequestId: GUID - benzersiz istek tanımlayıcısı<br /><br /> Yanıt<br /><br /> Abonelik<br /><br /> Zaman damgası: DateTime - istek alındığında zaman içinde nokta<br /><br /> İzleme: bool - gösterir izleme açık veya kapalı olma <br /><br /> Kullanıcı<br /><br /> Değişkenleri: IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|
-|bağlamı. API|ID: dize<br /><br /> IsCurrentRevision: bool<br /><br />  Ad: dize<br /><br /> Yol: dize<br /><br /> Düzeltme: dize<br /><br /> ServiceUrl: IUrl<br /><br /> Sürüm: dize |
-|bağlamı. Dağıtım|Bölge: dize<br /><br /> ServiceName: dize<br /><br /> Sertifikaları: IReadOnlyDictionary < string, X509Certificate2 >|
-|bağlamı. Son hata|Kaynak: dize<br /><br /> Neden: dize<br /><br /> İleti: dize<br /><br /> Kapsam: dize<br /><br /> Bölüm: dize<br /><br /> Yol: dize<br /><br /> Policyıd: dize<br /><br /> Bağlamı hakkında daha fazla bilgi için. LastError, bkz: [hata işleme](api-management-error-handling-policies.md).|
-|bağlamı. İşlemi|ID: dize<br /><br /> Yöntemi: dize<br /><br /> Ad: dize<br /><br /> UrlTemplate: dize|
-|bağlamı. Ürün|API'ler: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Gruplar: IEnumerable < IGroup\><br /><br /> ID: dize<br /><br /> Ad: dize<br /><br /> Durum: sabit listesi ProductState {NotPublished, yayımlanmış}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|bağlamı. İstek|Gövde: IMessageBody<br /><br /> Sertifika: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Üst bilgiler: IReadOnlyDictionary < string, string [] ><br /><br /> IPADDRESS: dize<br /><br /> MatchedParameters: IReadOnlyDictionary < string, string ><br /><br /> Yöntemi: dize<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|
-|dize içeriği. Request.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Üstbilgi değerlerini virgülle ayrılmış istek döndürür veya `defaultValue` üstbilgi bulunamaması durumunda.|
-|bağlamı. Yanıt|Gövde: IMessageBody<br /><br /> Üst bilgiler: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: dize|
-|dize içeriği. Response.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Üstbilgi değerlerini virgülle ayrılmış bir yanıt döndürür veya `defaultValue` üstbilgi bulunamaması durumunda.|
-|bağlamı. Abonelik|Oluşturulma zamanı: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: dize<br /><br /> Anahtar: dize<br /><br /> Ad: dize<br /><br /> PrimaryKey: dize<br /><br /> İkincil anahtarı oluşturma: dize<br /><br /> StartDate: DateTime?|
-|bağlamı. Kullanıcı|E-posta: dize<br /><br /> FirstName: dize<br /><br /> Gruplar: IEnumerable < IGroup\><br /><br /> ID: dize<br /><br /> Kimlikleri: IEnumerable < IUserIdentity\><br /><br /> Soyadı: dize<br /><br /> Not: dize<br /><br /> RegistrationDate: DateTime|
-|IApi|ID: dize<br /><br /> Ad: dize<br /><br /> Yol: dize<br /><br /> Protokoller: IEnumerable < string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|
-|IGroup|ID: dize<br /><br /> Ad: dize|
-|IMessageBody|Olarak < T\>(preserveContent: bool = false): Burada T: dize, JObject, JToken, JArray, XNode, XElement ve XDocument<br /><br /> `context.Request.Body.As<T>` Ve `context.Response.Body.As<T>` İleti gövdeleri belirtilen türde bir istek ve yanıt okumak için kullanılan yöntemleri `T`. Varsayılan olarak yöntemi özgün iletinin gövde akışını kullanır ve bunu döndürdükten sonra kullanılamaz işler. Gövde akışını bir kopyası üzerinde çalışması yöntemi sağlayarak önlemek için ayarlayın `preserveContent` parametresi `true`. Git [burada](api-management-transformation-policies.md#SetBody) bir örnek görmek için.|
-|IUrl|Konak: dize<br /><br /> Yol: dize<br /><br /> Bağlantı noktası: int<br /><br /> Sorgu: IReadOnlyDictionary < string, string [] ><br /><br /> Sorgu dizesi: dize<br /><br /> Düzen: dize|
-|IUserIdentity|ID: dize<br /><br /> Sağlayıcı: dize|
-|ISubscriptionKeyParameterNames|Üstbilgi: dize<br /><br /> Sorgu: dize|
-|IUrl.Query.GetValueOrDefault dize (queryParameterName: string, defaultValue: dize)|queryParameterName: dize<br /><br /> defaultValue: dize<br /><br /> Virgülle ayrılmış bir sorgu parametresi değerleri döndürür veya `defaultValue` parametresi bulunmazsa.|
-|T bağlamı. Variables.GetValueOrDefault < T\>(variableName: string, defaultValue: T)|Değişkenadı: dize<br /><br /> defaultValue: T<br /><br /> Değişken değeri türüne yapılan döndürür `T` veya `defaultValue` değişken bulunmazsa.<br /><br /> Belirtilen türün gerçek tür döndürülen değişkenin eşleşmiyorsa bu yöntemi bir özel durum oluşturur.|
+|Bağlam|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Dağıtım](#ref-context-deployment)<br /><br /> Geçen: TimeSpan - zaman damgası değeri ve geçerli saat arasındaki zaman aralığı<br /><br /> [Son hata](#ref-context-lasterror)<br /><br /> [İşlem](#ref-context-operation)<br /><br /> [Ürün](#ref-context-product)<br /><br /> [İstek](#ref-context-request)<br /><br /> RequestId: GUID - benzersiz istek tanımlayıcısı<br /><br /> [Yanıt](#ref-context-response)<br /><br /> [Abonelik](#ref-context-subscription)<br /><br /> Zaman damgası: DateTime - istek alındığında zaman içinde nokta<br /><br /> İzleme: bool - gösterir izleme açık veya kapalı olma <br /><br /> [Kullanıcı](#ref-context-user)<br /><br /> [Değişkenleri](#ref-context-variables): IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|
+|<a id="ref-context-api"></a>bağlamı. API|ID: dize<br /><br /> IsCurrentRevision: bool<br /><br />  Ad: dize<br /><br /> Yol: dize<br /><br /> Düzeltme: dize<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Sürüm: dize |
+|<a id="ref-context-deployment"></a>bağlamı. Dağıtım|Bölge: dize<br /><br /> ServiceName: dize<br /><br /> Sertifikaları: IReadOnlyDictionary < string, X509Certificate2 >|
+|<a id="ref-context-lasterror"></a>bağlamı. Son hata|Kaynak: dize<br /><br /> Neden: dize<br /><br /> İleti: dize<br /><br /> Kapsam: dize<br /><br /> Bölüm: dize<br /><br /> Yol: dize<br /><br /> Policyıd: dize<br /><br /> Bağlamı hakkında daha fazla bilgi için. LastError, bkz: [hata işleme](api-management-error-handling-policies.md).|
+|<a id="ref-context-operation"></a>bağlamı. İşlemi|ID: dize<br /><br /> Yöntemi: dize<br /><br /> Ad: dize<br /><br /> UrlTemplate: dize|
+|<a id="ref-context-product"></a>bağlamı. Ürün|API'ler: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupları: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: dize<br /><br /> Ad: dize<br /><br /> Durum: sabit listesi ProductState {NotPublished, yayımlanmış}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>bağlamı. İstek|Gövdesi: [IMessageBody](#ref-imessagebody)<br /><br /> Sertifika: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Üstbilgileri](#ref-context-request-headers): IReadOnlyDictionary < string, string [] ><br /><br /> IPADDRESS: dize<br /><br /> MatchedParameters: IReadOnlyDictionary < string, string ><br /><br /> Yöntemi: dize<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>dize içeriği. Request.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Üstbilgi değerlerini virgülle ayrılmış istek döndürür veya `defaultValue` üstbilgi bulunamaması durumunda.|
+|<a id="ref-context-response"></a>bağlamı. Yanıt|Gövdesi: [IMessageBody](#ref-imessagebody)<br /><br /> [Üstbilgileri](#ref-context-response-headers): IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: dize|
+|<a id="ref-context-response-headers"></a>dize içeriği. Response.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Üstbilgi değerlerini virgülle ayrılmış bir yanıt döndürür veya `defaultValue` üstbilgi bulunamaması durumunda.|
+|<a id="ref-context-subscription"></a>bağlamı. Abonelik|Oluşturulma zamanı: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: dize<br /><br /> Anahtar: dize<br /><br /> Ad: dize<br /><br /> PrimaryKey: dize<br /><br /> İkincil anahtarı oluşturma: dize<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-user"></a>context.User|E-posta: dize<br /><br /> FirstName: dize<br /><br /> Grupları: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: dize<br /><br /> Kimlikleri: IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> Soyadı: dize<br /><br /> Not: dize<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-iapi"></a>IApi|ID: dize<br /><br /> Ad: dize<br /><br /> Yol: dize<br /><br /> Protokoller: IEnumerable < string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-igroup"></a>IGroup|ID: dize<br /><br /> Ad: dize|
+|<a id="ref-imessagebody"></a>IMessageBody|Olarak < T\>(preserveContent: bool = false): Burada T: dize, JObject, JToken, JArray, XNode, XElement ve XDocument<br /><br /> `context.Request.Body.As<T>` Ve `context.Response.Body.As<T>` İleti gövdeleri belirtilen türde bir istek ve yanıt okumak için kullanılan yöntemleri `T`. Varsayılan olarak yöntemi özgün iletinin gövde akışını kullanır ve bunu döndürdükten sonra kullanılamaz işler. Gövde akışını bir kopyası üzerinde çalışması yöntemi sağlayarak önlemek için ayarlayın `preserveContent` parametresi `true`. Git [burada](api-management-transformation-policies.md#SetBody) bir örnek görmek için.|
+|<a id="ref-iurl"></a>IUrl|Konak: dize<br /><br /> Yol: dize<br /><br /> Bağlantı noktası: int<br /><br /> [Sorgu](#ref-iurl-query): IReadOnlyDictionary < string, string [] ><br /><br /> Sorgu dizesi: dize<br /><br /> Düzen: dize|
+|<a id="ref-iuseridentity"></a>IUserIdentity|ID: dize<br /><br /> Sağlayıcı: dize|
+|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Üstbilgi: dize<br /><br /> Sorgu: dize|
+|<a id="ref-iurl-query"></a>IUrl.Query.GetValueOrDefault dize (queryParameterName: string, defaultValue: dize)|queryParameterName: dize<br /><br /> defaultValue: dize<br /><br /> Virgülle ayrılmış bir sorgu parametresi değerleri döndürür veya `defaultValue` parametresi bulunmazsa.|
+|<a id="ref-context-variables"></a>T bağlamı. Variables.GetValueOrDefault < T\>(variableName: string, defaultValue: T)|Değişkenadı: dize<br /><br /> defaultValue: T<br /><br /> Değişken değeri türüne yapılan döndürür `T` veya `defaultValue` değişken bulunmazsa.<br /><br /> Belirtilen türün gerçek tür döndürülen değişkenin eşleşmiyorsa bu yöntemi bir özel durum oluşturur.|
 |BasicAuthCredentials AsBasic(input: this string)|Giriş: dize<br /><br /> Giriş parametresi geçerli bir HTTP temel kimlik doğrulaması yetkilendirme isteği üst bilgisi değeri içeriyorsa, yöntem türü bir nesne döndürür. `BasicAuthCredentials`; Aksi takdirde yöntem null değeri döndürür.|
 |bool TryParseBasic (giriş: Bu dize, sonuç: BasicAuthCredentials çıkış)|Giriş: dize<br /><br /> Sonuç: BasicAuthCredentials çıkış<br /><br /> Giriş parametresi geçerli bir HTTP temel kimlik doğrulaması yetkilendirme değeri istek üstbilgisindeki içeriyorsa yöntem döndürür `true` ve sonuç parametresinin türü değeri içeren `BasicAuthCredentials`; Aksi takdirde yöntem döndürür `false`.|
 |BasicAuthCredentials|Parola: dize<br /><br /> UserId: dize|

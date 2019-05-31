@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si alfabeye yöntemi
 titlesuffix: Azure Cognitive Services
 description: Translator metin API'si alfabeye yöntemi kullanın.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796953"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387385"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator metin çevirisi API'si 3.0: Transliterate
 
@@ -41,7 +41,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td>*Gerekli parametre*.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
   <tr>
-    <td>dil</td>
+    <td>language</td>
     <td>*Gerekli parametre*.<br/>Bir komut dosyasından diğerine dönüştürmek için metin dilini belirtir. Olası diller listelenmiştir `transliteration` kapsam alınan hizmet için sorgulama yaparak kendi [desteklenen diller](./v3-0-languages.md).</td>
   </tr>
   <tr>
@@ -64,7 +64,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">kimlik doğrulaması için kullanılabilir seçenekler</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>İçerik türü</td>
     <td>*Gerekli istek üst bilgisi*.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: `application/json`.</td>
   </tr>
   <tr>
@@ -111,7 +111,7 @@ JSON yanıtı örneği verilmiştir:
 ]
 ```
 
-## <a name="response-headers"></a>Yanıt üst bilgileri
+## <a name="response-headers"></a>Yanıt Üstbilgileri
 
 <table width="100%">
   <th width="20%">Üst bilgiler</th>
@@ -127,7 +127,7 @@ JSON yanıtı örneği verilmiştir:
 Bir isteği döndüren olası HTTP durum kodları şunlardır: 
 
 <table width="100%">
-  <th width="20%">Durum Kodu</th>
+  <th width="20%">Durum kodu</th>
   <th>Açıklama</th>
   <tr>
     <td>200</td>

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485160"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304149"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL veritabanı kullanan bir tek başına tek kiracılı uygulamasını dağıtma ve keşfetme
 
@@ -25,9 +25,9 @@ Bu öğreticide, dağıtın ve tek başına uygulama veya uygulama Kiracı baş�
 
 Tek başına uygulama veya Kiracı başına uygulama düzeni her Kiracı için bir uygulama örneği dağıtır.  Her uygulama için belirli bir kiracıda yapılandırılmış ve ayrı bir Azure kaynak grubunda dağıtılan. Uygulamanın birden fazla örneği, çok kiracılı bir çözüm sağlamak için sağlanır. Bu düzen nerede Kiracı yalıtımı en önemli önceliktir kiracılar için az sayıda idealdir. Azure, bir kiracının aboneliğe dağıtılacak kaynaklar sağlayan ve yönetilen iş ortağı programları bir hizmet sağlayıcısı tarafından Kiracı adına sahiptir. 
 
-Bu öğreticide, Azure aboneliğinizde oturum üç kiracılar için üç tek başına uygulama dağıtır.  Size keşfedin ve tek tek uygulama bileşenleri ile çalışmak için tam erişime sahiptir.
+Bu öğreticide, Azure aboneliğinizde oturum üç kiracılar için üç tek başına uygulama dağıtacaksınız.  Size keşfedin ve tek tek uygulama bileşenleri ile çalışmak için tam erişime sahiptir.
 
-Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub deposu. Uygulamayı Visual Studio 2015 kullanılarak oluşturulmuş ve başarıyla açın ve Visual Studio 2017'de güncelleştirmeden.
+Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub deposu. Uygulama Visual Studio 2015 kullanılarak oluşturulmuş olan ve olmayan başarıyla açın ve Visual Studio 2019 içinde güncelleştirmeden.
 
 
 Bu öğreticide şunları öğrenirsiniz:
@@ -37,7 +37,7 @@ Bu öğreticide şunları öğrenirsiniz:
 > * Uygulama kaynak kodunu ve yönetim komut dosyaları elde edileceği.
 > * Sunucuları ve uygulamayı oluşturan veritabanları hakkında.
 
-Ek öğreticiler kullanıma sunulacaktır. Bunlar, bir dizi bu uygulama deseni temel alınarak yönetim senaryolarını keşfetmek izin verir.   
+Ek öğreticiler kullanıma sunulacaktır. Bir dizi bu uygulama deseni temel alınarak yönetim senaryolarını keşfetmek sağlarlar.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Wingtip bilet SaaS tek başına uygulamayı dağıtma
 
@@ -56,7 +56,7 @@ Uygulama için üç sağlanan Kiracı dağıtın:
     > Tanıtım amacıyla kasıtlı olarak güvenli olmayan bazı kimlik doğrulama ve sunucu güvenlik duvarı. **Yeni bir kaynak grubu oluşturma** her uygulama dağıtımı için.  Mevcut bir kaynak grubunu kullanmayın. Bu uygulamayı ya da oluşturduğu kaynakları üretim için kullanmayın. İlgili faturalandırmayı durdurmak için uygulama ile işiniz bittiğinde, tüm kaynak gruplarını silin.
 
     Yalnızca küçük harf, sayı ve kısa çizgi, kaynak adlarını kullanmak en iyisidir.
-    * İçin **kaynak grubu**Yeni Oluştur'u seçin ve ardından kaynak grubu için küçük bir ad sağlayın. **Wingtip-sa -\<venueName\>-\<kullanıcı\>**  önerilen modelidir.  İçin \<venueName\>, boşluk içermeyen mekan adıyla değiştirin. İçin \<kullanıcı\>, kullanıcı değeri aşağıdan değiştirin.  Bu desen ile kaynak grubu adları olabilir *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * İçin **kaynak grubu**Yeni Oluştur'u seçin ve ardından kaynak grubu için küçük bir ad sağlayın. **Wingtip-sa -\<venueName\>-\<kullanıcı\>**  önerilen modelidir.  İçin \<venueName\>, mekan adı boşluk ile değiştirin. İçin \<kullanıcı\>, kullanıcı değeri aşağıdan değiştirin.  Bu desen ile kaynak grubu adları olabilir *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Seçin bir **konumu** aşağı açılan listeden.
 
     * İçin **kullanıcı** -adınızın baş harflerini artı bir basamağı gibi bir kısa bir kullanıcı değeri öneririz: Örneğin, *af1*.
@@ -107,7 +107,7 @@ Her Kiracı veritabanının, 50 DTU *tek başına* veritabanı.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - Çok kiracılı SaaS uygulamaları hakkında bilgi edinmek için [çok kiracılı SaaS uygulamaları için Tasarım Düzenleri](saas-tenancy-app-design-patterns.md).

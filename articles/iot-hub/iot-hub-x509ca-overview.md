@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615030"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257574"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA sertifikalarını kullanarak cihaz kimlik doğrulaması
 
@@ -40,7 +40,7 @@ X.509 CA sertifika, cihazlarınızın her biri için sertifikaları zincirine ü
 
 Ayrıca, deneme veya kullanmak için otomatik olarak imzalanan X.509 CA kapalı IOT ağlar oluşturabilirsiniz.
 
-X.509 CA sertifikanızı almak, onun karşılık gelen özel anahtar parolası tuttuğunuzdan emin olun ve korumalı bakılmaksızın her zaman.  Bu, güven X.509 CA kimlik doğrulama güven ilişkisi oluşturmak için gereklidir.
+X.509 CA sertifikanızı almak, karşılık gelen özel anahtar sır tuttuğunuzdan emin olun ve korumalı bakılmaksızın her zaman.  Bu, güven X.509 CA kimlik doğrulama güven ilişkisi oluşturmak için gereklidir.
 
 Bilgi nasıl [otomatik olarak imzalanan bir sertifika oluşturmak](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), deneme boyunca bu özellik açıklaması için kullanabilirsiniz.
 

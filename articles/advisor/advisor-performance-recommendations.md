@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920439"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254660"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Danışmanı ile Azure uygulamalarını'nın performansını artırma
 
@@ -93,6 +93,22 @@ Azure Danışmanı, okuma ve yazma sunucudaki son yedi okuma açısından yoğun
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Azure MySQL, PostgreSQL Azure veya Azure MariaDB sunucunuzun bağlantı kısıtlamaları önlemek için daha yüksek bir SKU için ölçeği
 Her yeni bağlantı veritabanı sunucunuza bazı bellek kaplar. Sunucunuza bağlantılar nedeniyle başarısız oluyorsa veritabanı sunucusunun performansı düşürür bir [üst sınırı](https://docs.microsoft.com/azure/postgresql/concepts-limits) bellekte. Azure Danışmanı ile birçok bağlantı hataları çalıştıran sunucuları tanımlamak ve hesaplamayı ölçeklendirme veya bellek için iyileştirilmiş, daha fazla işlem çekirdeği başına SKU'ları, kullanarak sunucunuza daha fazla bellek sağlamak için sunucunuzun bağlantı sınırları öneririz.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Önbelleğinize başka bir boyutu veya SKU önbellek artırmak için ölçeklendirme ve uygulama performansı
+
+Önbellek örnekleri, en yüksek bellek baskısı, yüksek sunucu iş yükü veya onlara yanıt vermemeye, veri kaybı veya kullanılamaz duruma neden olabilecek yüksek ağ bant genişliği altında çalıştırılmadığında gerçekleştirin. Danışman Bu koşullar önbellek örnekleri tanımlar ve bellek baskısı, sunucu iş yükü veya ağ bant genişliğini azaltmak için en iyi yöntemleri uygulayarak ya da bir başka bir boyutu veya SKU ile daha fazla kapasite ölçeklendirme önerilir.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Azure Cosmos DB hesabınıza bölge trafik ile ekleme
+
+Danışman şu anda yapılandırılmamış bir bölgeden trafik olan Azure Cosmos DB hesaplarını algılar ve bu bölge eklemenizi öneririz. Bu, bu bölgede gelen istekleri için gecikme süresi artar ve bölgede kesintiler yaşanması kullanılabilirliği garanti eder. [Azure Cosmos DB ile genel veri dağıtımı hakkında daha fazla bilgi edinin](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Azure Cosmos DB yapılandırmak dahil veya yolları hariç müşteri ile dizin oluşturma ilkesi
+
+Azure Danışmanı, varsayılan dizinleme ilkesinin kullanıyor, ancak iş yükü deseni temel alınarak özel dizin oluşturma ilkesi sağlayabileceğiyle Cosmos DB kapsayıcıları tanımlar. Varsayılan dizinleme ilkesinin tüm özelliklerini dizinler, ancak sorgu filtrelerinde kullanılan açık veya içeri yolların özel bir dizin oluşturma ilkesini kullanarak dizin oluşturma için kullanılan depolama ve RU azaltabilir. [Dizin ilkeleri değiştirme hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Yapılandırma, Azure Cosmos DB sorgu sayfası boyutu (MaxItemCount)-1 
+
+Azure Danışmanı sorgu sayfası boyutu 100 kullanıyorsanız ve bir sayfa boyutu-1 için daha hızlı tarama kullanmanızı öneririz, Azure Cosmos DB kapsayıcıları tanımlar. [En fazla öğe sayısı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Nasıl Danışmanı performans önerileri
 

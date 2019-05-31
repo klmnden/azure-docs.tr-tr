@@ -12,12 +12,12 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824568"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388209"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için son kullanıcı deneyimleri
 Azure Active Directory (Azure AD), kuruluşunuzdaki son kullanıcılar uygulamaları dağıtmak için çeşitli özelleştirilebilir yol sağlar:
@@ -48,7 +48,7 @@ Office 365 uygulama başlatıcısında hakkında daha fazla bilgi için bkz: [uy
 ## <a name="direct-sign-on-to-federated-apps"></a>Birleştirilmiş uygulamalarda doğrudan oturum açma
 SAML 2.0, WS-Federation ve Openıd destekleyen en Federasyon uygulamaları, kullanıcıların uygulamayı başlatın ve ardından Azure AD kullanarak otomatik yeniden yönlendirme veya bir bağlantıya tıklayarak oturum açmak için oturum de destek bağlanın. Bu hizmet sağlayıcısı olarak bilinir-oturum açma başlatılan ve Azure AD uygulama galerisinde en Federasyon uygulamalarına destek (Ayrıntılar için Azure Portalı'nda uygulamanın çoklu oturum açma Yapılandırması Sihirbazı'ndan belgelerine bağlı bu bakın).
 
-![](./media/end-user-experiences/workdaymobile.png)
+![Bir mobil uygulama oturum açma sayfası örneği](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Oturum açma doğrudan bağlantılar
 Azure AD çoklu oturum açma uygulamalar için doğrudan bağlantılar parola tabanlı çoklu oturum açma, bağlantılı çoklu oturum açma ve herhangi bir biçimde Federasyon çoklu oturum açmayı destekleyen tek tek de destekler.

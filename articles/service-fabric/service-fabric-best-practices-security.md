@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136479"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386722"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric güvenliği 
 
@@ -201,6 +201,14 @@ Aşağıdaki örnek, Cosmos DB kaynak için bunun nasıl yapılacağını göste
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Windows Güvenlik temelleri
+[Geniş çapta bilinen ve Microsoft güvenlik temellerini kendiniz bir taban çizgisi oluşturmak yerine gibi iyi sınanmış bir endüstri standardı yapılandırma uygulamak öneririz](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); bunlar, sanal makinenizde sağlama seçeneği Ölçek kümeleri kullanmaktır Azure Desired State Configuration (DSC) uzantısı işleyicisi, VM'ler için üretim yazılımı çalıştıran çevrimiçi geldikleri şekilde yapılandırmak için.
+
+## <a name="azure-firewall"></a>Azure Güvenlik Duvarı
+[Azure güvenlik duvarı, Azure sanal ağ kaynaklarını koruyan bir yönetilen, bulut tabanlı bir ağ güvenlik hizmetidir. Bir yerleşik yüksek kullanılabilirlik ve ölçeklenebilirlik sınırsız bulut hizmetiyle tamamen durum bilgisi olan bir güvenlik duvarı gibidir. ](https://docs.microsoft.com/azure/firewall/overview); Bu joker karakterler dahil olmak üzere tam etki alanı adlarını (FQDN) belirtilen bir listesi için giden HTTP/S trafik sınırlama imkanı sağlar. Bu özelliğe SSL sonlandırması gerekmez. Kendi yararlanın, önerilen [Azure güvenlik duvarı FQDN etiketleri](https://docs.microsoft.com/azure/firewall/fqdn-tags) Windows güncelleştirmeleri ve Microsoft Windows Update ağ trafiğini etkinleştirmek için uç noktalar, güvenlik duvarı üzerinden akabilir. [Azure bir şablon kullanarak güvenlik duvarı dağıtma](https://docs.microsoft.com/azure/firewall/deploy-template) Microsoft.Network/azureFirewalls kaynak şablon tanımı için bir örnek sağlar.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 

@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 93b5aeafafdc6ab7ee233f6360bb5e09f45b387f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708825"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297059"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Apache kafka'ya bağlanma
 
@@ -197,8 +197,10 @@ Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kulla
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -240,7 +242,7 @@ Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kulla
 
 Varsayılan olarak, Apache Zookeeper istemcilere Kafka aracılarına etki alanı adını döndürür. Bu yapılandırma, sanal ağdaki varlıklar için ad çözümlemesi kullanılamaz olarak VPN yazılım istemcisi ile çalışmaz. Bu yapılandırma için Kafka, etki alanı adları yerine IP adreslerini tanıtacak şekilde yapılandırmak için aşağıdaki adımları kullanın:
 
-1. Bir web tarayıcısı kullanarak Git https://CLUSTERNAME.azurehdinsight.net. Değiştirin __CLUSTERNAME__ HDInsight kümesinde Kafka adı.
+1. Bir web tarayıcısı kullanarak Git `https://CLUSTERNAME.azurehdinsight.net`. Değiştirin `CLUSTERNAME` HDInsight kümesinde Kafka adı.
 
     İstendiğinde, küme için HTTPS kullanıcı adını ve parolayı kullanın. Küme için Ambari Web kullanıcı Arabirimi görüntülenir.
 
@@ -320,7 +322,9 @@ Kafka bağlanabilirliği doğrulamak için oluşturup bir Python üretici ve tü
 
 2. Yüklemek için aşağıdakileri kullanın [kafka python](https://kafka-python.readthedocs.io/) istemci:
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. Kafka için veri göndermek için aşağıdaki Python kodu kullanın:
 

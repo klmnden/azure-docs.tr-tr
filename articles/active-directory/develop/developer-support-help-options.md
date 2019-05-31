@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962650"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235331"
 ---
 # <a name="support-and-help-options-for-developers"></a>Geliştiriciler için destek ve Yardım seçenekleri
 
@@ -35,7 +35,7 @@ Yalnızca Azure Active Directory (Azure AD), Microsoft kimlikleri veya Microsoft
 > * Kimlik doğrulama kitaplıklarımızı biri ile ilgili bir sorun bulursanız, yükseltmek bir *GitHub* sorunu
 > * Son olarak, birine konuşmak gerekirse, bir destek isteği açmak isteyebilirsiniz
 
-## <a name="search"></a>Arama
+## <a name="search"></a>Ara
 
 Geliştirme ile ilgili sorularınız varsa belgelerinde yanıt bulmak mümkün olabilir [GitHub örneklerine](https://github.com/azure-samples), veya yanıtlarını [Stack Overflow](https://www.stackoverflow.com) sorular.
 
@@ -51,7 +51,7 @@ Burada *{Your arama terimlerini}* arama sözcüklerinizi karşılık gelir.
 
 ## <a name="use-the-development-support-tools"></a>Geliştirme Destek Araçları'nı kullanın
 
-| Tool  | Açıklama  |
+| Aracı  | Açıklama  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Yapıştırma kimliği veya talep adlarını ve değerlerini kodunu çözmek için erişim belirteci. |
 | [Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer)| Aracı istekleri ve yanıtları Microsoft Graph API karşı görmeniz olanak tanır. |
@@ -81,10 +81,10 @@ Stack Overflow aşağıdaki gönderilerinden soru sorma ve kaynak kodu ekleme ip
 
 Bir hata veya bizim kitaplıklara ilgili bir sorun bulursanız, bir sorun GitHub depolarımızdaki yükseltin. Bizim kitaplıkları açık kaynak olduğundan, ayrıca bir çekme isteği gönderebilirsiniz.
 
-Kitaplıklar ve kendi GitHub depoları listesini görmek için aşağıdaki makalelere bakın:
+Kitaplıklar ve kendi GitHub depoları listesi için aşağıdakilere bakın:
 
 * [ADAL](active-directory-authentication-libraries.md) kitaplıkları ve GitHub depoları
-* [MSAL](reference-v2-libraries.md) kitaplıkları ve GitHub depoları
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), ve [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) kitaplıkları ve GitHub depoları
 
 ## <a name="open-a-support-request"></a>Bir destek isteği açın
 

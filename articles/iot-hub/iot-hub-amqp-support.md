@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: rezas
-ms.openlocfilehash: f39f184bdc09677e347a2691351309dd6483f467
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d256faa42161e276e165f95c944b9f58ac4a8927
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965398"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297409"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-amqp-protocol"></a>AMQP protokolünü kullanarak IOT hub ile iletişim
 
@@ -28,10 +28,10 @@ Hizmet istemcisi için aşağıdaki bilgiler gereklidir:
 
 | Bilgi | Değer | 
 |-------------|--------------|
-| IoT Hub Ana Bilgisayar Adı | `<iot-hub-name>.azure-devices.net` |
+| IOT Hub ana bilgisayar adı | `<iot-hub-name>.azure-devices.net` |
 | Anahtar adı | `service` |
 | Erişim anahtarı | Hizmetle ilişkili birincil veya ikincil anahtarı |
-| Paylaşılan Erişim İmzası | Kısa süreli SAS şu biçimde: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` (Bu imzayı üretmek için kod bulunabilir [burada](./iot-hub-devguide-security.md#security-token-structure)).
+| Paylaşılan erişim imzası | Kısa süreli SAS şu biçimde: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` (Bu imzayı üretmek için kod bulunabilir [burada](./iot-hub-devguide-security.md#security-token-structure)).
 
 
 Kodu aşağıdaki kod parçacığını kullanır [Python uAMQP kitaplıkta](https://github.com/Azure/azure-uamqp-python) gönderen bağlantı üzerinden IOT hub'a bağlanmak için.
@@ -62,7 +62,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 ### <a name="invoking-cloud-to-device-messages-service-client"></a>Bulut-cihaz iletilerini (hizmeti istemcisi) çağırma
 Bulut-cihaz ileti exchange hizmeti ve IOT hub'ı arasındaki yanı sıra IOT Hub ile cihaz arasındaki açıklanan [burada](iot-hub-devguide-messages-c2d.md). Hizmet istemcisi daha önce gönderilen iletiler için geri bildirim alabilir ve iletileri göndermek için aşağıda açıklanan iki bağlantı kullanır.
 
-| Oluşturan | Bağlantı türü | Bağlantı yolu | Açıklama |
+| Tarafından oluşturulan | Bağlantı türü | Bağlantı yolu | Açıklama |
 |------------|-----------|-----------|-------------|
 | Hizmet | Gönderen bağlantısı | `/messages/devicebound` | Cihazları hedefleyen C2D iletileri için bu bağlantı hizmet tarafından gönderilir. Bu bağlantı üzerinden gönderilen iletilere kendi `To` özelliği hedef cihazın alıcı bağlantı yolu: başka bir deyişle, `/devices/<deviceID>/messages/devicebound`. |
 | Hizmet | Alıcı bağlantıya | `/messages/serviceBound/feedback` | Bu bağlantıya hizmeti tarafından alınan cihazlardan gelen tamamlama, ret ve abandonment geri bildirim iletileri. Geri bildirim iletileri hakkında daha fazla bilgi için bkz: [burada](./iot-hub-devguide-messages-c2d.md#message-feedback). |
@@ -194,20 +194,142 @@ for msg in batch:
 Belirli bir cihaz kimliği için IOT hub'ı bir cihaz kimliği, iletileri depolamak için hangi bölümünün belirlemek için kullanır. Yukarıdaki kod parçacığında tek bir alıcı olayları gösterir. Bu tür bir bölüm. Ancak, tüm olay hub'ı bölümleri içinde depolanan olayları almak tipik bir uygulama genelde gerektiğini unutmayın.
 
 
-### <a name="additional-notes"></a>Ek notlar
-* AMQP bağlantıları ağ sorun veya (kodda oluşturulan) kimlik doğrulama belirteci süre sonu nedeniyle kesilmiş olabilir. Hizmeti istemcisi, şu durumlarda işlemek ve bağlantı ve gerekirse bağlantıları yeniden oluşturun. Kimlik doğrulama belirteci süre sonu durum istemci bağlantı bırakma önlemek için sona erme önce belirteç de proaktif bir şekilde yenileyebilirsiniz.
-* Bazı durumlarda, istemci bağlantıyı yeniden yönlendirmeleri doğru bir şekilde işleyebilir olması gerekir. Bu işlemi işlemek nasıl AMQP istemcisi belgelerinize başvurun.
+## <a name="device-client"></a>Cihaz istemcisi
 
-### <a name="receive-cloud-to-device-messages-device-and-module-client"></a>Bulut-cihaz iletilerini (cihaz ve modül istemci)
-AMQP bağlantıları cihaz tarafında kullanılan aşağıdaki gibidir:
+### <a name="connection-and-authenticating-to-iot-hub-device-client"></a>Bağlantı ve IOT Hub'ına (cihaz istemcisi) kimlik doğrulaması
+AMQP kullanarak IOT hub'a bağlanmak için bir cihaz kullanabilirsiniz [talep tabanlı güvenlik (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) veya [Basit kimlik doğrulaması ve güvenlik katmanı (SASL) kimlik doğrulaması](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
 
-| Oluşturan | Bağlantı türü | Bağlantı yolu | Açıklama |
+Cihaz istemcisi için aşağıdaki bilgiler gereklidir:
+
+| Bilgi | Değer | 
+|-------------|--------------|
+| IOT Hub ana bilgisayar adı | `<iot-hub-name>.azure-devices.net` |
+| Erişim anahtarı | Cihazla ilişkili birincil veya ikincil anahtarı |
+| Paylaşılan erişim imzası | Kısa süreli SAS şu biçimde: `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}` (Bu imzayı üretmek için kod bulunabilir [burada](./iot-hub-devguide-security.md#security-token-structure)).
+
+
+Kodu aşağıdaki kod parçacığını kullanır [Python uAMQP kitaplıkta](https://github.com/Azure/azure-uamqp-python) gönderen bağlantı üzerinden IOT hub'a bağlanmak için.
+
+```python
+import uamqp
+import urllib
+import uuid
+
+# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+from helper import generate_sas_token
+
+iot_hub_name = '<iot-hub-name>'
+hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
+device_id = '<device-id>'
+access_key = '<primary-or-secondary-key>'
+username = '{device_id}@sas.{iot_hub_name}'.format(device_id=device_id, iot_hub_name=iot_hub_name)
+sas_token = generate_sas_token('{hostname}/devices/{device_id}'.format(hostname=hostname, device_id=device_id), access_key, None)
+
+operation = '<operation-link-name>' # e.g., '/devices/{device_id}/messages/devicebound'
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+receive_client = uamqp.ReceiveClient(uri, debug=True)
+send_client = uamqp.SendClient(uri, debug=True)
+```
+
+Aşağıdaki bağlantı yolları cihaz işlemleri desteklenir:
+
+| Tarafından oluşturulan | Bağlantı türü | Bağlantı yolu | Açıklama |
 |------------|-----------|-----------|-------------|
 | Cihazlar | Alıcı bağlantıya | `/devices/<deviceID>/messages/devicebound` | Cihazları hedefleyen C2D iletiler bu bağlantıya her hedef cihaz tarafından alınır. |
+| Cihazlar | Gönderen bağlantısı | `/devices/<deviceID>messages/events` | Bir CİHAZDAN gönderilen D2C iletileri, bu bağlantı üzerinden gönderilir. |
 | Cihazlar | Gönderen bağlantısı | `/messages/serviceBound/feedback` | Bu bağlantı üzerinden cihazlar tarafından gönderilen C2D ileti geri bildirim. |
-| Modüller | Alıcı bağlantıya | `/devices/<deviceID>/modules/<moduleID>/messages/devicebound` | Modüller için hedeflenen C2D iletiler bu bağlantıya her hedef modülü tarafından alınır. |
-| Modüller | Gönderen bağlantısı | `/messages/serviceBound/feedback` | C2D ileti geri bildirim hizmetine modülleri tarafından bu bağlantı üzerinden gönderilir. |
 
+
+### <a name="receive-c2d-commands-device-client"></a>C2D komutlar (cihaz istemcisi) alır
+Cihazlara gönderilen komutların C2D geldiğinde üzerinde `/devices/<deviceID>/messages/devicebound` bağlantı. Cihazlar toplu olarak bu ileti alma ve ileti veri yükü, ileti özelliklerini, ek açıklamalar veya uygulama özellikleri iletisinde gerektiğinde kullanın.
+
+Kodu aşağıdaki kod parçacığını kullanır [Python uAMQP kitaplıkta](https://github.com/Azure/azure-uamqp-python) bir cihaz tarafından C2D iletileri almak için.
+
+```python
+# ... 
+# Create a receive client for the C2D receive link on the device
+operation = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+receive_client = uamqp.ReceiveClient(uri, debug=True)
+while True:
+  batch = receive_client.receive_message_batch(max_batch_size=5)
+  for msg in batch:
+    print('*** received a message ***')
+    print(''.join(msg.get_data()))
+
+    # Property 'to' is set to: '/devices/device1/messages/devicebound',
+    print('\tto:                     ' + str(msg.properties.to))
+
+    # Property 'message_id' is set to value provided by the service
+    print('\tmessage_id:             ' + str(msg.properties.message_id))
+
+    # Other properties are present if they were provided by the service
+    print('\tcreation_time:          ' + str(msg.properties.creation_time))
+    print('\tcorrelation_id:         ' + str(msg.properties.correlation_id))
+    print('\tcontent_type:           ' + str(msg.properties.content_type))
+    print('\treply_to_group_id:      ' + str(msg.properties.reply_to_group_id))
+    print('\tsubject:                ' + str(msg.properties.subject))
+    print('\tuser_id:                ' + str(msg.properties.user_id))
+    print('\tgroup_sequence:         ' + str(msg.properties.group_sequence))
+    print('\tcontent_encoding:       ' + str(msg.properties.content_encoding))
+    print('\treply_to:               ' + str(msg.properties.reply_to))
+    print('\tabsolute_expiry_time:   ' + str(msg.properties.absolute_expiry_time))
+    print('\tgroup_id:               ' + str(msg.properties.group_id))
+
+    # Message sequence number in the built-in Event hub
+    print('\tx-opt-sequence-number:  ' + str(msg.annotations['x-opt-sequence-number']))
+```
+
+### <a name="send-telemetry-messages-device-client"></a>Telemetri göndermek (cihaz istemcisi)
+Telemetri iletilerini cihazlardan AMQP üzerinden gönderilen. Cihaz, uygulama özellikleri sözlüğü isteğe bağlı olarak sağlayabilir veya çeşitli ileti özelliklerinin gibi ileti kimliği.
+
+Kodu aşağıdaki kod parçacığını kullanır [Python uAMQP kitaplıkta](https://github.com/Azure/azure-uamqp-python) bir CİHAZDAN D2C ileti göndermek için.
+
+
+```python
+# ... 
+# Create a send client for the D2C send link on the device
+operation = '/devices/{device_id}/messages/events'.format(device_id=device_id)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+send_client = uamqp.SendClient(uri, debug=True)
+
+# Set any of the applicable message properties
+msg_props = uamqp.message.MessageProperties()
+msg_props.message_id = str(uuid.uuid4())
+msg_props.creation_time = None
+msg_props.correlation_id = None
+msg_props.content_type = None
+msg_props.reply_to_group_id = None
+msg_props.subject = None
+msg_props.user_id = None
+msg_props.group_sequence = None
+msg_props.to = None
+msg_props.content_encoding = None
+msg_props.reply_to = None
+msg_props.absolute_expiry_time = None
+msg_props.group_id = None
+
+# Application properties in the message (if any)
+application_properties = { "app_property_key": "app_property_value" }
+
+# Create message
+msg_data = b"Your message payload goes here"
+message = uamqp.Message(msg_data, properties=msg_props, application_properties=application_properties)
+
+send_client.queue_message(message)
+results = send_client.send_all_messages()
+
+for result in results:
+    if result == uamqp.constants.MessageState.SendFailed:
+        print result
+```
+
+## <a name="additional-notes"></a>Ek notlar
+* AMQP bağlantıları ağ sorun veya (kodda oluşturulan) kimlik doğrulama belirteci süre sonu nedeniyle kesilmiş olabilir. Hizmeti istemcisi, şu durumlarda işlemek ve bağlantı ve gerekirse bağlantıları yeniden oluşturun. Kimlik doğrulama belirteci süre sonu durum istemci bağlantı bırakma önlemek için sona erme önce belirteç de proaktif bir şekilde yenileyebilirsiniz.
+* Bazı durumlarda, istemci bağlantıyı yeniden yönlendirmeleri doğru bir şekilde işleyebilir olması gerekir. Bu işlemi işlemek nasıl AMQP istemcisi belgelerinize başvurun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Data Lake depolama alanından Azure SQL veri ambarı yükü | Microsoft Docs'
+title: Azure Data Lake depolama alanından Azure SQL veri ambarı öğretici yükü | Microsoft Docs
 description: Verileri Azure Data Lake depolama alanından Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9d6a2c097a6040e7c005cc0feeefd59caf352441
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850492"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244494"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Verileri Azure Data Lake depolama alanından SQL Data Warehouse'a veri yükleme
 Verileri Azure Data Lake depolama alanından Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın. Data Lake depolanan veriler üzerinde geçici sorgular çalıştırabilirsiniz, ancak en iyi performans için SQL veri ambarı'na verilerin içeri aktarılması önerilir.

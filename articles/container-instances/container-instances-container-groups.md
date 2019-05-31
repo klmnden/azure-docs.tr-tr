@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cba57875daf9b570d274ec8c4e9c4146af0dc045
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518650"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072839"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container ınstances'da kapsayıcı grupları
 
@@ -65,7 +65,7 @@ Daha fazla bilgi için [ResourceRequirements] [ resource-requirements] kapsayıc
 
 * Ayırma bir **minimum** 1 CPU ve bellek bir kapsayıcı grubu için 1 GB. Bir grup içindeki tek bir container Instances ile 1'den küçük sağlanabilir CPU ve bellek 1 GB. 
 
-* İçin **maksimum** kapsayıcı grubundaki kaynaklara bakın [kaynak kullanılabilirliğini] [aci-bölge-kullanılabilirliği] dağıtım bölgesinde Azure Container Instances için.
+* İçin **maksimum** kapsayıcı grubundaki kaynaklar [kaynak kullanılabilirliğini] [ region-availability] dağıtım bölgesinde Azure Container Instances için.
 
 ## <a name="networking"></a>Ağ
 

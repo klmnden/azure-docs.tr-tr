@@ -2,7 +2,7 @@
 title: Azure zaman serisi öngörüleri Önizleme kullanım örnekleri | Microsoft Docs
 description: Azure zaman serisi öngörüleri Önizleme kullanım örnekleri anlayın.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27c79155a4630f49faf49f30b2d46bf1e0dffd90
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 787445d5186a173b2cba674b36cd95879cc863e5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508309"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389988"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure zaman serisi öngörüleri Önizleme kullanım örnekleri
 
@@ -28,11 +28,11 @@ Bu makalede, Azure zaman serisi öngörüleri önizlemesi için birçok yaygın 
 * Time Series Insights için kullanmanın avantajları nelerdir [operasyonel analiz ve işlem verimliliğini](#operational-analysis-and-driving-process-efficiency)?
 * Time Series Insights için kullanmanın avantajları nelerdir [Gelişmiş analiz](#advanced-analytics)?
 
-Bu genel kullanım senaryoları aşağıda açıklanmıştır.
+Bu genel kullanım senaryoları aşağıdaki bölümlerde açıklanmıştır.
 
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 
-Azure Time Series Insights uçtan uca hizmet olarak platform teklifidir. Toplamak, işlem, depolamak, çözümlemek ve yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veri sorgulamak için kullanılır. Time Series Insights, geçici veri keşfi ve operasyonel analiz için idealdir. Time Series Insights karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan bir benzersiz şekilde genişletilebilir, özelleştirilmiş, hizmetidir.
+Azure Time Series Insights uçtan uca hizmet olarak platform teklifidir. Toplamak, işlem, depolamak, çözümlemek ve yüksek oranda contextualized, zaman serisi iyileştirilmiş IOT ölçekli veri sorgulamak için kullanılır. Time Series Insights, geçici veri keşfi ve operasyonel analiz için idealdir. Time Series Insights karşıladığını endüstriyel IOT dağıtımları geniş gerektiğini sunan bir benzersiz şekilde genişletilebilir, özelleştirilmiş hizmetidir.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Veri inceleme ve görsel anormali algılama
 
@@ -54,7 +54,7 @@ Time Series Insights içinde depolanan verilerle etkileşim kurmak için başlı
 
     * Okuma [zaman serisi öngörüleri JS istemci Kitaplığı](tutorial-explore-js-client-lib.md) ve [Time Series Insights istemci](https://github.com/Microsoft/tsiclient) JavaScript SDK'sı hakkında daha fazla bilgi edinmek için belgeleri.
 
-    * URL'ler ve yeni kullanıcı Arabirimi inceleyerek paylaşma hakkında daha fazla bilgi edinin [Önizleme gezginde verileri görselleştirme](time-series-insights-update-explorer.md).
+    * URL'ler ve yeni kullanıcı Arabirimi inceleyerek paylaşma hakkında daha fazla bilgi edinin [Azure zaman serisi öngörüleri önizlemesi gezginde verileri görselleştirme](time-series-insights-update-explorer.md).
 
 - Başlatmak için üçüncü Time Series Insights içinde depolanan verileri sorgulamak için güçlü API'lerini kullanmaktır. Time Series Insights sahip geçici işleçler gibi `from`, `to`, `first`, ve `last`. Toplamalar ve dönüştürmeler gibi sahip `average`, `min`, `max`, `split by`, `order by`, ve `DateHistogram`. İşleçler gibi filtreleme de vardır `has`, `in`, `and`, `or`, `greater than`, ve `REGEX`. Bu işleçler, ilginç eğilimleri ve desenleri verilerinizi hızla bulmak aşağı akış uygulamaları etkinleştirin. Anomalileri görselleştirmeleri ev yapımı doldurmak için bunları kullanın.
 
@@ -97,7 +97,5 @@ Time Series Insights, iki basit ve ekonomik şekilde IOT veri ve Gelişmiş anal
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinin [zaman serisi öngörüleri Önizleme Gezgini](./time-series-insights-update-explorer.md).
-
-- Ortamınızın planlamak için okuma [zaman serisi öngörüleri Önizleme planlama](./time-series-insights-update-plan.md).
-
+- Okuma [zaman serisi öngörüleri Önizleme planlama](./time-series-insights-update-plan.md) ortamınızı planlamak için.
 - Okuma [Time Series Insights istemci](https://github.com/Microsoft/tsiclient) belgeleri.

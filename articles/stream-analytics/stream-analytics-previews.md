@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/29/2019
+ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561147"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393683"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -30,10 +30,6 @@ Azure Stream Analytics işleri, Visual Studio Code'da yazılabilir. Bkz. bizim [
 ### <a name="anomaly-detection"></a>Anomali Algılama
 
 Azure Stream Analytics yeni makine öğrenimi modelleri için destek tanıtır *depo* ve *Düşüşler* yönlü, yavaş yavaş olumlu ve olumsuz eğilimleri saptama yanı sıra algılama. Daha fazla bilgi için ziyaret [Azure Stream analytics'te Anomali algılama](stream-analytics-machine-learning-anomaly-detection.md).
-
-### <a name="sql-database-reference-data"></a>SQL veritabanı başvuru verileri
-
-Azure Stream Analytics, Azure SQL veritabanı kaynağı başvuru verileri için giriş olarak destekler. SQL veritabanı, Stream Analytics işiniz için Visual Studio ve Azure portalında Stream Analytics araçları ile başvuru veri kullanabilirsiniz. Daha fazla bilgi için ziyaret [kullanımı başvuru verilerini bir SQL veritabanı için Azure Stream Analytics işi](sql-reference-data.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning ile tümleştirme
 

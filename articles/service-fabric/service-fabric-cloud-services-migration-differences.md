@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387647"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258647"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Geçiş yapmadan önce Cloud Services ve Service Fabric arasındaki farklar hakkında bilgi edinin uygulamalar.
 Microsoft Azure Service Fabric, yüksek düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için tasarlanan yeni nesil bulut uygulama platformudur. Bu, paketleme, dağıtma, yükseltme ve dağıtılan bulut uygulamaları yönetmek için birçok yeni özellik sunar. 
@@ -88,6 +88,24 @@ Bulut Hizmetleri gibi durum bilgisi olmayan ortamlarda katmanlar arasında ortak
 Service Fabric'te aynı iletişim modelini kullanılabilir. Service Fabric mevcut bir Cloud Services uygulamasına geçirirken bu yararlı olabilir. 
 
 ![Service Fabric doğrudan iletişim][8]
+
+## <a name="parity"></a>Eşlik
+[Bulut Hizmetleri, kullanım kolaylığı ve kontrol derecesi Service fabric'e benzerdir, ancak artık eski bir hizmet olduğundan ve Service Fabric yeni geliştirme projeleri için önerilen](https://docs.microsoft.com/azure/app-service/overview-compare); bir API karşılaştırması aşağıda verilmiştir:
+
+
+| **Bulut hizmeti API'si** | **Service Fabric API** | **Notlar** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId veya. NodeName | Kimliği bir NodeName özelliğidir. |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | NodeName üzerinde filtreleme ve FD özelliğini kullanın |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Üzerinde NodeName filtrelemek ve yükseltme özelliğini kullanın |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext veya (ResolveService) adlandırma | FabricRuntime.GetActivationContext hem içinde yineleme sırasında sağlanan ServiceInitializationParameters.CodePackageActivationContext aracılığıyla sağlanan CodePackageActivationContext. Başlatma |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Aynı sıralama listesini alabilirsiniz türüne göre filtreleme yapmak istiyorsanız kümeden düğüm türleri FabricClient.ClusterManager.GetClusterManifest bildirim ve buradan rol/düğüm türleri alın. |
+| RoleEnvironment.GetIsAvailable | Connect WindowsFabricCluster veya belirli bir düğüme işaret eden bir FabricRuntime oluşturun | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList veya ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext veya (ResolveService) adlandırma | * |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 En basit geçiş yolunun bulut Hizmetleri'nden Service Fabric uygulamanızı genel mimarisi yaklaşık aynı kalmasını bir Service Fabric uygulaması ile yalnızca bulut Hizmetleri dağıtım değiştirmektir. Aşağıdaki makalede bir Web veya çalışan rolü bir Service Fabric durum bilgisi olmayan hizmet dönüştürme yardımcı olacak bir kılavuz sağlar.

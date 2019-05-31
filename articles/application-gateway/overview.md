@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64947260"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418120"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway nedir?
 
@@ -29,9 +29,9 @@ Bu yönlendirme türü, uygulama katmanı (OSI katman 7) yük dengelemesi olarak
 
 Azure Application Gateway aşağıdaki özellikleri içerir:
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Güvenli Yuva Katmanı (SSL) sonlandırma
+## <a name="secure-sockets-layer-ssltls-termination"></a>Güvenli Yuva Katmanı (SSL/TLS) sonlandırma
 
-Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Bu özellik, web sunucularının maliyetli şifreleme ve şifre çözme ek yükünden kurtulmasını sağlar. Ancak bazen şifrelenmemiş iletişimin sunucularına kabul edilebilir bir seçenek değildir. Bu güvenlik gereksinimleri, uyumluluk gereksinimleri nedeniyle olabilir veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Bu uygulamalar için application gateway uçtan uca SSL şifrelemesini destekler.
+Application gateway, arka uç sunucularına şifrelenmemiş olarak genellikle hangi trafik akışları sonra geçidinde SSL/TLS sonlandırma destekler. Bu özellik, web sunucularının maliyetli şifreleme ve şifre çözme ek yükünden kurtulmasını sağlar. Ancak bazen şifrelenmemiş iletişimin sunucularına kabul edilebilir bir seçenek değildir. Bu güvenlik gereksinimleri, uyumluluk gereksinimleri nedeniyle olabilir veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Bu uygulamalar için application gateway uçtan uca SSL/TLS şifrelemesi destekler.
 
 ## <a name="autoscaling"></a>Otomatik ölçeklendirme
 

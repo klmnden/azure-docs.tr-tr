@@ -1,20 +1,20 @@
 ---
-title: Hizmet parametreleri, PostgreSQL için Azure veritabanı'nda yapılandırma
-description: Bu makalede hizmet parametreleri için Azure CLI komut satırını kullanarak PostgreSQL için Azure veritabanı'nda yapılandırma açıklanır.
+title: Hizmet parametreleri - tek bir sunucu PostgreSQL için Azure veritabanı'nda yapılandırma
+description: Bu makalede hizmet parametreleri - Azure CLI komut satırını kullanarak tek bir sunucu PostgreSQL için Azure veritabanı'nda yapılandırma açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9a9312d347f896047a5f8606b2518b63830c4d76
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421229"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067182"
 ---
-# <a name="customize-server-configuration-parameters-using-azure-cli"></a>Azure CLI kullanarak sunucu yapılandırma parametrelerini özelleştirme
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>PostgreSQL - Azure CLI kullanarak tek bir sunucu için Azure veritabanı sunucu yapılandırma parametrelerini özelleştirme
 Liste göstermek ve komut satırı arabirimi (Azure CLI) kullanarak Azure PostgreSQL sunucusu için yapılandırma parametreleri güncelleştirin. Bir alt kümesini altyapısı yapılandırmaları, sunucu düzeyinde kullanıma sunulan ve değiştirilebilir. 
 
 ## <a name="prerequisites"></a>Önkoşullar

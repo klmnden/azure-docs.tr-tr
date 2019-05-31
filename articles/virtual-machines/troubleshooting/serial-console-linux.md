@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: fe08569937dc29ecbc66da1cb2c431cca11a8580
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835100"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389030"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux için Azure seri konsol
 
@@ -117,7 +117,9 @@ Seri konsol önyükleme tanılama ayarını devre dışı bırakarak belirli san
 > Etkinleştirmek veya seri konsol bir abonelik için devre dışı bırakmak için abonelik için yazma izinleri olmalıdır. Yönetici veya sahip rollerinin bu izinleri içerir. Özel roller ayrıca yazma izinlerine sahip olabilir.
 
 ### <a name="subscription-level-disable"></a>Abonelik düzeyinde devre dışı bırak
-Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](/rest/api/serialconsole/console/disableconsole). Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, girin **varsayılan** için **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
+Seri konsol tüm bir abonelik için devre dışı bırakılabilir [devre dışı konsol REST API çağrısı](/rest/api/serialconsole/console/disableconsole). Bu eylem, katkıda bulunan düzeyinde erişim gerektirir ya da yukarıdaki abonelik. Kullanabileceğiniz **deneyin** işlevi devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için bu API belgeleri sayfasında kullanılabilir. Abonelik Kimliğinizi girin **Subscriptionıd**, girin **varsayılan** için **varsayılan**ve ardından **çalıştırma**. Azure CLI komutları henüz kullanılamamaktadır.
+
+Seri konsol aboneliği yeniden etkinleştirmek için kullanın [etkinleştirme konsol REST API çağrısı](/rest/api/serialconsole/console/enableconsole).
 
 ![REST API'yi deneyin](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -182,10 +184,10 @@ Geçici hataların çoğu olduğundan, bağlantınızı yeniden deneniyor genell
 
 Hata                            |   Risk azaltma
 :---------------------------------|:--------------------------------------------|
-Önyükleme tanılama ayarları alınamadı  *&lt;VMNAME&gt;*. Seri konsol kullanmak için bu VM için o önyükleme tanılaması etkin emin olun. | Sanal makine olduğundan emin olun [önyükleme tanılaması](boot-diagnostics.md) etkin.
+Önyükleme tanılama ayarları alınamadı  *&lt;VMNAME&gt;* . Seri konsol kullanmak için bu VM için o önyükleme tanılaması etkin emin olun. | Sanal makine olduğundan emin olun [önyükleme tanılaması](boot-diagnostics.md) etkin.
 Durdurulan serbest bırakılmış durumda vm'dir. VM'yi başlatın ve seri konsol bağlantısı yeniden deneyin. | Sanal Makinenin seri konsoluna erişmek için başlatılmış durumda olması gerekir.
 Bu sanal makine seri konsolu ile kullanmak için gerekli izinlere sahip değil. En az olduğundan emin olun sanal makine Katılımcısı rolü izinleri.| Seri konsol erişimi belirli izinler gerektirir. Daha fazla bilgi için [önkoşulları](#prerequisites).
-Önyükleme tanılaması depolama hesabı için kaynak grubu belirlenemiyor  *&lt;STORAGEACCOUNTNAME&gt;*. Bu VM için önyükleme tanılaması etkin ve bu depolama hesabına erişiminiz olduğunu doğrulayın. | Seri konsol erişimi belirli izinler gerektirir. Daha fazla bilgi için [önkoşulları](#prerequisites).
+Önyükleme tanılaması depolama hesabı için kaynak grubu belirlenemiyor  *&lt;STORAGEACCOUNTNAME&gt;* . Bu VM için önyükleme tanılaması etkin ve bu depolama hesabına erişiminiz olduğunu doğrulayın. | Seri konsol erişimi belirli izinler gerektirir. Daha fazla bilgi için [önkoşulları](#prerequisites).
 Web yuvası kapalı veya açılamadı. | Beyaz listeye gerekebilir `*.console.azure.com`. Daha ayrıntılı ancak uzun yaklaşımdır beyaz listeye [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653), nispeten düzenli olarak değiştiği.
 Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken "Yasak" yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı yok emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
 
@@ -198,6 +200,7 @@ Tuşuna basarak **Enter** sonra bağlantı başlığı görüntülenecek bir otu
 Seri konsol metin yalnızca bir kısmını ekran boyutunu (genellikle bir metin düzenleyicisi kullanarak sonra) alır. | Seri konsol penceresi boyutu hakkında anlaşması desteklemez ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)) SIGWINCH sinyali yok olacak anlamına gönderilen ekran boyutu güncelleştirilecek ve VM terminalinizi 's boyutu olanağıyla olacaktır. Xterm veya sunmak için benzer bir yardımcı programını yüklemek `resize` komutunu ve ardından çalıştırın `resize`.
 Uzun dizeler yapıştırma çalışmaz. | Seri konsol seri bağlantı noktası bant genişliği aşırı yüklemesini önlemek için 2048 karakter terminale içine yapıştırdığınız dize uzunluğunu kısıtlar.
 Seri konsol ile bir depolama hesabı güvenlik duvarı çalışmıyor. | Seri konsol tasarıma göre depolama hesabı önyükleme tanılama depolama hesabı etkin güvenlik duvarları ile çalışmaz.
+Seri konsol hiyerarşik ad alanları ile Azure Data Lake depolama Gen2'ı kullanarak bir depolama hesabı ile çalışmaz. | Bu, hiyerarşik ad alanları ile bilinen bir sorundur. Azaltmak için Azure Data Lake depolama Gen2'ı kullanarak sanal makinenizin önyükleme tanılaması depolama hesabı oluşturulmaz emin olun. Bu seçenek yalnızca depolama hesabı oluşturulduktan sonra ayarlayabilirsiniz. Ayrı önyükleme tanılaması depolama hesabı Azure Data Lake depolama bu sorunu gidermek için etkin Gen2 oluşturmanız gerekebilir.
 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular

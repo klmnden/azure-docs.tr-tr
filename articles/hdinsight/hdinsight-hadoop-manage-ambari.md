@@ -6,20 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1659ab72620b6bf91eb932f8414a0f6600350e37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714477"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257988"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight kümelerini yönetme
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari, yönetim ve bir kolayca web UI ve REST API'si kullanma sağlayarak bir Apache Hadoop kümesini izleme basitleştirir. Ambari, Linux tabanlı HDInsight kümelerine dahil ve küme izleme ve yapılandırma değişiklikleri yapmak için kullanılır.
+Apache Ambari, yönetim ve bir kolayca web UI ve REST API'si kullanma sağlayarak bir Apache Hadoop kümesini izleme basitleştirir. Ambari, HDInsight kümelerine dahil ve küme izleme ve yapılandırma değişiklikleri yapmak için kullanılır.
 
 Bu belgede, Ambari Web kullanıcı arabirimini bir HDInsight kümesi ile kullanma konusunda bilgi edinin.
 
@@ -27,14 +27,9 @@ Bu belgede, Ambari Web kullanıcı arabirimini bir HDInsight kümesi ile kullanm
 
 [Apache Ambari](https://ambari.apache.org) bir kolayca kullanıma web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari, yönetmek ve Hadoop kümeleri izlemek için kullanabilirsiniz. Geliştiriciler tümleştirilebilir yeteneklere uygulamalarına kullanarak [Ambari REST API'lerini](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-Ambari Web kullanıcı Arabirimi, varsayılan olarak Linux işletim sistemini HDInsight kümeleri ile sağlanır.
-
-> [!IMPORTANT]  
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
-
 ## <a name="connectivity"></a>Bağlantı
 
-Ambari Web kullanıcı arabirimini konumunda HDInsight kümenize kullanılabilir HTTPS://CLUSTERNAME.azurehdinsight.netburada **CLUSTERNAME** kümenizin adıdır.
+Ambari Web kullanıcı arabirimini konumunda HDInsight kümenize kullanılabilir `https://CLUSTERNAME.azurehdinsight.net`burada `CLUSTERNAME` kümenizin adıdır.
 
 > [!IMPORTANT]  
 > HDInsight üzerinde Ambari bağlanma HTTPS gerektirir. Kimlik doğrulaması için istendiğinde, yönetici hesabı adını ve kümeyi oluştururken belirttiğiniz parolayı kullanın.
@@ -54,23 +49,17 @@ Sayfa açıldığında, üst çubuk unutmayın. Bu çubuk, aşağıdaki bilgiler
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Ambari logosu** -kümesini izlemek için kullanılan Pano açılır.
-
-* **Küme adı # ops** -Ambari devam eden işlemlerin sayısını görüntüler. Küme adını seçerek veya **# ops** arka plan işlemleri listesini görüntüler.
-
-* **# Uyarıları** -görüntüler uyarı veya kritik uyarı varsa küme.
-
-* **Pano** -panoyu görüntüler.
-
-* **Hizmetleri** -kümedeki hizmetlerin bilgilerine ve yapılandırma ayarları.
-
-* **Konaklar** -küme içindeki düğümler için bilgileri ve yapılandırma ayarları.
-
-* **Uyarılar** -günlük bilgi, uyarı ve kritik uyarılar.
-
-* **Yönetici** -küme, hizmet hesabı bilgilerini ve Kerberos güvenlik yüklü yazılım yığını/Hizmetleri.
-
-* **Yönetici düğmesi** -Ambari yönetimi, kullanıcı ayarlarını ve oturum kapatma.
+|Öğe |Açıklama |
+|---|---|
+|Ambari logosu|Kümesini izlemek için kullanılan Pano açılır.|
+|Küme adı # ops|Devam eden Ambari işlemlerin sayısını görüntüler. Küme adını seçerek veya **# ops** arka plan işlemleri listesini görüntüler.|
+|# Uyarıları|Uyarı veya kritik uyarı varsa küme görüntüler.|
+|Pano|Panoyu görüntüler.|
+|Hizmetler|Kümedeki hizmetlerin bilgilerine ve yapılandırma ayarları.|
+|Ana bilgisayarlar|Küme içindeki düğümler için bilgileri ve yapılandırma ayarları.|
+|Uyarılar|Bilgi, uyarı ve kritik uyarılar günlüğü.|
+|Yönetici|Yazılım yığını / küme, hizmet hesabı bilgilerini ve Kerberos güvenlik yüklenen hizmetleri.|
+|Yönetici düğmesi|Ambari yönetimi, kullanıcı ayarlarını ve oturum kapatma.|
 
 ## <a name="monitoring"></a>İzleme
 
@@ -162,31 +151,18 @@ Kullanıcıları, grupları ve izinleri ile çalışma kullanırken desteklenen 
 
 2. Kullanım **eylemleri** menüsünde gerçekleştirmek istediğiniz eylemi seçin:
 
-   * **Tüm bileşenleri başlatın** -konakta tüm bileşenleri başlatın.
-
-   * **Tüm bileşenleri Durdur** -konakta tüm bileşenleri durdur.
-
-   * **Tüm bileşenleri yeniden Başlat** Stop - ve konakta tüm bileşenleri başlatın.
-
-   * **Bakım Modu'nu** -ana bilgisayar için uyarıları bastırır. Uyarıları oluşturan eylemler gerçekleştiriyorsa Bu mod etkinleştirilmelidir. Örneğin, bir Hizmeti'ni durdurma ve başlatma.
-
-   * **Bakım modunu devre dışı bırakmak** -normal uyarmak için ana döndürür.
-
-   * **Durdur** -durakları DataNode veya konaktaki NodeManagers.
-
-   * **Başlangıç** -DataNode başlatır veya konaktaki NodeManagers.
-
-   * **Yeniden** -durur ve konaktaki DataNode veya NodeManagers başlatır.
-
-   * **Yetkisini** -bir ana bilgisayar kümeden kaldırır.
-
-     > [!NOTE]  
-     > Bu eylem, HDInsight kümelerinde kullanmayın.
-
-   * **Recommission** -daha önce yetkisi alınmış bir konak kümesine ekler.
-
-     > [!NOTE]  
-     > Bu eylem, HDInsight kümelerinde kullanmayın.
+    |Öğe |Açıklama |
+    |---|---|
+    |Tüm bileşenleri başlatın|Tüm bileşenleri konakta başlatın.|
+    |Tüm bileşenleri Durdur|Konakta tüm bileşenleri durdur.|
+    |Tüm bileşenleri yeniden Başlat|Durdur ve konakta tüm bileşenleri başlatın.|
+    |Bakım modunu açma|Ana bilgisayar için uyarıları bastırır. Uyarıları oluşturan eylemler gerçekleştiriyorsa Bu mod etkinleştirilmelidir. Örneğin, bir Hizmeti'ni durdurma ve başlatma.|
+    |Bakım modunu kapat|Normal uyarmak için ana döndürür.|
+    |Durdur|Konakta DataNode veya NodeManagers durdurur.|
+    |Başlat|Konakta DataNode veya NodeManagers başlatır.|
+    |yeniden başlatıp|Durdurur ve konakta DataNode veya NodeManagers başlatır.|
+    |Yetkisini alma|Bir konak kümeden kaldırır. **Bu eylem, HDInsight kümelerinde kullanmayın.**|
+    |Recommission|Daha önce yetkisi alınmış bir konak kümesine ekler. **Bu eylem, HDInsight kümelerinde kullanmayın.**|
 
 ### <a id="service"></a>Hizmetleri
 
@@ -226,7 +202,6 @@ Bir hizmeti yapılandırmak için aşağıdaki adımları kullanın:
 ## <a name="ambari-views"></a>Ambari görünümleri
 
 Ambari görünümlerini izin Ambari Web kullanıcı arabirimini kullanarak kullanıcı Arabirimi öğeleri takın geliştiricilerin [Apache Ambari görünümleri Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight Hadoop küme türleri ile aşağıdaki görünümleri sağlar:
-
 
 * Hive görünümü: Hive görünümü doğrudan web tarayıcınızdan Hive sorguları çalıştırmanıza olanak sağlar. Sorguları kaydedebilir, sonuçları görüntülemek, sonuçları küme depolama alanına kaydedin veya sonuçları, yerel bir sisteme indirme. Hive görünümleri kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile kullanmak Apache Hive görünümleri](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

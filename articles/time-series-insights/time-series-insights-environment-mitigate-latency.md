@@ -4,7 +4,7 @@ description: Bu makalede, izleme, tanılama ve gecikme süresi ve azaltma Azure 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6151af941b89198812f2a33a522b30ff0a8796a0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471733"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242068"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde gecikme süresini azaltmak için azaltmayı giderme ve izleme
 
@@ -62,7 +62,7 @@ Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsini
 |**Alınan ileti zaman gecikmesini giriş**    |  İleti sıraya alınan olay olduğu zaman arasındaki saniye cinsinden kaynak ve giriş işlendiği zaman farkı.      |
 |**İleti sayısı Lag giriş alındı**    |  Son sıradaki ileti sıra numarası arasındaki fark, giriş işlenmekte olan ileti bölüm ve sıra sayısı olay kaynağı.      |
 
-![Gecikme](media/environment-mitigate-latency/latency.png)
+![Gecikme süresi](media/environment-mitigate-latency/latency.png)
 
 * Aşarak, bir değer görürsünüz *giriş alınan ileti zaman gecikmesini*, kaç saniye, TSI arkasında gerçekleşen süresi iletidir size bildiren İsabetleri (appx dizin oluşturma zamanı dışında. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı Lag* arkasında, ileti sayısını belirlemek sağlayan bir değer de sahip olmalıdır.  Yakalanan için en kolay yolu, fark üstesinden olanak sağlayacak bir boyuta ortamınızın kapasite artırmaktır.  
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ca3cbb1ef46c7fe53b6b16bda40ebef245613f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415649"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245049"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure'a Office 365'ten veri kopyalama
 
@@ -41,8 +41,8 @@ Azure'da Office 365'ten veri kopyalamak için aşağıdaki önkoşul adımların
 - Office 365 Kiracı yöneticiniz kolaylaşmasına eylemleri açıklandığı gibi tamamlayın [burada](https://docs.microsoft.com/graph/data-connect-get-started).
 - Oluşturun ve Azure Active Directory'de bir Azure AD web uygulaması yapılandırın.  Yönergeler için [bir Azure AD uygulaması oluştur](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Office 365 için bağlı hizmetini tanımlamak için kullanacağınız aşağıdaki değerleri not edin:
-    - Kiracı kimliği Yönergeler için [Kiracı kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-    - Uygulama kimliği ve uygulama anahtarı.  Yönergeler için [uygulama kimliği ve kimlik doğrulama anahtarını Al](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - Kiracı kimliği Yönergeler için [Kiracı kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Uygulama kimliği ve uygulama anahtarı.  Yönergeler için [uygulama kimliği ve kimlik doğrulama anahtarını Al](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 - Azure AD web uygulaması sahibi olarak veri erişim isteği yapacak kullanıcı kimliğini ekleyin (Azure AD web uygulaması > Ayarlar > sahipleri > Ekle sahibi). 
     - Kullanıcı kimliği, içinden verileri alma ve Konuk kullanıcı olmamalıdır Office 365 kuruluşta olması gerekir.
 

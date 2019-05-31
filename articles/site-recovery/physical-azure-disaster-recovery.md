@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3b9aa6fcf5cf96e3ef1f3bdd76e9f1d19be5c5c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098176"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400112"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarmayı ayarlama
 
@@ -110,7 +110,7 @@ Yapılandırma sunucusu ayarlarsınız, kasaya kaydedin ve Vm'leri keşfedin.
 2. Yapılandırma sunucusu yoksa, tıklayın **+ yapılandırma sunucusu**.
 3. İçinde **Sunucusu Ekle**, kontrol **yapılandırma sunucusu** görünür **sunucu türü**.
 4. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
-5. Kasa kayıt anahtarını indirin. Birleşik Kurulumu çalıştırırken buna ihtiyacınız olur. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+5. Kasa kayıt anahtarını indir Birleşik Kurulumu çalıştırırken buna ihtiyacınız olur. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
    ![Kaynağı ayarlama](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -152,7 +152,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 
 ## <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
-1. Yeni bir çoğaltma ilkesi oluşturmak için **Site Recovery altyapısı** > **Çoğaltma İlkeleri** > **+Çoğaltma İlkesi**’ne tıklayın.
+1. Yeni bir çoğaltma ilkesi oluşturmak için **Site Recovery altyapısı** > **Çoğaltma İlkeleri** >  **+Çoğaltma İlkesi**’ne tıklayın.
 2. **Çoğaltma ilkesi oluştur** bölümünde bir ilke adı belirtin.
 3. **RPO eşiği** bölümünde kurtarma noktası hedefi (RPO) sınırını belirtin. Bu değer, ne sıklıkta belirtir veri kurtarma noktaları oluşturulur. Devamlı çoğaltma bu sınırı aşarsa bir uyarı oluşturulur.
 4. **Kurtarma noktası bekletme** bölümünde, her kurtarma noktası için bekletme süresinin ne kadar olacağını (saat) belirtin. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir. Premium depolama alanına çoğaltılan makineler için 24 saate, standart depolama için de 72 saate kadar bekletme desteklenir.

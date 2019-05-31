@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 5b3475f35ac958432d319eafe6e3392e155d9ff4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002115"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242457"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure sanal makineleri için genişletilmiş ölçümler ekleme
 
@@ -28,7 +28,7 @@ Cloudyn Azure vm'lerinizden Azure ölçüm veri kaynakları hakkında bilgi ayr�
 - Boyutlandırma kullanım göre maliyetlerinizi kontrol.
 - Maliyet etkin boyutlandırma Cloudyn iyileştirme önerileri alın.
 
-Örneğin, Azure sanal makinelerinizin bellek % ve % CPU izlemek isteyebilirsiniz. Azure VM ölçümleri karşılık _[konak] CPU yüzdesi_ ve _[Konuk] bellek yüzdesi_.
+Örneğin, Azure sanal makinelerinizin bellek % ve % CPU izlemek isteyebilirsiniz. Azure VM ölçümleri karşılık _CPU yüzdesi_ ve _\Memory\% bayt kullanımda kaydedilen_.
 
 > [!NOTE]
 > Genişletilmiş ölçüm verileri toplama yalnızca Azure Konuk düzeyinde izlemeyi ile desteklenir. Cloudyn Azure İzleyici günlüklerine VM uzantısı ile uyumlu değil.
@@ -44,7 +44,7 @@ Yukarıdaki örnekte, sınırlı sayıda standart ölçüm konaklarınız için 
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Azure portalında genişletilmiş ölçümlerini etkinleştir
 
-Standart ölçümler, ana bilgisayar ölçümleridir. _[Konak] CPU yüzdesi_ ölçüm, bir örnek verilmiştir. Genişletilmiş ölçümler de adlandırılırlar ve Konuk sanal makineler için temel ölçümleri de vardır. Genişletilmiş ölçümler örnekler _[Konuk] bellek yüzdesi_ ve _[Konuk] bellek_.
+Standart ölçümler, ana bilgisayar ölçümleridir. _CPU yüzdesi_ ölçüm, bir örnek verilmiştir. Genişletilmiş ölçümler de adlandırılırlar ve Konuk sanal makineler için temel ölçümleri de vardır. Genişletilmiş ölçümler örnekler _\Memory\% bayt kullanımda kaydedilen_ ve _\Memory\Available bayt_.
 
 Genişletilmiş ölçümlerini etkinleştirme oldukça basittir. Her VM için konuk düzeyinde izlemeyi etkinleştir. Konuk düzeyinde izlemeyi etkinleştirdiğinizde, Azure tanılama aracısını sanal makinede yüklü. Varsayılan olarak, genişletilmiş ölçümleri temel bir dizi eklenir. Aşağıdaki normal ve klasik VM'ler için aynı ve Windows ve Linux Vm'leri için aynı işlemidir.
 
@@ -58,7 +58,7 @@ Bir depolama hesabı hem Azure hem de Linux Konuk düzeyinde izlemeyi gerektiği
     ![Genel bakış sayfasında Konuk düzeyinde izlemeyi etkinleştir](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Birkaç dakika sonra Azure tanılama aracısını sanal makinede yüklü. Temel ölçümler birtakım eklenir. Sayfayı yenileyin. Ek performans sayaçları genel bakış sekmesinde görünür.
 5. İzleme bölümünden seçin **ölçümleri**.
-6. Ölçümleri grafiğinde altında **ölçüm Namespace**seçin **Konuk (Klasik)**.
+6. Ölçümleri grafiğinde altında **ölçüm Namespace**seçin **Konuk (Klasik)** .
 7. Ölçüm listesinde, tüm performans sayaçlarının Konuk VM görüntüleyebilirsiniz.  
     ![Genişletilmiş örnek ölçümlerin listesi](./media/azure-vm-extended-metrics/extended-metrics.png)
 

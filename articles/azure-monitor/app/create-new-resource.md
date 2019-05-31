@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 712004a1ae8a2a72854b7b2332449a019c0820c3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901821"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256254"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 Azure Application Insights, Microsoft Azure'da uygulamanızla ilgili verileri görüntüler *kaynak*. Yeni kaynak oluşturma, bu nedenle parçası [yeni bir uygulama izlemek için Application ınsights'ı ayarlama][start]. Çoğu durumda, bir kaynak oluşturma otomatik olarak IDE tarafından yapılabilir. Ancak bazı durumlarda, bir kaynak el ile - Örneğin, geliştirme için ayrı kaynaklar için oluşturmanız ve uygulamanızı üretim oluşturur.
@@ -69,7 +69,6 @@ Daha fazla veri bekliyorsanız, tıklayın **Yenile** birkaç saniye sonra.
 Yazabileceğiniz bir [PowerShell Betiği](../../azure-monitor/app/powershell.md) otomatik olarak bir kaynak oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Pano oluşturma](../../azure-monitor/app/app-insights-dashboards.md)
 * [Tanılama Araması](../../azure-monitor/app/diagnostic-search.md)
 * [Ölçümleri keşfetme](../../azure-monitor/app/metrics-explorer.md)
 * [Analytics sorguları yazma](../../azure-monitor/app/analytics.md)

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: d9cc5da0cd2936c1ac79a308366b8164548cb202
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864798"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241734"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Azure API Yönetimi'nde kullanıcı hesaplarını yönetme
 
-API Yönetimi'nde, geliştiricilerin API Management kullanarak kullanıma sunan API'leri kullanıcılarıdır. Bu kılavuz, ürünlerini ve API'leri kullanmak için nasıl oluşturulacağı ve geliştiricilerin davet gösterir. API Management örneğinizin kullanabilecekleri olun. Programlı olarak kullanıcı hesaplarını yönetme hakkında daha fazla bilgi için bkz: [kullanıcı varlığı](https://docs.microsoft.com/rest/api/apimanagement/user) belgelerinde [API Management REST](/rest/api/apimanagement/) başvuru.
+API Yönetimi'nde, geliştiricilerin API Management kullanarak kullanıma sunan API'leri kullanıcılarıdır. Bu kılavuz, ürünlerini ve API'leri kullanmak için nasıl oluşturulacağı ve geliştiricilerin davet gösterir. API Management örneğinizin kullanabilecekleri olun. Programlı olarak kullanıcı hesaplarını yönetme hakkında daha fazla bilgi için bkz: [kullanıcı varlığı](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user) belgelerinde [API Management REST](/rest/api/apimanagement/) başvuru.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

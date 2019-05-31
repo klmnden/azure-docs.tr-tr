@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236248"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390411"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing özel arama deneyiminizi yapılandırın
 
@@ -27,7 +27,7 @@ Web uygulamanızın dilimleri tanımlarken aşağıdakileri kullanın:
 
 | Dilim adı | Açıklama                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Etki alanı     | Bir etki alanı dilim bir internet etki alanı içinde bulunan tüm içerik içerir. Örneğin, `www.microsoft.com`. Atlama `www.` da etki alanının alt etki alanlarını arama yapmak için Bing neden olur. Örneğin, belirttiğiniz `microsoft.com`, Bing, ayrıca sonuçları döndürür `support.microsoft.com` veya `technet.microsoft.com`. |
+| Etki Alanı     | Bir etki alanı dilim bir internet etki alanı içinde bulunan tüm içerik içerir. Örneğin, `www.microsoft.com`. Atlama `www.` da etki alanının alt etki alanlarını arama yapmak için Bing neden olur. Örneğin, belirttiğiniz `microsoft.com`, Bing, ayrıca sonuçları döndürür `support.microsoft.com` veya `technet.microsoft.com`. |
 | Alt sayfa    | Bir alt dilim aşağıdaki yolları ve alt bulunan tüm içeriği de bulunmaktadır. En fazla iki alt yolu belirtebilirsiniz. Örneğin, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Web sayfası    | Bir Web sayfası dilim yalnızca Web sayfası özel bir arama içerebilir. İsteğe bağlı olarak alt eklenip eklenmeyeceğini belirtebilirsiniz.                                                                                                                                                                                  |
 
@@ -74,7 +74,7 @@ Web dilimlere ekledikten sonra **etkin** listesinde, Bing özel arama portal Web
 
 ## <a name="search-for-images-and-videos"></a>Görüntü ve video arayın
 
-Görüntüleri ve videoları benzer şekilde web içeriği kullanarak arayabilirsiniz [Bing özel resim arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) veya [Bing özel Video arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Bu sonuçları görüntüleyebilirsiniz [UI barındırılan](hosted-ui.md), veya API'leri. 
+Görüntüleri ve videoları benzer şekilde web içeriği kullanarak arayabilirsiniz [Bing özel resim arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) veya [Bing özel Video arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Bu sonuçları görüntüleyebilirsiniz [UI barındırılan](hosted-ui.md), veya API'leri. 
 
 Bu API'ler, olmayan-özel benzer [Bing resim arama](../Bing-Image-Search/overview.md) ve [Bing Video arama](../Bing-Video-Search/search-the-web.md) API'leri, ancak tüm Web'de arama ve gerekli olmayan `customConfig` sorgu parametresi. Görüntü ve video ile çalışma hakkında daha fazla bilgi için şu belge kümeleri bakın. 
 
@@ -83,7 +83,7 @@ Bu API'ler, olmayan-özel benzer [Bing resim arama](../Bing-Image-Search/overvie
 Arama sorguları göndermek ve sonuçları görüntülemek için portalın sağ tarafta önizleme bölmesinde kullanarak arama örneğinizin test edebilirsiniz. 
 
 1. Arama kutusunun altında seçin **My örneği**. Seçerek, Bing arama deneyiminizi sonuçları karşılaştırabilirsiniz **Bing**. 
-2. Güvenli arama filtresi ve aramak için pazara sunma seçin (bkz [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)).
+2. Güvenli arama filtresi ve aramak için pazara sunma seçin (bkz [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Bir sorgu girin ve enter tuşuna basın veya geçerli yapılandırmasından sonuçlarını görüntülemek için arama simgesine tıklayın. Gerçekleştirmek tıklayarak arama türünüzü değiştirebilirsiniz **Web**, **görüntü**, veya **Video** karşılık gelen sonuçları elde etmek için. 
 
 <a name="adjustrank"></a>
@@ -95,7 +95,7 @@ Portal Web sayfalarını özel etki alanları ve alt içeriği arama sıralamas�
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Engelle      | Etki alanı, alt veya Web sayfası bloke listeye taşır. Bing içerik arama sonuçlarında görüntülenmesini Seçili site dışında bırakır.                    |
-| Yükselt      | Etki alanı veya arama sonuçlarında daha yüksek olması için alt sayfa içeriği artırıyor.                                                                                        |
+| Boost      | Etki alanı veya arama sonuçlarında daha yüksek olması için alt sayfa içeriği artırıyor.                                                                                        |
 | İndirgeme     | Etki alanı veya alt arama sonuçlarında alt içeriği indirger. Etki alanından içerik indirgemek ya da Web sayfasının ait olduğu alt sayfayı taşıma seçin. |
 | En üste Sabitle | Etki alanı, alt veya Web sayfasına taşır **Pinned** listesi. Bu, verilen arama sorgusu için ilk arama sonucu olarak görüntülenecek Web sayfasının zorlar.                   |
 
@@ -132,7 +132,7 @@ Bir kullanıcının sorgu dizesi tam olarak listelenen eşleştiğinde varsayıl
 | Değer | Açıklama                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | İle başlar | Kullanıcının sorgu dizesi PIN'in sorgu dizesi ile başlıyorsa PIN bir eşleşme olacak. |
-| İle biter   | Kullanıcının sorgu dizesi PIN'in sorgu dizesi ile bitiyorsa PIN bir eşleşmedir.  |
+| Şununla biter   | Kullanıcının sorgu dizesi PIN'in sorgu dizesi ile bitiyorsa PIN bir eşleşmedir.  |
 | İçerir    | Kullanıcının sorgu dizesi PIN'in sorgu dizesini içeriyorsa PIN bir eşleşmedir.   |
 
 
@@ -144,7 +144,7 @@ PIN sırasını değiştirmek için sürükle ve bırak bunları olabilir veya s
 
 Birden çok PIN bir eşleşme koşulu karşılayan, Bing özel arama listedeki en yüksek olanı kullanır.
 
-## <a name="view-statistics"></a>İstatistikleri görüntüle
+## <a name="view-statistics"></a>İstatistikleri görüntüleme
 
 Özel arama uygun düzeyde abone (bkz [fiyatlandırma sayfalarına](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), **istatistikleri** sekmesi, üretim örneklerine eklenir. İstatistikler sekmesindeki nasıl, özel arama uç noktaları, çağrı hacmi, en sık kullanılan sorgular, coğrafi dağıtım, yanıt kodları ve güvenli arama dahil olmak üzere kullanıldığı hakkında ayrıntılar gösterilir. Sağlanan denetimleri kullanarak ayrıntıları filtreleyebilirsiniz.
 

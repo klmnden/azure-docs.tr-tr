@@ -1,5 +1,5 @@
 ---
-title: SQL veri ambarı sınıflandırma | Microsoft Docs
+title: Azure SQL veri ambarı sınıflandırma | Microsoft Docs
 description: Eşzamanlılık, önem derecesi, yönetmek ve işlem kaynakları için sorgular Azure SQL veri ambarı için sınıflandırma kullanma yönergeleri.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 3edae23183896651efcbf7f867204a618a10c85d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000115"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236894"
 ---
-# <a name="sql-data-warehouse-workload-classification"></a>SQL veri ambarı iş yükü sınıflandırma
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Azure SQL veri ambarı iş yükü sınıflandırma
 
 Bu makalede, gelen istekleri kaynak sınıfı ve önemi atamak SQL veri ambarı iş yükü sınıflandırma işlemi açıklanmaktadır.
 

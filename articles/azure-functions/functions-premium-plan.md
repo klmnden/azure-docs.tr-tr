@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544746"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242296"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure işlevleri Premium planı (Önizleme)
 
@@ -91,9 +91,9 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>Kullanılabilir örnek SKU'ları
 
-Planınızı ölçeklendirme oluştururken, üç örnek boyutları arasında seçim yapabilirsiniz.  Toplam çekirdek sayısını ve saniye başına tüketilen bellek miktarı için faturalandırılır.  Uygulamanızı otomatik olarak birden fazla örneğe gerektiği şekilde genişletebilir.  
+Oluştururken ya da planınızı ölçeklendirme, üç örnek boyutları arasında seçim yapabilirsiniz.  Toplam çekirdek sayısını ve saniye başına tüketilen bellek miktarı için faturalandırılır.  Uygulamanızı otomatik olarak birden fazla örneğe gerektiği şekilde genişletebilir.  
 
-|SKU|Çekirdekler|Bellek|Depolama|
+|SKU|Çekirdek|Bellek|Depolama|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7GB|250 GB|
@@ -107,7 +107,7 @@ Planınızı ölçeklendirme oluştururken, üç örnek boyutları arasında se�
 |--|
 |Avustralya Doğu|
 |Avustralya Güneydoğu|
-|Kanada Orta|
+|Orta Kanada|
 |Orta ABD|
 |Doğu Asya|
 |Doğu ABD 2|
@@ -119,7 +119,7 @@ Planınızı ölçeklendirme oluştururken, üç örnek boyutları arasında se�
 |Orta Güney ABD|
 |Güney Hindistan|
 |Güneydoğu Asya|
-|BK Batı|
+|Birleşik Krallık Batı|
 |Batı Avrupa|
 |Batı Hindistan|
 |Batı ABD|

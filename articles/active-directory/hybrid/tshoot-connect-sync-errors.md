@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381697"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298749"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Eşitleme sırasında karşılaşılan hataları giderme
 Windows Server Active Directory'den (AD DS) Azure Active Directory (Azure AD) kimlik verilerini eşitlendiğinde hataları oluşabilir. Bu makalede, bu hataları ve hataları düzeltmek için olası yolları neden olası senaryolar bazıları eşitleme hatalarını farklı türde genel bir bakış sağlar. Bu makalede, sık karşılaşılan hata türlerini içerir ve tüm olası hataları kapsamayabilir.
@@ -190,7 +190,7 @@ Eşitlenen bir kullanıcı için bir Federasyon etki alanından başka bir Feder
 
 #### <a name="example"></a>Örnek
 1. Bob Smith, Contoso.com için bir hesap ile UserPrincipalName Active Directory'de yeni bir kullanıcı olarak eklenmiş bob@contoso.com
-2. Bob contoso.com, Fabrikam.com olarak adlandırılan farklı bir bölüm taşır ve kendi UserPrincipalName değiştirildi bob@fabrikam.com
+2. Bob contoso.com, Fabrikam.com olarak adlandırılan farklı bir bölüm taşır ve bunların UserPrincipalName değiştirildi bob@fabrikam.com
 3. Hem contoso.com ve fabrikam.com etki alanları, Azure Active Directory ile Federasyon etki alanları bulunur.
 4. Bob'ın userPrincipalName güncelleştirilmez ve "FederatedDomainChangeError" eşitleme hatasına neden olur.
 
@@ -221,7 +221,7 @@ Bir öznitelik izin verilen boyut sınırı, uzunluk sınırı veya Azure Active
 ### <a name="how-to-fix"></a>Nasıl düzeltileceğini
 1. Hataya neden olan öznitelik içinde izin verilen sınırlaması olduğundan emin olun.
 
-## <a name="existing-admin-role-conflict"></a>Mevcut Yönetici Rolü Çakışması
+## <a name="existing-admin-role-conflict"></a>Mevcut Yönetici rolü çakışması
 
 ### <a name="description"></a>Açıklama
 Bir **mevcut Yönetici rolü çakışma** bu kullanıcı nesnesi olan bir kullanıcı nesnesinde eşitleme sırasında ortaya çıkar:

@@ -1,54 +1,36 @@
 ---
-title: Azure Data Box'ınızı üzerinde sorunlarını giderme | Microsoft Docs
-description: Azure Data Box verileri Azure'a karşıya yükleme sırasında görülen sorunların nasıl giderileceği açıklanmaktadır.
+title: Azure Data Box, Azure veri kutusu ağır üzerinde sorunlarını giderme | Microsoft Docs
+description: Azure Data Box ve Azure veri kutusu ağır bu cihazlar için veri kopyalama sırasında görülen sorunların nasıl giderileceği açıklanmaktadır.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594009"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257279"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>Azure Data Box için ilgili sorunları giderme
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box ve Azure veri kutusu ağır ilgili sorunları giderme
 
-Bu makalede, Azure Data Box'ı kullanırken görebilirsiniz sorunlarını giderme konusunda bilgi ayrıntılı olarak açıklanmaktadır.
+Bu makalede, Azure veri Boxn veya Azure veri kutusu ağır kullanırken görebilirsiniz sorunlarını giderme konusunda bilgi ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="errors-during-data-copy"></a>Veri kopyalama sırasında karşılaşılan hatalar
 
 Aşağıdaki bölümlerde, veri kopyalama sırasında görülen tüm hataları özetlenmiştir.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**Hata açıklaması:** Kapsayıcı veya paylaşım adı 3 ile 63 karakter arasında olmalıdır.
-
-**Önerilen çözünürlük:** Klasörü altında veri kopyaladığınız Data Box (SMB/NFS) paylaşımı, depolama hesabınızdaki bir Azure kapsayıcı haline gelir. 
-
-- Üzerinde **Bağlan ve Kopyala** sayfasında Data Box yerel web kullanıcı Arabirimi, indirme ve klasörü belirlemek için hata dosyalarının adları ile ilgili sorunları gözden geçirin.
-- Data Box paylaşım emin olmak için klasör adıyla değiştirin:
-
-    - Adı 3 ila 63 karakter uzunluğunda olabilir.
-    - Adları yalnızca harf, rakam ve kısa çizgi olabilir.
-    - Adları başlatmak veya kısa çizgi ile bitmelidir.
-    - Adlarında art arda kısa çizgi olamaz.
-    - Geçerli adlar örnekleri: `my-folder-1`, `my-really-extra-long-folder-111`.
-    - Geçerli olmayan adları örnekleri: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
-
-    Daha fazla bilgi için bkz. Azure adlandırma kuralları için [kapsayıcı adları](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) ve [paylaşım adları](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **Hata açıklaması:** Kapsayıcı veya paylaşım adı 3 ile 63 karakter arasında olmalıdır. 
 
-**Önerilen çözünürlük:** Klasörü altında veri kopyaladığınız Data Box (SMB/NFS) paylaşımı, depolama hesabınızdaki bir Azure kapsayıcı haline gelir. 
+**Önerilen çözünürlük:** Veri kopyaladığınız Data Box veya veri kutusu ağır share(SMB/NFS) altındaki klasör, depolama hesabınızdaki bir Azure kapsayıcı haline gelir. 
 
-- Üzerinde **Bağlan ve Kopyala** sayfasında Data Box yerel web kullanıcı Arabirimi, indirme ve klasörü belirlemek için hata dosyalarının adları ile ilgili sorunları gözden geçirin.
-- Data Box paylaşım emin olmak için klasör adıyla değiştirin:
+- Üzerinde **Bağlan ve Kopyala** sayfasında cihazın yerel web kullanıcı Arabirimi, indirme ve klasörü belirlemek için hata dosyalarının adları ile ilgili sorunları gözden geçirin.
+- Emin olmak için Data Box veya veri kutusu ağır paylaşımını klasör adıyla değiştirin:
 
     - Adı 3 ila 63 karakter uzunluğunda olabilir.
     - Adları yalnızca harf, rakam ve kısa çizgi olabilir.
@@ -64,10 +46,10 @@ Aşağıdaki bölümlerde, veri kopyalama sırasında görülen tüm hataları �
 
 **Hata açıklaması:** Kapsayıcı veya paylaşım adında yalnızca harf, rakam veya kısa çizgi bulunmalıdır.
 
-**Önerilen çözünürlük:** Klasörü altında veri kopyaladığınız Data Box (SMB/NFS) paylaşımı, depolama hesabınızdaki bir Azure kapsayıcı haline gelir. 
+**Önerilen çözünürlük:** Veri kopyaladığınız Data Box veya veri kutusu ağır share(SMB/NFS) altındaki klasör, depolama hesabınızdaki bir Azure kapsayıcı haline gelir. 
 
-- Üzerinde **Bağlan ve Kopyala** sayfasında Data Box yerel web kullanıcı Arabirimi, indirme ve klasörü belirlemek için hata dosyalarının adları ile ilgili sorunları gözden geçirin.
-- Data Box paylaşım emin olmak için klasör adıyla değiştirin:
+- Üzerinde **Bağlan ve Kopyala** sayfasında cihazın yerel web kullanıcı Arabirimi, indirme ve klasörü belirlemek için hata dosyalarının adları ile ilgili sorunları gözden geçirin.
+- Emin olmak için Data Box veya veri kutusu ağır paylaşımını klasör adıyla değiştirin:
 
     - Adı 3 ila 63 karakter uzunluğunda olabilir.
     - Adları yalnızca harf, rakam ve kısa çizgi olabilir.
@@ -82,10 +64,10 @@ Aşağıdaki bölümlerde, veri kopyalama sırasında görülen tüm hataları �
 
 **Hata açıklaması:** Kapsayıcı adları ve paylaşım adları başlatılamıyor veya kısa çizgi ile bitemez ve art arda kısa çizgi olamaz.
 
-**Önerilen çözünürlük:** Klasörü altında veri kopyaladığınız Data Box (SMB/NFS) paylaşımı, depolama hesabınızdaki bir Azure kapsayıcı haline gelir. 
+**Önerilen çözünürlük:** Veri kopyaladığınız Data Box veya veri kutusu ağır share(SMB/NFS) altındaki klasör, depolama hesabınızdaki bir Azure kapsayıcı haline gelir. 
 
-- Üzerinde **Bağlan ve Kopyala** sayfasında Data Box yerel web kullanıcı Arabirimi, indirme ve klasörü belirlemek için hata dosyalarının adları ile ilgili sorunları gözden geçirin.
-- Data Box paylaşım emin olmak için klasör adıyla değiştirin:
+- Üzerinde **Bağlan ve Kopyala** sayfasında cihazın yerel web kullanıcı Arabirimi, indirme ve klasörü belirlemek için hata dosyalarının adları ile ilgili sorunları gözden geçirin.
+- Emin olmak için Data Box veya veri kutusu ağır paylaşımını klasör adıyla değiştirin:
 
     - Adı 3 ila 63 karakter uzunluğunda olabilir.
     - Adları yalnızca harf, rakam ve kısa çizgi olabilir.
@@ -112,7 +94,7 @@ Daha fazla bilgi için [kopyalama yönetilen disklere](data-box-deploy-copy-data
 
 **Hata açıklaması:** Azure dosya paylaşımı, 5 TB veri için bir paylaşım sınırlar. Bu sınır için bazı paylaşımları eşiğini aştı.
 
-**Önerilen çözünürlük:** Üzerinde **Bağlan ve Kopyala** sayfa Data Box yerel Web kullanıcı Arabirimi, indirin ve hata dosyalarını gözden geçirin.
+**Önerilen çözünürlük:** Üzerinde **Bağlan ve Kopyala** sayfasında yerel web kullanıcı Arabirimi, indirin ve hata dosyalarını gözden geçirin.
 
 Bu sorundan Hata günlüklerini ve söz konusu klasördeki dosyalar 5 TB'altında olduğundan emin olun klasörleri tanımlayın.
 
@@ -194,7 +176,7 @@ Daha fazla bilgi için Azure adlandırma kurallarına blob adları ve dosya adla
 
 **Hata açıklaması:** Blob veya dosya hatalı hizalanmış.
 
-**Önerilen çözünürlük:** Sayfa blob paylaşımında 512 bayt Data Box yalnızca destekleyen dosyaları (örneğin, VHD/VHDX) hizalanır. Sayfa blob paylaşımına kopyaladığınız herhangi bir veri için Azure sayfa blobları yüklenir.
+**Önerilen çözünürlük:** Sayfa blob paylaşımında 512 bayt Data Box veya veri kutusu ağır yalnızca destekleyen dosyaları (örneğin, VHD/VHDX) hizalanır. Sayfa blob paylaşımına kopyaladığınız herhangi bir veri için Azure sayfa blobları yüklenir.
 
 VHD/VHDX olmayan veriler sayfa blobu paylaşımından kaldırın. Blok blobu veya genel verileri için Azure dosya paylaşımlarını kullanabilirsiniz.
 

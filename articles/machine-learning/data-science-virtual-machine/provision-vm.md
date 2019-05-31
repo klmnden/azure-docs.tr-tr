@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596511"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235096"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure'da Windows veri bilimi sanal makinesi sağlama
 
@@ -106,7 +106,7 @@ DSVM örneği oluşturmak için:
 
 Sanal makine oluşturulup sağlanan sonra Uzak Masaüstü uygulamasına önceki yapılandırdığınız yönetici hesabının kimlik bilgilerini kullanarak yapabilecekleriniz **Temelleri** bölümü. Yüklenmiş ve yapılandırılmış VM'de araçları kullanmaya başlamak hazırsınız demektir. Çok sayıda araçla Başlat menüsü kutucukları ve masaüstü simgelerini aracılığıyla erişilebilir.
 
-Ayrıca, Azure VM üzerinde Jupyter not defterlerini çalıştırmak ve ücretsiz bir hizmet katmanının kısıtlamaları atlama için not defterleri için veri bilimi sanal makinesi ekleyebilirsiniz. Daha fazla bilgi için [yönetme ve Not Defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Ayrıca, Azure VM üzerinde Jupyter not defterlerini çalıştırmak ve ücretsiz bir hizmet katmanının kısıtlamaları atlama için not defterleri için veri bilimi sanal makinesi ekleyebilirsiniz. Daha fazla bilgi için [yönetme ve Not Defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makinede yüklü araçları
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602012"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237785"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme) için etkinleştirin.
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ Azure dosyaları için SMB üzerinden Azure AD'ye etkinleştirmeden önce aşağ
 
 2.  **Azure AD kiracısı Azure AD Domain Services'ı etkinleştirin.**
 
-    Azure AD kimlik bilgileriyle kimlik doğrulamasını desteklemek için Azure AD kiracınız için Azure AD Domain Services'ı etkinleştirmeniz gerekir. Azure AD Kiracı yöneticisi değilseniz, yöneticisine başvurun ve adım adım yönergeleri [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    Azure AD kimlik bilgileriyle kimlik doğrulamasını desteklemek için Azure AD kiracınız için Azure AD Domain Services'ı etkinleştirmeniz gerekir. Azure AD Kiracı yöneticisi değilseniz, yöneticisine başvurun ve adım adım yönergeleri [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/create-instance.md).
 
     Genellikle, bir Azure AD Domain Services dağıtımının tamamlanması yaklaşık 15 dakika sürer. Azure AD etki alanı Hizmetleri'niz sistem durumunu gösterdiğini doğrulayın **çalıştıran**, parola karma eşitlemesi etkin önce sonraki adıma devam ediliyor.
 
 3.  **Etki alanına katılım, Azure VM ile Azure AD etki alanı Hizmetleri.**
 
-    Bir VM'den Azure AD kimlik bilgilerini kullanarak bir dosya paylaşımına erişmek için VM, Azure AD Domain Services etki alanı ile birleşik olmalıdır. Etki alanına katılım VM hakkında daha fazla bilgi için bkz. [bir Windows Server sanal makinesi için yönetilen etki alanına Katıl](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
+    Bir VM'den Azure AD kimlik bilgilerini kullanarak bir dosya paylaşımına erişmek için VM, Azure AD Domain Services etki alanı ile birleşik olmalıdır. Etki alanına katılım VM hakkında daha fazla bilgi için bkz. [bir Windows Server sanal makinesi için yönetilen etki alanına Katıl](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
     > Azure dosyaları ile SMB üzerinden Azure AD kimlik doğrulaması, yalnızca işletim sistemi sürümleri, Windows 7 veya Windows Server 2008 R2 üzerinde çalışan Azure Vm'leri üzerinde desteklenir.
@@ -105,7 +105,7 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true
 ```
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 Azure CLI 2.0 SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için önce yükleme `storage-preview` uzantısı:
 

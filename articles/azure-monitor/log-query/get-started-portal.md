@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520851"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255271"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Azure İzleyici Log Analytics ile çalışmaya başlama
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 Bu sorgu arar _olay_ herhangi bir özelliği "error" terimini içeren kayıtlar için tablo.
 
-Sorgular, bir tablo adı ile başlatabilir veya **arama** komutu. Yukarıdaki örnekte tablo adı ile başlayan _olay_, sorgunun kapsamını tanımlar. Dikey çubuk (|) karakterini komutları, bu nedenle ayıran birincisini giriş aşağıdaki komutun çıkışı. Herhangi bir sayıda komutları için tek bir sorgu ekleyebilirsiniz.
+Sorgular, bir tablo adı ile başlatabilir veya **arama** komutu. Yukarıdaki örnekte tablo adı ile başlayan _olay_, sorgunun kapsamını tanımlar. Aşağıdaki komutun girdi olarak ilk çıktısını hizmet için çizgi (|) karakter komutları ayırır. Herhangi bir sayıda komutları için tek bir sorgu ekleyebilirsiniz.
 
 Aynı sorgu yazmak için başka bir yolu şu şekilde olur:
 
@@ -137,7 +137,7 @@ Event
 
 Varsayılan olarak, bir tablodaki sonuçlar görüntülenir. Tıklayın _grafik_ sonuçları bir grafik görünümde görmek için:
 
-![Çubuk grafiği](media/get-started-portal/bar-chart.png)
+![Çubuk grafik](media/get-started-portal/bar-chart.png)
 
 Sonuçlar, yığılmış çubuk grafik olarak görüntülenir. Tıklayın _yığılmış sütun_ seçip _pasta_ sonuçları başka bir görünümünü göstermek için:
 
@@ -175,7 +175,7 @@ Log Analytics sorgu her zaman bir seçilen çalışma alanına kaydedilir ve bu 
 ## <a name="load-queries"></a>Sorguları
 Sorgu Gezgini simgesine sağ üst alandır. Bu, tüm kaydedilmiş sorgular kategoriye göre listeler. Ayrıca, belirli sorguları hızla gelecekte bulmak için sık kullanılan olarak işaretlemek sağlar. Kaydedilmiş bir sorgu için geçerli pencere eklemek için çift tıklayın.
 
-![Sorgu gezgini](media/get-started-portal/query-explorer.png)
+![Sorgu Gezgini](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Dışarı aktarma ve bağlantı olarak paylaşın
 Log Analytics'i birkaç verme yöntemleri destekler:

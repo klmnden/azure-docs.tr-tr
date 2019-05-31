@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962743"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235348"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft kimlik platformu Geliştirici sözlüğü
 
@@ -64,7 +64,7 @@ Bir uygulamayı tümleştirin ve Azure ad kimlik ve erişim yönetimi işlevleri
 
 Bkz: [uygulamaları Azure Active Directory ile tümleştirme] [ AAD-Integrating-Apps] daha fazla ayrıntı için.
 
-## <a name="authentication"></a>kimlik doğrulaması
+## <a name="authentication"></a>Kimlik doğrulaması
 
 Zorlu kimlik ve erişim denetimi için kullanılacak bir güvenlik sorumlusu oluşturma için temel sağlayan bir taraf meşru kimlik bilgileri işlemi. Sırasında bir [OAuth2 yetkilendirme verme](#authorization-grant) kimlik doğrulaması taraf ya da rolü gibi doldurma [kaynak sahibi](#resource-owner) veya [istemci uygulaması](#client-application)bağlı olarak kullanılan verin.
 
@@ -95,7 +95,7 @@ Tarafından tanımlandığı gibi [OAuth2 yetkilendirme Framework][OAuth2-Role-D
 
 Örneğin yetkilendirme sunucusu rolü Azure AD uygulamaları ve API'leri, Microsoft hizmeti için Microsoft kimlik platformu uygulaması tümleştirme söz konusu olduğunda, Microsoft kimlik platformu uygulayan [Microsoft Graph API'lerini] [Microsoft-Graph].
 
-## <a name="claim"></a>talep
+## <a name="claim"></a>Talep
 
 A [güvenlik belirteci](#security-token) onaylar sağlayan bir varlık talepleri içerir (gibi bir [istemci uygulaması](#client-application) veya [kaynak sahibi](#resource-owner)) başka bir varlığa (örneğin, [kaynak sunucusu](#resource-server)). Talep belirteci konu hakkında bilgiler geçiş ad/değer çiftleri olan (örneğin, tarafından doğrulanmış güvenlik sorumlusu [yetkilendirme sunucusu](#authorization-server)). Verilen belirteçte talep belirtecinin, konu, uygulama yapılandırması, vb. kimliğini doğrulamak için kullanılan kimlik bilgisi türünü de dahil olmak üzere çeşitli değişkenler üzerinde bağımlıdır.
 
@@ -142,7 +142,7 @@ A [istemci uygulaması](#client-application) erişim kazanır bir [kaynak sunucu
 
 Bunlar sırasında yüzey [onay](#consent) işlemi, yöneticiye veya kaynak sahibi kiracısındaki kaynaklarına istemci erişimi verme/reddetme fırsatı verir.
 
-İzin istekleri yapılandırılmış "Uygulamalar" / "Ayarlar" sekmesinde bulunan [Azure portalında][AZURE-portal], "Gerekli"Temsilcili izinler"ve"uygulama istenen seçerek izinleri altında", İzinler"(ikincisi genel Yönetici rolüne üyelik gerektirir). Çünkü bir [genel istemci](#client-application) kimlik bilgilerini güvenli bir şekilde koruyamadığını yalnızca temsilci izinleri isteyebilir sırada bir [gizli istemci](#client-application) yetkilendirilen ve uygulama yeteneği vardır izinler. İstemcinin [uygulama nesnesi](#application-object) bildirilen izinler depolar, [requiredResourceAccess özelliği][AAD-Graph-App-Entity].
+İzin istekleri yapılandırılır **API izinleri** uygulamada sayfası [Azure portalında][AZURE-portal], istenen "Temsilcili izinler" seçerek ve " Uygulama izinleri"(ikincisi genel Yönetici rolüne üyelik gerektirir). Çünkü bir [genel istemci](#client-application) kimlik bilgilerini güvenli bir şekilde koruyamadığını yalnızca temsilci izinleri isteyebilir sırada bir [gizli istemci](#client-application) yetkilendirilen ve uygulama yeteneği vardır izinler. İstemcinin [uygulama nesnesi](#application-object) bildirilen izinler depolar, [requiredResourceAccess özelliği][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>Kaynak sahibi
 
@@ -156,7 +156,7 @@ Kaynak sunucuda API'lerini kullanıma sunar ve kendi korumalı kaynaklara erişi
 
 Yalnızca bir istemci uygulaması gibi kaynak uygulamanın kimlik yapılandırması aracılığıyla kurulur [kayıt](#application-registration) bir Azure AD kiracısında uygulama ve hizmet sorumlusu nesnesi sağlar. Bazı Microsoft tarafından sağlanan API'leri, Azure AD Graph API'si gibi tüm kiracılar sağlama sırasında sunulan hizmet sorumluları önceden kayıtlı.
 
-## <a name="roles"></a>rol
+## <a name="roles"></a>roles
 
 Gibi [kapsamları](#scopes), roller, bir yol sağlar bir [kaynak sunucusu](#resource-server) kendi korumalı kaynaklara erişimi yönetmek için. İki tür vardır: bir "kullanıcı" rolü "uygulama" rolü için aynı uygular kaynak erişim gerektiren kullanıcılar/gruplar için rol tabanlı erişim denetimi uygular [istemci uygulamaları](#client-application) erişimi gerektirir.
 
@@ -192,7 +192,7 @@ Bir uygulamanın oturum açma işlevi genellikle çoklu oturum açma (SSO) uygul
 
 Kullanıcı durumunu ayırma bir son kullanıcı unauthenticating işlemi ile ilişkili [istemci uygulaması](#client-application) oturumu sırasında [oturum açma](#sign-in)
 
-## <a name="tenant"></a>tek
+## <a name="tenant"></a>kiracı
 
 Bir Azure AD directory örneğini Azure AD kiracısı adlandırılır. Bu da dahil olmak üzere çeşitli özellikler sağlar:
 

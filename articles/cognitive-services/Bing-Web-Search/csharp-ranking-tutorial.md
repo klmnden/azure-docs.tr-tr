@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431166"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384849"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C# konsol uygulaması arama istemci derleme
 
@@ -38,7 +38,7 @@ Eğitimle birlikte ilerlemek için ihtiyacınız vardır:
 
 Visual Studio’da `Ctrl`+`Shift`+`N` ile yeni bir proje oluşturun.
 
-İçinde **yeni proje** iletişim kutusunda, tıklayın **Visual C# > Windows Klasik Masaüstü > konsol uygulaması (.NET Framework)**.
+İçinde **yeni proje** iletişim kutusunda, tıklayın **Visual C# > Windows Klasik Masaüstü > konsol uygulaması (.NET Framework)** .
 
 Uygulama adı **MyConsoleSearchApp**ve ardından **Tamam**.
 
@@ -221,7 +221,7 @@ Kişilerinin sıralı bir düzende sonuçları görüntülemek nasıl göstermed
 }
 ```
 
-`rankingResponse` JSON nesnesi ([belgeleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) arama sonuçları için uygun görüntülenme sırasını tanımlar. Bu, bir veya daha fazla aşağıdaki, Önceliklendirilmiş grupları içerir:
+`rankingResponse` JSON nesnesi ([belgeleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) arama sonuçları için uygun görüntülenme sırasını tanımlar. Bu, bir veya daha fazla aşağıdaki, Önceliklendirilmiş grupları içerir:
 
 - `pole`: En çok görünen işleme almak için arama sonuçları (örneğin, ana hat görüntülenen ve kenar çubuğunuzu).
 - `mainline`: Ana hatta da görüntülemek için arama sonuçları.

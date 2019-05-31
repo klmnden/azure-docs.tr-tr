@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c20cbf50129247fa01f10f12a99c558bc86492b8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3dcd50c3aa516f2af40c1e28a36a8039773e069c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145172"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255069"
 ---
 # <a name="getting-started-with-status-monitor-v2"></a>Durum İzleyicisi v2 ile çalışmaya başlama
 
@@ -51,7 +51,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ``` 
 
-### <a name="enable-monitoring"></a>İzlemeyi etkinleştir
+### <a name="enable-monitoring"></a>İzlemeyi etkinleştirme
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -70,7 +70,7 @@ $pathToNupkg | rename-item -newname $pathToZip
 $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.ApplicationMonitor"
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
-### <a name="enable-monitoring"></a>İzlemeyi etkinleştir
+### <a name="enable-monitoring"></a>İzlemeyi etkinleştirme
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
@@ -84,7 +84,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
 - [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için
 - Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
-- [Panolar oluşturun](../../azure-monitor/app/app-insights-dashboards.md)
+- [Panolar oluşturun](../../azure-monitor/app/overview-dashboard.md)
 
  Daha fazla telemetri ekleyin:
 

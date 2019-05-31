@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162049"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304207"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid için özel konuya gönderme
 
@@ -39,7 +39,7 @@ Azure PowerShell ile özel bir konu uç noktası almak için kullanın:
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Üst bilgi
+## <a name="header"></a>Üstbilgi
 
 İstekte adlı üst bilgisi değeri dahil `aeg-sas-key` , kimlik doğrulaması için bir anahtar içeriyor.
 
@@ -76,7 +76,10 @@ PowerShell ile özel bir konu anahtarı almak için kullanın:
 ]
 ```
 
-Bu özellikleri açıklaması için bkz: [Azure Event Grid olay şeması](event-schema.md). Event grid konusu olayları nakil sırasında dizinin toplam boyutu 1 MB'a kadar olabilir. Dizideki her olay, 64 KB ile sınırlıdır.
+Bu özellikleri açıklaması için bkz: [Azure Event Grid olay şeması](event-schema.md). Event grid konusu olayları nakil sırasında dizinin toplam boyutu 1 MB'a kadar olabilir. Dizideki her olay, 64 KB'lık (Genel kullanım) veya 1 MB (Önizleme) ile sınırlıdır.
+
+> [!NOTE]
+> Bir olay boyutu en fazla 64 KB, genel kullanılabilirlik (GA) hizmet düzeyi sözleşmesi (SLA) tarafından alınmıştır. Bir olay boyutu en fazla desteği 1 MB şu anda Önizleme aşamasındadır. Olaylar üzerinde 64 KB, 64 KB'lık artışlarla ücretlendirilir. 
 
 Örneğin, geçerli olay veri şeması verilmiştir:
 
@@ -100,7 +103,7 @@ Konu başlığı uç noktası için posta sonra bir yanıt alırsınız. Yanıta
 
 |Sonuç  |Yanıt  |
 |---------|---------|
-|Başarı  | 200 TAMAM  |
+|Başarılı  | 200 TAMAM  |
 |Olay verileri hatalı biçimde | 400 Hatalı istek |
 |Geçersiz erişim anahtarı | 401 Yetkisiz |
 |Yanlış uç noktası | 404 Bulunamadı |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371487"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255730"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Klasik Windows Masaüstü uygulamalarında kullanımı ve performansı izleme
 
@@ -37,7 +37,7 @@ ms.locfileid: "60371487"
    
     ApplicationInsights.config dosyasını kullanırsanız, bunun özelliklerinin **Build Action = Content, Copy to Output Directory = Copy** olarak ayarlandığından emin olun.
 5. Telemetri göndermek için [API’yi kullanın](../../azure-monitor/app/api-custom-events-metrics.md).
-6. Uygulamanızı çalıştırdığınızda, oluşturduğunuz kaynaktaki telemetriyi Azure Portal’da görürsünüz.
+6. Uygulamanızı çalıştırın ve Azure portalında oluşturduğunuz kaynaktaki telemetriyi görebilirsiniz.
 
 ## <a name="telemetry"></a>Örnek kod
 ```csharp
@@ -77,7 +77,7 @@ ms.locfileid: "60371487"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Pano oluşturma](../../azure-monitor/app/app-insights-dashboards.md)
+* [Pano oluşturma](../../azure-monitor/app/overview-dashboard.md)
 * [Tanılama Araması](../../azure-monitor/app/diagnostic-search.md)
 * [Ölçümleri keşfetme](../../azure-monitor/app/metrics-explorer.md)
 * [Analytics sorguları yazma](../../azure-monitor/app/analytics.md)

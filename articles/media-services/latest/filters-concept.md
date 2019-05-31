@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002376"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225422"
 ---
 # <a name="filters"></a>Filtreler
 
-İçeriğinizi müşterilere (canlı akış olayları veya isteğe bağlı Video) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services hesap filtreleri ve içeriğiniz için varlık filtrelerini tanımlamanızı sağlar. 
+İçeriğinizi müşterilere (canlı akış olayları veya isteğe bağlı Video) sunarken istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerekebilir. Azure Media Services sunar [dinamik bildirimlerini](filters-dynamic-manifest-overview.md) önceden tanımlanmış filtrelere göre. 
 
 Filtreleri gibi şeyler müşterilerinize izin veren sunucu tarafı kurallar şunlardır: 
 
@@ -32,24 +32,16 @@ Filtreleri gibi şeyler müşterilerinize izin veren sunucu tarafı kurallar şu
 - Yalnızca belirtilen yorumlama ve/veya içeriği ("işleme filtreleme") çalmak için kullanılan cihaz tarafından desteklenen belirtilen dil parçaları sunun. 
 - ("Ayarlama sunu pencere") player DVR penceresinde sınırlı bir süre sağlamak amacıyla sunu penceresi DVR ayarlayın.
 
-Medya Hizmetleri sunan [dinamik bildirimlerini](filters-dynamic-manifest-overview.md) önceden tanımlanmış filtrelere göre. İstemcilerinize filtreleri tanımladıktan sonra bunları akış URL'SİNDE kullanabilirsiniz. Filtreler hızı Uyarlamalı akış için uygulanabilir: Apple HTTP canlı akış (HLS), MPEG-DASH ve kesintisiz akış.
+Medya Hizmetleri oluşturmanıza olanak tanır **hesap filtreleri** ve **varlık filtreleri** içeriğiniz için. Ayrıca, önceden oluşturulmuş filtrelerinizi ile ilişkilendirebilirsiniz. bir **akış Bulucu**.
 
-Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
+## <a name="defining-filters"></a>Filtrelerin tanımlanması
 
-|Protocol|Örnek|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>HLS v3 için kullanın: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Kesintisiz Akış|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>Filtreleri tanımlar
-
-Varlık filtreleri iki tür vardır: 
+İki tür filtre vardır: 
 
 * [Hesap filtreleri](https://docs.microsoft.com/rest/api/media/accountfilters) (Genel) - Azure Media Services hesabı olan herhangi bir varlığı uygulanabilir, hesabın bir ömre sahiptir.
 * [Varlık filtreleri](https://docs.microsoft.com/rest/api/media/assetfilters) (yerel) - yalnızca bir varlık ile filtre oluşturma sırasında ilişkilendirilmiş uygulanabilir, bir varlığın ömrünü sahip. 
 
-[Hesap filtre](https://docs.microsoft.com/rest/api/media/accountfilters) ve [varlık filtre](https://docs.microsoft.com/rest/api/media/assetfilters) türleri tanımlama/tanımlayan filtre için tam olarak aynı özelliklere sahiptir. Oluştururken dışında **varlık filtre**, istediğiniz filtreyi ilişkilendirmek varlık adı belirtmeniz gerekir.
+**Hesap filtreleri** ve **varlık filtreleri** türleri tanımlama/tanımlayan filtre için tam olarak aynı özelliklere sahiptir. Oluştururken dışında **varlık filtre**, istediğiniz filtreyi ilişkilendirmek varlık adı belirtmeniz gerekir.
 
 Senaryonuza bağlı olarak, hangi türde bir filtre daha uygun (varlık filtre Hesap Filtresi) mı karar verin. Hesap filtreleri trim belirli bir varlık için varlık filtreleri nerede kullanılabilir (işleme filtreleme) cihaz profilleri için uygundur.
 
@@ -145,14 +137,22 @@ Aşağıdaki örnek, canlı akış bir filtre tanımlar:
 }
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Filtreler akış Bulucu ile ilişkilendirme
+## <a name="associating-filters-with-streaming-locator"></a>Filtreler akış Bulucu ile ilişkilendirme
 
-Bir listesini belirtebilirsiniz [varlık veya hesap filtreleri](filters-concept.md), için uygulamak, [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). [Dinamik Paketleyici](dynamic-packaging-overview.md) bu olanlar istemcinizin URL'SİNDE belirtir birlikte filtrelerinin listesi için geçerlidir. Bu birleşim oluşturur bir [dinamik bildirim](filters-dynamic-manifest-overview.md), URL'deki filtreleri + akış Bulucu üzerinde belirttiğiniz filtreleri temel. Filtre uygulamak istediğiniz, ancak URL filtresi adlarında kullanıma sunmak istiyorsanız değil, bu özelliği kullanmanızı öneririz.
+Bir listesini belirtebilirsiniz [varlık veya hesap filtreleri](filters-concept.md) üzerinde [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). [Dinamik Paketleyici](dynamic-packaging-overview.md) bu olanlar istemcinizin URL'SİNDE belirtir birlikte filtrelerinin listesi için geçerlidir. Bu birleşim oluşturur bir [dinamik bildirim](filters-dynamic-manifest-overview.md), URL'deki filtreleri + akış Bulucu üzerinde belirttiğiniz filtreleri temel. 
 
 Aşağıdaki örneklere bakın:
 
 * [İlişkilendirme filtrelerle akış Bulucu - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Akış Bulucu - CLI ile ilişkilendirme filtreleri](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>Filtreleri güncelleştiriliyor
+ 
+**Akış bulucuları** filtreleri güncelleştirildiği sırada güncelleştirilebilir değil. 
+
+Bir etkin olarak yayımlanan ilişkili bir filtre tanımını güncelleştirmek için önerilmez **akış Bulucu**, özellikle CDN etkinleştirildiğinde. Akış sunucuları ve CDN'ler döndürülecek eski önbelleğe alınmış veri kaybına neden olabilir, iç önbellekler olabilir. 
+
+Filtre tanımını değiştirilmesi gerekiyorsa, yeni bir filtre oluşturmak ve eklemeyi göz önünde bulundurun **akış Bulucu** URL veya yeni bir yayımlama **akış Bulucu** filtre doğrudan başvuruyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

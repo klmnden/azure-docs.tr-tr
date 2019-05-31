@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
+ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 943bf0f4bba014c31a11bb30bf8d3b6a7c11a343
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682548"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299364"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Apache Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 
@@ -42,7 +42,7 @@ Betik eylemleri, kümenizin özelleştirmek için kullandığınız herhangi bir
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir SSH istemcisi. Çoğu işletim sistemi ile bir SSH istemcisi sağlar `ssh` komutu. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * SOCKS5 Ara sunucusunu kullanacak şekilde yapılandırılmış bir web tarayıcısı.
 
@@ -56,9 +56,9 @@ Betik eylemleri, kümenizin özelleştirmek için kullandığınız herhangi bir
 
 ## <a name="usessh"></a>SSH komutunu kullanarak bir tünel oluşturma
 
-SSH oluşturmak için aşağıdaki komutu kullanarak tünel kullanımı `ssh` komutu. Değiştirin **sshuser** değiştirin ve HDInsight kümesi için bir SSH kullanıcısı ile **clustername** HDInsight kümenizin adıyla:
+SSH oluşturmak için aşağıdaki komutu kullanarak tünel kullanımı `ssh` komutu. Değiştirin `sshuser` değiştirin ve HDInsight kümesi için bir SSH kullanıcısı ile `clustername` HDInsight kümenizin adıyla:
 
-```bash
+```cmd
 ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
@@ -81,19 +81,20 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 ### <a name="create-or-load-a-session"></a>Veya bir oturum yüklenemiyor
 
-1. Putty'yi açın ve olun **oturumu** sol taraftaki menüde seçilir. Zaten bir oturumu kaydettiyseniz, oturumunun adını seçin **kayıtlı oturumlar** listelemek ve tıklayın **yük**.
+1. Putty'yi açın ve olun **oturumu** sol taraftaki menüde seçilir. Zaten bir oturumu kaydettiyseniz, oturumunun adını seçin **kayıtlı oturumlar** listesinde ve seçin **yük**.
 
 1. Kaydedilen bir oturum zaten yoksa, bağlantı bilgilerinizi girin:
     * **Ana bilgisayar adı (veya IP adresi)** -HDInsight kümesi için SSH adresi. Örneğin, **mycluster-ssh.azurehdinsight.net**
     * **Bağlantı noktası** - 22
     * **Bağlantı türü** - SSH
-1. **Kaydet**’e tıklayın
+
+1. Seçin **Kaydet**
 
     ![SSH oturumu oluşturmak](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
-2. İçinde **kategori** için iletişim kutusunun sol bölümünde, genişletmek **bağlantı**, genişletme **SSH**ve ardından **tüneller**.
+1. İçinde **kategori** için iletişim kutusunun sol bölümünde, genişletmek **bağlantı**, genişletme **SSH**ve ardından **tüneller**.
 
-3. Aşağıdaki bilgileri sağlamaları **SSH denetleme seçenekleri bağlantı noktası iletme** formu:
+1. Aşağıdaki bilgileri sağlamaları **SSH denetleme seçenekleri bağlantı noktası iletme** formu:
    
    * **Kaynak bağlantı noktası** - İletmek istediğiniz istemci üzerindeki bağlantı noktası. Örneğin, **9876**.
 
@@ -103,9 +104,9 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
      
      ![tünel oluşturma seçenekleri resmi](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. Tıklayın **Ekle** ayarları eklemek ve ardından **açın** bir SSH bağlantısı açın.
+1. Seçin **Ekle** ayarları eklemek ve ardından **açın** bir SSH bağlantısı açın.
 
-5. İstendiğinde, sunucuda oturum açın.
+1. İstendiğinde, sunucuda oturum açın.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Tarayıcınızdan tüneli kullanma
 
@@ -125,10 +126,10 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri erişebildiğinizi doğrulamak için aşağıdaki adımları kullanın:
 
-1. Tarayıcınızda, http için Git\:/ / headnodehost:8080. `headnodehost` Adresi çözümleme Ambari çalıştıran baş düğüme ve küme tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
+1. Tarayıcınızda, Git `http://headnodehost:8080`. `headnodehost` Adresi çözümleme Ambari çalıştıran baş düğüme ve küme tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
 
    > [!NOTE]  
-   > Http kullanırken\://headnodehost:8080 adresi kümeye bağlanmak için Tünel üzerinden bağlanıyorsanız. SSH tüneli yerine HTTPS kullanarak iletişim sağlanır. İnternet üzerinden HTTPS kullanarak bağlanmak için https kullanmak\:/ / clustername.azurehdinsight.net, burada **clustername** kümenin adıdır.
+   > Kullanırken `http://headnodehost:8080` Tünel üzerinden bağlanıyorsanız, kümeye bağlanmak için adres. SSH tüneli yerine HTTPS kullanarak iletişim sağlanır. İnternet üzerinden HTTPS kullanarak bağlanmak için `https://clustername.azurehdinsight.net`burada `clustername` kümenin adıdır.
 
 2. Ambari Web kullanıcı arabirimini HDFS sayfasının sol taraftaki listeden seçin.
 
@@ -138,23 +139,20 @@ Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri eri
 
     ![Genişletilmiş QuickLinks menüsünde görüntü](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]  
-   > Seçtiğinizde, __hızlı bağlantılar__, bekleme göstergesi alabilirsiniz. Yavaş bir internet bağlantınız varsa bu durum ortaya çıkabilir. Bir veya iki sunucudan alınacak veri için dakika bekleyin ve listeyi yeniden deneyin.
-   >
-   > Bazı girişleri **hızlı bağlantılar** menü ekranın sağ tarafındaki tarafından kesilmiş. Bu durumda, farenizi kullanarak menüsünü genişletin ve ekran menü kalanını görmek için sağa kaydırmak için sağ ok tuşunu kullanın.
+    > [!NOTE]  
+    > Seçtiğinizde, __hızlı bağlantılar__, bekleme göstergesi alabilirsiniz. Yavaş bir internet bağlantınız varsa bu durum ortaya çıkabilir. Bir veya iki sunucudan alınacak veri için dakika bekleyin ve listeyi yeniden deneyin.
+    >
+    > Bazı girişleri **hızlı bağlantılar** menü ekranın sağ tarafındaki tarafından kesilmiş. Bu durumda, farenizi kullanarak menüsünü genişletin ve ekran menü kalanını görmek için sağa kaydırmak için sağ ok tuşunu kullanın.
 
 4. Aşağıdaki görüntüye benzer bir sayfa görüntülenir:
 
     ![Görüntü NameNode kullanıcı arabirimi](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
-   > [!NOTE]  
-   > Bu sayfa URL'si dikkat edin. aşağıdakine benzer olmalıdır **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Bu URI düğümünün dahili tam etki alanı adı (FQDN) kullanıyor ve bir SSH tüneli kullanırken yalnızca erişilebilir.
+    > [!NOTE]  
+    > Bu sayfa URL'si dikkat edin. aşağıdakine benzer olmalıdır `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Bu URI düğümünün dahili tam etki alanı adı (FQDN) kullanıyor ve bir SSH tüneli kullanırken yalnızca erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Oluşturma ve bir SSH tüneli kullanma öğrendiniz, aşağıdaki belge Ambari kullanılacak diğer yolları için bkz:
 
 * [Apache Ambari kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
-
-HDInsight ile SSH kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
-

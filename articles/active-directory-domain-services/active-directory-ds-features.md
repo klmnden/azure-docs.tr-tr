@@ -3,7 +3,7 @@ title: 'Azure Active Directory etki alanı Hizmetleri: Özellikler | Microsoft D
 description: Azure Active Directory etki alanı Hizmetleri özellikleri
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: ergreenl
-ms.openlocfilehash: 9e4ab7aa4f61921d8b327404a266694349d78164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 27aaaca4f28feac0f68b4e034426c64b934b1f95
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417274"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234925"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Özellikler
@@ -35,7 +35,7 @@ Aşağıdaki özellikler, Azure AD Domain Services yönetilen etki alanlarında 
 * **Kurumsal kimlik bilgileri/parolalarınızı kullanın:** Azure AD kiracınızdaki kullanıcıların parolalarını Azure AD Domain Services ile çalışır. Kullanıcılar, etki alanına katılım makinelere şirket kimlik bilgilerini kullanın, etkileşimli olarak veya Uzak Masaüstü üzerinden oturum açın ve yönetilen etki alanına göre kimlik doğrulaması.
 * **LDAP bağı & LDAP destek okuyun:** Azure AD Domain Services tarafından hizmet verilen etki alanlarındaki kullanıcılar kimlik doğrulaması için LDAP bağlamalar kullanan uygulamaları kullanabilir. Ayrıca, LDAP okuma işlemleri için sorgu kullanıcı/bilgisayar öznitelikleri dizinden kullanan uygulamalar Azure AD Domain Services karşı çalışabilir.
 * **Güvenli LDAP (LDAPS):** Güvenli LDAP (LDAPS üzerinden) dizinine erişim etkinleştirebilirsiniz. Güvenli LDAP erişimini, varsayılan olarak sanal ağ içinde kullanılabilir. Bununla birlikte, internet üzerinden güvenli LDAP erişimini Ayrıca isteğe bağlı olarak etkinleştirebilirsiniz.
-* **Grup İlkesi:** Kullanıcılar ve bilgisayarlar için tek bir yerleşik GPO'yu her kullanabileceğiniz kapsayıcılar ile uyumluluğu zorlamak için kullanıcı hesapları ve etki alanına katılmış bilgisayarlar için güvenlik ilkelerini gerekli. Ayrıca kendi özel GPO'ları oluşturmak ve özel kuruluş birimlerine atamanız [grup ilkesini yönetmenize](active-directory-ds-admin-guide-administer-group-policy.md).
+* **Grup İlkesi:** Kullanıcılar ve bilgisayarlar için tek bir yerleşik GPO'yu her kullanabileceğiniz kapsayıcılar ile uyumluluğu zorlamak için kullanıcı hesapları ve etki alanına katılmış bilgisayarlar için güvenlik ilkelerini gerekli. Ayrıca kendi özel GPO'ları oluşturmak ve özel kuruluş birimlerine atamanız [grup ilkesini yönetmenize](manage-group-policy.md).
 * **DNS Yönetimi:** 'AAD DC Administrators' grubunun üyeleri, DNS Yönetim MMC ek bileşeninde gibi tanıdık DNS yönetim araçlarını kullanarak yönetilen etki alanınız için DNS yönetebilirsiniz.
 * **Özel kuruluş birimine (OU) oluşturun:** 'AAD DC Administrators' grubunun üyeleri özel OU'ları yönetilen etki alanında oluşturabilirsiniz. Bunlar Ekle/Kaldır böylece hizmet hesaplarını, bilgisayarlar, gruplar vb. Bu özel OU içinde bu kullanıcılar özel OU'ları üzerinde tam yönetimsel ayrıcalıklara verilir.
 * **Birçok Azure küresel bölgelerde kullanılabilir:** Azure AD Domain Services'in kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.

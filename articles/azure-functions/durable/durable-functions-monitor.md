@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977447"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387090"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Dayanıklı işlevler - hava durumu İzleyicisi örnek senaryoda izleyin
 
@@ -42,7 +42,7 @@ Bu örnek, bir konumun geçerli hava koşulları izler ve bir kullanıcı taraf�
 
 Bu örnek, bir konum için geçerli hava durumu koşullarını denetlemek için hava durumu Yeraltı API kullanmayı içerir.
 
-İhtiyacınız olan ilk şey bir hava durumu Yeraltı hesabıdır. Ücretsiz, oluşturabilirsiniz [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Hesabınızı edindikten sonra bir API anahtarı alma gerekecektir. Ziyaret ederek bunu [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api), anahtar ayarlarını seçildikten sonra. Stratus Geliştirici planı ücretsizdir ve bu örneği çalıştırmak yeterli kullanılabilir.
+İhtiyacınız olan ilk şey bir hava durumu Yeraltı hesabıdır. Ücretsiz, oluşturabilirsiniz [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Hesabınızı edindikten sonra bir API anahtarı alma gerekecektir. Ziyaret ederek bunu [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api/?MR=1), anahtar ayarlarını seçildikten sonra. Stratus Geliştirici planı ücretsizdir ve bu örneği çalıştırmak yeterli kullanılabilir.
 
 Bir API anahtarı aldıktan sonra aşağıdaki ekleyin **uygulama ayarı** işlev uygulamanız için.
 

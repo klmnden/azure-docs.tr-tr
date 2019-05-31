@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d0819f71405b1bf1d4bef57a8b93d57bc879087
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777823"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244980"
 ---
 # <a name="alerts-on-activity-log"></a>Etkinlik günlüğü uyarıları 
 
 ## <a name="overview"></a>Genel Bakış
-Etkinlik günlüğü uyarıları uyarıda belirtilen koşulları karşılayan yeni bir etkinlik günlüğü olay meydana geldiğinde, etkinleştirme uyarılardır. Bir Azure Resource Manager şablonu kullanarak oluşturulabilir şekilde, Azure kaynaklarının değildirler. Bunlar ayrıca oluşturulabilir, güncelleştirilmiş veya Azure portalında silindi. Bu makale, etkinlik günlüğü uyarıları kavramları tanıtır. Bunu ardından, Azure portalında etkinlik günlüğü olayları hakkında bir uyarı ayarlamak için nasıl kullanılacağını gösterir. Kullanım hakkında daha fazla bilgi için bkz. [oluşturun ve etkinlik günlüğü Uyarıları yönetme](../../azure-monitor/platform/alerts-activity-log.md).
+Etkinlik günlüğü uyarıları uyarıda belirtilen koşulları karşılayan yeni bir etkinlik günlüğü olay meydana geldiğinde, etkinleştirme uyarılardır. Bir Azure Resource Manager şablonu kullanarak oluşturulabilir şekilde, Azure kaynaklarının değildirler. Bunlar ayrıca oluşturulabilir, güncelleştirilmiş veya Azure portalında silindi. Bu makale, etkinlik günlüğü uyarıları kavramları tanıtır. Bunu ardından, Azure portalında etkinlik günlüğü olayları hakkında bir uyarı ayarlamak için nasıl kullanılacağını gösterir. Kullanım hakkında daha fazla bilgi için bkz. [oluşturun ve etkinlik günlüğü Uyarıları yönetme](alerts-activity-log.md).
 
 > [!NOTE]
-> Uyarılar **başlatamaz** oluşturulur ve olaylar için etkinlik günlüğü uyarısı kategorisinde
+> Uyarılar **olamaz** etkinlik günlüğü uyarısı kategorisinde oluşturulan olaylar için.
 
 Genellikle, etkinlik günlüğü uyarıları, bildirimleri almak için oluşturma sırasında:
 
 * Genellikle belirli bir kaynak grubu veya kaynakları için kapsamlı, Azure aboneliğinizdeki kaynaklar üzerinde belirli işlemler oluşur. Örneğin, myProductionResourceGroup herhangi bir sanal makine silindiğinde, size bildirilmesini isteyebilirsiniz. Veya bir kullanıcıya, aboneliğinizdeki herhangi bir yeni rolü atanmışsa bildirilmesini isteyebilirsiniz.
 * Hizmet sistem durumu olayı oluşur. Olaylar ve, aboneliğinizdeki kaynaklar uygulamak bakım olayları bildirimi hizmet durumu olayları içerir.
 
-Bir basit benzerleme, uyarı kuralları oluşturulabilir, etkinlik günlüğünde anlama koşullar için olan keşfedin veya aracılığıyla olayları filtrelemek için [Azure Portal'da etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). Azure İzleyici - etkinlik günlüğü, bir filtre veya gerekli olay bulabilir ve ardından kullanarak bir uyarı oluşturma **etkinlik günlüğü uyarısı Ekle** düğmesi.
+Bir basit benzerleme, uyarı kuralları oluşturulabilir, etkinlik günlüğünde anlama koşullar için olan keşfedin veya aracılığıyla olayları filtrelemek için [Azure portalında etkinlik günlüğü](activity-log-view.md#azure-portal). Azure İzleyici - etkinlik günlüğü, bir filtre veya gerekli olay bulabilir ve ardından kullanarak bir uyarı oluşturma **etkinlik günlüğü uyarısı Ekle** düğmesi.
 
 Her iki durumda da, olayların uyarının oluşturulduğu abonelik için yalnızca bir etkinlik günlüğü uyarısı izler.
 
-Herhangi bir üst düzey özelliği için bir etkinlik günlüğü olayında JSON nesnesinde dayalı bir etkinlik günlüğü uyarısı yapılandırabilirsiniz. Daha fazla bilgi için [Azure etkinlik günlüğü'ne genel bakış](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). Hizmet durumu olayları hakkında daha fazla bilgi için bkz: [etkinlik günlüğü uyarıları hizmet bildirimleri almak](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+Herhangi bir üst düzey özelliği için bir etkinlik günlüğü olayında JSON nesnesinde dayalı bir etkinlik günlüğü uyarısı yapılandırabilirsiniz. Daha fazla bilgi için [Azure etkinlik günlüğü'ne genel bakış](./activity-logs-overview.md#categories-in-the-activity-log). Hizmet durumu olayları hakkında daha fazla bilgi için bkz: [etkinlik günlüğü uyarıları hizmet bildirimleri almak](./alerts-activity-log-service-notifications.md). 
 
 Etkinlik günlüğü uyarıları, birkaç ortak seçeneğiniz vardır:
 
@@ -57,12 +57,13 @@ Bir etkinlik günlüğü uyarısı etkinleştirildiğinde, Eylemler veya bildiri
 * Etkinlik günlüğü uyarınızın var olan bir eylem grubu kullanın.
 * Yeni bir eylem grubu oluşturun.
 
-Eylem grupları hakkında daha fazla bilgi için bkz: [oluştur ve Eylem grupları Azure portalında yönetmek](../../azure-monitor/platform/action-groups.md).
+Eylem grupları hakkında daha fazla bilgi için bkz: [oluştur ve Eylem grupları Azure portalında yönetmek](action-groups.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Alma bir [uyarılara genel bakış](../../azure-monitor/platform/alerts-overview.md).
-- Hakkında bilgi edinin [etkinlik günlüğü uyarıları oluşturup](../../azure-monitor/platform/alerts-activity-log.md).
+- Alma bir [uyarılara genel bakış](alerts-overview.md).
+- Hakkında bilgi edinin [etkinlik günlüğü uyarıları oluşturup](alerts-activity-log.md).
 - Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](activity-log-alerts-webhook.md).
-- Hakkında bilgi edinin [hizmet durumu bildirimlerini](../../azure-monitor/platform/service-notifications.md).
+- Hakkında bilgi edinin [hizmet durumu bildirimlerini](service-notifications.md).
+
 

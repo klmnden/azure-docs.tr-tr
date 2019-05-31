@@ -7,56 +7,48 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719090"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393203"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
-Azure SQL veritabanı, burada kolayca izleyebilirsiniz kullanımı, bir otomatik olarak yönetilen ve esnek bir veri hizmeti kaynaklarına (CPU, bellek, g/ç) ekleyip, veritabanınızın performansını veya veritabanı izin Bul öneriler, iş yükünüze uyum ve otomatik olarak performansı iyileştirin.
+Kolayca kullanımını izlemek için ekleyip kaynakları (CPU, bellek, g/ç), azure SQL veritabanı sağlar, olası sorunları gidermek ve veritabanınızın performansı artırmak önerileri bulabilirsiniz. Azure SQL veritabanı, iş yükünüze uyum ve otomatik olarak performansı en iyi duruma veritabanı izin vermek istiyorsanız, veritabanlarınızda sorunları otomatik olarak düzeltebilir çok sayıda özelliğe sahiptir. Ancak, sorun giderme için ihtiyacınız olabilecek bazı özel sorunları vardır. Bu makalede, bazı en iyi yöntemler ve performans sorunlarını gidermek için kullanabileceğiniz araçlar açıklanmaktadır.
+
+Bu, veritabanı sorunsuz çalıştığından emin olmak için gerçekleştirmeniz gereken iki ana etkinlik vardır:
+- [Veritabanı performansını izleme](#monitoring-database-performance) veritabanına atanan kaynakları, iş yükü işleyebileceğinden emin olmak için. Kaynak sınırlarını ulaşma görürseniz, en çok kaynak tüketen sorguları tanımlamak ve bunları en iyi duruma getirmek için ya da hizmet katmanına yükselterek daha fazla kaynak eklemeniz gerekir.
+- [Performans sorunlarını giderme](#troubleshoot-performance-issues) bazı olası bir sorun oluştu. nedeni belirlemek için kök nedenini sorunu ve sorunu düzeltir eylem tanımlayın.
 
 ## <a name="monitoring-database-performance"></a>Veritabanı performansını izleme
 
-Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. Azure SQL veritabanı sayesinde artırmak ve kaynakları değiştirmeden geçirerek sorgu performansını iyileştirmek için fırsatlarını belirlemek [performans ayarlama önerilerinde](sql-database-advisor.md). Veritabanı performansının düşük olmasına yol açan yaygın nedenler, dizinlerin eksik olması ve sorguların hatalı bir şekilde iyileştirilmesidir. İş yükünüzün performansını artırmak için bu ayar önerileri uygulayabilirsiniz. Let Azure SQL veritabanı'na ayrıca [otomatik olarak, sorguların performansını en iyi duruma getirme](sql-database-automatic-tuning.md) uygulayarak tüm öneriler ve veritabanı performansını artırmak doğrulama belirledik.
+Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. Aşağıdaki kaynaklar izlemeniz gereken:
+ - **CPU kullanımı** -olan erişmeye CPU kullanımının %100 daha uzun bir süre içinde denetlemek gerekir. Bu, veritabanı veya örnek yükseltmeniz veya tanımlayın ve çoğu işlem gücü kullanan sorgularınızı ayarlamak gerekebilir olduğunu gösteriyor olabilir.
+ - **İstatistikleri bekleyin** -ne denetlemek gereken bazı kaynaklar için bekleyen sorgularınızı neden. Queriesmig veri getirilen ya da kaydedilmiş bazı kaynak sınırına ulaştığınız için bekleyen veritabanı dosyaları, vb. için bekle.
+ - **GÇ kullanımını** -olan erişmeye temel depolama GÇ sınırlarından denetlemek gerekir.
+ - **Bellek kullanımı** -veritabanı veya örnek orantılı sanal çekirdek sayısı ve kontrol etmeniz için kullanılabilir bellek yeterli iş yükünüz için olduğu. Sayfa yaşam beklentisinin sayfalarınızı hızlı bir şekilde bellekten kaldırıldığını gösteren parametreleri biridir.
+
+Azure SQL veritabanı **yardımcı olabilecek bildirimleri sorun giderme ve olası performans sorunlarını çözün sağlar**. Artırmak ve kaynakları değiştirmeden geçirerek sorgu performansının iyileştirilmesi için fırsatlar kolayca belirleyebilirsiniz [performans ayarlama önerilerinde](sql-database-advisor.md). Veritabanı performansının düşük olmasına yol açan yaygın nedenler, dizinlerin eksik olması ve sorguların hatalı bir şekilde iyileştirilmesidir. İş yükünüzün performansını artırmak için bu ayar önerileri uygulayabilirsiniz. Let Azure SQL veritabanı'na ayrıca [otomatik olarak, sorguların performansını en iyi duruma getirme](sql-database-automatic-tuning.md) uygulayarak tüm öneriler ve veritabanı performansını artırmak doğrulama belirledik.
 
 İzleme ve sorun giderme veritabanı performans için aşağıdaki seçenekleriniz:
 
 - İçinde [Azure portalında](https://portal.azure.com), tıklayın **SQL veritabanları**, veritabanını seçin ve ardından aramak için en fazla yaklaşan kaynakları için izleme grafiği kullanın. DTU tüketimi, varsayılan olarak gösterilir. Tıklayın **Düzenle** gösterilen değerler ve zaman aralığını değiştirmek için.
-- Kullanım [sorgu performansı İçgörüleri](sql-database-query-performance.md) kaynaklarının en çok harcama sorguları tanımlamak için.
-- Kullanım [SQL veritabanı Danışmanı](sql-database-advisor-portal.md) oluşturmak ve dizinleri bırakmayı, sorguları kümesini parametreleştirme ve şema sorunlarını giderme önerileri görüntüleyebilirsiniz.
+- SQL Server Management Studio gibi araçlar sağlayan birçok yararlı raporları bir [performans Pano](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) kaynak kullanımını izlemek ve üst kaynak kullanan sorgular, tanımlamak veya [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)yeri belirleyebilirsiniz sorguları azaltılmış performansa.
+- Kullanım [sorgu performansı İçgörüleri](sql-database-query-performance.md) [Azure portalında](https://portal.azure.com) kaynaklarının en çok harcama sorguları tanımlamak için. Bu özellik, yalnızca tek veritabanı ve elastik havuzların içinde kullanılabilir.
+- Kullanım [SQL veritabanı Danışmanı](sql-database-advisor-portal.md) oluşturmak ve dizinleri bırakmayı, sorguları kümesini parametreleştirme ve şema sorunlarını giderme önerileri görüntüleyebilirsiniz. Bu özellik, yalnızca tek veritabanı ve elastik havuzların içinde kullanılabilir.
 - Kullanım [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) otomatik, veritabanı performansını izleme. Bir performans sorunu algılandığında bir tanılama günlüğü, Ayrıntılar ve sorunun kök neden analizi (RCA) ile oluşturulur. Mümkün olduğunda performans iyileştirme öneri sağlanmaktadır.
 - [Otomatik ayarlamayı etkinleştirme](sql-database-automatic-tuning-enable.md) ve Azure SQL tanımlanan düzeltme performans sorunlarını otomatik olarak veritabanı sağlar.
 - Kullanım [dinamik yönetim görünümlerini (Dmv'ler)](sql-database-monitoring-with-dmvs.md), [genişletilmiş olaylar](sql-database-xevent-db-diff-from-svr.md)ve [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) daha ayrıntılı performans sorunlarını gidermek için.
 
 > [!TIP]
 > Bkz: [performans rehberi](sql-database-performance-guidance.md) tanımlayan bir veya daha yukarıdaki yöntemlerden birini kullanarak performans sorunu sonra Azure SQL veritabanı performansını artırmak için kullanabileceğiniz teknikleri bulunacak.
-
-## <a name="monitor-databases-using-the-azure-portal"></a>Azure portalını kullanarak veritabanlarını izleme
-
-İçinde [Azure portalında](https://portal.azure.com/), tek veritabanı s kullanımını veritabanınızı seçip tıklayarak izleyebilirsiniz **izleme** grafiği. Bu işlem sonrasında bir **Ölçüm** penceresi görüntülenir. **Grafiği düzenle** düğmesine tıklayarak değişiklik yapabilirsiniz. Şu ölçümleri ekleyin:
-
-- CPU yüzdesi
-- DTU yüzdesi
-- Veri G/Ç yüzdesi
-- Veri boyutu yüzdesi
-
-Bu ölçümleri ekledikten sonra görüntülemeye devam edebilirsiniz **izleme** grafik hakkında daha fazla bilgi **ölçüm** penceresi. Dört ölçümün tümü de veritabanınızın ortalama **DTU** kullanım yüzdesini gösterir. Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) makaleler hizmet katmanları hakkında daha fazla bilgi için.  
-
-![Hizmet katmanına göre veritabanı performansını izleme.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
-
-Performans ölçümlerine ilişkin uyarıları da yapılandırabilirsiniz. **Ölçüm** penceresindeki **Uyarı ekle** düğmesine tıklayın. Uyarınızı yapılandırmak için sihirbazı takip edin. Ölçümlerin belirli bir eşiği aşması veya belirli bir eşiğin altına düşmesi halinde uyarı alabilirsiniz.
-
-Örneğin, veritabanınızdaki bir iş yükünün artmasını bekliyorsanız bir e-posta uyarısı yapılandırarak veritabanınızın herhangi bir performans ölçümünde %80 sınırına ulaşması halinde uyarı alabilirsiniz. Zaman sonraki en yüksek işlem boyutu geçmeniz gerektiğini anlamak üzere erken bir uyarı olarak kullanabilirsiniz.
-
-Performans ölçümleri, daha düşük bir işlem boyutu için geçemeyeceğinizi belirlemenize de yardımcı olabilir. Standart S2 veritabanını kullandığınızı ve tüm performans ölçümlerinin, veritabanının belirli bir zaman için ortalama %10'dan daha fazla kullanımda bulunmadığını gösterdiğini varsayın. Bu, veritabanının Standart S1'de de düzgün şekilde çalışabileceğini gösterir. Ancak, ani değişiklik veya dalgalanma gösteren bir alt işlem boyutu geçmeye karar vermeden önce iş yüklerini farkında olun.
 
 ## <a name="troubleshoot-performance-issues"></a>Performans sorunlarını giderme
 
@@ -65,6 +57,18 @@ Performans sorunları tanılamak ve gidermek için her etkin sorgu ve her iş y�
 ![İş yükü durumları](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 Performans sorunları olan bir iş yükü için performans sorunu nedeniyle CPU Çekişme olabilir (bir **çalıştırma ile ilgili** koşul) veya tek tek sorgular üzerinde bir bekleyen (bir **bekleme ilgili** koşulu ).
+
+Neden veya **çalıştırma ile ilgili** sorunları olabilir:
+- **Derleme sorunlarını** -SQL sorgu iyileştiricisi, eski istatistikleri, işlenecek satır sayısı yanlış tahmin veya tahmin gerekli bellek nedeniyle iyinin planı üretebilir. Bu sorgu, daha hızlı geçmiş veya başka örneğinde (yönetilen örneğine veya SQL Server örneği) yürütülmesi biliyorsanız, gerçek yürütmesi planları ve bunları görmek için oldukları karşılaştırma farklı yararlanın. Sorgu ipuçları veya yeniden istatistikleri veya dizinleri kadar iyi planlama almak için uygulamayı deneyin. Otomatik plan düzeltme otomatik olarak bu sorunları hafifletmek için Azure SQL veritabanı'nda etkinleştirin.
+- **Yürütme sorunları** - sorgu planı en iyi olduğunu sonra büyük olasılıkla veritabanında günlük yazma üretimi gibi bazı kaynak sınırlarını ulaşma veya oluşturulmalıdır birleştirilmiş dizinleri kullanıyor olabilir. Çok sayıda kaynakları harcama eş zamanlı sorgu yürütme sorunların nedenini de olabilir. **Bekleyen ilgili** sorunlardır yürütme sorunlarıyla ilgili çalışmalarının çoğu için verimli bir şekilde yürütülmüyor sorguları büyük olasılıkla bazı kaynaklar bekleniyor.
+
+Neden veya **bekleme ilgili** sorunları olabilir:
+- **Engelleme** -bir sorgu tutun kilit veritabanındaki bazı nesneler başkalarının aynı nesneleri erişmeye çalışırken. Engelleme sorguları DMV'sini kullanarak veya izleme araçları kolayca belirleyebilirsiniz.
+- **G/ç sorunlarını** -sorgular bekleyen veri veya günlük dosyalarına yazılacak sayfaları için. Bu durumda görürsünüz `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, veya `PAGEIOLATCH_*` DMV istatistikleri bekleyin.
+- **TempDB sorunları** - çok sayıda geçici tablolar kullanıyorsanız veya çok fazla tempdb sıvı sıçraması planlarınızda TempDB aktarım hızı ile ilgili bir sorun olabilir, sorgularınızı bakın. 
+- **Bellekle ilgili sorunları** -, yeterli bellek, iş yükü için sayfa yaşam beklentisinin bırak ya da sorgularınızı gerekenden daha az bellek ataması alıyorsanız sahip olmayabilir. Bazı durumlarda, yerleşik zeka sorgu iyileştiricisi, bu sorunları düzeltir.
+ 
+Aşağıdaki bölümlerde, belirleme ve bu sorunlardan bazılarını gidermenize açıklanacaktır.
 
 ## <a name="running-related-performance-issues"></a>Çalıştırma ile ilgili performans sorunları
 
@@ -76,7 +80,7 @@ Genel bir kural olarak, CPU kullanımı veya % 80'de, üzerindeki tutarlı bir �
 
 Bir çalıştırma ile ilgili performans sorunu olduğunu belirlerseniz, bir veya daha fazla yöntemi kullanarak kesin sorunu tanımlamak için amacınız anlamaktır. Çalıştırma ile ilgili sorunları tanımlamaya yönelik en yaygın yöntemler şunlardır:
 
-- Kullanım [Azure portalında](#monitor-databases-using-the-azure-portal) CPU yüzdesi kullanımı izlemek için.
+- Kullanım [Azure portalında](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) CPU yüzdesi kullanımı izlemek için.
 - Aşağıdaki [dinamik yönetim görünümlerini](sql-database-monitoring-with-dmvs.md):
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) bir Azure SQL veritabanı için CPU, g/ç ve bellek tüketimi döndürür. Veritabanında hiç etkinlik olsa her 15 saniyede bir satır yok. Geçmiş verileri, bir saat boyunca korunur.

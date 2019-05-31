@@ -3,20 +3,19 @@ title: Küfür filtresini - Translator metin çevirisi API'si
 titlesuffix: Azure Cognitive Services
 description: Translator metin çevirisi API'si filtreleme küfür kullanın.
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 02/21/2019
-ms.date: 03/12/2019
-ms.author: v-junlch
-ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/21/2019
+ms.author: v-pawal
+ms.openlocfilehash: 3ffe14450f0191b88a8d8a71b5f28ae4c59b68c1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880039"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387576"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Translator metin çevirisi API'si ile filtreleme küfür Ekle
 
@@ -31,9 +30,8 @@ Translate() yöntemi yeni bir öğe "ProfanityAction" içerir "options" parametr
 | :---|:---|:---|:---|
 | NoAction | Varsayılan. Aynı seçenek ayarı bulunamadı. Küfür kaynaktan hedefe aktarır. | 彼は変態です。 | He aptalın olur. |
 | İşaretli | Küfürlü sözcükleri tarafından XML etiketleri arasına \<küfür >... \</profanity >. | 彼は変態です。 | He's bir \<küfür > jerk\</profanity >. |
-| Silinen | Küfürlü sözcükleri değiştirme yapmadan çıktıdan kaldırıldı. | 彼は。 | He's bir. |
+| Silme | Küfürlü sözcükleri değiştirme yapmadan çıktıdan kaldırıldı. | 彼は。 | He's bir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [Translator API çağrınızı filtreleme küfür Uygula](reference/v3-0-translate.md)
-

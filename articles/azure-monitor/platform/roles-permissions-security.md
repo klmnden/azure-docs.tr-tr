@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453124"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243434"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
 
@@ -24,15 +24,15 @@ Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen 
 ## <a name="built-in-monitoring-roles"></a>İzleme yerleşik roller
 Azure İzleyicisi'nin yerleşik roller yardımcı olmak için tasarlanmıştır almak ve ihtiyaç duydukları verilere yapılandırmak için altyapı izleme için sorumlu bir etkinleştirme sırasında bir abonelik kaynaklarına erişimi sınırlayın. Azure İzleyici, iki Giden kutusu rolünü sağlar: İzleme okuyucusu ve izleme Katılımcısı için.
 
-### <a name="monitoring-reader"></a>İzleme Okuyucusu
+### <a name="monitoring-reader"></a>İzleme okuyucusu
 İzleme okuyucu rolüne atanan kişi bir Abonelikteki tüm izleme verilerini görüntülemek, ancak herhangi bir kaynağa değiştiremez veya kaynaklarını izleme ile ilgili herhangi bir ayarı düzenlemek. Bu rol, oluşturabilmek için gereken destek veya işlem mühendisleri gibi bir kuruluştaki kullanıcılar için uygundur:
 
 * Portalda izleme panoları görüntüleme ve kendi özel izleme panolar oluşturun.
-* Tanımlanan uyarı kuralları görüntüleyebiliriz [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md)
-* Ölçümleri kullanarak için sorgu [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlet'leri](../../azure-monitor/platform/powershell-quickstart-samples.md), veya [platformlar arası CLI](../../azure-monitor/platform/cli-samples.md).
+* Tanımlanan uyarı kuralları görüntüleyebiliriz [Azure uyarıları](alerts-overview.md)
+* Ölçümleri kullanarak için sorgu [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlet'leri](powershell-quickstart-samples.md), veya [platformlar arası CLI](cli-samples.md).
 * Portal, Azure İzleyici REST API, PowerShell cmdlet'leri veya platformlar arası CLI kullanarak Etkinlik günlüğü sorgulayın.
-* Görünüm [tanılama ayarları](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) bir kaynak için.
-* Görünüm [günlük profili](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) aboneliği.
+* Görünüm [tanılama ayarları](diagnostic-logs-overview.md#diagnostic-settings) bir kaynak için.
+* Görünüm [günlük profili](activity-log-export.md) aboneliği.
 * Otomatik ölçeklendirme ayarlarını görüntüleyin.
 * Uyarı etkinlikleri görüntüle ve ayarlar.
 * Application Insights veri erişimi ve yapay ZEKA Analytics'te verileri görüntüleme.
@@ -48,13 +48,13 @@ Azure İzleyicisi'nin yerleşik roller yardımcı olmak için tasarlanmıştır 
 > 
 > 
 
-### <a name="monitoring-contributor"></a>İzleme Katkıda Bulunanı
+### <a name="monitoring-contributor"></a>İzleme katkıda bulunanı
 Kişilerin izleme katılımcı rolü, bir Abonelikteki tüm izleme verilerini görüntüleyebilir ve oluşturma veya izleme ayarlarını değiştirebilir, ancak diğer tüm kaynakları değiştiremezsiniz. Bu rolü izleme okuyucusu rolü bir üst kümesidir ve bir kuruluşun izleme takım ya da yukarıdaki izinlere ek olarak, oluşturabilmek için ayrıca ihtiyaç duyan yönetilen hizmet sağlayıcıları için uygundur:
 
 * İzleme panoları, paylaşılan bir panoyu yayımlayın.
-* Ayarlama [tanılama ayarları](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) bir kaynak için.\*
-* Ayarlama [günlük profili](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) aboneliği.\*
-* Ayarlama etkinliği uyarı kuralları ve ayarları aracılığıyla [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md).
+* Ayarlama [tanılama ayarları](diagnostic-logs-overview.md#diagnostic-settings) bir kaynak için.\*
+* Ayarlama [günlük profili](activity-log-export.md) aboneliği.\*
+* Ayarlama etkinliği uyarı kuralları ve ayarları aracılığıyla [Azure uyarıları](alerts-overview.md).
 * Application Insights web testleri ve bileşenler oluşturun.
 * Log Analytics çalışma alanı paylaşılan anahtarlarını listele.
 * Etkinleştirmek veya Log Analytics çalışma alanında izleme paketlerini devre dışı bırakın.

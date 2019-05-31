@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 140b1263047849e13a44441c368e6357078574d8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002499"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240803"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -54,7 +54,7 @@ Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için öze
 |Oluşturma veya bir Otomasyon sertifikası kaldırma|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Kaynak grubu üzerinde katkıda bulunan         |Otomasyon hesabı kaynak grubu|
 |Oluşturma veya bir Otomasyon bağlantı kaldırma|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Kaynak grubu üzerinde katkıda bulunan |Otomasyon hesabı kaynak grubu|
 
-<sup>1</sup> Azure AD kiracınızdaki yönetici olmayan kullanıcılar için [AD uygulamalarını kaydedebilir](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) varsa Azure AD kiracısının **kullanıcılar uygulamaları kaydedebilir** seçeneğini **kullanıcı ayarları**sayfası ayarlandığında **Evet**. Uygulama kayıtları ayarı ayarlanırsa **Hayır**, bu işlemi gerçekleştiren kullanıcının olmalıdır bir **genel yönetici** Azure AD'de.
+<sup>1</sup> Azure AD kiracınızdaki yönetici olmayan kullanıcılar için [AD uygulamalarını kaydedebilir](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) varsa Azure AD kiracısının **kullanıcılar uygulamaları kaydedebilir** seçeneğini **kullanıcı ayarları**sayfası ayarlandığında **Evet**. Uygulama kayıtları ayarı ayarlanırsa **Hayır**, bu eylemi gerçekleştiren kullanıcı, önceki tabloda tanımlanan olması gerekir.
 
 Eklemiş önce aboneliğin Active Directory örneğine üye değilseniz **genel yönetici** rolü, aboneliği, bir konuk olarak eklenir. Bu durumda, aldığınız bir `You do not have permissions to create…` üzerinde uyarı **Otomasyon hesabı Ekle** sayfası. İçin eklenen kullanıcılar **genel yönetici** rol ilk kullanılabilir aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory'de tam bir kullanıcı olacak şekilde. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
 
@@ -376,7 +376,7 @@ Azure portalında **abonelikleri** ve Otomasyon hesabınızın aboneliği seçin
 
 ![Abonelik Katkıda Bulunanlar](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Hizmet sorumlusu bir kaynak grubuna eklemek için Azure portal ve select kaynak grubunu seçin **erişim denetimi (IAM)**. Seçin **rol ataması Ekle**, bu açılır **rol ataması Ekle** sayfası. İçin **rol**seçin **katkıda bulunan**. İçinde **seçin** metin kutusuna farklı çalıştır hesabı için hizmet sorumlusu adını yazın ve listeden seçin. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Kaynak grupları, Azure Otomasyonu Garklı Çalıştır hizmet sorumlusu erişimi vermek istediğiniz için bu adımları tamamlayın.
+Hizmet sorumlusu bir kaynak grubuna eklemek için Azure portal ve select kaynak grubunu seçin **erişim denetimi (IAM)** . Seçin **rol ataması Ekle**, bu açılır **rol ataması Ekle** sayfası. İçin **rol**seçin **katkıda bulunan**. İçinde **seçin** metin kutusuna farklı çalıştır hesabı için hizmet sorumlusu adını yazın ve listeden seçin. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Kaynak grupları, Azure Otomasyonu Garklı Çalıştır hizmet sorumlusu erişimi vermek istediğiniz için bu adımları tamamlayın.
 
 ## <a name="misconfiguration"></a>Yanlış yapılandırma
 

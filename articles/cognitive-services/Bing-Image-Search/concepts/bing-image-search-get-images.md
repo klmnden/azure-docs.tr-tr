@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f54003f4e1c60b80b500f49bb83d4b7adf2bc12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60312881"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389424"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Bing resim arama API'si ile web görüntülerini alın
 
@@ -45,7 +45,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> Sorguları kullanarak yanıtlarını `site:` işleci bağımsız olarak, yetişkinlere yönelik içerik içerebilir [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) ayarı. Yalnızca `site:` etki alanındaki içeriği farkında değilseniz.
+> Sorguları kullanarak yanıtlarını `site:` işleci bağımsız olarak, yetişkinlere yönelik içerik içerebilir [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) ayarı. Yalnızca `site:` etki alanındaki içeriği farkında değilseniz.
 
 Aşağıdaki örnekte Bing'in geçen hafta keşfettiği ContosoSailing.com sitesindeki küçük görüntülerin nasıl alınacağı gösterilmektedir.  
 
@@ -62,19 +62,19 @@ Host: api.cognitive.microsoft.com
 
  Varsayılan olarak, resim arama API'si, sorgu ile ilgili tüm görüntüleri döndürür. Bing (örneğin, bir saydam arka plan ya da belirli bir boyutu ile yalnızca görüntü döndürülecek) döndüren görüntüleri filtrelemek istiyorsanız, aşağıdaki sorgu parametrelerini kullanın:
 
-* [en boy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect)— en boy oranı (örneğin, standart veya geniş ekran görüntüleri için) tarafından görüntüleri Filtrele.
-* [renk](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color)— filtre baskın renk veya siyah beyaz görüntüler.
-* [güncellik](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness)— yaş (örneğin, Bing tarafından geçen hafta içinde bulunan görüntüleri) tarafından görüntüleri Filtrele.
-* [Yükseklik](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height), [genişliği](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width)— filtre görüntülerden genişlik ve yükseklik.
-* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent)— tarafından içerik (örneğin, yalnızca bir kişinin yüzü gösteren görüntüleri) görüntüleri Filtrele.
-* [ImageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)— filtre (örneğin, küçük resim, animasyonlu GIF veya saydam arka planlar) türüne göre görüntüler.
-* [Lisans](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)— görüntüleri sitesiyle ilişkili lisans türüne göre filtreleyin.
-* [boyutu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)— filtre gibi küçük bir boyuta göre görüntüleri en fazla 200 x 200 piksel.
+* [en boy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#aspect)— en boy oranı (örneğin, standart veya geniş ekran görüntüleri için) tarafından görüntüleri Filtrele.
+* [renk](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#color)— filtre baskın renk veya siyah beyaz görüntüler.
+* [güncellik](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#freshness)— yaş (örneğin, Bing tarafından geçen hafta içinde bulunan görüntüleri) tarafından görüntüleri Filtrele.
+* [Yükseklik](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#height), [genişliği](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#width)— filtre görüntülerden genişlik ve yükseklik.
+* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagecontent)— tarafından içerik (örneğin, yalnızca bir kişinin yüzü gösteren görüntüleri) görüntüleri Filtrele.
+* [ImageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)— filtre (örneğin, küçük resim, animasyonlu GIF veya saydam arka planlar) türüne göre görüntüler.
+* [Lisans](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license)— görüntüleri sitesiyle ilişkili lisans türüne göre filtreleyin.
+* [boyutu](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#size)— filtre gibi küçük bir boyuta göre görüntüleri en fazla 200 x 200 piksel.
 
 Belirli bir etki alanındaki görüntüleri almak için [site:](https://msdn.microsoft.com/library/ff795613.aspx) dize işlecini kullanın.
 
  > [!NOTE]
- > Sorguları kullanarak yanıtlarını `site:` işleci bağımsız olarak, yetişkinlere yönelik içerik içerebilir [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) ayarı. Yalnızca `site:` etki alanındaki içeriği farkında değilseniz.
+ > Sorguları kullanarak yanıtlarını `site:` işleci bağımsız olarak, yetişkinlere yönelik içerik içerebilir [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) ayarı. Yalnızca `site:` etki alanındaki içeriği farkında değilseniz.
 
 Aşağıdaki örnek, Bing geçen hafta içinde bulunan ContosoSailing.com küçük resimler elde gösterilmektedir.  
 
@@ -89,7 +89,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="bing-image-search-response-format"></a>Bing resim arama yanıt biçimi
 
-Bing yanıt iletisini içeren bir [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) Bilişsel hizmetler sorgu ile ilgili belirlenen görüntülerin bir listesini içeren bir yanıt. Her [görüntü](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) Nesne listesinde görüntü ile ilgili aşağıdaki bilgileri içerir: URL, boyutunu, Boyutlar, kodlama biçimi, görüntü ve küçük 's boyutları bir küçük resim URL'si.
+Bing yanıt iletisini içeren bir [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) Bilişsel hizmetler sorgu ile ilgili belirlenen görüntülerin bir listesini içeren bir yanıt. Her [görüntü](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) Nesne listesinde görüntü ile ilgili aşağıdaki bilgileri içerir: URL, boyutunu, Boyutlar, kodlama biçimi, görüntü ve küçük 's boyutları bir küçük resim URL'si.
 
 ```json
 {

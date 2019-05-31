@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ee864a264ae9012b64b7dab5cd19467d8d66791c
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: d018ce4164c50f5d21c8ab3e833bba7055ad9753
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921900"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385039"
 ---
 # <a name="connect-your-f5-appliance"></a>F5 gerecinize bağlanma
 
@@ -32,7 +32,7 @@ Azure Gözcü herhangi bir F5 gereç Syslog CEF günlük dosyalarını kaydedere
 > [!NOTE]
 > Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>1. Adım: F5 gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-f5-appliance-using-an-agent"></a>1. adım: F5 gerecinize bir aracı kullanarak bağlanma
 
 Azure Gözcü için F5 cihazınıza bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
@@ -99,7 +99,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
   3. İlgili şema F5 olayları Log Analytics'te kullanmak için arama **CommonSecurityLog**.
 
  
-## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>2. Adım: F5 günlükleri Syslog aracıya ilet
+## <a name="step-2-forward-f5-logs-to-the-syslog-agent"></a>2. adım: F5 günlükleri Syslog aracıya ilet
 
 F5'e Azure çalışma alanınıza Syslog aracı üzerinden CEF biçiminde Syslog iletilerini iletecek şekilde yapılandırın:
 
@@ -121,7 +121,7 @@ F5'e gidin [uygulama güvenlik olay günlüğü yapılandırma](https://aka.ms/a
 
 3. Gönderdiğiniz günlükler ile uyumlu olduğundan emin [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.netman/8/netstat). Düzgün dinliyorsa, görürsünüz:
+4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.net/man/8/netstat). Düzgün dinliyorsa, görürsünüz:
 
    ![Azure Sentinel bağlantı noktaları](./media/connect-cef/ports.png) 
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957463"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400245"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python'da otomatik ML denemeleri yapılandırın
 
@@ -59,6 +59,14 @@ Sınıflandırma | Regresyon | Zaman serilerini tahmin etme
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Stokastik aşama (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Kullanım `task` parametresinde `AutoMLConfig` deneme türünüz belirtmek için oluşturucu.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## <a name="data-source-and-format"></a>Veri kaynağı ve biçimi
 Otomatik machine learning, yerel masaüstüne veya Azure Blob Depolama gibi bulutta bulunan verileri destekler. Verilerin scikit okunacağı-desteklenen veri biçimlerinden öğrenin. Verileri okuyabilirsiniz:
@@ -121,7 +129,7 @@ Anahtar | Tür | İle birbirini dışlayan    | Açıklama
 ---|---|---|---
 X | Pandas Dataframe veya Numpy dizisi | data_train, etiket, sütunları |  Tüm özellikleri ile eğitme
 Y | Pandas Dataframe veya Numpy dizisi |   etiket   | Veri ile eğitmek için etiket. Sınıflandırma için tamsayı dizisi olmalıdır.
-X_valid | Pandas Dataframe veya Numpy dizisi   | data_train, etiket | _İsteğe bağlı_ ile doğrulamak için tüm özellikleri. Belirtilmezse, X eğitimi arasında bölünmüş ve doğrulama
+X_valid | Pandas Dataframe veya Numpy dizisi   | data_train, etiket | _İsteğe bağlı_ özellik doğrulama kümesi form verileri. Belirtilmezse, X eğitimi arasında bölünmüş ve doğrulama
 y_valid |   Pandas Dataframe veya Numpy dizisi | data_train, etiket | _İsteğe bağlı_ ile doğrulamak için verileri etiket. Belirtilmezse, y eğitimi arasında bölünmüş ve doğrulama
 sample_weight | Pandas Dataframe veya Numpy dizisi |   data_train, etiket, sütunları| _İsteğe bağlı_ her örnek için bir ağırlık değeri. Veri noktaları için farklı ağırlıkları atamak istediğiniz zaman kullanın
 sample_weight_valid | Pandas Dataframe veya Numpy dizisi | data_train, etiket, sütunları |    _İsteğe bağlı_ her doğrulama örneği için bir ağırlık değeri. Belirtilmezse, sample_weight eğitimi arasında bölünmüş ve doğrulama
@@ -129,30 +137,6 @@ data_train |    Pandas Dataframe |  X, y, X_valid, y_valid |    Tüm veriler (Ö
 etiket | dize  | X, y, X_valid, y_valid |  Hangi sütunun data_train etiketi temsil eder.
 Sütunları | dize dizisi  ||  _İsteğe bağlı_ özelliklerini beyaz liste sütun
 cv_splits_indices   | Tamsayı dizisi ||  _İsteğe bağlı_ dizinler için verileri çapraz doğrulama bölme listesi
-
-### <a name="load-and-prepare-data-using-data-prep-sdk"></a>Yük ve veri hazırlığı SDK kullanarak veri hazırlama
-Otomatik makine öğrenimi denemeleri, veri yüklenmesini destekler ve veri hazırlığı SDK'sını kullanarak dönüştürür. SDK'sını kullanarak sağlar
-
->* Birçok dosya türünü parametre çıkarımı (kodlama, ayırıcı, üst bilgiler) ayrıştırma ile yükleme
->* Tür-dönüştürme çıkarımı kullanılarak sırasında dosya yükleniyor
->* MS SQL Server ve Azure Data Lake Storage bağlantı desteği
->* Bir ifade kullanarak sütun ekleme
->* Eksik değerleri impute
->* Sütunu örneğe göre türetme
->* Filtreleme
->* Özel bir Python dönüşümler
-
-Veriler hakkında bilgi edinmek için hazırlık sdk belgelerine başvurun [makale modellemek için veri hazırlama](how-to-load-data.md).
-Veri hazırlama SDK'sını kullanarak verileri yüklenirken bir örneği aşağıda verilmiştir.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## <a name="train-and-validation-data"></a>Veri eğitme ve doğrulama
 
@@ -348,7 +332,7 @@ Bu 2 kullanmak daha iyi anlamak için ilk adımı, ekrana sığdırılmış mode
   >[!Note]
   >'Timeseriestransformer' görev için kullanacağınız 'regresyon' veya 'sınıflandırma' görevinin ' datatransformer' = 'tahmin', başka kullanın.
 
-  Çıkış:
+  Çıktı:
   ```
   [{'RawFeatureName': 'A',
     'TypeDetected': 'Numeric',
@@ -501,6 +485,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![özellik önem grafiği](./media/how-to-configure-auto-train/feature-importance.png)
+
+Nasıl model açıklamalar ve özellik önem diğer alanlardaki otomatik makine öğrenimi dışında SDK'sının etkin hale getirilebilir daha fazla bilgi için bkz: [kavramı](machine-learning-interpretability-explainability.md) interpretability makale.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

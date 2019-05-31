@@ -5,15 +5,15 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: d893fb1023188498260813642678397a39bb2442
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872379"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399167"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme
 
@@ -58,7 +58,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
    > [!NOTE]
    > 
-   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)**, çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [Azure İzleyici'de günlük sorgusu kullanarak](../log-query/log-query-overview.md) veya [application ınsights analytics paylaşılan sorgu ](../log-query/log-query-overview.md).
+   > Liste sinyal türü - analytics sorgusuna alma uyarılar **günlük (kayıtlı sorgu)** , çizimde görüldüğü gibi. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - kaydetmek daha fazla ayrıntı bulunabilir sorgu kaydetme kullanarak [Azure İzleyici'de günlük sorgusu kullanarak](../log-query/log-query-overview.md) veya [application ınsights analytics paylaşılan sorgu ](../log-query/log-query-overview.md).
 
 1. *Günlük uyarıları*: İçinde bu onay kutusu seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 
@@ -308,23 +308,36 @@ Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](http
 
 Yukarıdaki örnek json (örneğin) sampleScheduledQueryRule.json amacıyla bu kılavuzda olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>PowerShell, CLI veya API kullanarak günlük uyarıları yönetme
+## <a name="managing-log-alerts-using-powershell"></a>PowerShell kullanarak günlük uyarıları yönetme
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure İzleyici - [zamanlanmış sorgu kuralları API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
+Azure İzleyici - [zamanlanmış sorgu kuralları API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Ve yararlanmak aşağıda listelenen PowerShell cmdlet'leri kullanılabilir [zamanlanmış sorgu kuralları API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+
+1. [Yeni AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : Yeni bir günlük uyarı kuralı oluşturmak için Powershell cmdlet'i.
+1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : Mevcut bir günlük uyarı kuralı güncelleştirmek için Powershell cmdlet'i.
+1. [Yeni AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : Günlük uyarısı kaynak parametrelerini belirten nesne oluşturmak veya güncelleştirmek için Powershell cmdlet'i. Girdi olarak kullanılan [yeni AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) ve [kümesi AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet'i.
+1. [Yeni AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): Oluşturmak veya güncelleştirmek için Powershell cmdlet günlük uyarısı zamanlama parametrelerini belirten nesne. Girdi olarak kullanılan [yeni AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) ve [kümesi AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet'i.
+1. [Yeni AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : Oluşturulacak veya güncelleştirilecek günlük uyarısı için eylem parametrelerini belirten nesne Powershell cmdlet'i. Girdi olarak kullanılan [yeni AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) ve [kümesi AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet'i.
+1. [Yeni AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : Powershell cmdlet'ini oluşturma veya güncelleştirme eylemini belirten nesnesini günlük uyarısı için parametreleri gruplar. Girdi olarak kullanılan [yeni AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet'i.
+1. [Yeni AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : Oluşturmak veya güncelleştirmek için Powershell cmdlet belirten tetikleyici koşul parametrelerine günlüğü uyarısı için nesne. Girdi olarak kullanılan [yeni AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet'i.
+1. [Yeni AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : Powershell cmdlet'ini oluşturma veya güncelleştirme ölçüm tetikleyicisi için durum parametrelerini belirten nesne [ölçüm ölçüsü türü günlüğü Uyarısı](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Girdi olarak kullanılan [yeni AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet'i.
+1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : Liste mevcut Powershell cmdlet'i günlük uyarı kuralları veya belirli günlük uyarı kuralı
+1. [Güncelleştirme AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : Powershell cmdlet'ini etkinleştirme veya günlük uyarı kuralı devre dışı
+1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): Mevcut bir günlük uyarı kuralı silmeye yönelik Powershell cmdlet'i
+
+> [!NOTE]
+> ScheduledQueryRules PowerShell cmdlet'leri yalnızca oluşturulan kuralları cmdlet'i kendisini yönetmek veya Azure İzleyici - kullanarak [zamanlanmış sorgu kuralları API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Günlük uyarısı kuralları kullanılarak oluşturulan [Log Analytics uyarı API](api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../insights/solutions-resources-searches-alerts.md) ScheduledQueryRules PowerShell cmdlet'leri kullanılarak yönetilebilir yalnızca sonra Kullanıcı [Log Analytics uyarılarını tercihini API anahtarları](alerts-log-api-switch.md).
+
+## <a name="managing-log-alerts-using-cli-or-api"></a>CLI veya API kullanarak günlük uyarıları yönetme
+
+Azure İzleyici - [zamanlanmış sorgu kuralları API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Resource Manager komutları için Azure CLI kullanarak Powershell aracılığıyla kullanılabilir.
 
 
 > [!NOTE]
 > Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
 
-Günlük uyarıları şu anda adanmış PowerShell veya CLI komutları şu anda yoktur; ancak aşağıda gösterildiği gibi Azure Resource Manager PowerShell cmdlet'i kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için kaynak şablonu bölümünde kullanılabilir:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
-```
-
-Aşağıda Azure Resource Manager kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için Azure CLI komutu aracılığıyla kullanım kaynak şablonu bölümünde gösterilmektedir:
+Günlük uyarıları şu anda adanmış CLI komutları şu anda yoktur; ancak aşağıda gösterildiği gibi Azure Resource Manager CLI komutuyla kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için kaynak şablonu bölümünde kullanılabilir:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

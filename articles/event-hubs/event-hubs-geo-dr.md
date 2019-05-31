@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821861"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305004"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - coğrafi olağanüstü durum kurtarma 
 
 Tüm durumlarda Azure bölgeleri veya veri merkezleri (hiçbir [kullanılabilirlik alanları](../availability-zones/az-overview.md) kullanılır), kesinti yaşamak veri işleme, farklı bir bölge veya veri merkezi içinde çalışmaya devam etmek önemlidir. Bu nedenle, *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* tüm kuruluş için önemli özelliklerdir. Azure Event Hubs, hem coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. 
 
-Coğrafi olağanüstü durum kurtarma özelliği, Event Hubs standart SKU için genel olarak kullanılabilir.
+Coğrafi olağanüstü durum kurtarma özelliği, standart Event Hubs hem de adanmış SKU için genel olarak kullanılabilir. Aynı SKU katmanı üzerinden yalnızca coğrafi çifti ad alanları için lütfen unutmayın. Yalnızca bizim ayrılmış SKU'da sunulur bir kümedeki bir ad alanı varsa, örneğin, yalnızca bir ad alanındaki başka bir küme ile eşlenebilmesi için. 
 
 ## <a name="outages-and-disasters"></a>Kesintileri ve olağanüstü durumları yönetme
 

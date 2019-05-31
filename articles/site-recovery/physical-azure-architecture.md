@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 99aec3be893693e523dffefbb3c422222ac19a2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 354a68d7d4d07657baa7044566dde8b7ed77ca63
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947588"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400064"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fiziksel sunucuya Azure olağanüstü durum kurtarma mimarisi
 
@@ -54,7 +54,7 @@ Aşağıdaki tablo ve grafik azure'a fiziksel sunucu çoğaltma için kullanıla
 
 ## <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
-Gerektiği şekilde çoğaltma ayarlanır ve her şeyin beklendiği gibi çalıştığını denetlemek için olağanüstü durum kurtarma tatbikatı (yük devretme testi) çalıştırdıktan sonra Yük devretme ve yeniden çalışma çalıştırabilirsiniz. Şunlara dikkat edin:
+Gerektiği şekilde çoğaltma ayarlanır ve her şeyin beklendiği gibi çalıştığını denetlemek için olağanüstü durum kurtarma tatbikatı (yük devretme testi) çalıştırdıktan sonra Yük devretme ve yeniden çalışma çalıştırabilirsiniz. Aşağıdakilere dikkat edin:
 
 - Planlanan yük devretme desteklenmez.
 - Geri bir şirket içi VMware VM'ye başarısız olmalıdır. Başka bir deyişle, hatta şirket içi fiziksel sunucuları Azure'a çoğaltırken, bir şirket içi VMware altyapısı gerekir.

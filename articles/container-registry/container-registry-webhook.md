@@ -5,18 +5,18 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787283"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389442"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry Web kancalarını kullanma
 
-Azure container registry, depolar ve özel Docker kapsayıcı görüntüleri, Docker Hub, genel Docker görüntülerini depolama benzer bir biçimde yönetir. Depoları için barındırabilir [Helm grafikleri](container-registry-helm-repos.md) (Önizleme), bir paketleme biçimlendirme Kubernetes uygulamaları dağıtmak için. Web kancaları belirli eylemleri kayıt defteri depolarınızı biri gerçekleştiğinde tetikleyici olayları kullanabilirsiniz. Web kancaları kayıt defteri düzeyinde olaylara yanıt verebilir veya belirli depo etiket aşağı kapsamlandırılabilir.
+Azure container registry, depolar ve özel Docker kapsayıcı görüntüleri, Docker Hub, genel Docker görüntülerini depolama benzer bir biçimde yönetir. Depoları için barındırabilir [Helm grafikleri](container-registry-helm-repos.md) (Önizleme), bir paketleme biçimlendirme Kubernetes uygulamaları dağıtmak için. Web kancaları belirli eylemleri kayıt defteri depolarınızı biri gerçekleştiğinde tetikleyici olayları kullanabilirsiniz. Web kancaları kayıt defteri düzeyinde olaylara yanıt verebilir veya belirli depo etiket aşağı kapsamlandırılabilir. İle bir [coğrafi olarak çoğaltılmış](container-registry-geo-replication.md) kayıt defteri, belirli bir bölge çoğaltma olayları yanıtlamak için Web kancasını yapılandırın.
 
 Web kancası isteklerden daha fazla ayrıntı için bkz. [Azure kapsayıcı kayıt defteri Web kancası şeması başvurusu](container-registry-webhook-reference.md).
 
@@ -35,12 +35,13 @@ Web kancası isteklerden daha fazla ayrıntı için bkz. [Azure kapsayıcı kay�
 
 | Değer | Açıklama |
 |---|---|
-| Ad | Web kancası'na vermek istediğiniz adı. Yalnızca harf ve rakam içerebilir ve 5-50 karakter uzunluğunda olmalıdır. |
+| Web kancası adı | Web kancası'na vermek istediğiniz adı. Yalnızca harf ve rakam içerebilir ve 5-50 karakter uzunluğunda olmalıdır. |
+| Location | İçin bir [coğrafi olarak çoğaltılmış](container-registry-geo-replication.md) kayıt defteri çoğaltma Azure bölgesi belirtin. 
 | Hizmet URI'si | Web kancası posta bildirimleri gönderip burada URI'si. |
 | Özel üst bilgiler | POST isteğini birlikte geçirmek istediğiniz üstbilgileri. İçinde olmalıdır "anahtar: değer" biçimi. |
 | Eylem tetikleyici | Web kancası tetiklemenin eylemler. Görüntü gönderme, görüntü silme, Helm grafiği anında iletme, Helm grafiği silme ve görüntü karantina Eylemler içerir. Web kancası tetiklemenin bir veya daha fazla eylem seçebilirsiniz. |
 | Durum | Web kancası oluşturulduktan sonra durumu. Bu, varsayılan olarak etkindir. |
-| Kapsam | Web kancası çalıştığı kapsamı. Belirtilmezse, kayıt defterini tüm olaylar için kapsamıdır. Bu bir depo veya bir etiket için "depo: Etiket" biçimini kullanarak belirtilebilir veya "depo: *" bir depo altındaki tüm etiketlere yönelik. |
+| `Scope` | Web kancası çalıştığı kapsamı. Belirtilmezse, kayıt defterini tüm olaylar için kapsamıdır. Bu bir depo veya bir etiket için "depo: Etiket" biçimini kullanarak belirtilebilir veya "depo: *" bir depo altındaki tüm etiketlere yönelik. |
 
 Örnek Web kancası formu:
 
@@ -54,7 +55,7 @@ Azure CLI kullanarak bir Web kancası oluşturmak için kullanın [az acr Web ka
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
 ```
 
-## <a name="test-webhook"></a>Web kancasını test et
+## <a name="test-webhook"></a>Test Web kancası
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -80,7 +81,7 @@ Sonuçları görmek için [az acr Web kancası liste olayları](/cli/azure/acr/w
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
 ```
 
-## <a name="delete-webhook"></a>Web kancasını sil
+## <a name="delete-webhook"></a>Web kancası silme
 
 ### <a name="azure-portal"></a>Azure portal
 

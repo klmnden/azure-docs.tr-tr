@@ -2,17 +2,17 @@
 title: Windows Server düğümü havuzlarını Azure Kubernetes Service (AKS) için kısıtlamalar
 description: Azure Kubernetes Service (AKS) Windows Server düğüm havuzları ve uygulama iş yüklerini çalıştırırken bilinen sınırlamalar hakkında bilgi edinin
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956270"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304402"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Windows Server düğüm havuzları ve uygulama iş yüklerini Azure Kubernetes Service (AKS) için geçerli sınırlamalar
 
@@ -21,9 +21,10 @@ Azure Kubernetes Service (AKS), düğümler üzerinde konuk işletim sistemi Win
 Bu makalede, bazı sınırlamalar ve Windows Server AKS düğümleri işletim sistemi kavramlarını açıklar. Windows Server için düğüm havuzları şu anda Önizleme aşamasındadır.
 
 > [!IMPORTANT]
-> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+> AKS Önizleme özellikleri, Self Servis, kabul etme. Görüş ve hata topluluğumuza toplamak için sağlanır. Önizleme'de, bu özelliklerin üretim kullanılmak üzere geliştirilmiş değildir. Genel Önizleme Özellikleri 'en yüksek çaba' destek kapsamında ayrılır. İş saatleri Pasifik Saat dilimi sırasında (Pasifik Saati) yalnızca AKS teknik destek ekipleri Yardım kullanılabilir. Ek bilgi için lütfen aşağıdaki destek makaleleri bakın:
 >
-> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+> * [AKS destek ilkeleri][aks-support-policies]
+> * [Azure desteği SSS][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Windows Server'da Kubernetes sınırlamaları
 
@@ -57,6 +58,8 @@ Windows Server düğüm havuzu desteği aks'deki aşağıdaki ek kısıtlamalar 
 - Windows Server düğümleri için olmayan ağ ilkesi ve küme ölçeklendirici, onaylı gibi AKS Önizleme özellikleri.
 - Giriş denetleyicileri yalnızca Linux düğümlerinde bir NodeSelector kullanarak zamanlanmalıdır.
 - Azure geliştirme alanları şu anda yalnızca Linux tabanlı düğüm havuzları için kullanılabilir.
+- Grup yönetilen hizmet hesapları Windows sunucusu düğümlerinin bir Active Directory etki alanına katılmamış (gMSA) desteği, AKS içinde şu anda kullanılabilir değil.
+    - Açık kaynak, Yukarı Akış [aks altyapısı] [ aks-engine] proje şu anda gMSA destek sağlar, bu özelliği kullanmanız gerekir.
 
 ## <a name="os-concepts-that-are-different"></a>Farklı işletim sistemi kavramları
 
@@ -74,11 +77,13 @@ AKS, Windows Server kapsayıcıları kullanmaya başlamak için [AKS Windows Ser
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

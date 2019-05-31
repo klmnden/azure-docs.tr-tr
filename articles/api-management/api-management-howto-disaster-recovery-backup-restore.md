@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141744"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241711"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -63,7 +63,7 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 6. Bir yer tutucu URL'yi girin `http://resources` için **yeniden yönlendirme URI'si**, gerekli bir alandır, ancak değeri daha sonra kullanılmaz. Uygulamayı kaydetmek için onay kutusuna tıklayın.
 7. **Oluştur**’a tıklayın.
 
-### <a name="add-an-application"></a>Uygulama ekle
+### <a name="add-an-application"></a>Uygulama ekleme
 
 1. Uygulama oluşturulduktan sonra tıklayın **ayarları**.
 2. Tıklayın **gerekli izinler**.
@@ -72,7 +72,7 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 5. Seçin **Windows** **Azure Hizmet Yönetimi API**.
 6. Tuşuna **seçin**.
 
-    ![İzin ekle](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![İzin ekleme](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Tıklayın **Temsilcili izinler** için yeni eklenen uygulamanın kutuyu **Azure Hizmet Yönetimi (Önizleme) erişim**.
 8. Tuşuna **seçin**.
@@ -124,7 +124,7 @@ Değiştirin `{tenant id}`, `{application id}`, ve `{redirect uri}` aşağıdaki
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Yedekleme ve geri yükleme işlemleri çağırma
 
-REST API'leri [API yönetim hizmeti - yedekleme](/rest/api/apimanagement/apimanagementservice/backup) ve [API yönetim hizmeti - geri yükleme](/rest/api/apimanagement/apimanagementservice/restore).
+REST API'leri [API yönetim hizmeti - yedekleme](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) ve [API yönetim hizmeti - geri yükleme](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
 
 Aşağıdaki bölümlerde açıklanan "Yedekleme ve geri yükleme" işlemleri çağırmadan önce yetkilendirme isteği üst bilgisi, REST çağrısı için ayarlayın.
 

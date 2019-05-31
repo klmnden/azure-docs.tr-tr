@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477254"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393849"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu
 
@@ -61,7 +61,7 @@ Basit olmayan üretim iş yükü varsa, aşağıdaki SQL Server sürümlerinden 
 | Standart | Küçük ve orta ölçekli iş yükleri |
 | Enterprise | Büyük veya görev açısından kritik iş yükleri|
 
-Bu sürümlerde SQL Server lisansı için ödeme yapmak için iki seçeneğiniz vardır: *kullanım başına ödeme* veya *kendi lisansınızı getirin (BYOL)*.
+Bu sürümlerde SQL Server lisansı için ödeme yapmak için iki seçeneğiniz vardır: *kullanım başına ödeme* veya *kendi lisansınızı getirin (BYOL)* .
 
 ## <a name="pay-per-usage"></a>Kullanım ödeme yapın
 
@@ -99,7 +99,7 @@ Bu kullanım başına ödeme görüntülerden birini ile bir SQL Server 2017 Azu
 **Lisans taşınabilirliği kendi SQL Server lisansınızı getirmek**, de denilen **KLG**, Azure VM'deki Yazılım Güvencesi içeren mevcut bir SQL Server toplu lisans kullanarak anlamına gelir. SQL Server zaten lisanslarınızı ve Yazılım Güvencesi Toplu Lisanslama programı aracılığıyla satın aldığınız koşuluyla, tek ücretleri KLG VM çalıştırmanın maliyeti, SQL Server Lisans değil, kullanarak bir VM.
 
 > [!IMPORTANT]
-> KLG görüntüleri, Yazılım Güvencesi ile Kurumsal Sözleşme gerektirir. Şu anda Azure Cloud Solution Partner (CSP) bir parçası olarak kullanılamaz.
+> KLG görüntüleri, Yazılım Güvencesi ile Kurumsal Sözleşme gerektirir. Şu anda Azure Cloud Solution Partner (CSP) bir parçası olarak kullanılamaz. Bir Kullandıkça Öde görüntüsü dağıtma ve ardından etkinleştirme, CSP müşterileri kendi lisansını Getir [Azure hibrit avantajı](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > KLG görüntüleri şu anda yalnızca Windows sanal makineler için kullanılabilir. Ancak, yalnızca Linux VM üzerinde SQL Server el ile yükleyebilirsiniz. İçindeki yönergelere bakın [Linux SQL VM SSS](../../linux/sql/sql-server-linux-faq.md).
@@ -141,7 +141,7 @@ SQL Server Lisans maliyetini Vcpu sayısı doğrudan ilgilidir. CPU, bellek, dep
 
 SQL Server iş yüklerini de belirli türleriyle çalışma yeni makine boyutları vardır. Bu makine boyutları, bellek, depolama ve g/ç bant genişliği yüksek düzeyde korumak ancak daha düşük bir sanallaştırılmış çekirdek sayısı sahiptir. Örneğin, aşağıdaki örneği göz önünde bulundurun:
 
-| VM Boyutu | vCPU sayısı | Bellek | En büyük diskler | En fazla g/ç aktarım hızı | SQL lisanslama maliyetleri | Toplam Maliyet (işlem + lisanslama) |
+| VM Boyutu | Vcpu | Bellek | En büyük diskler | En fazla g/ç aktarım hızı | SQL lisanslama maliyetleri | Toplam Maliyet (işlem + lisanslama) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | %75 daha düşük | % 57'daha düşük |

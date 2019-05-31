@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145869"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271512"
 ---
-Paylaşılan görüntü Galerisi yapısı ve kendi özel VM görüntülerinizi yönetilen etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan resim galerileri sağlar:
+Paylaşılan görüntü Galerisi yapısı ve yönetilen görüntülerinizi etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan resim galerileri sağlar:
 
 - Görüntüleri yönetilen küresel çoğaltma.
 - Sürüm oluşturma ve daha kolay yönetim için görüntüleri gruplandırmasıdır.
-- Görüntülerinizin bölgesel olarak yedekli depolama (ZRS) hesapları ile yüksek kullanılabilirlik alanlarını destekleyen bölgelerde olun. ZRS, bölgesel hatalarına karşı daha iyi esneklik sunar.
-- Abonelikler arasında ve hatta RBAC kullanarak kiracılar arasında paylaştırma.
+- Kullanılabilirlik alanlarını destekleyen bölgelerde bölgesel olarak yedekli depolama (ZRS) hesapları ile yüksek oranda kullanılabilir görüntüler. ZRS, bölgesel hatalarına karşı daha iyi esneklik sunar.
+- Abonelikler arasında ve hatta RBAC kullanarak Active Directory (AD) kiracılar arasında paylaştırma.
+- Her bölgede görüntü yinelemelerle dağıtımlarınızı ölçeklendirme.
 
 Paylaşılan görüntü Galerisi kullanarak görüntülerinizi farklı kullanıcılar, hizmet sorumluları veya AD grupları kuruluşunuzun içinde paylaşabilirsiniz. Paylaşılan görüntüleri, dağıtımlarınıza daha hızlı ölçeklendirme için birden fazla bölgeyi çoğaltılabilir.
 
@@ -49,11 +50,11 @@ Görüntü tanımları, görüntü sürümleri için mantıksal gruplardır. Gö
 
 -Birlikte kullanılan her görüntü tanımı için üç parametre **yayımcı**, **teklif** ve **SKU**. Bunlar, bir özel görüntü tanımı bulmak için kullanılır. Bir veya iki, ancak tüm üç değerden paylaşan görüntü sürümleri olabilir.  Örneğin, üç görüntü tanımlar ve değerleri şunlardır:
 
-|Görüntü Tanımı|Yayımcı|Teklif|Sku|
+|Görüntü Tanımı|Yayımcı|Sunduğu|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finans|Arka uç|
 |myImage2|Contoso|Finans|Ön uç|
-|myImage3|Test ediliyor|Finans|Ön uç|
+|myImage3|Test Etme|Finans|Ön uç|
 
 Bu üç benzersiz değerler vardır. Biçimi nasıl şu anda yayımcı, teklif ve SKU için belirtebileceğiniz için benzer [Azure Market görüntüleri](../articles/virtual-machines/windows/cli-ps-findimage.md) Market görüntüsü en son sürümünü almak için Azure PowerShell'de. Her görüntü tanımı bu değerler benzersiz bir dizi olmalıdır.
 
@@ -77,15 +78,15 @@ Kaynak bölgeleri aşağıdaki tabloda listelenmiştir. Tüm genel bölgelerde h
 
 | Kaynak bölge |
 |---------------------|-----------------|------------------|-----------------|
-| Avustralya Orta   | Orta ABD EUAP | Kore Orta    | BK Güney 2      |
-| Avustralya Orta 2 | Doğu Asya       | Kore Güney      | BK Batı         |
-| Avustralya Doğu      | Doğu ABD         | Orta Kuzey ABD | Orta Batı ABD |
+| Avustralya Orta   | Orta ABD EUAP | Kore Orta    | UK Güney 2      |
+| Avustralya Orta 2 | Doğu Asya       | Kore Güney      | Birleşik Krallık Batı         |
+| Avustralya Doğu      | Doğu ABD         | Orta Kuzey ABD | Batı Orta ABD |
 | Avustralya Güneydoğu | Doğu ABD 2       | Kuzey Avrupa     | Batı Avrupa     |
-| Brezilya Güney        | Orta ABD 2 EUAP  | Orta Güney ABD | Batı Hindistan      |
-| Kanada Orta      | Fransa Orta  | Güney Hindistan      | Batı ABD         |
-| Kanada Doğu         | Fransa Güney    | Güneydoğu Asya   | Batı ABD         |
-| Orta Hindistan       | Japonya Doğu      | BK Kuzey         | Batı ABD 2       |
-| Orta ABD          | Japonya Batı      | BK Güney         |                 |
+| Güney Brezilya        | Doğu ABD 2 EUAP  | Orta Güney ABD | Batı Hindistan      |
+| Orta Kanada      | Fransa Orta  | Güney Hindistan      | Batı ABD         |
+| Doğu Kanada         | Fransa Güney    | Güneydoğu Asya   | Batı ABD         |
+| Orta Hindistan       | Japonya Doğu      | UK Kuzey         | Batı ABD 2       |
+| Orta ABD          | Japonya Batı      | Birleşik Krallık Güney         |                 |
 
 
 
@@ -102,7 +103,26 @@ Daha fazla bilgi için [sınırları karşı kaynak kullanımını denetleyin](h
 ## <a name="scaling"></a>Ölçeklendirme
 Paylaşılan görüntü Galerisi görüntülerini korumak için Azure istediğiniz yinelemeleri sayısını belirtmenizi sağlar. VM dağıtımları için tek bir kopyasını aşırı yükleme nedeniyle aşarak işleme örnek oluşturma olasılığını azaltmak farklı yinelemeler yayılabilen gibi çoklu VM dağıtım senaryolarında bu yardımcı olur.
 
+
+Paylaşılan görüntü Galerisi ile artık bir sanal makine ölçek kümesi içinde 1.000 bir VM örneğine kadar dağıtabilirsiniz (yukarı yönetilen görüntülerle 600'den). Görüntü çoğaltmaları dağıtım daha iyi performans, güvenilirlik ve tutarlılık sağlar.  Bölge için ölçek gereksinimlerine göre farklı yineleme sayısı her hedef bölgede ayarlayabilirsiniz. Her yineleme görüntünüzü bir derin kopyası olduğundan, bu ek her yineleme ile doğrusal olarak dağıtımlarınızı ölçeklendirme yardımcı olur. Hiçbir iki görüntü anlıyoruz veya bölgeler aynıdır, ancak İşte bizim genel kılavuz bir bölgeye çoğaltma kullanma hakkında:
+
+- Eşzamanlı olarak oluşturduğunuz her 20 VM için bir çoğaltma tutmak öneririz. Örneğin, aynı anda bir bölgede aynı görüntü kullanılarak 120 VM'ler oluşturuyorsanız, görüntünüzü en az 6 kopyasını tutmak öneririz. 
+- En fazla 600 örnekleri ile her ölçek kümesi dağıtımı için en az bir çoğaltma tutmanızı öneririz. Örneğin, 5 ölçek kümeleri aynı anda tek bir bölgede aynı görüntü kullanılarak 600 VM örneğine sahip her oluşturuyorsanız görüntünüzü en az 5 kopyasını tutmak öneririz. 
+
+Görüntü boyutu, içerik ve işletim sistemi türü gibi faktörleri nedeniyle çoğaltma sayısı fazladan her zaman önerilir.
+
+
 ![Görüntüleri nasıl ölçeklendirebilirsiniz gösteren grafik](./media/shared-image-galleries/scaling.png)
+
+
+
+## <a name="make-your-images-highly-available"></a>Görüntülerinizin yüksek oranda kullanılabilir yap
+
+[Azure bölgesel olarak yedekli depolama (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) bölgede bir kullanılabilirlik alanı hataya karşı dayanıklılığı sağlar. Paylaşılan görüntü Galerisi genel kullanılabilirlikle ZRS hesapları kullanılabilirlik alanları, görüntülerinizi depolamak seçebilirsiniz. 
+
+Ayrıca her hedef bölgeler için hesap türünü seçebilirsiniz. Varsayılan depolama hesabı türü için Standard_LRS olsa da, kullanılabilirlik alanları için Standard_ZRS seçebilirsiniz. ZRS bölgesel kullanılabilirliği [burada](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+
+![ZRS gösteren grafik](./media/shared-image-galleries/zrs.png)
 
 
 ## <a name="replication"></a>Çoğaltma
@@ -113,21 +133,20 @@ Paylaşılan görüntü sürümü çoğaltılır bölgeleri oluşturma zamanınd
 ![Görüntüleri nasıl çoğaltabilirsiniz gösteren grafik](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Erişim
+## <a name="access"></a>Access
 
-Paylaşılan görüntü Galerisi, paylaşılan bir görüntü ve paylaşılan görüntü sürümü tüm kaynaklar olduğundan yerel Azure RBAC denetimleri yerleşik kullanarak paylaşılabilir. RBAC kullanarak bu kaynakları diğer kullanıcılara, hizmet sorumluları ve grupları paylaşabilir. Hatta, içinde oluşturuldukları Kiracı dışındaki kişilere erişim paylaşabilirsiniz. Paylaşılan görüntü sürümü bir kullanıcının erişebileceği sonra bir sanal makine veya sanal makine ölçek kümesi dağıtabilirsiniz.  Hangi kullanıcı erişimi alır anlamanıza yardımcı olur. paylaşım matris şu şekildedir:
+Paylaşılan görüntü Galerisi, görüntü tanımı ve görüntü sürümü tüm kaynaklar olduğundan yerel Azure RBAC denetimleri yerleşik kullanarak paylaşılabilir. RBAC kullanarak bu kaynakları diğer kullanıcılara, hizmet sorumluları ve grupları paylaşabilir. Hatta, içinde oluşturuldukları Kiracı dışındaki kişilere erişim paylaşabilirsiniz. Paylaşılan görüntü sürümü bir kullanıcının erişebileceği sonra bir sanal makine veya sanal makine ölçek kümesi dağıtabilirsiniz.  Hangi kullanıcı erişimi alır anlamanıza yardımcı olur. paylaşım matris şu şekildedir:
 
-| Kullanıcıyla paylaşılan     | Paylaşılan görüntü galerisi | Paylaşılan görüntü | Paylaşılan görüntü sürümü |
+| Kullanıcıyla paylaşılan     | Paylaşılan Görüntü Galerisi | Görüntü Tanımı | Görüntü sürümü |
 |----------------------|----------------------|--------------|----------------------|
-| Paylaşılan görüntü galerisi | Evet                  | Evet          | Evet                  |
-| Paylaşılan görüntü         | Hayır                   | Evet          | Evet                  |
-| Paylaşılan görüntü sürümü | Hayır                   | Hayır           | Evet                  |
+| Paylaşılan Görüntü Galerisi | Evet                  | Evet          | Evet                  |
+| Görüntü Tanımı     | Hayır                   | Evet          | Evet                  |
 
-En iyi deneyim için Galeri düzeyinde paylaşımı öneririz. RBAC hakkında daha fazla bilgi için bkz: [RBAC kullanarak Azure kaynaklarına erişimi yönetme](../articles/role-based-access-control/role-assignments-portal.md).
+En iyi deneyim için Galeri düzeyinde paylaşımı öneririz. Tek tek yansıma sürümü paylaşımı önermiyoruz. RBAC hakkında daha fazla bilgi için bkz: [RBAC kullanarak Azure kaynaklarına erişimi yönetme](../articles/role-based-access-control/role-assignments-portal.md).
 
-Görüntüleri Ayrıca, uygun ölçekte, çok kiracılı uygulama kaydı kullanılarak kiracılar genelinde paylaşılabilir. Kiracılar genelinde görüntülerini paylaşma hakkında daha fazla bilgi için bkz. [galeri VM görüntüleri Azure kiracılar arasında paylaşmak](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Görüntü ayrıca, uygun ölçekte bile çok kiracılı uygulama kaydı kullanılarak kiracılar genelinde paylaşılabilir. Kiracılar genelinde görüntülerini paylaşma hakkında daha fazla bilgi için bkz. [galeri VM görüntüleri Azure kiracılar arasında paylaşmak](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 Paylaşılan Görüntü Galerisi hizmetini kullanırken ekstra ücret ödemezsiniz. Aşağıdaki kaynaklar için ücretlendirilirsiniz:
 - Depolama maliyetini paylaşılan görüntü sürümlerini depolamak için. Çoğaltma görüntü sürümü sayısı ve sürüm çoğaltılır bölge sayısı maliyeti bağlıdır. Örneğin, 2 görüntüler varsa ve her ikisi de 3 bölgeye çoğaltılır, ardından, kendi boyutunu temel alan 6 yönetilen diskler için değiştirilecek. Daha fazla bilgi için [yönetilen diskler fiyatlandırması](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Çıkış ücretlerini kaynak bölgesinden ilk görüntü sürümü çoğaltılmış bölgelere çoğaltma için ağ. Herhangi bir ek ücret olduklarından izleyen yinelemeler bölge içinde işlenir. 
@@ -148,7 +167,7 @@ görüntü tanımı:
 Görüntü sürümü:
 - Bölgesel çoğaltma sayısı
 - Hedef bölgeler
-- En son çıkarma
+- Son Dışla
 - Sonu yaşam tarihi
 
 

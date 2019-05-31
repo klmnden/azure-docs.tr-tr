@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471844"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299296"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -25,6 +25,16 @@ ms.locfileid: "65471844"
 
 * Aynı kesir sürekli görüyorsanız, büyük olasılıkla nedeniyle Uyarlamalı olan [örnekleme](../../azure-monitor/app/sampling.md). Bunu doğrulamak için (genel bakış dikey penceresinden) araması'nı açın ve bir istek veya diğer olay örneğini bakın. Özellikler bölümü altındaki tam özellik ayrıntılarını almak için "..." tıklayın. Varsa sayısı > 1 istek ve örnekleme işlemi olduğundan.
 * Aksi takdirde, aldığınızı olası bir [veri hızı sınırı](../../azure-monitor/app/pricing.md#limits-summary) fiyatlandırma planınız için. Bu sınırlar, dakika başına uygulanır.
+
+*Veri kaybı rastgele yaşıyor.*
+
+* Veri kaybıyla yaşıyorsanız denetleyin [Telemetri kanal](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+
+* Telemetri kanaldaki tüm bilinen sorunlar denetle [Github deposu](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*Veri kaybı konsol uygulaması veya Web uygulaması, uygulama durmak için olduğunda yaşıyor.*
+
+* SDK'sı kanal telemetri arabellekte tutar ve bunları toplu olarak gönderir. Uygulama kapatılıyor, açıkça çağırmak gerekebilir [Flush()](api-custom-events-metrics.md#flushing-data). Davranışını `Flush()` gerçek üzerinde bağlıdır [kanal](telemetry-channels.md#built-in-telemetrychannels) kullanılır.
 
 ## <a name="no-data-from-my-server"></a>My sunucusundan veri yok
 *Uygulamamı my web sunucusunda yüklü ve artık tüm telemetrisini göremiyorum. Geliştirme makineme Tamam çalıştınız.*
@@ -58,7 +68,6 @@ Düzeltme:
 * Oturum açma kimlik bilgileri için doğru Azure hesabını sağlanan denetleyin.
 * Tarayıcınızda erişiminiz olduğunu denetleyin [Azure portalında](https://portal.azure.com). Ayarları'nı açın ve herhangi bir kısıtlama olup olmadığına bakın.
 * [Mevcut projenize Application Insights ekleme](../../azure-monitor/app/asp-net.md): Çözüm Gezgini'nde projenize sağ tıklayın ve "Ekle Application Insights."
-* Hala çalışmıyorsa izleyin [el ile yordamı](../../azure-monitor/app/windows-services.md) portalda bir kaynak ekleyin ve SDK'sını projenize ekleyin.
 
 ## <a name="emptykey"></a>"İzleme anahtarını boş bırakılamaz" hatasını alıyorum
 Application Insights veya belki de bir günlük bağdaştırıcısı yüklemekte ederken bir sorun var gibi görünüyor.

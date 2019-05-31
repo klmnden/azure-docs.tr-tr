@@ -9,12 +9,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Hızlı bir şekilde Azure geliştirme alanları için doğrudan tarayıcınızdan herhangi bir şey yüklemeden etkin bir Kubernetes kümesi oluşturmayı öğrenin.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-ms.openlocfilehash: c9dabc13e85295b88483f43b26ccf0b15406ad9b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 532a094f96817f3c525384694b6fa60a292aa948
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861618"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391665"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Azure Cloud Shell kullanarak Kubernetes kümesi oluşturma
 
@@ -22,7 +22,7 @@ Kullanabileceğiniz [Azure Cloud Shell](/azure/cloud-shell) kullanarak Azure gel
 
 ## <a name="create-the-cluster"></a>Kümeyi oluşturma
 
-İlk olarak, kaynak grubunu oluşturma bir [Azure geliştirme alanları destekleyen bir bölge](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+İlk olarak, kaynak grubunu oluşturma bir [Azure geliştirme alanları destekleyen bir bölge][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -39,3 +39,6 @@ Kümenin oluşturulması birkaç dakika sürer.  Tamamlandığında, çıkış J
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bkz: [Azure geliştirme alanları](/azure/dev-spaces/) bağlantıları için tam öğreticiler.
+
+
+[supported-regions]: ../about.md#supported-regions-and-configurations

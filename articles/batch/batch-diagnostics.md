@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550299"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242629"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlükleri
 
@@ -109,7 +109,7 @@ Tanılama günlükleri için isteğe bağlı diğer hedefleri:
 
     ![Batch tanılama](media/batch-diagnostics/diagnostics-portal.png)
 
-Günlük toplamayı etkinleştirmek için diğer seçenekler şunlardır: portalda Azure İzleyicisi'ni kullanın tanılama ayarları yapılandırmak, kullanmak için bir [Resource Manager şablonu](../azure-monitor/platform/diagnostic-logs-stream-template.md), veya Azure PowerShell veya Azure CLI'yı kullanın. bkz: [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
+Günlük toplamayı etkinleştirmek için diğer seçenekler şunlardır: portalda Azure İzleyicisi'ni kullanın tanılama ayarları yapılandırmak, kullanmak için bir [Resource Manager şablonu](../azure-monitor/platform/diagnostic-logs-stream-template.md), veya Azure PowerShell veya Azure CLI'yı kullanın. bkz: [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Depolama erişim tanılama günlükleri

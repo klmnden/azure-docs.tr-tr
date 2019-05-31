@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887341"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235874"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -66,7 +66,7 @@ Farklı bir WiFi ağına, bağlantı dizesi veya telemetri ölçüm kullanacak �
 #### <a name="to-prepare-the-devkit-device"></a>DevKit cihazı hazırlamak için
 
 1. MXChip için önceden oluşturulmuş en son Azure IOT Central bellenim indirme [sürümleri](https://aka.ms/iotcentral-docs-MXChip-releases) GitHub sayfasında.
-1. DevKit cihazı bir USB kablosu kullanarak, geliştirme makinenize bağlayın. Windows içinde DevKit cihazdaki depolama alanına eşlenmiş sürücüsünde bir dosya Gezgini penceresi açılır. Örneğin, sürücü olarak adlandırılabilir **AZ3166 (D:)**.
+1. DevKit cihazı bir USB kablosu kullanarak, geliştirme makinenize bağlayın. Windows içinde DevKit cihazdaki depolama alanına eşlenmiş sürücüsünde bir dosya Gezgini penceresi açılır. Örneğin, sürücü olarak adlandırılabilir **AZ3166 (D:)** .
 1. Sürükleme **iotCentral.bin** sürücü pencerenin üzerine dosya. Kopyalama tamamlandığında, cihazı yeni bellenim ile yeniden başlatır.
 
 1. DevKit cihaz yeniden başlatıldığında, aşağıdaki ekranda görüntüler:
@@ -208,12 +208,12 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 | gyroscopeZ     | MDP'ler   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>Durumlar 
-| Ad          | Görünen ad   | NORMAL | UYARI | DANGER | 
+| Ad          | Display name   | NORMAL | UYARI | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
 
 #### <a name="events"></a>Olaylar 
-| Ad             | Görünen ad      | 
+| Ad             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Basılan düğme B  | 
 
@@ -221,7 +221,7 @@ Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakk�
 
 Sayısal ayarları
 
-| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| Display name | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -229,13 +229,13 @@ Sayısal ayarları
 
 Geçiş ayarları
 
-| Görünen ad | Alan adı | Metni | Metin kapalı | İlk |
+| Display name | Alan adı | Metni | Metin kapalı | İlk |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AÇIK      | KAPALI      | Kapalı     |
 
 ### <a name="properties"></a>Özellikler
 
-| Tür            | Görünen ad | Alan adı | Veri türü |
+| Type            | Display name | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
 | Cihaz özelliği | Cihaz konumu   | location  | location    |
@@ -243,11 +243,11 @@ Geçiş ayarları
 
 ### <a name="commands"></a>Komutlar
 
-| Görünen ad | Alan adı | Dönüş türü | Giriş alanının görünen adı | Giriş alan adı | Giriş alanı türü |
+| Display name | Alan adı | Dönüş türü | Giriş alanının görünen adı | Giriş alan adı | Giriş alanı türü |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| echo         | echo       | metin        | görüntülenecek değer         | displayedValue   | metin             |
-| geri sayım    | Geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
+| echo         | echo       | text        | görüntülenecek değer         | displayedValue   | text             |
+| Geri sayım    | Geri sayım  | number      | Gelen sayısı               | countFrom        | number           |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Raspberry Pi'yi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.
+MXChip IOT DevKit, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir özel cihaz şablonu ayarlama](howto-set-up-template.md) kendi IOT cihazını için.

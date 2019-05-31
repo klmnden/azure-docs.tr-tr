@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523632"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387343"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Azure PowerShell kullanarak web uygulaması güvenlik duvarı oranı sınırı kuralı yapılandırma
 Azure web uygulaması Güvenlik Duvarı (WAF) oranı sınırı kuralı için Azure ön kapısı, bir dakikalık süre bir tek istemci IP izin istekleri sayısını denetler.
@@ -65,10 +65,10 @@ Aşağıdaki örnek eşleşir */promo* değeri olarak *RequestUri* değişkeni:
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>Bir özel oranı sınırı kuralı oluşturma
-Hızı sınırı kullanılarak ayarlanan [yeni AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). Aşağıdaki örnekte, sınırı 1000'e ayarlanır. Herhangi bir istemciden istekleri 1000 aşan bir dakika promosyon sayfasına, sonraki bir dakika başlatana kadar engellenir.
+Hızı sınırı kullanılarak ayarlanan [yeni AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). Aşağıdaki örnekte, sınırı 1000'e ayarlanır. Herhangi bir istemciden istekleri 1000 aşan bir dakika promosyon sayfasına, sonraki bir dakika başlatana kadar engellenir.
 
 ```powershell-interactive
-   $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
+   $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
      -Name "rateLimitRule" `
      -RuleType RateLimitRule `
      -MatchCondition $promoMatchCondition `

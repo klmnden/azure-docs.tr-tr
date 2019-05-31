@@ -3,26 +3,26 @@ title: Dal oluşturma ve geri alma işlemleri bir konuşma Öğrenici modeli - M
 titleSuffix: Azure
 description: Dal oluşturma ve geri alma işlemleri bir konuşma Öğrenici modeliyle nasıl kullanılacağını öğrenin.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206739"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389884"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Dal oluşturma ve geri alma işlemleri kullanma
 Bu öğreticide, geri alma ve dal oluşturma işlemleri alacağız.
 
 
 ## <a name="details"></a>Ayrıntılar
-### <a name="undo"></a>Geri Al
+### <a name="undo"></a>Geri alma
 "Son kullanıcı girişi veya eylem seçimi geri almak" Geliştirici sağlar. Planda, "geri" gerçekten yeni bir iletişim kutusu oluşturur ve en fazla önceki adımdan başlayarak yeniden oynatılır.  Varlık algılama geri çağırma ve API çağrıları iletişim kutusunda Bunun anlamı tekrar çağrılır.
 
 ### <a name="branch"></a>Şube
@@ -38,7 +38,7 @@ Bu öğreticide, pizza siparişleri alır Bot çalışıyor olması gerekir:
 
 Pizza sıralama öğreticide çalıştıysanız, sonra bu modeli web kullanıcı Arabirimi listeden açmanız yeterlidir. Aksi takdirde "İçeri aktarma eğitimler"'a tıklayın ve "Demo-PizzaOrder" adlı bir model seçmek gerekir.
 
-## <a name="undo"></a>Geri Al
+## <a name="undo"></a>Geri alma
 
 İşte bir örnek görmek nasıl `Undo` eylemi özelliği:
 
