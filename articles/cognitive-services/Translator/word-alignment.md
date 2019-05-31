@@ -3,20 +3,20 @@ title: Word hizalama - Translator metin çevirisi API'si
 titlesuffix: Azure Cognitive Services
 description: Translator metin çevirisi API'si Word hizalama bilgiler alır.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: v-pawal
 ms.custom: seodec18
-ms.openlocfilehash: cc795d6b164a97351ec8806c6b7c8bed0c0c1266
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d48e2dd49eb3c2f449825f988618db3c6b04c0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336754"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387298"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Word hizalama bilgi alma
 
@@ -26,7 +26,7 @@ Hizalama bilgileri almak için çeviri yöntemini kullanın ve isteğe bağlı i
 ## <a name="alignment-information-format"></a>Hizalama bilgileri biçimi
 Hizalama, her bir sözcüğün kaynağı için aşağıdaki biçimde bir dize değeri olarak döndürülür. Her sözcüğün bilgilerini boşluk ayrılmış (betik) gibi dillerin Çince dahil olmak üzere, bir boşluk ile ayrılır:
 
-[[SourceTextStartIndex]:\[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Örnek hizalama dizesi: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 

@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eac7f6ec7ec41d257317d9d2a62f0bacc046dbab
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127782"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400192"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell kullanarak Windows Server/Windows İstemcisi için Azure’a yedekleme dağıtma ve yönetme
 
 Bu makalede Azure Backup Windows Server veya Windows istemci ayarlama ve yedekleme ve kurtarma yönetmek için PowerShell kullanmayı gösterir.
 
-## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleyin
+## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Başlamak için [en son PowerShell sürümü yüklemek](/powershell/azure/install-az-ps).
@@ -86,7 +86,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Azure Backup aracısını yüklemeden önce Windows Server yükleyici, indirilen ve mevcut olması gerekir. Yükleyicisi'nden en son sürümünü edinebilirsiniz [Microsoft Download Center](https://aka.ms/azurebackup_agent) veya kurtarma Hizmetleri kasasının Pano sayfası. Yükleyici gibi kolayca erişilebilir bir konuma kaydedin * C:\Downloads\*.
 
 Alternatif olarak, yükleyici almak için PowerShell kullanın:
- 
+
  ```powershell
  $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
@@ -104,7 +104,7 @@ Bu, tüm varsayılan seçeneklerle aracısını yükler. Yükleme arka planda bi
 
 Yüklü programlar listesinde görmek için Git **Denetim Masası** > **programlar** > **programlar ve Özellikler**.
 
-![Aracı yüklü](./media/backup-client-automation/installed-agent-listing.png)
+![Yüklenen aracı](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Yükleme Seçenekleri
 
@@ -121,9 +121,9 @@ Kullanılabilir seçenekler şunlardır:
 | /q |Sessiz yükleme |- |
 | / p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | / s: "Konum" |Azure Backup aracısı için önbellek klasörünün yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /dk |Microsoft Update'e katılım |- |
+| /m |Microsoft Update'e katılım |- |
 | /nu |Yükleme tamamlandıktan sonra güncelleştirmeleri denetleme |- |
-| /g |Microsoft Azure kurtarma Hizmetleri Aracısı'nı kaldırır |- |
+| /d |Microsoft Azure kurtarma Hizmetleri Aracısı'nı kaldırır |- |
 | /ph |Proxy ana bilgisayar adresi |- |
 | /PO |Proxy ana bilgisayar bağlantı noktası numarası |- |
 | /PU |Proxy ana kullanıcı adı |- |
@@ -139,7 +139,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 ```
 
 Windows Server veya Windows istemci makinesi üzerinde çalıştırma [başlangıç OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) makine kasaya kaydetmek için cmdlet'i.
-Bu ve diğer cmdlet'leri yedekleme için yükleme işleminin bir parçası Mars AgentInstaller eklenen MSONLINE modülü arasındadır. 
+Bu ve diğer cmdlet'leri yedekleme için yükleme işleminin bir parçası Mars AgentInstaller eklenen MSONLINE modülü arasındadır.
 
 Aracı yükleyicisini $Env güncelleştirmez: PSModulePath değişkeni. Bu modül otomatik yükle başarısız anlamına gelir. Bu sorunu gidermek için aşağıdakileri yapabilirsiniz:
 
@@ -391,6 +391,32 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>MABS aracı Windows Server sistem durumunu yedekleme
+
+Bu bölüm, MABS aracı sistem durumu ayarlamak için PowerShell komutu kapsar.
+
+### <a name="schedule"></a>Zamanlama
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>Bekletme
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>Zamanlama ve bekletme yapılandırma
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>İlke doğrulanıyor
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
 
 ### <a name="applying-the-policy"></a>İlke uygulama
 

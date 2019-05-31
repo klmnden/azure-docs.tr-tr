@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 21f1fca1e8c5cf2b060cee41d1e474996f306f8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 050d3314345e64e3d69a07367a0e9acc318fa106
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787591"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271498"
 ---
 | Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | Otomatik ölçeklendirme ayarları |Her Abonelikteki bölge başına 100. | Varsayılan ile aynıdır. |
 | Ölçüm uyarıları (Klasik) |Abonelik başına 100 etkin uyarı kuralları. | Desteği arayın. |
-| Ölçüm uyarıları |Abonelik başına 100 etkin uyarı kuralları. | Desteği arayın. |
+| Ölçüm uyarıları |1000 etkin uyarı kuralları her abonelikte (genel Bulutlar) ve Azure China ve Azure kamu, abonelik başına 100 etkin uyarı kuralları. | Desteği arayın. |
 | Etkinlik günlüğü uyarıları | Abonelik başına 100 etkin uyarı kuralları. | Varsayılan ile aynıdır. |
 | Günlük uyarıları | 512 | Desteği arayın. |
 | Eylem grupları |Abonelik başına 2.000 Eylem grupları. | Desteği arayın. |
@@ -29,7 +29,7 @@ ms.locfileid: "65787591"
 | Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | Azure uygulama iletimi | Eylem grubu başına 10 azure uygulama eylemleri. | Desteği arayın. |
-| E-posta | bir eylem grubu 1. 000'e-posta eylemleri. Ayrıca bkz: [bilgileri sınırlama oranı](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Desteği arayın. |
+| Email | bir eylem grubu 1. 000'e-posta eylemleri. Ayrıca bkz: [bilgileri sınırlama oranı](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Desteği arayın. |
 | ITSM | Bir eylem grubu 10 ITSM eylemleri. | Desteği arayın. | 
 | Mantıksal uygulama | bir eylem grubu 10 mantıksal uygulama eylemleri. | Desteği arayın. |
 | Runbook | bir eylem grubu 10 runbook eylemleri. | Desteği arayın. |

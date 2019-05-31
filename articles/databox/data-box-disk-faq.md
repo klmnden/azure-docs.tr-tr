@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729282"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236360"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
@@ -55,6 +55,9 @@ A.  Veri kutusu disk şu anda kullanılabilir olduğu görmek için Git [bölge 
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>S. Data Box Diskleri ile hangi bölgelerde veri depolayabilirim?
 A. Data Box Disk ABD, Kanada, Avustralya, Batı Avrupa ve Kuzey Avrupa, Kore ve Japonya içindeki tüm bölgeler için desteklenir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez.
+
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>S. Ülke Kenarlıklar çapraz My Data Box Disk sevkiyat sırasında olur?
+A. Data Box Disk alanından hedeflerine aynı ülkede içinde gönderilir ve uluslararası Kenarlıklar çapraz değil. Siparişler, Avrupa Birliği (AB herhangi bir ülkede gelen ve giden diskleri burada sevk edebilir AB), tek özel durumu içindir.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>S. Data Box Diskleriyle ilgili sorun yaşamam halinde kiminle iletişim kurmam gerekir?
 A. Veri kutusu disk herhangi bir sorun yaşarsanız lütfen [Microsoft Support başvurun](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -164,9 +167,9 @@ A. Önceki siparişinizi kopyalayabilirsiniz. Kopyalama işlemi, bir öncekiyle 
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>S. Ben veri ManagedDisk klasörünüze kopyalanır. Yönetilen diskler için belirtilen kaynak grubu ile yönetilen diskleri göremiyorum. Verilerim Azure'a karşıya yüklendi ve ben bunu nasıl bulabilirsiniz?
 A. Evet. Verilerinizi Azure'a yüklendi, ancak belirtilen kaynak gruplarıyla yönetilen diskleri görmüyorsanız, veriler geçerli olmadığından olma olasılığı yüksektir. Sayfa blobları blok blobları, Azure dosyaları ve yönetilen diskler geçerli değildi, bunlar aşağıdaki klasöre gitmesi gerekiyordu:
- - Sayfa blobları Git ile başlayan bir blok blob kapsayıcısını *databoxdisk-geçersiz-pb -*.
- - Azure dosyaları ile başlayan bir blok blob kapsayıcısına gidin *databoxdisk-geçersiz-af -*.
- - Yönetilen diskler ile başlayan bir blok blob kapsayıcısı Git *databoxdisk-geçersiz-md -*.
+ - Sayfa blobları Git ile başlayan bir blok blob kapsayıcısını *databoxdisk-geçersiz-pb -* .
+ - Azure dosyaları ile başlayan bir blok blob kapsayıcısına gidin *databoxdisk-geçersiz-af -* .
+ - Yönetilen diskler ile başlayan bir blok blob kapsayıcısı Git *databoxdisk-geçersiz-md -* .
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
