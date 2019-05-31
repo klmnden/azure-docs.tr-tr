@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eb6a5ed74073a1a31fc9bb1972266e76c7bc2782
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794147"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418474"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux sanal makinesi yönetilmeyen disklerden yönetilen disklere dönüştürme
 
@@ -34,6 +34,7 @@ Bu makalede, Azure CLI kullanarak Vm'leri dönüştürme işlemini göstermekted
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
+* Özgün VHD’ler ve dönüştürme öncesinde VM tarafından kullanılan depolama hesabı silinmez. Ücretler uygulanmaya devam eder. Bunlar için ücret alınmasını önlemek istiyorsanız, dönüştürmenin tamamlandığını doğruladıktan sonra özgün VHD bloblarını silin. Makalemizi silmek için bu kullanıma açılmamış diskleri bulma gerekiyorsa bkz [bulup silmesine eklenmemiş Azure yönetilen ve yönetilmeyen disk](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Tek Örnekli VM'ler Dönüştür
 Bu bölümde, tek örnek Azure Vm'leri yönetilmeyen disklerden yönetilen disklere dönüştürme ele alınmaktadır. (Bir kullanılabilirlik kümesindeki sanal makineleriniz varsa sonraki bölüme bakın.) Bu işlem, sanal makinelerin yönetilmeyen premium (SSD) yönetilmeyen diskler için premium yönetilen diskler veya standart (HDD) diskleri için standart yönetilen diskler dönüştürmek için kullanabilirsiniz.

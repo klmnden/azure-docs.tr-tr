@@ -1,7 +1,7 @@
 ---
 title: 'İşlem hatları: machine learning iş akışı en iyi duruma getirme'
 titleSuffix: Azure Machine Learning service
-description: Bu makalede, makine öğrenimi işlem hatları için Python ve işlem hatlarını kullanmanın avantajları Azure Machine Learning SDK ile birlikte derleme hakkında bilgi edinin. Makine öğrenimi (ML) işlem hatları, veri bilimciler tarafından makine öğrenimi iş akışlarını derlemek, iyileştirmek ve yönetmek için kullanılır.
+description: Bu makalede, makine öğrenimi işlem hatları için Python ve işlem hatlarını kullanmanın avantajları Azure Machine Learning SDK ile birlikte derleme hakkında bilgi edinin. Machine learning (ML) işlem hatları oluşturmak, en iyi duruma getirmek ve makine öğrenimi iş akışları yönetmek için veri uzmanları tarafından kullanılır.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801075"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237811"
 ---
-# <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Machine learning işlem hatlarını Azure Machine Learning hizmeti ile derleme
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning hizmetinde yeniden kullanılabilir ML işlem hatları oluşturun
 
 Bu makalede, makine öğrenimi işlem hatları Python için Azure Machine Learning SDK ve işlem hatlarını kullanmanın avantajları oluşturabileceğinizi öğrenin.
 
@@ -64,7 +64,7 @@ Makine öğrenimi iş akışları için işlem hatları oluşturmaya önemli ava
 
 |Önemli bir avantajı|Açıklama|
 |:-------:|-----------|
-|**Katılımsız&nbsp;çalıştırır**|Birkaç adımı güvenilir bir şekilde ve katılımsız olarak paralel ya da sırayla çalışacak şekilde zamanlayın. Çünkü veri hazırlığı ve model için son günler veya haftalar, işlem hattınızı çalışırken diğer görevlere artık odaklanabilirsiniz. |
+|**Katılımsız&nbsp;çalıştırır**|Paralel veya sıralı güvenilir ve katılımsız bir şekilde çalışması için birkaç adım zamanlayın. Çünkü veri hazırlığı ve model için son günler veya haftalar, işlem hattınızı çalışırken diğer görevlere artık odaklanabilirsiniz. |
 |**Karışık ve çok çeşitli bilgi işlem**|Heterojen ve ölçeklenebilir hesaplar ve depolamayı arasında güvenilir bir şekilde koordine edilen birden çok işlem hatlarını kullanın. HDInsight, GPU veri bilimi Vm'lerini ve Databricks gibi farklı işlem hedeflerde tek bir işlem hattı adımları çalıştırabilirsiniz. Bu, kullanılabilir işlem seçenekleri verimli bir şekilde kullanılmasını sağlar.|
 |**Yeniden kullanılırlığı**|Yeniden eğitme ve toplu Puanlama gibi belirli senaryoları için işlem hatları templatize. Basit REST çağrılarını aracılığıyla dış sistemlerden bunları tetikler.|
 |**İzleme ve sürüm oluşturma**|Yineleme verileri ve sonuç el ile izlemek yerine yolları SDK işlem hatları açıkça adlandırmak için kullanın ve sürüm verilerinizi kaynakları, giriş ve çıkışları. Ayrıca, betikleri ve verileri üretkenliğinizi artırmak için ayrı olarak yönetebilir.|

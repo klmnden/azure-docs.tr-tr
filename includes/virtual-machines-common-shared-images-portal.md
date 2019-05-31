@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170382"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244995"
 ---
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure 
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+ [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 > [!NOTE]
 > Önizleme sırasında paylaşılan resim galerileri kullanmak için kayıtlı, yeniden kaydetmeniz gerekebilir `Microsoft.Compute` sağlayıcısı. Açık [Cloud Shell](https://shell.azure.com/bash) ve türü: `az provider register -n Microsoft.Compute`
@@ -56,7 +56,6 @@ Galeriniz içinde galeri görüntüsü tanımı oluşturun. Bu örnekte, Galeri 
 1. Dağıtım tamamlandığında seçin **kaynağa Git**.
 
 
-
 ## <a name="create-an-image-version"></a>Görüntü sürümü oluşturma
 
 Görüntü sürümü, yönetilen bir görüntüden oluşturun. Bu örnekte, görüntü sürümü olan *1.0.0* ve her ikisi de çoğaltılır *Batı Orta ABD* ve *Orta Güney ABD* veri merkezleri. Çoğaltma için hedef bölgeler seçerken, ayrıca eklemek zorunda olmadığını unutmayın *kaynak* çoğaltma için hedef bölgede.
@@ -75,3 +74,20 @@ Görüntü sürümü için izin verilen karakter, sayı ve dönemleri ' dir. Say
 1. Dağıtım tamamlandığında seçin **kaynağa Git**.
 
 Bu görüntünün hedef bölgeler tümüne biraz sürebilir.
+
+## <a name="share-the-gallery"></a>Galeri paylaşın
+
+Görüntü Galerisi düzeyinde erişim paylaştığınız öneririz. Aşağıda, yeni oluşturduğunuz galeri Paylaşımı aracılığıyla açıklanmaktadır.
+
+1. [Azure portalı](https://portal.azure.com) açın.
+1. Soldaki menüde **kaynak grupları**. 
+1. Kaynak grupları listesinde seçin **myGalleryRG**. Kaynak grubunuz için bir dikey pencere açılır.
+1. Sol tarafındaki menüde **myGalleryRG** sayfasında **erişim denetimi (IAM)** . 
+1. Altında **bir rol ataması Ekle**seçin **Ekle**. **Bir rol ataması Ekle** bölmesi açılır. 
+1. Altında **rol**seçin **okuyucu**.
+1. Altında **erişim Ata**, varsayılan değerini bırakın **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
+1. Altında **seçin**, davet etmek istediğiniz kişinin e-posta adresini yazın.
+1. Kullanıcı, kuruluşunuz dışında ise, bir ileti görürsünüz **bu kullanıcının Microsoft ile işbirliği yapmasına tanıyan bir e-posta gönderilir.** E-posta adresiyle kullanıcı seçin ve ardından **Kaydet**.
+
+Kullanıcı kuruluşunuz dışında ise, bunlar kuruluşa katılma bir e-posta davetiyesi alırsınız. Kullanıcının daveti kabul etmesi gerekir ve ardından galeri ve tüm görüntü tanımları ve sürümler kaynakların listelerinde görmeye devam.
+

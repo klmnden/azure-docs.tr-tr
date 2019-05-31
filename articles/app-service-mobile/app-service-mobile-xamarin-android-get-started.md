@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f3e8ca4f9736dffe4928fc8920b0890dff87367b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127905"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236038"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android Uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -36,7 +36,7 @@ Bu öğreticiyi tamamlamak Xamarin Android uygulamalarına ilişkin tüm Mobile 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* Etkin bir Azure hesabı. Hesabınız yoksa Azure deneme sürümü için kaydolun ve 10 ücretsiz Mobil Uygulama edinin. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Hesabınız yoksa Azure deneme sürümü için kaydolun ve 10 ücretsiz Mobil Uygulama edinin. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](/visualstudio/cross-platform/setup-and-install).
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure Mobil Uygulama arka ucu oluşturma
@@ -46,15 +46,27 @@ Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
 
 Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Ardından, basit bir "Yapılacaklar listesi" arka ucu için sunucu projesi indirin ve Azure’a yayımlayın.
 
-## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Veritabanı bağlantısı oluşturma ve istemci ve sunucu projesi yapılandırma
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinandroid-app"></a>Xamarin Android uygulamasını indirme ve çalıştırma
-1. Altında **Xamarin.Android projenizi indirme ve çalıştırma** altında **İndir**’e tıklayın.
+## <a name="run-the-xamarinandroid-app"></a>Xamarin.Android uygulaması çalıştırma
+1. Xamarin.Android projesi açın.
 
-      Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
-2. Projeyi oluşturmak ve uygulamayı başlatmak için **F5** tuşuna basın.
-3. Uygulamada, *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından **Ekle** düğmesine basın.
+2. Git [Azure portalında](https://portal.azure.com/) ve oluşturduğunuz mobil uygulamaya gidin. Üzerinde `Overview` dikey penceresinde mobil uygulamanız için genel bir uç nokta URL'sini arayın. Örnek - sitename my app name "test123" için olacak https://test123.azurewebsites.net.
+
+3. Dosyayı açmak `ToDoActivity.cs` bu klasördeki - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. Uygulama adı `ZUMOAPPNAME`.
+
+4. İçinde `ToDoActivity` sınıfı, yerine `ZUMOAPPURL` yukarıdaki genel uç noktası ile değişken.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    olur
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Dağıtabilir ve uygulamayı çalıştırmak için F5 tuşuna basın.
+
+6. Uygulamada, *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından **Ekle** düğmesine basın.
 
     ![][10]
 
@@ -62,27 +74,14 @@ Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure 
 
    > [!NOTE]
    > Sorgulamak ve ToDoActivity.cs C# dosyasında bulunan verileri eklemek için, mobil uygulamanızın arka ucuna erişen kodu gözden geçirebilirsiniz.
-   >
-   >
-
+   
 ## <a name="troubleshooting"></a>Sorun giderme
 Çözümü oluşturma konusunda sorun yaşarsanız, NuGet paket yöneticisini çalıştırıp `Xamarin.Android` destek paketlerini güncelleştirin. Hızlı Başlangıç projeleri her zaman son sürümleri içermeyebilir.
 
 Projenizde başvurulan tüm destek paketlerinin aynı sürüme sahip olması gerektiğini unutmayın. [Azure Mobile Apps NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/), Android platformu için `Xamarin.Android.Support.CustomTabs` bağımlılığına sahiptir, yani projeniz daha yeni destek paketleri kullanıyorsa, çakışmaları önlemek için doğrudan gerekli sürüme sahip bu paketi yüklemeniz gerekir.
 
-## <a name="next-steps"></a>Sonraki adımlar
-* [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-android-get-started-users.md)
-* [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-android-get-started-push.md)
-* [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
-
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
-[8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
-[9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
-
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203

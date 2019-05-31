@@ -2,16 +2,16 @@
 title: Değiştirme, silme veya - Azure idare, yönetim gruplarınızı yönetme
 description: Görüntüleme, tutmak, güncelleştirme ve Yönetim Grup hiyerarşiniz silme hakkında bilgi edinin.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950314"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242943"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -206,10 +206,12 @@ Bir yönetim grubu oluşturmak için bir abonelik gruplamak nedenidir. Yalnızca
 Aboneliği taşımak için aşağıdaki RBAC izinlerinin tümünün doğru olması gerekir:
 
 - Alt abonelikte "Sahip" rolü.
-- Hedef üst yönetim group.* "Sahip", "Katılımcı" veya "Yönetim grubu katılımcı" rolü
-- Mevcut üst yönetim group.* "Sahip", "Katılımcı" veya "Yönetim grubu katılımcı" rolü
+- Hedef üst yönetim grubunda "Sahip", "Katılımcı" veya "Yönetim grubu katılımcı" rolü.
+- Mevcut üst yönetim grubunda "Sahip", "Katılımcı" veya "Yönetim grubu katılımcı" rolü.
 
-*: Hedefi ya da mevcut üst yönetim grubunu kök yönetim grubu olmadıkça. Kök yönetim grubundaki tüm Yönetim grupları ve abonelikler için nokta giriş varsayılan olduğundan, kullanıcıların bir öğeyi taşımak için izinlerine ihtiyacınız yoktur.
+İzin gereksinimleri, hedef veya mevcut üst yönetim grubunu kök yönetim grubu ise, geçerli değildir. Kök yönetim grubundaki tüm Yönetim grupları ve abonelikler için nokta giriş varsayılan olduğundan, öğeyi taşıma üzerindeki izinleri gerekmez.
+
+Abonelikte sahip rolü, geçerli yönetim grubundan devralındı taşıma hedeflerinizi sınırlıdır. Yalnızca abonelik, sahip rolünün sahip olduğu başka bir yönetim grubuna taşıyabilirsiniz. Bu aboneliğin sahipliğini kaybeder çünkü bir katkıda bulunanı olduğunuz bir yönetim grubuna taşıyamazsınız. Size doğrudan (yönetim grubundan devralındı değil) abonelik sahibi role atanırsanız bir katılımcı olduğunuz herhangi bir yönetim grubuna taşıyabilirsiniz.
 
 Hangi izinlerin yönetim grubu ve ardından Azure portalında, select olduğunu görmek için **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz. [erişim ve izinleri ile RBAC yönetme](../../role-based-access-control/overview.md).
 

@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60658044"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241684"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Adlandırılmış değerler Azure API Management ilkelerini kullanma
 API Management ilkeleri güçlü bir API configuration aracılığıyla davranışını değiştirmek Azure portalın sistem özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. İlke ifadeleri, metin değerleri, ilke ifadeleri kullanarak ve adlandırılmış değerler oluşturulabilir. 
 
 Her API Management hizmet örneği adlı hizmet örneği için genel kabul edilen değerler, adlı bir anahtar/değer çiftleri özellikleri koleksiyonu vardır. Bu adlandırılmış değerler, dize sabit değerleri, tüm API yapılandırması ve ilkelerini yönetmek için kullanılabilir. Her bir özellik aşağıdaki özniteliklere sahip olabilir:
 
-| Öznitelik | Tür | Açıklama |
+| Öznitelik | Type | Açıklama |
 | --- | --- | --- |
-| Display name |string |İlkelerdeki özelliklere başvurmak için kullanılan alfasayısal dize. |
-| Value |string |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
-|Secret|boole|Değer bir gizli dizidir ve veya şifrelenmesi gerektiğini belirler.|
-| Tags |dize dizisi |İsteğe bağlı etiketleri sağlandığında özellik listesini filtrelemek için kullanılabilir. |
+| `Display name` |string |İlkeleri özelliğinde başvurmak için kullanılan alfasayısal dize. |
+| `Value`        |string |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
+| `Secret`       |boole|Değer bir gizli dizidir ve veya şifrelenmesi gerektiğini belirler.|
+| `Tags`         |dize dizisi |İsteğe bağlı etiketleri sağlandığında özellik listesini filtrelemek için kullanılabilir. |
 
 ![Adlandırılmış değerler](./media/api-management-howto-properties/named-values.png)
 
@@ -55,7 +55,7 @@ Her API Management hizmet örneği adlı hizmet örneği için genel kabul edile
 
 Özellik oluşturulduktan sonra özellikte tıklayarak düzenleyebilirsiniz. Özellik adını değiştirirseniz, bu özelliğe başvuran tüm ilkeler yeni adı kullanacak şekilde otomatik olarak güncelleştirilir.
 
-REST API kullanarak bir özellik düzenleme hakkında daha fazla bilgi için bkz. [REST API kullanarak bir özelliği düzenlemeyi](/rest/api/apimanagement/property?Patch).
+REST API kullanarak bir özellik düzenleme hakkında daha fazla bilgi için bkz. [REST API kullanarak bir özelliği düzenlemeyi](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## <a name="to-delete-a-property"></a>Bir özelliği silmek için
 
@@ -66,7 +66,7 @@ Bir özelliği silmek için tıklayın **Sil** silme özelliği yanında.
 > 
 > 
 
-REST API kullanarak bir özelliği silme hakkında daha fazla bilgi için bkz: [REST API kullanarak bir özelliği silmeye](/rest/api/apimanagement/property?Delete).
+REST API kullanarak bir özelliği silme hakkında daha fazla bilgi için bkz: [REST API kullanarak bir özelliği silmeye](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Arama ve filtre adlı değerleri
 

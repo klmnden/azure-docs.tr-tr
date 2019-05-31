@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7ef8715f23d21a23dc3f37b192314b922847d3e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805914"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242703"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Gerçek zamanlı analiz ve işleme teknolojisi azure'da akış seçin
 
@@ -25,7 +25,7 @@ Azure Stream Analytics, Azure stream analytics için önerilen hizmetidir. Çok 
 * Panolar için veri Görselleştirme
 * Gerçek zamanlı [uyarılar](stream-analytics-set-up-alerts.md) zamana bağlı ve uzamsal desenleri veya anomalileri
 * Ayıklama, Dönüştürme, Yükleme (ETL)
-* [Olay kaynağını belirleme düzeni](/azure/architecture/patterns/event-sourcing.md)
+* [Olay kaynağını belirleme düzeni](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
 Bir Azure Stream Analytics ekleme iş uygulamanıza Yukarı Akış analizi en hızlı yoludur ve SQL dilini kullanarak Azure'da çalışan zaten biliyorsunuz. Azure Stream Analytics işi hizmet zaman yönetme kümeleri harcamanız gerekmez ve iş düzeyinde % 99,9 SLA ile kapalı kalma süresi hakkında endişelenmeniz gerekmez olduğundan. Faturalandırma, başlangıç maliyetleri düşük yapma proje düzeyinde (bir akış birimi), ölçeklenebilir (en fazla akış birimi 192) ancak da gerçekleştirilir. Bu çok çalıştırın ve bir küme olduğundan bazı Stream Analytics işlerini çalıştırmak için uygun maliyetlidir.

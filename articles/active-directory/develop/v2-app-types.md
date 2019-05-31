@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545371"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235246"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft kimlik platformu için uygulama türleri
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Tek sayfa uygulamaları (JavaScript)
 
-Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu vardır. Genellikle, AngularJS, Ember.js veya Durandal.js gibi bir çerçeve kullanılarak yazılır. Microsoft kimlik platformu uç noktayı kullanarak bu uygulamaları destekler [OAuth 2.0 örtük akışını](v2-oauth2-implicit-grant-flow.md).
+Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu vardır. Genellikle, Angular, React ve Vue gibi bir çerçeve kullanılarak yazılır. Microsoft kimlik platformu uç noktayı kullanarak bu uygulamaları destekler [OAuth 2.0 örtük akışını](v2-oauth2-implicit-grant-flow.md).
 
 Bu akışta uygulama belirteçlerini doğrudan Microsoft kimlik platformu alır. herhangi bir sunucudan sunucuya değişimleri olmadan bir uç nokta yetkilendirin. Tüm kimlik doğrulama mantığı ve gerçekleştirilen işlemlerin işleme oturumu tamamen JavaScript istemcisi, ek sayfa yeniden yönlendirmeleri olmadan yerleştirin.
 

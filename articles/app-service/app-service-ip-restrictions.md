@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 05/23/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541679"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236113"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service'e erişim kısıtlamaları #
 
@@ -54,7 +54,7 @@ Tıklayabilirsiniz **[+] Ekle** yeni bir erişim kısıtlama kuralı eklemek iç
 
 Bir kural oluştururken izin verme/reddetme ve ayrıca kuralının türünü seçmeniz gerekir. Öncelik değeri ve kısıtlama erişim sağlamak için gereklidir.  İsteğe bağlı olarak kurala bir ad ve açıklama ekleyebilirsiniz.  
 
-Bir IP adresi ayarlamak için kural tabanlı, bir IPv4 veya IPv6 türünü seçin. IP adresi gösterimi, IPv4 ve IPv6 adresleri CIDR gösteriminde belirtilmelidir. Bir tam adresini belirtmek için burada IP adresiniz ilk dört sekizlik tabanda temsil eder ve özelliğini/32 maske 1.2.3.4/32 gibi kullanabilirsiniz. Tüm adresler için IPv4 CIDR gösteriminde 0.0.0.0/0 ' dir. CIDR gösterimi hakkında daha fazla bilgi edinebilirsiniz [sınıfsız etki alanları arası yönlendirme](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Bir IP adresi ayarlamak için kural tabanlı, bir IPv4 veya IPv6 türünü seçin. IP adresi gösterimi, IPv4 ve IPv6 adresleri CIDR gösteriminde belirtilmelidir. Bir tam adresini belirtmek için burada IP adresiniz ilk dört sekizlik tabanda temsil eder ve özelliğini/32 maske 1.2.3.4/32 gibi kullanabilirsiniz. Tüm adresler için IPv4 CIDR gösteriminde 0.0.0.0/0 ' dir. CIDR gösterimi hakkında daha fazla bilgi edinebilirsiniz [sınıfsız etki alanları arası yönlendirme](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 ![bir sanal ağ erişimini kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -79,6 +79,14 @@ Bir kuralı silmek için tıklayın **...**  kural ve ardından **Kaldır**.
 Uygulama erişimi denetleme olanağına olmaya ek olarak, erişim, uygulamanız tarafından kullanılan scm sitesine da kısıtlayabilirsiniz. Web dağıtımı uç noktası ve ayrıca Kudu Konsolu scm sitedir. Ayrı ayrı erişim kısıtlamalarını uygulamadan scm sitesine atayın veya aynı hem uygulama hem de scm sitesine ayarlayın. Uygulamanız aynı kısıtlamalara sahip kutuyu işaretlediğinizde her şey kullanıma blanked. Kutunun işaretini kaldırırsanız, daha önce scm sitesine sahip hangi ayarları uygulanır. 
 
 ![Liste erişim kısıtlamaları](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+
+## <a name="blocking-a-single-ip-address"></a>Tek bir IP adresi engelleme ##
+
+İlk IP kısıtlaması kuralınızı eklerken, hizmet açık bir ekleme **tümünü Reddet** 2147483647 önceliğine sahip. Uygulamada, açık **tümünü Reddet** kuralı yürütülen son kural olacaktır ve kullanarak açıkça verilmeyen tüm IP adreslerini erişimini engeller bir **izin** kuralı.
+
+Kullanıcılar tek bir IP adresi veya IP adresi bloğu açıkça engellemek istediğiniz senaryosu için ancak her şeyi izin başka erişim, açık bir eklemek için gereken **tümüne izin ver** kuralı.
+
+![bloğu tek bir IP adresi](media/app-service-ip-restrictions/block-single-address.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Programsal olarak erişim kısıtlama kuralları ##
 

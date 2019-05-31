@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153536"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235856"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme veri akışı etkinliği
 Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklenen işlem hattı çalıştırmaları, ADF veri akışı çalıştırmak için kullanın.
@@ -49,25 +49,26 @@ Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklen
 
 ![Veri akışını yürütecek](media/data-flow/activity-data-flow.png "veri akışını yürütecek")
 
-### <a name="run-on"></a>Çalıştırma yeri
-
-Bu, veri akışı yürütülmesi için işlem ortamını seçin. Azure otomatik olarak çözülmeli varsayılan Integration Runtime varsayılandır. Bu seçenek veri fabrikası ile aynı bölgede Spark ortamında veri akışını yürütecek. İşlem türü, işlem ortamı için başlatma birkaç dakika sürer anlamına gelir. bir işi küme olacaktır.
-
 ### <a name="debugging-pipelines-with-data-flows"></a>Bir veri akışı işlem hatlarında hata ayıklama
 
 ![Düğme hata ayıklama](media/data-flow/debugbutton.png "Hata Ayıkla düğmesine")
 
 Veri akışı hata ayıklama veri akışlarınızı çalıştırma bir işlem hattı hata ayıklama etkileşimli olarak test etmek için warmed küme yararlanmak için kullanın. İçinde bir işlem hattı, bir veri akışı test etmek için işlem hattı hata ayıklama seçeneğini kullanın.
 
-### <a name="run-on"></a>Çalıştırma yeri
+### <a name="run-on"></a>Üzerinde çalışır
 
 Bu veri akışı, Etkinlik yürütme için kullanılacak hangi Integration Runtime tanımlayan gerekli bir alandır. Varsayılan olarak, varsayılan otomatik Çözümle Azure tümleştirme çalışma zamanının Data Factory kullanır. Ancak, kendi Azure tümleştirme belirli bölgeleri tanımlamak, veri akış Etkinlik yürütme için işlem türü, çekirdek sayısı ve TTL çalışma zamanları oluşturabilirsiniz.
 
 8 çekirdek genel bilgi işlem, bir TTL 60 dakika ile yürütme veri akışı için varsayılan ayardır.
 
+Bu, veri akışı yürütülmesi için işlem ortamını seçin. Azure otomatik olarak çözülmeli varsayılan Integration Runtime varsayılandır. Bu seçenek veri fabrikası ile aynı bölgede Spark ortamında veri akışını yürütecek. İşlem türü, işlem ortamı için başlatma birkaç dakika sürer anlamına gelir. bir işi küme olacaktır.
+
 Veri akışı etkinlikleriniz için Spark yürütme ortamı üzerinde kontrol sizde. İçinde [Azure tümleştirme çalışma zamanı](concepts-integration-runtime.md) işlem türü (genel amaçlı, bellek için iyileştirilmiş ve işlem için iyileştirilmiş) çalışan çekirdek sayısı ve zaman yaşam yürütme altyapısı, veri akışı işlem ile eşleşecek şekilde ayarlamak için ayarlar gereksinimleri. Ayrıca, TTL ayarlama için iş yürütmeleri hemen kullanılamıyorsa, normal bir küme tutmanıza olanak sağlar.
 
 ![Azure tümleştirme çalışma zamanı](media/data-flow/ir-new.png "Azure tümleştirme çalışma zamanı")
+
+> [!NOTE]
+> Veri akışı etkinliği Integration Runtime seçimde yalnızca uygulandığı *tetiklenen yürütmeleri* hattınızın. İşlem hattınızı veri akışları ile hata ayıklama ile hata ayıklama, 8 çekirdekli varsayılan Spark kümesinde yürütülür.
 
 ### <a name="staging-area"></a>Hazırlama alanı
 

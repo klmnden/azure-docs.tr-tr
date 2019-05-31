@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740293"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233931"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Fiyatlandırma katmanları MariaDB için Azure veritabanı
 
@@ -51,19 +51,25 @@ Sağladığınız depolama MariaDB server için Azure veritabanı'na kullanılab
 | Depolama artırma boyutu | 1 GB | 1 GB | 1 GB |
 | IOPS | Değişken |3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS |
 
-Ek depolama kapasitesi, sırasında ve sunucunun oluşturulduktan sonra ekleyebilirsiniz. Temel katmanı, bir IOPS garanti sağlamaz. Genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları, IOPS sağlanan depolama boyutu 3:1 oranını ölçeklendirin.
+Sırasında ve sonrasında sunucu oluşturulması ek depolama kapasitesi eklemek ve sistem otomatik olarak iş yükünüz depolama tüketimine göre depolama büyümesine izin verebilirsiniz. Temel katmanı, bir IOPS garanti sağlamaz. Genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları, IOPS sağlanan depolama boyutu 3:1 oranını ölçeklendirin.
 
 G/ç tüketiminiz Azure portalında veya Azure CLI komutlarını kullanarak izleyebilirsiniz. İlgili ölçümleri izlemek için [depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzdesi](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Depolama sınırı ulaşma
 
-Boş depolama alanı miktarı 5 GB veya sağlanan depolama alanının %5'i (hangisi daha düşükse) olduğunda sunucu salt okunur olarak işaretlenir. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımı gider salt okunur 95 GB, sunucunun işaretlenir. Alternatif olarak, 5 GB depolama alanı sağladıysanız boş depolama alanı 250 MB seviyesinin altına düştüğünde sunucu salt okunur olarak işaretlenir.  
+Sağlanan 100 GB depolama alanı miktarından daha azıyla çalışabilse sunucuları boş depolama alanı 512 MB veya sağlanan depolama boyutu %5 küçükse salt okunur olarak işaretlenir. Yalnızca boş depolama alanı 5 GB'tan daha az olduğunda birden çok sağlanan 100 GB depolama sunucularıyla salt okunur olarak işaretlenir.
+
+Örneğin 110 GB depolama alanı sağladığınız ve gerçek kullanımı gider salt okunur 105 GB, sunucunun işaretlenir. 5 GB depolama alanını sağladıysanız, 512 MB boş depolama alanı ulaştığında alternatif olarak, sunucunun salt okunur işaretlenir.
 
 Hizmet sunucuyu salt okunur duruma getirdiğinde tüm yeni yazma işlemi istekleri engellenir ve var olan etkin işlemler yürütülmeye devam eder. Sunucu salt okunur olarak ayarlandığında sonraki tüm yazma girişimleri ve işlemler başarısız olur. Okuma sorguları kesintisiz olarak çalışmaya devam eder. Sağlanan depolama alanını artırdıktan sonra sunucu yazma işlemlerini kabul etmeye hazır hale gelir.
 
-Salt okunur duruma girmesini önlemek için sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamanızı öneririz. 
+Depolama alanında açmanızı öneririz otomatik büyütme veya sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamak için bu nedenle, kaçınmak salt okunur duruma alma. Daha fazla bilgi için şirket belgelerine bakın. [bir alarm ayarlama](howto-alert-metric.md).
 
-Daha fazla bilgi için şirket belgelerine bakın. [bir alarm ayarlama](howto-alert-metric.md).
+### <a name="storage-auto-grow"></a>Depolama otomatik büyütme
+
+Depolama otomatik büyümesi halinde olan etkin depolama otomatik olarak iş yükünü etkilemeden büyür. Boş depolama alanı 1 GB veya 10 sağlanan depolama yüzdesi büyük olarak sağlanan 100 GB depolama alanı miktarından daha azıyla çalışabilse sunucular için 5 GB ile sağlanan depolama boyutu artar. Boş depolama alanı, sağlanan depolama boyutu %5 altında olduğunda 100 GB'den fazla sağlanan depolama alanı ile sunucular için sağlanan depolama boyutu %5 oranında artar. Yukarıda belirtildiği gibi maksimum depolama sınırları geçerlidir.
+
+Örneğin, 1000 GB depolama alanı sağlamış ve gerçek kullanımı gider 950 GB, sunucu depolama boyutu 1050 GB'a artırdık. 10 GB depolama alanı sağladıysanız, 1 GB'tan az depolama ücretsiz alternatif olarak, depolama boyutu için 15 GB artış olduğunda.
 
 ## <a name="backup"></a>Backup
 

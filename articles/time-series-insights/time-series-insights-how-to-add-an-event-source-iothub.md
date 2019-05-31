@@ -4,19 +4,19 @@ description: Bu makalede, bir IOT hub'ına zaman serisi görüşleri ortamınız
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 79d2062f0e174eeb7550205f90c1650185e1623a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143360"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236978"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Zaman serisi görüşleri ortamınıza bir IOT hub olay kaynağı ekleme
 
@@ -76,7 +76,7 @@ IOT hub'ınıza yeni bir tüketici grubu eklemek için:
    | Özellik | Açıklama |
    | --- | --- |
    | Abonelik Kimliği | IOT hub'ının oluşturulduğu abonelik seçin.
-   | IoT hub adı | IOT hub'ı adını seçin.
+   | IOT hub'ı adı | IOT hub'ı adını seçin.
    | IOT hub'ı ilke adı | Paylaşılan erişim ilkesi seçin. Paylaşılan erişim ilkesi, IOT hub'ı Ayarlar sekmesinde bulabilirsiniz. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağınız için paylaşılan erişim ilkesi *gerekir* sahip **hizmetini bağlama** izinleri.
    | IOT hub'ı ilke anahtarı | Anahtar önceden doldurulur.
    | IOT hub tüketici grubu | Tüketici grubu olayları IOT hub'ından okur. Olay kaynağınız için ayrılmış bir tüketici grubu kullanmanızı öneririz.
@@ -89,7 +89,7 @@ IOT hub'ınıza yeni bir tüketici grubu eklemek için:
    | --- | --- |
    | Abonelik Kimliği | IOT hub'ının oluşturulduğu abonelik.
    | Kaynak grubu | IOT hub'ının oluşturulduğu kaynak grubu adı.
-   | IoT hub adı | IOT hub'ınızın adıdır. IOT hub'ınızı oluşturduğunuzda, IOT hub için bir ad girdiniz.
+   | IOT hub'ı adı | IOT hub'ınızın adıdır. IOT hub'ınızı oluşturduğunuzda, IOT hub için bir ad girdiniz.
    | IOT hub'ı ilke adı | Paylaşılan erişim ilkesi. IOT hub'ı Ayarlar sekmesinde, paylaşılan erişim ilkesi oluşturabilirsiniz. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağınız için paylaşılan erişim ilkesi *gerekir* sahip **hizmetini bağlama** izinleri.
    | IOT hub'ı ilke anahtarı | Azure Service Bus ad alanı kimlik doğrulaması yapmak için kullanılan paylaşılan erişim anahtarı. Birincil veya ikincil anahtarı buraya girin.
    | IOT hub tüketici grubu | Tüketici grubu olayları IOT hub'ından okur. Olay kaynağınız için ayrılmış bir tüketici grubu kullanmanızı öneririz.

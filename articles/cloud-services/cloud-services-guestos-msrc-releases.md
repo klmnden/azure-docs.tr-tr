@@ -11,17 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 5/23/2019
 ms.author: raiye
-ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465546"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241316"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
+
+## <a name="may-2019-guest-os"></a>Mayıs 2019 konuk işletim sistemi
+
+>[!NOTE]
+>Olabilir konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri olabilir konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
+
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206 ]  |  IE toplaması olabilir   |  2,86, 3.73, 4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4505050 ]  |  IE toplaması olabilir   |  2,86, 3.73, 4.66  |  18 Mayıs 2019  |
+|  Rel 19-05   |  [4497932 ]  |  Güncelleştirme Flash   |  3.73, 4.66, 5.31  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4499175 ]  |  Güvenlik dökümü olabilir   |  2.86  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495612 ]  |  Güvenlik dökümü .NET 3.5 olabilir   |  2.86  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495593 ]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  2.86  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4499158 ]  |  Güvenlik dökümü olabilir   |  3.73  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495607 ]  |  Güvenlik dökümü .NET 3.5 olabilir   |  3.73  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495591 ]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  3.73  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4492872 ]  |  IE dökümü   |  3.73  |  16 Nisan 2019  |
+|  Rel 19-05   |  [4499165 ]  |  Mart güvenlik dökümü   |  4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495615 ]  |  Güvenlik dökümü .NET 3.5 olabilir   |  4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495589 ]  |  Güvenlik dökümü .NET 4.5.2'nin olabilir   |  4.66  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4498947 ]  |  SSU olabilir   |  5.31  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4494175 ]  |  Mikro kod güncelleştirme olabilir   |  5.31  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4505052 ]  |  Güvenlik dökümü olabilir   |  5.31  |  19 Mayıs 2019  |
+|  Rel 19-05   |  [4499728 ]  |  SSU olabilir   |  6.7  |  19 Mayıs 2019  |
+|  Rel 19-05   |  [4505056 ]  |  Güvenlik dökümü olabilir   |  6.7  |  19 Mayıs 2019  |
+|  Rel 19-05   |  [4494174 ]  |  Mikro kod güncelleştirme olabilir   |  6.7  |  14 Mayıs 2019  |
+|  Rel 19-05   |  [4495590 ]  |  Güvenlik dökümü .NET olabilir   |  6.7  |  14 Mayıs 2019  |
+
+[KB4493510]: https://support.microsoft.com/kb/KB4493510
+[KB4493472]: https://support.microsoft.com/kb/KB4493472
+[KB4493451]: https://support.microsoft.com/kb/KB4493451
+[KB4493446]: https://support.microsoft.com/kb/KB4493446
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="april-2019-guest-os"></a>Nisan 2019 konuk işletim sistemi
 
@@ -556,7 +605,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 17-06 | [4019472] |WS 2016 işletim sistemi kalitesi geliştirmeleri |5.8 |9 Mayıs 2017 |
 | Rel 17-06 | [4022722] |Yalnızca Windows Güvenlik |2.63 |13 Haziran 2017 |
 | Rel 17-06 | [4022717] |Yalnızca Windows Güvenlik |4.43 |13 Haziran 2017 |
-| Rel 17-06 | [4022718] |Yalnızca Windows Güvenlik |3,50 |13 Haziran 2017 |
+| Rel 17-06 | [4022718] |Yalnızca Windows Güvenlik |3.50 |13 Haziran 2017 |
 | Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 Haziran 2017 |
 | Rel 17-06 | [4022719], [4022724], [4022726] |Windows aylık toplamaları |2.63, 3.50, 4.43 |13 Haziran 2017 |
 | Rel 17-06 | [4022730] |Adobe Flash Player güvenlik güncelleştirmesi |3.50, 4.43, 5.8 |13 Haziran 2017 |
@@ -567,11 +616,11 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4014508] |.NET olmayan ve güvenlikle ilgili toplama olabilir |2.63 |9 Mayıs 2017 |
 | Yok | [4014511] |.NET olmayan ve güvenlikle ilgili toplama olabilir |2.63 |9 Mayıs 2017 |
 | Yok | [4014514] |.NET olmayan ve güvenlikle ilgili toplama olabilir |2.63 |9 Mayıs 2017 |
-| Yok | [4019216] |Güvenlikle ilgili olmayan döküm olabilir |3,50 |9 Mayıs 2017 |
-| Yok | [4014503] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3,50 |9 Mayıs 2017 |
-| Yok | [4014506] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3,50 |9 Mayıs 2017 |
-| Yok | [4014509] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3,50 |9 Mayıs 2017 |
-| Yok | [4014513] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3,50 |9 Mayıs 2017 |
+| Yok | [4019216] |Güvenlikle ilgili olmayan döküm olabilir |3.50 |9 Mayıs 2017 |
+| Yok | [4014503] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3.50 |9 Mayıs 2017 |
+| Yok | [4014506] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3.50 |9 Mayıs 2017 |
+| Yok | [4014509] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3.50 |9 Mayıs 2017 |
+| Yok | [4014513] |.NET olmayan ve güvenlikle ilgili toplama olabilir |3.50 |9 Mayıs 2017 |
 | Yok | [4019215] |Güvenlikle ilgili olmayan döküm olabilir |4.43 |9 Mayıs 2017 |
 | Yok | [4014505] |.NET olmayan ve güvenlikle ilgili toplama olabilir |4.43 |9 Mayıs 2017 |
 | Yok | [4014507] |.NET olmayan ve güvenlikle ilgili toplama olabilir |4.43 |9 Mayıs 2017 |
@@ -753,7 +802,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Güvenlik özelliği atlama adresi .NET Framework güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
-| Danışma |[3155527] |Güncelleştirme paketleri FalseStart için şifre. |4.33, 3.40 |14 Haziran 2016 |
+| Öneri |[3155527] |Güncelleştirme paketleri FalseStart için şifre. |4.33, 3.40 |14 Haziran 2016 |
 | MS16-063 |[3163649] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
 | MS16-069 |[3163640] |JScript ve VBScript için toplu güvenlik güncelleştirmesi |2.52 |14 Haziran 2016 |
 | MS16-071 |[3164065] |Microsoft Windows DNS sunucusu için güvenlik güncelleştirmesi |4.33, 3.40 |14 Haziran 2016 |

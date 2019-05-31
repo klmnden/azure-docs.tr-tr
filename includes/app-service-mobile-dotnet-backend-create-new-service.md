@@ -5,15 +5,15 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/25/2018
+ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 21ec3ea70e495364e40e492a5d0f9375e5c5d3e3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: be8384225d213cd83cbbac8bdfb92ec1e823c38b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66139945"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236001"
 ---
 1. [Azure Portal] oturum açın.
 
@@ -21,18 +21,15 @@ ms.locfileid: "66139945"
 
 3. Arama kutusuna **Mobile Apps** yazın.
 
-    [![Mobile Apps Hızlı Başlangıcın vurgulandığı Azure portalı][quickstart]](./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart-zoom.png#lightbox)
-
-4. Sonuçlar listesinde **Mobile Apps Hızlı Başlangıç**’ı ve ardından **Oluştur**’u seçin.
+4. Sonuç listesinden **mobil uygulama**ve ardından **Oluştur**.
 
 5. Benzersiz bir **Uygulama adı** seçin. Bu aynı zamanda App Service’inizin etki alanı adının bir parçası olacaktır.
 
-6. **Kaynak Grubu** altında mevcut bir kaynak grubunu seçin _ya da_ yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak).
+6. Seçin **abonelik** bu mobil uygulama için.
 
-7. **Oluştur**’a tıklayın. Devam etmeden önce hizmetin sorunsuz dağıtılması için birkaç dakika bekleyin. Durum güncelleştirmeleri için portal üst bilgisindeki Bildirimler (zil) simgesini izleyin.
+7. **Kaynak Grubu** altında mevcut bir kaynak grubunu seçin _ya da_ yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak).
 
-<!-- Images. -->
-[quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
+8. **Oluştur**’a tıklayın. Devam etmeden önce hizmetin sorunsuz dağıtılması için birkaç dakika bekleyin. Durum güncelleştirmeleri için portal üst bilgisindeki Bildirimler (zil) simgesini izleyin.
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/

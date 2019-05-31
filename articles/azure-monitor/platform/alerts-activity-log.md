@@ -1,18 +1,18 @@
 ---
-title: Oluşturma, görüntüleme ve Azure İzleyicisi'nde etkinlik günlüğü Uyarıları yönetme
-description: Azure Portal, kaynak şablonu ve PowerShell etkinlik günlüğü uyarıları oluşturma
+title: Oluşturma, görüntüleme ve yönetme etkinliği Azure İzleyici'de günlük uyarıları
+description: Azure portalı, Azure Resource Manager şablonu ve Azure PowerShell kullanarak Etkinlik günlüğü uyarıları oluşturma nasıl.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130124"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244952"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -97,7 +97,7 @@ Aşağıdaki yordamı kullanın:
     Etkinleştirme, devre dışı bırakmak, düzenlemek veya silmek bir kural. Etkinlik günlüğü kurallarını yönetme hakkında daha fazla bilgi edinin.
 
 
-Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etkinlik günlüğünde anlama koşullar için olan keşfedin veya aracılığıyla olayları filtrelemek için [Azure portalında etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). Azure İzleyici - etkinlik günlüğü, bir filtre veya gerekli olay bulabilir ve ardından kullanarak bir uyarı oluşturma **etkinlik günlüğü uyarısı Ekle** düğmesini; ardından adımları 4 ve üzeri öğreticide yukarıda belirtildiği gibi izleyin.
+Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etkinlik günlüğünde anlama koşullar için olan keşfedin veya aracılığıyla olayları filtrelemek için [Azure portalında etkinlik günlüğü](activity-log-view.md#azure-portal). Azure İzleyici - etkinlik günlüğü, bir filtre veya gerekli olay bulabilir ve ardından kullanarak bir uyarı oluşturma **etkinlik günlüğü uyarısı Ekle** düğmesini; ardından adımları 4 ve üzeri öğreticide yukarıda belirtildiği gibi izleyin.
     
  ![ Etkinlik günlüğü uyarısı Ekle](media/alerts-activity-log/add-activity-log.png)
     
@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 Burada sampleActivityLogAlert.parameters.json uyarı kuralı oluşturmak için gereken parametreleri için sağlanan değerler içerir.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Etkinlik günlüğü PowerShell cmdlet'lerini kullanın
+### <a name="use-activity-log-powershell-cmdlets"></a>Etkinlik günlüğünü PowerShell cmdlet'lerini kullanma
 
 Etkinlik günlüğü uyarıları adanmış PowerShell cmdlet'leri kullanılabilir:
 

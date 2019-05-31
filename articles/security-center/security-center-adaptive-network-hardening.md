@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 17f01d89598d99425d157e4c9c31e64ab1ccbcda
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/24/2019
+ms.author: monhaber
+ms.openlocfilehash: f35f410ddc039ee264fa1de317e152cb03f391b5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966974"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241491"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki Uyarlamalı ağ sağlamlaştırma
 Azure Güvenlik Merkezi'ndeki Uyarlamalı ağ sağlamlaştırma yapılandırmayı öğrenin.
@@ -33,7 +33,6 @@ Uyarlamalı ağ sağlamlaştırma NSG kuralları daha da güçlendirmek için ö
 
 ![Ağ sağlamlaştırma görünümü](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
-
 > [!NOTE]
 > Uyarlamalı ağ sağlamlaştırma önerileri aşağıdaki bağlantı noktalarında desteklenir: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
 
@@ -43,7 +42,7 @@ Uyarlamalı ağ sağlamlaştırma NSG kuralları daha da güçlendirmek için ö
    * **İyi durumda olmayan kaynaklar**: Öneriler ve Uyarlamalı ağ sağlamlaştırma algoritması çalıştırarak tarafından tetiklenen uyarılar şu anda sahip VM'ler. 
    * **İyi durumdaki kaynaklar**: Uyarıları ve öneriler olmayan VM'ler.
    * **Taranmayan kaynaklar**: Uyarlamalı ağ sağlamlaştırma algoritması aşağıdakilerden biri nedeniyle çalıştırılamaz Vm'leri:
-      * **Sanal makineleri Klasik Vm'si olan**:-yalnızca Azure Resource Manager Vm'lerinde desteklenir.
+      * **Sanal makineleri Klasik Vm'si olan**: Yalnızca Azure Resource Manager sanal makineleri desteklenir.
       * **Yeterli veri kullanılabilir**: Doğru trafiği sağlamlaştırma önerileri oluşturmak için en az 30 gün trafik verileri Güvenlik Merkezi gerektirir.
       * **VM'yi ASC standart tarafından değil korumalı**: Güvenlik Merkezi'nin standart fiyatlandırma katmanına ayarlanmış olan Vm'leri bu özellik için uygundur.
 
@@ -57,18 +56,23 @@ Uyarlamalı ağ sağlamlaştırma NSG kuralları daha da güçlendirmek için ö
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Gözden geçirin ve Uyarlamalı ağ sağlamlaştırma önerilen kurallar uygulayın
 
 1. Gelen **iyi durumda olmayan kaynaklar** sekmesinde, bir VM seçin. Uyarıları ve önerilen sağlamlaştırma kuralları listelenir.
-   ![sağlamlaştırma uyarıları](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+
+     ![sağlamlaştırma kuralları](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > **Kuralları** eklediğiniz önerir Uyarlamalı ağ sağlamlaştırma kuralları sekmesinde listelenir. **Uyarılar** nedeniyle önerilen kurallarda izin verilen IP aralığı içinde değil kaynağa akan trafiği, oluşturulan uyarıların sekmesinde listelenir.
-
-   ![sağlamlaştırma kuralları](./media/security-center-adaptive-network-hardening/hardening-rules.png)
 
 2. Bazı parametreler bir kuralın değiştirmek istiyorsanız, bunu, açıklandığı gibi değiştirebilirsiniz [bir kuralı değiştirmek](#modify-rule).
    > [!NOTE]
    > Ayrıca [Sil](#delete-rule) veya [ekleme](#add-rule) bir kural.
 
-3. NSG üzerinde uygulamak ve istediğiniz kuralları seçin **zorla**. 
+3. NSG üzerinde uygulamak ve istediğiniz kuralları seçin **zorla**.
+
+      > [!NOTE]
+      > VM koruma nsg'ler uygulanan kuralları eklenir. (Bir VM bir NSG, NIC'ye ilişkili veya sanal Makinenin bulunduğu alt ağ veya her ikisi tarafından korunabilecek)
+
+    ![kuralları zorla](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
+
 
 ### Bir kuralı değiştirin  <a name ="modify-rule"> </a>
 
@@ -82,13 +86,13 @@ Uyarlamalı ağ sağlamlaştırma NSG kuralları daha da güçlendirmek için ö
   > [!NOTE]
   > Oluşturma ve değiştirme "Reddet" kuralları yapılır NSG için doğrudan hakkında daha fazla ayrıntı için bkz: [oluşturma, değiştirme veya silme bir ağ güvenlik grubu](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* A **tüm trafiği reddetmeye** kural burada listelenir ve "Reddet" kuralının tek tür ve değiştirilemez. Ancak silebilirsiniz olabilir (bakın [kural silme](#delete-rule)).
+* A **tüm trafiği reddetmeye** kural burada listelenir ve "Reddet" kuralının tek tür ve değiştirilemez. Ancak, bunu silebilirsiniz (bkz [kural silme](#delete-rule)).
   > [!NOTE]
-  > A **tüm trafiği reddetmeye** kuralı olması önerilir, sonuç olarak algoritma çalışmakta olan Güvenlik Merkezi, mevcut bir NSG yapılandırmasını temel alan izin verilmesi trafiği tanımlamaz. Bu nedenle, belirtilen bağlantı noktası için tüm trafiği reddetmeye yönelik önerilen kuralı gereklidir. Bu kural türü adı "sistem tarafından oluşturulan" görüntülenir. Bu kural zorlama sonra gerçek adını NSG protokolü, trafik yönü, "REDDET" ve rastgele bir sayı oluşan bir dize olacaktır.
+  > A **tüm trafiği reddetmeye** kuralı olması önerilir, sonuç olarak algoritma çalışmakta olan Güvenlik Merkezi, mevcut bir NSG yapılandırmasını temel alan izin verilmesi trafiği tanımlamaz. Bu nedenle, belirtilen bağlantı noktası için tüm trafiği reddetmeye yönelik önerilen kuralı gereklidir. Bu kural türü adı olarak gösterilen "*sistem oluşturulan*". Bu kural zorlama sonra gerçek adını NSG protokolü, trafik yönü, "REDDET" ve rastgele bir sayı oluşan bir dize olacaktır.
 
 *Uyarlamalı ağ sağlamlaştırma bir kuralı değiştirmek için:*
 
-1. Bazı parametreler bir kuralı değiştirmek için **kuralları** sekme, kuralın satırın sonundaki üç noktaya (...) tıklayın ve tıklayın **düzenleme kuralı**.
+1. Bazı parametreler bir kuralı değiştirmek için **kuralları** sekme, kuralın satırın sonundaki üç noktaya (...) tıklayın ve tıklayın **Düzenle**.
 
    ![Kuralını Düzenle](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
@@ -97,10 +101,13 @@ Uyarlamalı ağ sağlamlaştırma NSG kuralları daha da güçlendirmek için ö
    > [!NOTE]
    > ' I tıklattıktan sonra **Kaydet**, kural başarıyla değiştirildi. *Ancak, bu NSG için uygulanmamış.* Bunu uygulamak için bir kural listeden seçin ve gerekir tıklayın **zorla** (sonraki adımda açıklandığı gibi).
 
+   ![Kuralını Düzenle](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+
 3. Güncelleştirilmiş bir kural listeden uygulamak için güncelleştirilmiş kuralı seçin ve **zorla**.
 
-### Yeni bir kural ekleyin <a name ="add-rule"> </a>
+    ![Kural zorlama](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
+### Yeni bir kural ekleyin <a name ="add-rule"> </a>
 
 Güvenlik Merkezi tarafından önerilen bir "izin ver" kuralı ekleyebilirsiniz.
 
@@ -113,13 +120,14 @@ Güvenlik Merkezi tarafından önerilen bir "izin ver" kuralı ekleyebilirsiniz.
 
    ![Kural Ekle](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. İçinde **düzenleme kuralı** penceresinde ayrıntılarını girin ve tıklatın **Kaydet**.
+1. İçinde **yeni kural** penceresinde ayrıntılarını girin ve tıklatın **Ekle**.
 
    > [!NOTE]
-   > ' I tıklattıktan sonra **Kaydet**kuralı başarıyla eklendi ve diğer önerilen kurallara listelenir. Ancak, bu NSG üzerinde uygulanmamış. Etkinleştirmek için bir kural listeden seçin ve gerekir tıklayın **zorla** (sonraki adımda açıklandığı gibi).
+   > ' I tıklattıktan sonra **Ekle**kuralı başarıyla eklendi ve diğer önerilen kurallara listelenir. Ancak, bu NSG üzerinde uygulanmamış. Etkinleştirmek için bir kural listeden seçin ve gerekir tıklayın **zorla** (sonraki adımda açıklandığı gibi).
 
 3. Yeni bir kural listeden uygulamak için yeni bir kural seçin ve **zorla**.
 
+    ![Kural zorlama](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
 ### Kural silme <a name ="delete-rule"> </a>
@@ -128,9 +136,9 @@ Gerektiğinde, önerilen bir kuralı silebilirsiniz. Örneğin, önerilen kural�
 
 *Uyarlamalı ağ sağlamlaştırma bir kuralı silmek için:*
 
-1. İçinde **kuralları** sekme, kuralın satırın sonundaki üç noktaya (...) tıklayın ve tıklayın **silme kuralı**.
+1. İçinde **kuralları** sekme, kuralın satırın sonundaki üç noktaya (...) tıklayın ve tıklayın **Sil**.  
 
-   ![Kuralı Sil](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![sağlamlaştırma kuralları](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
 
 

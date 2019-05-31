@@ -3,22 +3,22 @@ title: Tanılama ve Azure Cosmos DB tetikleyicisi Azure işlevleri'nde kullanır
 description: Yaygın sorunlar, geçici çözümler ve Azure işlevleri ile Azure Cosmos DB tetikleyicisi kullanırken tanılama adımları
 author: ealsur
 ms.service: cosmos-db
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510536"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242526"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Tanılama ve Azure Cosmos DB tetikleyicisi Azure işlevleri'nde kullanırken sorunlarını giderme
 
 Bu makalede kullanırken sık karşılaşılan sorunları ve geçici çözümler tanılama adımları kapsar [Azure Cosmos DB tetikleyicisi](change-feed-functions.md) Azure işlevleri ile.
 
-## <a name="dependencies"></a>Bağımlılıklar
+## <a name="dependencies"></a>Bağımlılıkları
 
 Azure Cosmos DB tetikleyicisini ve bağlamalarını uzantı paketleri temel Azure işlevleri çalışma zamanı üzerinde bağlıdır. Düzeltmeleri ve karşılaşabileceğiniz olası sorunları gidermeye yeni özellikler içerebilir gibi her zaman bu paketlerin güncelleştirilmesi sakla:
 

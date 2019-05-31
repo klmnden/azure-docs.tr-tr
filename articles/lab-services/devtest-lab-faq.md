@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713006"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244398"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -50,7 +50,7 @@ Sorunuzu burada listelenmiyorsa, yanıt bulmanıza yardımcı olabiliriz. Bu ned
 - Geniş bir kitleye ulaşmak için bir soru gönderin [Azure DevTest Labs MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Azure DevTest Labs takım ve diğer topluluk üyelerinin ile etkileşim kurun.
 - Özellik istekleri için istek ve fikirleri için gönderme [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
-### <a name="what-is-a-microsoft-account"></a>Microsoft hesabı nedir?
+### <a name="what-is-a-microsoft-account"></a>Bir Microsoft hesabı nedir?
 Bir Microsoft hesabı olan neredeyse her şey Microsoft cihazlar ve hizmetler ile yapmak için kullandığınız hesaptır. Bu bir e-posta adresi ve Skype, Outlook.com, OneDrive, Windows phone, Azure ve Xbox Live oturum açmak için kullandığınız parola olur. Tek bir hesap, dosyaları, fotoğraflar, kişiler ve ayarları, tüm cihazlardan izleyebilirsiniz anlamına gelir.
  
 > [!NOTE]
@@ -280,7 +280,7 @@ Daha ayrıntılı bir açıklama için bkz. [özel görüntüleri ve formülleri
 
 Özel görüntüleri oluşturmak için VHD dosyalarını karşıya yükleme otomatikleştirmek için iki seçeneğiniz vardır:
 
-- Kullanım [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) kopyalayın veya lab ile ilişkili depolama hesabına VHD dosyalarını yükleyin.
+- Kullanım [AzCopy](../storage/common/storage-use-azcopy-v10.md) kopyalayın veya lab ile ilişkili depolama hesabına VHD dosyalarını yükleyin.
 - Kullanım [Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md). Depolama Gezgini Windows, OS X ve Linux'ta çalışan tek başına bir uygulamadır.
 
 Laboratuvarınızı ile ilişkili hedef depolama hesabını bulmak için:

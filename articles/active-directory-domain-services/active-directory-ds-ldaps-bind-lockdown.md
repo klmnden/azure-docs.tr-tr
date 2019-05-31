@@ -3,7 +3,7 @@ title: Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen 
 description: Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen etki bağlama
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417053"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234864"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen etki bağlama
 
@@ -64,13 +64,13 @@ Yönetilen etki alanınıza internet üzerinden LDAPS erişimi etkinleştirdiği
 
 
 ## <a name="related-content"></a>İlgili içerik
-* [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)
-* [Azure AD Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+* [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](create-instance.md)
+* [Bir Azure AD Domain Services etki alanını yönetin](manage-domain.md)
 * [LDAP sorgu temelleri](https://technet.microsoft.com/library/aa996205.aspx)
-* [Azure AD Domain Services yönetilen etki alanında Grup İlkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Azure AD etki alanı Hizmetleri için Grup İlkesi yönetme](manage-group-policy.md)
 * [Ağ güvenlik grupları](../virtual-network/security-overview.md)
 * [Ağ güvenlik grubu oluşturma](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>Sonraki adım
-[Yönetilen bir etki alanı üzerinde güvenli LDAP'yi sorunlarını giderme](active-directory-ds-ldaps-troubleshoot.md)
+[Yönetilen bir etki alanı üzerinde güvenli LDAP'yi sorunlarını giderme](tshoot-ldaps.md)

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942326"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257519"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 müşteri katılımı önkoşulları
 
@@ -40,7 +40,7 @@ Dynamics 365 Customer Engagement uygulaması için uymalıdır [Microsoft Appsou
 
 Aşağıdaki yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine iş gereksinimleri şunlardır:
 
-* Üzerinde kaydedilmelidir [Microsoft iş ortağı ağı (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) veya kayıtlı bir bulut Market yayımcısı. Kayıtlı değil, adımları [bulut Market yayımcısı haline](../../become-publisher.md).  (Üçüncü adım için bunun yerine kullanın [AppSource iş ortağı ADAYLIK formu](https://appsource.microsoft.com/partners/signup)). 
+* Üzerinde kaydedilmelidir [Microsoft iş ortağı ağı (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) veya kayıtlı bir bulut Market yayımcısı. Kayıtlı değil, adımları [bulut Market yayımcısı haline](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Üçüncü adım için bunun yerine kullanın [AppSource iş ortağı ADAYLIK formu](https://appsource.microsoft.com/partners/signup)). 
 
     >[!NOTE]
     >Bulut iş ortağı portalında oturum açmak için aynı Microsoft Developer Center kayıt hesabı kullanmanız gerekir. Azure Marketi Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Bu hesap, bireysel hizmetlerin veya teklifler için belirli olmamalıdır.

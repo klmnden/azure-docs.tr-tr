@@ -3,7 +3,7 @@ title: 'Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Do
 description: Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417762"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234951"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 
@@ -36,7 +36,7 @@ Sihirbaz, yönetim grubunu Azure AD dizininizde otomatik olarak oluşturur. Bu g
 
 1. Grup üyeliğini yapılandırmak için tıklayın **AAD DC Administrators**.
 
-    ![Grup üyeliğini yapılandır](./media/getting-started/domain-services-blade-admingroup.png)
+    ![Grup üyeliğini Yapılandır](./media/getting-started/domain-services-blade-admingroup.png)
 
 2. Tıklayın **üye ekleme** kullanıcıları Azure AD dizininizdeki yönetici grubuna eklemek için düğme.
 
@@ -44,7 +44,7 @@ Sihirbaz, yönetim grubunu Azure AD dizininizde otomatik olarak oluşturur. Bu g
 
 ## <a name="configure-synchronization"></a>Eşitlemeyi yapılandırma
 
-Azure AD etki alanı hizmetleri sağlayan tüm kullanıcıların ve grupların Azure AD'de kullanılabilir ya da tam eşitleme veya yalnızca belirli grupları eşitlemek için kapsamlı eşitlemeyi seçebilirsiniz. Tam eşitleme seçerseniz, şunları yapacaksınız **değil** sonraki bir zamanda kapsamlı eşitleme seçim yapabilirsiniz. Kapsamlı eşitleme hakkında daha fazla bilgi edinmek için [Azure AD Domain Services kapsamlı eşitleme makale](active-directory-ds-scoped-synchronization.md).
+Azure AD etki alanı hizmetleri sağlayan tüm kullanıcıların ve grupların Azure AD'de kullanılabilir ya da tam eşitleme veya yalnızca belirli grupları eşitlemek için kapsamlı eşitlemeyi seçebilirsiniz. Tam eşitleme seçerseniz, şunları yapacaksınız **değil** sonraki bir zamanda kapsamlı eşitleme seçim yapabilirsiniz. Kapsamlı eşitleme hakkında daha fazla bilgi edinmek için [Azure AD Domain Services kapsamlı eşitleme makale](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Tam eşitleme
 
@@ -96,9 +96,9 @@ Yönetilen etki alanınıza sağlama işleminin bir saate kadar sürebilir.
 
     ![Etki Alanı Hizmetleri - tamamen hazır haldeki Özellikleri sekmesi](./media/getting-started/domain-services-provisioned-properties.png)
 
-## <a name="need-help"></a>Yardıma mı ihtiyacınız var?
+## <a name="need-help"></a>Yardım mı gerekiyor?
 
-Bir veya iki sağlanması yönetilen etki alanınız için her iki etki alanı denetleyicileri için bir saat sürebilir. Dağıtım başarısız oldu veya birkaç saat değerinden daha fazla bilgi için 'Bekleniyor' durumunda takılı rahatça [Yardım için ürün ekibiyle](active-directory-ds-contact-us.md).
+Bir veya iki sağlanması yönetilen etki alanınız için her iki etki alanı denetleyicileri için bir saat sürebilir. Dağıtım başarısız oldu veya birkaç saat değerinden daha fazla bilgi için 'Bekleniyor' durumunda takılı rahatça [Yardım için ürün ekibiyle](contact-us.md).
 
 ## <a name="next-step"></a>Sonraki adım
 

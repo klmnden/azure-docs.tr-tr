@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003169"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235496"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Temel ilke: Son kullanıcı protection (Önizleme)
 
@@ -75,11 +75,11 @@ Bu temel ilke kullanıcılar dışında seçeneği sağlar. Kiracınız için il
 
 İlke **temel ilke: Son kullanıcı protection (Önizleme)** önceden yapılandırılmış olarak gelir ve Azure portalında koşullu erişim dikey penceresine gittiğinizde en üstünde gösterilir.
 
-Bu ilkeyi etkinleştirmek ve yöneticileriniz korumak için:
+Bu ilkeyi etkinleştirmek ve kullanıcılarınızı korumak için:
 
 1. Oturum **Azure portalında** genel yönetici, güvenlik yöneticisi veya koşullu erişim Yöneticisi olarak.
 1. Gözat **Azure Active Directory** > **koşullu erişim**.
-1. İlkeler listesinde seçin **temel ilke: Son kullanıcı protection (Önizleme)**.
+1. İlkeler listesinde seçin **temel ilke: Son kullanıcı protection (Önizleme)** .
 1. Ayarlama **ilkesini etkinleştir** için **ilkeyi hemen kullan**.
 1. Herhangi bir kullanıcı özel tıklayarak Ekle **kullanıcılar** > **dışlanan kullanıcılar seçin** ve hariç tutulması gerektiğini kullanıcıları seçme. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **Kaydet**.

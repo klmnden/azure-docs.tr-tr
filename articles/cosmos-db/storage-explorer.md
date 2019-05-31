@@ -4,15 +4,15 @@ description: Azure Cosmos DB'ye bağlanmak ve Azure Depolama Gezgini'ni kullanar
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c3c8aee51a4484013126a5959d3d275a88aa1cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60951336"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242639"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Azure Depolama Gezgini'ni kullanarak verilerle çalışma
 
@@ -223,7 +223,7 @@ Depolama Gezgini bu "otomatik olarak imzalanan sertifikalardan" biriyle karşıl
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (basit sürümlerden herhangi biri olabilir)
      - Mac ve Linux için: İşletim sisteminize eklenmelidir
 2. Açık SSL çalıştırma
-    - Windows: Yükleme dizini Git **/bin/**, sonra çift tıklayarak **openssl.exe**.
+    - Windows: Yükleme dizini Git **/bin/** , sonra çift tıklayarak **openssl.exe**.
     - Mac ve Linux: Bir terminalden **openssl** komutunu yürütün
 3. `s_client -showcerts -connect microsoft.com:443` yürütme
 4. Otomatik olarak imzalanan sertifikaları bulun. Hangisinin otomatik olarak imzalandığından emin değilseniz, konu ("s:") ve veren ("i:") aynı olan sertifikaları bulun.

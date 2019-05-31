@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 627b29018afff2adb57b3b8b5c816bea9c421f68
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475806"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236870"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Yeni elastik veritabanı işleri için geçirme
 
 Yükseltilmiş sürümünü [elastik veritabanı işleri](elastic-jobs-overview.md) kullanılabilir.
 
-Mevcut bir barındırılan müşteri sürümü varsa [elastik veritabanı işleri](sql-database-elastic-jobs-overview.md), geçiş cmdlet'leri ve betikleri sağlanan en son sürüme geçirmek için kolay.
+Varsa var olan bir müşteri elastik veritabanı işleri, geçiş cmdlet'leri sürümünü barındırılan ve betikler kolayca en son sürüme geçirmek için sağlanmıştır.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -32,7 +32,7 @@ Elastik veritabanı işleri yükseltilmiş sürümünü kullanmak için PowerShe
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>En son esnek işler cmdlet'leri yükleme
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+Azure aboneliğiniz yoksa, [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
 
 Yükleme **Az.Sql** 1.1.1-preview modülünün en son elastik iş cmdlet'lerini edinin. PowerShell'de yönetici erişimiyle aşağıdaki komutları çalıştırın.
 

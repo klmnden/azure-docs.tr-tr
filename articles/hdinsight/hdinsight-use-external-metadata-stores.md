@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 0a6bcb3fb94df56caf4d095097572dd8a704f856
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/27/2019
+ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701191"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298884"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight, harici meta veri depolarını kullanma
 
@@ -50,7 +50,7 @@ HDInsight, üretim kümeleri için önerilen özel meta depolar da destekler:
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Küme oluşturma sırasında özel bir meta veri deposu seçin
 
-Önceden oluşturulmuş bir Azure SQL veritabanı için kümenizin küme oluşturma sırasında işaret edebilir veya Küme oluşturulduktan sonra SQL veritabanı yapılandırabilirsiniz. Bu seçenek, depolama ile belirtilen > Küme Azure portalından yeni Hadoop, Spark ve etkileşimli Hive'ı oluşturulurken meta veri deposu ayarları.
+Önceden oluşturulmuş bir Azure SQL veritabanı için kümenizin küme oluşturma sırasında işaret edebilir veya Küme oluşturulduktan sonra SQL veritabanı yapılandırabilirsiniz. Bu seçeneği ile belirtilen **depolama > meta depo ayarları** Azure portalından yeni Hadoop, Spark ve etkileşimli Hive küme oluşturulurken.
 
 ![HDInsight Hive meta veri Store Azure portalı](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
@@ -79,4 +79,4 @@ Oozie meta veri deposu ile Azure SQL veritabanı oluşturma ile ilgili yönergel
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Apache Hadoop, Apache Spark, Apache Kafka ve daha fazlasıyla HDInsight kümelerinde ayarlama](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Apache Hadoop, Apache Spark, Apache Kafka ve daha fazlasıyla HDInsight'ta küme oluşturma](./hdinsight-hadoop-provision-linux-clusters.md)

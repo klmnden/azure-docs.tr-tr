@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: byvinyal
-ms.openlocfilehash: 3f01e15e4ac39127263c8c68590b6c50be04847d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 3bdc8580749761242b1fc811b2182d73a2d46328
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66023225"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238719"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -155,8 +155,6 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 
 ### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning hizmeti limitleri
 Azure Machine Learning işlem kotası için en son değerleri bulunabilir [Azure Machine Learning kota sayfası](../articles/machine-learning/service/how-to-manage-quotas.md)
-
-[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>Ağ limitleri
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693554"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243257"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management abonelikler
 
@@ -42,7 +42,7 @@ Abonelikleri çeşitli kapsamlar ile ilişkilendirilebilir: Ürün, tüm API vey
 
 ### <a name="subscriptions-for-a-product"></a>Bir ürün için abonelik
 
-Geleneksel olarak, API Management abonelikler her zaman tek bir ilişkili [bir API ürününe](api-management-terminology.md) kapsam. Geliştiriciler Geliştirici portalında ürünlerin listesini bulundu. Ardından ürünler için abonelik isteklerini kullanmak istedikleri göndermeniz. Otomatik olarak veya API yayımcılarının bir abonelik isteği onaylandıktan sonra Geliştirici anahtarları içinde üründeki tüm API'ler erişmek için kullanabilirsiniz.
+Geleneksel olarak, API Management abonelikler her zaman tek bir ilişkili [bir API ürününe](api-management-terminology.md) kapsam. Geliştiriciler Geliştirici portalında ürünlerin listesini bulundu. Ardından ürünler için abonelik isteklerini kullanmak istedikleri göndermeniz. Otomatik olarak veya API yayımcılarının bir abonelik isteği onaylandıktan sonra Geliştirici anahtarları içinde üründeki tüm API'ler erişmek için kullanabilirsiniz. Şu anda, Geliştirici Portalı, ürün kapsamı abonelikleri yalnızca kullanıcı profili bölümünde gösterilmektedir. 
 
 ![Ürün abonelikler](./media/api-management-subscriptions/product-subscription.png)
 

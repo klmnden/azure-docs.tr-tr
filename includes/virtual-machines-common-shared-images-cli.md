@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2019
+ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 9647cdd584b53f581f46f728ca2d08f9a113ce92
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 841027fe8d6b97e661faa038dc9381edbb3d4cd8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156139"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226017"
 ---
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -25,6 +25,8 @@ Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabilece�
 
 Cloud Shell'i açmak için kod bloğunun sağ üst köşesinden **Deneyin**'i seçmeniz yeterlidir. İsterseniz [https://shell.azure.com/bash](https://shell.azure.com/bash) adresine giderek Cloud Shell'i ayrı bir tarayıcı sekmesinde de başlatabilirsiniz. **Kopyala**’yı seçerek kod bloğunu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın.
 
+Tercih ederseniz yükleyin ve CLI'yı yerel olarak kullanmak üzere [Azure CLI yükleme](/cli/azure/install-azure-cli).
+
 ## <a name="create-an-image-gallery"></a>Bir görüntü Galerisi oluşturma 
 
 Bir görüntü Galerisine görüntü paylaşımına etkinleştirmek için kullanılan birincil kaynaktır. Galeri adı için izin verilen karakterler büyük veya küçük harf, rakam, nokta ve dönemleri olur. Galeri adı kısa çizgi içeremez.   Galeri adları, abonelik içinde benzersiz olmalıdır. 
@@ -33,7 +35,7 @@ Kullanarak bir görüntü Galerisi oluşturma [az sig oluşturma](/cli/azure/sig
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location WestCentralUS
-az sig create -g myGalleryRG --gallery-name myGallery
+az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
 ## <a name="create-an-image-definition"></a>Bir görüntü tanımı oluşturun
@@ -44,7 +46,7 @@ Galeri kullanarak azure'da ilk görüntü tanımı oluşturma [az sig görüntü
 
 ```azurecli-interactive 
 az sig image-definition create \
-   -g myGalleryRG \
+   --resource-group myGalleryRG \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --publisher myPublisher \
@@ -60,16 +62,16 @@ Görüntünün sürümü kullanarak gerektiği gibi oluşturma [az görüntü Ga
 
 Görüntü sürümü için izin verilen karakter, sayı ve dönemleri ' dir. Sayı 32-bit tamsayı aralığında olmalıdır. Biçim: *MajorVersion*. *MinorVersion*. *Düzeltme Eki*.
 
-Bu örnekte, görüntümüzü sürümüdür *1.0.0* ve 2 çoğaltma oluşturmak için kullanacağız *Batı Orta ABD* bölge, 1 yinelemede *Orta Güney ABD* bölge ve 1 yinelemedeki *Doğu ABD 2* bölge.
+Bu örnekte, görüntümüzü sürümüdür *1.0.0* ve 2 çoğaltma oluşturmak için kullanacağız *Batı Orta ABD* bölge, 1 yinelemede *Orta Güney ABD* bölge ve 1 yinelemedeki *Doğu ABD 2* bölge bölgesel olarak yedekli depolama kullanarak.
 
 
 ```azurecli-interactive 
 az sig image-version create \
-   -g myGalleryRG \
+   --resource-group myGalleryRG \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1" \
+   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
    --replica-count 2 \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
@@ -77,5 +79,24 @@ az sig image-version create \
 > [!NOTE]
 > Görüntü sürümü yerleşik ve başka bir görüntü sürümünü oluşturmak için aynı yönetilen görüntüsünü kullanabilmeniz için önce çoğaltılmış tamamen tamamlanmasını beklemeniz gerekir.
 >
-> Görüntü sürümünüzde da depolayabilirsiniz [bölgesel olarak yedekli depolama](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) ekleyerek `--storage-account-type standard_zrs` oluşturduğunuzda görüntü sürümü.
+> Tüm görüntü sürümü çoğaltmalarınızın da depolayabilirsiniz [bölgesel olarak yedekli depolama](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) ekleyerek `--storage-account-type standard_zrs` oluşturduğunuzda görüntü sürümü.
 >
+
+## <a name="share-the-gallery"></a>Galeri paylaşın
+
+Galeri düzeyinde diğer kullanıcılarla paylaşmasına öneririz. Galeriniz nesne Kimliğini almak için kullanın [az sig show](/cli/azure/sig#az-sig-show).
+
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
+```
+
+Nesne Kimliğini bir e-posta adresi yanı sıra kapsamı olarak kullanın ve [az rol ataması oluşturma](/cli/azure/role/assignment#az-role-assignment-create) paylaşılan görüntü Galerisine kullanıcı erişimi vermek için.
+
+```azurecli-interactive
+az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>
+```
+
+

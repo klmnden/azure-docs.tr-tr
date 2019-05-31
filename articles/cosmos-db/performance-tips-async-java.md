@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 0da5f503c13ce03854964c0d18edd0031e25bb62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: fa6ab58de09e26683cdd958ef77b0fa01d88e2e0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235614"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225582"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB ile Async Java için performans ipuçları
 
@@ -187,7 +187,7 @@ Diğer platformlar için (Red Hat, Windows, Mac, vb.) başvurmak için bu yöner
 
     Daha fazla bilgi için [Azure Cosmos DB dizinleme ilkeleri](indexing-policies.md).
 
-## <a name="throughput"></a>Performans
+## <a name="throughput"></a>Aktarım hızı
 <a id="measure-rus"></a>
 
 1. **Ölçün ve için alt istek birimi/saniye kullanım ayarlayın.**

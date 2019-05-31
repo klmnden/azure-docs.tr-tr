@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410056"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234991"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP'yi performans Azure Vm'leri için ayarlama
 
@@ -79,7 +79,7 @@ MTU artan daha verimli bir ağ mutlaka oluşturmaz unutmayın. Uygulamanın yaln
 
 #### <a name="azure-and-vm-mtu"></a>Azure ve VM MTU
 
-Azure Vm'leri için MTU varsayılan 1500 bayttır. Azure sanal ağ yığınının paket 1,400 bayt parçalara dener. Ancak parçalama bit IP üstbilgisinde olarak ayarlandığında sanal ağ yığınının paket 2,006 bayt izin verir.
+Azure Vm'leri için MTU varsayılan 1500 bayttır. Azure sanal ağ yığınının paket 1,400 bayt parçalara dener.
 
 Vm'leri bir MTU 1.500 olsa bile paketler 1,400 bayt parçalarla ilgili olduğundan, sanal ağ yığınını kendiliğinden verimsiz olmadığını unutmayın. Ağ paketlerinin büyük bir yüzdesini 1,400 veya 1.500 bayttan çok daha küçük.
 
@@ -237,7 +237,7 @@ Etkin TCP ayarlarını bunlar `AutoTuningLevel`:
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Ölçeklendirme çarpanı**|**Ölçeklendirme çarpanı**|**Formülünü<br/>en fazla pencere boyutunu Hesapla**|
-|Devre Dışı Bırakıldı|None|None|Pencere boyutu|
+|Devre dışı|None|None|Pencere boyutu|
 |Kısıtlı|4|2^4|Pencere boyutu * (2 ^ 4)|
 |Yüksek oranda kısıtlanmış|2|2^2|Pencere boyutu * (2 ^ 2)|
 |Normal|8|2^8|Pencere boyutu * (2 ^ 8)|
@@ -256,7 +256,7 @@ Daha büyük bir MTU daha büyük bir MSS anlamına gelir çünkü MTU TCP perfo
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Hızlandırılmış ağ iletişimi ve Alma Tarafı Ölçeklendirmesi
 
-#### <a name="accelerated-networking"></a>Hızlandırılmış ağ
+#### <a name="accelerated-networking"></a>Hızlandırılmış ağ iletişimi
 
 Sanal makine ağ işlevleri, VM Konuk hem hiper yönetici/konak yoğun CPU geçmişte bırakılıyordu. Ana bilgisayar üzerinden transits her paket, CPU, tüm sanal ağ yalıtma ve kapsüllemeyi açma işlemi dahil olmak üzere ana bilgisayar tarafından yazılımda işlenir. Yüksek CPU, daha fazla trafik, ana bilgisayar üzerinden doğru şekilde yükleyin. Ve ana bilgisayar CPU diğer işlemleri ile meşgul ise, bu da ağ aktarım hızı ve gecikme süresini etkiler. Azure hızlandırılmış ağ ile bu sorunu giderir.
 
@@ -264,7 +264,7 @@ Hızlandırılmış ağ, şirket içi programlanabilir donanım Azure'dan ve SR-
 
 Hızlandırılmış ağ, Konuk VM konağı atlayıp bir konağın SmartNIC ile doğrudan bir datapath kurmak vererek performansını artırır. Hızlandırılmış ağ bazı avantajları şunlardır:
 
-- **Daha düşük gecikme süresi / daha yüksek paket / saniye (pps)**: Sanal anahtar datapath kaldırılıyor paketleri içinde ana bilgisayar ilke işleme için harcadığınız zamanı ortadan kaldırır ve VM ile işlenebilen paketlerin sayısını artırır.
+- **Daha düşük gecikme süresi / daha yüksek paket / saniye (pps)** : Sanal anahtar datapath kaldırılıyor paketleri içinde ana bilgisayar ilke işleme için harcadığınız zamanı ortadan kaldırır ve VM ile işlenebilen paketlerin sayısını artırır.
 
 - **Değişimi azaltılmış**: Sanal anahtar işleme uygulanması gereken ilke miktarını ve işleme yapılıyor CPU iş yüküne bağlıdır. İlke zorlaması için donanım yük boşaltma, konak VM iletişim ve tüm yazılım kesmelerini ve bağlam anahtarları ortadan doğrudan sanal Makineye, paketleri sunarak bu değişkenlik kaldırır.
 

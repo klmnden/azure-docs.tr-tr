@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527557"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241839"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure API Management, Azure Application Insights ile tümleştirme
 
@@ -51,7 +51,7 @@ Azure Application ınsights'ı kullanabilmeniz için önce Hizmeti'nin bir örne
     ![App Insights Günlükçü](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Sahne arkasında bir [Günlükçü](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) varlık örneğinin Application Insights izleme anahtarını içeren API Management örneğinizin içinde oluşturulur.
+> Sahne arkasında bir [Günlükçü](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) varlık örneğinin Application Insights izleme anahtarını içeren API Management örneğinizin içinde oluşturulur.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>API'niz için Application Insights günlük kaydını etkinleştirme
 
@@ -70,7 +70,7 @@ Azure Application ınsights'ı kullanabilmeniz için önce Hizmeti'nin bir örne
 > Varsayılan değer geçersiz kılma **0** içinde **gövdesi ilk baytı** alan Apı'lerinizi performansını önemli ölçüde küçültebilir.
 
 > [!NOTE]
-> Sahne arkasında bir [tanılama](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) 'applicationınsights' adlı varlık API düzeyinde oluşturulur.
+> Sahne arkasında bir [tanılama](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) 'applicationınsights' adlı varlık API düzeyinde oluşturulur.
 
 | Ayar adı                        | Değer türü                        | Açıklama                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

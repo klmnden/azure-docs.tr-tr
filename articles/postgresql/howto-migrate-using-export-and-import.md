@@ -1,20 +1,20 @@
 ---
-title: İçeri Aktar'ı kullanarak bir veritabanını geçirme ve PostgreSQL için Azure veritabanı'nda dışarı aktarma
+title: İçeri Aktar'ı kullanarak bir veritabanını geçirme ve - tek bir sunucu PostgreSQL için Azure veritabanı'nda dışarı aktarma
 description: Açıklayan nasıl bir komut dosyasına bir PostgreSQL veritabanı ayıklayın ve bu dosyayı hedef veritabanından veri aktarın.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/01/2018
-ms.openlocfilehash: ecd7dc225379fc9d3eda6fb2e80e3c47a73db49b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 785e9ec77dea749546e3f1d59007706eac14f2ea
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422347"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067017"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Dışarı aktarma hizmetini kullanarak PostgreSQL veritabanınızı geçirme ve içeri aktarma
-Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) bir komut dosyasına bir PostgreSQL veritabanı ayıklanacak ve [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) bu dosya hedef veritabanından veri almak için.
+Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) bir komut dosyasına bir PostgreSQL veritabanı ayıklanacak ve [psql](https://www.postgresql.org/docs/current/static/app-psql.html) bu dosya hedef veritabanından veri almak için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:

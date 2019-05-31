@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485246"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242781"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Parçalı çok kiracılı SQL veritabanlarını kullanan bir SaaS uygulamasında Şemayı yönetme
 
@@ -31,7 +31,7 @@ Bu öğretici, aşağıdaki iki senaryoda açıklar:
 - Tüm kiracılar için başvuru verisi güncelleştirmelerini dağıtın.
 - Başvuru verilerini içeren tabloda bir dizini yeniden oluşturun.
 
-[Esnek işler](sql-database-elastic-jobs-overview.md) özelliği, Azure SQL veritabanı, Kiracı veritabanlarında bu işlemleri yürütmek için kullanılır. İşler 'şablon' Kiracı veritabanı üzerinde de çalışır. Wingtip bilet örnek uygulamada, yeni bir kiracı veritabanı sağlamak için bu şablonu veritabanı kopyalanır.
+[Esnek işler](elastic-jobs-overview.md) özelliği, Azure SQL veritabanı, Kiracı veritabanlarında bu işlemleri yürütmek için kullanılır. İşler 'şablon' Kiracı veritabanı üzerinde de çalışır. Wingtip bilet örnek uygulamada, yeni bir kiracı veritabanı sağlamak için bu şablonu veritabanı kopyalanır.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -57,7 +57,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS şema yönetimi düzenlerine giriş
 
-Bu örnekte kullanılan parçalı çok kiracılı veritabanı modeli, kiracılar bir veya daha fazla içerecek şekilde bir kiracı veritabanı sağlar. Bu örnek etkinleştirme bir çok kiracılı ve bir kiracı veritabanları bir karışımını kullanmak için olası keşfediyor bir *karma* kiracı yönetim modeli. Bu veritabanları için değişiklik Yönetimi karmaşık olabilir. [Esnek işler](sql-database-elastic-jobs-overview.md) çok sayıda veritabanı yönetimini kolaylaştırır. İşleri Kiracı veritabanlarından oluşan bir grupta karşı görevler olarak güvenli ve güvenilir bir şekilde Transact-SQL betikleri çalıştırmanıza olanak sağlar. Görevleri, kullanıcı etkileşimi veya girişi bağımsızdır. Bu yöntem, değişiklikleri bir uygulamadaki tüm kiracılar genelinde Şeması veya ortak başvuru verilerini dağıtmak için kullanılabilir. Esnek işler, veritabanının altın şablonunun bir kopyasını korumak için de kullanılabilir. Şablon, her zaman en son şema yeni Kiracı oluşturmak için kullanılır ve başvuru verileri kullanılıyor.
+Bu örnekte kullanılan parçalı çok kiracılı veritabanı modeli, kiracılar bir veya daha fazla içerecek şekilde bir kiracı veritabanı sağlar. Bu örnek etkinleştirme bir çok kiracılı ve bir kiracı veritabanları bir karışımını kullanmak için olası keşfediyor bir *karma* kiracı yönetim modeli. Bu veritabanları için değişiklik Yönetimi karmaşık olabilir. [Esnek işler](elastic-jobs-overview.md) çok sayıda veritabanı yönetimini kolaylaştırır. İşleri Kiracı veritabanlarından oluşan bir grupta karşı görevler olarak güvenli ve güvenilir bir şekilde Transact-SQL betikleri çalıştırmanıza olanak sağlar. Görevleri, kullanıcı etkileşimi veya girişi bağımsızdır. Bu yöntem, değişiklikleri bir uygulamadaki tüm kiracılar genelinde Şeması veya ortak başvuru verilerini dağıtmak için kullanılabilir. Esnek işler, veritabanının altın şablonunun bir kopyasını korumak için de kullanılabilir. Şablon, her zaman en son şema yeni Kiracı oluşturmak için kullanılır ve başvuru verileri kullanılıyor.
 
 ![ekran](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -115,7 +115,7 @@ Yeni bir proje oluşturmak için oluşturulan işleri sistem saklı yordamların
 
 8. Betiği çalıştırmak için **F5**'e basın.
 
-#### <a name="observe"></a>Gözlemle
+#### <a name="observe"></a>Gözlemleyin
 
 Aşağıdaki öğeleri inceleyin *deployreferencedata.SQL öğesini* betiği:
 
@@ -146,7 +146,7 @@ Bu alıştırmada, tüm Kiracı veritabanlarında başvuru tablosu birincil anah
 
 3. Betiği çalıştırmak için **F5**'e basın.
 
-#### <a name="observe"></a>Gözlemle
+#### <a name="observe"></a>Gözlemleyin
 
 Aşağıdaki öğeleri inceleyin *OnlineReindex.sql* betiği:
 
@@ -161,8 +161,7 @@ Aşağıdaki öğeleri inceleyin *OnlineReindex.sql* betiği:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Ölçeği artırılmış bulut veritabanlarını yönetme](sql-database-elastic-jobs-overview.md)
-* [Ölçeği artırılmış bulut veritabanları oluşturma ve yönetme](sql-database-elastic-jobs-create-and-manage.md)
+* [Ölçeği artırılmış bulut veritabanlarını yönetme](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

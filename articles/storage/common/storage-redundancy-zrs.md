@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961432"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237999"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -31,7 +31,7 @@ ZRS şu bölgelerde genel kullanıma sunulmuştur:
 - Kuzey Avrupa
 - Fransa Orta
 - Japonya Doğu
-- BK Güney
+- Birleşik Krallık Güney
 - ABD Orta
 - ABD Doğu
 - ABD Doğu 2
@@ -49,7 +49,7 @@ ZRS, verilerinizin nerede birden çok bölge kalıcı olarak etkilenen bölgesel
 ## <a name="converting-to-zrs-replication"></a>ZRS çoğaltmalı dönüştürme
 LRS, GRS ve RA-GRS gelen veya geçirme adımları oldukça kolaydır. Azure portalı veya depolama kaynak sağlayıcısı API'si, hesabınızın yedeklilik türünü değiştirmek için kullanın. Azure, verilerinizi daha sonra uygun şekilde çoğaltır. 
 
-Veri geçişi ZRS gelen veya farklı bir strateji gerektirir. ZRS geçişi, bir bölgede birden fazla damga tek bir depolama damga verileri fiziksel hareketini içerir.
+ZRS veri geçiriyorsanız, farklı bir strateji gerektirir. ZRS geçişi, bir bölgede birden fazla damga tek bir depolama damga verileri fiziksel hareketini içerir.
 
 Geçiş için ZRS iki birincil seçenek vardır: 
 

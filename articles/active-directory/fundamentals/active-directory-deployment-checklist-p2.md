@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249702"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235135"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory özelliği dağıtım kılavuzu
 
@@ -65,7 +65,7 @@ Ardından, kullanıcılarımıza alma ve etkinleştirme 1. Aşama düzenlenir Fo
 | Görev | Ayrıntı | Gerekli lisans |
 | ---- | ------ | ---------------- |
 | [Azure AD Connect'i yükleme](../connect/active-directory-aadconnect-select-installation.md) | Mevcut şirket içi dizininizi buluta kullanıcıların eşitlemek hazırlayın. | Azure AD Ücretsiz |
-| [Parola karma eşitlemesi uygulama](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Çoğaltılacak parola değişiklikleri, hatalı parola algılama ve düzeltme ve sızdırılan kimlik bilgisi raporlama izin vermek için parola karmalarını eşitleyin. | Azure AD Premium P1 |
+| [Parola karma eşitlemesi uygulama](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Çoğaltılacak parola değişiklikleri, hatalı parola algılama ve düzeltme ve sızdırılan kimlik bilgisi raporlama izin vermek için parola karmalarını eşitleyin. | Azure AD Ücretsiz |
 | [Parola geri yazma uygulama](../authentication/howto-sspr-writeback.md) | Parola değişiklikleri şirket içi Windows Server Active Directory ortamına geri yazılması için bulutta izin verin. | Azure AD Premium P1 |
 | [Uygulama Azure AD Connect Health'i](../connect-health/active-directory-aadconnect-health.md) | Azure AD Connect sunucularınız, AD FS sunucuları ve etki alanı denetleyicileri için temel sistem durumu istatistiklerin izlemeyi etkinleştirin. | Azure AD Premium P1 |
 | [Azure Active Directory'de Grup üyeliği kullanıcıları için lisans atama](../users-groups-roles/licensing-groups-assign.md) | Zaman ve çaba etkinleştirmek veya devre dışı özellikleri kullanıcı başına ayar yerine grup tarafından lisans grupları oluşturarak kaydedin. | |

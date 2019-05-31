@@ -4,19 +4,19 @@ description: Bu makalede, Azure Resource Manager kullanarak program aracılığ�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5e350e8a9093936f1e747afda7c3192b4d8368d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471722"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237649"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Time Series Insights kaynakları oluşturma
 
@@ -27,7 +27,7 @@ Time Series Insights, aşağıdaki kaynakları destekler:
    | Resource | Açıklama |
    | --- | --- |
    | Ortam | Zaman serisi görüşleri ortamına olayları olay aracıları okuyun, depolanır ve sorgu için kullanılabilir hale mantıksal bir gruplandırmasıdır. Daha fazla bilgi için [Azure Time Series Insights ortamınızı planlama](time-series-insights-environment-planning.md) |
-   | Olay Kaynağı | Olay kaynağı, zaman serisi görüşleri okur ve ortama olayları alır bir olay aracısından yapılan bir bağlantıdır. Şu anda desteklenen olay kaynakları, IOT Hub ve Event Hub ' dir. |
+   | Olay kaynağı | Olay kaynağı, zaman serisi görüşleri okur ve ortama olayları alır bir olay aracısından yapılan bir bağlantıdır. Şu anda desteklenen olay kaynakları, IOT Hub ve Event Hub ' dir. |
    | Başvuru veri kümesi | Başvuru veri kümelerini ortamında olaylar hakkında meta veriler sağlar. Başvuru veri kümesi meta verileri ile olayları sırasında giriş katılır. Başvuru veri kümesi kaynaklar olay anahtar özellikleri tarafından tanımlanır. Başvuru veri kümesi ' sağlayan gerçek meta veriler yüklendiğinde veya veri düzlemi API'leri değişiklik. |
    | Erişim İlkesi | Erişim ilkeleri, veri sorguları gönderme, ortamdaki başvuru verilerini işleme ve kaydedilen sorguları ve Perspektifleri ortamla ilişkilendirilmiş paylaşım izni verin. Daha fazla bilgi için okuma [Azure portalını kullanarak zaman serisi görüşleri ortamına veri erişimi verme](time-series-insights-data-access.md) |
 

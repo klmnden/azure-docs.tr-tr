@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0410b052f17a868aed70ce407b9c9fdefbe023df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233624"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244339"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDX gerecinize bağlanma 
 
@@ -37,13 +37,36 @@ Symantec ICDX Bağlayıcısı, Azure panoları görüntülemesine, özel uyarıl
 
 Symantec ICDX, tümleştirme ve doğrudan Azure Gözcü için günlükleri dışarı aktarabilirsiniz.
 
-1. ICDX Yönetim Konsolu'nu açın.
-2. Sol gezinti menüsünde seçin **yapılandırma** ardından **ileticileri** sekmesi.
-3. Microsoft Azure Log Analytics satırının **daha fazla**çizgidir **Düzenle**. 
-4. İçinde **Microsoft Azure Log Analytics ileticisi** penceresinde aşağıdakileri ayarlayın:
-    - Özel günlük adı SymantecICDX varsayılan olarak bırakın.
-    - Çalışma alanı kimliği kopyalayın ve yapıştırın **Müşteri Kimliği** alan. Kopyalama **birincil anahtar** ve paylaşılan anahtar alanına yapıştırın. Bu değerleri seçerek Gözcü Azure portalından kopyalayabilirsiniz **veri bağlayıcıları** ardından **Symantec ICDX**.
-6. İlgili şema için Symantec ICDX olayları Log Analytics'te kullanmak için arama **SymantecICDX_CL**.
+1. Microsoft Azure (Log Analytics) Gözcü ileticiler eklemek için ICDX Yönetim Konsolu'nu açın.
+2. ICDx gezinti çubuğunda Koruma'ya tıklayın **yapılandırma**. 
+3. Üst kısmındaki **yapılandırma** ekranında **ileticileri**.
+4. Altında **ileticileri**, Microsoft Azure Gözcü yanındaki (Log Analytics), tıklayın **Ekle**. 
+4. İçinde **Microsoft Azure (Log Analytics) Gözcü** penceresinde tıklayın **Göster Gelişmiş**. 
+5. Genişletilmiş üstündeki Microsoft Azure (Log Analytics) Gözcü penceresi için aşağıdakileri yapın:
+    -   **Ad**: En fazla 30 karakterden ileticisi için bir ad yazın. Benzersiz ve anlamlı bir ad seçin. Bu ad iletici listede görünür **yapılandırma** ekran ve panolarda **Pano** ekran. Örneğin: Microsoft Azure Log Analytics Doğu. Bu alan gereklidir.
+    -   **Açıklama**: İleticisi için bir açıklama yazın. Bu açıklama üzerinde ileticileri listesinde de görünür **yapılandırma** ekran. İletilen olay türü gibi ayrıntılar ve verileri incelemek için gereken grup içerir.
+    -   **Başlangıç türü**: İletici yapılandırması için başlatma yöntemini seçin. Seçenekleriniz şunlardır: elle ve otomatik.<br>Otomatik varsayılandır. 
+6. Altında **olayları**, aşağıdakileri yapın: 
+    - **Kaynak**: Bir veya daha fazla arşivleri olayları iletmek üzere seçin. Yalnız bırakılmış (ortak arşiv dahil), etkin Toplayıcı arşivleri seçebilirsiniz (diğer bir deyişle, arşivleri sildiğiniz toplayıcıları için) Toplayıcı arşivleri, ICDx alıcı arşivleri veya sistem arşiv. <br>Genel arşiv varsayılandır.
+      > [!NOTE]
+      > ICDx alıcı arşivleri adına göre ayrı olarak listelenir. 
+ 
+    - **Filtre**: Alt olayları iletmeye kümesini belirten bir filtre ekleyin. Aşağıdakilerden birini yapın:
+        - Bir filtre koşulu seçmek için türü, öznitelik, işleç ve değer tıklayın. 
+        - Filtre alanda, filtre koşulu gözden geçirin. Alan doğrudan düzenlemek veya gerektiği şekilde silin.
+        - ' A tıklayın ve veya veya, filtre koşulu eklemek.
+        - Kayıtlı bir sorguyu uygulamak için kaydedilmiş sorgular da tıklayabilirsiniz.
+    - **Öznitelikler dahil**: İletilen verilerin dahil edileceği öznitelikleri virgülle ayrılmış listesini yazın. Öznitelikler dahil edildi dışlanan öznitelikleri önceliklidir.
+    - **Öznitelikler dışarıda**: İletilen verileri dışlamak için öznitelik virgülle ayrılmış listesini yazın.
+    - **Yığın boyutu**: Toplu iş göndermek için olay sayısını seçin. Seçenekleriniz şunlardır: 10, 50, 100, 500 ve 1000.<br>Varsayılan değer 100'dür. 
+    - **Hız sınırı**: Hangi olayları, saniyede olarak ifade edilen iletilen hızını seçin. Sınırsız, 500, 1000 Seçenekleriniz şunlardır 5000, 10000. <br> Varsayılan değer 5000'dir. 
+7. Altında **Azure hedef**, aşağıdakileri yapın: 
+    - **Çalışma alanı kimliği**: Çalışma alanı kimliği aşağıdan yapıştırın. Bu alan gereklidir.
+    - **Birincil anahtar**: Birincil anahtarı aşağıdan yapıştırın. Bu alan gereklidir.
+    - **Özel günlük adı**: Olayları giderek Microsoft Azure portal Log Analytics çalışma alanında, özel günlük adı yazın. SymantecICDx varsayılandır. Bu alan gereklidir.
+8. Tıklayın *Kaydet* ileticisi yapılandırmayı tamamlayın. 
+9. Altında ileticisi'ni başlatmak için **seçenekleri**, tıklayın **daha fazla** ardından **Başlat**.
+10. İlgili şema için Symantec ICDX olayları Log Analytics'te kullanmak için arama **SymantecICDX_CL**.
 
 
 ## <a name="validate-connectivity"></a>Bağlantıyı doğrula

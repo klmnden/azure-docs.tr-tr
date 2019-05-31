@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 43f3a55bc820a232ccebc3a940faa86f9eb730f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467383"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072215"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure dosyaları Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
@@ -136,7 +136,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Kalıcı hacim kullanın
 
-Kalıcı hacim talep kullanan bir pod aşağıdaki YAML oluşturur *azurefile* Azure dosya paylaşımını bağlayabilmeniz için */mnt/azure* yolu.
+Kalıcı hacim talep kullanan bir pod aşağıdaki YAML oluşturur *azurefile* Azure dosya paylaşımını bağlayabilmeniz için */mnt/azure* yolu. Kapsayıcılar (şu anda önizlemede AKS), Windows Server için belirtin bir *mountPath* gibi Windows yol kuralı kullanılarak *'D:'* .
 
 Adlı bir dosya oluşturun `azure-pvc-files.yaml`, aşağıdaki YAML'ye kopyalayın. Emin olun *claimName* son adımda oluşturduğunuz PVC ile eşleşir.
 
@@ -194,7 +194,7 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>Bağlama seçenekleri
+## <a name="mount-options"></a>Bağlama Seçenekleri
 
 Varsayılan *fileMode* ve *dirMode* değerler aşağıdaki tabloda açıklandığı gibi Kubernetes sürümleri arasında farklılık gösterir.
 

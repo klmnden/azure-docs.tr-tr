@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584888"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241765"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastik veritabanı istemci kitaplığı erişmek için kullanılan kimlik bilgileri
 
@@ -79,6 +79,6 @@ Yönetici kimlik bilgileriyle biçiminde değerler kullanmayın gibi "username@s
 
 [SQL Veritabanınızı güvenli hale getirme](sql-database-security-overview.md)
 
-[Elastik veritabanı işleriyle çalışmaya başlama](sql-database-elastic-jobs-getting-started.md)
+[Elastik veritabanı işleri](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

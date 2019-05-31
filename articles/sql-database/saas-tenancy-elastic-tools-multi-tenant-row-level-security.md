@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485482"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234121"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Esnek veritabanı araçlarını ve satır düzeyi güvenlik ile çok kiracılı uygulamalar
 
@@ -63,7 +63,7 @@ RLS parça veritabanlarında henüz etkinleştirilmemiş olduğundan, bu testler
 
 Alternatif oturum\_bağlam kullanmaktır [bağlam\_bilgisi](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Ancak OTURUMU\_bağlam daha iyi bir seçenektir. OTURUM\_bağlamıdır kullanımı daha kolay, varsayılan olarak NULL döndürür ve anahtar-değer çiftleri destekler.
 
-### <a name="entity-framework"></a>Entity Framework
+### <a name="entity-framework"></a>Varlık Çerçevesi
 
 Entity Framework kullanan uygulamalar için OTURUMU için kolay bir yaklaşım olan\_BAĞLAMI içinde açıklanan ElasticScaleContext geçersiz kılma [verilere bağımlı yönlendirme EF DbContext kullanma](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Oluşturma ve oturum sırasında Kiracı kimliği ayarlayan SqlCommand yürütme\_bağlantı için belirtilen shardingKey için bağlam. Verilere bağımlı Yönlendirme aracılığıyla aracılı bağlantı ardından dönün. Bu şekilde, yalnızca kod kez OTURUMU için yazmanız gereken\_BAĞLAMI.
 
@@ -228,7 +228,7 @@ RLS, Transact-SQL uygulanır. Bir kullanıcı tanımlı işlev erişim mantığ�
     - Bir ENGELLEME koşuluna eklenen veya güncelleştirilen engeller filtre başarısız satırları engeller.
     - Varsa oturum\_görünür veya eklenmesi için hiçbir satır BAĞLAMI ayarlanmamış ve işlev NULL döndürür.
 
-Tüm parçalar üzerinde RLS'yi etkinleştirmek için Visual Studio (SSDT), SSMS veya projeye dahil PowerShell betiğini kullanarak aşağıdaki T-SQL yürütme. Veya kullanıyorsanız [elastik veritabanı işleri](sql-database-elastic-jobs-overview.md), tüm parçalar üzerinde bu T-SQL yürütülmesi otomatik hale getirebilirsiniz.
+Tüm parçalar üzerinde RLS'yi etkinleştirmek için Visual Studio (SSDT), SSMS veya projeye dahil PowerShell betiğini kullanarak aşağıdaki T-SQL yürütme. Veya kullanıyorsanız [elastik veritabanı işleri](elastic-jobs-overview.md), tüm parçalar üzerinde bu T-SQL yürütülmesi otomatik hale getirebilirsiniz.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

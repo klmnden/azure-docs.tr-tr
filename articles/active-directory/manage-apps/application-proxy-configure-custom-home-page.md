@@ -11,30 +11,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fa5c5638da390f4416afc9f4bd9c5d58c34cea8
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825569"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233759"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlayın
 
-Bu makalede, bunlar iç veya dış olmanıza bağlı olarak farklı özel ana sayfa, kullanıcıya yönlendirmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama Ara sunucusu ile bir uygulama yayımladığınızda, bir iç URL ayarlandı, ancak bazen, bir kullanıcı ilk kez görmeniz gerekir sayfa değil. Özel bir ana sayfa uygulamaya eriştiklerinde, sayfanın sağ bir kullanıcı alır şekilde ayarlayın. Bir kullanıcı özel giriş sayfasını görürsünüz, mi uygulamayı Azure Active Directory erişim paneli veya Office 365 uygulama başlatıcısında eriştiklerinde bağımsız olarak ayarladığınız.
+Bu makalede, bir kullanıcı özel giriş sayfasına yönlendirmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama Ara sunucusu ile bir uygulama yayımladığınızda, bir iç URL ayarlandı, ancak bazen, bir kullanıcı ilk kez görmeniz gerekir sayfa değil. Özel bir ana sayfa uygulamaya eriştiklerinde, sayfanın sağ bir kullanıcı alır şekilde ayarlayın. Bir kullanıcı özel giriş sayfasını görürsünüz, mi uygulamayı Azure Active Directory erişim paneli veya Office 365 uygulama başlatıcısında eriştiklerinde bağımsız olarak ayarladığınız.
 
 Kullanıcı uygulamayı başlattığında, varsayılan olarak yayımlanan uygulama için kök etki alanı URL'si yönlendirilirsiniz. Giriş sayfası, genellikle giriş sayfası URL'si ayarlanır. Azure AD PowerShell modülünün, uygulama kullanıcısı uygulama içinde belirli bir sayfada yerleşmesi istediğinizde bir özel giriş sayfası URL'si tanımlamak için kullanın.
 
-Neden şirket özel bir ana sayfa ayarlamalı ve neden bu kullanıcı türüne bağlı olarak farklı olacaktır açıklayan bir senaryo aşağıda verilmiştir:
+Neden şirket özel bir ana sayfa ayarlamalı açıklayan bir senaryo aşağıda verilmiştir:
 
+- Bir kullanıcı, şirket ağı içinde gider `https://ExpenseApp/login/login.aspx` oturum açmak ve uygulamanıza erişmek için.
 - Uygulama proxy'si Klasör yapısındaki en üst düzeyinde erişmesi gereken diğer varlıklar (örneğin, resim) olduğundan, uygulamayı yayımladığınız `https://ExpenseApp` İç URL.
-- Ancak, şirket ağı içinde kullanıcı gider `https://ExpenseApp/login/login.aspx` oturum açmak ve uygulamanıza erişmek için.
 - Varsayılan dış URL `https://ExpenseApp-contoso.msappproxy.net`, hangi dış kullanıcı oturum açma sayfasına olması değil.
-- Ayarlamak istediğiniz `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` dış giriş sayfası URL'si bunun yerine, bu nedenle bir dış kullanıcının görür oturum açma sayfası ilk.
+- Ayarlamak istediğiniz `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` giriş sayfası URL'si bunun yerine, bu nedenle bir dış kullanıcının görür oturum açma sayfası ilk.
 
 >[!NOTE]
 >Kullanıcıların yayımlanan uygulamalara erişmesini sağlamak, uygulamalar görüntülenecek [Azure AD erişim paneli](../user-help/my-apps-portal-end-user-access.md) ve [Office 365 uygulama başlatıcısında](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
@@ -49,21 +49,21 @@ Giriş sayfası URL'si ayarlamadan önce aşağıdaki gereksinimleri göz önün
 
 - Yayımlanan uygulama için bir değişiklik yaparsanız, değişiklik giriş sayfası URL'si değerini sıfırlayabilir. Giriş sayfası URL'si güncelleştirdiğinizde, bağlantı uygulama gelecekte yeniden denetlemek ve gerekirse güncelleştirin.
 
-Azure portalını veya PowerShell'i kullanarak dış veya iç giriş sayfası değiştirebilirsiniz.
+Giriş sayfası URL'si Azure portal veya PowerShell kullanarak ayarlayabilirsiniz.
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>Azure portalında giriş sayfasını değiştirme
 
-Uygulamanızı Azure AD Portalı aracılığıyla dış ve iç giriş sayfaları değiştirmek için aşağıdaki adımları izleyin:
+Uygulamanızı Azure AD Portalı aracılığıyla giriş sayfası URL'sini değiştirmek için aşağıdaki adımları izleyin:
 
-1. Oturum [Azure Active Directory portalında](https://aad.portal.azure.com/). Azure Active Directory Yönetim Merkezi panosunu görünür.
-2. Kenar çubuğunda seçin **Azure Active Directory**. Azure AD genel bakış sayfası görüntülenir.
-3. Genel Bakış Kenar çubuğunda seçin **uygulama kayıtları**. Kayıtlı uygulamalar listesinde görünür.
-4. Uygulamanızı listeden seçin. Kayıtlı uygulama ayrıntılarını gösteren bir sayfa görüntülenir.
-5. Altındaki bağlantıyı seçin **yeniden yönlendirme URI'leri**, web ve genel istemci türleri için yeniden yönlendirme URI'leri sayısını görüntüler. Kayıtlı uygulama için kimlik doğrulaması sayfası görüntülenir.
-6. Son satırında **yeniden yönlendirme URI'leri** tablo, ayarlama **türü** sütuna **genel istemci (Mobil ve Masaüstü)** ve **yeniden yönlendirme URI'si**sütun, kullanmak istediğiniz iç URL'sini yazın. Yeni bir boş satır yalnızca değiştirilen satırı altında görünür.
-7. Yeni satır kümesi **türü** sütuna **Web**ve **yeniden yönlendirme URI'si** sütun, kullanmak istediğiniz dış URL'yi yazın.
-8. Mevcut tüm yeniden yönlendirme URI'si satırları silmek isteyip istemediğinizi seçin **Sil** istenmeyen her satırın yanındaki simgeye (Çöp Kutusu).
-9. **Kaydet**’i seçin.
+1. [Azure Portal](https://portal.azure.com/)’da yönetici olarak oturum açın.
+2. Seçin **Azure Active Directory**, ardından **uygulama kayıtları**. Kayıtlı uygulamalar listesinde görünür.
+3. Uygulamanızı listeden seçin. Kayıtlı uygulama ayrıntılarını gösteren bir sayfa görüntülenir.
+4. Altında **Yönet**seçin **markalama**.
+5. Güncelleştirme **giriş sayfası URL'si** yeni yolunuzla.
+
+   ![Giriş sayfası URL alanını gösteren kayıtlı bir uygulama sayfası markalama](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
+ 
+6. **Kaydet**’i seçin.
 
 ## <a name="change-the-home-page-with-powershell"></a>PowerShell ile giriş sayfasını değiştirme
 

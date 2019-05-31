@@ -1,20 +1,20 @@
 ---
-title: Nasıl yedeklenir ve PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme
-description: Yedekleme ve Azure CLI kullanarak PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme hakkında bilgi edinin.
+title: Yedekleme ve - tek bir sunucu PostgreSQL için Azure veritabanı'nda bir sunucu geri yükleme
+description: Yedekleme ve PostgreSQL - Azure CLI kullanarak tek sunucu için Azure veritabanı'nda sunucuyu geri yükleme hakkında bilgi edinin.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419930"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069088"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI kullanarak PostgreSQL için Azure veritabanı'nda bir sunucu geri nasıl
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Yedekleme ve PostgreSQL - Azure CLI kullanarak tek bir sunucu için Azure veritabanı'nda bir sunucu geri yükleme
 
 ## <a name="backup-happens-automatically"></a>Yedekleme otomatik olarak gerçekleşir
 Sunucuları düzenli aralıklarla geri yükleme özellikleri etkinleştirmek için yedeklenen PostgreSQL için Azure veritabanı. Bu özelliği kullanarak, sunucuyu ve tüm veritabanlarında için bir önceki-belirli bir noktaya, yeni bir sunucuya geri yükleyebilirsiniz.

@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
-ms.openlocfilehash: 84946083146517146ad9aeb48693230aaaaf7943
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701172"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236525"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark kümesi okumak ve Azure SQL veritabanına veri yazmak için kullanın
 
-Azure HDInsight, Apache Spark kümesi ile Azure SQL veritabanına bağlanmak ve ardından okuma, yazma ve SQL veritabanı'na veri akışı öğrenin. Kullanım yönergeleri Bu makale bir [Jupyter not defteri](https://jupyter.org/) Scala kod parçacıklarını çalıştırmak. Ancak, Scala veya Python ile tek başına uygulama oluşturabilir ve aynı görevleri. 
+Azure HDInsight, Apache Spark kümesi ile Azure SQL veritabanına bağlanmak ve ardından okuma, yazma ve SQL veritabanı'na veri akışı öğrenin. Kullanım yönergeleri Bu makale bir [Jupyter not defteri](https://jupyter.org/) Scala kod parçacıklarını çalıştırmak. Ancak, Scala veya Python ile tek başına uygulama oluşturabilir ve aynı görevleri.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -36,7 +36,7 @@ Azure HDInsight, Apache Spark kümesi ile Azure SQL veritabanına bağlanmak ve 
 Oluşturarak başlayın bir [Jupyter not defteri](https://jupyter.org/) Spark kümesi ile ilişkili. Bu makalede kullanılan kod parçacıklarını çalıştırmak için bu not defteri kullanırsınız. 
 
 1. Gelen [Azure portalında](https://portal.azure.com/), kümenizi açın.
-1. Seçin **Jupyter not defteri** altında **küme panoları** işlecin sağ tarafındaki.  Görmüyorsanız **küme panoları**, tıklayın **genel bakış** dikey penceresinde sol menüden. İstenirse, küme için yönetici kimlik bilgilerini girin.
+1. Seçin **Jupyter not defteri** altında **küme panoları** işlecin sağ tarafındaki.  Görmüyorsanız **küme panoları**seçin **genel bakış** sol menüden. İstenirse, küme için yönetici kimlik bilgilerini girin.
 
     ![Spark üzerinde Jupyter notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark üzerinde Jupyter notebook")
    
@@ -164,7 +164,7 @@ Bu bölümde, biz halinde veri akışı **hvactable** zaten Azure SQL veritaban�
 
 1. İlk adım, hiç kayıt olmadığından emin olun **hvactable**. SSMS kullanarak, tablo üzerinde şu sorguyu çalıştırın.
 
-       DELETE FROM [dbo].[hvactable]
+       TRUNCATE TABLE [dbo].[hvactable]
 
 1. HDInsight Spark kümesinde yeni bir Jupyter not defteri oluşturun. Bir kod hücresine aşağıdaki kod parçacığını yapıştırın ve sonra basın **SHIFT + ENTER**:
 
@@ -174,7 +174,7 @@ Bu bölümde, biz halinde veri akışı **hvactable** zaten Azure SQL veritaban�
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. Biz verilerinden akış **HVAC.csv** hvactable içine. HVAC.csv dosyasıdır kümede kullanılabilir */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. Aşağıdaki kod parçacığında, biz ilk veri akışını şeması alın. Ardından, bu şemayı kullanarak bir akış veri çerçevesi oluşturun. Kod parçacığını yapıştırın bir kodu hücreyi ve ENTER tuşuna **SHIFT + ENTER** çalıştırılacak.
+1. Biz verilerinden akış **HVAC.csv** hvactable içine. HVAC.csv dosyasıdır kümede kullanılabilir `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`. Aşağıdaki kod parçacığında, biz ilk veri akışını şeması alın. Ardından, bu şemayı kullanarak bir akış veri çerçevesi oluşturun. Kod parçacığını yapıştırın bir kodu hücreyi ve ENTER tuşuna **SHIFT + ENTER** çalıştırılacak.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

@@ -3,7 +3,7 @@ title: Azure AD'ye katılım'ı ve Azure Active Directory etki alanı Hizmetleri
 description: Azure AD'ye katılım'ı ve Azure AD etki alanı hizmetleri arasında seçim yapma
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
-ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359441"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234956"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory join ile Azure Active Directory etki alanı hizmetleri arasında seçim yapma
 Bu makalede, Azure Active Directory (AD) birleştirme, Azure AD Domain Services ve kullanım örnekleri üzerinde temel seçmenize yardım eden arasındaki farklar açıklanmaktadır.
@@ -66,14 +66,14 @@ Etki alanına katılmış bir makinede, NTLM veya Kerberos kimlik doğrulama pro
 
 ## <a name="next-steps"></a>Sonraki adımlar
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Azure AD Domain Services hakkında daha fazla bilgi edinin
-* [Azure AD Domain Services genel bakış](active-directory-ds-overview.md)
+* [Azure AD Domain Services genel bakış](overview.md)
 * [Özellikler](active-directory-ds-features.md)
-* [Dağıtım senaryoları](active-directory-ds-scenarios.md)
-* [Azure AD Domain Services, kullanım örneklerinize uygun öğrenin](active-directory-ds-comparison.md)
-* [Azure AD Domain Services ile Azure AD dizininizi nasıl eşitleneceğini anlama](active-directory-ds-synchronization.md)
+* [Dağıtım senaryoları](scenarios.md)
+* [Azure AD Domain Services, kullanım örneklerinize uygun öğrenin](comparison.md)
+* [Azure AD Domain Services ile Azure AD dizininizi nasıl eşitleneceğini anlama](synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Azure AD'ye katılımı hakkında daha fazla bilgi edinin
 * [Azure Active Directory'de cihaz yönetimine giriş](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri’ni kullanmaya başlama
-* [Azure portalını kullanarak Azure AD Domain Services'ı etkinleştir](active-directory-ds-getting-started.md)
+* [Azure portalını kullanarak Azure AD Domain Services'ı etkinleştir](create-instance.md)

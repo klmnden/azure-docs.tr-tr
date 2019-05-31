@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 28378b4b769e0d0e70a82a45baac0872d1476036
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413635"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237337"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Düzenli yedekleme ve geri yükleme Azure Service fabric'te
 > [!div class="op_single_selector"]
@@ -170,9 +170,6 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
-> [!IMPORTANT]
-> Çalışma zamanında bir sorun nedeniyle, bekletme ilkesi bekletme süresi 24 günden az olacak şekilde yapılandırılır; Aksi takdirde, çekirdek kayıp çoğaltma yük devretme sonrasında gitmek için yedekleme geri yükleme hizmeti neden olacağından emin olun.
-
 ### <a name="enable-periodic-backup"></a>Dönemsel yedeklemeyi etkinleştirme
 Uygulamanın veri koruma gereksinimlerini karşılamak üzere İlkesi tanımladıktan sonra yedekleme ilkesini uygulama ile ilişkili olması gerekir. Yedekleme İlkesi gereksinim bağlı olarak, bir uygulama, hizmet veya bir bölümü ile ilişkili olabilir.
 
@@ -265,11 +262,6 @@ LsnOfLastBackupRecord   : 2437
 CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
-
-## <a name="known-issues"></a>Bilinen Sorunlar
-- Bekletme süresi 24 günden az olacak şekilde yapılandırıldığından emin olun. 
-- Yedekleme Geri Yükleme hizmeti değil gündeme ondalık ayırıcısı olduğu dışındaki yerel ayarlar için '.'
-- GMSA tabanlı güvenlik ile güvenliği sağlanan kümesi görünmesi hizmet yedekleme geri yükleme başarısız olur.
 
 ## <a name="limitation-caveats"></a>Sınırlama / uyarılar
 - Service Fabric PowerShell cmdlet'leri Önizleme modundadır.

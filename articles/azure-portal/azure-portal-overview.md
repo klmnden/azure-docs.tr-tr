@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551404"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244193"
 ---
 # <a name="azure-portal-overview"></a>Azure portalına genel bakış
 
@@ -23,6 +23,8 @@ Bu makalede Azure Portalı'nı tanıtır, portal sayfası öğeleri tanımlar ve
 ## <a name="what-is-the-azure-portal"></a>Azure portalı nedir?
 
 Azure portalı, komut satırı araçları için bir alternatif sağlayan bir web tabanlı, birleştirilmiş konsoludur. Azure portalı ile bir grafik kullanıcı arabirimi kullanarak Azure aboneliğinizde yönetebilirsiniz. Derleme, yönetme ve her şeyi basit web uygulamalarından karmaşık bulut dağıtımlarını izlemek, kaynakların düzenli bir görünümünü için özel panolar oluşturabilir ve en iyi deneyim için erişilebilirlik seçeneklerini yapılandırın.
+
+Azure portalı, dayanıklılık ve sürekli kullanılabilirlik için tasarlanmıştır. Böylece dayanıklı tek bir veri merkezi başarısızlıklarına getirerek her Azure veri merkezinde bir erişim ağına sahiptir ve kullanıcıların yakınındaki olma yoluyla ağ slow-downs de önler. Azure portalı sürekli güncelleştirmeler ve bakım etkinlikleri için kapalı kalma süresi gerektirir.
 
 ## <a name="azure-home"></a>Azure giriş
 
@@ -66,7 +68,6 @@ Biz, sık sık kullanılan hizmetler için bağlantılarla birlikte Kenar çubu�
 
 > [!TIP]
 > Bir kaynak, hizmet ve belgeleri bulmak için en hızlı yolu kullanmaktır *arama* genel üst bilgisindeki. Önceki sayfalara geri dönmek için içerik haritası bağlantıları kullanın.
->
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar

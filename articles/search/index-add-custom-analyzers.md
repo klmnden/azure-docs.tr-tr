@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b670b5aeffcd699226a088d8db21a12dbaf40042
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951896"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242810"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search dizini için özel çözümleyiciler ekleme
 
@@ -214,7 +214,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Tür|Çözümleyici türü listesinden Çözümleyicileri desteklenmiyor. Bkz: **analyzer_type** sütununda [Çözümleyicileri](#AnalyzerTable) aşağıdaki tabloda.|  
+|Type|Çözümleyici türü listesinden Çözümleyicileri desteklenmiyor. Bkz: **analyzer_type** sütununda [Çözümleyicileri](#AnalyzerTable) aşağıdaki tabloda.|  
 |Seçenekler|Listelenen önceden tanımlanmış bir çözümleyici seçenekleri geçerli olmalıdır [Çözümleyicileri](#AnalyzerTable) aşağıdaki tabloda.|  
 
 #### <a name="custom-analyzers"></a>Özel çözümleyiciler
@@ -222,10 +222,13 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Tür|"#Microsoft.Azure.Search.CustomAnalyzer" olmalıdır.|  
+|Type|"#Microsoft.Azure.Search.CustomAnalyzer" olmalıdır.|  
 |CharFilters|Listelenen önceden tanımlanmış karakter filtreleri birini ayarlayın [Char filtreleri](#char-filters-reference) tablo veya dizin tanımında belirtilen bir özel karakter filtre.|  
 |Belirteç Oluşturucu|Gereklidir. Listelenen önceden tanımlanmış oluşturma denenmeden birini ayarlayın [oluşturma denenmeden](#Tokenizers) aşağıdaki tablo veya dizin tanımında belirtilen özel bir belirteç Oluşturucu.|  
 |TokenFilters|Listelenen önceden tanımlanmış simge filtreleri birini ayarlayın [filtreler Token](#TokenFilters) tablo veya dizin tanımında belirtilen özel bir belirteç Filtresi.|  
+
+> [!NOTE]
+> Belirteç 300 karakterden uzun olmayan üretmek için özel çözümleyici yapılandırma zorunludur. Bu tür belirteçleri ile ilgili belgeler için dizin oluşturma başarısız olur. Bunları trim veya bunların yoksayılması için kullanın **TruncateTokenFilter** ve **LengthTokenFilter** sırasıyla.  Denetleme [ **filtreler Token** ](#TokenFilters) başvuru.
 
 <a name="CharFilter"></a>
 
@@ -236,7 +239,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Tür|Char desteklenen char filtreler listeden türünü filtreleyin. Bkz: **char_filter_type** sütununda [Char filtreleri](#char-filters-reference) aşağıdaki tabloda.|  
+|Type|Char desteklenen char filtreler listeden türünü filtreleyin. Bkz: **char_filter_type** sütununda [Char filtreleri](#char-filters-reference) aşağıdaki tabloda.|  
 |Seçenekler|Geçerli seçenekleri olmalıdır bir verilen [Char filtreleri](#char-filters-reference) türü.|  
 
 ### <a name="tokenizers"></a>Oluşturma denenmeden
@@ -249,7 +252,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Tür|Desteklenen oluşturma denenmeden listesinden belirteç oluşturucu adı. Bkz: **tokenizer_type** sütununda [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
+|Type|Desteklenen oluşturma denenmeden listesinden belirteç oluşturucu adı. Bkz: **tokenizer_type** sütununda [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
 |Seçenekler|Listelenen belirli simgeleştirici türü geçerli seçenekler olmalıdır [oluşturma denenmeden](#Tokenizers) aşağıdaki tabloda.|  
 
 ### <a name="token-filters"></a>Belirteç filtreleri
@@ -260,7 +263,7 @@ Aşağıdaki tablolarda Çözümleyicileri, oluşturma denenmeden belirteci filt
 |||  
 |-|-|  
 |Ad|Yalnızca harf, rakam, boşluk, kısa çizgi veya alt çizgi, can yalnızca başlangıç ve bitiş alfasayısal karakterler ile içermelidir ve 128 karakterle sınırlıdır.|  
-|Tür|Desteklenen belirteç filtreleri listesinden belirteci filtre adı. Bkz: **token_filter_type** sütununda [filtreler Token](#TokenFilters) aşağıdaki tabloda.|  
+|Type|Desteklenen belirteç filtreleri listesinden belirteci filtre adı. Bkz: **token_filter_type** sütununda [filtreler Token](#TokenFilters) aşağıdaki tabloda.|  
 |Seçenekler|Olmalıdır [filtreler Token](#TokenFilters) verilen belirteç filtre türü.|  
 
 <a name="PropertyReference"></a>  
@@ -319,7 +322,7 @@ Aşağıdaki tabloda, Apache Lucene kullanılarak gerçekleştirilen oluşturma 
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Dile özgü kurallarını kullanarak metin böler ve temel formlarına sözcükleri azaltır<br /><br /> **Seçenekler**<br /><br />maxTokenLength (tür: int)-varsayılan, belirteç en fazla uzunluk: 255, en fazla: 300. Belirteçleri uzunluk üst sınırından daha uzun bölünür. Belirteçleri 300 karakterden önce uzunluğu 300 belirteçlere bölündüğünde ve ardından her biri, bu belirteçleri bölünür daha uzun maxTokenLength kümesi temel alınarak.<br /><br /> isSearchTokenizer (tür: bool) - ayarlanmış arama belirteç Oluşturucu kullanılması durumunda true olarak false dizinleme simgeleştirici kullandıysanız ayarlayın.<br /><br /> Dil (tür: string)-varsayılan "İngilizce" dili kullanmak için. İzin verilen değerler şunlardır:<br />"Arapça", "bangla", "Bulgarca", "Katalanca", "Hırvatça", "Çekçe", "Danca", "Felemenkçe", "İngilizce", "Estonca", "Fince", ", Fransızca" "Almanca", "Yunanca", "Gucerat dili", "İbranice", "Hint", "Macarca", "İzlanda", "Endonezya", "İtalyanca", "Kannada dili" " Letonca","Litvanca","malay","Malayalam dili","Marathi dili","norwegianBokmaal","Lehçe","Portekizce","portugueseBrazilian","punjabi","Rumence","Rusça","serbianCyrillic","serbianLatin","Slovakça","Slovence","İspanyolca","İsveççe"" Tamilce","telugu","Türkçe","Ukrayna","Urduca" |
 |[nGram](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|N-gram, verilen size(s) giriş tokenizes.<br /><br /> **Seçenekler**<br /><br /> minGram (tür: int)-varsayılan: 1, en fazla: 300.<br /><br /> maxGram (tür: int)-varsayılan: 2, en fazla: 300. MinGram büyük olmalıdır. <br /><br /> tokenChars (tür: dize dizisi)-karakter belirteçleri tutmak sınıfları. İzin verilen değerler: "harfi", "basamaklı", "boşluk", "noktalama", "sembol". Boş bir dizi için varsayılan olarak - tüm karakterleri tutar. |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Yol benzeri Hiyerarşiler için belirteç Oluşturucu.<br /><br /> **Seçenekler**<br /><br /> sınırlayıcı (tür: string)-varsayılan: ' /.<br /><br /> değiştirme (tür: string) - ayarlayın, sınırlayıcı karakter değiştirir. Aynı sınırlayıcı değeri olarak varsayılan.<br /><br /> maxTokenLength (tür: int)-en fazla belirteç uzunluğu. Varsayılan: 300, en fazla: 300. MaxTokenLength uzun yollar yoksayılır.<br /><br /> Ters (tür: bool) - true ise ters sırada belirteci oluşturur. Varsayılan: false.<br /><br /> Atla (tür: bool)-ilk atlamak için belirteçleri. Varsayılan değer 0'dır.|  
-|[Düzeni](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Bu belirteç Oluşturucu, ayrı belirteçleri oluşturmak için normal ifade deseniyle eşleşen kullanır.<br /><br /> **Seçenekler**<br /><br /> Desen (tür: string)-normal ifade deseni. \W+ varsayılandır.<br /><br /> [bayrakları](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tür: string)-normal ifade bayrakları. Varsayılan değer boş bir dizedir. İzin verilen değerler: CANON_EQ CASE_INSENSITIVE, YORUMLAR, DOTALL, LITERAL, ÇOK SATIRLI, UNICODE_CASE, UNIX_LINES<br /><br /> Grup (tür: int)-belirteçlere ayıklamak için hangi Grup. -1 (bölme) varsayılandır.|  
+|[Düzeni](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Bu belirteç Oluşturucu, ayrı belirteçleri oluşturmak için normal ifade deseniyle eşleşen kullanır.<br /><br /> **Seçenekler**<br /><br /> [Desen](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (tür: string)-normal ifade deseni. \W+ varsayılandır. <br /><br /> [bayrakları](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tür: string)-normal ifade bayrakları. Varsayılan değer boş bir dizedir. İzin verilen değerler: CANON_EQ CASE_INSENSITIVE, YORUMLAR, DOTALL, LITERAL, ÇOK SATIRLI, UNICODE_CASE, UNIX_LINES<br /><br /> Grup (tür: int)-belirteçlere ayıklamak için hangi Grup. -1 (bölme) varsayılandır.|
 |[standard_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Aşağıdaki metni keser [Unicode metin Segment kuralları](https://unicode.org/reports/tr29/).<br /><br /> **Seçenekler**<br /><br /> maxTokenLength (tür: int)-en fazla belirteç uzunluğu. Varsayılan: 255, en fazla: 300. Belirteçleri uzunluk üst sınırından daha uzun bölünür.|  
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URL'ler ve e-postaları bir belirteç olarak tokenizes.<br /><br /> **Seçenekler**<br /><br /> maxTokenLength (tür: int)-en fazla belirteç uzunluğu. Varsayılan: 255, en fazla: 300. Belirteçleri uzunluk üst sınırından daha uzun bölünür.|  
 |[Boşluk](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(türü yalnızca seçenekleri kullanılabilir olduğunda geçerlidir) |Boşlukta metin ayıran. 255 karakterden uzun belirteçleri bölünür.|  
@@ -377,9 +380,6 @@ Aşağıdaki tabloda, Apache Lucene kullanılarak uygulanan belirteç filtreleri
 |[word_delimiter](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/WordDelimiterFilter.html)|WordDelimiterTokenFilter|Subwords sözcükleri böler ve alt sözcüğe gruplarında isteğe bağlı dönüşümleri gerçekleştirir.<br /><br /> **Seçenekler**<br /><br /> generateWordParts (tür: bool)-bölümleri sözcük "Azure Search", "Azure" "arama" olur örneğin oluşturulmasına neden olur. Varsayılan değer True'dur.<br /><br /> generateNumberParts (tür: bool)-sayı subwords oluşturulmasına neden olur. Varsayılan değer True'dur.<br /><br /> catenateWords (tür: bool)-örnek "Azure Search", "Azure Search" haline gelir word bölümlerinin catenated için en fazla çalıştırma neden olur. Varsayılan değer false'dur.<br /><br /> catenateNumbers (tür: bool)-neden en fazla sayı bölümleri catenated için çalışır, örneğin "1-2" "12" olur. Varsayılan değer false'dur.<br /><br /> catenateAll (tür: bool)-tüm alt sözcüğe nedenleri bölümleri catenated için ör. "Azure-Search-1", "AzureSearch1" olur. Varsayılan değer false'dur.<br /><br /> splitOnCaseChange (tür: bool) - bölmelerini kelimeler caseChange, "Azure"Search üzerinde true olur, "Azure" "arama". Varsayılan değer True'dur.<br /><br /> preserveOriginal - korunur ve alt sözcüğe listeye eklenen için özgün sözcükleri neden olur. Varsayılan değer false'dur.<br /><br /> splitOnNumerics (tür: bool) - true ise bölmelerini sayılar, örneğin "Azure1Search" haline gelir "Azure" "1" üzerindeki "araması yaparsanız". Varsayılan değer True'dur.<br /><br /> stemEnglishPossessive (tür: bool) - her alt sözcüğe için kaldırılacak "kullanıcının" sondaki neden olur. Varsayılan değer True'dur.<br /><br /> protectedWords (tür: dize dizisi)-ayrılmış korumak için belirteçleri. Varsayılan değer boş bir listedir.|  
 
  <sup>1</sup> belirteç filtre türleri her zaman ön eki bulunur "#Microsoft.Azure.Search" ile koddaki "ArabicNormalizationTokenFilter" aslında "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter" belirtilecek şekilde.  Tablonun genişliğini azaltır, ancak gönderdiğinizden kodunuza ekleyin için önek kaldırdık.  
-
-> [!NOTE]
-> Belirteç 300 karakterden uzun olmayan üretmek için özel çözümleyici yapılandırma zorunludur. Bu tür belirteçleri ile ilgili belgeler için dizin oluşturma başarısız olur. Bunları trim veya bunların yoksayılması için kullanın **TruncateTokenFilter** ve **LengthTokenFilter** sırasıyla.
 
 
 ## <a name="see-also"></a>Ayrıca bkz.  

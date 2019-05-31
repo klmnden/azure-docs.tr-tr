@@ -1,9 +1,9 @@
 ---
-title: Bir Azure AD Domain Services etki alanını yönetmek için bir güvenli LDAP sertifikası oluşturun. | Microsoft Docs
+title: Oluşturma bir. Azure AD Domain Services etki alanı için güvenli LDAP (LDAPS) Sertifika PFX dosyası
 description: Bir Azure AD Domain Services'ı yönetmek için etki alanı bir güvenli LDAP sertifikası oluşturma
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418566"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235035"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Oluşturma bir. Yönetilen bir etki alanı için güvenli LDAP (LDAPS) Sertifika PFX dosyası
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Tam [1. Görev: Güvenli LDAP için sertifika edinme](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
+Tam [1. Görev: Güvenli LDAP için sertifika edinme](configure-ldaps.md).
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>2. Görev: İçin güvenli LDAP sertifikasını dışarı aktarma bir. PFX dosyası
+
 Bu görev başlamadan önce bir ortak sertifika yetkilisinden güvenli LDAP sertifikasını almak veya otomatik olarak imzalanan bir sertifika oluşturun.
 
 LDAPS sertifikayı dışarı aktarmak için bir. PFX dosyası:
@@ -96,6 +97,6 @@ LDAPS sertifikayı dışarı aktarmak için bir. PFX dosyası:
 
     ![Bitti sertifikasını dışarı aktarma](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>Sonraki adım
+
 [3. Görev: yönetilen etki alanı için güvenli LDAP'yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

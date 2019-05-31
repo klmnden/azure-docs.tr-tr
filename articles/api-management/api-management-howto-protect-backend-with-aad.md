@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141070"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241672"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory ile API Management OAuth 2.0 kullanarak bir API'yi koruma
 
@@ -44,17 +44,19 @@ Adımlara hızlı genel bakış aşağıda verilmiştir:
 
 Azure AD ile bir API'yi korumak için ilk adım bir uygulama, API'yi temsil eden Azure AD'ye kaydetme sağlamaktır. 
 
-1. Azure AD kiracınıza göz atın ve ardından gözatın **uygulama kayıtları (eski)**.
+1. Gidin [Azure Portalı - Uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası. 
 
-2. **Yeni uygulama kaydı**’nı seçin. 
+2. Seçin **yeni kayıt**. 
 
-3. Uygulama adını sağlayın. (Bu örnekte, adı, `backend-app`.)  
+1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin: 
+    - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `backend-app`. 
+    - İçinde **desteklenen hesap türleri** bölümünden **herhangi bir kuruluş dizini hesaplarında**. 
 
-4. Seçin **Web uygulaması / API** olarak **uygulama türü**. 
+1. Bırakın **yeniden yönlendirme URI'si** bölüm şimdilik boş.
 
-5. İçin **oturum açma URL'si**, kullanabileceğiniz `https://localhost` yer tutucu olarak.
+1. Uygulamayı kaydetmek için **Kaydet**'i seçin. 
 
-6. **Oluştur**’u seçin.
+1. Uygulamasında **genel bakış** sayfasında, bulmak **uygulama (istemci) kimliği** değeri ve daha sonra kullanmak üzere kaydedin.
 
 Uygulama oluşturulduğunda, Not **uygulama kimliği**, bir sonraki adımda kullanmak üzere. 
 
@@ -62,23 +64,25 @@ Uygulama oluşturulduğunda, Not **uygulama kimliği**, bir sonraki adımda kull
 
 API'yi çağıran her istemci uygulaması, Azure AD'de bir uygulama olarak kaydedilmesi gerekiyor. Bu örnekte, örnek istemci uygulaması, API Management Geliştirici portalındaki Geliştirici konsoludur. Başka bir uygulama Geliştirici Konsolu temsil etmek için Azure AD'ye kaydetme açıklanmıştır.
 
-1. İçinde çalışırken **uygulama kayıtları (eski)** seçin **yeni uygulama kaydı**. 
+1. Gidin [Azure Portalı - Uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfası. 
 
-2. Uygulama adını sağlayın. (Bu örnekte, adı, `client-app`.)
+1. Seçin **yeni kayıt**.
 
-3. Seçin **Web uygulaması / API** olarak **uygulama türü**.  
+1. **Uygulama kaydet** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin: 
+    - **Ad** alanına uygulama kullanıcılarına gösterilecek anlamlı bir uygulama adı girin, örneğin `client-app`. 
+    - İçinde **desteklenen hesap türleri** bölümünden **herhangi bir kuruluş dizini hesaplarında**. 
 
-4. İçin **oturum açma URL'si**, kullanabileceğiniz `https://localhost` bir yer tutucu veya API Management örneğinizin URL'sini oturum açma kullanın. (Bu örnekte, URL `https://contoso5.portal.azure-api.net/signin`.)
+1. İçinde **yeniden yönlendirme URI'si** bölümünden `Web` URL'sini girin `https://contoso5.portal.azure-api.net/signin`
 
-5. **Oluştur**’u seçin.
+1. Uygulamayı kaydetmek için **Kaydet**'i seçin. 
 
-Uygulama oluşturulduğunda, Not **uygulama kimliği**, bir sonraki adımda kullanmak üzere. 
+1. Uygulamasında **genel bakış** sayfasında, bulmak **uygulama (istemci) kimliği** değeri ve daha sonra kullanmak üzere kaydedin.
 
 Şimdi bir sonraki adımda kullanmak üzere bu uygulama için bir istemci gizli anahtarı oluşturun.
 
-1. Seçin **ayarları** tekrar gidin **anahtarları**.
+1. İstemci uygulamanız için sayfa listesinden seçin **sertifikaları ve parolaları**seçip **yeni gizli**.
 
-2. Altında **parolaları**, sağlayan bir **anahtar açıklaması**. Zaman anahtarı sona seçin ve seçim **Kaydet**.
+2. Altında **istemci gizli dizi eklemek**, sağlayan bir **açıklama**. Zaman anahtarı sona seçin ve seçim **Ekle**.
 
 Anahtar değerini not edin. 
 
@@ -86,17 +90,17 @@ Anahtar değerini not edin.
 
 API ve geliştirici Konsolu temsil etmek için iki uygulama kaydolduğundan, arka uç uygulamasını çağırmak istemci uygulaması izin vermek için izinleri vermeniz gerekir.  
 
-1. Gözat **uygulama kayıtları (eski)**. 
+1. Gidin **uygulama kayıtları**. 
 
-2. Seçin `client-app`ve Git **ayarları**.
+2. Seçin `client-app`, uygulama sayfaları listesinde gidin **API izinleri**.
 
-3. Seçin **gerekli izinler** > **Ekle**.
+3. Seçin **bir izin eklemek**.
 
-4. Seçin **bir API seçin**, araması `backend-app`.
+4. Altında **bir API seçin**bulup seçin `backend-app`.
 
-5. Altında **Temsilcili izinler**seçin `Access backend-app`. 
+5. Altında **Temsilcili izinler**, uygun izinleri seçin `backend-app`.
 
-6. Seçin **seçin**ve ardından **Bitti**. 
+6. Seçin **izinleri ekleme** 
 
 > [!NOTE]
 > Varsa **Azure Active Directory** select diğer uygulamalara izinler altında listelenmez **Ekle** listeden eklemek için.
@@ -107,7 +111,7 @@ Bu noktada, uygulamalarınızı Azure AD'de oluşturduğunuz ve arka uç uygulam
 
 Bu örnekte istemci uygulaması Geliştirici konsoludur. Aşağıdaki adımlar, OAuth 2.0 kullanıcı kimlik Geliştirici konsolunda etkinleştirmek açıklanmaktadır. 
 
-1. Azure Portalı'nda, API Management Örneğinize göz atın.
+1. Azure portalında, API Management Örneğinize göz atın.
 
 2. Seçin **OAuth 2.0** > **ekleme**.
 

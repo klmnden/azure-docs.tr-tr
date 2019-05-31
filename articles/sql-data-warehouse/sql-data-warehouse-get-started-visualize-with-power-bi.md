@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 94ec38bc2cad3566fad88dc2ac56648f79aa16b2
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873369"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241281"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI ile verileri görselleştirme
 Bu öğreticide SQL Data Warehouse'a bağlanmak ve birkaç temel görselleştirme oluşturmak üzere Power BI'ı nasıl kullanacağınız gösterilmiştir.
@@ -93,4 +93,4 @@ Doğrudan bağlantı kullanırken:
 Bu kısıtlamalar ve notlar deneyimleri iyileştirmeye olarak değişebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza göre, [geliştirme](sql-data-warehouse-overview-develop.md), [yükleme](design-elt-data-loading.md) veya [aktarma](sql-data-warehouse-overview-migrate.md) işlemlerini nasıl gerçekleştireceğinize göz atın. Veya [Power BI web sitesi](https://www.powerbi.com/)'ni ziyaret edin.
+Size örnek verilerle alıştırma biraz zaman tanıdığımıza göre bkz. nasıl [geliştirme](sql-data-warehouse-overview-develop.md) veya [yük](design-elt-data-loading.md). Veya [Power BI web sitesi](https://www.powerbi.com/)'ni ziyaret edin.

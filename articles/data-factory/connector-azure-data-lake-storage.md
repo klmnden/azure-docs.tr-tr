@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: c0591a7850516a419cb59045754cc4eb02979dfd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1e248a005b499227a667bebacf7244fc3df9c828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122592"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239141"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -169,7 +169,7 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
 >Hesap düzeyinde izin verme üzerinde kaygısı varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışmaya devam eder.
 
 >[!IMPORTANT]
->SQL DW, ADLS Gen2 kullanarak kimlik doğrulaması yönetildiğinde içine ADLS Gen2 verileri yüklenemiyor, doğru MSI ADLS Gen2'ye depolama kullanmak için SQL DW de yapılandırdığınızdan emin olun. PolyBase kullanırsanız, #3.b #1 adımlarını izleyin [bu kılavuz](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Kendisinden verileri yüklemek için PolyBase kullanılacak ADLS Gen2'ye VNet Hizmeti uç noktası ile yapılandırılmışsa, yönetilen kimlik doğrulaması kullanmanız gerekir.
+>ADLS Gen2'ı kullanarak yönetilen kimlik doğrulama verileri SQL DW'ye, ADLS Gen2 ' yüklemek için PolyBase kullanın, #1 ve #2'de adımları da uyguladığınızdan emin olun [bu kılavuz](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) SQL veritabanı sunucunuzun Active Azure ile kaydetmek için Directory (AAD) ve SQL veritabanı sunucunuza depolama Blob verileri katkıda bulunan RBAC rolü atayın; rest, ADF tarafından işlenir. Kendisinden verileri yüklemek için PolyBase kullanılacak ADLS Gen2'ye VNet Hizmeti uç noktası ile yapılandırılmışsa, yönetilen kimlik doğrulaması kullanmanız gerekir.
 
 Bu özellikleri bağlı hizmetinde desteklenir:
 

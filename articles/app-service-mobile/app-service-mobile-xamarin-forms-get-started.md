@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: b0719f6ac2f99f9e665b1265665752dd53ccbaf0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416089"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242656"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure ile Xamarin.Forms uygulaması oluşturma
 
@@ -39,26 +39,18 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * (isteğe bağlı) iOS uygulaması oluşturmak için, Xcode 9.0 veya üzerine sahip bir Mac gereklidir. Mac için Visual Studio (Mac ağda kullanılabilir olduğu sürece) daha sonra kullanılabilir veya Visual Studio 2017 veya iOS uygulamaları geliştirmek için kullanılabilir.
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Yeni bir Mobile Apps arka ucu oluşturma
-
-Yeni bir Mobile Apps arka ucu oluşturmak için aşağıdakileri yapın:
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Şimdi mobil uygulamalarınızın kullanabileceği bir Mobile Apps arka ucu ayarlamış oldunuz. Sırada, basit bir yapılacaklar listesi arka ucu için bir sunucu projesi indirme ve Azure’a yayımlama var.
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Veritabanı bağlantısı oluşturma ve istemci ve sunucu projesi yapılandırma
+[!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
-
-Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırmak için aşağıdakileri yapın:
-
-[!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-## <a name="download-and-run-the-xamarinforms-solution"></a>Xamarin.Forms çözümünü indirme ve çalıştırma
+## <a name="run-the-xamarinforms-solution"></a>Xamarin.Forms çözümü çalıştırın
 
 Çözümü açmak için Xamarin için Visual Studio Araçları gereklidir, bkz. [Xamarin yükleme yönergeleri][Install Xamarin]. Araçlar zaten yüklendiyse, çözümü indirip açmak için aşağıdaki adımları izleyin:
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. [Azure Portal] gidin.
+1. [Azure Portal](https://portal.azure.com/) gidin.
 
 2. Mobil Uygulamanızın ayarlar dikey penceresinde **Hızlı Başlangıç** (Dağıtım altında) > **Xamarin.Forms**'a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
 
@@ -66,25 +58,23 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 
 3. İndirdiğiniz projeyi çıkarın ve ardından Visual Studio'da açın.
 
-   ![Visual Studio'da ayıklanan proje][8]
-
 4. Android veya Windows projelerini ve ağa bağlı bir Mac bilgisayar varsa iOS projesini çalıştırmak için aşağıdaki yönergeleri izleyin.
 
 ### <a name="visual-studio-for-mac"></a>Mac için Visual Studio
 
-1. [Azure Portal] gidin.
+1. Git [Azure portalında](https://portal.azure.com/) ve oluşturduğunuz mobil uygulamaya gidin. Üzerinde `Overview` dikey penceresinde mobil uygulamanız için genel bir uç nokta URL'sini arayın. Örnek - sitename my app name "test123" için olacak https://test123.azurewebsites.net.
 
-2. Mobil Uygulamanızın ayarlar dikey penceresinde **Hızlı Başlangıç** (Dağıtım altında) > **Xamarin.Forms**'a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
+2. Dosyayı açmak `Constants.cs` bu klasördeki - xamarin.forms/ZUMOAPPNAME. Uygulama adı `ZUMOAPPNAME`.
 
-   Bu işlem, mobil uygulamanıza bağlı olan istemci uygulaması içeren bir projeyi indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
+3. İçinde `Constants.cs` sınıfı, yerine `ZUMOAPPURL` yukarıdaki genel uç noktası ile değişken.
 
-3. İndirdiğiniz projeyi ayıklayın ve Mac için Visual Studio'da açın.
+    `public static string ApplicationURL = @"ZUMOAPPURL";`
 
-   ![Mac için Visual Studio'da ayıklanan proje][9]
+    olur
 
-4. Android veya iOS projelerini çalıştırmak için aşağıdaki yönergeleri izleyin.
-
-
+    `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
+    
+4. Android veya Windows projelerini ve ağa bağlı bir Mac bilgisayar varsa iOS projesini çalıştırmak için aşağıdaki yönergeleri izleyin.
 
 ## <a name="optional-run-the-android-project"></a>(İsteğe bağlı) Android projesi çalıştırma
 
@@ -106,9 +96,7 @@ Bu bölümde Xamarin.Android projesini çalıştırırsınız. Android cihazlar�
 
 2. Projeyi oluşturmak ve uygulamayı Android öykünücüsünde başlatmak için **Çalıştır** menüsünü ve ardından **Hata Ayıklamayı Başlat**’ı seçin.
 
-
-
-Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından artı simgesini (**+**) seçin.
+Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından artı simgesini ( **+** ) seçin.
 
 ![Android yapılacaklar uygulaması][11]
 
@@ -138,9 +126,7 @@ Bu bölümde iOS cihazlarda Xamarin iOS projesi çalıştırırsınız. iOS ciha
 
 2. **Çalıştır** menüsünde, **Hata Ayıklamayı Başlat**’a tıklayarak projeyi oluşturun ve iPhone öykünücüsünde uygulamayı başlatın.
 
-
-
-Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından artı simgesini (**+**) seçin.
+Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından artı simgesini ( **+** ) seçin.
 
 ![iOS yapılacaklar uygulaması][10]
 
@@ -167,9 +153,7 @@ Bu bölümde, Windows cihazlar için Xamarin.Forms Evrensel Windows Platformu (U
 > [!NOTE]
 > Windows projesi macOS üzerinde çalıştırılamaz.
 
-
-
-Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından artı simgesini (**+**) seçin.
+Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından artı simgesini ( **+** ) seçin.
 
 Bu işlem, Azure üzerinde barındırılan yeni Mobile Apps arka ucuna bir post isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler Mobile Apps arka ucu tarafından döndürülür ve veriler listede görüntülenir.
 
@@ -185,32 +169,10 @@ Bu işlem, Azure üzerinde barındırılan yeni Mobile Apps arka ucuna bir post 
 
 Android projenizde başvurulan tüm destek paketlerinin aynı sürüme sahip olması gerektiğini unutmayın. [Azure Mobile Apps NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/), Android platformu için `Xamarin.Android.Support.CustomTabs` bağımlılığına sahiptir, yani projeniz daha yeni destek paketleri kullanıyorsa, çakışmaları önlemek için doğrudan gerekli sürüme sahip bu paketi yüklemeniz gerekir.
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-* [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-forms-get-started-users.md) Uygulamanızdaki kullanıcıların kimliklerini bir kimlik sağlayıcısı ile nasıl doğrulayacağınızı öğrenin.
-
-* [Uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-forms-get-started-push.md) Uygulamanıza anında iletme bildirimleri desteği eklemeyi ve anında iletme bildirimleri göndermek için Azure Notification Hubs’ı kullanmak üzere Mobile App arka ucunuzu yapılandırmayı öğrenin.
-
-* [Uygulamanız için çevrimdışı eşitlemeyi etkinleştirme](app-service-mobile-xamarin-forms-get-started-offline-data.md) Mobile Apps arka ucu kullanarak uygulamanıza çevrimdışı destek eklemeyi öğrenin. Çevrimdışı eşitleme ile mobil uygulamanızın verilerini ağ bağlantısı olmasa bile görüntüleyebilir, ekleyebilir ve değiştirebilirsiniz.
-
-* [Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md) Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
-
-* [Diğer Azure hizmetlerini Xamarin.Forms ile kullanma](https://docs.microsoft.com/xamarin/xamarin-forms/data-cloud/) Arama, depolama ve bilişsel hizmetler gibi ek Azure hizmetlerini Xamarin.Forms uygulamalarına ekleme.
-
-<!-- Anchors. -->
-[Get started with Mobile Apps back ends]:#getting-started
-[Create a new Mobile Apps back end]:#create-new-service
-[Next steps]:#next-steps
-
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
-[9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
 [10]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-ios.png
 [11]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-android.png
 [12]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
 
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
-[Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure portal]: https://portal.azure.com/

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 73a3d426e9040525b0c631db273e59c49a6a9eb0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1bfd1b5b4b7febd98499e338fcb62e339867aef4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705874"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244714"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Kuruluşlar için Azure DevTest Labs başvuru mimarisi
 Bu makalede, bir kuruluşta Azure DevTest Labs hakkında temel bir çözümü dağıtmak için başvuru mimarisi sağlar. Aşağıdakileri içerir:
@@ -32,9 +32,9 @@ Bu makalede, bir kuruluşta Azure DevTest Labs hakkında temel bir çözümü da
 ## <a name="architecture"></a>Mimari
 Başvuru mimarisini temel öğeleri şunlardır:
 
-- **Azure Active Directory (Azure AD)**: DevTest Labs kullanan [kimlik yönetimi için Azure AD hizmeti](../active-directory/fundamentals/active-directory-whatis.md). Bu iki temel unsur, kullanıcıların üzerinde DevTest Labs temelinde bir ortamda erişmesini dikkate alın:
+- **Azure Active Directory (Azure AD)** : DevTest Labs kullanan [kimlik yönetimi için Azure AD hizmeti](../active-directory/fundamentals/active-directory-whatis.md). Bu iki temel unsur, kullanıcıların üzerinde DevTest Labs temelinde bir ortamda erişmesini dikkate alın:
     - **Kaynak Yönetimi**: Kaynakları yönetmek için Azure portalına erişim sağlar (sanal makineler oluşturun; ortamlar oluşturun; başlatma, durdurma, yeniden başlatın, Sil ve yapıtları; uygulamak ve benzeri). Kaynak yönetimi, rol tabanlı erişim denetimi (RBAC) kullanarak Azure'da gerçekleştirilir. Kullanıcılara rol atama ve kaynak ve erişim düzeyi izinleri ayarlayın.
-    - **Sanal makineler (ağ düzeyinde)**: Varsayılan yapılandırmasında, sanal makineler bir yerel yönetici hesabı kullanın. Mevcut bir etki alanı varsa ([Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md), bir şirket içi etki alanı veya bulut tabanlı bir etki alanı), makineleri etki alanına katılması. Kullanıcılar Vm'lere bağlanmak için etki alanı tabanlı kimliklerini kullanabilir.
+    - **Sanal makineler (ağ düzeyinde)** : Varsayılan yapılandırmasında, sanal makineler bir yerel yönetici hesabı kullanın. Mevcut bir etki alanı varsa ([Azure AD Domain Services](../active-directory-domain-services/overview.md), bir şirket içi etki alanı veya bulut tabanlı bir etki alanı), makineleri etki alanına katılması. Kullanıcılar Vm'lere bağlanmak için etki alanı tabanlı kimliklerini kullanabilir.
 - **Şirket içi bağlantı**: Bizim mimari diyagramında [ExpressRoute](../expressroute/expressroute-introduction.md) kullanılır. Ancak ayrıca bir [siteden siteye VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). ExpressRoute için DevTest Labs gerekli olmasa da, kuruluşlarda yaygın olarak kullanılır. ExpressRoute, şirket kaynaklarına erişimi gerekiyorsa gereklidir. Yaygın senaryolar şunlardır:
     - Sahip olduğunuz bir şirket içi verileri buluta taşınamaz.
     - Laboratuvar sanal makineleri şirket içi etki alanına katılmayı tercih eder.
@@ -43,15 +43,15 @@ Başvuru mimarisini temel öğeleri şunlardır:
 - **Uzak Masaüstü Ağ Geçidi**: Kuruluşlar genellikle şirket güvenlik duvarında giden Uzak Masaüstü bağlantılarını engelleyin. DevTest Labs dahil olmak üzere, bulut tabanlı ortamda bağlantıyı etkinleştirmek için birkaç seçenek vardır:
   - Kullanım bir [Uzak Masaüstü Ağ Geçidi](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)ve beyaz liste statik ağ geçidi IP adresini yük dengeleyici.
   - [Tüm gelen RDP trafiğine doğrudan](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) ExpressRoute/için siteden siteye VPN bağlantısı üzerinden. Kuruluşların DevTest Labs dağıtımı planlarken bu işlevselliği ortak bir noktadır.
-- **Ağ Hizmetleri (sanal ağlar, alt ağlar)**: [Azure ağı](../networking/networking-overview.md) topolojidir DevTest Labs mimarisinde başka bir anahtar öğesi. Laboratuvar kaynakları iletişim kurabilmesini ve şirket içi ve internet erişimi olup olmadığını kontrol eder. Bizim mimarisi diyagramı, müşterilerin DevTest Labs kullanmasını en yaygın yolları içerir: Tüm laboratuvarlar aracılığıyla bağlanma [sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md) kullanarak bir [merkez-uç modeli](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) şirket içi ExpressRoute/için siteden siteye VPN bağlantısı için. Ancak nasıl, ağ altyapısını ayarlamak kısıtlaması yok olduklarından DevTest Labs Azure sanal ağ, doğrudan kullanır.
+- **Ağ Hizmetleri (sanal ağlar, alt ağlar)** : [Azure ağı](../networking/networking-overview.md) topolojidir DevTest Labs mimarisinde başka bir anahtar öğesi. Laboratuvar kaynakları iletişim kurabilmesini ve şirket içi ve internet erişimi olup olmadığını kontrol eder. Bizim mimarisi diyagramı, müşterilerin DevTest Labs kullanmasını en yaygın yolları içerir: Tüm laboratuvarlar aracılığıyla bağlanma [sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md) kullanarak bir [merkez-uç modeli](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) şirket içi ExpressRoute/için siteden siteye VPN bağlantısı için. Ancak nasıl, ağ altyapısını ayarlamak kısıtlaması yok olduklarından DevTest Labs Azure sanal ağ, doğrudan kullanır.
 - **DevTest Labs**:  DevTest Labs genel mimarisinin önemli bir parçasıdır. Hizmet hakkında daha fazla bilgi için bkz: [DevTest Labs hakkında](devtest-lab-overview.md).
-- **Sanal makineler ve diğer kaynaklara (SaaS, PaaS ve Iaas)**:  DevTest Labs destekleyen diğer Azure kaynakları ile birlikte temel bir iş yükü sanal makinelerdir. DevTest Labs, kolay ve hızlı bir şekilde Azure kaynakları (VM'ler ve diğer Azure kaynakları dahil) erişim sağlamak bir kuruluş sağlar. Azure için erişim hakkında daha fazla bilgi [geliştiriciler](devtest-lab-developer-lab.md) ve [sınayıcılar](devtest-lab-test-env.md).
+- **Sanal makineler ve diğer kaynaklara (SaaS, PaaS ve Iaas)** :  DevTest Labs destekleyen diğer Azure kaynakları ile birlikte temel bir iş yükü sanal makinelerdir. DevTest Labs, kolay ve hızlı bir şekilde Azure kaynakları (VM'ler ve diğer Azure kaynakları dahil) erişim sağlamak bir kuruluş sağlar. Azure için erişim hakkında daha fazla bilgi [geliştiriciler](devtest-lab-developer-lab.md) ve [sınayıcılar](devtest-lab-test-env.md).
 
 ## <a name="scalability-considerations"></a>Ölçeklenebilirlik konusunda dikkat edilmesi gerekenler
 DevTest Labs yerleşik kota veya limitlerinizi olması gerekmese de, Laboratuvar tipik işleminde kullanılan diğer Azure kaynakları sahip [abonelik düzeyinde kotalar](../azure-subscription-service-limits.md). Bu nedenle, tipik kurumsal bir dağıtımda, büyük bir dağıtımın DevTest Labs karşılamak üzere birden çok Azure aboneliği gerekir. Kuruluşlar genellikle ulaşan kotaları şunlardır:
 
 - **Kaynak grupları**: Varsayılan yapılandırmasında DevTest Labs her yeni bir sanal makine için bir kaynak grubu oluşturur veya hizmetini kullanarak kullanıcı bir ortam oluşturur. Abonelikleri içerebilir [kadar 980 kaynak grupları](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). Bu nedenle, sanal makineler ve ortamlar bir abonelik sınırını olmasıdır. Dikkate almanız gereken iki diğer yapılandırmalar vardır:
-    - **[Tüm sanal makineler aynı kaynak grubuna gidin](resource-group-control.md)**: Bu ayar, kaynak grubu sınırı karşılamanıza yardımcı olmakla birlikte, kaynak türü başına kaynak grubu sınırı etkiler.
+    - **[Tüm sanal makineler aynı kaynak grubuna gidin](resource-group-control.md)** : Bu ayar, kaynak grubu sınırı karşılamanıza yardımcı olmakla birlikte, kaynak türü başına kaynak grubu sınırı etkiler.
     - **Kullanılarak paylaşılan genel IP'ler**: Tüm sanal makineler aynı büyüklük ve bölge aynı kaynak grubuna gidin. Bu yapılandırma bir "Orta zemin" kaynak grubu ve kaynak türü başına kaynak grubu kotaları arasında ise sanal makinelerin genel IP adreslerine sahip izin verilir.
 - **Kaynak başına kaynak grubunda kaynak türü**: İçin varsayılan sınır [her kaynak türü başına kaynak grubu kaynakları olan 800](../azure-subscription-service-limits.md#resource-group-limits).  Kullanırken *tüm VM'lerin aynı kaynak grubuna gidin* yapılandırma, kullanıcılar isabet Bu abonelik özellikle Vm'lere birçok ek diskler varsa, daha erken sınırlayın.
 - **Depolama hesapları**: DevTest labs'deki bir laboratuvara bir depolama hesabı ile birlikte gelir. Azure kotası [sayıdır depolama hesaplarının her Abonelikteki bölge başına 250](../azure-subscription-service-limits.md#storage-limits). DevTest Labs ile aynı bölgede en fazla sayısını da 250'dir.

@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475873"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234116"
 ---
 # <a name="building-scalable-cloud-databases"></a>Ölçeklenebilir bulut veritabanları oluşturma
 
-Veritabanlarını ölçeklendirme, kolayca Azure SQL veritabanı için ölçeklenebilir araçları ve özellikleri kullanılarak gerçekleştirilebilir. Özellikle, kullanabileceğiniz **elastik veritabanı istemci Kitaplığı** ölçeği genişletilmiş veritabanları oluşturma ve yönetme için. Bu özellik, kolayca yüzlerce kullanarak parçalı uygulamalar geliştirmenize olanak sağlar; ve hatta binlerce — Azure SQL veritabanı. [Esnek işler](sql-database-elastic-jobs-powershell.md) bu veritabanlarının bir kolayca yönetim yardımcı olmak için kullanılabilir.
+Veritabanlarını ölçeklendirme, kolayca Azure SQL veritabanı için ölçeklenebilir araçları ve özellikleri kullanılarak gerçekleştirilebilir. Özellikle, kullanabileceğiniz **elastik veritabanı istemci Kitaplığı** ölçeği genişletilmiş veritabanları oluşturma ve yönetme için. Bu özellik, kolayca yüzlerce kullanarak parçalı uygulamalar geliştirmenize olanak sağlar; ve hatta binlerce — Azure SQL veritabanı.
 
 İndirmek için:
 
@@ -54,7 +54,7 @@ Kullanan uygulamaların ölçeklendirilmesi *parçalama* hem geliştiriciler hem
 - **Parça eşleme Yönetimi**: "Parça eşleme Yöneticisi" adlı özel bir veritabanı oluşturulur. Parça eşleme Yönetimi meta verilerini, parçalar ilgili yönetmek bir uygulama için yeteneğidir. Geliştiriciler, parçalar olarak veritabanları kaydetme, tek tek parçalama anahtarları veya bu veritabanlarını anahtar aralıklarına eşlemelerini tanımlamak ve bu meta veriler bir sayı olarak korumak için bu işlevi kullanabilmeniz için ve kapasite değişiklikleri yansıtacak şekilde veritabanı oluşturma geliştikçe. Elastik veritabanı istemci Kitaplığı ' çok parçalama uygularken yönetim kod yazmaya zaman ayırın gerekecektir. Ayrıntılar için bkz [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md).
 
 - **Verilere bağımlı yönlendirme**: Uygulamaya gelen bir istek düşünün. İsteğin parçalama anahtarı değerine göre uygulamanın doğru veritabanına anahtar değerine dayalı belirlemesi gerekir. Ardından, isteği işlemek için veritabanına bir bağlantı açar. Verilere bağımlı yönlendirme uygulamanın parça eşlemesi içinde tek bir kolayca çağrısıyla bağlantıları olanağı sağlar. Verilere bağımlı yönlendirme artık elastik veritabanı istemci kitaplığı işlevleri tarafından kapsanan altyapı kodunu başka bir alanı oluştu. Ayrıntılar için bkz [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md).
-- **Çok parçalı sorgular (MSQ)**: Bir istek çeşitli (veya tüm) parçalar gerektirdiğinde çok parçalı sorgulama çalışır. Çok parçalı sorgu, tüm parçalar veya parçalar kümesi üzerinde aynı T-SQL kodu yürütür. Katılımcı parçalar sonuçlardan UNION ALL semantiği kullanarak genel bir sonuç birleştirilir. İstemci kitaplığı kullanıma sunulan işlevleri dahil birçok görevi işleme: bağlantı yönetimi, iş parçacığı yönetimi, hata işleme ve işleme Ara sonuçlar. En fazla parça yüzlerce MSQ sorgulayabilirsiniz. Ayrıntılar için bkz [çok parçalı sorgulama](sql-database-elastic-scale-multishard-querying.md).
+- **Çok parçalı sorgular (MSQ)** : Bir istek çeşitli (veya tüm) parçalar gerektirdiğinde çok parçalı sorgulama çalışır. Çok parçalı sorgu, tüm parçalar veya parçalar kümesi üzerinde aynı T-SQL kodu yürütür. Katılımcı parçalar sonuçlardan UNION ALL semantiği kullanarak genel bir sonuç birleştirilir. İstemci kitaplığı kullanıma sunulan işlevleri dahil birçok görevi işleme: bağlantı yönetimi, iş parçacığı yönetimi, hata işleme ve işleme Ara sonuçlar. En fazla parça yüzlerce MSQ sorgulayabilirsiniz. Ayrıntılar için bkz [çok parçalı sorgulama](sql-database-elastic-scale-multishard-querying.md).
 
 Genel olarak, esnek veritabanı araçlarını kullanan müşteriler tüm T-SQL yerel parça işlemleri kendi semantiklere sahip parçalar arası işlemleri aksine gönderirken işlevlerinden bekleyebilirsiniz.
 

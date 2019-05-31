@@ -1,7 +1,7 @@
 ---
 title: "Hızlı Başlangıç: Python ve REST API'ler - Azure Search'ü"
 description: Oluşturma, yükleme ve Python, Jupyter not defterleri ve Azure Search REST API'sini kullanarak dizin sorgulama.
-ms.date: 05/15/2019
+ms.date: 05/23/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117333"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244786"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Hızlı Başlangıç: Jupyter Python not defterlerini kullanarak bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Bu hızlı başlangıçta, aşağıdaki hizmetler ve Araçlar kullanılır.
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), sağlama Python 3.x ve Jupyter not defterleri.
 
-+ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. 
++ [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz katman kullanabilirsiniz. 
 
 ## <a name="get-a-key-and-url"></a>Bir anahtarı ve URL alma
 
@@ -52,7 +52,7 @@ Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İs
 
 ## <a name="connect-to-azure-search"></a>Azure Search'e Bağlan
 
-Jupyter not defterini açın ve yerel iş istasyonunuzu bağlantısından hizmetinizde dizin listesi isteyerek doğrulayın. Anaconda3 ile Windows Anaconda Gezgin bir not defteri başlatmak için kullanabilirsiniz.
+Bu görevde bir Jupyter not defteri ve Azure Search'e bağlanabildiğini doğrulayın. Bu, hizmetinizde dizin listesi isteyerek yaparsınız. Anaconda3 ile Windows Anaconda Gezgin bir not defteri başlatmak için kullanabilirsiniz.
 
 1. Yeni bir Python3 not defteri oluşturun.
 
@@ -73,7 +73,7 @@ Jupyter not defterini açın ve yerel iş istasyonunuzu bağlantısından hizmet
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. Üçüncü hücrede istek düzenleyin. Bu GET isteği, arama hizmetinizin dizinler koleksiyonu hedefleyen ve ad özelliği seçer.
+1. Üçüncü hücrede istek düzenleyin. Bu GET isteği, arama hizmetinizin dizinler koleksiyonu hedefleyen ve var olan bir dizin adı özniteliğinin seçer.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -82,20 +82,20 @@ Jupyter not defterini açın ve yerel iş istasyonunuzu bağlantısından hizmet
    pprint(index_list)
    ```
 
-1. Her adım çalıştırın. Dizin yoksa, yanıt dizinlerin bir listesini içerir. Aşağıdaki ekran görüntüsünde, azureblob dizini ve realestate-us-sample dizin hizmeti içerir.
+1. Her adım çalıştırın. Dizin yoksa, yanıt dizini adlarının bir listesini içerir. Aşağıdaki ekran görüntüsünde, hizmet zaten azureblob dizin ve realestate-us-sample dizini vardır.
 
    ![Python betiğini Jupyter not defteri ile HTTP istekleri için Azure Search](media/search-get-started-python/connect-azure-search.png "Python betiğini Jupyter not defteri ile HTTP istekleri için Azure Search")
 
-   Boş dizin koleksiyonu bu yanıtı döndürür: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Buna karşılık, bir boş dizin koleksiyonu bu yanıtı döndürür: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 > [!Tip]
 > Ücretsiz bir hizmet üç dizin, dizin oluşturucular ve veri kaynakları için sınırlı olursunuz. Bu hızlı başlangıçta her birini oluşturur. Daha fazla işlenmesini önce yeni nesneler oluşturmak için yer olduğundan emin olun.
 
 ## <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
-Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut olması gerekir. Bu adımı kullanan [dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) bir dizin şemasını hizmetine göndermek için
+Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut olması gerekir. Bu adımı kullanan [dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) bir dizin şemasını hizmete gönderin.
 
-Alanlar koleksiyonu yapısını tanımlayan bir *belge*. Bir dizinin gerekli öğeler, bir ad ve bir alanlar koleksiyonu içerir. Her alanın bir adı, türü ve nasıl kullanıldığını belirleyen özniteliklere sahip (örneğin, tam metin olup aranabilir, filtrelenebilir veya arama sonuçlarında alınabilir). Bir dizinin türü alanlardan biri içinde `Edm.String` olarak belirlenmesi gerekir *anahtar* belge kimliği.
+Bir dizinin gerekli öğeler, bir ad, bir alanlar koleksiyonu ve bir anahtar içerir. Alanlar koleksiyonu yapısını tanımlayan bir *belge*. Her alanın bir adı, türü ve alanın nasıl kullanıldığını belirleyen özniteliklere sahip (örneğin, tam metin olup aranabilir, filtrelenebilir veya arama sonuçlarında alınabilir). Bir dizinin türü alanlardan biri içinde `Edm.String` olarak belirlenmesi gerekir *anahtar* belge kimliği.
 
 Bu dizin, "hotels-py" olarak adlandırılır ve aşağıda gördüğünüz alan tanımlarına sahip. Daha büyük bir alt kümesidir [Oteller dizinini](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) diğer izlenecek yollarında kullanılır. Biz, bu hızlı başlangıçta kısaltma kırpılır.
 
@@ -127,7 +127,7 @@ Bu dizin, "hotels-py" olarak adlandırılır ve aşağıda gördüğünüz alan 
     }
     ```
 
-2. Başka bir hücreye istek düzenleyin. Bu PUT İsteği, arama hizmetinizin dizinler koleksiyonu hedefleyen ve önceki adımda sağladığınız dizin şemasını bağlı bir dizin oluşturur.
+2. Başka bir hücreye istek düzenleyin. Bu PUT İsteği, arama hizmetinizin dizinler koleksiyonu hedefleyen ve önceki hücrenin belirtilen dizin şema bağlı bir dizin oluşturur.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -138,12 +138,12 @@ Bu dizin, "hotels-py" olarak adlandırılır ve aşağıda gördüğünüz alan 
 
 3. Her adım çalıştırın.
 
-   Yanıt şeması JSON gösterimini içerir. Daha fazla yanıt görmenize olanak tanıyan aşağıdaki ekran görüntüsünde dizin şemasını bölümlerini kırpar.
+   Yanıt şeması JSON gösterimini içerir. Aşağıdaki ekran görüntüsünde yalnızca bir kısmını yanıt göstermez.
 
     ![Dizin oluşturma isteği](media/search-get-started-python/create-index.png "dizin oluşturma isteği")
 
 > [!Tip]
-> Doğrulama için ayrıca Portalı'nda dizinleri listeyi kontrol edin, veya görmek için hizmet bağlantı isteğini yeniden *hotels-py* dizin dizinler koleksiyonu içinde listelenen.
+> Dizin oluşturmayı doğrulamak için başka bir portal dizinler listesinde denetlemek için yoludur.
 
 <a name="load-documents"></a>
 
@@ -211,6 +211,7 @@ Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği 
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
+            }
         },
         {
         "@search.action": "upload",
@@ -229,11 +230,11 @@ Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği 
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-       }
-      }
-     ]
+            }
+        }
+    ]
     }
-    ```
+    ```   
 
 2. Başka bir hücreye istek düzenleyin. Bu POST isteği, Oteller-py dizini docs koleksiyonunu hedefleyen ve önceki adımda sağlanan belgelerinin gönderir.
 
@@ -246,26 +247,7 @@ Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği 
 
 3. Belgeleri arama hizmetinizdeki dizin göndermek için her adımı çalıştırın. Sonuçları şu örneğe benzemelidir. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
-    'value': [{'errorMessage': None,
-            'key': '1',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '2',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '3',
-            'status': True,
-            'statusCode': 201}]},
-           {'errorMessage': None,
-            'key': '4',
-            'status': True,
-            'statusCode': 201}]}
-     ```
-
+    ![Belgeleri dizine göndermek](media/search-get-started-python/load-index.png "belgeleri dizine göndermek")
 
 ## <a name="3---search-an-index"></a>3 - Dizin arama
 
@@ -278,7 +260,7 @@ Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgele
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Bir istek düzenleyin. Bu GET isteği, Oteller-py dizini docs koleksiyonunu hedefleyen ve önceki adımda belirtilen sorgu ekler.
+2. Başka bir hücreye bir istek düzenleyin. Bu GET isteği, Oteller-py dizini docs koleksiyonunu hedefleyen ve önceki adımda belirtilen sorgu ekler.
 
    ```python
    url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
@@ -287,32 +269,29 @@ Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgele
    pprint(query)
    ```
 
-   Sonuç aşağıdaki çıktıya benzer olmalıdır. Sonuçları unranked (search.score = 1.0) çünkü biz eşleştirilecek herhangi bir ölçütü sağlamadı.
+3. Her adım çalıştırın. Sonuç aşağıdaki çıktıya benzer olmalıdır. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
-    '@odata.count': 3,
-    'value': [{'@search.score': 1.0,
-               'HotelId': '1',
-               'HotelName': 'Secret Point Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '2',
-               'HotelName': 'Twin Dome Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'},
-              {'@search.score': 1.0,
-               'HotelId': '4',
-               'HotelName': 'Sublime Cliff Hotel'}]}
+    ![Dizin arama](media/search-get-started-python/search-index.png "dizin arama")
+
+4. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. AramaDizesi Aşağıdaki örnekler ile değiştirin ve ardından arama isteği yeniden çalıştırın. 
+
+   Bir filtre uygula: 
+
+   ```python
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
    ```
 
-3. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. Bir filtre uygulayabilir, ilk iki sonucu alın veya belirli bir alana göre sıralamak.
+   İlk iki sonucu alın:
 
-   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+   ```python
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   ```
 
-   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
+    Belirli bir alana göre sıralayın:
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+   ```python
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   ```
 
 ## <a name="clean-up"></a>Temizleme 
 

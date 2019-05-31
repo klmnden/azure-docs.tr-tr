@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777398"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244945"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
-**Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./diagnostic-logs-schema.md) makalenin sonunda sağlanır.
+**Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](activity-log-export.md). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](diagnostic-logs-schema.md) makalenin sonunda sağlanır.
 
 ## <a name="administrative"></a>Yönetim
 Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
@@ -113,11 +113,11 @@ Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemler
 | Öğe adı | Açıklama |
 | --- | --- |
 | Yetkilendirme |BLOB RBAC özelliklerinin olay. Genellikle, "action", "rolü" ve "scope" özelliklerini içerir. |
-| çağıran |İşlem, UPN Talebi veya SPN talep kullanılabilirliğine göre gerçekleştiren kullanıcının e-posta adresi. |
-| kanallar |Aşağıdaki değerlerden biri: "Yönetici", "İşlem" |
+| Çağıran |İşlem, UPN Talebi veya SPN talep kullanılabilirliğine göre gerçekleştiren kullanıcının e-posta adresi. |
+| Kanallar |Aşağıdaki değerlerden biri: "Yönetici", "İşlem" |
 | Talep |Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
 | correlationId |Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
-| açıklama |Olay açıklaması statik metin. |
+| description |Olay açıklaması statik metin. |
 | eventDataId |Olayın benzersiz tanımlayıcısı. |
 | EventName | Yönetim olayı kolay adı. |
 | category | "Yönetici" her zaman |
@@ -216,7 +216,7 @@ Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem du
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem du
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem du
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -259,9 +259,9 @@ Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem du
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| kanallar | Her zaman "Yöneticisi işlemi" |
+| Kanallar | Her zaman "Yöneticisi işlemi" |
 | correlationId | Dize biçiminde bir GUID. |
-| açıklama |Uyarı olayının açıklaması statik metin. |
+| description |Uyarı olayının açıklaması statik metin. |
 | eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
 | category | Her zaman "ResourceHealth" |
 | eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
@@ -352,11 +352,11 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu 
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| çağıran | Her zaman Microsoft.Insights/alertRules |
-| kanallar | Her zaman "Yöneticisi işlemi" |
+| Çağıran | Her zaman Microsoft.Insights/alertRules |
+| Kanallar | Her zaman "Yöneticisi işlemi" |
 | Talep | JSON blob uyarı altyapısının SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
 | correlationId | Dize biçiminde bir GUID. |
-| açıklama |Uyarı olayının açıklaması statik metin. |
+| description |Uyarı olayının açıklaması statik metin. |
 | eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
 | category | Her zaman "uyarı" |
 | düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
@@ -462,11 +462,11 @@ Bu kategori, kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, abonel
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| çağıran | Her zaman Microsoft.Insights/autoscaleSettings |
-| kanallar | Her zaman "Yöneticisi işlemi" |
+| Çağıran | Her zaman Microsoft.Insights/autoscaleSettings |
+| Kanallar | Her zaman "Yöneticisi işlemi" |
 | Talep | JSON blob SPN (hizmet asıl adı) ya da kaynak türü ile otomatik ölçeklendirme altyapısı. |
 | correlationId | Dize biçiminde bir GUID. |
-| açıklama |Otomatik ölçeklendirme olayının statik metin açıklaması. |
+| description |Otomatik ölçeklendirme olayının statik metin açıklaması. |
 | eventDataId |Otomatik ölçeklendirme olayının benzersiz tanımlayıcısı. |
 | düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
 | resourceGroupName |Otomatik ölçeklendirme ayarı için kaynak grubunun adı. |
@@ -552,9 +552,9 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyar�
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| kanallar | Her zaman "işlem" |
+| Kanallar | Her zaman "işlem" |
 | correlationId | Dize biçiminde bir GUID. |
-| açıklama |Güvenlik olayı açıklaması statik metin. |
+| description |Güvenlik olayı açıklaması statik metin. |
 | eventDataId |Güvenlik olayı benzersiz tanımlayıcısı. |
 | EventName |Güvenlik olayı kolay adı. |
 | category | Her zaman "güvenlik" |
@@ -633,9 +633,9 @@ Bu kategori, hizmetlerinizi için oluşturulan yeni önerisi kaydını içerir. 
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| kanallar | Her zaman "işlem" |
+| Kanallar | Her zaman "işlem" |
 | correlationId | Dize biçiminde bir GUID. |
-| açıklama |Öneri Olay açıklaması statik metin |
+| description |Öneri Olay açıklaması statik metin |
 | eventDataId | Öneri etkinliğin benzersiz tanımlayıcısı. |
 | category | Her zaman "öneri" |
 | id |Öneri olayın benzersiz bir kaynak tanımlayıcısı. |
@@ -744,11 +744,11 @@ Bu kategoride işlemlerinin tarafından gerçekleştirilen tüm etkin eylem kay�
 | Öğe adı | Açıklama |
 | --- | --- |
 | Yetkilendirme | RBAC olay özelliklerinin dizisi. Yeni kaynaklar için eylem ve değerlendirme tetiklenen isteğinin kapsamı budur. Var olan kaynaklar için "Microsoft.Resources/checkPolicyCompliance/read" bir eylemdir. |
-| çağıran | Yeni kaynaklar için bir dağıtım tarafından başlatılan kimlik. Var olan kaynaklar için Microsoft Azure İlkesi Insights RP GUİD'si. |
-| kanallar | İlke olaylarını yalnızca "İşlem" kanal kullanın. |
+| Çağıran | Yeni kaynaklar için bir dağıtım tarafından başlatılan kimlik. Var olan kaynaklar için Microsoft Azure İlkesi Insights RP GUİD'si. |
+| Kanallar | İlke olaylarını yalnızca "İşlem" kanal kullanın. |
 | Talep | Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
 | correlationId | Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
-| açıklama | İlke olaylarını Bu alan boştur. |
+| description | İlke olaylarını Bu alan boştur. |
 | eventDataId | Olayın benzersiz tanımlayıcısı. |
 | EventName | "BeginRequest" veya "EndRequest". "BeginRequest" Gecikmeli auditIfNotExists ve Deployıfnotexists değerlendirmeleri ve Deployıfnotexists etkili bir şablon dağıtımı başladığı için kullanılır. Tüm diğer işlemler "EndRequest" döndürür. |
 | category | Etkinlik günlüğü olayında "ilkesi" olarak bildirir. |
@@ -783,7 +783,7 @@ Azure etkinlik günlüğünün Event Hubs ad alanı veya bir depolama hesabını
 | category | İşlem adının parçası | "Yazma" / "Sil" işlemi türü - kırılımı / "Action" |
 | resultType | Status.Value | |
 | resultSignature | SubStatus.Value | |
-| resultDescription | açıklama |  |
+| resultDescription | description |  |
 | durationMs | Yok | Her zaman 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
@@ -798,6 +798,6 @@ Azure etkinlik günlüğünün Event Hubs ad alanı veya bir depolama hesabını
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Etkinlik günlüğü'nü (eski adıyla denetim günlükleri) hakkında daha fazla bilgi edinin](../../azure-monitor/platform/activity-logs-overview.md)
-* [Azure etkinlik günlüğünün Event Hubs'a Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Etkinlik günlüğü hakkında daha fazla bilgi edinin](activity-logs-overview.md)
+* [Azure depolama veya olay hub'larına Etkinlik günlüğünü dışarı aktarma](activity-log-export.md)
 

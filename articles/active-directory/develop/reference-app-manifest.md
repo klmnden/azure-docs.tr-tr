@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: d369891624256e98ba8d46168cc9c10c41d37b8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545664"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235231"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory Uygulama bildirimi
 
@@ -50,7 +50,7 @@ Uygulama bildirimini yapılandırmak için:
 
 | Anahtar  | Değer türü | Açıklama  | Örnek değer |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Boş değer atanabilir Int32 | Kaynak tarafından beklenen erişim belirteci sürümünü belirtir. Bu sürüm değiştirir ve biçimi JWT uç nokta veya istemci erişim belirteci istemek için kullanılan bağımsız olarak üretilen.<br/><br/>Kullanılan uç nokta veya v1.0, v2.0 istemci tarafından seçilir ve yalnızca id_tokens sürümünü etkiler. Açıkça yapılandırmanız gereken kaynakları `accesstokenAcceptedVersion` desteklenen erişim belirteci biçimini belirtmek için.<br/><br/>Olası değerler için `accesstokenAcceptedVersion` 1, 2 ya da null. Değer null ise, bu v1.0 uç noktaya karşılık gelen varsayılan olarak 1. | `2` |
+| `accessTokenAcceptedVersion` | Boş değer atanabilir Int32 | Kaynak tarafından beklenen erişim belirteci sürümünü belirtir. Bu sürüm değiştirir ve biçimi JWT uç nokta veya istemci erişim belirteci istemek için kullanılan bağımsız olarak üretilen.<br/><br/>Kullanılan uç nokta veya v1.0, v2.0 istemci tarafından seçilir ve yalnızca id_tokens sürümünü etkiler. Açıkça yapılandırmanız gereken kaynakları `accesstokenAcceptedVersion` desteklenen erişim belirteci biçimini belirtmek için.<br/><br/>Olası değerler için `accesstokenAcceptedVersion` 1, 2 ya da null. Değer null ise, bu v1.0 uç noktaya karşılık gelen varsayılan olarak 1. <br/><br/>Varsa `signInAudience` olduğu `AzureADandPersonalMicrosoftAccount`, değer olmalıdır `2`  | `2` |
 | `addIns` | Koleksiyon | Kullanan bir hizmet, bir uygulama belirli bağlamlarda çağırmak için kullanabileceğiniz özel davranışını tanımlar. Örneğin, dosya akışları oluşturabileceği uygulamaları eklentileri özelliği "FileHandler" işlevselliği için ayarlayabilir. Bu, Office 365 gibi kullanıcı üzerinde çalıştığı bir belge bağlamında uygulama arama hizmetleri sağlar. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
 | `allowPublicClient` | Boolean | Geri dönüş uygulaması türünü belirtir. Azure AD, varsayılan olarak replyUrlsWithType uygulama türünden çıkarır. Burada Azure AD'ye belirleyemiyor istemci uygulama türüne belirli senaryolar vardır (örneğin [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) burada HTTP isteği bir URL yeniden yönlendirme ' olmuyor akış). Bu gibi durumlarda, Azure AD uygulama türü, bu özelliğin değerine göre görürler. Bu değer, geri dönüş uygulama türünü true olarak ayarlanırsa, bir mobil cihazda çalışan yüklü bir uygulama gibi ortak istemci olarak ayarlanır. Web uygulaması gibi gizli bir istemci geri dönüş uygulaması türüdür yani varsayılan değer false'tur. | `false` |
 | `availableToOtherTenants` | Boolean | uygulamanın diğer kiracılarla paylaşılıyorsa true; Aksi takdirde false. <br><br> _Not: Bu, yalnızca uygulama kayıtları (eski) deneyimini kullanılabilir. Değiştirilen `signInAudience` içinde [uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) karşılaşırsınız._ | |
@@ -87,7 +87,7 @@ Uygulama bildirimini yapılandırmak için:
 | `signInAudience` | String | Hangi Microsoft hesapları için geçerli uygulamanın desteklenen belirtir. Desteklenen değerler şunlardır:<ul><li>**AzureADMyOrg** -kullanıcılar Microsoft ile iş veya Okul hesabı kuruluşumun Azure AD kiracısında (yani, tek kiracılı)</li><li>**AzureADMultipleOrgs** -kullanıcılar Microsoft ile iş veya Okul hesabı herhangi bir kuruluşun Azure AD kiracısında (yani, çok kiracılı)</li> <li>**AzureADandPersonalMicrosoftAccount** -kişisel bir Microsoft hesabı ya da herhangi bir kuruluşun Azure AD kiracısında bir iş veya Okul hesabı olan kullanıcılar</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String Array | Kategorilere ayırmak ve uygulamayı tanımlamak için kullanılan özel dizeleri. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
-## <a name="common-issues"></a>Sık karşılaşılan sorunlar
+## <a name="common-issues"></a>Genel sorunlar
 
 ### <a name="manifest-limits"></a>Sınırları bildirimi
 
@@ -119,7 +119,7 @@ Daha önce yüklenen bir bildirim yüklemeye çalıştığınızda, aşağıdaki
 - "**Xxxxxx uygulama güncelleştirilemedi. Hata ayrıntısı: Belirtilen bir veya daha fazla özellik değeri geçersiz. [].** "
 - "**Xxxxxx uygulama güncelleştirilemedi. Hata ayrıntısı: Bu güncelleştirme için API sürümü availableToOtherTenants kümesindeki izin verilmiyor. [].** "
 - "**Xxxxxx uygulama güncelleştirilemedi. Hata ayrıntısı: Güncelleştirmeleri 'replyUrls' özelliği için bu uygulama için izin verilmiyor. Bunun yerine 'replyUrlsWithType' özelliğini kullanın. [].** "
-- "**Xxxxxx uygulama güncelleştirilemedi. Hata ayrıntısı: Bir tür adı olmayan bir değer bulundu ve beklenen tür kullanılabilir. Modeli belirtilen, akıştaki her bir değeri yükte, çağıran tarafından açıkça belirtilen ya da örtük olarak üst değerden çıkarılan bir tür olması gerekir. []**"
+- "**Xxxxxx uygulama güncelleştirilemedi. Hata ayrıntısı: Bir tür adı olmayan bir değer bulundu ve beklenen tür kullanılabilir. Modeli belirtilen, akıştaki her bir değeri yükte, çağıran tarafından açıkça belirtilen ya da örtük olarak üst değerden çıkarılan bir tür olması gerekir. []** "
 
 Şu hatalardan biriyle gördüğünüzde, şunları öneririz:
 

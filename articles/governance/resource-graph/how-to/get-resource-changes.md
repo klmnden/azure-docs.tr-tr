@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: HT
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551552"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236499"
 ---
 # <a name="get-resource-changes"></a>Kaynak değişikliklerini alma
 
@@ -29,7 +29,7 @@ Değişiklik algılama ve ayrıntıları, aşağıdaki örnek senaryolar için d
 - Bir yapılandırma yönetim veritabanıdır tutarak bir CMDB, güncel bilinir. Tüm kaynaklar ve bunların tam özellik kümeleri üzerinde zamanlanmış sıklığı yenilemek yerine yalnızca nelerin değiştiğini alın.
 - Hangi özelliklerde değiştirilmiş bir kaynağın uyumluluk durumu değiştiğinde anlama. Bu ek özellikler değerlendirmesi bir Azure İlkesi tanım yönetilmesi gereken diğer özellikleri hakkında Öngörüler sağlar.
 
-Bu makalede, Kaynak grafiğin SDK'sı aracılığıyla bu bilgileri toplamak gösterilmektedir. Bu bilgiler Azure portalında görmek için Azure İlkesi'nin bkz [değişiklik geçmişini](../../policy/how-to/determine-non-compliance.md#change-history-preview) veya Azure etkinlik günlüğü [değişiklik geçmişini](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
+Bu makalede, Kaynak grafiğin SDK'sı aracılığıyla bu bilgileri toplamak gösterilmektedir. Bu bilgiler Azure portalında görmek için Azure İlkesi'nin bkz [değişiklik geçmişini](../../policy/how-to/determine-non-compliance.md#change-history-preview) veya Azure etkinlik günlüğü [değişiklik geçmişini](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
 
 > [!NOTE]
 > Değişiklik ayrıntıları kaynak Graph'te için Resource Manager özelliklerdir. Azure Automation'ın bir sanal makine içinde değişiklikleri izlemek için bkz [değişiklik izleme](../../../automation/automation-change-tracking.md) veya Azure İlkesi'nin [sanal makineler için konuk yapılandırma](../../policy/concepts/guest-configuration.md).

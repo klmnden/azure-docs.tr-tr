@@ -4,20 +4,23 @@ description: Azure Resource Manager şablonları oluşturma ve Azure Cosmos DB S
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: mjbrown
-ms.openlocfilehash: a3798ac0c73c7bc6c4012dbb089275254f4c3504
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5683fd072961c7793d8f4bbeb9ecc16a93dd7373
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968841"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242601"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Azure Cosmos DB SQL (çekirdek) API kaynaklarını yönetme
 
 ## Bir Azure Cosmos hesabı, veritabanı ve kapsayıcı oluşturma <a id="create-resource"></a>
 
 Bir Azure Resource Manager şablonu kullanarak Azure Cosmos DB kaynaklarını oluşturun. Bu şablon, 400 RU/sn aktarım hızı ve veritabanı düzeyinde paylaşan iki kapsayıcı içeren bir Azure Cosmos hesabı oluşturur. Şablon Kopyalama ve aşağıda gösterildiği gibi dağıtmak veya ziyaret [Azure hızlı başlama Galerisi](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) ve Azure portalından dağıtın. Ayrıca şablonunu yerel bilgisayarınıza indirin veya yeni bir şablon oluşturmak ve ile yerel bir yol belirtin `--template-file` parametresi.
+
+> [!NOTE]
+> Şu anda kullanıcı tanımlı Functions(UDFs), saklı yordamları ve Tetikleyicileri Resource Manager şablonları kullanarak dağıtamazsınız. 
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

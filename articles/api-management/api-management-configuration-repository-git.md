@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b5bf778f06ff0223fd48a1282aadf223ff032b0f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919846"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241177"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -50,14 +50,14 @@ Bu makalede, etkinleştirmek ve hizmet yapılandırmanızı yönetmek için Git'
 
 Görüntüleme ve Git yapılandırma ayarlarınızı yapılandırmak için tıklayabilirsiniz **güvenlik** menü gidin **yapılandırma deposu** sekmesi.
 
-![GIT'i etkinleştir][api-management-enable-git]
+![GIT etkinleştir][api-management-enable-git]
 
 > [!IMPORTANT]
 > Adlandırılmış değerler olarak tanımlanmamış herhangi bir gizli anahtar deposunda depolanır ve devre dışı bırakın ve Git erişimini yeniden etkinleştirmeniz kadar buna ait geçmişi kalır. Adlandırılmış değerler sabit dize değerleri, bunları doğrudan ilke deyimlerinde depolamak zorunda kalmamak için gizli dizileri, tüm API configuration ve ilkeleri gibi yönetmek için güvenli bir yerde sağlar. Daha fazla bilgi için [adlı değerlerini Azure API Management ilkelerini kullanmak nasıl](api-management-howto-properties.md).
 >
 >
 
-REST API kullanarak Git erişimini devre dışı bırakma veya etkinleştirme hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](/rest/api/apimanagement/tenantaccess?EnableGit).
+REST API kullanarak Git erişimini devre dışı bırakma veya etkinleştirme hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Git deposuna hizmet yapılandırmasını kaydetmek için
 
@@ -69,7 +69,7 @@ Birkaç dakika sonra yapılandırma kaydedilir ve tarih ve saat son yapılandır
 
 Yapılandırmayı depoya kaydedildikten sonra kopyalanabilir.
 
-REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [REST API kullanarak anlık görüntü işleme yapılandırma](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
+REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [REST API kullanarak anlık görüntü işleme yapılandırma](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Depoyu yerel makinenize kopyalamak için
 
@@ -143,7 +143,7 @@ git push
 
 Yerel değişikliklerinizi kaydedilmiş ve sunucu deposuna gönderilen sonra API Management hizmet örneğinizin dağıtabilirsiniz.
 
-REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [dağıtma Git REST API kullanarak yapılandırma veritabanına değişiklikleri](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
+REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için bkz: [dağıtma Git REST API kullanarak yapılandırma veritabanına değişiklikleri](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Dosya ve klasör yapısını başvurusunu yerel Git deposu
 
@@ -173,9 +173,9 @@ Bu dosyalar oluşturulabilir, silindi, düzenlenebilir ve yerel dosya sisteminiz
 > [!NOTE]
 > Aşağıdaki varlıkların Git deposunda yer almayan ve Git kullanılarak yapılandırılamaz.
 >
-> * [Kullanıcılar](https://docs.microsoft.com/rest/api/apimanagement/user)
-> * [Abonelikler](https://docs.microsoft.com/rest/api/apimanagement/subscription)
-> * [Adlandırılmış değerler](https://docs.microsoft.com/rest/api/apimanagement/property)
+> * [Kullanıcılar](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
+> * [Abonelikler](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
+> * [Adlandırılmış değerler](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
 > * Geliştirici Portalı varlıkları dışında stilleri
 >
 
@@ -223,14 +223,14 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 ### <a name="apis-folder"></a>API'leri klasörü
 `apis` Klasörü her API'SİNDE aşağıdaki öğeleri içeren hizmet örneği için bir klasör içerir.
 
-* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/rest/api/apimanagement/apis/get) ile `export=true` içinde `application/json` biçimi.
+* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) ile `export=true` içinde `application/json` biçimi.
 * `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlığı](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API'sindeki işlemlerle eşlenir dosyaları. Her dosya tek bir işlemle eşlenir API açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) REST API'de.
 
 ### <a name="groups-folder"></a>grupları klasörü
 `groups` Klasörü hizmet örneğinde tanımlanan her grup için bir klasör içerir.
 
-* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir grup alma](https://docs.microsoft.com/rest/api/apimanagement/group/get) işlemi.
+* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir grup alma](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) işlemi.
 * `groups\<group name>\description.html` -Bu grubun açıklamasını ve karşılık gelen `description` özelliği [Grup varlık](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>ilkeleri klasörü
@@ -250,7 +250,7 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 ### <a name="products-folder"></a>ürünleri klasörü
 `products` Klasörü hizmet örneğinde tanımlanan her ürün için bir klasör içerir.
 
-* `products\<product name>\configuration.json` -Bu ürün için yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir ürün almak](https://docs.microsoft.com/rest/api/apimanagement/product/get) işlemi.
+* `products\<product name>\configuration.json` -Bu ürün için yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir ürün almak](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) işlemi.
 * `products\<product name>\product.description.html` -Bu ürün açıklamasını ve karşılık gelen `description` özelliği [ürün varlığı](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) REST API'de.
 
 ### <a name="templates"></a>templates

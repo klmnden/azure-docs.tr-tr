@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: cff4aaaab97fdcecab9cdf1d0dff2786f86b604b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 0ec64a5ae412fb4a1900021fefcb7d9112b1b019
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966706"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255334"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application ınsights'ta sistem performans sayaçları
 
@@ -41,8 +41,6 @@ ASP.NET/ASP.NET Core web uygulamaları için toplanacak yapılandırılan geçer
          - Process\\IO Data Bytes/sec
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
-
-Tek bir yerde tüm faydalı grafikleri görmek için oluşturun bir [Pano](../../azure-monitor/app/app-insights-dashboards.md) ve bunları sabitleyin.
 
 ## <a name="add-counters"></a>Sayaçları ekleme
 

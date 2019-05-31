@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 02/25/2019
+ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909007"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239039"
 ---
 # <a name="access-data-from-your-datastores"></a>Verilere erişmek, veri depoları
 
@@ -149,14 +149,14 @@ ds.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Eğitim sırasında erişim veri depoları
 
-Veri deposu işlem hedefte kullanılabilir yaptıktan sonra yalnızca yolun eğitim komut dosyanızdaki bir parametre olarak geçirerek eğitim çalıştırmaları sırasında (örneğin, eğitim veya doğrulama verileri) erişebilir.
+Veri deposu kullanılabilir yaptıktan sonra eğitim hedef işlem, yalnızca yolun eğitim komut dosyanızdaki bir parametre olarak geçirerek bu eğitim çalıştırmaları sırasında (örneğin, eğitim veya doğrulama verileri) erişebilir.
 
 Aşağıdaki tabloda [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) işlem hedef çalıştırma sırasında veri deposu kullanmayı açıklayan yöntemleri.
 
 Way|Yöntem|Açıklama|
 ----|-----|--------
-Bağla| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| İşlem hedef veri deposuna bağlamak için kullanın.
-Karşıdan Yükle|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Tarafından belirtilen konuma, veri deposu içeriğini indirin `path_on_compute`. <br> Eğitim çalıştırma bağlamı için bu yüklemeyi çalıştırmadan önce'olmuyor.
+Bağlama| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| İşlem hedef veri deposuna bağlamak için kullanın.
+İndirme|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Tarafından belirtilen konuma, veri deposu içeriğini indirin `path_on_compute`. <br> Eğitim çalıştırma bağlamı için bu yüklemeyi çalıştırmadan önce'olmuyor.
 Karşıya Yükle|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Bir dosyayı tarafından belirtilen konumdan yüklemek için kullandığınız `path_on_compute` , veri deposu için. <br> Eğitim çalıştırma bağlamı için bu karşıya yükleme sonrasında, çalıştırma'olmuyor
 
  ```Python
@@ -178,19 +178,20 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Tüm `ds` veya `ds.path` nesnesi bir ortam değişkeni adı biçimi için çözer `"$AZUREML_DATAREFERENCE_XXXX"` değeri hedef işlem üzerinde bağlama/indirme yolunu temsil eder. Veri deposu yolu hedef işlem üzerinde eğitim betiğin yürütme yolunu aynı olmayabilir.
 
-### <a name="compute-context-and-datastore-type-matrix"></a>İşlem bağlamını ve veri deposu türü Matrisi
+### <a name="training-compute-and-datastore-matrix"></a>Eğitim işlem ve veri deposu Matrisi
 
-Matris farklı işlem bağlamını ve veri deposu senaryolar için kullanılabilir veri erişimi işlevleri görüntüler. Bu Matristeki "işlem hattı" terimi, veri depoları bir giriş veya çıkış yeteneği anlamına gelir [Azure Machine Learning işlem hatlarını](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
+Matris farklı eğitim işlem hedefleri ve veri deposu senaryoları için kullanılabilen veri erişimi işlevleri görüntüler. Daha fazla bilgi edinin [eğitim hedefleri için Azure Machine Learning işlem](how-to-set-up-training-targets.md#compute-targets-for-training).
 
-||Yerel işlem|Azure Machine Learning işlem|Veri Aktarımı|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
--|--|-----------|----------|---------|-----|--------------|---------|---------|
-|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> İşlem hattı|İşlem hattı|İşlem hattı|[`as_download()`] <br> [`as_upload()`]|İşlem hattı||[`as_download()`] <br> [`as_upload()`]|
-|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] İşlem hattı |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
-|AzureDataLakeDatastore|||İşlem hattı|İşlem hattı|||İşlem hattı||
-|AzureDataLakeGen2Datastore|||İşlem hattı||||||
-|AzureDataPostgresSqlDatastore|||İşlem hattı||||||
-|AzureSqlDatabaseDataDatastore|||İşlem hattı||||||
-
+|İşlem|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
+|--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
+| Yerel|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|Yok         |Yok                                                                         |
+| Azure Machine Learning işlem |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;işlem hatları](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;işlem hatları](concept-ml-pipelines.md)|Yok         |Yok                                                                         |
+| Sanal makineler               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |Yok         |Yok                                                                         |
+| HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |Yok         |Yok                                                                         |
+| Veri aktarımı                  |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)                                               |Yok                                           |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)            |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)                                                                            |
+| Databricks                     |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)                                              |Yok                                           |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)             |Yok                                                                         |
+| Azure Batch                    |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)                                               |Yok                                           |Yok         |Yok                                                                         |
+| Azure DataLake Analytics       |Yok                                           |Yok                                           |[ML&nbsp;işlem hatları](concept-ml-pipelines.md)             |Yok                                                                         |
 
 > [!NOTE]
 > Yüksek oranda yinelemeli, büyük veri süreçleri çalıştırarak daha hızlı kullanarak senaryolar olabilir. [`as_download()`] yerine [`as_mount()`]; Bu experimentally doğrulanabilir.
@@ -199,7 +200,7 @@ Matris farklı işlem bağlamını ve veri deposu senaryolar için kullanılabil
 
 Aşağıdaki kod örnekleri özgü [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) eğitim sırasında veri deposuna erişmek için sınıf.
 
-Bu kod oluşturur ve eğitim betiğini kullanarak bir tahmin `train.py`, tanımlanan parametreleri kullanarak belirtilen kaynak dizinden `script_params`, tüm belirtilen işlem hedefte.
+Bu kod oluşturur ve eğitim betiğini kullanarak bir tahmin `train.py`, tanımlanan parametreleri kullanarak belirtilen kaynak dizinden `script_params`, tüm belirtilen eğitim hedef işlem.
 
 ```Python
 from azureml.train.estimator import Estimator

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415788"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235583"
 ---
 # <a name="combined-security-information-registration-preview"></a>Birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 
@@ -24,7 +24,7 @@ Birleşik kayıt önce kullanıcılar kimlik doğrulama yöntemleri Azure multi-
 
 ![Bir kullanıcı için güvenlik bilgisi My profili gösteren kayıtlı](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Yeni deneyimi etkinleştirmeden önce bu yönetici odaklı belgeleri ve işlevleri ve bu özellik etkisini anladığınızdan emin olmak için kullanıcı odaklı belgeleri gözden geçirin. Kullanıcı belgeleri, kullanıcıların yeni deneyimi hazırlamak ve başarılı bir sunum emin olmaya yardım etmek için eğitim temel alır.
+Yeni deneyimi etkinleştirmeden önce bu yönetici odaklı belgeleri ve işlevleri ve bu özellik etkisini anladığınızdan emin olmak için kullanıcı odaklı belgeleri gözden geçirin. Eğitim temel [kullanıcı belgeleri](../user-help/user-help-security-info-overview.md) yeni deneyimi ve başarılı bir sunum emin olmaya yardım etmek için kullanıcılarınızın hazırlamak için.
 
 Azure AD güvenlik bilgileri kayıt Ulusal bulutlara Azure ABD devlet kurumları, Azure Almanya'yı veya Azure Çin 21Vianet gibi şu anda kullanılabilir değil birleştirilmiş.
 
@@ -49,7 +49,7 @@ Aşağıdaki kimlik doğrulama yöntemlerini kayıt destekler ve eylemleri birle
 | Microsoft Authenticator | Evet (en fazla 5) | Hayır | Evet |
 | Diğer authenticator uygulaması | Evet (en fazla 5) | Hayır | Evet |
 | Donanım belirteci | Hayır | Hayır | Evet |
-| Telefon | Evet | Evet | Evet |
+| Phone | Evet | Evet | Evet |
 | Alternatif telefon | Evet | Evet | Evet |
 | Ofis telefonu | Hayır | Hayır | Hayır |
 | Email | Evet | Evet | Evet |
@@ -84,20 +84,20 @@ Her ikisi de kiracınız için etkinleştirilip etkinleştirilmediğini birleşi
 
 Kaydolun veya güvenlik bilgilerini yenilemek için kullanıcıların hangi istenebilir çeşitli senaryolar şunlardır:
 
-* Çok faktörlü kimlik doğrulaması kaydı: kimlik koruması zorlanır Kullanıcılar, oturum açma sırasında kaydetmek için istenir. (Kullanıcının SSPR'ye etkinse) çok faktörlü kimlik doğrulaması ve SSPR yöntemleri kaydedin.
-* Çok faktörlü kimlik doğrulaması kaydı üzerinden kullanıcı başına çok faktörlü kimlik doğrulaması zorunlu: Kullanıcılar, oturum açma sırasında kaydetmek için istenir. (Kullanıcının SSPR'ye etkinse) çok faktörlü kimlik doğrulaması ve SSPR yöntemleri kaydedin.
-* Çok faktörlü kimlik doğrulaması kaydı koşullu erişim veya diğer ilkeleri zorlanır: Kullanıcılar, çok faktörlü kimlik doğrulaması gerektiren bir kaynak kullandıklarında kaydetmek için istenir. (Kullanıcının SSPR'ye etkinse) çok faktörlü kimlik doğrulaması ve SSPR yöntemleri kaydedin.
-* SSPR kaydı zorlanır: Kullanıcılar, oturum açma sırasında kaydetmek için istenir. Bunlar yalnızca SSPR yöntemlerini kaydedin.
-* SSPR yenileme zorlanır: Kullanıcılar yöneticiniz tarafından belirlenen aralıklarla güvenlik bilgilerini gözden geçirmek için gereklidir Kullanıcılar kendi bilgi gösterilir ve geçerli bilgilerinizi onaylayın veya gerekirse değişiklik.
+- Çok faktörlü kimlik doğrulaması kaydı: kimlik koruması zorlanır Kullanıcılar, oturum açma sırasında kaydetmek için istenir. (Kullanıcının SSPR'ye etkinse) çok faktörlü kimlik doğrulaması ve SSPR yöntemleri kaydedin.
+- Çok faktörlü kimlik doğrulaması kaydı üzerinden kullanıcı başına çok faktörlü kimlik doğrulaması zorunlu: Kullanıcılar, oturum açma sırasında kaydetmek için istenir. (Kullanıcının SSPR'ye etkinse) çok faktörlü kimlik doğrulaması ve SSPR yöntemleri kaydedin.
+- Çok faktörlü kimlik doğrulaması kaydı koşullu erişim veya diğer ilkeleri zorlanır: Kullanıcılar, çok faktörlü kimlik doğrulaması gerektiren bir kaynak kullandıklarında kaydetmek için istenir. (Kullanıcının SSPR'ye etkinse) çok faktörlü kimlik doğrulaması ve SSPR yöntemleri kaydedin.
+- SSPR kaydı zorlanır: Kullanıcılar, oturum açma sırasında kaydetmek için istenir. Bunlar yalnızca SSPR yöntemlerini kaydedin.
+- SSPR yenileme zorlanır: Kullanıcılar yöneticiniz tarafından belirlenen aralıklarla güvenlik bilgilerini gözden geçirmek için gereklidir Kullanıcılar kendi bilgi gösterilir ve geçerli bilgilerinizi onaylayın veya gerekirse değişiklik.
 
 Kayıt uygulandığında, kullanıcılara en düşük olandan en az güvenli hale getirmek için multi-Factor Authentication hem SSPR ilkelerle uyumlu olmasını gerekli yöntemleri sayısı gösterilir.
 
 Örneğin:
 
-* Bir kullanıcının SSPR için etkinleştirilir. SSPR ilke sıfırlamak için iki yöntem gerekli ve mobil uygulama kodu, e-posta ve telefon etkinleştirdi.
-   * Bu kullanıcı, iki yöntem kaydetmek için gereklidir.
-      * Kullanıcı, kimlik doğrulayıcı uygulamasını ve telefon varsayılan olarak gösterilir.
-      * Kullanıcı e-posta yerine kimlik doğrulayıcısı uygulaması ya da telefon kaydetmek seçebilirsiniz.
+- Bir kullanıcının SSPR için etkinleştirilir. SSPR ilke sıfırlamak için iki yöntem gerekli ve mobil uygulama kodu, e-posta ve telefon etkinleştirdi.
+   - Bu kullanıcı, iki yöntem kaydetmek için gereklidir.
+      - Kullanıcı, kimlik doğrulayıcı uygulamasını ve telefon varsayılan olarak gösterilir.
+      - Kullanıcı e-posta yerine kimlik doğrulayıcısı uygulaması ya da telefon kaydetmek seçebilirsiniz.
 
 Bu akış, hangi yöntemlerin kesintiye, bir kullanıcı oturum açma sırasında kaydetmek için gösterilen açıklanmaktadır:
 

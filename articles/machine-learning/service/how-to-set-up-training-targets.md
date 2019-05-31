@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160474"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236634"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama 
 
 Azure Machine Learning hizmeti ile kaynakları veya ortamlar için olarak anılan, çeşitli modelinizi eğitmek [ __hedefleri işlem__](concept-azure-machine-learning-architecture.md#compute-target). İşlem hedefi, bir yerel makineye veya bir Azure Machine Learning işlem, Azure HDInsight veya uzak bir sanal makine gibi bir bulut kaynağı olabilir.  Model dağıtımı için işlem hedefleri açıklandığı gibi oluşturabilirsiniz ["nerede ve nasıl Modellerinizi dağıtmak"](how-to-deploy-and-where.md).
 
-Oluşturun ve Azure Machine Learning SDK'sı, Azure portal veya Azure CLI kullanarak bir işlem hedefine yönetin. Başka bir hizmete (örneğin, bir HDInsight kümesi) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
+Oluşturun ve Azure Machine Learning SDK'yı kullanarak Azure portalı, Azure CLI veya Azure Machine Learning VS Code uzantısı işlem hedefi yönetin. Başka bir hizmete (örneğin, bir HDInsight kümesi) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
  
 Bu makalede, model yönetimi için çeşitli bilgisayar hedefine kullanmayı öğrenin.  Aynı iş akışının tüm işlem hedeflerine yönelik adımları izleyin:
 1. __Oluşturma__ zaten yoksa, işlem hedefi.
@@ -377,6 +377,10 @@ Kullanarak çalışma ile ilişkilendirilen işlem hedefleri erişebileceğiniz 
 
 Daha fazla bilgi için [kaynak yönetimi](reference-azure-machine-learning-cli.md#resource-management).
 
+## <a name="set-up-compute-with-vs-code"></a>VS Code ile işlem ayarlama
+
+Erişebilir, oluşturma ve yönetme kullanarak çalışma ile ilişkilendirilen işlem hedefleri [VS Code uzantısı](how-to-vscode-tools.md#create-and-manage-compute-targets) Azure Machine Learning hizmeti için.
+
 ## <a id="submit"></a>Çalıştırma eğitim gönderin
 
 Bir çalıştırma yapılandırma oluşturduktan sonra denemenizi çalıştırmak için kullanın.  Eğitim çalıştırma göndermek için kod desenini işlem hedefleri tüm türleri için de aynıdır:
@@ -416,8 +420,9 @@ Farklı işlem hedefte farklı bir çalıştırma yapılandırma gibi kullanarak
 
 Veya, şunları yapabilirsiniz:
 
-* İle deneme gönderme bir `Estimator` nesne gösterildiği [estimators Train ML modelleriyle](how-to-train-ml-models.md). 
+* İle deneme gönderme bir `Estimator` nesne gösterildiği [estimators Train ML modelleriyle](how-to-train-ml-models.md).
 * Bir denemeyi göndermek [CLI uzantısını kullanarak](reference-azure-machine-learning-cli.md#experiments).
+* Aracılığıyla bir denemeyi göndermek [VS Code uzantısı](how-to-vscode-tools.md#train-and-tune-models).
 
 ## <a name="github-tracking-and-integration"></a>GitHub izleme ve tümleştirme
 

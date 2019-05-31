@@ -4,19 +4,19 @@ description: Bu makalede, Azure zaman serisi görüşleri ortamınıza hatalarla
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471689"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235038"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights ortamınızdaki sorunları tanılayıp
 
@@ -104,13 +104,13 @@ Değer ve zaman damgası özellik adı aşağıdaki kurallara uygun emin olun:
 
 Zaman damgası özellik adı, yakalanan ve Time Series Insights gezginini kullanmak için düzgün bir şekilde çalışıyor olduğundan emin olmak için en kolay yolu. Grafiğini kullanarak Time Series Insights Gezgininde, zaman damgası özellik adı girildikten sonra süreyi seçin. Seçime sağ tıklayın ve ardından **olayları keşfet** seçeneği.
 
-İlk sütun başlığına, zaman damgası özellik adı olmalıdır. Word'ün yanındaki **zaman damgası**, görmelisiniz **($ts)**.
+İlk sütun başlığına, zaman damgası özellik adı olmalıdır. Word'ün yanındaki **zaman damgası**, görmelisiniz **($ts)** .
 
 Aşağıdaki değerleri görmemeniz gerekir:
 
 - *(abc)* : Time Series Insights veri değerleri dize olarak okuyor gösterir.
 - *Takvim simgesine*: Time Series Insights veri değeri olarak okuyor gösterir *datetime*.
-- *#*: Time Series Insights bir tamsayı veri değerleri okuma gösterir.
+- *#* : Time Series Insights bir tamsayı veri değerleri okuma gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,21 +1,21 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda Query Store kullanım senaryoları
-description: Bu makalede, PostgreSQL için Azure veritabanında Query Store için bazı senaryolar açıklanmaktadır.
+title: PostgreSQL - tek bir sunucu için Azure veritabanı'nda Query Store kullanım senaryoları
+description: Bu makalede, PostgreSQL - tek bir sunucu için bazı senaryolar için Azure veritabanı'nda Query Store açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563197"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067312"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Query Store kullanım senaryoları
 
-**Şunlara uygulanır:** 9.6 ve 10 PostgreSQL için Azure veritabanı
+**Şunlara uygulanır:** -Tek bir sunucu 9.6 ve 10 olan PostgreSQL için Azure veritabanı
 
 Query Store çeşitli izleme ve bakımı öngörülebilir iş yükü performansının kritik olduğu senaryolarda kullanabilirsiniz. Aşağıdaki örnekleri dikkate alın: 
 - Tanımlama ve pahalı en sık kullanılan sorgular ayarlama 

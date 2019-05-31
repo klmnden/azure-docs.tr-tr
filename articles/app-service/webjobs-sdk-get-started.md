@@ -13,18 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864849"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418232"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
-Bu makale bir Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve ardından dağıtmak için Visual Studio 2019 kullanmayı [Azure App Service](overview.md). Oluşturduğunuz proje sürümünü kullanan bir .NET Core konsol uygulaması olan Web işleri SDK'sının 3.x. Sürümünde ilgileniyorsanız .NET Framework kullanan, 2.x bkz [geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
+Bu makale bir Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve ardından dağıtmak için Visual Studio 2019 kullanmayı [Azure App Service](overview.md). Sürüm 3.x Web işleri SDK'sının hem .NET Core ve .NET Framework konsol uygulamaları destekler. WebJobs SDK ile çalışma hakkında daha fazla bilgi edinmek için [olay odaklı arka plan işlemleri için Azure Web işleri SDK'sını kullanmayı](webjobs-sdk-how-to.md).
 
-WebJobs SDK ile çalışma hakkında daha fazla bilgi edinmek için [olay odaklı arka plan işlemleri için Azure Web işleri SDK'sını kullanmayı](webjobs-sdk-how-to.md).
+Bu makalede bir .NET Core konsol uygulaması olarak Web işleri dağıtma gösterilmektedir. WebJobs bir .NET Framework konsol uygulaması olarak dağıtmak için bkz. [WebJobs olarak .NET Framework konsol uygulamaları](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). WebJobs SDK sürümünde ilgileniyorsanız yalnızca .NET Framework destekleyen 2.x bkz [geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -32,11 +32,11 @@ WebJobs SDK ile çalışma hakkında daha fazla bilgi edinmek için [olay odakl�
 
 * Olmalıdır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Azure WebJobs SDK projenizi yayımlamak için.
 
-## <a name="create-a-project"></a>Proje oluştur
+## <a name="create-a-project"></a>Proje oluşturma
 
 1. Visual Studio'da **yeni bir proje oluşturma**.
 
-2. Seçin **konsol uygulaması (.NET Core)**.
+2. Seçin **konsol uygulaması (.NET Core)** .
 
 3. Projeyi adlandırın *WebJobsSDKSample*ve ardından **Oluştur**.
 
@@ -171,7 +171,7 @@ Sürümünden başlayarak 3.x, Web işleri SDK'sı tarafından gerekli depolama 
                     });
     ```
 
-## <a name="create-a-function"></a>İşlev oluştur
+## <a name="create-a-function"></a>İşlev oluşturma
 
 1. Projeye sağ tıklayın, **Ekle** > **yeni öğe...** , seçin **sınıfı**, yeni ad C# sınıf dosyası *Functions.cs*seçip **Ekle**.
 
@@ -203,7 +203,7 @@ Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm 
 
 1. Açık **Sunucu Gezgini** Visual studio ve azure'da oturum açın. Sağ **Azure** düğümüne tıklayın ve ardından **Microsoft Azure aboneliğine bağlanma**.
 
-   ![Oturum açın: Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Azure'da oturum açma](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. Altında **Azure** düğümünde **Sunucu Gezgini**, sağ **depolama**ve ardından **oluşturma depolama hesabı**.
 
@@ -217,7 +217,7 @@ Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm 
 
    ![Depolama hesabı oluşturma](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Altında **depolama** düğümünde **Sunucu Gezgini**, yeni depolama hesabını seçin. İçinde **özellikleri** penceresinde öğesinin üç noktasını (**...** ) sağ tarafında **bağlantı dizesi** değeri alanı.
+1. Altında **depolama** düğümünde **Sunucu Gezgini**, yeni depolama hesabını seçin. İçinde **özellikleri** penceresinde öğesinin üç noktasını ( **...** ) sağ tarafında **bağlantı dizesi** değeri alanı.
 
    ![Bağlantı dizesi üç nokta](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
@@ -275,17 +275,17 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
 1. Girin *kuyruk* seçin ve kuyruk adı olarak **Tamam**.
 
-   ![Kuyruk oluştur](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Kuyruk oluşturma](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Yeni Kuyruk düğümünü sağ tıklatın ve ardından **sırayı görüntüle**.
 
 1. Seçin **ekleme ileti** simgesi.
 
-   ![Kuyruk oluştur](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Kuyruk oluşturma](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. İçinde **ekleme ileti** iletişim kutusunda girin *Merhaba Dünya!* olarak **ileti metni**ve ardından **Tamam**. Artık bir ileti sırasında yok.
 
-   ![Kuyruk oluştur](./media/webjobs-sdk-get-started/hello-world-text.png)
+   ![Kuyruk oluşturma](./media/webjobs-sdk-get-started/hello-world-text.png)
 
 1. Projeyi tekrar çalıştırın.
 
@@ -338,7 +338,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
 1. İçinde **bağlantı dizeleri** kutusunda, şu girişi ekleyin.
 
-   |Ad  |bağlantı dizesi  |Veritabanı Türü|
+   |Ad  |bağlantı dizesi  |Veritabanı türü|
    |---------|---------|------|
    |AzureWebJobsStorage | {daha önce kopyaladığınız depolama bağlantı dizesi}|Özel|
 

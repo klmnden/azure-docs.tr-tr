@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780308"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418140"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Önizleme - sınırı çıkış trafiği için küme düğümlerini ve erişimi denetlemek için gerekli bağlantı noktaları ve hizmetler Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ Varsayılan olarak, AKS kümeleri sınırsız (çıkış) giden internet erişim
 Bu makalede, hangi ağ bağlantı noktaları ve tam etki alanı adlarını (FQDN) gerekli ve isteğe bağlı bir AKS kümesindeki çıkış trafiği kısıtlamak isterseniz ayrıntıları.  Bu özellik şu anda önizleme sürümündedir.
 
 > [!IMPORTANT]
-> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+> AKS Önizleme özellikleri, Self Servis, kabul etme. Görüş ve hata topluluğumuza toplamak için sağlanır. Önizleme'de, bu özelliklerin üretim kullanılmak üzere geliştirilmiş değildir. Genel Önizleme Özellikleri 'en yüksek çaba' destek kapsamında ayrılır. İş saatleri Pasifik Saat dilimi sırasında (Pasifik Saati) yalnızca AKS teknik destek ekipleri Yardım kullanılabilir. Ek bilgi için lütfen aşağıdaki destek makaleleri bakın:
 >
-> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+> * [AKS destek ilkeleri][aks-support-policies]
+> * [Azure desteği SSS][aks-faq]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -68,7 +69,7 @@ AKS, iki bağlantı noktaları ve adresleri kümesi vardır:
 Şu giden bağlantı noktalarını / ağ kuralları bir AKS kümesi için gereklidir:
 
 * TCP bağlantı noktası *443*
-* TCP bağlantı noktası *9000*
+* TCP bağlantı noktası *9000* ve TCP bağlantı noktası *22* tünel ön pod tünel son API sunucusu ile iletişim kurmak için.
 
 Aşağıdaki FQDN / uygulama kuralları gereklidir:
 
@@ -105,9 +106,6 @@ Aşağıdaki FQDN / uygulama kuralları düzgün çalışması AKS kümeleri iç
 
 Bu makalede, hangi bağlantı noktaları ve küme için çıkış trafiği kısıtlamak, izin vermek için adresleri öğrendiniz. Pod'ların kendileri nasıl iletişim kurabilir ve hangi kısıtlamaları da tanımlayabilirsiniz küme içinde sahip oldukları. Daha fazla bilgi için [güvenli ağ ilkeleri kullanarak AKS pod'ları arasındaki trafiği][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ Bu makalede, hangi bağlantı noktaları ve küme için çıkış trafiği kıs�
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

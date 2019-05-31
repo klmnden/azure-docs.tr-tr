@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbb67845922dd9a3b2a78f76bf25d73bace98a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556549"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240130"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Kiracı başına veritabanı desen ile SQL veritabanı kullanan çok kiracılı bir SaaS uygulama keşfedin ve dağıtın
 
@@ -75,7 +75,7 @@ Artık adlarınızı seçin ve not edin.
 
 1. Dağıtım durumunu izlemek üzere seçmek **bildirimleri** (arama kutusunun sağındaki zil simgesi). Wingtip bilet SaaS uygulamasının dağıtılması yaklaşık beş dakika sürer.
 
-   ![Dağıtım başarılı oldu](media/saas-dbpertenant-get-started-deploy/succeeded.png)
+   ![Dağıtım başarılı](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>İndirin ve Wingtip bilet yönetim komut dosyaları engelini kaldırma
 
@@ -129,7 +129,7 @@ Wingtip uygulama kullanıyorsa [*Azure Traffic Manager* ](../traffic-manager/tr
 
     | URL parçası        | Açıklama       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Wingtip uygulamasının olayları bölümleri.<br /><br /> *-dpt* ayıran *Kiracı başına veritabanı* diğer uygulamalardan gelen Wingtip bilet uygulaması. Örnekler *tek* Kiracı başına uygulamayı (*-sa*) veya *çok kiracılı veritabanı* (*- mt*) uygulamaları. |
+    | http://events.wingtip-dpt | Wingtip uygulamasının olayları bölümleri.<br /><br /> *-dpt* ayıran *Kiracı başına veritabanı* diğer uygulamalardan gelen Wingtip bilet uygulaması. Örnekler *tek* Kiracı başına uygulamayı ( *-sa*) veya *çok kiracılı veritabanı* ( *- mt*) uygulamaları. |
     | .  *&lt;kullanıcı&gt;* | *af1* örnekte. |
     | .trafficmanager.net/ | Traffic Manager, temel URL. |
     | fabrikamjazzclub | Fabrikam Caz kulübü adlı bir kiracıyı tanımlar. |
@@ -182,7 +182,7 @@ Arka plan işleri izlemek ve denetlemek istiyorsanız, aşağıdaki cmdlet'leri 
     - Varsayılan olarak, arka plan işleri için 120 dakikada bir çalıştır.
     - Her iş CPU tabanlı bir yük tek bir kiracı veritabanında yürüterek neden *sp_CpuLoadGenerator*. Yük süresi ve yoğunluk değişir bağlı olarak `$DemoScenario`.
     - *sp_CpuLoadGenerator* döngüler etrafında yüksek bir CPU yüküne neden olan bir SQL SELECT deyimi. SELECT sorunları arasındaki zaman aralığını denetlenebilir bir CPU yükü oluşturmak için parametre değerlerini göre değişir. Daha gerçekçi yükleri benzetimi yapmak için yük düzeyleri ve aralıkları rastgele.
-    - Bu .sql dosyası altında depolanır *WingtipTenantDB\\dbo\\depolanmış yordamları\\*.
+    - Bu .sql dosyası altında depolanır *WingtipTenantDB\\dbo\\depolanmış yordamları\\* .
 
 4. Varsa `$OneTime = $false`, yük Oluşturucu, arka plan işleri başlatır ve sonra çalışmaya devam eder. 10 saniyede bir, sağlanan tüm yeni kiracılara izler. Ayarlarsanız `$OneTime = $true`, LoadGenerator arka plan işleri başlar ve durur ön planda çalışmıyor. Bu öğreticide, bırakın `$OneTime = $false`.
 
@@ -221,14 +221,14 @@ Yeni Kiracı listede görünür hale getirmek için olay hub'ı yenileyin.
 
 Bir yük koleksiyonuna yönelik karşı çalışan başladıktan sonra dağıtılan kaynaklardan bazıları göz atalım.
 
-1. İçinde [Azure portalında](https://portal.azure.com), SQL sunucuları listesine göz atın. Açılacağını **Kataloğu-dpt -&lt;kullanıcı&gt;** sunucusu.
+1. İçinde [Azure portalında](https://portal.azure.com), SQL sunucuları listesine göz atın. Açılacağını **Kataloğu-dpt -&lt;kullanıcı&gt;**  sunucusu.
     - Katalog sunucusu iki veritabanı içeren **tenantcatalog** ve **basetenantdb** (yeni kiracılar oluşturmak için kopyalanan bir şablon veritabanı).
 
    ![Veritabanları](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. SQL sunucuları listesine geri dönün.
 
-3. Açık **tenants1-dpt -&lt;kullanıcı&gt;** Kiracı veritabanlarını barındıran sunucu.
+3. Açık **tenants1-dpt -&lt;kullanıcı&gt;**  Kiracı veritabanlarını barındıran sunucu.
 
 4. Aşağıdaki öğeler bakın:
 
@@ -254,7 +254,7 @@ Sunucuya Gözat **tenants1-dpt -&lt;kullanıcı&gt;** seçip **Pool1** havuz i
 
 - Daha fazla bilgi için bkz. ek [Wingtip bilet SaaS Kiracı başına veritabanı uygulamayı geliştirecek öğreticilerden](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Elastik havuzlar hakkında bilgi edinmek için [bir Azure SQL elastik havuzu nedir?](sql-database-elastic-pool.md).
-- Esnek işler hakkında bilgi edinmek için [ölçeği genişletilen bulut veritabanlarını yönetme](sql-database-elastic-jobs-overview.md).
+- Esnek işler hakkında bilgi edinmek için [ölçeği genişletilen bulut veritabanlarını yönetme](elastic-jobs-overview.md).
 - Çok kiracılı SaaS uygulamaları hakkında bilgi edinmek için bkz: [çok kiracılı SaaS uygulamaları için Tasarım Düzenleri](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar

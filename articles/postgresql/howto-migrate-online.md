@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL için Azure veritabanı en az-kapalı kalma süresiyle geçiş
-description: Bu makalede, bir kapalı kalma süresi en az bir PostgreSQL veritabanı için Azure veritabanı PostgreSQL için Azure veritabanı geçiş hizmeti kullanarak geçirmek açıklar.
+title: Çok az kesinti PostgreSQL - tek bir sunucu için Azure veritabanı geçişi
+description: Bu makalede, PostgreSQL - Azure veritabanı geçiş Hizmeti'ni kullanarak tek sunucu için Azure veritabanı bir PostgreSQL veritabanına bir kapalı kalma süresi en az geçişi gerçekleştirmek açıklar.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 93cd390889c023adf1c30a8470e1c2298598439e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421260"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067522"
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı en az-kapalı kalma süresiyle geçiş
+# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Çok az kesinti PostgreSQL - tek bir sunucu için Azure veritabanı geçişi
 Yeni çıkan kullanarak en az kapalı kalma süresi ile PostgreSQL için PostgreSQL geçişleri için Azure veritabanı gerçekleştirebilirsiniz **sürekli eşitleme özelliği** için [Azure veritabanı geçiş hizmeti](https://aka.ms/get-dms) (DMS) . Bu işlev, uygulama tarafından tahakkuk ettirilen kapalı kalma süresi miktarını sınırlar.
 
 ## <a name="overview"></a>Genel Bakış

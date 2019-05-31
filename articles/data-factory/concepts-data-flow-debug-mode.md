@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a50778db5fd57202c17f05407045259371912586
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61271014"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239185"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Eşleme veri akışı hata ayıklama modu
 
@@ -27,6 +27,9 @@ Hata ayıklama modu etkin olduğunda, etkileşimli veri akışınızı etkin bir
 
 Çoğu durumda, böylece iş mantığınızı doğrulamak ve Azure Data Factory'de iş yayımlamadan önce veri Bağlantılarınızdaki görüntülemek, veri akışları hata ayıklama modunda oluşturmak için bir alışkanlıktır. Bir işlem hattı içinde veri akışınızı test etmek için'ardışık düzen paneline "Debug" düğmesi de kullanmalısınız.
 
+> [!NOTE]
+> Hata ayıklama modu açık Data Factory araç çubuğundaki yeşil olsa da, veri akışı hata ayıklama fiyatı 8 çekirdek/SA genel işlem ile 60 dakika yaşam süresi ücretlendirilirsiniz 
+
 ## <a name="debug-mode-on"></a>Hata ayıklama modu
 Hata ayıklama modu arasında geçiş yaptığınızda, etkileşimli Azure Databricks kümesine gelin ve seçeneklerini kaynak örnekleme için istek bir yan bölme form istenir. Azure Databricks etkileşimli bir kümeden kullanın ve her birinden bir örnekleme boyutu, kaynak dönüşümler seçin veya bir metin dosyası kullanmak için test verilerini çekme gerekir.
 
@@ -36,12 +39,12 @@ Hata ayıklama modu arasında geçiş yaptığınızda, etkileşimli Azure Datab
 >Veri akışı, hata ayıklama modunda çalışırken, verileriniz için havuz yazılmayacak dönüştürün. Bir test olarak görev yapacak bir hata ayıklama oturumu kullanılmaya > Bağlantılarınızdaki bandınız. Havuzlar, hata ayıklama sırasında gerekli değildir ve veri akışınızı yoksayılır. Verileri yazma test etmek isterseniz, >, havuz, bir Azure Data Factory işlem hattından yürütme veri akışı ve hata ayıklama yürütmeyi bir işlem hattı kullanın.
 
 ## <a name="debug-settings"></a>Hata ayıklama ayarları
-Hata ayıklama ayarları her kaynaktan veri akışı yan bölmede görünür ve "kaynağı ayarlarından veri akışı Tasarımcısı araç çubuğundan"'i seçerek de düzenlenebilir olabilir. Sınırları ve/veya kaynak dönüşümünüzü burada her biri için kullanılacak dosya kaynağı seçebilirsiniz. Yalnızca geçerli hata ayıklama oturumu için bu ayarı satır limitlerdir. Örnekleme ayarı kaynak satır kaynak transforamtion sınırlamak için de kullanabilirsiniz.
+Hata ayıklama ayarları her kaynaktan veri akışı yan bölmede görünür ve "kaynağı ayarlarından veri akışı Tasarımcısı araç çubuğundan"'i seçerek de düzenlenebilir olabilir. Sınırları ve/veya kaynak dönüşümünüzü burada her biri için kullanılacak dosya kaynağı seçebilirsiniz. Yalnızca geçerli hata ayıklama oturumu için bu ayarı satır limitlerdir. Örnekleme ayarı kaynak kaynak dönüşümünü satırları sınırlamak için de kullanabilirsiniz.
 
 ## <a name="cluster-status"></a>Küme durumu
 Küme hata ayıklama için hazır olduğunda, yeşile döner tasarım yüzeyinde üst küme durum göstergesi yoktur. Kümeniz zaten sıcak ise, yeşil göstergesi neredeyse anında görüntülenir. Hata ayıklama moduna girildiğinde kümeniz zaten çalışmıyorsa, kümenin dönmesi 5-7 dakika beklemeniz gerekecektir. Hazır olana kadar gösterge ışığını sarı olur. Kümenizi veri akışı hata ayıklama için hazır hale geldikten sonra gösterge ışığını yeşile döner.
 
-Hata ayıklama zaman Kapat ve böylece, Azure Databricks kümeyi sonlandırabilirsiniz ile hata ayıklama, çalışmaya başlayabilirsiniz tamamlandı olduğunuzda.
+Uygulamanızı hata ayıklama ile işiniz bittiğinde, hata ayıklama anahtarı, Azure Databricks kümeyi sonlandırabilirsiniz ve hata ayıklama etkinliği için artık faturalandırılırsınız kapatın.
 
 <img src="media/data-flow/datapreview.png" width="400">
 

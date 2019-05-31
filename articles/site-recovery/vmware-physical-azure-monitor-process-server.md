@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969331"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418290"
 ---
 # <a name="monitor-the-process-server"></a>İşlem sunucusu İzleyicisi
 
@@ -24,7 +24,7 @@ Bu makalede izleme [Site Recovery](site-recovery-overview.md) işlem sunucusu.
 
 [Daha fazla bilgi edinin](vmware-physical-azure-config-process-server-overview.md) rolü ve işlem sunucusu dağıtımı hakkında.
 
-## <a name="monitoring-overview"></a>İzleme görünümü
+## <a name="monitoring-overview"></a>İzlemeye genel bakış
 
 İşlem sunucusu çoğaltılan verilerin önbelleğe alma, sıkıştırma ve aktarım azure'a, özellikle de çok sayıda rolleri olduğundan işlem sunucusu durumu düzenli olarak izlemek önemlidir.
 
@@ -53,7 +53,7 @@ Bu sorunların tümü, Vm'leri kurtarma noktası hedefi (RPO) etkileyebilir.
 
 **Uyarı türü** | **Ayrıntılar**
 --- | ---
-![İyi Durumda][green] | İşlem sunucusu bağlı ve iyi durumda.
+![Sorunsuz][green] | İşlem sunucusu bağlı ve iyi durumda.
 ![Uyarı][yellow] | Son 15 dakika boyunca % CPU kullanımı > 80
 ![Uyarı][yellow] | Son 15 dakika boyunca % bellek kullanımı > 80
 ![Uyarı][yellow] | Önbellek klasörü boş alan < % 30 son 15 dakika

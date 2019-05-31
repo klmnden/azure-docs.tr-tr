@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348340"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235149"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
 Bu makalede, şirket içi Active Directory örneğinden bulut tabanlı bir Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -64,7 +64,7 @@ Aşağıdaki bölümde açıklanmaktadır, ayrıntılı, Active Directory ve Azu
 >Özgün MD4 karma Azure AD'ye aktarılan değil. Bunun yerine, özgün MD4 karma SHA256 karma iletilir. Sonuç olarak, Azure AD'de depolanan karma aldıysanız, bir şirket içi pass--hash saldırısında kullanılamaz.
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola karma eşitleme nasıl çalışır
-Şirket içi parolalarınızı eşitlemek için parola karması eşitleme özelliğini de kullanabilirsiniz [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Bu senaryoda, şirket içi Active Directory Örneğinizde kullanılabilir tüm yöntemleri ile kullanıcılarınızın buluttaki Azure Active Directory Domain Services örneğini doğrular. Bu senaryonun deneyimi, bir şirket içi ortamda Active Directory Geçiş Aracı (ADMT) kullanmaya benzer.
+Şirket içi parolalarınızı eşitlemek için parola karması eşitleme özelliğini de kullanabilirsiniz [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Bu senaryoda, şirket içi Active Directory Örneğinizde kullanılabilir tüm yöntemleri ile kullanıcılarınızın buluttaki Azure Active Directory Domain Services örneğini doğrular. Bu senaryonun deneyimi, bir şirket içi ortamda Active Directory Geçiş Aracı (ADMT) kullanmaya benzer.
 
 ### <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
 Parola eşitleme yaparken parolanızı düz metin sürümünü Azure AD'ye parola karması eşitleme özelliğini veya tüm ilişkili hizmetlerin gösterilmez.

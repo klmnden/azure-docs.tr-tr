@@ -3,7 +3,7 @@ title: 'Azure Active Directory etki alanı Hizmetleri: Parola karma eşitlemesin
 description: Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
-ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417494"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234884"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola karma eşitlemesini etkinleştirme
 Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulaması için gereken parola karmalarının Azure AD Domain Services ile eşitlemesini etkinleştirmektir. Parola karma eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.
@@ -82,6 +82,6 @@ Parolanızı değiştirdikten birkaç dakika sonra, yeni parola Azure Active Dir
 * [Kendi parolanızı güncelleştirme](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Azure AD’de Parola Yönetimi kullanmaya başlama](../active-directory/authentication/quickstart-sspr.md)
 * [Eşitlenmiş Azure AD kiracısı için Azure Active Directory Domain Services ile parola karma eşitlemesini etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Azure Active Directory Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+* [Bir Azure AD Domain Services etki alanını yönetin](manage-domain.md)
 * [Windows sanal makinesini Azure Active Directory Domain Services tarafından yönetilen bir etki alanına ekleme](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Red Hat Enterprise Linux sanal makinesini Azure Active Directory Domain Services tarafından yönetilen bir etki alanına ekleme](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

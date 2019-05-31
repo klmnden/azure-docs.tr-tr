@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002424"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225517"
 ---
-# <a name="dynamic-manifests"></a>Dinamik bildirimler
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Dinamik Paketleyici bildirimleri önceden filtreleme
 
-Medya Hizmetleri sunan **dinamik bildirimlerini** önceden tanımlanmış filtrelere göre. Filtreler tanımladıktan sonra (bkz [filtreleri tanımlar](filters-concept.md)), istemcilerinize bunları belirli bir işleme veya alt klip videonuzun akışını sağlamak için kullanabilirsiniz. Bunlar, akış URL'SİNDE filtreleri belirtmeniz gerekir. Filtreler hızı Uyarlamalı akış için uygulanabilir: Apple HTTP canlı akış (HLS), MPEG-DASH ve kesintisiz akış. 
+Bit hızı Uyarlamalı akış cihazlara içerik sunarken genellikle hedef belirli cihaz işlevleri veya kullanılabilir ağ bant genişliği için bir bildirim birden fazla sürümünü yayımlama gerekir. [Dinamik Paketleyici](dynamic-packaging-overview.md) belirli codec filtreleyebilirsiniz filtreleri belirtmenize olanak tanır, çözünürlük ve bit hızlarına dönüştürme ses birleşimleri üzerinde birden fazla kopya oluşturmak için gereken kaldırma halindeyken izleme. Belirli bir hedef cihazlarınızı (iOS, Android, rekabeti veya tarayıcılar) ve ağ özellikleri (yüksek bant genişlikli, mobil veya düşük bant genişliğine sahip senaryolar) için yapılandırılmış filtre kümesi ile yeni bir URL Yayımlama yeterlidir. Bu durumda, istemcilerin içeriğinizi sorgu dizesi aracılığıyla akış işleyebilir (kullanılabilir belirterek [varlık filtreler veya hesap filtreleri](filters-concept.md)) ve akış belirli bölümlerini bir akış için filtreleri kullanın.
 
-Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
+Bazı dağıtım senaryoları, bir müşteri belirli parçaları erişemiyor olduğundan emin olun gerektirir. Örneğin, belirli abone katmanına HD parçalar içeren bir bildirim yayımlama istemeyebilirsiniz. Veya ek yolundan yararlı değildir belirli cihazlara teslim maliyetini azaltmak için belirli bit hızı Uyarlamalı (ABR) parçaları kaldırmak isteyebilirsiniz. Bu durumda, önceden oluşturulmuş filtrelerle listesini ilişkilendirebiliyordunuz, [akış Bulucu](streaming-locators-concept.md) oluşturma. Bu durumda, istemcilerin içeriği nasıl sağlanacağına işlemek olamaz, tarafından tanımlanan **akış Bulucu**.
 
-|Protocol|Örnek|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Kesintisiz Akış|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+Belirtme aracılığıyla filtreleme birleştirebilirsiniz [akış Bulucu filtreleriyle](filters-concept.md#associating-filters-with-streaming-locator) + istemcinizin URL'SİNDE belirten ek cihaz belirli filtreler. Bu meta veriler ya da olay akışları, ses diller veya açıklayıcı ses parçaları gibi ek parçaları kısıtlamak yararlı olabilir. 
+
+Akışınızı üzerinde farklı bir filtre belirtmek için bu özelliği sağlayan güçlü **dinamik bildirim** birden fazla kullanım örneği senaryoları için hedef cihazları hedeflemek için işleme çözümü. Bu konu ile ilgili kavramları açıklar **dinamik bildirimlerini** istediğiniz bu özelliği kullanmak senaryo örnekleri sağlar.
+
 > [!NOTE]
-> Olan dinamik bildirimler, varlık ve bu varlık için varsayılan bildirimi değiştirmeyin. İstemci, bir akış ile veya olmadan filtreleri istemek seçebilirsiniz. 
+> Olan dinamik bildirimler, varlık ve bu varlık için varsayılan bildirimi değiştirmeyin. 
 > 
-
-Bu konu ile ilgili kavramları açıklar **dinamik bildirimlerini** istediğiniz bu özelliği kullanmak senaryo örnekleri sağlar.
 
 ## <a name="manifests-overview"></a>Bildirimlere genel bakış
 
@@ -55,6 +51,16 @@ REST örnek için bkz: [karşıya yükleme, kodlama ve akışını REST dosyalar
 Kullanabileceğiniz [Azure Media Player tanıtımını sayfası](https://aka.ms/amp) video akışının hızı izlemek için. Tanılama bilgilerini tanıtım sayfasını görüntüler **tanılama** sekmesinde:
 
 ![Azure Media Player tanılama][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>Örnekler: Sorgu dizesi'nde filtrelerle URL'leri
+
+Filtreler hızı Uyarlamalı akış için uygulanabilir: HLS, MPEG-DASH ve kesintisiz akış. Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
+
+|Protocol|Örnek|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Kesintisiz Akış|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>İşleme filtreleme
 
@@ -121,10 +127,6 @@ Filtreleri birleştirerek için bildirimi/çalma listesine filtre adına ayarlam
 En fazla üç filtreleri de birleştirebilirsiniz. 
 
 Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogu.
-
-## <a name="associate-filters-with-streaming-locator"></a>Filtreler akış Bulucu ile ilişkilendirme
-
-Bkz: [filtreleri: akış bulucuları ile ilişkilendirme](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Önemli noktalar ve sınırlamalar
 

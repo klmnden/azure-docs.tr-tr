@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249798"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235177"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory mimarisini nedir?
 Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-whatis.md)
@@ -30,7 +30,7 @@ Azure AD'nin coğrafi olarak dağıtılmış mimarisi, kapsamlı izleme, otomati
 
 Bu makalede aşağıdaki mimari öğeler ele alınmaktadır:
  *  Hizmet mimarisi tasarımı
- *  Kullanılabilirlik 
+ *  Ölçeklenebilirlik
  *  Sürekli kullanılabilirlik
  *  Veri merkezleri
 
@@ -49,7 +49,7 @@ Azure AD mimarisinin bileşenleri, birincil çoğaltma ve ikincil çoğaltma ö�
 
 **İkincil çoğaltmalar**
 
-Tüm dizin *okumaları*, fiziksel olarak farklı coğrafi bölgelerde bulunan veri merkezlerindeki *ikincil çoğaltmalardan* sunulur. Veriler zaman uyumsuz olarak kopyalandığı için çok sayıda ikincil çoğaltma vardır. Kimlik doğrulama istekleri gibi dizin okumaları, müşterilere yakın olan veri merkezlerinizden sunulur. İkincil çoğaltmalar, okuma ölçeklenebilirliğinden sorumludur.
+Tüm dizin *okur* gelen hizmet *ikincil çoğaltmaları*, fiziksel olarak farklı coğrafi bölgelerde bulunan veri merkezlerinde en olduğu. Veriler zaman uyumsuz olarak kopyalandığı için çok sayıda ikincil çoğaltma vardır. Kimlik doğrulama istekleri gibi dizin okumaları, müşterilere yakın olan veri merkezlerinden sunulur. İkincil çoğaltmalar, okuma ölçeklenebilirliğinden sorumludur.
 
 ### <a name="scalability"></a>Ölçeklenebilirlik
 
@@ -61,7 +61,7 @@ Dizin uygulamaları en yakın veri merkezlerine bağlanır. Bu bağlantı perfor
 
 ### <a name="continuous-availability"></a>Sürekli kullanılabilirlik
 
-Kullanılabilirlik (veya çalışma süresi) bir sistemin kesintisiz çalışma yeteneğini tanımlar. Azure AD'nin yüksek kullanılabilirlik için birden çok coğrafi olarak dağıtılmış veri merkezleri arasında trafiği, hizmetleri hızlı bir şekilde kaydırabilirsiniz anahtardır. Her veri merkezi birbirinden bağımsızdır ve bu özelliği sayesinde bağıntısız hata modları sağlar.
+Kullanılabilirlik (veya çalışma süresi) bir sistemin kesintisiz çalışma yeteneğini tanımlar. Azure AD'nin yüksek kullanılabilirlik için birden çok coğrafi olarak dağıtılmış veri merkezleri arasında trafiği, hizmetleri hızlı bir şekilde kaydırabilirsiniz anahtardır. Her bir veri merkezi özelliği sayesinde bağıntısız hata modları sağlar, bağımsızdır. Bu yüksek kullanılabilirlik tasarımı Azure AD bakım etkinlikleri için kapalı kalma süresi gerektirir.
 
 Azure AD'nin bölüm tasarımı, Kurumsal dikkatle düzenlenmiş ve belirleyici birincil çoğaltma yük devretme işlemini içeren bir tek yöneticili tasarıma kullanarak AD tasarımına kıyasla basitleştirilmiştir.
 
@@ -73,21 +73,21 @@ Okuma işlemleri (yazma işlemlerinden onlarca kat fazladır) yalnızca ikincil 
 
 **Veri dayanıklılığı**
 
-Bir yazma işlemi onaylanmadan önce en az iki veri merkezine dayanıklı şekilde işlenir. Bunu yapmak için ilk olarak yazma işlemi birincil çoğaltmaya işlenir, ardından hemen en az bir başka veri merkezine çoğaltılır. Bu yazma eylemi, birincil barındıran veri merkezindeki bir yıkıcı kaybın veri kaybıyla sonuçlanmaz olası sağlar.
+Bir yazma alınıyor, önce en az iki veri merkezlerine getirilir. Bu, ilk olarak yazma işlemi birincil yapılıyor ve ardından hemen yazma en az bir diğer veri merkezine çoğaltma gerçekleşir. Bu yazma eylemi, birincil barındıran veri merkezinde bir yıkıcı kaybın veri kaybıyla sonuçlanmaz olası sağlar.
 
 Azure AD tutar sıfır [kurtarma süresi hedefi (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) veri kaybı yaşamayız kaybetmemek için. Buna aşağıdakiler dahildir:
 -  Belirteç verme ile dizin okumaları
 -  Yalnızca yaklaşık 5 dakika RTO dizin yazma işlemleri için izin verme
 
-### <a name="data-centers"></a>Veri merkezleri
+### <a name="datacenters"></a>Veri merkezleri
 
-Azure AD çoğaltmaları, dünyanın dört bir yanında bulunan veri merkezlerinde depolanır. Daha fazla bilgi edinmek için bkz. [Azure veri merkezleri](https://azure.microsoft.com/overview/datacenters).
+Azure AD çoğaltmaları, dünyanın dört bir yanında bulunan veri merkezlerinde depolanır. Daha fazla bilgi için [küresel Azure altyapısı](https://azure.microsoft.com/global-infrastructure/).
 
 Azure AD aşağıdaki özelliklere sahip veri merkezlerinde çalışır:
 
- * Kimlik doğrulama, graf ve diğer AD Hizmetleri, Gateway hizmetinin arkasında bulunur. Gateway bu hizmetlerin yük dengelemesini yönetir. İşlemsel durum yoklamaları kullanılarak sorunlu durumda olan sunucuların algılanması durumunda bu üzerinden otomatik olarak başarısız olur. Bu durum yoklamalarına göre Gateway, trafiği sorunsuz çalışır durumda olan veri merkezlerine dinamik olarak yönlendirir.
- * *Okumalar* için, dizin etkin-etkin bir yapılandırmada birden fazla veri merkezinde çalışan ikincil çoğaltmalara ve bunlara karşılık gelen ön uç hizmetlerine sahiptir. Tüm veri merkezinde hata oluşması durumunda, trafik otomatik olarak farklı bir veri merkezine yönlendirilir.
- *  İçin *Yazar*, dizin birincil (ana) çoğaltmayı veri merkezleri arasında başarısız olur aracılığıyla planlı (yeni birincil, eski birincil ile eşitlenir) veya Acil Durum yük devretme yordamları. Veri dayanıklılığı, herhangi bir işlemenin en az iki veri merkezine çoğaltılması yoluyla elde edilir.
+ * Kimlik doğrulama, graf ve diğer AD Hizmetleri, Gateway hizmetinin arkasında bulunur. Gateway bu hizmetlerin yük dengelemesini yönetir. İşlemsel durum yoklamaları kullanılarak sorunlu durumda olan sunucuların algılanması durumunda bu üzerinden otomatik olarak başarısız olur. Bu durum yoklamalarına göre Gateway dinamik olarak trafiği sağlıklı veri merkezlerine olarak yönlendirir.
+ * İçin *okur*, dizini ikincil çoğaltmalara ve karşılık gelen ön uç hizmetlerine birden çok veri merkezlerinde çalışan bir aktif-aktif yapılandırma vardır. Bir veri merkezinin tamamı hata durumunda, trafiği otomatik olarak farklı bir veri merkezine yönlendirilir.
+ *  İçin *Yazar*, dizin birincil (ana) çoğaltmayı veri merkezleri arasında başarısız olur aracılığıyla planlı (yeni birincil, eski birincil ile eşitlenir) veya Acil Durum yük devretme yordamları. Veri dayanıklılığı, herhangi bir işlemenin en az iki veri merkezlerine çoğaltılması yoluyla elde edilir.
 
 **Veri tutarlılığı**
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949578"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243602"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -26,9 +26,9 @@ Azure Data Lake depolama 2. nesil hem Azure rol tabanlı erişim denetimi (RBAC)
 
 RBAC, izin kümelerini etkili bir şekilde uygulamak için rol atamalarını kullanan *güvenlik sorumluları*. A *güvenlik sorumlusu* bir kullanıcı, Grup, hizmet sorumlusu veya Azure Active Directory (Azure kaynaklarına erişimi isteyen AD) tanımlanan yönetilen kimlik temsil eden bir nesnedir.
 
-Bu Azure kaynakları için en üst düzey kaynaklar genellikle, sınırlıdır (örneğin: Azure depolama hesapları için). Azure depolama ve Azure Data Lake depolama Gen2 söz konusu olduğunda sonuç olarak, bu mekanizma dosya sistemi kaynağa genişletilmiştir.
+Bu Azure kaynakları için en üst düzey kaynaklar genellikle, sınırlıdır (örneğin: Azure depolama hesapları için). Azure depolama ve Azure Data Lake depolama Gen2 söz konusu olduğunda sonuç olarak, bu mekanizma kapsayıcı (dosya sistemi) kaynağa genişletilmiştir.
 
-Depolama hesabınız kapsamında güvenlik sorumlularının rollerini atama bilgi edinmek için [kimlik doğrulama erişim Azure blobları ve Azure Active Directory'yi kullanarak sıralar](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Depolama hesabınız kapsamında güvenlik sorumlularının rollerini atama bilgi edinmek için [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Dosya ve dizin düzeyinde erişim denetim listeleri rol atamalarında etkisini
 
@@ -49,7 +49,7 @@ SAS belirteçleri belirtecinin bir parçası izin verilen izinleri içerir. SAS 
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Erişim denetim listelerini dosyalar ve dizinler
 
-Dosyalar ve dizinler için erişim düzeyine sahip bir güvenlik sorumlusu ilişkilendirebilirsiniz. Bu ilişkilendirmeleri, yakalanan bir *erişim denetim listesi (ACL)*. Her dosya ve dizin depolama hesabınızda bir erişim denetim listesi vardır.
+Dosyalar ve dizinler için erişim düzeyine sahip bir güvenlik sorumlusu ilişkilendirebilirsiniz. Bu ilişkilendirmeleri, yakalanan bir *erişim denetim listesi (ACL)* . Her dosya ve dizin depolama hesabınızda bir erişim denetim listesi vardır.
 
 Depolama hesabı düzeyinde bir güvenlik sorumlusu bir rolü atandı, güvenlik sorumlusunu belirli dosyalara ve dizinlere erişim yükseltilmiş erişim denetim listelerini kullanın.
 
@@ -77,8 +77,6 @@ Varsayılan ACL'ler, bu dizin altında oluşturulan tüm alt öğelere ilişkin 
 
 Hem erişim ACL'leri hem de varsayılan ACL'ler aynı yapıdadır.
 
-Hem erişim ACL'leri hem de varsayılan ACL'ler aynı yapıdadır.
-
 > [!NOTE]
 > Varsayılan değiştirme üst ACL erişim ACL'sini etkilemez veya varsayılan ACL'si alt öğelerinin zaten mevcut.
 
@@ -91,6 +89,9 @@ Bir dosya sistemi nesnesi üzerinde izinler **okuma**, **yazma**, ve **yürütme
 | **Okuma (R)** | Bir dosyanın içeriğini okuyabilir | Gerektirir **okuma** ve **yürütme** dizinin içeriğini listelemek için |
 | **Yazma (W)** | Bir dosyaya yazabilir veya ekleyebilir | Gerektirir **yazma** ve **yürütme** alt öğeler bir dizin oluşturmak için |
 | **Yürütme (X)** | Data Lake depolama Gen2 bağlamında herhangi bir şey gelmez | Bir dizinin alt öğelerini geçirmek için gereklidir |
+
+> [!NOTE]
+> Yalnızca ACL'leri (hiçbir RBAC) kullanarak izinleri verdiğiniz sonra bir hizmet sorumlusu okuma veya yazma erişimi bir dosyaya vermek için hizmet sorumlusu vermek gerekecektir **yürütme** dosya sistemi ve her bir klasörü izinleri dosyayı neden klasör hiyerarşisi.
 
 #### <a name="short-forms-for-permissions"></a>İzinlerin kısaltmaları
 
@@ -281,7 +282,7 @@ ACL'ler atanan sorumlu olarak her zaman Azure AD güvenlik grupları kullanın. 
 
 - Çağıranın 'süper kullanıcı' izinlerine sahip,
 
-Veya
+Or
 
 - Üst dizine yazma + yürütme izinleri gerekir.
 - Silinecek dizin ve her bir dizininde okuma + yazma + yürütme izinleri gerektirir.

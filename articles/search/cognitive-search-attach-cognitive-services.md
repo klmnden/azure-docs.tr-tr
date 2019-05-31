@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158535"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244422"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
 Yapay ZEKA algoritmaları sürücü [bilişsel dizinleme işlem hatları](cognitive-search-concept-intro.md) Azure Search'te belge zenginleştirme için kullanılır. Bu algoritmalar dahil olmak üzere Azure Bilişsel hizmetler kaynakları dayalı [görüntü işleme](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntü analizi ve optik karakter tanıma (OCR) ve [metin analizi](https://azure.microsoft.com/services/cognitive-services/text-analytics/) varlık tanıma anahtar ifade ayıklama ve diğer zenginleştirmelerinin. Belge zenginleştirme amacıyla Azure Search tarafından kullanılan algoritmalar içine sarmalanır ve bir *beceri*, yerleştirilmiş bir *beceri kümesi*ve başvurduğu bir *dizin oluşturucu* sırasında Dizin oluşturma.
 
-Belgeler sınırlı sayıda ücretsiz zenginleştirebilirsiniz veya daha büyük ve daha sık iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleyebilirsiniz. Bu makalede, Faturalanabilir bir Bilişsel hizmetler kaynağı ile bilişsel becerilerinizi zenginleştirin sırasında belgeleri ekleme öğreneceksiniz [Azure arama dizini oluşturma](search-what-is-an-index.md).
+Belgeler sınırlı sayıda ücretsiz zenginleştirebilirsiniz. Veya Faturalanabilir bir Bilişsel hizmetler kaynağa eklediğiniz bir *beceri kümesi* daha büyük ve daha sık iş yükleri için. Bu makalede, Azure arama sırasında belgeleri zenginleştirmek için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleme öğreneceksiniz [dizin](search-what-is-an-index.md).
 
 > [!NOTE]
 > Faturalanabilir olayların Azure Search'te belge çözme aşamasının bir parçası olarak, Bilişsel hizmetler API'leri ve görüntü ayıklama çağrılarını içerir. Bilişsel hizmetler çağırmayın becerileri veya metin ayıklama belgelerden için ücret alınmaz.
@@ -30,7 +30,9 @@ Belgeler sınırlı sayıda ücretsiz zenginleştirebilirsiniz veya daha büyük
 
 ## <a name="same-region-requirement"></a>Aynı bölgede gereksinimi
 
-Azure Search ve Azure Bilişsel hizmetler aynı bölge içinde mevcut zorunlu kılarız. Aksi takdirde, çalışma zamanında bu iletiyi alırsınız: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` Bir hizmet bölgeler arasında taşımak için hiçbir yolu yoktur. Bu hata alırsanız, aynı bölgede yeni bir hizmet oluşturma ve dizinlerinizi uygun şekilde yeniden yayımlamanız gerekir.
+Azure Search ve Azure Bilişsel hizmetler aynı bölge içinde mevcut zorunlu kılarız. Aksi takdirde, çalışma zamanında bu iletiyi alırsınız: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+
+Bir hizmet bölgeler arasında taşımak için hiçbir yolu yoktur. Bu hatayı alırsanız Azure Search ile aynı bölgede yeni bir Bilişsel hizmetler kaynağı oluşturmanız gerekir.
 
 ## <a name="use-free-resources"></a>Ücretsiz kaynakları kullan
 

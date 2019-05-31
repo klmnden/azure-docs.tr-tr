@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad8ddf7e9e324bbcc48f15c95870a24fe7476828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209724"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237751"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>SMB üzerinden Azure Active Directory kimlik doğrulaması için Azure dosyaları (Önizleme) genel bakış
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,7 +26,7 @@ Azure AD kimlik doğrulaması için SMB üzerinden Azure dosyaları için ilgili
     Azure Active Directory (Azure AD), Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure AD temel Dizin Hizmetleri, uygulama erişim yönetimi ve kimlik korumasını tek bir çözüm birleştirir. Daha fazla bilgi için [Azure Active Directory nedir?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure AD etki alanı Hizmetleri**  
-    Azure AD etki alanı Hizmetleri etki alanına katılım, Grup İlkesi, LDAP ve Kerberos/NTLM gibi yönetilen etki alanı hizmetleri sağlayan kimlik doğrulaması. Bu hizmetler, Windows Server Active Directory ile tamamen uyumludur. Daha fazla bilgi için [Azure Active Directory (AD) etki alanı Hizmetleri](../../active-directory-domain-services/active-directory-ds-overview.md).
+    Azure AD etki alanı Hizmetleri etki alanına katılım, Grup İlkesi, LDAP ve Kerberos/NTLM gibi yönetilen etki alanı hizmetleri sağlayan kimlik doğrulaması. Bu hizmetler, Windows Server Active Directory ile tamamen uyumludur. Daha fazla bilgi için [Azure Active Directory (AD) etki alanı Hizmetleri](../../active-directory-domain-services/overview.md).
 
 -   **Azure rol tabanlı erişim denetimi (RBAC)**  
     Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, kullanıcıların işlerini yapmak için gereken en az izinleri vererek kaynaklarına erişimi yönetebilir. RBAC hakkında daha fazla bilgi için bkz. [Azure rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md)
@@ -60,7 +60,7 @@ Bir sanal makine üzerinde çalışan bir uygulama ile ilişkilendirilmiş bir k
 ### <a name="enable-azure-ad-authentication-over-smb"></a>SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirme
 24 Eylül 2018'den sonra oluşturulan yeni ve var olan depolama hesaplarında Azure dosyaları için SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirebilirsiniz. 
 
-SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmeden önce Azure AD etki alanı Hizmetleri için birincil dağıtıldığını doğrulayın, depolama hesabınız olduğu ilişkili Azure AD kiracısı. Azure AD Domain Services ' henüz ayarlamadıysanız, sağlanan adım adım kılavuzu izleyin [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmeden önce Azure AD etki alanı Hizmetleri için birincil dağıtıldığını doğrulayın, depolama hesabınız olduğu ilişkili Azure AD kiracısı. Azure AD Domain Services ' henüz ayarlamadıysanız, sağlanan adım adım kılavuzu izleyin [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/create-instance.md).
 
 Azure AD etki alanı Hizmetleri dağıtım genellikle 10-15 dakika sürer. Azure AD Domain Services dağıtılan sonra Azure dosyaları için SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirebilirsiniz. Daha fazla bilgi için [(Önizleme) Azure dosyaları için SMB üzerinden Azure Active Directory etkinleştirme kimlik](storage-files-active-directory-enable.md). 
 

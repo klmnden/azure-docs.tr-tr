@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795941"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239426"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Azure'da SAP HANA (büyük örnekler) mimarisi
 
@@ -34,7 +34,7 @@ Sanallaştırılmamış, çıplak metal, SAP HANA veritabanı için yüksek perf
 
 Mimarisini üç bölümlere ayrılmıştır:
 
-- **doğru**: Son kullanıcıların erişebilmesi için verileri farklı uygulamalarını çalıştıran bir şirket içi altyapı merkezleri gösterildiği gibi SAP uygulamaları LOB. İdeal olarak, bu altyapı ile azure'a bağlı sonra şirket [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **doğru**: Son kullanıcıların erişebilmesi için verileri farklı uygulamalarını çalıştıran bir şirket içi altyapı merkezleri gösterildiği gibi SAP uygulamaları LOB. İdeal olarak, bu altyapı ile azure'a bağlı şirket [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Merkezi**: Azure Iaas gösterir ve bu durumda, SAP ve SAP HANA DBMS sistemi olarak kullanan diğer uygulamaları barındırmak için sanal makinelerin kullanın. VM'ler bellekle işlevi daha küçük HANA örnekleri kendi uygulama katmanı ile birlikte Vm'lere dağıtılır. Sanal makineler hakkında daha fazla bilgi için bkz. [sanal makineler](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -45,11 +45,11 @@ Mimarisini üç bölümlere ayrılmıştır:
   -  [Windows sanal makinelerinde SAP kullanma](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Azure sanal makinelerinde SAP çözümlerini kullanma](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Sol**: SAP HANA TDI sertifikalı donanım Azure büyük örneği damgasında gösterir. HANA büyük örneği birimleri aboneliğinizin sanal ağlara bağlantı şirket içinden azure'a aynı teknolojiyi kullanarak bağlanır.
+- **Sol**: SAP HANA TDI sertifikalı donanım Azure büyük örneği damgasında gösterir. HANA büyük örneği birimleri, Azure aboneliğinizin sanal ağlara bağlantı şirket içinden azure'a aynı teknolojiyi kullanarak bağlanır. Mayıs 2019'den itibaren HANA büyük örneği birimleri ile ExpressRoute ağ geçidini katılımı olmadan Azure Vm'leri arasında iletişim kurmanıza olanak tanıyan bir iyileştirme sunulan. ExpressRoute hızlı yolu olarak adlandırılan bu iyileştirme, bu mimaride (kırmızı çizgiler) görüntülenir. 
 
 Azure büyük örnek damgası aşağıdaki bileşenleri birleştirir:
 
-- **Bilgi işlem**: Gerekli hesaplama yeteneği sağlar ve SAP HANA sertifikalı olan Intel Xeon E7-8890v3 veya Intel Xeon E7-8890v4 işlemcilerde tabanlı sunucu.
+- **Bilgi işlem**: Gerekli hesaplama yeteneği sağlar ve SAP HANA sertifikalı olan Intel Xeon İşlemci farklı nesil tabanlı sunucu.
 - **Ağ**: Bilgi işlem, depolama ve LAN bileşenleri eşitliyor birleşik yüksek hızlı ağ fabric.
 - **Depolama**: Bir birleşik ağ yapısı erişilen bir depolama altyapısı. Belirli bir SAP HANA, dağıtılan Azure (büyük örnekler) yapılandırması hakkında sağlanan belirli depolama kapasitesi bağlıdır. Daha fazla depolama kapasitesi, ek bir aylık ücret ödemeden kullanılabilir.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa7c3d8bbbca5457a194c414863682050dfec9d7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190005"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240086"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -97,8 +97,7 @@ Açılan bölmeye aşağıdaki bilgileri girin:
 İşlemi tamamladığınızda, seçin **Oluştur** depolama eşitleme hizmeti dağıtmak için.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Azure dosya eşitleme yönetim Cmdlet'lerine etkileşim önce DLL içeri ve bir Azure dosya eşitleme yönetim bağlamına oluşturmak gerekir. Azure dosya eşitleme Yönetimi cmdlet'leri henüz Azure PowerShell modüllerinin bir parçası olmadığı için bu gereklidir.
-
+Değiştirin **< Az_Region >** , **< RG_Name >** , ve **< my_storage_sync_service >** kendi değerlerinizle oluşturmak ve dağıtmak için aşağıdaki komutları ardından kullanın. bir Depolama eşitleme hizmeti:
 
 ```powershell
 Connect-AzAccount
@@ -133,7 +132,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
     New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
-$storageSyncName = "<my-storage-sync-service>"
+$storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 

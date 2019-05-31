@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159942"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237426"
 ---
 # <a name="infrastructure-as-code"></a>Kod olarak altyapı
 
@@ -95,6 +95,47 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
         microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
+```
+
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure sanal makine işletim sistemi otomatik yükseltme yapılandırması 
+Sanal makinelerinizi yükseltme olan bir kullanıcı tarafından başlatılan işlemi ve kullanmanız önerilir [sanal makine ölçek kümesi otomatik işletim sistemi yükseltme](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) konak düzeltme eki yönetimi; Azure Service Fabric kümeleri için Düzeltme eki düzenleme uygulamasıdır POA, Azure'da sanal makine işletim sistemini otomatik yükseltme tercih edilmesi genel bir neden azure'da POA barındırma yükünü kullanılabilir olsa da, Azure'nın dışında barındırıldığında yöneliktir alternatif bir çözüm POA. Otomatik işletim sistemi yükseltme etkinleştirmek için sanal makine ölçek kümesi kaynak yöneticisi işlem şablonu özellikleri şunlardır:
+
+```json
+"upgradePolicy": {
+   "mode": "Automatic",
+   "automaticOSUpgradePolicy": {
+        "enableAutomaticOSUpgrade": true,
+        "disableAutomaticRollback": false
+    }
+},
+```
+Otomatik işletim sistemi yükseltmelerini Service Fabric ile kullanırken, yeni işletim sistemi görüntüsü Service Fabric'te çalışan hizmetler yüksek kullanılabilirliğini sürdürmek için bir zaman bir güncelleme etki alanı alınır. Service fabric'te otomatik işletim sistemi yükseltmelerini kullanmasına izin kümenizi Silver dayanıklılık katmanı kullanmak için yapılandırılmış veya üzeri olması gerekir.
+
+Aşağıdaki kayıt defteri anahtarını eşgüdümlü olmayan güncelleştirmeleri windows konak makinelerinizi engellemek için false olarak ayarlandığından emin olun: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+Windows Update kayıt defteri anahtarı false olarak ayarlamak için sanal makine ölçek kümesi kaynak yöneticisi işlem şablonu özellikleri şunlardır:
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
+
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Azure Service Fabric kümesini yükseltme yapılandırması
+Resource Manager şablonu özelliğine otomatik yükseltmesini etkinleştirmek için Service Fabric kümesi verilmiştir:
+```json
+"upgradeMode": "Automatic",
+```
+El ile kümenizi yükseltmek için cab/deb dağıtım bir küme sanal makineye indirmek ve sonra aşağıdaki PowerShell Çağır:
+```powershell
+Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
+Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
+Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

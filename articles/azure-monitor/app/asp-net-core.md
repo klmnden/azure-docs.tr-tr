@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016362"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226409"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core uygulamaları için Application Insights
 
@@ -138,7 +138,7 @@ Destek [performans sayaçları](https://azure.microsoft.com/documentation/articl
 
 [ILogger günlükleri](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) önem derecesi `Warning` veya üzeri otomatik olarak yakalanan SDK sürümü 2.7.0-beta3 gelen veya üzeri.
 
-### <a name="live-metrics"></a>Canlı Ölçümler
+### <a name="live-metrics"></a>Canlı ölçümleri
 
 Bu portalda görünmeye başlatmak telemetri birkaç dakika sürebilir. Her şeyin çalıştığından, kullanmak en iyisidir hemen kontrol etmek için [Canlı ölçümleri](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), çalışan bir uygulamaya yapma ister.
 
@@ -383,6 +383,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="video"></a>Video
 
 - İlgili dış adım adım video [.NET Core ve Visual Studio ile Application Insights yapılandırma](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) sıfırdan.
+- İlgili dış adım adım video [.NET Core ve Visual Studio Code ile Application Insights yapılandırma](https://youtu.be/ygGt84GDync) sıfırdan.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Kullanıcı akışları keşfedin](../../azure-monitor/app/usage-flows.md) için kullanıcıların uygulamanızda nasıl gezindiğini anlayın.

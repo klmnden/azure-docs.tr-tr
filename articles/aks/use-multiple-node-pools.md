@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142634"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235767"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Önizleme - oluşturma ve Azure Kubernetes Service (AKS) kümesi için birden çok düğüm havuzları yönetme
 
@@ -21,9 +21,10 @@ Azure Kubernetes Service (AKS), düğümleri aynı yapılandırmaya sahip birlik
 Bu makalede, bir AKS kümesindeki birden çok düğüm havuzları oluşturma ve yönetme işlemini göstermektedir. Bu özellik şu anda önizleme sürümündedir.
 
 > [!IMPORTANT]
-> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+> AKS Önizleme özellikleri, Self Servis, kabul etme. Görüş ve hata topluluğumuza toplamak için sağlanır. Önizleme'de, bu özelliklerin üretim kullanılmak üzere geliştirilmiş değildir. Genel Önizleme Özellikleri 'en yüksek çaba' destek kapsamında ayrılır. İş saatleri Pasifik Saat dilimi sırasında (Pasifik Saati) yalnızca AKS teknik destek ekipleri Yardım kullanılabilir. Ek bilgi için lütfen aşağıdaki destek makaleleri bakın:
 >
-> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
+> * [AKS destek ilkeleri][aks-support-policies]
+> * [Azure desteği SSS][aks-faq]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -72,6 +73,7 @@ Oluşturma ve birden çok düğüm havuzları destekleyen AKS kümeleri yönetme
 * Birden çok düğüm havuzları yalnızca başarıyla kaydettikten sonra oluşturulan küme için kullanılabilir *MultiAgentpoolPreview* ve *VMSSPreview* aboneliğiniz için özellikleri. Ekleyemez veya bu özellikleri başarıyla kaydettirildi önce oluşturulmuş mevcut bir AKS kümesiyle düğümü havuzlarını yönetme.
 * İlk düğüm havuzunu silemezsiniz.
 * HTTP uygulama yönlendirme eklenti kullanılamaz.
+* Ekleme/güncelleştirme/silme düğüm havuzları gibi çoğu işlemi var olan bir Resource Manager şablonu kullanarak yapamazsınız. Bunun yerine, [ayrı bir Resource Manager şablonu kullanma](#manage-node-pools-using-a-resource-manager-template) bir AKS kümesindeki düğüm havuzları değişiklik yapmak için.
 
 Bu özellik Önizleme aşamasında olduğu sürece, aşağıdaki ek kısıtlamalar uygulanır:
 
@@ -328,6 +330,95 @@ Events:
 
 Uygulanan bu taint sahip pod düğümlerinde zamanlanabilir *gpunodepool*. Diğer bir pod içinde zamanlanacak *nodepool1* düğüm havuzu. Ek düğüm havuzları oluşturursanız, ek taints kullanabilirsiniz ve bu düğüm kaynaklar üzerinde hangi pod'ların sınırlamak için tolerations zamanlanabilir.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak düğüm havuzları yönetme
+
+Yönetilen kaynaklar oluşturmak için bir Azure Resource Manager şablonu kullandığınızda ve kaynak güncelleştirmek için şablon ve yeniden dağıtma ayarları genellikle güncelleştirebilirsiniz. AKS kümesi oluşturulduktan sonra aks'deki nodepools ile ilk nodepool profili güncelleştirilemiyor. Bu davranış, olamaz var olan bir Resource Manager şablonu güncelleştirme, değişiklik yapmak için düğüm havuzları, yeniden anlamına gelir. Bunun yerine, aracı havuzları yalnızca var olan bir AKS kümesi için güncelleştirmeleri ayrı bir Resource Manager şablonu oluşturmanız gerekir.
+
+Gibi bir şablon oluşturma `aks-agentpools.json` ve aşağıdaki örnek bildirimde yapıştırın. Bu örnek şablon, aşağıdaki ayarları yapılandırır:
+
+* Güncelleştirmeleri *Linux* adlı aracı havuzu *myagentpool* üç düğüm çalıştırılacak.
+* Kubernetes sürümü çalıştırmak için düğüm havuzdaki düğümler ayarlar *1.12.8*.
+* Düğüm boyutu olarak tanımlayan *Standard_DS2_v2*.
+
+Bu değerler, güncelleştirmek için ekleme veya gerektiğinde düğüm havuzları silme gibi düzenleyin:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Bu şablonu kullanarak dağıtma [az grubu dağıtımı oluşturmak] [ az-group-deployment-create] , aşağıdaki örnekte gösterildiği gibi komutu. Mevcut AKS küme adı ve konumu istenir:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Bu düğüm havuzu ayarları ve Resource Manager şablonunuzda tanımladığınız operations bağlı olarak, AKS kümesi güncelleştirilmesi birkaç dakika sürebilir.
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu makalede, GPU tabanlı düğümleri içeren bir AKS kümesi oluşturuldu. Gereksiz maliyetini azaltmak için silmek isteyebilirsiniz *gpunodepool*, ya da tüm AKS kümesi.
@@ -351,7 +442,6 @@ Bu makalede bir AKS kümesindeki birden çok düğüm havuzları oluşturma ve y
 Oluşturma ve Windows Server kapsayıcı düğüm havuzları kullanma hakkında bilgi için bkz: [AKS içinde bir Windows Server kapsayıcı oluşturma][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ Oluşturma ve Windows Server kapsayıcı düğüm havuzları kullanma hakkında 
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

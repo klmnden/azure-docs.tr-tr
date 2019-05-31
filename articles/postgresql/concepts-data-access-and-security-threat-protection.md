@@ -1,19 +1,19 @@
 ---
-title: Gelişmiş tehdit koruması - PostgreSQL için Azure veritabanı
+title: Gelişmiş tehdit koruması - PostgreSQL için Azure veritabanı - tek sunucu
 description: Gelişmiş tehdit koruması veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 0521283f917d05a56d26503dc6f0af349f1ac1e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 81f42183276f95ddfb24fbdc388fef59acbe680e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560062"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073535"
 ---
-# <a name="azure-database-for-postgresql-advanced-threat-protection"></a>PostgreSQL için Azure veritabanı Gelişmiş tehdit koruması
+# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı içinde Gelişmiş tehdit koruması
 
 PostgreSQL için Azure Veritabanı Gelişmiş Tehdit Koruması, veritabanlarınıza erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder.
 
@@ -31,7 +31,7 @@ PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması, yeni katma
 
 ![Gelişmiş tehdit koruması kavramı](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Gelişmiş Tehdit Koruması uyarıları 
+## <a name="advanced-threat-protection-alerts"></a>Gelişmiş tehdit koruması uyarıları 
 PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar ve aşağıdaki uyarılar tetikleyebilirsiniz:
 - **Olağan dışı bir konumdan erişim**: Bir PostgreSQL sunucusu, burada birisi PostgreSQL sunucusu için Azure veritabanına olağan dışı bir coğrafi konumdan oturum açmış olduğu için Azure veritabanı erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni bir uygulama veya geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
 - **Azure veri merkezinden erişim**: Bir PostgreSQL sunucusu, burada birisi sunucuya bu sunucuda son dönemde görülmemiş bir Azure veri Merkezi'nde oturum açmış olduğu için Azure veritabanı erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulamanızın sorgu Düzenleyicisi PostgreSQL için Azure, Power BI, Azure veritabanında) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 838afe38cc3b2b98ddad358ddb23ab6b6727e867
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772442"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236847"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Bir Linux sanal makine Azure'da birden çok ağ arabirimi kartları oluşturma
 
@@ -100,7 +100,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for- multiple-nics).
+İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Bir NIC bir VM'ye ekleme
 Önceki adımları, birden çok NIC içeren bir VM oluşturulur. Azure CLI ile mevcut bir VM'yi NIC'ler ekleyebilirsiniz. Farklı [VM boyutları](sizes.md) değişen sayıda NIC desteği, bu nedenle, sanal Makinenizin uygun şekilde boyutu. Gerekirse, [VM'yi yeniden boyutlandırma](change-vm-size.md).
@@ -138,7 +138,7 @@ VM Başlat [az vm start](/cli/azure/vm):
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for- multiple-nics).
+İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Bir NIC bir VM'den kaldırın.
 Mevcut VM'den bir NIC kaldırmak için öncelikle ile VM'yi serbest bırakın [az vm deallocate](/cli/azure/vm). Aşağıdaki örnekte adlı VM serbest bırakılır *myVM*:
@@ -183,7 +183,7 @@ Ayrıca bir `copyIndex()` oluşturmanızı sağlayan bir kaynak adı için birka
 
 Tam örnek edinebilirsiniz [Resource Manager şablonlarını kullanarak birden çok NIC oluşturma](../../virtual-network/template-samples.md).
 
-İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for- multiple-nics).
+İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Konuk işletim sistemi için birden çok NIC yapılandırın
 

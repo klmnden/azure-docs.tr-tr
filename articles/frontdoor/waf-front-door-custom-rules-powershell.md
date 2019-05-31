@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 414869833b894e2688505a91fed8fafe0c912b73
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: HT
+ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523731"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241332"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Azure PowerShell kullanarak bir web uygulaması güvenlik duvarı ilkesi yapılandırma
 Azure web uygulaması Güvenlik Duvarı (WAF) ilkesi ön Kapıda bir istek ulaştığında gerekli incelemeleri tanımlar.
@@ -31,7 +31,7 @@ Azure PowerShell, Azure kaynaklarınızı yönetmek için [Azure Resource Manage
 
 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)'i yerel makinenize yükleyebilir ve herhangi bir PowerShell oturumunda kullanabilirsiniz. Azure kimlik bilgilerinizle oturum açmak için bu sayfadaki yönergeleri izleyin ve Az PowerShell modülünü yükleyin.
 
-#### <a name="sign-in-to-azure"></a>Oturum açın: Azure
+#### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 ```
 Connect-AzAccount
 
@@ -57,15 +57,15 @@ Aşağıdaki örnek, bir özel kural kullanarak iki eşleştirme koşulları ile
 ```powershell-interactive
 $referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
 $password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
-$AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
+$AllowFromTrustedSites = New-AzFrontDoorWafCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
 ## <a name="custom-rule-based-on-http-request-method"></a>HTTP istek yöntemine dayalı özel kural
-"PUT" yöntemiyle engelleyen bir kural oluşturmak [yeni AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) gibi:
+"PUT" yöntemiyle engelleyen bir kural oluşturmak [yeni AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) gibi:
 
 ```powershell-interactive
 $put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
-$BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
+$BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
 ## <a name="create-a-custom-rule-based-on-size-constraint"></a>Boyut sınırlaması özel bir kural oluşturun
@@ -73,7 +73,7 @@ $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule
 Aşağıdaki örnek, Azure PowerShell kullanarak 100 karakterden uzun URL'siyle istekleri engelleyen bir kural oluşturur:
 ```powershell-interactive
 $url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
-$URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
+$URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
 ## <a name="add-managed-default-rule-set"></a>Yönetilen varsayılan kural kümesi Ekle
 

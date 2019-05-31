@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484389"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241911"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Bir SaaS uygulamasında Kiracı başına veritabanı düzenini Azure SQL veritabanı ile kullanarak şemayı yönetme
  
 Bir veritabanı uygulaması geliştikçe değişiklikleri kaçınılmaz olarak veritabanı şeması veya başvuru verileriyle yapılması gerekir.  Ayrıca, veritabanı bakım görevlerini düzenli aralıklarla gereklidir. Veritabanı başına Kiracı düzeni kullanan bir uygulamayı yönetme, Kiracı veritabanlarını filosundan bu değişiklikleri veya bakım görevlerini uygulamak gerektirir.
 
-Bu öğreticide, tüm kiracılar için başvuru verisi güncelleştirmelerini dağıtma iki senaryo incelenmektedir ve başvuru verilerini içeren tabloda bir dizini yeniden oluşturma. [Esnek işler](sql-database-elastic-jobs-overview.md) özelliği, tüm Kiracı veritabanlarında ve yeni Kiracı veritabanları oluşturmak için kullanılan şablon veritabanında bu eylemler yürütmek için kullanılır.
+Bu öğreticide, tüm kiracılar için başvuru verisi güncelleştirmelerini dağıtma iki senaryo incelenmektedir ve başvuru verilerini içeren tabloda bir dizini yeniden oluşturma. [Esnek işler](elastic-jobs-overview.md) özelliği, tüm Kiracı veritabanlarında ve yeni Kiracı veritabanları oluşturmak için kullanılan şablon veritabanında bu eylemler yürütmek için kullanılır.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -46,7 +46,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS şema yönetimi düzenlerine giriş
 
-Kiracı deseni başına veritabanı Kiracı verileri etkili bir şekilde ayırır, ancak yönetmek ve korumak için veritabanlarının sayısını artırır. [Esnek işler](sql-database-elastic-jobs-overview.md) SQL veritabanları yönetimini kolaylaştırır. İşleri güvenli ve güvenilir bir şekilde veritabanlarından oluşan bir grupta karşı görev (T-SQL betikleri) çalıştırmanıza olanak sağlar. İşleri, uygulamadaki tüm Kiracı veritabanlarında şema ve ortak başvuru verisi değişikliklerini dağıtabilirsiniz. Esnek işler de korumak için kullanılabilir bir *şablon* her zaman, yeni kiracılar oluşturmak için kullanılan veritabanı en yeni şemaya ve başvuru verilerine sahip.
+Kiracı deseni başına veritabanı Kiracı verileri etkili bir şekilde ayırır, ancak yönetmek ve korumak için veritabanlarının sayısını artırır. [Esnek işler](elastic-jobs-overview.md) SQL veritabanları yönetimini kolaylaştırır. İşleri güvenli ve güvenilir bir şekilde veritabanlarından oluşan bir grupta karşı görev (T-SQL betikleri) çalıştırmanıza olanak sağlar. İşleri, uygulamadaki tüm Kiracı veritabanlarında şema ve ortak başvuru verisi değişikliklerini dağıtabilirsiniz. Esnek işler de korumak için kullanılabilir bir *şablon* her zaman, yeni kiracılar oluşturmak için kullanılan veritabanı en yeni şemaya ve başvuru verilerine sahip.
 
 ![ekran](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -133,5 +133,4 @@ Ardından, deneyin [öğretici Ad hoc raporlama](saas-tenancy-cross-tenant-repor
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Wingtip bilet SaaS her Kiracı veritabanı uygulama dağıtımına dayalı ek öğreticiler](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Ölçeği artırılmış bulut veritabanlarını yönetme](sql-database-elastic-jobs-overview.md)
-* [Ölçeği artırılmış bulut veritabanları oluşturma ve yönetme](sql-database-elastic-jobs-create-and-manage.md)
+* [Ölçeği artırılmış bulut veritabanlarını yönetme](elastic-jobs-overview.md)

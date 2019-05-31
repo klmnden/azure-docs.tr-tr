@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781826"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242395"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure vm'lerde SQL Server veritabanlarını geri yükleme
 
@@ -41,8 +41,9 @@ Bir veritabanını geri yüklemeden önce aşağıdakilere dikkat edin:
     - Yalnızca belirtilen istemci adını, bağlantı açabilirsiniz.
 - Geri yüklemeyi tetikleyecek önce (modeli, master, msdb), tüm sistem veritabanları için SQL Server Agent hizmetini durdurun.
 - Tüm bu veritabanlarını için bağlantı geçirmeye çalışan tüm uygulamaları kapatın.
+- Birden fazla örneğine sahipseniz bir sunucu üzerinde çalışan tüm örneklerin yukarı olmalı ve, veritabanını geri yüklemek hedef sunucular listesinde yoksa sunucu çalışan gösterilmeyebiliyor.
 
-## <a name="restore-a-database"></a>Veritabanını geri yükleme
+## <a name="restore-a-database"></a>Bir veritabanını geri yükleme
 
 Geri yüklemek için aşağıdaki izinler gerekir:
 
@@ -152,6 +153,13 @@ Seçtiyseniz, **tam ve değişiklik** geri yükleme türü olarak aşağıdakile
 1. Geri yükleme ilerleme durumunu izlemek **bildirimleri** alanında veya seçerek izlemek **geri yükleme işleri** veritabanı menüsünde.
 
     ![Geri yükleme işi ilerleme durumu](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>Çok sayıda dosya veritabanlarını geri yükleme
+
+Dosyaları veritabanında toplam dize boyutu daha büyük olup olmadığı bir [belirli sınırı](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Azure Backup geri yükleme sırasında hedef geri yükleme yolunu ayarlamak mümkün olmayacaktır, bu veritabanı dosyalarının listesini farklı pıt bileşeninde depolar işlem. Dosyaları SQL varsayılan yolu bunun yerine geri yüklenir.
+
+  ![Veritabanı ile büyük dosyaları geri yükleme](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

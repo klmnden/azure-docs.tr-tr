@@ -1,5 +1,5 @@
 ---
-title: İş yükü yönetimi - Azure SQL veri ambarı için kaynak sınıfları | Microsoft Docs
+title: Azure SQL veri ambarı iş yükü yönetimi için kaynak sınıfları | Microsoft Docs
 description: Eşzamanlılık yönetmek ve işlem kaynakları için sorgular Azure SQL veri ambarı için kaynak sınıfları kullanma yönergeleri.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/22/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165973"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244516"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak sınıfları ile iş yükü yönetimi
 

@@ -1,19 +1,19 @@
 ---
-title: Oluşturma ve PostgreSQL sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar için Azure veritabanı'nı yönetme
-description: Oluşturma ve PostgreSQL sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar için Azure veritabanı'nı yönetme
+title: Oluşturma ve PostgreSQL - Azure portalını kullanarak tek bir sunucu için sanal ağ hizmet uç noktaları ve Azure veritabanı'nda kurallarını yönetme
+description: Oluşturma ve sanal ağ hizmet uç noktaları ve Azure veritabanı kuralları, PostgreSQL - Azure portalını kullanarak tek bir sunucu yönetme
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.openlocfilehash: 0f11894e939f589134720f22deb99390e14db9fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9da46ae905457f6f6b1786a2161e224d397d0507
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421677"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073168"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak PostgreSQL sanal ağ hizmet uç noktaları ve sanal ağ kuralları için Azure veritabanı yönetme
+# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Oluşturma ve PostgreSQL - Azure portalını kullanarak tek sunucu için sanal ağ hizmet uç noktaları ve Azure veritabanı'nda sanal ağ kuralları'nı yönetme
 Sanal ağ (VNet) Hizmetleri uç noktaları ve kuralları PostgreSQL için Azure veritabanı sunucunuza sanal ağ özel adres alanını genişletin. Sınırlamalar da dahil olmak üzere PostgreSQL sanal ağ hizmet uç noktaları için Azure veritabanı'nın genel bir bakış için bkz. [PostgreSQL sunucusu sanal ağ hizmet uç noktaları için Azure veritabanı](concepts-data-access-and-security-vnet.md). Sanal ağ hizmet uç noktaları, PostgreSQL için Azure veritabanı için desteklenen tüm bölgelerde kullanılabilir.
 
 > [!NOTE]

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 28720098206c7afdefacbd47de283b2ef8d5a606
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833422"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243233"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -78,7 +78,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 |Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
-|uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman dönüştürme uygulanır.<br />yanıt Content-Type üst bilgisi JSON varlığını gösteriyorsa - içerik-türü-json - Dönüştür.|Evet|Yok|
+|Uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman dönüştürme uygulanır.<br />yanıt Content-Type üst bilgisi JSON varlığını gösteriyorsa - içerik-türü-json - Dönüştür.|Evet|Yok|
 |göz önünde bulundurun kabul-üstbilgisi|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -true - JSON Accept üst bilgisi istekte istenirse dönüştürme uygulanır.<br />-yanlış - dönüştürme her zaman geçerlidir.|Hayır|true|
 |Ayrıştırma tarihi|Ayarlandığında `false` tarih değerlerini dönüştürme sırasında yalnızca kopyalanır|Hayır|true|
 
@@ -123,7 +123,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |tür|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> javascript-dostu - dönüştürülen JSON, JavaScript geliştiricileri için kolay bir forma sahiptir.<br />-doğrudan - özgün XML belgesinin yapısına dönüştürülen JSON yansıtır.|Evet|Yok|
-|uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman Dönüştür.<br />yanıt Content-Type üst bilgisi XML varlığını gösteriyorsa - içerik-türü-xml - Dönüştür.|Evet|Yok|
+|Uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman Dönüştür.<br />yanıt Content-Type üst bilgisi XML varlığını gösteriyorsa - içerik-türü-xml - Dönüştür.|Evet|Yok|
 |göz önünde bulundurun kabul-üstbilgisi|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> Accept üst bilgisi istekte XML istenirse - true - dönüştürme uygulanır.<br />-yanlış - dönüştürme her zaman geçerlidir.|Hayır|true|
 
 ### <a name="usage"></a>Kullanım
@@ -159,7 +159,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |from|Aranacak dize.|Evet|Yok|
-|bitiş|Yeni dize. Arama dizesini kaldırmak için bir sıfır uzunluk değiştirme dizesini belirtin.|Evet|Yok|
+|-|Yeni dize. Arama dizesini kaldırmak için bir sıfır uzunluk değiştirme dizesini belirtin.|Evet|Yok|
 
 ### <a name="usage"></a>Kullanım
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -208,14 +208,14 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
-veya
+or
 
 ```xml
 <set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
 ```
 
 > [!NOTE]
-> Arka uç varlık yönetimi yönetilebilir [API](https://docs.microsoft.com/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Arka uç varlık yönetimi yönetilebilir [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Örnek
 
@@ -270,7 +270,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 |Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |temel url|Yeni arka uç hizmeti temel URL'si.|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
-|arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı. (Arka uç varlıkları aracılığıyla yönetilir [API](https://docs.microsoft.com/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
+|arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı. (Arka uç varlıkları aracılığıyla yönetilir [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
 |SF bölüm anahtarı|Yalnızca arka uç Service Fabric hizmeti ve 'backend-id' kullanarak belirtilen olduğunda geçerlidir. Ad çözümleme hizmeti belirli bir bölümünden çözmek için kullanılır.|Hayır|Yok|
 |SF çoğaltma türü|Yalnızca arka uç Service Fabric hizmeti ve 'backend-id' kullanarak belirtilen olduğunda geçerlidir. Denetimler bir bölüm için birincil veya ikincil çoğaltma isteği tamamlamalıdır. |Hayır|Yok|
 |SF çözümleme durumu|Yalnızca arka uç Service Fabric hizmeti olduğunda geçerlidir. Service Fabric arka uç çağrısı ile yeni çözüm yinelenmesi varsa tanımlama koşulu.|Hayır|Yok|
@@ -715,7 +715,7 @@ OriginalUrl.
 |Ad|Açıklama|Gerekli|
 |----------|-----------------|--------------|
 |XSL Dönüştürme|Kök öğe.|Evet|
-|parametre|Dönüşüm kullanılan değişkenleri tanımlamak için kullanılır|Hayır|
+|Parametre|Dönüşüm kullanılan değişkenleri tanımlamak için kullanılır|Hayır|
 |xsl:stylesheet|Kök stil sayfası öğesi. Tüm öğeleri ve öznitelikleri içinde tanımlanan standarda [XSLT belirtimi](https://www.w3.org/TR/xslt)|Evet|
 
 ### <a name="usage"></a>Kullanım

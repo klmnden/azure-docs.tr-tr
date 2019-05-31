@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872633"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225899"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -68,7 +68,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * CDN
 * Bulut Hizmetleri - bkz [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Bilişsel Hizmetler
-* Container Registry
+* Container Kayıt Defteri
 * Content Moderator
 * Maliyet Yönetimi
 * Customer Insights
@@ -89,7 +89,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
 * Yönetilen diskler - yönetilen diskler kullanılabilirlik alanlarında, farklı bir aboneliğe taşınamaz
 * Yönetilen kimlik - kullanıcı tarafından atanan
-* Medya Hizmetleri
+* Media Services
 * İzleyici - değil emin olmak için yeni abonelik taşıma yapma aşan [abonelik kotaları](../azure-subscription-service-limits.md#monitor-limits)
 * Notification Hubs
 * Operasyonel İçgörüler
@@ -98,7 +98,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - temel SKU ortak IP'sine taşınabilir. Standart SKU ortak IP'sine taşınamaz.
 * Kurtarma Hizmetleri kasası - kaydolun bir [Önizleme](#recovery-services-limitations).
-* Azure'da SAP HANA
+* Azure’da SAP HANA
 * Scheduler
 * Arama - tek bir işlemde farklı bölgelerdeki birden çok arama kaynaklar taşınamıyor. Bunun yerine, bunları ayrı işlemlerde taşıyın.
 * Service Bus
@@ -107,7 +107,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * SignalR Service
 * Depolama - depolama hesapları farklı bölgelerde, aynı işlem içinde taşınamaz. Bunun yerine, her bölge için ayrı işlem kullanın.
 * Depolama alanı (Klasik) - [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
-* Depolama Eşitleme Hizmeti
+* Depolama eşitleme hizmeti
 * Stream Analytics - Stream Analytics işleri çalıştırırken buna taşınamaz durumu.
 * SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda olmalıdır. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu davranış, Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için geçerlidir.
 * Time Series Insights
@@ -133,7 +133,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Azure NetApp Files
 * Sertifikalar - App Service sertifikaları taşınabilir, ancak karşıya yüklenen Sertifikalar [sınırlamaları](#app-service-limitations).
 * Klasik uygulamaları
-* Kapsayıcı Örnekleri
+* Container Instances
 * Kapsayıcı Hizmeti
 * Data Box
 * Geliştirme alanları
@@ -323,7 +323,7 @@ Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için
 
 ### <a name="recovery-services-limitations"></a>Kurtarma Hizmetleri sınırlamalarını
 
- Bir kurtarma Hizmetleri kasasına taşımak için içinde kaydedilmesi gereken bir [sınırlı genel Önizleme](../backup/backup-azure-move-recovery-services-vault.md).
+ Bir kurtarma Hizmetleri kasasına taşımak için şu adımları izleyin: [Kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../backup/backup-azure-move-recovery-services-vault.md).
 
 Şu anda bir kurtarma Hizmetleri kasası, bölge başına aynı anda taşıyabilirsiniz. Azure dosyaları, Azure dosya eşitleme veya SQL Iaas sanal makinelerini yedekleme kasaları taşıyamazsınız.
 

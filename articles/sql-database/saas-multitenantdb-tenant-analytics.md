@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4bf97c0c447bfabc1454959d457bbd50f3490299
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486656"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242794"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Ayıklanan verileri - çok kiracılı uygulamayı kullanarak kiracılar arası analiz
  
@@ -242,5 +242,5 @@ Tebrikler!
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 Ek [Wingtip SaaS uygulaması oluşturan öğretici](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [Esnek işler](sql-database-elastic-jobs-overview.md).
+- [Esnek işler](elastic-jobs-overview.md).
 - [Kiracılar arası Analytics'i kullanarak veri - tek kiracılı uygulama ayıklanan](saas-tenancy-tenant-analytics.md) 

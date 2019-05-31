@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852078"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242974"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: New York taksi verilerini Azure SQL veri ambarı'nı yükleme
 
@@ -583,14 +583,14 @@ Yönetilen kimlik doğrulama ve PolyBase kullanarak yükleme en güvenli mekaniz
    > [!NOTE]
    > - Genel amaçlı v1 veya blob depolama hesabı varsa, şunları yapmalısınız **v2'ye yükseltmeniz** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     
-1. Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan** SQL veritabanı sunucunuza RBAC rolü.
+1. Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)** , tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan** SQL veritabanı sunucunuza RBAC rolü.
 
    > [!NOTE] 
    > Bu adım yalnızca sahibi ayrıcalığa sahip üyeleri gerçekleştirebilir. Azure kaynakları için çeşitli yerleşik roller için şuna başvurun [Kılavuzu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Azure depolama hesabı bağlantı Polybase:**
     
-   1. Oluşturma, veritabanı kapsamlı kimlik bilgileri ile **Kimliği = 'Yönetilen hizmet Kimliği'**:
+   1. Oluşturma, veritabanı kapsamlı kimlik bilgileri ile **Kimliği = 'Yönetilen hizmet Kimliği'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -640,7 +640,7 @@ Bu öğreticide, veri ambarı oluşturmayı ve verileri yüklemek için kullanı
 > * Yüklendikleri sırada verilerin ilerleme durumu görüntülendi
 > * Yeni yüklenen verilere ilişkin istatistikler oluşturuldu
 
-Mevcut veritabanını SQL Veri Ambarı'na geçirmeyi öğrenmek için geçişe genel bakış konusuna ilerleyin.
+Mevcut veritabanını SQL veri ambarı'na geçirmeyi öğrenmek için geliştirmeye genel bakış ilerleyin.
 
 > [!div class="nextstepaction"]
->[Mevcut veritabanını SQL Veri Ambarı'na geçirmeyi öğrenin](sql-data-warehouse-overview-migrate.md)
+>[Varolan bir veritabanını SQL veri ambarı'na geçirmek için tasarım kararları](sql-data-warehouse-overview-migrate.md)

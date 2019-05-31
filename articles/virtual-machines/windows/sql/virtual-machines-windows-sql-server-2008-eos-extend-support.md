@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806484"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243965"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>SQL Server 2008 ve SQL Server 2008 R2 ile Azure desteği'ni genişletin
 
@@ -29,7 +29,7 @@ Farklı bir yönetilen örnek sayesinde, bir Azure sanal makinesi için geçiş 
 
 Bu makalenin geri kalanında Azure VM'deki SQL Server Örneğinize geçiş konuları sağlar. 
 
-## <a name="provisioning"></a>Sağlanıyor 
+## <a name="provisioning"></a>Sağlama 
 
 Kullandığın kadar Öde yoktur `SQL Server 2008 R2 on Windows Server 2008 R2` Azure Marketi'nde görüntü. 
 
@@ -58,7 +58,7 @@ SQL Server kurtarma güvence altına almak için uygulamayla tutarlı Azure Site
 
 ### <a name="database-migration-service"></a>Veritabanı Geçiş Hizmeti
 
-[Veritabanı geçiş hizmeti](/dms/dms-overview) geçirme şirket içi SQL Server'ı SQL Server 2012'ye yükseltme tarafından Azure VM ve büyük bir seçenek müşterilere yöneliktir.
+[Veritabanı geçiş hizmeti](/azure/dms/dms-overview) geçirme şirket içi SQL Server'ı SQL Server 2012'ye yükseltme tarafından Azure VM ve büyük bir seçenek müşterilere yöneliktir.
 
 ## <a name="disaster-recovery"></a>Olağanüstü durum kurtarma
 

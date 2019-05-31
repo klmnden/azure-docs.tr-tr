@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 81be4d5809fe8a3f36f7364b15e19d0046a8b5cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713990"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237145"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite için HDInsight kümeleri planlama
 
@@ -104,9 +104,9 @@ Yerel bir tek düğümlü bir küme sorunu tanımlamak için başarısız olan i
 
 Hedef küme VM boyutu, ölçek ve türünü belirledikten sonra aboneliğinizi geçerli kota kapasite sınırları denetleyin. Bir kota sınırına ulaştığında, yeni kümeler dağıtmak veya daha fazla alt düğüm ekleyerek mevcut kümelerin ölçeğini genişletme mümkün olmayabilir. Yalnızca kota sınırı, her abonelik için bölge düzeyinde bulunan CPU çekirdek kotasını ' dir. Örneğin, aboneliğinizin çekirdek limiti 30 Doğu ABD bölgesinde olabilir. Bir kota artırım talebinde bulunmak gerekiyorsa aşağıdaki adımları uygulayın:
 
-1. Azure portalına gidin
-1. Tıklayarak **Yardım ve Destek** sayfanın sol alt tarafında.
-1. Tıklayarak **yeni destek isteği**.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+1. Seçin **Yardım + Destek** sayfanın sol alt tarafında.
+1. SELECT deyiminde **yeni destek isteği**.
 1. Üzerinde **yeni destek isteği** sayfasındaki **Temelleri** sekmesinde, aşağıdaki seçenekleri belirleyin:
    - **Sorun türü**: **Hizmet ve abonelik sınırlarını (kotalar)**
    - **Abonelik**: değiştirmek istediğiniz abonelik
@@ -114,9 +114,9 @@ Hedef küme VM boyutu, ölçek ve türünü belirledikten sonra aboneliğinizi g
     
      ![HDInsight çekirdek kotasını artırmak için bir destek isteği oluşturun](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. **İleri**’ye tıklayın.
-1. Üzerinde **ayrıntıları** sayfasında, sorunun bir açıklama girin, sorunun önem derecesini seçin ve tercih ettiğiniz iletişim yöntemi seçin.
-1. Tıklayın **sonraki: Gözden geçir + Oluştur**.
+1. Seçin **sonraki: Çözümleri >>** .
+1. Üzerinde **ayrıntıları** sayfasında, sorunun bir açıklama girin, önem derecesi sorunu, tercih ettiğiniz iletişim yöntemi ve diğer gerekli alanları seçin.
+1. Seçin **sonraki: Gözden geçir + Oluştur >>** .
 1. Üzerinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.
 
 > [!NOTE]  

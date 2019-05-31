@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712874"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244900"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
@@ -29,11 +29,11 @@ Bir basit statik eşik ölçüm uyarısı kuralının gibi oluşturduğunuz vars
 - Hedef kaynak (izlemek istediğiniz Azure kaynağını): myVM
 - Ölçüm: CPU yüzdesi
 - Koşul türü: Statik
-- Zaman toplama (ham ölçüm değerleri üzerinde çalıştırılan istatistiği. Toplamalar Min, Max, zaman Ort, toplam desteklenir): Ortalama
+- Zaman toplama (ham ölçüm değerleri üzerinde çalıştırılan istatistiği. Desteklenen zaman toplamaları olan Min, Max, Avg, toplam, sayısı): Ortalama
 - Süre (ölçüm değerleri denetlenir görünüm arka pencere): Son 5 dakika
 - Sıklık (ile ölçüm uyarısı denetleyen koşullar karşılandığında sıklık düzeyi): 1 dakika
 - İşleç: Büyüktür
-- Eşik: 70
+- Eşiği: 70
 
 Uyarı kuralı oluşturulur zamandan İzleyici her 1 dakikada bir çalışır ve son 5 dakika için ölçüm değerlerinde görünümünü ve bu değerlerin ortalamasını 70 aşıp aşmadığını denetler. Koşul diğer bir deyişle, son 5 dakika için ortalama CPU yüzdesi 70 aşıyor, etkin bir bildirim uyarı kuralı tetikler. Uyarı kuralı ile ilişkili eylem grubundaki bir e-posta veya bir web kancası eylemi yapılandırdıysanız, hem de etkin bir bildirim alırsınız.
 
@@ -44,7 +44,7 @@ Basit bir dinamik eşikler ölçüm uyarı kuralı şu şekilde oluşturduğunuz
 - Hedef kaynak (izlemek istediğiniz Azure kaynağını): myVM
 - Ölçüm: CPU yüzdesi
 - Koşul türü: Dinamik
-- Zaman toplama (ham ölçüm değerleri üzerinde çalıştırılan istatistiği. Toplamalar Min, Max, zaman Ort, toplam desteklenir): Ortalama
+- Zaman toplama (ham ölçüm değerleri üzerinde çalıştırılan istatistiği. Desteklenen zaman toplamaları olan Min, Max, Avg, toplam, sayısı): Ortalama
 - Süre (ölçüm değerleri denetlenir görünüm arka pencere): Son 5 dakika
 - Sıklık (ile ölçüm uyarısı denetleyen koşullar karşılandığında sıklık düzeyi): 1 dakika
 - İşleç: Büyüktür
@@ -81,7 +81,7 @@ Web siteniz için bir App Service planı olduğunu varsayalım. Web sitesi/uygul
 - Dönem: Son 5 dakika
 - Sıklığı: 1 dakika
 - İşleç: GreaterThan
-- Eşik: 70
+- Eşiği: 70
 
 Son 5 dakika için ortalama CPU kullanımı % 70'i aşarsa gibi daha önce bu kuralı izler. Ancak aynı kurala iki örnek, Web sitenizi çalıştırmak izleyebilirsiniz. Her örnek tek tek izlenen ve ayrı ayrı bildirimler alırsınız.
 
@@ -96,7 +96,7 @@ Yoğun talep görmesini bir web uygulamasına sahip söyleyin ve daha fazla örn
 - Dönem: Son 5 dakika
 - Sıklığı: 1 dakika
 - İşleç: GreaterThan
-- Eşik: 70
+- Eşiği: 70
 
 Bu kural için örnek yani tüm değerleri otomatik olarak izler Ölçüm uyarı kuralınızı yeniden değiştirmek zorunda kalmadan çıktıkça örneklerinizin izleyebilirsiniz.
 

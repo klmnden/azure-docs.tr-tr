@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709012"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245088"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Yeniden eğitme ve makine öğrenme modeli dağıtma
 
@@ -59,7 +59,7 @@ Bu örnekte, C# yeniden eğitme uygulama oluşturmak için kullanıyoruz. Python
 
 Yeniden eğitme API'lerini çağırmak için aşağıdaki adımları kullanın:
 
-1. Oluşturma bir C# konsol uygulaması Visual Studio'da: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)**.
+1. Oluşturma bir C# konsol uygulaması Visual Studio'da: **Yeni** > **proje** > **Visual C#**   >  **Windows Klasik Masaüstü**  >   **Konsol uygulaması (.NET Framework)** .
 1. Machine Learning Web Hizmetleri portalında oturum açın.
 1. Üzerinde çalıştığınız web hizmeti.
 1. Tıklayın **tüketen**.
@@ -89,7 +89,7 @@ BES örnek kodu (örneğin, "C:\temp\CensusInput.csv") yerel sürücüden bir do
 1. Depolama hesapları listesinden bir retrained modelini depolamak için seçin.
 1. Sol gezinti sütununda **erişim anahtarları**.
 1. Kopyalayıp kaydedin **birincil erişim anahtarı**.
-1. Sol gezinti sütununda **kapsayıcıları**.
+1. Sol gezinti sütununda **Blobları**.
 1. Var olan bir kapsayıcıyı seçin veya yeni bir tane oluşturun ve adını kaydedin.
 
 Bulun *StorageAccountName*, *StorageAccountKey*, ve *StorageContainerName* bildirimleri ve Portalı'ndan kaydedilmiş değerleri güncelleştirin.

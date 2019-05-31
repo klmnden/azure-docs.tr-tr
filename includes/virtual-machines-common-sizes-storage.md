@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170333"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420735"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları, yüksek disk aktarım hızı ve g/ç sunar ve büyük veri, SQL, NoSQL veritabanları, veri ambarı ve büyük işlem veritabanları için idealdir.  Cassandra, MongoDB, Cloudera ve Redis örneklerindendir. Bu makalede, Vcpu, veri diskleri ve NIC hem de yerel depolama aktarım hızı ve ağ bant genişliği için en iyi duruma getirilmiş her boyut sayısı hakkında bilgi sağlar.
 
@@ -35,13 +35,13 @@ Premium Depolama: Desteklenen
 
 Premium depolama önbelleğe alma: Desteklenmiyor
 
-| Boyutlandır          | vCPU | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri<sup>2</sup> | NVMe Disk aktarım hızı<sup>3</sup> (okuma IOPS / MB/sn) | Maksimum önbelleğe alınmamış veri diski aktarım hızı (IOPS/MB/sn)<sup>4</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut          | Sanal işlemci | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri<sup>2</sup> | NVMe Disk aktarım hızı<sup>3</sup> (okuma IOPS / MB/sn) | Maksimum önbelleğe alınmamış veri diski aktarım hızı (IOPS/MB/sn)<sup>4</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MİLYON / 8000    | 32,000/640 | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 16,600+ |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20.000   | 80,000/1,400 | 32 | 8 / 16,000+ |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000 | 8000/160 | 16 | 2 / 3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MİLYON / 8000    | 32000/640 | 32 | 8 / 12800 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
 <sup>1</sup> Lsv2 serisi VM'ler, standart bir SCSI tabanlı geçici kaynak disk için işletim sistemi disk belleği/takas dosyası kullanımı (Windows, Linux üzerinde /dev/sdb D:) sahip. 80 MB/sn aktarım hızı (örneğin Standard_L80s_v2 800 GiB 40.000 IOPS ve 800 MB/sn sağlar) her 8 Vcpu için ve bu disk, depolama, 80 GiB, 4000 IOPS sağlar. Bu, NVMe sürücüler tam uygulama kullanımı için ayrılmış sağlar. Kısa ömürlü bu diskidir ve Durdur/serbest tüm veriler kaybolur.
 
@@ -50,6 +50,18 @@ Premium depolama önbelleğe alma: Desteklenmiyor
 <sup>3</sup> NVMe doğrudan Hyper-V teknolojisi Konuk VM alanı güvenli bir şekilde eşlenen yerel NVMe sürücüler kısıtlanmamışsa erişim sağlar.  En yüksek performansı elde etmek için en son WS2019 derleme veya Ubuntu 18.04 veya 16.04 Azure marketi'ndeki gerektirir.  Yazma performansı g/ç boyutu, sürücü yükleme ve kapasite kullanımı göre değişir.
 
 <sup>4</sup> Lsv2 serisi VM'ler Lsv2 iş yükleri fayda gibi veri diski için konak önbelleği sağlamaz.  Ancak, Lsv2 Vm'leri, Azure'nın kısa ömürlü VM işletim sistemi disk seçeneği (30 GiB) barındırabilir.
+
+<sup>5</sup> 64'ten fazla Vcpu Vm'lerle şu desteklenen konuk işletim sistemlerinden birini gerektirir:
+- Windows Server 2016 veya sonraki sürümleri
+- Ubuntu 16.04 LTS veya daha sonra Azure ile çekirdek ayarlanmış (4.15 çekirdek veya üzeri)
+- SLES 12 SP2 veya üzeri
+- RHEL veya CentOS sürüm 6.7 6.10, Microsoft tarafından sağlanan LIS paketiyle 4.3.1 izlenecek (veya üstü) yüklü
+- RHEL veya CentOS sürüm 7.3, Microsoft tarafından sağlanan LIS 4.2.1 Paketle (veya üstü) yüklü
+- RHEL veya CentOS sürüm 7.4 veya üzeri
+- Oracle Linux UEK4 veya üzeri
+- Debian 9, 10 veya üzeri bir Debian backports çekirdek ile
+- CoreOS 4.14 çekirdek veya üzeri
+
 
 ## <a name="size-table-definitions"></a>Boyut tablosu tanımları
 

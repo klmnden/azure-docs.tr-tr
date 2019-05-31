@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908007"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243723"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Bu makalede, Azure Data Lake depolama Gen1 son kullanıcı kimlik doğrulaması 
 ## <a name="end-user-authentication"></a>Son kullanıcı kimlik doğrulaması
 Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (önkoşul olarak listelenen) bir Azure AD yerel uygulaması alınan değerlerle değiştirin. Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimli olarak** ile Data Lake depolama Gen1, yani Azure kimlik bilgilerinizi girmeniz istenir.
 
-Kullanım kolaylığı için aşağıdaki kod parçacığı yeniden yönlendirme URI'si herhangi bir Azure aboneliği için geçerli olan ve istemci kimliği için varsayılan değerleri kullanır. Aşağıdaki kod parçacığında, yalnızca Kiracı kimliğiniz için değer sağlamanız gerekir Verilen yönergeleri kullanarak Kiracı kimliği alabilir [Kiracı Kimliğinizi alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+Kullanım kolaylığı için aşağıdaki kod parçacığı yeniden yönlendirme URI'si herhangi bir Azure aboneliği için geçerli olan ve istemci kimliği için varsayılan değerleri kullanır. Aşağıdaki kod parçacığında, yalnızca Kiracı kimliğiniz için değer sağlamanız gerekir Verilen yönergeleri kullanarak Kiracı kimliği alabilir [Kiracı Kimliğinizi alma](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
 - Main() işlevi aşağıdaki kodla değiştirin:
 

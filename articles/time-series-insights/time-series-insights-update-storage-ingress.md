@@ -2,7 +2,7 @@
 title: Veri depolama ve Azure zaman serisi öngörüleri önizlemesinde giriş | Microsoft Docs
 description: Veri depolama ve Azure zaman serisi öngörüleri önizlemesinde giriş anlama.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 8587fb0138309040232b6e0abc0f3eb17cc3093a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951096"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244068"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Veri depolama ve Azure zaman serisi öngörüleri önizlemesinde giriş
 
@@ -77,7 +77,7 @@ Zaman serisi görüşleri olay Parquet dosya içerikleri için şu şekilde eşl
 * Sütunlarıyla eşlenen diğer tüm özellikler ile bitemez `_string` (dize) `_bool` (Boolean) `_datetime` (TarihSaat), ve `_double` (çift), özellik türüne bağlı olarak.
 * Eşleme düzeni olarak dosya biçimi'nün ilk sürümü için olan **V = 1**. Bu özellik geliştikçe adı için artırılır **V = 2**, **V = 3**ve benzeri.
 
-## <a name="partitions"></a>Bölmeler
+## <a name="partitions"></a>Bölümler
 
 Her zaman serisi öngörüleri Önizleme ortamı olmalıdır bir **zaman serisi kimliği** özelliği ve **zaman damgası** benzersiz olarak tanımlayan özellik. Zaman serisi Kimliğinizi verileriniz için mantıksal bir bölümü olarak görev yapar ve zaman serisi öngörüleri Önizleme ortamı, verileri fiziksel bölümler arasında dağıtmak için doğal bir sınır sağlar. Fiziksel bölüm yönetimi, bir Azure depolama hesabında zaman serisi öngörüleri Preview tarafından yönetilir.
 

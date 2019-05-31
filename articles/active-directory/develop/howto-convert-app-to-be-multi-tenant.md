@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540449"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235290"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Nasıl yapılır: Çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcısı ile oturum açın
 
@@ -45,7 +45,7 @@ Her adım ayrıntılı olarak bakalım. Doğrudan atlayabilirsiniz [çok kiracı
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Aktualizovat registraci. çok kiracılı olması
 
-Varsayılan olarak, Azure AD web uygulaması/API'si kayıtları tek kiracılı olan. Kaydınızı bularak çok kiracılı yapabileceğiniz **çok Kiracılı** açın **özellikleri** uygulama kaydınızı bölmesinde [Azure portalında] [ AZURE-portal] ve ayarlamak **Evet**.
+Varsayılan olarak, Azure AD web uygulaması/API'si kayıtları tek kiracılı olan. Kaydınızı bularak çok kiracılı yapabileceğiniz **desteklenen hesap türleri** açın **kimlik doğrulaması** uygulama kaydınızı bölmesinde [Azureportalı] [ AZURE-portal] ve ayarlamak **herhangi bir kuruluş dizini hesaplarında**.
 
 Çok kiracılı bir uygulama yapılabilmesi için önce Azure AD uygulama kimliği URI'si uygulamanın genel olarak benzersiz olması gerekir. Uygulama Kimliği URI'si, uygulamanın protokol iletileri içinde tanımlanması için kullanılan yollardan biridir. Tek kiracılı bir uygulamada Uygulama Kimliği URI'sinin kiracı içinde benzersiz olması yeterlidir. Azure AD'nin uygulamayı tüm kiracılar arasında bulabilmesi için çok kiracılı uygulamada bu değerin genel olarak benzersiz olması gerekir. Genel olarak benzersiz olma gereksinimi, Uygulama Kimliği URI'sinin Azure AD kiracısının doğrulanmış etki alanı ile eşleşen bir ana bilgisayar adına sahip olması şartıyla sağlanır.
 

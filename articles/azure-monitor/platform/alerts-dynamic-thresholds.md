@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876206"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067613"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure İzleyici (genel Önizleme) içinde dinamik eşikler ile ölçüm uyarıları
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure İzleyici'de dinamik eşikler ile ölçüm uyarıları
 
 Dinamik eşikler algılama ile ölçüm Uyarısı, Gelişmiş makine öğrenimi ölçümleri geçmiş davranışı hakkında bilgi edinmek için desenlerini ve olası hizmet sorunları gösteren anormallikleri belirlemek için (ML) yararlanır. Uyarı kuralları Azure Resource Manager API'si aracılığıyla tam otomatik bir şekilde yapılandırmak, kullanıcıların basit bir kullanıcı Arabirimi ve uygun ölçekte işlemleri destek sağlar.
 
@@ -116,7 +116,7 @@ Bazı dinamik eşikler kullanarak bu ölçümler üzerinde uyarılar yapılandı
 
 4. Hedef kaynak seçtikten sonra tıklayarak **koşul Ekle**.
 
-5. Seçin **'CPU yüzdesi'**.
+5. Seçin **'CPU yüzdesi'** .
 
 6. İsteğe bağlı olarak ayarlayarak ölçüm İyileştir **süresi** ve **toplama**. Daha az temsilcisi davranış olduğu gibi bu ölçüm türü için 'Maximum' toplama türü kullanmak için önerilmez. 'En fazla' toplama türü statik eşiği için belki de daha uygun.
 
@@ -153,7 +153,7 @@ Bazı dinamik eşikler kullanarak bu ölçümler üzerinde uyarılar yapılandı
 
 4. Hedef kaynak seçtikten sonra tıklayarak **koşul Ekle**.
 
-5. Seçin **'HTTP isteği yürütme süresi'**.
+5. Seçin **'HTTP isteği yürütme süresi'** .
 
 6. İsteğe bağlı olarak ayarlayarak ölçüm İyileştir **süresi** ve **toplama**. Daha az temsilcisi davranış olduğu gibi bu ölçüm türü için 'Maximum' toplama türü kullanmak için önerilmez. 'En fazla' toplama türü statik eşiği için belki de daha uygun.
 

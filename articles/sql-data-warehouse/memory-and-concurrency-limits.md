@@ -1,5 +1,5 @@
 ---
-title: Bellek ve eşzamanlılık sınırları - Azure SQL veri ambarı | Microsoft Docs
+title: Azure SQL veri ambarı'nda, bellek ve eşzamanlılık sınırları | Microsoft Docs
 description: Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 024b3f9c6d1fdd0d4bcb1126e4577387a6415a59
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3bc1fef1842911e9b2cfb65b3c8cc72e4b615010
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873461"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241262"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için bellek ve eşzamanlılık sınırları
 Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin. Daha fazla bilgi için ve bu özellikler iş yükü yönetimi planınızı uygulamak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). 
@@ -25,7 +25,7 @@ ms.locfileid: "65873461"
 ## <a name="data-warehouse-capacity-settings"></a>Veri ambarı kapasite ayarları
 Aşağıdaki tablolar, farklı performans düzeylerinde veri ambarı için en yüksek kapasiteyi gösterir. Performans düzeyini değiştirmek için bkz: [ölçek işlem - portal](quickstart-scale-compute-portal.md).
 
-### <a name="gen2"></a>Gen2
+### <a name="gen2"></a>2. nesil
 
 Gen2 2,5 x Gen1 sorgu başına daha fazla bellek sağlar. Bu ek bellek, hızlı bir performans sunun Gen2'ye yardımcı olur.  Performans düzeyleri için DW30000c ile DW100c Gen2 arasındadır. 
 
@@ -72,7 +72,7 @@ Hizmet düzeyleri için DW100 DW6000-Gen1 arasındadır.
 ## <a name="concurrency-maximums"></a>Eşzamanlılık sınırları
 Her sorgu verimli bir şekilde yürütmek için yeterli kaynakları içerdiğinden emin olmak için her sorgu için eşzamanlılık yuvaları atayarak SQL veri ambarı kaynak kullanımını izler. Sistem sorguları önem ve eşzamanlılık yuvaları dayalı bir kuyruğun içine yerleştirir. Eşzamanlılık yuvaları yeterli kullanılabilir olana kadar kuyrukta sorguları bekleyin. [Önem derecesi](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) ve eşzamanlılık yuvaları, CPU Öncelik belirleyin. Daha fazla bilgi için [iş yükünüzü çözümleme](analyze-your-workload.md)
 
-### <a name="gen2"></a>Gen2
+### <a name="gen2"></a>2. nesil
  
 **Statik kaynak sınıfları**
 

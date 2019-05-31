@@ -12,17 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: bbf9c162cd52dc94ee820c8597f36f7cbfeace5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cc1456aa9928cbd4a24c203eab62e3e75b4d7c1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691333"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256178"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/), web geliştiricileri için canlı uygulamanızın performansını ve kullanımını anlamanıza yardımcı olan genişletilebilir bir analiz hizmetidir. Bunu kullanın [otomatik olarak gereç istek bağımlılıkları izleme ve toplama performans sayaçları](auto-collect-dependencies.md#java), [performans sorunlarını ve özel durumları tanılama](../../azure-monitor/app/detect-triage-diagnose.md), ve [kod yazma] [ api] uygulamanızla kullanıcıların ne yaptığını izlemek için. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/), web geliştiricileri için canlı uygulamanızın performansını ve kullanımını anlamanıza yardımcı olan genişletilebilir bir analiz hizmetidir. Bunu kullanın [otomatik olarak gereç istek bağımlılıkları izleme ve toplama performans sayaçları](auto-collect-dependencies.md#java), performans sorunlarını ve özel durumlar, tanılayın ve [kod yazma] [ api] uygulamanızla kullanıcıların ne yaptığını izlemek için. 
 
 ![Örnek veriler genel bakış görüntüsü](./media/java-get-started/overview-graphs.png)
 
@@ -487,7 +486,6 @@ Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Ins
 * [Unix Performans sayaçlarını izleme](java-collectd.md)
 * Sayfa yükleme sürelerini, AJAX çağrılarını ve tarayıcı özel durumlarını izlemek için [web sayfalarınıza izleme ekleyin](javascript.md).
 * Tarayıcıda veya sunucuda kullanımı izlemek için [özel telemetri](../../azure-monitor/app/api-custom-events-metrics.md) yazın.
-* Sisteminizi izlemek üzere anahtar grafikleri bir araya getirmek için [panolar](../../azure-monitor/app/app-insights-dashboards.md) oluşturun.
 * Uygulamanızdan telemetri üzerinde güçlü sorgular yapmak için [Analytics](../../azure-monitor/app/analytics.md)'i kullanın
 * Daha fazla bilgi için bkz. [Java geliştiricileri için Azure](/java/azure).
 

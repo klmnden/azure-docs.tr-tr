@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96d55da713b8591b20f95ba36f332a340999181e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123324"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242748"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları için dosya alanı yönetme
 
@@ -216,6 +216,9 @@ ORDER BY end_time DESC
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>Kullanılmayan ayrılmış alanı geri kazanmalıdır
+
+> [!NOTE]
+> Bu komut, çalışıyor ve mümkünse düşük kullanım dönemleri sırasında çalıştırılmalıdır veritabanı performansı etkileyebilir.
 
 ### <a name="dbcc-shrink"></a>DBCC küçültme
 

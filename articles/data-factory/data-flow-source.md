@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792359"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234556"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Eşleme veri akışı kaynak dönüşümü 
 
@@ -92,7 +92,7 @@ Kaynak dosyaları yönetmek için Ayarlar'ı seçin.
 
 Kaynağınızda SQL veritabanı veya SQL veri ambarı ise, kaynak dosya yönetimi için ek seçenekleri vardır.
 
-* **Sorgu**: Kaynağınız için bir SQL sorgusunu girin. Bu ayar kümesinde seçtiğiniz herhangi bir tabloda geçersiz kılar. Unutmayın **Order By** yan tümceleri burada desteklenmez. Ancak tam bir SELECT FROM deyimi burada ayarlayabilirsiniz.
+* **Sorgu**: Kaynağınız için bir SQL sorgusunu girin. Bu ayar kümesinde seçtiğiniz herhangi bir tabloda geçersiz kılar. Unutmayın **Order By** yan tümceleri burada desteklenmez, ancak tam bir SELECT FROM deyimi ayarlayabilirsiniz. Kullanıcı tanımlı tablo işlevleri de kullanabilirsiniz. **seçin * udfGetData() gelen** olduğu bir UDF SQL'de bir tablo döndürür. Bu sorgu, veri akışında kullanabileceğiniz bir kaynak tablo oluşturur.
 * **Yığın boyutu**: Okur ile büyük verileri öbek için bir toplu iş boyutu girin.
 
 > [!NOTE]

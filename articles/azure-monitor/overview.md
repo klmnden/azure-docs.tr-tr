@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787232"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245071"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -83,7 +83,7 @@ Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük veriler
 [VM'ler için Azure İzleyici](insights/vminsights-overview.md) Azure sanal makinelerinizi (VM) Windows ve Linux Vm'leri, farklı işlemler ve diğer kaynakları ve dış birbirine bağımlılıkları da dahil olmak üzere, sistem durumu ve performansı çözümleyerek ölçekli olarak izler. işler. Uygulama bağımlılıkları VM'ler için şirket içi veya başka bir bulut sağlayıcısı barındırılan ve çözüm, performans izleme için destek içerir.  
 
 
-![VM Insights](media/overview/vm-insights.png)
+![VM öngörüleri](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>İzleme çözümleri
 [İzleme çözümleri](insights/solutions.md) Azure İzleyici'de belirli bir uygulama veya hizmet için Öngörüler sağlayan paketlenmiş mantık kümeleridir. Mantıksal uygulama veya hizmetine ilişkin izleme verilerini toplamak için içerirler [sorguları](log-query/log-query-overview.md) bu verileri analiz etmek ve [görünümleri](../log-analytics/log-analytics-view-designer.md) görselleştirme için. İzleme çözümleri [Microsoft'tan kullanılabilir](insights/solutions-inventory.md) ve iş ortakları, çeşitli Azure Hizmetleri ve diğer uygulamalar için izleme sağlamak için.
@@ -141,7 +141,7 @@ Genellikle, Azure İzleyici diğer sistemlerle tümleştirmek için ve izleme ve
 Birden çok API'ları okuyup ölçüm ve günlükleri için ve Azure İzleyici'den oluşturulan uyarılar erişmenin yanı sıra kullanılabilir. Ayrıca, yapılandırabilir ve uyarılar almak. Bu, Azure İzleyici ile tümleştirilebilen özel çözümler oluşturmak için temel olarak sınırsız olasılıklar sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdakiler hakkında daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [Ölçüm ve günlükleri](platform/data-platform.md) Azure İzleyici tarafından toplanan veriler için.
 * [Veri kaynakları](platform/data-sources.md) nasıl uygulamanızın farklı bileşenlerini telemetri göndermek için.

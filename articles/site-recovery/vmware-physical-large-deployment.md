@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805929"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237275"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>VMware Vm'lerini/fiziksel sunucuları için uygun ölçekte olağanüstü durum kurtarmayı ayarlama
 
@@ -26,7 +26,7 @@ Bu makalede şirket içi VMware Vm'leri veya fiziksel sunucular, üretim ortamı
 - VMware Vm'leri ve ihtiyacınız olan Azure kaynakları anlamak için büyük ölçekli bir olağanüstü durum kurtarma planlaması gibi kapasite hesaplamaları için kullanılacak bir RTO değeri belirtebilirsiniz.
 
 
-## <a name="best-practices"></a>En iyi yöntemler
+## <a name="best-practices"></a>En iyi uygulamalar
 
 Büyük ölçekli bir olağanüstü durum kurtarma için genel bazı en iyi yöntemler. En iyi bu belgenin sonraki bölümlerinde daha ayrıntılı ele alınmıştır.
 
@@ -188,7 +188,7 @@ Kapasite planlaması ve gerekli bileşenleri ve altyapı dağıtımı sonra çok
 1. Çoğaltılan makinelerin sistem durumunu izlemek için bir olağanüstü durum kurtarma Yöneticisi atayın.
 2. [İzleme olayları](site-recovery-monitor-and-troubleshoot.md) çoğaltılan öğeler ve altyapı için.
 3. [Sistem izleme](vmware-physical-azure-monitor-process-server.md) genişleme işlem sunucularınızın.
-4. Almak için kaydolun [e-posta bildirimleri](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) izlemeyi kolaylaştırmak için olaylar için.
+4. Almak için kaydolun [e-posta bildirimleri](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) izlemeyi kolaylaştırmak için olaylar için.
 5. Kuralları normal [olağanüstü durum kurtarma tatbikatlarını](site-recovery-test-failover-to-azure.md), her şeyin beklendiği gibi çalıştığından emin olmak için.
 
 

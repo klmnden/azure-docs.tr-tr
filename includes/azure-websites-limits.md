@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: c2db5740d6373c8f6be5dabe0260fe7f99575641
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554278"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238445"
 ---
-| Kaynak | Ücretsiz | Paylaşılan | Temel | Standart | Premium (v2) | Yalıtılmış </th> |
+| Resource | Boş | Paylaşılan | Temel | Standart | Premium (v2) | Yalıtılmış </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Web, mobil veya API uygulamaları](https://azure.microsoft.com/services/app-service/) başına [Azure App Service planı](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Sınırsız<sup>2</sup> |Sınırsız<sup>2</sup> |Sınırsız<sup>2</sup> |Sınırsız<sup>2</sup>|
 | [App Service planı](../articles/app-service/overview-hosting-plans.md) |Bölge başına 10 |kaynak grubu başına 10 |kaynak grubu başına 100 |kaynak grubu başına 100 |kaynak grubu başına 100 |kaynak grubu başına 100|
@@ -21,7 +21,7 @@ ms.locfileid: "57554278"
 | CPU süresi (5 dakika)<sup>6</sup> |3 dakika |3 dakika |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | CPU süresi (gün)<sup>6</sup> |60 dakika |240 dakika |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart, ödeme [oranları](https://azure.microsoft.com/pricing/details/app-service/)</a> |
 | Bellek (1 saat) |App Service planı başına 1024 MB |Uygulama başına 1024 MB |Yok |Yok |Yok |Yok |
-| Bant Genişliği |165 MB |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |
+| Bant genişliği |165 MB |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |Sınırsız [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) Uygula |
 | Uygulama mimarisi |32 bit |32 bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web yuvaları örnek başına<sup>7</sup> |5 |35 |350 |Sınırsız |Sınırsız |Sınırsız |
 | Eş zamanlı [hata ayıklayıcı bağlantıları](../articles/app-service/troubleshoot-dotnet-visual-studio.md) uygulama başına |1 |1. |1 |5 |5 |5 |
@@ -29,7 +29,7 @@ ms.locfileid: "57554278"
 | Uygulama başına özel etki alanları</a> |0 (azurewebsites.net alt etki alanı yalnızca)|500 |500 |500 |500 |500 |
 | Özel etki alanı [SSL desteği](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Desteklenen değil için joker karakter sertifikası *. azurewebsites.net varsayılan olarak kullanılabilir|Desteklenen değil için joker karakter sertifikası *. azurewebsites.net varsayılan olarak kullanılabilir|Sınırsız SNI SSL bağlantıları |Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir |Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir | Sınırsız SNI SSL ve 1 IP SSL bağlantıları dahildir|
 | Tümleşik yük dengeleyici | |X |X |X |X |X<sup>9</sup> |
-| [Her zaman açık](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
+| [Her zaman açık](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Zamanlanmış yedeklemeler](../articles/app-service/manage-backup.md) | | | | Zamanlanmış yedeklemeleri her 2 saatte bir, en fazla 12 yedek her gün (el ile + zamanlanmış) | Zamanlanmış yedeklemeleri saatlik, en fazla 50 yedek her gün (el ile + zamanlanmış) | Zamanlanmış yedeklemeleri saatlik, en fazla 50 yedek her gün (el ile + zamanlanmış) |
 | [Otomatik Ölçeklendirme](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |

@@ -3,7 +3,7 @@ title: 'Azure AD etki alanı Hizmetleri: Parola eşitlemeyi etkinleştirme | Mic
 description: Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2017
-ms.author: ergreenl
-ms.openlocfilehash: 74ad811481aea83454d7e3179652e68d4c406521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 37bcdcd304f702f210e755f45af71b2da10bd6e1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417257"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234875"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme
 Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulaması için gereken kimlik bilgisi karmalarının Azure AD Domain Services ile eşitlemesini etkinleştirmektir. Kimlik bilgisi eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.
@@ -80,6 +80,6 @@ Dizininizin boyutuna bağlı olarak (kullanıcıların, grupların vb. sayısı)
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Sadece bulutta yer alan Azure AD dizini için AAD Domain Services’a parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
-* [Azure AD Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+* [Bir Azure AD Domain Services etki alanını yönetin](manage-domain.md)
 * [Windows sanal makinesini Azure AD Domain Services tarafından yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Red Hat Enterprise Linux sanal makinesini Azure AD Domain Services tarafından yönetilen bir etki alanına ekleme](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

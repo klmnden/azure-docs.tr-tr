@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572506"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256123"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Günlük tabanlı ve önceden toplanan ölçümler Application ınsights
 
@@ -34,7 +34,7 @@ Aynı zamanda, eksiksiz bir olay toplama pratik (veya hatta imkansız) olabilir,
 
 ## <a name="pre-aggregated-metrics"></a>Önceden toplanan ölçümler
 
-Günlük tabanlı ölçümler ek olarak, Application Insights ekibi zaman serisi için en iyi duruma getirilmiş özel bir depoda depolanan ölçümleri genel önizlemesi 2018'den sonbaharda birlikte gelir. Yeni ölçümler, artık çok sayıda özellikleri tek tek olayları olarak tutulur. Bunun yerine, bunlar önceden toplanmış zaman serisi olarak ve yalnızca anahtar boyutlarla depolanır. Bu yeni ölçümler sorgu zamanında üstün sağlar: veri alma, çok daha hızlı gerçekleşir ve daha az işlem gücü gerektirir. Bu nedenle yeni senaryoları gibi sağlar [neredeyse gerçek zamanlı ölçüm boyutlara uyarı](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)ve daha duyarlı [panolar](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards)ve daha fazlası.
+Günlük tabanlı ölçümler ek olarak, Application Insights ekibi zaman serisi için en iyi duruma getirilmiş özel bir depoda depolanan ölçümleri genel önizlemesi 2018'den sonbaharda birlikte gelir. Yeni ölçümler, artık çok sayıda özellikleri tek tek olayları olarak tutulur. Bunun yerine, bunlar önceden toplanmış zaman serisi olarak ve yalnızca anahtar boyutlarla depolanır. Bu yeni ölçümler sorgu zamanında üstün sağlar: veri alma, çok daha hızlı gerçekleşir ve daha az işlem gücü gerektirir. Bu nedenle yeni senaryoları gibi sağlar [neredeyse gerçek zamanlı ölçüm boyutlara uyarı](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)ve daha duyarlı [panolar](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)ve daha fazlası.
 
 > [!IMPORTANT]
 > Hem günlük tabanlı hem de önceden toplanan ölçümler Application Insights'da arada. Geleneksel ölçümleri olayları "için ölçüler günlük tabanlı" adlandırılırsa sırada önceden toplanan ölçümler "Standart ölçümler (Önizleme)", artık adlandırılır Application ınsights'ta UX iki ayırt etmek için.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597117"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236473"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Veri bilimi sanal makinesi ile tanışın
 
@@ -30,7 +30,7 @@ Veri bilimi sanal makinesi (DSVM), popüler veri bilimi, makine öğrenimi/yapay
 DSVM birden çok kod örnekleri ve izlenecek yollar da yerel olarak yürütüldüğü Jupyter Notebook biçiminde içerir. Kavramayı yardımcı olması bu örnekleri için belgeler de mevcuttur. 
 
 > [!NOTE]
-> Kullanabileceğiniz [Azure not defterleri](/azure/notebooks/azure-notebooks-overview.md) oluşturma, çalıştırma ve Jupyter Notebook bulutta paylaşın. Yapabilecekleriniz [Azure not defterleri için veri bilimi sanal makinesi ekleme](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) kullanılabilir bilgi işlem gücü genişletin.
+> Kullanabileceğiniz [Azure not defterleri](/azure/notebooks/azure-notebooks-overview) oluşturma, çalıştırma ve Jupyter Notebook bulutta paylaşın. Yapabilecekleriniz [Azure not defterleri için veri bilimi sanal makinesi ekleme](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) kullanılabilir bilgi işlem gücü genişletin.
 
 Araçları, platformları, yardımcı programlar ve veri bilimi sanal Makinesi'ne örnekleri aşağıdaki bölümler düzenlenmiştir:
 

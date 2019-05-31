@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93adedc5c1343df1eee05b653b60cfd7e810044c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540421"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235477"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory onay çerçevesine
 
@@ -40,7 +40,7 @@ Aşağıdaki adımlar nasıl onayı deneyimi çalıştığı uygulama geliştiri
 
 1. Belirli bir kaynak/API'sine erişim izni istemek için gereken bir web istemci uygulaması olduğunu kabul edelim. Sonraki bölümde bu yapılandırmayı geçekleştirmeden öğreneceksiniz ancak temelde Azure portalı, yapılandırma sırasında izin isteklerini bildirmek için kullanılır. Diğer yapılandırma ayarları gibi uygulamanın Azure AD kaydı bir parçası haline gelir:
 
-    ![Diğer uygulamalara izinler](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Diğer uygulamalara izinler](./media/consent-framework/permissions.png)
 
 1. Uygulama izinleri güncelleştirildi, uygulamayı çalıştıran ve bir kullanıcı ilk kez kullanmak hakkında sağlamaktır göz önünde bulundurun. İlk olarak, Azure AD'den ait bir yetkilendirme kodunu almak uygulamanın ihtiyacı `/authorize` uç noktası. Yetkilendirme kodu, ardından belirteci yenileyin ve yeni bir erişim almak için kullanılabilir.
 
@@ -58,11 +58,10 @@ Aşağıdaki adımlar nasıl onayı deneyimi çalıştığı uygulama geliştiri
 
     **Bir uygulamaya onay için temsilci izinleri**
 
-   1. Git **ayarları** uygulamanız için sayfa
-   1. Seçin **gerekli izinler**.
-   1. Tıklayarak **izinleri verin** düğmesi.
+   1. Git **API izinleri** uygulamanız için sayfa
+   1. Tıklayarak **yönetici onayı vermek** düğmesi.
 
-      ![Açık yönetici onayı için izin ver](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Açık yönetici onayı için izin ver](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
    > Açık verme onay kullanarak **izinleri verin** düğmesidir ADAL.js kullanan tek sayfalı uygulamalar için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur.

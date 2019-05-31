@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5d2e10a4c5cd5b5dc1a8fe19cef7bc47f68d3fbe
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123034"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235003"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Sorun giderme: Azure'da bir sanal ağ silinemedi
 
@@ -66,7 +66,7 @@ Active Directory etki alanı hizmeti etkin ve sanal ağa, bu sanal ağ silinemiy
 
 ![Onay bağlı cihaza](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Hizmetini devre dışı bırakmak için bkz: [devre dışı Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+Hizmetini devre dışı bırakmak için bkz: [devre dışı Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../active-directory-domain-services/delete-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Sanal ağ başka bir kaynağa bağlı olup olmadığını denetleyin
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145908"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248925"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -141,19 +141,9 @@ Yönetilen diskler için bunları yeniden adlandıramazsınız. Ancak, şu anda 
 
 Yalnızca veri disklerinde, işletim sistemi diski GPT bölümleme kullanılabilir. İşletim sistemi diskleri MBR bölümleme stilini kullanmalıdır.
 
-## <a name="uploading-to-a-managed-disk"></a>Yönetilen disk için karşıya yükleme
+**Anlık görüntüleri hangi disk türlerini destekler?**
 
-**Mevcut bir yönetilen diskin veri yükleyebilir miyim?**
-
-Hayır, karşıya yükleme yalnızca yeni bir boş disk alanının oluşturulması sırasında kullanılabilir **ReadyToUpload** durumu.
-
-**Bir karşıya yükleme durumunda sırada ben bir VM'ye bir disk ekleyebilir miyim?**
-
-Hayır.
-
-**Bir karşıya yükleme durumunda manged bir diskin anlık görüntüsünü yararlanabilir miyim?**
-
-Hayır.
+Standart SSD Premium SSD ve standart SSD herhangi boyutu sınırı olmadan anlık görüntüleri destekler. Bu nedenle anlık görüntü büyük diskler (en fazla 32 tib'a kadar) kullanabilirsiniz. Ultra yüksek SSD anlık görüntülerini desteklemez.
 
 ## <a name="standard-ssd-disks"></a>Standart SSD disk
 
@@ -201,7 +191,7 @@ Standart SSD disk Hayır, yalnızca yönetilen diskler olarak kullanılabilir.
 **Standart SSD disk "Tek Örnekli sanal makine SLA" destekliyor musunuz?**
 Hayır, standart SSD'ler Tek Örnekli sanal makine SLA'sı yoktur. Premium SSD diskleri tek örnek sanal makine SLA'sını kullanın.
 
-## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçin
+## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme
 
 **Yönetilen diskler performans üzerindeki geçişin herhangi bir etkisi var mı?**
 
@@ -353,7 +343,7 @@ Evet.
 
 **Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutları nelerdir?**
 
-Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutu 4 TiB ' dir. 32 TiB kadar büyük disk desteği yakında eklenecektir.
+Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutu 4 TiB ' dir. 32 TiB kadar büyük diskler için destek henüz kullanılamıyor.
 
 **Boyutu daha büyük disk boyutları için önerilen VM nelerdir (> 4 TiB) IOPS ve bant genişliği elde etmek için standart bir SSD ve HDD standart diskler en iyi duruma getirilmiş için disk?**
 

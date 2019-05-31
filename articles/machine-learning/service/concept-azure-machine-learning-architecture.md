@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151172"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242416"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -23,7 +23,7 @@ Mimari, kavramlar ve Azure Machine Learning hizmeti için iş akışı hakkında
 
 [![Azure Machine Learning hizmeti mimarisi ve iş akışı](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-## <a name="workflow"></a>İş Akışı
+## <a name="workflow"></a>İş akışı
 
 Machine learning iş akışı genellikle bu sırayı takip eder:
 
@@ -37,6 +37,7 @@ Machine learning iş akışı genellikle bu sırayı takip eder:
 Aşağıdakilerden herhangi biri ile aşağıdaki adımları gerçekleştirin:
 + [Azure Machine için Python SDK'sı Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code uzantısı](how-to-vscode-tools.md)
 +  [Azure Machine Learning hizmeti için görsel arabirim (Önizleme)](ui-concept-visual-interface.md)
 
 > [!NOTE]
@@ -141,7 +142,7 @@ Bir modeli eğitmek için eğitim betiğini ve ilişkili dosyaları içeren dizi
 
 Bir örnek için bkz [Öğreticisi: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
 
-## <a name="run"></a>Çalıştır
+## <a name="run"></a>Çalıştırın
 
 Aşağıdaki bilgileri içeren bir kaydı bir çalıştırmadır:
 
@@ -158,7 +159,7 @@ Bir model eğitip geleceği üretilen çalıştırmalarını görüntüleme ili�
 
 Kaynak dizini yerel bir Git deposu olduğu çalıştırma eğitim başlattığınızda, depo bilgilerini çalıştırma geçmişinde depolanır. Örneğin, geçerli işleme kimliği depo için geçmiş bir parçası olarak günlüğe kaydedilir. Bu tahmin, ML işlem hattı ya da komut dosyasını çalıştır kullanılarak gönderilen çalıştırmaları ile çalışır. Ayrıca SDK ya da Machine Learning CLI gönderilen çalıştırmalar için çalışır.
 
-## <a name="snapshot"></a>Anlık görüntü
+## <a name="snapshot"></a>Anlık Görüntü
 
 Bir farklı çalıştır gönderdiğinizde, Azure Machine Learning komut dosyasına bir zip dosyası olarak içeren ve işlem hedefe gönderir dizini sıkıştırır. Zip dosyası ardından ayıklanır ve komut dosyası var. çalıştırın. Azure Machine Learning, zip dosyası da çalıştırma kaydı bir parçası olarak bir anlık görüntü olarak depolar. Çalışma alanına erişimi olan herkes bir çalıştırma kaydı göz atabilir ve anlık görüntü indirin.
 
