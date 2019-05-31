@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952944"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236873"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM’lerinde SQL Server veritabanlarını yedekleme
 
@@ -49,7 +49,7 @@ Tüm işlemler için bir SQL Server VM, Azure genel IP adresleri bağlantısı g
 
 Aşağıdaki seçeneklerden birini kullanarak bağlantı kurar:
 
-- **Azure veri merkezi IP aralıklarına izin verin**. Bu seçenek sayesinde [IP aralıklarını](https://www.microsoft.com/download/details.aspx?id=41653) indirmesindeki. Bir ağ güvenlik grubu (NSG) erişmek için Set-AzureNetworkSecurityRule cmdlet'ini kullanın. Beyaz listeye ekleme özelliğini yalnızca bölgeye özgü kullanıyorsanız IP'ler, ayrıca Azure Active Directory (Azure AD) güvenilir listeye hizmet kimlik doğrulamasını etkinleştirmek için etiket.
+- **Azure veri merkezi IP aralıklarına izin verin**. Bu seçenek sayesinde [IP aralıklarını](https://www.microsoft.com/download/details.aspx?id=41653) indirmesindeki. Bir ağ güvenlik grubu (NSG) erişmek için Set-AzureNetworkSecurityRule cmdlet'ini kullanın. Güvenli yalnızca bölgeye özel IP'ler alıcıların listesi, aynı zamanda kimlik doğrulamasını etkinleştirmek için Azure Active Directory (Azure AD) hizmet etiketi güvenli alıcı listesi güncelleştirmeniz gerekir.
 
 - **NSG etiketleri kullanarak erişim izni**. Bağlantı kısıtlamak için Nsg kullanırsanız, bu seçeneği AzureBackup etiketini kullanarak Azure Backup için giden erişim veren NSG kuralı ekler. Bu etiket yanı sıra, ayrıca karşılık gelen gerekir [kuralları](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) Azure AD için ve kimlik doğrulaması ve veri aktarımı için bağlantısına izin vermek için Azure depolama. AzureBackup etiketi yalnızca PowerShell üzerinde şu anda kullanılabilir. AzureBackup etiketini kullanarak bir kural oluşturmak için:
 
@@ -96,7 +96,8 @@ Aşağıdaki öğeleri veritabanı adları kullanmaktan kaçının:
   * Baştaki ve sondaki
   * Sondaki ünlem işareti (!)
   * Köşeli ayraç (])
-  * F:\ ile başlatılıyor
+  * Noktalı virgül ';'
+  * Eğik çizgi '/'
 
 Diğer ad kullanımı için desteklenmeyen karakterler kullanılabilir, ancak bunları önleme öneririz. Daha fazla bilgi için bkz. [Tablo Hizmeti Veri Modelini anlama](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -162,7 +163,7 @@ Bir VM'de çalışan veritabanlarını bulmak nasıl:
 
      * 50'den fazla veritabanlarını korumak için birden çok yedekleme yapılandırın.
      * Etkinleştirmek için [ ](#enable-auto-protection) tüm örneği veya Always On kullanılabilirlik grubu. İçinde **AUTOPROTECT** aşağı açılan listesinden **ON**ve ardından **Tamam**.
-     
+
     > [!NOTE]
     > [Otomatik korumayı](#enable-auto-protection) özellik, yalnızca tüm veritabanlarında aynı anda koruma sağlar, ancak bu örneği veya kullanılabilirlik grubuna eklenen tüm yeni veritabanları otomatik olarak korur.  
 

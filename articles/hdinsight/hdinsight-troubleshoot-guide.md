@@ -5,13 +5,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: f7ac4b7434c56d356fa7e88de39e819a112ae234
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/29/2019
+ms.openlocfilehash: d39aaf458a1c67330ee1023ec2598bfb979fa48f
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723379"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393709"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak sorun giderme
 
@@ -28,7 +28,7 @@ ms.locfileid: "64723379"
 
 | Hakkında bilgi için | Bu makalelere göz atın |
 | --- | --- |
-| HDInsight Linux ve en iyi duruma getirme | - [Linux'ta HDInsight kullanma hakkında bilgi](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop bellek ve performans sorunlarını giderme](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive sorgu performansı](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
+| HDInsight Linux ve en iyi duruma getirme | - [Linux'ta HDInsight kullanma hakkında bilgi](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop bellek ve performans sorunlarını giderme](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive sorgu performansı](https://web.archive.org/web/20190217214250/ https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Günlükleri ve dökümleri | - [Linux üzerinde Access Apache Hadoop YARN uygulama günlüklerine](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Linux üzerinde Apache Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)|
 | Hatalar | - [WebHCat hatalarını anlama ve çözme](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive ayarları OutofMemory hatayı düzeltmek için](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Araçlar | - [Apache Hive sorgularını en iyi duruma getirme](hdinsight-hadoop-optimize-hive-query.md)<br>- [HDInsight Intellij aracı](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse aracı](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode aracını](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio aracı](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |

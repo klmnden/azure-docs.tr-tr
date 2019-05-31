@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 8e711c0586ce63d4293e2fb0914bbe884b55971f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921917"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389958"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Common Event Format'ı kullanarak dış çözümünüzü bağlayın
 
@@ -44,8 +44,10 @@ Azure Gözcü ve CEF gerecinize arasındaki bağlantıyı üç adımda gerçekle
 2. Syslog aracı veri toplar ve günlük Burada, Ayrıştırılan zenginleştirilmiş ve analiz için güvenli bir şekilde gönderir.
 3. Analiz ve bağıntı kuralları panoları kullanarak, gerektiği şekilde sorgulanabilir için aracı verileri Log Analytics çalışma alanında depolar.
 
+> [!NOTE]
+> Aracı birden fazla kaynaktan günlükleri toplayabilir, ancak adanmış proxy makineye yüklenmesi gerekir.
 
-## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>1. Adım: CEF gerecinize adanmış bir Azure VM aracılığıyla bağlanma
+## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>1. adım: CEF gerecinize adanmış bir Azure VM aracılığıyla bağlanma
 
 Özel bir Linux makine aracıda dağıtmanız gerekebilir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, Resource Manager şablonları temel alan ve yalnızca, özel bir Linux makine Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir.
 
@@ -61,7 +63,7 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 1. Gözcü Azure portalında **veri bağlayıcıları** ve gereç türünüzü seçin. 
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
-   - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına adanmış bir Linux, otomatik olarak çalışma alanınıza bağlı olduğu VM için götürür. VM bir **standart D2s v3 (2 Vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
+   - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına otomatik olarak çalışma alanınıza bağlı olduğu adanmış bir Linux VM için götürür. VM bir **standart D2s v3 (2 Vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
       1. İçinde **özel dağıtım** sayfasında ayrıntılarınızı sağlamak ve bir kullanıcı adı ve parola seçin ve hüküm ve koşulları kabul ediyorsanız, VM satın alın.
       1. Bağlantı sayfada listelenen ayarları kullanarak günlükleri göndermek için gerecinizin yapılandırın. Genel Common Event Format bağlayıcısının bu ayarları kullanın:
          - Protokol UDP =
@@ -118,6 +120,13 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
   
  İlgili şema CEF olayları Log Analytics'te kullanmak için arama `CommonSecurityLog`.
 
+## <a name="step-2-forward-common-event-format-cef-logs-to-syslog-agent"></a>2. adım: Common Event Format (CEF) günlüklerini Syslog aracıya ilet
+
+Syslog iletileri Syslog aracınızı CEF biçiminde göndermek için güvenlik çözümünüzü ayarlayın. Aracı yapılandırmanızda görünen aynı parametreleri kullandığınızdan emin olun. Genellikle şunlardır:
+
+- Bağlantı noktası 514
+- Tesis local4
+
 ## <a name="step-3-validate-connectivity"></a>3. adım: Bağlantıyı doğrula
 
 Çalınıyor Log Analytics'te görünmesini günlüklerinizi başlatana kadar 20 dakika sürebilir. 
@@ -128,7 +137,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
 
 3. Gönderdiğiniz günlükler ile uyumlu olduğundan emin [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.netman/8/netstat). Düzgün dinliyorsa, görürsünüz:
+4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.net/man/8/netstat). Düzgün dinliyorsa, görürsünüz:
 
    ![Azure Sentinel bağlantı noktaları](./media/connect-cef/ports.png) 
 

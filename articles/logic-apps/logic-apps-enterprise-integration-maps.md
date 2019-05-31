@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244709"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Azure Logic Apps Enterprise Integration Pack ile maps'a ile XML dönüştürme
 
@@ -28,11 +28,11 @@ Tümleştirme hesapları ve yapıtları eşlemeleri gibi ilgili limitleri için 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği. Aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
+* Azure aboneliği. Aboneliğiniz yoksa, [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/).
 
 * Bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) depoladığınız etsek ve diğer yapıtlar için Kurumsal tümleştirme ve işletmeden işletmeye (B2B) çözümler.
 
-* Haritanızda dış bütünleştirilmiş başvuruyorsa, karşıya yüklemeniz *hem derleme hem de eşleme* tümleştirme hesabınıza. Emin olun *derlemenizi önce karşıya*ve derlemeye başvuran harita yükleyin.
+* Haritanızda dış bütünleştirilmiş başvuruyorsa, karşıya yüklemeniz *hem derleme hem de eşleme* tümleştirme hesabınıza. Emin olun [ *derlemenizi önce karşıya*](#add-assembly)ve derlemeye başvuran harita yükleyin.
 
   Derlemenizi 2 MB veya daha küçük, derlemenizin tümleştirme hesabınıza ekleyebilirsiniz *doğrudan* Azure portalından. Ancak, derleme veya harita 2 MB değerinden büyük ancak daha büyük olup olmadığını [derlemeleri veya haritalar için boyut sınırı](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), bu seçenekler vardır:
 
@@ -50,9 +50,11 @@ Tümleştirme hesapları ve yapıtları eşlemeleri gibi ilgili limitleri için 
 
 Mantıksal uygulama oluştururken ve haritalar eklemek gerekmez. Ancak, bir harita kullanmak için mantıksal uygulamanızı eşlenen depoladığınız bir tümleştirme hesabı bağlama gerekir. Bilgi [tümleştirme hesapları için logic apps'i bağlama](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Mantıksal uygulama henüz sahip değilseniz, bilgi [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## <a name="add-referenced-assemblies"></a>Başvurulan derlemeleri ekleyin
 
-1. Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" target="_blank">Azure portalında</a> oturum açın.
+1. Azure hesabınızın kimlik bilgileriyle [Azure portalında](https://portal.azure.com) oturum açın.
 
 1. Ana Azure menüsünden tümleştirme hesabınızı bulup seçin **tüm hizmetleri**. 
    Arama kutusuna "tümleştirme hesabı" girin. 
@@ -74,6 +76,9 @@ Mantıksal uygulama oluştururken ve haritalar eklemek gerekmez. Ancak, bir hari
 
 Bütünleştirilmiş kod dosyanızın boyutuna bağlı olarak, ya da bir bütünleştirilmiş kod yükleme adımları [2 MB'a kadar](#smaller-assembly) veya [2 MB'tan fazla ancak yalnızca en çok 8 MB](#larger-assembly).
 Tümleştirme hesabındaki bütünleştirilmiş kod miktarları üzerinde limitleri için bkz [limitler ve yapılandırma için Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> Derlemenizi değiştirirseniz, değişiklikler haritasına sahip olup olmadığını haritanızı da güncelleştirmeniz gerekir.
 
 <a name="smaller-assembly"></a>
 
@@ -99,7 +104,7 @@ Tümleştirme hesabındaki bütünleştirilmiş kod miktarları üzerinde limitl
 
 ### <a name="add-assemblies-more-than-2-mb"></a>2 MB'den fazla derlemeleri ekleyin
 
-Daha büyük derlemeleri eklemek için Azure depolama hesabınızdaki bir Azure blob kapsayıcısına derlemenizi yükleyebilirsiniz. Derlemeleri eklemek için adımları farklıdır tabanlı blob kapsayıcınızın genel okuma erişimine sahip olup olmadığını. Bu nedenle ilk olarak, aşağıdaki adımları izleyerek blob kapsayıcınızın genel okuma erişimine sahip olup olmadığını denetleyin: [Blob kapsayıcısı genel erişim düzeyini ayarlayın](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Daha büyük derlemeleri eklemek için Azure depolama hesabınızdaki bir Azure blob kapsayıcısına derlemenizi yükleyebilirsiniz. Blob kapsayıcınızın genel okuma erişimine sahip olup olmadığını derlemeleri eklemek için adımları uygulamanıza bağlı olarak farklılık gösterir. Bu nedenle ilk olarak, aşağıdaki adımları izleyerek blob kapsayıcınızın genel okuma erişimine sahip olup olmadığını denetleyin: [Blob kapsayıcısı genel erişim düzeyini ayarlayın](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Kapsayıcının erişim düzeyini denetleyin
 
@@ -128,7 +133,7 @@ Daha büyük derlemeleri eklemek için Azure depolama hesabınızdaki bir Azure 
 
 1. Azure portalına dönün burada **derleme Ekle** bölmesini açın. 
    Derleme için bir ad girin. 
-   Seçin **büyük dosya (2 MB'tan büyük)**.
+   Seçin **büyük dosya (2 MB'tan büyük)** .
 
    **İçerik URI** artık kutusu görüntülenirse, yerine **derleme** kutusu.
 
@@ -153,7 +158,7 @@ Tümleştirme hesabının üzerinde **genel bakış** sayfasındaki **bileşenle
 
 1. Azure portalına dönün burada **derleme Ekle** bölmesini açın. 
    Derleme için bir ad girin. 
-   Seçin **büyük dosya (2 MB'tan büyük)**.
+   Seçin **büyük dosya (2 MB'tan büyük)** .
 
    **İçerik URI** artık kutusu görüntülenirse, yerine **derleme** kutusu.
 
@@ -170,7 +175,7 @@ Tümleştirme hesabı eşlemesi miktarlar barındırabileceğiniz için bkz: [li
 
 Haritanızı başvurduğu tüm derlemeleri karşıya yüklenmesinin ardından, artık eşlemenizde karşıya yükleyebilirsiniz.
 
-1. Zaten oturum açmadıysanız, oturum <a href="https://portal.azure.com" target="_blank">Azure portalında</a> Azure hesabı kimlik bilgilerinizle. 
+1. Zaten oturum açmadıysanız, oturum [Azure portalında](https://portal.azure.com) Azure hesabı kimlik bilgilerinizle. 
 
 1. Tümleştirme hesabı, ana Azure menüsünde açık değilse, seçin **tüm hizmetleri**. 
    Arama kutusuna "tümleştirme hesabı" girin. 
@@ -310,7 +315,7 @@ the map appears in the **Maps** list.
 
 Mevcut bir haritayı güncelleştirmek için istediğiniz değişiklikleri içeren yeni bir eşleme dosyasını karşıya yüklemek sahip. Ancak, ilk düzenlemek için varolan harita indirebilirsiniz.
 
-1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, bulun ve açın, tümleştirme hesabı, açık değilse.
+1. İçinde [Azure portalında](https://portal.azure.com), bulun ve açın, tümleştirme hesabı, açık değilse.
 
 1. Ana Azure menüsünde **tüm hizmetleri**. Arama kutusuna "tümleştirme hesabı" girin. Seçin **tümleştirme hesapları**.
 
@@ -328,7 +333,7 @@ Mevcut bir haritayı güncelleştirmek için istediğiniz değişiklikleri içer
 
 ## <a name="delete-maps"></a>Haritalar Sil
 
-1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, bulun ve açın, tümleştirme hesabı, açık değilse.
+1. İçinde [Azure portalında](https://portal.azure.com), bulun ve açın, tümleştirme hesabı, açık değilse.
 
 1. Ana Azure menüsünde **tüm hizmetleri**. 
    Arama kutusuna "tümleştirme hesabı" girin. 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393480"
+ms.locfileid: "66417992"
 ---
 # <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
 
@@ -25,7 +25,7 @@ Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç a
 
 Akışınız şifreleme seçeneklerini belirtmek için oluşturmak gereken bir [akış ilke](streaming-policy-concept.md) ilişkilendirin, [akış Bulucu](streaming-locators-concept.md). Oluşturduğunuz [içerik anahtarı ilke](https://docs.microsoft.com/rest/api/media/contentkeypolicies) yapılandırmak için nasıl içerik anahtarı (güvenli erişim sağlayan, [varlıklar](assets-concept.md)) istemcileri sonlandırmak için teslim edilir. Gereksinimleri (kısıtlamaları) ayarlamanız anahtarları için sırayla istemcilere iletilmesi belirtilen yapılandırma ile karşılanması gereken içerik anahtarı ilkeye gerekir. Bu içerik anahtarı ilkeyi Temizle akış veya yükleme için gerekli değildir. 
 
-Genellikle, ilişkilendirme, **içerik anahtarı ilke** ile **akış Bulucu**. Alternatif olarak, içerik anahtarı ilke içinde bir akış İlkesi (Gelişmiş senaryolar için özel bir akış ilke oluştururken) belirtebilirsiniz. 
+Genellikle, ilişkilendirme, **içerik anahtarı ilke** ile [akış Bulucu](streaming-locators-concept.md). Alternatif olarak, içerik anahtarı ilke içinde belirtebileceğiniz bir [akış ilke](streaming-policy-concept.md) (ne zaman için özel bir akış ilke oluşturma Gelişmiş senaryoları). 
 
 Media Services için içerik anahtarı otomatik olarak izin vermek için önerilir. Genellikle, uzun süreli bir anahtar kullanmak ve ile ilkeleri varlığını denetle **alma**. Anahtarı almak için parolaları veya kimlik bilgilerini almak için aşağıdaki örneğe bakın ayrı bir eylem yöntemini çağırmak gerekir.
 
