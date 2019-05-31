@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: a0ece3007e1eadf6cb2901941b771f0ff3243f02
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: fd04e380b0b5732db1e39ffc9b5aa6047c7ef777
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921944"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382998"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Cisco ASA gerecinize bağlanma 
 
@@ -32,7 +32,7 @@ Herhangi bir Cisco ASA gereç Azure Gözcü bağlanabilirsiniz. Cisco gereciniz 
 > [!NOTE]
 > Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>1. Adım: Cisco ASA gerecinize bir aracı kullanarak bağlanma
+## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>1. adım: Cisco ASA gerecinize bir aracı kullanarak bağlanma
 
 Azure Gözcü için Cisco ASA cihazınıza bağlanmak için adanmış bir makinede bir aracı dağıtmak gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
@@ -97,7 +97,7 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
       1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-cisco-asa-logs-to-the-syslog-agent"></a>2. Adım: Cisco ASA günlükleri Syslog aracıya ilet
+## <a name="step-2-forward-cisco-asa-logs-to-the-syslog-agent"></a>2. adım: Cisco ASA günlükleri Syslog aracıya ilet
 
 Cisco ASA CEF desteklemiyor. günlükleri, Syslog ve Azure Gözcü aracı bildiği gibi CEF günlükleri gibi varsa bunları ayrıştırmayı gönderilir. Cisco ASA, Syslog aracı üzerinden Azure çalışma alanınıza Syslog iletilerini iletecek şekilde yapılandırın:
 
@@ -118,7 +118,7 @@ Git [dış bir Syslog sunucusuna göndermek için Syslog iletileri](https://aka.
 
 3. Gönderdiğiniz günlükler ile uyumlu olduğundan emin [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.netman/8/netstat). Düzgün dinliyorsa, görürsünüz:
+4. Syslog Aracısı'nı çalıştıran bilgisayarda, bu bağlantı noktası 514 emin olmak için açık ve dinleme komutunu kullanarak 25226'daki `netstat -a -n:`. Bu komutu kullanma hakkında daha fazla bilgi için bkz. [netstat(8) - Linux man sayfa](https://linux.die.net/man/8/netstat). Düzgün dinliyorsa, görürsünüz:
 
    ![Azure Sentinel bağlantı noktaları](./media/connect-cef/ports.png) 
 

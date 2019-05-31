@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 827c42763eee39c717cedc90469ae765cc331272
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602375"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253831"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Güvenlik Uyarıları Azure kaynak rolleri için PIM içinde yapılandırma
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, bunu bir uyarılar sayfasında gösterilir. 
@@ -35,9 +35,9 @@ Düzeltme önerileri ile birlikte, uyarıyı tetikleyen rollerin listeleyen bir 
 ## <a name="alerts"></a>Uyarılar
 | Uyarı | Severity | Tetikleyici | Öneri |
 | --- | --- | --- | --- |
-| **Bir kaynağa çok fazla sahip atandı** |Ortam |Çok sayıda kullanıcı, sahip rolünün sahip. |Listedeki kullanıcıları gözden geçirin ve bazı az ayrıcalıklı roller için yeniden atayın. |
-| **Bir kaynağa çok fazla kalıcı sahip atandı** |Ortam |Çok sayıda kullanıcı, bir rol kalıcı olarak atanır. |Listedeki kullanıcıları gözden geçirin ve bazı etkinleştirme rol kullanması için yeniden atayın. |
-| **Yinelenen rol oluşturuldu** |Ortam |Birden çok rol aynı ölçütlerine sahiptirler. |Bu roller yalnızca birini kullanın. |
+| **Bir kaynağa çok fazla sahip atandı** |Orta |Çok sayıda kullanıcı, sahip rolünün sahip. |Listedeki kullanıcıları gözden geçirin ve bazı az ayrıcalıklı roller için yeniden atayın. |
+| **Bir kaynağa çok fazla kalıcı sahip atandı** |Orta |Çok sayıda kullanıcı, bir rol kalıcı olarak atanır. |Listedeki kullanıcıları gözden geçirin ve bazı etkinleştirme rol kullanması için yeniden atayın. |
+| **Yinelenen rol oluşturuldu** |Orta |Birden çok rol aynı ölçütlerine sahiptirler. |Bu roller yalnızca birini kullanın. |
 
 
 ### <a name="severity"></a>Severity
@@ -54,4 +54,4 @@ Güvenlik hedefleri ve ortam ile çalışmak için farklı uyarıların ayarlar�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Güvenlik Uyarıları Azure kaynak rolleri için PIM içinde yapılandırma](pim-resource-roles-configure-alerts.md)
+- [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)

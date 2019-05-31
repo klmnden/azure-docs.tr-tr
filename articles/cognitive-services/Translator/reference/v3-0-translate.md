@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si Çevir yöntemi
 titleSuffix: Azure Cognitive Services
 description: Translator metin API'si Çevir yöntemi kullanın.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: v-pawal
+ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235826"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389764"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -45,7 +45,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak <a href="./v3-0-languages.md">desteklenen diller</a> kullanarak <code>translation</code> kapsam. Varsa <code>from</code> parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
   </tr>
   <tr>
-    <td>bitiş</td>
+    <td>-</td>
     <td><em>Gerekli parametre</em>.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır <a href="./v3-0-languages.md">desteklenen diller</a> dahil <code>translation</code> kapsam. Örneğin, <code>to=de</code> Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, <code>to=de&to=it</code> Almanca ve İtalyanca çevrilemedi.</td>
   </tr>
   <tr>
@@ -101,7 +101,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">kimlik doğrulaması için kullanılabilir seçenekler</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>İçerik türü</td>
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: <code>application/json</code>.</td>
   </tr>
   <tr>
@@ -169,7 +169,7 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
 
 Örnek JSON yanıtları verilmiştir [örnekler](#examples) bölümü.
 
-## <a name="response-headers"></a>Yanıt üst bilgileri
+## <a name="response-headers"></a>Yanıt Üstbilgileri
 
 <table width="100%">
   <th width="20%">Üst bilgiler</th>
@@ -189,7 +189,7 @@ Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile 
 Bir isteği döndüren olası HTTP durum kodları şunlardır: 
 
 <table width="100%">
-  <th width="20%">Durum Kodu</th>
+  <th width="20%">Durum kodu</th>
   <th>Açıklama</th>
   <tr>
     <td>200</td>

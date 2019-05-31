@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 49a28c120ae71224195edcdb3809335aeea1fa3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364328"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252809"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub iletilerini oluşturma ve okuma
 
@@ -42,6 +42,8 @@ CİHAZDAN buluta iletileri IOT Hub ile aşağıdaki özelliklere sahiptir:
 * IOT hub'ı rastgele bölümleme izin vermez. CİHAZDAN buluta iletileri bölümlenmiş kendi kaynak tabanlı **DeviceID**.
 
 * İçinde anlatıldığı gibi [IOT hub'a erişimi denetleme](iot-hub-devguide-security.md), IOT Hub cihaz başına kimlik doğrulaması ve erişim denetimi sağlar.
+
+* Uygulama özelliklerini giden bilgilerle iletileri damgasının. Daha fazla bilgi için lütfen bkz [ileti zenginleştirmelerinin](iot-hub-message-enrichments-overview.md).
 
 Kodlama ve kodunu çözme farklı protokolleriyle gönderilen iletiler hakkında daha fazla bilgi için bkz. [Azure IOT SDK'ları](iot-hub-devguide-sdks.md).
 

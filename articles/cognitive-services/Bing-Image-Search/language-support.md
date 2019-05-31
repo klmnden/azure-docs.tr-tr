@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869863"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384154"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing resim arama API'si için dil ve bölge desteği
 
@@ -32,7 +32,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 > - tr-AU (İngilizce, Avustralya)
 > - zh-CN (Çince, Çin)
 
-## <a name="countriesregions"></a>Ülkeler/Bölgeler
+## <a name="countriesregions"></a>Ülkeler/bölgeler
 
 |Ülke/bölge|Kod|
 |-------|----|
@@ -47,7 +47,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Finlandiya|FI|
 |Fransa|GS|
 |Almanya|DE|
-|Hong Kong Çin ÖİB|HK|
+|Hong Kong SAR|HK|
 |Hindistan|IN|
 |Endonezya|Kimlik|
 |İtalya|BT|
@@ -91,7 +91,7 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Finlandiya|Fince|FI-FI|
 |Fransa|Fransızca |fr-FR|
 |Almanya|Almanca |de-DE|
-|Hong Kong Çin ÖİB|Geleneksel Çince|zh-HK|
+|Hong Kong SAR|Geleneksel Çince|zh-HK|
 |Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
 |İtalya|İtalyanca|İt-IT|
@@ -119,4 +119,4 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bing haber arama uç noktaları hakkında daha fazla bilgi için bkz. [haber resim arama API'si v7 başvuru](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Bing haber arama uç noktaları hakkında daha fazla bilgi için bkz. [haber resim arama API'si v7 başvuru](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

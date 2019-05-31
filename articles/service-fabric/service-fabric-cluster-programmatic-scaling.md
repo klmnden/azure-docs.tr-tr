@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111317"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306927"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Service Fabric kümesi programlama yoluyla ölçeklendirme 
 
@@ -33,12 +33,12 @@ Azure'da çalışan Service Fabric kümeleri, sanal makine ölçek kümeleri üz
 
 Bir hizmet sorumlusu, aşağıdaki adımlarla oluşturulabilir:
 
-1. Azure CLI için oturum açma (`az login`) sanal makine ölçek erişimi olan bir kullanıcı olarak ayarla
+1. Azure CLI'yı açın (`az login`) sanal makine ölçek erişimi olan bir kullanıcı olarak ayarla
 2. Hizmet sorumlusu oluşturma `az ad sp create-for-rbac`
     1. Uygulama Kimliği ('istemci kimliği' başka bir yerde olarak adlandırılır), adı, şifresi ve Kiracı daha sonra kullanmak için not edin.
     2. Ayrıca ile görüntülenebilir abonelik Kimliğinizi gerekir `az account list`
 
-Fluent işlem kitaplığı gibi bu kimlik bilgilerini kullanarak oturum açabilir (çekirdek fluent Azure türleri gibi sağladığı Not `IAzure` bulunan [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) paket):
+Fluent işlem kitaplığı gibi bu kimlik bilgilerini kullanarak oturum açabilirsiniz (çekirdek fluent Azure türleri gibi sağladığı Not `IAzure` bulunan [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) paket):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {

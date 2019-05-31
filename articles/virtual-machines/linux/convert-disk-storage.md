@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2e7eb455a53abbe2df6ff72f091a599665732429
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc42bcbf7149f88eb895317a411c7acd5913d63d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724904"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417686"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Dönüştürme Azure yönetilen diskler depolaması standart katmandan Premium katmana veya Premiumdan standarda
 
-Dört vardır [disk türleri](disks-types.md) için Azure yönetilen diskler: Ultra Azure Disk Depolama, Premium SSD, standart bir SSD ve standart HDD. Premium SSD, standart bir SSD ve standart az kapalı kalma süresi ile performans ihtiyaçlarınıza göre HDD arasında kolayca geçiş yapabilirsiniz. Bu işlev, yönetilmeyen diskler veya Ultra Yüksek Disk depolama alanı için desteklenmiyor. Ancak kolayca [yönetilen disklere dönüştürme yönetilmeyen](convert-unmanaged-to-managed-disks.md) için disk türleri arasında geçiş yapabilirsiniz.
+Dört vardır disk türleri Azure yönetilen diskler: Azure ultra SSD (Önizleme), premium SSD, standart bir SSD ve HDD standart. Üç GA disk türleri arasında geçiş yapabilirsiniz (premium SSD, standart bir SSD ve HDD standart) performans ihtiyaçlarınıza göre. Kullanmıyorsanız, henüz bir ultra SSD veya yapılan geçiş yapabilir, yeni bir tane dağıtmanız gerekir.
+
+Bu işlev, yönetilmeyen diskler için desteklenmiyor. Ancak kolayca [yönetilmeyen disk bir yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md) için disk türleri arasında geçiş yapabilirsiniz.
 
 Bu makalede yönetilen diskler standart katmandan Premium katmana veya Premiumdan standarda Azure CLI'yi kullanarak nasıl dönüştürüleceğini gösterir. Aracı yükseltme veya yüklemek için bkz. [Azure CLI yükleme](/cli/azure/install-azure-cli).
 

@@ -8,18 +8,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561571"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304242"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid olay şeması
 
 Bu makalede, tüm olaylar için mevcut olan şema ve özellikleri açıklar. Olayları beş gereken dize özellikleri ve gerekli veri nesnesi kümesinden oluşur. Tüm olaylara herhangi bir yayımcıdan yaygın özelliklerdir. Veri nesnesi, her yayımcı için özel özellikleri vardır. Sistem konuları için bu özellikleri Azure depolama veya Azure Event Hubs gibi bir kaynak sağlayıcısı özgüdür.
 
-Olay kaynakları, çeşitli olay nesneleri olan bir dizi içinde Azure Event Grid için olayları gönderirsiniz. Event grid konusu olayları nakil sırasında dizinin toplam boyutu 1 MB'a kadar olabilir. Dizideki her olay, 64 KB ile sınırlıdır. Bir olay ya da dizi boyutu sınırları büyükse yanıt almanız **413 yükü çok büyük**.
+Olay kaynakları, çeşitli olay nesneleri olan bir dizi içinde Azure Event Grid için olayları gönderirsiniz. Event grid konusu olayları nakil sırasında dizinin toplam boyutu 1 MB'a kadar olabilir. Dizideki her olay, 64 KB'lık (Genel kullanım) veya 1 MB (Önizleme) ile sınırlıdır. Bir olay ya da dizi boyutu sınırları büyükse yanıt almanız **413 yükü çok büyük**.
+
+> [!NOTE]
+> Bir olay boyutu en fazla 64 KB, genel kullanılabilirlik (GA) hizmet düzeyi sözleşmesi (SLA) tarafından alınmıştır. Bir olay boyutu en fazla desteği 1 MB şu anda Önizleme aşamasındadır. Olaylar üzerinde 64 KB, 64 KB'lık artışlarla ücretlendirilir. 
 
 Event Grid, tek bir olayda bir dizideki abonelere olayları gönderir. Bu davranışı gelecekte değişebilir.
 
@@ -83,11 +86,11 @@ Tüm olaylar aynı aşağıdaki üst düzey veri sahiptir:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| Konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
 | olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | string | Olayın benzersiz tanımlayıcısı. |
-| veriler | object | Kaynak sağlayıcıya özel olay verileri. |
+| Veri | object | Kaynak sağlayıcıya özel olay verileri. |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 

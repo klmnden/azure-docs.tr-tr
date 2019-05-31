@@ -1,30 +1,30 @@
 ---
-title: "Hızlı Başlangıç: Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir"
-description: "Bu hızlı başlangıçta, Power bı'da verileri görselleştirmek için üç seçenekten birini kullanmayı öğrenin: Azure Veri Gezgini için Power BI Bağlayıcısı."
+title: Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
+description: "Bu makalede, Power bı'da verileri görselleştirmek için üç seçenekten birini kullanmayı öğrenin: Azure Veri Gezgini için Power BI Bağlayıcısı."
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
-ms.openlocfilehash: 1be13090244a94c1bf3f731c8b6d73fa0848c393
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.openlocfilehash: 6147269ab38ac14c2a2ecadaac3448a491af7c20
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827893"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399303"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Hızlı Başlangıç: Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
+# <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
 
 Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Power BI, verilerinizi görselleştirmenizi ve sonuçları kuruluşunuzda paylaşmanızı sağlayan bir iş analizi çözümüdür.
 
-Azure Veri Gezgini, Power bı'daki verilere bağlanmak için üç seçenek sunar: yerleşik Bağlayıcısı, Azure veri Gezgini'nde bir sorguyu içeri aktarmak veya bir SQL sorgusu kullanın. Bu hızlı başlangıçta, veri almak ve bir Power BI raporuna görselleştirme yerleşik bağlayıcı kullanmayı gösterir.
+Azure Veri Gezgini, Power bı'daki verilere bağlanmak için üç seçenek sunar: yerleşik Bağlayıcısı, Azure veri Gezgini'nde bir sorguyu içeri aktarmak veya bir SQL sorgusu kullanın. Bu makalede veri almak ve bir Power BI raporuna görselleştirme yerleşik bağlayıcısını kullanmayı gösterir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için şunlara ihtiyacınız vardır:
+Bu makalede tamamlamak için şunlara ihtiyacınız vardır:
 
 * Bağlanabilir, böylece Azure Active directory üyesi olan bir kuruluş e-posta hesabı [Azure Veri Gezgini Yardım kümesi](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -53,7 +53,7 @@ Bu hızlı başlangıcı tamamlamak için şunlara ihtiyacınız vardır:
     | Küme | *https://help.kusto.windows.net* | Yardım kümesi için URL. Diğer kümeler için URL biçimindedir *https://\<ClusterName\>.\< Bölge\>. kusto.windows.net*. |
     | Database | Boş bırakın | Bağlanmakta olduğunuz kümesi üzerinde barındırılan bir veritabanı. Biz bu daha sonraki bir adımda seçersiniz. |
     | Tablo adı | Boş bırakın | Bir veritabanı ya da bir sorgu tablo ister <code>StormEvents \| take 1000</code>. Biz bu daha sonraki bir adımda seçersiniz. |
-    | Gelişmiş seçenekler | Boş bırakın | Sonuç gibi sorgularınız için seçenekleri boyutunu ayarlayın. |
+    | Gelişmiş Seçenekleri | Boş bırakın | Sonuç gibi sorgularınız için seçenekleri boyutunu ayarlayın. |
     | Veri bağlantısı modu | *DirectQuery* | Power BI veri aldığında veya doğrudan veri kaynağına bağlanan belirler. Bu bağlayıcıyı kullanarak, iki seçenekten birini kullanabilirsiniz. |
     | | | |
 
@@ -85,9 +85,8 @@ Bu hızlı başlangıcı tamamlamak için şunlara ihtiyacınız vardır:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu Hızlı Başlangıç için oluşturduğunuz rapor artık ihtiyacınız kalmadığında Power BI Desktop (.pbix) dosyasını silin.
+Bu makalede, oluşturulan rapor artık ihtiyacınız kalmadığında Power BI Desktop (.pbix) dosyasını silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Power BI hizmetinde içeri aktarılan bir sorgu kullanarak verileri Görselleştir](power-bi-imported-query.md)
+[Power BI hizmetinde içeri aktarılan bir sorgu kullanarak verileri Görselleştir](power-bi-imported-query.md)

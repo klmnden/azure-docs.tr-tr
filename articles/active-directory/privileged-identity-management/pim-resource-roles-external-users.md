@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289019"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307070"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Konuk kullanıcıları davet ve PIM Azure kaynak rolleri atama
 
@@ -91,7 +91,7 @@ PIM kullanarak Konuk davet et ve bunları bir Azure Kaynak rolü gibi bir üye k
 
 1. Tıklayın **üyesi veya Grup Seç**.
 
-    ![Üye veya grup seçin](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Bir üye veya grup seçin](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. Konuk davet etmek için tıklayın **davet**.
 
@@ -145,7 +145,7 @@ Dış kullanıcı olarak, ilk Azure AD kuruluşunuz için daveti kabul etmek ve 
 
 1. Rolü için ayarları belirttikten sonra tıklayın **etkinleştirme** rolü etkinleştirmek için.
 
-    ![Rolü etkinleştir](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Rol etkinleştirme](./media/pim-resource-roles-external-users/activate-role.png)
 
     Yönetici isteğinizi onaylamanız gerekli değilse, belirtilen kaynaklara erişimi olmalıdır.
 
@@ -157,7 +157,7 @@ Yalnızca bir üye kullanıcı gibi Konukları neler yaptığını izlemek için
 
 1. Tıklayın **kaynak denetim** etkinlik söz konusu kaynak görüntüleme. Aşağıdaki örnek bir kaynak grubu için etkinliğin gösterir.
 
-    ![Kaynak denetimi](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Kaynak Denetim](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. Etkinlik için konuk görüntülemek için tıklayın **Azure Active Directory** > **kullanıcılar** > Konuk adı.
 

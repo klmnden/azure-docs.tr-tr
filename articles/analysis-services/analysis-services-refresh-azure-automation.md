@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142967"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356991"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Otomasyonu ile yenileme
 
@@ -26,7 +26,7 @@ Bir örnek PowerShell Runbook, bir model yenileme gösterir, bu makalenin sonrak
 
 Tüm çağrıları ile geçerli bir Azure Active Directory (OAuth 2) belirteci kimlik doğrulaması gerekir.  Bu makaledeki örnek, Azure Analysis Services için kimlik doğrulaması için bir hizmet sorumlusu (SPN) kullanır.
 
-Bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz]
+Bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi edinmek için [Azure portalını kullanarak bir hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,13 +39,13 @@ Bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz]
 
 2. Arama çubuğunda arama **SqlServer**.
 
-    ![Arama Modülleri](./media/analysis-services-refresh-azure-automation/1.png)
+    ![Arama modülleri](./media/analysis-services-refresh-azure-automation/1.png)
 
 3. SQL Server'ı seçin, ardından tıklayın **alma**.
  
-    ![Modülü İçeri Aktar](./media/analysis-services-refresh-azure-automation/2.png)
+    ![Modül İçeri Aktar](./media/analysis-services-refresh-azure-automation/2.png)
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**'ı tıklatın.
  
 ### <a name="create-a-service-principal-spn"></a>(SPN) hizmet sorumlusu oluşturma
 
@@ -112,7 +112,7 @@ Bunu şu şekilde yapılandırılabilir:
 
     ![Parametreleri Yapılandır](./media/analysis-services-refresh-azure-automation/16.png)
 
-5. **Tamam**'ı tıklatın.
+5. **Tamam** düğmesine tıklayın.
 
 ## <a name="consume-with-data-factory"></a>Data Factory ile kullanma
 

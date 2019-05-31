@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: HT
+ms.openlocfilehash: dae2bb8ece9ef56c0999e0f89abbf6f8d8e950e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523703"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242936"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Bir IP kısıtlama kuralı Azure ön kapısı (Önizleme) web uygulaması güvenlik duvarı yapılandırma
  Bu makalede Azure CLI, Azure PowerShell veya Azure Resource Manager şablonu kullanarak Azure web uygulaması Güvenlik Duvarı (WAF) IP kısıtlama kuralları için ön kapı yapılandırma gösterilmektedir.
@@ -157,7 +157,7 @@ Bir IP eşleşen tüm koşul kuralı oluşturma
    Kullanım [yeni AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) bir eylem tanımlayın ve bir önceliğini ayarlamak için komutu. Aşağıdaki örnekte, istemci IP'leri listesiyle eşleşen isteği izin verilir. 
 
 ```powershell
-  $IPAllowRule = New-AzFrontDoorCustomRuleObject `
+  $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPAllowRule" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchCondition `
@@ -166,7 +166,7 @@ Bir IP eşleşen tüm koşul kuralı oluşturma
 Bir blok kuralı önceki IP'ın izin verdiğinden daha düşük öncelikli tüm IP kuralı oluşturun.
 
 ```powershell
-  $IPBlockAll = New-AzFrontDoorCustomRuleObject `
+  $IPBlockAll = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPDenyAll" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchALlCondition `

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: e6bb947503371e379e4d4972ddfc3614e129174b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 183e2144317bf3f1c9a60443d393bdcb3fd7c04a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835202"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390557"
 ---
 # <a name="generation-2-vms-preview-on-azure"></a>Azure üzerinde 2. nesil VM'ler (Önizleme)
 
@@ -30,7 +30,7 @@ ms.locfileid: "65835202"
 
 2. nesil sanal makineler (VM) için destek Azure üzerinde genel önizlemeye sunuldu. Bir sanal makinenin oluşturulması oluşturduktan sonra değiştiremezsiniz. Bu nedenle, konuları gözden geçirmenizi öneririz [burada](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) nesil seçmeden önce bu sayfadaki bilgilerinin yanı sıra.
 
-Gibi 2. nesil Vm'leri anahtar özellikleri desteği: daha fazla bellek, Intel® yazılım koruma Uzantıları (SGX) ve sanal kalıcı bellek (vPMEM), 1. kuşak Vm'lerde desteklenmez. 2. kuşak Vm'leri Azure'da henüz desteklenmeyen bazı özellikler vardır. Daha fazla bilgi için [özellikleri ve yetenekleri](#features-and-capabilities) bölümü. 
+1. kuşak Vm'lerde gibi desteklenmeyen 2. nesil Vm'leri destek anahtar özellikleri: daha fazla bellek, Intel® yazılım koruma Uzantıları (SGX) ve sanal kalıcı bellek (vPMEM). 2. kuşak Vm'leri Azure'da henüz desteklenmeyen bazı özellikler de var. Daha fazla bilgi için [özellikleri ve yetenekleri](#features-and-capabilities) bölümü.
 
 2. nesil Vm'leri 1. kuşak sanal makineleri tarafından kullanılan BIOS tabanlı mimari yeni önyükleme UEFI tabanlı mimari vs kullanın. 1. kuşak sanal makinelere kıyasla, 2. kuşak Vm'lerde önyükleme ve yükleme sürelerini iyileştirir. 2. kuşak VM'ler için genel bir bakış ve 1. nesil ve 2. nesil arasındaki önemli farklılıkları bazıları için bkz: [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
@@ -84,7 +84,7 @@ Hyper-V destekler 2. kuşak Vm'lerde şirket özelliklerinden bazıları Azure �
 | Özel görüntü/Disk/takas işletim sistemi         | :heavy_check_mark:         | :heavy_check_mark: |
 | Sanal makine ölçek kümesi desteği | :heavy_check_mark:         | :heavy_check_mark: |
 | ASR/yedekleme                        | :heavy_check_mark:         | : x:.                |
-| Paylaşılan görüntü galerisi              | :heavy_check_mark:         | : x:.                |
+| Paylaşılan Görüntü Galerisi              | :heavy_check_mark:         | : x:.                |
 | Azure Disk Şifrelemesi             | :heavy_check_mark:         | : x:.                |
 
 ## <a name="creating-a-generation-2-vm"></a>Oluşturma 2. nesil VM
@@ -113,6 +113,29 @@ Nesil 2 VM'ler oluşturulabilir yönetilen bir görüntü veya yönetilen disk o
 Nesil 2 sanal makineleri aynı zamanda sanal makine ölçek kümeleri kullanılarak oluşturulabilir. Nesil 2 VM'ler Azure CLI aracılığıyla Azure sanal makine ölçek kümeleri kullanarak oluşturabilirsiniz.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
+
+* **Nesil 2 VM'ler kullanılabilir tüm Azure bölgelerinde misiniz?**  
+    Evet; Ancak, tüm [2. nesil VM boyutları](#generation-2-vm-sizes) her bölgede kullanılabilir. Kullanılabilirlik nesil 2 VM ve VM boyutunu kullanılabilirliğine bağlıdır.
+
+* **2 VM nesil 1 ve nesil arasında bir fiyat fark var mı?**  
+    1. kuşak ve 2. nesil VM'ler arasında fiyatlandırmasındaki fark yoktur.
+
+* **İşletim sistemi disk boyutunu nasıl artırabilirim?**  
+  İşletim sistemi diskleri 2 TB'tan büyük yeni nesil 2 VM'ler. Varsayılan olarak, çoğu işletim sistemi diskleri 2. kuşak VM'ler için 2 TB'den az olduğunu, ancak disk boyutunu önerilen maksimum 4 TB'a kadar artırılabilir. Azure CLI veya Azure Portalı aracılığıyla işletim sistemi disk boyutunu artırabilirsiniz. Programlı olarak genişletilen diskler hakkında daha fazla bilgi için bkz: [bir diski yeniden boyutlandırma](expand-disks.md).
+
+  Azure portal aracılığıyla işletim sistemi disk boyutunu artırmak için:
+
+  * Azure portalında sanal makine özellikleri sayfasına gidin.
+
+  * Kapat ve kullanarak VM'yi **Durdur** düğmesi.
+
+  * İçinde **diskleri** bölümünde, artırmak için istediğiniz işletim sistemi diskini seçin.
+
+  * Seçin **yapılandırma** içinde **diskleri** bölümü ve güncelleştirme **boyutu** istediğiniz değer.
+  
+  * Sanal makine özellikleri sayfasına geri dönün ve **Başlat** VM.
+
+  İşletim sistemi diskleri 2 TB'tan büyük için bir uyarı görebilirsiniz. Uyarı 2. kuşak VM'ler için geçerli değildir; Ancak, işletim sistemi disk boyutu 4 TB'den büyük olan **önerilmez.**
 
 * **2. nesil Vm'leri, hızlandırılmış ağ destekliyor mu?**  
     Evet, 2. nesil VM'lerin desteklediği [hızlandırılmış ağ](../../virtual-network/create-vm-accelerated-networking-cli.md).

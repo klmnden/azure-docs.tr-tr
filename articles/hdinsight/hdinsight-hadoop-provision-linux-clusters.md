@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: 2f8c3aa0a5d37327ba49aebb1def94e90751b7cc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: HT
+ms.date: 05/28/2019
+ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597578"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299382"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka ve daha fazlasıyla HDInsight kümelerinde ayarlama
 
@@ -22,7 +22,7 @@ ms.locfileid: "65597578"
 
 Ayarlama ve Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML Hizmetleri veya Apache Storm ile HDInsight kümelerini yapılandırma konusunda bilgi edinin. Ayrıca, kümelerini özelleştirin ve bir etki alanına katılarak güvenlik ekleme konusunda bilgi edinin.
 
-Bir Hadoop kümesi çeşitli görevleri dağıtılmış işlem için kullanılan sanal makinelerin (düğümler) oluşur. Azure HDInsight, uygulama ayrıntılarını yükleme ve yapılandırma tek tek düğümlerin yalnızca genel yapılandırma bilgilerini zorunda işler. 
+Bir Hadoop kümesi çeşitli görevleri dağıtılmış işlem için kullanılan sanal makinelerin (düğümler) oluşur. Azure HDInsight, uygulama ayrıntılarını yükleme ve yapılandırma tek tek düğümlerin yalnızca genel yapılandırma bilgilerini zorunda işler.
 
 > [!IMPORTANT]  
 > HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bilgi edinmek için nasıl [küme silme.](hdinsight-delete-cluster.md)
@@ -52,11 +52,7 @@ Temel Küme kurulumu için ekrandaki yönergeleri izleyin. Ayrıntılar için a�
 * Küme oturum açma ve SSH kullanıcı adı
 * [Konum](#location)
 
-> [!IMPORTANT]  
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight 3.3 emeklilik](hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-
-## <a name="resource-group-name"></a>Kaynak grubu adı 
+## <a name="resource-group-name"></a>Kaynak grubu adı
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) kaynaklarla bir grup olarak uygulamanızdaki yardımcı bir Azure kaynak grubu için denir. Dağıtma, güncelleştirme, izleme veya tek bir Eşgüdümlü işlemle uygulamanıza yönelik tüm kaynakları silin.
 
@@ -158,9 +154,9 @@ Kümenin var olduğu sürece düğüm kullanım için faturalandırılırsınız
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Her küme türü için düğüm sayısı
 Her küme türü kendi sayısı düğüm, düğümleri ve varsayılan VM boyutu için terimler vardır. Aşağıdaki tabloda, parantez içinde her düğüm türü için düğümler sayısıdır.
 
-| Tür | Düğümler | Diyagram |
+| Type | Düğümler | Diyagram |
 | --- | --- | --- |
-| Hadoop |Baş düğüm (2) veri düğümü (1 +) |![HDInsight Hadoop küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Baş düğüm (2) çalışan düğümü (1 +) |![HDInsight Hadoop küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |HEAD sunucu (2), bölge sunucusu (1 +), master/ZooKeeper düğümü (3) |![HDInsight HBase küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus düğümü (2), gözetmen sunucusu (1 +), ZooKeeper düğümü (3) |![HDInsight Storm küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Baş düğüm (2) çalışan düğümü (1 +), ZooKeeper düğümü (3) (A1 ZooKeeper VM boyutu için ücretsiz) |![HDInsight Spark küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
@@ -172,17 +168,16 @@ HDInsight kümeleri maliyetini düğümlerin ve düğümler için sanal makine b
 Farklı küme türü farklı bir düğüme türlerinin sayıda düğüm ve düğüm boyutları vardır:
 * Hadoop küme türü varsayılan: 
     * İki *baş düğümlerine*  
-    * Dört *veri düğümleri*
+    * Dört *çalışan düğümleri*
 * Storm küme türü varsayılan: 
     * İki *Nimbus düğümleri*
     * Üç *ZooKeeper düğümleri*
     * Dört *gözetmen düğümleri* 
 
-HDInsight yalnızca deniyorsanız, bir veri düğümünü kullanmanızı öneririz. HDInsight fiyatlandırma hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırma](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+HDInsight yalnızca deniyorsanız, bir çalışan düğümü kullanmanızı öneririz. HDInsight fiyatlandırma hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırma](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > Küme boyutu sınırı, Azure abonelikleri arasında değişiklik gösterir. İlgili kişi [Azure fatura desteğine](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) sınırını artırın.
->
 
 Küme yapılandırmak için Azure portalı kullandığınızda, düğüm boyutunu aracılığıyla **düğüm fiyatlandırma katmanları** dikey penceresi. Portalda farklı düğümü boyutları ile ilişkili maliyeti de görebilirsiniz. 
 
@@ -197,8 +192,6 @@ Değer dışarı bulmak için farklı SDK'larını kullanarak bir küme oluştur
 
 > [!IMPORTANT]  
 > Bir kümedeki 32'den fazla alt düğüme ihtiyacınız varsa, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir.
->
->
 
 Daha fazla bilgi için [sanal makine boyutları](../virtual-machines/windows/sizes.md). Çeşitli boyutlardaki fiyatlandırması hakkında daha fazla bilgi için bkz: [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -212,8 +205,6 @@ Apache Mahout ve basamaklama, gibi yerel bazı Java bileşenlerini kümesinde Ja
 > Sorunları JAR dosyalarını HDInsight kümelerine dağıtma veya HDInsight kümelerinde JAR dosyaları ile iletişime geçin [Microsoft Support](https://azure.microsoft.com/support/options/).
 >
 > Geçişli HDInsight tarafından desteklenmiyor ve Microsoft Support uygun değil. Desteklenen bileşenlerin listesi için bkz. [HDInsight tarafından sağlanan küme sürümlerindeki yenilikler](hdinsight-component-versioning.md).
->
->
 
 Bazı durumlarda, aşağıdaki yapılandırma dosyalarını oluşturma işlemi sırasında yapılandırmak istiyorsanız:
 

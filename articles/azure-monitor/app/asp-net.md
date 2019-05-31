@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595569"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256618"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
@@ -99,12 +99,10 @@ Portal, uygulamanızdan alınan telemetri görünümünde açılır.
 
 Daha fazla ayrıntı görmek için portalda istediğiniz kutucuğa veya grafiğe tıklayın.
 
-[Azure portalında Application Insights kullanma hakkında daha fazla bilgi edinin](../../azure-monitor/app/app-insights-dashboards.md).
-
-## <a name="step-4-publish-your-app"></a>4. Adım: Uygulamanızı yayımlayın
+## <a name="step-4-publish-your-app"></a>4. Adım: Uygulamanızı yayımlama
 Uygulamanızı IIS sunucunuza veya Azure’a yayımlayın. Her şeyin sorunsuz çalıştığından emin olmak için [Canlı Ölçümler Akışı](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)’nı izleyin.
 
-Telemetriniz Application Insights portalında biriktirilir ve burada ölçümlerinizi izleyebilir, telemetrinizde arama yapabilir ve [panolar](../../azure-monitor/app/app-insights-dashboards.md) ayarlayabilirsiniz. Ayrıca güçlü kullanabilirsiniz [Kusto sorgu dili](/azure/kusto/query/) kullanımını ve performansını analiz etmek için ya da belirli olayları bulabilirsiniz.
+Telemetri yapılarınızı Application Insights portalında, burada ölçümleri izleyebilir, telemetrinizde arama. Ayrıca güçlü kullanabilirsiniz [Kusto sorgu dili](/azure/kusto/query/) kullanımını ve performansını analiz etmek için ya da belirli olayları bulabilirsiniz.
 
 Telemetrinizi tanılama araması ve [eğilimler](../../azure-monitor/app/visual-studio-trends.md) gibi araçlarla [Visual Studio](../../azure-monitor/app/visual-studio.md)’da analiz etmeye de devam edebilirsiniz.
 
@@ -140,13 +138,12 @@ ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiysen
 
 * **[Tarayıcı ve sayfa yükleme verileri](../../azure-monitor/app/javascript.md)** - Web sayfalarınıza bir kod parçacığı ekleyin.
 * **[Daha ayrıntılı bağımlılık ve özel durum izlemesi alın](../../azure-monitor/app/monitor-performance-live-website-now.md)** - Sunucunuza Durum İzleyicisi yükleyin.
-* Kullanıcı eylemlerini saymak, zamanlamak veya ölçmek için **[özel olaylar kodlayın](../../azure-monitor/app/api-custom-events-metrics.md)**.
+* Kullanıcı eylemlerini saymak, zamanlamak veya ölçmek için **[özel olaylar kodlayın](../../azure-monitor/app/api-custom-events-metrics.md)** .
 * **[Günlük verilerini alma](../../azure-monitor/app/asp-net-trace-logs.md)** - Günlük verilerini telemetrinizle ilişkilendirin.
 
 ### <a name="analysis"></a>Analiz
 
 * **[Visual Studio’da Application Insights ile çalışma](../../azure-monitor/app/visual-studio.md)**<br/>Telemetri, tanılama araması ve kodun detayına gitme ile hata ayıklama hakkında bilgi içerir.
-* **[Application Insights portalıyla çalışma](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma hakkında bilgi içerir.
 * **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** - Güçlü sorgu dili.
 
 ### <a name="alerts"></a>Uyarılar

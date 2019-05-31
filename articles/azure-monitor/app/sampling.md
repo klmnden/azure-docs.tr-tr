@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c11eeb84fe4ed1ded93cb8de7ff54b756fd36749
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779905"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388380"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -459,7 +459,7 @@ Sabit fiyat örnekleme sunucu tarafı SDK'sı ile birlikte, istemci-tarafı (Jav
 * SDK sürümü 2.0 olduğundan emin olun veya üzeri.
 * İstemci ve sunucu aynı örnekleme yüzdesini ayarlayın denetleyin.
 
-## <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
+## <a name="frequently-asked-questions"></a>Sıkça Sorulan Sorular
 
 *ASP.NET ve ASP.NET Core SDK'SININ varsayılan örnekleme davranış nedir?*
 
@@ -527,3 +527,4 @@ Sabit fiyat örnekleme sunucu tarafı SDK'sı ile birlikte, istemci-tarafı (Jav
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Filtreleme](../../azure-monitor/app/api-filtering-sampling.md) ne SDK'nızı gönderir, katı daha fazla denetim sağlar.
+* Geliştirici ağ makaleyi okuyun [Application Insights ile Telemetri en iyi duruma getirme](https://msdn.microsoft.com/magazine/mt808502.aspx).

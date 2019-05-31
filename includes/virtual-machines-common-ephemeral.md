@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145933"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391470"
 ---
 Kısa ömürlü işletim sistemi diskleri yerel sanal makine (VM) depolama alanında oluşturulur ve uzak Azure Depolama'da kalıcı hale değil. Burada uygulamaları tek tek VM kesintilerine dayanıklı olsa da, büyük ölçekli dağıtımlar için geçen süreyi veya tek tek sanal makine örneği görüntüsünü yeniden oluşturmak zaman hakkında daha fazla endişe iyi durum bilgisiz iş yükleri için kısa ömürlü işletim sistemi diskleri çalışır. Resource Manager dağıtım modeline taşımak Klasik dağıtım modeli kullanılarak dağıtılan uygulamalar için de uygundur. Kısa Ömürlü İşletim Sistemi diskleriyle, İşletim Sistemi disklerinde okuma/yazma gecikme süresinin kısaldığını ve yeniden görüntü oluşturmanın hızlandığını görebilirsiniz. Ayrıca, kısa ömürlü işletim sistemi diski ücretsizdir, işletim sistemi diski için hiçbir depolama maliyeti doğurur. 
  
@@ -38,38 +38,6 @@ Kalıcı ve kısa ömürlü işletim sistemi diskleri arasındaki temel farklar:
 | Özelleştirilmiş işletim sistemi disk desteği | Evet                                                                                          | Hayır                                                                                 |
 | İşletim sistemi diski yeniden boyutlandırma              | Desteklenen VM oluşturma sırasında ve sonra VM stop-serbest bırakıldı                                | VM oluşturma sırasında desteklenen                                                  |
 | Yeni bir VM boyutu için yeniden boyutlandırma   | İşletim sistemi disk veriler korunur                                                                    | İşletim sistemi diskini şirket verileri silinir, işletim sistemi yeniden sağlandı                                      |
-
-## <a name="register-for-the-preview"></a>Önizleme için kaydolun
-
-
-Kendi kendine en son Azure CLI veya Azure PowerShell sürümünü kullanarak kısa ömürlü işletim sistemi diskleri Önizleme için kaydolun.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-Önizleme için kayıtlı olmadığını denetlemek için:
-
-```azurepowershell-interactive
-Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="cli"></a>CLI
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
-```
-
-Önizleme için kayıtlı olmadığını denetlemek için:
- 
-```azurecli-interactive
-az provider show --namespace Microsoft.Compute
-```
-
 
 ## <a name="scale-set-deployment"></a>Ölçek kümesi dağıtımı  
 Kısa ömürlü işletim sistemi diski kullanan bir ölçek kümesi oluşturma işlemini eklemektir `diffDiskSettings` özelliğini `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` şablonunda kaynak türü. Ayrıca, önbelleğe alma ilkesini ayarlamanız gerekir `ReadOnly` kısa ömürlü işletim sistemi diski için. 

@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707539"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417139"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Güncelleştirme yönetilen disk depolama türü
 
-Dört seçenek Azure yönetilen diskler: Ultra Azure Disk Depolama, Premium SSD, standart bir SSD ve standart HDD. Az kapalı kalma süresi ile performans ihtiyaçlarınıza göre bu depolama türleri arasında geçiş yapabilirsiniz. Bu işlev, yönetilmeyen diskler için desteklenmiyor. Ancak kolayca [yönetilmeyen disk bir yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md) için disk türleri arasında geçiş yapabilirsiniz.
+Dört vardır disk türleri Azure yönetilen diskler: Azure ultra SSD (Önizleme), premium SSD, standart bir SSD ve HDD standart. Üç GA disk türleri arasında geçiş yapabilirsiniz (premium SSD, standart bir SSD ve HDD standart) performans ihtiyaçlarınıza göre. Kullanmıyorsanız, henüz bir ultra SSD veya yapılan geçiş yapabilir, yeni bir tane dağıtmanız gerekir.
+
+Bu işlev, yönetilmeyen diskler için desteklenmiyor. Ancak kolayca [yönetilmeyen disk bir yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md) için disk türleri arasında geçiş yapabilirsiniz.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

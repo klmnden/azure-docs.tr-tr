@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 1a61a825ce223282e85c9262c613814530ba130f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565900"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417716"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -46,13 +46,13 @@ o fiziksel makineler için bu izleyin [öğretici](./physical-azure-disaster-rec
 
 ### <a name="quick-comparison"></a>Hızlı karşılaştırma
 
-**Özellik** | **Azure'a çoğaltma** |**VMware veri merkezleri arasında çoğaltma**
+**Özelliği** | **Azure'a çoğaltma** |**VMware veri merkezleri arasında çoğaltma**
 --|--|--
 **Gerekli bileşenler** |Mobility hizmeti çoğaltılan makinelerde. Şirket içi yapılandırma sunucusu, işlem sunucusu, ana hedef sunucusu. Azure'da geçici işlem sunucusu yeniden çalışma için.|Mobility hizmeti, işlem sunucusu, yapılandırma sunucusu ve ana hedef
 **Yapılandırma ve düzenleme** |Azure portalında kurtarma Hizmetleri kasası | VContinuum kullanma 
 **Çoğaltılan** |Disk (Windows ve Linux) |Toplu-Windows<br> Disk-Linux
 **Paylaşılan disk kümesi** |Desteklenmiyor|Desteklenen
-**Sınırları (ortalama) veri değişim sıklığı** |Disk başına 10 MB/sn veri<br> VM başına 25MB/sn veri<br> [Daha fazla bilgi](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Disk başına veri > 10 MB/sn  <br> VM başına veri > 25 MB/sn
+**Sınırları (ortalama) veri değişim sıklığı** |Disk başına 10 MB/sn veri<br> VM başına 25MB/sn veri<br> [Daha fazla bilgi edinin](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Disk başına veri > 10 MB/sn  <br> VM başına veri > 25 MB/sn
 **İzleme** |Azure Portalı'ndan|CX ' (yapılandırma sunucusu)
 **Destek matrisi** | [Ayrıntılar için buraya tıklayın](./vmware-physical-azure-support-matrix.md)|[ASR Scout uyumlu matris indirin](https://aka.ms/asr-scout-cm)
 

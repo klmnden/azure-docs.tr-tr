@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450032"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387109"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcısını yapılandırın
 
@@ -282,7 +282,7 @@ Bağlı Fabrika simülasyonu için OEE/KPI rakamları tarafından parametre hali
 * Hesaplamaya dahil edilecek OPC UA düğüm değerleri.
 * Şekil, telemetri değerleri nasıl hesaplanır.
 
-Bağlı fabrika tarafından yayınlanan olarak OEE formülleri kullanır https://www.oeefoundation.org.
+Bağlı fabrika tarafından yayınlanan olarak OEE formülleri kullanır [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
 
 OPC UA düğüm nesneleri istasyon OEE/KPI hesaplamada kullanım için etiketleme etkinleştirin. **İlgi** özelliği için hangi OEE/KPI şekil OPC UA düğüm değerinin kullanılması gerektiğini belirtir. **OpCode** özelliği tanımlayan değer hesaplamanın nasıl dahildir.
 

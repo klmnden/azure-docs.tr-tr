@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689314"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258296"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -621,11 +621,11 @@ Belirtilen eşik için uyarıları nasıl işleneceğini bazı davranabilirsiniz
 
 ## <a name="patching-and-operations"></a>Düzeltme eki uygulama ve işlemler
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Bir ölçek kümesi mevcut bir kaynak grubunda nasıl oluşturulur?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Bir ölçek kümesi mevcut bir kaynak grubunda oluşturabilir miyim?
 
-Ölçek kümeleri oluşturma mevcut bir kaynak grubu henüz Azure portalından mümkün değildir, ancak bir Azure Resource Manager şablonundan bir ölçek dağıtma ayarladığınızda, mevcut bir kaynak grubunu belirtebilirsiniz. Mevcut bir kaynak grubu, Azure PowerShell veya CLI kullanarak ölçek kümesi oluştururken de belirtebilirsiniz.
+Evet, bir ölçek kümesi mevcut bir kaynak grubunda oluşturabilirsiniz.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Bir ölçek kümesi için başka bir kaynak grubu geçebiliriz?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Bir ölçek kümesi için başka bir kaynak grubu taşıyabilirim?
 
 Evet, yeni bir abonelik veya kaynak grubu için kaynakları ölçek kümesi taşıyabilirsiniz.
 

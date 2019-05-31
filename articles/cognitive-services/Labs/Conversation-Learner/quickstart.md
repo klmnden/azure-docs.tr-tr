@@ -3,19 +3,19 @@ title: Node.js - Microsoft Bilişsel hizmetler kullanarak bir konuşma Öğrenic
 titleSuffix: Azure
 description: Node.js kullanarak bir konuşma Öğrenici modeli oluşturmayı öğrenin.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708371"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388776"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js kullanarak bir konuşma Öğrenici model oluşturma
 
@@ -61,7 +61,7 @@ Botunuzun ve machine learning için SDK'sı erişir bir bulut hizmetine eklediğ
     > [!NOTE]
     > Sırasında `npm install`, bu durum oluşursa bu hatayı yoksayabilirsiniz: `gyp ERR! stack Error: Can't find Python executable`
 
-2. Yapılandır:
+2. Yapılandırın:
 
    Adlı bir dosya oluşturun `.env` dizinde `cl-bot-01`.  Dosyanın içeriğini olmalıdır:
 

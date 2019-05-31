@@ -9,71 +9,75 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 510899e44e4ea4a90e21473ee6af546744c2be2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66120227"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392919"
 ---
 # <a name="streaming-policies"></a>Akış İlkeleri
 
 Azure Media Services v3 içinde [akış ilkeleri](https://docs.microsoft.com/rest/api/media/streamingpolicies) , akış protokolleri ve şifreleme seçeneklerini tanımlamanıza olanak sağlar, [akış bulucuları](streaming-locators-concept.md). Media Services v3, böylece bunları doğrudan deneme veya üretim için kullanabileceğiniz bazı önceden tanımlanmış akış ilkeleri sağlar. 
 
-Şu anda kullanılabilir akış ilkeleri önceden tanımlanmış:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve 'Predefined_MultiDrmStreaming'.
+Şu anda kullanılabilir akış ilkeleri önceden tanımlanmış:<br/>
+* 'Predefined_DownloadOnly'
+* 'Predefined_ClearStreamingOnly'
+* 'Predefined_DownloadAndClearStreaming'
+* 'Predefined_ClearKey'
+* 'Predefined_MultiDrmCencStreaming' 
+* 'Predefined_MultiDrmStreaming'
 
-(Örneğin, farklı protokollere belirtmek istiyorsanız bir özel anahtar dağıtımı hizmetiyle kullanmanız gerekir veya bir Temizle ses kaydı kullanmak ihtiyacınız varsa) özel gereksinimleriniz varsa, akış özel bir ilke oluşturabilirsiniz. 
+Aşağıdaki "karar ağacı" senaryonuz için önceden tanımlanmış bir akış ilkesini seçmenize yardımcı olur.
 
- 
 > [!IMPORTANT]
 > * Özelliklerini **akış ilkeleri** DateTime türü her zaman UTC biçiminde olan.
 > * Medya hizmeti hesabınız için sınırlı sayıda ilkeleri tasarlayın ve aynı seçeneklere gerektiğinde bunları yeniden için akış Bulucular gerekir. Daha fazla bilgi için [kotaları ve sınırlamaları](limits-quotas-constraints.md).
 
 ## <a name="decision-tree"></a>Karar ağacı
 
-Aşağıdaki karar ağacı senaryonuz için önceden tanımlanmış bir akış ilkesini seçmenize yardımcı olur.
+Resmi tam boyutlu görüntülemek için tıklayın.  
 
-Resmi tam boyutlu görüntülemek için tıklayın.  <br/>
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-## <a name="examples"></a>Örnekler
+İçeriğinizi şifreleme oluşturmak gerekirse bir [içerik anahtarı ilke](content-key-policy-concept.md), **içerik anahtarı ilke** Temizle akış veya yükleme için gerekli değildir. 
 
-### <a name="not-encrypted"></a>Şifreli değil
+(Örneğin, farklı protokollere belirtmek istiyorsanız bir özel anahtar dağıtımı hizmetiyle kullanmanız gerekir veya bir Temizle ses kaydı kullanmak ihtiyacınız varsa) özel gereksinimleriniz varsa [oluşturma](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) akış özel bir ilke. 
 
-Dosya içinde--Temizle (şifrelenmemiş) akışla aktarmak istiyorsanız, önceden tanımlanmış açık akış ilke ayarlama: 'Predefined_ClearStreamingOnly' için (.NET, PredefinedStreamingPolicy.ClearStreamingOnly enum kullanabilirsiniz).
+## <a name="get-a-streaming-policy-definition"></a>Bir akış ilke tanımı Al  
 
-```csharp
-StreamingLocator locator = await client.StreamingLocators.CreateAsync(
-    resourceGroup,
-    accountName,
-    locatorName,
-    new StreamingLocator
-    {
-        AssetName = assetName,
-        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
-    });
+Akış bir ilke tanımı'nı görmek istiyorsanız, kullanın [alma](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) ve ilke adı belirtin. Örneğin:
+
+### <a name="rest"></a>REST
+
+İstek:
+
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaServices/contosomedia/streamingPolicies/clearStreamingPolicy?api-version=2018-07-01
 ```
 
-### <a name="encrypted"></a>Şifrelendi 
+Yanıt:
 
-İçerik Zarfı ve cenc şifreleme ile şifreleme gerekiyorsa 'Predefined_MultiDrmCencStreaming' ilkenizi ayarlayın. Bu ilke, bulucuda iki içerik anahtarı (zarf ve CENC) oluşturulmasını ve ayarlanmasını istediğinizi belirtir. Bu nedenle zarf, PlayReady ve Widevine şifrelemeleri uygulanır (anahtar, yapılandırılan DRM lisanslarına göre kayıttan yürütme istemcisine teslim edilir).
-
-```csharp
-StreamingLocator locator = await client.StreamingLocators.CreateAsync(
-    resourceGroup,
-    accountName,
-    locatorName,
-    new StreamingLocator
-    {
-        AssetName = assetName,
-        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
-        DefaultContentKeyPolicyName = contentPolicyName
-    });
 ```
-
-Akışınız CBCS (FairPlay) ile şifrelemek istiyorsanız, 'Predefined_MultiDrmStreaming' kullanın.
+{
+  "name": "clearStreamingPolicy",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/streamingPolicies/clearStreamingPolicy",
+  "type": "Microsoft.Media/mediaservices/streamingPolicies",
+  "properties": {
+    "created": "2018-08-08T18:29:30.8501486Z",
+    "noEncryption": {
+      "enabledProtocols": {
+        "download": true,
+        "dash": true,
+        "hls": true,
+        "smoothStreaming": true
+      }
+    }
+  }
+}
+```
 
 ## <a name="filtering-ordering-paging"></a>Filtreleme, sıralama, sayfalama
 

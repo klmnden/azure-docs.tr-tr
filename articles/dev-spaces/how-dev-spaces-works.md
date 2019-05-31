@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605417"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399826"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -80,7 +80,7 @@ Azure geliştirme alanları her biri işleyişi hakkında daha fazla ayrıntı �
 ## <a name="prepare-your-aks-cluster"></a>AKS kümenizi hazırlama
 
 AKS kümenizi hazırlama içerir:
-* Küme bir bölgede olduğu, AKS doğrulanıyor [Azure geliştirme alanları tarafından desteklenen](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Küme bir bölgede olduğu, AKS doğrulanıyor [Azure geliştirme alanları tarafından desteklenen][supported-regions].
 * Kubernetes 1.10.3 çalıştığını doğrulama veya üzeri.
 * Azure geliştirme alanları, küme kullanarak etkinleştirme `az aks use-dev-spaces`
 
@@ -278,7 +278,7 @@ Küme dışında bir hizmetten bir HTTP isteği yapıldığında, istek giriş d
 
 Bir HTTP isteği, küme içindeki başka bir hizmetten hizmete yapıldığında, istek ilk arama hizmetin devspaces proxy kapsayıcı gider. HTTP isteği ve denetimleri devspaces proxy kapsayıcı arar `azds-route-as` başlığı. Başlığa göre üst bilgi değeri ile ilişkili hizmeti IP adresi devspaces proxy kapsayıcı görünecektir. Bir IP adresi bulunursa devspaces proxy kapsayıcı bu IP adresi isteği yeniden yönlendirmeler. Bir IP adresi bulunmazsa devspaces proxy kapsayıcı için üst uygulama kapsayıcısı isteği yönlendirir.
 
-Örneğin, uygulamaları *serviceA* ve *serviceB* denilen bir üst geliştirme alana dağıtılan *varsayılan*. *serviceA* dayanan *serviceB* ve HTTP çağrıları yapar. Azure kullanıcı oluşturur göre alt geliştirme boşlukla *varsayılan* adında boşluk *azureuser*. Azure kullanıcı aynı zamanda kendi sürümünü dağıtır *serviceA* kendi alt alan. Ne zaman bir isteği yapılır *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+Örneğin, uygulamaları *serviceA* ve *serviceB* denilen bir üst geliştirme alana dağıtılan *varsayılan*. *serviceA* dayanan *serviceB* ve HTTP çağrıları yapar. Azure kullanıcı oluşturur göre alt geliştirme boşlukla *varsayılan* adında boşluk *azureuser*. Azure kullanıcı aynı zamanda kendi sürümünü dağıtır *serviceA* kendi alt alan. Ne zaman bir isteği yapılır *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Azure geliştirme yönlendirme alanları](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +337,13 @@ Kullanarak *install.values* özelliği, değiştirilen Helm grafiği değerleri 
 
 Yukarıdaki örnekte, *install.set.replicaCount* özellik geliştirme alanınızda çalışması için uygulamanızı kaç örneklerini denetleyici söyler. Kendi senaryonuza bağlı olarak bu değeri artırabilirsiniz, ancak bir Haya ayıklayıcı için uygulamanızın pod üzerinde bir etkisi olacaktır. Daha fazla bilgi için [sorunlarını giderme makalesine](troubleshooting.md).
 
-Kapsayıcı görüntüsünü oluşturulan Helm grafiği kümesine *{{. Values.image.Repository}} :{{. Values.image.Tag}}*. `azds.yaml` Dosyası tanımlar *install.set.image.tag* özelliği olarak *$(tag)* varsayılan olarak kullanılan değeri olarak *{{. Values.image.Tag}}*. Ayarlayarak *install.set.image.tag* özelliği bu şekilde, ayrı bir şekilde Azure geliştirme alanları çalıştırırken etiketlenmesine izin uygulamanız için kapsayıcı görüntüsü sağlar. Bu belirli durumda görüntü olarak etiketlenmiş  *\<image.repository değerden >: $(tag)*. Kullanmalısınız *$(tag)* değeri olarak değişken *install.set.image.tag* geliştirme alanları için sırayla tanımak ve AKS kümesinde kapsayıcıyı bulun.
+Kapsayıcı görüntüsünü oluşturulan Helm grafiği kümesine *{{. Values.image.Repository}} :{{. Values.image.Tag}}* . `azds.yaml` Dosyası tanımlar *install.set.image.tag* özelliği olarak *$(tag)* varsayılan olarak kullanılan değeri olarak *{{. Values.image.Tag}}* . Ayarlayarak *install.set.image.tag* özelliği bu şekilde, ayrı bir şekilde Azure geliştirme alanları çalıştırırken etiketlenmesine izin uygulamanız için kapsayıcı görüntüsü sağlar. Bu belirli durumda görüntü olarak etiketlenmiş  *\<image.repository değerden >: $(tag)* . Kullanmalısınız *$(tag)* değeri olarak değişken *install.set.image.tag* geliştirme alanları için sırayla tanımak ve AKS kümesinde kapsayıcıyı bulun.
 
-Yukarıdaki örnekte, `azds.yaml` tanımlar *install.set.ingress.hosts*. *İnstall.set.ingress.hosts* özelliği genel uç noktaları için bir konak adı biçimi tanımlar. Ayrıca bu özelliği kullanan *$(spacePrefix)*, *$(rootSpacePrefix)*, ve *$(hostSuffix)*, denetleyici tarafından sağlanan değerleri şunlardır. 
+Yukarıdaki örnekte, `azds.yaml` tanımlar *install.set.ingress.hosts*. *İnstall.set.ingress.hosts* özelliği genel uç noktaları için bir konak adı biçimi tanımlar. Ayrıca bu özelliği kullanan *$(spacePrefix)* , *$(rootSpacePrefix)* , ve *$(hostSuffix)* , denetleyici tarafından sağlanan değerleri şunlardır. 
 
 *$(SpacePrefix)* adı biçimini alır alt geliştirme alanı *SPACENAME.s*. *$(RootSpacePrefix)* üst alanın adıdır. Örneğin, varsa *azureuser* bir alt alanı *varsayılan*, değeri *$(rootSpacePrefix)* olduğu *varsayılan* değeri *$(spacePrefix)* olduğu *azureuser.s*. Alan bir alt alanı değilse *$(spacePrefix)* boştur. Örneğin, varsa *varsayılan* alana sahip üst boşluk değeri *$(rootSpacePrefix)* olduğu *varsayılan* değeri *$(spacePrefix)* boştur. *$(HostSuffix)* AKS kümenizde çalışan Azure geliştirme alanları giriş denetleyicisine işaret eden bir DNS soneki eklenir. Bu DNS soneki için bir joker karakter DNS girişi, örneğin karşılık gelen  *\*. RANDOM_VALUE.eus.azds.io*, Azure geliştirme alanları denetleyicisi AKS kümenizi eklendiğinde oluşturuldu.
 
-Yukarıdaki içinde `azds.yaml` dosyası da güncelleştirmeniz *install.set.ingress.hosts* uygulamanızın ana bilgisayar adını değiştirmek için. Örneğin, ana bilgisayar adını uygulamanızdan kolaylaştırmak istedik *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* için *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+Yukarıdaki içinde `azds.yaml` dosyası da güncelleştirmeniz *install.set.ingress.hosts* uygulamanızın ana bilgisayar adını değiştirmek için. Örneğin, ana bilgisayar adını uygulamanızdan kolaylaştırmak istedik *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* için *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 Uygulamanız için bir kapsayıcı oluşturmak için denetleyici kullanan aşağıdaki bölümlerini `azds.yaml` yapılandırma dosyası:
 
@@ -408,7 +408,7 @@ Java, .NET ve Node.js uygulamaları için doğrudan Visual Studio Code veya Visu
 
 ![Kodunuzun hatalarını ayıklama](media/get-started-node/debug-configuration-nodejs2.png)
 
-Başlatma ve çalışan aynı şekilde geliştirme alanınıza bağlanarak hata ayıklamak için Visual Studio Code veya Visual Studio kullanarak, uygulamanız başlatıldığında, işledikleri `azds up`. Visual Studio Code ve Visual Studio içinde istemci tarafı araçları da ek bir parametre ile hata ayıklama için belirli bilgi sağlar. Parametresi, hata ayıklayıcı görüntü hata ayıklayıcısı içinde hata ayıklayıcı'nın görüntüdeki konumunu ve hata ayıklayıcı klasörü bağlamak için uygulamanın kapsayıcı içindeki hedef konum adı içerir. 
+Başlatma ve çalışan aynı şekilde geliştirme alanınıza bağlanarak hata ayıklamak için Visual Studio Code veya Visual Studio kullanarak, uygulamanız başlatıldığında, işledikleri `azds up`. Visual Studio Code ve Visual Studio içinde istemci tarafı araçları da ek bir parametre ile hata ayıklama için belirli bilgi sağlar. Parametresi, hata ayıklayıcı görüntü hata ayıklayıcısı içinde hata ayıklayıcı'nın görüntüdeki konumunu ve hata ayıklayıcı klasörü bağlamak için uygulamanın kapsayıcı içindeki hedef konum adı içerir.
 
 Hata ayıklayıcı görüntü otomatik olarak istemci tarafı araçları tarafından belirlenir. Dockerfile sırasında kullanılan benzer bir yöntem kullanır ve Helm grafiği çalıştırırken oluşturmak `azds prep`. Hata ayıklayıcının uygulamanın görüntüde takılı sonra kullanarak çalıştırılan `azds exec`.
 
@@ -442,3 +442,7 @@ Takım geliştirme ile çalışmaya başlamak için aşağıdaki yapılır makal
 * [Takım geliştirme - ile .NET Core CLI ve Visual Studio kodu](team-development-netcore.md)
 * [Takım geliştirme - Visual Studio ile .NET Core](team-development-netcore-visualstudio.md)
 * [Takım geliştirme - CLI ve Visual Studio Code ile Node.js](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

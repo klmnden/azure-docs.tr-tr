@@ -1,0 +1,67 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-wan
+author: cherylmc
+ms.service: virtual-wan
+ms.topic: include
+ms.date: 05/28/2019
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 90c6d40103bc9a20f7af28c76d0183f7a3fb04a9
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304558"
+---
+### <a name="initiator"></a>Başlatıcı
+
+Azure Başlatıcı tünel için olduğunda, aşağıdaki bölümlerde desteklenen ilke birleşimleri listeleyin.
+
+**1. Aşama**
+
+* AES_256 VE, SHA1, DH_GROUP_2
+* AES_256 VE, SHA_256, DH_GROUP_2
+* AES_128, SHA1, DH_GROUP_2
+* AES_128, SHA_256, DH_GROUP_2
+
+**Aşama 2**
+
+* GCM_AES_256, GCM_AES_256, PFS_NONE
+* AES_256 VE, SHA_1, PFS_NONE
+* AES_256 VE, SHA_256, PFS_NONE
+* AES_128, SHA_1, PFS_NONE
+
+### <a name="responder"></a>Yanıtlayıcı
+
+Azure için tünel Yanıtlayıcı olduğunda aşağıdaki bölümlerde desteklenen ilke birleşimleri listelenmektedir.
+
+**1. Aşama**
+
+* AES_256 VE, SHA1, DH_GROUP_2
+* AES_256 VE, SHA_256, DH_GROUP_2
+* AES_128, SHA1, DH_GROUP_2
+* AES_128, SHA_256, DH_GROUP_2
+
+**Aşama 2**
+
+* GCM_AES_256, GCM_AES_256, PFS_NONE
+* AES_256 VE, SHA_1, PFS_NONE
+* AES_256 VE, SHA_256, PFS_NONE
+* AES_128, SHA_1, PFS_NONE
+* AES_256 VE, SHA_1, PFS_1
+* AES_256 VE, SHA_1, PFS_2
+* AES_256 VE, SHA_1, PFS_14
+* AES_128, SHA_1, PFS_1
+* AES_128, SHA_1, PFS_2
+* AES_128, SHA_1, PFS_14
+* AES_256 VE, SHA_256, PFS_1
+* AES_256 VE, SHA_256, PFS_2
+* AES_256 VE, SHA_256, PFS_14
+* AES_256 VE, SHA_1, PFS_24
+* AES_256 VE, SHA_256, PFS_24
+* AES_128, SHA_256, PFS_NONE
+* AES_128, SHA_256, PFS_1
+* AES_128, SHA_256, PFS_2
+* AES_128, SHA_256, PFS_14

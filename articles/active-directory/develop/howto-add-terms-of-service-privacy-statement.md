@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540203"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235314"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Nasıl yapılır: Hizmet ve gizlilik bildirimini bir uygulama için koşulları yapılandırma
 
@@ -46,7 +46,7 @@ Uygulamanızın koşullarını hizmet ve gizlilik bildirimi belgelerin bağlant�
 
 | Yönerge     | Açıklama                           |
 |---------------|---------------------------------------|
-| Biçim        | Geçerli bir URL                             |
+| Biçimi        | Geçerli bir URL                             |
 | Geçerli şemalar | HTTP ve HTTPS<br/>HTTPS öneririz. |
 | En büyük uzunluk    | 2048 karakter                       |
 
@@ -56,33 +56,20 @@ Uygulamanızın koşullarını hizmet ve gizlilik bildirimi belgelerin bağlant�
 
 Hizmet ve gizlilik bildirimini koşullarını hazır olduğunuzda, aşağıdaki yöntemlerden birini kullanarak uygulamanızda bu belgelere bağlantılar ekleyebilirsiniz:
 
-* [Azure portalı üzerinden](#registered-in-azure-portal)
-* [Uygulama kayıt portalı veya Geliştirme Merkezi](#registered-in-app-reg-portal)
+* [Azure portalı üzerinden](#azure-portal)
 * [Uygulama nesnesi JSON kullanma](#app-object-json)
 * [MSGraph beta REST API kullanma](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Uygulamanızı Azure portalında kaydettiyseniz
-
-Uygulamanızı Azure portalında kaydettiyseniz, bu adımları izleyin.
+### <a name="azure-portal"></a>Azure portalını kullanarak
+Azure portalında aşağıdaki adımları izleyin.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Gidin **uygulama kayıtları** bölümünde ve uygulamanızı seçin.
-3. Açık **özellikleri** uygulama bölümü.
+3. Açık **markalama** bölmesi.
 4. Doldurun **hizmet koşulları URL'si** ve **gizlilik bildirimi URL'si** alanları.
 5. Yaptığınız değişiklikleri kaydedin.
 
     ![Hizmet ve gizlilik bildirimi URL'leri koşullarıyla uygulama özellikler bölümü](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Uygulamanızı uygulama kayıt Portalı'nda kayıtlı
-
-Uygulamanızı uygulama kayıt portalı veya Geliştirici Merkezi'nde kaydettiyseniz, bu adımları izleyin.
-
-1. Oturum [uygulama kayıt portalı](https://apps.dev.microsoft.com/).
-2. Uygulamanızı seçin ve kaydırma **profili** bölümü.
-3. Doldurun **hizmet koşulları URL'si** ve **gizlilik bildirimi URL'si** alanları.
-4. Yaptığınız değişiklikleri kaydedin.
-
-    ![Uygulama profili bölümünü koşullarıyla hizmet ve gizlilik bildirimi URL'leri](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Uygulama nesnesi JSON kullanma
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6eca2b47c2362f34415db8b4f335f3089babc58b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145081"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255870"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Durum İzleyicisi'ni v2 ayrıntılı yönergeler
 
@@ -224,7 +224,7 @@ Yukarıdaki yönergeleri inceleyin, yükleme komut dosyası yazma.
 Application Insights SDK'sı, uygulamanızın telemetri Microsoft'a gerekecektir. Uygulamanızın web.config dosyasında, uygulamanız için proxy ayarlarını yapılandırma öneririz. Bkz: [Application Insights sık sorulan sorular: Proxy geçiş](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough) daha fazla bilgi için.
 
 
-## <a name="enable-monitoring"></a>İzlemeyi etkinleştir 
+## <a name="enable-monitoring"></a>İzlemeyi etkinleştirme 
 
 Cmd: `Enable-ApplicationInsightsMonitoring`
 
@@ -239,7 +239,7 @@ Gözden geçirme bizim [API Başvurusu](status-monitor-v2-api-enable-monitoring.
 - Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
 - [Olayları ve günlükleri arayın](../../azure-monitor/app/diagnostic-search.md) sorunları tanılamak için
 - Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
-- [Panolar oluşturun](../../azure-monitor/app/app-insights-dashboards.md)
+- [Panolar oluşturun](../../azure-monitor/app/overview-dashboard.md)
 
  Daha fazla telemetri ekleyin:
 

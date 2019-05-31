@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si BreakSentence yöntemi
 titlesuffix: Azure Cognitive Services
 description: Translator metin API'si BreakSentence yöntemi kullanın.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: b2c0fbbfbcd2e3cf71ef85b9d06f2f805698bfd0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797428"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387569"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator metin çevirisi API'si 3.0: BreakSentence
 
@@ -41,7 +41,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td>*Gerekli sorgu parametresi*.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
   <tr>
-    <td>dil</td>
+    <td>language</td>
     <td>*İsteğe bağlı bir sorgu parametresi*.<br/>Dil etiketi giriş metni dili tanımlama. Bir kod belirtilmezse otomatik dil algılama uygulanır.</td>
   </tr>
   <tr>
@@ -60,7 +60,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">kimlik doğrulaması için kullanılabilir seçenekler</a>.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
+    <td>İçerik türü</td>
     <td>*Gerekli istek üst bilgisi*.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: `application/json`.</td>
   </tr>
   <tr>
@@ -118,7 +118,7 @@ JSON yanıtı örneği verilmiştir:
 ]
 ```
 
-## <a name="response-headers"></a>Yanıt üst bilgileri
+## <a name="response-headers"></a>Yanıt Üstbilgileri
 
 <table width="100%">
   <th width="20%">Üst bilgiler</th>
@@ -134,7 +134,7 @@ JSON yanıtı örneği verilmiştir:
 Bir isteği döndüren olası HTTP durum kodları şunlardır: 
 
 <table width="100%">
-  <th width="20%">Durum Kodu</th>
+  <th width="20%">Durum kodu</th>
   <th>Açıklama</th>
   <tr>
     <td>200</td>

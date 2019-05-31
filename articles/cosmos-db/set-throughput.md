@@ -4,14 +4,14 @@ description: Azure Cosmos kapsayıcılarınızdaki ve veritabanları için sağl
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953549"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389241"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Kapsayıcı ve veritabanlarına aktarım hızı sağlama
 
@@ -71,8 +71,7 @@ Aşağıdaki resimde, bir veritabanı içinde farklı kapsayıcılar ait bir vey
 İki model birleştirebilirsiniz. Hem veritabanı hem de kapsayıcı sağlama işleme izin verilmiyor. Aşağıdaki örnek, bir Azure Cosmos veritabanı ve kapsayıcı aktarım hızına gösterilmektedir:
 
 * Adlı bir Azure Cosmos veritabanı oluşturabileceğiniz *Z* sağlanan aktarım hızı ile *"K"* RU. 
-* Ardından, adlı beş kapsayıcıları oluşturma *A*, *B*, *C*, *D*, ve *E* veritabanı içinde.
-* Açıkça yapılandırabileceğiniz *"P"* RU adlı kapsayıcıda sağlanan aktarım hızının *B*.
+* Ardından, adlı beş kapsayıcıları oluşturma *A*, *B*, *C*, *D*, ve *E* veritabanı içinde. Kapsayıcı B oluştururken etkinleştirdiğinizden emin olun **sağlama adanmış aktarım hızı bu kapsayıcı için** seçeneği ve açıkça yapılandırma *"P"* bu kapsayıcıda sağlanan aktarım hızının RU. Yalnızca veritabanı ve kapsayıcı oluştururken, paylaşılan ve ayrılmış üretilen iş yapılandırabileceğinize dikkat edin. 
 * *"K"* RU aktarım hızı arasında dört kapsayıcımız paylaşılan *A*, *C*, *D*, ve *E*. Aktarım hızı için kullanılabilir miktarda *A*, *C*, *D*, veya *E* değişir. Tek tek her kapsayıcının aktarım hızını SLA'sı vardır.
 * Adlı kapsayıcıyı *B* kesindir *"P"* RU işleme her zaman. Bu SLA'ları tarafından desteklenmektedir.
 

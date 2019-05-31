@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4fa4a9a8d01d499dc431c8b182401226aa72bf1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480009"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303029"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK: Ayarlama ve .NET için Azure Stream Analytics API'si kullanarak analytics işlerini çalıştırın
 Ayarlama ve Stream Analytics API'si için .NET Yönetim SDK'sını kullanarak .NET kullanarak analytics işlerini çalıştırma hakkında bilgi edinin. Projesini ayarlarsınız, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturma ve işleri durdur. Analytics işleriniz için Blob depolama alanından veya bir olay hub'ından veri akışını yapabilirsiniz.
@@ -27,11 +27,11 @@ Azure Stream Analytics, akış verileri bulutta üzerinden düşük gecikme sür
 > Bu makaledeki örnek kod ile Azure Stream Analytics yönetim .NET SDK'ın v2.x sürümünü güncelleştirdik. Kullanır (1.x) lagecy SDK sürümünü kullanan örnek kod için lütfen bkz [Stream Analytics için yönetim .NET SDK'sı v1.x kullanın](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
+Bu makaleye başlamadan önce aşağıdaki gereksinimleri olması gerekir:
 
-* Visual Studio 2017 veya 2015'i yükleyin.
+* Visual Studio 2019 veya 2015'i yükleyin.
 * İndirme ve yükleme [Azure .NET SDK'sı](https://azure.microsoft.com/downloads/).
-* Aboneliğinizde bir Azure kaynak grubu oluşturun. Örnek Azure PowerShell Betiği verilmiştir. Azure PowerShell için bilgi [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/overview);  
+* Aboneliğinizde bir Azure kaynak grubu oluşturun. Aşağıdaki örnek bir örnek Azure PowerShell Betiği verilmiştir. Azure PowerShell için bilgi [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/overview);  
 
    ```powershell
    # Log in to your Azure account
@@ -211,7 +211,7 @@ Giriş kaynakları, varsayılan olarak, belirli bir işin için Blob Depolama ve
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Stream Analytics Çıkış hedefi oluşturma
-Stream Analytics giriş kaynağı oluşturmak için bir çıkış hedefi oluşturma çok benzer. Giriş kaynakları gibi çıkış hedefleri için belirli bir işin bağlıdır. Farklı projeler için aynı çıkış hedefi kullanmak için yöntemi yeniden çağırın ve başka bir iş adı belirtmeniz gerekir.
+Bir çıkış hedefi oluşturma, Stream Analytics giriş kaynağı oluşturma işlemiyle benzerdir. Giriş kaynakları gibi çıkış hedefleri için belirli bir işin bağlıdır. Farklı projeler için aynı çıkış hedefi kullanmak için yöntemi yeniden çağırın ve başka bir iş adı belirtmeniz gerekir.
 
 Aşağıdaki kod, bir çıkış hedefi (Azure SQL veritabanı) oluşturur. Çıkış hedefinin veri türü ve/veya serileştirme türü özelleştirebilirsiniz.
 
@@ -289,7 +289,7 @@ Aşağıdaki örnek bir özel çıkış başlangıç saatine sahip bir Stream An
 Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Oluşturup analytics işlerini çalıştırmak için bir .NET SDK'sı kullanmanın temel adımlarını öğrendiniz. Daha fazla bilgi edinmek için şunlara bakın:
+Oluşturup analytics işlerini çalıştırmak için bir .NET SDK'sı kullanmanın temel adımlarını öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)

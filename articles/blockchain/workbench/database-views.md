@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 06b7fb678bc79203589cfa75e8afb457d6ed344f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9071cf524a0f3d319d108cb5c961fa886cf8747f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60866531"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399894"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench uygulamasında veritabanı görünümleri
 
@@ -33,7 +33,7 @@ Bu bölümde, veritabanı görünümleri ve içerdikleri veriler genel bir bakı
 
 Bu görünüm, hakkında ayrıntılı bilgi sağlar. **uygulamaları** Azure Blockchain Workbench'i yüklendi.
 
-| Ad                             | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
+| Ad                             | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
 |----------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                    | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                  | nvarchar(50)  | Hayır          | Uygulamanın adı |
@@ -54,7 +54,7 @@ Bu görünüm, Azure Blockchain Workbench uygulamalarında tanımlı roller hakk
 
 İçinde bir *varlık aktarım* uygulama, örneğin, rolleri gibi *alıcı* ve *satıcı* rolleri tanımlanabilir.
 
-| Ad                   | Tür             | Can Be Null | Açıklama                                       |
+| Ad                   | Type             | Can Be Null | Açıklama                                       |
 |------------------------|------------------|-------------|---------------------------------------------------|
 | ApplicationId          | int              | Hayır          | Uygulama için benzersiz bir tanımlayıcı           |
 | ApplicationName        | nvarchar(50)     | Hayır          | Uygulamanın adı                       |
@@ -70,7 +70,7 @@ Bu görünüm, Azure Blockchain Workbench uygulamalar ve bunlarla ilişkili kull
 
 İçinde bir *varlık aktarım* uygulama, örneğin, *John Smith* ile ilişkili *alıcı* rol.
 
-| Ad                       | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                           |
+| Ad                       | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                           |
 |----------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId              | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı                                                                                                                                                                                               |
 | ApplicationName            | nvarchar(50)  | Hayır          | Uygulamanın adı                                                                                                                                                                                                           |
@@ -93,7 +93,7 @@ Bu görünüm, Azure Blockchain Workbench içinde tanımlanan bağlantıları ve
 -   İlişkili muhasebe ayrıntıları
 -   İlişkili kullanıcı bilgileri
 
-| Ad                     | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                           |
+| Ad                     | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                           |
 |--------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConnectionId             | int           | Hayır          | Azure Blockchain Workbench bağlantı için benzersiz tanımlayıcı |
 | ConnectionEndpointUrl    | nvarchar(50)  | Hayır          | Bir bağlantı için uç nokta URL'si |
@@ -118,7 +118,7 @@ Bu görünüm, dağıtılan sözleşmeler hakkındaki ayrıntıları sağlar. He
 -   Eylem başlatan kullanıcı ayrıntıları
 -   Blok zinciri blok ve işlem ile ilgili ayrıntıları
 
-| Ad                                     | Tür           | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
+| Ad                                     | Type           | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
 |------------------------------------------|----------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConnectionId                             | int            | Hayır          | Azure Blockchain Workbench bağlantı için benzersiz tanımlayıcı.                                                                                                                                                                                         |
 | ConnectionEndpointUrl                    | nvarchar(50)   | Hayır          | Bir bağlantı için uç nokta URL'si |
@@ -159,7 +159,7 @@ Bu görünüm, sözleşmeler üzerinde gerçekleştirilen eylemler ile ilgili bi
 -   Eylem başlatan kullanıcı ayrıntıları
 -   Blok zinciri blok ve işlem ile ilgili ayrıntıları
 
-| Ad                                     | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                                                                                                    |
+| Ad                                     | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                                                                                                    |
 |------------------------------------------|---------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                            | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                          | nvarchar(50)  | Hayır          | Uygulamanın adı |
@@ -218,7 +218,7 @@ Bu görünüm bir sözleşme ile ilişkili özellikler ilgili bilgilerin çoğun
 -   Özellikler için belirli bir örnek değerler
 -   Ayrıntılar için Sözleşme durumu özelliği
 
-| Ad                               | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                                                                        |
+| Ad                               | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                    | nvarchar(50)  | Hayır          | Uygulamanın adı |
@@ -258,7 +258,7 @@ Bu görünüm, belirli bir sözleşme durumunu ilgili bilgilerin çoğunu göste
 -   İlişkili akıllı sözleşme özellik tanımı
 -   Ayrıntılar için Sözleşme durumu özelliği
 
-| Ad                               | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                                                                        |
+| Ad                               | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                    | nvarchar(50)  | Hayır          | Uygulamanın adı |
@@ -293,7 +293,7 @@ Bu görünüm, belirli bir sözleşme durumunu ilgili bilgilerin çoğunu göste
 
 Bu görünüm, Azure Blockchain Workbench'i kullanabilmeniz için sağlanan consortium üyeler ayrıntıları sağlar. Varsayılan olarak, verileri ilk sağlama kullanıcısı ile doldurulur.
 
-| Ad               | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                               |
+| Ad               | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Kimlik                 | int           | Hayır          | Bir kullanıcı için benzersiz bir tanımlayıcı |
 | externalID =         | nvarchar(255) | Hayır          | Bir kullanıcı için dış tanımlayıcı. Varsayılan olarak, bu kullanıcı için Azure Active Directory Kimliğini temsil eden GUID'i kimliğidir. |
@@ -310,7 +310,7 @@ Bu görünümün Ayrıntılar çekirdek iş akışı meta veriler hem de iş ak�
 -   İlişkili iş akışı tanımı
 -   İlişkili iş akışı başlatma durumu bilgileri
 
-| Ad                              | Tür          | Can Be Null | Açıklama                                                                                                                                |
+| Ad                              | Type          | Can Be Null | Açıklama                                                                                                                                |
 |-----------------------------------|---------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                     | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                   | nvarchar(50)  | Hayır          | Uygulamanın adı |
@@ -337,7 +337,7 @@ Bu görünümün Ayrıntılar çekirdek iş akışı meta veriler hem de iş ak�
 -   İlişkili iş akışı tanımı
 -   İş akışı işlev ayrıntıları
 
-| Ad                                 | Tür          | Can Be Null | Açıklama                                                                          |
+| Ad                                 | Type          | Can Be Null | Açıklama                                                                          |
 |--------------------------------------|---------------|-------------|--------------------------------------------------------------------------------------|
 | ApplicationId                        | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                      | nvarchar(50)  | Hayır          | Uygulamanın adı |
@@ -366,7 +366,7 @@ Bu görünüm için bir iş akışı tanımlı özelliklerini temsil eder. Her b
 -   İlişkili iş akışı tanımı
 -   İş akışı özellik ayrıntıları
 
-| Ad                         | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
+| Ad                         | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName              | nvarchar(50)  | Hayır          | Uygulamanın adı |
@@ -393,7 +393,7 @@ Bu görünüm, bir iş akışı ile ilişkili özellikleri temsil eder. Her bir 
 -   İlişkili iş akışı tanımı
 -   İş akışı durumu bilgileri
 
-| Ad                         | Tür          | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
+| Ad                         | Type          | Can Be Null | Açıklama                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName              | nvarchar(50)  | Hayır          | Uygulamanın adı |

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187649"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305067"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Olay filtreleme için Event Grid abonelikleri anlama
 
@@ -107,10 +107,10 @@ Tüm dize karşılaştırmaları çalışması insensitve ' dir.
 
 Event Grid şema olayları için anahtar için aşağıdaki değerleri kullanın:
 
-* Kimlik
+* Id
 * Konu
 * Subject
-* EventType
+* olay türü
 * dataVersion
 * Olay verilerini (gibi Data.key1)
 
@@ -118,7 +118,7 @@ Bulut olayları şemasında olayları için anahtar için aşağıdaki değerler
 
 * EventID
 * Kaynak
-* EventType
+* olay türü
 * EventTypeVersion
 * Olay verilerini (gibi Data.key1)
 
@@ -140,8 +140,6 @@ Gelişmiş filtreleme aşağıdaki sınırlamalara sahiptir:
 * Event grid aboneliği başına beş Gelişmiş Filtreler
 * dize değeri başına 512 karakter
 * Beş değerleri **içinde** ve **değil** işleçleri
-* Anahtarı yalnızca bir düzey iç içe geçme (gibi data.key1) olabilir
-* Özel olay şemaları yalnızca üst düzey alanlarda filtrelenebilir
 
 Birden fazla filtreye aynı anahtar kullanılır.
 

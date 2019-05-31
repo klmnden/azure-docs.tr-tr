@@ -3,19 +3,19 @@ title: Konuşma Öğrenici sahip bir Model - Microsoft Bilişsel hizmetler sür�
 titleSuffix: Azure
 description: Sürüm oluşturma ve konuşma Öğrenici modeliyle etiketleme kullanmayı öğrenin.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: nitinme
+ms.openlocfilehash: 7a1d94700cf84068f918ecff4f4dd433358341e0
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086318"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388393"
 ---
 # <a name="how-to-use-version-tagging"></a>Sürüm etiketleme kullanma
 

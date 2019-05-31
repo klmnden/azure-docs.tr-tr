@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483026"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305411"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Uygulamalarım portalında profili ve hesabı bilgilerinizi güncelleştirin
 Web tabanlı iş veya Okul hesabınızı kullanabilirsiniz **uygulamalarım** görüntülemek ve bazı görmek için profili ve hesabı bilgilerinizi güncelleştirmek için kuruluşunuzun bulut tabanlı uygulamalar, birçoğu başlatmak için portal, **grupları** bilgi edinmek ve gerçekleştirmek için **erişim gözden geçirmeleriyle** grupları ve uygulamaları için. Erişiminiz yoksa, **uygulamalarım** portal, Yardım masanız için izni başvurmanız gerekir.
@@ -61,7 +61,7 @@ Güncelleştirme ve işinizi yönetmek ya da Okul hesabı bilgilerini **profili*
 
 - Dışında her yerde oturum açın.
 
-## <a name="change-your-password"></a>Parolanızı değiştirin
+## <a name="change-your-password"></a>Parolanızı değiştirme
 İş veya Okul hesabınızın parolasını değiştirmek istiyorsanız, seçebileceğiniz **parolasını değiştirme** gelen **hesabını yönetme** alanının **profili** sayfası.
 
 ### <a name="to-change-your-password"></a>Parolanızı değiştirmek için

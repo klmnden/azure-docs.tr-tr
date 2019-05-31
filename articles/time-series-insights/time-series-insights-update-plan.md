@@ -2,7 +2,7 @@
 title: Azure zaman serisi öngörüleri önizlemesi ortamınızı planlama | Microsoft Docs
 description: Azure zaman serisi öngörüleri önizlemesi ortamınızı planlayın.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3fab86b2b2f0ad892e02cd089dbd7c45ce601d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205763"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388750"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure zaman serisi öngörüleri önizlemesi ortamınızı planlama
 
-Bu makalede planlamak ve hızlı bir şekilde Azure zaman serisi öngörüleri önizlemesi ile çalışmaya başlamak için en iyi uygulamaları açıklar.
+Bu makalede, planlama ve Azure zaman serisi öngörüleri Preview sürümünü kullanarak hızlı bir şekilde kullanmaya başlamak için en iyi uygulamalar açıklanmaktadır.
 
 > [!NOTE]
-> Bkz: [Azure zaman serisi öngörüleri GA ortamınızı planlama](time-series-insights-environment-planning.md), genel kullanılabilirlik TSI örneğini planlamak en iyi uygulamalar için.
+> Genel kullanılabilirlik Time Series Insights örneğini planlamak en iyi yöntemler için bkz: [Azure Time Series Insights genel kullanılabilirlik ortamınızı planlama](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Planlama ve hazırlık için en iyi uygulamalar
 
@@ -45,29 +45,29 @@ Bir zaman serisi öngörüleri Önizleme ortamı sağladığınızda, iki Azure 
 
 Başlamak için üç ek öğeler gerekir:
 
-* A [zaman serisi modeli](./time-series-insights-update-tsm.md).
-* Bir [için zaman serisi görüşleri olay kaynağı bağlı](./time-series-insights-how-to-add-an-event-source-iothub.md).
-* [Olay kaynağına giden olayları](./time-series-insights-send-events.md) hem de modele eşlenir ve geçerli JSON biçimindedir.
+* A [zaman serisi modeli](./time-series-insights-update-tsm.md)
+* Bir [için zaman serisi görüşleri olay kaynağı bağlı](./time-series-insights-how-to-add-an-event-source-iothub.md)
+* [Olay kaynağına giden olayları](./time-series-insights-send-events.md) hem de modele eşlenir ve geçerli JSON biçiminde
 
 ## <a name="configure-time-series-ids-and-timestamp-properties"></a>Zaman serisi kimlikleri ve zaman damgası özelliklerini yapılandırın
 
-Yeni bir zaman serisi görüşleri ortamı oluşturmak için Seç bir **zaman serisi kimliği**. Bunun yapılması, bu nedenle verileriniz için bir mantıksal bölüm olarak görev yapar. Belirtildiği gibi zaman serisi kimliklerinizi hazır olduğundan emin olun.
+Yeni bir zaman serisi görüşleri ortamı oluşturmak için bir zaman serisi kimliği seçin Bunun yapılması, bu nedenle verileriniz için bir mantıksal bölüm olarak görev yapar. Belirtildiği gibi zaman serisi kimliklerinizi hazır olduğundan emin olun.
 
 > [!IMPORTANT]
 > Zaman serisi kimlikleri *değişmez* ve *daha sonra değiştirilemez*. Her biri son seçim önce doğrulayın ve ilk kullanın.
 
-Kaynaklarınızı benzersiz olarak ayırt etmek için en çok üç (3) anahtarları seçebilirsiniz. Daha fazla bilgi için okuma [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md) ve [depolama ve giriş](./time-series-insights-update-storage-ingress.md).
+Kaynaklarınızı benzersiz olarak ayırt etmek için en fazla üç anahtarları seçebilirsiniz. Daha fazla bilgi için okuma [bir zaman serisi kimliği seçmek için en iyi yöntemler](./time-series-insights-update-how-to-id.md) ve [depolama ve giriş](./time-series-insights-update-storage-ingress.md).
 
 Zaman damgası özelliği ayrıca büyük/küçük harf önemlidir. Olay kaynakları eklediğinizde, bu özelliği belirleyebilirsiniz. Her bir olay kaynağı, zaman içinde kullandığı izleme olay kaynakları için isteğe bağlı bir zaman damgası özelliği vardır. Zaman damgası değerleri büyük/küçük harfe duyarlıdır ve tek tek her bir olay kaynağı belirtimi için biçimlendirilmiş olması gerekir.
 
 > [!TIP]
 > Olay kaynakları, biçimlendirme ve ayrıştırma gereksinimlerini doğrulayın.
 
-Boş bırakılırsa, olay kaynağı olay sıraya alma süresi, olayın zaman damgası kullanılır. Geçmiş verileri veya toplu olay gönderme, zaman damgası özelliği özelleştirme olay sıraya alma süresi varsayılandan daha yararlı olur. Hakkında daha fazla bilgi için okuma [IOT hub'ına olay kaynakları ekleme](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Boş bırakılırsa, olay kaynağı olay sıraya alma süresi, olayın zaman damgası kullanılır. Geçmiş verileri veya toplu olay gönderme, zaman damgası özelliği özelleştirme olay sıraya alma süresi varsayılandan daha yararlı olur. Kullanma hakkında daha fazla bilgi için okuma [Azure IOT hub'ına olay kaynakları eklemek](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## <a name="understand-the-time-series-model"></a>Zaman serisi anlama modeli
 
-Time Series Insights ortamınızın zaman serisi modeli artık yapılandırabilirsiniz. Yeni model bulun ve IOT verilerini analiz etmek kolaylaştırır. Seçki, Bakım ve zaman serisi verilerini iyileştirmesini etkinleştirir ve kullanıma hazır veri kümeleri hazırlamak için yardımcı olur. Modeli kullanan **zaman serisi kimlikleri**, harita örneğine değişkenleri, türleri ve Hiyerarşiler bilinen benzersiz kaynak ilişkilendirir. Yeni hakkında okuyun [zaman serisi modeli](./time-series-insights-update-tsm.md).
+Time Series Insights ortamınızın zaman serisi modeli artık yapılandırabilirsiniz. Yeni model bulun ve IOT verilerini analiz etmek kolaylaştırır. Seçki, Bakım ve zaman serisi verilerini iyileştirmesini etkinleştirir ve kullanıma hazır veri kümeleri hazırlamak için yardımcı olur. Model, bilinen türleri ve Hiyerarşiler değişkenleriyle benzersiz kaynak ilişkilendiren örneği eşleyen zaman serisi kimlikleri kullanır. Yeni hakkında okuyun [zaman serisi modeli](./time-series-insights-update-tsm.md).
 
 Model dinamik olduğundan herhangi bir zamanda oluşturulabilir. Hızlıca kullanmaya başlamak için oluşturun ve Time Series Insights veri göndermeden önce yükleyin. Modelinizi oluşturmak için bkz: [zaman serisi modeli kullanan](./time-series-insights-update-how-to-tsm.md).
 
@@ -79,8 +79,8 @@ Olayları zaman serisi öngörüleri için gönderme bir şekilde doğrulayabili
 
 Bir iyi kural karşısında:
 
-* Store meta verileri, zaman serisi modelindeki
-* Zaman serisi modu, örnek alanları ve olayları yalnızca gerekli bilgileri gibi dahil bir **zaman serisi kimliği** veya **zaman damgası**.
+* Meta verileri, zaman serisi modelinizde Store.
+* Zaman serisi modu, örnek alanları ve olayları zaman serisi kimliği veya zaman damgası gibi yalnızca gerekli bilgileri içerir.
 
 Daha fazla bilgi için [Şekil olayları](./time-series-insights-send-events.md#json).
 
@@ -89,5 +89,4 @@ Daha fazla bilgi için [Şekil olayları](./time-series-insights-send-events.md#
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinin [depolama ve giriş](./time-series-insights-update-storage-ingress.md) zaman serisi öngörüleri önizlemede.
-
 - Hakkında bilgi edinin [veri modelleme](./time-series-insights-update-tsm.md) zaman serisi öngörüleri önizlemede.

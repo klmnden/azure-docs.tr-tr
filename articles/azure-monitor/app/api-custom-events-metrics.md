@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785890"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299242"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -299,7 +299,7 @@ Telemetriyi kullanılabilir `customMetrics` tablosundaki [Application Insights A
 * `valueSum` -Bu ölçümler toplamıdır. Ortalama değer almak için bölen `valueCount`.
 * `valueCount` -Bu toplanan ölçümlerin sayısı `trackMetric(..)` çağırın.
 
-## <a name="page-views"></a>Sayfa görünümleri
+## <a name="page-views"></a>Sayfa görüntülemeleri
 
 Her ekran veya bir sayfa yüklendiğinde bir cihaz veya Web uygulamasında sayfa görünümü telemetrisini varsayılan olarak gönderilir. Ancak, ek veya bunlardan farklı zamanlarda sayfa görünümleri izlemek için değiştirebilirsiniz. Örneğin, sekmeler veya dikey pencereleri görüntüleyen bir uygulama, kullanıcının yeni bir dikey pencere açıldığında bir sayfayı izlemek isteyebilirsiniz.
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Veri düzenleniyor
 
-Normalde, SDK, bazen kullanıcının üzerindeki etkiyi en aza indirmek için seçilen veri gönderir. Uygulamada kapanırken SDK kullanıyorsanız, ancak bazı durumlarda, arabellek--örneğin temizlemek isteyebilirsiniz.
+Normalde, SDK, veri veya arabellek olduğunda sabit aralıklarla (genellikle 30 saniye) tam (genellikle 500 öğeleri) gönderir. Uygulamada kapanırken SDK kullanıyorsanız, ancak bazı durumlarda, arabellek--örneğin temizlemek isteyebilirsiniz.
 
 *C#*
 
@@ -782,7 +782,7 @@ Uygulamanız kullanıcıların hesaplarına veri grupları, Hesapla (aynı karak
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-İçinde [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md), sayan bir grafik oluşturabilir miyim **kimliği doğrulanmış kullanıcılar,**, ve **kullanıcı hesaplarını**.
+İçinde [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md), sayan bir grafik oluşturabilir miyim **kimliği doğrulanmış kullanıcılar,** , ve **kullanıcı hesaplarını**.
 
 Ayrıca [arama](../../azure-monitor/app/diagnostic-search.md) belirli kullanıcı adları ve hesapları ile istemci veri noktaları için.
 

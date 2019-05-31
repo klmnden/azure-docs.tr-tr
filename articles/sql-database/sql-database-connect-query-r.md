@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 796e9c17a457bfb1a79b600b178d2c733e10f91e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382418"
+ms.locfileid: "66416370"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Hızlı Başlangıç: (Önizleme) Azure SQL veritabanını sorgulamaya R kullanma
 
@@ -85,6 +85,9 @@ Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Y
 1. Tam R komut dosyasına geçirmek [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) saklı yordamı.
 
    Komut dosyası aracılığıyla geçirilir `@script` bağımsız değişken. İçindeki her şey `@script` bağımsız değişken, geçerli R kodu olmalıdır.
+   
+   >[!IMPORTANT]
+   >Bu örnekteki kod kaynağı olarak veritabanınızı oluştururken seçebilirsiniz AdventureWorksLT örnek verileri kullanır. Farklı veri veritabanınız varsa kendi veritabanından tablolar SELECT sorgusunda kullanın. 
 
     ```sql
     EXECUTE sp_execute_external_script

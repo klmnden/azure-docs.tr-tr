@@ -3,19 +3,19 @@ title: Desteklenmeyen dil dağıtımları - özel Translator
 titleSuffix: Azure Cognitive Services
 description: Desteklenmeyen dil çiftlerinde özel Translator'ı dağıtma
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: v-pawal
-ms.openlocfilehash: 09fbd771d945646fe385508779d38e4abb2ee293
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64476513"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390576"
 ---
 # <a name="unsupported-language-deployments"></a>Desteklenmeyen dil dağıtımları
 
@@ -32,7 +32,7 @@ Sırayla Modellerinizi dağıtım için aday olmak için aşağıdaki ölçütle
 * Geçiş gerçekleştiğinde model dağıtılmış durumda olması gerekir.  
 * Model dili çiftinin özel Translator içindeki bir desteklenmeyen dili çifti olmalıdır.  Bir dil İngilizce'den ya da desteklenir ancak çifti İngilizce içermez dil çiftleri Desteklenmeyen dil dağıtımlar için bir adaydır.  Örneğin, Hub modeli için bir Fransızca, Almanca dil çifti için bir desteklenmeyen dili çifti bile ancak Fransızca İngilizce ve Almanca olan İngilizce için desteklenen dil çifti olarak kabul edilir.
 
-## <a name="process"></a>İşlem
+## <a name="process"></a>Process
 Dağıtım için aday niteliği taşıyan Hub'ından modelleri geçirdikten sonra bunları şuraya giderek bulabilirsiniz **ayarları** çalışma alanınızı ve göreceğiniz sayfanın sonuna kadar kaydırma için sayfasına bir **desteklenmiyor Translator Hub eğitimleri** bölümü.  Bu bölümde, yalnızca yukarıda açıklanan önkoşulları karşılaması projeler varsa görüntülenir.
 
 ![Hub'ından geçirme](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)

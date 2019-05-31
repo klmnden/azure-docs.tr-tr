@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158951"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234013"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -242,7 +242,7 @@ Varsayılan olarak proje/hizmet düzeyinde derleme bağlamıdır, bu nedenle, ku
 ### <a name="try"></a>Deneyin:
 Yapmanız gerekenler:
 1. Değiştirme _azds.yaml_ derleme bağlamı için çözüm düzeyi ayarlamak için dosya.
-2. Değiştirme _Dockerfile_ ve _Dockerfile.develop_ projesine başvuruda bulunmak için dosyaları (_.csproj_) dosyaları doğru bir şekilde yeni göre derleme bağlamı.
+2. Değiştirme _Dockerfile_ ve _Dockerfile.develop_ projesine başvuruda bulunmak için dosyaları ( _.csproj_) dosyaları doğru bir şekilde yeni göre derleme bağlamı.
 3. Bir yerde bir _.dockerignore_ dosya .sln dosyasını ve gerektiği gibi değiştirin.
 
 Bir örneğe göz bulabilirsiniz https://github.com/sgreenmsft/buildcontextsample
@@ -378,7 +378,7 @@ Bir AKS kümesi için bir kullanıcının izinlerini güncelleştirme hakkında 
 
 Denetleyici için kullanıcının RBAC rolü'nü güncellemek için:
 
-1. https://portal.azure.com adresinden Azure portalında oturum açın.
+1.  [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 1. AKS kümenizi genellikle aynıdır denetleyicisi içeren kaynak grubuna gidin.
 1. Etkinleştirme *gizli türleri Göster* onay kutusu.
 1. Üzerindeki denetleyiciye tıklayın.
@@ -404,3 +404,8 @@ Bir denetleyici ile başka bir ad oluşturun:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Bir AKS kümesi için düğüm havuzları Windows eklendiğinde geliştirme alanları başarısız etkinleştirme
+
+### <a name="reason"></a>Reason
+Şu anda, Azure geliştirme alanları Linux pod'ların ve yalnızca düğümler üzerinde çalıştırılacak yöneliktir. Şu anda Azure geliştirme alanları Windows düğüm havuzu ile bir AKS kümesi üzerinde etkinleştirilemiyor.

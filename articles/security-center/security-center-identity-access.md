@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704994"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389486"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
+
+> [!NOTE]
+> "View *Klasik* kimlik ve erişim" bağlantı 31 Temmuz 2019 üzerinde kullanımdan kaldırılacak. Tıklayın [burada](security-center-features-retirement-july2019.md#menu_classicidentity) alternatif Services'ta öğrenin.
 
 > [!NOTE]
 > Kimlik ve erişim izleme önizlemede ve Güvenlik Merkezi'nin standart katmanında yalnızca kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
@@ -115,11 +118,11 @@ Aşağıdaki tabloda kullanılabilir kimlik ve erişim öneriler ve uygulamanız
 |Abonelik|30|Sahip izinleri olan dış hesapları aboneliğinizden kaldırın|Sahip izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın. |
 |Abonelik|30|Azure yönetim uygulaması aboneliğinizde Okuma izinleri olan hesaplar için mfa'yı etkinleştirme|Hesapları veya kaynak ihlalini önlemek için okuma ayrıcalıklarına sahip tüm abonelik hesapları için multi-Factor Authentication (MFA) etkinleştirin.|
 |Abonelik|25|Yazma izinleri olan dış hesapları aboneliğinizden kaldırın|Yazma izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırın. |
-|Abonelik|20|Sahip izinleri ile kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Sahip izinleri ile kullanım dışı bırakılmış hesapların aboneliklerinizden kaldırın.|
-|Abonelik|5|Kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Kullanım dışı bırakılmış hesapların aboneliklerinizden yalnızca geçerli kullanıcılara erişimi etkinleştirmek için kaldırın. |
+|Abonelik|20|Sahip izinleri ile kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Sahip izinleri ile kullanım dışı bırakılmış hesapların aboneliklerinizden kaldırın. Kullanım dışı bırakılmış hesapları için oturum açma Azure AD'de engellenmiş olan hesaplardır.|
+|Abonelik|5|Kullanım dışı bırakılmış hesapları aboneliğinizden kaldırın|Kullanım dışı bırakılmış hesapların aboneliklerinizden yalnızca geçerli kullanıcılara erişimi etkinleştirmek için kaldırın. Kullanım dışı bırakılmış hesapları için oturum açma Azure AD'de engellenmiş olan hesaplardır.|
 |Abonelik|5|Aboneliğinizde birden çok sahip belirleyin|Yönetici erişimi fazlalığı sağlamak için birden fazla abonelik sahibi belirleyin.|
-|Abonelik|5|Aboneliğinizde en fazla 3 sahip belirleyin|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
-|Key Vault|5|Key Vault'ta tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
+|Abonelik|5|Aboneliğinizde en fazla 3 sahipleri belirleyin|Güvenliği aşılmış bir sahip tarafından ihlal olasılığını azaltmak için 3'ten az abonelik sahipleri belirleyin.|
+|Key Vault|5|Anahtar Kasası'nda tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |Abonelik|15|Okuma izinleri olan dış hesapları aboneliğinizden kaldırın|Okuma ayrıcalıklarına sahip dış hesapların aboneliğinizden izlenmeyen erişimi engellemek için kaldırın.|
 |Abonelik|1|Güvenlik ilgili kişi bilgilerini belirtin|Her aboneliğiniz için güvenlik kişi bilgilerini sağlayın. Bir e-posta adresi ve telefon numarası iletişim bilgileridir. Bilgileri güvenlik ekibimizin kaynaklarınızın tehlikede olduğunu tespit olursa sizinle iletişim kurmak için kullanılır|
 

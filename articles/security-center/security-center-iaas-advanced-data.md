@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968576"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400152"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Iaas SQL Server'lar için Gelişmiş veri güvenliği
-Iaas SQL Server'lar için Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Şu anda, görünmesini ve olası veritabanı güvenlik açıklarını azaltmaya ve veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya yönelik işlevleri içerir.
+Azure Virtual Machines'de SQL sunucuları için Gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Şu anda, görünmesini ve olası veritabanı güvenlik açıklarını azaltmaya ve veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya yönelik işlevleri içerir. 
 
-Iaas SQL Server'lar için sunan bu güvenlik kullanılan aynı temel teknoloji dayalı [Azure SQL veritabanı gelişmiş veri güvenliği paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Bu güvenlik sunan Azure VM'lerin SQL sunucuları için kullanılan aynı temel teknoloji dayalı [Azure SQL veritabanı gelişmiş veri güvenliği paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="overview"></a>Genel Bakış
 
-Gelişmiş veri güvenliği (REKLAM) bir güvenlik açığı değerlendirmesi ve Gelişmiş tehdit koruması oluşan Gelişmiş SQL güvenlik özellik sunar.
+Gelişmiş SQL güvenlik özellikleri, güvenlik açığı değerlendirmesi ve Gelişmiş tehdit koruması oluşan bir dizi gelişmiş veri güvenliği sağlar.
 
 * [Güvenlik Açığı değerlendirmesi](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) olduğu bir kolayca bulmak, izlemek ve yardımcı hizmetini yapılandırmak olası veritabanı güvenlik açıklarını düzeltin. Güvenlik durumunuzu görünürlük sağlar ve güvenlik sorunlarını çözün ve, veritabanı fortifications geliştirmek için gerekli adımları içerir.
 * [Gelişmiş tehdit koruması](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) erişmek veya SQL server'ınızı yararlanmak için sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar. Sürekli olarak veritabanınızı şüpheli etkinlikler için izler ve anormal veritabanı erişim modellerinin üzerinde eylem odaklı güvenlik uyarıları sağlar. Bu uyarılar, şüpheli etkinlik ayrıntılarını sağlayın ve önerilen araştırmak ve tehdidi azaltmak için Eylemler.
 
-## <a name="get-started-with-ads-for-iaas"></a>Iaas için REKLAM ile çalışmaya başlama
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Azure vm'lerde SQL gelişmiş veri güvenliği ile çalışmaya başlama
 
-Aşağıdaki adımlar için Iaas ile REKLAM başlamanıza yardımcı olmak.
+Aşağıdaki adımlar Azure Vm'leri üzerinde SQL ile gelişmiş veri güvenliği başlamanıza yardımcı olmak.
 
-### <a name="set-up-ads-for-iaas"></a>Iaas için REKLAMLARI ayarlayın
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Azure vm'lerde SQL için Gelişmiş veri güvenliği ayarlayın
 
 **Başlamadan önce**: Çözümlenen güvenlik günlükleri depolamak için bir Log Analytics çalışma alanı ihtiyacınız vardır. Elinizde değil sonra bir kolayca açıklandığı gibi oluşturabilirsiniz [Azure portalında Log Analytics çalışma alanı oluşturma](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -55,7 +55,7 @@ Aşağıdaki adımlar için Iaas ile REKLAM başlamanıza yardımcı olmak.
 
 1. ' E tıklayın çalışma alanını seçin **Oluştur**.
 
-   ![Çalışma alanı seçin](./media/security-center-advanced-iaas-data/sql-workspace.png)
+   ![Çalışma alanını seçme](./media/security-center-advanced-iaas-data/sql-workspace.png)
 
 1. Yeniden [sanal makinenin SQL server](https://docs.microsoft.com/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
 
@@ -72,7 +72,7 @@ Görüntüleyebilir ve geçerli güvenlik uyarılarınızı yönetme.
 
 1. Uyarı ayrıntılarını ve geçerli tehdit araştırma ve gelecekteki tehditleri adresleme eylemleri görmek için kaydırmanız **genel bilgiler** sayfasında ve **düzeltme adımları** bölümünde, üzerinde tıklayın **Araştırma ADIMLARININ** bağlantı.
 
-    ![Düzeltme Adımları](./media/security-center-advanced-iaas-data/remediation-steps.png)
+    ![Düzeltme adımları](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
 1. Uyarının tetiklenmesine ile ilişkili olan günlükleri görüntülemek için Git **günlük analizi çalışma alanı** ve aşağıdaki adımları uygulayın:
 
@@ -81,7 +81,7 @@ Görüntüleyebilir ve geçerli güvenlik uyarılarınızı yönetme.
 
     1. Sütunları görüntüleme mutlaka **fiyatlandırma katmanı** ve **Workspaceıd** sütunları. (**Günlük analizi çalışma alanı** > **sütunları Düzenle**, ekleme **fiyatlandırma katmanı** ve **Workspaceıd**.)
 
-     ![Sütunları Düzenle](./media/security-center-advanced-iaas-data/edit-columns.png)
+     ![Upravit Sloupce](./media/security-center-advanced-iaas-data/edit-columns.png)
 
     1. Uyarı günlükleri içeren çalışma alanını tıklatın.
 
@@ -95,7 +95,7 @@ Görüntüleyebilir ve geçerli güvenlik uyarılarınızı yönetme.
 
 ASC uyarılar oluşturulduğunda bir e-posta bildirimi almak için alıcıların listesi ayarlayabilirsiniz. E-posta, Azure Güvenlik Merkezi'nde uyarı ile ilgili tüm ayrıntılar için doğrudan bir bağlantı içerir. 
 
-1. Git **Güvenlik Merkezi** > **Güvenlik İlkesi** ve ilgili aboneliği tıklatın satırında **ayarları düzenleyin >**.
+1. Git **Güvenlik Merkezi** > **Güvenlik İlkesi** ve ilgili aboneliği tıklatın satırında **ayarları düzenleyin >** .
 
     ![Abonelik ayarları](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
@@ -120,7 +120,7 @@ Güvenlik Açığı değerlendirmesi Pano tüm veritabanlarınız arasında değ
 
 Güvenlik Açığı değerlendirme sonuçlarını ve doğrudan Log Analytics raporları görüntüleyebilirsiniz.
 
-1. ADS çözümünü ile Log Analytics çalışma alanınıza gidin.
+1. Gelişmiş Veri güvenlik çözümü ile Log Analytics çalışma alanınıza gidin.
 1. Gidin **çözümleri** seçip **SQL güvenlik açığı değerlendirmesi** çözüm.
 1. İçinde **özeti** bölmesinde tıklayın **özetini görüntüle** ve seçin, **SQL güvenlik açığı değerlendirmesi raporu**.
 
@@ -136,13 +136,13 @@ Güvenlik Açığı değerlendirme sonuçlarını ve doğrudan Log Analytics rap
 
    1. Ardından, güvenlik açığı açıklaması ve etkisi, durumu, ilişkili riski ve bu veritabanında gerçek sonuçlar dahil olmak üzere her güvenlik açığı ayrıntılarını görüntülemek için tıklayın. Ayrıca, bu güvenlik açığını çözümlemek için bu onay ve düzeltme bilgilerini gerçekleştirmek için çalıştırılan gerçek sorgu görebilirsiniz.
 
-    ![Çalışma alanı seçin](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    ![Çalışma alanını seçme](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
 
-    ![Çalışma alanı seçin](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
+    ![Çalışma alanını seçme](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
 
 1. Dilim ve verileri gereksinimlerinize göre nedensellik ilişkilerini, güvenlik açığı değerlendirmesi sonuçları verilerinizi Log Analytics sorguları çalıştırabilirsiniz.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>Gelişmiş tehdit koruması için SQL Server Iaas uyarılar
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Gelişmiş tehdit koruması için SQL Server Azure Vm'leri uyarılar
 Erişmek veya exploit SQL sunucuları için olağan dışı ve zararlı olabilecek girişimleri tarafından uyarılar oluşturulur. Bu olaylar aşağıdaki uyarılar tetikleyebilirsiniz:
 
 ### <a name="anomalous-access-pattern-alerts"></a>Anormal erişim düzeni uyarıları

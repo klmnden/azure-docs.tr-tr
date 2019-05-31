@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/21/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4685d02fa9a1f08d86bdbe2915b94f177235b864
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016412"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418048"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -96,7 +96,7 @@ Aşağıdaki hedefleri, işlem veya işlem kaynakları, web hizmeti dağıtımı
 | ----- | ----- | ----- |
 | [Yerel web hizmeti](#local) | Test/hata ayıklama | Sınırlı test etme ve sorun giderme için uygundur.
 | [Azure Kubernetes Service'i (AKS)](#aks) | Gerçek zamanlı çıkarımı | Büyük ölçekli üretim dağıtımları için idealdir. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar. |
-| [Azure Container Instances (ACI)](#aci) | Test ediliyor | Düşük ölçek, CPU tabanlı iş yükleri için uygundur. |
+| [Azure Container Instances (ACI)](#aci) | Test Etme | Düşük ölçek, CPU tabanlı iş yükleri için uygundur. |
 | [Azure Machine Learning işlem](how-to-run-batch-predictions.md) | (Önizleme) Batch çıkarımı | Toplu Puanlama sunucusuz bir işlem üzerinde çalıştırın. Normal veya düşük öncelikli sanal makineleri destekler. |
 | [Azure IoT Edge](#iotedge) | (Önizleme) IOT Modülü | Dağıtma ve IOT cihazlarında ML modelleri hizmet. |
 
@@ -235,9 +235,6 @@ Aşağıdaki bölümlerde, dağıtım yapılandırması oluşturun ve web hizmet
 ### <a id="local"></a> Yerel dağıtım
 
 Yerel olarak dağıtmak için ihtiyacınız **Docker'ın yüklü** yerel makinenizde.
-
-Bu bölümdeki örneklerde kullanım [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), bir dağıtım yapmadan önce modeli ve görüntü kayıt gerektirir. Diğer dağıtım yöntemleri hakkında daha fazla bilgi için bkz. [dağıtma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) ve [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
-
 
 + **SDK'sını kullanma**
 

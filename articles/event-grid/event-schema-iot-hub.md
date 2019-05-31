@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561804"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393194"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IOT hub'ın Azure Event Grid olay şeması
 
@@ -33,6 +33,9 @@ Azure IOT Hub aşağıdaki olay türlerini gösterir:
 | Microsoft.Devices.DeviceDeleted | Bir cihaz IOT hub'ından silindiğinde yayımladı. | 
 | Microsoft.Devices.DeviceConnected | Bir cihaz IOT hub'a bağlandığında yayımladı. |
 | Microsoft.Devices.DeviceDisconnected | Bir cihaz IOT hub'ından kesildiğinde yayımladı. | 
+| Microsoft.Devices.DeviceTelemetry | Bir IOT hub'ına telemetri ileti gönderildiğinde yayımladı. |
+
+Cihazın telemetri olayları hariç tüm cihaz olayları Event Grid tarafından desteklenen tüm bölgelerde genel kullanıma sunulmuştur. Cihazın telemetri olayı genel Önizleme aşamasındadır ve Doğu ABD, Batı ABD, Batı Avrupa dışındaki tüm bölgelerde kullanılabilir [Azure kamu](/azure-government/documentation-government-welcome.md), [Azure Çin 21Vianet](/azure/china/china-welcome.md), ve [Azure Almanya](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Örnek olay
 
@@ -56,6 +59,40 @@ Azure IOT Hub aşağıdaki olay türlerini gösterir:
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+Bir IOT Hub'ına telemetri olayı gönderildiğinde DeviceTelemetry olay tetiklenir. Bu olay için bir örnek şema aşağıda gösterilmiştir.
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -115,10 +152,10 @@ Tüm olaylar aynı üst düzey veri içerir:
 | -------- | ---- | ----------- |
 | id | string | Olayın benzersiz tanımlayıcısı. |
 | konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| Konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
 | olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| veriler | object | IOT Hub olay verileri.  |
+| Veri | object | IOT Hub olay verileri.  |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
@@ -129,7 +166,9 @@ Tüm IOT Hub olaylarını veri nesnesinin aşağıdaki özellikleri içerir:
 | HubName | string | IOT cihaz nerede oluşturulduğu veya silindiği Hub adı. |
 | deviceId | string | Cihazın benzersiz tanımlayıcısı. Bu büyük küçük harfe duyarlı dize en fazla 128 karakter uzunluğunda olabilir ve ASCII 7 bit alfasayısal karakterlerin yanı sıra şu özel karakterleri destekler: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
-Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. İçin **cihaz bağlı** ve **cihazın bağlantısı** IOT Hub olayları, veri nesnesi, aşağıdaki özellikleri içerir:
+Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. 
+
+İçin **cihaz bağlı** ve **cihazın bağlantısı** IOT Hub olayları, veri nesnesi, aşağıdaki özellikleri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
@@ -137,13 +176,21 @@ Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. İçin **cih
 | deviceConnectionStateEventInfo | object | Cihaz bağlantı durumu olay bilgilerini
 | sequenceNumber | string | Yardımcı olan bağlı cihaz veya cihaz sırasını belirten bir sayı olayları bağlantısı kesildi. En son olay, bir sıra numarası olacaktır, önceki olay daha yüksek. Bu sayı tarafından 1'den fazla değiştirebilir, ancak kesin olarak artmaktadır. Bkz: [sıra numarası kullanmayı](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. İçin **cihaz oluşturulan** ve **cihaz silinmiş** IOT Hub olayları, veri nesnesi, aşağıdaki özellikleri içerir:
+İçin **cihaz Telemetrisi** IOT Hub olay veri nesnesini içeren, CİHAZDAN buluta ileti [IOT hub ileti biçimi](../iot-hub/iot-hub-devguide-messages-construct.md) ve aşağıdaki özelliklere sahiptir:
+
+| Özellik | Tür | Açıklama |
+| -------- | ---- | ----------- |
+| Gövde | string | Bir CİHAZDAN ileti içeriği. |
+| properties | string | Uygulama özellikleri iletiye eklenen kullanıcı tanımlı dizelerdir. Bu alanlar isteğe bağlıdır. |
+| Sistem Özellikleri | string | [Sistem Özellikleri](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) içeriği ve iletilerin kaynak tanımlamanıza yardımcı olacaktır. Cihazın telemetri iletileriyle, JSON ve UTF-8'e ayarlayın ileti sistemi özelliklerinde contentEncoding contentType ile geçerli bir JSON biçiminde olmalıdır. Bu ayarlanmazsa, IOT Hub iletilerini taban 64 kodlanmış biçimde yazılacaktır.  |
+
+İçin **cihaz oluşturulan** ve **cihaz silinmiş** IOT Hub olayları, veri nesnesi, aşağıdaki özellikleri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | ikiz | object | Uygulama cihaz meta verilerini bir bulut gösterimiyse cihaz ikizinde hakkında bilgi sağlar. | 
 | cihaz kimliği | string | Cihaz ikizi benzersiz tanımlayıcısı. | 
-| Etag | string | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
+| ETag | string | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
 | deviceEtag| string | Bir cihaz kayıt defterine güncelleştirmelerin tutarlılık sağlamaya yönelik bir doğrulayıcı. Her deviceEtag cihaz kayıt defteri başına benzersiz olması garanti edilir. |
 | durum | string | Olup cihaz ikizinde etkin veya devre dışı. | 
 | statusUpdateTime | string | Son cihaz ikizi durumu ISO8601 zaman damgası güncelleştirin. |

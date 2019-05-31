@@ -1,30 +1,30 @@
 ---
-title: "Hızlı Başlangıç: İçeri aktarılan bir sorgu Power BI ile Azure veri Gezgini'nde verileri Görselleştirme "
-description: "Bu hızlı başlangıçta, Power bı'da verileri görselleştirmek için üç seçenekten birini kullanmayı öğrenin: Azure veri Gezgini'nde bir sorgu alma."
+title: "İçeri aktarılan bir sorgu Power BI ile Azure veri Gezgini'nde verileri Görselleştirme "
+description: "Bu makalede, Power bı'da verileri görselleştirmek için üç seçenekten birini kullanmayı öğrenin: Azure veri Gezgini'nde bir sorgu alma."
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
-ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828996"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399329"
 ---
-# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Hızlı Başlangıç: Power BI'a aktarılan bir sorgu kullanarak verileri Görselleştir
+# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Power BI'a aktarılan bir sorgu kullanarak verileri Görselleştir
 
 Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Power BI, verilerinizi görselleştirmenizi ve sonuçları kuruluşunuzda paylaşmanızı sağlayan bir iş analizi çözümüdür.
 
-Azure Veri Gezgini, Power bı'daki verilere bağlanmak için üç seçenek sunar: yerleşik Bağlayıcısı, Azure veri Gezgini'nde bir sorguyu içeri aktarmak veya bir SQL sorgusu kullanın. Bu hızlı başlangıçta bir sorguyu her içeri veri almak ve bir Power BI raporuna görselleştirme gösterilmektedir.
+Azure Veri Gezgini, Power bı'daki verilere bağlanmak için üç seçenek sunar: yerleşik Bağlayıcısı, Azure veri Gezgini'nde bir sorguyu içeri aktarmak veya bir SQL sorgusu kullanın. Bu makalede veri almak ve bir Power BI raporuna görselleştirme böylece bir sorguyu içeri aktarmak nasıl gösterir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için şunlara ihtiyacınız vardır:
+Bu makalede tamamlamak için şunlara ihtiyacınız vardır:
 
 * Bağlanabilir, böylece Azure Active directory üyesi olan bir kuruluş e-posta hesabı [Azure Veri Gezgini Yardım kümesi](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -78,9 +78,8 @@ Bu hızlı başlangıcı tamamlamak için şunlara ihtiyacınız vardır:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu Hızlı Başlangıç için oluşturduğunuz rapor artık ihtiyacınız kalmadığında Power BI Desktop (.pbix) dosyasını silin.
+Bu makalede, oluşturulan rapor artık ihtiyacınız kalmadığında Power BI Desktop (.pbix) dosyasını silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Power BI hizmetinde içeri aktarılan bir sorgu kullanarak verileri Görselleştir](power-bi-sql-query.md)
+[Power BI hizmetinde içeri aktarılan bir sorgu kullanarak verileri Görselleştir](power-bi-sql-query.md)

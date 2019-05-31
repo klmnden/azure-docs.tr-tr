@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409818"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258676"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure veritabanı en iyi güvenlik uygulamaları
 Bu makalede, veritabanı güvenliği için en iyi uygulamaları açıklar.
@@ -165,6 +165,10 @@ Bu özelliklerin yardımcı olur:
 - Algılama ve olası tehditlere yanıt verin.
 
 Ayrıca, tehdit algılama, uyarıları Azure Güvenlik Merkezi ile tüm Azure kaynaklarınızın güvenlik durumunu genel bir görünüm için tümleştirir.
+
+## <a name="enable-feature-restrictions"></a>Özellik kısıtlamalarını etkinleştir
+
+Saldırganların için veritabanı hataları ve sorgu yürütme sürelerini yararlanarak saldırı vektörlerinin, veritabanlarınızda bulunan veriler gösterilebilir. Azure SQL veritabanı, veritabanınızı korumaya özellik kısıtlama mekanizmaları sağlar. Daha fazla bilgi için bkz. [SQL veritabanı özellik kısıtlamaları](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bkz: [Azure güvenlik en iyi uygulamaları ve desenleri](security-best-practices-and-patterns.md) kullanmak üzere daha fazla güvenlik için en iyi yöntemler, tasarlama, dağıtma ve Azure'ı kullanarak bulut çözümlerinizi yönetme.

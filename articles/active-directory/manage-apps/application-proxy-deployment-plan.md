@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04-04-2019
-ms.author: barbaraselden
+ms.date: 04/04/2019
+ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113020"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388319"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Bir Azure AD uygulama ara sunucusu dağıtımını planlama
 
@@ -92,7 +92,7 @@ Aşağıdaki bilgileri toplayarak uygulama proxy'si yayımlanan tüm kapsamında
 
 | Bilgi türü| Bilgi toplamak için |
 |---|---|
-| Hizmet türü| Örneğin: SharePoint, SAP, CRM, özel bir Web uygulaması, API |
+| Hizmet Türü| Örneğin: SharePoint, SAP, CRM, özel bir Web uygulaması, API |
 | Uygulama platformu | Örneğin: Windows IIS, Apache on Linux, Tomcat, NGINX |
 | Etki alanı üyeliği| Web sunucusunun tam etki alanı adı (FQDN) |
 | Uygulama konumu | Web sunucusu veya grup altyapınızda bulunduğu |

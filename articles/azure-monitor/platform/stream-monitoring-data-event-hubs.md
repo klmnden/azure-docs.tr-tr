@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452695"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243463"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -119,6 +119,6 @@ Bir olay hub'ına Azure İzleyici ile izleme verilerinizi yönlendirme, iş orta
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](../../azure-monitor/platform/archive-activity-log.md)
 * [Azure etkinlik günlüğüne genel bakış okuyun](../../azure-monitor/platform/activity-logs-overview.md)
-* [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Bir etkinlik günlüğü olayında dayalı bir uyarı ayarlama](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

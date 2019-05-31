@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: a1fbc8a42492b4a9c2254ccea2ddc2909219ad23
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969352"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244320"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında vmware'den azure'a
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -121,7 +121,7 @@ Dağıtım Planlayıcısı’nın önceki sürümüne sahipseniz şunlardan biri
 
 ## <a name="version-history"></a>Sürüm geçmişi
 En son Site Recovery dağıtım planlayıcısı aracı sürümü 2.4 ' dir.
-Her güncelleştirmede eklenen düzeltmeler için [Site Recovery Dağıtım Planlayıcısı sürüm geçmişi](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner-history) sayfasına bakın.
+Her güncelleştirmede eklenen düzeltmeler için [Site Recovery Dağıtım Planlayıcısı sürüm geçmişi](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) sayfasına bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Site Recovery Dağıtım Planlayıcısı’nı çalıştırma](site-recovery-vmware-deployment-planner-run.md)

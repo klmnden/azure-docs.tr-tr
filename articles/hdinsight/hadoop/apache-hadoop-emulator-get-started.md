@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697416"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393145"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bir Apache Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
 
@@ -24,19 +24,16 @@ Apache Hadoop korumalı alanı Hortonworks Hadoop ekosistemi hakkında bilgi edi
 * [Oracle VirtualBox](https://www.virtualbox.org/). Buradan indirip [burada](https://www.virtualbox.org/wiki/Downloads).
 
 
-
 ## <a name="download-and-install-the-virtual-machine"></a>Sanal makineye yükleyip
-1. Gözat [Hortonworks indirir](https://hortonworks.com/downloads/#sandbox).
+1. Gözat [Cloudera indirir](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-2. Tıklayın **İNDİRMEK için VIRTUALBOX** en son Hortonworks korumalı alanı bir VM'de indirilemedi. Hortonworks ile yükleme başlamadan önce kaydetmeniz istenir. Ağ hızınıza bağlı olarak indirmek için bir ila iki saat sürer.
+2. Tıklayın **VIRTUALBOX** altında **yükleme türünü seç** en son Hortonworks korumalı alanı bir VM'de indirilemedi. Oturum açın veya ürün ilgi formu doldurun.
 
-    ![Bağlantı resmi için Hortonworks korumalı alanı VirtualBox için indirin](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. Aynı web sayfasından tıklayın **Virtual Box üzerinde içeri aktarma** sanal makine için yükleme yönergelerini içeren bir PDF indirmek için bağlantı.
+1. Düğmesini **HDP korumalı alanı (en son)** karşıdan yükleme işlemini başlatın.
 
-Eski bir HDP sürüm korumalı alan indirmek için arşiv genişletin:
+Korumalı alan ayarlama hakkında yönergeler için bkz: [korumalı alan dağıtım ve Yükleme Kılavuzu](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-![Hortonworks korumalı alanı arşiv](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
-
+Eski bir HDP sürüm korumalı alan indirmek için altındaki bağlantıları görmek **eski sürümleri**.
 
 ## <a name="start-the-virtual-machine"></a>Sanal makineyi Başlat
 
@@ -52,7 +49,7 @@ Eski bir HDP sürüm korumalı alan indirmek için arşiv genişletin:
 1. Gelen **başlama** select Hortonworks Sandbox sayfası adımında **görünüm Gelişmiş Seçenekler**. Bilgiler, SSH kullanarak korumalı alan oturum açmak için bu sayfada kullanın. Sağlanan adını ve parolayı kullanın.
 
    > [!NOTE]
-   > Bir SSH istemcisi yüklü değilse, sanal makine tarafından verilen web tabanlı SSH kullanabilirsiniz **http://localhost:4200/**.
+   > Bir SSH istemcisi yüklü değilse, sanal makine tarafından verilen web tabanlı SSH kullanabilirsiniz **http://localhost:4200/** .
 
     SSH kullanarak bağlandığınız ilk kez kök hesabın parolasını değiştirmeniz istenir. SSH kullanarak oturum açışınızda kullanacağınız yeni bir parola girin.
 

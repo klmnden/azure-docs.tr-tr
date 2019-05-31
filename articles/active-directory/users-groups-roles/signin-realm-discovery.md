@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920510"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418162"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory oturum açma sayfaları için giriş bölgesi bulma
 
@@ -32,19 +32,19 @@ Geniş bir kimlik bilgilerini destekler ve kullanılabilirliğini artırmak içi
 
 Bu iş ek bir avantaj geliştirilmiş hatadır Mesajlaşma. Yalnızca Azure Active Directory Kullanıcıları destekleyen bir uygulama için oturum açarken Mesajlaşma geliştirilmiş hata bazı örnekleri aşağıda verilmiştir.
 
-1. Kullanıcı adı yanlış yazmış veya kullanıcı adı henüz Azure AD'ye eşitlenmiş değil:
+- Kullanıcı adı yanlış yazmış veya kullanıcı adı henüz Azure AD'ye eşitlenmiş değil:
   
     ![Kullanıcı adı yanlış yazmış veya bulunamadı](./media/signin-realm-discovery/typo-username.png)
   
-2. Etki alanı adı yanlış yazmış:
+- Etki alanı adı yanlış yazmış:
   
     ![etki alanı adı yanlış yazmış veya bulunamadı](./media/signin-realm-discovery/typo-domain.png)
   
-3. Kullanıcı, bilinen bir tüketici etki alanı ile oturum açmanız çalışır:
+- Kullanıcı, bilinen bir tüketici etki alanı ile oturum açmanız çalışır:
   
     ![bir bilinen bir tüketici etki alanı ile oturum açın](./media/signin-realm-discovery/consumer-domain.png)
   
-4. Parola yanlış yazmış ancak kullanıcı adı doğru olur:  
+- Parola yanlış yazmış ancak kullanıcı adı doğru olur:  
   
     ![iyi bir kullanıcı adıyla parola yanlış yazılan](./media/signin-realm-discovery/incorrect-password.png)
   

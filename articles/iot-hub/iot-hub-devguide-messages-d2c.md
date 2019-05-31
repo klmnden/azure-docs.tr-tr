@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 094641baaa1472b481140072cd5d3d35d27d5ed7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917417"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390518"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Farklı uç noktalar için CİHAZDAN buluta iletileri göndermek için IOT Hub ileti yönlendirme kullanın
 
@@ -39,7 +39,7 @@ Standart kullanabileceğiniz [Event Hubs tümleştirme ve SDK'ları](iot-hub-dev
 
 ### <a name="azure-blob-storage"></a>Azure Blob Depolama
 
-IOT hub'ın desteklediği verileri Azure Blob depolama alanına yazma [Apache Avro](https://avro.apache.org/) JSON biçimine yanı sıra. IOT hub'ı Doğu ABD, Batı ABD ve Batı Avrupa, kullanılabilir tüm bölgelerde önizleme özelliği JSON biçiminde kodlamak için kullanılabilir. AVRO varsayılandır. Kodlama biçimi, yalnızca blob depolama uç noktası yapılandırıldığında ayarlanabilir. Biçim için mevcut bir uç nokta düzenlenemez. JSON encoding kullanıldığında, JSON ve UTF-8 contentEncoding iletisinde contentType ayarlamalısınız [Sistem Özellikleri](iot-hub-devguide-routing-query-syntax.md#system-properties). Özellikle IOT hub'ı oluşturma veya güncelleştirme REST API kullanarak kodlama biçimi seçebilirsiniz [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portalı'nda, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) veya [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Aşağıdaki diyagramda, kodlama biçimi seçin Azure Portalı'nda gösterilmektedir.
+IOT hub'ın desteklediği verileri Azure Blob depolama alanına yazma [Apache Avro](https://avro.apache.org/) JSON biçimine de biçimde. JSON biçiminde kodlamak olanağı, IOT hub'ı kullanılabildiği tüm bölgelerde genel kullanıma sunulmuştur. AVRO varsayılandır. Kodlama biçimi, yalnızca blob depolama uç noktası yapılandırıldığında ayarlanabilir. Biçim için mevcut bir uç nokta düzenlenemez. JSON encoding kullanıldığında, JSON ve UTF-8 contentEncoding iletisinde contentType ayarlamalısınız [Sistem Özellikleri](iot-hub-devguide-routing-query-syntax.md#system-properties). Bu ayarlanmazsa, IOT Hub iletilerini taban 64 kodlanmış biçimde yazılacaktır. Özellikle IOT hub'ı oluşturma veya güncelleştirme REST API kullanarak kodlama biçimi seçebilirsiniz [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure portalı, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), veya [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Aşağıdaki diyagramda, kodlama biçimi seçin Azure Portalı'nda gösterilmektedir.
 
 ![BLOB Depolama uç noktası kodlama](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -95,9 +95,9 @@ Bir yolu takip ederek yapılandırabileceğiniz [öğretici](tutorial-routing.md
 
 ## <a name="fallback-route"></a>Temel yol
 
-Geri dönüş rota herhangi bir yerleşik olay hub'ları için mevcut yolları sorgu koşulları karşılamayan tüm iletiler gönderir (**iletiler/olaylar**), diğer bir deyişle uyumlu [Event Hubs](/azure/event-hubs/). İleti yönlendirme açıksa, geri dönüş rota özelliğini etkinleştirebilirsiniz. Bir rota oluşturulduktan sonra bir rota için bu endpoint yapılandırılmadığı sürece veri dahili-all-ın-uç noktaya akan durdurur. Dahili-içeren uç noktası için yol yok ve bir geri dönüş yol etkin yollar üzerindeki sorgu koşulları eşleşmeyen iletiler dahili-all-ın-uç noktasına gönderilir. Ayrıca, mevcut tüm yolları silinirse, dahili-all-ın-uç noktasında tüm verileri almak için geri dönüş rota etkinleştirilmelidir. 
+Geri dönüş rota herhangi bir yerleşik olay hub'ları için mevcut yolları sorgu koşulları karşılamayan tüm iletiler gönderir (**iletiler/olaylar**), diğer bir deyişle uyumlu [Event Hubs](/azure/event-hubs/). İleti yönlendirme açıksa, geri dönüş rota özelliğini etkinleştirebilirsiniz. Bir rota oluşturulduktan sonra bir rota için bu endpoint yapılandırılmadığı sürece veri dahili-all-ın-uç noktaya akan durdurur. Dahili-içeren uç noktası için yol yok ve bir geri dönüş yol etkin yollar üzerindeki sorgu koşulları eşleşmeyen iletiler dahili-all-ın-uç noktasına gönderilir. Ayrıca, mevcut tüm yolları silinirse, dahili-all-ın-uç noktasında tüm verileri almak için geri dönüş rota etkinleştirilmelidir.
 
-Etkinleştirebilir / Azure geri dönüş yolda devre dışı bırakabilir Portal dikey penceresinde ileti yönlendirme ->. Azure Resource Manager için de kullanabilirsiniz [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) özel uç nokta için geri dönüş yolu kullanmak için.
+Etkinleştirebilir/Azure portalında geri dönüş rota devre dışı bırakabilir ileti yönlendirme dikey penceresi ->. Azure Resource Manager için de kullanabilirsiniz [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) özel uç nokta için geri dönüş yolu kullanmak için.
 
 ## <a name="non-telemetry-events"></a>Olmayan telemetri olayları
 
@@ -117,11 +117,11 @@ CİHAZDAN buluta telemetri iletilerini yerleşik uç noktalarını kullanarak y�
 
 ## <a name="monitoring-and-troubleshooting"></a>İzleme ve sorun giderme
 
-Uç nokta ilgili ölçümleri size gönderilen iletiler ve hub'a durumunu genel bakış sağlayacak ve çeşitli yönlendirme IOT hub'ı sağlar. Sorunların kök nedenini belirlemek için birden çok Ölçüm bilgilerini birleştirebilirsiniz. Örneğin, ölçümünü kullanın **yönlendirme: telemetri iletilerini bırakılan** veya **d2c.telemetry.egress.dropped** yolların herhangi birine sorgular ile eşleşmedi, bırakılan ileti sayısını belirlemek için ve geri dönüş rota devre dışı bırakıldı. [IOT hub'ı ölçümleri](iot-hub-metrics.md) IOT Hub'ınız için varsayılan olarak etkin olan tüm ölçümleri listeler.
+IOT Hub, Yönlendirme ve size gönderilen iletiler ve hub'a durumunu genel bakış sağlayacak, uç noktaları ile ilgili çeşitli ölçümleri sağlar. Sorunların kök nedenini belirlemek için birden çok Ölçüm bilgilerini birleştirebilirsiniz. Örneğin, ölçümünü kullanın **yönlendirme: telemetri iletilerini bırakılan** veya **d2c.telemetry.egress.dropped** yolların herhangi birine sorgular ile eşleşmedi, bırakılan ileti sayısını belirlemek için ve geri dönüş rota devre dışı bırakıldı. [IOT hub'ı ölçümleri](iot-hub-metrics.md) IOT Hub'ınız için varsayılan olarak etkin olan tüm ölçümleri listeler.
 
 REST API kullanabilirsiniz [uç nokta sistem durumu alma](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) almak için [sistem durumu](iot-hub-devguide-endpoints.md#custom-endpoints) uç nokta. Kullanmanızı öneririz [IOT hub'ı ölçümleri](iot-hub-metrics.md) tanımlamak ve uç nokta sistem durumu ölü ya da sistem durumu kötü olduğunda, hatalarını ayıklamanıza yönlendirme ileti gecikmesi için ilgili. Örneğin, uç nokta türü Event Hubs izleyebilirsiniz **d2c.endpoints.latency.eventHubs**. IOT Hub durumu sonunda tutarlı bir duruma olduğunda sağlıksız bir uç nokta durumunu iyi durumda olacak şekilde güncelleştirilir.
 
-Kullanarak **yollar** tanılama günlüklerine yönelik Azure İzleyicisi'nde [tanılama ayarları](../iot-hub/iot-hub-monitor-resource-health.md), örneğin IOT Hub tarafından algılanan gibi yönlendirme sorgu ve uç nokta sistem durumu değerlendirmesi sırasında oluşan parçaları hataları olabilir ne zaman bir uç nokta etkin değil. Bu tanılama günlüklerini Azure İzleyici günlüklerine, Event Hubs veya Azure depolama için özel işleme gönderilebilir.
+Kullanarak **yollar** tanılama günlüklerine yönelik Azure İzleyicisi'nde [tanılama ayarları](../iot-hub/iot-hub-monitor-resource-health.md), örneğin IOT Hub tarafından ne zaman algılandığı şekilde bir yönlendirme sorgu ve uç nokta sistem durumu değerlendirmesi sırasında oluşan hataları izleyebilirsiniz. bir uç nokta etkin değil. Bu tanılama günlüklerini Azure İzleyici günlüklerine, Event Hubs veya Azure depolama için özel işleme gönderilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

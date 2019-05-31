@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956213"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397819"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service ve Azure işlevleri'ni (Önizleme) için Key Vault başvuruları kullanın
 
@@ -37,7 +37,7 @@ Anahtar Kasasından gizli anahtarları okumak için oluşturulan bir kasası var
    > [!NOTE] 
    > Key Vault şu anda yalnızca destek sistem tarafından atanan yönetilen kimlikleri başvuruyor. Kullanıcı tarafından atanan kimlikleri kullanılamaz.
 
-1. Oluşturma bir [erişim ilkesi anahtar Kasası'nda](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) daha önce oluşturduğunuz uygulama kimliği için. Bu ilke "Get" gizli izni etkinleştirin. "Uygulama yetkili" yapılandırmayın veya `appliationId` ayarları, bu olarak yönetilen bir kimlik ile uyumlu değil.
+1. Oluşturma bir [erişim ilkesi anahtar Kasası'nda](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) daha önce oluşturduğunuz uygulama kimliği için. Bu ilke "Get" gizli izni etkinleştirin. "Uygulama yetkili" yapılandırmayın veya `applicationId` ayarları, bu olarak yönetilen bir kimlik ile uyumlu değil.
 
 ## <a name="reference-syntax"></a>Başvuru söz dizimi
 

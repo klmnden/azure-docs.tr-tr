@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 6c271c2c9feb1520951b2a8e301da4878970d60a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: HT
+ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259430"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416558"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Örneği koruması için Azure sanal makine ölçek kümesi örnekleri (Önizleme)
 Azure sanal makine ölçek kümeleri iş yükleriniz için daha iyi esneklik etkinleştirme [otomatik ölçeklendirme](virtual-machine-scale-sets-autoscale-overview.md)altyapınızı ölçeği daraltır, yapılandırabilmek için ve bu ölçek yaptığında. Ölçek kümeleri de etkinleştirmeniz merkezi olarak yönetin, yapılandırın ve sanal makinelerin çok sayıda farklı aracılığıyla güncelleştirme [yükseltme ilkesini](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) ayarlar. Bir güncelleştirme ölçek kümesi modeline yapılandırabilirsiniz ve yükseltme ilkesi otomatik veya çalışırken ayarladıysanız yeni yapılandırma için her bir ölçek kümesi örnek otomatik olarak uygulanır.
@@ -30,7 +30,7 @@ Olabilir, uygulamanızın trafiği işler ölçek geri kalanından farklı kabul
 Bu makalede, uygulamak ve farklı örneği koruma özellikleri ile ölçek kümesi örneklerine kullanmak nasıl açıklanmaktadır.
 
 > [!NOTE]
->Örnek koruma, şu anda genel Önizleme aşamasındadır. Hiçbir katılımı yordam, aşağıda açıklanan genel Önizleme işlevselliği kullanmak için gereklidir. Örnek koruma önizlemesi yalnızca ve üstü API sürümü 2019-03-01 ile desteklenir.
+>Örnek koruma, şu anda genel Önizleme aşamasındadır. Hiçbir katılımı yordam, aşağıda açıklanan genel Önizleme işlevselliği kullanmak için gereklidir. Örnek koruma önizlemesi yalnızca API 2019-03-01 sürümü ile yönetilen disklerle ölçek kümeleri desteklenir.
 
 ## <a name="types-of-instance-protection"></a>Örnek koruma türü
 Ölçek kümeleri, iki tür örneği koruma özellikleri sağlar:

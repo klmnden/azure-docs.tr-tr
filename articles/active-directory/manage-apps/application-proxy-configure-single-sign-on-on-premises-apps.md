@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 907cb598d708bfa26f53d2e43fef5456258c21b1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956881"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393040"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML çoklu oturum açma için uygulama ara sunucusu (Önizleme) ile şirket içi uygulamalar
 
@@ -50,14 +50,14 @@ SAML SSO uygulama ara sunucusu ile SAML belirteci şifreleme özelliği ile de �
 1. Seçin **SAML** çoklu oturum açma yöntemi olarak.
 1. İçinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında, Düzenle **temel SAML yapılandırma** verileri ve adımları izleyerek [Enter temel SAML yapılandırma](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) SAML tabanlı yapılandırmak için uygulama için kimlik doğrulaması.
 
-   * Emin **yanıt URL'si** eşleşen veya bir yol altında **dış URL** uygulama proxy'si aracılığıyla yayımlandığından şirket içi uygulama için. 
-   * Uygulamanız farklı bir gerektiriyorsa **yanıt URL'si** SAML yapılandırması bu olarak Ekle bir **ek** birincil olarak belirlemek için URL'yi yanındaki onay kutusunu işaretleyin ve listesindeki  **Yanıt URL'si** IDP tarafından başlatılan SAML yanıtlarını göndermek için.
-   * SP tarafından başlatılan bir akış için uygulamanın da doğru belirttiğinden emin **yanıt URL'si** veya kimlik doğrulama belirtecini alma için kullanılacak onay belgesi tüketici hizmeti URL'si.
+   * Emin **yanıt URL'si** eşleşen **dış URL** uygulama proxy'si aracılığıyla yayımlandığından ya da bir yol altında şirket içi uygulama için **dış URL**.
+   * Burada uygulamanızın gerektirdiği farklı bir IDP tarafından başlatılan Flow **yanıt URL'si** SAML yapılandırması bu olarak Ekle bir **ek** olarak atamak için URL'yi yanındaki onay kutusunu işaretleyin ve liste Birincil **yanıt URL'si**.
+   * SP tarafından başlatılan bir akış için arka uç uygulaması doğru belirttiğinden emin **yanıt URL'si** veya kimlik doğrulama belirtecini alma için kullanılacak onay belgesi tüketici hizmeti URL'si.
 
      ![Temel SAML yapılandırma verilerini girin](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > Arka uç uygulaması bekliyorsa **yanıt URL'si** İç URL olması için kullanıcıların cihazlarında oturum My Apps güvenli uzantıyı yüklemek gerekecektir. Bu uzantı için uygun uygulama ara Sunucusu hizmeti otomatik olarak yönlendirir. Uzantıyı yüklemek için bkz: [My Apps güvenli oturum açma uzantısı](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+    > Arka uç uygulaması bekliyorsa **yanıt URL'si** İç URL olmasını ya da kullanım gerekir [özel etki alanları](application-proxy-configure-custom-domain.md) iç ve dış URL'leri eşleşen veya oturum açma My Apps güvenli uzantıyı yüklemek için Kullanıcıların cihazlarında. Bu uzantı için uygun uygulama ara Sunucusu hizmeti otomatik olarak yönlendirir. Uzantıyı yüklemek için bkz: [My Apps güvenli oturum açma uzantısı](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
 

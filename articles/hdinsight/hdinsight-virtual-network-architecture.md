@@ -5,15 +5,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484888"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252860"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight sanal ağ mimarisi
 
@@ -23,10 +22,10 @@ Bu makalede, özel bir Azure sanal ağına bir HDInsight kümesi dağıtırken v
 
 Azure HDInsight kümeleri farklı türlerde sanal makineler veya düğümler var. Her düğüm türü, sistem işleminde bir rol oynar. Bu düğüm türleri ve kümedeki kendi rolleri aşağıdaki tabloda özetlenmiştir.
 
-| Tür | Açıklama |
+| Type | Açıklama |
 | --- | --- |
 | Baş düğüm |  Apache Storm dışındaki tüm küme türleri için baş düğümler dağıtılmış uygulamanın yürütülmesini yönetme işlemleri barındırır. Baş düğüm, ayrıca içine SSH yapabileceğiniz düğümüdür ve küme kaynakları üzerinde çalıştırılacak düzenlenir uygulamalar çalıştırın. Baş düğüm sayısını iki tüm küme türleri sabitlenmiştir. |
-| ZooKeeper düğümü | Zookeeper veri işleme yapıyor düğümler arasında görevleri koordine eder. Ayrıca baş düğümün öncü seçimi yapar ve hangi baş düğüm, belirli bir hizmet ana çalışan izler. ZooKeeper düğümleri sayısı iki sabit. |
+| ZooKeeper düğümü | Zookeeper veri işleme yapıyor düğümler arasında görevleri koordine eder. Ayrıca baş düğümün öncü seçimi yapar ve hangi baş düğüm, belirli bir hizmet ana çalışan izler. ZooKeeper düğümleri sayısı üç olarak sabitlenmiştir. |
 | Çalışan düğümü | Veri işleme işlevleri destekleyen düğümleri temsil eder. Çalışan düğümlerinin eklenip hesaplama yeteneği ölçeklendirin ve maliyetleri yönetmek için kümesinden kaldırılabilir. |
 | R Server kenar düğümüne | R Server kenar düğümüne SSH uygulayın yapabilecekleriniz düğümünü temsil eder ve ardından küme kaynakları üzerinde çalıştırılacak düzenlenir uygulamalarını yürütmek. Bir kenar düğümü küme içindeki veri analizi katılmak değil. Bu düğüm, bir tarayıcı kullanarak R uygulamayı çalıştırmayı sağlayan R Studio Server da barındırır. |
 | Bölge düğümü | HBase kümesi türü için bölge sunucusu (veri düğümü olarak da bilinir) bölge düğüm çalıştırır. Bölge sunucuları, hizmet ve HBase tarafından yönetilen veri bölümünü yönetin. Bölge düğümler eklenebilir veya hesaplama yeteneği ölçeklendirin ve maliyetleri yönetmek için kümeden kaldırılmış.|

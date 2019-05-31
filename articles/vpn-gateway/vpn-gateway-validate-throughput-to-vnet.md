@@ -2,31 +2,24 @@
 title: Microsoft Azure sanal ağa VPN aktarım hızını doğrulama | Microsoft Docs
 description: Bu belgenin amacı, bir kullanıcının kendi şirket içi kaynaklardan gelen ağ aktarım hızını bir Azure sanal makinesi için doğrulama yardımcı olmaktır.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457569"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388624"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Bir sanal ağa yönelik VPN aktarım hızını doğrulama
 
 Bir VPN ağ geçidi bağlantısı, güvenli bağlantı kurmanıza olanak sağlar, Azure içindeki sanal ağınız ile şirket içi arasında bağlantı şirket içi BT altyapısı.
 
-Bu makalede, Azure sanal makine'de (VM) şirket içi kaynaklardan gelen ağ aktarım hızını doğrulama gösterilmektedir. Ayrıca, sorun giderme kılavuzu verilmiştir.
+Bu makalede, Azure sanal makine'de (VM) şirket içi kaynaklardan gelen ağ aktarım hızını doğrulama gösterilmektedir. Ayrıca, sorun giderme kılavuzu verilmiştir. 
 
 >[!NOTE]
 >Bu makale ortak sorunları tanılayın ve giderin yardımcı olmak için hazırlanmıştır. Aşağıdaki bilgileri kullanarak sorunu çözmek zamanınız yoksa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Windows Gezgini'ni kullanarak veya sürükleyip bir RDP oturumu zaman artıştan
 - Yetersiz VM disk okuma/yazma hızı. Daha fazla bilgi için [Azure depolama sorunlarını giderme](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Şirket içi cihaz dış karşılıklı arabirimi
-Şirket içi VPN cihazının Internet'e yönelik IP adresi de dahil edilmişse [yerel ağ](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) azure'da tanımı, ara sıra VPN bağlantısını keser getirir bağlanamama ya da performans sorunları karşılaşabilirsiniz.
+Şirket içi VPN cihazının Internet'e yönelik IP adresi de dahil edilmişse [yerel ağ](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) azure'da adres alanı tanımı, ara sıra VPN bağlantısını keser getirir bağlanamama ya da performans sorunları karşılaşabilirsiniz.
 
 ## <a name="checking-latency"></a>Gecikme süresi denetleniyor
 Microsoft Azure Edge cihazına izleme tracert herhangi gecikmeleri 100 ms atlama arasında aşan olup olmadığını belirlemek için kullanın.

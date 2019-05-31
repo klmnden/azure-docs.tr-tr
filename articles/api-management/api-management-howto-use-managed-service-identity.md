@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656696"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393378"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Yönetimi'nde yönetilen kimlikleri kullanmak
 
 Bu makalede, bir API Management hizmet örneği için bir yönetilen kimlik oluşturma ve diğer kaynaklarına erişmek nasıl gösterir. API Management örneğinizin Azure AD ile korunan gibi başka kaynaklar Azure anahtar kasası kolayca ve güvenli bir şekilde erişmek Azure Active Directory (Azure AD) tarafından oluşturulan bir yönetilen kimlik sağlar. Bu kimlik, Azure tarafından yönetilen ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir](../active-directory/managed-identities-azure-resources/overview.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Yönetilen bir kimlik için bir API Management örneği oluşturma
 
@@ -242,3 +240,4 @@ Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi edinin:
 
 * [Azure kaynakları için yönetilen kimlikleri nedir](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure Resource Manager şablonları](https://github.com/Azure/azure-quickstart-templates)
+* [Bir ilke yönetilen bir kimlik ile kimlik doğrulaması](./api-management-authentication-policies.md#ManagedIdentity)

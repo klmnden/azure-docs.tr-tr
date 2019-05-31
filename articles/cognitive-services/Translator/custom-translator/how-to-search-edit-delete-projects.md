@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: a4277e8bbd130588e343019a8b02221593efad52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e3397151d2f88e0e55b9526b3c41de19c019a6b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513204"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382555"
 ---
 # <a name="search-edit-and-delete-projects"></a>Arama, düzenleme ve projeleri sil
 
@@ -43,7 +43,7 @@ Filtre aracı tarafından farklı bir filtre koşulları projeleri aramanıza ol
 
 1.  Bir proje üzerinde geldiğinizde görüntülenen kalem simgesine tıklayın.
 
-    ![Proje düzenleme](media/how-to/how-to-edit-project.png)
+    ![Projeyi Düzenle](media/how-to/how-to-edit-project.png)
 
 2.  İletişim kutusunda proje adının veya projenin açıklamasını değiştirebilirsiniz ancak proje etiketi, kategori veya dil çifti değiştiremezsiniz.
 
@@ -57,7 +57,7 @@ Artık ihtiyacınız olmadığında, bir proje silebilirsiniz. Aşağıdaki adı
 
 1. Herhangi bir proje kaydının gelin ve çöp kutusu simgesine tıklayın.
 
-   ![Projeyi sil](media/how-to/how-to-delete-project.png)
+   ![Projeyi Sil](media/how-to/how-to-delete-project.png)
 
 2. Silme işlemini onaylayın. Bir proje silindiğinde, o proje içinde oluşturulmuş tüm modelleri silinir. Proje silme belgelerinizi etkilemez.
 

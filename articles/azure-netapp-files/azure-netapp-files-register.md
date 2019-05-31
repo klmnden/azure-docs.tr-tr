@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794706"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299224"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files için kaydolma
 
@@ -60,12 +60,12 @@ Hizmeti kullanmak için Azure için NetApp dosyaları Azure kaynak sağlayıcıs
 
    Komut çıktısı aşağıdaki gibidir:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>` Abonelik kimliğinizi olduğu
 
-    Özellik adı görmüyorsanız `Microsoft.NetApp/publicPreviewADC`, hizmetine erişiminiz yok. Bu adımda durdurun. Yönergeleri [hizmete erişim için waitlist talebinizi](#waitlist) devam etmeden önce hizmet erişim istemek için. 
+    Özellik adı görmüyorsanız `Microsoft.NetApp/ANFGA`, hizmetine erişiminiz yok. Bu adımda durdurun. Yönergeleri [hizmete erişim için waitlist talebinizi](#waitlist) devam etmeden önce hizmet erişim istemek için. 
 
 4. Azure Cloud Shell konsolunda Azure kaynak sağlayıcısını kaydetmek için aşağıdaki komutu girin: 
     

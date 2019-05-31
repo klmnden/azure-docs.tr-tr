@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873017"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417092"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma
 
@@ -27,7 +27,7 @@ Bu makalede, Visual Studio konsol uygulama projesini bir web uygulamasında dağ
 
 Tek bir web uygulaması için birden çok Web işleri yayımlayabilirsiniz. Bir web uygulamasında her bir Web işi benzersiz bir ad olduğundan emin olun.
 
-Sürüm, 3.x [Azure WebJobs SDK](webjobs-sdk-how-to.md) .NET Core uygulamaları çalıştırma WebJobs geliştirdiğiniz sağlar while 2.x destekler yalnızca .NET Framework sürümü. WebJobs projesi dağıttığınız farklı bir .NET Core projeleri .NET Framework olanları karşı yoludur.
+Sürüm, 3.x [Azure WebJobs SDK](webjobs-sdk-how-to.md) .NET Core uygulamaları ya da .NET Framework olarak çalışırken sürüm 2.x destekler yalnızca .NET Framework uygulamalarını çalıştırmaya WebJobs geliştirmenizi sağlar. WebJobs proje dağıtma şeklinizi olanları .NET Framework ve .NET Core projeleri için farklıdır.
 
 ## <a name="webjobs-as-net-core-console-apps"></a>WebJobs olarak .NET Core konsol uygulamaları
 
@@ -144,7 +144,7 @@ WebJobs özellikli yeni bir proje oluşturmak için konsol uygulaması proje şa
 > 
 
 #### <a id="createnolink"></a> Bağımsız bir Web işi için WebJobs yeni proje şablonu kullanın
-1. Tıklayın **dosya** > **yeni proje**ve ardından **yeni proje** iletişim kutusunu tıklatıp **bulut**  >   **Azure Web işi (.NET Framework)**.
+1. Tıklayın **dosya** > **yeni proje**ve ardından **yeni proje** iletişim kutusunu tıklatıp **bulut**  >   **Azure Web işi (.NET Framework)** .
    
     ![WebJob şablon gösteren yeni proje iletişim kutusu](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Daha önce gösterilen yönergeleri izleyin [bağımsız bir WebJobs proje proje konsol uygulaması olun](#convertnolink).
@@ -240,7 +240,7 @@ Aşağıdaki ayarlar, Web işleri tarafından desteklenir:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Tümü | İşin ilk temp klasörüne kopyalanmasını olmadan yerinde çalışmasını sağlar. Daha fazla bilgi için bkz. [WebJobs çalışma dizini](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Sürekli | Yalnızca Web işleri, ölçeği, tek bir örneği çalıştırın. Daha fazla bilgi için bkz. [sürekli bir işe singleton ayarlamak](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Tetiklenmiş | WebJob CRON tabanlı bir zamanlamaya göre çalıştırın. Daha fazla bilgi için bkz. [Zamanlayıcı tetikleyici başvurusu makalesinde](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Tetiklenen | WebJob CRON tabanlı bir zamanlamaya göre çalıştırın. Daha fazla bilgi için bkz. [Zamanlayıcı tetikleyici başvurusu makalesinde](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Tümü | Kapatma davranışının denetimi sağlar. Daha fazla bilgi için bkz. [kapatılmasını](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Sonraki adımlar

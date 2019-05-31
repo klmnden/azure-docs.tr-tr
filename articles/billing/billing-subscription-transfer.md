@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826754"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236452"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure aboneliğinin sahipliğini başka bir hesaba aktarma
 
@@ -102,7 +102,9 @@ Self Servis abonelik aktarımı, aşağıdaki tabloda listelenen abonelik türle
 
 ### <a name="whoisaa"></a> Aboneliğin Hesap Yöneticisi kimdir?
 
-Hesap Yöneticisi yapıldı veya Azure aboneliği satın kişidir. Erişim yetkiniz [hesap Merkezi](https://account.azure.com/Subscriptions) ve abonelikleri oluşturabilir, aboneliklerinizi iptal etmeniz, bir abonelik için faturalama değiştirmek veya hizmet yöneticisini değiştiremez gibi çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Bir aboneliğin hesap yöneticisinin kim olduğunu bilmiyorsanız aşağıdaki adımları izleyerek bulabilirsiniz.
+Hesap Yöneticisi yapıldı veya Azure aboneliği satın kişidir. Erişim yetkiniz [hesap Merkezi](https://account.azure.com/Subscriptions) ve abonelikleri oluşturabilir, aboneliklerinizi iptal etmeniz, bir abonelik için faturalama değiştirmek veya hizmet yöneticisini değiştiremez gibi çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Anlama yönetici rolleri ve izinleri hakkında daha fazla bilgi için bkz: [Azure Active Directory'de Yönetici rolü izinleri](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+Bir aboneliğin hesap yöneticisinin kim olduğunu bilmiyorsanız aşağıdaki adımları izleyerek bulabilirsiniz.
 
 1. [Azure portalda Abonelikler sayfasını](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ziyaret edin.
 1. Kontrol edin ve ardından altına bakın istediğiniz aboneliği seçin **ayarları**.
@@ -172,7 +174,7 @@ Abonelik aktarımı kabul etmek için bir kredi kartı veya ödeme yöntemini be
 
 Aboneliğin sahipliğini devretmek olamaz, kaynaklarınızı el ile geçirebilirsiniz. Bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

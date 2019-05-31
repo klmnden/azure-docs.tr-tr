@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236640"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400168"
 ---
 # <a name="azure-backup-support-matrix"></a>Azure Backup destek matrisi
 
@@ -27,17 +27,17 @@ Diğer destek matrisi kullanılabilir:
 
 ## <a name="vault-support"></a>Kasa desteği
 
-Azure Backup, Kurtarma Hizmetleri kasaları düzenlemek ve yedekleri yönetme için kullanır. Kasaları yedeklenmiş verileri depolamak için de kullanır. 
+Azure Backup, Kurtarma Hizmetleri kasaları düzenlemek ve yedekleri yönetme için kullanır. Kasaları yedeklenmiş verileri depolamak için de kullanır.
 
 Aşağıdaki tabloda Kurtarma Hizmetleri kasaları özellikleri açıklar:
 
-**Özellik** | **Ayrıntılar**
+**Özelliği** | **Ayrıntılar**
 --- | ---
 **Abonelik kasalarında** | Tek bir abonelikte en fazla 500 kurtarma Hizmetleri kasası.
 **Bir kasadaki makineler** | Tek bir kasada en fazla 1.000 Azure Vm'leri.<br/><br/> En fazla 50 MABS sunucuları tek bir kasaya kaydedilebilir.
 **Kasa Depolama veri kaynakları** | En fazla 54,400 GB. Azure VM yedeklemeleri için bir sınır yoktur.
-**Yedekleme kasası için** | **Azure sanal makineler:** Günde bir kez.<br/><br/>**DPM/MABS tarafından korunan makineler:** Günde iki kez.<br/><br/> **MARS aracısı kullanarak doğrudan yedeklenen makineler:** Günde üç kez. 
-**Yedekleme kasaları arasında** | Bir bölge içinde yedeklemedir.<br/><br/> Yedeklemek istediğiniz Vm'leri içeren her Azure bölgesi bir kasada ihtiyacınız vardır. Farklı bir bölgeye yedekleyemezsiniz. 
+**Yedekleme kasası için** | **Azure sanal makineler:** Günde bir kez.<br/><br/>**DPM/MABS tarafından korunan makineler:** Günde iki kez.<br/><br/> **MARS aracısı kullanarak doğrudan yedeklenen makineler:** Günde üç kez.
+**Yedekleme kasaları arasında** | Bir bölge içinde yedeklemedir.<br/><br/> Yedeklemek istediğiniz Vm'leri içeren her Azure bölgesi bir kasada ihtiyacınız vardır. Farklı bir bölgeye yedekleyemezsiniz.
 **Kasaları Taşı** | Yapabilecekleriniz [kasaları taşıma](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) aynı Abonelikteki kaynak grupları arasında veya abonelikler arasında.
 **Kasalar arasında veri taşıma** | Yedeklenen verilerin kasalar arasında taşıma desteklenmiyor.
 **Kasa Depolama türünü değiştirme** | Yedeklemeleri depolanmadan önce bir kasa için depolama çoğaltma türü (coğrafi olarak yedekli depolama veya yerel olarak yedekli depolama) değiştirebilirsiniz. Yedekleme Kasası'nda başladıktan sonra çoğaltma türü değiştirilemez.
@@ -69,7 +69,7 @@ Azure Vm'lerini yedeklemek istiyorsanız, nelerin desteklendiği aşağıda veri
 **Makine** | **Ne yedeklenir** | **Konum** | **Özellikler**
 --- | --- | --- | ---
 **VM uzantısı kullanarak azure VM yedeklemesi** | Tüm VM | Kasaya yedekleyin. | Bir VM için yedeklemeyi etkinleştirdiğinizde yüklü uzantısı.<br/><br/> Günde bir kez yedekleyin.<br/><br/> Windows VM'ler için uygulama durumunu algılayan yedekleme; Linux VM'ler için dosyayla tutarlı yedekleme. Uygulama tutarlılığı Linux makineler için özel betikler kullanarak yapılandırabilirsiniz.<br/><br/> VM veya disk geri yükleyin.<br/><br/> Bir Azure VM'yi bir şirket içi konuma yedekleyemezsiniz.
-**MARS Aracısı'nı kullanarak azure VM yedeklemesi** | Dosyalar, klasörler | Kasaya yedekleyin. | Günde üç kez yedekleyin.<br/><br/> MARS Aracısı, belirli dosyaları veya klasörleri yerine tüm VM'yi yedeklemek istiyorsanız VM uzantıyla birlikte çalıştırabilirsiniz.
+**MARS Aracısı'nı kullanarak azure VM yedeklemesi** | Dosyaları, klasörleri, sistem durumu | Kasaya yedekleyin. | Günde üç kez yedekleyin.<br/><br/> MARS Aracısı, belirli dosyaları veya klasörleri yerine tüm VM'yi yedeklemek istiyorsanız VM uzantıyla birlikte çalıştırabilirsiniz.
 **DPM ile Azure VM** | Dosyaları, klasörleri, birimleri, sistem durumu, uygulama verileri | DPM çalıştıran bir Azure VM yerel depolama alanına yedekleyin. DPM ardından kasaya yedekler. | Uygulama kullanan anlık görüntüler.<br/><br/> Yedekleme ve kurtarma için tam ayrıntı düzeyi.<br/><br/> Linux sanal makineleri (Hyper-V/VMware) için desteklenir.<br/><br/> Oracle desteklenmiyor.
 **MABS ile Azure VM** | Dosyaları, klasörleri, birimleri, sistem durumu, uygulama verileri | Azure VM, MABS çalıştıran yerel depolama alanına yedekleyin. MABS ardından kasaya yedekler. | Uygulama kullanan anlık görüntüler.<br/><br/> Yedekleme ve kurtarma için tam ayrıntı düzeyi.<br/><br/> Linux sanal makineleri (Hyper-V/VMware) için desteklenir.<br/><br/> Oracle desteklenmiyor.
 

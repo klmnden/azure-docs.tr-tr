@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852141"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258603"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -27,6 +27,7 @@ Bu makalede özetler ve söz dizimi ve davranış Azure SQL veritabanı yönetil
 - [Güvenlik](#security) farklılıkları içerir [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credential), [şifreleme sağlayıcıları](#cryptographic-providers), [oturumlar ve kullanıcılar](#logins-and-users)ve [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key).
 - [Yapılandırma](#configuration) farklılıkları içerir [arabellek havuzu uzantısı](#buffer-pool-extension), [harmanlama](#collation), [Uyumluluk Düzeyleri](#compatibility-levels), [veritabanı yansıtma ](#database-mirroring), [veritabanı seçenekleri](#database-options), [SQL Server Agent](#sql-server-agent), ve [Tablo Seçenekleri](#tables).
 - [İşlevler](#functionalities) içerir [toplu ekleme/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [dağıtılmış işlemler](#distributed-transactions), [genişletilmiş olaylar](#extended-events), [dış kitaplıkları](#external-libraries), [filestream ve FileTable](#filestream-and-filetable), [anlam tam metin araması](#full-text-semantic-search), [bağlı sunucuları](#linked-servers), [PolyBase](#polybase), [çoğaltma](#replication), [geri](#restore-statement), [hizmet Aracısı](#service-broker), [saklı yordamlar, İşlevler ve tetikleyiciler](#stored-procedures-functions-and-triggers).
+- [Ortam ayarları](#Environment) sanal ağlar ve alt ağ yapılandırması gibi.
 - [Farklı bir davranış olmayan özellikler yönetilen örnekleri](#Changes).
 - [Geçici sınırlamalar ve bilinen sorunlar](#Issues).
 
@@ -46,7 +47,7 @@ Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı alt
 - [BIRAKMA KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) yan tümcesi [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) deyimi
 
-### <a name="backup"></a>Yedekle
+### <a name="backup"></a>Backup
 
 Yönetilen örneğiniz kullanıcılara tam bir veritabanı oluşturabilmesi için otomatik yedeklemeler, `COPY_ONLY` yedekler. Fark, günlük ve dosya anlık görüntüsü yedekleri desteklenmez.
 
@@ -115,7 +116,7 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="credential"></a>Kimlik bilgisi
+### <a name="credential"></a>Kimlik Bilgisi
 
 Azure Key Vault ve `SHARED ACCESS SIGNATURE` kimlikleri desteklenir. Windows kullanıcıları desteklenmez.
 
@@ -276,11 +277,11 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - SQL Server Aracısı ayarları salt okunur. Yordamı `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor. 
-- İşler (Job)
+- İşler
   - T-SQL iş adımları desteklenir.
   - Şu çoğaltma işleri desteklenir:
     - İşlem günlüğü okuyucusu
-    - Anlık görüntü
+    - Anlık Görüntü
     - Dağıtıcı
   - SSIS iş adımları desteklenir.
   - İş adımları diğer türleri şu anda desteklenmemektedir:
@@ -454,6 +455,19 @@ Sınırlamalar:
 - `xp_cmdshell` desteklenmiyor. Bkz: [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` Desteklenmeyen, içeren `sp_addextendedproc`  ve `sp_dropextendedproc`. Bkz: [genişletilmiş saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, ve `sp_detach_db` desteklenmez. Bkz: [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), ve [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+
+## <a name="Environment"></a>Environmet kısıtlamaları
+
+### <a name="subnet"></a>Alt ağ
+- Yönetilen Örneğiniz için ayrılan alt ağdaki diğer kaynakları (örneğin, sanal makineler) yerleştirilemiyor. Bu kaynakları diğer yerleştirin alt ağlar.
+- Alt ağ yeterli sayıda kullanılabilir olmalıdır [IP adresleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Alt ağda en az 32 IP adreslerine gerek öneri olarak en az 16 olmalıdır.
+- [Hizmet uç noktaları, yönetilen örneğin alt ağ ile ilişkili olamaz](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Sanal ağ oluşturduğunuzda, hizmet uç noktaları seçeneğini devre dışı bırakıldığından emin olun.
+- Sayısını ve türlerini, alt ağda yerleştirebilirsiniz örnekleri vardır [kısıtlamalar ve sınırlandırmalar](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Bazı kısıtlamalar var. [alt ağda uygulanan güvenlik kuralları](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+
+### <a name="vnet"></a>VNET
+- Sanal ağ, kaynak modeli kullanılarak dağıtılabilir - VNet için Klasik modeli desteklenmiyor.
+- App Service ortamları, Logic apps ve (bağlı sunucuları aracılığıyla veya coğrafi çoğaltma, işlem çoğaltma için kullanılan) yönetilen örnekler gibi bazı hizmetler kullanarakkendisanalağlarınabağlı,farklıbölgelerdeyönetilenörneklererişemiyor[genel eşleme](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Bu kaynağı ExpressRoute veya VNet-VNet VNet ağ geçitleri aracılığıyla aracılığıyla bağlanabilirsiniz.
 
 ## <a name="Changes"></a> Davranış değişiklikleri
 

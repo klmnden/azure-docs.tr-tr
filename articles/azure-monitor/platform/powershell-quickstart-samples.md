@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452730"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400201"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure İzleyici PowerShell hızlı başlangıç örnekleri
 Bu makale, Azure İzleyici özellikleri erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir.
@@ -42,6 +42,11 @@ Oturum açma ekranı görürsünüz. Hesabınızdaki Tenantıd, bir kez oturum a
 Get-AzSubscription
 ```
 
+Çalışma Bağlamınızı görmek için (hangi abonelik komutlarınızı karşı çalıştırılır), aşağıdaki komutu kullanın:
+
+```powershell
+Get-AzContext
+```
 Çalışma Bağlamınızı farklı bir aboneliğe değiştirmek için aşağıdaki komutu kullanın:
 
 ```powershell
@@ -50,18 +55,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Etkinlik günlüğü bir abonelik için Al
-Kullanım `Get-AzLog` cmdlet'i.  Bazı genel örnekleri aşağıda verilmiştir.
+Kullanım [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet'i.  Bazı genel örnekleri aşağıda verilmiştir. Etkinlik günlüğü, Son 90 gün işlemlerinin tutar. Bir hata iletisi tarihlerden önce bu zaman sonuçlarını kullanma.  
+
+Aşağıdaki komutları kullanmak için ne zaman doğrulamak için geçerli tarih/saat nelerdir bakın:
+```powershell
+Get-Date
+```
 
 Bu zaman/sunmak için tarihten günlük girişlerini alın:
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 Günlük girişlerini arasında bir saat/tarih aralığı alın:
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Günlük girişlerini belirli bir kaynak grubundan alın:
@@ -85,13 +95,13 @@ Get-AzLog -Caller 'myname@company.com'
 Aşağıdaki komut, etkinlik günlüğünde son 1000 olayları alır:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` diğer birçok parametrelerini destekler. Bkz: `Get-AzLog` daha fazla bilgi için başvuru.
 
 > [!NOTE]
-> `Get-AzLog` yalnızca 15 günlük geçmişi sağlar. Kullanarak **- MaxEvents** parametresi, 15 gün dışında bir son N olayları, sorgulamaya olanak sağlar. 15 günden eski erişim olayları için REST API veya SDK'sını (SDK'sını kullanarak C# örneği) kullanın. Dahil etmezseniz **StartTime**, varsayılan değer ise **EndTime** eksi bir saat. Dahil etmezseniz **EndTime**, geçerli zamanı varsayılan değeridir. Tüm saatler UTC biçimindedir.
+> `Get-AzLog` yalnızca 15 günlük geçmişi sağlar. Kullanarak **- MaxRecords** parametresi, 15 gün dışında bir son N olayları, sorgulamaya olanak sağlar. 15 günden eski erişim olayları için REST API veya SDK'sını (SDK'sını kullanarak C# örneği) kullanın. Dahil etmezseniz **StartTime**, varsayılan değer ise **EndTime** eksi bir saat. Dahil etmezseniz **EndTime**, geçerli zamanı varsayılan değeridir. Tüm saatler UTC biçimindedir.
 > 
 > 
 
@@ -140,7 +150,7 @@ E-posta ve Web kancası özellikleri kullanarak oluşturabileceğiniz `New-AzAle
 
 Aşağıdaki tabloda, bir ölçüm kullanarak bir uyarı oluşturmak için kullanılan değerleri ve parametreler açıklanmaktadır.
 
-| parametre | value |
+| Parametre | value |
 | --- | --- |
 | Ad |simpletestdiskwrite |
 | Bu uyarı kuralının konumu |Doğu ABD |

@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471494"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399927"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma 
 
@@ -26,7 +26,7 @@ Bu makalede Site Recovery yük devretme testi kullanarak Azure'a olağanüstü d
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 Bu yordamda, bir kurtarma planı için bir yük devretme testi çalıştırma açıklanmaktadır. Tek bir VM için yük devretme testi çalıştırmak isterseniz, açıklanan adımları izleyin [burada](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Test Yük Devretmesi](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Yük devretme testi](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. Azure portalında Site Recovery, tıklayın **kurtarma planları** > *recoveryplan_name* > **yük devretme testi**.
@@ -49,7 +49,7 @@ Bu yordamda, bir kurtarma planı için bir yük devretme testi çalıştırma a�
 8. Yük devretme testiyle ilişkili gözlemlerinizi **Notlar**’da kaydedin veya saklayın.
 
 
-![Test Yük Devretmesi](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Yük devretme testi](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Bir yük devretme tetiklendiğinde, aşağıdakiler gerçekleşir:
 

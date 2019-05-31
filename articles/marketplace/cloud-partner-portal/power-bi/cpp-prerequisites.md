@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c6b9f54d073b671b55f259bfbb2aa70d9eacfdc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943301"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258179"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Power BI uygulaması teklif önkoşulları
 
@@ -29,7 +29,7 @@ Hizmet uygulamanız oluşturulur ve Power BI'da test sonra Power BI'ı oluştura
 
 Yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine iş gereksinimlerini içerir.  Şunları yapmanız gerekir:
 
-- Kayıtlı bulut Market yayımcısı olabilir. Kayıtlı değil, adımları [bulut Market yayımcısı haline](../../become-publisher.md).
+- Kayıtlı bulut Market yayımcısı olabilir. Kayıtlı değil, adımları [bulut Market yayımcısı haline](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
     > Oturum açmak için aynı Microsoft Developer Center kayıt hesabı kullanmak [bulut iş ortağı portalı](https://cloudpartner.azure.com). AppSource tekliflerinizi için yalnızca bir Microsoft hesabı olması gerekir. Hesapları tek tek hizmetler ve teklifler için belirli olmamalıdır.

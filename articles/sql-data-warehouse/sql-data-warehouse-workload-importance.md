@@ -1,5 +1,5 @@
 ---
-title: İş yükü önem | Microsoft Docs
+title: Azure SQL veri ambarı iş yükü önem | Microsoft Docs
 description: Önem sorgular için Azure SQL veri ambarı'nda ayarlamaya yönelik yönergeler.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 0147977307ec22134777d6c3e8242a4191362ada
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002897"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233832"
 ---
-# <a name="sql-data-warehouse-workload-importance"></a>SQL veri ambarı iş yükü önem derecesi
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL veri ambarı iş yükü önem derecesi
 
 Bu makalede, SQL veri ambarı istekler için yürütme sırasını iş yükü önem nasıl etkileyebilir açıklanmaktadır.
 
@@ -35,7 +35,7 @@ Beş önem düzeyi vardır: Düşük, below_normal, normal, above_normal ve yük
 
 Satış ve hava durumu verileri ile yukarıda açıklanan temel önem senaryosu dışında burada iş yükü önem veri işleme ve gereksinimlerini sorgulama karşılayacak diğer senaryolar vardır.
 
-### <a name="locking"></a>Kilitleniyor
+### <a name="locking"></a>Kilitleme
 
 Kilitleri okumak üzere erişim ve yazma etkinliği bir doğal Çekişme alanıdır.  Gibi etkinlikler [bölüm değiştirme](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) veya [NESNEYİ Yeniden Adlandır](/sql/t-sql/statements/rename-transact-sql) yükseltilmiş kilitleri gerektirir.  İş yükü önem, aktarım hızı için SQL veri ambarı en iyi duruma getirir.  Kuyruğa alınan istekler, aktarım hızı çalıştırırken anlamına gelir ve kuyruğa alınan istekler aynı kilitleme gereksinimlerine sahip ve kaynaklar kullanılabilir en iyi duruma getirme, istek sırasında daha önce gelen ihtiyaçlarını daha yüksek kilitleme ile istekleri atlayabilirsiniz.  İş yükü önem derecesi yüksek kilitleme ile isteklerine uygulandıktan sonra gerekir. İstekle daha yüksek önem derecesi daha düşük önem derecesiyle istekten önce çalıştırılır.
 

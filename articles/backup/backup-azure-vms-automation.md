@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 10af40a1f671d5871204ff465395c8c3619671f7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232497"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255004"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme
 
@@ -159,7 +159,7 @@ Set-AzRecoveryServicesBackupProperty -Vault $vault -BackupStorageRedundancy GeoR
 
 Bir Kurtarma Hizmetleri kasası oluşturduğunuzda bu, varsayılan koruma ve saklama ilkeleri ile birlikte gelir. Varsayılan koruma ilkesi, her gün belirtilen saatte bir yedekleme işini tetikler. Varsayılan saklama ilkesi, 30 gün boyunca günlük kurtarma noktasını korur. Farklı ayrıntılarla daha sonra ilkeyi düzenleyebilir ve hızla, sanal Makineyi korumak için varsayılan ilke kullanabilirsiniz.
 
-Kullanım **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) kasaya kullanılabilir koruma ilkeleri görüntülemek için. Belirli bir ilke alma ya da bir iş yükü türü ile ilişkili ilkeleri görüntülemek için bu cmdlet'i kullanabilirsiniz. Aşağıdaki örnek, iş yükü türü için AzureVM ilkeleri alır.
+Kullanım **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy)** kasaya kullanılabilir koruma ilkeleri görüntülemek için. Belirli bir ilke alma ya da bir iş yükü türü ile ilişkili ilkeleri görüntülemek için bu cmdlet'i kullanabilirsiniz. Aşağıdaki örnek, iş yükü türü için AzureVM ilkeleri alır.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
@@ -352,7 +352,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 ### <a name="stop-protection"></a>Korumayı Durdur
 
-#### <a name="retain-data"></a>Verileri tut
+#### <a name="retain-data"></a>Verileri Tut
 
 Kullanıcı korumasını durdurmak isterse kullanabilecekleri [devre dışı bırak AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet'i. Bu zamanlanmış yedeklemeleri durdurur ancak kadar yukarı yedeklenen verileri artık sonsuza kadar korunur.
 
@@ -361,7 +361,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -Workl
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
-#### <a name="delete-backup-data"></a>Yedekleme verilerini sil
+#### <a name="delete-backup-data"></a>Yedekleme verilerini silme
 
 Yedekleme verileri kasaya tamamen kaldırmak için yalnızca Ekle '-RemoveRecoveryPoints bayrağı/anahtara ['koruma komutunu devre dışı bırak'](#retain-data).
 

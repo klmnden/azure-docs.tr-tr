@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510246"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306030"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Oluşturma ve Azure CLI üzerinden salt okunur çoğaltmalar yönetme
 
 Bu makalede, oluşturma ve Azure clı'dan PostgreSQL için Azure veritabanı'nda salt okunur çoğaltmalar yönetme konusunda bilgi edinin. Salt okunur çoğaltmalar hakkında daha fazla bilgi için bkz: [genel bakış](concepts-read-replicas.md).
 
-> [!NOTE]
-> Azure CLI'yı henüz oluştururken çoğaltmaları ana sunucudan farklı bir bölgede desteklemez. Bölgeler arası çoğaltma oluşturmak için kullanın [Azure portalında](howto-read-replicas-portal.md).
+> [!IMPORTANT]
+> Salt okunur bir çoğaltması, ana sunucunuz ile aynı bölgede ya da diğer Azure bölgesinde, tercih ettiğiniz oluşturabilirsiniz. Bölgeler arası çoğaltma şu anda genel Önizleme aşamasındadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 - Bir [PostgreSQL sunucusu için Azure veritabanı](quickstart-create-server-up-azure-cli.md) ana sunucu olarak.
@@ -55,8 +55,16 @@ Bu adımlar, genel amaçlı veya bellek için iyileştirilmiş katmanlarındaki 
 | name | mydemoserver-çoğaltma | Oluşturulan yeni çoğaltma sunucusunun adı. |
 | source-server | mydemoserver | Çoğaltma kaynağı adı veya kaynak kimliği mevcut ana sunucu. |
 
+CLI aşağıdaki örnekte, Çoğaltma Yöneticisi olarak aynı bölgede oluşturulur.
+
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
+```
+
+Çapraz oluşturmak için bölge çoğaltma okuma, kullanın `--location` parametresi. Aşağıdaki CLI örneği, Batı ABD bölgesinde çoğaltmasını oluşturur.
+
+```azurecli-interactive
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 Ayarlamadıysanız `azure.replication_support` parametresi **çoğaltma** üzerinde bir genel amaçlı veya ana sunucu ve sunucu yeniden bellek için iyileştirilmiş, bir hata alırsınız. Bir çoğaltma oluşturmadan önce bu iki adımı tamamlayın.

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/29/2019
 ms.author: juliako
-ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153072"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385157"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -36,7 +36,21 @@ Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavu
 
 ## <a name="may-2019"></a>Mayıs 2019
 
+### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 ve dinamik paketleme desteği 
+
+Eklenen HLS (sürüm 4 veya üzeri), dinamik paketleme ile birden çok codec bileşenleri ve diller birden çok ses parçaları olan varlıklar için destek sunar.
+
+Daha fazla bilgi için [dinamik paketleme](dynamic-packaging-overview.md).
+
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Medya Hizmetleri için bölgesel çift Kore açıktır 
+
+Media Services Kore Orta ve Kore Güney bölgelerinde kullanıma sunuldu. 
+
+Daha fazla bilgi için [Bulutlar ve hangi Media Services v3 mevcut bölgeleri](azure-clouds-regions.md).
+
 ### <a name="performance-improvements"></a>Performans iyileştirmeleri
+
+Media Services performans geliştirmeleri eklendi güncelleştirmeler.
 
 * İşleme için desteklenen en büyük dosya boyutu güncelleştirildi. Bkz, [kotaları ve sınırlamaları](limits-quotas-constraints.md).
 * [Kodlama hızlarını geliştirmeleri](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
@@ -52,7 +66,7 @@ Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavu
 
 Dinamik paketleme artık Dolby Atmos. destekler Daha fazla bilgi için [dinamik paketleme tarafından desteklenen ses codec bileşenleri](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
-Artık, akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belirtebilirsiniz. Daha fazla bilgi için [filtreleri ile akış Bulucu ilişkilendirmek](filters-concept.md#associate-filters-with-streaming-locator).
+Artık, akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belirtebilirsiniz. Daha fazla bilgi için [filtreleri ile akış Bulucu ilişkilendirmek](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Şubat 2019
 
@@ -133,7 +147,7 @@ Bu bölümde, Azure Media Services (AMS) Ekim güncelleştirmeleri açıklanmakt
 
 [REST v3 GA sürümü](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) Canlı için daha fazla API'ları içeren hesabı/varlık düzeyi bildirim filtresi ve DRM desteği.
 
-#### <a name="azure-resource-management"></a>Azure Kaynak Yönetimi 
+#### <a name="azure-resource-management"></a>Azure kaynak yönetimi 
 
 Azure kaynak yönetimi için destek, birleşik yönetim ve işlemler (artık her şeyi tek bir yerde) API sağlar.
 
@@ -221,4 +235,4 @@ Kullanıma [Azure Media Services topluluğu](media-services-community.md) soru s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Genel Bakış](media-services-overview.md)
+[Genel bakış](media-services-overview.md)

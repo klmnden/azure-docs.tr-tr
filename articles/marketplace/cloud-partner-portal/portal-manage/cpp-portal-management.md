@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942198"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257485"
 ---
 # <a name="cloud-partner-portal-management"></a>Bulut iş ortağı Portalı Yönetimi
 
@@ -24,7 +24,7 @@ Bu bölümde türlerini kullanmak için gerekli hesaplarını oluşturmak ve yö
 Bulut iş ortağı Portalı'nı kullanmadan önce aşağıdaki makaleleri ile planladığınızdan:
 
 - [Azure Market ilkeleri ve koşulları](../../policies-terms.md) çeşitli yasal ve teknik gereksinimleri ve kullanıcıları ve yayımcılar için uygulanan kuralları listeler [Azure Marketi](https://azuremarketplace.microsoft.com) ve [AppSource](https://appsource.microsoft.com).
-- [Bulut Market yayımcısı haline](../../become-publisher.md) resmi bir Microsoft bulut yayımcısı olmaya gerekli tüm adımları genel bir bakış sağlar.
+- [Bulut Market yayımcısı haline](https://docs.microsoft.com/azure/marketplace/become-publisher) resmi bir Microsoft bulut yayımcısı olmaya gerekli tüm adımları genel bir bakış sağlar.
 
 
 ## <a name="account-creation-and-management"></a>Hesap oluşturma ve yönetme

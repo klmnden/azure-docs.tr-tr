@@ -4,7 +4,7 @@ description: Bir olay hub'ı yapılandırmak ve bir Azure zaman serisi Öngörü
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991489"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237704"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Bir olay hub'ı kullanarak zaman serisi görüşleri ortamına olayları gönderme
 
@@ -100,7 +100,7 @@ Time Series Insights güncelleştirme örnekleri bağlamsal veriler için gelen 
 
 * **Çıkış**: Bir olay.
 
-    |kimlik|timestamp|
+    |id|timestamp|
     |--------|---------------|
     |cihaz1|2016-01-08T01:08:00Z|
 
@@ -123,7 +123,7 @@ Time Series Insights güncelleştirme örnekleri bağlamsal veriler için gelen 
 
 * **Çıkış**: İki olay.
 
-    |kimlik|timestamp|
+    |id|timestamp|
     |--------|---------------|
     |cihaz1|2016-01-08T01:08:00Z|
     |cihaz2|2016-01-08T01:17:00Z|
@@ -191,7 +191,7 @@ Time Series Insights güncelleştirme örnekleri bağlamsal veriler için gelen 
 
 * **Çıkış**: İki olay.
 
-    |konum|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
     |WestUs|üretici1|EastUs|cihaz1|2016-01-08T01:08:00Z|basınç|psi|108.09|
     |WestUs|üretici1|EastUs|cihaz2|2016-01-08T01:17:00Z|titreşim|abs G|217.09|

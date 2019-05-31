@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790155"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258637"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -150,6 +150,10 @@ Daha fazla bilgi için [veri bulma & sınıflandırma ile çalışmaya başlama]
 ### <a name="compliance"></a>Uyumluluk
 
 Yukarıdaki özelliklerine ve uygulamanızı Azure SQL veritabanı çeşitli güvenlik gereksinimlerini karşılamasına yardımcı olan işlevselliği ek olarak, düzenli olarak denetimden geçmektedir ve karşı bir dizi uyumluluk standardı için belgelendirilmiştir. Daha fazla bilgi için [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) burada bulabilirsiniz SQL veritabanı uyumluluk sertifikaları en güncel listesi.
+
+### <a name="feature-restrictions"></a>Özellik kısıtlamaları
+
+Özellik kısıtlamaları yardımcı bazı formları SQL ekleme, SQL ekleme başarılı olsa bile gelen veritabanı hakkında bilgi sızıntısı önleme. Daha fazla bilgi için [Azure SQL veritabanı özellik kısıtlamaları](sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: fa02c0913329ec740e3066b05b2e44a36ad379ce
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a038dc2706c7cb128751630f8997851409886290
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797799"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384802"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Bing Web araması API'si sonuçlarını aracılığıyla sayfası
 
-Web araması API'si çağırdığınızda, Bing, sonuçların listesini döndürür. Liste, sorgu ile ilgili sonuç toplam sayısı bir alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) alan.  
+Web araması API'si çağırdığınızda, Bing, sonuçların listesini döndürür. Liste, sorgu ile ilgili sonuç toplam sayısı bir alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) alan.  
 
 Aşağıdaki örnekte gösterildiği `totalEstimatedMatches` bir Web yanıtı içeren alan.  
 
@@ -35,7 +35,7 @@ Aşağıdaki örnekte gösterildiği `totalEstimatedMatches` bir Web yanıtı i�
 }  
 ```
 
-Kullanılabilir Web sayfası için kullanın [sayısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) ve [uzaklığı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) sorgu parametreleri.  
+Kullanılabilir Web sayfası için kullanın [sayısı](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#count) ve [uzaklığı](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#offset) sorgu parametreleri.  
 
 `count` Parametre sonuçları yanıtta döndürülecek sayısını belirtir. Yanıtta isteyebilir sonuçları sayısı 50'dir. Varsayılan değer 10'dur. Teslim gerçek sayı istenenden daha az olabilir.
 
@@ -59,7 +59,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Web araması API'si, Web sayfaları ve görüntü, video ve haber öğeleri içerebilir sonuçlarını döndürür. Arama sonuçları sayfası açıldığında, sayfalama [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) yanıt ve değil diğer yanıtlarını görüntüler veya haber gibi. Örneğin, ayarlarsanız `count` , 50 50 Web sayfası sonuçları ulaşırsınız, ancak başka yanıtlar da sonuçları yanıt içerebilir. Örneğin, yanıt 15 görüntüler ve 4 haber makalelerini içerebilir. Ayrıca olası sonuçlarını ilk sayfa ancak ikinci sayfada değil, haber içerebilir ya da tam tersi.   
+Web araması API'si, Web sayfaları ve görüntü, video ve haber öğeleri içerebilir sonuçlarını döndürür. Arama sonuçları sayfası açıldığında, sayfalama [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) yanıt ve değil diğer yanıtlarını görüntüler veya haber gibi. Örneğin, ayarlarsanız `count` , 50 50 Web sayfası sonuçları ulaşırsınız, ancak başka yanıtlar da sonuçları yanıt içerebilir. Örneğin, yanıt 15 görüntüler ve 4 haber makalelerini içerebilir. Ayrıca olası sonuçlarını ilk sayfa ancak ikinci sayfada değil, haber içerebilir ya da tam tersi.   
 
 Belirtirseniz `responseFilter` sorgu parametresi ve Web sayfalarında filtre listesinde içermez, kullanmayın `count` ve `offset` parametreleri. 
 

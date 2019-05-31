@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b015b52e3fc806834f12e98c30b6b4e53cb6d659
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443881"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726257"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell kullanarak özel bir diskten Windows VM oluşturma
 
@@ -37,7 +37,7 @@ Azure portalında da kullanabilirsiniz [özelleştirilmiş bir VHD'den yeni VM o
 
 Bu makalede, yönetilen diskleri kullanma işlemini göstermektedir. Eski dağıtım varsa gerektiren bir depolama hesabı kullanma, bkz: [bir depolama hesabında özelleştirilmiş bir VHD'den VM oluşturma](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>1. seçenek: Var olan bir diski kullanın
 
@@ -75,7 +75,7 @@ Get-AzStorageAccount
 
 Mevcut bir depolama hesabı kullanmak için devam etmek için [VHD'nizi karşıya yüklemeyi](#upload-the-vhd-to-your-storage-account) bölümü.
 
-Depolama hesabı oluşturma.
+Bir depolama hesabı oluşturun.
 
 1. Depolama hesabının oluşturulacağı kaynak grubunun adı gerekir. Kullanım Get-AzResourceGroup aboneliğinizdeki tüm kaynak grupları bakın.
    
@@ -313,7 +313,7 @@ Sanal ağda sanal makineyle iletişimi etkinleştirmek için ihtiyacınız olaca
 
 ### <a name="set-the-vm-name-and-size"></a>VM adını ve boyutunu ayarlayın
 
-Bu örnekte VM adını ayarlar *myVM* ve VM boyutu için *standard_a2 =*.
+Bu örnekte VM adını ayarlar *myVM* ve VM boyutu için *standard_a2 =* .
 
 ```powershell
 $vmName = "myVM"

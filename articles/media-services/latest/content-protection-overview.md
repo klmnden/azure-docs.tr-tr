@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 99aea38ec877074075eaec8cf9ab8da077901acf
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150411"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393104"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Dinamik şifreleme ile içerik koruma
 
@@ -39,14 +39,13 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
 
 1. Azure Media Services kod
   
-   [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) örnek, Media Services v3 ile birden çok DRM sistem uygulamak ve Media Services lisans/anahtar teslim hizmeti de nasıl gösterir. Her bir varlığı birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Birlikte kullanılabilecek türler hakkında bilgi almak için bkz. [Akış protokolleri ve şifreleme türleri](#streaming-protocols-and-encryption-types).
+   [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) örnek, birden çok DRM sistemiyle .NET ile Media Services v3 uygulamak nasıl gösterir. Ayrıca, Media Services lisans/anahtar teslim hizmetin nasıl kullanılacağını gösterir. Her bir varlığı birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Birlikte kullanılabilecek türler hakkında bilgi almak için bkz. [Akış protokolleri ve şifreleme türleri](#streaming-protocols-and-encryption-types).
   
    Örnekte gösterildiği nasıl yapılır:
 
-   1. Oluşturma ve yapılandırma [içerik anahtar ilkeleri](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Oluşturma ve yapılandırma bir [içerik anahtar ilkeleri](content-key-policy-concept.md). Oluşturduğunuz bir **içerik anahtarı ilke** istemcileri sonuna (güvenli erişim sağlayan varlıklarınız için) bir içerik anahtarı nasıl teslim edildiğini yapılandırmak için.    
 
       * JWT talepleri temel yetkilendirme denetiminin mantık belirtme lisans teslim yetkilendirme tanımlayın.
-      * DRM şifreleme içerik anahtarı belirterek yapılandırın.
       * Yapılandırma [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), ve/veya [FairPlay](fairplay-license-overview.md) lisansları. Şablonları hakları ve izinleri her kullanılan benzeri DRM yapılandırmanıza olanak sağlar.
 
         ```
@@ -54,11 +53,11 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. Oluşturma bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) şifrelenmiş varlık akışını sağlamak için yapılandırılmış. 
+   2. Oluşturma bir [akış Bulucu](streaming-locators-concept.md) şifrelenmiş varlık akışını sağlamak için yapılandırılmış. 
   
-      **Akış Bulucu** ilişkilendirilmesi gereken bir [akış ilke](https://docs.microsoft.com/rest/api/media/streamingpolicies). Örnekte, "Predefined_MultiDrmCencStreaming" ilkeye StreamingLocator.StreamingPolicyName ayarladık. Bu ilke, iki içerik anahtarlarını (Zarf ve CENC) oluşturulan ayarlamak ve almak için Bulucu istediğimizi belirtir. Bu nedenle zarf, PlayReady ve Widevine şifrelemeleri uygulanır (anahtar, yapılandırılan DRM lisanslarına göre kayıttan yürütme istemcisine teslim edilir). Akışınızı CBCS (FairPlay) ile de şifrelemek isterseniz "Predefined_MultiDrmStreaming" öğesini kullanın.
-    
-      Video şifrelemek istediğinden **içerik anahtarı ilke** biz daha önce yapılandırılmış olduğunu ilişkilendirilecek de sahip **akış Bulucu**. 
+      **Akış Bulucu** ilişkilendirilmesi gereken bir [akış ilke](streaming-policy-concept.md). Örnekte, "Predefined_MultiDrmCencStreaming" ilkeye StreamingLocator.StreamingPolicyName ayarladık. PlayReady ve Widevine şifrelemeler uygulanır, anahtar yapılandırılmış DRM lisansları temel kayıttan yürütme istemciye teslim edilir. Akışınızı CBCS (FairPlay) ile de şifrelemek isterseniz "Predefined_MultiDrmStreaming" öğesini kullanın.
+      
+      Akış Bulucu Ayrıca ilişkili olduğu **içerik anahtarı ilke** , tanımlandı.
     
    3. Bir test belirteci oluşturun.
 
@@ -102,11 +101,11 @@ HLS protokolü, şifreleme düzenleri ve aşağıdaki kapsayıcı biçimlerini d
 
 |Kapsayıcı biçimi|Şifreleme şeması|URL örneği|
 |---|---|---|
-|Tümü|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
-|TS MPG2 |CBCS (FairPlay) ||
-|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
-|TS MPG2 |CENC (PlayReady) ||
-|CMAF(fmp4) |CENC (PlayReady) ||
+|Tümü|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|TS MPG2 |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|TS MPG2 |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
 HLS/CMAF + FairPlay (HEVC dahil olmak üzere / H.265) aşağıdaki cihazlarda desteklenir:
 
@@ -120,18 +119,18 @@ MPEG-DASH protokolü, şifreleme düzenleri ve aşağıdaki kapsayıcı biçimle
 
 |Kapsayıcı biçimi|Şifreleme şeması|URL örnekleri
 |---|---|---|
-|Tümü|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
-|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
-|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+|Tümü|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
 ### <a name="smooth-streaming"></a>Kesintisiz Akış
 
 Kesintisiz Akış Protokolü, şifreleme düzenleri ve aşağıdaki kapsayıcı biçimlerini destekler.
 
-|Protokol|Kapsayıcı biçimi|Şifreleme şeması|
+|Protocol|Kapsayıcı biçimi|Şifreleme şeması|
 |---|---|---|
-|fMP4|AES||
-|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+|fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
 
 ### <a name="browsers"></a>Tarayıcılar
 

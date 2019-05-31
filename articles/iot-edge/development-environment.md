@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61247566"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302675"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IOT Edge için geliştirme ve test ortamı hazırlama
 
@@ -62,11 +62,11 @@ Bazı diller ve hizmetler için modül şablonları geliştirme makinenizde Visu
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IOT Edge Node.js modül Oluşturucu](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-2017-extension"></a>Visual Studio 2017 uzantısı
+### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019 uzantısı
 
-Visual Studio için Azure IOT Edge araçları bir IOT Edge modülü şablonu olanakları sağlayın. C#. 
+Visual Studio için Azure IOT Edge araçları bir IOT Edge modülü şablonu olanakları sağlayın. C# ve C. 
 
-Daha fazla bilgi ve indirmek için bkz: [Visual Studio 2017 için Azure IOT Edge Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+Daha fazla bilgi ve indirmek için bkz: [Visual Studio 2017 için Azure IOT Edge Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) veya [Visual Studio 2019 için Azure IOT Edge Araçları](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
 ### <a name="iot-edge-dev-tool"></a>IOT Edge Geliştirici aracı
 
@@ -80,7 +80,7 @@ IOT Edge cihazları benzetimini yapmak veya modülleri daha verimli bir şekilde
 
 Yalnızca IOT Edge çalışma zamanı, üretim dağıtımları için desteklenir, ancak aşağıdaki araçları benzetimini yapmak veya IOT Edge cihazları geliştirme ve test etme amacıyla kolayca oluşturmanıza olanak sağlar. Bu araçlar, birbirini dışlayan değildir, ancak tam geliştirme deneyimi için birlikte çalışabilir. 
 
-| Tool | Olarak da bilinir | Desteklenen platformlar | En iyi kullanım alanı: |
+| Aracı | Olarak da bilinir | Desteklenen platformlar | En iyi kullanım alanı: |
 | ---- | ------------- | ------------------- | --------- |
 | IOT EdgeHub geliştirme aracı  | iotedgehubdev | Windows, Linux, MacOS | Modüller hata ayıklamak için bir cihazı benzetme |
 | IOT Edge geliştirme kapsayıcı | microsoft/iotedgedev | Windows, Linux, MacOS | Bağımlılıkları yüklemeden geliştirme. |
@@ -109,7 +109,7 @@ Daha fazla bilgi için [Azure IOT Edge çalıştıran bir kapsayıcıda](https:/
 
 ### <a name="iot-edge-device-container"></a>IOT Edge cihaz kapsayıcı
 
-IOT Edge cihazı bir tam IOT Edge cihazı, bir kapsayıcı altyapısıyla herhangi bir makinede başlatılacak hazır kapsayıcıdır. Cihaz kapsayıcı, IOT Edge çalışma zamanı ve kapsayıcı altyapısı içerir. Her kapsayıcı tam olarak işlevsel bir kendi kendine sağlama IOT Edge cihazı örneğidir. Modül için bir ağ yolu var olduğu sürece cihaz kapsayıcısı modüllerini, uzaktan hata ayıklamayı destekler. Cihaz kapsayıcı IOT Edge cihazları ölçekli senaryolar veya DevOps işlem hatları test etmek için çok sayıda hızlı bir şekilde oluşturmak için uygundur. Ayrıca, kubernetes helm aracılığıyla dağıtımı destekler. 
+IOT Edge cihazı bir tam IOT Edge cihazı, bir kapsayıcı altyapısıyla herhangi bir makinede başlatılacak hazır kapsayıcıdır. Cihaz kapsayıcı, IOT Edge çalışma zamanı ve kapsayıcı altyapısı içerir. Her kapsayıcı tam olarak işlevsel bir kendi kendine sağlama IOT Edge cihazı örneğidir. Modül için bir ağ yolu var olduğu sürece cihaz kapsayıcısı modüllerini, uzaktan hata ayıklamayı destekler. Cihaz kapsayıcı çok sayıda IOT Edge cihazları ölçekli senaryolar veya Azure işlem hatları test etmek için hızlı bir şekilde oluşturmak için uygundur. Ayrıca, kubernetes helm aracılığıyla dağıtımı destekler. 
 
 Daha fazla bilgi için [Azure IOT Edge cihaz kapsayıcı](https://github.com/toolboc/azure-iot-edge-device-container).
 

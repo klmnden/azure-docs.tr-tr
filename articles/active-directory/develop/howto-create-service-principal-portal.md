@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2019
+ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764810"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235372"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Nasıl yapılır: Bir Azure AD uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
@@ -40,11 +40,11 @@ Bu makalede yeni bir Azure Active Directory (Azure AD) uygulama ve hizmet soruml
 
    ![Uygulama kayıtlarını seçme](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. **Yeni uygulama kaydı**’nı seçin.
+1. Seçin **yeni kayıt**.
 
-   ![Uygulama ekle](./media/howto-create-service-principal-portal/select-add-app.png)
+   ![Uygulama Ekle](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. Uygulama için bir ad ve URL sağlayın. Oluşturmak istediğiniz uygulama türü olarak **Web uygulaması / API**'yi seçin. Kimlik bilgileri oluşturulamıyor bir [yerel uygulama](../manage-apps/application-proxy-configure-native-client-application.md). Bu tür için otomatik uygulama kullanamazsınız. Değerleri ayarladıktan sonra seçin **Oluştur**.
+1. Uygulama için bir ad sağlayın. Desteklenen bir hesabı seçin, uygulamayı kullanan belirleyen yazın. Altında **yeniden yönlendirme URI'si**seçin **Web** oluşturmak istediğiniz uygulama türü. Erişim belirteci burada gönderilir URI'sini girin.  Kimlik bilgileri oluşturulamıyor bir [yerel uygulama](../manage-apps/application-proxy-configure-native-client-application.md). Bu tür için otomatik uygulama kullanamazsınız. Değerleri ayarladıktan sonra seçin **kaydetme**.
 
    ![uygulamayı adlandırma](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -58,7 +58,7 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
 1. Uygulamayı atamak istediğiniz kapsam düzeyine gidin. Örneğin abonelik kapsamında bir rol atamak için seçin **tüm hizmetleri** ve **abonelikleri**.
 
-   ![Abonelik seçin](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Abonelik seçme](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Uygulamaya atamak için belirli bir abonelik seçin.
 
@@ -66,14 +66,14 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
    Aradığınız bir abonelik görmüyorsanız seçin **genel abonelik filtresi**. Seçili için portalda istediğiniz aboneliği olduğundan emin olun. 
 
-1. Seçin **erişim denetimi (IAM)**.
+1. Seçin **erişim denetimi (IAM)** .
 1. Seçin **rol ataması Ekle**.
 
    ![Rol ataması Ekle'yi seçin](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Uygulamayı atamak istediğiniz rolü seçin. Gibi eylemleri yürütmek uygulama izin vermek için **yeniden**, **Başlat** ve **Durdur** örnekleri, select **katkıda bulunan** rol. Varsayılan olarak, Azure AD uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için adını arayın ve seçin.
 
-   ![Rol seçin](./media/howto-create-service-principal-portal/select-role.png)
+   ![Rol seç](./media/howto-create-service-principal-portal/select-role.png)
 
 1. Seçin **Kaydet** rol atama tamamlanması. Bu kapsam için bir role atanmış kullanıcı listesinde uygulamanızı görürsünüz.
 
@@ -81,31 +81,41 @@ Hizmet sorumlunuzu ayarlayın. Betikleri veya uygulamalarını çalıştırmak i
 
 ## <a name="get-values-for-signing-in"></a>Oturum açmak için değerlerini alma
 
-### <a name="get-tenant-id"></a>Kiracı kimliğini alma
-
-Programlamayla oturum açılırken, kimlik doğrulama isteğinizle birlikte Kiracı Kimliğini geçirmeniz gerekir.
+Programlamayla oturum açılırken, kimlik doğrulama isteğinizle birlikte Kiracı Kimliğini geçirmeniz gerekir. Ayrıca, uygulamanızın ve kimlik doğrulama anahtarı için kimliği gerekir. Bu değerleri almak için aşağıdaki adımları kullanın:
 
 1. **Azure Active Directory**'yi seçin.
-1. Seçin **özellikleri**.
-
-   ![Azure AD özelliklerini seçme](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. Kopyalama **dizin kimliği** Kiracı kimliğinizi almak için
-
-   ![Kiracı Kimliği](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### <a name="get-application-id-and-authentication-key"></a>Uygulama kimliği ve kimlik doğrulama anahtarını alma
-
-Ayrıca, uygulamanızın ve kimlik doğrulama anahtarı için kimliği gerekir. Bu değerleri almak için aşağıdaki adımları kullanın:
 
 1. Gelen **uygulama kayıtları** Azure AD'de uygulamanızı seçin.
 
-   ![Uygulama seçme](./media/howto-create-service-principal-portal/select-app.png)
+   ![Uygulama seçin](./media/howto-create-service-principal-portal/select-app.png)
+
+1. Dizin (Kiracı) Kimliğini kopyalayın ve bunu uygulama kodunuzda depolayın.
+
+    ![Kiracı Kimliği](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
 1. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın.
 
    ![İstemci Kimliği](./media/howto-create-service-principal-portal/copy-app-id.png)
 
+## <a name="certificates-and-secrets"></a>Sertifikaları ve parolaları
+Azure AD kimlik doğrulaması için iki tür kimlik bilgilerini geri plan yordamı uygulamaları kullanabilirsiniz: sertifikaları ve uygulama gizli dizilerini.  Bir sertifika kullanmanızı öneririz, ancak yeni bir uygulama gizli anahtarı da oluşturabilirsiniz.
+
+### <a name="upload-a-certificate"></a>Sertifikayı karşıya yükleyin
+
+Varsa, var olan bir sertifikayı kullanabilirsiniz.  İsteğe bağlı olarak, test amacıyla otomatik olarak imzalanan bir sertifika oluşturabilirsiniz. PowerShell'i açın ve çalıştırın [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) , bilgisayarınızda kullanıcı sertifika deposunda otomatik olarak imzalanan bir sertifika oluşturmak için aşağıdaki parametrelerle: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Bu sertifikayı kullanarak dışarı aktarma [kullanıcı sertifikayı Yönet](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC ek bileşeni Windows Denetim Masası'ndan erişilebilir.
+
+Sertifikayı karşıya yüklemek için:
+1. Seçin **sertifikaları ve parolaları**.
+
+   ![ayarları seçin](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Tıklayarak **sertifikayı karşıya yükle** ve (mevcut bir sertifika veya otomatik olarak imzalanan sertifika, dışarı aktarılan) sertifikayı seçin.
+    ![Sertifika yükleme](./media/howto-create-service-principal-portal/upload-cert.png)
+1. **Ekle**'yi tıklatın.
+
+Uygulamanızı uygulama kayıt portalı ile sertifika kaydedildikten sonra sertifikayı kullanmak istemci uygulaması kodu etkinleştirmeniz gerekir.
+
+### <a name="create-a-new-application-secret"></a>Yeni bir uygulama gizli anahtarı oluşturma
+Bir sertifika kullanmayı tercih ederseniz, yeni bir uygulama gizli anahtarı oluşturabilirsiniz.
 1. Seçin **sertifikaları ve parolaları**.
 
    ![ayarları seçin](./media/howto-create-service-principal-portal/select-certs-secrets.png)

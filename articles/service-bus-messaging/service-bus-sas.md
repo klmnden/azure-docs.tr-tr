@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472236"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258811"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -86,7 +86,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Alıcı karma aynı parametrelere sahip geçerli bir imzalama anahtarı elinde veren doğrulanıyor yeniden oynatmanız, böylece belirteç karma olmayan değerler içeriyor.
 
-URI tam erişim talep edildikten Service Bus kaynağın URI'sini bir kaynaktır. Örneğin, `http://<namespace>.servicebus.windows.net/<entityPath>` veya `sb://<namespace>.servicebus.windows.net/<entityPath>`; diğer bir deyişle, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. Bir URI olmalıdır [yüzde olarak kodlanmış](https://msdn.microsoft.com/library/4fkewx0t.aspx).
+URI tam erişim talep edildikten Service Bus kaynağın URI'sini bir kaynaktır. Örneğin, `http://<namespace>.servicebus.windows.net/<entityPath>` veya `sb://<namespace>.servicebus.windows.net/<entityPath>`; diğer bir deyişle, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+
+**Bir URI olmalıdır [yüzde olarak kodlanmış](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 Bu URI veya hiyerarşik öğelerinden belirtilen varlık üzerinde imzalamak için kullanılan paylaşılan erişim yetkilendirme kuralı yapılandırılması gerekir. Örneğin, `http://contoso.servicebus.windows.net/contosoTopics/T1` veya `http://contoso.servicebus.windows.net` önceki örnekte.
 
@@ -284,7 +286,7 @@ Aşağıdaki tablo, Service Bus kaynakları üzerinde çeşitli işlemler için 
 | Konuya gönderme |Gönder |Herhangi bir geçerli konunun adresi |
 | **Abonelik** | | |
 | Abonelik oluşturma |Yönetme |Herhangi bir ad alanı adresi |
-| Aboneliği silin |Yönetme |../myTopic/Subscriptions/mySubscription |
+| Aboneliği silme |Yönetme |../myTopic/Subscriptions/mySubscription |
 | Aboneliklerini listeleme |Yönetme |../ myTopic/abonelikleri |
 | Abonelik açıklaması Al |Yönetme |../myTopic/Subscriptions/mySubscription |
 | İptal veya iletiyi gözlem kilidi modunda aldıktan sonra iletileri tamamlayın |Dinle |../myTopic/Subscriptions/mySubscription |

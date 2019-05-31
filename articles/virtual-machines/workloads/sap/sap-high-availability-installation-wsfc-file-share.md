@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969392"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357688"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure üzerinde SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşım SAP NetWeaver-yüksek kullanılabilirlik yükleyin
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturun
 
-Bir SAP ASCS/SCS küme ağ adı oluşturun (örneğin, **pr1-ascs [10.0.6.7]**) anlatılan şekilde [kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturma] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
+Bir SAP ASCS/SCS küme ağ adı oluşturun (örneğin, **pr1-ascs [10.0.6.7]** ) anlatılan şekilde [kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturma] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Kümedeki bir ASCS/SCS ve Ağıranlar örnekleri yükleyin
@@ -300,7 +300,7 @@ Bir SAP ASCS/SCS küme ağ adı oluşturun (örneğin, **pr1-ascs [10.0.6.7]**) 
 
 SAP ASCS/SCS örneği ilk küme düğümüne yükleyin. SAP SWPM yükleme aracı örneği yüklemek için şuraya gidin:
 
-**\<Ürün >** > **\<DBMS >** > **yükleme** > **ABAP uygulama sunucusu** () veya **Java**) > **yüksek kullanılabilirlik sistem** > **ASCS/SCS örneği** > **ilk küme düğümüne**.
+**\<Ürün >**  >  **\<DBMS >**  > **yükleme** > **ABAP uygulama sunucusu** () veya **Java**) > **yüksek kullanılabilirlik sistem** > **ASCS/SCS örneği** > **ilk küme düğümüne**.
 
 ### <a name="add-a-probe-port"></a>Bir araştırma bağlantı noktası Ekle
 
@@ -310,12 +310,12 @@ PowerShell kullanarak bir SAP küme kaynağı SAP SID IP araştırma bağlantı 
 
 SAP ASCS/SCS örneği, ikinci küme düğümüne yükleyin. SAP SWPM yükleme aracı örneği yüklemek için şuraya gidin:
 
-**\<Ürün >** > **\<DBMS >** > **yükleme** > **ABAP uygulama sunucusu** () veya **Java**) > **yüksek kullanılabilirlik sistem** > **ASCS/SCS örneği** > **ek küme düğümü** .
+**\<Ürün >**  >  **\<DBMS >**  > **yükleme** > **ABAP uygulama sunucusu** () veya **Java**) > **yüksek kullanılabilirlik sistem** > **ASCS/SCS örneği** > **ek küme düğümü** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>SAP ASCS/SCS örneği profilini güncelleştir
 
-SAP ASCS/SCS örneği profilinde parametreleri güncelleştirin \<SID >_ASCS/SCS\<Nr >_\<konak >.
+SAP ASCS/SCS örneği profilinde parametreleri güncelleştirin \<SID >_ASCS/SCS\<Nr >_ \<konak >.
 
 
 | Parametre adı | Parametre değeri |
@@ -324,7 +324,7 @@ SAP ASCS/SCS örneği profilinde parametreleri güncelleştirin \<SID >_ASCS/SCS
 | enque/encni/set_so_keepalive  | **TRUE** |
 | service/ha_check_node | **1** |
 
-SAP ASCS/SCS örneğini yeniden başlatın. Ayarlama `KeepAlive` hem SAP ASCS/SCS küme düğümlerinde parametreleri için yönergeleri izleyerek [kayıt defteri girdileri SAP ASCS/SCS örneği küme düğümlerinde ayarlayın]([high-availability-guide]:high-availability-guide.md). 
+SAP ASCS/SCS örneğini yeniden başlatın. Ayarlama `KeepAlive` hem SAP ASCS/SCS küme düğümlerinde parametreleri için yönergeleri izleyerek [kayıt defteri girdileri SAP ASCS/SCS örneği küme düğümlerinde ayarlayın][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS örneği ve SAP uygulama sunucuları yükleme
 

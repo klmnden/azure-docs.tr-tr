@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393203"
+ms.locfileid: "66416284"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -143,6 +143,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### <a name="factors-influencing-query-plan-changes"></a>Sorgu planı değişikliklerini etkileyen faktörler
+
+Sorgu yürütme planı öyle ne başlangıçta önbelleğe ilişkili öğesinden farklı bir oluşturulan sorgu planında neden olabilir. Neden bir varolan orijinal plan otomatik olarak yeniden derlenmesi çeşitli nedenleri vardır:
+- Sorgu tarafından başvurulan şema değişiklikleri
+- Sorgu tarafından başvurulan tablolar için veri değişikliklerini 
+- Sorgu bağlamı seçeneklerinde yapılan değişiklikler 
+
+Derlenmiş bir plan için çeşitli nedenlerle örneği yeniden başlatma da dahil olmak üzere, önbellekten çıkarılmasını, yapılandırma değişikliklerinin, bellek baskısı ve önbelleği temizlemek için açık istekleri veritabanı kapsamlı. Ayrıca, RECOMPILE ipucu kullanarak bir plan önbelleğe alınabilir olmaz anlamına gelir.
+
+Yeniden derleme (veya yeni Derleme Önbelleği çıkarma sonra) hala aynı sorgu yürütme planı bir ilk gözlemlenen nesil sonuçlanabilir.  Ancak, varsa, önceki ya da orijinal plana göre plana değişiklikleri, bir sorgu yürütme planı neden değiştirilen için en yaygın açıklamaları aşağıda verilmiştir:
+
+- **Fiziksel tasarım değiştirilen**. Örneğin, daha etkili bir şekilde yeni bir derleme üzerinde bir sorgu gereksinimlerini sorgu iyileştiricisi verirse kullanılabilir kapak başlangıçta ilk sürümü için seçilen veri yapısı kullanmak daha yeni bir dizin yararlanmak için daha uygun olduğunu yeni dizin oluşturuldu. sorgu yürütme.  Başvurulan nesneleri fiziksel değişiklikleri, yeni bir plan seçtiğiniz derleme zamanında neden olabilir.
+
+- **Sunucu kaynak fark**. Burada sistemde"A" ve "Sistem B" – kaynaklarının, kullanılabilir işlemci sayısı gibi bir plan farklı bir senaryoda hangi planı oluşturulan etkileyebilir.  Örneğin, bir sistem daha yüksek bir sayı işlemci varsa, paralel bir plandaki seçmiş olabilirsiniz. 
+
+- **Farklı istatistikleri**. Başvurulan nesneleri ile ilişkili istatistikleri değiştirilmiş veya özgün sistemin istatistiklerini olması durumunda farklıdır.  İstatistikleri değiştirirseniz ve çalışabilmeleri gerçekleşir, sorgu iyileştiricisi istatistikleri belirli o noktadan itibaren zaman kullanın. Düzeltilmiş istatistikleri, dağıtımları önemli ölçüde farklı veri ve orijinal derleme durumda değildi frekansları sahip olabilir.  Bu değişiklikler, kardinalite tahmin eder (mantıksal sorgu ağacı ile akış için beklenen satır sayısı) tahmin etmek için kullanılır.  Kardinalite tahmin değişiklikleri farklı fiziksel işleçler ve ilişkili sıralı-ın-işlemler seçmek için bize yol açabilir.  İstatistiklerini bile küçük değişiklikler, değiştirilen sorguyu yürütme planında neden olabilir.
+
+- **Değiştirilen veritabanı uyumluluk düzeyi veya kardinalite tahmin aracı sürümü**.  Veritabanı uyumluluk düzeyi değişiklikleri, yeni stratejiler ve farklı bir sorgu yürütme planında neden özellikleri etkinleştirebilirsiniz.  Veritabanı uyumluluk düzeyinin devre dışı bırakma veya 4199 izleme bayrağını etkinleştirme ya da QUERY_OPTIMIZER_HOTFIXES da etkileyebilir veritabanı kapsamlı yapılandırma durumunu değiştirmeyi, derleme zamanında yürütme planı seçenekleri sorgulayın.  İzleme Bayrakları 9481 (zorla eski CE) ve (varsayılan CE zorla) 2312 de planlamanız etkileyen. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Sorun sorguları çözümlemek veya daha fazla kaynak sağlayın
 

@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 86efb6b655405500f994a5a5ec7acbd18c645004
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957858"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417929"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry hakkında sık sorulan sorular
 
@@ -253,10 +253,11 @@ Görüntü karantina şu anda Önizleme ACR özelliğidir. Güvenlik taraması b
 - [Yeni kullanıcı izinleri güncelleştirdikten sonra hemen etkili olmayabilir](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Kimlik doğrulama bilgilerini doğrudan REST API çağrıları üzerinde doğru biçimde verilmez](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Neden Azure portalında tüm depoları veya etiketleri listelemez?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Windows üzerinde nasıl http izlemeleri toplamak?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker isteği hatası ile başarısız oluyor: net/http: istek iptal bağlantı (Client.Timeout üstbilgileri beklerken aşıldı) beklenirken
 
- - Bu hata geçici bir sorun varsa, yeniden deneme başarılı olur. 
+ - Bu hata geçici bir sorun varsa, yeniden deneme başarılı olur.
  - Varsa `docker pull` docker daemon ile ilgili bir sorun olabilir sonra sürekli olarak başarısız olur. Sorun genellikle docker Daemon programını yeniden başlatarak azaltılabilir. 
  - Ardından docker Daemon programını yeniden başlattıktan sonra bu sorunla karşılaşmaya devam ederseniz sorun makinenin bazı ağ bağlantı sorunları olabilir. Genel ağdaki makinenin iyi durumda olup olmadığını denetlemek için bir komutu gibi deneyin `ping www.bing.com`.
  - Bu gibi durumlarda, bir yeniden deneme mekanizması her zaman tüm docker istemci işlemleri olmalıdır.
@@ -386,7 +387,29 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Neden Azure portalında tüm depoları veya etiketleri listelemez? 
 
-Edge tarayıcısını kullanıyorsanız, en fazla 100 depoları veya listelenen etiketler görebilirsiniz. Kayıt defterinizin 100'den fazla depolar ve etiketleri varsa, Firefox veya Chrome'un tarayıcı tamamı Listelenemeyecek kadar kullanmanızı öneririz.
+Microsoft Edge tarayıcısını kullanıyorsanız, en fazla 100 depoları veya listelenen etiketler görebilirsiniz. Kayıt defterinizin 100'den fazla depolar ve etiketleri varsa, Firefox veya Chrome'un tarayıcı tamamı Listelenemeyecek kadar kullanmanızı öneririz.
+
+### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows üzerinde nasıl http izlemeleri toplamak?
+
+#### <a name="prerequisites"></a>Önkoşullar
+
+- Fiddler https şifresini çözmeyi etkinleştirin:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Docker kullanıcı arabirimi aracılığıyla bir ara sunucu kullanmak Docker'ı etkinleştirin: <https://docs.docker.com/docker-for-windows/#proxies>
+- İşlem tamamlandığında geri emin olun.  Docker etkinleştirildiğinde çalışmaz ve fiddler çalışmıyor.
+
+#### <a name="windows-containers"></a>Windows kapsayıcıları
+
+127.0.0.1:8888 Docker proxy yapılandırma
+
+#### <a name="linux-containers"></a>Linux kapsayıcıları
+
+Docker'ın IP vm sanal anahtarını bulun:
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+(Örneğin 10.0.75.1:8888) 8888 bağlantı noktası ve önceki komut ve çıktı için Docker proxy ayarlarını yapılandırma
 
 ## <a name="tasks"></a>Görevler
 

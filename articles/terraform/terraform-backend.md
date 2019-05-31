@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 7145a50bc53fd28afafd3de9c724b5e5f71624fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905899"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297930"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Azure Depolama'daki Store Terraform durumu
 
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Terraform arka uç kullanılacak şekilde yapılandırmak için dahil bir *arka uç* türünde yapılandırma *azurerm* Terraform yapılandırması içinde. Ekleme *storage_account_name*, *container_name*, ve *anahtar* yapılandırma bloğuna değerleri.
 
-Aşağıdaki örnek, Terraform arka uç yapılandırır ve oluşturur ve Azure kaynak grubu. Değerleri, ortamınızdaki değerlerle değiştirin.
+Aşağıdaki örnek, Terraform arka uç yapılandırır ve bir Azure kaynak grubu oluşturur. Değerleri, ortamınızdaki değerlerle değiştirin.
 
 ```json
 terraform {

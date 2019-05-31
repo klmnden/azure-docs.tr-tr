@@ -4,16 +4,16 @@ description: Güncelleştirme yönetimi, değişiklik izleme ve stok çözümler
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145159"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399766"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Hatalarında sorun giderme, onboarding çözümleri
 
@@ -42,6 +42,24 @@ Bu hata, çalışma alanında, sanal makine veya kullanıcı için eksik veya ha
 #### <a name="resolution"></a>Çözüm
 
 Sanal makine eklemek için doğru izinlere sahip olun. Gözden geçirme [makine için gereken izinleri](../automation-role-based-access-control.md#onboarding) ve ekleme için çözümü yeniden deneyin. Hatasını alırsanız `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, olduğundan emin olun `Microsoft.OperationalInsights/workspaces/read` VM için bir çalışma alanına eklenen olup olmadığını öğrenmek için izni.
+
+### <a name="diagnostic-logging"></a>Senaryo: Otomasyon hesabı için tanılama günlük kaydı yapılandırması başarısız oldu. ileti - ekleme başarısız oluyor
+
+#### <a name="issue"></a>Sorun
+
+Yerleşik bir çözüm için bir sanal makine çalıştığınızda şu iletiyi alırsınız:
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>Nedeni
+
+Fiyatlandırma katmanı, aboneliğin faturalama modeliyle eşleşmiyor ise bu hataya neden olabilir. Daha fazla bilgi için [kullanım ve Tahmini maliyetler Azure İzleyici'de izleme](http://aka.ms/PricingTierWarning).
+
+#### <a name="resolution"></a>Çözüm
+
+Log Analytics çalışma alanınızın el ile oluşturun ve oluşturulan çalışma alanını ekleme işlemi yineleyin.
 
 ### <a name="computer-group-query-format-error"></a>Senaryo: ComputerGroupQueryFormatError
 

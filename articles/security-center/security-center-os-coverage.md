@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 910e9acaea5c8f95dd344bc8e5454cd2bd3b7a25
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 5/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968334"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258698"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
 
@@ -27,7 +27,6 @@ Güvenlik durumunu izleme ve öneriler hem Klasik ve Resource Manager dağıtım
 
 > [!NOTE]
 > Daha fazla bilgi edinin [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md) Azure kaynakları için.
->
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Veri toplama Aracısı destekleyen platformlar 
@@ -46,20 +45,29 @@ Aşağıdaki Windows işletim sistemleri desteklenir:
 
 > [!NOTE]
 > Windows Defender ATP ile tümleştirme, yalnızca Windows Server 2012 R2 ve Windows Server 2016'yı destekler.
->
->
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux bilgisayarları ve sanal makineleri için desteklenen platformlar
+
 Aşağıdaki Linux işletim sistemleri desteklenir:
 
-* Ubuntu sürüm 12.04 LTS, 14.04 LTS ve 16.04 LTS.
-* Debian sürüm 6, 7, 8 ve 9.
-* CentOS sürüm 5, 6 ve 7.
-* Red Hat Enterprise Linux (RHEL) sürüm 5, 6 ve 7.
-* SUSE Linux Enterprise Server (SLES) sürüm 11 ve 12.
-* Oracle Linux sürüm 5, 6 ve 7.
-* Amazon Linux 2012.09 2017.
-* OpenSSL 1.1.0 yalnızca 64 bit x86_64 platformları üzerinde desteklenir.
+> [!NOTE]
+> Tercih ederseniz desteklenen Linux işletim sistemlerinin listesi sürekli, değişir olduğundan, tıklayın [burada](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) olmuştur durumunda değişiklikler bu konunun son yayınlandığı desteklenen sürümleri, en güncel listesini görüntülemek için.
+
+64 bit
+* CentOS 6 ve 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 ve 7
+* Red Hat Enterprise Linux Server 6 ve 7
+* Debian GNU/Linux 8 ve 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS ve 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+32 bit
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 ve 9
+* Ubuntu Linux 14.04 LTS ve 16.04 LTS
 
 ## <a name="vms-and-cloud-services"></a>VM'ler ve bulut Hizmetleri
 Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalarını çalıştırılan yalnızca cloud services web ve çalışan rolleri izlenir. Bulut hizmetleri hakkında daha fazla bilgi için bkz. [Azure Cloud Services Genel Bakış](../cloud-services/cloud-services-choose-me.md).
@@ -70,25 +78,27 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 > [!div class="mx-tableFixed"]
 > 
 
-|Sunucu |Windows||Linux||
-|----|----|----|----|----|
-|Ortam|Azure|Azure Dışı|Azure|Azure Dışı|
-|VMBA tehdit algılama uyarıları|✔|✔|✔ (üzerinde desteklenen sürümleri)|✔|
-|Ağ tabanlı tehdit algılama uyarıları|✔|X|✔|X|
-|Windows Defender ATP tümleştirme|✔ (üzerinde desteklenen sürümleri)|✔|X|X|
-|Yamaları eksik|✔|✔|✔|✔|
-|Güvenlik yapılandırmaları|✔|✔|✔|✔|
-|Uç nokta koruması|✔|✔|X|X|
-|JIT VM erişimi|✔|X|✔|X|
-|Uyarlamalı uygulama denetimleri|✔|✔|✔|✔|
-|FIM|✔|✔|✔|✔|
-|Disk şifrelemesi|✔|X|✔|X|
-|Üçüncü taraf dağıtım|✔|X|✔|X|
-|NSG'ler|✔|X|✔|X|
-|Fileless tehdit algılama|✔|✔|X|X|
-|Ağ haritası|✔|X|✔|X|
-|Uyarlamalı ağ denetimleri|✔|X|✔|X|
-
+|Sunucusu|Windows||Linux||||Fiyatlandırma|
+|----|----|----|----|----|----|----|----|
+|**Ortam**|**Azure**||**Azure dışı**|**Azure**||**Azure dışı**||
+||**Sanal Makine**|**Sanal makine ölçek kümesi**||**Sanal Makine**|**Sanal makine ölçek kümesi**|
+|VMBA tehdit algılama uyarıları|✔|✔|✔|✔ (üzerinde desteklenen sürümleri)|✔ (üzerinde desteklenen sürümleri)|✔|Öneriler (ücretsiz) tehdit algılama (standart)|
+|Ağ tabanlı tehdit algılama uyarıları|✔|✔|X|✔|✔|X|Standart|
+|Windows Defender ATP tümleştirme|✔ (üzerinde desteklenen sürümleri)|✔ (üzerinde desteklenen sürümleri)|✔|X|X|X|Standart|
+|Yamaları eksik|✔|✔|✔|✔|✔|✔|Boş|
+|Güvenlik yapılandırmaları|✔|✔|✔|✔|✔|✔|Boş|
+|Uç nokta koruma değerlendirmesi|✔|✔|✔|X|X|X|Boş|
+|JIT VM erişimi|✔|X|X|✔|X|X|Standart|
+|Uyarlamalı uygulama denetimleri|✔|X|✔|✔|X|✔|Standart|
+|FIM|✔|✔|✔|✔|✔|✔|Standart|
+|Disk şifreleme değerlendirme|✔|✔|X|✔|✔|X|Boş|
+|Üçüncü taraf dağıtım|✔|X|X|✔|X|X|Boş|
+|Nsg'ler değerlendirmesi|✔|✔|X|✔|✔|X|Boş|
+|Fileless tehdit algılama|✔|✔|✔|X|X|X|Standart|
+|Ağ eşlemesi|✔|✔|X|✔|✔|X|Standart|
+|Uyarlamalı ağ denetimleri|✔|✔|X|✔|✔|X|Standart|
+|Yasal uyumluluk Pano ve raporlar|✔|✔|✔|✔|✔|✔|Standart|
+|Öneriler ve Iaas barındırılan Docker kapsayıcılarına tehdit algılama|X|X|X|✔|✔|✔|Standart|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Desteklenen uç nokta koruma çözümleri
 
@@ -96,7 +106,9 @@ Aşağıdaki tabloda bir matrisi verilmektedir:
  - Olup Azure Güvenlik Merkezi, her çözüm için yüklemek için kullanabilirsiniz.
  - Hangi uç nokta koruma çözümleri Güvenlik Merkezi bulabilir. Bu uç nokta koruma çözümleri bulunursa, Güvenlik Merkezi bir yükleme tavsiyede bulunmaz.
 
-| Endpoint Protection| Platformlar | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
+Ne zaman, her biri bu korumalar için oluşturulan öneriler hakkında daha fazla bilgi için bkz: [uç nokta koruma değerlendirmesi ve öneriler](security-center-endpoint-protection.md).
+
+| Uç Nokta Koruması| Platformlar | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)| Windows Server 2016| Hayır, işletim sisteminde yerleşik| Evet |
 | System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 (aşağıdaki nota bakın) | Uzantı ile | Evet |
@@ -108,27 +120,49 @@ Aşağıdaki tabloda bir matrisi verilmektedir:
 
 > [!NOTE]
 > - Algılama System Center Endpoint Protection (SCEP) bir Windows Server 2008 R2 sanal makine üzerinde SCEP PowerShell 3.0 (veya üst bir sürümünü) sonra yüklü olmasını gerektirir.
->
->
 
-## <a name="supported-paas-features"></a>Desteklenen PaaS özellikleri 
+## <a name="supported-paas-features"></a>Desteklenen PaaS özellikleri
 
 
-|Hizmet|Öneriler|Tehdit algılama|
+|Hizmet|Öneriler (ücretsiz)|Tehdit algılama (standart)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
 |Azure Blob Depolama hesapları *|✔| ✔|
 |Uygulama hizmetleri|✔| ✔|
-|Bulut Hizmetleri|✔| X|
-|Sanal Ağlar|✔| NA|
+|Cloud Services|✔| X|
+|VNets|✔| NA|
 |Alt ağlar|✔| NA|
-|NIC|✔| ✔|
+|NIC’ler|✔| NA|
 |NSG'ler|✔| NA|
-|Abonelik|✔| ✔|
+|Abonelik|✔ **| ✔|
+|App Service|✔| NA|
+|Batch|✔| NA|
+|Service Fabric|✔| NA|
+|Otomasyon hesabı|✔| NA|
+|Yük dengeleyici|✔| NA|
+|Ara|✔| NA|
+|Service Bus|✔| NA|
+|Stream Analytics|✔| NA|
+|Olay hub'ı|✔| NA|
+|Mantıksal uygulamalar|✔| NA|
+|Alt ağ|✔| NA|
+|Sanal ağ|✔| NA|
+|Depolama hesabı|✔| NA|
+|Redis|✔| NA|
+|SQL|✔| NA|
+|Data lake analytics|✔| NA|
+|Depolama hesabı|✔| NA|
+|Abonelik|✔| NA|
+|Key Vault|✔| NA|
 
-\* Bu özellikler şu anda genel önizlemede desteklenmektedir. 
+
+
+
+\* Bu özellikler şu anda genel önizlemede desteklenmektedir.
+
+\*\* AAD önerileri yalnızca standart abonelikler için kullanılabilir
 
 
 

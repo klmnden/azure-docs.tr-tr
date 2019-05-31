@@ -12,14 +12,14 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142719"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297085"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği uygulamanızı bağlayın
 
 Bugün nasıl ve nerede uygulamanızı barındırmak verirken birden çok seçeneğiniz vardır.
 
@@ -56,7 +56,7 @@ Yönetilen örnek, yalnızca özel bir IP adresi erişilebilir. Şirket içinden
 - Siteden siteye VPN bağlantısı ([Azure portalında](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) bağlantı  
 
-Şirket içi Azure bağlantısı başarıyla kuruldu ve yönetilen örnek bağlantı kuramıyor, güvenlik duvarınızı yeniden yönlendirme için bağlantı noktası aralığını 11000 12000 yanı sıra SQL bağlantı noktası 1433 üzerinde giden bağlantı olup olmadığını denetleyin.
+Şirket içi Azure bağlantısı başarıyla kuruldu ve yönetilen örnek bağlantı kuramıyor, güvenlik duvarınızı yeniden yönlendirme için bağlantı noktası aralığını 11000 11999 yanı sıra SQL bağlantı noktası 1433 üzerinde giden bağlantı olup olmadığını denetleyin.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Geliştiriciler kutusunda uygulamayı bağlama
 
@@ -96,7 +96,7 @@ Bu senaryo, aşağıdaki diyagramda gösterilmiştir:
 
 Bağlantı sorunlarını gidermek için aşağıdakileri gözden geçirin:
 
-- Aynı sanal ağa ancak farklı bir alt ağ içinde bir Azure sanal makinesinden yönetilen örneğe bağlanma erişimi engelleme VM alt ağı üzerinde ayarlanmış bir ağ güvenlik grubu olup olmadığını denetleyin. Ayrıca unutmayın bu Azure sınırının içindeki yeniden yönlendirmesi aracılığıyla bağlanmak için gerekli olan bu yana 11000 12000 aralığında bağlantı noktalarının yanı sıra SQL bağlantı noktası 1433 üzerinde giden bağlantı açmanız gerekir.
+- Aynı sanal ağa ancak farklı bir alt ağ içinde bir Azure sanal makinesinden yönetilen örneğe bağlanma erişimi engelleme VM alt ağı üzerinde ayarlanmış bir ağ güvenlik grubu olup olmadığını denetleyin. Ayrıca unutmayın bu Azure sınırının içindeki yeniden yönlendirmesi aracılığıyla bağlanmak için gerekli olan bu yana 11000 11999 aralığında bağlantı noktalarının yanı sıra SQL bağlantı noktası 1433 üzerinde giden bağlantı açmanız gerekir.
 - BGP yayma ayarlandığından emin olun **etkin** sanal ağ ile ilişkili yol tablosuna için.
 - P2S VPN kullanarak, görüyorsanız, görmek için Azure portalında yapılandırmayı denetleyin. **giriş/çıkış** sayı. Sıfır olmayan sayılar, Azure için buralardan şirket içi trafiği yönlendirme olduğunu gösterir.
 

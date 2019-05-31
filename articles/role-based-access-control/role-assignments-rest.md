@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531834"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357070"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak Azure kaynaklarına erişimi yönetme
 
@@ -38,12 +38,16 @@ Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde,
 
 1. URI içinde değiştirin *{kapsamı}* rol atamalarını listelemek istediğiniz kapsama sahip.
 
-    | Kapsam | Tür |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
-
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    
+       
+     > [!NOTE]
+     > Kaynak sağlayıcısı Microsoft.Web kullanılır yukarıdaki örnekte, uygulama hizmeti örneğine başvurur. Benzer şekilde herhangi bir kaynak sağlayıcısını kullanmak ve kapsam URI'sini oluşturur. Anlamak için daha fazla bilgi edinmek [Azure kaynak sağlayıcıları ve türleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) ve desteklenen [Azure RM kaynak sağlayıcısı işlemleri](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Değiştirin *{filter}* rol ataması listeyi filtrelemek için uygulamak istediğiniz koşulu.
 
     | Filtre | Açıklama |
@@ -77,11 +81,11 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir. Bir rol at
     
 1. URI içinde değiştirin *{kapsamı}* rol ataması kapsama sahip.
 
-    | Kapsam | Tür |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{roleAssignmentName}* ile rol atamasını GUID tanımlayıcısı.
 
@@ -105,11 +109,11 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Bir rol
 
 1. URI içinde değiştirin *{kapsamı}* rol atamasını kaldırmak için kapsama sahip.
 
-    | Kapsam | Tür |
+    | `Scope` | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Kaynak |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Değiştirin *{roleAssignmentName}* ile rol atamasını GUID tanımlayıcısı.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947464"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306822"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Apache Tomcat sunucusunu Linux'ta çalışan Service Fabric kapsayıcı oluşturma
 Apache Tomcat, Java Servlet ve Java sunucusu teknolojileri popüler, açık kaynaklı bir uygulamasıdır. Bu makalede, Apache Tomcat ve basit bir Web uygulaması ile bir kapsayıcı oluşturmak, Linux çalıştıran bir Service Fabric kümesine dağıtma ve Web uygulamasına bağlanma işlemini göstermektedir.  
@@ -111,9 +111,9 @@ Apache Tomcat görüntü ve basit bir Web uygulaması temel alan bir Docker gör
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Tomcat görüntüyü kapsayıcı kayıt defterinize gönderme
 Tomcat görüntü geliştirme bilgisayarınızda bir kapsayıcıda çalıştığını doğruladıktan sonra bir kapsayıcı kayıt defteri deponuza gönderin. Bu makalede, görüntünün depolanması için Azure Container Registry kullanılır, ancak adımlar biraz değişiklikle, seçtiğiniz herhangi bir kapsayıcı kayıt defteri kullanabilirsiniz. Bu makalede kayıt adı olarak kabul edilir *myregistry* ve myregistry.azurecr.io tam kayıt defteri adıdır. Bunlar senaryonuz için uygun şekilde değiştirin. 
 
-1. Kapsayıcı kayıt defterinizde [kayıt defteri kimlik bilgileriniz](../container-registry/container-registry-authentication.md) ile oturum açmak için `docker login` komutunu çalıştırın.
+1. Çalıştırma `docker login` ile kapsayıcı kayıt defterinizde oturum açmak için [kayıt defteri kimlik bilgilerini](../container-registry/container-registry-authentication.md).
 
-   Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/develop/app-objects-and-service-principals.md) kimliği ve parolası geçirilmiştir. Örneğin, bir otomasyon senaryosu için kayıt defterinize bir hizmet sorumlusu atamış olabilirsiniz. İsterseniz, kayıt defteri kullanıcı kimliğiniz ve parolanızı kullanarak oturum açabilirsiniz.
+   Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/develop/app-objects-and-service-principals.md) kimliği ve parolası geçirilmiştir. Örneğin, bir otomasyon senaryosu için kayıt defterinize bir hizmet sorumlusu atamış olabilirsiniz. Ya da kayıt defteri kullanıcı kimliğiniz ve parolanızı kullanarak oturum açılamadı.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -144,7 +144,7 @@ Bir kapsayıcı kayıt defterine Tomcat görüntü gönderildi, derleme ve Tomca
    * Uygulamanızı adlandırın: ServiceFabricTomcat
    * Uygulama hizmeti adı: TomcatService
    * Görüntü adı girin: Kapsayıcı kayıt defterindeki kapsayıcı görüntüsünün URL'sini sağlayın; Örneğin, myregistry.azurecr.io/samples/tomcattest.
-   * Komutlar: Bunu boş bırakın. Bu görüntüde iş yükü giriş noktası tanımlanmış olduğundan, giriş komutlarının açıkça belirtilmesi gerekmez (komutlar kapsayıcının içinde çalıştırılır ve bu da başlatma sonrasında kapsayıcıyı çalışır durumda tutar).
+   * Komutlar: Burayı boş bırakın. Bu görüntüde iş yükü giriş noktası tanımlanmış olduğundan, giriş komutlarının açıkça belirtilmesi gerekmez (komutlar kapsayıcının içinde çalıştırılır ve bu da başlatma sonrasında kapsayıcıyı çalışır durumda tutar).
    * Konuk kapsayıcı uygulamasının örnek sayısı: 1
 
    ![Kapsayıcılar için Service Fabric Yeoman oluşturucusu](./media/service-fabric-get-started-tomcat/yo-generator.png)

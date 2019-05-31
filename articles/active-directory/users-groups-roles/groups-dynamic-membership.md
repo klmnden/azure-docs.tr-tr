@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192443"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397874"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -124,7 +124,7 @@ Aşağıdaki tabloda, desteklenen tüm işleçler ve tek bir ifade için kendi s
 | İle başlamaz |-notStartsWith |
 | Şununla başlar |-startsWith |
 | İçermez |-notContains |
-| Contains |-içerir |
+| İçerir |-içerir |
 | Eşleşmiyor |-notMatch |
 | Eşleşme |-eşleşmesi |
 | İçinde | -içinde |
@@ -353,7 +353,6 @@ Aşağıdaki cihaz öznitelikleri kullanılabilir.
  deviceManufacturer | herhangi bir dize değeri | (device.deviceManufacturer -eq "Samsung")
  deviceModel | herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
  deviceOwnership | Kişisel, şirket, bilinmeyen | (device.deviceOwnership - eq "Şirket")
- DomainName | herhangi bir dize değeri | (device.domainName - eq "contoso.com")
  enrollmentProfileName | Apple cihaz kayıt profili ya da Windows Autopilot profili adı | (device.enrollmentProfileName - eq "DEP iPhone")
  isRooted | doğru yanlış | (device.isRooted - eq true)
  managementType | MDM (mobil cihazlar için)<br>Bilgisayar (Intune PC aracısı tarafından yönetilen bilgisayarlar için) | (device.managementType - eq "MDM")
@@ -372,4 +371,4 @@ Bu makaleler, Azure Active Directory içinde grupları hakkında ek bilgi sağla
 * [Yeni grup oluşturma ve üye ekleme](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Bir grubun ayarlarını yönetme](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Bir grubun üyeliklerini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](groups-dynamic-membership.md)
+* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](groups-create-rule.md)

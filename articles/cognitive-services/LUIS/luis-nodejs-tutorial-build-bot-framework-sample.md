@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bd6a9df9518cb1b2312b525e8876629a2189bd2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197056"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399613"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework Node.js içindeki robotla LUIS 3.x ve Azure Web app botu
 
 Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
+
+A [Bot Framework 4.x LUIS öğreticisiyle](luis-nodejs-tutorial-bf-v4.md) de kullanılabilir.
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -236,7 +238,7 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>Bot test
 
-Azure Portalı'nda seçin **Test Web sohbeti içinde** bot test etmek için. Türü iletileri deneyin benzer "kapatma ışıkları Aç" ve "my heater kapatma" ona eklediğiniz ıntents çağırmak için.
+Azure portalında seçin **Test Web sohbeti içinde** bot test etmek için. Türü iletileri deneyin benzer "kapatma ışıkları Aç" ve "my heater kapatma" ona eklediğiniz ıntents çağırmak için.
    ![HomeAutomation bot Web Chat test edin.](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

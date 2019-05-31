@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786441"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254396"
 ---
 # <a name="api-management-policies"></a>API Management ilkeleri
 Bu bölüm, aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
@@ -39,12 +39,15 @@ Bu bölüm, aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve
     -   [JWT doğrulama](api-management-access-restriction-policies.md#ValidateJWT) -varlığı ve belirtilen bir HTTP üstbilgisi veya belirtilen sorgu parametresi ayıklanan JWT'nin geçerliliğini zorunlu kılar.  
 -   [Gelişmiş ilkeler](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Denetim akışı](api-management-advanced-policies.md#choose) - koşullu ilke bildirimlerine Boolean ifadeler değerlendirmeye göre uygulanır.  
-    -   [İstek](api-management-advanced-policies.md#ForwardRequest) -isteği arka uç hizmetine iletir.  
-    -   [Olay Hub'ına](api-management-advanced-policies.md#log-to-eventhub) -gönderdiği iletileri belirtilen biçimde bir Günlükçü varlık tarafından tanımlanan bir ileti hedef.  
+    -   [İstek](api-management-advanced-policies.md#ForwardRequest) -isteği arka uç hizmetine iletir.
+    -   [Eşzamanlılık sınırlamak](api-management-advanced-policies.md#LimitConcurrency) -engeller içine birden çok istekleri belirtilen sayıda tarafından aynı anda yürütülmesini ilkeleri.
+    -   [Olay Hub'ına](api-management-advanced-policies.md#log-to-eventhub) -gönderdiği iletileri belirtilen biçimde bir Günlükçü varlık tarafından tanımlanan bir ileti hedef.
+    -   [Sahte yanıt](api-management-advanced-policies.md#mock-response) -iptalleri işlem hattı yürütme ve sahte yanıt doğrudan çağırana döner.
     -   [Yeniden deneme](api-management-advanced-policies.md#Retry) -varsa ve koşul yerine getirilene kadar iliştirilmiş ilke bildirimlerine yürütülmesi yeniden dener. Yürütme, belirtilen zaman aralıklarında yineleyin ve belirtilen en fazla yeniden deneme sayısı.  
     -   [Yanıt](api-management-advanced-policies.md#ReturnResponse) -iptalleri işlem hattı yürütme ve belirtilen yanıtını çağırana doğrudan döndürür.  
     -   [One-way isteğini göndermek](api-management-advanced-policies.md#SendOneWayRequest) -bir istek için yanıt beklemeden belirtilen URL'ye gönderir.  
-    -   [İsteği Gönder](api-management-advanced-policies.md#SendRequest) -bir istek belirtilen URL'ye gönderir.  
+    -   [İsteği Gönder](api-management-advanced-policies.md#SendRequest) -bir istek belirtilen URL'ye gönderir.
+    -   [HTTP proxy ayarlamak](api-management-advanced-policies.md#SetHttpProxy) -bir HTTP Ara sunucusu üzerinden iletilen istekleri sağlar.
     -   [Değişken Ayarla](api-management-advanced-policies.md#set-variable) -kalıcı bir adlandırılmış bağlam değişkeni daha sonra erişmek için bir değer.  
     -   [İstek yöntemini ayarla](api-management-advanced-policies.md#SetRequestMethod) -bir isteğin HTTP yöntemi değiştirmenize izin verir.  
     -   [Durum kodu ayarlamak](api-management-advanced-policies.md#SetStatus) -HTTP durum kodunu belirtilen değere değişir.  

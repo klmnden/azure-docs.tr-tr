@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926245"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393185"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme
 Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL VM kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki sanal makine (VM) için model barındıran SQL Server - Kullandıkça Öde, lisanslama ve kendi lisansınızı getirin (BYOL). Ve şimdi, Azure portalı, Azure CLI veya PowerShell kullanarak SQL Server VM'nize kullanan hangi lisans modeli değiştirebilirsiniz. 
@@ -34,7 +34,7 @@ Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans mo
 ## <a name="remarks"></a>Açıklamalar
 
 
- - CSP müşterileri, öncelikle bir Kullandıkça Öde VM dağıtarak ve ardından getirin-kendi lisansını için dönüştürme AHB avantajı kullanabilir. 
+ - Azure Cloud Solution Partner (CSP) müşterileri, Azure hibrit avantajı ilk Kullandıkça Öde VM dağıtarak ve ardından getirin-kendi lisansını için dönüştürme kullanabilir. 
  - Özel bir SQL Server VM görüntüsü kaynak sağlayıcısı ile kaydederken, lisans türü = 'AHUB' olarak belirtin. Lisans bırakarak boş olarak yazın ya da 'PAYG' belirtilmesi, kayıt başarısız olmasına neden olur. 
  - SQL Server VM kaynağınızı sürüklerseniz, yeniden görüntü sabit kodlanmış lisans ayarına geçer. 
  - Bir SQL Server VM bir kullanılabilirlik kümesine ekleme, sanal Makineyi yeniden oluşturmayı gerektirir. Gibi tüm VM'ler için bir kullanılabilirlik eklenen olarak kümesi varsayılan bir Kullandıkça Öde lisans türü için geri gider ve AHB yeniden etkinleştirilmesi gerekir. 

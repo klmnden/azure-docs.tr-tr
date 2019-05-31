@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765729"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390645"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure uygulama Hizmeti'ne sürekli dağıtım
 Bu makale için sürekli dağıtım yapılandırma işlemi gösterilmektedir [Azure App Service](overview.md). App Service; BitBucket, GitHub, sürekli dağıtımı sağlar ve [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/) Bu hizmetlerden biri olarak mevcut deponuzdaki en son güncelleştirmeleri çekerek.
@@ -130,7 +130,7 @@ Sol menüde **Dağıtım Merkezi** > **Azure depoları** > **devam**.
 
 İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
-Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Seçin kullanılıp kullanılmayacağını [dağıtım yuvasını etkinleştirmeniz](deploy-staging-slots.md), ardından **devam**. 
+Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Seçin kullanılıp kullanılmayacağını [dağıtım yuvasını etkinleştirmeniz](deploy-staging-slots.md), ardından **devam**. DevOps, sürekli teslim üretim yuvasına izin vermez. Bu, üretime yanlışlıkla dağıtımı önlemek için tasarım gereğidir. Hazırlama yuvasına sürekli teslimat ayarlayın, değişiklikleri doğrulayın ve hazır olduğunuzda Yuvalar.
 
 ### <a name="finish-configuration"></a>Son yapılandırma
 

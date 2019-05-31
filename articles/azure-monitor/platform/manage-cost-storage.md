@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e0b9faeb796653abb4c061884ab2fbb78e867e71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918993"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417852"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Kullanımı ve Azure İzleyici günlüklerine ile maliyetleri yönetme
 
@@ -85,7 +85,7 @@ Başlamanıza yardımcı olmak için uyarı için önerilen ayarları şunlardı
    - Arama sorgusu: İşlemi | Ayrıntı 'Altındaysa' sahip olduğu
    - Temel: Sonuç sayısı
    - Koşul: Büyüktür
-   - Eşik: 0
+   - Eşiği: 0
    - Dönem: 5 (dakika)
    - Sıklığı: 5 (dakika)
 - Uyarı kuralı adı: Günlük veri sınırına ulaşıldı
@@ -151,13 +151,13 @@ Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
 
 ## <a name="understanding-nodes-sending-data"></a>Veri gönderen düğüm anlama
 
-Geçen ayın her günü raporlama verilerini bilgisayarların (düğümlerin) sayısını anlamak için kullanın
+Geçen ayın her günü sinyal bildiren bilgisayarların sayısını anlamak için kullanın
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Gönderme bilgisayarların listesini almak için **veri türleri faturalandırılır** (bazı veri türleri, ücretsiz), yararlanarak `_IsBillable` [özelliği](log-standard-properties.md#_isbillable):
+Çalışma alanını eski başına fiyatlandırma katmanında düğüm varsa, düğüm olarak faturalandırılır bilgisayarların listesini almak için gönderen düğümleri için konum **veri türleri faturalandırılır** (bazı veri türleri ücretsizdir). Bunu yapmak için `_IsBillable` [özelliği](log-standard-properties.md#_isbillable) ve tam etki alanı adının en soldaki alan kullanın. Bu, faturalandırılan verilerle bilgisayarların listesini döndürür:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -165,15 +165,24 @@ Gönderme bilgisayarların listesini almak için **veri türleri faturalandırı
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Bu `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan tutumlu sorgular. Bu sorgu bilgisayar başına bilgi kullanım veri türü ile sorgulama eski biçimini değiştirir.  
-
-Gönderen bilgisayar saat sayısını veri türleri (hangi Log Analytics Faturalanabilir düğümleri eski fiyatlandırma katmanında düğüm başına için nasıl hesaplar) faturalandırılır döndürmek için Genişletilebilir:
+Görülen Faturalanabilir düğüm sayısı olarak tahmin edilebilir: 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| billableNodes=dcount(computerName)`
+
+> [!NOTE]
+> Bu `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan tutumlu sorgular. Bu sorgu bilgisayar başına bilgi kullanım veri türü ile sorgulama eski biçimini değiştirir.  
+
+Daha doğru bir hesaplama, aslında neler faturalandırılır, saatlik faturalandırılan veri türleri gönderme bilgisayar sayısını almaktır. (Eski düğüm başına fiyatlandırma katmanında çalışma alanları için Log Analytics, saatlik olarak faturalandırılırsınız gereken düğüm sayısını hesaplar.) 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
 ## <a name="understanding-ingested-data-volume"></a>Anlama alınan veri hacmi
 
@@ -197,24 +206,19 @@ Görmek için **boyutu** Faturalanabilir olayların, bilgisayar başına alınan
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 `_IsBillable` [Özelliği](log-standard-properties.md#_isbillable) alınan veri ücret uygulanabilir olup olmadığını belirtir.
 
-Görmek için **sayısı** bilgisayar başına alınan olayların kullanın
-
-```kusto
-union withsource = tt *
-| summarize count() by Computer | sort by count_ nulls last
-```
-
-Bilgisayar başına alınan Faturalanabilir olayların sayısını görmek için kullanın 
+Sayısını görmek için **Faturalanabilir** her bilgisayar, içe alınan olayları kullanma 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize count() by Computer  | sort by count_ nulls last
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize eventCount=count() by computerName  | sort by count_ nulls last
 ```
 
 Sayıları Faturalandırılabilir veri türleri için belirli bir bilgisayar için veri gönderdiğini görmek istiyorsanız, bu seçeneği kullanın:

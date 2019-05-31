@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130741"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357569"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
 ![Office 365 logosu](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> Yükleme ve yapılandırma Office 365 çözüm için önerilen yöntem etkinleştirme [Office 365 Bağlayıcısı](../../sentinel/connect-office-365.md) içinde [Azure Gözcü](../../sentinel/overview.md) bu makaledeki adımları yerine. Gelişmiş Yapılandırma deneyimi ile Office 365 çözüm güncelleştirilmiş bir sürümünü budur. Azure AD günlükleri bağlanın [Azure Sentinel Azure AD Bağlayıcısı](../../sentinel/connect-azure-active-directory.md), Office 365 Yönetim günlük daha zengin günlük verilerini sağlar. 
+>
+> Olduğunda, [yerleşik Azure Gözcü](../../sentinel/quickstart-onboard.md), yüklü Office 365 çözüm istediğiniz Log Analytics çalışma alanını belirtin. Bağlayıcı etkinleştirdikten sonra çözüm çalışma alanında kullanılabilir olur ve tam olarak aynı yüklediğiniz herhangi diğer izleme çözümleri kullanılan.
+>
+> Azure kamu Bulutu kullanıcıları Azure Gözcü henüz kamu bulutunda kullanılabilir olmadığından, bu makaledeki adımları kullanarak Office 365 yüklemeniz gerekir.
 
 Office 365 yönetim çözümü, Azure İzleyici'de, Office 365 ortamı izlemenize olanak sağlar.
 
@@ -30,6 +38,7 @@ Office 365 yönetim çözümü, Azure İzleyici'de, Office 365 ortamı izlemeniz
 - Algılama ve kuruluş gereksinimlerinize özelleştirilebilen istenmeyen kullanıcı davranışı araştırın.
 - Denetim ve uyumluluk gösterir. Örneğin, dosya erişim işlemleri ve denetim ve uyumluluk işlemiyle size gibi gizli bilgiler içeren dosyaları üzerinde izleyebilirsiniz.
 - Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [oturum sorguları](../log-query/log-query-overview.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -64,7 +73,7 @@ Log Analytics çalışma alanınızdan:
 Office 365 aboneliğinize:
 
 - Kullanıcı Adı: Bir yönetici hesabı e-posta adresi.
-- Kiracı Kimliği: Office 365 aboneliğiniz için benzersiz kimlik.
+- Kiracı kimliği: Office 365 aboneliğiniz için benzersiz kimlik.
 - İstemci kimliği: Office 365 istemci temsil eden 16-karakter dizesi.
 - İstemci gizli anahtarı: Kimlik doğrulaması için gereken şifreli dize.
 
@@ -79,7 +88,7 @@ Office 365 aboneliğinize:
     ![Uygulama kaydı ekleme](media/solution-office-365/add-app-registration.png)
 1. Bir uygulama girin **adı** ve **oturum açma URL'si**.  Adı açıklayıcı olmalıdır.  Kullanım `http://localhost` URL'si ve canlı _Web uygulaması / API_ için **uygulama türü**
     
-    ![Uygulama oluştur](media/solution-office-365/create-application.png)
+    ![Uygulama oluşturma](media/solution-office-365/create-application.png)
 1. Tıklayın **Oluştur** ve uygulama bilgilerini doğrulayın.
 
     ![Kayıtlı uygulama](media/solution-office-365/registered-app.png)
@@ -94,19 +103,19 @@ Office 365 aboneliğinize:
 1. Seçin **gerekli izinler** içinde **ayarları** menüsünü seçin ve ardından **Ekle**.
 1. Tıklayın **bir API seçin** ardından **Office 365 Yönetim API'leri**. tıklayın **Office 365 Yönetim API'leri**. **Seç**'e tıklayın.
 
-    ![API Seçin](media/solution-office-365/select-api.png)
+    ![API seçin](media/solution-office-365/select-api.png)
 
 1. Altında **izinleri seçin** hem de aşağıdaki seçenekleri belirleyin **uygulama izinleri** ve **temsilci izinleri**:
-   - Kuruluşunuza ilişkin hizmet durumu bilgilerini okur
+   - Kuruluşunuz için hizmet durumu bilgilerini okuyabilir
    - Kuruluşunuz için etkinlik verilerini okuyun
-   - Kuruluşunuza ilişkin etkinlik raporlarını okur
+   - Kuruluşunuz için Etkinlik raporlarını okuyun
 
-     ![API Seçin](media/solution-office-365/select-permissions.png)
+     ![API seçin](media/solution-office-365/select-permissions.png)
 
 1. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **izinleri verin** ve ardından **Evet** doğrulama için sorulduğunda.
 
-    ![İzin ver](media/solution-office-365/grant-permissions.png)
+    ![İzinleri verme](media/solution-office-365/grant-permissions.png)
 
 ### <a name="add-a-key-for-the-application"></a>Uygulama için bir anahtar ekleyin
 
@@ -388,7 +397,7 @@ At line:12 char:18
 
 ```
 
-## <a name="uninstall"></a>Kaldır
+## <a name="uninstall"></a>Kaldırma
 
 Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabilirsiniz [bir yönetim çözümünü Kaldır](solutions.md#remove-a-monitoring-solution). Bu, Office 365'ten Azure İzleyici ile ancak toplanan verilerin durdurmaz. Office 365'ten aboneliği ve veri toplamayı durdurmak için aşağıdaki yordamı izleyin.
 
@@ -532,7 +541,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 
 | Özellik | Description |
 |:--- |:--- |
-| Tür | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | Clientıp | Etkinlik günlüğe kaydedildiğinde kullanılan cihazın IP adresi. IP adresi IPv4 veya IPv6 adresi biçiminde görüntülenir. |
 | OfficeWorkload | Kayıt başvurduğu office 365 hizmeti.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |
@@ -541,7 +550,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 | ResultStatus | Eylemin (Operation özelliğinde belirtilen) başarılı olup olmadığını gösterir. Olası değerler şunlardır: başarılı oldu, kısmen başarılı veya başarısız oldu. Exchange yönetim etkinliği için ya da True değeridir ya da yanlış. |
 | UserId | UPN'sini (kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlanan eylemi gerçekleştiren kullanıcının; Örneğin, my_name@my_domain_name. Sistem hesapları (sharepoınt\system veya gibi ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtları da dahil edilir. | 
 | UserKey | Kullanıcı Kimliği özelliğinde belirtilen kullanıcı için alternatif bir kimliği.  Örneğin, bu özellik, kullanıcıların SharePoint, OneDrive iş ve Exchange için gerçekleştirilen olayları için passport benzersiz Tanımlayıcısı (PUID) ile doldurulur. Bu özellik, diğer hizmetler ve sistem hesapları tarafından gerçekleştirilen olayları gerçekleşen olayları için kullanıcı kimliği özelliği olarak aynı değeri de belirtebilirsiniz|
-| UserType | İşlemi gerçekleştiren kullanıcının türü.<br><br>Yönetim Bölgesi<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |
+| UserType | İşlemi gerçekleştiren kullanıcının türü.<br><br>Yönetici<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory temel
@@ -673,7 +682,7 @@ Değişiklikler ve eklemeler Exchange gruplarına yapıldığında bu kayıtlar�
 | DestMailboxOwnerUPN | Yalnızca CrossMailboxOperations parametre True ise ayarlayın. Hedef posta kutusu sahibi UPN'sini belirtir. |
 | DestFolder | Taşıma gibi işlemler için hedef klasör. |
 | Klasör | Bir öğe grubunu bulunduğu klasör. |
-| Klasörler |     Bir işlemde yer alan kaynak klasörleri hakkında bilgiler; Örneğin, klasörleri seçtiyseniz ve ardından silinir. |
+| Klasörleri |     Bir işlemde yer alan kaynak klasörleri hakkında bilgiler; Örneğin, klasörleri seçtiyseniz ve ardından silinir. |
 
 
 ### <a name="sharepoint-base"></a>SharePoint temel

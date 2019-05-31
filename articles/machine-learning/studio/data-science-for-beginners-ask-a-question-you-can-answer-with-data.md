@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751272"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239070"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Verilerle yanıtlayabileceğiniz bir soru sorun
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Seri yeni başlayanlar için veri bilimi
@@ -48,7 +48,7 @@ Veri bilimi (kategorileri veya etiketleri olarak da bilinir) adlarını ve numar
 
 Bir ad veya sayı ile yanıtlanması unutmayacağınız bir soru yok. Bir bir sharp soru gerekir.
 
-Imagine Beyanları, sormak istediğiniz soru yanıt bir genie ile Sihirli bir lamp bulunamadı. Ancak yaramaz genie olduğu ve he kendisinin hemen kullanmaya başlayabilirsiniz gibi kendi yanıt belirsiz ve karmaşık hale deneyin. İlişkiyi kendisi olamaz yardımcı ancak öğrenmek istediklerinizi söyleyin, bu nedenle airtight soru sabitlemek istediğiniz.
+Imagine Beyanları, sormak istediğiniz soru yanıt bir genie ile Sihirli bir lamp bulunamadı. Ancak bunlar hemen kullanmaya başlayabilirsiniz gibi kendi yanıt belirsiz ve karmaşık hale çalışan yaramaz genie. Bunlar olamaz yardımcı ancak öğrenmek istediklerinizi söyleyin, bu nedenle airtight soru sabitleme istiyorsunuz.
 
 Genie yanıt "my hisse olmasını neler oluyor?", "fiyat değişir" gibi belirsiz bir soru sormak için olsaydı. Doğru yanıt olan, ancak bu çok yararlı değildir.
 

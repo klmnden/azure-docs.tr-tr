@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791350"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357769"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Havuz ve düğüm hataları denetleyin
 
@@ -84,18 +84,27 @@ Bir havuz için bir veya daha fazla uygulama paketi belirtebilirsiniz. Batch, he
 
 Düğüm [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) özelliği indirmek ve bir uygulama paketi sıkıştırmasını açmak için bir hata bildirir. Batch düğüm durumu ayarlar **kullanılamaz**.
 
+### <a name="container-download-failure"></a>Kapsayıcı indirme hatası
+
+Bir havuzda bir veya daha fazla kapsayıcı başvurular belirtebilirsiniz. Batch, her düğüm için belirtilen kapsayıcıları indirir. Düğüm [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) özelliği bir kapsayıcı indirmek için bir hata bildirir ve düğüm durumu ayarlar **kullanılamaz**.
+
 ### <a name="node-in-unusable-state"></a>Düğüm kullanılamaz durumda
 
 Azure Batch ayarlanabilir [düğüm durumu](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) için **kullanılamaz** birçok nedenden dolayı. Düğüm durumu ile kümesine **kullanılamaz**görevleri düğüme zamanlanmış olamaz, ancak yine de ücreti alınmaz.
 
-Batch kullanılamaz düğümleri kurtarmak her zaman çalışır ancak kurtarma olabilir veya nedenine bağlı olarak mümkün olmayabilir.
+Düğüm bir **unsuable**, olmadan [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) durumu, Batch VM ile iletişim kuramıyor, anlamına gelir. Bu durumda, Batch, sanal Makineyi kurtarmak her zaman çalışır. Toplu olmayan otomatik olarak durumlarına olsa bile, uygulama paketleri veya kapsayıcıları yüklemek için başarısız olan sanal makineleri kurtarmayı deneyecek **kullanılamaz**.
 
 Batch düğüm nedeni belirleyebilirseniz [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) özelliği bildirir.
 
 Ek örnekler nedenleri **kullanılamaz** düğümleri içerir:
 
 - Özel bir VM görüntüsü geçersiz. Örneğin, görüntünün düzgün şekilde hazırlanır.
+
 - Bir VM, bir altyapı hatası veya bir alt düzey yükseltmesi nedeniyle taşınır. Batch düğüm kurtarır.
+
+- Bir VM görüntüsü, bunu desteklemeyen donanımda dağıtıldı. HPC dışı bir donanım üzerinde çalışan örneğin "HPC" VM görüntüsü. Örneğin, bir CentOS HPC görüntüsü çalıştırmayı denediği bir [işler için standart_d1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+
+- Vm'leri bulunan bir [Azure sanal ağı](batch-virtual-network.md), ve trafiği anahtar bağlantı noktalarına engellendi.
 
 ### <a name="node-agent-log-files"></a>Düğüm Aracısı günlük dosyaları
 

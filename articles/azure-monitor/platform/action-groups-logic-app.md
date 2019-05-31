@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234853"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389569"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
 
@@ -26,7 +26,7 @@ Genel süreç şöyledir:
 
 -   İlgili uyarı türü için mantıksal uygulama oluşturun.
 
--   İlgili uyarı türü için şema mantıksal uygulamaya aktarma.
+-   İlgili uyarı türü için bir örnek yük mantıksal uygulamaya aktarma.
 
 -   Mantıksal uygulama davranışını tanımlayın.
 
@@ -58,7 +58,7 @@ Genel süreç şöyledir:
 
     ![Bir örnek yük kullanma](media/action-groups-logic-app/use-sample-payload-button.png "örnek yük kullanma")
 
-8.  Kopyalayıp aşağıdaki örnek şema iletişim kutusuna yapıştırın:
+8.  Kopyalayıp aşağıdaki örnek yük iletişim kutusuna yapıştırın:
 
     ```json
         {
@@ -140,7 +140,7 @@ Bir uyarı eylem grubunuzu çağıran bir sonraki açışınızda, mantıksal uy
 Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı oluşturma işlemi benzer [bir etkinlik günlüğü uyarısı oluşturma](#create-an-activity-log-alert-administrative), ancak bazı değişiklikler:
 
 - 1 ile 7 arasındaki adımları aynıdır.
-- Adım 8 için aşağıdaki örnek şeması için HTTP isteği tetikleyicisi kullanın:
+- Adım 8 için aşağıdaki örnek yük için HTTP isteği tetikleyicisi kullanın:
 
     ```json
     {
@@ -228,7 +228,7 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
 Ölçüm uyarısı oluşturma işlemi benzer [bir etkinlik günlüğü uyarısı oluşturma](#create-an-activity-log-alert-administrative), ancak bazı değişiklikler:
 
 - 1 ile 7 arasındaki adımları aynıdır.
-- Adım 8 için aşağıdaki örnek şeması için HTTP isteği tetikleyicisi kullanın:
+- Adım 8 için aşağıdaki örnek yük için HTTP isteği tetikleyicisi kullanın:
 
     ```json
     {
@@ -281,11 +281,11 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
        
        !["Ölçüm uyarı yükü koşul"](media/action-groups-logic-app/metric-alert-payload-condition.png "ölçüm uyarı yükü koşulu")
 
-  2. İçinde **doğruysa** koşul, ekleme bir **her** döngüsü ve Microsoft Teams eylem. İleti HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın.
+  1. İçinde **doğruysa** koşul, ekleme bir **her** döngüsü ve Microsoft Teams eylem. İleti HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın.
 
       !["Ölçüm uyarı koşulun sonrası eylemi"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ölçüm uyarı koşulun sonrası eylemi")
 
-  3. İçinde **false ise** koşulu için ölçüm uyarısı mantıksal uygulamanın beklentileri eşleşmiyor iletişim kurmak için bir Microsoft Teams eylem tanımlayın. JSON yükünü dahil et. Dosyasına nasıl başvurulacağı fark `triggerBody` dinamik içeriği `json()` ifade.
+  1. İçinde **false ise** koşulu için ölçüm uyarısı mantıksal uygulamanın beklentileri eşleşmiyor iletişim kurmak için bir Microsoft Teams eylem tanımlayın. JSON yükünü dahil et. Dosyasına nasıl başvurulacağı fark `triggerBody` dinamik içeriği `json()` ifade.
 
       !["Ölçüm uyarı false koşulu sonrası eylemi"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ölçüm uyarı false koşulu sonrası eylemi")
 
@@ -298,3 +298,4 @@ Logic Apps tetikleyici eylemlere uygulamaları ve veritabanlarının geniş bir 
 * Alma bir [Azure etkinlik günlüğü uyarılarına genel bakış](../../azure-monitor/platform/alerts-overview.md) ve uyarıları alma hakkında bilgi edinin.  
 * Bilgi edinmek için nasıl [bir Azure hizmet durumu bildirimi gönderildiğinde uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md).
+

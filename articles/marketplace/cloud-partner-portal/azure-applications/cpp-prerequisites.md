@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942890"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258196"
 ---
 # <a name="azure-application-prerequisites"></a>Azure uygulama önkoşulları
 
@@ -38,7 +38,8 @@ Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal ku
 
 Aşağıdaki yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine iş gereksinimleri şunlardır:
 
-* Kayıtlı bir bulut Market yayımcı olmalıdır. Makaledeki adımları izleyin, kayıtlı değil, [bulut Market yayımcısı haline](../../become-publisher.md).
+* Kayıtlı bir bulut Market yayımcı olmalıdır. Makaledeki adımları izleyin, kayıtlı değil, [bulut Market yayımcısı haline](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >Bulut iş ortağı portalında oturum açmak için aynı Microsoft Developer Center kayıt hesabı kullanmanız gerekir. Azure Marketi Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Bu hesap, bireysel hizmetlerin veya teklifler için belirli olmamalıdır.

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: b42d376be0d26c8ced60344793dbc8f7dd4a3d53
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: HT
+ms.openlocfilehash: 24e0a0ae2a6af964d3ed87d1817de6e5f403c9b1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303769"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416340"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure Logic Apps ve Microsoft Flow, iş akışı tanımlama dili için işlev başvurusu
 
@@ -246,7 +246,8 @@ Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/w
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Bir anahtar adı ile eşleşen değerleriyle bir dizi oluşturmak *form verilerini* veya *form kodlu* eylem çıktı. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Bir eylem içinde bir anahtar adı ile eşleşen tek bir değer döndürmesi *form verisinin* veya *form kodlu çıkış*. |
 | [Öğesi](../logic-apps/workflow-definition-language-functions-reference.md#item) | Bir dizi üzerindeki bir yinelenen eylemi olduğu zaman içinde eylemin geçerli yineleme sırasında dizideki geçerli öğeyi döndürür. |
-| [Öğeleri](../logic-apps/workflow-definition-language-functions-reference.md#items) | İçinde için-her veya-kadar-döngü, geri döndürme işlevi, geçerli öğenin belirtilen döngünün.|
+| [Öğeleri](../logic-apps/workflow-definition-language-functions-reference.md#items) | Bir Foreach, zaman içindeki ya da Until döngüsü belirtilen döngünün geçerli öğeyi döndürür.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Bir Until döngü olduğu zaman içinde geçerli yineleme için dizin değerini döndürür. Döngüler kadar iç içe geçmiş içinde bu işlevi kullanabilirsiniz. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | "Bir tetikleyici veya eylemi çağırır geri çağırma URL'si" döndürür. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Birden çok bölümü olan bir eylemin çıkış belirli bir parçanın gövdesini döndürür. |
 | [parametreler](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Tanımlanan bir parametre için değer iş akışı tanımınızı döndürün. |
@@ -2278,6 +2279,96 @@ Bu örnek, geçerli öğenin belirtilen için-her bir döngü alır:
 
 ```
 items('myForEachLoopName')
+```
+
+<a name="iterationIndexes"></a>
+
+### <a name="iterationindexes"></a>iterationIndexes
+
+Until döngü içinde geçerli yineleme için dizin değerini döndürür. Döngüler kadar iç içe geçmiş içinde bu işlevi kullanabilirsiniz. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Parametre | Gerekli | Tür | Açıklama | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | Evet | String | Until döngü adı | 
+||||| 
+
+| Dönüş değeri | Type | Açıklama | 
+| ------------ | ---- | ----------- | 
+| <*Dizin*> | Tamsayı | Geçerli yineleme içinde belirtilen dizin değeri Until döngüsü | 
+|||| 
+
+*Örnek* 
+
+Sayaç değeri beş ulaşana kadar bu örnek bir sayaç değişkeni ve artışlarla bu değişkenin tek bir Until döngü her yinelemede sırasında oluşturur. Örnek ayrıca, her yineleme için geçerli dizin izleyen bir değişken oluşturur. Until döngü, her yineleme sırasında örnek sayacını artırır ve sonra sayaç değeri için geçerli dizin değeri atar ve ardından sayaç artırılır. Herhangi bir zamanda geçerli dizin değerini alarak geçerli yineleme sayısını belirleyebilirsiniz.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
 ```
 
 <a name="json"></a>

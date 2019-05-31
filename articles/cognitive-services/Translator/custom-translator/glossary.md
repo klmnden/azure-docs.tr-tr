@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: reference
-ms.openlocfilehash: b257a8d15eeed5989db2b69f64bf6e756a73a1fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae9b17dde20913c5d8d1201e66fcc924ce26a2b1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512667"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389324"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -22,7 +22,7 @@ ms.locfileid: "60512667"
 
 | **Sözcük veya tümcecik arayın**       | **Tanım**                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kaynak Dil          | Kaynak dili ile başlayan ve başka bir dil ("hedef") dönüştürmek istediğiniz bir dildir.                                                                                                                                                                                                                                                                                                                                                         |
+| Kaynak dili          | Kaynak dili ile başlayan ve başka bir dil ("hedef") dönüştürmek istediğiniz bir dildir.                                                                                                                                                                                                                                                                                                                                                         |
 | Hedef Dil          | Makine çevirisi aldıktan sonra kaynak dili sağlamak için istediğiniz dili hedef dilidir.                                                                                                                                                                                                                                                                                                                                               |
 | Tek dilli Kinsoku'ya dosyası         | Bir tek dilli Kinsoku'ya dosyası başka bir dosyanın farklı bir dil ile eşleştirilmedi tek bir dil vardır.                                                                                                                                                                                                                                                                                                                                                                 |
 | Paralel dosyaları           | Paralel dosya iki dosya ile ilgili metin'ın bir birleşimidir. Bir dosya, kaynak dili vardır. Diğer, hedef dil sahiptir.                                                                                                                                                                                                                                                                                                                                         |

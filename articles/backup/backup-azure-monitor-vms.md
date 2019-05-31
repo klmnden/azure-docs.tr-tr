@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464426"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399743"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure sanal makine yedekleme uyarılarını izleme
 
@@ -70,7 +70,7 @@ Uyarılar için e-posta bildirimlerini ayarlamak için
    | Uyarı düzeyi | Gönderilen uyarılar |
    | --- | --- |
    | Kritik | Kurtarma hatası yedekleme hatası için |
-   | Uyarı | uyarılarla başarılı yedekleme işleri için (örneğin: bazı yazarları, bir anlık görüntü oluşturulurken başarısız oldu) |
+   | Uyarı | şu anda hiçbir uyarı bildirimleri Azure VM yedeklemeleri için kullanılabilir (örneğin: bazı yazarları, bir anlık görüntü oluşturulurken başarısız oldu) |
    | Bilgilendirici | şu anda, Azure VM yedeklemesi için hiçbir bilgilendirici uyarılar kullanılabilir |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Bildirimler yapılandırılmış olsa bile e-postanın gönderilmediği durumlar

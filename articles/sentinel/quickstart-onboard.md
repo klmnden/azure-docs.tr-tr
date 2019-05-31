@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228318"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258428"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Yerleşik Azure Sentinel Önizleme
 
@@ -41,7 +41,7 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 - Log Analytics çalışma alanı. Bilgi edinmek için nasıl [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Azure Gözcü etkinleştirmek için Azure Gözcü çalışma alanının bulunduğu aboneliğe katkıda bulunan izinleri gerekir. 
-- Azure Gözcü kullanmak için çalışma alanının ait olduğu kaynak grubu üzerinde katkıda bulunan veya Görüntüleyici izinleri gerekir.
+- Azure Gözcü kullanmak için çalışma alanının ait olduğu kaynak grubu üzerinde katkıda bulunan veya Okuyucu izinleri gerekir.
 - Ek izinler, belirli veri kaynaklarına bağlanmak için gerekli
  
 ## Azure Sentinel etkinleştir <a name="enable"></a>
@@ -54,7 +54,7 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 1. Tıklayın **+ Ekle**.
 1. Kullanma veya yeni bir tane oluşturmak istediğiniz çalışma alanını seçin. Birden fazla çalışma alanına Azure Gözcü çalıştırabilirsiniz, ancak veriler, tek bir çalışma alanına yalıtılır.
 
-   ![ara](./media/quickstart-onboard/choose-workspace.png)
+   ![search](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **Çalışma alanı konumu** akışını Azure Gözcü için tüm veriler, seçili çalışma alanının coğrafi konumda depolanır anlamak önemlidir.  

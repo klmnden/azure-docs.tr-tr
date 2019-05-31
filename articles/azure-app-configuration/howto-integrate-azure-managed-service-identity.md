@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408898"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393659"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Azure ile tümleştirilmesini yönetilen kimlikleri
 
@@ -49,7 +49,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama oluşturun ve ardından özelliği etkinleştirin.
 
-1. Bir uygulama oluşturun [Azure portalında](https://aka.ms/azconfig/portal) normalde yaptığınız gibi. Portalda gidin.
+1. Bir uygulama oluşturun [Azure portalında](https://portal.azure.com) normalde yaptığınız gibi. Portalda gidin.
 
 2. Ekranı aşağı kaydırarak **ayarları** grup sol bölmede, belirleyin **kimlik**.
 
@@ -59,9 +59,9 @@ Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama ol
 
 ## <a name="grant-access-to-app-configuration"></a>Uygulama yapılandırması için erişim izni ver
 
-1. İçinde [Azure portalında](https://aka.ms/azconfig/portal)seçin **tüm kaynakları** ve hızlı başlangıç bölümünde oluşturduğunuz uygulama yapılandırma deposu seçin.
+1. İçinde [Azure portalında](https://portal.azure.com)seçin **tüm kaynakları** ve hızlı başlangıç bölümünde oluşturduğunuz uygulama yapılandırma deposu seçin.
 
-2. Seçin **erişim denetimi (IAM)**.
+2. Seçin **erişim denetimi (IAM)** .
 
 3. Üzerinde **denetleyin erişim** sekmesinde **Ekle** içinde **rol ataması Ekle** UI kartı.
 
@@ -75,7 +75,7 @@ Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama ol
 
 ## <a name="use-a-managed-identity"></a>Yönetilen kimlik kullanma
 
-1. Açık *appsettings.json*ve aşağıdaki betiği ekleyin. Değiştirin  *\<service_endpoint >*, köşeli parantez ile uygulama yapılandırma deposu URL'si de dahil olmak üzere:
+1. Açık *appsettings.json*ve aşağıdaki betiği ekleyin. Değiştirin  *\<service_endpoint >* , köşeli parantez ile uygulama yapılandırma deposu URL'si de dahil olmak üzere:
 
     ```json
     "AppConfig": {

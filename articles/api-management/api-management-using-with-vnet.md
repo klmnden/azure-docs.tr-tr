@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 73785422a7c45a12671e6cd53da89609190a8352
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66141382"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243298"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Azure sanal ağları başlangıç hakkında daha fazla bilgi için: [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -103,7 +103,7 @@ Bir sanal ağa API Management hizmet dağıtımı sırasında oluşabilecek yayg
 * **Özel DNS Sunucusu Kurulumu**: API Management hizmeti, çeşitli Azure hizmetlerinde bağlıdır. API Management, özel bir DNS sunucusu ile bir sanal ağ içinde barındırıldığında, bu Azure hizmetlerini ana bilgisayar adlarını çözümlemek gerekir. Lütfen izleyin [bu](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) özel DNS kurulum yönergeleri. Aşağıdaki bağlantı noktaları tabloya ve diğer ağ gereksinimleri başvurusu bakın.
 
 > [!IMPORTANT]
-> Bir özel DNS sunucuları için sanal ağ kullanmayı planlıyorsanız, kurabilecek **önce** içine bir API Management hizmeti dağıtma. Aksi takdirde, DNS sunucuları çalıştırarak her değiştirdiğinizde API Management hizmeti güncelleştirmeye gerek duyduğunuz [ağ yapılandırma işlemi uygulama](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Bir özel DNS sunucuları için sanal ağ kullanmayı planlıyorsanız, kurabilecek **önce** içine bir API Management hizmeti dağıtma. Aksi takdirde, DNS sunucuları çalıştırarak her değiştirdiğinizde API Management hizmeti güncelleştirmeye gerek duyduğunuz [ağ yapılandırma işlemi uygulama](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **API yönetimi için gereken bağlantı noktaları**: API Management dağıtıldığı alt ağa gelen ve giden trafiği kullanılarak denetlenebilir [ağ güvenlik grubu][Network Security Group]. Bu bağlantı noktalarından birini kullanılamıyorsa, API Management düzgün çalışmayabilir ve erişilemez duruma gelebilir. Bir veya daha fazla engellenen Bu bağlantı noktalarına sahip başka bir yaygın hatalı yapılandırma sorunu API yönetimi bir VNET ile birlikte kullanıldığında.
 
@@ -170,7 +170,7 @@ Bir sanal ağa API Management hizmet dağıtımı sırasında oluşabilecek yayg
   > [!IMPORTANT]
   > Bağlantı doğrulandıktan sonra API Management alt ağa dağıtmadan önce alt ağda dağıtılan tüm kaynakları kaldırmak emin olun.
 
-* **Artımlı güncelleştirmeler**: Ağınızda değişiklikler yaparken, başvurmak [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), API Management hizmeti bağlıdır, kritik kaynaklara erişimi kesildi değil doğrulayın. Bağlantı durumu, her 15 dakikada güncelleştirilmelidir.
+* **Artımlı güncelleştirmeler**: Ağınızda değişiklikler yaparken, başvurmak [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus), API Management hizmeti bağlıdır, kritik kaynaklara erişimi kesildi değil doğrulayın. Bağlantı durumu, her 15 dakikada güncelleştirilmelidir.
 
 * **Kaynak Gezinti Bağlantıları**: API Management Resource Manager stili vnet alt ağa dağıtırken, kaynak Gezinti bağlantısı oluşturarak alt ayırır. Alt ağ zaten farklı bir sağlayıcı kaynaktan içeriyorsa, dağıtım olacak **başarısız**. Benzer şekilde, bir API Management hizmeti farklı bir alt ağa taşıyın veya silin, o kaynak Gezinti bağlantısı kaldıracağız.
 

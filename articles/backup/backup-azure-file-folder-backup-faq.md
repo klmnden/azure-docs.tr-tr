@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148585"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254860"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Dosya ve klasör yedekleme hakkında sık sorulan sorular 
 
@@ -101,7 +101,7 @@ Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları yedekleme k
 Önbellek klasörünün boyutu, yedeklediğiniz veri miktarını belirler.
 - Önbellek klasörü birimleri, yedekleme verilerinin toplam boyutunun en az 5-%10 eşittir boş alan olması gerekir.
 - Birim % 5'ten az boş alan varsa, birim boyutunu artırın veya önbellek klasörünü yeterli alana sahip bir birime taşıyın.
-- 
+- Windows sistem durumu yedekleme, bir ek 30-35 GB önbellek klasörü içeren birimin içindeki boş alan gerekir.
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS aracısı için Önbellek konumunu nasıl değiştiririm?
 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471639"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399686"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -40,10 +40,10 @@ Yedekleme hakkında daha fazla bilgi [bir yedekleme sunucusu kullanma](backup-ar
 
 **Eylem** | **Destek**
 --- | ---
-Bir Windows Azure VM oluşturduğunuzda, yedeklemeyi etkinleştirme | Desteklenen:  Windows Server 2019 (veri merkezi/veri merkezi çekirdek), Windows Server 2016 (Core veri merkezi/veri merkezi); Windows Server 2012 R2 veri merkezi; Windows Server 2008 R2 (RTM ve SP1)
+Bir Windows Azure VM oluşturduğunuzda, yedeklemeyi etkinleştirme | Desteklenen: <br/><br/> -Windows Server 2019 (veri merkezi/veri merkezi temel/standart) <br/><br/> -Windows Server 2016 (veri merkezi/veri merkezi temel/standart) <br/><br/> -Windows Server 2012 R2'de (veri merkezi/standart) <br/><br/> -Windows Server 2008 R2 (RTM ve SP1 standart)
 Bir Linux VM oluşturduğunuzda, yedeklemeyi etkinleştirme | Desteklenen:<br/><br/> - Ubuntu Server: 18.04, 17.10 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> -SUSE Linux Enterprise Server: SP4 11, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Kapatma/çevrimdışı VM olan bir VM'yi yedekleme | Destekleniyor.<br/><br/> Kilitlenme ile tutarlı anlık görüntü yalnızca, uygulama-tutarlı değil.
-Yönetilen diskler geçiş sonra diskleri yedekleme | Destekleniyor.<br/><br/> Yedekleme çalışmaya devam eder. Eylem gerekmiyor.
+Yönetilen diskler geçiş sonra diskleri yedekleme | Destekleniyor.<br/><br/> Yedekleme çalışmaya devam eder. İşlem yapmanız gerekmez.
 Kaynak grubu kilidi etkinleştirdikten sonra yönetilen diskleri yedekleme | Desteklenmiyor.<br/><br/> Azure yedekleme, eski kaynak noktaları silinemiyor ve yedekleri geri yükleme noktaları üst sınırına ulaşıldığında başarısız olmaya başlar.
 Bir VM için yedekleme ilkesini değiştirme | Destekleniyor.<br/><br/> VM yeni ilke zamanlama ve bekletme ayarlarını kullanarak yedeklenir. Saklama ayarları uzatıldıysa, var olan kurtarma noktalarının işaretlenmiş ve tutulur. Azaltılmış, mevcut kurtarma noktalarını ayıklama sonraki temizleme işi ve sonunda silinir.
 Bir yedekleme işi iptal et | Anlık görüntü işlemi sırasında desteklenir.<br/><br/> Anlık görüntü kasaya aktarıldığında desteklenmiyor.
@@ -61,7 +61,7 @@ Aşağıdaki tabloda, Windows Azure Vm'lerini yedeklerken, desteklenen işletim 
 
 **Senaryo** | **İşletim sistemi desteği**
 --- | ---
-Azure VM Aracısı uzantısı ile yedekleme | Windows İstemcisi: Desteklenmiyor<br/><br/> Windows Server 2019 (veri merkezi/veri merkezi çekirdek), Windows Server 2016 (Core veri merkezi/veri merkezi); Windows Server 2012 R2 veri merkezi; Windows Server 2008 R2 (RTM ve SP1)
+Azure VM Aracısı uzantısı ile yedekleme | Windows İstemcisi: Desteklenmiyor<br/><br/>-Windows Server 2019 (veri merkezi/veri merkezi temel/standart) <br/><br/> -Windows Server 2016 (veri merkezi/veri merkezi temel/standart) <br/><br/> -Windows Server 2012 R2'de (veri merkezi/standart) <br/><br/> -Windows Server 2008 R2 (RTM ve SP1 standart)
 MARS Aracısı ile yedekleme | [Desteklenen](backup-support-matrix-mars-agent.md#support-for-direct-backups) işletim sistemleri.
 DPM/MABS ile yedekleme | Desteklenen işletim sistemleri ile yedekleme için [MABS](backup-mabs-protection-matrix.md) ve [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -216,7 +216,7 @@ Veri güvenliği:
 **Makine** | **Yoldaki** | **Bekleyen**
 --- | --- | ---
 DPM/MABS olmadan şirket içi Windows makineler | ![Evet][green] | ![Evet][green]
-Azure VM'leri | ![Evet][green] | ![Evet][green]
+Azure VM’leri | ![Evet][green] | ![Evet][green]
 DPM ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 MABS ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 
@@ -232,7 +232,7 @@ Aşağıdaki tabloda özetlendiği gibi yedekleme sıkıştırma, yedekleme traf
 **Makine** | **Sıkıştırma MABS/DPM sunucusuna (TCP)** | **Kasa (HTTPS) için Sıkıştır**
 --- | --- | ---
 DPM/MABS olmadan şirket içi Windows makineler | NA | ![Evet][green]
-Azure VM'leri | NA | NA
+Azure VM’leri | NA | NA
 DPM ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 MABS ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 

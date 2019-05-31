@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124722"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399589"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack sanal makinelerini Azure'a çoğaltma
 
@@ -68,7 +68,7 @@ Bu senaryoyu ayarlamak için ihtiyacınız olanlar aşağıda verilmiştir.
 **Gereksinim** | **Ayrıntılar**
 --- | ---
 **Azure abonelik hesabı** | Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
-**Azure hesabı izinleri** | Kullandığınız bir Azure hesabı için izinler gerekir:<br/><br/> -Bir kurtarma Hizmetleri kasası oluşturma<br/><br/> -Kaynak grubunu ve sanal ağ senaryosu için kullandığınız bir sanal makine oluşturma<br/><br/> -Belirttiğiniz depolama hesabına yazma<br/><br/> Şunlara dikkat edin:<br/><br/> -Bir hesap oluşturursanız, aboneliğinizin Yöneticisi olduğunuzu ve tüm eylemleri gerçekleştirebilir.<br/><br/> -Mevcut bir abonelik kullanıyorsanız ve Yönetici değilseniz, sahibi veya katkıda bulunan izinleri atamak için yöneticiyle birlikte çalışmanız gerekiyor.<br/><br/> -Daha ayrıntılı izinler gerekiyorsa, gözden [bu makalede](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
+**Azure hesabı izinleri** | Kullandığınız bir Azure hesabı için izinler gerekir:<br/><br/> -Bir kurtarma Hizmetleri kasası oluşturma<br/><br/> -Kaynak grubunu ve sanal ağ senaryosu için kullandığınız bir sanal makine oluşturma<br/><br/> -Belirttiğiniz depolama hesabına yazma<br/><br/> Aşağıdakilere dikkat edin:<br/><br/> -Bir hesap oluşturursanız, aboneliğinizin Yöneticisi olduğunuzu ve tüm eylemleri gerçekleştirebilir.<br/><br/> -Mevcut bir abonelik kullanıyorsanız ve Yönetici değilseniz, sahibi veya katkıda bulunan izinleri atamak için yöneticiyle birlikte çalışmanız gerekiyor.<br/><br/> -Daha ayrıntılı izinler gerekiyorsa, gözden [bu makalede](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
 **Azure Stack VM** | Site Recovery yapılandırma sunucusu olarak dağıtılacak Kiracı aboneliği bir Azure Stack sanal ihtiyacınız vardır. 
 
 
@@ -78,7 +78,7 @@ Bu senaryoyu ayarlamak için ihtiyacınız olanlar aşağıda verilmiştir.
 
 
  
-## <a name="step-1-prepare-azure-stack-vms"></a>1. Adım: Azure Stack Vm'leri hazırlama
+## <a name="step-1-prepare-azure-stack-vms"></a>1. adım: Azure Stack Vm'leri hazırlama
 
 ### <a name="verify-the-operating-system"></a>İşletim sistemini doğrulayın
 
@@ -140,7 +140,7 @@ VM'ler tabloda özetlenen işletim sistemlerinden birini çalıştırdığından
     ![Özel IP adresi](./media/azure-stack-site-recovery/private-ip.png)
 
 
-## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2. Adım: Kasa oluşturma ve çoğaltma hedefi seçme
+## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2. adım: Kasa oluşturma ve çoğaltma hedefi seçme
 
 1. Azure portalında **kaynak Oluştur** > **Yönetim Araçları** > **Backup ve Site Recovery**.
 2. **Ad** alanına kasayı tanımlamak için kolay bir ad girin. 
@@ -162,7 +162,7 @@ VM'ler tabloda özetlenen işletim sistemlerinden birini çalıştırdığından
 
     ![Koruma hedefi](./media/azure-stack-site-recovery/protection-goal.png)
 
-## <a name="step-3-set-up-the-source-environment"></a>3. Adım: Kaynak ortamı ayarlama
+## <a name="step-3-set-up-the-source-environment"></a>3. adım: Kaynak ortamı ayarlama
 
 Yapılandırma sunucusu makinesini ayarlama, kasaya kaydedin ve çoğaltmak istediğiniz makineleri bulma.
 
@@ -173,7 +173,7 @@ Yapılandırma sunucusu makinesini ayarlama, kasaya kaydedin ve çoğaltmak iste
 
 3. İçinde **Sunucusu Ekle**, kontrol **yapılandırma sunucusu** görünür **sunucu türü**.
 5. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
-6. Kasa kayıt anahtarını indirin. Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+6. Kasa kayıt anahtarını indir Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Kaynağı ayarlama](./media/azure-stack-site-recovery/set-source2.png)
 
@@ -327,7 +327,7 @@ Birincil sitenizi yeniden çalışır olduğunda, Azure başka bir Azure Stack y
 4. İçinde **diskleri**disk adına tıklayın ve ayarlarını toplayın.
 
     - Örneğin, VHD URİ'si testimizde kullanılan: https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd giriş VHD indirmek için kullanılan parametreleri aşağıdaki almak için ayrılabilir.
-        - Depolama Hesabı: 502055westcentralus
+        - Depolama hesabı: 502055westcentralus
         - Kapsayıcı: wahv9b8d2ceb284fb59287
         - VHD adı: kopyalanan-3676553984.vhd
 

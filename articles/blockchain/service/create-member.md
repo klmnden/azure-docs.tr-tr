@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 357dc47027582d5c638bb3c7344c839f37f93dc5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399144"
+ms.locfileid: "66417501"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure blok zinciri hizmeti oluşturma
 
@@ -44,7 +44,7 @@ Azure Blockchain hizmeti, bir dizi işlem ve depolama kaynakları oluşturulur.
     Consortium adı | Yeni bir Konsorsiyumu için benzersiz bir ad girin. Davet aracılığıyla Konsorsiyumu birleştirilecekse, katıldığınız consortium değerdir.
     Açıklama | Consortium açıklaması.
     Protocol |  Önizleme çekirdek protokolünü destekler.
-    Fiyatlandırma | Düğüm yapılandırması yeni hizmetiniz için. Seçin **standart**. 2 Doğrulayıcı düğümü ve 1 işlem varsayılan ayar düğümüdür.
+    Fiyatlandırma | Düğüm yapılandırması yeni hizmetiniz için. Seçin **standart**. Varsayılan ayarlar, 2 Doğrulayıcı düğümleri ve 1 işlem düğüm gösterir.
     İşlem düğümü parola | Üyenin varsayılan işlem düğümü için parola. Parola, blok zinciri üyenin varsayılan işlem düğümü genel uç bağlanırken için temel kimlik doğrulaması kullanın.
 
 1. Seçin **Oluştur** hizmeti sağlanamadı. Sağlama yaklaşık 10 dakika sürer.

@@ -3,22 +3,21 @@ title: SAP Business Warehouse açık bir Azure Data Factory kullanarak hub'ı ar
 description: Desteklenen bir havuz veri depolarına açık hub'ı aracılığıyla SAP Business Warehouse (BW) gelen bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/08/2019
+ms.author: jingwang
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848903"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256903"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>SAP Business Warehouse açık bir Azure Data Factory kullanarak hub'ı aracılığıyla veri kopyalama
 
@@ -30,7 +29,7 @@ Tüm desteklenen havuz veri deposuna SAP Business Warehouse açık hub'ı üzeri
 
 Özellikle, bu SAP Business Warehouse açık Hub bağlayıcı'yı destekler:
 
-- SAP Business Warehouse **sürüm 7.01 veya üzeri (yığındaki son SAP destek paketi 2015 yıl sonra yayımlanan)**.
+- SAP Business Warehouse **sürüm 7.01 veya üzeri (yığındaki son SAP destek paketi 2015 yıl sonra yayımlanan)** .
 - Olabilen altında DSO, Infocube, MultiProvider, veri kaynağı, vb. açık Hub hedef yerel tablo aracılığıyla veri kopyalama.
 - Temel kimlik doğrulaması kullanarak veri kopyalama.
 - Uygulama sunucusuna bağlanılıyor.
@@ -135,7 +134,7 @@ SAP Business Warehouse açık bağlı Hub hizmeti için aşağıdaki özellikler
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Salesforce veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, SAP BW Open Hub veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
 Gelen ve SAP BW Open Hub'ına veri kopyalamak için dataset öğesinin type özelliği ayarlamak **SapOpenHubTable**. Aşağıdaki özellikler desteklenir.
 
@@ -173,7 +172,7 @@ Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi i
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub kaynağı olarak
 
-SAP BW Open Hub'ından veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SapOpenHubSource**. Kopyalama etkinliği gerekli hiçbir ek türe özgü özellikler varken **kaynak** bölümü.
+SAP BW Open Hub'ından veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SapOpenHubSource**. Kopyalama etkinliği gereken ek türe özgü özellikler yoktur **kaynak** bölümü.
 
 **Örnek:**
 

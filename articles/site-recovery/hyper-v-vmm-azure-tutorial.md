@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8c3c9347a027cccfaef6def84bfdc4c83555e98a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 653db1497fcce5981bba7416f073b0330ca2861f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966480"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398148"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Azure'a VMM bulutlarındaki şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarmayı ayarlayın
 
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Sanal makine için çoğaltmayı etkinleştirme.
 
 > [!NOTE]
-> Öğreticiler bir senaryo için en basit dağıtım yolu gösterir. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Ayrıntılı yönergeler için makaleleri inceleyin **nasıl yapılır kılavuzlarından** bölümünü [Site Recovery belgeleri](https://docs.microsoft.com/en-us/azure/site-recovery).
+> Öğreticiler bir senaryo için en basit dağıtım yolu gösterir. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Ayrıntılı yönergeler için makaleleri inceleyin **nasıl yapılır kılavuzlarından** bölümünü [Site Recovery belgeleri](https://docs.microsoft.com/azure/site-recovery).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -112,7 +112,7 @@ Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağ�
 
 ## <a name="set-up-a-replication-policy"></a>Çoğaltma ilkesi ayarlama
 
-1. Seçin **altyapıyı hazırlama** > **çoğaltma ayarları** > **+ oluştur ve ilişkilendir**.
+1. Seçin **altyapıyı hazırlama** > **çoğaltma ayarları** >  **+ oluştur ve ilişkilendir**.
 2. **İlke oluştur ve ilişkilendir** bölümünde bir ilke adı belirtin. Kullandığımız **ContosoReplicationPolicy**.
 3. Varsayılan ayarları bırakın ve seçin **Tamam**.
     - **Kopyalama sıklığı** ilk çoğaltmadan sonra değişim verilerini beş dakikada çoğaltmak, gösterir.

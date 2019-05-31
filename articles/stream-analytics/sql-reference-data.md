@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363760"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304981"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
 
@@ -59,16 +59,14 @@ Visual Studio kullanarak bir başvuru giriş kaynağı Azure SQL veritabanı ekl
 
 ### <a name="visual-studio-prerequisites"></a>Visual Studio önkoşulları
 
-1. Visual Studio 2017'yi kullanıyorsanız, 15.8.2 veya üstüne güncelleştirin. Unutmayın 16,0 ve yukarıdaki bu noktada desteklenmez.
-
-2. [Visual Studio için Stream Analytics Araçları'nı yükleme](stream-analytics-tools-for-visual-studio-install.md). Visual Studio aşağıdaki sürümleri desteklenir:
+1. [Visual Studio için Stream Analytics Araçları'nı yükleme](stream-analytics-tools-for-visual-studio-install.md). Visual Studio aşağıdaki sürümleri desteklenir:
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. Sahibi [Visual Studio için Stream Analytics Araçları](stream-analytics-quick-create-vs.md) hızlı başlangıç.
+2. Sahibi [Visual Studio için Stream Analytics Araçları](stream-analytics-quick-create-vs.md) hızlı başlangıç.
 
-4. Depolama hesabı oluşturma.
+3. Bir depolama hesabı oluşturun.
 
 ### <a name="create-a-sql-database-table"></a>SQL veritabanı tablosu oluşturma
 
@@ -118,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. SQL Dosyası Düzenleyicisi'nde açın ve SQL sorgusu yaz.
 
-5. Visual Studio 2017 kullandığınızı ve yüklediğiniz SQL Server veri araçları, tıklayarak sorguyu test edebilirsiniz **yürütme**. SQL veritabanı'na bağlanma yardımcı olacak bir sihirbaz penceresi açılır ve sorgu sonucu altındaki penceresinde görünür.
+5. Visual Studio 2019 kullanıyorsanız ve yüklediğiniz SQL Server veri araçları, tıklayarak sorguyu test edebilirsiniz **yürütme**. SQL veritabanı'na bağlanma yardımcı olacak bir sihirbaz penceresi açılır ve sorgu sonucu altındaki penceresinde görünür.
 
 ### <a name="specify-storage-account"></a>Depolama hesabı belirtin
 
@@ -159,7 +157,7 @@ Delta sorgu kullanarak [zamana bağlı tablolarda Azure SQL veritabanı'nda](../
  
 2. Delta sorgu yazar. 
    
-   Bu sorgu, eklenen veya silinmiş bir başlangıç saati içinde SQL veritabanınızdaki tüm satırları alır  **\@deltaStartTime**ve bitiş zamanını  **\@deltaEndTime**. Delta sorgu anlık görüntü sorgu aynı sütunları yanı sıra, sütun döndürmelidir  **_işlemi_**. Satır eklenmiş veya arasında silinmiş bu sütun tanımlar  **\@deltaStartTime** ve  **\@deltaEndTime**. Ortaya çıkan satırlar olarak işaretlenmiş **1** kayıtların eklenme ise veya **2** silinmiş. 
+   Bu sorgu, eklenen veya silinmiş bir başlangıç saati içinde SQL veritabanınızdaki tüm satırları alır  **\@deltaStartTime**ve bitiş zamanını  **\@deltaEndTime**. Delta sorgu anlık görüntü sorgu aynı sütunları yanı sıra, sütun döndürmelidir  **_işlemi_** . Satır eklenmiş veya arasında silinmiş bu sütun tanımlar  **\@deltaStartTime** ve  **\@deltaEndTime**. Ortaya çıkan satırlar olarak işaretlenmiş **1** kayıtların eklenme ise veya **2** silinmiş. 
 
    Güncelleştirilen kayıtları, zamana bağlı tablo ekleme ve silme işleminin yakalayarak muhasebe yapar. Stream Analytics çalışma zamanı, başvuru verileri güncel tutmak için önceki anlık görüntüye delta sorgu sonuçlarını sonra uygulanır. Aşağıdaki show delta sorgu örneğidir:
 
@@ -174,6 +172,9 @@ Delta sorgu kullanarak [zamana bağlı tablolarda Azure SQL veritabanı'nda](../
    ```
  
    Stream Analytics çalışma zamanı düzenli aralıklarla kontrol noktalarını depolamak için delta sorgu yanı sıra anlık görüntü sorgu çalışabilir unutmayın.
+
+## <a name="test-your-query"></a>Sorgunuzu test etme
+   Sorgunuzu Stream Analytics işi başvuru verisi olarak kullanacağı beklenen veri kümesini döndürmektir doğrulamak önemlidir. Sorgunuz test etmek için portalda iş topolojisi bölümü altında girişine gidin. Ardından, örnek verileri SQL veritabanına giriş başvuru üzerinde seçebilirsiniz. Örneği etkin hale geldikten sonra dosyayı indirin ve döndürülen verilerin olarak uygun olup olmadığını görmek için beklenen denetleyin. Bir en iyi duruma getir, geliştirme ve test yinelemeleri isterseniz, kullanılacak önerilir [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Ayrıca herhangi bir aracı ilk sorgu, Azure SQL veritabanı doğru sonuçlar döndürüyor emin olun ve ardından, Stream Analytics işinizi kullanmak için tercih yapabilirsiniz. 
 
 ## <a name="faqs"></a>SSS
 
@@ -193,10 +194,6 @@ Bu ölçüm her ikisinin bir birleşimi iş başvuru veri kümesi getirmek için
 **Ben Azure SQL veritabanı'nın özel bir türü gerekiyor mu?**
 
 Azure Stream Analytics, Azure SQL veritabanı'nın herhangi bir türü ile çalışır. Ancak, başvuru veri girişi için ayarlanmış yenileme hızı, sorgu yükünü etkileyebilecek anlamak önemlidir. Delta sorgu seçeneği kullanmak için zamana bağlı tablolarda Azure SQL veritabanı'nda kullanmanız önerilir.
-
-**Ben, SQL veritabanı başvuru veri girişi girişten örnekleme yapabilirsiniz?**
-
-Bu özellik kullanılamıyor.
 
 **Neden Azure Stream Analytics anlık görüntüleri Azure depolama hesabında depoluyor mu?**
 

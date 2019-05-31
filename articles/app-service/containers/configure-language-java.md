@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179822"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254461"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service için Linux Java uygulaması yapılandırma
 
@@ -134,7 +134,7 @@ Alternatif olarak, App Service Maven plugin kullanarak uygulama ayarı yapıland
 
 Java uygulamanızı özellikle büyük ise, başlama süresi sınırını artırmanız gerekir. Bunu yapmak için bir uygulama ayarı oluşturmak `WEBSITES_CONTAINER_START_TIME_LIMIT` ve App Service, zaman aşımına uğramadan önce beklemesi gereken saniye sayısını ayarlayın. En yüksek değer `1800` saniye.
 
-## <a name="secure-applications"></a>Uygulamaları güvenli hale getirin
+## <a name="secure-applications"></a>Güvenli uygulamalar
 
 Linux için App Service'te çalışan Java uygulamalarını kümesinin aynısına sahip [en iyi güvenlik uygulamaları](/azure/security/security-paas-applications-using-app-services) diğer uygulamalar olarak. 
 
@@ -164,7 +164,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Kullanıcıların oturumu kapatın ve diğer eylemleri gerçekleştirmek için lütfen belgelere bakın [App Service kimlik doğrulaması ve yetkilendirme kullanım](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Ayrıca Tomcat resmi belgelerine olan [HttpServletRequest arabirimi](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) ve yöntemleri. Yöntemleri de hydrated aşağıdaki servlet App Service yapılandırmanızı temel alarak:
+Kullanıcıların oturumu kapatın ve diğer eylemleri gerçekleştirmek için lütfen belgelere bakın [App Service kimlik doğrulaması ve yetkilendirme kullanım](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Ayrıca Tomcat resmi belgelerine olan [HttpServletRequest arabirimi](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) ve yöntemleri. Yöntemleri de hydrated aşağıdaki servlet App Service yapılandırmanızı temel alarak:
 
 ```java
 public boolean isSecure()

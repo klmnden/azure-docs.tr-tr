@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65538325"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397846"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Azure Application Gateway oturum benzeşimi sorunlarını giderme
 
@@ -86,7 +86,7 @@ Bu sorunu tanımlamak için yönergeleri izleyin:
 
     ![sorun giderme-oturum-benzeşim-sorunları-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
+    ![sorun giderme-oturum-benzeşim-sorunları-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 Uygulama yanıtı alır kadar her istekte tanımlama bilgisi ayarlamak denemeye devam eder.
 
@@ -96,7 +96,7 @@ Internet Explorer ve diğer tarayıcılar değil depolayabilen veya tanımlama b
 
 #### <a name="resolution"></a>Çözüm
 
-Bu sorunu gidermek için bir FQDN kullanarak uygulama ağ geçidi erişmelidir. Örneğin, [ http://website.com ](https://website.com/) veya [ http://appgw.website.com ](http://appgw.website.com/) .
+Bu sorunu gidermek için Application Gateway'e FQDN kullanarak erişmeniz gerekir. Örneğin, [ http://website.com ](https://website.com/) veya [ http://appgw.website.com ](http://appgw.website.com/) .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Sorun giderme için ek Günlükler
 
@@ -167,23 +167,23 @@ Tercih ettiğiniz web hata ayıklayıcıyı kullanın. Bu örnekte fiddler'ı ku
 
 2. Kurulum yürütülebilir dosyasına sağ tıklayın ve yüklemek için yönetici olarak çalıştırın.
 
-            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
+    ![sorun giderme-oturum-benzeşim-sorunları-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. Fiddler'ı açtığınızda, otomatik olarak (yakalama sol alt köşesinde bir bildirim) trafiğini yakalamaktan başlamalıdır. Başlatma veya durdurma trafik yakalama için F12 tuşuna basın.
 
-        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
+    ![sorun giderme-oturum-benzeşim-sorunları-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. Büyük olasılıkla, şifresi çözülmüş HTTPS trafiği ilgilenecek ve HTTPS şifre çözme seçerek etkinleştirebilirsiniz **Araçları** > **Fiddler seçenekleri**ve onay kutusunu " **şifresini çözme HTTPS trafiğini**".
 
-        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
+    ![sorun giderme-oturum-benzeşim-sorunları-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. Sorunu yeniden oluştururken tıklayarak önce önceki ilgisiz oturumları kaldırabilirsiniz **X** (simge) > **Tümünü Kaldır** ekran izleyin: 
 
-        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
+    ![sorun giderme-oturum-benzeşim-sorunları-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. Sorunu yeniden oluşturduktan sonra dosyayı gözden geçirme seçerek kaydedin **dosya** > **Kaydet** > **tüm oturumlar...** . 
 
-        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
+    ![sorun giderme-oturum-benzeşim-sorunları-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Denetleyin ve sorunun ne olduğunu belirlemek için oturumu günlüklerini analiz edin.
 
@@ -194,11 +194,11 @@ Tercih ettiğiniz web hata ayıklayıcıyı kullanın. Bu örnekte fiddler'ı ku
    > [!NOTE]
    > Application Gateway istemcinin belirli bir arka uç sunucusuna gönderilmesi ayarlar tanımlama bilgisi-id ARRAffinity değerdir.
 
-    ![sorun giderme-oturum-benzeşim-sorunları-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![sorun giderme-oturum-benzeşim-sorunları-17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Örnek B:** Sonraki oturum önceki geri uygulama ARRAAFFINITY ayarladı ağ geçidi için yanıt istemci biridir ardından. ARRAffinity tanımlama bilgisi kimliği eşleşiyorsa paket daha önce kullanılan aynı arka uç sunucusuna gönderilmelidir. Http iletişimi için istemcinin ARRAffinity tanımlama bilgisini değiştiriyor olup olmadığını görmek için sonraki birkaç satırlık denetleyin.
 
-    ![sorun giderme-oturum-benzeşim-sorunları-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
+   ![sorun giderme-oturum-benzeşim-sorunları-18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > Aynı iletişim oturum tanımlama bilgisinin değiştirme olmalıdır. Sağ taraftaki ilk kutuyu işaretleyin, istemciye tanımlama bilgisini kullanarak ve geri uygulama ağ geçidine gönderilmeden görmek için "Tanımlama bilgileri" sekmesini seçin. Aksi durumda, istemci tarayıcısı tutulması ve tanımlama bilgisi konuşmaları kullanarak değil. Bazı durumlarda, istemci kaynaklanıyor olabilir.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6e1a1c614bfa126d58cf9343f945d16fd1c2733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30a4bfa2cf7a39a28db0575a6851f5b7b481524c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65781006"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388180"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory'de uygulama eklerken uygulama türünü seçme
 Uygulamaları Azure Active Directory (Azure AD) ekleyebilirsiniz dört türleri hakkında daha fazla bilgi edinin. Azure Active Directory'de uygulama eklerken dört uygulama türünü birini seçmeniz istenir. 
@@ -80,7 +80,7 @@ Aşağıda desteklenen **çoklu oturum açma** modları Azure AD uygulamaları i
   >
   >
 
-- **Üst bilgi tabanlı oturum açma** – bu [üst bilgi tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) çoklu oturum açma gerçekleştirmek istediğiniz HTTP üst bilgi tabanlı kimlik doğrulamasını destekleyen PingAccess kullanarak bir uygulama varsa tek oturum açma modu 
+- **Üst bilgi tabanlı oturum açma** – bu [üst bilgi tabanlı oturum açma](application-proxy-configure-single-sign-on-with-ping-access.md) çoklu oturum açma gerçekleştirmek istediğiniz HTTP üst bilgi tabanlı kimlik doğrulamasını destekleyen PingAccess kullanarak bir uygulama varsa tek oturum açma modu 
 
   >[!NOTE]
   >Bu seçenek yalnızca, uygulama proxy'si ile PingAccess yapılandırıldığında bir uygulama için kullanılabilir.

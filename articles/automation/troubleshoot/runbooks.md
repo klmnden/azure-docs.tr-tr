@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401791"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397136"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -305,6 +305,8 @@ Bu hata aşağıdaki sorunlardan biri nedeniyle oluşur:
 
 4. Runbook'unuzdaki bir yürütülebilir dosya çağrı yapma veya bir Azure korumalı alanında çalışan bir runbook'ta subprocess çalışıldı. Bu senaryo Azure sanal desteklenmiyor.
 
+5. Runbook'unuzda, çok fazla özel durum verileri, çıkış akışına yazma girişiminde bulunuldu.
+
 #### <a name="resolution"></a>Çözüm
 
 Aşağıdaki çözümlerden birini sorunu düzeltin:
@@ -316,6 +318,8 @@ Aşağıdaki çözümlerden birini sorunu düzeltin:
 * Runbook'u çalıştırmak için başka bir çözüm olan bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md). Karma çalışanları tarafından Azure sanal bellek ve ağ sınırları sınırlı değildir.
 
 * Bir runbook'ta (örneğin .exe veya subprocess.call) bir işlem çağırmak gerekiyorsa, runbook'u çalıştırmak ihtiyacınız bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md).
+
+* Üzerinde iş çıkış akışına 1MB sınırı yoktur. Bir try/catch bloğu içinde bir yürütülebilir dosya veya alt çağrı içine emin olun. Bunlar bir özel durum, bir Otomasyon değişken içine bu özel durumdan iletiyi yazın. Bu, iş çıkış akışına yazılan engeller.
 
 ### <a name="fails-deserialized-object"></a>Senaryo: Runbook nedeniyle seri durumdan çıkarılmış nesne başarısız
 
@@ -463,7 +467,7 @@ Bir Azure Otomasyonu runbook için bir Web kancası çağırma çalıştığın�
 
 Web kancası devre dışı bırakılırsa, Azure portalı üzerinden bir Web kancası yeniden etkinleştirebilirsiniz. bir Web kancası süresi dolduğunda, Web kancası silinmesi ve yeniden oluşturulması gerekir. Yalnızca [bir Web kancasını yenileme](../automation-webhooks.md#renew-webhook) süresi dolmadıysa.
 
-### <a name="429"></a>Senaryo: 429: Şu anda istek oranı fazla büyük. Lütfen tekrar deneyin
+### <a name="429"></a>Senaryo: 429: Şu anda istek oranı fazla büyük. Lütfen yeniden deneyin
 
 #### <a name="issue"></a>Sorun
 

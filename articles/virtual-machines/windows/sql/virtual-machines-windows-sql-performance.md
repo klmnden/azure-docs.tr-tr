@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477357"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393753"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure sanal Makineler'de SQL Server için performans yönergeleri
 
@@ -179,13 +179,24 @@ Bu öneri için bir istisna vardır: _yazma yoğunluklu TempDB kullanımınızı
 
 Bazı dağıtımlar, daha gelişmiş yapılandırma teknikleri kullanarak ek performans avantajlarını elde edebilirsiniz. Aşağıdaki listede, daha iyi performans elde etmenize yardımcı olabilecek bazı SQL Server özelliklerini vurgular:
 
-* **Azure depolama için Yedekleme**: Azure sanal makineler'de çalışan SQL Server için yedeklemeleri gerçekleştirirken kullanabileceğiniz [URL'ye SQL Server Yedekleme](https://msdn.microsoft.com/library/dn435916.aspx). Bu özellik, SQL Server 2012 SP1 CU2'ile başlayan kullanılabilir ve bağlı veri diskleri yedekleme için önerilen. Ne zaman verilen önerileri uygulayın, yedekleme/geri yükleme/Azure Depolama'dan [SQL Server Yedekleme'den URL en iyi yöntemler ve sorun giderme ve geri yükleme için yedeklemeler depolanan Azure storage'da](https://msdn.microsoft.com/library/jj919149.aspx). Ayrıca bu yedeklemeler kullanarak otomatikleştirebilirsiniz [Azure sanal Makineler'de SQL Server için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md).
+### <a name="backup-to-azure-storage"></a>Azure depolama için yedekleme
+Azure sanal makineler'de çalışan SQL Server için yedeklemeleri gerçekleştirirken kullanabileceğiniz [URL'ye SQL Server Yedekleme](https://msdn.microsoft.com/library/dn435916.aspx). Bu özellik, SQL Server 2012 SP1 CU2'ile başlayan kullanılabilir ve bağlı veri diskleri yedekleme için önerilen. Ne zaman verilen önerileri uygulayın, yedekleme/geri yükleme/Azure Depolama'dan [SQL Server Yedekleme'den URL en iyi yöntemler ve sorun giderme ve geri yükleme için yedeklemeler depolanan Azure storage'da](https://msdn.microsoft.com/library/jj919149.aspx). Ayrıca bu yedeklemeler kullanarak otomatikleştirebilirsiniz [Azure sanal Makineler'de SQL Server için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md).
 
-    SQL Server 2012'den önce kullandığınız [Azure aracı SQL Server Yedekleme](https://www.microsoft.com/download/details.aspx?id=40740). Bu aracı kullanarak birden çok yedekleme stripe hedef yedekleme verimliliğini artırmak için yardımcı olabilir.
+SQL Server 2012'den önce kullandığınız [Azure aracı SQL Server Yedekleme](https://www.microsoft.com/download/details.aspx?id=40740). Bu aracı kullanarak birden çok yedekleme stripe hedef yedekleme verimliliğini artırmak için yardımcı olabilir.
 
-* **Azure'da SQL Server veri dosyaları**: Bu yeni özellik [azure'da SQL Server veri dosyaları](https://msdn.microsoft.com/library/dn385720.aspx), ile SQL Server 2014'ten itibaren kullanıma sunuluyor. SQL Server veri dosyaları azure'da çalışan, benzer performans özelliklerini kullanarak Azure veri diski olarak gösterir.
+### <a name="sql-server-data-files-in-azure"></a>Azure'da SQL Server veri dosyaları
 
-## <a name="next-steps"></a>Sonraki Adımlar
+Bu yeni özellik [azure'da SQL Server veri dosyaları](https://msdn.microsoft.com/library/dn385720.aspx), ile SQL Server 2014'ten itibaren kullanıma sunuluyor. SQL Server veri dosyaları azure'da çalışan, benzer performans özelliklerini kullanarak Azure veri diski olarak gösterir.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Yük devretme kümesi örneği ve depolama alanları
+
+Depolama alanları, düğümleri üzerindeki kümeye eklendiğinde kullanıyorsanız **onay** sayfasında, onay kutusunu temizleyin **tüm uygun Depolama alanlarını kümeye ekleyin**. 
+
+![Uygun depolama seçeneğinin işaretini kaldırın](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Depolama alanları kullanarak ve değil işaretini kaldırın **tüm uygun Depolama alanlarını kümeye ekleyin**, Windows Kümeleme işlemi sırasında sanal diskleri ayırır. Sonuç olarak, depolama alanları küme kaldırılana kadar Disk Yöneticisi'nde veya Gezgini görünmez ve PowerShell kullanarak eklenemeyeceği. Depolama alanları, birden çok diskleri depolama havuzlarına gruplandırır. Daha fazla bilgi için [depolama alanları](/windows-server/storage/storage-spaces/overview).
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 Depolama ve performans hakkında daha fazla bilgi için bkz. [Azure vm'lerde SQL Server için depolama yapılandırma yönergeleri](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 

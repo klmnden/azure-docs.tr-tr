@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700966"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416431"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Sanal ağ hizmet uç noktaları Azure Key Vault için
 
@@ -53,7 +53,7 @@ Daha fazla bilgi için [Azure anahtar Kasası'nı yapılandırma güvenlik duvar
 > Aşağıdaki yapılandırma sınırlamaları unutmayın:
 > * En fazla 127 sanal ağ kuralları ve 127 IPv4 kuralları izin verilir. 
 > * Küçük adres aralıkları kullanan "/ 31" veya "/ 32" öneki boyutları desteklenmez. Bunun yerine, tek tek IP adresi kurallarını kullanarak bu aralığı yapılandırın.
-> * IP ağ kuralları yalnızca genel IP adresleri için izin verilir. IP adresi aralıkları için özel ağlar (RFC 1918 ' tanımlandığı şekilde) ayrılmış IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres dahil **10.**, **172.16-31**, ve **192.168.**. 
+> * IP ağ kuralları yalnızca genel IP adresleri için izin verilir. IP adresi aralıkları için özel ağlar (RFC 1918 ' tanımlandığı şekilde) ayrılmış IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres dahil **10.** , **172.16-31**, ve **192.168.** . 
 > * Şu anda yalnızca IPv4 adresleri desteklenir.
 
 ## <a name="trusted-services"></a>Güvenilir hizmetler
@@ -62,13 +62,13 @@ Daha fazla bilgi için [Azure anahtar Kasası'nı yapılandırma güvenlik duvar
 
 |Güvenilir hizmet|Kullanım senaryoları|
 | --- | --- |
-|Azure Sanal Makineleri dağıtım hizmeti|[Sertifikalar, müşteri tarafından yönetilen Key Vault'tan Vm'lerine dağıtma](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Azure sanal makineleri dağıtım hizmeti|[Sertifikalar, müşteri tarafından yönetilen Key Vault'tan Vm'lerine dağıtma](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
 |Azure Resource Manager şablon dağıtımı hizmeti|[Dağıtım sırasında güvenlik değerlerini geçirme](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
-|Azure Disk Şifrelemesi birim şifreleme hizmeti|BitLocker anahtarı (Windows VM) veya DM parola (Linux VM) ve anahtar şifreleme anahtarı, sanal makine dağıtımı sırasında erişilebilsin. Böylece [Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md).|
+|Azure Disk şifrelemesi birim şifreleme hizmeti|BitLocker anahtarı (Windows VM) veya DM parola (Linux VM) ve anahtar şifreleme anahtarı, sanal makine dağıtımı sırasında erişilebilsin. Böylece [Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md).|
 |Azure Backup|Yedekleme ve geri yükleme ilgili anahtar ve gizli dizi Azure sanal makineleri yedekleme sırasında kullanarak izin [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online ve SharePoint Online|Müşteri anahtarı için Azure depolama hizmeti şifrelemesi ile erişmesine [müşteri anahtarı](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Kiracı anahtarı için erişim izni [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Azure App Service|[Key Vault üzerinden Azure Web App sertifikası dağıtma](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure uygulama hizmeti|[Key Vault üzerinden Azure Web App sertifikası dağıtma](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Veritabanı|[Azure SQL veritabanı ve veri ambarı için kendi anahtarını Getir destekli saydam veri şifrelemesi](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Azure Data Lake Store içinde verilerin şifrelenmesi](../data-lake-store/data-lake-store-encryption.md) müşteri tarafından yönetilen bir anahtara sahip.|

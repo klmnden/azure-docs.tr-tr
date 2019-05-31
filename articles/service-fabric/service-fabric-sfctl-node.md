@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556789"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258738"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Küme düğümleri yönetin.
@@ -28,10 +28,10 @@ Küme düğümleri yönetin.
 
 |Komut|Açıklama|
 | --- | --- |
-| devre dışı bırak | Bir Service Fabric küme düğümü belirtilen devre dışı bırakma amacıyla devre dışı bırakın. |
-| etkinleştir | Şu anda devre dışı bir Service Fabric küme düğümü etkinleştirin. |
+| Devre dışı bırak | Bir Service Fabric küme düğümü belirtilen devre dışı bırakma amacıyla devre dışı bırakın. |
+| Etkinleştirme | Şu anda devre dışı bir Service Fabric küme düğümü etkinleştirin. |
 | sağlık | Bir Service Fabric düğüm durumunu alır. |
-| bilgi | Service Fabric kümesinde belirli bir düğüm hakkında bilgi alır. |
+| Bilgileri | Service Fabric kümesinde belirli bir düğüm hakkında bilgi alır. |
 | list | Service Fabric kümesinde düğümlerin listesini alır. |
 | yükleme | Bir Service Fabric düğümü yük bilgilerini alır. |
 | durumu-Kaldır | Service Fabric kalıcı durum bir düğümde kalıcı olarak kaybolur veya kaldırılmış olduğunu bildirir. |
@@ -180,6 +180,8 @@ Bir Service Fabric düğümü yük veya kapasite tanımlanmış olan tüm ölç�
 Service Fabric kalıcı durum bir düğümde kalıcı olarak kaybolur veya kaldırılmış olduğunu bildirir.
 
 Bu düğüm kalıcı durumunu kurtarma mümkün olmadığı anlamına gelir. Bu genellikle bir sabit disk temiz silinmişse veya bir sabit disk kilitlenmesi durumunda gerçekleşir. Bu işlemin başarılı olması için olacağını düğümü vardır. Bu işlem, Service Fabric düğüm çoğaltmalarda artık yok ve bu çoğaltmalar geri gelmesi beklenirken, Service Fabric durması gerektiğini bilmeniz olanak tanır. Bu cmdlet, durumu düğümünde kaldırılmaz ve düğüm sağlam durumunu ile geri dönerseniz çalıştırmayın.
+
+Service Fabric 6.5 çekirdek düğümleri için bu cmdlet'i kullanmak için başlangıç çekirdek düğümleri normal (çekirdek olmayan) düğümlerine Lütfen değiştirin ve ardından düğümü durumu kaldırmak için bu cmdlet'i çağırır. Küme Çekirdek değer düğümü arıza sonra Azure üzerinde çalışıyorsa, bir çekirdek olmayan düğüme otomatik olarak değiştirmek Service Fabric çalışacaktır. Bunu yapmak yapmak için birincil düğüm türü çekirdek olmayan düğüm sayısını çekirdek düğümleri aşağı sayısından az olduğundan emin. Daha fazla düğüm gerekirse, bunu yapmanın birincil düğüm türü ekleyin. Tek başına küme aşağı Çekirdek değer düğümü ile olduğu gibi durumunu görünmesi beklenmiyor, lütfen düğümü kümeden kaldırmak için bkz: [Service Fabric tek başına kümeden düğüm kaldırma](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 

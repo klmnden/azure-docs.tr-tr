@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/18/2018
+ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096105"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298826"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Örneklerle ilgili özel konular
 Azure AD Connect ile Azure AD örneğini dünya çapında en yaygın olarak kullanılan ve Office 365. Ancak diğer örnekleri de vardır ve bu URL'leri ve diğer özel durumlar için farklı gereksinimler vardır.
@@ -32,7 +32,7 @@ Azure AD Connect ile Azure AD örneğini dünya çapında en yaygın olarak kull
 | URL'lerin Ara sunucuda açmak için |
 | --- |
 | \*.microsoftonline.de |
-| \*.windows.net |
+| \*. windows.net |
 | + Sertifika iptal listeleri |
 
 Azure AD kiracınız ile oturum açtığınızda onmicrosoft.de etki alanında bir hesap kullanmanız gerekir.
@@ -42,26 +42,30 @@ Microsoft Cloud Almanya'da şu anda mevcut özellikler:
 * **Parola geri yazma** Önizleme ile Azure AD Connect sürümünüzü 1.1.570.0 ve sonra kullanılabilir.
 * Diğer Azure AD Premium hizmetlerine kullanılabilir değil.
 
-## <a name="microsoft-azure-government-cloud"></a>Microsoft Azure kamu Bulutu
+## <a name="microsoft-azure-government"></a>Microsoft Azure Kamu
 [Microsoft Azure kamu bulutundaki](https://azure.microsoft.com/features/gov/) ABD kamu bulutudur.
 
 Bu bulut DirSync önceki sürümleri tarafından desteklenen sahip. Derlemeden Azure AD Connect 1.1.180, bulutta yeni nesil desteklenir. Bu, yalnızca ABD tabanlı uç noktalarını kullanarak ve farklı bir proxy sunucunuz açmak için URL'lerin listesini sahiptir.
 
 | URL'lerin Ara sunucuda açmak için |
 | --- |
-| \*.microsoftonline.com |
+| \*. microsoftonline.com |
 | \*.microsoftonline.us |
-| \*. windows.net (otomatik gerekli Azure AD kamu kiracısı algılama) |
+| \*. windows.net (otomatik Azure kamu kiracısı algılama için gereklidir) |
 | \*.gov.us.microsoftonline.com |
 | + Sertifika iptal listeleri |
 
 > [!NOTE]
-> AAD Connect sürümü itibarıyla 1.1.647.0, kayıt defterinde AzureInstance değeri ayarı artık, sağlanan gereklidir *. proxy sunucularınızda windows.net açıksa.
+> Azure AD Connect itibaren sürüm 1.1.647.0, kayıt defterinde AzureInstance değeri ayarı artık, sağlanan gerekli, *. proxy sunucularınızda windows.net açıksa. Ancak, kendi Azure AD Connect sunucuları Internet bağlantısı izin vermeyen müşteriler için aşağıdaki el ile yapılandırma kullanılabilir.
 
-Microsoft Azure kamu bulutunda şu anda mevcut özellikler:
+### <a name="manual-configuration"></a>El ile yapılandırma
 
-* **Parola geri yazma** Önizleme ile Azure AD Connect sürümünüzü 1.1.570.0 ve sonra kullanılabilir.
-* Diğer Azure AD Premium hizmetlerine kullanılabilir değil.
+Aşağıdaki el ile yapılandırma adımları, Azure AD Connect kullanan Azure kamu eşitleme uç noktaları emin olmak için kullanılır.
+
+1. Azure AD Connect yüklemesi başlatın.
+2. Burada, EULA kabul etmek için gereken ilk sayfasını gördüğünüzde, devam eder ancak Yükleme Sihirbazı'nı çalıştıran bırakın.
+3. Regedit komutunu çalıştırın ve kayıt defteri anahtarını `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` değerine `4`.
+4. Azure AD Connect Yükleme Sihirbazı'için geri EULA'yı kabul edin ve devam gidin. Yükleme sırasında kullandığınızdan emin olun **özel yapılandırma** yükleme yolu (ve hızlı yükleme), ardından devam yüklemeyi her zaman olduğu gibi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741783"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393281"
 ---
 # <a name="import-or-export-configuration-data"></a>Yapılandırma verilerini içeri veya dışarı aktarma
 
@@ -29,7 +29,7 @@ Bu makalede, içeri ve dışarı aktarma ile uygulama yapılandırma verileri i�
 
 İçeri aktarma el ile girmek yerine var olan bir kaynaktan bir uygulama yapılandırma veri deposu yapılandırması getirir. Bir uygulama yapılandırma deposu veya toplama verilerinin birden çok kaynaktan alınan verileri geçirmek için içeri aktarma işlevini kullanın. JSON veya YAML özellikleri dosyadan içeri aktarabilirsiniz, uygulama yapılandırmasını desteklemez.
 
-Kullanarak verileri içeri aktarma [Azure portalında](https://aka.ms/azconfig/portal) veya [Azure CLI](./scripts/cli-import.md). Azure portalında aşağıdaki adımları izleyin:
+Kullanarak verileri içeri aktarma [Azure portalında](https://portal.azure.com) veya [Azure CLI](./scripts/cli-import.md). Azure portalında aşağıdaki adımları izleyin:
 
 1. Uygulama yapılandırma deposuna Gözat ve Seç **içeri/dışarı aktarma**.
 
@@ -53,7 +53,7 @@ Kullanarak verileri içeri aktarma [Azure portalında](https://aka.ms/azconfig/p
 
 Dışarı aktarma için başka bir hedef uygulama yapılandırmasında depolanan yapılandırma verilerini yazar. Dışarı aktarma işlevi, örneğin, uygulama kodunuz, dağıtım sırasında katıştırılmış bir dosyaya bir uygulama yapılandırma deposundaki verileri kaydetmek için kullanın.
 
-Kullanarak verileri dışarı aktarma [Azure portalında](https://aka.ms/azconfig/portal) veya [Azure CLI](./scripts/cli-export.md). Azure portalında aşağıdaki adımları izleyin:
+Kullanarak verileri dışarı aktarma [Azure portalında](https://portal.azure.com) veya [Azure CLI](./scripts/cli-export.md). Azure portalında aşağıdaki adımları izleyin:
 
 1. Uygulama yapılandırma deposuna Gözat ve Seç **içeri/dışarı aktarma**.
 

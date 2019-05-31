@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236586"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245009"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure portalını kullanarak bir paylaşılan görüntü Galerisi oluşturma
 
@@ -67,6 +67,7 @@ Bu örnek adlı bir VM oluşturur *Myımage*, *myResourceGroup* içinde *Doğu A
 1. VM için uzaktan erişim altında izin vermek istiyorsanız **ortak gelen bağlantı noktası**, seçin **Seçili bağlantı noktalarına izin** seçip **RDP (3389)** açılır listeden. VM için uzaktan erişime izin vermek istemiyorsanız bırakın **hiçbiri** için seçilen **ortak gelen bağlantı noktası**.
 1. İşlemi tamamladığınızda, seçin **gözden geçir + Oluştur** sayfanın alt kısmındaki düğmesi.
 1. VM doğrulama denetimini geçtikten seçin **Oluştur** dağıtımı başlatmak için sayfanın alt kısmındaki.
+
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

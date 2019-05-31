@@ -9,25 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 68778cea51144ec33efd4d5843a51b489ea17ca4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155732"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393480"
 ---
 # <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
 
-Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.
+Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. 
 
-Akışınız şifreleme seçeneklerini belirtmek için oluşturmak gereken bir [akış ilke](streaming-policy-concept.md) ilişkilendirin, [akış Bulucu](streaming-locators-concept.md). Oluşturmak için ihtiyacınız bir [içerik anahtarı ilke](https://docs.microsoft.com/rest/api/media/contentkeypolicies) yapılandırmak için nasıl içerik anahtarı (güvenli erişim sağlayan, [varlıklar](assets-concept.md)) istemcileri sonlandırmak için teslim edilir. **İçerik anahtarı ilke** ile ilişkilidir, **akış Bulucu**. Gereksinimleri (kısıtlamaları) ayarlamanız anahtarları için sırayla istemcilere iletilmesi belirtilen yapılandırma ile karşılanması gereken içerik anahtarı ilkeye gerekir. 
+Akışınız şifreleme seçeneklerini belirtmek için oluşturmak gereken bir [akış ilke](streaming-policy-concept.md) ilişkilendirin, [akış Bulucu](streaming-locators-concept.md). Oluşturduğunuz [içerik anahtarı ilke](https://docs.microsoft.com/rest/api/media/contentkeypolicies) yapılandırmak için nasıl içerik anahtarı (güvenli erişim sağlayan, [varlıklar](assets-concept.md)) istemcileri sonlandırmak için teslim edilir. Gereksinimleri (kısıtlamaları) ayarlamanız anahtarları için sırayla istemcilere iletilmesi belirtilen yapılandırma ile karşılanması gereken içerik anahtarı ilkeye gerekir. Bu içerik anahtarı ilkeyi Temizle akış veya yükleme için gerekli değildir. 
+
+Genellikle, ilişkilendirme, **içerik anahtarı ilke** ile **akış Bulucu**. Alternatif olarak, içerik anahtarı ilke içinde bir akış İlkesi (Gelişmiş senaryolar için özel bir akış ilke oluştururken) belirtebilirsiniz. 
 
 Media Services için içerik anahtarı otomatik olarak izin vermek için önerilir. Genellikle, uzun süreli bir anahtar kullanmak ve ile ilkeleri varlığını denetle **alma**. Anahtarı almak için parolaları veya kimlik bilgilerini almak için aşağıdaki örneğe bakın ayrı bir eylem yöntemini çağırmak gerekir.
 
-**İçerik anahtarı ilkeleri** güncelleştirilebilir. Örneğin, bir anahtar döndürme yapmanız gerekiyorsa ilkesini güncelleştirme isteyebilirsiniz. Birincil doğrulama anahtarı ve diğer doğrulama anahtarları mevcut ilkedeki listesini güncelleştirebilirsiniz. Bu, güncelleştirme ve güncelleştirilmiş ilke çekme anahtar teslim önbellekleri 15 dakika kadar sürebilir. 
+**İçerik anahtarı ilkeleri** güncelleştirilebilir. Bu, güncelleştirme ve güncelleştirilmiş ilke çekme anahtar teslim önbellekleri 15 dakika kadar sürebilir. 
 
 > [!IMPORTANT]
 > * Özelliklerini **içerik anahtar ilkeleri** DateTime türü her zaman UTC biçiminde olan.
@@ -35,9 +37,7 @@ Media Services için içerik anahtarı otomatik olarak izin vermek için öneril
 
 ## <a name="example"></a>Örnek
 
-Anahtarı almak için kullanın **GetPolicyPropertiesWithSecretsAsync**aşağıdaki örnekte gösterildiği gibi.
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
+Anahtarı almak için kullanın **GetPolicyPropertiesWithSecretsAsync**gösterildiği [mevcut ilkeden bir imzalama anahtarı alma](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) örnek.
 
 ## <a name="filtering-ordering-paging"></a>Filtreleme, sıralama, sayfalama
 

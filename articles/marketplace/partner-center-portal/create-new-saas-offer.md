@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851193"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243340"
 ---
 # <a name="create-a-new-saas-offer"></a>Yeni bir SaaS teklifi oluşturma
 
@@ -89,7 +89,7 @@ Yazılım Lisans ücretleri aylık, yinelenen site tabanlı abonelik sabit fiyat
 - İçin iş ortaklarıyla **sınırlı bir Market hizmeti ücreti** Haziran 2020 kadar Mayıs 2019'nden bir SaaS azaltılmış işlem ücreti sunar görürsünüz. Bu senaryoda, Microsoft yazılım lisansı için 100,00 $ düzenler ve 90.00 out yayımcıya öder.
 
 > [!NOTE]
-> **Bir Market hizmeti ücreti azaltıldı**: Belirli SaaS ticari Marketimizden yayımladığınız, Microsoft, Market hizmeti ücreti %20 değerinden (Microsoft yayımcı anlaşması'nda açıklandığı gibi) % 10 azaltacak sunar. Teklifiniz nitelemek için sırada tekliflerinizi en az biri Microsoft tarafından IP ortak satışa hazır ya da IP ortak satış öncelikli olacak şekilde atanmış olmalıdır.  Bu sınırlı bir Market hizmeti ücreti ay için almak için uygunluk en az beş (5) iş günü her takvim ayının sonundan önce karşılanması gerekir.  VM'ler, yönetilen uygulamalar veya ticari Marketimizden kullanıma sunulan diğer ürünler için sınırlı bir Market hizmeti ücreti uygulanmaz.  Sınırlı bir Market hizmeti ücreti yalnızca tam teklifleri için 31 Mayıs 2019 ve 30 Haziran 2020 arasındaki Microsoft tarafından toplanan lisans ücretleri için kullanılabilir olacak.  Bu tarihten sonra normal tutarı için bir Market hizmeti ücreti döndürür. 
+> **Bir Market hizmeti ücreti azaltıldı**: Belirli SaaS ticari Marketimizden yayımladığınız, Microsoft, Market hizmeti ücreti %20 değerinden (Microsoft yayımcı anlaşması'nda açıklandığı gibi) % 10 azaltacak sunar. Teklifiniz nitelemek için sırada tekliflerinizi en az biri Microsoft tarafından IP ortak satışa hazır ya da IP ortak satış öncelikli olacak şekilde atanmış olmalıdır.  Bu sınırlı bir Market hizmeti ücreti ay için almak için uygunluk en az beş (5) iş günü her takvim ayının sonundan önce karşılanması gerekir.  VM'ler, yönetilen uygulamalar veya ticari Marketimizden kullanıma sunulan diğer ürünler için sınırlı bir Market hizmeti ücreti uygulanmaz.  Sınırlı bir Market hizmeti ücreti yalnızca tam teklifleri 1 Mayıs 2019 ve 30 Haziran 2020 arasındaki Microsoft tarafından toplanan lisans ücretleri için kullanılabilir.  Bu tarihten sonra normal tutarı için bir Market hizmeti ücreti döndürür. 
 
 |**Microsoft faturalar**|**Aylık 100 ABD Doları**|
 |:---|:---|
@@ -115,8 +115,12 @@ Teklifinizin müşteriler ücretsiz, uygulamanızın erişebildiği geçerli bir
 ##### <a name="free-trial"></a>Ücretsiz deneme sürümü
 Teklifinizin müşteriler ücretsiz bir deneme süresi boyunca, uygulamanızın erişebildiği geçerli bir URL (http veya https ile başlayan) sağlayarak listeleyin.  Örneğin, `https://contoso.com/trial/saas-app`
 
-##### <a name="contact-me"></a>Benimle iletişime geçin
+##### <a name="contact-me"></a>Benimle iletişim kurun
 Müşteri İlişkileri Yönetimi (CRM) sisteminizi bağlanarak müşteri iletişim bilgilerini toplayın. Müşteri bilgilerini paylaşmak için izin istenecektir. Teklif adı, Kimliğini ve teklifinizi bulunduğu Market kaynağı yanı sıra bu müşteri ayrıntıları, yapılandırdığınız CRM sistemine gönderilir. CRM'İNİZE yapılandırma hakkında daha fazla bilgi için bkz. [Connect sağlama Yönetimi](#connect-lead-management). 
+
+## <a name="example-marketplace-offer-listing"></a>Örnek Market teklifi listeleme
+
+![Örnek Marketi teklif notları](./media/marketplace-offer.svg)
 
 ## <a name="enable-a-test-drive"></a>Bir test sürüşüne etkinleştir
 
@@ -128,12 +132,12 @@ Test sürüşü sağlayarak, müşterilerin deneyebilmesi teklifiniz için sabit
 
 ### <a name="type-of-test-drive"></a>Test sürüşü türü
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: Çözümünüzü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonu. Bu senaryo uygun ürünler, yalnızca Azure kaynakları kullanır.
-- **[Dynamics 365 Business Central için](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft barındırır ve sistem bir iş merkezi kurumsal kaynak planlama için (sağlanmasına ve dağıtımına dahil) test sürücü hizmeti tutar (Finans, işlemleri, tedarik zinciri, CRM, vs.).  
-- **[Dynamics 365 müşteri katılımı için](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**: Microsoft barındırır ve (sağlanmasına ve dağıtımına dahil) test sürücü hizmeti Customer Engagement Sistemi'nde (satış, servis, proje hizmeti, saha hizmeti, vb.) korur.  
-- **[Operasyonlar için Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**: Microsoft barındırır ve sistem (Finans, işlemler, üretim, tedarik zinciri, vb.) bir finans ve operasyon kurumsal kaynak planlama için (sağlanmasına ve dağıtımına dahil) test sürücü hizmeti tutar. 
-- **[Mantıksal uygulama](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**: Tüm karmaşık çözüm mimarileri kapsayan bir dağıtım şablonu. Herhangi bir özel ürün, bu tür bir Test Sürüşü kullanmanız gerekir.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: Özel olarak geliştirilmiş bir panoya katıştırılmış bir bağlantı. Test Sürüşü bu tür bir etkileşimli Power BI görsel kullanması gereken göstermek istediğiniz ürünleri. Burada karşıya yüklemek için ihtiyacınız olan, katıştırılmış Power BI URL'si.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : Çözümünüzü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonu. Bu senaryo uygun ürünler, yalnızca Azure kaynakları kullanır.
+- **[Dynamics 365 Business Central için](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft barındırır ve sistem bir iş merkezi kurumsal kaynak planlama için (sağlanmasına ve dağıtımına dahil) test sürücü hizmeti tutar (Finans, işlemleri, tedarik zinciri, CRM, vs.).  
+- **[Dynamics 365 müşteri katılımı için](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft barındırır ve (sağlanmasına ve dağıtımına dahil) test sürücü hizmeti Customer Engagement Sistemi'nde (satış, servis, proje hizmeti, saha hizmeti, vb.) korur.  
+- **[Operasyonlar için Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft barındırır ve sistem (Finans, işlemler, üretim, tedarik zinciri, vb.) bir finans ve operasyon kurumsal kaynak planlama için (sağlanmasına ve dağıtımına dahil) test sürücü hizmeti tutar. 
+- **[Mantıksal uygulama](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : Tüm karmaşık çözüm mimarileri kapsayan bir dağıtım şablonu. Herhangi bir özel ürün, bu tür bir Test Sürüşü kullanmanız gerekir.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : Özel olarak geliştirilmiş bir panoya katıştırılmış bir bağlantı. Test Sürüşü bu tür bir etkileşimli Power BI görsel kullanması gereken göstermek istediğiniz ürünleri. Burada karşıya yüklemek için ihtiyacınız olan, katıştırılmış Power BI URL'si.
 
 #### <a name="additional-test-drive-resources"></a>Ek test sürücü kaynakları
 - [Test sürücü teknik en iyi uygulamalar](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -167,7 +171,7 @@ Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 
 Seçin **Kaydet** bu alanlar tamamladıktan sonra. 
 
-### <a name="category"></a>Category
+### <a name="category"></a>Kategori
 En az biri bir (1) ve uygun Market arama alanlarına teklifinizi gruplandırmak için kullanılan üç (3) kategorilerin en fazla'ı seçin. Nasıl teklifinizi kategorilerine teklif açıklamasında destekleyip çağırın. 
 
 ### <a name="industry"></a>Sektör
@@ -177,7 +181,8 @@ Teklifiniz uygun Market arama alanlarına gruplandırmak için kullanılan en fa
 Bu, AppSource Market'te teklifinizi uygulamanın sürüm sayısını tanımlamak için kullanılan, isteğe bağlı bir alandır. 
 
 ### <a name="standard-contract"></a>Standart Sözleşme
-- **Standart sözleşme kullanılsın mı?** 
+
+- **Standart sözleşme kullanılsın mı?**
 
 Müşteriler için satın alma işlemini basitleştirmek ve yazılım satıcıları için yasal karmaşıklığını azaltmak için Microsoft Market bir işlemde kolaylaştırmaya yardımcı olması için standart Sözleşme şablonunu sunar. 
 
@@ -185,7 +190,8 @@ Müşteriler için satın alma işlemini basitleştirmek ve yazılım satıcıla
 
 Standart sözleşme burada bulunabilir: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-##### <a name="terms-of-use"></a>Kullanım koşulları
+#### <a name="terms-of-use"></a>Kullanım koşulları
+
 Lisans koşullarına standart sözleşmeden farklıysa, kendi yasal koşulları kullanım buraya girin seçebilirsiniz. Bu alandaki metin en fazla 10.000 karakter da girebilirsiniz. Kullanım koşullarınızın daha uzun bir açıklama gerekiyorsa, tek bir URL bağlantısı ek lisans koşullarına bulunabileceği bu alana girin. Bu, müşterilere bir etkin bağlantı olarak görüntülenir.
 
 Müşterilerin uygulamanızı deneyebilmeniz için önce bu koşulları kabul etmek için gereklidir. 
@@ -193,9 +199,11 @@ Müşterilerin uygulamanızı deneyebilmeniz için önce bu koşulları kabul et
 Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 
 ## <a name="offer-listing"></a>Teklif Listesi
+
 Teklif sekmesini görüntüler teklifinizi kullanılabilir olduğu dilleri (ve pazarlara) listesi, şu anda Turkish (Turkey) yalnızca mevcut konumdur. Ayrıca, bu sayfa, dile özgü listeleme ve eklendiği tarih/saat durumunu görüntüler. Her dil için (teklif adı, açıklama, arama terimleri, vb.) Market ayrıntıları tanımlamak ihtiyacınız olacak / pazarlayın.
 
 ### <a name="offer-listings"></a>Teklif listeleri
+
 Market'te teklifinizi açıklamaları da dahil olmak üzere ve varlıkları pazarlama görüntülenecek ayrıntılarını sağlayın.
 
 - **Ad** (gerekli): Burada tanımlanan adı seçmiş olduğunuz marketplace(s) hakkında teklif başlığı olarak görüntülenir. Ad, bir önceki göre doldurulur **yeni teklif** girişi.  Bu trademarked.  (Semboller ticari marka ve telif hakkı olmadıkları sürece) bu boşluk, emoji içermemelidir ve 50 karakter uzunluğunda olmalıdır.
@@ -235,8 +243,7 @@ Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 - [Market için en iyi listelerini sunar.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-
-## <a name="preview"></a>Preview
+## <a name="preview"></a>Önizleme
 
 **Önizleme** sekmesi, sınırlı tanımlamanıza imkan tanır **Önizleme İzleyici** teklifinizi daha geniş Market hedef kitlesi için Canlı teklifinizi yayımlamadan önce serbest bırakmak.
 
@@ -256,7 +263,7 @@ En çok on (10) e-posta adreslerini el ile ekleyin veya canlı yirmi (var olan M
 
 - **Giriş sayfası URL'si** (gerekli): Teklifinizi Market'ten aldıktan sonra yerleşmesi müşteriler URL yönlendirilmiş sitesini tanımlayın. Bu URL, aynı zamanda Microsoft ticaret kolaylaştırmak için API bağlantı alma uç noktası olacaktır.
 
-- **Bağlantı Web kancası** (gerekli): Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: Azure aboneliği geçmiş geçersiz), bağlantı Web kancası girmenizi isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır (örneğin https://prod-1westus.logic.azure.com:443/work). Daha fazla bilgi için [çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Bağlantı Web kancası** (gerekli): Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: Azure aboneliği geçmiş geçersiz), bağlantı Web kancası girmenizi isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır (örneğin, https:\//prod-1westus.logic.azure.com:443/work). Daha fazla bilgi için [çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD Kiracı kimliği** (gerekli): Azure portalı içinde biz gerektiren, [Azure Active Directory (AD) uygulama oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) bir kimliği doğrulanmış iletişim, böylelikle bağlantı iki hizmetlerimiz arasında doğrulayabilirsiniz. Bulmak için [Kiracı kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), Azure Active Directory'ye gidip seçin **özellikleri**, ardından Ara **dizin kimliği** numarası listelenen (örn.) 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -270,9 +277,10 @@ En çok on (10) e-posta adreslerini el ile ekleyin veya canlı yirmi (var olan M
 
 Oluşturulduktan sonra fiyatlandırma modelleriyle, kullanılabilirlik (genel veya özel), planı adları, kimlikleri, görürsünüz geçerli durumu ve tüm kullanılabilir eylemler yayımlama.
 
--   **Eylemler** bulunan **planı genel bakış** geçerli durumunu planınıza bağlı olarak değişir ve şunları içerebilir:
-  - Plan durum ise **taslak** – taslağı silin
-  - Plan durum ise **canlı** – durdurma satmak plan veya eşitleme özel hedef kitle
+**Eylemler** bulunan **planı genel bakış** geçerli durumunu planınıza bağlı olarak değişir ve şunları içerebilir:
+
+- Plan durum ise **taslak** – taslağı silin
+- Plan durum ise **canlı** – durdurma satmak plan veya eşitleme özel hedef kitle
 
 **Yeni plan oluşturma** (kullanıcılar yoluyla Microsoft'a satmak üzere seçmek için bir plan en az)
 
@@ -351,6 +359,9 @@ SaaS teklifleri, özel bir hedef kitleye tanımlamak için Kiracı kimlikleri ku
 > [!NOTE]
 > Özel İzleyici (veya sınırlı bir kitle) bir önizleme İzleyici farklıdır. İçinde **[Önizleme](#preview)** sekmesi, Önizleme İzleyici tanımlayabilirsiniz. Bir önizleme İzleyici teklifinizi erişimine izin verilmesini *önceki* Canlı Market'te yayımlanan teklif. Özel İzleyici atamasını yalnızca belirli bir plana uygularken Önizleme İzleyici tüm planlar görüntüleyebilirsiniz (özel veya değil), ancak planı test ve doğrulanmış yalnızca sınırlı Önizleme dönemi boyunca.
 
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Örnek bir Market teklifi içinde planları listesi
+
+![Örnek Market planında notları ile listeleme](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>Test sürüşü
 
@@ -390,7 +401,7 @@ Microsoft, barındırma ve sağlama hizmeti ve bu tür bir test sürüşü kulla
 
 - **Örnek URL** (gerekli): URL müşterinin kendi test sürüşü burada başlar. Genellikle, uygulamanızı çalıştıran yüklü örnek verilerle Dynamics 365 örneğinizin URL'sini (örneğin https://testdrive.crm.dynamics.com).
 
-- **Örnek Web API'si URL** (gerekli): Microsoft 365 hesabınızda oturum ve giderek, Dynamics 365 örneği için Web API URL'si almak **ayarları** \&gt; **Özelleştirme** \&gt; **Geliştirici Kaynakları** \&gt; **Örnek Web API'si (hizmet kök URL'si)**, burada bulunan URL'yi kopyalayın (örneğin https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **Örnek Web API'si URL** (gerekli): Microsoft 365 hesabınızda oturum ve giderek, Dynamics 365 örneği için Web API URL'si almak **ayarları** \&gt; **Özelleştirme** \&gt; **Geliştirici Kaynakları** \&gt; **Örnek Web API'si (hizmet kök URL'si)** , burada bulunan URL'yi kopyalayın (örneğin https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **Rol adı** (gerekli): İçinde özel Dynamics 365 test sürüşünüz tanımladığınız güvenlik rolü adını sağlayın. Bu kullanıcı için test sürüşü (örneğin test-drive rolü) sırasında atanır.
 
@@ -443,7 +454,7 @@ Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 - **Videolar: Video ekleme** (isteğe bağlı): Videoları için YouTube veya Vimeo karşıya ve bir müşteri bir kılavuzda başarıyla özelliklerini kullanma dahil olmak üzere test sürüşü daha iyi anlamalarına yardımcı olmak için bilgi görüntüleyebilmesi için bir bağlantı ve küçük resim görüntüsü ile (533 x 324 piksel cinsinden) burada başvurulan, Teklif ve avantajları vurgulayın senaryoları anlayın.
   - **Ad** (gerekli)
   - **URL'si (YouTube veya Vimeo yalnızca)** (gerekli)
-  - **Küçük resim (533 x 324px)**: PNG biçiminde resim dosyası olmalıdır.
+  - **Küçük resim (533 x 324px)** : PNG biçiminde resim dosyası olmalıdır.
 
 Seçin **Kaydet** bu alanlar tamamladıktan sonra.
 

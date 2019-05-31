@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415477"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240185"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
@@ -31,13 +31,13 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullana
 >
 > Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
 
-Bir HDInsight kümesi ile ESP oluşturabilmeniz için önce AzureAD DS etkinleştirme önkoşuldur. Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Bir HDInsight kümesi ile ESP oluşturabilmeniz için önce AzureAD DS etkinleştirme önkoşuldur. Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/create-instance.md). 
 
 Azure AD DS'yi etkinleştirildiğinde, tüm kullanıcılar ve nesneler Azure Active Directory (AAD dan), varsayılan olarak Azure AD DS'ye eşitleme başlatın. Eşitleme işlemi uzunluğu, Azure AD'de nesneleri sayısına bağlıdır. Eşitleme yüz binlerce nesne için birkaç gün sürebilir. 
 
-HDInsight kümeleri erişmesi gereken grupları eşitlemeyi seçebilirsiniz. Bu seçenek, yalnızca belirli gruplara eşitlemenin adlandırılır *eşitleme kapsamı*. Bkz: [yapılandırma kapsamlı eşitleme Azure AD'den yönetilen etki alanınıza](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md) yönergeler için.
+HDInsight kümeleri erişmesi gereken grupları eşitlemeyi seçebilirsiniz. Bu seçenek, yalnızca belirli gruplara eşitlemenin adlandırılır *eşitleme kapsamı*. Bkz: [yapılandırma kapsamlı eşitleme Azure AD'den yönetilen etki alanınıza](../../active-directory-domain-services/scoped-synchronization.md) yönergeler için.
 
-Güvenli LDAP etkinleştirilirken sertifika konu adında bir etki alanı adı ve konu alternatif adı yerleştirin. Örneğin, etki alanı adınızı ise *contoso100.onmicrosoft.com*, bu tam adı, sertifika konu adı ve konu diğer adı var olduğundan emin olun. Daha fazla bilgi için [güvenli LDAP yapılandırma için bir Azure AD-DS yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Aşağıda, otomatik olarak imzalanan sertifika oluşturmanın bir örnektir ve etki alanı adına sahip (*contoso100.onmicrosoft.com*) konu adı hem de DnsName (konu alternatif adı):
+Güvenli LDAP etkinleştirilirken sertifika konu adında bir etki alanı adı ve konu alternatif adı yerleştirin. Örneğin, etki alanı adınızı ise *contoso100.onmicrosoft.com*, bu tam adı, sertifika konu adı ve konu diğer adı var olduğundan emin olun. Daha fazla bilgi için [güvenli LDAP yapılandırma için bir Azure AD-DS yönetilen etki alanı](../../active-directory-domain-services/configure-ldaps.md). Aşağıda, otomatik olarak imzalanan sertifika oluşturmanın bir örnektir ve etki alanı adına sahip (*contoso100.onmicrosoft.com*) konu adı hem de DnsName (konu alternatif adı):
 
 ```powershell
 $lifetime=Get-Date
@@ -112,11 +112,11 @@ ESP ile HDInsight kümesi oluşturduğunuzda, aşağıdaki parametreleri belirtm
 
 Aşağıdaki ekran görüntüsünde, başarılı bir yapılandırma Azure portalında gösterir:
 
-![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png):
+![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 Oluşturduğunuz yönetilen kimlik olarak kullanıcı tarafından atanan yönetilen kimlik açılan listeden yeni bir küme oluştururken seçilebilir.
 
-![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png):
+![Azure HDInsight ESP Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

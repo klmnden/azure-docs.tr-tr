@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: HT
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400223"
+ms.locfileid: "66417135"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>TensorFlow modelleri eğitme ve Azure Machine Learning hizmetini kullanın
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Eğitim ve uygun ölçekte TensorFlow modeller Azure Machine Learning hizmeti ile kaydetme
 
 Bu makalede eğitme ve Azure Machine Learning hizmetini kullanarak bir TensorFlow modeli kaydetmeyi gösterilmektedir. Popüler kullanacağız [MNIST dataset](http://yann.lecun.com/exdb/mnist/) TensorFlow üzerinde oluşturulmuş bir derin sinir ağı kullanarak resimlerdeki el yazısı basamak sınıflandırmak için.
 
-Azure Machine Learning hizmeti ile hızlı bir şekilde elastik bulut bilgi işlem kaynakları kullanarak, açık kaynaklı eğitim işleri ölçeklendirmek mümkün olacaktır. Ayrıca mümkün olacaktır İzle eğitim çalıştırmaları, sürüm modelleri, modelleri ve daha fazlasını dağıtın. Sıfırdan TensorFlow modelden geliştiriyor ister mevcut bir model buluta getirdiğiniz, üretime hazır modelleri oluşturmanıza yardımcı olmak üzere Azure Machine Learning hizmeti aşağıda verilmiştir.
+Azure Machine Learning hizmeti ile hızlı bir şekilde elastik bulut bilgi işlem kaynakları kullanarak, açık kaynaklı eğitim işleri ölçeklendirmek mümkün olacaktır. Ayrıca mümkün olacaktır İzle eğitim çalıştırmaları, sürüm modelleri, modelleri ve daha fazlasını dağıtın. 
+
+Sıfırdan TensorFlow modelden geliştiriyor ister mevcut bir model buluta getirdiğiniz, üretime hazır modeller Azure Machine Learning hizmeti ile de oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

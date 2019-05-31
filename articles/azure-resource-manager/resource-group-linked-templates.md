@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205935"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357415"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -91,7 +91,7 @@ Ana şablon içinde şablonun içine yerleştirmek için kullanmanız **şablon*
 > [!NOTE]
 > İç içe geçmiş şablonlar için parametreleri veya iç içe geçmiş şablon içinde tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` ana şablonu, iç içe geçmiş şablon değil bir değer alır. Bu kısıtlama, dış şablonları için geçerli değildir.
 >
-> İki kaynak içinde tanımlanan bir iç içe şablonu ve bir kaynak birbirine bağlıdır, kullanıcıda kaynak adını yalnızca bağımlılık değeridir:
+> İki kaynak içinde tanımlanan bir iç içe geçmiş şablon ve bir kaynak birbirine bağlıdır, bağımlı kaynak adını yalnızca bağımlılık değeridir:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
