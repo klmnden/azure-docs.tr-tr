@@ -67,10 +67,10 @@ Aşağıdaki tabloda verilmiştir JSON öğelerinin özgü açıklama **OnPremis
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesMongoDb** |Evet |
-| sunucu |IP adresi veya ana bilgisayar adı MongoDB sunucusunun. |Evet |
+| server |IP adresi veya ana bilgisayar adı MongoDB sunucusunun. |Evet |
 | port |MongoDB sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |İsteğe bağlı, varsayılan değer: 27017 |
 | authenticationType |Temel veya anonim. |Evet |
-| kullanıcı adı |MongoDB erişmek için kullanıcı hesabı'nı tıklatın. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
+| username |MongoDB erişmek için kullanıcı hesabı'nı tıklatın. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | password |Kullanıcının parolası. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | authSource |Kimlik doğrulaması için kimlik bilgilerinizi denetlemek için kullanmak istediğiniz MongoDB veritabanının adı. |(Temel kimlik doğrulaması kullanılıyorsa) isteğe bağlı. Varsayılan: yönetici hesabı ve databaseName özelliği kullanılarak belirtilen veritabanı kullanır. |
 | databaseName |Erişmek istediğiniz MongoDB veritabanının adı. |Evet |
@@ -95,7 +95,7 @@ Kaynak türü olduğunda **MongoDbSource** typeProperties bölümünde aşağıd
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL 92 sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **collectionName** , **veri kümesi** belirtilir) |
+| query |Verileri okumak için özel sorgu kullanın. |SQL 92 sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **collectionName** , **veri kümesi** belirtilir) |
 
 
 
