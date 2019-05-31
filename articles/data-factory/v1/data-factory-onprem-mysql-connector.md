@@ -69,11 +69,11 @@ Aşağıdaki tabloda, JSON öğeleri MySQL bağlantılı hizmete özgü açıkla
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesMySql** |Evet |
-| sunucu |MySQL sunucusunun adı. |Evet |
-| veritabanı |MySQL veritabanının adı. |Evet |
-| Şema |Veritabanı şemasının adı. |Hayır |
+| server |MySQL sunucusunun adı. |Evet |
+| database |MySQL veritabanının adı. |Evet |
+| schema |Veritabanı şemasının adı. |Hayır |
 | authenticationType |MySQL veritabanına bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: `Basic`. |Evet |
-| kullanıcı adı |MySQL veritabanına bağlanmak için kullanıcı adı belirtin. |Evet |
+| userName |MySQL veritabanına bağlanmak için kullanıcı adı belirtin. |Evet |
 | password |Belirtilen kullanıcı hesabı için parola belirtin. |Evet |
 | gatewayName |Data Factory hizmetinin şirket içi MySQL veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
@@ -95,7 +95,7 @@ Kopya etkinlikteki kaynak türünde olduğunda **RelationalSource** (MySQL içer
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
+| query |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON örneği: MySQL için Azure Blob kopyalama verileri
