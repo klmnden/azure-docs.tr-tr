@@ -65,9 +65,9 @@ Aşağıdaki tabloda, JSON öğeleri bağlı Teradata hizmete özgü açıklama 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesTeradata** |Evet |
-| sunucu |Teradata sunucusunun adı. |Evet |
+| server |Teradata sunucusunun adı. |Evet |
 | authenticationType |Teradata veritabanına bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
-| kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
+| username |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
 | gatewayName |Data Factory hizmetinin şirket içi Teradata veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
@@ -85,7 +85,7 @@ Kaynak türü olduğunda **RelationalSource** (Teradata içeren), aşağıdaki �
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Evet |
+| query |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Evet |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON örneği: Teradata kopya verilerinin Azure Blob
 Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar veri Teradata ' Azure Blob depolama alanına kopyalama işlemini göstermektedir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
