@@ -67,11 +67,11 @@ Aşağıdaki tabloda, Sybase bağlantılı hizmete özgü JSON öğeleri için b
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesSybase** |Evet |
-| sunucu |Sybase sunucusunun adı. |Evet |
-| veritabanı |Sybase veritabanı adı. |Evet |
-| Şema |Veritabanı şemasının adı. |Hayır |
+| server |Sybase sunucusunun adı. |Evet |
+| database |Sybase veritabanı adı. |Evet |
+| schema |Veritabanı şemasının adı. |Hayır |
 | authenticationType |Sybase veritabanına bağlanmak için kullanılan kimlik doğrulaması türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
-| kullanıcı adı |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
+| username |Temel veya Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
 | gatewayName |Data Factory hizmetinin şirket içi Sybase veritabanına bağlanmak için kullanması gereken ağ geçidi adı. |Evet |
 
@@ -93,7 +93,7 @@ Kaynak türü olduğunda **RelationalSource** (Sybase içeren), aşağıdaki öz
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
+| query |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 
 ## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>JSON örneği: Verileri Sybase'den Azure Blob kopyalama
