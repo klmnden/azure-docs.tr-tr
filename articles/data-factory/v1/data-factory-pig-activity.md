@@ -85,15 +85,15 @@ Data Factory, HDInsight Pig etkinliği [işlem hattı](data-factory-create-pipel
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| ad |Etkinliğin adı |Evet |
-| açıklama |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |
+| name |Etkinliğin adı |Evet |
+| description |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |
 | type |HDinsightPig |Evet |
-| girişler |Pig etkinlik tarafından kullanılan bir veya daha fazla giriş |Hayır |
-| çıkışlar |Pig etkinliği tarafından üretilen bir veya daha fazla çıkışı |Evet |
+| inputs |Pig etkinlik tarafından kullanılan bir veya daha fazla giriş |Hayır |
+| outputs |Pig etkinliği tarafından üretilen bir veya daha fazla çıkışı |Evet |
 | linkedServiceName |Data Factory öğesinde bağlantılı hizmet olarak kayıtlı HDInsight kümesine başvuru |Evet |
 | script |Pig betiği satır içi belirtin |Hayır |
-| betik yolu |Pig betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
-| tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
+| scriptPath |Pig betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
+| defines |Pig betiği içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
 ## <a name="example"></a>Örnek
 İstediğiniz analytics şirketiniz tarafından başlatılan oyun oynama oyuncu tarafından harcanan süreyi belirlemek oyun günlüklerinin bir örnek düşünelim.
