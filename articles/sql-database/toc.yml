@@ -101,7 +101,7 @@
       href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
-        - name: R'de tahmine dayalı bir model oluşturma ve dağıtma
+        - name: R’de tahmine dayalı model oluşturma
           items:
             - name: 1 - Verileri hazırlama
               href: sql-database-tutorial-predictive-model-prepare-data.md
@@ -109,6 +109,14 @@
               href: sql-database-tutorial-predictive-model-build-compare.md
             - name: 3 - Modeli dağıtma
               href: sql-database-tutorial-predictive-model-deploy.md
+        - name: R’de kümeleme modeli oluşturma
+          items:
+            - name: 1 - Verileri hazırlama
+              href: sql-database-tutorial-clustering-model-prepare-data.md
+            - name: 2 - Modeli oluşturma
+              href: sql-database-tutorial-clustering-model-build.md
+            - name: 3 - Modeli dağıtma
+              href: sql-database-tutorial-clustering-model-deploy.md
 - name: Örnekler
   items:
     - name: Kod örnekleri

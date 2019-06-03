@@ -837,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Bir Mantıksal Uygulama eylemi gerçekleştirme
                   href: platform/action-groups-logic-app.md
+                - name: Ortak uyarı şemasını Logic Apps ile tümleştirme
+                  href: platform/alerts-common-schema-integrations.md
             - name: Uyarı Yönetimi çözümü
               href: platform/alert-management-solution.md
             - name: Uyarı kullanıcı arabirimi

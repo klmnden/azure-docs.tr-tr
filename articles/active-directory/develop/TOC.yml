@@ -229,8 +229,6 @@
                   href: msal-js-initializing-client-applications.md
             - name: Hataları ve özel durumları işleme
               href: msal-handling-exceptions.md
-            - name: MSAL uygulamalarını test etme
-              href: msal-testing.md
             - name: Günlüğe kaydetme
               href: msal-logging.md
             - name: Çoklu oturum açma (JS)
@@ -366,6 +364,12 @@
                   href: msal-net-user-gets-consent-for-multiple-resources.md
                 - name: Kendi HttpClient değerinizi sağlama
                   href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: Sayfa yeniden yüklemelerinden kaçınma
+                  href: msal-js-avoid-page-reloads.md
+                - name: Kimlik doğrulaması isteklerinde özel durumu geçme
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: Visual Studio ile çalışma
           items:
             - name: Active Directory bağlı hizmetini kullanma

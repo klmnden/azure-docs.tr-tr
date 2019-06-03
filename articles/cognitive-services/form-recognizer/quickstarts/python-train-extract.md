@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2657c69ef631c32b498404908014d8788d485989
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906973"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417960"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verileri ayıklayın
 
@@ -45,9 +45,12 @@ Form tanıyıcı kullanmak için erişim verildiğinde, bir karşılama iletisi 
 
 Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim **tüm kaynakları** portalında listesi. Ardından **anahtarları** abonelik anahtarlarınızı görüntülemek için sekmesinde. İki anahtarı kaynağa erişim sunar. Değerini kopyalayın **anahtar 1**. Sonraki bölümde kullanır.
 
-## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
+## <a name="train-a-form-recognizer-model"></a>Bir Form tanıyıcı modeli eğitme
 
-Oluşturma ve çalıştırma örneği için aşağıdaki kod parçacığı şu değişiklikleri yapın:
+İlk olarak, bir Azure depolama blobu eğitim veri kümesi gerekir. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Ya da tek, boş bir form kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun dosya adı gerekiyor
+
+Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** python aşağıdaki kodu çalıştırarak API. Kod çalıştırmadan önce şu değişiklikleri yapın:
+
 1. Değiştirin `<Endpoint>` Form tanıyıcı kaynak abonelik anahtarlarınızın aldığınız burada bir Azure bölgesinde uç nokta URL'si ile.
 1. Değiştirin `<SAS URL>` eğitim verilerin konumu URL'sini imzası (SAS) bir Azure Blob Depolama kapsayıcısına paylaşılan erişim.  
 1. Değiştirin `<Subscription key>` önceki adımda kopyaladığınız abonelik anahtarı.

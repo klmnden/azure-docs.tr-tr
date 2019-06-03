@@ -83,7 +83,7 @@
           displayName: roles
         - name: Serbest biçimli verileri ayıklama
           href: luis-tutorial-pattern-any.md
-    - name: Bot kullanma
+    - name: V4 bot framework'ü kullanma
       items:
         - name: 'C# ile'
           href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Konuşma hizmeti ile
           href: luis-tutorial-speech-to-intent.md
-        - name: Bot ile
+        - name: V3 bot framework'ü kullanma
           items:
             - name: Web uygulaması botu
               items:
@@ -279,6 +279,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Sınırlar
       href: luis-boundaries.md
+    - name: Uygulama ayarları
+      href: luis-reference-application-settings.md
     - name: Önceden derlenmiş varlık başvurusu
       items:
         - name: Kültür başına varlıklar
@@ -398,6 +400,8 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Kaynaklar
   items:
+    - name: Yenilikler
+      href: whats-new.md
     - name: Bölgesel kullanılabilirlik
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Dil ve bölge desteği

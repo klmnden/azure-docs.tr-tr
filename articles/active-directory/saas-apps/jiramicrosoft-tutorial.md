@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 554a4c63c8492d69ad0899176cdc58895c5146f5
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688099"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Öğretici: Microsoft tarafından JIRA SAML SSO ile Azure Active Directory Tümleştirme
 
@@ -44,7 +44,7 @@ Microsoft Azure Active Directory hesabınız Atlassian JIRA sunucusu ile çoklu 
 Azure AD tümleştirmesi Microsoft tarafından JIRA SAML SSO ile yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- JIRA çekirdek 7.12 yazılım 6.0 veya JIRA hizmet Masası 3.0, 3.5 için yüklü ve yapılandırılmış Windows 64-bit sürümü
+- JIRA çekirdek ve yazılım 6.4 8.0 için veya JIRA hizmet Masası 3.0, 3.5 için yüklü ve yapılandırılmış Windows 64-bit sürümü
 - HTTPS etkin JIRA sunucusudur
 - JIRA eklentisi için desteklenen sürümler bölümü belirtilmiştir unutmayın.
 - JIRA sunucu kimlik doğrulaması için Azure AD oturum açma sayfasına özellikle Internet üzerinden erişilebilir olduğundan ve Azure AD'den belirteç alamaz gerekir
@@ -62,7 +62,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 ## <a name="supported-versions-of-jira"></a>JIRA desteklenen sürümleri
 
-* JIRA çekirdek ve yazılım: 6.0 için 7.12
+* JIRA çekirdek ve yazılım: 6.4 ile 8.0
 * JIRA hizmet Masası 3.0.0 için 3.5.0
 * JIRA 5.2 da destekler. Daha fazla bilgi için tıklayın [Microsoft Azure Active Directory çoklu oturum açma için JIRA 5.2](jira52microsoft-tutorial.md)
 
@@ -81,7 +81,7 @@ Azure AD'de Microsoft tarafından JIRA SAML SSO tümleştirmesini yapılandırma
 
 **Galeriden Microsoft tarafından JIRA SAML SSO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
+1. İçinde **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](common/select-azuread.png)
 
@@ -179,34 +179,40 @@ Microsoft tarafından JIRA SAML SSO ile Azure AD çoklu oturum açmayı yapılan
 
 6. Yapılandırma sayfasında aşağıdaki adımları uygulayın:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/jiramicrosoft-tutorial/addon52.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/jiramicrosoft-tutorial/addon53.png)
 
     > [!TIP]
     > Böylece hata meta veriler çözümlenmesinde uygulamayı karşı eşlenen yalnızca bir sertifika olduğundan emin olun. Yönetici, meta veri çözümleme sırasında birden çok sertifika varsa bir hata alır.
 
-    a. İçinde **meta veri URL'si** metin kutusu, yapıştırma **uygulama Federasyon meta verileri URL'sini** Azure portal'ı seçin ve kopyaladığınız değeri **çözmek** düğmesi. IDP meta veri URL'sini okur ve tüm alanları bilgileri doldurur.
+    1. İçinde **meta veri URL'si** metin kutusu, yapıştırma **uygulama Federasyon meta verileri URL'sini** Azure portal'ı seçin ve kopyaladığınız değeri **çözmek** düğmesi. IDP meta veri URL'sini okur ve tüm alanları bilgileri doldurur.
 
-    b. Kopyalama **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** değerleri ve bunları yapıştırın **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** sırasıyla içinde metin kutuları **Microsoft Domain ve URL'leriJIRASAMLSSO** bölümü Azure portalı.
+    1. Kopyalama **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** değerleri ve bunları yapıştırın **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** sırasıyla içinde metin kutuları **Microsoft Domain ve URL'leriJIRASAMLSSO** bölümü Azure portalı.
 
-    c. İçinde **oturum açma düğmesi adı** kuruluşunuzun oturum açma ekranında kullanıcıların istediği düğme adı yazın.
+    1. İçinde **oturum açma düğmesi adı** kuruluşunuzun oturum açma ekranında kullanıcıların istediği düğme adı yazın.
 
-    d. İçinde **SAML kullanıcı kimliği konumları** seçin **kullanıcı kimliğidir konu deyiminin NameIdentifier öğesinde** veya **kullanıcı kimliği olup öznitelik öğe**.  Bu kimliği JIRA kullanıcı kimliği olması gerekir Kullanıcı Kimliği eşleşmiyorsa, sonra sistem oturum açmasına izin vermez.
+    1. İçinde **SAML kullanıcı kimliği konumları** seçin **kullanıcı kimliğidir konu deyiminin NameIdentifier öğesinde** veya **kullanıcı kimliği olup öznitelik öğe**.  Bu kimliği JIRA kullanıcı kimliği olması gerekir Kullanıcı Kimliği eşleşmiyorsa, sonra sistem oturum açmasına izin vermez.
 
-    > [!Note]
-    > Varsayılan kullanıcı kimliği SAML ad tanımlayıcısı konumdur. Bu öznitelik seçeneği değiştirin ve uygun öznitelik adını girin.
+       > [!Note]
+       > Varsayılan kullanıcı kimliği SAML ad tanımlayıcısı konumdur. Bu öznitelik seçeneği değiştirin ve uygun öznitelik adını girin.
 
-    e. Seçerseniz **kullanıcı kimliği olup öznitelik öğe** seçeneği, ardından **öznitelik adı** metin kullanıcı kimliği beklenirken özniteliğin adını yazın.
+    1. Seçerseniz **kullanıcı kimliği olup öznitelik öğe** seçeneği, ardından **öznitelik adı** metin kullanıcı kimliği beklenirken özniteliğin adını yazın.
 
-    f. Azure AD ile Federasyon etki alanını (örneğin, ADFS vb.) kullanıyorsanız, ardından **giriş bölgesi bulmayı etkinleştirmek** seçeneği ve yapılandırma **etki alanı adı**.
+    1. Azure AD ile Federasyon etki alanını (örneğin, ADFS vb.) kullanıyorsanız, ardından **giriş bölgesi bulmayı etkinleştirmek** seçeneği ve yapılandırma **etki alanı adı**.
 
-    g. İçinde **etki alanı adı** ADFS tabanlı oturum açma durumunda burada etki alanı adını yazın.
+    1. İçinde **etki alanı adı** ADFS tabanlı oturum açma durumunda burada etki alanı adını yazın.
 
-    h. Denetleme **etkinleştirme çoklu oturum kapatma** ne zaman bir kullanıcının oturumunu kapatmak JIRA Azure AD oturumunu kapatmak istediğinizde.
+    1. Denetleme **etkinleştirme çoklu oturum kapatma** ne zaman bir kullanıcının oturumunu kapatmak JIRA Azure AD oturumunu kapatmak istediğinizde.
+    
+    1. Etkinleştirme **zorla Azure oturum açma** Azure AD kullanarak oturum istiyorsanız onay kutusunu yalnızca kimlik bilgileri.
+    
+       > [!Note]
+       > Oturum açma sayfasında Yöneticisi oturumu için varsayılan oturum açma formu etkinleştirmek için zorla azure oturum açma etkinleştirildiğinde, tarayıcı URL sorgu parametresini ekleyin.
+       > `https://<domain:port>/login.action?force_azure_login=false`
 
-    i. Tıklayın **Kaydet** düğmesini kullanarak ayarları kaydedin.
+    1. Tıklayın **Kaydet** düğmesini kullanarak ayarları kaydedin.
 
-    > [!NOTE]
-    > Yükleme ve sorun giderme hakkında daha fazla bilgi için ziyaret [MS JIRA SSO Bağlayıcısı yönetici kılavuzundaki](../ms-confluence-jira-plugin-adminguide.md) ayrıca [SSS](../ms-confluence-jira-plugin-faq.md) , Yardım almak için
+       > [!NOTE]
+       > Yükleme ve sorun giderme hakkında daha fazla bilgi için ziyaret [MS JIRA SSO Bağlayıcısı yönetici kılavuzundaki](../ms-confluence-jira-plugin-adminguide.md). Ayrıca bir [SSS](../ms-confluence-jira-plugin-faq.md) , Yardım almak için.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

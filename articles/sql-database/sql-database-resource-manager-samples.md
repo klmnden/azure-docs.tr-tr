@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559746"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418443"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure SQL veritabanı için Azure Resource Manager şablonları
 
@@ -33,7 +33,6 @@ Aşağıdaki tabloda, Azure SQL veritabanı için Azure Resource Manager şablon
 | [Mantıksal sunucu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Bu Azure Resource Manager şablonu, Azure SQL veritabanı için bir mantıksal sunucu oluşturur. |
 | [Elastik havuz](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Bu şablon, yeni bir elastik havuz yeni ilişkili SQL Server ve SQL veritabanlarını yeni atamak dağıtmanıza olanak sağlar. |
 | [Yük devretme grupları](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Bu şablon, iki Azure SQL mantıksal sunucuları ve SQL veritabanı yük devretme grubu oluşturur.|
-| [Gelişmiş Tehdit Koruması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Bu şablon, Gelişmiş tehdit koruması özellikli ve isteğe bağlı bir Azure SQL veritabanı ile bir Azure SQL mantıksal sunucusu dağıtmanızı sağlar. SQL Gelişmiş Tehdit Koruması, gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir paket sunar.|
 | [Tehdit algılama](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Bu şablon, bir Azure SQL mantıksal sunucusu ve bir Azure SQL veritabanı tehdit algılama, her veritabanı için uyarılar için e-posta adresiyle etkin ile dağıtmanıza olanak sağlar. Tehdit algılama, SQL Gelişmiş tehdit Koruması (ATP) sunan bir parçasıdır ve bir SQL sunucuları ve veritabanları üzerinde olası tehditleri yanıt veren bir güvenlik katmanı sağlar.|
 | [Azure Blob depolama alanına denetleme](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Bu şablon, bir blob depolama alanı için Denetim günlükleri yazmak için etkin bir denetim ile bir Azure SQL mantıksal sunucusu dağıtmanızı sağlar. Azure SQL veritabanı denetimi veritabanı olaylarını izler ve Azure depolama hesabı, OMS çalışma alanına veya olay hub'ları yerleştirilebilir bir denetim günlüğüne yazar.|
 | [Azure olay Hub'ına denetleme](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Bu şablon, mevcut bir olay Hub'ına denetim günlükleri yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtmanızı sağlar. Denetim olayları olay Hub'ına göndermek için ayarlamanız denetim ayarları ile `Enabled` `State` ayarlayıp `IsAzureMonitorTargetEnabled` olarak `true`. Ayrıca, tanılama ayarlarla yapılandırın `SQLSecurityAuditEvents` tanılama günlükleri kategorisine göre `master` veritabanı (hizmet düzeyi denetimi için). Azure SQL veritabanı ve SQL veri ambarı için denetimi veritabanı olaylarını izler ve Azure depolama hesabı, OMS çalışma alanına veya olay hub'ları yerleştirilebilir bir denetim günlüğüne yazar.|

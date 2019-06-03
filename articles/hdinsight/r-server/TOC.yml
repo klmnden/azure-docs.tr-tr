@@ -247,6 +247,10 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Ağ erişimi
       items:
+        - name: HDInsight sanal ağ mimarisi
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Giden trafiği kısıtlamak için güvenlik duvarı kullanma
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet’te HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: HDInsight’a şirket içi ağınızla bağlanma

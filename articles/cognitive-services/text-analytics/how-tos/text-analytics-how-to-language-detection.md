@@ -9,18 +9,22 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829693"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417951"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Örnek: Metin analizi diliyle tespit etme
 
-[Dil Algılama API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7), metin girişini değerlendirir ve her bir belge için analizin gücünü belirten bir puan ile dil tanımlayıcılarını döndürür. Metin Analizi 120’ye kadar dili tanır.
+[Dil algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) API'nin özellik giriş ve her belge için metin değerlendirir ve Dil tanımlayıcıları analiz gücünü gösteren bir puan döndürür.
 
 Bu özellik, dilin bilinmediği rastgele metni toplayan içerik depoları için kullanışlıdır. Giriş belgesinde hangi dilin kullanıldığını belirlemek için bu analizin sonuçlarını ayrıştırabilirsiniz. Yanıt ayrıca modelin güvenilirliğini yansıtan bir puan da (0 ile 1 arasında bir değer) döndürür.
+
+Biz bu özelliğin dillerin tam listesini yayımlama, ancak çok çeşitli diller, çeşitleri, diyalektler ve bölge/kültürel bazı diller algılayabilir. 
+
+Daha az sık kullanılan bir dille ifade içeriğiniz varsa, bir kod döndürür görmek için dil algılama deneyebilirsiniz. Yanıt algılanamayan diller için `unknown`.
 
 > [!TIP]
 > Metin analizi de Linux tabanlı bir Docker kapsayıcı görüntüsü dil için algılama sağlar, böylece [yükleyin ve metin analizi kapsayıcı çalıştırın](text-analytics-how-to-install-containers.md) verilerinizi yakın.
@@ -58,7 +62,7 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>1. Adım: Yapı isteği
+## <a name="step-1-structure-the-request"></a>1. adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
@@ -73,14 +77,14 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
+## <a name="step-2-post-the-request"></a>2. adım: POST isteği
 
 İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 
 Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 
 
-## <a name="step-3-view-results"></a>3. Adım: Sonuçları görüntüleme
+## <a name="step-3-view-results"></a>3. adım: Sonuçları görüntüleme
 
 Tüm POST istekleri, kimlikler ve algılanan özelliklerle JSON tarafından biçimlendirilmiş bir yanıt döndürür.
 
@@ -206,7 +210,7 @@ Sonuçta elde edilen çıktı, daha zayıf bir güvenilirlik düzeyini belirten 
 
 Bu makalede, Bilişsel Hizmetler’de Metin Analizi’ni kullanarak dil algılama için kavramları ve iş akışını öğrendiniz. Aşağıda, önceden açıklanmış ve gösterilmiş olan ana noktaların hızlı bir anımsatıcısı yer almaktadır:
 
-+ [Dil algılama API’si](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) 120 dilde mevcuttur.
++ [Dil algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) çok çeşitli diller, çeşitleri, diyalektler ve bölge/kültürel bazı diller için kullanılabilir.
 + İstek gövdesindeki JSON belgelerini bir kimliği ve metin ekleyin.
 + POST isteği, aboneliğiniz için geçerli olan kişiselleştirilmiş bir [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) kullanılarak `/languages` uç noktasına yapılır.
 + Her belge kimliği için dil tanımlayıcılarından oluşan yanıt çıktısı, Excel ve Power BI da dahil olmak üzere JSON kabul eden tüm uygulamalarda akışa alınabilir.

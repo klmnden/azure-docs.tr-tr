@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 43aa0956ef1f44fa5705800ff2b424608ec75499
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795608"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427707"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Azure Kubernetes, Azure Cosmos DB (Önizleme) ile kullanma
 
@@ -29,7 +29,7 @@ Azure Cosmos DB'de etcd API hakkında daha fazla bilgi için bkz: [genel bakış
 
 1. En son sürümünü yükleyin [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI belirli işletim sisteminize indirin ve yükleyin.
 
-1. Yükleme [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) Azure Kubernetes altyapısı sürümü. Farklı işletim sistemleri için yükleme yönergelerini kullanılabilir [Azure Kubernetes altyapısını](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) sayfası. Yer alan adımları yeterlidir **yükleme AKS motoru** bağlı doc bölümü. İndirdikten sonra zip dosyasını ayıklayın.
+1. Yükleme [en son sürümü](https://github.com/Azure/aks-engine/releases) Azure Kubernetes altyapısı. Farklı işletim sistemleri için yükleme yönergelerini kullanılabilir [Azure Kubernetes altyapısını](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) sayfası. Yer alan adımları yeterlidir **yükleme AKS motoru** bağlı doc bölümü. İndirdikten sonra zip dosyasını ayıklayın.
 
    Azure Kubernetes altyapısı (**aks altyapısı**) Azure üzerinde Kubernetes kümeleri için Azure Resource Manager şablonları oluşturur. Aks altyapısı giriş orchestrator, özellikleri ve aracılar da dahil olmak üzere, istenen küme açıklayan bir küme tanımı dosyasıdır. Azure Kubernetes Service için genel API giriş dosyaları yapısını benzer.
 
@@ -77,7 +77,7 @@ Azure Cosmos DB'de etcd API hakkında daha fazla bilgi için bkz: [genel bakış
 1. Komut İstemi'nden Azure Kubernetes altyapısı yürütülebilir dosyanın bulunduğu klasöre gidin. Örneğin, bir komut istemi klasöre gidebilirsiniz:
 
    ```cmd
-   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+   cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
 1. Tercih ettiğiniz bir metin düzenleyicisinde açın ve Azure Cosmos DB etcd API'si ile Azure Kubernetes kümesi dağıtır bir Resource Manager şablonu tanımlayın. Metin düzenleyicinize aşağıdaki JSON tanımını kopyalayın ve dosyayı farklı Kaydet `apiModel.json`:

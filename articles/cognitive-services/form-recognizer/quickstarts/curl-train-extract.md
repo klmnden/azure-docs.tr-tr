@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 037c323b2ef9e0a2d264e3fd5f7655456c30a1be
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235603"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417472"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verileri ayıklayın
 
@@ -47,7 +47,7 @@ Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim
 
 ## <a name="train-a-form-recognizer-model"></a>Bir Form tanıyıcı modeli eğitme
 
-İlk olarak, bir eğitim veri kümesi gerekir. Bir Azure blob veri veya kendi yerel eğitim verilerini kullanabilirsiniz. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Veya tek bir boş form kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun dosya adı gerekiyor
+İlk olarak, bir Azure depolama blobu eğitim veri kümesi gerekir. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Ya da tek, boş bir form kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun dosya adı gerekiyor
 
 Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** aşağıdaki cURL komutu çalıştırarak API. Komutu çalıştırmadan önce şu değişiklikleri yapın:
 

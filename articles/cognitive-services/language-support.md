@@ -11,10 +11,10 @@ ms.date: 05/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 0883b8e5ae2eab39fca6434141d6591432ad341e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 05/31/2019
 ms.locfileid: "65595717"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Bilişsel hizmetler için doğal dil desteği
@@ -28,14 +28,14 @@ Bu makalede, iki bölüme ayrılır. İlk Azure Bilişsel hizmetler yaygın olar
 Bu çekirdek diller arasında Azure Bilişsel hizmetler desteklenir:
 
 * Çince
-* İngilizce
-* Fransızca 
-* Almanca 
+* Türkçe
+* Fransızca
+* Almanca
 * İtalyanca
 * Japonca
 * Korean¹
 * Portekizce
-* İspanyolca 
+* İspanyolca
 
 > [!NOTE]
 > ¹ LUIS ve Video Indexer: Konuşmayı metne desteklenmez.
@@ -72,7 +72,7 @@ Bu tablolar dil kullanılabilirlik hizmet kategoriye göre Vurgula; hariç tutul
 | [Translator Metin Çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator/languages) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Metin Analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | :heavy_check_mark: | : heavy_minus_sign: | : heavy_minus_sign: | : heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | : heavy_minus_sign: | :heavy_check_mark: | : heavy_minus_sign: | : heavy_minus_sign: | : heavy_minus_sign: | : heavy_minus_sign: | : heavy_minus_sign: | :heavy_check_mark: | :heavy_check_mark: | : heavy_minus_sign: | :heavy_check_mark: | : heavy_minus_sign: | : heavy_minus_sign: | : heavy_minus_sign: | :heavy_check_mark: | : heavy_minus_sign: | : heavy_minus_sign: | :heavy_check_mark: | : heavy_minus_sign: | : heavy_minus_sign: |
 
-### <a name="search"></a>Arama
+### <a name="search"></a>Ara
 
 | | Arapça | Bulgarca | Katalanca | Hırvatça | Çekçe | Danca | Felemenkçe | Estonca | Fince | Yunanca | Hintçe | Macarca | İzlanda dili | Endonezya dili | Letonca | Litvanca | Malay dili | Norveççe | Lehçe | Rumence | Rusça | Sırpça | Slovakça | Slovence | İsveççe | Tamil dili | Tay Dili | Türkçe | Ukrayna dili | Vietnam dili |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|

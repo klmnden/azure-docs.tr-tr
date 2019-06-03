@@ -6,15 +6,15 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ed66e3a0237eced852c806e78a8af6bdf8d8579
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60925783"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417834"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
 
@@ -23,7 +23,7 @@ Bu makalede Azure kullanarak şirket içi makine için olağanüstü durum kurta
 
 Bu, şirket içi makineler için Azure'da olağanüstü durum kurtarma ayarlama gösteren serideki dördüncü öğreticidir.
 
-Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * Yük devretme testi için yalıtılmış bir ağ ayarlama
@@ -81,7 +81,7 @@ Yük devretme testini aşağıdaki gibi çalıştırın:
 
 Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işlem gerekir. VMware Linux makinelerinde, DHCP hizmeti etkinleştirilmemiş VMware VM’lerinde ve storvsc, vmbus, storflt, intelide, atapi önyükleme sürücülerine sahip olmayan VMware VM’lerinde uzun yük devretme testi süreleriyle karşılaşabilirsiniz.
 
-## <a name="connect-after-failover"></a>Yük devretme sonrasında bağlan
+## <a name="connect-after-failover"></a>Yük devretme sonrasında Bağlan
 
 Yük devretmeden sonra RDP/SSH'yi kullanarak Azure vm'lerine bağlanmak isterseniz [bağlanmak için hazırlık yapma](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover). Yük devretme sonrasında herhangi bir bağlantı sorunla karşılaşırsanız izleyin [sorun giderme](site-recovery-failover-to-azure-troubleshoot.md) Kılavuzu.
 

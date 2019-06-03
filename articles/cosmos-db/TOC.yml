@@ -210,6 +210,8 @@
         - name: Rol tabanlı erişim denetimi
           displayName: rbac
           href: role-based-access-control.md
+        - name: Güvenlik öznitelikleri
+          href: cosmos-db-security-attributes.md
     - name: Kurumsal kullanıma hazır olma
       items:
         - name: Çevrimiçi yedekleme ve isteğe bağlı geri yükleme

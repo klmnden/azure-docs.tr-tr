@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: dabb43cb2fe9b66d5d83d163b74d2f22354e33b8
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604482"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418036"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
-Bu öğreticide, regresyon kullanarak model için verileri hazırlama hakkında bilgi edinin [için Azure Machine Learning veri hazırlama paketinde](https://aka.ms/data-prep-sdk). Filtreleme ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeler çalıştırın.
+Bu öğreticide, regresyon kullanarak model için verileri hazırlama hakkında bilgi edinin [veri hazırlama paketinde](https://aka.ms/data-prep-sdk) gelen [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Filtreleme ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeler çalıştırın.
 
 Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**. Öğretici serisinin tamamladıktan sonra taksi seyahat maliyetini veri özellikleri bir model eğitip geleceği tahmin edebilirsiniz. Bu özellikler, toplama gün ve saat, Yolcuların Sayısı ve toplama konumunu içerir.
 
@@ -38,7 +38,7 @@ Bu öğreticide şunları yaptınız:
 Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuyun veya not defterini alma ve Azure not defterleri veya kendi notebook sunucusu üzerinde çalıştırmak için aşağıdaki yönergeleri kullanın. İhtiyacınız olacak not defteri çalıştırmak için:
 
 * Aşağıdakilerin yüklü olan bir Python 3.6 Not Defteri sunucusu:
-    *  Python için Azure Machine Learning SDK paketinden azureml dataprep
+    * `azureml-dataprep` Paketi Azure Machine Learning SDK'sı
 * Öğretici not defteri
 
 * Kullanım bir [çalışma alanınızdaki bulut not defteri sunucusu](#azure) 
@@ -46,7 +46,7 @@ Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuy
 
 ### <a name="azure"></a>Çalışma alanınızda bir bulut not defteri sunucusu kullan
 
-Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kolaydır. [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve bu bulut kaynağı oluşturduktan sonra sizin için yapılandırılır.
+Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kolaydır. Python için Azure Machine Learning SDK'sı zaten yüklü ve bu bulut kaynağı oluşturduktan sonra sizin için yapılandırılır.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
@@ -56,8 +56,8 @@ Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kol
 
 Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşağıdaki adımları kullanın.  Adımları tamamladıktan sonra Çalıştır **öğreticiler/regresyon-bölüm 1-verileri-prep.ipynb** dizüstü bilgisayar.
 
-1. Tam yükleme adımları [Azure Machine Learning Python hızlı](setup-create-workspace.md#sdk) Miniconda ortamı oluşturmak için.  Atlayabilirsiniz **çalışma alanı oluşturma** istediğiniz, ancak bunun için ihtiyacınız olacak bölümünde [2. bölüm](tutorial-auto-train-models.md) Bu öğretici serisinin.
-1. Azureml dataprep kullanarak ortamınıza yükleyin `pip install azureml-dataprep`.
+1. Tam yükleme adımları [Azure Machine Learning Python hızlı](setup-create-workspace.md#sdk) Miniconda ortamı oluşturun ve SDK'sını yükleyin.  Atlayabilirsiniz **çalışma alanı oluşturma** istediğiniz, ancak bunun için ihtiyacınız olacak bölümünde [2. bölüm](tutorial-auto-train-models.md) Bu öğretici serisinin.
+1. `azureml-dataprep` Paket SDK'yı yüklediğinizde otomatik olarak yüklenir.
 1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
 
     ```
@@ -85,7 +85,7 @@ Bunları henüz yoksa, gerekli paketleri yüklemek için aşağıdakileri kullan
 pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-SDK'sını alın.
+Paketi içeri aktarın.
 
 ```python
 import azureml.dataprep as dprep
@@ -94,7 +94,7 @@ import azureml.dataprep as dprep
 > [!IMPORTANT]
 > En son sürümü yükleyin emin olun. Bu öğreticide, sürüm numarası 1.1.0 düşük ile çalışmaz
 
-## <a name="load-data"></a>Verileri yükleyin
+## <a name="load-data"></a>Veri yükleme
 
 İki farklı NYC taksi veri kümesi, veri akışı nesneleri indirin. Veri kümeleri biraz farklı alanlara sahiptir. `auto_read_file()` Yöntemi giriş dosya türü otomatik olarak tanır.
 
@@ -320,7 +320,7 @@ combined_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Tür</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Maks</th>
       <th>Sayı</th>
@@ -472,7 +472,7 @@ latlong_filtered_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Tür</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Maks</th>
       <th>Sayı</th>
@@ -606,7 +606,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Tür</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Maks</th>
       <th>Sayı</th>

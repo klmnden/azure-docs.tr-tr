@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 90ffebf5f3375e94545f82a95f5c240ad845bd94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4ceff7d59443fe78fb8cf7164e5f31cf1acc189a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162186"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420808"
 ---
 1. [Firebase konsolunda](https://firebase.google.com/console/) oturum açın. Henüz bir tane yoksa yeni bir Firebase projesi oluşturun.
 2. Projenizi oluşturduktan sonra **Firebase’i Android uygulamanıza ekleyin**’i seçin. 
@@ -36,4 +36,4 @@ ms.locfileid: "66162186"
     ![Proje Ayarları’nı seçin](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. İndirmediyseniz, **google-services.json** yapabileceğiniz dosyası, bu sayfada benzeri. 
 5. Geçiş **Cloud Messaging** en üstteki sekmedeki. 
-6. Kopyalayıp kaydedin **sunucu anahtarı** daha sonra kullanmak için. Bildirim hub'ınızı yapılandırmak için bu değeri kullanın.
+6. Kopyalayıp kaydedin **eski sunucu anahtarı** daha sonra kullanmak için. Bildirim hub'ınızı yapılandırmak için bu değeri kullanın.

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787007"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428324"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Azure işlevleri ve Azure Logic Apps'ı kullanarak Azure Event Grid alınan Azure Service Bus olaylarını yanıtlama
 Bu öğreticide, Azure işlevleri ve Azure Logic Apps'ı kullanarak Azure Event Grid alınan Azure Service Bus olaylara yanıt verme konusunda bilgi edinin. Aşağıdaki adımları gerçekleştirin:
@@ -120,7 +120,7 @@ Ardından, aşağıdaki adımları uygulayın:
     ![İşlevi uygulama çıktısı](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 3. Seçin **işlev URL'sini Al** Not URL'sini alın. 
 
-    ![İşlev URL'sini al](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![İşlev URL'sini Al](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 # <a name="azure-functions-v1tabv1"></a>[Azure işlevleri V1](#tab/v1)
 
@@ -179,7 +179,7 @@ Ardından, aşağıdaki adımları uygulayın:
     ![İşlevi uygulama çıktısı](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 4. Seçin **işlev URL'sini Al** Not URL'sini alın. 
 
-    ![İşlev URL'sini al](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![İşlev URL'sini Al](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 ---
 
@@ -280,7 +280,6 @@ Mantıksal uygulama, aşağıdaki adımları izleyerek Azure Service Bus ve Azur
     3. İçin **kaynak adı**, Service Bus ad alanınızı seçin. 
     4. Seçin **yeni parametre Ekle**seçip **sonek filtresi**. 
     5. İçin **sonek filtresi**, ikinci, Service Bus konu aboneliği adı girin. 
-
         ![Logic Apps Tasarımcısı - olay yapılandırın](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Seçin **+ yeni adım** Tasarımcısı'nda ve aşağıdaki adımları uygulayın:
     1. Arama **Service Bus**.

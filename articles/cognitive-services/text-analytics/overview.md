@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: ae1d8f18705b1058c10d4720c64f624ed0ef4a3d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60829540"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417280"
 ---
 # <a name="what-is-text-analytics-api"></a>Metin analizi API'si nedir?
 
@@ -27,14 +27,14 @@ API parçasıdır [Azure Bilişsel Hizmetler](https://docs.microsoft.com/azure/c
 
 Metin analizi farklı anlamlara gelebilir, ancak Bilişsel hizmetler, metin analizi API'si aşağıda açıklandığı gibi analiz dört tür sağlar.
 
-## <a name="sentiment-analysis"></a>Yaklaşım Analizi
+## <a name="sentiment-analysis"></a>Duygu Analizi
 Kullanım [yaklaşım analizi](how-tos/text-analytics-how-to-sentiment-analysis.md) müşterilerin markanız veya konunun pozitif veya negatif yaklaşım hakkında ipuçları için ham metni çözümleyerek düşündüklerini bulunacak. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir.<br /> Analiz modelleri, Microsoft tarafından sağlanan geniş kapsamlı gövde metinleri ve doğal dil teknolojileri kullanılarak önceden eğitilmiştir. API, [seçili dillerde](text-analytics-supported-languages.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. Kullanabileceğiniz [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API veya [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="key-phrase-extraction"></a>Anahtar İfade Ayıklama
 Otomatik olarak [anahtar tümcecikleri ayıklayın](how-tos/text-analytics-how-to-keyword-extraction.md) ana noktaları hızlıca belirlemek için. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. Kullanabileceğiniz [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) burada API veya [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="language-detection"></a>Dil Algılama
-Yapabilecekleriniz [giriş metni olarak yazıldığı dili algılamak](how-tos/text-analytics-how-to-language-detection.md) ve en fazla 120 dil için istekte gönderilen her belge için bir tek dil kodu bildirin. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. Kullanabileceğiniz [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API veya [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Yapabilecekleriniz [giriş metni olarak yazıldığı dili algılamak](how-tos/text-analytics-how-to-language-detection.md) ve çok çeşitli diller, çeşitleri, diyalektler ve bölge/kültürel bazı diller, istekte gönderilen her belge için bir tek dil kodu bildirin. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. Kullanabileceğiniz [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API veya [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="named-entity-recognition"></a>Adlandırılmış Varlık Tanıma
 [Tanımlamak ve varlıkları kategorilere](how-tos/text-analytics-how-to-entity-linking.md) metninizi kişiler, yerler, kuruluşlar olarak tarih/saat, miktarlar, yüzde, para birimleri ve daha fazla. İyi bilinen varlıklar da tanınarak web üzerindeki ek bilgilere bağlantı verilir. Kullanabileceğiniz [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API.

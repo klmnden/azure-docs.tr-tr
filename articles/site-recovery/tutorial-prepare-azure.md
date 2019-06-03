@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691764"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417813"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
 
@@ -55,7 +55,7 @@ Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerle�
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
 1. Azure portalında **+ kaynak Oluştur**ve markette Ara **kurtarma**.
-2. Tıklayın **yedekleme ve Site Recovery (OMS)**, Backup ve Site Recovery sayfasında tıklayın **Oluştur**. 
+2. Tıklayın **yedekleme ve Site Recovery (OMS)** , Backup ve Site Recovery sayfasında tıklayın **Oluştur**. 
 1. İçinde **kurtarma Hizmetleri kasası** > **adı**, kasayı tanımlamak için bir kolay ad girin. Bu öğretici dizisi için **ContosoVMVault**’u kullanacağız.
 2. İçinde **kaynak grubu**, mevcut bir kaynak grubunu seçin veya yeni bir tane oluşturun. Bu öğretici için kullandığımız **contosoRG**.
 3. İçinde **konumu**, hangi kasa olmalıdır bölgeyi seçin. **Batı Avrupa** kullanacağız.

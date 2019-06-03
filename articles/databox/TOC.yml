@@ -111,7 +111,7 @@
           items:
             - name: Azure portalı aracılığıyla yönetme
               href: data-box-portal-ui-admin.md
-            - name: Disk sorunlarını giderme
+            - name: Data Box Heavy sorunlarını giderme
               href: data-box-disk-troubleshoot.md
             - name: Destek birimine başvurma
               href: data-box-disk-contact-microsoft-support.md
@@ -121,12 +121,32 @@
           items:
             - name: Data Box Heavy nedir?
               href: data-box-heavy-overview.md
+        - name: Öğreticiler
+          items:
+            - name: 1 - Sipariş
+              href: data-box-heavy-deploy-ordered.md
+            - name: 2 - Ayarlama
+              href: data-box-heavy-deploy-set-up.md
+            - name: 3 - Bağlanma ve kopyalama
+              items:
+                - name: SMB aracılığıyla
+                  href: data-box-heavy-deploy-copy-data.md
+            - name: '4 - İade etme, karşıya yükleme, doğrulama'
+              href: data-box-heavy-deploy-picked-up.md
         - name: Kavramlar
           items:
             - name: Gereksinimleri inceleme
               href: data-box-heavy-system-requirements.md
             - name: Sınırları anlama
               href: data-box-heavy-limits.md
+        - name: Nasıl yapılır
+          items:
+            - name: Azure portalı aracılığıyla yönetme
+              href: data-box-portal-admin.md
+            - name: Cihaz sorunlarını giderme
+              href: data-box-troubleshoot.md
+            - name: Destek birimine başvurma
+              href: data-box-disk-contact-microsoft-support.md
     - name: Kaynaklar
       items:
         - name: Data Box ürünü

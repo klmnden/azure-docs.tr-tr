@@ -22,6 +22,8 @@
   items:
     - name: Şirket içi kaynaklarda çoklu oturum açma
       href: azuread-join-sso.md
+    - name: Birincil Yenileme Belirteçleri
+      href: concept-primary-refresh-token.md
     - name: Azure yönetilen iş istasyonları
       href: concept-azure-managed-workstation.md
 - name: Nasıl yapılır kılavuzları
@@ -35,7 +37,7 @@
       href: azureadjoin-plan.md
     - name: Hibrit Azure AD katılımınızı uygulamayı planlama
       href: hybrid-azuread-join-plan.md
-    - name: Cihazlarınızın hibrit Azure AD katılımını denetleme
+    - name: Hibrit Azure AD’ye katılıma yönelik denetimli doğrulama
       href: hybrid-azuread-join-control.md
     - name: Azure AD'ye katılan cihazlara yerel yöneticiler atama
       href: assign-local-admin.md

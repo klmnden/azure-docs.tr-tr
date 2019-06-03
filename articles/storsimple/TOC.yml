@@ -87,14 +87,16 @@
           href: storsimple-ova-web-ui-admin.md
     - name: Sürüm notları
       items:
-        - name: Güncelleştirme 1.1 - geçerli
+        - name: Güncelleştirme 1.2
+          href: storsimple-virtual-array-update-12-release-notes.md
+        - name: Güncelleştirme 1.1
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: Güncelleştirme 1
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: Güncelleştirme 0.6
-          href: storsimple-virtual-array-update-06-release-notes.md
         - name: Arşiv
           items:
+            - name: Güncelleştirme 0.6
+              href: storsimple-virtual-array-update-06-release-notes.md
             - name: Güncelleştirme 0.5
               href: storsimple-virtual-array-update-05-release-notes.md
             - name: Güncelleştirme 0.4
@@ -103,7 +105,7 @@
               href: storsimple-ova-update-03-release-notes.md
             - name: Güncelleştirme 0.2 ve 0.1
               href: storsimple-ova-update-01-release-notes.md
-- name: StorSimple 8000 Serisi (Azure portalı)
+- name: StorSimple 8000 Series
   items:
     - name: Genel Bakış
       items:

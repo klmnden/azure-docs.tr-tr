@@ -1,6 +1,6 @@
 ---
-title: Öğretici - Azure Key Vault ile bir Azure Linux sanal makinesinde .NET - Azure kullanmak için Key Vault nasıl | Microsoft Docs
-description: Öğretici Anahtar Kasasından gizli dizi okumak için bir ASP.NET Core uygulaması yapılandırma
+title: Öğretici - kullanma Linux sanal makinesi ve bir ASP.NET uygulaması gizli dizileri Azure Key Vault'ta depolamak için konsol | Microsoft Docs
+description: Bu öğreticide, Azure Key vault'tan bir gizli dizi okumak için bir ASP.NET Core uygulaması yapılandırma konusunda bilgi edinin.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -9,99 +9,98 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 88d06518c6cabe1f796dbdef6d954db83bc5ae28
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 576ce0abc15a646738fea57dfabf43c889635a4b
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65234009"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416941"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Öğretici: Azure Key Vault ile Azure Linux sanal makinesine .NET kullanma
+# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Öğretici: Gizli dizileri Azure Key Vault'ta depolamak için bir Linux VM ile bir .NET uygulaması'nı kullanın
 
-Azure Key Vault uygulamalarınıza, hizmetlerinize ve BT kaynaklarınıza erişmek için gereken API Anahtarları, Veritabanı Bağlantısı dizeleri gibi gizli dizileri korumanıza yardımcı olur.
+Azure Key Vault API anahtarları ve uygulamaları, hizmetlerinizi ve BT kaynaklarına erişmek için gereken veritabanı bağlantı dizeleri gibi gizli dizileri korumanıza yardımcı olur.
 
-Bu öğreticide, Azure kaynakları için yönetilen kimliklerle bilgilerini Azure Key Vault'tan okumak için bir konsol uygulaması almak için gerekli adımları izleyin. Şunları yapmayı öğreneceksiniz:
+Bu öğreticide, Azure kaynakları için yönetilen kimliklerle bilgilerini Azure Key Vault'tan okumak için bir .NET konsol uygulaması ayarlayın. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir anahtar kasası oluşturma.
-> * Anahtar kasasına bir gizli dizi depolama.
-> * Anahtar kasasından bir gizli dizi alma.
-> * Bir Azure sanal makinesi oluşturun.
-> * Etkinleştirme bir [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) sanal makine için.
-> * Anahtar kasasından verileri okumak konsol uygulaması için gerekli izinleri verin.
-> * Key Vault'tan gizli dizilerini alma
+> * Bir anahtar kasası oluşturma
+> * Anahtar Kasası'nda bir gizli dizi Store
+> * Bir Azure Linux sanal makinesi oluşturma
+> * Etkinleştirme bir [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) sanal makine için
+> * Konsol uygulamasını Key Vault'tan verileri okumak için gerekli izinleri verin
+> * Key Vault'tan bir gizli dizi alma
 
-Size daha fazla ayrıntıya önce okuyun [temel kavramları](key-vault-whatis.md#basic-concepts).
+Size daha fazla ayrıntıya önce okuyun [anahtar kasası temel kavramları](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Tüm platformlar:
-  * Git ([indir](https://git-scm.com/downloads)).
-  * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 veya sonraki sürümü. Bu uygulama Windows, Mac ve Linux’ta kullanılabilir.
 
-Bu öğreticide, yönetilen hizmet kimliğini kullanma hale getirir.
+* [Git](https://git-scm.com/downloads).
+* Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+* [Azure CLI 2.0 veya sonraki](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) veya Azure Cloud Shell.
 
-## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Yönetilen Hizmet Kimliği nedir ve nasıl çalışır?
+[!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
-Daha fazla ilerlemeden önce, MSI'yi anlayalım. Azure Key Vault kimlik bilgilerini güvenle depolayabilir ve bunlar kodunuzda yer almaz, ama bunları almak için Azure Key Vault'ta kimliğinizi doğrulamanız gerekir. Key Vault'ta kimlik doğrulaması yapmak için kimlik bilgilerine ihtiyacınız vardır! Klasik bir önyükleme sorunu. Azure'un ve Azure AD'nin büyüsü sayesinde MSI işleri başlatmayı çok basitleştiren bir “önyükleme kimliği” sağlar.
+## <a name="understand-managed-service-identity"></a>Yönetilen hizmet kimliği anlama
 
-Şöyle çalışır! Sanal Makineler, App Service veya İşlevler gibi bir Azure hizmeti için MSI'yi etkinleştirdiğinizde, Azure hizmetin örneği için Azure Active Directory'de bir [Hizmet Sorumlusu](key-vault-whatis.md#basic-concepts) oluşturur ve Hizmet Sorumlusunun kimlik bilgilerini hizmetin örneğine ekler. 
+Azure Key Vault kimlik bilgilerini güvenle depolayabilir ve bunlar kodunuzda yer almaz, ama bunları almak için Azure Key Vault'ta kimliğinizi doğrulamanız gerekir. Ancak, anahtar Kasası'na kimlik doğrulaması için bir kimlik bilgisi gerekir. Klasik bir önyükleme sorun var. Azure ve Azure Active Directory (Azure AD) ile yönetilen hizmet kimliği (MSI) işlemleri başlatmak çok daha kolay getirir önyükleme bir kimlik sağlayabilirsiniz.
+
+Sanal makineler, App Service ve işlevler gibi bir Azure hizmeti için MSI etkinleştirdiğinizde, Azure hizmet sorumlusu hizmet örneği için Azure Active Directory'de oluşturur. Hizmet sorumlusu kimlik bilgileri hizmet örneğine ekler.
 
 ![MSI](media/MSI.png)
 
-Ardından, kodunuz erişim belirtecini almak için Azure kaynağında sağlanan bir yerel meta veri hizmetini çağırır.
-Kodunuz yerel MSI_ENDPOINT'ten aldığı erişim belirtecini kullanarak Azure Key Vault hizmetinde kimlik doğrulaması yapar. 
+Ardından, kodunuzu bir erişim belirteci almak için Azure kaynak üzerinde kullanılabilir olan bir yerel meta veri hizmeti çağırır.
+Kodunuz yerel MSI_ENDPOINT'ten aldığı erişim belirtecini kullanarak Azure Key Vault hizmetinde kimlik doğrulaması yapar.
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 Azure CLI'yi kullanarak Azure'da oturum açmanız için şunu girin:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az-group-create) komutunu kullanarak bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+Kullanarak bir kaynak grubu oluşturma `az group create` komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-Kaynak grubu adı seçin ve yer tutucuyu doldurun.
-Aşağıdaki örnekte Batı ABD konumunda bir kaynak grubu oluşturulur:
+Batı ABD konumunda bir kaynak grubu oluşturun. Kaynak grubunuz için bir ad seçin ve Değiştir `YourResourceGroupName` aşağıdaki örnekte:
 
-```azurecli
+```azurecli-interactive
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-Az önce oluşturduğunuz kaynak grubu bu makale boyunca kullanılır.
+Bu kaynak grubu öğretici boyunca kullanırsınız.
 
 ## <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
 
-Ardından, önceki adımda oluşturduğunuz kaynak grubunda bir anahtar kasası oluşturursunuz. Şu bilgileri belirtin:
+Ardından, kaynak grubunuzda bir anahtar kasası oluşturun. Şu bilgileri belirtin:
 
-* Anahtar kasası adı: Ad 3-24 karakter dizesi olmalı ve yalnızca içermelidir (0-9, a-z, A-Z ve -).
-* Kaynak grubu adı.
-* Konum: **Batı ABD**.
+* Anahtar kasası adı: bir dizenin yalnızca sayı, harf ve kısa çizgi içerebilir ve 3-24 karakter (0-9, a-z, A-Z ve \- ).
+* Kaynak grubu adı
+* Konum: **Batı ABD**
 
-```azurecli
+```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-Bu noktada Azure hesabınız, bu yeni anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkili olan tek hesaptır.
+
+Bu noktada, Azure hesabınız yalnızca bu yeni kasa üzerinde herhangi bir işlemi gerçekleştirme yetkisi.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Anahtar kasasına gizli dizi ekleme
 
-Bunun nasıl çalıştığını göstermemize yardımcı olması için bir gizli dizi ekliyoruz. Güvenle korumanız ancak uygulamanıza da sağlamanız gereken bir SQL bağlantı dizesini veya başka bir bilgiyi depoluyor olabilirsiniz.
+Şimdi bir gizli dizi ekleyin. Bir gerçek dünya senaryosunda, bir SQL bağlantı dizesi veya güvenli bir şekilde devam edin, ama uygulamanızı kullanılabilir hale getirmek için ihtiyacınız olan tüm diğer bilgileri depoluyor olabilir.
 
-Anahtar kasasında **AppSecret** adlı bir gizli dizi oluşturmak için aşağıdaki komutları yazın. Bu gizli dizi **MySecret** değerini depolar.
+Bu öğreticide, anahtar kasasında gizli dizi oluşturmak için aşağıdaki komutları yazın. Gizli dizi olarak adlandırılan **AppSecret** ve değeri **ettiyseniz**.
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## <a name="create-a-virtual-machine"></a>Bir Sanal Makine Oluşturun
+## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturma
 
-[az vm create](/cli/azure/vm) komutuyla bir sanal makine oluşturun.
+İle bir VM `az vm create` komutu.
 
-Aşağıdaki örnek, *myVM* adlı bir VM oluşturur ve *azureuser* adlı bir kullanıcı hesabı ekler. `--generate-ssh-keys` parametresi SSH anahtarını otomatik olarak oluşturup varsayılan anahtar konumuna (*~/.ssh*) yerleştirmek için kullanılır. Bunun yerine belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
+Aşağıdaki örnek, **myVM** adlı bir VM oluşturur ve **azureuser** adlı bir kullanıcı hesabı ekler. `--generate-ssh-keys` Parametresi bize SSH otomatik olarak oluşturmak için kullanılan anahtar ve varsayılan anahtar konumunda yerleştirin ( **~/.ssh**). Bunun yerine belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
 
 ```azurecli-interactive
 az vm create \
@@ -112,9 +111,9 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM’yi ve destekleyici kaynakları oluşturmak birkaç dakika sürer. Aşağıdaki örnekte VM oluşturma işleminin başarılı olduğu gösterilmektedir.
+VM’yi ve destekleyici kaynakları oluşturmak birkaç dakika sürer. Aşağıdaki örnek çıktıda gösterildiği VM oluşturma işlemi başarılı oldu.
 
-```
+```azurecli
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -127,145 +126,169 @@ VM’yi ve destekleyici kaynakları oluşturmak birkaç dakika sürer. Aşağıd
 }
 ```
 
-VM’nizdeki çıktıda `publicIpAddress` değerini not alın. Sonraki adımlarda bu adres, VM’ye erişmek için kullanılır.
+Not, `publicIpAddress` VM'nizi çıktıda. Bu adres, sonraki adımlarda VM'ye erişmek için kullanacaksınız.
 
-## <a name="assign-identity-to-virtual-machine"></a>Sanal makineye kimlik atama
+## <a name="assign-an-identity-to-the-vm"></a>Bir kimlik VM'ye atayın
 
-Bu adımda, aşağıdaki komutu çalıştırarak sanal makineye atanan kimliği bir sistem oluşturuyoruz
+Aşağıdaki komutu çalıştırarak sanal makine için sistem tarafından atanan bir kimlik oluşturun:
 
-```
+```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Aşağıda gösterilen systemAssignedIdentity unutmayın. Yukarıdaki komut çıktısı olacaktır 
+Komut çıktısı olmalıdır:
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-## <a name="give-vm-identity-permission-to-key-vault"></a>Anahtar Kasası'na VM kimliği izin ver
+Not `systemAssignedIdentity`. Sonraki adımda bunu kullanın.
 
-Şimdi biz yukarıdaki Key Vault kimlik izni aşağıdaki komutu çalıştırarak oluşturduğunuz verebilirsiniz
+## <a name="give-the-vm-identity-permission-to-key-vault"></a>Anahtar Kasası'na VM kimlik izin ver
 
-```
+Artık oluşturduğunuz kimliğine anahtar kasası izin verebilirsiniz. Şu komutu çalıştırın:
+
+```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="sign-in-to-the-virtual-machine"></a>Sanal makinede oturum açın
+## <a name="log-in-to-the-vm"></a>VM'de oturum açın
 
-Bir terminal kullanarak sanal makineye şimdi oturum açın
+Bir terminal kullanarak sanal makineye oturum açın.
 
-```
+```terminal
 ssh azureuser@<PublicIpAddress>
 ```
 
-## <a name="install-dot-net-core-on-linux"></a>Linux üzerinde dot Net core yükleme
+## <a name="install-net-core-on-linux"></a>Linux üzerinde .NET Core yükleyin
 
-### <a name="register-the-microsoft-product-key-as-trusted-run-the-following-two-commands"></a>Microsoft Product anahtarı güvenilir olarak kaydedin. Aşağıdaki iki komutu çalıştırın
+Linux sanal makinenizde:
 
+Microsoft ürün anahtarı güvenilir aşağıdaki komutları çalıştırarak kaydedin:
+
+   ```console
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+   ```
+
+Bağlı işletim sistemi akışı istediğiniz sürümü konak paketini ayarlayın:
+
+```console
+   # Ubuntu 17.10
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
+   
+   # Ubuntu 17.04
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
+   
+   # Ubuntu 16.04 / Linux Mint 18
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
+   
+   # Ubuntu 14.04 / Linux Mint 17
+   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+   sudo apt-get update
 ```
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-```
 
-### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>Bağlı işletim sistemi akışı istediğiniz sürümü konak paketini ayarlayın
+.NET yükleme ve sürümünü denetleyin:
 
-```
- 
-# Ubuntu 16.04 / Linux Mint 18
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
- 
-# Ubuntu 14.04 / Linux Mint 17
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-```
+   ```console
+   sudo apt-get install dotnet-sdk-2.1.4
+   dotnet --version
+   ```
 
-### <a name="install-net-core"></a>.NET Core'u yükleyin
+## <a name="create-and-run-a-sample-net-app"></a>Oluşturma ve örnek bir .NET uygulaması çalıştırma
 
-Ve .NET sürümünü denetleyin
+Aşağıdaki komutları çalıştırın. "Hello World" konsola yazdırılmasını görmeniz gerekir.
 
-```
-sudo apt-get install dotnet-sdk-2.1.4
-dotnet --version
-```
-
-## <a name="create-and-run-sample-dot-net-app"></a>Oluşturma ve örnek Dot Net uygulaması çalıştırma
-
-Çalıştırarak aşağıdaki komutları, "Hello World" konsola yazdırılmasını görmeniz gerekir
-
-```
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
 ```
 
-## <a name="edit-console-app"></a>Konsol uygulamasını Düzenle
+## <a name="edit-the-console-app-to-fetch-your-secret"></a>Gizli getirilecek konsol uygulamasını Düzenle
 
-Program.cs dosyasını açın ve bu paketleri ekleyin
+Program.cs dosyasını açın ve bu paketleri ekleyin:
+
+   ```csharp
+   using System;
+   using System.IO;
+   using System.Net;
+   using System.Text;
+   using Newtonsoft.Json;
+   using Newtonsoft.Json.Linq;
+   ```
+
+Bu anahtar kasasında gizli dizi erişim sağlamak için sınıf dosyası değiştirmek için iki adımlı bir işlemdir.
+
+1. Bir belirteç sırayla Azure Active Directory'den bir belirteç getiren VM'deki yerel MSI uç noktasından getirin.
+1. Anahtar Kasası'na belirtecin geçip ve gizli anahtarı getirilemedi.
+
+   Aşağıdaki kod içeren sınıf dosyasını düzenleyin:
+
+   ```csharp
+    class Program
+       {
+           static void Main(string[] args)
+           {
+               // Step 1: Get a token from local (URI) Managed Service Identity endpoint which in turn fetches it from Azure Active Directory
+               var token = GetToken();
+
+               // Step 2: Fetch the secret value from Key Vault
+               System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
+           }
+
+           static string GetToken()
+           {
+               WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
+               request.Headers.Add("Metadata", "true");
+               WebResponse response = request.GetResponse();
+               return ParseWebResponse(response, "access_token");
+           }
+
+           static string FetchSecretValueFromKeyVault(string token)
+           {
+               WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
+               kvRequest.Headers.Add("Authorization", "Bearer "+  token);
+               WebResponse kvResponse = kvRequest.GetResponse();
+               return ParseWebResponse(kvResponse, "value");
+           }
+
+           private static string ParseWebResponse(WebResponse response, string tokenName)
+           {
+               string token = String.Empty;
+               using (Stream stream = response.GetResponseStream())
+               {
+                   StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                   String responseString = reader.ReadToEnd();
+
+                   JObject joResponse = JObject.Parse(responseString);
+                   JValue ojObject = (JValue)joResponse[tokenName];
+                   token = ojObject.Value.ToString();
+               }
+               return token;
+           }
+       }
+   ```
+
+Artık bir Azure Linux sanal makinesinde çalışan bir .NET uygulamasında Azure Key Vault ile işlemleri gerçekleştirmeyi öğrendiniz.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık ihtiyacınız kalmadığında kaynak grubunu, sanal makine ve tüm ilgili kaynakları silin. Bunu yapmak için kaynak grubunu seçin ve sanal makine için seçin **Sil**.
+
+Anahtar kasasını kullanarak silme `az keyvault delete` komutu:
+
+```azurecli-interactive
+az keyvault delete --name
+                   [--resource group]
+                   [--subscription]
 ```
-using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-```
-
-Ardından sınıfı içeren dosyaya değiştirin kod aşağıda. İki adımlı bir işlemdir.
-
-1. Buna karşılık Azure Active Directory'den bir belirteç getiren VM'deki yerel MSI uç noktasından bir belirteç getirilemedi
-2. Anahtar Kasası'na belirtecin geçip ve gizli anahtarı getirilemedi 
-
-```
- class Program
-    {
-        static void Main(string[] args)
-        {
-            // Step 1: Get a token from local (URI) Managed Service Identity endpoint which in turn fetches it from Azure Active Directory
-            var token = GetToken();
-
-            // Step 2: Fetch the secret value from Key Vault
-            System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
-        }
-
-        static string GetToken()
-        {
-            WebRequest request = WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net");
-            request.Headers.Add("Metadata", "true");
-            WebResponse response = request.GetResponse();
-            return ParseWebResponse(response, "access_token");
-        }
-
-        static string FetchSecretValueFromKeyVault(string token)
-        {
-            WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
-            kvRequest.Headers.Add("Authorization", "Bearer "+  token);
-            WebResponse kvResponse = kvRequest.GetResponse();
-            return ParseWebResponse(kvResponse, "value");
-        }
-
-        private static string ParseWebResponse(WebResponse response, string tokenName)
-        {
-            string token = String.Empty;
-            using (Stream stream = response.GetResponseStream())
-            {
-                StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                String responseString = reader.ReadToEnd();
-
-                JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];   
-                token = ojObject.Value.ToString();
-            }
-            return token;
-        }
-    }
-```
-
-Yukarıdaki kod, Azure Key Vault içinde bir Azure Linux sanal makine ile işlem yapma gösterir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

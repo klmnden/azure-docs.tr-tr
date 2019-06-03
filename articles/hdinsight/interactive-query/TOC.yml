@@ -320,12 +320,14 @@
       maintainContext: true
     - name: Ağ erişimi
       items:
+        - name: HDInsight sanal ağ mimarisi
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Giden trafiği kısıtlamak için güvenlik duvarı kullanma
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet’te HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: HDInsight’a şirket içi ağınızla bağlanma
           href: ../connect-on-premises-network.md
-          maintainContext: true
     - name: Azure İzleyici günlüklerini kullanarak izleme
       items:
         - name: Azure İzleyici günlüklerini kullanma

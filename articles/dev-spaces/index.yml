@@ -2,56 +2,47 @@
 documentType: LandingData
 title: Azure Dev Spaces
 metadata:
-  title: Azure Dev Spaces
+  title: Azure Dev Spaces Belgeleri - Hızlı Başlangıçlar
   meta.description: Rapid Kubernetes development with containers and microservices on Azure.
   services: azure-dev-spaces
   author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 08/23/2018
+  ms.date: 04/29/2019
   ms.author: zarhoads
+  manager: jeconnoc
+abstract:
+  description: 'Azure Dev Spaces, bağımlılıkları çoğaltmak veya taklit etmek zorunda kalmadan Azure Kubernetes Service''te (AKS) çalışan mikro hizmet uygulamanızın tamamını test etmenizi ve yinelemeli olarak geliştirmenizi sağlar. Azure Dev Spaces hem paylaşılan bir Azure Kubernetes Service (AKS) kümesinde takımınızla işbirliği yapmanın hem de doğrudan AKS''nin içinde kapsayıcıları çalıştırmanın ve hatalarını ayıklamanın zorluğunu ve karmaşıklığını azaltır. Bu hızlı başlangıçlardan yararlanarak Azure Dev Spaces''i kullanmayı öğrenin.'
 sections:
-  - title: Ekiplere yönelik hızlı ve yinelemeli bir Kubernetes geliştirme deneyimi
+  - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
-        text: 'Minimum geliştirme makinesi kurulumu ile, doğrudan Azure Kubernetes Service (AKS) içinde yinelemeli olarak kapsayıcıları çalıştırabilir ve kapsayıcıların hatasını ayıklayabilirsiniz.  Paylaşılan bir Kubernetes kümesinde ekibinizle işbirliği yapabilir ve bağımlılıkları çoğaltmanıza veya modellemenize gerek kalmadan diğer bileşenlerle uçtan uca test gerçekleştirebilirsiniz. Azure Dev Spaces ile Windows, Mac veya Linux’ta, Visual Studio, Visual Studio Code veya komut satırı gibi bilindik araçları kullanarak geliştirme yapabilirsiniz.'
-      - type: markdown
-        text: |-
-          > [!IMPORTANT]
-          > Azure Dev Spaces yalnızca **Doğu ABD**, **Doğu ABD 2**, **Orta ABD**, **Batı ABD 2**, **Kuzey Avrupa**, **Batı Avrupa**, **UK Güney**, **Güneydoğu Asya** ve **Avustralya Doğu**, **Kanada Orta** ve **Kanada Doğu** bölgelerindeki AKS kümelerinde desteklenir. Azure Dev Spaces, AKS üzerinde uygulamalarınızı derleyip çalıştırmak için [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) veya [Visual Studio Code](https://code.visualstudio.com/download) ile birlikte Linux, MacOS veya Windows 8 ya da sonraki sürümlerde yüklü [Azure Dev Spaces uzantısının](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) kullanılmasını gerektirir. Ayrıca, [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)’yi Web Geliştirme iş yükü ve Windows 8 veya sonraki sürümlerde yüklü [Kubernetes için Visual Studio Araçları](https://aka.ms/get-vsk8stools) ile birlikte kullanmayı destekler.
-  - title: Azure Dev Spaces ile çalışmaya başlama
-    items:
+        text: 'AKS''de takım işbirliği için Azure Dev Spaces''i kullanmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Azure CLI ile Takım Geliştirmesi
+            href: quickstart-team-development.md
       - type: paragraph
-        text: 'Çalışmaya başlamak için lütfen dile özgü bir kılavuz seçin:'
+        text: 'Azure Dev Spaces ile doğrudan AKS''nin içinde yinelemeli geliştirmeyi ve hata ayıklamayı öğrenin:'
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: Java
+            text: Java ile geliştirme
             href: quickstart-java.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: .NET ve VS Code
+            text: .NET ve VS Code ile geliştirme
             href: quickstart-netcore.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: .NET ve Visual Studio
+            text: .NET ve Visual Studio ile geliştirme
             href: quickstart-netcore-visualstudio.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: Node.js
+            text: Node.js ile geliştirme
             href: quickstart-nodejs.md
-  - title: Azure Dev Spaces’in Kubernetes geliştirmeyi kolaylaştırması
-    items:
-      - type: paragraph
-        text: 'Azure Dev Spaces, geliştirme ekiplerinin aşağıdaki yöntemlerle Kubernetes’te daha üretken olmasına yardımcı olur'
-      - type: list
-        style: unordered
-        items:
-          - text: Her ekip üyesi için yerel geliştirme makinesi kurulumunu en aza indirme ve Azure’da yönetilen bir Kubernetes kümesi olan AKS’de doğrudan çalışma.
-          - text: Visual Studio 2017 veya Visual Studio Code kullanarak doğrudan Kubernetes’te hızlı şekilde kodu yineleyebilir ve kodun hatalarını ayıklayabilirsiniz.
-          - text: Geliştirmeden üretime kadar kullanmanız için kod varlıkları olarak Docker ve Kubernetes yapılandırması oluşturun.
-          - text: Yönetilen bir Kubernetes kümesini ekibinizle paylaşın ve işbirliğine dayalı olarak birlikte çalışın. Kodunuzu yalıtılmış olarak geliştirin ve bağımlılıkları çoğaltmadan ya da taklit etmeden diğer bileşenlerle uçtan uca testler yapın.
-      - type: markdown
-        text: '![](media/azure-dev-spaces/collaborate-graphic.gif)'

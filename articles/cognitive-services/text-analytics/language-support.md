@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829557"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417315"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Metin analizi API'si için dil ve bölge desteği
 
@@ -23,7 +23,11 @@ Bu makalede her işlem için desteklenen dilleri açıklar: yaklaşım analizi, 
 
 ## <a name="language-detection"></a>Dil Algılama
 
-Metin analizi API'si, en fazla 120 farklı dillerde algılayabilir. Dil algılama dilinin "betik" döndürür. Örneğin, tümcecik "I sahip bir köpek" döndürür `en` yerine `en-US`. Dil algılama yeteneği döndürdüğü Çince, yalnızca özel bir durum olduğu `zh_CHS` veya `zh_CHT` sağlanan metin verilen betiği belirleyebilirseniz. Burada belirli bir betik tanımlanamıyor Çince belge durumlarda, yalnızca döndüreceği `zh`.
+Metin analizi API'si, çok çeşitli diller, çeşitleri, diyalektler ve bölge/kültürel bazı diller algılayabilir.  Dil algılama dilinin "betik" döndürür. Örneğin, tümcecik "I sahip bir köpek" döndürür `en` yerine `en-US`. Dil algılama yeteneği döndürdüğü Çince, yalnızca özel bir durum olduğu `zh_CHS` veya `zh_CHT` sağlanan metin verilen betiği belirleyebilirseniz. Burada belirli bir betik tanımlanamıyor Çince belge durumlarda, yalnızca döndüreceği `zh`.
+
+Biz bu özelliğin dillerin tam listesini yayımlama, ancak çok çeşitli diller, çeşitleri, diyalektler ve bölge/kültürel bazı diller algılayabilir. 
+
+Daha az sık kullanılan bir dille ifade içeriğiniz varsa, bir kod döndürür görmek için dil algılama deneyebilirsiniz. Yanıt algılanamayan diller için `unknown`.
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Yaklaşım analizi, anahtar ifade ayıklama ve adlandırılmış varlık tanıma
 
@@ -42,8 +46,8 @@ Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve 
 | Felemenkçe       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | Türkçe     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Fince     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Fransızca       | `fr`          | ✔        | ✔           |  ✔ \*           |     |
-| Almanca       | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
+| Fransızca      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
+| Almanca      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Yunanca       | `el`          | ✔ \*     |             |            |     |
 | Macarca   | `hu`          |           |             |  ✔ \*          |     | 
 | İtalyanca     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
@@ -54,7 +58,7 @@ Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve 
 | Portekizce (Portekiz) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` Ayrıca kabul edildi|
 | Portekizce (Brezilya)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Rusça     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| İspanyolca      | `es`          | ✔        |            |   ✔ \*\*      |     | 
+| İspanyolca     | `es`          | ✔        |            |   ✔ \*\*      |     | 
 | İsveççe     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Türkçe     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 

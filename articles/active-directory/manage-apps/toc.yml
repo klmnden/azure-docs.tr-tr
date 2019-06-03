@@ -287,6 +287,8 @@
               href: application-proxy-connector-installation-problem.md
             - name: Oturum açma sorunu
               href: application-sign-in-problem-on-premises-application-proxy.md
+            - name: Uygulama Ara Sunucusunda CORS sorunları
+              href: application-proxy-understand-cors-issues.md
 - name: Başvuru
   items:
     - name: Uygulama Proxy’si sürüm geçmişi

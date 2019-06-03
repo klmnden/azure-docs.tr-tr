@@ -222,6 +222,8 @@
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
         - name: Senaryo kullanılabilirliği
           href: scenario-availability.md
+        - name: Uygulama teslim etme
+          href: ship-application.md
         - name: Sürüm notları
           href: releasenotes.md
         - name: C++

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234515"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425675"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Hızlı Başlangıç: Android'de konuşma cihaz SDK'sı örnek uygulamayı çalıştırma
 
@@ -84,7 +84,7 @@ Geliştirme Seti kurulumunuzu doğrulamak için derleme ve örnek uygulamayı y�
 
 1. Konuşma abonelik anahtarınız için kaynak kodu ekleyin. Amaç tanıma denemek istiyorsanız, ayrıca ekleyin, [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonelik anahtarı ve uygulama kimliği
 
-   Konuşma ve LUIS bilgilerinizi MainActivity.java geçer:
+   Konuşma ve LUIS, bilgilerinizi MainActivity.java geçer:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Geliştirme Seti kurulumunuzu doğrulamak için derleme ve örnek uygulamayı y�
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Konuşma transkripsiyonu kullanıyorsanız konuşma anahtarı ve bölge bilgilerinizi de conversation.java içinde gerekli:
+    Konuşma transkripsiyonu kullanıyorsanız, konuşma anahtarı ve bölge bilgilerinizi de conversation.java içinde gerekli:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -145,7 +145,7 @@ Geliştirme Seti kurulumunuzu doğrulamak için derleme ve örnek uygulamayı y�
 
    ![Örnek konuşma cihaz SDK'sı örnek uygulama ve seçenekleri](media/speech-devices-sdk/qsg-8.png)
 
-1. Yeni eklenen konuşma Transkripsiyonu tanıtım olur. 'Start Session' ile çoğaltmaya başlayın. Katılımcının ses imzaları varsa bunlar bir cihazdaki dosyayı /video/participants.properties içine yerleştirilebilir ancak varsayılan olarak herkesin bir konuk şeklindedir. Ses imza göz oluşturulacak [konuşmaları (SDK) konuşmaların](how-to-use-conversation-transcription-service.md).
+1. Konuşma Transkripsiyonu Tanıtımı deneyin. 'Start Session' ile çoğaltmaya başlayın. Varsayılan olarak bir konuk herkese açıktır. Katılımcının ses imzalara sahip olduğunu, ancak bunlar bir dosyaya konulabilir `/video/participants.properties` cihazda. Ses imzayı üretmek için bakmak [konuşmaları (SDK) konuşmaların](how-to-use-conversation-transcription-service.md).
 
    ![Tanıtım konuşma Transkripsiyonu uygulaması](media/speech-devices-sdk/qsg-15.png)
 

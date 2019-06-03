@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 80fabccb8a59bcd472812698f624d49dc26c24fa
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399113"
+ms.locfileid: "66417494"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Öğretici: Azure Blockchain hizmetini kullanarak işlemleri Gönder
 
@@ -183,7 +183,7 @@ Her işlem düğümü, bir ortak anahtar vardır. Ortak anahtarı bir özel işl
 
 ## <a name="create-smart-contract"></a>Akıllı sözleşmesi oluşturma
 
-1. Klasördeki **sözleşmeleri**, adında yeni bir dosya oluşturun `SimpleStorage.sol`. Aşağıdaki kodu ekleyin.
+1. İçinde **sözleşmeleri** klasör adında yeni bir dosya oluşturun `SimpleStorage.sol`. Aşağıdaki kodu ekleyin.
 
     ```solidity
     pragma solidity >=0.4.21 <0.6.0;
@@ -205,7 +205,7 @@ Her işlem düğümü, bir ortak anahtar vardır. Ortak anahtarı bir özel işl
     }
     ```
     
-1. Klasördeki **geçişler**, adında yeni bir dosya oluşturun `2_deploy_simplestorage.js`. Aşağıdaki kodu ekleyin.
+1. İçinde **geçişler** klasör adında yeni bir dosya oluşturun `2_deploy_simplestorage.js`. Aşağıdaki kodu ekleyin.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
@@ -223,10 +223,10 @@ Her işlem düğümü, bir ortak anahtar vardır. Ortak anahtarı bir özel işl
     |-------|-------------
     | \<alfa düğüm ortak anahtarı\> | Alfa düğümünün ortak anahtarı
     | \<Ethereum hesap adresi\> | Varsayılan işlem düğümünde oluşturulan Ethereum hesap adresi
-    
+
     Bu örnekte, ilk değerini **storeData** değeri, 42'ye ayarlanır.
 
-    **privateFor** sözleşme olduğu kullanılabilir düğüm tanımlar. Bu örnekte, özel işlemler için varsayılan işlem düğümün hesabına çevirebilirsiniz **alfa** düğümü. Tüm özel işlem katılımcıları için ortak anahtarları eklemeniz gerekir. Dahil etmezseniz **privateFor:** ve **öğesinden:** , akıllı sözleşme hareketleri geneldir ve tüm consortium üyeleri tarafından görülebilir.
+    **privateFor** sözleşme olduğu kullanılabilir düğüm tanımlar. Bu örnekte, özel işlemler için varsayılan işlem düğümün hesabına çevirebilirsiniz **alfa** düğümü. Ortak anahtarları için tüm özel işlem katılımcıları eklersiniz. Dahil etmezseniz **privateFor:** ve **öğesinden:** , akıllı sözleşme hareketleri geneldir ve tüm consortium üyeleri tarafından görülebilir.
 
 1. Tüm dosyaları seçerek kaydedin **Dosya > Tümünü Kaydet**.
 

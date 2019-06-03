@@ -205,6 +205,8 @@
               href: devtest-lab-announcements.md
             - name: Laboratuvara destek bilgisi ekleme
               href: devtest-lab-internal-support-message.md
+            - name: Azure DevTest Labs’de paylaşılan resim galerisi yapılandırma
+              href: configure-shared-image-gallery.md
         - name: Özel görüntü veya formül seçme
           href: devtest-lab-comparing-vm-base-image-types.md
         - name: Özel görüntüleri yönetme
