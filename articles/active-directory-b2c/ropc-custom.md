@@ -269,9 +269,9 @@ API çağrısında oluşturmak için sık kullanılan API geliştirme uygulaman�
 
 | Anahtar | Değer |
 | --- | ----- |
-| kullanıcı adı | `user-account` |
+| username | `user-account` |
 | password | `password1` |
-| grant_type değeri | password |
+| grant_type | password |
 | scope | openıd `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | belirteç id_token |
@@ -314,10 +314,10 @@ Aşağıda gösterilene benzer bir POST çağrısına oluşturun. Bilgileri aşa
 
 | Anahtar | Değer |
 | --- | ----- |
-| grant_type değeri | refresh_token |
+| grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| kaynak | `application-id` |
+| resource | `application-id` |
 | refresh_token | `refresh-token` |
 
 - Değiştirin `application-id` uygulama kimliği ile *ROPC_Auth_app* kayıt.
