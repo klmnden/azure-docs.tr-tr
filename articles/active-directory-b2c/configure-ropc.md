@@ -70,7 +70,7 @@ API çağrısında oluşturmak için sık kullanılan API geliştirme uygulaman�
 
 | Anahtar | Değer |
 | --- | ----- |
-| kullanıcı adı | leadiocl@outlook.com |
+| username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type değeri | password |
 | scope | openıd \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
@@ -110,10 +110,10 @@ Burada aşağıdaki tablodaki bilgileri istek gövdesi olarak gösterilene benze
 
 | Anahtar | Değer |
 | --- | ----- |
-| grant_type değeri | refresh_token |
+| grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
-| kaynak | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* ve *kaynak* uygulama kimliği olarak daha önce not ettiğiniz değerleri *Refresh_token* daha önce bahsedilen kimlik doğrulaması çağrısında alınan belirtecidir.
