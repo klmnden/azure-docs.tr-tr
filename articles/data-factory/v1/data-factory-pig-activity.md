@@ -211,7 +211,7 @@ Parametreli Pig betiği'ni kullanmak için aşağıdakileri yapın:
       }
     }
     ```
-* Pig betik kullanarak parametreleri başvuran '**$parameterName**' aşağıdaki örnekte gösterildiği gibi:
+* Pig betik kullanarak parametreleri başvuran ' **$parameterName**' aşağıdaki örnekte gösterildiği gibi:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
