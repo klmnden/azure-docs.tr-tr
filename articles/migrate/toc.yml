@@ -20,14 +20,6 @@
       href: concepts-dependency-visualization.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: En iyi geçiş yöntemleri
-      items:
-        - name: Geçiş sonrasında güvenlik ve yönetim için en iyi yöntemler
-          href: migrate-best-practices-security-management.md
-        - name: Geçiş sonrasında ağ için en iyi yöntemler
-          href: migrate-best-practices-networking.md
-        - name: Geçiş sonrasında maliyetlendirme ve boyutlandırma için en iyi yöntemler
-          href: migrate-best-practices-costs.md
     - name: Geçiş örnekleri-Contoso serisi
       href: contoso-migration-overview.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme

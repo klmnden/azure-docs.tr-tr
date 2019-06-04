@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: b0dc8fbbb80a4d03b2cb64d09ffe9a36883c5bf9
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521382"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478634"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Hızlı Başlangıç: İçerik kullanarak kişiselleştirmeC# 
 
@@ -40,7 +40,9 @@ Personalizer ile çalışmaya başlama, aşağıdaki adımları içerir:
 
 ## <a name="change-the-model-update-frequency"></a>Model güncelleştirme sıklığını değiştirme
 
-Azure portalında Personalizer kaynakta değişiklik **modeli güncelleştirme sıklığını** 10 saniyedir. Bu hizmet hızlı bir şekilde, üst eylem her yineleme için nasıl değiştiğini görmek sağlayarak eğitme
+Azure portalında Personalizer kaynakta değişiklik **modeli güncelleştirme sıklığını** 10 saniyedir. Bu hizmet hızlı bir şekilde, üst eylem her yineleme için nasıl değiştiğini görmek sağlayarak eğitme.
+
+Personalizer döngü ilk örneği olduğunda hiçbir model olmuştur beri gelen eğitmek için herhangi bir ödül API çağrısı. Derece çağrıları eşit olasılıklar her öğe için döndürür. Uygulamanızı yine de her zaman RewardActionId çıktısını kullanarak içerik rank.
 
 ![Model güncelleştirme sıklığını değiştirme](./media/settings/configure-model-update-frequency-settings.png)
 

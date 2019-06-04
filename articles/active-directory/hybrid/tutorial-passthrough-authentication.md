@@ -1,5 +1,5 @@
 ---
-title: "Öğretici:  Geçişli kimlik doğrulaması (PTA) kullanarak Azure'da tek bir AD ormanına tümleştirme | Microsoft Docs"
+title: "Öğretici:  Tek bir AD ormanında PTA'ı kullanarak azure'a tümleştirin"
 description: Geçişli kimlik doğrulaması kullanarak bir karma kimlik ortamını ayarlama işlemi gösterilmektedir.
 services: active-directory
 author: billmath
@@ -7,20 +7,20 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d848202840d49dde18d358769519329141c2b35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233900"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473012"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Öğretici:  Geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirme
 
-![Oluştur](media/tutorial-passthrough-authentication/diagram.png)
+![Create](media/tutorial-passthrough-authentication/diagram.png)
 
 Aşağıdaki öğreticiye geçişli kimlik doğrulaması kullanarak bir karma kimlik ortamı oluşturma işleminde size yol gösterir.  Bu ortam, test etmek veya bir karma kimlik nasıl çalışır hakkında daha fazla bilgi almak için kullanılabilir.
 
@@ -39,7 +39,7 @@ Bu öğreticiyi tamamlamak için gereken önkoşulları şunlardır:
 >
 > Bu öğreticide kullanılan PowerShell betikleri kopyalarını Github'da bulunmaktadır [burada](https://github.com/billmath/tutorial-phs).
 
-## <a name="create-a-virtual-machine"></a>Bir sanal makine oluştur
+## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 Şirket içi Active Directory Sunucumuz kullanılacak bir sanal makine oluşturmak için çalışan yapmak için karma kimlik ortamımızda ürününü ihtiyacımız ve ilk şey.  
 
 >[!NOTE]

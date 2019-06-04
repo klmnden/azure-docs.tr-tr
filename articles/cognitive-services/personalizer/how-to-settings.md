@@ -1,5 +1,5 @@
 ---
-title: Ayarları yapılandır
+title: Ayarları yapılandırma
 titleSuffix: Azure Cognitive Services
 description: Hizmet yapılandırması nasıl ödül hizmet değerlendirir, ne sıklıkta hizmet keşfediyor, modelin ne sıklıkta retrained ve ne kadar veri depolanan içerir.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834286"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478584"
 ---
 # <a name="personalizer-settings"></a>Personalizer ayarları
 
@@ -63,7 +63,9 @@ Bu ayarı değiştirdikten sonra seçtiğinizden emin olun **Kaydet**.
 
 ### <a name="model-update-frequency"></a>Model güncelleştirme sıklığı
 
-**Model güncelleştirme sıklığını** ne sıklıkta yeni Personalizer model retrained ayarlar. 
+Ödül API çağrılarının her etkin olayından eğitilmiş en son model Personalizer derece çağrısı tarafından otomatik olarak kullanılmaz. **Modeli güncelleştirme sıklığını** ne sıklıkta derece çağrı tarafından kullanılan model güncelleştirilmiş ayarlar. 
+
+Yüksek bir modeli güncelleştirme sıklığı yakından kullanıcı davranışlarını değişiklikleri izlemek istediğiniz durumlarda kullanışlıdır. Canlı haber, viral içerik üzerinde çalıştırın ya da ürün teklif Canlı site örneklerindendir. Bu senaryolarda 15 dakikalık sıklık kullanabilirsiniz. Kullanım örnekleri için daha düşük bir güncelleştirme sıklığını etkilidir. Bir dakikalık Personalizer kullanarak, tanıtımları yapmak veya etkileşimli olarak makine öğrenme özelliklerini test etme uygulamanın kodu hata ayıklamasında güncelleştirme sıklığı kullanışlıdır.
 
 ![Yeni bir Personalizer modeli ne sıklıkta retrained model güncelleştirme sıklığını ayarlar.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ Bu ayarı değiştirdikten sonra seçtiğinizden emin olun **Kaydet**.
 
 ## <a name="export-the-personalizer-model"></a>Personalizer modelini dışarı aktarma
 
-İçin kaynak yönetim takımının bölümünden **modeli ve ilke**, model oluşturma ve son güncelleştirme tarihi gözden geçirin ve geçerli modelini dışarı aktarma.
+İçin kaynak yönetim takımının bölümünden **modeli ve ilke**, model oluşturma ve son güncelleştirme tarihi gözden geçirin ve geçerli modelini dışarı aktarma. Arşivleme amacıyla bir model dosyasını dışarı aktarmak için Azure portalını veya Personalizer API'leri kullanabilirsiniz. 
 
 ![Geçerli Personalizer modelini dışarı aktarma](media/settings/export-current-personalizer-model.png)
 

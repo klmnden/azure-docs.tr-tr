@@ -43,8 +43,6 @@
       items:
         - name: MFA nasıl çalışır?
           href: concept-mfa-howitworks.md
-        - name: Hangi sürüm doğrudur?
-          href: concept-mfa-whichversion.md
         - name: Kullanıcılarınıza lisans verme
           href: concept-mfa-licensing.md
         - name: Kimlik Doğrulama Sağlayıcısı yönetme

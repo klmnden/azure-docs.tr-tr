@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46247d42837f8ac181d33216d2b93d28e2533c09
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121795"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482321"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
 Bu kılavuzda oturum Openıd Connect'i kullanarak geleneksel web tarayıcı tabanlı bir uygulama ile bir ASP.NET MVC çözümünü kullanarak Microsoft ile nasıl uygulanacağını gösterir.
 
-Bu kılavuzun sonunda, uygulamanızın oturum açma işlemleri kişisel hesabı (outlook.com, live.com ve diğerleri dahil) kabul yanı sıra iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory ile tümleşik olan Kuruluş olacaktır.
+Bu kılavuzun sonunda, uygulamanızın oturum açma işlemleri örneğin outlook.com, live.com ve diğer kişisel hesapların kabul etmek üzere mümkün olacaktır. Bu hesaplar dahil iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory ile tümleşik olan kuruluş.
 
-> Bu kılavuz, Visual Studio 2017'yi gerektirir.  Sizde yok mu?  [Visual Studio 2017’yi ücretsiz indirin](https://www.visualstudio.com/downloads/)
+> Bu kılavuz, Visual Studio 2019 gerektirir.  Sizde yok mu?  [Visual Studio 2019 ücretsiz olarak indirin](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
 
-![Örnek uygulama tarafından bu öğreticileri çalışır nasıl oluşturulacağını gösterir](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
+![Bu öğretici tarafından oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-Bu kılavuzda oluşturulan örnek uygulamayı nerede isteyen bir kullanıcı oturum açma düğmesi aracılığıyla kimlik doğrulaması için bir ASP.NET web sitesine erişmek için tarayıcıyı bir kullanıcının kullandığı senaryo temel alır. Bu senaryoda web sayfasını oluşturma işlemlerinin çoğu sunucu tarafında gerçekleştirilmektedir.
+Oluşturduğunuz örnek uygulama, tarayıcının bir kullanıcının, bir oturum açma düğmesi aracılığıyla kimlik doğrulaması isteklerini bir ASP.NET web sitesine erişmek için kullandığınız senaryonun temel alır. Bu senaryoda web sayfasını oluşturma işlemlerinin çoğu sunucu tarafında gerçekleştirilmektedir.
 
 ## <a name="libraries"></a>Kitaplıklar
 

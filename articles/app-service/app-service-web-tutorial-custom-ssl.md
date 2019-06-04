@@ -1,5 +1,5 @@
 ---
-title: Mevcut özel SSL sertifikası - Azure App Service'ı bağlama | Microsoft Docs
+title: Karşıya yükleme ve SSL sertifikası - Azure App Service'ı bağlama | Microsoft Docs
 description: Azure App Service’te web uygulamanıza, mobil uygulama arka ucuna veya API uygulamasına özel bir SSL sertifikası bağlamayı öğrenin.
 services: app-service\web
 documentationcenter: nodejs
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0ee1e7c652ddf4126fc9658bf17d3e919d7a5c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138770"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475310"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Öğretici: Azure App Service'e var olan özel bir SSL sertifikası bağlama
+# <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Öğretici: Karşıya yükleme ve Azure App Service için SSL sertifikası bağlama
 
-Azure App Service, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan web barındırma hizmeti sağlar. Bu öğretici için bir güvenilen sertifika yetkilisinden satın aldığınız özel bir SSL sertifikası bağlama işlemi gösterilmektedir [Azure App Service](overview.md). İşlemi tamamladığınızda, uygulamanıza özel DNS etki alanınızın HTTPS uç noktasında erişmek mümkün olacaktır.
+[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, App Service'te özel etki alanı bir güvenilir sertifika yetkilisinden satın aldığınız bir sertifika ile güvenli hale getirmeyi gösterir. Ayrıca, herhangi bir özel yükleme işlemini gösterir ve uygulama ihtiyaçlarınızı ortak sertifikalar. İşlemi tamamladığınızda, uygulamanıza özel DNS etki alanınızın HTTPS uç noktasında erişmek mümkün olacaktır.
 
 ![Özel SSL sertifikası ile web uygulaması](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -32,51 +32,48 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Uygulamanızın fiyatlandırma katmanını yükseltme
-> * Özel sertifikanızı App Service'e bağlama
+> * Bir sertifika ile özel bir etki alanını güvenli hale getirme
+> * Özel bir sertifika yükleyin
+> * Bir ortak sertifika karşıya yükleme
 > * Sertifikaları yenileme
-> * HTTPS'yi Zorunlu Kılma
+> * HTTPS zorlama
 > * TLS 1.1/1.2 zorlama
 > * TLS yönetimini betiklerle otomatikleştirme
-
-> [!NOTE]
-> Özel bir SSL sertifikası almanız gerekiyorsa, Azure Portalı'nda doğrudan almak ve uygulamanıza bağlayın. [App Service Sertifikaları öğreticisini](web-sites-purchase-ssl-web-site.md) takip edin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
 - [App Service uygulaması oluşturma](/azure/app-service/)
-- [App Service uygulamanıza özel bir DNS adı eşleme](app-service-web-tutorial-custom-domain.md)
-- Güvenilir sertifika yetkilisinden SSL sertifikası alma
-- SSL sertifika isteğini imzalamak için kullandığınız özel anahtara sahip olma
+- [App Service uygulamanıza özel bir DNS adı eşleme](app-service-web-tutorial-custom-domain.md) (özel bir etki alanını güvenli hale getirme ise)
+- Bir güvenilir sertifika yetkilisinden bir sertifika edinme
+- (Özel sertifikaları için) sertifika isteğini imzalamak için kullanılan özel bir anahtara sahip
 
 <a name="requirements"></a>
 
-### <a name="requirements-for-your-ssl-certificate"></a>SSL sertifikanıza yönelik gereksinimler
+## <a name="prepare-a-private-certificate"></a>Özel bir sertifika hazırlama
 
-Bir sertifikayı App Service’te kullanabilmek için sertifikanın aşağıdaki tüm gereksinimleri karşılaması gerekir:
+Bir etki alanını güvenli hale getirmek için sertifikanın aşağıdaki gereksinimleri karşılaması gerekir:
 
+* Sunucu kimlik doğrulaması için yapılandırılmış
 * Güvenilir bir sertifika yetkilisi tarafından imzalanması
 * Parola korumalı bir PFX dosyası olarak dışarı aktarılması
 * En az 2048 bit uzunluğunda özel anahtar içermesi
 * Sertifika zincirindeki tüm ara sertifikaları içermesi
 
+> [!TIP]
+> Özel bir SSL sertifikası almanız gerekiyorsa, Azure Portalı'nda doğrudan almak ve uygulamanıza içeri aktarabilirsiniz. [App Service Sertifikaları öğreticisini](web-sites-purchase-ssl-web-site.md) takip edin.
+
 > [!NOTE]
 > **Eliptik Eğri Şifrelemesi (ECC) sertifikaları**, App Service ile birlikte çalışabilir ancak bu makalenin konusu değildir. ECC sertifikaları oluşturmaya ilişkin tam adımlar için sertifika yetkilinizle birlikte çalışın.
 
-[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
-
-<a name="upload"></a>
-
-## <a name="bind-your-ssl-certificate"></a>SSL sertifikanızı bağlama
-
-Uygulamanız için SSL sertifikanızı karşıya yüklemek hazır olursunuz.
+Sertifika, sertifika sağlayıcınızdan edindikten sonra App Service için hazır hale getirmek için bu bölümdeki adımları izleyin.
 
 ### <a name="merge-intermediate-certificates"></a>Ara sertifikaları birleştirme
 
-Sertifika yetkiliniz size sertifika zincirinde birden çok sertifika verirse, sertifikaları sırayla birleştirmeniz gerekir. 
+Sertifika yetkiliniz size sertifika zincirinde birden çok sertifika verirse, sertifikaları sırayla birleştirmeniz gerekir.
 
-Bunu yapmak için, aldığınız her sertifikayı bir metin düzenleyicisinde açın. 
+Bunu yapmak için, aldığınız her sertifikayı bir metin düzenleyicisinde açın.
 
 Birleştirilmiş sertifika için _mergedcertificate.crt_ adlı bir dosya oluşturun. Bir metin düzenleyicisinde her bir sertifikanın içeriğini bu dosyaya kopyalayın. Sertifikalarınızın sırası, sertifikanızla başlayıp kök sertifika ile sona ererek sertifika zincirindeki sırayla aynı olmalıdır. Aşağıdaki örneğe benzer şekilde görünür:
 
@@ -112,45 +109,49 @@ Sorulduğunda bir dışarı aktarma parolası tanımlayın. Bu parolayı daha so
 
 Sertifika isteğinizi oluşturmak için IIS veya _Certreq.exe_ kullandıysanız, sertifikayı yerel makinenize yükleyin ve sonra [sertifikayı PFX’e aktarın](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
-### <a name="upload-your-ssl-certificate"></a>SSL sertifikanızı karşıya yükleme
+App Service sertifika artık hazır karşıya yükleme, demektir.
 
-SSL sertifikanızı karşıya yüklemek için tıklayın **SSL ayarları** uygulamanızın sol gezinti bölmesinde.
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-**Sertifikayı Karşıya Yükle**’ye tıklayın. 
+<a name="upload"></a>
+
+## <a name="secure-a-custom-domain"></a>Özel bir etki alanını güvenli hale getirme
+
+> [!TIP]
+> Özel bir SSL sertifikası almanız gerekiyorsa, Azure Portalı'nda doğrudan almak ve uygulamanıza bağlayın. [App Service Sertifikaları öğreticisini](web-sites-purchase-ssl-web-site.md) takip edin.
+
+Güvenli hale getirmek için bir [özel etki alanı](app-service-web-tutorial-custom-domain.md) bir üçüncü taraf sertifika ile karşıya yüklediğiniz [özel sertifika hazır](#prepare-a-private-certificate) ve ardından özel etki bağlama, ancak App Service, işlemi basitleştirir. Aşağıdaki adımları uygulayın:
+
+Tıklayın **özel etki alanları** uygulamanızın sol gezinti bölmesinde, ardından **bağlama Ekle** istediğiniz güvenliğini sağlamak için etki alanı için. Görmüyorsanız **bağlama Ekle** bir etki alanı için sonra zaten güvenlidir ve olmalıdır bir **güvenli** SSL durumu.
+
+![Etki bağlama Ekle](./media/app-service-web-tutorial-custom-ssl/secure-domain-launch.png)
+
+**Sertifikayı Karşıya Yükle**’ye tıklayın.
 
 **PFX Sertifika Dosyası**’nda PFX dosyanızı seçin. **Sertifika parolası** alanına PFX dosyasını dışa aktardığınızda oluşturduğunuz parolayı yazın.
 
 **Karşıya Yükle**'ye tıklayın.
 
-![Karşıya sertifika yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
+![Etki alanı için sertifikayı karşıya yükleyin](./media/app-service-web-tutorial-custom-ssl/secure-domain-upload.png)
 
-App Service, sertifikanızı karşıya yüklemeyi tamamladığında sertifikanız **SSL ayarları** sayfasında görüntülenir.
+Sertifikanızı karşıya yüklemek ve SSL bağlamaları iletişim başlatmak, Azure için bekleyin.
 
-![Sertifika karşıya yüklendi](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
-
-### <a name="bind-your-ssl-certificate"></a>SSL sertifikanızı bağlama
-
-**SSL bağlamaları** bölümünde **Bağlama ekle**’ye tıklayın.
-
-**SSL Bağlaması Ekleyin** sayfasında açılır menüleri kullanarak güvenliği sağlanacak etki alanı adını ve kullanılacak sertifikayı seçin.
+SSL bağlamaları iletişim kutusunda, karşıya yüklediğiniz sertifikaya ve SSL türü seçin ve ardından **bağlaması Ekle**.
 
 > [!NOTE]
-> Sertifikanızı karşıya yüklediğiniz halde **Ana bilgisayar adı** açılır listesinde etki alanı adlarını göremiyorsanız, tarayıcı sayfasını yenilemeyi deneyin.
+> Aşağıdaki SSL türleri desteklenir:
 >
->
+> - **[SNI tabanlı SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)**  -birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).
+> - **IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Birden fazla etki alanının güvenliğini sağlamak için tümünün güvenliğini aynı SSL sertifikası ile sağlamanız gerekir. SSL bağlaması için geleneksel seçenek budur.
 
-**SSL Türü** menüsünde **[Sunucu Adı Belirtme (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** veya IP tabanlı SSL seçeneklerinden hangisini kullanacağınızı belirleyin.
+![Etki alanı için SSL bağlama](./media/app-service-web-tutorial-custom-ssl/secure-domain-bind.png)
 
-- **SNI tabanlı SSL** - Birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).
-- **IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Birden fazla etki alanının güvenliğini sağlamak için tümünün güvenliğini aynı SSL sertifikası ile sağlamanız gerekir. SSL bağlaması için geleneksel seçenek budur.
+Etki alanının SSL durumu için artık değiştirilmelidir **güvenli**.
 
-**Bağlama Ekle**’ye tıklayın.
+![Etki alanı güvenliği](./media/app-service-web-tutorial-custom-ssl/secure-domain-finished.png)
 
-![SSL sertifikası bağlama](./media/app-service-web-tutorial-custom-ssl/bind-certificate.png)
-
-App Service sertifikanızı karşıya yüklemeyi tamamladığında sertifikanız **SSL bağlamaları** bölümlerinde görünür.
-
-![Web uygulamasına bağlı sertifika](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
+> [!NOTE]
+> A **güvenli** içinde durum **özel etki alanları** sertifikayı otomatik olarak imzalanan veya süresi dolduğunda, örneğin, ayrıca bir sertifika ile güvenli olduğundan, ancak değil App Service denetleyin anlamına gelir neden tarayıcılar bir hata veya uyarı gösterir.
 
 ## <a name="remap-a-record-for-ip-ssl"></a>IP SSL için A kaydını yeniden eşleme
 
@@ -175,8 +176,6 @@ Uygulamanızın **özel etki alanı** sayfası, yeni ve ayrılmış IP adresi il
 >
 > Böyle bir durum söz konusu değilse, sertifikanızı PFX dosyasına aktardığınızda ara sertifikaları dışarıda bırakmış olabilirsiniz.
 
-<a name="bkmk_enforce"></a>
-
 ## <a name="renew-certificates"></a>Sertifikaları yenileme
 
 Bir bağlamayı sildiğinizde, bu bağlama IP tabanlı olsa bile gelen IP adresiniz değişebilir. Bu, zaten IP tabanlı bağlamada yer alan bir sertifikayı yenilerken özellikle önemlidir. Uygulamanızın IP adresinin değişmesini önlemek için şu adımları sırasıyla izleyin:
@@ -185,13 +184,15 @@ Bir bağlamayı sildiğinizde, bu bağlama IP tabanlı olsa bile gelen IP adresi
 2. Eskisini silmeden yeni sertifikayı istediğiniz özel etki alanına bağlayın. Bu eylem, eskisini kaldırmak yerine bağlamayı değiştirir.
 3. Eski sertifikayı silin. 
 
-## <a name="enforce-https"></a>HTTPS'yi Zorunlu Kılma
+<a name="bkmk_enforce"></a>
+
+## <a name="enforce-https"></a>HTTPS zorlama
 
 Varsayılan olarak, herkes HTTP kullanarak uygulamanıza erişmeye devam edebilirsiniz. Tüm HTTPS isteklerini HTTP bağlantı noktasına yeniden yönlendirebilirsiniz.
 
 Uygulaması sayfanızın sol gezinti bölmesinde seçin **SSL ayarları**. Ardından **Yalnızca HTTPS** menüsünde **Açık**’ı seçin.
 
-![HTTPS'yi Zorunlu Kılma](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
+![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
 İşlem tamamlandığında, uygulamanıza işaret eden HTTP URL'lerinden herhangi birine gidin. Örneğin:
 
@@ -213,36 +214,36 @@ Uygulaması sayfanızın sol gezinti bölmesinde seçin **SSL ayarları**. Ardı
 
 Kullanarak uygulamanızın, betiklerle SSL bağlamaları otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI'si
+### <a name="azure-cli"></a>Azure CLI
 
 Aşağıdaki komut, dışarı aktarılan bir PFX dosyasını karşıya yükler ve parmak izini alır.
 
-```bash
+```azurecli-interactive
 thumbprint=$(az webapp config ssl upload \
-    --name <app_name> \
-    --resource-group <resource_group_name> \
-    --certificate-file <path_to_PFX_file> \
-    --certificate-password <PFX_password> \
+    --name <app-name> \
+    --resource-group <resource-group-name> \
+    --certificate-file <path-to-PFX-file> \
+    --certificate-password <PFX-password> \
     --query thumbprint \
     --output tsv)
 ```
 
 Aşağıdaki komut, önceki komutta alınan parmak izini kullanarak SNI tabanlı bir SSL bağlaması ekler.
 
-```bash
+```azurecli-interactive
 az webapp config ssl bind \
-    --name <app_name> \
-    --resource-group <resource_group_name>
+    --name <app-name> \
+    --resource-group <resource-group-name>
     --certificate-thumbprint $thumbprint \
     --ssl-type SNI \
 ```
 
 Aşağıdaki komut TLS için minimum 1.2 sürümünü zorunlu tutar.
 
-```bash
+```azurecli-interactive
 az webapp config set \
-    --name <app_name> \
-    --resource-group <resource_group_name>
+    --name <app-name> \
+    --resource-group <resource-group-name>
     --min-tls-version 1.2
 ```
 
@@ -261,12 +262,10 @@ New-AzWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
-## <a name="public-certificates-optional"></a>Ortak sertifikalar (isteğe bağlı)
-Uygulamanızı bir istemci olarak uzak kaynaklara erişmesi ve uzak kaynak sertifika doğrulaması gerektiren, karşıya yüklediğiniz [Ortak Sertifikalar](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) uygulamanıza. Ortak Sertifikalar, uygulamanızın SSL bağlamaları için gerekli değildir.
 
-Uygulamanızda ortak sertifika yükleme ve kullanma hakkında daha fazla bilgi için bkz. [Azure App Service’deki uygulama kodunda SSL sertifikası kullanma](app-service-web-ssl-cert-load.md). Ortak sertifikaları App Service ortamlarındaki uygulamalarla çok kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service ortamında bir uygulama kullanmanız gerekir. Daha fazla bilgi için [ortak sertifikaları App Service uygulamanız için yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+## <a name="use-certificates-in-your-code"></a>Kodunuzda sertifikaları kullan
 
-![Ortak Sertifika Karşıya Yükle](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
+Uzak kaynaklara bağlanmak uygulamanız gereken ve uzak kaynak sertifika doğrulaması gerektiren, uygulamanıza genel veya özel sertifikaları karşıya yükleyebilirsiniz. Bu sertifikalar uygulamanızda herhangi bir özel etki bağlama gerek yoktur. Daha fazla bilgi için bkz. [Azure App Service'teki uygulama kodunuzda SSL sertifikası kullanma](app-service-web-ssl-cert-load.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -276,7 +275,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Uygulamanızın fiyatlandırma katmanını yükseltme
 > * Özel sertifikanızı App Service'e bağlama
 > * Sertifikaları yenileme
-> * HTTPS'yi Zorunlu Kılma
+> * HTTPS zorlama
 > * TLS 1.1/1.2 zorlama
 > * TLS yönetimini betiklerle otomatikleştirme
 

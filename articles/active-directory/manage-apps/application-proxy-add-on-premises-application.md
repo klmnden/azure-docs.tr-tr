@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82c7b698f655b82ba95f66127f27a921def02cde
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299072"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472986"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -34,10 +34,11 @@ Bu öğreticide:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Kiracınıza uygulama eklemek için şunlara ihtiyacınız vardır:
+Şirket içi bir uygulamayı Azure AD'ye ekleme için gerekir:
 
 * A [Microsoft Azure AD temel veya premium aboneliği](https://azure.microsoft.com/pricing/details/active-directory)
 * Uygulama yönetici hesabı
+* Kullanıcı kimliklerini bir şirket içi dizininizden eşitlenmiş veya doğrudan Azure AD kiracılar içinde oluşturulur. Azure AD uygulama proxy'si için bunları erişim verme yayımlanan uygulamaları önce önceden kimlik doğrulamasını ve çoklu oturum açma (SSO) gerçekleştirmek için gerekli kullanıcı kimlik bilgilerini sağlamak için kimlik eşitleme sağlar.
 
 ### <a name="windows-server"></a>Windows server
 
@@ -75,7 +76,7 @@ TLS 1.2 etkinleştirmek için:
 
 Azure AD uygulama proxy'si için ortamınızı hazırlamak için Azure veri merkezlerine iletişim etkinleştirerek başlatın. Yolda bir güvenlik duvarı varsa, açık olduğundan emin olun. Açık bir güvenlik duvarı uygulama ara sunucusuna HTTPS (TCP) isteğinde bulunmak bağlayıcı sağlar.
 
-### <a name="open-ports"></a>Bağlantı noktalarını aç
+### <a name="open-ports"></a>Bağlantı noktalarını açma
 
 Aşağıdaki bağlantı noktalarının açık **giden** trafiği. 
 

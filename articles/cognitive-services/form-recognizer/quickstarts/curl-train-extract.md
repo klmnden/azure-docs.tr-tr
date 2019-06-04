@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 037c323b2ef9e0a2d264e3fd5f7655456c30a1be
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417472"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475275"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verileri ayıklayın
 
@@ -26,7 +26,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu hızlı başlangıcı tamamlamak için şunlara sahip olmalısınız:
 - Form tanıyıcı sınırlı erişim önizlemesine erişebilirsiniz. Önizleme erişim elde etmek için doldurun ve gönderme [Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu.
 - [cURL](https://curl.haxx.se/windows/) yüklü.
-- En az beş forms aynı türde bir dizi. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için.
+- En az beş forms aynı türde bir dizi. Modeli eğitmek için bu verileri kullanır. Kullanabileceğiniz bir [örnek veri kümesini](https://go.microsoft.com/fwlink/?linkid=2090451) Bu Hızlı Başlangıç için. Verileri Azure Blob Depolama hesabı kök dizinine yükleyin.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form tanıyıcı kaynak oluştur
 
@@ -47,7 +47,7 @@ Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim
 
 ## <a name="train-a-form-recognizer-model"></a>Bir Form tanıyıcı modeli eğitme
 
-İlk olarak, bir Azure depolama blobu eğitim veri kümesi gerekir. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Ya da tek, boş bir form kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun dosya adı gerekiyor
+İlk olarak, bir Azure depolama blobu eğitim veri kümesi gerekir. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Ya da tek bir boş formda doldurulmuş iki formlarla kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun boş dosya adı gerekiyor
 
 Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** aşağıdaki cURL komutu çalıştırarak API. Komutu çalıştırmadan önce şu değişiklikleri yapın:
 

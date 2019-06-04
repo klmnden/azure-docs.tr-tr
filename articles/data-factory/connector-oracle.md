@@ -66,7 +66,7 @@ Aşağıdaki özellikler Oracle bağlı hizmeti için desteklenir.
 
 **Oracle bağlantı şifrelemesini etkinleştirmek için**, iki seçeneğiniz vardır:
 
-1.  Kullanılacak **Üçlü DES şifrelemesi (3DES) ve Gelişmiş Şifreleme Standardı (AES)**, Oracle Gelişmiş Güvenlik (OAS) için Oracle sunucu tarafında gidin ve şifreleme ayarlarını yapılandırın, ayrıntılara bakın [burada](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle Bağlayıcısı otomatik olarak Oracle bağlantı kurulurken OAS yapılandırma birini kullanmak için şifreleme yöntemini görüşür.
+1.  Kullanılacak **Üçlü DES şifrelemesi (3DES) ve Gelişmiş Şifreleme Standardı (AES)** , Oracle Gelişmiş Güvenlik (OAS) için Oracle sunucu tarafında gidin ve şifreleme ayarlarını yapılandırın, ayrıntılara bakın [burada](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle Bağlayıcısı otomatik olarak Oracle bağlantı kurulurken OAS yapılandırma birini kullanmak için şifreleme yöntemini görüşür.
 
 2.  Kullanılacak **SSL**, aşağıdaki adımları izleyin:
 
@@ -284,13 +284,13 @@ Oracle için veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarla
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| KAYAN NOKTA |Ondalık, dize (olursa hassasiyet > 28) |
-| INTEGER |Ondalık, dize (olursa hassasiyet > 28) |
+| FLOAT |Decimal, String (olursa hassasiyet > 28) |
+| INTEGER |Decimal, String (olursa hassasiyet > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| SAYI |Ondalık, dize (olursa hassasiyet > 28) |
+| NUMBER |Decimal, String (olursa hassasiyet > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

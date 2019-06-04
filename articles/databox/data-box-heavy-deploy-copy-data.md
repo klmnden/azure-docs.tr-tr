@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6bc7af30d409fb7add321953aa2e956a0a3c1840
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8ee96f2e06071d60eb97596687387fd80ba14cc3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427769"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496270"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb-preview"></a>Öğretici: Azure veri kutusu ağır SMB (Önizleme) üzerinden verileri kopyalayın
 
@@ -227,7 +227,7 @@ SMB paylaşımı bağlandıktan sonra veri kopyalama başlar.
 
     ![Hata dosyalarını indirme](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    Daha fazla bilgi için [veri kutusu yoğun veri kopyalama sırasında hata günlüklerini görüntülemek](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Veri kopyalama sırasında hatalar ayrıntılı bir listesi için bkz. [veri kutusu ağır sorun giderme sorunları](data-box-troubleshoot.md).
+    Daha fazla bilgi için [veri kutusu yoğun veri kopyalama sırasında hata günlüklerini görüntülemek](data-box-logs.md#view-error-log-during-data-copy). Veri kopyalama sırasında hatalar ayrıntılı bir listesi için bkz. [veri kutusu ağır sorun giderme sorunları](data-box-troubleshoot.md).
 
 5. Hata dosyasını Not Defteri'nde açın. Aşağıdaki hata dosyasını verileri doğru şekilde düşmeyen gösterir.
 

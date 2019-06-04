@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686529"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476822"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Öğretici: Azure veri kutusu ağ geçidi dağıtmaya hazırlanma
 
@@ -51,7 +51,11 @@ Burada Data Box Gateway kaynağınız, Data Box Gateway cihazınız ve veri merk
 Başlamadan önce aşağıdakilerden emin olun:
 
 - Veri kutusu ağ geçidi kaynağı için Microsoft Azure aboneliğiniz desteklenmelidir. Kullandıkça Öde abonelikleri desteklenmez.
-- Sahibi veya katkıda bulunan aboneliğinize erişimi var.
+- Sahibi veya katkıda bulunan veri kutusu Edge/veri kutusu ağ geçidi, IOT Hub ve Azure Storage kaynakları için kaynak grubu düzeyinde erişimi var.
+
+    - Herhangi bir veri kutusu kenarın oluşturmak için / veri kutusu ağ geçidi kaynağı olmalıdır (veya üzeri) olarak katkıda bulunan izinleri, kaynak grubu düzeyinde kapsamlı. Ayrıca emin olmak gereken `Microsoft.DataBoxEdge` sağlayıcı kayıtlı. Nasıl kaydedileceği hakkında daha fazla bilgi için Git [kayıt kaynak sağlayıcısı](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Herhangi bir IOT hub'ı kaynak oluşturmak için bu Microsoft.Devices sağlayıcısının kayıtlı olduğundan emin olun. Nasıl kaydedileceği hakkında daha fazla bilgi için Git [kayıt kaynak sağlayıcısı](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Bir depolama hesabı kaynağı oluşturmak için yeniden katkıda bulunan veya kaynak grubu düzeyinde kapsamlı yüksek erişim gerekir. Azure depolama kaynak sağlayıcısı varsayılan olarak açıktır.
 - Yönetici veya kullanıcı Azure Active Directory Graph API'si için erişimi var. Daha fazla bilgi için [Azure Active Directory Graph API'si](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
 

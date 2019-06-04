@@ -1,5 +1,5 @@
 ---
-title: "Öğretici:  Parola Karması eşitleme (PHS) kullanarak azure'da tek bir AD ormanında tümleştirme | Microsoft Docs"
+title: "Öğretici:  Tek bir AD ormanında PHS'ı kullanarak azure'a tümleştirin"
 description: Parola Karması eşitleme kullanarak bir karma kimlik ortamını ayarlama işlemi gösterilmektedir.
 services: active-directory
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295701"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474007"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Öğretici:  Parola karması eşitleme (PHS) kullanarak tek bir AD ormanında tümleştirme
 
-![Oluştur](media/tutorial-password-hash-sync/diagram.png)
+![Create](media/tutorial-password-hash-sync/diagram.png)
 
 Aşağıdaki öğreticiye parola karması eşitleme kullanarak bir karma kimlik ortamı oluşturma işleminde size yol gösterir.  Bu ortam, test etmek veya bir karma kimlik nasıl çalışır hakkında daha fazla bilgi almak için kullanılabilir.
 
@@ -83,7 +83,7 @@ Sanal makine oluşturma işlemini tamamlamak için işletim sistemi yüklemesini
 6. Lisans anahtarınızı girip __iade **sonraki**.
 7. Denetleme ** lisans koşullarını kabul edin ve tıklayın **sonraki**.
 8. Seçin **özel:  Yalnızca Windows yükleyin (Gelişmiş)**
-9. **İleri**’ye tıklayın
+9. **İleri**'ye tıklayın.
 10. Yükleme tamamlandıktan sonra VM'yi en güncel olduğundan emin olmak için oturum açma ve çalıştırma Windows güncelleştirmeleri, sanal makineyi yeniden başlatın.  En son güncelleştirmeleri yüklersiniz.
 
 ## <a name="install-active-directory-prerequisites"></a>Active Directory önkoşulları yükleyin

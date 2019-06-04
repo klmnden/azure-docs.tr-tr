@@ -5,6 +5,8 @@
   items:
     - name: Language Understanding nedir?
       href: what-is-luis.md
+    - name: Yenilikler
+      href: whats-new.md
 - name: Hızlı Başlangıçlar
   items:
     - name: Önceden oluşturulmuş etki alanı uygulaması oluşturma
@@ -197,8 +199,9 @@
         - name: Bing Yazım Denetimi v7 ile
           href: luis-tutorial-bing-spellcheck.md
         - name: Konuşma hizmeti ile
-          href: luis-tutorial-speech-to-intent.md
-        - name: V3 bot framework'ü kullanma
+          maintainContext: true
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+        - name: Bot ile
           items:
             - name: Web uygulaması botu
               items:
@@ -400,8 +403,6 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Kaynaklar
   items:
-    - name: Yenilikler
-      href: whats-new.md
     - name: Bölgesel kullanılabilirlik
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Dil ve bölge desteği

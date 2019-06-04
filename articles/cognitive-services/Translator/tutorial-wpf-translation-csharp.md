@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d51c7b7c2e8d7f9774018f54a6639bebb882420
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653309"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471538"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Öğretici: WPF ile bir çeviri uygulaması oluşturma
 
@@ -79,9 +79,9 @@ Derlemeleri bizim proje nesnelerini seri hale getrime ve ve HTTP isteklerini ve 
 1. Projenizi Visual Studio Çözüm Gezgini'nde (sağ panelde) bulun. Projenize sağ tıklayın ve ardından **Ekle > başvurusu...** , açan **başvuru Yöneticisi**.
    ![Derleme başvuruları ekleme](media/add-assemblies-sample.png)
 2. Derlemeler sekmesi, başvuru kullanılabilen tüm .NET Framework derlemelerini listeler. Arama çubuğuna için ekranın sağ üst kısımdaki bu başvuruları için arama yapın ve bunları projenize eklemek için kullanın:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. Bu başvuruları projenize ekledikten sonra tıklayabilirsiniz **Tamam** kapatmak için **başvuru Yöneticisi**.
 
 > [!NOTE]
@@ -244,7 +244,7 @@ Tüm Projemizin saklanmış olduğu içinde `MainWindow : Window` sınıfı. Abo
 
 Bu kod bloğunda biz çevirisi kullanılabilir diller hakkında bilgi içeren iki üye değişkenleri bildirdikten:
 
-| Değişken | Tür | Açıklama |
+| Değişken | Type | Açıklama |
 |----------|------|-------------|
 |`languageCodes` | dize dizisi |C dil kodlarını aches. Translator hizmeti dilleri belirlemek için kısa kodlar kullanır (örneğin İngilizce için `en`). |
 |`languageCodesAndTitles` | Sıralanmış sözlük | Kullanıcı arabirimindeki "kolay anlaşılır" adları, API’de kullanılan kısa kodlarla eşleştirir. Büyük küçük harf kullanımından bağımsız olarak alfabetik sırayla tutulur. |

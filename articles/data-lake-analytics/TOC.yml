@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: Kota sınırlarını ayarlama
           href: data-lake-analytics-quota-limits.md
+        - name: Olağanüstü durum kurtarma planlama
+          href: data-lake-analytics-disaster-recovery.md
     - name: U-SQL programlarını geliştirme
       items:
         - name: U-SQL dili

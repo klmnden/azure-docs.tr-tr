@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236203"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479786"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Öğretici:  Utterance duyarlılığını Al
 
@@ -54,6 +54,7 @@ Yayımlama ayarı olduğu için amaçlar veya varlıklar sayfalarında görmezsi
 
 ## <a name="add-personname-prebuilt-entity"></a>PersonName ekleme önceden oluşturulmuş varlık 
 
+1. Seçin **derleme** Gezinti menüsünde.
 
 1. Sol gezinti menüsünden **Entities** (Varlıklar) öğesini seçin.
 
@@ -69,11 +70,11 @@ Yayımlama ayarı olduğu için amaçlar veya varlıklar sayfalarında görmezsi
 
 Şirket üyelerinin çalışanlar hakkındaki geri bildirimini yakalamak için yeni bir amaç ekleyin. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Sol panelden **Intents** (Amaçlar) öğesini seçin.
 
-2. **Create new intent** (Yeni amaç oluştur) öğesini seçin.
+1. **Create new intent** (Yeni amaç oluştur) öğesini seçin.
 
-3. Yeni amaca `EmployeeFeedback` adını verin.
+1. Yeni amaca `EmployeeFeedback` adını verin.
 
     ![EmployeeFeedback adı görünen Create new intent (Yeni amaç oluştur) iletişim kutusu](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -106,7 +107,7 @@ Yayımlama ayarı olduğu için amaçlar veya varlıklar sayfalarında görmezsi
 
 1. Sağ üst gezinti bölmesinden **Yönet**'i seçin, sonra sol menüden **Yayımlama ayarları**'nı seçin.
 
-1. Seçin **yaklaşım analizi** için bu ayarı etkinleştirin. 
+1. Seçin **yaklaşım analizi, bir kullanıcının utterance pozitif, negatif veya nötr olup olmadığını belirlemek için kullanın.** Bu ayarı etkinleştirmek için. 
 
     ![Yayımlama ayarı olarak üzerinde yaklaşım analizi Aç](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -118,7 +119,11 @@ Yayımlama ayarı olduğu için amaçlar veya varlıklar sayfalarında görmezsi
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Adres çubuğundaki URL'nin sonuna gidip `Jill Jones work with the media team on the public portal was amazing` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `EmployeeFeedback` amacını yaklaşım analizi ayıklanmış şekilde döndürmelidir.
+1. Adres URL'SİNİN sonuna gidin ve aşağıdaki utterance girin:
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `EmployeeFeedback` amacını yaklaşım analizi ayıklanmış şekilde döndürmelidir.
     
     ```json
     {
@@ -153,6 +158,8 @@ Yayımlama ayarı olduğu için amaçlar veya varlıklar sayfalarında görmezsi
     ```
 
     % 86'lık bir puan sentimentAnalysis pozitiftir. 
+
+    Başka bir utterance değeri kaldırarak deneyin `q` tarayıcının adres çubuğuna: `William Jones did a terrible job presenting his ideas.` Düşük bir puan döndürerek yaklaşım puanını negatif yaklaşımı gösterir `0.18597582`.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: f183fd9c9aca3e1c8ed5e2e31d2a451fae92e0a4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304476"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475504"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Service (AKS) uygulama güncelleştirme
 
@@ -85,7 +85,10 @@ Görüntüyü etiketlemek için [docker tag][docker-tag]’i kullanın. Aşağı
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Şimdi görüntüyü kayıt defterinize yüklemek için [docker push][docker-push] komutunu kullanın. `<acrLoginServer>` yerine ACR oturum açma sunucunuzun adını yazın. ACR kayıt defterinize giden sorunlarla karşılaşıyorsanız, çalıştırdığınızdan emin emin [az acr oturum açma] [ az-acr-login] komutu.
+Şimdi görüntüyü kayıt defterinize yüklemek için [docker push][docker-push] komutunu kullanın. `<acrLoginServer>` yerine ACR oturum açma sunucunuzun adını yazın.
+
+> [!NOTE]
+> ACR kayıt defterinize giden sorunlarla karşılaşıyorsanız, hala oturum açtığınızdan emin olun. Çalıştırma [az acr oturum açma] [ az-acr-login] komutunu kullanarak, oluşturduğunuz Azure Container Registry'nize adını [bir Azure Container Registry oluşturma](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) adım. Örneğin, `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

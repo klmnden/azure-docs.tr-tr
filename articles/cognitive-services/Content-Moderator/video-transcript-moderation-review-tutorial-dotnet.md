@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608277"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474689"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve transkript moderasyonu
 
@@ -44,15 +44,15 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 
 Düzen `App.config` dosya ve Active Directory Kiracı adı, hizmet uç noktaları ve tarafından belirtilen Abonelik anahtarları ekleyin `#####`. Aşağıdaki bilgiler gerekir:
 
-    |Anahtar|Açıklama|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Azure Media Services (AMS) API'si için uç nokta|
-    |`ClientSecret`|Azure Media Services için abonelik anahtarı|
-    |`ClientId`|Azure Media Services için istemci kimliği|
-    |`AzureAdTenantName`|Kuruluşunuzu temsil eden Active Directory kiracı adı|
-    |`ContentModeratorReviewApiSubscriptionKey`|Content Moderator inceleme API'si için abonelik anahtarı|
-    |`ContentModeratorApiEndpoint`|Content Moderator API’si için uç nokta|
-    |`ContentModeratorTeamId`|Content Moderator ekip kimliği|
+|Anahtar|Açıklama|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Azure Media Services (AMS) API'si için uç nokta|
+|`ClientSecret`|Azure Media Services için abonelik anahtarı|
+|`ClientId`|Azure Media Services için istemci kimliği|
+|`AzureAdTenantName`|Kuruluşunuzu temsil eden Active Directory kiracı adı|
+|`ContentModeratorReviewApiSubscriptionKey`|Content Moderator inceleme API'si için abonelik anahtarı|
+|`ContentModeratorApiEndpoint`|Content Moderator API’si için uç nokta|
+|`ContentModeratorTeamId`|Content Moderator ekip kimliği|
 
 ## <a name="examine-the-main-code"></a>Ana kod İnceleme
 

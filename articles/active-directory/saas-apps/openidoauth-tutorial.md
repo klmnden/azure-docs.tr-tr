@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780992"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497477"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Bir Azure AD uygulama Galerisi Openıd/OAuth uygulaması yapılandırma
 
@@ -98,7 +98,25 @@ Graph API'si de erişim kullanıcıları ve grupları Azure ad ve diğer veri ne
 
 Aşağıdaki adımlar nasıl çalışır uygulama geliştiriciler ve kullanıcı için onay deneyimi gösterir:
 
-1. Belirli bir kaynağa veya API erişim izni istemek için gereken bir web istemci uygulaması olduğunu kabul edelim. Azure portal, yapılandırma sırasında izin isteklerini bildirmek için kullanılır. Diğer yapılandırma ayarları gibi uygulamanın Azure AD kaydı bir parçası haline gelir:
+1. Belirli bir kaynağa veya API erişim izni istemek için gereken bir web istemci uygulaması olduğunu kabul edelim. Azure portal, yapılandırma sırasında izin isteklerini bildirmek için kullanılır. Diğer yapılandırma ayarları gibi uygulamanın Azure AD'ye kayıtları bir parçası haline gelir. İzleme ihtiyacınız izni istek yolu için aşağıdaki adımları:
+
+    a. Tıklayarak **uygulama kayıtları** sol tarafındaki menüsünün ve açık uygulama yazarak, uygulamanızın arama kutusuna adı.
+
+    ![Graph API](./media/openidoauth-tutorial/application.png)
+
+    b. Tıklayın **API izinleri görüntüle**.
+
+    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+
+    c. Tıklayarak **bir izin eklemek**.
+
+    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+
+    d. Tıklayarak **Microsoft Graph**.
+
+    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+
+    e. Gerekli seçenekleri arasından seçim **temsilci izinleri** ve **uygulama izinleri**.
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -106,7 +124,7 @@ Aşağıdaki adımlar nasıl çalışır uygulama geliştiriciler ve kullanıcı
 
 3. Kullanıcının kimliği zaten varsa, Azure AD / authorize oturum açma uç noktası ister.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Kimlik Doğrulaması](./media/openidoauth-tutorial/authentication.png)
 
 4. Kullanıcı oturum açtıktan sonra Azure AD, kullanıcının bir onay sayfası gerekip gerekmediğini belirler. Bu belirleme, kullanıcı (veya onun kuruluşunun yönetici) zaten uygulama onay verilip üzerinde temel alır.
 
@@ -118,12 +136,12 @@ Normal bir kullanıcı için bazı izinler onay verebilir. Diğer izinler bir ki
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Yönetici onayı ve kullanıcı onayı arasındaki fark
 
-Bir yönetici olarak, aynı zamanda tüm kullanıcılar adına uygulamanın temsilci izinleri için kiracınızda onay verebilir. Yönetici onayı onay iletişim kutusu, kiracıdaki her kullanıcı için görüntülenmesini engeller. Yönetici rolüne sahip kullanıcılar, Azure portalında onay sağlayabilir. Gelen **ayarları** uygulamanızın, seçin sayfasında **gerekli izinler** > **izinler**.
+Bir yönetici olarak, aynı zamanda tüm kullanıcılar adına uygulamanın temsilci izinleri için kiracınızda onay verebilir. Yönetici onayı onay iletişim kutusu, kiracıdaki her kullanıcı için görüntülenmesini engeller. Yönetici rolüne sahip kullanıcılar, Azure portalında onay sağlayabilir. Gelen **ayarları** uygulamanızın, seçin sayfasında **gerekli izinler** > **yönetici onayı vermek**.
 
 ![İzinler düğmesi](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Kullanarak açık izin verme **izinler** düğmesi, artık ADAL.js kullanan tek sayfalı uygulamalar için (Spa'lar) gereklidir. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur.
+> Kullanarak açık izin verme **yönetici onayı vermek** düğmesi, artık ADAL.js kullanan tek sayfalı uygulamalar için (Spa'lar) gereklidir. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur.
 
 Yalnızca uygulama izinleri, her zaman bir kiracı yönetici onayı gerektirir. Uygulamanızı bir salt uygulama izni isteklerini ve bir kullanıcı uygulamada oturum açmaya çalışırsa bir hata iletisi görüntülenir. Kullanıcı onayı sağlayamadığı ileti yazar.
 

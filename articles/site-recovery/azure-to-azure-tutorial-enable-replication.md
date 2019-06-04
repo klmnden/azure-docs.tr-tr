@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 74f7d8a1a828732d5448bf29c0878adb5f74b5e1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5602298ffe60ad15d3daf52587c50357c310200c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398259"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480088"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure Vm'leri için olağanüstü durum kurtarmayı ayarlayın
 
@@ -35,7 +35,7 @@ Bu öğreticide, bunları bir Azure bölgesinden diğerine çoğaltılması yolu
 
 Bu öğreticiyi tamamlamak için:
 
-- [Senaryo mimarisini ve bileşenlerini ](concepts-azure-to-azure-architecture.md) anladığınızdan emin olun.
+- [Senaryo mimarisini ve bileşenlerini](concepts-azure-to-azure-architecture.md) gözden geçirin.
 - Gözden geçirme [destek gereksinimlerini](site-recovery-support-matrix-azure-to-azure.md) başlamadan önce.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma

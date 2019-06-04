@@ -6,18 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924766"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476784"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Öğretici: Azure veri kutusu Edge dağıtmaya hazırlanma  
-
 
 Bu, Azure veri kutusu Edge tamamen dağıtmak için gerekli olan dağıtım öğreticileri serisinin ilk öğreticisidir. Bu öğreticide, Azure portalında bir veri kutusu Edge kaynak dağıtmaya hazırlanmak açıklar.
 
@@ -31,7 +30,6 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-
 ### <a name="get-started"></a>başlarken
 
 Veri kutusu Edge dağıtmak için önceden belirlenmiş bir sırada aşağıdaki öğreticilere bakın.
@@ -42,7 +40,7 @@ Veri kutusu Edge dağıtmak için önceden belirlenmiş bir sırada aşağıdaki
 | 2. |**[Azure Data Box Edge'i kurma](data-box-edge-deploy-install.md)**|Data Box Edge fiziksel cihazını kutusundan çıkarın, rafa yerleştirin ve kablolarını bağlayın.  |
 | 3. |**[Bağlanma, ayarlamak ve veri kutusu Edge etkinleştirme](data-box-edge-deploy-connect-setup-activate.md)** |Yerel web kullanıcı arabirimine bağlayın, cihaz kurulumunu tamamlayın ve cihazı etkinleştirin. Cihaz SMB veya NFS paylaşımlarının kurulması için hazırdır.  |
 | 4. |**[Verileri Data Box Edge ile aktarma](data-box-edge-deploy-add-shares.md)** |Paylaşımları ekleyin ve SMB veya NFS üzerinden paylaşımlara bağlanın. |
-| 5. |**[Data Box Edge ile veri dönüştürme](data-box-edge-deploy-configure-compute.md)** |Azure'a taşınan verilerin dönüştürülmesi için cihazdaki Edge modüllerini yapılandırın. |
+| 5. |**[Data Box Edge ile veri dönüştürme](data-box-edge-deploy-configure-compute.md)** |Verileri Azure'a taşınırken dönüştürmek için cihazda işlem modüllerini yapılandırın. |
 
 Artık Azure portalını ayarlamaya başlayabilirsiniz.
 
@@ -55,7 +53,11 @@ Veri kutusu Edge kaynağınızı, veri kutusu Edge cihazınıza ve veri merkezi 
 Başlamadan önce aşağıdakilerden emin olun:
 
 - Microsoft Azure aboneliğiniz için bir veri kutusu Edge kaynak etkinleştirilir. Kullandıkça Öde abonelikleri desteklenmez.
-- Sahibi veya katkıda bulunan aboneliğinize erişimi var.
+- Sahibi veya katkıda bulunan veri kutusu Edge/veri kutusu ağ geçidi, IOT Hub ve Azure Storage kaynakları için kaynak grubu düzeyinde erişimi var.
+
+    - Herhangi bir veri kutusu kenarın oluşturmak için / veri kutusu ağ geçidi kaynağı olmalıdır (veya üzeri) olarak katkıda bulunan izinleri, kaynak grubu düzeyinde kapsamlı. Ayrıca emin olmak gereken `Microsoft.DataBoxEdge` sağlayıcı kayıtlı. Nasıl kaydedileceği hakkında daha fazla bilgi için Git [kayıt kaynak sağlayıcısı](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Herhangi bir IOT hub'ı kaynak oluşturmak için bu Microsoft.Devices sağlayıcısının kayıtlı olduğundan emin olun. Nasıl kaydedileceği hakkında daha fazla bilgi için Git [kayıt kaynak sağlayıcısı](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Bir depolama hesabı kaynağı oluşturmak için yeniden katkıda bulunan veya kaynak grubu düzeyinde kapsamlı yüksek erişim gerekir. Azure depolama kaynak sağlayıcısı varsayılan olarak açıktır.
 - Yönetici veya kullanıcı Azure Active Directory Graph API'si için erişimi var. Daha fazla bilgi için [Azure Active Directory Graph API'si](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
 
@@ -64,7 +66,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 Fiziksel cihazı dağıtmadan önce şunlardan emin olun:
 
 - Sevkiyat paketine dahil güvenlik bilgileri gözden geçirdim.
-- Cihazı rafa için veri merkezinizde bir standart 19" rafa kullanılabilir bir 1 U yuvası sahip. 
+- Cihazı rafa için veri merkezinizde bir standart 19" rafa bir 1U yuvası sahip.
 - Düz, kararlı ve düzeyi çalışma yüzeyine burada cihaz güvenli bir şekilde tuttuğunuzda erişebilirsiniz.
 - Burada cihazınızın kurulumunun yapılabilmesi için istediğinize site bağımsız bir kaynak veya bir raf güç dağıtım birimi (PDU) bir kesintisiz güç kaynağı (UPS) ile standart AC gücü sahiptir.
 - Fiziksel cihaza erişebiliyor olmanız gerekir.

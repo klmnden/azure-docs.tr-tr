@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: af61d975b540787b9b54d9fdea66773c10aeb6ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 27fcf32a9a268488da318567d3edc55d23bd8967
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145455"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482381"
 ---
-1. Visual Studio 2017'yi başlatın.
+1. Visual Studio 2019 başlatın.
 
 1. **C++ ile masaüstü geliştirme** iş yükünün kullanılabilir olduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse sonraki adıma atlayın.
 
@@ -25,7 +25,7 @@ ms.locfileid: "66145455"
 
 1. C++ iş yükünü veya NuGet’i etkinleştirmeniz gerekiyorsa, **Değiştir**’i seçin (iletişim kutusunun sağ alt köşesinde). Yeni özelliklerin yüklenmesi bir dakika sürer. Her iki özellik de zaten etkinse, iletişim kutusunu kapatmanız yeterlidir.
 
-1. Yeni bir Visual C++ Windows Masaüstü Windows Konsol Uygulaması oluşturun. İlk olarak, menüden **Dosya** > **Yeni** > **Proje** seçeneğini belirleyin. **Yeni Proje** iletişim kutusunda, sol bölmeden **Yüklü** > **Visual C++** > **Windows Masaüstü**'nü genişletin. Ardından **Windows Konsol Uygulaması**’nı seçin. Proje adı olarak *helloworld* girin.
+1. Yeni bir Visual C++ Windows Masaüstü Windows Konsol Uygulaması oluşturun. İlk olarak, menüden **Dosya** > **Yeni** > **Proje** seçeneğini belirleyin. **Yeni Proje** iletişim kutusunda, sol bölmeden **Yüklü** > **Visual C++**  > **Windows Masaüstü**'nü genişletin. Ardından **Windows Konsol Uygulaması**’nı seçin. Proje adı olarak *helloworld* girin.
 
     ![Yeni Proje iletişim kutusunun ekran görüntüsü](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)
 

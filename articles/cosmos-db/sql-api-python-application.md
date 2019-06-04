@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 02/23/2017
+ms.date: 12/23/2018
 ms.author: sngun
-ms.openlocfilehash: d9ac2cb5e269f84b0a047d7838918492f9b83059
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 4f4d5f89e56211e9135dba33200751b59b508123
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298775"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478896"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 
@@ -56,7 +56,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 
 * [Python 2.7 için Microsoft Visual C++ Derleyicisi](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
-## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>1. Adım: Bir Azure Cosmos DB veritabanı hesabı oluşturma
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>1. adım: Bir Azure Cosmos DB veritabanı hesabı oluşturma
 
 İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, adımına atlayabilirsiniz [2. adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2-create-a-new-python-flask-web-application).
 
@@ -65,7 +65,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 <br/>
 Şimdi en başından başlayarak yeni bir Python Flask web uygulamasının nasıl oluşturulacağını görelim.
 
-## <a name="step-2-create-a-new-python-flask-web-application"></a>2. Adım: Yeni bir Python Flask web uygulaması oluşturma
+## <a name="step-2-create-a-new-python-flask-web-application"></a>2. adım: Yeni bir Python Flask web uygulaması oluşturma
 
 1. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine gidin ve ardından **Proje**'ye tıklayın.
 

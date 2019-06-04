@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924533"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476949"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Öğretici: Azure veri kutusu Edge yükleyin
 
@@ -70,7 +70,7 @@ Cihaz tek bir kutuda gönderilir. Cihazınızı kutusundan çıkarmak için aşa
 1. Kutuyu düz ve sabit bir yüzeye yerleştirin.
 2. Kutuda ve ambalajda ezik, kesik, su hasarı veya gözle görülür herhangi bir hasar olup olmadığını kontrol edin. Paketleme ve kutusu ciddi zarar, açmayın. Cihazın iyi durumda olup olmadığının değerlendirilmesi için Microsoft Desteği ile iletişim kurun.
 3. Kutuyu açın. Kutuyu açtıktan sonra aşağıdakilerin bulunduğundan emin olun:
-    - Tek parçalı bir kasadan oluşan Edge cihazı
+    - Tek tek kutu veri kutusu Edge cihazı
     - İki güç kablosu
     - Bir parmaklık Seti derleme
     - Güvenliği, çevre ve yasal bilgiler Kitapçığı
@@ -100,7 +100,7 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 1. İki A7 Dell ReadyRails parmaklık derlemeleri kayan II
 2. İki kanca ve döngü straps
 
-![Parmaklık Seti içeriği tanımlayın](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Parmaklık Seti içeriği tanımlayın](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Yükleme ve kaldırma alet rails (kare delik veya yuvarlak delik raflar)
 
@@ -112,7 +112,7 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 3. Parmaklık arka ucunu kadar tam lisans dikey raf Flanş ve Mandal tıklama yerine etkileşim kurun. Getirin ve ön uç parça dikey raf Flanş üzerinde bilgisayar lisansı için bu adımları yineleyin.
 4. Rails kaldırmak için Mandal yayın düğmesini üzerinde uç parça Orta çekme ve her parmaklık unseat.
 
-![Yükleme ve alet rails kaldırma](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Yükleme ve alet rails kaldırma](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Yükleme ve kaldırma tooled rails (zincir delik raflar)
 
@@ -124,7 +124,7 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 3. Sol ve sağda iki Vida çiftlerini kullanarak ön dikey raf çıkıntıları için rails bağlama ekleyin.
 4. Köşeli ayraçlar karşı arka dikey raf çıkıntıları iletmek ve iki Vida çiftlerini kullanarak bunları eklemek sol ve sağ arka kaydırın.
 
-![Yükleme ve tooled rails kaldırma](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Yükleme ve tooled rails kaldırma](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Sistemin bir raf yükleyin
 
@@ -133,7 +133,7 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 3. Kilit levers yere tıklayana kadar sistem içe gönderin.
 4. Slayt yayın kilit düğmeleri rails hem de rafa sistem slayta tuşuna basın.
 
-![Bir rafa sistemini yükleyin](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Bir rafa sistemini yükleyin](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### <a name="remove-the-system-from-the-rack"></a>Sistem rafa kaldırın
 
@@ -141,7 +141,7 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 2. Her seviyesini yayın konumuna kadar döndürerek kilidini açın.
 3. Sistem tarafının metz'in kavrayın ve parmaklık standoffs J yuvaları önündeki kadar ileriye doğru çekin. Sistem yedekleme ve raf uzağa lift- and -düzeyi yüzeyinde yerleştirin.
 
-![Sistem rafa kaldırın](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Sistem rafa kaldırın](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
 ### <a name="engage-and-release-the-slam-latch"></a>Etkileşim kurun ve slam Mandal serbest bırakın
 
@@ -152,7 +152,7 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 2. Mandal otomatik olarak sistemi rafa gönderilir ve tutma üzerinde çekerek serbest olarak etkileşim kurun.
 3. Rafa sevkiyat için veya diğer kararsız ortamları sistem güvenliğini sağlamak için her Mandal altında bağlamayı sabit Sarmal bulun ve her Sarmal # 2 sıkılaştıran Phillips tornavida.
 
-![Etkileşim kurun ve slam Mandal serbest bırakın](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Etkileşim kurun ve slam Mandal serbest bırakın](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 ### <a name="route-the-cables"></a>Kabloları yönlendirme
 
@@ -164,16 +164,16 @@ Parmaklık Seti bütünleştirilmiş kod yükleme için bileşenleri bulun:
 3. Dış CMA köşeli ayraçlar sistem kablo paketleri güvenliğini sağlamak için her iki tarafında üzerinde yuvaları üzerinden kanca ve döngü straps iş parçacığı.
 
 
-![Kabloları yönlendirme](./media/data-box-edge-deploy-install/routing-cables.png)
+    ![Kabloları yönlendirme](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Cihazın kablolarını bağlama
 
-Aşağıdaki yordamlarda Edge cihazınızın güç ve ağ kablolarını bağlama adımları açıklanmaktadır.
+Aşağıdaki yordamlarda, güç ve ağ için veri kutusu Edge cihazınızın kablolarını bağlama işlemleri açıklanmaktadır.
 
 Cihazınızı kablo başlamadan önce aşağıdakiler gerekir:
 
-- Kutusu açılmış, ambalajından çıkarılmış ve rafa monte edilmiş Edge fiziksel cihazınız.
-- İki güç kablosu. 
+- Açılmış, veri kutusu Edge fiziksel cihazı ve raf bağlanır.
+- İki güç kablosu.
 - Yönetim arabirimine bağlamak için en az bir 1-GbE RJ-45 ağ kablosu. Cihazda biri yönetim ve diğeri veri olmak üzere iki 1-GbE ağ arabirimi vardır.
 - Yapılandırılacak her veri ağı arabirimi için bir 25-GbE SFP+ bakır kablo. Bağlantı noktası 2, 3 bağlantı noktası, bağlantı noktası 4, 5 bağlantı noktası veya bağlantı noktası 6 arasından en az bir veri ağ arabirimi (Azure bağlantısı ile) Internet'e bağlı gerekir.  
 - İki güç dağıtım birimleri (önerilen) erişim.
@@ -181,34 +181,46 @@ Cihazınızı kablo başlamadan önce aşağıdakiler gerekir:
 > [!NOTE]
 > - Yalnızca bir veri ağ arabirimi bağlanıyorsanız verileri Azure'a göndermek için bağlantı noktası 3, 4 bağlantı noktası, bağlantı noktası 5 veya bağlantı noktası 6 gibi 25/10 GbE ağ arabirimi kullanmanızı öneririz. 
 > - En iyi performansı elde etmek ve büyük miktarda veriyi işlemek için tüm veri bağlantı noktalarını bağlamak isteyebilirsiniz.
-> - Edge cihazının veri kaynağı sunucularından veri alabilmesi için veri merkezi ağına bağlı olması gerekir.
+> - Böylece veri kaynağı sunuculardan veri alabilen veri kutusu sınır cihazı veri merkezi ağa bağlanması gerekir.
 
-Edge cihazınızda 8 adet NVMe SSD vardır. Ayrıca ön panelde durum LED'i ve güç düğmeleri bulunur. Cihaz arkasına yedek güç kaynağı birimleri (PSUs) içerir. Cihazınızı altı ağ arabirimi bulunur:
+Veri kutusu Edge Cihazınızda:
 
-- İki 1 GB/sn arabirim
-- Ayrıca 10 GB/sn arabirim hizmet verebilen dört 25 GB/sn arabirim.
-- Bir temel kart yönetim denetleyicisine (BMC). 
+- Ön panelini disk sürücüleri ve güç düğmesi vardır.
 
-Cihazınızın arka yüzündeki bağlantı noktalarını inceleyin.
- 
-  ![Kabloları takılmış bir cihazın arka yüzü](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    - Cihazınızı kuyruğun 10 disk yuvaları vardır.
+    - Yuva 0 240 GB, işletim sistemi diski kullanılan bir SATA sürücüsünü sahiptir. Yuva 1 boş ve NVMe SSD veri diski kullanılan Yuva 2'dan 9 olmasıdır.
+- Arka düzlem yedek güç kaynağı birimleri (PSUs) içerir.
+- Arka düzlem altı ağ arabirimi bulunur:
 
-Cihazın 6 bağlantı noktalarına karşılık gelen iki ağ kartları sahiptir: 
+    - İki 1 GB/sn arabirim.
+    - Ayrıca 10 GB/sn arabirim hizmet verebilen dört 25 GB/sn arabirim.
+    - Bir temel kart yönetim denetleyicisine (BMC).
 
- - QLogic FastLinQ 41264
- - QLogic FastLinQ 41262
+- İki ağ kartları 6 bağlantı noktalarına karşılık gelen arka düzlem sahiptir:
+
+    - QLogic FastLinQ 41264
+    - QLogic FastLinQ 41262
 
 Desteklenen kablo, anahtarlar ve bu ağ kartları için vericilerinin tam listesi için Git [Cavium FastlinQ 41000 serisi birlikte çalışabilirlik matris](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Güç ve ağ için cihazınızın kablolarını bağlama için aşağıdaki adımları uygulayın.
 
-1. Güç kablolarını kasadaki PSU'lara bağlayın. Yüksek kullanılabilirlik için iki PSU'yu da takın ve ayrı güç kaynaklarına bağlayın.
+1. Cihazınızın arka düzlem çeşitli bağlantı noktaları belirleyin.
 
-2. Güç kablolarını raf güç dağıtım birimlerine (PDU) takın. İki PSU'nun ayrı güç kaynaklarını kullandığından emin olun.
+    ![Kablolu bir cihazın arka düzlem](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-3. Bağlantı noktası 1 1 GbE ağ arabirimi, fiziksel cihaz yapılandırmak için kullanılan bilgisayara bağlanın. PORT 1, yönetim için ayrılmış arabirimdir.
+2. Disk yuvaları ve cihazın ön güç düğmesini bulun.
 
-4. PORT 2, PORT 3, PORT 4, PORT 5 veya PORT 6 bağlantı noktalarından birini veya birkaçını veri merkezi ağına/İnternete bağlayın. PORT 2’yi bağlıyorsanız, RJ-45 ağ kablosunu kullanın. 25/10-GbE ağ arabirimleri, SFP + siyah Bakır kablo kullanın.  
+    ![Bir cihazın ön düzlemi](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+
+3. Güç kablolarını kasadaki PSU'lara bağlayın. Yüksek kullanılabilirlik için iki PSU'yu da takın ve ayrı güç kaynaklarına bağlayın.
+4. Güç kablolarını raf güç dağıtım birimlerine (PDU) takın. İki PSU'nun ayrı güç kaynaklarını kullandığından emin olun.
+5. Cihazda etkinleştirmek için güç düğmesine basın.
+6. Bağlantı noktası 1 1 GbE ağ arabirimi, fiziksel cihaz yapılandırmak için kullanılan bilgisayara bağlanın. PORT 1, yönetim için ayrılmış arabirimdir.
+7. PORT 2, PORT 3, PORT 4, PORT 5 veya PORT 6 bağlantı noktalarından birini veya birkaçını veri merkezi ağına/İnternete bağlayın.
+
+    - PORT 2’yi bağlıyorsanız, RJ-45 ağ kablosunu kullanın.
+    - 25/10-GbE ağ arabirimleri, SFP + siyah Bakır kablo kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -223,5 +235,3 @@ Cihazınıza bağlanma, kurulumunu yapma ve etkinleştirme adımları için bir 
 
 > [!div class="nextstepaction"]
 > [Bağlanmak ve veri kutusu Edge ayarlayın](./data-box-edge-deploy-connect-setup-activate.md)
-
-

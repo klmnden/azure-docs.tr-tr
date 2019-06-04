@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51fcb1e504f853973d9772bcece7e893a2d94e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323882"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472141"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Öğretici: HTTPS üzerinden bir Azure CDN özel etki alanını kullanarak depolama blob'lara erişim
 
@@ -44,7 +44,7 @@ Azure CDN SAS belirtecine eklenen kısıtlamaları yok sayar. Örneğin, tüm SA
 Aynı blob uç noktası için birden çok SAS URL’si oluşturursanız, sorgu dizesi önbelleğe almayı göz önünde bulundurun. Bunu yapmak her URL’nin benzersiz bir varlık olarak kabul edilmesini sağlar. Daha fazla bilgi için bkz. [Sorgu dizeleri içeren Azure CDN önbelleğe alma davranışını kontrol etme](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>HTTP’den -HTTPS’ye yeniden yönlendirme
-[Azure CDN kuralları altyapısı](cdn-rules-engine.md) ile bir [URL Yeniden Yönlendirme kuralı](cdn-rules-engine-reference-features.md#url-redirect) oluşturarak HTTP trafiğini HTTPS’ye yeniden yönlendirebilirsiniz. Bu seçenek bir **Verizon’dan Azure CDN Premium** profili gerektirir. 
+[Azure CDN kuralları altyapısı](cdn-verizon-premium-rules-engine.md) ile bir [URL Yeniden Yönlendirme kuralı](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) oluşturarak HTTP trafiğini HTTPS’ye yeniden yönlendirebilirsiniz. Bu seçenek bir **Verizon’dan Azure CDN Premium** profili gerektirir.
 
 ![URL yeniden yönlendirme kuralı](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
