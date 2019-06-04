@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792671"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496937"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
 [Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
@@ -72,6 +72,9 @@ Soru-cevap Oluşturucu desteklediği derecelendirme özellikleri en iyi kullanı
 ### <a name="choosing-a-threshold"></a>Bir eşiği seçme
 İçin KB gereksinimlerinize göre değiştirebilirsiniz ancak eşik olarak kullanılan varsayılan güvenilirlik puanı 50 ' dir. Her KB farklı olduğundan, test edin ve en iyi eşiği için KB uygun seçin gerekir. Daha fazla bilgi edinin [güvenilirlik puanı](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Derecelendiricisini uygulama türünü seçme
+Varsayılan olarak, soru-cevap Oluşturucu, sorular ve yanıtlar arar. Yalnızca ilgili sorularınızı arama yapmak istiyorsanız, bir yanıt oluşturmak için kullanmak `RankerType=QuestionOnly` GenerateAnswer istek POST gövdesinde.
+
 ### <a name="add-alternate-questions"></a>Diğer sorular ekleyin
 [Diğer sorular](../How-To/edit-knowledge-base.md) bir kullanıcı sorgu ile bir eşleşme olasılığını artırın. Diğer sorular, aynı soruyu istenebilir birden çok yol olduğunda yararlıdır. Word-style ve cümle yapısı içinde bu değişiklikleri içerebilir.
 
@@ -103,7 +106,7 @@ Farklı bir gereksinim her soruyu ele Bilgi Bankası'nda soru kullanıcı sorguy
 |Park olduğu *konumu*|
 |ATM olduğu *konumu*|
 
-Bu iki Bankalarıyla çok benzer kelimelerinizle tümcecik oluşturulmuş olduğundan, bu gibi tümcecik oluşturulmuş çok sayıda kullanıcı sorgu çok benzer puanları neden olabilecek *"nerede olduğunu `<x>` konumu"*. Sorgularla gibi açıkça ayırt etmek bunun yerine, deneyin *"park olduğu"* ve *"ATM olduğu"*, "Konum" gibi sözcükleri önleme tarafından KB kadar fazla soruyu içinde olabilir. 
+Bu iki Bankalarıyla çok benzer kelimelerinizle tümcecik oluşturulmuş olduğundan, bu gibi tümcecik oluşturulmuş çok sayıda kullanıcı sorgu çok benzer puanları neden olabilecek *"nerede olduğunu `<x>` konumu"* . Sorgularla gibi açıkça ayırt etmek bunun yerine, deneyin *"park olduğu"* ve *"ATM olduğu"* , "Konum" gibi sözcükleri önleme tarafından KB kadar fazla soruyu içinde olabilir. 
 
 ## <a name="collaborate"></a>İşbirliği yapın
 Soru-cevap Oluşturucu, kullanıcılara sağlayan [işbirliği](../How-to/collaborate-knowledge-base.md) Bilgi Bankası üzerinde. Kullanıcıların bilgi bankalarından erişmek için soru-cevap Oluşturucu Azure kaynak grubuna erişim gerekir. Bazı kuruluşlar Bilgi Bankası düzenleme ve Bakım dış ve Azure kaynaklarına erişim hala koruyabilmesini isteyebilirsiniz. Bu düzenleyici onaylayan modeli iki özdeş ayarlayarak yapılır [soru-cevap Oluşturucu Hizmetleri](../How-to/set-up-qnamaker-service-azure.md) farklı Aboneliklerde ve bir düzenleme test döngüsü için seçme. Test tamamlandıktan sonra Bilgi Bankası içerikleri ile aktarılır bir [içeri / dışarı aktarma](../Tutorials/migrate-knowledge-base.md) son Bilgi Bankası yayımlama ve uç noktayı güncelleştirmek onaylayanın soru-cevap Oluşturucu hizmeti için işlem.

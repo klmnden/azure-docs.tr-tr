@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0aab2250d6692d7db99c55b23604c08f5fe619a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3ca166b287858b3e42aeda1421d1733fe24c81ab
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235718"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479657"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Birden çok kapatır konuşmanın oluşturmak için istemleri takip kullanın
 
@@ -389,7 +389,11 @@ Bilgi Bankası'ndaki yönergeleri eklediniz ve akış test Bölmesi'nde test. Ar
 
 [Metni görüntülemek ve görüntüleme sırası](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), JSON yanıtta döndürülen, tarafından düzenleme için desteklenen [güncelleştirme API'si](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
-FIX - üst ve ardından yanıt sütun gidin ve ardından yanıt Düzenle gerekir. 
+<!--
+
+FIX - Need to go to parent, then answer column, then edit answer. 
+
+-->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

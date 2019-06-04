@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-pawal
-ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1cfe4038ff422ecba68f110707e9535226ccd4a5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382503"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472113"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
@@ -60,8 +60,8 @@ Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dille
 |Fiji Adaları dili|    `fj`    |Yalnızca istatistiksel|  İstatistik|
 |Filipin dili|  `fil`   |Yalnızca istatistiksel|  İstatistik|
 |Fince|   `fi`    |Sinir kullanılabilir|  Nöral|
-|Fransızca |    `fr`    |Sinir kullanılabilir|  Nöral|
-|Almanca |    `de`    |Sinir kullanılabilir|  Nöral|
+|Fransızca|    `fr`    |Sinir kullanılabilir|  Nöral|
+|Almanca|    `de`    |Sinir kullanılabilir|  Nöral|
 |Yunanca| `el`    |Sinir kullanılabilir|  Nöral|
 |Haiti Kreyolu|    `ht`    |Yalnızca istatistiksel   |İstatistik|
 |İbranice |`he`   |Sinir kullanılabilir   |Nöral|
@@ -93,7 +93,7 @@ Translator metin çevirisi API'si için metin çevirisi için aşağıdaki dille
 |Sırpça (Latin)|   `sr-Latn`   |Yalnızca istatistiksel   |İstatistik|
 |Slovakça|    `sk`    |Sinir kullanılabilir|  Nöral|
 |Slovence| `sl`    |Sinir kullanılabilir|  Nöral|
-|İspanyolca |   `es`    |Sinir kullanılabilir|  Nöral|
+|İspanyolca|   `es`    |Sinir kullanılabilir|  Nöral|
 |İsveççe|   `sv`    |Sinir kullanılabilir   |Nöral|
 |Tahitian|  `ty`    |Yalnızca istatistiksel|  İstatistik|
 |Tamil dili| `ta`    |Yalnızca istatistiksel|  İstatistik|
@@ -153,8 +153,8 @@ Sözlük için veya İngilizce arama ve örnekler yöntemleri kullanarak aşağ�
 | Felemenkçe      | `nl`          |
 | Estonca      | `et`          |
 | Fince      | `fi`          |
-| Fransızca       | `fr`          |
-| Almanca       | `de`          |
+| Fransızca      | `fr`          |
+| Almanca      | `de`          |
 | Yunanca      | `el`          |
 | Haiti Kreyolu      | `ht`          |
 | İbranice      | `he`          |
@@ -181,7 +181,7 @@ Sözlük için veya İngilizce arama ve örnekler yöntemleri kullanarak aşağ�
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca       | `es`          |
+| İspanyolca      | `es`          |
 | İsveççe      | `sv`          |
 | Tamil dili      | `ta`          |
 | Tay Dili      | `th`          |
@@ -213,6 +213,7 @@ Dilleri yöntemiyle Translator Text API v3.0 desteklenen dillerin listesini alab
 | Boşnakça (Latin)      | `bs`          |
 | Bulgarca      | `bg`          |
 | Basitleştirilmiş Çince      | `zh-Hans`          |
+|Geleneksel Çince|   `zh-Hant`   |
 | Hırvatça      | `hr`          |
 | Çekçe      | `cs`          |
 | Danca      | `da`          |
@@ -220,8 +221,8 @@ Dilleri yöntemiyle Translator Text API v3.0 desteklenen dillerin listesini alab
 | Türkçe    | `en`     |
 | Estonca      | `et`          |
 | Fince      | `fi`          |
-| Fransızca       | `fr`          |
-| Almanca       | `de`          |
+| Fransızca      | `fr`          |
+| Almanca      | `de`          |
 | Yunanca      | `el`          |
 | İbranice      | `he`          |
 | Hintçe      | `hi`          |
@@ -244,7 +245,7 @@ Dilleri yöntemiyle Translator Text API v3.0 desteklenen dillerin listesini alab
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca       | `es`          |
+| İspanyolca      | `es`          |
 | İsveççe      | `sv`          |
 | Tay Dili      | `th`          |
 | Türkçe      | `tr`          |

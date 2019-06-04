@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60606221"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497319"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
@@ -28,7 +28,7 @@ Custom Vision Service'e görüntü sınıflandırması için kullanılacak bir s
 
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure portalında özel görüntü işleme kaynakları oluşturma
-Özel görüntü işleme hizmeti kullanmak için Custom Vision eğitim ve tahmin kaynaklarında oluşturmanız gerekecektir içinde [Azure portalında](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Bu, eğitim ve tahmin kaynak oluşturur. 
+Özel görüntü işleme hizmeti kullanmak için Custom Vision eğitim ve tahmin kaynaklarında oluşturmanız gerekecektir [Azure portalında](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Bu, eğitim ve tahmin kaynak oluşturur. 
 
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
@@ -50,7 +50,7 @@ Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai)
 
 1. Ardından, mevcut etki alanlarından birini seçin. Aşağıdaki tabloda açıklandığı gibi her etki alanı görüntüleri, belirli türde bir sınıflandırıcı iyileştirir. İsterseniz daha sonra etki alanını değiştirmek mümkün olacaktır.
 
-    |Domain|Amaç|
+    |Etki Alanı|Amaç|
     |---|---|
     |__Genel__| Çok sayıda görüntü sınıflandırma görevleri için en iyi duruma getirilmiş. Diğer etki alanlarıyla uygun yok ya da seçmek için hangi etki alanı emin değilseniz, genel etki alanını seçin. |
     |__Gıda__|Bir restoran menüsünde göreceğiniz şekilde çanakları fotoğraflarını için en iyi duruma getirilmiş. Bireysel MEYVELERİ veya et fotoğraflarını sınıflandırma istiyorsanız, Yemek etki alanını kullanın.|
@@ -70,8 +70,8 @@ Etkili bir şekilde, modeli eğitmek için görsel çeşitli ile görüntüleri 
 * Arka plan
 * Görsel stili
 * kişi ve gruplandırılmış subject(s)
-* boyut
-* type
+* Boyutu
+* türü
 
 Ayrıca, tüm eğitim görüntülerinizin aşağıdaki ölçütleri karşıladığından emin olun:
 * .jpg, .png veya .bmp biçimi

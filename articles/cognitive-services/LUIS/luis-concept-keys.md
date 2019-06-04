@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813898"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473579"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS yazma ve sorgu tahmin uç nokta anahtarları
 LUIS, iki anahtar kullanır: [yazma](#programmatic-key) ve [uç nokta](#endpoint-key). LUIS hesabınızı oluşturduğunuzda yazma anahtar sizin için otomatik olarak oluşturulur. LUIS uygulamanızı yayımlamaya hazır olduğunuzda yapmanız [uç nokta oluşturma](luis-how-to-azure-subscription.md), [atayabilirsiniz](luis-how-to-azure-subscription.md) LUIS uygulamanıza ve [ile uç nokta sorgu kullanın](#use-endpoint-key-in-query). 
@@ -49,11 +49,11 @@ Gerektiğinde **üretim uç noktası sorguları**, bir Azure kaynağı oluşturm
 
 Azure kaynağı oluşturma işlemi tamamlandığında [tuşu atama](luis-how-to-azure-subscription.md) uygulamaya. 
 
-    * Uç nokta, uç noktası isabet anahtarı oluştururken belirttiğiniz kullanım planına dayanarak bir kota sağlar. Bkz: [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) fiyatlandırma bilgileri için.
+* Uç nokta, uç noktası isabet anahtarı oluştururken belirttiğiniz kullanım planına dayanarak bir kota sağlar. Bkz: [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) fiyatlandırma bilgileri için.
 
-    * Uç nokta, tüm LUIS uygulamalar için veya belirli LUIS uygulamalar için kullanılabilir. 
+* Uç nokta, tüm LUIS uygulamalar için veya belirli LUIS uygulamalar için kullanılabilir. 
 
-    * LUIS uygulamaları yazmaya yönelik uç nokta kullanmayın. 
+* LUIS uygulamaları yazmaya yönelik uç nokta kullanmayın. 
 
 ## <a name="use-endpoint-key-in-query"></a>Sorguda uç noktası anahtarı kullanma
 İki stili sorgu LUIS uç nokta kabul eder, hem uç noktası anahtarı, ancak farklı yerlerde kullanın:

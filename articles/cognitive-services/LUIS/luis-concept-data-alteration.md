@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3395283e6228d7203b2e835961914e2f167fa451
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0648dd9bc93097d3c2433943f983b5e9d22f0279
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522389"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473496"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Öncesinde veya sırasında tahmin utterance verileri değiştirme
 LUIS, öncesinde veya sırasında tahmin utterance işlemek için yöntemler sağlar. Bunlar, yazım ve saat dilimi prebuild datetimeV2 sorumlarını çözme içerir. 
@@ -74,7 +74,7 @@ https://{Region}.api.cognitive.microsoft.com/luis/v2.0/Apps/{appId}?q=Turn ış�
 https://{Region}.api.cognitive.microsoft.com/luis/v2.0/Apps/{appId}?q=Turn ışıkları Aç? **timezoneOffset = 60**& ayrıntılı {boolean} = & Yazım denetimi {boolean} = & hazırlama {boolean} = & bing-yazım-onay-subscription-key = {string} gün & lüğü {boolean} =
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C# kodu timezoneOffset doğru değerini belirler.
-Aşağıdaki C# kod [Timezoneınfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=netframework-4.7.1) sınıfın [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) doğru belirlemek için yöntemi `timezoneOffset` sistem saatini temel alan:
+Aşağıdaki C# kod [Timezoneınfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) sınıfın [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) doğru belirlemek için yöntemi `timezoneOffset` sistem saatini temel alan:
 
 ```CSharp
 // Get CST zone id

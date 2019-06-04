@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792230"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496949"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Bir Bilgi Bankası yanıt GenerateAnswer API ve meta verileri alma
 
@@ -67,25 +67,26 @@ Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnsw
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|HTTP isteği özelliği|Ad|Tür|Amaç|
+|HTTP isteği özelliği|Ad|Type|Amaç|
 |--|--|--|--|
 |URL rota parametresi|Bilgi Bankası kimliği|string|Bilgi bankanızı GUİD'i.|
 |URL rota parametresi|QnAMaker uç nokta ana bilgisayarı|string|Azure aboneliğinizde dağıtılmış uç nokta konak adı. Bilgi Bankası yayımladıktan sonra bu ayarlar sayfasında kullanılabilir. |
-|Üst bilgi|Content-Type|string|API'ye gönderilen gövdenin medya türü. Varsayılan değer: ''|
-|Üst bilgi|Yetkilendirme|string|Uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Üstbilgi|İçerik türü|string|API'ye gönderilen gövdenin medya türü. Varsayılan değer: ''|
+|Üstbilgi|Yetkilendirme|string|Uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |POST gövdesini|JSON nesnesi|JSON|Soru-ayarlar|
 
 
 JSON gövdesi birkaç ayar vardır:
 
-|JSON gövdesi özelliği|Gerekli|Tür|Amaç|
+|JSON gövdesi özelliği|Gerekli|Type|Amaç|
 |--|--|--|--|
-|`question`|gerekli|string|Bilgi Bankası'na gönderilmesini kullanıcı soru.|
-|`top`|isteğe bağlı|integer|Çıktıda dereceli sonuç sayısı. Varsayılan değer 1’dir.|
-|`userId`|isteğe bağlı|string|Kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.|
-|`scoreThreshold`|isteğe bağlı|integer|Yalnızca bu eşiğin üzerinde güven puanıyla birlikte yanıt döndürülür. Varsayılan değer 0’dır.|
-|`isTest`|isteğe bağlı|boole|Varsa true olarak döndürür sonuçlardan kümesi `testkb` yayımlanan dizin yerine arama dizini.|
-|`strictFilters`|isteğe bağlı|string|Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir. Kullanım `none` yanıtı hiçbir meta veri filtresini olması belirtmek için. |
+|`question`|Gerekli|string|Bilgi Bankası'na gönderilmesini kullanıcı soru.|
+|`top`|İsteğe bağlı|integer|Çıktıda dereceli sonuç sayısı. Varsayılan değer 1’dir.|
+|`userId`|İsteğe bağlı|string|Kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.|
+|`scoreThreshold`|İsteğe bağlı|integer|Yalnızca bu eşiğin üzerinde güven puanıyla birlikte yanıt döndürülür. Varsayılan değer 0’dır.|
+|`isTest`|İsteğe bağlı|boole|Varsa true olarak döndürür sonuçlardan kümesi `testkb` yayımlanan dizin yerine arama dizini.|
+|`strictFilters`|İsteğe bağlı|string|Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir. Kullanım `none` yanıtı hiçbir meta veri filtresini olması belirtmek için. |
+|`RankerType`|İsteğe bağlı|string|Olarak belirtilirse `QuestionOnly`, yalnızca Sorular aramak için soru-cevap Oluşturucu bildirir. Belirtilmezse, soru-cevap Oluşturucu sorularını ve yanıtlarını arar.
 
 Örnek JSON gövdesi aşağıdaki gibi görünür:
 
@@ -113,13 +114,13 @@ Başarılı bir yanıt durumu 200 ve bir JSON yanıtı döndürür.
 |Yanıtlar özelliği (puana göre sıralanmış olarak)|Amaç|
 |--|--|
 |puan|0 ile 100 arasında bir derecelendirme puanı.|
-|Kimlik|Yanıt atanmış bir benzersiz kimliği.|
+|Id|Yanıt atanmış bir benzersiz kimliği.|
 |Sorular|Kullanıcı tarafından sağlanan soru.|
 |Yanıt|Sorusuna verilen yanıt.|
 |source|İçinden yanıt ayıklanır veya Bilgi Bankası'ndaki kaydedilen kaynağının adı.|
 |meta veriler|Yanıtla ilişkili meta veriler.|
 |Metadata.Name|Meta veri adı. (string, maksimum uzunluk: gerekli 100)|
-|Metadata.Value: Meta veri değeri. (string, maksimum uzunluk: gerekli 100)|
+|Metadata.Value|Meta veri değeri. (string, maksimum uzunluk: gerekli 100)|
 
 
 ```json
@@ -172,7 +173,7 @@ Sonuçları yalnızca Restoran için "Paradise" gerekli olduğundan, bir filtre 
 }
 ```
 
-< name = "bağlam içi tut" ></a>
+<a name="keep-context"></a>
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Konuşma bağlam tutmak için soru ve yanıt sonuçlarını kullanma
 
@@ -201,6 +202,21 @@ Yanıta GenerateAnswer eşleşen soru/yanıt kümesinin karşılık gelen meta v
             ]
         }
     ]
+}
+```
+
+## <a name="match-questions-only-by-text"></a>Sorular yalnızca, metin eşleşmesi
+
+Varsayılan olarak, soru-cevap Oluşturucu, sorular ve yanıtlar arar. Yalnızca ilgili sorularınızı arama yapmak istiyorsanız, bir yanıt oluşturmak için kullanmak `RankerType=QuestionOnly` GenerateAnswer istek POST gövdesinde.
+
+Yayımlanan kb arayabilirsiniz kullanarak `isTest=false`, veya test kb kullanarak `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
 }
 ```
 

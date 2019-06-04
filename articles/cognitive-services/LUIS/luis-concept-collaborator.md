@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956988"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473521"
 ---
 # <a name="collaborating-with-other-authors"></a>Diğer yazarların ile işbirliği yapma
 
@@ -31,7 +31,7 @@ Bkz: [Azure Active Directory Kiracı Kullanıcı](luis-how-to-collaborate.md#azu
 
 ## <a name="luis-app-owner"></a>LUIS uygulama sahibi
 
-Bir uygulamayı oluşturan hesabı sahibi ve her uygulamanın tek bir sahip vardır. Uygulama sahibi listelenen **[ayarları](luis-how-to-collaborate.md)** sayfası. Uygulama sahibi silebilmeniz için uç nokta kota aylık sınırı %75 ulaştığında e-posta alırsınız. 
+Bir uygulamayı oluşturan hesabı sahibi ve her uygulamanın tek bir sahip vardır. Uygulama sahibi listelenen **[ayarları](luis-how-to-collaborate.md)** sayfası. Uç nokta kota aylık sınırı %75 ulaştığında sahibi e-posta alır. 
 
 ## <a name="authorization-roles"></a>Yetkilendirme rolleri
 LUIS, sahipleri ve bir özel durum ortak çalışanlarla için farklı roller desteklemiyor. Sahibi uygulama silebilirsiniz tek hesaptır.
@@ -42,7 +42,7 @@ Model erişimi denetlemek ilgileniyorsanız, her daha küçük uygulama Ortak Ç
 LUIS, ancak herhangi bir ortak çalışanı uygulamayı dışarı aktarabilir ve ardından içeri aktararak uygulama oluşturma, sahipliğin aktarılması sağlamaz. Yeni uygulama farklı bir uygulama kimliği olan unutmayın Eğitim, yayımlanan yeni uygulama gereksinimlerini ve kullanılan yeni uç nokta.
 
 ## <a name="luis-app-collaborators"></a>LUIS uygulaması ortak çalışanlar
-Uygulamanın sahibi ortak çalışanlar için uygulama ekleyebilirsiniz. Uygulamada ortak çalışan kişinin e-posta adresi eklemek sahibe ihtiyacı  **[ayarları](luis-how-to-collaborate.md)**. Ortak çalışan uygulamanın tam erişime sahip olur. Ortak çalışan uygulamayı silerse, uygulama ortak çalışanı'nın hesabından kaldırıldı, ancak kendi hesabında kalır. 
+Uygulamanın sahibi ortak çalışanlar için uygulama ekleyebilirsiniz. Uygulamada ortak çalışan kişinin e-posta adresi eklemek sahibe ihtiyacı  **[ayarları](luis-how-to-collaborate.md)** . Ortak çalışan uygulamanın tam erişime sahip olur. Ortak çalışan uygulamayı silerse, uygulama ortak çalışanı'nın hesabından kaldırıldı, ancak kendi hesabında kalır. 
 
 Birden fazla uygulama ortak çalışanlarla paylaşmak istiyorsanız, her uygulamanın eklendi ve çalışan kişinin e-posta gerekir. 
 

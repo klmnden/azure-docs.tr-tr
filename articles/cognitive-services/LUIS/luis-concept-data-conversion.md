@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: bdf2d87e558726937fa4221a0d95179216c66051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a148c849d0935978f049e01dd254c4c18800ee3b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813821"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496994"
 ---
 # <a name="convert-data-format-of-utterances"></a>Konuşma veri biçimini Dönüştür
 LUIS, Bilişsel hizmetler konuşma hizmeti konuşma metin konuşma tahmin önce konuşulan konuşma dönüştürmek için kullanır. 
@@ -36,5 +36,5 @@ Bkz: [anahtar sınırları](luis-boundaries.md#key-limits) bilgi.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Konuşmayı metne dönüştürme kullanın](luis-tutorial-speech-to-intent.md)
+> [Verileri ayıklama](luis-concept-data-extraction.md)
 

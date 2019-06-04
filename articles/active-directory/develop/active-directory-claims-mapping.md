@@ -158,7 +158,7 @@ Belirli nasıl ve ne zaman belirteçlerinde kullanıldıklarından tanımlayan t
 | request_nonce |
 | resource |
 | role |
-| roles |
+| role |
 | scope |
 | scp |
 | sid |
