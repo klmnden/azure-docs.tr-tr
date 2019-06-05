@@ -57,10 +57,10 @@ JSON blob meta verilerini aşağıdaki modele uyar:
 | **name** |String | Blob için bir insan kolay ad |
 | **type** | String | Blob - türünü kullanamaz *türü* ve *typeId*  |
 | **typeId** | Integer | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
-| **Alt tür** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
+| **subtype** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
 | **subtypeId** | Integer | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
-| **Açıklaması** | String | Blob özelleştirilmiş açıklaması |
-| **Paylaşımı** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
+| **description** | String | Blob özelleştirilmiş açıklaması |
+| **sharing** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
 
 BLOB meta verileri ile ilk öbek olarak sağlanan her zaman **Content-Type** `application/json` veya farklı bir `.json` dosya. Dosya verileri ikinci öbekte sağlanan ve desteklenen bir MIME türü olabilir.
 
@@ -115,12 +115,12 @@ Döndürülen tek tek bloblar için aşağıdaki JSON şeması uyar:
 | **parentId** | String | Blob (boşluk, cihazları veya kullanıcıları ile) ilişkilendirilecek üst varlık |
 | **type** | String | Blob - türünü kullanamaz *türü* ve *typeId*  |
 | **typeId** | Integer | Blob türü kimliği - kullanamaz *türü* ve *typeId* |
-| **Alt tür** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
+| **subtype** | String | Blob alt - kullanamaz *alt* ve *subtypeId* |
 | **subtypeId** | Integer | Alt tür kimliği - blob için kullanamaz *alt* ve *subtypeId* |
-| **Paylaşımı** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
-| **Açıklaması** | String | Blob özelleştirilmiş açıklaması |
+| **sharing** | String | Blob olup paylaşılabilir - sabit listesi [`None`, `Tree`, `Global`] |
+| **description** | String | Blob özelleştirilmiş açıklaması |
 | **contentInfos** | Dizi | Sürüm dahil olmak üzere yapılandırılmamış meta veri bilgilerini belirtir. |
-| **Tam adı** | String | Blob tam adı |
+| **fullName** | String | Blob tam adı |
 | **spacePaths** | String | Alan yolu |
 
 BLOB meta verileri ile ilk öbek olarak sağlanan her zaman **Content-Type** `application/json` veya farklı bir `.json` dosya. Dosya verileri ikinci öbekte sağlanan ve desteklenen bir MIME türü olabilir.
