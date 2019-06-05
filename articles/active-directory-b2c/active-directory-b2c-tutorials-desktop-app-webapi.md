@@ -2,20 +2,20 @@
 title: Öğretici - erişim izni verme Node.js web API'si bir masaüstü uygulamasından - Azure Active Directory B2C | Microsoft Docs
 description: Bir Node.js web API’sini korumak ve bir .NET masaüstü uygulamasından çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ef48c0f78083217581594b481b15a74a49fef4f9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b4b70ddfe6ea2baf42227cc83ed0cc14969b3e92
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715849"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508110"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir masaüstü uygulamasından Node.js web API'si için verme erişim
 
@@ -70,7 +70,7 @@ Bir uygulamadan korumalı web API'sini çağırmak için API'ye uygulama izinler
 2. Seçin **API erişimi**ve ardından **Ekle**.
 3. İçinde **API seçin** açılır menüsünde, select *webapi1*.
 4. İçinde **kapsamları seçin** açılır menüsünde, select **Hello.Read** ve **Hello.Write** daha önce tanımladığınız kapsamları.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 Bir kullanıcı WPF Masaüstü uygulamasını kullanmak için Azure AD B2C ile kimlik doğrulaması yapar. Masaüstü uygulaması, korumalı web API'sine erişmek için Azure AD B2C bir yetkilendirme izni alır.
 

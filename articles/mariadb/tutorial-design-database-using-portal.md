@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626388"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515642"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak MariaDB veritabanı için Azure veritabanı tasarlama
 
@@ -63,6 +63,9 @@ Tanımlı bir dizi [işlem ve depolama kaynağı](concepts-pricing-tiers.md) ile
     Fiyatlandırma katmanı | Açıklamaya bakın. | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. **Fiyatlandırma katmanı** > **Genel Amaçlı**'yı seçin. Aşağıdaki ayarlar için varsayılan değerleri kullanın:<br><ul><li>**İşlem Oluşturma** (Gen 5)</li><li>**Sanal çekirdek** (4 çekirdek)</li><li>**Depolama** (100 GB)</li><li>**Yedekleme Saklama Dönemi** (7 gün)</li></ul><br>Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. <br><br>Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
     
    ![Fiyatlandırma katmanı](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > İle **otomatik büyüme** etkin iş yükünüzü etkilemeden, ayrılmış bir sınır yaklaştığı olduğunda depolama sunucunuzu artırır.
 
 4. **Oluştur**’u seçin. Bir veya iki dakika içinde, bulutta yeni bir MariaDB için Azure Veritabanı sunucusu çalışmaya başlayacaktır. Dağıtım işlemini izlemek için araç çubuğunda **Bildirimler**’i seçin.
 
@@ -165,7 +168,7 @@ SELECT * FROM inventory;
 
 1. Azure portalında MariaDB için Azure Veritabanınızı bulun. **Genel Bakış** sayfasında **Geri yükle**'yi seçin.
 
-   ![Veritabanını geri yükleme](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
+   ![Bir veritabanını geri yükleme](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. **Geri yükle** sayfasında aşağıdaki bilgileri girin veya seçin:
    

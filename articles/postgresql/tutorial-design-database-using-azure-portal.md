@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 5/16/2019
-ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069174"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515723"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Öğretici: -Tek sunucu Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama
 
@@ -65,6 +65,9 @@ PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uy
    > 
 
     !["Fiyatlandırma katmanı" bölmesi](./media/quickstart-create-database-portal/2-pricing-tier.png)
+
+    > [!TIP]
+    > İle **otomatik büyüme** etkin iş yükünüzü etkilemeden, ayrılmış bir sınır yaklaştığı olduğunda depolama sunucunuzu artırır.
 
 5. Seçin **gözden + Oluştur** için yaptığınız seçimleri gözden geçirin. Sunucuyu sağlamak için **Oluştur**’u seçin. Bu işlem birkaç dakika sürebilir.
 

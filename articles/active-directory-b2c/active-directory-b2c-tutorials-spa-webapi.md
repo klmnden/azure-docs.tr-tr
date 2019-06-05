@@ -2,20 +2,20 @@
 title: Öğretici - erişim izni verme bir ASP.NET Core web API'si tek sayfalı bir uygulamadan - Azure Active Directory B2C | Microsoft Docs
 description: Bir .NET Core web API’sini korumak ve tek sayfalı bir uygulamadan çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 13fedae2798311a59a5cee2805ce9e09b1bd5a0f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 609e7bc4104a445c5d77109c9470fb487b2f1336
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724679"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507742"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir tek sayfa uygulamasında erişime bir ASP.NET Core Web API'si
 
@@ -70,7 +70,7 @@ Bir uygulamadan korumalı web API'sini çağırmak için API'ye uygulama izinler
 2. Seçin **API erişimi**ve ardından **Ekle**.
 3. İçinde **API seçin** açılır menüsünde, select *webapi1*.
 4. İçinde **kapsamları seçin** açılır menüsünde, select **Hello.Read** ve **Hello.Write** daha önce tanımladığınız kapsamları.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 **Örnek tek sayfalı uygulamam**, korumalı **Hello Core API**’sini çağırmak için kaydedilir. Bir kullanıcı, tek sayfalı uygulamayı kullanmak için Azure AD B2C ile kimliğini doğrular. Tek sayfalı uygulamayı bir yetkilendirme izni korumalı web API'sine erişmek için Azure AD B2C alır.
 

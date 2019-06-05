@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/10/2018
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572588"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688569"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market’teki Azure yönetilen uygulamaları
 
@@ -42,7 +42,7 @@ Ek olarak birkaç iş önkoşulu bulunmaktadır. Bunlar:
 Azure Market’te yayımcı olmak için şunları yapmanız gerekir:
 
 1. Microsoft Kimliği oluşturma - Şirketinizin etki alanına ait olan ancak tek bir bireye ait olmayan bir e-posta adresini kullanarak Microsoft hesabınızı oluşturun. Bu e-posta adresi hem Microsoft Geliştirici Merkezi hem de Bulut İş Ortağı Portalı için kullanılır. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
-1. [Azure Market Adaylık Formunu](https://aka.ms/ampnomination) gönderme - For **Yayımlamayı düşündüğünüz çözüm** için **Yönetilen Uygulama**’yı seçin. Form gönderildikten sonra Markete Ekleme ekibi uygulamayı gözden geçirir ve isteği doğrular. Onay süreci bir ile üç gün sürer. Adaylığınız onaylandığında geliştirici merkezine yönelik kayıt ücretinin silinmesini sağlayan bir promosyon kodu alırsınız. Market Adaylık Formunu **doldurmazsanız** 99 $ kayıt ücreti ödemeniz istenir.
+1. Gönderme [Azure Market ADAYLIK formu](https://aka.ms/ampnomination) - **yayımlamak istediğiniz çözüm?** seçin **yönetilen uygulamayı**. Form gönderildikten sonra Markete Ekleme ekibi uygulamayı gözden geçirir ve isteği doğrular. Onay süreci bir ile üç gün sürer. Adaylığınız onaylandığında geliştirici merkezine yönelik kayıt ücretinin silinmesini sağlayan bir promosyon kodu alırsınız. Market Adaylık Formunu **doldurmazsanız** 99 $ kayıt ücreti ödemeniz istenir.
 1. Kaydetmeniz [Geliştirici Merkezi](https://dev.windows.com/registration?accountprogram=azure) -Microsoft, kuruluşunuzun geçerli bir yasal varlık içinde kayıtlı ülke/bölge için geçerli bir vergi kimliğiyle olduğunu doğrular. Onay işlemi 5 ile 10 gün sürebilir. Kayıt ücretini ödememek için adaylık sürecinde size gelen e-posta ile aldığınız promosyon kodunu kullanın. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 1. [Bulut İş Ortağı Portalında](https://cloudpartner.azure.com) oturum açma - Yayımcı profilinde, Geliştirici Merkezi hesabınızı Market Yayımcı Profiliyle ilişkilendirin. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 
@@ -102,7 +102,9 @@ SKU, marketteki ana teklifin altında görünür. Azure portalında kendi başı
    Aşağıdaki alanları doldurun:
 
    * **Sürüm**: Karşıya paket için bir sürüm girin. `{number}.{number}.{number}{number}` biçiminde olmalıdır.
-   * **Paket dosyası (.zip)**: Bu paket, sıkıştırılmış .zip pakete iki gerekli dosyaları içerir. Dosyalardan biri, yönetilen uygulamaya ilişkin dağıtılacak kaynakları tanımlayan Kaynak Yöneticisi şablonudur. İkinci dosya ise portal aracılığıyla yönetilen uygulamayı dağıtan tüketiciler için [kullanıcı arayüzünü](create-uidefinition-overview.md) tanımlamaktadır. Kullanıcı arayüzünde tüketicilerin parametre değerleri sağlamasına olanak tanıyan öğeleri belirlersiniz.
+   * **Paket dosyası (.zip)** : Bu paket, sıkıştırılmış .zip pakete iki gerekli dosyaları içerir. Dosyalardan biri, yönetilen uygulamaya ilişkin dağıtılacak kaynakları tanımlayan Kaynak Yöneticisi şablonudur. İkinci dosya ise portal aracılığıyla yönetilen uygulamayı dağıtan tüketiciler için [kullanıcı arayüzünü](create-uidefinition-overview.md) tanımlamaktadır. Kullanıcı arayüzünde tüketicilerin parametre değerleri sağlamasına olanak tanıyan öğeleri belirlersiniz.
+   * **Kiracı kimliği**: Erişim elde etmek için Kiracı kimliği hesabı.
+   * **JIT erişmesini**: Seçin **Evet** etkinleştirmek için [tam zamanında erişim denetimi](request-just-in-time-access.md) hesabı. Etkinleştirildiğinde, belirtilen bir süre için tüketicinin hesabına erişim isteyin. Yönetilen uygulama tüketicileri, hesabınız kalıcı erişim izni istemek için seçin **Hayır**.
    * **Principalıd**: Bu özellik bir kullanıcı, kullanıcı grubu veya verilen uygulamanın Azure Active Directory (Azure AD) tanımlayıcısıdır müşteri abonelik içindeki kaynaklara erişim. Rol Tanımı izinleri açıklar.
    * **Rol tanımı**: Bu özellik, Azure AD tarafından sağlanan tüm yerleşik rol tabanlı erişim denetimi (RBAC) rollerini listesidir. Müşteri adına kaynakları yönetmek için kullanılması en uygun olan rolü seçebilirsiniz.
    * **İlke ayarları**: Geçerli bir [Azure İlkesi](../governance/policy/overview.md) yönetilen uygulamanıza dağıtılan çözümleri uyumluluk gereksinimini belirtin. Kullanılabilir seçenekler arasından uygulanacak ilkeleri seçin. **İlke Parametreleri** için, parametre değerleriyle bir JSON dizesi sağlayın. İlke tanımları ve parametre değerlerinin biçimi için bkz. [Azure İlke Örnekleri](../governance/policy/samples/index.md).
@@ -117,7 +119,7 @@ Market formu [Azure Market](https://azuremarketplace.microsoft.com) ve [Azure po
 
 ### <a name="preview-subscription-ids"></a>Abonelik kimliklerini önizleme
 
-Yayımlandıktan sonra teklife erişebilen Azure aboneliği kimliklerinin listesini girin. Yayımlamadan önce bu beyaz listelenen abonelikleri kullanarak önizlemesi yapılan teklifi test edebilirsiniz. İş ortağı portalında 100’e kadar aboneliği içeren bir beyaz liste derleyebilirsiniz.
+Yayımlandıktan sonra teklife erişebilen Azure aboneliği kimliklerinin listesini girin. Yayımlamadan önce bu beyaz listelenen abonelikleri kullanarak önizlemesi yapılan teklifi test edebilirsiniz. İş ortağı Portalı'nda 100 aboneliklerini kadar bir izin verilenler listesine derleyebilirsiniz.
 
 ### <a name="suggested-categories"></a>Önerilen kategoriler
 

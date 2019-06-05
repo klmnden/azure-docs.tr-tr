@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Denetim ile Azure Active Directory Tümleştirme | Microsoft Docs'
-description: Azure Active Directory ile Denetim arasındaki çoklu oturum açmayı yapılandırmayı öğrenin.
+description: Azure Active Directory ve sürekliliği denetim arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569021d79e74bc7a5a2582741109e1094ba90de8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65862699"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507499"
 ---
-# <a name="tutorial-integrate-control-with-azure-active-directory"></a>Öğretici: Denetim Azure Active Directory ile tümleştirme
+# <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Öğretici: Sürekliliği denetimi Azure Active Directory ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile denetim tümleştirme öğreneceksiniz. Denetim Azure AD ile tümleştirdiğinizde, şunları yapabilirsiniz:
+Bu öğreticide, Azure Active Directory (Azure AD) ile sürekliliği denetim (Denetim) tümleştirme öğreneceksiniz. Denetim Azure AD ile tümleştirdiğinizde, şunları yapabilirsiniz:
 
-* Denetim erişimi, Azure AD'de denetler.
+* Denetim erişimi, Azure AD'de yönetin.
 * Otomatik olarak denetlemek için kendi Azure AD hesapları ile oturum açmış olmasını sağlayın.
 * Bir merkezi konumda - Azure portalı hesaplarınızı yönetin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uy
 Başlamak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir aboneliğiniz yoksa, bir aylık ücretsiz deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
-* Denetim Çoklu oturum açma (SSO) abonelik etkin.
+* Bir Denetim Çoklu oturum açma (SSO) abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -83,7 +83,7 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
     İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
-    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [denetimi istemci Destek ekibine](mailto:help@continuity.net) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Değer, gerçek değil. Değer doğru alt etki alanı ile güncelleştirin. Konumunda, SSO alt etki alanı yapılandırılabilir [denetim kimlik doğrulama stratejileri](https://control.continuity.net/settings/account_profile#tab/security). Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 1. İçinde **SAML imzalama sertifikası** bölümünde **Düzenle** açmak için düğmeyi **SAML imzalama sertifikası** iletişim.
 
@@ -93,19 +93,13 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
     ![Parmak izi değerini kopyalayın](common/copy-thumbprint.png)
 
-1. Üzerinde **denetimini Ayarla** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+1. Üzerinde **denetimini Ayarla** bölümünde oturum açma URL'sini kopyalayın ve bilgisayarınıza kaydedin.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    a. Oturum Açma URL'si:
-
-    b. Azure AD Tanımlayıcısı
-
-    c. Oturum Kapatma URL'si
-
 ### <a name="configure-control-sso"></a>Denetim SSO yapılandırma
 
-Çoklu oturum açmayı yapılandırma **denetimi** tarafını göndermek için ihtiyacınız **parmak izi değerini** ve uygun Azure portalına kopyalanan URL'lerden [denetim Destek ekibine](mailto:help@continuity.net). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **denetimi** tarafı, çoklu oturum açma kimlik doğrulaması ayarlarını güncelleştirmek için ihtiyacınız [denetim kimlik doğrulama stratejileri](https://control.continuity.net/settings/account_profile#tab/security). Güncelleştirme **SAML SSO URL** ile **oturum açma URL'si** ve **sertifika parmak izi** ile **parmak izi değerini** Azure portalından.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -139,7 +133,7 @@ Bu bölümde, denetim için erişim izni verdiğinizde, Azure çoklu oturum açm
 
 ### <a name="create-control-test-user"></a>Denetim test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon denetiminde adlı bir kullanıcı oluşturun. Çalışmak [denetim Destek ekibine](mailto:help@continuity.net) denetim platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon denetiminde adlı bir kullanıcı oluşturun. Çalışmak [denetim Destek ekibine](mailto:help@continuity.net) denetim platform kullanıcıları eklemek için. Britta Simon'ın kullanan Azure AD **kullanıcı adı** her doldurmak için **kimlik sağlayıcı kullanıcı kimliği** denetimi. Kullanıcılar oluşturulmalıdır ve bunların **kimlik sağlayıcı kullanıcı kimliği** , çoklu oturum açma kullanabilmeniz için önce denetiminde ayarlayın.
 
 ### <a name="test-sso"></a>Test SSO
 

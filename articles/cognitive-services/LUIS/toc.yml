@@ -199,7 +199,6 @@
         - name: Bing Yazım Denetimi v7 ile
           href: luis-tutorial-bing-spellcheck.md
         - name: Konuşma hizmeti ile
-          maintainContext: true
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
         - name: Bot ile
           items:

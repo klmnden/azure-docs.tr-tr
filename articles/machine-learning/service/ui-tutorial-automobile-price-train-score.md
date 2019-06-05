@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019846"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515625"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Öğretici: Görsel arabirim ile otomobil fiyatını tahmin edin
 
@@ -80,11 +80,11 @@ Bu hızlı başlangıçta tamamlanmadıysa, hızlı bir şekilde içeri aktarır
 
 1. Seçerek yeni bir deneme oluşturma **+ yeni** görsel arabirim pencerenin alt kısmındaki.
 
-1. Seçin **deneme** >  **boş deneme**.
+1. Seçin **denemeleri** >  **boş deneme**.
 
 1. Varsayılan deneme adını seçin **"deneme oluşturulan üzerinde...** "tuvalin üst kısmındaki ve anlamlı bir şekilde yeniden adlandırın. Örneğin, **otomobil fiyat tahmini**. Adın benzersiz olması gerekmez.
 
-1. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. Modüller bulmak için modül paletinin en üstündeki arama kutusunu kullanın. Tür **otomobil** etiketli veri kümesini bulmak için arama kutusuna **otomobil fiyat verileri (ham)**. Bu veri kümesini deneme tuvaline sürükleyin.
+1. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. Modüller bulmak için modül paletinin en üstündeki arama kutusunu kullanın. Tür **otomobil** etiketli veri kümesini bulmak için arama kutusuna **otomobil fiyat verileri (ham)** . Bu veri kümesini deneme tuvaline sürükleyin.
 
     ![Ekran otomobil fiyat veri kümesi bulma](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
 
@@ -167,7 +167,7 @@ Verilerinizi yüzde 70'i kullanarak modeli eğittiğimize göre bunu diğer yüz
 
 1. Tür **model Puanlama** bulmak için arama kutusuna **Score Model** modülü ve modülünü deneme tuvaline sürükleyin. Çıkışını **modeli eğitme** modülünün sol giriş bağlantı noktasına **Score Model**. Test verileri çıkışını (sağ bağlantı noktası) **verileri bölme** modülünün sağ giriş bağlantı noktasına **Score Model**.
 
-1. Tür **değerlendirmek** bulmak için arama kutusuna **Evaluate Model** ve BT sürükleyin modülünü deneme tuvaline. Çıkışını **Score Model** modülünün sol girişine **Evaluate Model**. Son deneme şuna benzer şekilde görünecektir:
+1. Tür **değerlendirmek** bulmak için arama kutusuna **Evaluate Model** modülünü deneme tuvaline sürükleyin. Çıkışını **Score Model** modülünün sol girişine **Evaluate Model**. Son deneme şuna benzer şekilde görünecektir:
 
     ![Denemeyi son doğru yapılandırıldığını gösteren ekran görüntüsü.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
@@ -183,8 +183,8 @@ Verilerinizi yüzde 70'i kullanarak modeli eğittiğimize göre bunu diğer yüz
 
 Modeliniz için aşağıdaki İstatistikler gösterilir:
 
-* **Mean Absolute Error (MAE)**: (Hata tahmin edilen değer ile gerçek değer arasındaki farktır) mutlak hataların ortalaması.
-* **Kök ortalama karesi alınmış hata (RMSE)**: Test veri kümesinde yapılan tahminlerin karesi Ortalama kare kökü.
+* **Mean Absolute Error (MAE)** : (Hata tahmin edilen değer ile gerçek değer arasındaki farktır) mutlak hataların ortalaması.
+* **Kök ortalama karesi alınmış hata (RMSE)** : Test veri kümesinde yapılan tahminlerin karesi Ortalama kare kökü.
 * **Göreli mutlak hata**: Mutlak hataların gerçek değerler ve tüm gerçek değerlerin ortalaması arasındaki mutlak farka göreli ortalaması.
 * **Göreli karesi alınmış hata**: Ortalama gerçek değerler ve tüm gerçek değerlerin ortalaması arasındaki karesi alınmış fark göreli karesi.
 * **Katsayısı**: Olarak da bilinen R karesi alınmış değer, bu model verileri ne kadar iyi uyumlu olduğunu gösteren istatistik ölçümleridir.

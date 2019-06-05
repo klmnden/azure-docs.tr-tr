@@ -70,8 +70,6 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'
     - name: Özel Görüntü Tahmin API’si
       href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: Sözlük
-      href: glossary-of-terms.md
     - name: SDK’lar
       items:
         - name: .NET

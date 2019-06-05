@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864723"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515862"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
 
 Bu öğretici, bir dizinin birinci bölümüdür.  Verileri depolamak için ASP.NET Core Web API'si ön ucu ve durum bilgisi olan bir arka uç hizmetiyle Azure Service Fabric uygulaması oluşturmayı öğreneceksiniz. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır. Oylama uygulamasını el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) ve [Oylama örnek uygulamasında izlenecek yol](#walkthrough_anchor) bölümüne atlayabilirsiniz.  İsterseniz, bu öğreticiye ait bir [video kılavuzu](https://channel9.msdn.com/Events/Connect/2017/E100) da izleyebilirsiniz.
 
-![Uygulama Diyagramı](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API ön bir Service Fabric durum bilgisi olan arka uç hizmetine bağlanma End](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Serinin birinci bölümünde şunları öğrenirsiniz:
 
@@ -467,7 +467,7 @@ Bu öğreticide, VotingWeb ön uç web hizmetinin arka uç VotingData hizmetiyle
 ```
 Yerel geliştirme kümenizde kullanılan ters proxy bağlantı noktası bulmak için görüntüleme **HttpApplicationGatewayEndpoint** yerel Service Fabric küme bildiriminde öğesi:
 1. Bir tarayıcı penceresi açın ve http gidin:\//localhost:19080 Service Fabric Explorer aracını açın.
-2. Seçin **küme bildirimi ->**.
+2. Seçin **küme bildirimi ->** .
 3. HttpApplicationGatewayEndpoint öğesinin bağlantı noktasını not edin. Varsayılan olarak 19081 olmalıdır. 19081 değilse VotesController.cs dosyasındaki kodun aşağıdaki bölümünde GetProxyAddress metodunun bağlantı noktasını değiştirmeniz gerekir.
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
@@ -625,9 +625,9 @@ Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
 
       ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. İlk olarak, arka uç hizmeti için ReverseProxy'nin URL'sini oluşturun **(1)**.
-   3. Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)**.
-   4. Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
+   2. İlk olarak, arka uç hizmeti için ReverseProxy'nin URL'sini oluşturun **(1)** .
+   3. Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)** .
+   4. Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)** .
 
 5. Devam etmek için **F5** tuşuna basın.
    1. Şimdi arka uç hizmetindeki kesme noktasındasınız.
@@ -636,7 +636,7 @@ Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
 
    2. Yöntemin ilk satırında **(1)** `counts` adlı güvenilir sözlüğü almak veya eklemek için `StateManager` kullanın.
    3. Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
-   4. İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
+   4. İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)** . Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
 6. Devam etmek için **F5** tuşuna basın.
 
 Hata ayıklama oturumunu durdurmak için **Shift+F5** tuşlarına basın.

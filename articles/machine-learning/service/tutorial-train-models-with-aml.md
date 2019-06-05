@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 097fb3422ce3868d9ef499ad6c92c8b7fa12e852
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: ed2b35c5a1a0a017cb6bea086601282c83956d88
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442054"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515546"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Öğretici: MNIST veriler ve scikit ile görüntü sınıflandırma modellerini eğitin-Azure Machine Learning ile bilgi edinin
 
 Bu öğreticide, bir machine learning modeli uzak işlem kaynakları üzerinde eğitin. Azure Machine Learning hizmetinin (önizleme) eğitim ve dağıtım iş akışını bir Python Jupyter not defterinde kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
 
-Bu öğreticide basit bir Lojistik regresyon kullanarak eğitir [MNIST](http://yann.lecun.com/exdb/mnist/) veri kümesi ve [scikit-bilgi](https://scikit-learn.org) Azure Machine Learning hizmeti ile. MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her bir el yazısı basamak 28 x 28 piksel, dokuz sıfırdan bir sayıyı temsil eden görüntüsüdür. Belirli bir görüntüyü basamak tanımlamak için bir çok sınıflı sınıflandırıcı oluşturulacağını temsil eden hedeftir. 
+Bu öğreticide basit bir Lojistik regresyon kullanarak eğitir [MNIST](http://yann.lecun.com/exdb/mnist/) veri kümesi ve [scikit-bilgi](https://scikit-learn.org) Azure Machine Learning hizmeti ile. MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her bir el yazısı basamak 28 x 28 piksel, dokuz sıfırdan bir sayıyı temsil eden görüntüsüdür. Belirli bir görüntüyü basamak tanımlamak için bir çok sınıflı sınıflandırıcı oluşturulacağını temsil eden hedeftir.
 
 Aşağıdaki eylemleri gerçekleştirmeniz öğrenin:
 
@@ -31,12 +31,12 @@ Aşağıdaki eylemleri gerçekleştirmeniz öğrenin:
 > * Bir uzak kümesi üzerinde bir basit Lojistik regresyon modeli eğitin.
 > * Eğitim sonuçlarını gözden geçirin ve en iyi modeli kaydedin.
 
-Bir model seçin ve bunu dağıtma hakkında bilgi edinin [Bu öğreticinin İkinci bölüm](tutorial-deploy-models-with-aml.md). 
+Bir model seçin ve bunu dağıtma hakkında bilgi edinin [Bu öğreticinin İkinci bölüm](tutorial-deploy-models-with-aml.md).
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 >[!NOTE]
-> Bu makalede kod, Azure Machine Learning SDK sürüm zamanlarını 1.0.8 ile test edilmiştir.
+> Bu makalede kod, Azure Machine Learning SDK sürüm 1.0.41 ile test edilmiştir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -50,8 +50,8 @@ Atlamak [geliştirme ortamınızı ayarlama](#start) not defteri adımları okuy
 * Not Defteri ile aynı dizinde çalışma alanı için yapılandırma dosyası
 
 Bu Önkoşullar aşağıdaki bölümlerde birinden alın.
- 
-* Kullanım bir [çalışma alanınızdaki bulut not defteri sunucusu](#azure) 
+
+* Kullanım bir [çalışma alanınızdaki bulut not defteri sunucusu](#azure)
 * Kullanım [kendi not defteri sunucusu](#server)
 
 ### <a name="azure"></a>Çalışma alanınızda bir bulut not defteri sunucusu kullan
@@ -61,7 +61,6 @@ Kendi bulut tabanlı bir not defteri sunucusu ile çalışmaya başlama daha kol
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 * Not Defteri Web sayfası başlattıktan sonra açmak **öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb** dizüstü bilgisayar.
-
 
 ### <a name="server"></a>Kendi Jupyter notebook sunucusu kullanma
 
@@ -106,7 +105,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### <a name="create-an-experiment"></a>Deneme oluşturma
 
-Çalışma alanınızdaki çalıştırmaları izleyecek bir deneme oluşturun. Bir çalışma alanı, birden çok deneme olabilir: 
+Çalışma alanınızdaki çalıştırmaları izleyecek bir deneme oluşturun. Bir çalışma alanı, birden çok deneme olabilir:
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -120,7 +119,6 @@ exp = Experiment(workspace=ws, name=experiment_name)
 Azure Machine Learning işlemi, yönetilen bir hizmet kullanarak veri bilimcileri makine öğrenimi modellerini Azure sanal makinelerini kümeleri hakkında eğitebilirsiniz. Örnekler, GPU desteğine sahip sanal makinelerini içerir. Bu öğreticide, Azure Machine Learning işlem eğitim ortamınızı oluşturun. Çalışma alanınızda zaten mevcut olmaması durumunda aşağıdaki kod, sizin için işlem kümeleri olarak oluşturur.
 
  **İşlem oluşturulması yaklaşık beş dakika sürer.** İşlem çalışma alanında ise, kod kullanır ve oluşturma işlemini atlar.
-
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -143,21 +141,21 @@ if compute_name in ws.compute_targets:
 else:
     print('creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes, 
+                                                                min_nodes = compute_min_nodes,
                                                                 max_nodes = compute_max_nodes)
 
     # create the cluster
     compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
+
+    # can poll for a minimum number of nodes and for a specific timeout.
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
+
      # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
 
-Artık bulutta bir modeli eğitmek için gerekli paketleriniz ve işlem kaynaklarınız vardır. 
+Artık bulutta bir modeli eğitmek için gerekli paketleriniz ve işlem kaynaklarınız vardır.
 
 ## <a name="explore-data"></a>Verileri inceleme
 
@@ -171,7 +169,6 @@ Bir model eğitip önce onu eğitmek için kullandığınız verileri anlamak ge
 
 MNIST veri kümesini indirin ve dosyaları yerel olarak `data` dizinine kaydedin. Görüntüleri ve etiketleri eğitim ve test için yüklenir:
 
-
 ```python
 import urllib.request
 import os
@@ -184,13 +181,12 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-u
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
+
 Şuna benzer bir çıktı görürsünüz: ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### <a name="display-some-sample-images"></a>Bazı örnek görüntüleri gösterme
 
 Sıkıştırılmış dosyaları `numpy` dizilerine yükleyin. Ardından `matplotlib` kullanarak, üst kısımlarında etiketleriyle veri kümesinden 30 rastgele görüntü çizin. Bu adım gerektirir bir `load_data` dahil işlevi bir `util.py` dosya. Bu dosya örnek klasöründe bulunur. Bu not defteri ile aynı klasörde yerleştirildiğinden emin olun. `load_data` İşlevi yalnızca sıkıştırılmış dosyalar numpy diziye ayrıştırır:
-
-
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -234,8 +230,8 @@ print(ds.datastore_type, ds.account_name, ds.container_name)
 
 ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
 ```
-Artık modeli eğitmeye başlamak için gereken her şeye sahipsiniz. 
 
+Artık modeli eğitmeye başlamak için gereken her şeye sahipsiniz.
 
 ## <a name="train-on-a-remote-cluster"></a>Uzak kümede eğitme
 
@@ -243,7 +239,7 @@ Bu görev için, işi daha önce ayarlamış olduğunuz uzak eğitim kümesine g
 * Dizin oluşturma
 * Eğitim betiği oluşturma
 * Tahmin nesne oluşturma
-* İşi gönderme 
+* İşi gönderme
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
 
@@ -293,7 +289,7 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 run = Run.get_context()
 
 print('Train a logistic regression model with regularization rate of', args.reg)
-clf = LogisticRegression(C=1.0/args.reg, random_state=42)
+clf = LogisticRegression(C=1.0/args.reg, solver="liblinear", multi_class="auto", random_state=42)
 clf.fit(X_train, y_train)
 
 print('Predict the test set')
@@ -324,35 +320,31 @@ Betiğin verileri nasıl aldığına ve modelleri nasıl kaydettiğine dikkat ed
   shutil.copy('utils.py', script_folder)
   ```
 
-
 ### <a name="create-an-estimator"></a>Tahmin aracı oluşturma
 
-Tahmin aracı nesnesi, çalıştırmayı göndermek için kullanılır. Bu öğeleri tanımlamak için aşağıdaki kodu çalıştırarak, tahmin oluşturun:
+Bir [SKLearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) nesnesi çalıştırma göndermek için kullanılır. Bu öğeleri tanımlamak için aşağıdaki kodu çalıştırarak, tahmin oluşturun:
 
 * Tahmin nesnesinin adını `est`.
-* Betiklerinizi içeren dizin. Bu dizindeki dosyaların tümü yürütülmek üzere küme düğümlerine yüklenir. 
+* Betiklerinizi içeren dizin. Bu dizindeki dosyaların tümü yürütülmek üzere küme düğümlerine yüklenir.
 * Bilgi işlem hedefi. Bu durumda, oluşturduğunuz Azure Machine Learning işlem kümesi kullanın.
 * Eğitim betik adı **train.py**.
-* Eğitim betikten gerekli parametreleri. 
-* Eğitim için gereken Python paketleri.
+* Eğitim betikten gerekli parametreleri.
 
 Bu öğreticide, bu AmlCompute hedefidir. Betik klasördeki tüm dosyaları çalıştırmak için küme düğümlerinin yüklenir. **Data_folder** veri deposu kullanmak üzere ayarlanmış `ds.path('mnist').as_mount()`:
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.train.sklearn import SKLearn
 
 script_params = {
     '--data-folder': ds.path('mnist').as_mount(),
-    '--regularization': 0.8
+    '--regularization': 0.5
 }
 
-est = Estimator(source_directory=script_folder,
+est = SKLearn(source_directory=script_folder,
                 script_params=script_params,
                 compute_target=compute_target,
-                entry_script='train.py',
-                conda_packages=['scikit-learn'])
+                entry_script='train.py')
 ```
-
 
 ### <a name="submit-the-job-to-the-cluster"></a>İşi kümeye gönderme
 
@@ -371,7 +363,7 @@ Toplam olarak, ilk çalıştırma alır **yaklaşık 10 dakika**. Ancak, sonraki
 
 Beklerken ne olur:
 
-- **Görüntü oluşturma**: Bir Docker görüntüsü estimator tarafından belirtilen Python ortamı eşleşen oluşturulur. Görüntü, çalışma alanına yüklenir. Görüntü oluşturma ve karşıya yükleme alır **yaklaşık beş dakikada**. 
+- **Görüntü oluşturma**: Bir Docker görüntüsü estimator tarafından belirtilen Python ortamı eşleşen oluşturulur. Görüntü, çalışma alanına yüklenir. Görüntü oluşturma ve karşıya yükleme alır **yaklaşık beş dakikada**.
 
   Sonraki çalıştırmaları için kapsayıcı önbelleğe alındığından bu aşamanın her Python ortamı için bir kez gerçekleşir. Görüntü oluşturma sırasında, günlükler çalıştırma geçmişine aktarılır. Bu günlükleri kullanarak görüntü oluşturma ilerleme durumunu izleyebilirsiniz.
 
@@ -381,20 +373,18 @@ Beklerken ne olur:
 
 - **İşleme sonrası**: **. / Çıkışlar** çalıştırma dizinine kopyalanır üzerinden çalıştırma geçmişini çalışma alanınızda bu sonuçları erişebilmesi için.
 
-
-Çeşitli şekillerde çalışan işin ilerleme durumunu kontrol edebilirsiniz. Bu öğreticide bir Jupyter pencere öğesi ve bir `wait_for_completion` yöntemi. 
+Çeşitli şekillerde çalışan işin ilerleme durumunu kontrol edebilirsiniz. Bu öğreticide bir Jupyter pencere öğesi ve bir `wait_for_completion` yöntemi.
 
 ### <a name="jupyter-widget"></a>Jupyter pencere öğesi
 
 Çalıştırmanın ilerleme durumunu Jupyter pencere öğesiyle izleyin. Çalıştırma gönderim gibi pencere öğesi zaman uyumsuz ve canlı güncelleştirmeler iş tamamlanana kadar her 10 ila 15 saniyede sağlar:
-
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
-Bu yine de anlık görüntü eğitim sonunda gösterilen pencere öğesi şöyledir:
+Pencere öğesi, eğitim sonunda aşağıdaki gibi görünür:
 
 ![Not Defteri pencere öğesi](./media/tutorial-train-models-with-aml/widget.png)
 
@@ -402,8 +392,7 @@ Bu yine de anlık görüntü eğitim sonunda gösterilen pencere öğesi şöyle
 
 ### <a name="get-log-results-upon-completion"></a>Tamamlandıktan sonra günlük sonuçlarını alma
 
-Model eğitimi ve izlemesi arka planda yapılır. Daha fazla kod çalıştırmadan önce model eğitim tamamlanana kadar bekleyin. Kullanım `wait_for_completion` modeli eğitimi tamamlandığında göstermek için: 
-
+Model eğitimi ve izlemesi arka planda yapılır. Daha fazla kod çalıştırmadan önce model eğitim tamamlanana kadar bekleyin. Kullanım `wait_for_completion` modeli eğitimi tamamlandığında göstermek için:
 
 ```python
 run.wait_for_completion(show_output=False) # specify True for a verbose log
@@ -416,6 +405,7 @@ Artık uzak düğümde eğitilmiş bir modeliniz vardır. Modelin doğruluğunu 
 ```python
 print(run.get_metrics())
 ```
+
 Çıktı 0.9204 doğruluğunu uzaktan modeline sahip gösterir:
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
@@ -435,7 +425,7 @@ print(run.get_file_names())
 Böylece, veya diğer ortak çalışanlar daha sonra sorgu inceleyin ve bu model dağıtma modeli çalışma alanında, kaydedin:
 
 ```python
-# register model 
+# register model
 model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep = '\t')
 ```
@@ -445,7 +435,6 @@ print(model.name, model.id, model.version, sep = '\t')
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 Yalnızca Azure Machine Learning işlem kümesi de silebilirsiniz. Ancak, otomatik ölçeklendirme açık olduğundan ve kümenin en az sıfırdır. Bu nedenle bu kaynak, kullanımda olmadığında ek işlem ücreti alınmayacaktır:
-
 
 ```python
 # optionally, delete the Azure Machine Learning Compute cluster

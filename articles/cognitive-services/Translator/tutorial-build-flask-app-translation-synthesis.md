@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4df2de7f0428ffe35712a29bfef645b6feb66813
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59007393"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515001"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Öğretici: Azure Bilişsel hizmetler ile bir Flask uygulaması derleme
 
@@ -103,11 +103,11 @@ Bizim Flask uygulamasını kullanarak bir sanal ortamı oluşturalım `virtualen
 
 2. Sanal ortamınıza etkinleştirmek için komutları, platform/kabuğunuza bağlı olarak farklılık gösterir:   
 
-   | Platform | Shell | Komut |
+   | Platform | Kabuk | Komut |
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
    | Windows | Bash | `source venv/Scripts/activate` |
-   | | Komut Satırı | `venv\Scripts\activate.bat` |
+   | | Komut satırı | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
    Bu komutu çalıştırdıktan sonra komut satırı veya terminal oturumu başında `venv`.

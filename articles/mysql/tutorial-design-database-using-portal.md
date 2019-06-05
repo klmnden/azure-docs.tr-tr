@@ -1,18 +1,18 @@
 ---
 title: 'Öğretici: Azure portalını kullanarak MySQL için Azure veritabanı tasarlama'
-description: Bu öğreticide, Azure Portalı kullanarak MySQL sunucusu ve veritabanı için Azure Veritabanının nasıl oluşturulup yönetileceği açıklanır.
+description: Bu öğreticide, oluşturma ve MySQL server ve Azure portalını kullanarak bir veritabanı için Azure veritabanı'nı yönetme açıklanmaktadır.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 0b637ab5f2b6234fed301a60ee1857960a464a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342782"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515815"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak MySQL için Azure veritabanı tasarlama
 MySQL için Azure Veritabanı, bulutta yüksek oranda kullanılabilir olan MySQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure portalını kullanarak, sunucunuzu kolayca yönetebilir ve bir veritabanı tasarlayabilirsiniz.
@@ -58,6 +58,9 @@ MySQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama k
     Fiyatlandırma katmanı | **Genel Amaçlı**, **5. Nesil**, **2 sanal çekirdek**, **5 GB**, **7 gün**, **Coğrafi Olarak Yedekli** | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. **Fiyatlandırma katmanı**'nı seçin. Ardından, **Genel Amaçlı** sekmesini seçin. *5. Nesil*, *2 sanal çekirdek*, *5 GB* ve *7 gün*; **İşlem Nesli**, **Sanal Çekirdek**, **Depolama** ve **Yedekleme Bekletme Dönemi** için varsayılan değerlerdir. Bu kaydırıcıları olduğu gibi bırakabilirsiniz. Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için, **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
     
    ![Fiyatlandırma katmanı](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > İle **otomatik büyüme** etkin iş yükünüzü etkilemeden, ayrılmış bir sınır yaklaştığı olduğunda depolama sunucunuzu artırır.
 
 3. **Oluştur**’a tıklayın. Bir veya iki dakika içinde, bulutta MySQL sunucusu için yeni bir Azure Veritabanı çalışmaya başlayacaktır. Dağıtım işlemini izlemek için araç çubuğunda **Bildirimler** düğmesine tıklayabilirsiniz.
 

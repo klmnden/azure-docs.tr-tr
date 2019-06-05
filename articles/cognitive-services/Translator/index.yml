@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/21/2019
+  ms.date: 06/04/2019
   ms.author: v-jansko
 abstract:
   description: 'Translator Metin Çevirisi, basit bir REST API çağrısı üzerinden neredeyse gerçek zamanlı bir şekilde metin çevirisi yapmak için kullanabileceğiniz bulut tabanlı bir makine çevirisi hizmetidir. Modern nöral makine çevirisi teknolojisini kullanan bu API, istatistiksel makine çevirisi teknolojisi de sunar. Özel Çevirmen, Translator Metin Çevirisi API’sinin nöral çeviri sistemleri oluşturmanıza olanak sağlayan bir uzantısıdır. Özelleştirilmiş çeviri sistemi, Translator Metin Çevirisi API’si veya <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/"> Microsoft Konuşma Hizmetleri</a> ile metin çevirisi yapmak için kullanılabilir. Hem nöral hem de istatistiksel makine çevirisinde desteklenen dillerin listesi için lütfen bkz. <a href="languages.md">Desteklenen diller</a>.'

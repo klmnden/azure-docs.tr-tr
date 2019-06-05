@@ -147,16 +147,12 @@
       items:
         - name: OPC Twin Mimarisi
           href: overview-opc-twin-architecture.md
-        - name: Bağlı Fabrika Mimarisi
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Nasıl yapılır kılavuzları
       items:
         - name: Bağlı Fabrika
           items:
             - name: Panoyu kullanma
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Ağ geçidi dağıtma
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: OPC yayımcısını kullanma
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Çözüm hızlandırıcısını yapılandırma

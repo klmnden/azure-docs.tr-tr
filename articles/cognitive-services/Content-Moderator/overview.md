@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551300"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688847"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator nedir?
 
@@ -25,11 +25,14 @@ Azure Content Moderator API'si rahatsız edici, riskli veya istenmeyen olabilece
 
 Aşağıda bir yazılım geliştirme uzmanının veya ekibinin Content Moderator özelliklerinden faydalanmak isteyebileceği birkaç senaryo verilmiştir:
 
-- Ürün kataloglarını ve kullanıcıların oluşturduğu içerikleri denetleyen çevrimiçi marketler
-- Kullanıcıların oluşturduğu yapıtları ve sohbet odalarını denetleyen oyun şirketleri
-- Kullanıcıların eklediği görüntüleri, metinleri ve videoları denetleyen sosyal mesajlaşma platformları
-- İçerikleri için merkezi denetim uygulayan kurumsal medya şirketleri
-- Öğrenciler ve eğitimciler için uygunsuz içeriği filtreleyen K-12 eğitim çözümü sağlayıcıları
+- Ürün katalogları ve diğer kullanıcı tarafından oluşturulan içerikleri Orta çevrimiçi marketlerdir.
+- Kullanıcı tarafından oluşturulan oyun yapıtlar ve sohbet odaları Orta oyun şirketler.
+- Görüntü, metin ve bunların kullanıcılar tarafından eklenen videoları Orta sosyal Mesajlaşma platformlar.
+- Kendi içerik için merkezi yönetimini uygulamak Kurumsal medya şirketlerinin.
+- Öğrenciler ve eğitimciler için uygun olmayan içerikleri filtreleme K-12 eğitim çözüm sağlayıcıları.
+
+> [!NOTE]
+> Geçersiz alt istismarıyla kategorisinde olabilecek resimleri algılama için Content Moderator'ı kullanamazsınız. Ancak, tam kuruluşlar kullanabilir [PhotoDNA bulut hizmeti](https://www.microsoft.com/photodna "Microsoft PhotoDNA bulut hizmeti") ekranına bu içerik türü için.
 
 ## <a name="what-it-includes"></a>Neleri içerir
 

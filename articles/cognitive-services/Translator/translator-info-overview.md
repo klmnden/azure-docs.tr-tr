@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 89b836109818f7a4c1aafdbc9a1b3a72fe806269
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883381"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515036"
 ---
-# <a name="what-is-translator-text-api"></a>Translator Metin Çevirisi API’si nedir?
+# <a name="what-is-the-translator-text-api"></a>Translator Metin Çevirisi API’si nedir?
 
 Translator Metin Çevirisi API'sini uygulamalarınız, web siteleriniz, araçlarınız ve çözümlerinizle tümleştirmek kolaydır. [60'tan fazla dilde](languages.md) çok dilli kullanıcı deneyimi eklemenizi sağlayan bu API, tüm donanım platformlarında ve tüm işletim sistemlerinde metin çevirisi için kullanılabilir.
 

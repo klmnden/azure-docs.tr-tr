@@ -55,11 +55,11 @@
     - name: Öğreticiler
       items:
         - name: Kaynak sağlayıcısını etkinleştirme
-          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+          href: enable-cloudsimple-service.md
         - name: CloudSimple Hizmeti oluşturma
-          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+          href: create-cloudsimple-service.md
         - name: CloudSimple portalına erişim
-          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+          href: access-cloudsimple-portal.md
         - name: Düğümleri yönetme
           items:
             - name: Düğümleri satın alma
