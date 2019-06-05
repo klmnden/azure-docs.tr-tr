@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796904"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514647"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator metin çevirisi için istek sınırları
 
@@ -38,7 +38,7 @@ Aşağıdaki tablo listeleri dizi öğesi ve karakter sınırları Translator me
 
 ## <a name="character-limits-per-hour"></a>Saat başına karakter sınırları
 
-Saatlik, karakter sınırı, Translator metin çevirisi abonelik katmanına göre belirlenir. Saatlik kota saat eşit olarak kullanılması. Ulaşın veya bu sınırları aşan ya da kısa bir süre içinde kotasının bir bölümü çok büyük göndermek, büyük olasılıkla yetersiz kota yanıt alırsınız. 
+Saatlik, karakter sınırı, Translator metin çevirisi abonelik katmanına göre belirlenir. Saatlik kota saat eşit olarak kullanılması. Ulaşın veya bu sınırları aşan ya da kısa bir süre içinde kotasının bir bölümü çok büyük göndermek, büyük olasılıkla yetersiz kota yanıt alırsınız.
 
 | Katman | Karakter sınırı |
 |------|-----------------|
@@ -52,7 +52,7 @@ Saatlik, karakter sınırı, Translator metin çevirisi abonelik katmanına gör
 
 Bu sınırlar, Microsoft'un standart çeviri modellerini için kısıtlanır. Özel Translator kullanan özel çeviri modellerini saniyede 1.800 karakterle sınırlıdır.
 
-## <a name="latency"></a>Gecikme
+## <a name="latency"></a>Gecikme süresi
 
 Translator metin çevirisi API'si standart modelleri kullanarak 15 saniyede en fazla bir gecikme vardır. Özel modelleri kullanarak çeviri 25 saniye en fazla bir gecikme vardır. Bu zamana kadar bir sonuç ya da bir zaman aşımı yanıt aldığınız. Genellikle, yanıtları için 300 milisaniye 150 milisaniye olarak döndürülür. Yanıt süreleri, istek ve dil çiftin boyutuna bağlı olarak değişir. Bir çeviri almazsanız veya bir [hata yanıtı](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) bu süre içinde size ağ bağlantınızı denetleyin ve yeniden deneyin.
 
@@ -63,13 +63,13 @@ Kullanırken [BreakSentence](https://docs.microsoft.com/azure/cognitive-services
 | Dil | Kod | Karakter sınırı |
 |----------|------|-----------------|
 | Çince | zh | 132 |
-| Almanca  | de | 290 |
-| İtalyanca  | it | 280 |
+| Almanca | de | 290 |
+| İtalyanca | it | 280 |
 | Japonca | ja | 150 |
 | Portekizce | PT | 290 |
-| İspanyolca  | es | 280 |
-| İtalyanca  | it | 280 |
-| Tay Dili | . | 258 |
+| İspanyolca | es | 280 |
+| İtalyanca | it | 280 |
+| Tay Dili | TH | 258 |
 
 > [!NOTE]
 > Bu sınırı çevirileri için geçerli değildir.
