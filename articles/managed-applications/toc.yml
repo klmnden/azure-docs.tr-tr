@@ -39,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: Portal arabirimini test etme
           href: test-createuidefinition.md
+        - name: Tam zamanında erişim isteme
+          href: request-just-in-time-access.md
         - name: Yönetilen kaynakları güncelleştirme
           href: update-managed-resources.md
         - name: Uygulama tanımı yayımlamak için portalı kullanma
@@ -51,6 +53,8 @@
       items:
         - name: Yönetilen uygulamaları izleme
           href: monitor-managed-application-portal.md
+        - name: Tam zamanında erişimi onaylama
+          href: approve-just-in-time-access.md
 - name: Başvuru
   items:
     - name: Azure CLI

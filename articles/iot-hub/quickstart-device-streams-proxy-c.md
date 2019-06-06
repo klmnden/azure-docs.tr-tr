@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub cihaz akışları C Hızlı Başlangıç için SSH/RDP (Önizleme) | Microsoft Docs
-description: Bu hızlı başlangıçta, IOT Hub cihaz akışlar üzerinde SSH/RDP senaryoları etkinleştirmek için bir proxy görevi gören bir örnek C uygulaması çalıştıracaksınız.
+title: Azure IOT Hub cihaz akışları C Hızlı Başlangıç için SSH ve RDP (Önizleme) | Microsoft Docs
+description: Bu hızlı başlangıçta, IOT Hub üzerinde SSH ve RDP senaryoları etkinleştirmek için bir proxy görevi gören bir örnek C uygulama cihaz akışları çalıştırın.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -10,43 +10,42 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: ae5db52d7ac00080c2a740820debe6384cfa8dff
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e21d7381831553f8d82b00d9ed3be0b03f13bca9
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872660"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735132"
 ---
-# <a name="quickstart-sshrdp-over-an-iot-hub-device-stream-using-a-c-proxy-application-preview"></a>Hızlı Başlangıç: SSH/C Ara sunucu uygulamasını (Önizleme) kullanarak bir IOT Hub cihaz akışı üzerinden RDP
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Hızlı Başlangıç: SSH ve RDP C Ara sunucu uygulamasını (Önizleme) kullanarak bir IOT Hub cihaz akış üzerinden etkinleştirme
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Microsoft Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [önizleme özelliği](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [önizleme özelliği](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Bkz: [yerel Proxy örnek sayfasına](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) Kurulum genel bakış.
+[IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Kurulum genel bakış için bkz. [yerel Proxy örnek sayfasına](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
-Bu belgede, cihaz akışları aracılığıyla SSH trafiği (22 numaralı bağlantı noktasını kullanarak) tünel Kurulumu açıklanmaktadır. RDP trafiği için Kurulum benzer ve basit bir yapılandırma değişikliği gerektiriyor. Cihaz akışlar, uygulama ve protokolü belirsiz olduğundan, mevcut Hızlı Başlangıç (iletişim bağlantı noktalarını değiştirerek) değiştirilebilir uygulama trafiği diğer türleri uyum sağlamak için.
+Bu hızlı başlangıçta, cihaz akışları aracılığıyla güvenli Kabuk (SSH) trafiği (22 numaralı bağlantı noktasını kullanarak) tünel Kurulumu açıklanır. Uzak Masaüstü Protokolü (RDP) trafiği için Kurulum benzer ve basit bir yapılandırma değişikliği gerektiriyor. Cihaz akışları uygulama ve protokolü-depolamadan bağımsız, çünkü uygulama trafiği diğer türleri uyum sağlamak için bu hızlı başlangıçta değiştirebilirsiniz.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Aşağıdaki şekilde, cihaz ve hizmet yerel proxy programları SSH istemcisi ve SSH arka plan işlemleri arasında uçtan uca bağlantı nasıl etkinleştirir, Kurulum gösterilmektedir. Genel Önizleme süresince C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta, yalnızca cihaz yerel ara sunucu uygulamasını çalıştırmak için yönergeleri kapsar. Aşağıdaki hizmet tarafına quickstarts çalıştırmalısınız:
+Aşağıdaki şekilde, cihaz ve hizmet yerel proxy programları SSH istemcisi ve SSH arka plan işlemleri arasında uçtan uca bağlantı nasıl etkinleştirin gösterilmektedir. Genel Önizleme süresince C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta yalnızca yerel cihaz Ara sunucu uygulamasını çalıştırmak için yönergeler içerir. Aşağıdaki hizmet tarafına quickstarts çalıştırmalısınız:
 
 * [IOT Hub cihaz üzerinde SSH/RDP kullanarak akışları C# proxy](./quickstart-device-streams-proxy-csharp.md)
-
 * [SSH/RDP üzerinden NodeJS proxy kullanarak IOT Hub cihaz akışları](./quickstart-device-streams-proxy-nodejs.md).
 
 ![Kurulum yerel Ara](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
 
 1. Hizmet yerel proxy, IOT hub'ına bağlanır ve bir cihaz akışını hedef cihaza başlatır.
 
-2. Cihaz yerel proxy akış başlatma el sıkışma işlemi tamamlandıktan ve IOT Hub'ın hizmet tarafına akış uç noktası aracılığıyla uçtan uca bir akış tüneli oluşturur.
+2. Cihaz yerel proxy akış başlatma el sıkışma işlemi tamamlandıktan ve IOT hub'ın hizmet tarafına akış uç noktası aracılığıyla uçtan uca bir akış tüneli oluşturur.
 
-3. Cihazda 22 numaralı bağlantı noktasında dinleme SSH arka plan programı (SSHD) cihaz yerel proxy bağlandığında (Bu bölümünde anlatıldığı gibi yapılandırılabilir, [ *cihaz yerel ara sunucu uygulamasını çalıştırın* bölümü](#run-the device-local-proxy-application)).
+3. Cihaz yerel proxy cihazda 22 numaralı bağlantı noktasında dinleme SSH arka plan programı bağlanır. Bu ayar, "cihaz yerel ara sunucu uygulamasını Çalıştır" bölümünde açıklanan şekilde yapılandırılabilir, desteklenir.
 
-4. Kullanıcıdan yeni SSH bağlantıları için bekler, bu durumda 2222 numaralı bağlantı noktasına atanan bir bağlantı noktasında dinleme tarafından hizmet yerel proxy (Bu da açıklandığı gibi yapılandırılabilirdir [Çalıştır cihaz yerel proxy uygulama bölümüne](#run-the-device-local-proxy-application). Kullanıcı SSH istemcisi bağlandığında, SSH istemcisi ve sunucusu programlar arasında aktarılmak SSH uygulama trafiği tüneli etkinleştirir.
+4. 2222 numaralı bağlantı noktasına bu durumda olan belirtilen bir bağlantı noktasında dinleme tarafından bir kullanıcı yeni SSH bağlantıları için hizmet yerel proxy bekler. Bu ayar, "cihaz yerel ara sunucu uygulamasını Çalıştır" bölümünde açıklanan şekilde yapılandırılabilir, desteklenir. Kullanıcı SSH istemcisi bağlandığında, SSH istemcisi ve sunucusu programlar arasında aktarılmak SSH uygulama trafiği tüneli etkinleştirir.
 
 > [!NOTE]
-> Bir cihaz akış üzerinden gönderilen SSH trafiği doğrudan hizmet ve cihaz arasında gönderilen yerine IOT Hub'ın akış uç noktası aracılığıyla tünel. Hakkında daha fazla bilgi için okuma [IOT Hub cihaz akışları kullanmanın avantajları](iot-hub-device-streams-overview.md#benefits). Ayrıca, aynı cihaza (veya makine) çalıştıran SSH arka plan programı şekilde cihaz yerel proxy olarak gösterilmektedir. Bu hızlı başlangıçta, SSH arka plan programı IP adresi sağlamak için cihaz yerel ara sunucu ve farklı makinelerde de çalıştırmak için arka plan programı sağlar.
+> Bir cihaz akış üzerinden gönderilen SSH trafiği IOT hub'ının akış uç noktası aracılığıyla tünel yerine doğrudan hizmet ve cihaz arasında gönderilen. Daha fazla bilgi için [IOT Hub cihaz akışları kullanmanın avantajları](iot-hub-device-streams-overview.md#benefits). Ayrıca, aynı cihaza (veya makinede) çalıştırılan SSH arka plan programı şekilde cihaz yerel proxy olarak gösterilmektedir. Bu hızlı başlangıçta, SSH arka plan programı IP adresini sağlayan cihaz yerel proxy ve farklı makinelerde de çalıştırmak için arka plan programı izin verir.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -54,16 +53,15 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki bölgelerde oluşturulan için desteklenir:
+* Cihaz akışları önizlemesi, şu anda şu bölgelerde oluşturulan yalnızca IOT hub'ları için desteklenir:
 
-   * **Orta ABD**
+  * Orta ABD
+  * Orta ABD EUAP
 
-   * **Orta ABD EUAP**
-
-* Yükleme [Visual Studio 2019](https://www.visualstudio.com/vs/) ile [' ile masaüstü geliştirme C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirilmiş.
+* Yükleme [Visual Studio 2019](https://www.visualstudio.com/vs/) ile [ile masaüstü geliştirme C++ ](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirilmiş.
 * En son [Git](https://git-scm.com/download/) sürümünü yükleyin.
 
-* Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
+* Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) IOT uzantısını ekler-Azure CLI için özel komutları.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -71,31 +69,29 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama
 
-Bu hızlı başlangıçta kullanacaksınız [C için Azure IOT cihaz SDK'sını](iot-hub-device-sdk-c-intro.md). Kopyalama ve oluşturmak için kullanılan bir geliştirme ortamı hazırlarsınız [Azure IOT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) github'dan. GitHub üzerindeki SDK, bu hızlı başlangıçta yer alan örnek kodu içerir. 
-
+Bu Hızlı Başlangıç için kullandığınız [C için Azure IOT cihaz SDK'sını](iot-hub-device-sdk-c-intro.md). Kopyalama ve oluşturmak için kullanılan bir geliştirme ortamı hazırlama [Azure IOT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) github'dan. GitHub üzerinde SDK'sı, bu hızlı başlangıçta kullanılan örnek kodu içerir.
 
 1. İndirme [CMake derleme sistemini](https://cmake.org/download/).
 
-    `CMake` yüklemesine başlamadan **önce** makinenizde Visual Studio önkoşullarının (Visual Studio ve "C++ ile masaüstü geliştirme" iş yükü) yüklenmiş olması önemlidir. Önkoşullar sağlandıktan ve indirme doğrulandıktan sonra, CMake derleme sistemini yükleyin.
+    Önemli olduğu, Visual Studio önkoşulları (Visual Studio ve *ile masaüstü geliştirme C++*  iş yükü), makinenizde yüklü *önce* CMake yüklemesi Başlat. Önkoşulların yerinde olduğundan ve yüklemeyi doğruladıktan sonra CMake derleme sistemini yükleyebilirsiniz.
 
-2. Komut istemini veya Git Bash kabuğunu açın. Aşağıdaki komutu yürüterek [Azure IoT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) GitHub deposunu kopyalayın:
+1. Komut istemini veya Git Bash kabuğunu açın. Aşağıdaki komutu yürüterek [Azure IoT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) GitHub deposunu kopyalayın:
 
-    
-   ```
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-   ```
+    ```
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    ```
 
-   Bu işlemin tamamlanması için birkaç dakika beklemeniz gerekebilir.
+    Bu işlem birkaç dakika beklemelisiniz.
 
-3. Git deposunun kök dizininde bir `cmake` alt dizini oluşturun ve o klasöre gidin. 
+1. Oluşturma bir *cmake* aşağıdaki komutta gösterildiği gibi Git deposunun kök dizininde alt ve bu klasöre gidin.
 
-   ```
-   cd azure-iot-sdk-c
-   mkdir cmake
-   cd cmake
-   ```
+    ```
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    ```
 
-4. Aşağıdaki komutları çalıştırın `cmake` SDK geliştirme istemci platformunuza belirli bir sürümünü oluşturmak için dizin.
+1. Aşağıdaki komutları çalıştırın *cmake* geliştirme istemci Platformunuza özgü SDK'sı sürümünü oluşturmak için dizin.
 
    * Linux'ta:
 
@@ -104,7 +100,7 @@ Bu hızlı başlangıçta kullanacaksınız [C için Azure IOT cihaz SDK'sını]
       make -j
       ```
 
-   * Windows Visual Studio 2015 veya 2017 için geliştirici Komut İstemi'nde aşağıdaki komutları çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur.
+   * Windows Visual Studio 2015 veya 2017 için geliştirici Komut İstemi'nde aşağıdaki komutları çalıştırın. Sanal cihaz için bir Visual Studio çözümü içinde oluşturulacağı *cmake* dizin.
 
       ```cmd
       rem For VS2015
@@ -123,31 +119,30 @@ Bu hızlı başlangıçta kullanacaksınız [C için Azure IOT cihaz SDK'sını]
 
 ## <a name="register-a-device"></a>Cihaz kaydetme
 
-Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu bölümde, Azure Cloud Shell ile kullanacağınız [IOT uzantısı](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) bir simülasyon cihazı kaydedeceksiniz.
+Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu bölümde, Azure Cloud Shell ile kullandığınız [IOT uzantısı](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) bir simülasyon cihazı kaydedeceksiniz.
 
-1. Cihaz kimliği oluşturmak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın.
+1. Cihaz kimliği oluşturma için Cloud Shell'de aşağıdaki komutu çalıştırın:
 
-   **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
-
-   **Cihazım**: Bu, kayıtlı bir cihaz için verilen addır. Cihazım gösterildiği gibi kullanın. Cihazınız için farklı bir ad seçerseniz, bu makalenin tamamında bu adı kullanın ve bunları çalıştırmadan önce örnek uygulamalar, cihaz adını güncelleştirmek gerekir.
+   > [!NOTE]
+   > * Değiştirin *YourIoTHubName* yer tutucu IOT hub'ınız için seçtiğiniz ada sahip.
+   > * Kullanım *Cihazım*gösterildiği gibi. Kayıtlı cihaz için verilen addır. Cihazınız için farklı bir ad seçerseniz, bu makalenin tamamında bu adı kullanın ve bunları çalıştırmadan önce örnek uygulamalar, cihaz adını güncelleştirin.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Azure Cloud Shell içinde almak için aşağıdaki komutları çalıştırın _cihaz bağlantı dizesini_ kaydettiğiniz cihazın:
+1. Alınacak *cihaz bağlantı dizesini* yalnızca kayıtlı bir cihaz için Cloud Shell'de aşağıdaki komutları çalıştırın:
 
-   **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
+   > [!NOTE]
+   > Değiştirin *YourIoTHubName* yer tutucu IOT hub'ınız için seçtiğiniz ada sahip.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    Aşağıdaki gibi görünen cihaz bağlantı dizesini not edin:
+    Bu hızlı başlangıçta daha sonra kullanmak için cihaz bağlantı dizesini not edin. Aşağıdaki örneğe benzer şekilde görünür:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
-
-    Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>Bir cihazın cihaz akışları yoluyla SSH
 
@@ -155,16 +150,16 @@ Bu bölümde, SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşt
 
 ### <a name="run-the-device-local-proxy-application"></a>Cihaz yerel ara sunucu uygulamasını çalıştırın
 
-1. Kaynak dosyayı düzenlemek `iothub_client_c2d_streaming_proxy_sample.c` klasöründe `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/` cihaz bağlantısı dizeniz, hedef cihaz IP/ana bilgisayar adı ve SSH bağlantı noktası 22 girin:
+1. Kaynak dosyayı düzenlemek *iothub_client_c2d_streaming_sample.c* klasöründe *iothub_client/samples/iothub_client_c2d_streaming_sample*ve cihaz bağlantısı dizeniz sağlamak için hedef cihaz IP/ana bilgisayar adı ve SSH bağlantı noktası 22'de:
 
    ```C
-   /* Paste in the your iothub connection string  */
+   /* Paste in your iothub connection string  */
    static const char* connectionString = "[Connection string of IoT Hub]";
    static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 
-2. Örnek derleme:
+1. Örnek derleme:
 
    ```bash
    # In Linux
@@ -178,7 +173,7 @@ Bu bölümde, SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşt
    cmake --build . -- /m /p:Configuration=Release
    ```
 
-3. Derlenmiş programın cihazda çalıştırın:
+1. Derlenmiş programın cihazda çalıştırın:
 
    ```bash
    # In Linux
@@ -194,11 +189,10 @@ Bu bölümde, SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşt
 
 ### <a name="run-the-service-local-proxy-application"></a>Hizmet yerel ara sunucu uygulamasını çalıştırın
 
-Bölümünde açıklandığı gibi [nasıl onu çalışır bölüm](#how-it-works), SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşturulması için bir yerel ara her uçtaki (hem de hizmet ve cihaz) gerekir. Genel Önizleme sırasında IOT Hub C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Derleme ve çalıştırma hizmeti-yerel ara sunucu için yerel hizmet proxy şu hızlı başlangıçlarda birini çalıştırmak için kullanılabilir adımları izleyin:
+"Nasıl çalışır?" bölümünde açıklandığı gibi SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşturma (üzerinde hizmet ve cihaz kenarlar için) her iki ucunda yerel bir ara sunucu gerektirir. Genel Önizleme sırasında IOT Hub C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Derleme ve hizmet yerel proxy çalıştırmak için şu hızlı başlangıçlarda birindeki yönergeleri izleyin:
 
    * [IOT Hub cihaz üzerinde SSH/RDP kullanarak akışları C# proxy'si uygulamaları](./quickstart-device-streams-proxy-csharp.md)
-
-   * [SSH/RDP üzerinden proxy'si uygulamaları Node.js kullanarak IOT Hub cihaz akışları](./quickstart-device-streams-proxy-nodejs.md).
+   * [SSH/proxy'si uygulamaları Node.js kullanarak IOT Hub cihaz akışları üzerinden RDP](./quickstart-device-streams-proxy-nodejs.md)
 
 ### <a name="establish-an-ssh-session"></a>Bir SSH oturumu oluşturur
 
@@ -208,11 +202,15 @@ Cihaz ve hizmet yerel proxy'leri çalıştırıldıktan sonra SSH istemcisi prog
 ssh <username>@localhost -p 2222
 ```
 
-Bu noktada kimlik bilgilerinizi girmeniz için SSH oturum açma istemi ile sunulur.
+Bu noktada, SSH penceresi, oturum açma kimlik bilgilerinizi girmenizi ister.
 
-Konsol çıktısı SSH arka plan programı bağlanan cihazın yerel proxy'de `IP_address:22`: ![Cihaz yerel proxy çıkış](./media/quickstart-device-streams-proxy-c/device-console-output.png)
+SSH arka plan programı bağlanan cihazın yerel ara sunucu üzerinde aşağıdaki görüntüde konsol çıktısı gösterilmektedir `IP_address:22`:
 
-Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kurar, yerel hizmet proxy dinlediği bağlantı noktası 22'yi bağlanarak SSH arka plan programı için): ![SSH istemcisi çıkış](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
+![Cihaz yerel proxy çıkış](./media/quickstart-device-streams-proxy-c/device-console-output.png)
+
+Aşağıdaki görüntüde SSH istemcisi programının konsol çıktısı gösterilmektedir. SSH istemcisi, yerel hizmet proxy dinlediği bağlantı noktası 22'yi bağlanarak SSH arka plan programı iletişim kurar:
+
+![SSH istemcisi çıkış](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -220,9 +218,9 @@ Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kurar, y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir IOT hub'ı ayarladınız, kayıtlı bir cihaz, cihaz - ve bir IOT Hub cihaz akışı oluşturmak için bir proxy hizmeti-yerel program dağıttıktan ve proxy'ler SSH trafiği tünel oluşturmak için kullanılır.
+Bu hızlı başlangıçta, bir IOT hub'ı ayarladınız, kayıtlı bir cihaz, cihaz - ve bir IOT Hub cihaz akışı oluşturmak için bir proxy hizmeti-yerel program dağıtılan ve proxy'ler SSH trafiği tünel oluşturmak için kullanılan.
 
-Cihaz akışları hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları kullanın:
+Cihaz akışları hakkında daha fazla bilgi için bkz:
 
 > [!div class="nextstepaction"]
 > [Cihaz akışları genel bakış](./iot-hub-device-streams-overview.md)

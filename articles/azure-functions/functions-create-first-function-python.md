@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864509"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496563"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure'da bir HTTP ile tetiklenen işlev oluşturma
 
@@ -92,7 +92,7 @@ Uzantı paketleri kolaylaştırır yol aşağı bağlama uzantıları. Ayrıca .
 
 Artık, bir işlev projenize ekleyebilirsiniz.
 
-## <a name="create-a-function"></a>İşlev oluştur
+## <a name="create-a-function"></a>İşlev oluşturma
 
 Projenize bir işlev eklemek için aşağıdaki komutu çalıştırın:
 
@@ -175,7 +175,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 ```
 
 > [!NOTE]
-> Linux ve Windows uygulamaları, aynı kaynak grubunda barındırılamaz. Adlı bir kaynak grubu varsa `myResourceGroup` Windows işlev uygulaması veya web uygulaması ile farklı bir kaynak grubu kullanmanız gerekir.
+> Azure işlevleri, Linux için tüketim planı şu anda Önizleme aşamasındadır ve yalnızca aşağıdaki bölgelerde: Batı ABD, Doğu ABD, Batı Avrupa, Güneydoğu Asya. Ayrıca, Linux ve Windows uygulamaları, aynı kaynak grubunda barındırılamaz. Adlı bir kaynak grubu varsa `myResourceGroup` Windows işlev uygulaması veya web uygulaması ile farklı bir kaynak grubu kullanmanız gerekir.
 
 Azure işlev uygulaması için yerel işlevler projenizi yayımlamak artık hazırsınız.
 

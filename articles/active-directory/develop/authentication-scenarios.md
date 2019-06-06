@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: b35d2e21de3da184496da53fdf46d865fdfdf5c7
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540177"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734478"
 ---
 # <a name="what-is-authentication"></a>Kimlik doğrulaması nedir?
 
@@ -85,14 +85,11 @@ Akış tarafından onay temelli sağlama basitleştirilmiş bir Microsoft kimlik
 
 Bu sağlama akışında:
 
-|   |   |
-|---|---|
-| 1 | B kiracısındaki bir kullanıcı uygulamada oturum açması dener |
-| 2 | Kullanıcı kimlik bilgileri alınır ve doğrulanır |
-| 3 | Kullanıcıdan uygulamaya B kiracısına erişme onayı vermesi istenir |
-| 4 | Microsoft kimlik platformu uygulama nesnesi içinde bir şema bir hizmet sorumlusu B kiracısındaki oluşturmak için kullanır |
-| 5 | Kullanıcı istenen belirteci alır |
-|   |   |
+1. Oturum uygulamayı imzalamak için B çalışır kiracıda bir kullanıcı, yetkilendirme uç noktası, uygulama için bir belirteç ister.
+1. Kullanıcı kimlik bilgilerini alınan ve kimlik doğrulaması için doğrulandı
+1. Kullanıcının B kiracısındaki erişim elde etmek uygulama için onay vermeniz istenir
+1. Microsoft kimlik platformu uygulama nesnesi bir kiracıda bir şema bir hizmet sorumlusu B kiracısındaki oluşturmak için kullanır
+1. Kullanıcı istenen belirteci alır
 
 Bu işlemi diğer kiracılar için (C, D vb.) istediğiniz kadar tekrarlayabilirsiniz. Kiracı bir uygulama (uygulama nesnesi) için şema korur. Uygulama için onay verilen diğer kiracıların kullanıcıları ve yöneticileri kiracıdaki hizmet sorumlusu nesnesini kullanarak uygulamanın gerçekleştirmesine izin verilen işlemleri belirler. Daha fazla bilgi için [uygulama ve hizmet sorumlusu nesneleri Microsoft Identity platformuna](app-objects-and-service-principals.md).
 
@@ -109,7 +106,7 @@ Herhangi bir güvenlik belirtecindeki talepler belirteç türüne, kullanıcın�
 
 Aşağıdaki tabloda her Microsoft kimlik platformu tarafından yayılan talep türünü kısa bir açıklaması sağlanmaktadır. Daha ayrıntılı bilgi için bkz. [erişim belirteçlerini](access-tokens.md) ve [kimlik belirteçlerini](id-tokens.md) Microsoft kimlik platformu tarafından verilmiş.
 
-| Talep | Açıklama |
+| İste | Açıklama |
 | --- | --- |
 | Uygulama Kimliği | Belirteci kullanan uygulamayı tanımlar. |
 | Hedef kitle | Belirtecin gönderileceği alıcı kaynağını tanımlar. |

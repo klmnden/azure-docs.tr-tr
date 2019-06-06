@@ -11,19 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256642"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496382"
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
 Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve Java EE dahil olmak üzere platformları üzerinde çeşitli uygulamalar için çalışır barındırılan şirket içi, karma veya herhangi bir genel bulut. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
-
-[Giriş animasyonuna göz atın](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## <a name="how-does-application-insights-work"></a>Application Insights nasıl çalışır?
 Uygulamanıza küçük bir izleme paketi yüklersiniz ve Microsoft Azure portalında bir Application Insights kaynağı ayarlarsınız. İzleme aracı uygulamanızı izler ve telemetri verilerini portala gönderir. (Uygulamanın nerede çalıştığı önemli değildir ve Azure’da barındırılması gerekmez.)
@@ -104,11 +102,13 @@ Application Insights, Microsoft Azure’da barındırılan birçok hizmetten bir
 
 Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yöntemi kullanarak başlayın. Diğerlerini daha sonra ekleyebilirsiniz.
 
-* **Çalışma zamanında: Sunucuda web uygulamanızı izleyin.** Kodda herhangi bir güncelleştirme yapmaktan kaçınır. Sunucunuza yönetici erişiminizin olması gerekir.
-  * [**Şirket içinde veya bir VM’de IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure web uygulaması veya VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **Geliştirme zamanında: Application Insights’ı kodunuza ekleyin.** Özel telemetri yazmanızın yanı sıra arka uç ve masaüstü uygulamalarını izlemenize imkan tanır.
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 güncelleştirme 2 veya sonraki bir sürüm.
+* **Çalışma zamanında: Sunucuda web uygulamanızı izleyin.** Önceden dağıtılan uygulamalar için idealdir. Kodda herhangi bir güncelleştirme yapmaktan kaçınır.
+  * [**IIS'de barındırılan ASP.NET uygulamaları şirket içinde veya bir VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**Azure Web Apps üzerinde barındırılan ASP.NET veya ASP.NET Core uygulamaları**](../../azure-monitor/app/azure-web-apps.md)
+* **Geliştirme zamanında: Application Insights’ı kodunuza ekleyin.** Telemetri koleksiyonunu özelleştirme ve ek telemetri göndermesine olanak sağlar.
+  * [ASP.NET uygulamaları](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core uygulamaları](../../azure-monitor/app/asp-net-core.md)
+  * [.NET konsol uygulamaları](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Diğer platformlar](../../azure-monitor/app/platforms.md)
@@ -120,10 +120,12 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
 Çalışma zamanında şunlarla kullanmaya başlayın:
 
 * [IIS sunucusu](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 Geliştirme zamanında şunlarla kullanmaya başlayın:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
@@ -139,9 +141,9 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 
 ## <a name="videos"></a>Videolar
 
-[![Animasyonlu giriş](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- Dış video: [Application Insights ile ASP.NET uygulaması yapılandırma](https://www.youtube.com/watch?v=blnGAVgMAfA).
+- Dış video: [ASP.NET Core ve Visual Studio ile Application Insights yapılandırma](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- Dış video: [Application Insights, Visual Studio Code ile ASP.NET Core ile yapılandırma](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

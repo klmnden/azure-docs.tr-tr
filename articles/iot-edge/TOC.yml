@@ -43,7 +43,7 @@
       items:
         - name: Azure İşlevleri ile verileri filtreleme
           href: tutorial-deploy-function.md
-        - name: ASA ile ortalamaları bulma
+        - name: Azure Stream Analytics ile ortalamaları bulma
           href: tutorial-deploy-stream-analytics.md
         - name: Azure Machine Learning hizmetiyle verileri puanlama
           href: tutorial-deploy-machine-learning.md

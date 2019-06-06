@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714289"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688718"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup nedir?
 
@@ -32,7 +32,7 @@ Azure Backup şu önemli avantajlara sahiptir:
     - Büyük miktarda veriyi içeri aktarmak için Azure içeri/dışarı aktarma hizmetini kullanarak çevrimdışı ilk yedekleme yapıyorsanız, gelen verilerle ilişkili bir maliyeti yoktur.  [Daha fazla bilgi edinin](backup-azure-backup-import-export.md).
 - **Verileri güvenli tutmak**: Azure Backup, veri aktarım ve bekleme sırasında güvenliğini sağlamak için çözümler sağlar.
 - **Uygulamayla tutarlı yedekler almak**: Bir uygulamayla tutarlı yedekleme, kurtarma noktası yedek kopyayı geri yüklemek için tüm gerekli verileri içeren anlamına gelir. Azure Backup, verileri geri yüklerken ek düzeltmelere gerek kalmaması için uygulamayla tutarlı yedeklemeler yapılmasını sağlar. Uygulamayla tutarlı verilerin geri yüklenmesi, geri yükleme süresini azaltarak hizmetlerinizin kısa süre içinde çalışır hale gelmesini sağlar.
-- **Kısa ve uzun süreli saklanması**: Kısa vadede ve uzun veri saklama için kurtarma Hizmetleri kasalarını kullanabilirsiniz. Azure, bir Kurtarma Hizmetleri kasasında verileri saklama süresini kısıtlamaz. Dilediğiniz sürece için tutabilirsiniz. Azure Backup, korunan her örnek için 9999 kurtarma noktası sınırına sahiptir. [Daha fazla bilgi edinin](backup-introduction-to-azure-backup.md#backup-and-retention)bu sınırın yedekleme gereksinimlerinizi nasıl etkileyeceği hakkında.
+- **Kısa ve uzun süreli saklanması**: Kısa vadede ve uzun veri saklama için kurtarma Hizmetleri kasalarını kullanabilirsiniz. Azure, bir Kurtarma Hizmetleri kasasında verileri saklama süresini kısıtlamaz. Dilediğiniz sürece için tutabilirsiniz. Azure Backup, korunan her örnek için 9999 kurtarma noktası sınırına sahiptir. 
 - **Otomatik depolama yönetimi** - Karma ortamlar genelde heterojen depolamaya (bazıları şirket içi, bazıları ise bulutta olan) ihtiyaç duyar. Azure Backup çözümünde, şirket içi depolama cihazlarının kullanımıyla ilişkili maliyetler yoktur. Azure yedekleme, otomatik olarak ayırır ve yedekleme depolama yönetir ve böylece yalnızca kullandığınız depolama alanı için ödeme yaparsınız-,-kullandıkça modeli kullanır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/backup) fiyatlandırma hakkında daha fazla.
 - **Birden çok depolama seçeneği** -Azure Backup iki tür depolama/verilerinizi yüksek oranda kullanılabilir tutmak için çoğaltma sunar.
     - [Yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy-lrs.md) verilerinizi bir veri merkezinde bir depolama ölçek birimi (verilerinizin üç kopyasını oluşturur) üç kez çoğaltır. Verilerin tüm kopyaları aynı bölgenin içinde yer alır. LRS, verilerinizi yerel donanım hatalarına karşı korumak için düşük maliyetli bir seçenektir.
@@ -109,6 +109,25 @@ Daha fazla bilgi edinin [nasıl yedekleme works](backup-architecture.md#architec
 **Şirket içinde çalışan uygulamaların yedeğini istiyorum** | Uygulama durumunu algılayan yedekleme için DPM veya MABS makineler korunmalıdır.
 **Ayrıntılı ve esnek yedekleme ve kurtarma ayarlarını Azure Vm'leri için istiyorum** | Yedekleme Zamanlama ek esneklik ve dosya, klasör, birimler, uygulamalar ve sistem durumu geri yükleme ve koruma için tam esneklik için Azure'da çalışan MABS/DPM ile Azure sanal makinelerini koruyun.
 
+## <a name="backup-and-retention"></a>Yedekleme ve bekletme
+
+Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme kopyası veya anlık görüntü olarak da bilinir) sınırı vardır.
+
+- Korumalı örnek, verileri Azure’a yedeklemek için yapılandırılmış bir bilgisayar, sunucu (fiziksel veya sanal) veya iş yüküdür. Verilerin yedek kopyası kaydedildiğinde örnek, korumalı hale gelir.
+- Verilerin yedek kopyası, korumayı oluşturur. Kaynak veriler, kaybolmaları veya bozulmaları durumunda yedek kopya kullanılarak geri yüklenebilir.
+
+Aşağıdaki tabloda, her bileşen için en fazla yedekleme sıklığını gösterir. Kurtarma noktalarının ne kadar hızla tükettiğiniz, yedekleme İlkesi yapılandırmanız belirler. Örneğin, her gün bir kurtarma noktası oluşturursanız; kurtarma noktalarınızı 27 yıl boyunca bitmeden tutabilirsiniz. Aylık kurtarma noktası alırsanız, kurtarma noktalarınızı 833 yıl süreyle saklayabilirsiniz. Backup hizmeti, kurtarma noktası üzerinde bir sona erme süresi ayarlamaz.
+
+|  | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
+| --- | --- | --- | --- | --- |
+| Yedekleme sıklığı<br/> (Kurtarma hizmetleri kasasına) |Günde üç yedekleme |Günde iki yedekleme |Günde iki yedekleme |Günde bir yedekleme |
+| Yedekleme sıklığı<br/> (diske) |Uygulanamaz |SQL Server için 15 dakikada bir<br/><br/> Diğer iş yükleri için saatte bir |SQL Server için 15 dakikada bir<br/><br/> Diğer iş yükleri için saatte bir |Geçerli değil |
+| Bekletme seçenekleri |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |
+| Korumalı örnek başına en fazla kurtarma noktası |9999|9999|9999|9999|
+| En uzun bekletme süresi |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |
+| Yerel diskteki kurtarma noktaları |Geçerli değil | Dosya sunucuları için 64<br/><br/> Uygulama Sunucuları için 448 | Dosya sunucuları için 64<br/><br/> Uygulama Sunucuları için 448 |Geçerli değil |
+| Banttaki kurtarma noktaları |Geçerli değil |Sınırsız |Geçerli değil |Geçerli değil |
+
 ## <a name="how-does-azure-backup-work-with-encryption"></a>Azure Backup ile şifreleme nasıl çalışır?
 
 **Şifreleme** | **Şirket içi yedekleme** | **Azure VM'lerini yedekleme** | **Azure Vm'lerinde SQL yedekleme**
@@ -119,7 +138,7 @@ Aktarım sırasında şifreleme<br/> (Bir konumdan diğerine taşınmasını ver
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Gözden geçirme](backup-architecture.md) mimarisini ve bileşenlerini farklı yedekleme senaryoları için.
-- [Doğrulama](backup-support-matrix.md) desteklenen özellikler ve ayarlar için yedekleme.
+- [Doğrulama](backup-support-matrix.md) destek gereksinimleri ve sınırlamaları ve yedekleme için [Azure VM yedeklemesi](backup-support-matrix-iaas.md).
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

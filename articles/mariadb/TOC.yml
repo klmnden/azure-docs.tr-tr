@@ -51,6 +51,8 @@
           href: concepts-ssl-connection-security.md
         - name: Sanal ağ
           href: concepts-data-access-security-vnet.md
+        - name: Bağlantı mimarisi
+          href: concepts-connectivity-architecture.md
     - name: İş sürekliliği
       items:
         - name: Genel Bakış

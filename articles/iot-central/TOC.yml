@@ -91,6 +91,8 @@
               href: howto-export-data-blob-storage.md
         - name: Özel kurallar oluşturma
           href: howto-create-custom-rules.md
+        - name: Özel analiz oluşturma
+          href: howto-create-custom-analytics.md
         - name: Power BI’da verilerinizi görselleştirme
           href: howto-connect-powerbi.md
         - name: Diğer IoT bulutlarına bağlanma
@@ -105,6 +107,8 @@
           href: howto-configure-homepage.md
         - name: Uygulama kullanıcı arabirimini özelleştirme
           href: howto-customize-ui.md
+        - name: Uygulama şablonlarını kullanma
+          href: howto-use-app-templates.md
         - name: Azure portalından yönetme
           href: howto-manage-iot-central-from-portal.md
         - name: Azure CLI’den yönetme
@@ -141,9 +145,9 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT Cihaz SDK'ları
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

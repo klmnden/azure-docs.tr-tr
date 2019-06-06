@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545074"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475950"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Hızlı Başlangıç: Hazırlama ve Azure Machine Learning'de kod yazmaya gerek kalmadan verileri görselleştirin
 
-Hazırlama ve Azure Machine Learning için görsel sürükle ve bırak arabirimi (Önizleme) verilerinizi görselleştirin. Kullanacağınız veri üreticisi, model, teknik belirtimler ve fiyat gibi bilgiler dahil olmak üzere çeşitli ayrı otomobil için giriş içerir.  
+Hazırlama ve Azure Machine Learning için görsel sürükle ve bırak arabirimi (Önizleme) verilerinizi görselleştirin. Kullanacağınız veri üreticisi, model, teknik belirtimler ve fiyat gibi bilgiler dahil olmak üzere çeşitli ayrı otomobil için giriş içerir. Bu hızlı başlangıcı tamamladıktan sonra bu verileri otomobilin fiyatını tahmin etmek için kullanıma hazır olacaktır. 
 
-Bu hızlı başlangıçta keşfedin ve verileri hazırlama:
+Bir machine learning modeli eğitme önce anlamanız ve verilerinizi hazırlamanız gerekir.  Bu hızlı başlangıçta, gerekir:
 
 - Ekleme ve verilerin önizlemesini ilk denemenizi oluşturma
 - Eksik değerleri kaldırarak verileri hazırlama
@@ -64,9 +64,9 @@ Görsel arabirim araç kolayca oluşturun, test ve Tahmine dayalı bir modeli ü
 
     ![Denemeyi yeniden adlandırma](./media/ui-quickstart-run-experiment/rename.png)
 
-## <a name="add-data"></a>Veri ekle
+## <a name="add-data"></a>Veri ekleme
 
-Machine learning için gereken ilk şey verilerdir. Bu arabirimde kullanabileceğiniz birçok örnek veri kümesi vardır ve birçok kaynaktan verileri içeri aktarabilirsiniz. Bu örnekte, örnek veri kümesini kullanırsınız **otomobil fiyat verileri (ham)**. 
+Machine learning için gereken ilk şey verilerdir. Bu arabirimde kullanabileceğiniz birçok örnek veri kümesi vardır ve birçok kaynaktan verileri içeri aktarabilirsiniz. Bu örnekte, örnek veri kümesini kullanırsınız **otomobil fiyat verileri (ham)** . 
 
 1. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. Seçin **kaydedilmiş veri kümeleri** seçip **örnekleri** kullanılabilir örnek veri kümelerini görüntülemek için.
 
@@ -131,7 +131,7 @@ Herhangi bir zamanda bir veri kümesi veya modül verileri bu noktada, veri akı
 
      ![Veri önizlemesi](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Veri kümenizde daha iyi anlamak için her bir sütunun tıklayın.
+1. Her sütun, veri kümesi hakkında daha fazla bilgi edinin ve olup bu sütunlar bir otomobilin fiyatını tahmin etmek yararlı olacak hakkında düşünmek için tıklayın.
 
 ## <a name="prepare-data"></a>Verileri hazırlama
 
@@ -176,7 +176,7 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ç
 
 ### <a name="clean-missing-data"></a>Eksik verileri temizleme
 
-Eksik verileri olan kalan satırları kaldıran başka bir modül. Şimdi ekleyin.
+Bir model eğitip, eksik veriler hakkında bir şey yapmanız gerekir.  Bu durumda, bir modül eksik verileri olan kalan tüm satırı Kaldır ekleyeceksiniz.  
 
 1. Tür **temiz** bulmak için arama kutusuna **eksik verileri temizleme** modülü.
 
@@ -216,7 +216,7 @@ Değişiklikleri denemenizde modüllerine yapılan sonra durum "İçinde Taslak"
 
     Artık olduğuna 193 satırları ve sütunları 25.
 
-    Tıkladığınızda **kapılar num** hala 2 benzersiz değerlere sahip ancak artık 0 eksik değerleri olan görürsünüz.  
+    Tıkladığınızda **kapılar num** hala 2 benzersiz değerlere sahip ancak artık 0 eksik değerleri olan görürsünüz. Sütun kümesinde eksik değerlerin yok olduğuna bakın kalanında tıklayın. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -228,7 +228,7 @@ Bu hızlı başlangıçta şunları öğrendiniz:
 
 - Ekleme ve verilerin önizlemesini ilk denemenizi oluşturma
 - Eksik değerleri kaldırarak verileri hazırlama
-- Sonuçta elde edilen verileri görselleştirin
+- Hazırlanan verileri görselleştirin
 
 Bu verileri bir otomobilin fiyatını tahmin etmek için kullanılacak Öğreticisine geçin.
 

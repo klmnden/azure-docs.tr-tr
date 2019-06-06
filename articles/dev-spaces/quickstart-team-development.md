@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Kapsayıcılar ve azure'da mikro hizmetler ile Kubernetes geliştirme ekibi
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 74ed1981ba6bf62413d7d7bfd51282eb04afd403
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393392"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480367"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Hızlı Başlangıç: Azure geliştirme alanları kullanarak Kubernetes üzerinde takım geliştirme
 
@@ -92,6 +92,8 @@ cd charts/
 helm init --wait
 helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
 ```
+> [!Note]
+> **Bir RBAC etkin küme kullanıyorsanız**, yapılandırdığınızdan emin olun [Tiller için bir hizmet hesabı](https://helm.sh/docs/using_helm/#role-based-access-control). Aksi takdirde, `helm` komutları başarısız olur.
 
 `helm install` Komutun tamamlanması birkaç dakika sürebilir. Komut çıktısı tamamlandığında kümeye dağıtılan tüm hizmetlerin durumunu gösterir:
 

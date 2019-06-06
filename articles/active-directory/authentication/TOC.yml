@@ -142,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: iOS Cihazlarında CBA
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Geliştirme
-      items:
-        - name: Özel uygulamaların içinde MFA derleme
-          href: howto-mfa-sdk.md
     - name: Raporlama
       items:
         - name: SSPR Raporları

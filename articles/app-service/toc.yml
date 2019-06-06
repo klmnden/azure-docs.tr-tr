@@ -78,8 +78,12 @@
           href: overview-patch-os-runtime.md
         - name: Güvenlik öznitelikleri
           href: app-service-security-attributes.md
+    - name: Ağ özellikleri
+      href: networking-features.md
     - name: Gelen ve giden IP’ler
       href: overview-inbound-outbound-ips.md
+    - name: Sanal Ağ Tümleştirmesi
+      href: web-sites-integrate-with-vnet.md
     - name: Karma bağlantılar
       href: app-service-hybrid-connections.md
     - name: Traffic Manager tümleştirmesi
@@ -98,8 +102,6 @@
           href: web-sites-php-configure.md
         - name: Java'yı yapılandırma
           href: configure-language-java.md
-        - name: Şirket içi kaynaklara bağlanma
-          href: web-sites-integrate-with-vnet.md
     - name: Azure’a dağıtma
       items:
         - name: Uygulamayı dağıtma

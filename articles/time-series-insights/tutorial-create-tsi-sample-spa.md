@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 5ee6e9aefb235feb28468798c3bd6b107f8c7c49
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244031"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735344"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Öğretici: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
 
@@ -126,7 +126,7 @@ Uygulamayı oluşturmadan önce Azure AD'ye kaydetmeniz gerekir. Kayıt kimlik y
 
    1. Yorum altında üç satırı açıklamadan çıkarın `"PROD RESOURCE LINKS"` bağımlılıkları geliştirmeden üretime geçin. Yorum altında üç satır yorum `"DEV RESOURCE LINKS"`.
 
-      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
+      [!code-html[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
       Aşağıdaki örnekteki gibi bağımlılıklarınızı Açıklamalı:
 
@@ -178,7 +178,7 @@ Uygulamayı oluşturmadan önce Azure AD'ye kaydetmeniz gerekir. Kayıt kimlik y
 
    1. Visual Studio'da başarılı Yayımla günlük görünür **çıkış** bölmesi. Dağıtım tamamlandığında, Visual Studio web uygulaması bir tarayıcı sekmesinde açılır ve oturum açma için ister. Başarılı oturum açma işleminden sonra zaman serisi görüşleri denetimlerin verilerle doldurulur.
 
-## <a name="troubleshoot"></a>Sorun gider  
+## <a name="troubleshoot"></a>Sorun giderme  
 
 Hata kodu/durumu | Açıklama
 ---------------------| -----------

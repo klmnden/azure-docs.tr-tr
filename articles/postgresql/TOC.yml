@@ -90,6 +90,8 @@
               href: concepts-data-access-and-security-threat-protection.md
             - name: Sanal ağ
               href: concepts-data-access-and-security-vnet.md
+            - name: Bağlantı mimarisi
+              href: concepts-connectivity-architecture.md
         - name: İş sürekliliği
           items:
             - name: Genel Bakış

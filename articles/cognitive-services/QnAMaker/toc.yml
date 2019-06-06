@@ -96,9 +96,9 @@
         - name: Bilgi bankası oluşturma ve yayımlama
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: Yanıt alma
+        - name: Meta verileri kullanarak yanıt alma
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
         - name: Bilgi bankasıyla etkinleştirilen bot oluşturma
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Farklı bir dilde bilgi bankası oluşturma

@@ -600,6 +600,8 @@
       items:
         - name: Performans ipuçları
           items:
+            - name: Sorgu yürütme ölçümlerini alma
+              href: profile-sql-api-query.md
             - name: Sorgu performansını ayarlama
               href: sql-api-query-metrics.md
             - name: .NET SDK’sı için performans ipuçları

@@ -36,7 +36,7 @@
           items:
             - name: Güvenlik yönergelerini okuyun
               href: data-box-safety.md
-            - name: İzleme ve günlüğe kaydetme
+            - name: İzleme ve günlüğe kaydetmeyi gözden geçirme
               href: data-box-logs.md
             - name: Gereksinimleri inceleme
               items:
@@ -111,6 +111,8 @@
           items:
             - name: Azure portalı aracılığıyla yönetme
               href: data-box-portal-ui-admin.md
+            - name: Verileri blob katmanına taşıma
+              href: data-box-how-to-set-data-tier.md
             - name: Data Box Heavy sorunlarını giderme
               href: data-box-disk-troubleshoot.md
             - name: Destek birimine başvurma
@@ -121,6 +123,10 @@
           items:
             - name: Data Box Heavy nedir?
               href: data-box-heavy-overview.md
+        - name: Hızlı Başlangıçlar
+          items:
+            - name: Ayarlama - Azure portalı
+              href: data-box-heavy-quickstart-portal.md
         - name: Öğreticiler
           items:
             - name: 1 - Sipariş
@@ -135,6 +141,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: Kavramlar
           items:
+            - name: İzleme ve günlüğe kaydetmeyi gözden geçirme
+              href: data-box-logs.md
             - name: Gereksinimleri inceleme
               href: data-box-heavy-system-requirements.md
             - name: Sınırları anlama
@@ -143,10 +151,16 @@
           items:
             - name: Azure portalı aracılığıyla yönetme
               href: data-box-portal-admin.md
+            - name: Yerel web arabirimi aracılığıyla yönetme
+              href: data-box-local-web-ui-admin.md
             - name: Cihaz sorunlarını giderme
               href: data-box-troubleshoot.md
             - name: Destek birimine başvurma
               href: data-box-disk-contact-microsoft-support.md
+            - name: Geçiş
+              items:
+                - name: Azure Dosya Eşitleme’ye
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: Kaynaklar
       items:
         - name: Data Box ürünü

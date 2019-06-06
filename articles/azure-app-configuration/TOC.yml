@@ -47,6 +47,8 @@
       href: concept-point-time-snapshot.md
     - name: Özellik yönetimi
       href: concept-feature-management.md
+    - name: Olay işleme
+      href: concept-app-configuration-event.md
     - name: Yüksek kullanılabilirlik
       items:
         - name: Dayanıklılık ve olağanüstü durum kurtarma
@@ -57,6 +59,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: Yapılandırma verilerini içeri veya dışarı aktarma
       href: howto-import-export-data.md
+    - name: Olayları özel bir uç noktaya yönlendirme
+      href: howto-app-configuration-event.md
     - name: En iyi uygulamalar
       href: howto-best-practices.md
 - name: Başvuru

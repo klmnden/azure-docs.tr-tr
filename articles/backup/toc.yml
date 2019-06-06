@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: VM'yi Yedekleme - CLI
       href: quick-backup-vm-cli.md
+    - name: VM’yi Yedekleme - Resource Manager şablonu
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: Öğreticiler
   items:
     - name: Azure VM'lerini ölçeğe göre yedekleme
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Sistem Durumu
+          href: backup-azure-system-state-troubleshoot.md
     - name: Azure Backup iş yüklerini izleme
       items:
         - name: Azure portalını kullanma

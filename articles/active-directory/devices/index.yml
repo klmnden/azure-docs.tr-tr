@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure AD Cihaz Yönetimi Belgeleri
+title: Azure AD Cihaz Kimliği Belgeleri
 metadata:
   document_id: null
-  title: 'Azure Active Directory Cihaz Yönetimi Belgeleri - Öğreticiler, kavramlar, başvurular | Microsoft Docs'
-  description: Azure Active cihaz yönetimini yapılandırmayı ve test etmeyi öğrenin.
+  title: 'Azure Active Directory Cihaz Kimliği Yönetimi Belgeleri - Öğreticiler, kavramlar, başvurular | Microsoft Docs'
+  description: Azure AD’de cihaz kimliklerini yapılandırmayı ve yönetmeyi öğrenin.
   services: active-directory
   ms.subservice: devices
   author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Kullanıcılarınız, cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. Bir BT yöneticisi olarak, kuruluşunuzun varlıklarını korumak için bu cihazlar üzerinde denetiminiz olmalıdır. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlarla erişmesini sağlayabilirsiniz.<br>Cihaz yönetimi, cihaz temelli koşullu erişim senaryolarının da altyapıdır. Cihaz tabanlı koşullu erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.'
+  description: 'Kullanıcılarınız, Azure AD’deki cihazlar aracılığıyla kuruluşunuzun varlıklarına erişir. Bir BT yöneticisi olarak kuruluşunuzun varlıklarını korumak için bu cihaz kimliklerini Azure AD’de yönetmeyi tercih edersiniz. Bu sayede kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluk standartlarınızı karşılayan cihazlardan erişmesini sağlayabilirsiniz.<br>Cihaz Kimliği yönetimi, cihaz tabanlı koşullu erişim senaryolarının da temelini oluşturur. Cihaz tabanlı koşullu erişim sayesinde, ortamınızdaki kaynaklara yalnızca yönetilen cihazlar üzerinden erişilebilmesini sağlayabilirsiniz.'
 sections:
   - title: Adım adım öğreticiler
     items:

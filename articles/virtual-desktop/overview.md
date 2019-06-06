@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 05/31/2019
 ms.author: helohr
-ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965726"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476735"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows sanal masaüstü önizlemesi nedir? 
 
@@ -26,6 +26,12 @@ Azure'da Windows sanal masaüstü çalıştırdığınızda neler yapabileceğin
 * Herhangi bir bilgisayarda, var olan Uzak Masaüstü Hizmetleri (RDS) ve Windows Server Masaüstü ve uygulamaları Getir
 * Hem Masaüstü ve uygulamaları sanallaştırmayı
 * Windows 10, Windows Server ve Windows 7'yi Masaüstü ve birleştirilmiş bir yönetim deneyimi ile uygulamaları yönetme
+
+## <a name="introductory-video"></a>Tanıtım videosu
+
+Aşağıdaki videoda, Scott Manchester Windows sanal masaüstünün özelliklerden bazılarını göstermektedir:
+
+<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="key-capabilities"></a>Temel işlevler
 
@@ -93,7 +99,6 @@ Windows sanal masaüstü aşağıdaki Uzak Masaüstü istemcileri destekler:
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-
 ## <a name="supported-virtual-machine-os-image"></a>Desteklenen sanal makine işletim sistemi görüntüsü
 
 Windows sanal masaüstü aşağıdaki işletim sistemi görüntüleri destekler:
@@ -101,7 +106,7 @@ Windows sanal masaüstü aşağıdaki işletim sistemi görüntüleri destekler:
 * Windows 10 Enterprise çok oturum
 * Windows Server 2016
 
-## <a name="provide-feedback"></a>Geri bildirim gönder
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 
 Ziyaret [Windows sanal masaüstü teknoloji topluluğuna](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) etkin topluluk üyeleri ve ürün ekibine Windows sanal masaüstü hizmetiyle tartışmak için. Windows sanal masaüstü Önizleme aşamasındayken biz şu anda destek alma değildir.
 

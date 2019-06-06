@@ -164,6 +164,8 @@
       items:
         - name: Harita denetimi
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Çizim araçları
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Hizmet modülü
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Resource Manager şablonu

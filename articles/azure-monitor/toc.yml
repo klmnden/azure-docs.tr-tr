@@ -95,10 +95,6 @@
           href: platform/alerts-overview.md
         - name: Klasik uyarılar
           href: platform/alerts-classic.overview.md
-        - name: Akıllı gruplar
-          href: platform/alerts-smartgroups-overview.md
-        - name: Otomatik Ölçeklendirme
-          href: platform/autoscale-overview.md
         - name: Ölçüm uyarıları
           href: platform/alerts-metric-overview.md
         - name: Günlük uyarıları
@@ -109,6 +105,10 @@
           href: platform/alerts-common-schema.md
         - name: Eylem kuralları
           href: platform/alerts-action-rules.md
+        - name: Akıllı gruplar
+          href: platform/alerts-smartgroups-overview.md
+        - name: Otomatik Ölçeklendirme
+          href: platform/autoscale-overview.md
         - name: Değişiklik analizi
           href: app/change-analysis.md
     - name: Verileri görselleştirme

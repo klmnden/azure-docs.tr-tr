@@ -1,28 +1,29 @@
 ---
 title: Azure SQL Data Warehouse Nedir? | Microsoft Docs
-description: İlişkisel ve ilişkisel olmayan petabaytlarca veriyi işleyebilen, kurumsal sınıf bir veritabanıdır. Saniyeler içinde büyütmenizi, küçültmenizi ve duraklatmanızı sağlayan, sektörün ilk bulut veri ambarıdır.
+description: Kurumsal sınıf, ilişkisel ve ilişkisel olmayan petabaytlarca işleyebilen veritabanı dağıtılmış. Buna sektörün ilk bulut veri ambarı ile büyütme, küçültme ve saniyeler içinde büyütmenizi özelliği var.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: nicw
+ms.date: 05/30/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+mscustom: sqlfreshmay19
+ms.openlocfilehash: a9126e9023091dd8c3df71f2aa2558a01227a8be
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790846"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428021"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse Nedir?
 
-SQL Veri Ambarı, petabaytlarca veri üzerinde karmaşık sorguların hızlı bir şekilde çalıştırılması için Yüksek Düzeyde Paralel İşleme (MPP) kullanan bulut tabanlı Kurumsal Veri Ambarı (EDW) çözümüdür. SQL Veri Ambarı'nı büyük veri çözümünün temel bileşenlerinden biri olarak kullanabilirsiniz. Büyük veri aktarma SQL veri ambarı'na ile basit [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL sorguları ve yüksek performanslı bir analiz çalıştırılacak MPP gücünü kullanın. Tümleştirme ve analiz işlemleri sırasında veri ambarı, işletmenizin öngörüler için güvenebileceği tek veri sürümü haline gelir.  
-
+SQL veri ambarı, bir bulut tabanlı kurumsal veri ambarı (hızlıca petabaytlarca veri üzerinde karmaşık sorgular çalıştırmak için yüksek düzeyde paralel işleme (MPP) kullanan EDW) dağıtılır. SQL Veri Ambarı'nı büyük veri çözümünün temel bileşenlerinden biri olarak kullanabilirsiniz. Büyük veri aktarma SQL veri ambarı'na ile basit [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL sorguları ve yüksek performanslı bir analiz çalıştırılacak MPP gücünü kullanın. Tümleştirme ve analiz işlemleri sırasında veri ambarı, işletmenizin öngörüler için güvenebileceği tek veri sürümü haline gelir.  
 
 ## <a name="key-component-of-big-data-solution"></a>Büyük veri çözümünün önemli bileşeni
+
 SQL Veri Ambarı, buluttaki uçtan uca veri çözümünün önemli bileşenlerinden biridir.
 
 ![Veri ambarı çözümü](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
@@ -33,19 +34,21 @@ SQL Veri Ambarı, verileri sütunlu depolama alanındaki ilişkisel tablolara ka
 
 Analiz sonuçları dünya çapındaki raporlama veritabanlarına veya uygulamalarına iletilebilir. Ardından iş analistleri işlerle ilgili destekli kararlar almak üzere öngörü sahibi olabilir.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][create a SQL Data Warehouse] ve [örnek verileri yükleme][load sample data] hakkında bilgi edinin. Azure'da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][Azure glossary] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
 
-* [Müşteri başarı hikayeleri]
-* [Bloglar]
-* [Özellik istekleri]
-* [Videolar]
-* [Müşteri Danışma Ekibi blogları]
+- Keşfedin [Azure SQL veri ambarı mimarisi](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- Hızlı bir şekilde [SQL Data Warehouse oluşturma][create a SQL Data Warehouse]
+- [Örnek verileri yükleme][load sample data].
+- Keşfedin [videoları](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+
+Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
+* Arama [Bloglar]
+* Gönderme bir [özellik istekleri]
+* Arama [Müşteri danışma ekibi blogları]
 * [Destek bileti oluşturma]
-* [MSDN forumu]
-* [Stack Overflow forumu]
-* [Twitter]
+* Arama [MSDN Forumu]
+* Arama [Stack Overflow Forumu]
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -63,14 +66,13 @@ SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL V
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Müşteri başarı hikayeleri]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Bloglar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN forumu]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow forumu]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

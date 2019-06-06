@@ -8,29 +8,29 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: 979ca857a4410a8efd1b211afc09a0563d76a1ba
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 155e36bf4198eb18f5505483ea13a287f88a5022
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158649"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733251"
 ---
-Bir sonraki önerilen makaleye geçecekseniz oluşturduğunuz kaynakları tutabilir ve yeniden kullanabilirsiniz.
+Önerilen sonraki makalede devam etmeyi planlıyorsanız, korumak ve önceden oluşturduğunuz kaynakları yeniden.
 
-Geçmeyecekseniz ücret kesilmesini önlemek için bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
+Aksi takdirde ücretlerden kaçınmak için bu makalede oluşturduğunuz Azure kaynaklarını silebilirsiniz. 
 
 > [!IMPORTANT]
-> Silinen kaynak grupları geri alınamaz. Kaynak grubu ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. IoT Hub'ı tutmak istediğiniz kaynakların bulunduğu mevcut bir kaynak grubunda oluşturduysanız kaynak grubunu silmek yerine IoT Hub kaynağını silin.
+> Silinen kaynak grupları geri alınamaz. Kaynak grubu ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. IOT hub'ı korumak istediğiniz kaynakları içeren kaynak grubu içinde oluşturduysanız, yalnızca IOT hub'ı kaynağının, kaynak grubunu silin.
 >
 
 Bir kaynak grubunu adıyla silmek için:
 
-1. [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’na tıklayın.
+1. [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’nı seçin.
 
-2. **Ada göre filtrele...** metin kutusuna IoT Hub'ınızın bulunduğu kaynak grubunun adını girin. 
+1. İçinde **ada göre filtrele** kutusunda, IOT hub'ınızı içeren kaynak grubunun adını girin. 
 
-3. Sonuç listesinde kaynak grubunuzun sağ tarafında **...** ve sonra **Kaynak grubunu sil**'e tıklayın.
+1. Sonuç listesinde, kaynak grubunuzun sağındaki üç nokta simgesini seçin. ( **...** ) ve ardından **kaynak grubunu Sil**.
 
-    ![Sil](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
+    !["Kaynak grubunu sil" düğmesi](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
 
-4. Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını tekrar yazın ve **Sil**'e tıklayın. Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
+1. Kaynak grubu silme işlemini onaylamak için kaynak grubu adı girin ve ardından **Sil**. Birkaç dakika sonra kaynak grubunu ve içerdiği tüm kaynaklarla silinir.

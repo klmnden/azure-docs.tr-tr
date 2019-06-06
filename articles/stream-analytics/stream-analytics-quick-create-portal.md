@@ -4,16 +4,16 @@ description: Bu hızlı başlangıçta bir Stream Analytic işi oluşturma, gird
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123626"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493368"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma
 
@@ -40,7 +40,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
    |Abonelik  | \<Aboneliğiniz\> |  Kullanmak istediğiniz Azure aboneliğini seçin. |
    |Kaynak grubu   |   asaquickstart-resourcegroup  |   **Yeni Oluştur**’u seçin ve hesabınız için yeni bir kaynak grubu adı girin. |
    |Bölge  |  \<Kullanıcılarınıza en yakın bölgeyi seçin\> | Burada, IOT Hub'ınıza barındırabilirsiniz coğrafi bir konum seçin. Kullanıcılarınıza en yakın konumu kullanın. |
-   |IoT Hub Adı  | MyASAIoTHub  |   IOT Hub'ınız için bir ad seçin.   |
+   |IOT hub'ı adı  | MyASAIoTHub  |   IOT Hub'ınız için bir ad seçin.   |
 
    ![IoT Hub'ı oluşturma](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
@@ -82,7 +82,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
 
 2. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesini seçin.  
 
-3. Sonuçlar listesinden **Veri ve Analiz** > **Stream Analytics işi**’ni seçin.  
+3. Seçin **Analytics** > **Stream Analytics işi** sonuçları listesinde.  
 
 4. Stream Analytics işi sayfasını aşağıdaki bilgilerle doldurun:
 
@@ -93,7 +93,7 @@ Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılan
    |Kaynak grubu   |   asaquickstart-resourcegroup  |   Aynı kaynak grubu IOT Hub'ınızı seçin. |
    |Location  |  \<Kullanıcılarınıza en yakın bölgeyi seçin\> | Stream Analytics işinizi barındırabileceğiniz coğrafi konumu seçin. Daha iyi performans elde etmek ve veri aktarımı maliyetini azaltmak için kullanıcılarınıza en yakın konumu seçin. |
    |Akış birimleri  | 1  |   Akış birimleri, bir işin yürütülmesi için gereken bilgi işlem kaynaklarını temsil eder. Varsayılan olarak, bu değer 1 olarak ayarlanır. Akış birimlerini ölçeklendirme hakkında bilgi edinmek için [akış birimlerini anlama ve ayarlama](stream-analytics-streaming-unit-consumption.md) başlıklı makaleye bakın.   |
-   |Barındırma ortamı  |  Bulut  |   Stream Analytics işleri buluta veya uca dağıtılabilir. Bulut, Azure Cloud’a dağıtım yapmanıza Edge ise IoT Edge cihazına dağıtım yapmanıza olanak tanır. |
+   |Barındırma ortamı  |  Bulut  |   Stream Analytics işleri buluta veya uca dağıtılabilir. Bulut Azure Bulutuna dağıtmanıza olanak tanır ve uç IOT Edge cihazına dağıtmak sağlar. |
 
    ![İş oluştur](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -187,7 +187,7 @@ Artık gerekli olmadığında kaynak grubunu, akış işini ve tüm ilgili kayna
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure portalı kullanarak basit bir Stream Analytics işi dağıttınız. Stream Analytics işlerini [PowerShell](stream-analytics-quick-create-powershell.md)’i ve [Visual Studio](stream-analytics-quick-create-vs.md)’yu kullanarak da dağıtabilirsiniz.
+Bu hızlı başlangıçta Azure portalı kullanarak basit bir Stream Analytics işi dağıttınız. Stream Analytics işlerini kullanarak da dağıtabilirsiniz [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), ve [Visual Studio Code](quick-create-vs-code.md).
 
 Diğer girdi kaynaklarını yapılandırma ve gerçek zamanlı algılama hakkında bilgi almak için aşağıdaki makaleye geçin:
 

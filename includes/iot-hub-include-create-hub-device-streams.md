@@ -8,49 +8,53 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: ede897054a6cbef254c06bd1d810b933ec09016a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93c71fa8b0c39cc16d2a8e24472e8d68717a6c32
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158651"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733291"
 ---
-Bu bölümde bir IOT hub'ı kullanarak oluşturmayı açıklar [Azure portalında](https://portal.azure.com).
+Bu bölümde, IOT hub'ı kullanarak oluşturmak açıklar [Azure portalında](https://portal.azure.com).
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Seçin +**kaynak Oluştur**, ardından **nesnelerin interneti**.
+1. Seçin **kaynak Oluştur**ve ardından **nesnelerin interneti**.
 
-3. Tıklayın **IOT hub'ı** sağdaki listeden. IOT hub'ı oluşturmak için ilk ekran görürsünüz.
+1. Sağdaki listeden seçin **IOT hub'ı**. IOT hub'ı oluşturmak için ilk sayfasını açar.
 
-   ![Azure portalında bir hub'ı oluşturma gösteren ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
+   ![Azure portalında bir IOT hub'ı oluşturma](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
 
    Şu alanları doldurun:
 
-   **Abonelik**: IOT hub'ınız için kullanılacak aboneliği seçin.
+   a. İçinde **abonelik** aşağı açılan listesinde, IOT hub'ınız için kullanılacak aboneliği seçin.
 
-   **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya var olanı kullanın. Yeni bir tane oluşturmak için tıklayın **Yeni Oluştur** ve kullanmak istediğiniz adı girin. Mevcut bir kaynak grubunu kullanmak için **var olanı kullan** ve açılır listeden kaynak grubunu seçin. Daha fazla bilgi için [yönetme Azure Resource Manager kaynak grupları](../articles/azure-resource-manager/manage-resource-groups-portal.md).
+   b. İçin **kaynak grubu**, aşağıdakilerden birini yapın: 
+      * Yeni bir kaynak grubu oluşturmak için Seç **Yeni Oluştur** ve kullanmak istediğiniz adı girin. 
+      * Mevcut bir kaynak grubunu kullanmayı seçin **var olanı kullan** ve aşağı açılan listesinde, kaynak grubunu seçin. 
+      
+        Daha fazla bilgi için [yönetme Azure Resource Manager kaynak grupları](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
-   **Bölge**: Bu hub'ınıza yer almasını istediğiniz bölgedir. IOT Hub cihaz akışları Önizleme, Orta ABD veya Orta ABD EUAP destekleyen bir bölge seçin.
+   c. İçinde **bölge** aşağı açılan listesinde, hub'ınıza yer almasını istediğiniz bölgeyi seçin. IOT Hub cihaz akışları önizleme ya da destekleyen bir bölge seçin **Orta ABD** veya **Orta ABD EUAP**.
 
-   **IOT hub'ı adı**: IOT Hub'ınızın adını yerleştirin. Bu adın küresel olarak benzersiz olması gerekir. Girdiğiniz ad kullanılabilir durumdaysa yeşil bir onay işareti görünür.
+   d. İçinde **IOT hub'ı adı** kutusuna, IOT hub'ınız için bir ad girin. Adın genel olarak benzersiz olması gerekir. Girdiğiniz ad kullanılabilir durumdaysa yeşil bir onay işareti görünür.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-4. Tıklayın **sonraki: Boyut ve ölçek** IOT hub'ınıza oluşturmaya devam etmek için.
+1. IOT hub'ınıza oluşturmaya devam etmek için seçin **sonraki: Boyut ve ölçek**.
 
-   ![Ayarı boyut ve ölçek için Azure portalını kullanarak yeni bir IOT hub'ı gösteren ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
+   ![Boyut ve ölçek için Azure portalını kullanarak yeni bir IOT hub'ı ayarlama](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
-   Bu ekranda varsayılan değerleri alabilir ve tıklamanız yeterli **gözden geçir + Oluştur** altındaki.
+   Bu bölümde, varsayılan ayarları kabul edin ve seçin **gözden geçir + Oluştur** altındaki. Aşağıdaki seçenekleri göz önünde bulundurun:
 
-   **Fiyatlandırma ve ölçek katmanı**: Standart (S1, S2, S3) veya (F1) ücretsiz katmanı seçtiğinizden emin olun. Bu seçenek, Filo boyutuna ve hub'ınıza (örneğin, telemetri iletilerini) beklediğiniz akış dışı iş yükleri tarafından da destekli. Örneğin, ücretsiz katmanı, sınama ve değerlendirme için tasarlanmıştır. Günlük ileti 8000'en fazla ve IOT hub'ına bağlanması 500 CİHAZDAN sağlar. Her Azure aboneliğinin bir IOT Hub ücretsiz katmanında oluşturabilirsiniz. 
+   * İçinde **fiyatlandırma ve ölçek katmanı** aşağı açılan listesinde, standart katmanların birini seçin (**S1**, **S2**, veya **S3**) veya **F1: Ücretsiz katmanı**. Bu seçenek, Filo boyutuna ve hub'ınıza (örneğin, telemetri iletilerini) beklediğiniz akış dışı iş yükleri tarafından da destekli. Örneğin, ücretsiz katmanı, sınama ve değerlendirme için tasarlanmıştır. Günlük ileti 8000'en fazla ve IOT hub'ına bağlanması 500 CİHAZDAN sağlar. Her Azure aboneliğinin bir IOT hub ücretsiz katmanında oluşturabilirsiniz. 
 
-   **IOT Hub birimlerinin**: Bu seçim olmayan akış iş yükü hub'ınıza beklediğiniz bağlıdır: şu an için 1'i seçebilirsiniz.
+   * İçin **numarası, IOT Hub birimlerinin**: Bu seçenek, akış dışı iş yükü hub'ınıza beklediğiniz bağlıdır. Şu an için 1 seçebilirsiniz.
 
-   Bir katman seçenekleri hakkında daha fazla ayrıntı için bkz: [doğru IOT Hub katmanını seçme](../articles/iot-hub/iot-hub-scaling.md).
+   Katman seçenekleri hakkında daha fazla bilgi için bkz. [doğru IOT hub katmanını seçme](../articles/iot-hub/iot-hub-scaling.md).
 
-5. Tıklayın **gözden + Oluştur** seçimlerinizi gözden geçirmek için. Bu ekranda gösterilene benzer bir şey görürsünüz.
+1. Seçimlerinizi gözden geçirmek için seçin **gözden + Oluştur** sekmesi. Açılan bölmede aşağıdakine benzer:
 
-   ![Yeni IOT hub'ı oluşturmak için bilgileri gözden geçirdikten ekran görüntüsü](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
+   ![Yeni IOT hub'ı oluşturma hakkında bilgi](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 
-6. Tıklayın **Oluştur** yeni IOT hub'ınızı oluşturmak için. Hub'ı oluşturuluyor, birkaç dakika sürer.
+1. Yeni IOT hub'ınızı oluşturmak için Seç **Oluştur**. Bu işlem birkaç dakika sürer.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2a4bdaba45c466b7f1f6fb8e91033f9a7665e034
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253080"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730541"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -113,6 +113,8 @@ Azure AD denetim günlüğü parola sıfırlamanın oluştuğu yerin IP adresi v
 Kullanıcıların Windows 10 cihazının oturum açma ekranından parolalarını sıfırlama, "defaultuser1" adlı geçici düşük ayrıcalıklı hesap oluşturulur. Bu hesap, parola sıfırlama işlemi güvenli tutmak için kullanılır. Hesap rastgele oluşturulmuş bir parolası olup, cihaz oturum açma için göstermez ve kullanıcının parolasını sıfırlandıktan sonra otomatik olarak kaldırılacak. Birden çok "defaultuser" profili mevcut olabilir, ancak güvenle yoksayılabilir.
 
 ## <a name="limitations"></a>Sınırlamalar
+
+Hesabının kilidini açmak, mobil uygulama bildirimi ve mobil uygulama kodu, SSPR Windows 10 için tarafından desteklenmez.
 
 Hyper-V kullanarak bu işlevi test ederken, "Parolayı sıfırla" bağlantısı gösterilmiyor.
 

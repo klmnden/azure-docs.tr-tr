@@ -470,8 +470,12 @@
           href: ./partner-center-portal/manage-account.md
         - name: Şirket iş hesabı bulma veya oluşturma
           href: ./partner-center-portal/company-work-accounts.md
+        - name: CPP’den İş Ortağı Merkezi’ne Hesap Geçişi
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Yeni teklif oluşturma
       items:
+        - name: Teklif oluşturma denetim listesi
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: SaaS teklifi oluşturma
           href: ./partner-center-portal/create-new-saas-offer.md
         - name: SaaS gerçekleştirme API'leri

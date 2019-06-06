@@ -3,18 +3,18 @@ title: Azure IoT Central Kullanıcı Arabirimi turuna katılın | Microsoft Docs
 description: Oluşturucu olarak, bir IoT çözümü oluşturmak için kullanabileceğiniz Azure IoT Central kullanıcı arabiriminin temel alanlarını tanıyın.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 53306b2087a47f5a61fc2a228e2d1f527127f746
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233452"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476330"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central Kullanıcı Arabirimi turuna katılın
 
@@ -35,7 +35,7 @@ _Operatör_ olarak, Azure IoT Central kullanıcı arabirimini kullanarak Azure I
 
 ## <a name="use-the-left-navigation-menu"></a>Sol gezinti menüsünü kullanma
 
-Sol gezinti menüsünde, uygulamanın farklı alanlara erişmek için kullanın. Genişlet veya seçerek gezinti çubuğunu Daralt **<** veya **>**:
+Sol gezinti menüsünde, uygulamanın farklı alanlara erişmek için kullanın. Genişlet veya seçerek gezinti çubuğunu Daralt **<** veya **>** :
 
 | Menü | Açıklama |
 | ---- | ----------- |
@@ -63,7 +63,9 @@ Kullanıcı arabirimi için açık renkli tema veya koyu renkli temayı seçebil
 
 ![Pano](media/overview-iot-central-tour/homepage.png)
 
-Azure IOT Central uygulamanıza oturum açtığınızda gördüğünüz ilk sayfa panodur. Bir oluşturucu, diğer kullanıcılar için uygulama Panosu döşemeler ekleyerek özelleştirebilirsiniz. Daha fazla bilgi almak için [Azure IoT Central operatör görünümünü özelleştirme](tutorial-customize-operator.md) öğreticisine bakın. Kullanıcılar aynı zamanda [kendi kişisel panolar oluşturma](howto-personalize-dashboard.md).
+* Azure IOT Central uygulamanıza oturum açtığınızda gördüğünüz ilk sayfa panodur. Bir oluşturucu, diğer kullanıcılar için uygulama Panosu döşemeler ekleyerek özelleştirebilirsiniz. Daha fazla bilgi almak için [Azure IoT Central operatör görünümünü özelleştirme](tutorial-customize-operator.md) öğreticisine bakın.
+
+* Bir operatör olarak, kişiselleştirilmiş panolar oluşturun ve bunları ve varsayılan pano arasında geçiş yapabilirsiniz. Daha fazla bilgi için bkz. [oluştur ve kişisel panoları Yönet](howto-personalize-dashboard.md) nasıl yapılır makalesi.
 
 ## <a name="device-explorer"></a>Device Explorer
 
@@ -86,29 +88,36 @@ _Cihaz kümeleri_ sayfası, oluşturucu tarafından oluşturulan cihaz kümeleri
 
 Analiz sayfasında, uygulamanıza bağlı cihazların nasıl davrandığını anlamanıza yardımcı olan grafikler gösterilir. Operatör bu sayfayı kullanarak bağlı cihazlarla ilgili sorunları izler ve araştırır. Oluşturucu, bu sayfada gösterilen grafikleri tanımlayabilir. Daha fazla bilgi almak için [Azure IoT Central uygulamanız için özel analizler oluşturma](howto-use-device-sets.md) makalesine bakın.
 
-## <a name="jobs"></a>İşler (Job)
+## <a name="jobs"></a>İşler
 
 ![İşler sayfası](media/overview-iot-central-tour/jobs.png)
 
-İşler sayfası, cihazlarınızda toplu cihaz yönetimi işlemleri gerçekleştirmenize olanak sağlar. Oluşturucu, cihaz özelliklerini, ayarları ve komutları güncelleştirmek için bu sayfayı kullanır. Daha fazla bilgi edinmek için [İş çalıştırma](howto-run-a-job.md) makalesine bakın.
+İşler sayfası toplu cihaz yönetimi işlemleri cihazlarınızda çalıştırmanızı sağlar. Oluşturucu, cihaz özelliklerini, ayarları ve komutları güncelleştirmek için bu sayfayı kullanır. Daha fazla bilgi edinmek için [İş çalıştırma](howto-run-a-job.md) makalesine bakın.
 
-## <a name="device-templates"></a>Cihaz Şablonları
+## <a name="device-templates"></a>Cihaz şablonları
 
 ![Cihaz şablonlarını](media/overview-iot-central-tour/templates.png)
 
-Cihaz şablonları burada bir oluşturucu oluşturur ve uygulamanın cihaz şablonlarında yönetir sayfasıdır. Daha fazla bilgi almak için [Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md) öğreticisine bakın.
+Cihaz şablonları burada bir oluşturucu oluşturur ve uygulamanın cihaz şablonlarında yönetir sayfasıdır. Bir cihaz şablon gibi cihaz özelliklerini belirtir:
 
-## <a name="continuous-data-export"></a>Sürekli Veri Dışarı Aktarma
+- Telemetri, durum ve olay ölçümleri.
+- Ayarları ve özellikleri.
+- Komutları.
+- Olayları veya telemetri değerleri temel alan kuralları.
+
+Daha fazla bilgi almak için [Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md) öğreticisine bakın.
+
+## <a name="continuous-data-export"></a>Verileri sürekli dışarı aktarma
 
 ![Sürekli veri dışarı aktarma sayfası](media/overview-iot-central-tour/export.png)
 
-Sürekli veri dışarı aktarma burada uygulamadan telemetri gibi verileri dışarı aktarma bir yöneticinin tanımladığı sayfasıdır. Diğer hizmetler, dışarı aktarılan verileri saklamak veya analiz için kullanın. Daha fazla bilgi için bkz. [Azure IOT Central verilerinizi dışarı](howto-export-data.md) makalesi.
+Sürekli veri dışarı aktarma Burada, uygulamadan telemetri gibi bir veri akışını nasıl bir yöneticinin tanımladığı sayfasıdır. Diğer hizmetler, dışarı aktarılan verileri saklamak veya analiz için kullanın. Daha fazla bilgi için bkz. [Azure IOT Central verilerinizi dışarı](howto-export-data.md) makalesi.
 
 ## <a name="administration"></a>Yönetim
 
 ![Yönetim sayfası](media/overview-iot-central-tour/administration.png)
 
-Yönetim sayfası, uygulamadaki kullanıcıları ve rolleri tanımlama gibi bir yöneticinin kullandığı araçların bağlantılarını içerir. Daha fazla bilgi almak için [Azure IoT Central uygulamanızı yönetme](howto-administer.md) makalesine bakın.
+Yönetim sayfasını yönetici kullanıcıları ve rolleri uygulamasında tanımlama ve kullanıcı arabirimini özelleştirme gibi kullanan araçlarına bağlantılar içerir. Daha fazla bilgi almak için [Azure IoT Central uygulamanızı yönetme](howto-administer.md) makalesine bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

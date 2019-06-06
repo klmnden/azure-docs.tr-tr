@@ -1,213 +1,222 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Microsoft Identity Platform (eski adı Geliştiriciler için Azure Active Directory)
-metadata:
-  title: Microsoft Identity Platform (Geliştiriciler için Azure Active Directory)
-  description: 'Microsoft Identity Platform ile tüm Microsoft kimliklerinde kullanıcıların güvenli bir şekilde oturum açmasını sağlayan, Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemeyi öğrenin.'
-  services: active-directory
-  author: CelesteDG
-  manager: CelesteDG
-  ms.service: active-directory
-  ms.subservice: develop
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 05/07/2019
-  ms.author: celested
-abstract:
-  description: 'Microsoft kimlik platformu, Azure Active Directory (Azure AD) geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu platform geliştiricilerin tüm Microsoft kimlikleriyle oturum açan ve Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemesini sağlar. OAuth 2.0 ve OpenID Connect standardıyla uyumlu bir kimlik doğrulama hizmetinden, açık kaynak kitaplıklarından, uygulama kaydı ve yapılandırmasından, güçlü kavram ve başvuru belgelerinden, hızlı başlangıç örneklerinden, kod örneklerinden, öğreticilerden ve nasıl yapılır kılavuzlarından oluşan tam özellikli bir platformdur.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/identity-platform-thumbnail.png
-      width: 250
-    title: 'Microsoft kimlik platformuna genel bakış (2:20)'
-    href: 'https://youtu.be/y_fgJAatVhk'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/active-directory/develop/about-microsoft-identity-platform
-            html: <p>Microsoft Identity Platform'un özellikleri ve yetenekleri hakkında daha fazla bilgi edinin.</p>
-            image:
-              src: ./media/index/i_get-started.svg
-            title: Microsoft Identity Platform'un gelişimi
-          - href: /azure/active-directory/develop/v2-overview
-            html: <p>Tüm Microsoft kimlikleriyle oturumu açılan uygulamalar oluşturun ve Microsoft Graph gibi Microsoft API'lerini veya geliştiricilerin oluşturduğu API'leri çağırmak için belirteçler alın.</p>
-            image:
-              src: ./media/index/i_investigate.svg
-            title: v2.0
-          - href: /azure/active-directory/develop/azure-ad-developers-guide/
-            html: '<p>Azure AD Authentication Library (ADAL), Azure portal ve Azure AD Graph API''sini kullanarak Azure AD v1.0 uç noktasından belirteç isteyerek Azure AD kimliklerini (iş ve okul hesapları) doğrulayın.</p>'
-            image:
-              src: ./media/index/i_advanced.svg
-            title: v1.0
-  - title: Uygulama senaryoları
-    items:
-      - type: paragraph
-        text: 'Kimlikle çalışmanın zor olması şart değil. Kendinize uygun bir senaryo seçin; her senaryo yolunun genel bakış bilgileri, uygulama kaydı ve uygulama kodu yapılandırma yönergeleri, belirteç alıp API çağrısı yapmak için kod örnekleri ve uygulamanızı üretime geçirmeye yönelik önerileri vardır.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/develop/scenario-spa-overview">Tek sayfalı uygulama</a>
-          - html: <a href="/azure/active-directory/develop/scenario-web-app-sign-user-overview">Kullanıcıların oturum açtığı web uygulaması</a>
-          - html: <a href="/azure/active-directory/develop/scenario-web-app-call-api-overview">Web API'lerini çağıran web uygulaması</a>
-          - html: <a href="/azure/active-directory/develop/scenario-protected-web-api-overview">Korumalı web API'si</a>
-          - html: <a href="/azure/active-directory/develop/scenario-web-api-call-api-overview">Aşağı akış web API'lerini çağıran web API'si</a>
-          - html: <a href="/azure/active-directory/develop/scenario-desktop-overview">Web API'lerini çağıran masaüstü uygulaması</a>
-          - html: <a href="/azure/active-directory/develop/scenario-daemon-overview">Daemon uygulaması</a>
-          - html: <a href="/azure/active-directory/develop/scenario-mobile-overview">Mobil uygulama</a>
-  - title: Hızlı Başlangıçlar
-    items:
-      - type: paragraph
-        text: 'Uygulamanın kullanıcıların oturum açmasını sağlamasını, Microsoft Graph API''sini veya herhangi bir web API''sini çağırmak için erişim belirteci almasını ve diğer işlemleri yapmasını gösteren kod örneğini nasıl kullanacağınızı öğrenmek için bu hızlı başlangıçları izleyin.'
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_js.svg
-            title: JavaScript
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP .NET
-          - image:
-              src: ./media/index/logo_NETcore.svg
-            title: ASP .NET Core
-          - image:
-              src: ./media/index/logo_nodejs.svg
-            title: NodeJS
-          - image:
-              src: ./media/index/logo_android.svg
-            title: Android
-          - image:
-              src: ./media/index/logo_ios.svg
-            title: iOS
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Evrensel Windows Platformu
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Windows Masaüstü .NET
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: .NET
-        rows:
-          - title: Tek sayfalı uygulama
-            values:
-              - href: quickstart-v2-javascript.md
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: Web uygulaması
-            values:
-              - href: null
-              - href: quickstart-v2-aspnet-webapp.md
-              - href: quickstart-v2-aspnet-core-webapp.md
-              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: Web API
-            values:
-              - href: null
-              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: Mobil ve masaüstü uygulama
-            values:
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: quickstart-v2-android.md
-              - href: quickstart-v2-ios.md
-              - href: quickstart-v2-uwp.md
-              - href: quickstart-v2-windows-desktop.md
-              - href: null
-          - title: Daemon uygulaması
-            values:
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: quickstart-v2-netcore-daemon.md
-  - title: Öğreticiler
-    items:
-      - type: paragraph
-        text: 'Kullanıcının oturumunu açma, Microsoft Graph API''sini çağırmaya yönelik erişim belirtecini alma ve Microsoft Graph API''sine temel bir istek gönderme gibi kimlik doğrulamayla ilgili en önemli geliştirici görevleri için Microsoft Identity Platform''u kullanın ve ayrıntılı, senaryo tabanlı yordamları izleyin.'
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_js.svg
-            title: JavaScript
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP .NET
-          - image:
-              src: ./media/index/logo_android.svg
-            title: Android
-          - image:
-              src: ./media/index/logo_ios.svg
-            title: iOS
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Evrensel Windows Platformu
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Windows Masaüstü .NET
-        rows:
-          - title: Tek sayfalı uygulama
-            values:
-              - href: tutorial-v2-javascript-spa.md
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: Web uygulaması
-            values:
-              - href: null
-              - href: tutorial-v2-asp-webapp.md
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: Mobil ve masaüstü uygulama
-            values:
-              - href: null
-              - href: null
-              - href: tutorial-v2-android.md
-              - href: tutorial-v2-ios.md
-              - href: tutorial-v2-windows-uwp.md
-              - href: tutorial-v2-windows-desktop.md
-  - title: Örnekler
-    items:
-      - type: paragraph
-        text: 'Geliştirmekte olduğunuz uygulama türüne, platforma ve kullandığınız API''lere göre kod örnekleri bulun.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/develop/sample-v2-code">Senaryoya göre v2.0 kod örnekleri</a>
-          - html: <a href="/azure/active-directory/develop/sample-v1-code">Senaryoya göre v1.0 kod örnekleri</a>
+summary: 'Microsoft kimlik platformu, Azure Active Directory (Azure AD) geliştirici platformunun geliştirilmesiyle ortaya çıkmıştır. Bu platform geliştiricilerin tüm Microsoft kimlikleriyle oturum açan ve Microsoft Graph veya diğer Microsoft API''leri ya da geliştiricilerin derlemiş olduğu API''lere çağrı göndermek için gerekli belirteçleri alan uygulamalar derlemesini sağlar. OAuth 2.0 ve OpenID Connect standardıyla uyumlu bir kimlik doğrulama hizmetinden, açık kaynak kitaplıklarından, uygulama kaydı ve yapılandırmasından, güçlü kavram ve başvuru belgelerinden, hızlı başlangıç örneklerinden, kod örneklerinden, öğreticilerden ve nasıl yapılır kılavuzlarından oluşan tam özellikli bir platformdur.'
+landingContent:
+  - title: Microsoft kimlik platformu hakkında
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Microsoft Identity Platform'un gelişimi
+            url: about-microsoft-identity-platform.md
+          - text: Microsoft kimlik platformu (v2.0)
+            url: v2-overview.md
+          - text: Geliştiriciler için Azure Active Directory (v1.0)
+            url: v1-overview.md
+      - linkListType: learn
+        links:
+          - text: One Dev Minute - Microsoft kimlik platformu
+            url: 'https://youtu.be/y_fgJAatVhk'
+  - title: Tek sayfalı bir uygulama oluşturma
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-spa-overview.md
+      - linkListType: quickstart
+        links:
+          - text: JavaScript
+            url: quickstart-v2-javascript.md
+      - linkListType: tutorial
+        links:
+          - text: JavaScript
+            url: tutorial-v2-javascript-spa.md
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+      - linkListType: download
+        links:
+          - text: 'Örnekler - JavaScript, Angular'
+            url: 'sample-v2-code.md#single-page-applications-spa'
+          - text: Örnek - Azure AD B2C ile SPA
+            url: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
+  - title: Kullanıcıların oturum açtığı web uygulaması oluşturma
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-web-app-sign-user-overview.md
+      - linkListType: quickstart
+        links:
+          - text: ASP.NET Çekirdeği
+            url: quickstart-v2-aspnet-core-webapp.md
+          - text: ASP.NET
+            url: quickstart-v2-aspnet-webapp.md
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET Çekirdeği
+            url: 'https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2'
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+      - linkListType: download
+        links:
+          - text: 'Örnekler - ASP.NET Core, ASP.NET'
+            url: 'sample-v2-code.md#web-applications'
+  - title: Web API'lerini çağıran web uygulaması oluşturma
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-web-app-call-api-overview.md
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET Çekirdeği
+            url: 'https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial'
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+      - linkListType: download
+        links:
+          - text: 'Örnekler - ASP.NET Core, ASP.NET, Node.js, Ruby'
+            url: 'sample-v2-code.md#web-applications'
+  - title: Korumalı web API'si oluşturma
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-protected-web-api-overview.md
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET Core web API'si
+            url: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2'
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+      - linkListType: download
+        links:
+          - text: Örnek - ASP.NET
+            url: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2'
+  - title: Web API'lerini çağıran web API'si
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-web-api-call-api-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Microsoft Graph çağıran ASP.NET Core web API'si
+            url: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph'
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+  - title: Web API'lerini çağıran masaüstü uygulaması oluşturma
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-desktop-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Belirteç alma ve Microsoft Graph API’si çağırma (Windows masaüstü)
+            url: quickstart-v2-windows-desktop.md
+          - text: Belirteç alma ve Microsoft Graph API’si çağırma (UWP)
+            url: quickstart-v2-uwp.md
+      - linkListType: tutorial
+        links:
+          - text: Microsoft Graph API'si çağırma (Windows masaüstü)
+            url: tutorial-v2-windows-desktop.md
+          - text: Microsoft Graph API'si çağırma (UWP)
+            url: tutorial-v2-windows-uwp.md
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+      - linkListType: download
+        links:
+          - text: 'Örnek - .NET, .NET Core'
+            url: 'sample-v2-code.md#desktop-and-mobile-public-client-apps'
+  - title: Web API'lerini çağıran daemon uygulaması oluşturma
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-daemon-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Belirteç alma ve Microsoft Graph API’si çağırma (.NET Core konsolu)
+            url: quickstart-v2-netcore-daemon.md
+          - text: Belirteç alma ve Microsoft Graph API’si çağırma (ASP.NET web uygulaması)
+            url: 'https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp'
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+      - linkListType: download
+        links:
+          - text: 'Örnekler - ASP.NET konsolu, ASP.NET web'
+            url: 'sample-v2-code.md#daemon-applications'
+  - title: Web API'lerini çağıran mobil uygulama oluşturma
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Senaryoya genel bakış
+            url: scenario-mobile-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Belirteç alma ve Microsoft Graph API’si çağırma (Android)
+            url: quickstart-v2-android.md
+          - text: Belirteç alma ve Microsoft Graph API’si çağırma (iOS)
+            url: quickstart-v2-ios.md
+          - text: Belirteç alma ve Microsoft Graph API’si çağırma (Xamarin iOS ve Android)
+            url: 'https://github.com/Azure-Samples/active-directory-xamarin-native-v2'
+      - linkListType: tutorial
+        links:
+          - text: Kullanıcıların oturumunu açma ve Microsoft Graph API'si çağırma (Android)
+            url: tutorial-v2-android.md
+          - text: Kullanıcıların oturumunu açma ve Microsoft Graph API'si çağırma (iOS)
+            url: tutorial-v2-ios.md
+      - linkListType: deploy
+        links:
+          - text: Test uygulaması tümleştirme
+            url: identity-platform-integration-checklist.md
+      - linkListType: download
+        links:
+          - text: 'Örnek - Android, iOS, Xamarin'
+            url: 'sample-v2-code.md#desktop-and-mobile-public-client-apps'
+  - title: Microsoft Graph API'si çağırma
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Microsoft Graph hakkında
+            url: 'https://docs.microsoft.com/graph/overview'
+      - linkListType: quickstart
+        links:
+          - text: 3 dakikada çalışmaya başlayın
+            url: 'https://developer.microsoft.com/graph/get-started'
+      - linkListType: learn
+        links:
+          - text: API’yi kullanma
+            url: 'https://docs.microsoft.com/graph/use-the-api'
+          - text: Microsoft Graph REST API v1.0
+            url: 'https://docs.microsoft.com/graph/api/overview?toc=.%2Fref%2Ftoc.json&view=graph-rest-1.0'
+          - text: Microsoft Graph REST API Beta
+            url: 'https://docs.microsoft.com/graph/api/overview?toc=.%2Fref%2Ftoc.json&view=graph-rest-beta'
+      - linkListType: deploy
+        links:
+          - text: Graph Gezgini
+            url: 'https://developer.microsoft.com/graph/graph-explorer/'
+  - title: Sosyal ve yerel kimliklerle oturum açan müşterilere yönelik bir uygulama oluşturma
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure AD B2C hakkında
+            url: 'https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview'
+      - linkListType: tutorial
+        links:
+          - text: Azure AD B2C’de uygulamalarınıza kimlik sağlayıcıları ekleme
+            url: 'https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers'

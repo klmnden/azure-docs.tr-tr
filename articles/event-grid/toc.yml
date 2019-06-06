@@ -166,6 +166,8 @@
           href: event-schema-service-bus.md
         - name: Azure Haritalar
           href: event-schema-azure-maps.md
+        - name: Uygulama Yapılandırması
+          href: event-schema-app-configuration.md
     - name: Şablon kaynakları
       items:
         - name: Olay abonelikleri

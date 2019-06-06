@@ -34,6 +34,8 @@
       href: tutorials/08-pre-trained-entities.md
     - name: Varlık çözümleyiciler
       href: tutorials/09-entity-resolvers.md
+    - name: Sabit listesi varlıkları
+      href: tutorials/tutorial-enum-set-entity.md
     - name: Alternatif girdiler
       href: tutorials/10-alternative-inputs.md
     - name: Günlük iletişim kutuları

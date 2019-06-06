@@ -142,8 +142,8 @@ Lütfen şifreleme, sunucu sertifikası ve istemci sertifikaları için CA serti
    Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
    ```
 
-* Sunucu adı ile başlamayan olun **https://**.
-* Azure SQL veritabanı sunucunuza bağlanmak Azure Services verdiğinden emin olun. Bunu yapmak için veritabanınızı portalda açın ve emin **Azure hizmetlerine erişime izin ver** ayarı ** üzerinde ***.
+* Sunucu adı ile başlamayan olun **https://** .
+* Azure SQL veritabanı sunucunuza bağlanmak Azure Services verdiğinden emin olun. Bunu yapmak için veritabanınızı portalda açın ve emin **Azure hizmetlerine erişime izin ver** ayarı **üzerinde**.
 
 ## <a name="test-the-service-deployment"></a>Hizmet dağıtımı test etme
 ### <a name="connect-with-a-web-browser"></a>Bir web tarayıcısı ile bağlanma

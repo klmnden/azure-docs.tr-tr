@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289123"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473690"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -42,26 +42,17 @@ PIM temelde, yönetmenize yardımcı olur kimin, ne, ne zaman, nerede ve neden, 
 - Kuralları **erişim gözden geçirmeleriyle** kullanıcılar yine rollerini sağlamak için
 - İndirme **denetim geçmişi** iç veya dış denetim için
 
-## <a name="prerequisites"></a>Önkoşullar
-
-PIM'i kullanmak için aşağıdaki ücretli veya deneme sürümü lisansları biri olması gerekir. Daha fazla bilgi için bkz. [Azure Active Directory nedir?](../fundamentals/active-directory-whatis.md).
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-Kullanıcıların lisansları hakkında daha fazla bilgi için bkz: [lisans PIM kullanmak için gereksinimler](subscription-requirements.md).
-
 ## <a name="terminology"></a>Terminoloji
 
 PIM ve belgelerin daha iyi anlamak için aşağıdaki koşulları gözden geçirmelidir.
 
 | Kavram veya sözleşme | Rol ataması kategorisi | Açıklama |
 | --- | --- | --- |
-| Uygun | Tür | Bir kullanıcı rolü kullanmak için bir veya daha fazla eylem gerçekleştirmek gereken bir rol ataması. Bir kullanıcı rolü için uygun duruma getirildi, ayrıcalıklı görevleri gerçekleştirmek ihtiyaç duydukları zaman rolünü etkinleştirebilir anlamına gelir. Kalıcı uygun rol atamasını karşı kimseler verilen erişimi hiçbir fark yoktur. Tek fark, bazıları her zaman bu erişim olmanızın gerekmemesidir. |
-| etkin | Tür | Bir kullanıcı rolü kullanmak için herhangi bir eylemi gerçekleştirmek gerektirmeyen bir rol ataması. Etkin olarak atanan kullanıcılar role atanmış ayrıcalıklarına sahiptir. |
+| Uygun | Type | Bir kullanıcı rolü kullanmak için bir veya daha fazla eylem gerçekleştirmek gereken bir rol ataması. Bir kullanıcı rolü için uygun duruma getirildi, ayrıcalıklı görevleri gerçekleştirmek ihtiyaç duydukları zaman rolünü etkinleştirebilir anlamına gelir. Kalıcı uygun rol atamasını karşı kimseler verilen erişimi hiçbir fark yoktur. Tek fark, bazıları her zaman bu erişim olmanızın gerekmemesidir. |
+| etkin | Type | Bir kullanıcı rolü kullanmak için herhangi bir eylemi gerçekleştirmek gerektirmeyen bir rol ataması. Etkin olarak atanan kullanıcılar role atanmış ayrıcalıklarına sahiptir. |
 | etkinleştirme |  | Bir kullanıcı için uygun bir rolü kullanmak için bir veya daha fazla eylemler gerçekleştirme işlemi. Bir iş gerekçesi sağlamak veya belirlenmiş onaylayanlar onayı isteyen bir çok faktörlü kimlik doğrulaması (MFA) denetimi gerçekleştirme işlemleri içerebilir. |
-| Atanan | Durum | Etkin bir rol atamanız bulunan bir kullanıcı. |
-| Etkinleştirildi | Durum | Bir uygun rol ataması bulunan bir kullanıcı rolü etkinleştirmek için eylemleri ve artık etkindir.  Sonra kullanıcı rolü bir önceden yapılandırılmış süre,-yeniden etkinleştirmek ihtiyaç duydukları önce bir süre boyunca kullanabilirsiniz. |
+| Atanan | Eyalet | Etkin bir rol atamanız bulunan bir kullanıcı. |
+| Etkinleştirildi | Eyalet | Bir uygun rol ataması bulunan bir kullanıcı rolü etkinleştirmek için eylemleri ve artık etkindir.  Sonra kullanıcı rolü bir önceden yapılandırılmış süre,-yeniden etkinleştirmek ihtiyaç duydukları önce bir süre boyunca kullanabilirsiniz. |
 | kalıcı uygun | Süre | Bir kullanıcı her zaman rolü etkinleştirmek uygun olduğu bir rol ataması. |
 | kalıcı etkin | Süre | Bir rol ataması burada bir kullanıcı her zaman rol herhangi bir eylem gerçekleştirmeden kullanabilirsiniz. |
 | uygun sona | Süre | Bir kullanıcı rolü içinde belirtilen bir başlangıç ve bitiş tarihi etkinleştirmek uygun olduğu bir rol ataması. |
@@ -104,6 +95,12 @@ PIM aşağıdaki senaryoları destekler:
 - Onay gerektiren bir rolün etkinleştirilmesini istemek
 - Etkinleştirme isteğinizin durumunu görüntülemek
 - İstek onaylanmışsa Azure AD'deki görevinizi tamamlamak
+
+## <a name="license-requirements"></a>Lisans gereksinimleri
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Kullanıcıların lisansları hakkında daha fazla bilgi için bkz: [lisans PIM kullanmak için gereksinimler](subscription-requirements.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -42,7 +42,7 @@
       href: cdn-pop-list-api.md
     - name: Standart Verizon’dan Premium Verizon’a geçirme
       href: cdn-migrate.md
-    - name: DDOS Koruması
+    - name: DDoS koruması
       href: cdn-ddos.md
 - name: Nasıl yapılır kılavuzları
   items:
@@ -94,7 +94,7 @@
         - name: Kaynakları izleme
           href: cdn-resource-health.md
         - name: Davranışı kurallarla geçersiz kılma
-          href: cdn-rules-engine.md
+          href: cdn-verizon-premium-rules-engine.md
         - name: Traffic Manager’ı kullanma
           href: cdn-traffic-manager.md
     - name: Çözümleme
@@ -134,15 +134,15 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Başvuru
   items:
-    - name: Kural altyapısı başvurusu
-      href: cdn-rules-engine-reference.md
+    - name: Verizon Premium kural altyapısı başvurusu
+      href: cdn-verizon-premium-rules-engine-reference.md
       items:
         - name: Kural altyapısı koşullu ifadeleri
-          href: cdn-rules-engine-reference-conditional-expressions.md
+          href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
         - name: Kural altyapısı eşleştirme koşulları
-          href: cdn-rules-engine-reference-match-conditions.md
+          href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
         - name: Kural altyapısı özellikleri
-          href: cdn-rules-engine-reference-features.md
+          href: cdn-verizon-premium-rules-engine-reference-features.md
         - name: HTTP değişkenleri
           href: cdn-http-variables.md
     - name: Verizon’a özgü HTTP üst bilgileri
@@ -158,8 +158,6 @@
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST
       href: /rest/api/cdn/
-    - name: Resource Manager şablonu
-      href: /azure/templates/microsoft.cdn/allversions
 - name: Kaynaklar
   items:
     - name: Azure CDN POP konumları

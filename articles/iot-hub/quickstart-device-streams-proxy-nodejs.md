@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub cihazı akışları Node.js hızlı başlangıç SSH/RDP (Önizleme) | Microsoft Docs
-description: Bu hızlı başlangıçta, IOT Hub cihaz akışlar üzerinde SSH/RDP senaryoları etkinleştirmek için bir proxy görevi gören örnek Node.js uygulamasını çalıştırın.
+title: Azure IOT Hub cihazı akışları Node.js Hızlı Başlangıç için SSH ve RDP (Önizleme) | Microsoft Docs
+description: Bu hızlı başlangıçta, cihaz akışları IOT Hub üzerinde SSH ve RDP senaryoları etkinleştirmek için bir proxy görevi gören örnek Node.js uygulamasını çalıştırın.
 author: rezasherafat
 manager: briz
 ms.service: iot-hub
@@ -10,26 +10,29 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: c4f994638420819da41a355d679cb03785b94a3a
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 1d77f3a10e286246e23ae522e95aa23c487cca2f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832291"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735103"
 ---
-# <a name="quickstart-sshrdp-over-an-iot-hub-device-stream-using-a-nodejs-proxy-application-preview"></a>Hızlı Başlangıç: SSH/Node.js Ara sunucu uygulamasını (Önizleme) kullanarak bir IOT Hub cihaz akışı üzerinden RDP
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Hızlı Başlangıç: SSH ve RDP Node.js Ara sunucu uygulamasını (Önizleme) kullanarak bir IOT Hub cihaz akış üzerinden etkinleştirme
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
 Microsoft Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [önizleme özelliği](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Bu Hızlı Başlangıç Kılavuzu, bir cihaz akış üzerinden cihaza gönderilecek SSH ve RDP trafiğini etkinleştirmek için hizmet tarafında çalışan bir Node.js proxy uygulamanın yürütülmesini açıklar. Bkz: [SSH veya RDP için yerel bir ara sunucu örneği](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) Kurulum genel bakış. Genel Önizleme süresince Node.js SDK'sı yalnızca hizmet tarafında cihaz akışlarını destekler. Sonuç olarak, bu Hızlı Başlangıç Kılavuzu, yalnızca hizmeti-yerel proxy çalıştırma yönergeleri kapsar. Aşağıdaki cihaz yerel proxy hızlı başlangıçları çalıştırmalısınız:  
+[IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. 
 
-   * [SSH/C Ara sunucu uygulamasını kullanarak IOT Hub cihaz akışları üzerinden RDP](./quickstart-device-streams-proxy-c.md)
+Bu hızlı başlangıçta, Secure Shell (SSH) ve Uzak Masaüstü Protokolü (RDP) trafiğine cihaza bir cihaz akış üzerinden gönderilmek üzere etkinleştirmek için hizmet tarafında çalıştırılan bir Node.js proxy uygulamanın yürütülmesini açıklanır. Kurulum genel bakış için bkz. [yerel Proxy örnek](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp). 
 
-   * [IOT Hub cihaz üzerinde SSH/RDP kullanarak akışları bir C# proxy uygulama](./quickstart-device-streams-proxy-csharp.md)
+Genel Önizleme süresince Node.js SDK'sı yalnızca hizmet tarafında cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta, yalnızca hizmeti-yerel ara sunucu uygulamasını çalıştırmak için yönergeler kapsar. Cihaz yerel ara sunucu uygulamasını çalıştırmak için bkz:  
 
-İlk kurulum için SSH (22 numaralı bağlantı noktasını kullanarak) açıklanmaktadır. Biz sonra nasıl Kurulum RDP için (Bu bağlantı noktası 3389'ı kullanır) değiştirileceğini açıklar. Cihaz akışlar, uygulama ve protokolü belirsiz olduğundan, aynı örnek istemci/sunucu uygulama trafiği diğer türleri (genellikle iletişim bağlantı noktasını değiştirerek) uyum sağlayacak şekilde değiştirilebilir.
+   * [SSH ve RDP IOT Hub cihaz akışları C Ara sunucu uygulamasını kullanarak etkinleştirin](./quickstart-device-streams-proxy-c.md)
+   * [SSH ve RDP kullanarak IOT Hub cihaz akışları etkinleştirme bir C# proxy uygulama](./quickstart-device-streams-proxy-csharp.md)
+
+Bu makalede, (bir bağlantı noktası 22'ı kullanarak), SSH için Kurulum açıklar ve sonra nasıl Kurulum RDP için (Bu bağlantı noktası 3389'ı kullanır) değiştirileceğini açıklar. Cihaz akışları uygulama ve protokolü-depolamadan bağımsız, çünkü iletişimi bağlantı noktasını değiştirerek istemci-sunucu uygulama trafiği, diğer türleri genellikle uyum sağlayacak şekilde aynı örnek değiştirebilirsiniz.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -37,29 +40,26 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki bölgelerde oluşturulan için desteklenir:
+* Cihaz akışları önizlemesi, şu anda şu bölgelerde oluşturulan yalnızca IOT hub'ları için desteklenir:
 
-   * **Orta ABD**
+  * Orta ABD
+  * Orta ABD EUAP
 
-   * **Orta ABD EUAP**
+* Bu hızlı başlangıçta hizmet yerel uygulamayı çalıştırmak için geliştirme makinenizi Node.js v10.x.x veya sonraki bir sürümü gerekir.
+  * İndirme [Node.js](https://nodejs.org) birden çok platform için.
+  * Geçerli sürümü Node.js geliştirme makinenizde aşağıdaki komutu kullanarak doğrulayın:
 
-Bu hızlı başlangıçta hizmet yerel uygulamayı çalıştırmak için geliştirme makinenizi Node.js v10.x.x veya sonraki bir sürümü gerekir.
+   ```
+   node --version
+   ```
 
-* Birden çok platformdan için node.js indirme [nodejs.org](https://nodejs.org).
+* Azure IOT uzantısı, Azure CLI için aşağıdaki komutu çalıştırarak Cloud Shell Örneğinize ekleyin. IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) IOT uzantısını ekler-Azure CLI için özel komutları.
 
-Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli Node.js sürümünü doğrulayabilirsiniz:
+    ```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+    ```
 
-```
-node --version
-```
-
-* Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek için aşağıdaki komutu çalıştırın. IOT uzantısı, Azure CLI için IOT Hub, IOT Edge ve IOT cihaz sağlama hizmeti (DPS) belirli komutları ekler.
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-* Örnek Node.js projesini önceden indirmediyseniz https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip adresinden indirip ZIP arşivini ayıklayın.
+* Bunu zaten bunu yapmadıysanız [örnek Node.js projesini indirin](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip) ve ZIP arşivini ayıklayın.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -69,29 +69,30 @@ az extension add --name azure-cli-iot-ext
 
 ## <a name="register-a-device"></a>Cihaz kaydetme
 
-Önceki tamamladıysanız [hızlı başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme](quickstart-send-telemetry-node.md), bu adımı atlayabilirsiniz.
+Tamamlanmışsa [hızlı başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme](quickstart-send-telemetry-node.md), bu adımı atlayabilirsiniz.
 
-Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu hızlı başlangıçta Azure Cloud Shell kullanarak bir simülasyon cihazı kaydedeceksiniz.
+Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu bölümde, bir simülasyon cihazı kaydetmek için Azure Cloud Shell kullanın.
 
-1. Cihaz kimliği oluşturmak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın.
+1. Cihaz kimliği oluşturma için Cloud Shell'de aşağıdaki komutu çalıştırın:
 
-   **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
-
-   **Cihazım**: Bu, kayıtlı bir cihaz için verilen addır. Cihazım gösterildiği gibi kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
+   > [!NOTE]
+   > * Değiştirin *YourIoTHubName* yer tutucu IOT hub'ınız için seçtiğiniz ada sahip.
+   > * Kullanım *Cihazım*gösterildiği gibi. Kayıtlı cihaz için verilen addır. Cihazınız için farklı bir ad seçerseniz, bu makalenin tamamında bu adı kullanın ve bunları çalıştırmadan önce örnek uygulamalar, cihaz adını güncelleştirin.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Arka uç uygulamasının IoT hub’ınıza bağlanmasına ve iletileri almasına olanak sağlamak için bir *hizmet bağlantı dizesi* de gerekir. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
+1. IOT hub'ınıza bağlanmak ve iletileri almak arka uç uygulaması etkinleştirmek için bir *hizmet bağlantı dizesini*. Aşağıdaki komut, IOT hub'ınız için bir dize alır:
 
-    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
+   > [!NOTE]
+   > Değiştirin *YourIoTHubName* yer tutucu IOT hub'ınız için seçtiğiniz ada sahip.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
-    Şuna benzer döndürülen değeri not edin:
+    Bu hızlı başlangıçta daha sonra kullanmak için döndürülen değer unutmayın. Aşağıdaki örneğe benzer şekilde görünür:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -99,69 +100,68 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 Bu bölümde, SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşturun.
 
-### <a name="run-the-device-local-proxy"></a>Cihaz yerel ara sunucu çalıştırın
+### <a name="run-the-device-local-proxy-application"></a>Cihaz yerel ara sunucu uygulamasını çalıştırın
 
-Daha önce belirtildiği gibi IOT Hub Node.js SDK'sı hizmet tarafında yalnızca cihaz akışlarını destekler. Cihaz yerel uygulama için kullanılabilir cihaz proxy programlardan birini şu hızlı başlangıçlarda birini kullanın:
+Daha önce belirtildiği gibi IOT Hub Node.js SDK'sı yalnızca hizmet tarafında cihaz akışlarını destekler. Cihaz yerel uygulama için şu hızlı başlangıçlarda birinde kullanılabilir olan bir cihaz Ara sunucu uygulamasını kullanın:
 
-   * [SSH/C proxy'si uygulamaları kullanarak IOT Hub cihaz akışları üzerinden RDP](./quickstart-device-streams-proxy-c.md)
+   * [SSH ve RDP IOT Hub cihaz akışları C Ara sunucu uygulamasını kullanarak etkinleştirin](./quickstart-device-streams-proxy-c.md)
+   * [SSH ve RDP kullanarak IOT Hub cihaz akışları etkinleştirme bir C# proxy uygulama](./quickstart-device-streams-proxy-csharp.md) 
 
-   * [IOT Hub cihaz üzerinde SSH/RDP kullanarak akışları C# proxy'si uygulamaları](./quickstart-device-streams-proxy-csharp.md). 
+Sonraki adıma devam etmeden önce cihaz yerel ara sunucu uygulamasını çalıştığından emin olun.
 
-Cihaz yerel proxy, sonraki adıma devam etmeden önce çalıştığından emin olun.
+### <a name="run-the-service-local-proxy-application"></a>Hizmet yerel ara sunucu uygulamasını çalıştırın
 
-### <a name="run-the-service-local-proxy"></a>Hizmet yerel ara sunucu çalıştırın
+Çalıştıran yerel cihaz proxy uygulama ile birlikte, aşağıdakileri yaparak node.js'de yazılmış hizmeti-yerel ara sunucu uygulamasını çalıştırın:
 
-Varsayarak [cihaz yerel proxy](#run-the-device-local-proxy) olan çalışan, node.js'de yazılmış hizmeti-yerel proxy çalıştırmak için aşağıdaki adımları izleyin.
+1. Ortam değişkenleri için cihaz üzerinde çalışan proxy için hizmet kimlik bilgilerinizi, SSH arka plan programı çalıştığı hedef cihaz kimliği ve bağlantı noktası numarasını sağlayın.
 
-* Ortam değişkenleri olarak cihaz üzerinde çalışan proxy için hizmet kimlik bilgilerinizi, SSH arka plan programı çalıştığı hedef cihaz kimliği ve bağlantı noktası numarasını sağlayın.
+   ```
+   # In Linux
+   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export STREAMING_TARGET_DEVICE="MyDevice"
+   export PROXY_PORT=2222
 
-```
-# In Linux
-export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
-export STREAMING_TARGET_DEVICE="MyDevice"
-export PROXY_PORT=2222
+   # In Windows
+   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET STREAMING_TARGET_DEVICE=MyDevice
+   SET PROXY_PORT=2222
+   ```
 
-# In Windows
-SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
-SET STREAMING_TARGET_DEVICE=MyDevice
-SET PROXY_PORT=2222
-```
+   Cihaz kimliği ve bağlantı dizesini eşleştirmek için yukarıdaki değerleri değiştirin.
 
-  Cihaz kimliği ve bağlantı dizenizle eşleşen yukarıdaki değerleri değiştirin.
+1. Git *hızlı Başlangıçlar/cihaz akışları hizmet* dizin sıkıştırması proje klasörü ve hizmet yerel ara sunucu uygulamasını çalıştırın.
 
-* Gidin `Quickstarts/device-streams-service` sıkıştırması proje klasörü ve Çalıştır hizmeti-yerel proxy.
+   ```
+   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
 
-```
-cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+   # Install the preview service SDK, and other dependencies
+   npm install azure-iothub@streams-preview
+   npm install
 
-# Install the preview service SDK, and other dependencies
-npm install azure-iothub@streams-preview
-npm install
-
-# Run the service-local proxy application
-node proxy.js
-```
+   # Run the service-local proxy application
+   node proxy.js
+   ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>Cihazınıza cihaz akışları aracılığıyla SSH
 
-SSH kullanarak Linux içinde çalıştırma `ssh $USER@localhost -p 2222` bir terminal üzerinde. Windows sık kullanılan SSH istemciniz kullanın (örneğin, PuTTY).
+Linux'ta, SSH kullanarak çalıştırın `ssh $USER@localhost -p 2222` bir terminal üzerinde. Windows sık kullanılan SSH istemciniz (örneğin, PuTTY) kullanın.
 
-Konsol SSH oturum kurulduktan sonra hizmeti-yerel çıktısı (2222 numaralı bağlantı noktasında service-yerel proxy dinlediği):
+Konsol SSH oturum kurulduktan sonra hizmeti-yerel çıktısı (proxy hizmeti-yerel uygulama dinlediği 2222 numaralı bağlantı noktasında):
 
 ![SSH terminal çıkış](./media/quickstart-device-streams-proxy-nodejs/service-console-output.png)
 
-Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kuran SSH arka plan programı için burada hizmeti-yerel proxy üzerinde dinleme bağlantı noktası 22 bağlanarak):
+Konsol çıktısı SSH istemci uygulamasının (SSH istemcisi iletişim kurar, hizmeti-yerel ara sunucu uygulamasını dinleme yaptığı bağlantı noktası 22'yi bağlanarak SSH arka plan programı için):
 
 ![SSH istemcisi çıkış](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.png)
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>Cihazınıza cihaz akışları üzerinden RDP
 
-Şimdi RDP istemci programınız kullanın ve hizmeti proxy (daha önce seçtiğiniz rasgele kullanılabilir bağlantı noktası olduğu) 2222 numaralı bağlantı noktasına bağlanın.
+Şimdi RDP istemci uygulamanızı kullanın ve hizmet proxy'si, 2222 numaralı bağlantı noktasında bağlanmak daha önce seçtiğiniz ise işleminizdeki rastgele bağlantı.
 
 > [!NOTE]
 > Cihaz Ara sunucunuz RDP için yapılandırıldığını ve RDP bağlantı noktası 3389'ile yapılandırılmış emin olun.
 
-![RDP istemci, hizmeti-yerel ara sunucuya bağlanır.](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
+![RDP istemcisinin proxy hizmeti-yerel uygulamaya bağlanır](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -169,9 +169,9 @@ Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kuran SS
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir IOT hub'ı ayarladınız, kayıtlı bir cihaz ve dağıtılan RDP ve SSH IOT cihazına etkinleştirmek için hizmeti proxy programı. RDP ve SSH trafiği, IOT hub'ı aracılığıyla cihaz akış aracılığıyla tünel. Bu cihaza doğrudan bağlantı gereksinimini ortadan kaldırır.
+Bu hızlı başlangıçta, bir IOT hub'ı ayarladınız, kayıtlı bir cihaz ve bir IOT cihazına RDP ve SSH sağlamak için bir hizmet proxy'si uygulaması dağıtılmış. RDP ve SSH trafiği, IOT hub'ı aracılığıyla cihaz akış aracılığıyla tünel. Bu işlem cihazı doğrudan bağlantı ihtiyacını ortadan kaldırır.
 
-Cihaz akışları hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları kullanın:
+Cihaz akışları hakkında daha fazla bilgi için bkz:
 
 > [!div class="nextstepaction"]
 > [Cihaz akışları genel bakış](./iot-hub-device-streams-overview.md)

@@ -74,7 +74,11 @@
         - name: SAML belirteci şifrelemesini yapılandırma (Önizleme)
           href: howto-saml-token-encryption.md
     - name: Çoklu oturum açma
-      href: what-is-single-sign-on.md
+      items:
+        - name: Çoklu oturum açma nedir?
+          href: what-is-single-sign-on.md
+        - name: Çoklu oturum açma dağıtımını planlama
+          href: plan-sso-deployment.md
     - name: Son kullanıcı portalları
       href: end-user-experiences.md
 - name: Nasıl yapılır kılavuzları
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: Kayıt bağlayıcısı - sessiz yükleme
           href: application-proxy-register-connector-powershell.md
-        - name: Yerel istemci uygulamalarını yapılandırma
+        - name: Mobil ve masaüstü uygulamalarının şirket içi API’lere erişmesine izin verme
+          href: application-proxy-secure-api-access.md
+        - name: Mobil ve masaüstü istemci uygulamalarını yapılandırma
           href: application-proxy-configure-native-client-application.md
         - name: Özel giriş sayfası yapılandırma
           href: application-proxy-configure-custom-home-page.md

@@ -58,7 +58,7 @@
     - name: Event Grid ile görüntüyü yeniden boyutlandırma
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Sunucusuz web uygulaması oluşturma
-      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
+      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
     - name: Özel Linux görüntüsü oluşturma
       href: functions-create-function-linux-custom-image.md
     - name: IoT Edge cihazında işlevler

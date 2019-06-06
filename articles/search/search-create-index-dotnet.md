@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/16/2019
-ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0392cc6334aaf383f43d55134fa65f82c44270c3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795811"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428395"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Hızlı Başlangıç: 1 - Azure Search dizini oluşturmaC#
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "65795811"
 > * [Postman](search-fiddler.md)
 >*
 
-Bu makalede oluşturma işleminde size kılavuzluk eder [Azure Search dizini](search-what-is-an-index.md) kullanarak C# ve [.NET SDK'sı](https://aka.ms/search-sdk). İlk 3 parçalı alıştırma derste oluşturma, yükleme ve sorgu bir dizin için budur. Dizin oluşturma, şu görevleri gerçekleştirerek gerçekleştirilir:
+Bu makalede oluşturma işleminde size kılavuzluk eder [Azure Search dizini](search-what-is-an-index.md) kullanarak C# ve [.NET SDK'sı](https://aka.ms/search-sdk). Bu hızlı başlangıçta ilk üç bölümlü alıştırma derste oluşturma, yükleme ve sorgu dizini için ' dir. Dizin oluşturma, şu görevleri gerçekleştirerek gerçekleştirilir:
 
 > [!div class="checklist"]
 > * Oluşturma bir [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) bir arama hizmetine bağlanmak için nesne.
@@ -39,7 +39,7 @@ Bu hızlı başlangıçta, aşağıdaki hizmetleri, araçları ve verileri kulla
 
 + [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz.
 
-+ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), herhangi bir sürümü. Örnek kodu ve yönergeleri ücretsiz Community edition üzerinde test edilmiştir.
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), herhangi bir sürümü. Örnek kodu ve yönergeleri ücretsiz Community edition üzerinde test edilmiştir.
 
 + [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) örnek çözüm, yazılan bir .NET Core konsol uygulaması sağlar C#, Azure örnekleri GitHub deposunda bulunur. İndirin ve çözüm ayıklayın. Varsayılan olarak, çözümleri salt okunurdur. Çözüme sağ tıklayın ve dosyalarda değişiklik yapabilir, böylece salt okunur özniteliğini kaldırın. Verilerin çözümde dahil edilir.
 
@@ -61,17 +61,15 @@ Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İs
 
 1. AppSettings.JSON dosyasındaki varsayılan örnek ile içerik değiştirin ve ardından yönetici ve hizmet adını sağlayın api anahtarını hizmetiniz için. 
 
-
    ```json
    {
        "SearchServiceName": "Put your search service name here (not the full URL)",
        "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
     }
    ```
+   Hizmet adı için yalnızca adı gerekir. Örneğin, URL ise https://mydemo.search.windows.net, ekleme `mydemo` JSON dosyasına.
 
-  Hizmet adı için yalnızca adı gerekir. Örneğin, URL ise https://mydemo.search.windows.net, ekleme `mydemo` JSON dosyasına.
-
-1. Çözümü derleyin ve konsol uygulamasını çalıştırmak için F5 tuşuna basın. Bu alıştırmada ve izleyin, kalan bu kodu nasıl çalıştığına ilişkin bir araştırma aynıdır. 
+1. Çözümü derleyin ve konsol uygulamasını çalıştırmak için F5 tuşuna basın. Bu kodu nasıl çalıştığına ilişkin bir araştırma şunlardır: Bu alıştırmada kalan adımlarda ve bu adımları izleyin. 
 
 Alternatif olarak, başvurabilirsiniz [bir .NET uygulamasından Azure Search kullanma](search-howto-dotnet-sdk.md) kapsamı SDK davranışlarının ayrıntılı için. 
 
@@ -108,7 +106,7 @@ Tek bir çağrı `Indexes.Create` yöntemi, bir dizin oluşturur. Bu yöntem par
 
 1. `Name` nesnesinin `Index` özelliğini dizin adınız olarak ayarlayın.
 
-2. `Fields` nesnesinin `Index` özelliğini `Field` nesnelerinin dizisi olarak ayarlayın. `Field` nesnelerini oluşturmanın en kolay yolu, `FieldBuilder.BuildForType` metodunu çağırmak ve tür parametresi için bir model sınıfı iletmektir. Bir model sınıfında dizininizin alanlarıyla eşlenen özellikler mevcuttur. Bu arama dizininizdeki belgeleri model sınıfınızın örneklerine bağlamanızı sağlar.
+2. `Fields` nesnesinin `Index` özelliğini `Field` nesnelerinin dizisi olarak ayarlayın. `Field` nesnelerini oluşturmanın en kolay yolu, `FieldBuilder.BuildForType` metodunu çağırmak ve tür parametresi için bir model sınıfı iletmektir. Bir model sınıfında dizininizin alanlarıyla eşlenen özellikler mevcuttur. Bu eşleme arama dizininizdeki belgeleri model sınıfınızın örneklerine bağlanacak sağlar.
 
 > [!NOTE]
 > Bir model sınıfı kullanmayı planlamıyorsanız, `Field` nesnelerini doğrudan oluşturarak dizininizi tanımlayabilirsiniz. Oluşturucuya alan adını veri türü (veya dize alanları çözümleyicisi) ile birlikte sağlayabilirsiniz. Gibi diğer özellikleri de ayarlayabilirsiniz `IsSearchable`, `IsFilterable`, birkaçıdır.
@@ -175,7 +173,7 @@ public partial class Hotel
 
 Her bir özellik için öznitelikleri, bunların bir uygulamada nasıl kullanılacağını düşünerek dikkatle seçtik. Örneğin, oteller için arama yapan kişiler büyük olasılıkla `description` alanındaki anahtar sözcük eşleşmeleri ile ilgilenecektir. Bu nedenle, `Description` özelliğine `IsSearchable` özniteliğini ekleyerek bu alan için tam metin aramasını etkinleştiririz.
 
-Lütfen `Key` özniteliğini eklediğinizde ayarladığınızda, `string` türündeki dizininizde yalnızca bir alanın *anahtar* alanı olarak belirlenmesi gerektiğini unutmayın (yukarıdaki örnekte bkz. `HotelId`).
+Not türündeki dizininizde yalnızca bir alanın `string` olarak belirlenmesi gerektiğini *anahtarı* alan ekleyerek `Key` öznitelik (bkz `HotelId` yukarıdaki örnekte).
 
 Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığından, `description_fr` alanı için bir dil çözümleyicisi kullanır. Daha fazla bilgi için [dil Çözümleyicileri eklemek için Azure Search dizini](index-add-language-analyzers.md).
 
@@ -184,7 +182,7 @@ Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığın
 > 
 > 
 
-Bir model sınıfı tanımladık, şimdi bir dizin tanımını kolayca oluşturabilirsiniz:
+Bir model sınıfı tanımladık, biz bir dizin tanımını kolayca oluşturabilirsiniz:
 
 ```csharp
 var definition = new Index()

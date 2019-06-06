@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eaf594286e5ffc101ad2d24e808fcb806998d053
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793536"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471569"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Hızlı Başlangıç: Postman kullanarak Azure Search REST API'lerini keşfetme
 > [!div class="op_single_selector"]
@@ -73,13 +73,13 @@ Postman içinde aşağıdaki ekran görüntüsü gibi görünen bir istek düzen
 
 Azure Search'te verileri yüklemeden önce dizini genellikle oluşturun. [Dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index) bu görev için kullanılır. 
 
-URL içerecek şekilde Genişletilmiş `hotel` dizin adı.
+URL içerecek şekilde Genişletilmiş `hotels` dizin adı.
 
 Postman içinde Bunu yapmak için:
 
 1. Değiştirmek için fiil **PUT**.
 
-2. Bu URL'yi kopyalayın `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+2. Bu URL'yi kopyalayın `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
 
 3. (Aşağıda istek gövdesinde gösterilmiştir) dizin tanımını sağlar.
 
@@ -257,7 +257,7 @@ Hedef için bu URL'yi değiştirilmiş bir sürümünü kopyalayın: `https://<Y
 
 ### <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
-Değiştirmek için fiil **PUT**. Bu URL'yi değiştirilmiş bir sürümünü kopyasında: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Dizin tanımını istek gövdesine yukarıda sağlanan kopyalayın. Sayfanız aşağıdaki ekran görüntüsüne benzer görünmelidir. Tıklayın **yürütme** üst sağ tamamlanan isteği gönderin.
+Değiştirmek için fiil **PUT**. Bu URL'yi değiştirilmiş bir sürümünü kopyasında: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`. Dizin tanımını istek gövdesine yukarıda sağlanan kopyalayın. Sayfanız aşağıdaki ekran görüntüsüne benzer görünmelidir. Tıklayın **yürütme** üst sağ tamamlanan isteği gönderin.
 
 ![Fiddler isteği gövdesi][7]
 

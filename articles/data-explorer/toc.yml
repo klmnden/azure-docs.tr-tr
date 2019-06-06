@@ -7,34 +7,10 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Küme ve veritabanı oluşturma
-      items:
-        - name: Azure portal
-          href: create-cluster-database-portal.md
-        - name: Azure CLI
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: Veriyi çekme
-      items:
-        - name: Veri akışı - Olay hub'ı
-          href: ingest-data-event-hub.md
-        - name: Veri akışı - Event Grid
-          href: ingest-data-event-grid.md
-        - name: Veri akışı - Kafka
-          href: ingest-data-kafka.md
-        - name: Veri işlem grubu oluşturma - Python
-          href: python-ingest-data.md
-        - name: Verilerin işlem grubunu oluşturma - Node SDK
-          href: node-ingest-data.md
-        - name: Veri işlem grubu oluşturma - .NET Standard SDK
-          href: net-standard-ingest-data.md
-        - name: Veri işlem grubu oluşturma - Logstash
-          href: ingest-data-logstash.md
+    - name: Küme ve veritabanı oluşturma - Azure portalı
+      href: create-cluster-database-portal.md
+    - name: Örnek verileri ekleme
+      href: ingest-sample-data.md
     - name: Verileri sorgulama
       items:
         - name: Web kullanıcı arabirimi
@@ -52,12 +28,38 @@
     - name: Veri almaya genel bakış
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: Veri görselleştirmeye genel bakış
+      href: viz-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Başlarken
+    - name: Küme ve veritabanı oluşturma
       items:
-        - name: Örnek verileri ekleme
-          href: ingest-sample-data.md
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Veriyi çekme
+      items:
+        - name: Olay Hub'ı
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: Node SDK
+          href: node-ingest-data.md
+        - name: .NET Standard SDK
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Azure Data Factory kullanarak veri kopyalama
+          href: data-factory-load-data.md
     - name: Dağıtma
       items:
         - name: DevOps görevi
@@ -82,10 +84,14 @@
               href: power-bi-imported-query.md
             - name: SQL sorgusu
               href: power-bi-sql-query.md
+        - name: ODBC bağlayıcısı
+          href: connect-odbc.md
         - name: Sisense
           href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: Yönetme
       items:
         - name: Veritabanı izinlerini yönetme
@@ -104,7 +110,7 @@
       items:
         - name: Kümelerin sistem durumunu izlemek için ölçümleri kullanma
           href: using-metrics.md
-    - name: Diğer araçlarla çalışma
+    - name: Diğer araçlarla tümleştirme
       items:
         - name: Apache Spark Bağlayıcısı
           href: spark-connector.md
@@ -112,10 +118,6 @@
           href: connect-from-databricks.md
         - name: Jupyter Notebook ve Kqlmagic’te verileri analiz etme
           href: kqlmagic.md
-        - name: Azure Data Factory kullanarak veri kopyalama
-          href: data-factory-load-data.md
-        - name: ODBC ile bağlanma
-          href: connect-odbc.md
     - name: Sorun giderme
       items:
         - name: Küme oluşturma

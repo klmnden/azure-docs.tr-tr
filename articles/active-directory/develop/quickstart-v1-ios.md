@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8538a96e1919fbff9f800a785788ccaa41a68392
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d6274557ede35d7640eba37e5777cb0cb67d459a
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121925"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497092"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir iOS uygulamasından Microsoft Graph API çağırma
 
@@ -52,7 +52,7 @@ Başlamak için şu önkoşulları tamamlayın:
 > [!TIP]
 > Azure AD ile yalnızca birkaç dakika içinde çalışır duruma gelmek için [geliştirici portalını](https://identity.microsoft.com/Docs/iOS) deneyin. Geliştirici portalı, uygulamayı kaydetme ve Azure AD'yi kodunuzla tümleştirme işleminde size yol gösterir. Bitirdiğinizde, kiracınızda kullanıcıların kimliklerini doğrulayabilen basit bir uygulamanız ve belirteçleri kabul eden ve doğrulama gerçekleştiren bir arka ucunuz olacaktır.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>1. Adım: İOS için URI'dir, yönlendirme belirleme
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>1. adım: İOS için URI'dir, yönlendirme belirleme
 
 Bazı SSO senaryolarında uygulamalarınızı güvenle başlatmak için, belirli bir biçimde *yeniden yönlendirme URI*'si oluşturmanız gerekir. Yeniden yönlendirme URI'si, belirteçlerin bunları isteyen doğru uygulamaya döndürüldüğünden emin olmak için kullanılır.
 
@@ -69,7 +69,7 @@ Bu hızlı başlangıç kodu için bir örnek:
 
 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="step-2-register-the-directorysearcher-application"></a>2. Adım: DirectorySearcher uygulamayı kaydetme
+## <a name="step-2-register-the-directorysearcher-application"></a>2. adım: DirectorySearcher uygulamayı kaydetme
 
 Uygulamanızı belirteçleri alacak şekilde ayarlamak için, uygulamayı Azure AD kiracınıza kaydetmeli ve uygulamaya Azure AD Graph API'sine erişim izni vermelisiniz.
 
@@ -100,7 +100,7 @@ Artık Azure AD'de bir uygulamanız olduğuna göre, ADAL'ı yükleyebilir ve ki
     link_with ['QuickStart']
     xcodeproj 'QuickStart'
 
-    pod 'ADALiOS'
+    pod 'ADAL'
     ```
 
 1. CocoaPods kullanarak podfile dosyasını yükleyin. Bu adımda, yüklediğiniz yeni bir XCode çalışma alanı oluşturulur.

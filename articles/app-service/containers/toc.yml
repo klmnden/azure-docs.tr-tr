@@ -17,6 +17,18 @@
       href: quickstart-php.md
     - name: Node.js uygulaması oluşturma
       href: quickstart-nodejs.md
+    - name: Docker ve Visual Studio Code kullanarak Node.js uygulaması oluşturma
+      items:
+        - name: Başlarken
+          href: tutorial-javascript-vscode-get-started.md
+        - name: Kapsayıcı kayıt defteri oluşturma
+          href: tutorial-javascript-vscode-create-registry.md
+        - name: Görüntü oluşturma
+          href: tutorial-javascript-vscode-containerize-app.md
+        - name: Görüntüyü dağıtma
+          href: tutorial-javascript-vscode-deploy-container.md
+        - name: Günlükleri görüntüleme
+          href: tutorial-javascript-vscode-tail-logs.md
     - name: Java uygulaması oluşturma
       href: quickstart-java.md
     - name: Python uygulaması oluşturma

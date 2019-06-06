@@ -64,6 +64,8 @@
       href: troubleshoot-client-connection.md
     - name: Windows Sanal Masaüstü PowerShell
       href: troubleshoot-powershell.md
+    - name: Grafik performansı sorunlarını tanılama
+      href: remotefx-graphics-performance-counters.md
 - name: Başvuru
   items:
     - name: PowerShell

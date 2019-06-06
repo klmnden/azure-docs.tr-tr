@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956434"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687955"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak bir Azure Kubernetes Service (AKS) kümesini dağıtma
 
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıçta Azure CLI Sürüm 2.0.64 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur. Bir kaynak grubu oluştururken konum belirtmeniz istenir. Bu kaynak grubu meta verilerini depolandığı bir konumdur başka bir bölgede kaynak oluşturma sırasında belirtmezseniz kaynaklarınızı Azure üzerinde çalıştırdığı de olabilir. Kullanarak bir kaynak grubu oluşturmanız [az grubu oluşturma] [ az-group-create] komutu.
 
@@ -238,7 +238,7 @@ Uygulamada Azure Vote uygulamasını görmek için hizmetin dış IP adresini bi
 
 AKS kümesi oluşturulurken, kapsayıcılar için Azure İzleyici küme düğümleri ve pod'ları için sistem durumu ölçümleri yakalamak için etkinleştirildi. Bu sistem durumu ölçümleri Azure portaldan kullanılabilir.
 
-Azure Vote pod'larınızın geçerli durum, çalışma süresi ve kaynak kullanımı bilgilerini görmek için aşağıdaki adımları uygulayın:
+Geçerli durumu, çalışma süresi ve Azure Vote pod'ları için kaynak kullanımını görmek için aşağıdaki adımları tamamlayın:
 
 1. Web tarayıcısından Azure portalı [https://portal.azure.com][azure-portal] açın.
 1. *myResourceGroup* gibi bir kaynak grubunu ve *myAKSCluster* gibi bir AKS kümesini seçin.
@@ -251,11 +251,11 @@ Aşağıdaki örnekte olduğu gibi *azure-vote-back* ve *azure-vote-front* kapsa
 
 ![AKS'de çalışan kapsayıcıların durumunu görüntüleme](media/kubernetes-walkthrough/monitor-containers.png)
 
-Günlüklerini görmek için `azure-vote-front` seçeneğini seçin, pod **analytics'te görüntüle**, ardından **kapsayıcı günlüklerini görüntüleme** kapsayıcıları listenin sağ taraftaki bağlantı. Bu günlükler, kapsayıcıdaki *stdout* ve *stderr* akışlarını içerir.
+Günlüklerini görmek için `azure-vote-back` seçeneğini seçin, pod **analytics'te görüntüle**, ardından **kapsayıcı günlüklerini görüntüleme** kapsayıcıları listenin sağ taraftaki bağlantı. Bu günlükler, kapsayıcıdaki *stdout* ve *stderr* akışlarını içerir.
 
 ![AKS'deki kapsayıcı günlüklerini görüntüleme](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>Kümeyi sil
+## <a name="delete-the-cluster"></a>Küme silme
 
 Kümeye artık ihtiyacınız yoksa [az group delete][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırın.
 

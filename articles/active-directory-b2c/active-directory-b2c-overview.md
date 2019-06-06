@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C nedir? | Microsoft Docs
 description: Nasıl oluşturabileceğinizi ve Azure Active Directory B2C kullanarak uygulamanızda kayıt oturum açma ve profil yönetimi gibi kimlik deneyimi yönetme hakkında bilgi edinin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/20/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33c6f9e06439ebeb17608aa374532ac4f7a020cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cceac260979b4322d41843038eab0998c8e8ba4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701366"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509759"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C nedir?
 
@@ -98,7 +98,7 @@ Bir sorgu dizesi kullanarak Azure AD B2C'ye parametre gönderirsiniz. Parametre 
 
 Kullanıcı akışı sayfalarında özelleştirmek için bkz [Öğreticisi: Azure Active Directory B2C kullanıcı deneyimleri özelleştirebilir](tutorial-customize-ui.md). Özel bir ilkede sayfalarını özelleştirme için bkz: [özel bir ilke kullanarak Azure Active Directory B2C'de, uygulamanızın kullanıcı arabirimini özelleştirme](active-directory-b2c-ui-customization-custom.md) veya [kullanıcı arabirimini dinamik içerik ile Azure'da özel ilkeler kullanarak yapılandırma Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md).
 
-## <a name="developer-resources"></a>Geliştirici kaynakları
+## <a name="developer-resources"></a>Geliştirici Kaynakları
 
 ### <a name="client-applications"></a>İstemci uygulamaları
 
