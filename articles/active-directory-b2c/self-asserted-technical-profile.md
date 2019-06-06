@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C, özel bir ilkede otomatik olarak onaylanan teknik profil tanımlama | Microsoft Docs
 description: Azure Active Directory B2C özel bir ilke otomatik olarak onaylanan bir teknik profili tanımlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c728660f1a77c02f1e4b5fdeb467a7dbba4e36a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691020"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512656"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel ilke otomatik olarak onaylanan teknik profil tanımlama
 
@@ -23,7 +23,7 @@ ms.locfileid: "64691020"
 
 Azure Active Directory (Azure AD) B2C kullanıcı giriş sağlamak için burada beklenen tüm etkileşimleri teknik profiller Self onaylanan. Örneğin, bir kaydolma sayfasında, oturum açma sayfası veya parola sıfırlama sayfası.
 
-## <a name="protocol"></a>Protokol
+## <a name="protocol"></a>Protocol
 
 **Adı** özniteliği **Protokolü** öğesi ayarlanması gerekiyor `Proprietary`. **İşleyici** özniteliği için Azure AD B2C tarafından kullanılan protokol işleyicisi bütünleştirilmiş kodun tam adı içermelidir Self onaylanan: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 

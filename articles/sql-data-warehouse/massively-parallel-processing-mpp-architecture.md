@@ -2,20 +2,20 @@
 title: Azure SQL veri ambarı - MPP mimarisi | Microsoft Docs
 description: Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek için Azure depolama ile yüksek düzeyde paralel işleme (MPP) nasıl birleştirir öğrenin.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c3cdd464dffc810e76cf101ac70c2a14bbc4f9ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790709"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515805"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi
 Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek için Azure depolama ile yüksek düzeyde paralel işleme (MPP) nasıl birleştirir öğrenin. 
@@ -41,7 +41,7 @@ SQL veri ambarı kullanıcı verilerinizin güvenliğini korumak için Azure dep
 
 * Karma
 * Hepsini Bir Kez Deneme
-* Çoğalt
+* Çoğaltma
 
 ### <a name="control-node"></a>Denetim düğümü
 
@@ -56,7 +56,7 @@ Her işlem düğümü sistem görünümlerde görülebilir bir düğüm kimliği
 ### <a name="data-movement-service"></a>Veri Taşıma hizmeti
 Veri Taşıma hizmeti (DMS), işlem düğümleri arasında veri taşıma koordinatları veri aktarım teknolojisidir. Bazı sorgular veri taşımayı paralel sorguları doğru sonuçlar döndürebilir emin olmak için gereklidir. Veri taşıma gerekli olduğunda DMS doğru verilere doğru konuma alır sağlar. 
 
-## <a name="distributions"></a>Dağıtımlar
+## <a name="distributions"></a>Dağıtımları
 
 Bir dağıtım depolama ve çalıştıran dağıtılmış veriler üzerinde paralel sorgular için işleme temel birimidir. SQL veri ambarı, bir sorgu çalıştırıldığında, işi paralel olarak 60 daha küçük sorgulara ayrılmıştır. Her biri 60 daha küçük sorgulara veri dağıtımları biri üzerinde çalışır. Her işlem düğümünde bir veya daha fazla 60 dağıtım yönetir. En fazla işlem kaynakları ile bir veri ambarı, işlem düğümü başına tek bir dağıtım sahiptir. En düşük bilgi işlem kaynakları ile bir veri ambarı, tüm dağıtımları bir işlem düğümünde sahiptir.  
 

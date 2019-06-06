@@ -2,17 +2,16 @@
 title: İçeri aktarma ve Azure CLI kullanarak Azure DNS'ye bir etki alanı bölgesi dosyası dışarı | Microsoft Docs
 description: İçeri aktarma ve Azure CLI kullanarak Azure DNS ile DNS bölge dosyasını dışarı aktarma hakkında bilgi edinin
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
-origin.date: 4/3/2019
-ms.date: 04/15/2019
-ms.author: v-jay
-ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 4/3/2019
+ms.author: victorh
+ms.openlocfilehash: 00ff5636f97b24c656ee4e5d8ceb2f6b22524538
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293089"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515344"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI kullanarak DNS bölge dosyasını içeri ve dışarı
 
@@ -74,7 +73,7 @@ Değerler:
 
 Bu ada sahip bir bölge kaynak grubunda mevcut değilse sizin için oluşturulur. Bölge zaten varsa, içeri aktarılan kayıt kümeleri mevcut kayıt kümeleri ile birleştirilir. 
 
-### <a name="step-1-import-a-zone-file"></a>1. Adım Bölge dosyasını içeri aktarma
+### <a name="step-1-import-a-zone-file"></a>1.Adım Bölge dosyasını içeri aktarma
 
 Bölge için bir bölge dosyasını içeri aktarmak için **contoso.com**.
 
@@ -90,7 +89,7 @@ Bölge için bir bölge dosyasını içeri aktarmak için **contoso.com**.
     az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```
 
-### <a name="step-2-verify-the-zone"></a>2. Adım Bölge doğrulayın
+### <a name="step-2-verify-the-zone"></a>2.Adım Bölge doğrulayın
 
 DNS bölgesi dosyasını içeri aktardıktan sonra doğrulamak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
 
@@ -115,19 +114,19 @@ DNS bölgesi dosyasını içeri aktardıktan sonra doğrulamak için aşağıdak
         "nsRecords": [
           {
             "additionalProperties": {},
-            "nsdname": "ns1-03.azure-dns.cn."
+            "nsdname": "ns1-03.azure-dns.com."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns2-03.azure-dns.cn."
+            "nsdname": "ns2-03.azure-dns.net."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns3-03.azure-dns.cn."
+            "nsdname": "ns3-03.azure-dns.org."
           },
           {
             "additionalProperties": {},
-            "nsdname": "ns4-03.azure-dns.cn."
+            "nsdname": "ns4-03.azure-dns.info."
           }
         ],
         "resourceGroup": "myresourcegroup",
@@ -138,9 +137,9 @@ DNS bölgesi dosyasını içeri aktardıktan sonra doğrulamak için aşağıdak
     ```
 
     ```cmd
-    nslookup www.contoso.com ns1-03.azure-dns.cn
+    nslookup www.contoso.com ns1-03.azure-dns.com
 
-        Server: ns1-01.azure-dns.cn
+        Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
 
         Name:www.contoso.com
@@ -148,13 +147,13 @@ DNS bölgesi dosyasını içeri aktardıktan sonra doğrulamak için aşağıdak
         134.170.188.221
     ```
 
-### <a name="step-3-update-dns-delegation"></a>3. Adım DNS temsilcisini güncelleştir
+### <a name="step-3-update-dns-delegation"></a>Adım 3. DNS temsilcisini güncelleştir
 
 Bölge doğru şekilde içeri aktarıldığını doğruladıktan sonra Azure DNS ad sunucularına işaret edecek şekilde DNS temsilcisini güncelleştirmeniz gerekiyor. Daha fazla bilgi için bkz [DNS temsilcini güncelleştirmeyi](dns-domain-delegation.md).
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>DNS bölge dosyasını Azure DNS'den dışarı aktarma
 
-Bir DNS bölgesi almak için Azure CLI komut biçimi şöyledir:
+Bir DNS bölgesi dışarı aktarmak için Azure CLI komut biçimi şöyledir:
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953793"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688812"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -137,13 +137,21 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
    <a id="tune-page-size"></a>
 1. **Daha iyi performans için sorgu/okuma akışlarına yönelik sayfa boyutunu ayarlama**
 
-    Bir toplu gerçekleştirme belgelerini okuma akışı işlevleri (örneğin, ReadDocumentFeedAsync) kullanarak veya bir SQL sorgusu gönderirken, okuma, sonuç kümesi çok büyükse sonuçları bölümlenmiş bir biçimde döndürülür. Varsayılan olarak, sonuçları 100 öğe 1 MB veya öbekler halinde döndürülür, ilk isabet sınırlarından hangisi.
+   Bir toplu gerçekleştirme belgelerini okuma akışı işlevleri (örneğin, ReadDocumentFeedAsync) kullanarak veya bir SQL sorgusu gönderirken, okuma, sonuç kümesi çok büyükse sonuçları bölümlenmiş bir biçimde döndürülür. Varsayılan olarak, sonuçları 100 öğe 1 MB veya öbekler halinde döndürülür, ilk isabet sınırlarından hangisi.
 
-    Sayısını azaltmak için ağ gidiş dönüşleri yürürlükteki tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Yalnızca birkaç sonuçları görüntülemek için gerek duyduğunuz durumlarda Örneğin, kullanıcı arabirimi veya uygulama API'nizi yalnızca 10 döndürürse birer sonuçları, 10 okuma ve sorgular için kullanılan aktarım hızını azaltmak için sayfa boyutunu da azaltabilirsiniz.
+   Sayısını azaltmak için ağ gidiş dönüşleri yürürlükteki tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Yalnızca birkaç sonuçları görüntülemek için gerek duyduğunuz durumlarda Örneğin, kullanıcı arabirimi veya uygulama API'nizi yalnızca 10 döndürürse birer sonuçları, 10 okuma ve sorgular için kullanılan aktarım hızını azaltmak için sayfa boyutunu da azaltabilirsiniz.
 
-    Kullanılabilir Azure Cosmos DB SDK'larını kullanarak sayfa boyutunu da ayarlayabilir.  Örneğin:
+   > [!NOTE] 
+   > MaxItemCount özelliği yalnızca sayfalandırma amaçla kullanılmamalıdır. Ana kullanım olan tek bir sayfasında en fazla öğe sayısını azaltarak sorguların performansını geliştirmek için döndürülen.  
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   Kullanılabilir Azure Cosmos DB SDK'larını kullanarak sayfa boyutunu da ayarlayabilirsiniz. [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) FeedOptions özelliğinde öğeleri enmuration işlemde döndürülecek en fazla sayısını ayarlamanızı sağlar. Zaman `maxItemCount` ayarlanır -1 olarak SDK belge boyutuna bağlı olarak en iyi değeri otomatik olarak bulur. Örneğin:
+    
+   ```csharp
+    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   ```
+    
+   Bir sorgu yürütüldüğünde sonuç verileri TCP paket içinde gönderilir. İçin çok düşük bir değer belirtirseniz `maxItemCount`, TCP paketin içindeki veri göndermek için gereken dönüş sayısı yüksek, hangi performansını etkiler. Ne için ayarlanacak değer olmadığından emin değilseniz, bu nedenle `maxItemCount` özelliği -1 olarak ayarlayın ve varsayılan değer seçin SDK'sı izin en iyisidir. 
+
 10. **İş parçacıklarının/görevlerin sayısını artırın**
 
     Bkz: [iş parçacıklarının/görevlerin sayısını artırın](#increase-threads) ağ bölümünde.
@@ -175,7 +183,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     Daha fazla bilgi için [Azure Cosmos DB dizinleme ilkeleri](index-policy.md).
 
-## <a name="throughput"></a>Performans
+## <a name="throughput"></a>Aktarım hızı
 <a id="measure-rus"></a>
 
 1. **Ölçün ve için alt istek birimi/saniye kullanım ayarlayın.**

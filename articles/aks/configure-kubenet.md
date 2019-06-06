@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956398"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497199"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Kubernetes kendi IP adresi aralıklarını Azure Kubernetes Service (AKS) ile ağ kullanma
 
@@ -28,7 +28,7 @@ Bu makalede nasıl kullanılacağını gösterir *kubernetes* oluşturmak ve bir
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure CLI Sürüm 2.0.56 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
+Azure CLI Sürüm 2.0.65 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Ağ kendi alt ağ ile kubernetes genel bakış
 
@@ -48,7 +48,7 @@ Azure, en fazla 400 yolların bir UDR'de destekler, böylece bir AKS kümesi 400
 
 Bir güvenlik ihlali kullanan bir AKS kümesi oluşturabileceğiniz *kubernetes* ve var olan bir sanal ağ alt ağına bağlayın. Bu yaklaşım, çok sayıda IP adresleri Önden, kümede çalışabilecek olası pod'ların tüm ayırmak zorunda kalmadan tanımlanan IP adreslerini almak düğümleri sağlar.
 
-İle *kubernetes*, bir çok daha küçük IP adresi aralığı kullanın ve büyük kümeleri ve uygulama taleplerini destekleyebilir. Örneğin, hatta ile bir */27* IP adresi aralığı, 20-25 düğümlü bir küme ölçeklendirme veya yükseltmek için yeterli alan ile çalıştırılabilir. Bu küme boyutu en fazla destekleyecektir *2.200 2750* pod'ların (ile 110 pod'ların düğüm başına varsayılan en fazla).
+İle *kubernetes*, bir çok daha küçük IP adresi aralığı kullanın ve büyük kümeleri ve uygulama taleplerini destekleyebilir. Örneğin, hatta ile bir */27* IP adresi aralığı, 20-25 düğümlü bir küme ölçeklendirme veya yükseltmek için yeterli alan ile çalıştırılabilir. Bu küme boyutu en fazla destekleyecektir *2.200 2750* pod'ların (ile 110 pod'ların düğüm başına varsayılan en fazla). Pod'ları ile yapılandırabileceğiniz düğüm başına en fazla sayısını *kubernetes* AKS 250'dir.
 
 Aşağıdaki temel hesaplamaları ağ modellerini farkı Karşılaştır:
 
@@ -144,11 +144,11 @@ Artık bir sanal ağ ve alt ağ, oluşturulan ve oluşturduğunuz ve bu ağ kayn
 
 Kümenin parçası oluşturma işlemi aşağıdaki IP adresi aralıklarını da olarak tanımlanır:
 
-* *--Hizmet CIDR* AKS kümesi iç Hizmetleri'nde bir IP adresi atamak için kullanılır. Bu IP adresi aralığı, ağ ortamınızda başka bir yerde kullanımda olmayan bir adres alanı olmalıdır. Bu, bağlanmak veya Express Route veya siteden siteye VPN bağlantıları kullanarak Azure sanal ağlarınıza bağlanmayı planlıyorsanız, tüm şirket içi ağ Aralıklarınızın içerir.
+* *--Hizmet CIDR* AKS kümesi iç Hizmetleri'nde bir IP adresi atamak için kullanılır. Bu IP adresi aralığı, ağ ortamınızda başka bir yerde kullanımda olmayan bir adres alanı olmalıdır. Bu, bağlanmak veya Express Route veya siteden siteye VPN bağlantısı kullanarak Azure sanal ağlarınıza bağlanmayı planlıyorsanız hiçbir şirket içi ağ aralığı içerir.
 
 * *--Dns-hizmet-IP* adresi olmalıdır *.10* hizmeti IP adresi aralığınızı adresidir.
 
-* *--Pod CIDR* , ağ ortamınızda başka bir yerde kullanımda olmayan bir geniş adres alanı olmalıdır. Bu, bağlanmak veya Express Route veya siteden siteye VPN bağlantısı kullanarak Azure sanal ağlarınıza bağlanmayı planlıyorsanız, tüm şirket içi ağ Aralıklarınızın içerir.
+* *--Pod CIDR* , ağ ortamınızda başka bir yerde kullanımda olmayan bir geniş adres alanı olmalıdır. Bu, bağlanmak veya Express Route veya siteden siteye VPN bağlantısı kullanarak Azure sanal ağlarınıza bağlanmayı planlıyorsanız hiçbir şirket içi ağ aralığı içerir.
     * Bu adres aralığı'nın ölçeği beklediğiniz düğüm sayısını tutabilecek kadar büyük olmalıdır. Ek düğümler için daha fazla adres gerekiyorsa, küme dağıtıldıktan sonra bu adres aralığını değiştiremezsiniz.
     * Pod IP adresi aralığı atamak için kullanılan bir */24* adres alanı her küme düğümünde için. Aşağıdaki örnekte, *--pod CIDR* , *192.168.0.0/16* ilk düğümü atar *192.168.0.0/24*, ikinci düğümü *192.168.1.0/24*ve üçüncü düğüm *192.168.2.0/24*.
     * Küme ölçek veya yükseltme olarak, Azure platformu pod IP adresi aralığı her yeni düğüme atamak devam eder.

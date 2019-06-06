@@ -2,20 +2,20 @@
 title: Openıd Connect - Azure Active Directory B2C ile oturum açma ve kaydolma | Microsoft Docs
 description: Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81968aa3ba9f082194f4f447161a3eef7e014374
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 774716aeb28ca5d9563f38272a59c8e675a11e4b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704140"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508388"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlama
 
@@ -31,7 +31,7 @@ ms.locfileid: "64704140"
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
-5. İçin **kimlik sağlayıcısı türü**seçin **Openıd Connect (Önizleme)**.
+5. İçin **kimlik sağlayıcısı türü**seçin **Openıd Connect (Önizleme)** .
 
 ## <a name="configure-the-identity-provider"></a>Kimlik sağlayıcısı yapılandırma
 

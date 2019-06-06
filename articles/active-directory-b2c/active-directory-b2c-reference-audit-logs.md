@@ -2,20 +2,20 @@
 title: Denetim, Azure Active Directory B2C'de örnekleri ve tanımları günlükleri | Microsoft Docs
 description: Kılavuz ve örnekler, Azure AD B2C denetim günlüklerine erişim.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fdc3578fe78e60086a148e4204019a8293030b83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688762"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509649"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C erişim denetim günlükleri
 
@@ -33,7 +33,7 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 |Dizin |Azure portalı kullanarak yönetici kapattığında alınan dizin öznitelikleri ilgili etkinlikleri |
 |Uygulama | B2C uygulamaları CRUD işlemleri |
 |Anahtar |B2C anahtar kapsayıcısı içinde depolanan anahtarları CRUD işlemleri |
-|Kaynak |B2C kaynaklarını (örneğin, ilkeleri ve kimlik sağlayıcıları) CRUD işlemleri
+|Resource |B2C kaynaklarını (örneğin, ilkeleri ve kimlik sağlayıcıları) CRUD işlemleri
 |Kimlik Doğrulaması |Belirteç verme ile kullanıcı kimlik bilgilerini ve doğrulama|
 
 > [!NOTE]

@@ -2,20 +2,20 @@
 title: Uygulamanızı Azure Active Directory B2C için bir erişim belirteci ile özel bir ilke geçirin | Microsoft Docs
 description: Nasıl bir erişim belirteci OAuth2.0 kimlik sağlayıcıları için özel bir ilke talebi olarak uygulamanıza Azure Active Directory B2C'de geçirebilirsiniz öğrenin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d752af1860d76e59df045907c11d16b4e1d20b0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d9420398c012b8da18e3b035cb845db6ce8c942d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702942"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511060"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir erişim belirteci ile özel bir ilke geçirin
 
@@ -94,7 +94,7 @@ Uygulamalarınızı Azure AD B2C'de test etme, döndürülen Azure AD B2C belirt
 7. **Karşıya Yükle**'ye tıklayın.
 8. 5. adım-7 gibi bağlı olan taraf dosyası için yineleyin *SignUpOrSignIn.xml*.
 
-### <a name="run-the-policy"></a>İlkeyi çalıştır
+### <a name="run-the-policy"></a>İlke çalıştırın
 
 1. Değiştirdiğiniz İlkesi'ni açın. Örneğin, *B2C_1A_signup_signin*.
 2. İçin **uygulama**, daha önce kaydettiğiniz uygulamanızı seçin. Aşağıdaki örnekte, belirteci görmek için **yanıt URL'si** göstermelidir `https://jwt.ms`.

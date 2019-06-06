@@ -2,20 +2,20 @@
 title: Bir iOS uygulaması Azure Active Directory B2C AppAuth kullanarak | Microsoft Docs
 description: Bu makalede, kullanıcı kimliklerini yönetmek ve kullanıcıların kimliğini doğrulamak için Azure Active Directory B2C ile AppAuth kullanan bir iOS uygulamasının nasıl oluşturulacağını gösterir.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dc429861d97715505ed48e06d216bd2c8292addf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703094"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510094"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Bir iOS uygulaması kullanarak oturum açın
 
@@ -84,7 +84,7 @@ OIDServiceConfiguration *configuration =
 // now we are ready to perform the auth request...
 ```
 
-### <a name="authorizing"></a>Yetkilendiriliyor
+### <a name="authorizing"></a>Yetkilendirme
 
 Yapılandırma veya bir yetkilendirme hizmet yapılandırması alma sonra bir yetkilendirme isteği oluşturulabilir. İsteği oluşturmak için aşağıdaki bilgiler gereklidir:  
 * İstemci kimliği (örneğin, 00000000-0000-0000-0000-000000000000)

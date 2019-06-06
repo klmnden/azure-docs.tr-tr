@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602085"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472582"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performans ve bağlantı ölçümü, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Log Analytics çalışma alanına Azure İzleyici'de iletir.  Bu veriler için kullanılabilir [sorgu](../../azure-monitor/log-query/log-query-overview.md) Azure İzleyici'de. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -124,13 +124,6 @@ Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinli�
 
 ### <a name="ports"></a>Bağlantı Noktaları 
 Etkin olarak gelen trafiği kabul veya potansiyel olarak trafiği kabul edebilecek, ancak Raporlama zaman penceresi boyunca boşta bağlantı noktaları bir makinede VMBoundPort tabloya yazılır.  
-
->[!NOTE]
->VM'ler için Azure İzleyici, toplama ve bağlantı noktası verileri aşağıdaki bölgelerde bir Log Analytics çalışma alanında kayıt desteklemez:  
->- Doğu ABD  
->- Batı Avrupa
->
-> Bu verilerin toplanması etkin diğerinde [desteklenen bölgeler](vminsights-enable-overview.md#log-analytics) VM'ler için Azure İzleyici için. 
 
 Her kayıtta VMBoundPort aşağıdaki alanlara göre tanımlanır: 
 

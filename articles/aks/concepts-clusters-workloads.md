@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850522"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514520"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Destek Hizmetleri ve uygulamaları çalıştırmak için bir Kubernetes gerekir 
 
 Azure VM boyutu, düğümleri için kaç CPU'lar, tanımlar ne kadar bellek ve boyutu ile türünü depolama (yüksek performanslı SSD veya HDD normal gibi) kullanılabilir. Büyük miktarda CPU ve bellek veya yüksek performanslı depolama gerektiren uygulamalar için bir öngörüyorsanız düğüm boyutunu buna göre planlayın. Ayrıca, talebi karşılamak üzere, AKS kümenizin sayıda düğüm ölçeklendirebilirsiniz.
 
-AKS kümenizde düğümleri için VM görüntüsü şu anda Ubuntu Linux veya Windows Server 2019 temel alır. AKS kümesi oluşturma veya düğüm sayısını, Azure platformu istenen VM sayısını oluşturur ve bunları yapılandırır. Gerçekleştirmeniz için el ile yapılandırma yoktur.
+AKS kümenizde düğümleri için VM görüntüsü şu anda Ubuntu Linux veya Windows Server 2019 temel alır. AKS kümesi oluşturma veya düğüm sayısını, Azure platformu istenen VM sayısını oluşturur ve bunları yapılandırır. Gerçekleştirmeniz için el ile yapılandırma yoktur. Aracı düğümleri standard sanal makineleri faturalandırılır, böylece indirimleri VM boyutuna sahip, kullanmakta olduğunuz (dahil olmak üzere [Azure ayırmaları][reservation-discounts]) otomatik olarak uygulanır.
 
 İşletim sistemi, kapsayıcı çalışma zamanı, farklı bir konak kullanın veya özel paketler dahil gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [aks altyapısı][aks-engine]. Yukarı Akış `aks-engine` özellikleri serbest bırakır ve resmi olarak AKS kümelerde desteklenen önce yapılandırma seçenekleri sağlar. Örneğin, bir kapsayıcı çalışma zamanı Moby dışında kullanmak isterseniz, kullanabileceğiniz `aks-engine` yapılandırmak ve geçerli ihtiyaçlarınıza uygun bir Kubernetes kümesi dağıtmak için.
 
@@ -270,3 +270,4 @@ Bu makale, bazı temel Kubernetes bileşenleri ve bunların AKS kümeye nasıl u
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

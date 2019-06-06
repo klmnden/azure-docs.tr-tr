@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C özel ilkeleri | Microsoft Docs
 description: Özel ilkeleri kullanarak, Azure Active Directory B2C ile tüketiciye yönelik uygulamalar geliştirme.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 5/06/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5e09fd32b56c553d60f68060471f28c1d8e5ef12
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e981905854f6810581f081689694d28c034f2f72
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703176"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509898"
 ---
 # <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Kaydolun ve uygulamalarınızı Azure Active Directory B2C'de özel ilkeleri kullanarak tüketicilerinizin oturum açmalarını sağlama
 

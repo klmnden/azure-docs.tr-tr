@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/11/2019
-ms.openlocfilehash: 4516d61c1bf8a32e807bcbc01ea1e5b283e31060
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/03/2019
+ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762686"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688080"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyasını kopyalayın
 
@@ -49,8 +49,6 @@ Azure portalını kullanarak bir veritabanını kopyalamak için veritabanınız
 ## <a name="copy-a-database-by-using-powershell"></a>Bir veritabanını PowerShell kullanarak kopyalama
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 PowerShell kullanarak bir veritabanını kopyalamak için kullanmak [yeni AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet'i. 
 

@@ -2,20 +2,20 @@
 title: Sosyal hesap kimlik deneyimi çerçevesi şema Azure Active Directory B2C için dönüşüm örnekleri talep | Microsoft Docs
 description: Sosyal hesap kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için dönüşüm örnekleri talepleri.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f6da199beb292f193d97eee309ca40dd74f81f8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697745"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512480"
 ---
 # <a name="social-accounts-claims-transformations"></a>Sosyal medya hesaplarını talep dönüştürmeleri
 
@@ -43,7 +43,7 @@ Azure Active Directory çağrılarındaki kullanılabilir kullanıcının altern
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | anahtar | string | ClaimType sosyal kimlik sağlayıcısı tarafından kullanılan benzersiz kullanıcı tanımlayıcısını belirtir. |
-| Inputclaim | identityProvider | string | ClaimType facebook.com gibi sosyal hesap kimlik sağlayıcısı adını belirtir. |
+| Inputclaim | Identityprovider | string | ClaimType facebook.com gibi sosyal hesap kimlik sağlayıcısı adını belirtir. |
 | outputClaim | alternativeSecurityId | string | ClaimsTransformation çağrıldıktan sonra üreten ClaimType. Sosyal hesap kullanıcının kimlik bilgilerini içerir. **Veren** değeri `identityProvider` talep. **İssuerUserId** değeri `key` base64 biçiminde talep. |
 
 Bu talep oluşturmak için kullanmak bir `alternativeSecurityId` ClaimType. Tüm sosyal kimlik sağlayıcısı teknik profiller tarafından gibi kullanılır `Facebook-OAUTH`. Aşağıdaki talep dönüştürme kullanıcı sosyal hesap kimliği ve kimlik sağlayıcısı adını alır. Bu teknik profili çıktısını Azure AD directory hizmetlerinde kullanılabilecek bir JSON dizesi biçimidir.
@@ -75,8 +75,8 @@ Ekler bir `AlternativeSecurityId` için bir `alternativeSecurityIdCollection` ta
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | Öğesi | string | Çıkış talebi için eklenecek ClaimType. |
-| Inputclaim | koleksiyon | alternativeSecurityIdCollection | Tarafından talep Dönüştürme ilkesi varsa kullanılan ClaimTypes. Sağlanırsa, talep dönüştürme ekler `item` koleksiyonun sonuna. |
-| outputClaim | koleksiyon | alternativeSecurityIdCollection | Bu ClaimsTransformation çağrıldıktan sonra üretilen ClaimTypes. Her iki giriş öğeleri içeren yeni bir koleksiyon `collection` ve `item`. |
+| Inputclaim | Koleksiyon | alternativeSecurityIdCollection | Tarafından talep Dönüştürme ilkesi varsa kullanılan ClaimTypes. Sağlanırsa, talep dönüştürme ekler `item` koleksiyonun sonuna. |
+| outputClaim | Koleksiyon | alternativeSecurityIdCollection | Bu ClaimsTransformation çağrıldıktan sonra üretilen ClaimTypes. Her iki giriş öğeleri içeren yeni bir koleksiyon `collection` ve `item`. |
 
 Aşağıdaki örnek yeni bir sosyal kimlik var olan bir hesapla bağlar. Yeni bir sosyal kimlik bağlamak için:
 1. İçinde **AAD UserReadUsingAlternativeSecurityId** ve **AAD UserReadUsingObjectId** teknik profiller, kullanıcının çıkış **Alternativesecurityıds** talep.
@@ -138,9 +138,9 @@ Kaldırır bir **AlternativeSecurityId** gelen bir **alternativeSecurityIdCollec
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | identityProvider | string | Koleksiyondan kaldırılacak kimlik sağlayıcısı adını içeren ClaimType. |
-| Inputclaim | koleksiyon | alternativeSecurityIdCollection | Talep dönüştürme tarafından kullanılan ClaimTypes. Talep dönüştürme Identityprovider koleksiyondan kaldırır. |
-| outputClaim | koleksiyon | alternativeSecurityIdCollection | Bu ClaimsTransformation çağrıldıktan sonra üretilen ClaimTypes. Identityprovider koleksiyonundan kaldırdıktan sonra yeni toplama. |
+| Inputclaim | Identityprovider | string | Koleksiyondan kaldırılacak kimlik sağlayıcısı adını içeren ClaimType. |
+| Inputclaim | Koleksiyon | alternativeSecurityIdCollection | Talep dönüştürme tarafından kullanılan ClaimTypes. Talep dönüştürme Identityprovider koleksiyondan kaldırır. |
+| outputClaim | Koleksiyon | alternativeSecurityIdCollection | Bu ClaimsTransformation çağrıldıktan sonra üretilen ClaimTypes. Identityprovider koleksiyonundan kaldırdıktan sonra yeni toplama. |
 
 Aşağıdaki örnek bir sosyal kimlik var olan bir hesapla bağlantısını kaldırır. Sosyal kimlik bağlantısını kaldırmak için:
 1. İçinde **AAD UserReadUsingAlternativeSecurityId** ve **AAD UserReadUsingObjectId** teknik profiller, kullanıcının çıkış **Alternativesecurityıds** talep.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea39bceaa6b58e84def9635436d902002e33cd14
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464816"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514507"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Kapsayıcı görüntü yönetimi ve güvenliği Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -22,7 +22,6 @@ Bu makalede aks'deki kapsayıcılarınızı güvenliğini nasıl ele alınmaktad
 
 > [!div class="checklist"]
 > * Tarama ve resim güvenlik açıklarını düzeltin
-> * Güvenilir bir kayıt defteri ile imzalanmış kapsayıcı görüntülerini kullanma
 > * Otomatik olarak tetikleyin ve temel görüntüsü güncelleştirildiğinde kapsayıcı görüntülerini yeniden dağıtma
 
 Ayrıca, en iyi yöntemler için okuyabilirsiniz [küme güvenlik] [ best-practices-cluster-security] ve [pod güvenlik][best-practices-pod-security].
@@ -36,16 +35,6 @@ Bir kapsayıcı tabanlı iş yüklerini benimsenmesini içeriğiyle görüntüle
 ![Tarama ve düzeltme kapsayıcı görüntüleri, doğrulamak ve dağıtma](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 Gerçek hayatta kullanılan örnekte, görüntü tarama, doğrulama ve dağıtımı otomatik hale getirmek için bir sürekli tümleştirme ve sürekli dağıtım (CI/CD) işlem hattı kullanabilirsiniz. Azure Container Registry açıklarından tarama özellikleri içerir.
-
-## <a name="use-a-trusted-registry"></a>Güvenilir bir kayıt defteri kullanma
-
-**En iyi uygulama kılavuzunu** - sınırlamak, pod'ların görüntü kayıt defterleri ve dağıtımları kullanabilirsiniz. Yalnızca Burada doğrulayın ve kullanılabilir resimlerini denetleme güvenilen kayıt defterleri izin verir.
-
-Ek güvenlik için uygulama kodunuzun yalnızca dijital olarak imzalayabilirsiniz gibi kapsayıcı görüntülerinizi de dijital olarak imzalayabilirsiniz. Ardından yalnızca imzalı görüntülerini dağıtmak için AKS izin. Bu işlem, yalnızca dijital olarak imzalanmış ve size, bir güvenlik açığı denetimi başarılı değil yalnızca görüntüleri güvenilen görüntüleri çekmek için AKS sınırlamak, ek bir güvenlik katmanı sağlar. Ayrıca kapsayıcı görüntüsünü edilmemiş değiştirilmiş ve tam aynı ada sahip bir görüntü yerine emin emin olun.
-
-Dijital olarak imzalanmış kapsayıcı görüntülerini sağlayan güvenilir kayıt defterleri karmaşıklığı ortamınıza ekleyebilirsiniz, ancak belirli bir ilke veya yönetmeliklere uygunluk için gerekli olabilir. Azure Container Registry güvenilen kayıt defterleri destekler ve görüntüleri imzalanmış.
-
-Dijital olarak imzalanmış görüntüleri hakkında daha fazla bilgi için bkz. [içerik Azure Container Registry güvende][acr-content-trust].
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>Yeni görüntü temel görüntü güncelleştirme otomatik olarak oluşturma
 
@@ -62,7 +51,6 @@ Temel görüntü güncelleştirmeleri hakkında daha fazla bilgi için bkz. [oto
 Bu makalede kapsayıcılarınızı güvenli nasıl odaklanır. Bu alanlardan bazıları uygulamak için aşağıdaki makalelere bakın:
 
 * [Azure kapsayıcı kayıt defteri görevleri olan temel görüntü güncelleştirme görüntü oluşturmayı otomatikleştirme][acr-base-image-update]
-* [Azure Container Registry'de içeriğine güven][acr-content-trust]
 
 <!-- EXTERNAL LINKS -->
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
@@ -72,5 +60,4 @@ Bu makalede kapsayıcılarınızı güvenli nasıl odaklanır. Bu alanlardan baz
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
-[acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61231982"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688904"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarını izleme ve yönetme
 
@@ -30,7 +30,7 @@ Bu makale için önkoşullardır: bir Azure aboneliğine ve bir kurtarma Hizmetl
 
 Uyarıları yönetme veya kurtarma Hizmetleri kasası ile ilgili yönetim verileri görüntülemek için kasa açın.
 
-1. Oturum [Azure portalı](https://portal.azure.com/) Azure aboneliğinizi kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) Azure aboneliğinizi kullanarak.
 
 2. Portalında **tüm hizmetleri**.
 
@@ -102,7 +102,7 @@ Varsayılan olarak, tüm ayrıntıları dışında **son oluşum zamanı**, rapo
 * Korumalı sunucu
 * Severity
 * Süre
-* Oluşturma Zamanı
+* Oluşturma zamanı
 * Durum
 * Son oluşum zamanı
 
@@ -156,7 +156,7 @@ E-posta oluşturmak için kullanılan uyarı önem derecesi (kritik veya uyarı)
 
 ## <a name="manage-backup-items"></a>Yedekleme öğeleri yönetme
 
-Kurtarma Hizmetleri kasası, yedekleme verilerini türlerde tutar. Yedekleme türlerinin tam listesi için bkz. [hangi uygulamaları ve iş yükleri yedeklenebilir](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Çeşitli sunucular, bilgisayarlar, veritabanları ve iş yüklerini yönetmek için tıklayın **yedekleme öğeleri** kasa içeriğini görüntülemek için kutucuk.
+Kurtarma Hizmetleri kasası, yedekleme verilerini türlerde tutar. [Daha fazla bilgi edinin](backup-overview.md#what-can-i-back-up) hakkında ne yedekleyebilirsiniz. Çeşitli sunucular, bilgisayarlar, veritabanları ve iş yüklerini yönetmek için tıklayın **yedekleme öğeleri** kasa içeriğini görüntülemek için kutucuk.
 
 ![Yedekleme öğeleri kutucuğu](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -226,7 +226,7 @@ Tek bir işlem veya tüm işlemleri görüntüleyebilirsiniz. İki veya üç iş
 * Backup
 * Geri Yükleme
 * Yedeklemeyi devre dışı bırak
-* Yedekleme verilerini sil
+* Yedekleme verilerini silme
 
 #### <a name="status"></a>Durum
 
@@ -243,11 +243,11 @@ Tüm durum ya da görüntüleyebilirsiniz. İki veya üç durumları seçemezsin
 
 Gün ve sorgu başladığı zaman. 24 saatlik dönemde varsayılandır.
 
-#### <a name="end-time"></a>Bitiş saati
+#### <a name="end-time"></a>Bitiş zamanı
 
 Gün ve saati sona erdiğinde sorgu.
 
-### <a name="export-jobs"></a>İşleri dışarı aktar
+### <a name="export-jobs"></a>Dışarı aktarma işleri
 
 Kullanım **dışarı aktarma işleri** tüm işleri menü bilgilerini içeren bir elektronik tablo oluşturun. Elektronik tablo, tüm işlerin bir özetini içeren bir sayfa ve her bir sayfaya her iş için vardır.
 

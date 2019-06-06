@@ -1,22 +1,22 @@
 ---
-title: 'Hızlı Başlangıç: Azure Veri Gezgini Logstash verileri alma'
-description: Bu hızlı başlangıçta, Azure veri Gezgini'nde Logstash içine (yükle) verilerin alımı öğrenin
+title: Azure Veri Gezgini Logstash verileri alma
+description: Bu makalede, Azure veri Gezgini'nde Logstash içine (yükle) verilerin alımı öğrenin
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759376"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494534"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Hızlı Başlangıç: Azure Veri Gezgini Logstash verileri alma
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Azure Veri Gezgini Logstash verileri alma
 
-[Logstash](https://www.elastic.co/products/logstash) açık kaynaklı, sunucu tarafı veri işleme işlem hattı, aynı anda birçok kaynaktan verileri alır, verileri dönüştüren ve sonra "Hazırlama" Sık kullandığınız için verileri gönderir. Bu hızlı başlangıçta, hızlı ve yüksek oranda ölçeklenebilir bir veri keşfetme hizmeti günlük ve telemetri verileri için olan bu verileri Azure veri Gezgini'ne göndereceğiz. İlk olarak bir tablo ve veri eşleme bir test kümesini oluşturmak ve sonra tabloya veri göndermek ve sonuçları doğrulamak için Logstash doğrudan.
+[Logstash](https://www.elastic.co/products/logstash) açık kaynaklı, sunucu tarafı veri işleme işlem hattı, aynı anda birçok kaynaktan verileri alır, verileri dönüştüren ve sonra "Hazırlama" Sık kullandığınız için verileri gönderir. Bu makalede, hızlı ve yüksek oranda ölçeklenebilir bir veri keşfetme hizmeti günlük ve telemetri verileri için olan bu verileri Azure veri Gezgini'ne göndereceğiz. İlk olarak bir tablo ve veri eşleme bir test kümesini oluşturmak ve sonra tabloya veri göndermek ve sonuçları doğrulamak için Logstash doğrudan.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -146,5 +146,4 @@ Veritabanınızda temizlemek için aşağıdaki komutu çalıştırarak `logs` t
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Sorgu yazma](write-queries.md)
+* [Sorgu yazma](write-queries.md)

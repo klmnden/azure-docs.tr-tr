@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236634"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475990"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama 
 
@@ -31,22 +31,22 @@ Bu makalede, model yönetimi için çeşitli bilgisayar hedefine kullanmayı ö�
 
 
 >[!NOTE]
-> Bu makalede kod, Azure Machine Learning SDK 1.0.6 sürümünü ile test edilmiştir.
+> Bu makalede kod, Azure Machine Learning SDK sürüm 1.0.39 ile test edilmiştir.
 
 ## <a name="compute-targets-for-training"></a>Eğitim hedefleri işlem
 
 Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe sahiptir. Az miktarda veriniz üzerinde dev/deneme ile tipik model geliştirme yaşam döngüsü başlatır. Bu aşamada, yerel bir ortamı kullanmanızı öneririz. Örneğin, yerel bilgisayarınıza veya bulut tabanlı bir VM. Büyük veri kümeleri üzerinde eğitim ölçeğini veya dağıtılmış eğitimi yapmak gibi bir Farklı Çalıştır gönderdiğiniz her zaman bu daralttığında tek veya çok node küme oluşturmak için Azure Machine Learning işlem kullanmanızı öneririz. Çeşitli senaryolarda olarak değişiklik gösterebilir destek aşağıda ayrıntılarıyla olsa da, kendi işlem kaynağı ekleyebilirsiniz:
 
 
-|Eğitim için hedef işlem| GPU hızlandırma | Otomatik<br/> Hiper parametre ayarı | Otomatik<br/> makine öğrenimi | Azure Machine Learning işlem hatlarını |
+|Eğitim &nbsp;hedefleri| GPU desteği |Otomatik ML | ML işlem hatları | Görsel arabirim
 |----|:----:|:----:|:----:|:----:|
-|[Yerel bilgisayar](#local)| Belki de | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning işlem](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[Uzak VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Yerel bilgisayar](#local)| Belki de | evet | &nbsp; | &nbsp; |
+|[Azure Machine Learning işlem](#amlcompute)| evet | Evet & <br/>Hiper parametre&nbsp;ayarlama | evet | evet |
+|[Uzak VM](#vm) |evet | Evet & <br/>Hiper parametre ayarı | evet | &nbsp; |
+|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | evet | evet | &nbsp; |
+|[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | evet | &nbsp; |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | evet | &nbsp; |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | evet | &nbsp; |
 
 **Tüm hedefler için birden fazla eğitim işleri yeniden kullanılabilir işlem**. Örneğin, uzak bir VM çalışma alanınıza eklediğiniz sonra birden çok iş için kullanabilirsiniz.
 

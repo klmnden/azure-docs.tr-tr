@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255687"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497159"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights Genel Bakış Panosu
 
@@ -37,7 +37,7 @@ Zaman aralığı seçimi için basit bir tek tıklamayla arabirimi basitleştiri
 
 Genel performans büyük ölçüde artırıldı. Tek tıklamayla erişim gibi popüler özelliklere sahip **arama** ve **Analytics**. Dinamik olarak KPI kutucuk güncelleştirme her varsayılan karşılık gelen Application Insights özellikleri hakkında Öngörüler sağlar. Hakkında daha fazla bilgi edinmek için istekleri seçin başarısız **hataları** altında **Araştır** üst bilgi:
 
-![Hatalar](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![hataları](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Uygulama panosu
 
@@ -60,9 +60,12 @@ Gitmek için yalnızca bir genel bakış deneyime geri seçin:
 
 ![Genel Bakış düğmesi](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>Sorun giderme
+
+Seçerseniz **kutucuk ayarlarını yapılandır** ve 31 günün verilerini, varsayılan veri saklama süresi 90 gün olsa da ötesinde panonuzu görüntülemez 31 gün aşan bir özel zaman aralığı ayarlayın. Şu anda bu davranışı için geçici çözüm yoktur.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Huniler](../../azure-monitor/app/usage-funnels.md)
 - [Bekletme](../../azure-monitor/app/usage-retention.md)
 - [Kullanıcı Akışları](../../azure-monitor/app/usage-flows.md)
-- [Panolar](../../azure-monitor/app/app-insights-dashboards.md)

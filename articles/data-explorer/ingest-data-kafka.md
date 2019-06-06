@@ -1,20 +1,20 @@
 ---
-title: "Hızlı Başlangıç: Azure veri Gezgini'ne kafka'dan veri alma"
-description: Bu hızlı başlangıçta, Azure kafka'dan Veri Gezgini içinde (yükle) veri alma öğrenin.
+title: Azure veri Gezgini'ne kafka'dan veri alma
+description: Bu makalede, Azure kafka'dan Veri Gezgini içinde (yükle) veri alma öğrenin.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901032"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497278"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne kafka'dan veri alma
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Azure veri Gezgini'ne kafka'dan veri alma
  
 Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, Kafka'dan alma (veriler yükleniyor) olanağı sağlar. Kafka güvenilir bir şekilde sistemleri veya uygulamalar arasında veri taşıma gerçek zamanlı akış verisi işlem hatları oluşturmayı sağlayan bir dağıtılmış akış platformudur.
  
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Derle
+#### <a name="build"></a>Oluşturma
 
 Yerel olarak oluşturmak için Maven ile derleme bir `.jar` bağımlılıkları ile tamamlandı.
 
@@ -57,7 +57,7 @@ Kök dizin içinde *havuz azure kusto kafka*çalıştırın:
 mvn clean compile assembly:single
 ```
 
-### <a name="deploy"></a>Dağıt 
+### <a name="deploy"></a>Dağıtma 
 
 Kafka eklentisini yükleyin. Docker'ı kullanarak bir dağıtım örneği şu yolda bulunabilir: [havuz azure kusto kafka](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Sonraki adımlar
  
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure veri Gezgini'nde verileri Sorgulama](web-query-data.md)
+* [Azure veri Gezgini'nde verileri Sorgulama](web-query-data.md)

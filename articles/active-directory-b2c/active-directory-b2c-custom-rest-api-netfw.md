@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C kullanıcı yolculuğunuzda REST API talep değişimleri tümleştirme | Microsoft Docs
 description: Kullanıcı girişini doğrulama, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717299"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510715"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişini doğrulama, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
 
@@ -56,11 +56,11 @@ Genel Bakış:
 ## <a name="prerequisites"></a>Önkoşullar
 Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
-## <a name="step-1-create-an-aspnet-web-api"></a>1. Adım: Bir ASP.NET web API'si oluşturma
+## <a name="step-1-create-an-aspnet-web-api"></a>1. adım: Bir ASP.NET web API'si oluşturma
 
 1. Visual Studio'da seçerek bir proje oluşturun **dosya** > **yeni** > **proje**.
 
-2. İçinde **yeni proje** penceresinde **Visual C#** > **Web** > **ASP.NET Web uygulaması (.NET Framework)**.
+2. İçinde **yeni proje** penceresinde **Visual C#**  > **Web** > **ASP.NET Web uygulaması (.NET Framework)** .
 
 3. İçinde **adı** uygulama için bir ad yazın (örneğin, *Contoso.AADB2C.API*) ve ardından **Tamam**.
 
@@ -72,9 +72,9 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](act
 
 5. Emin olun, kimlik doğrulamasının ayarlandığında **kimlik doğrulaması yok**.
 
-6. Projeyi oluşturmak için **Tamam**'ı seçin.
+6. Seçin **Tamam** projeyi oluşturmak için.
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>2. Adım: REST API uç noktası hazırlama
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>2. adım: REST API uç noktası hazırlama
 
 ### <a name="step-21-add-data-models"></a>2.1. adım: Veri modelleri ekleme
 Modelleri giriş talepleri temsil eder ve veri RESTful hizmetinizdeki çıkış talep. Kodunuz, bir C# nesnesi (modeli) için bir JSON dizesi giriş talepleri modelden seri durumdan çıkarılırken girdi verilerini okur. ASP.NET web API, çıkış talep modeline geri JSON otomatik olarak çıkarır ve ardından HTTP yanıt iletisinin gövdesine seri hale getirilmiş verileri yazar.
@@ -203,7 +203,7 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
     }
     ```
 
-## <a name="step-3-publish-the-project-to-azure"></a>3. Adım: Projeyi Azure'da yayımlama
+## <a name="step-3-publish-the-project-to-azure"></a>3. adım: Projeyi Azure'da yayımlama
 1. Çözüm Gezgini'nde sağ **Contoso.AADB2C.API** proje ve ardından **Yayımla**.
 
     ![Microsoft Azure App Service'e yayımlama](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
@@ -248,13 +248,13 @@ Bir talep sağlayıcısı, birden fazla teknik profili çeşitli nedenlerden dol
 
 Aşağıdaki XML kod parçacığı, iki teknik profili ile bir talep sağlayıcı düğüm içerir:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: RESTful hizmetini tanımlar.
+* **TechnicalProfile Id="REST-API-SignUp"** : RESTful hizmetini tanımlar.
   * `Proprietary` bir RESTful tabanlı sağlayıcısı için protokol olarak tanımlanır.
   * `InputClaims` Azure AD B2C'den REST hizmeti için gönderilecek Talepleri tanımlar.
 
     Bu örnekte, talep içeriğini `givenName` REST hizmeti gönderir `firstName`, talep içeriğini `surname` REST hizmeti gönderir `lastName`, ve `email` olarak gönderir. `OutputClaims` Öğesi, Azure AD B2C geri RESTful hizmetinden alınan talepleri tanımlar.
 
-* **TechnicalProfile kimliği = "LocalAccountSignUpWithLogonEmail"**: Doğrulama teknik profili, var olan bir teknik profilini (temel ilkede tanımlanan) ekler. Kaydolma yolculuğu teknik profil doğrulama teknik profili çağırır. RESTful hizmeti bir HTTP hatası 409 (çakışma hatası) döndürürse, kullanıcıya hata iletisi görüntülenir.
+* **TechnicalProfile kimliği = "LocalAccountSignUpWithLogonEmail"** : Doğrulama teknik profili, var olan bir teknik profilini (temel ilkede tanımlanan) ekler. Kaydolma yolculuğu teknik profil doğrulama teknik profili çağırır. RESTful hizmeti bir HTTP hatası 409 (çakışma hatası) döndürürse, kullanıcıya hata iletisi görüntülenir.
 
 Bulun `<ClaimsProviders>` düğümünü ve ardından altına aşağıdaki XML parçacığını ekleyin `<ClaimsProviders>` düğüm:
 

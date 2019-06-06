@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9f7a5332c8529753f2e22efd6af3d04cb3f44b6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323283"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479757"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı Verizon'a özgü HTTP üstbilgileri
 
 İçin **verizon'dan Azure CDN Premium** ürünleri, bir HTTP isteği, kaynak sunucunun bulunma noktası (POP) sunucusu ekleyebilirsiniz bir veya daha fazla ayrılmış üstbilgileri (veya proxy özel üst bilgiler) istemci isteğinde POP'a gönderilir. Bu üst alınan üstbilgileri iletme standart ek bilgilerdir. Standart istek üst bilgileri hakkında daha fazla bilgi için bkz. [isteği alanları](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
 
-Bu ayrılmış üstbilgileri biri Azure CDN (Content Delivery Network) POP isteğinde kaynak sunucuya eklenmesini önlemek istiyorsanız, bir kural oluşturmanız gerekir [Proxy özel üst bilgileri özelliği](cdn-rules-engine-reference-features.md#proxy-special-headers) kurallar altyapısı. Bu kuralda üstbilgileri üstbilgi alanında varsayılan listesinden kaldırmak istediğiniz üstbilgi hariç tutun. Etkinleştirdiyseniz [önbellek yanıt üst bilgileri hata ayıklama özelliği](cdn-rules-engine-reference-features.md#debug-cache-response-headers), gerekli eklediğinizden emin olun `X-EC-Debug` üstbilgileri. 
+Bu ayrılmış üstbilgileri biri Azure CDN (Content Delivery Network) POP isteğinde kaynak sunucuya eklenmesini önlemek istiyorsanız, bir kural oluşturmanız gerekir [Proxy özel üst bilgileri özelliği](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) kurallar altyapısı. Bu kuralda üstbilgileri üstbilgi alanında varsayılan listesinden kaldırmak istediğiniz üstbilgi hariç tutun. Etkinleştirdiyseniz [önbellek yanıt üst bilgileri hata ayıklama özelliği](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), gerekli eklediğinizden emin olun `X-EC-Debug` üstbilgileri. 
 
 Örneğin, kaldırmak için `Via` üst bilgi, kuralın üstbilgi alanı, aşağıdaki listede yer alan üst bilgileri içermelidir: *X-iletilen-için X-iletilen-Proto, X-ana bilgisayar, X-Midgress X ağ geçidi listesini, X-EC-Name, ana bilgisayar*. 
 
@@ -42,7 +42,7 @@ X-Host | İsteğin ana bilgisayar adını belirtir. | CDN.mydomain.com
 X-Midgress | İstek proxy ek bir CDN sunucu olup olmadığını gösterir. Örneğin, POP Sunucusu kaynağı kalkan sunucu veya POP server ADN ağ geçidi sunucusu. <br />Yalnızca midgress trafiği gerçekleştiğinde bu üst bilgi isteği eklendi. Bu durumda, üst bilgi isteği ek bir CDN sunucu proxy olduğunu belirtmek için 1 olarak ayarlanır.| 1
 [Ana Bilgisayar](#host-request-header) | Konak ve istenen içeriğin bulunduğu bağlantı noktasını tanımlar. | Marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Bir müşteri kaynağa atanmış ADN ağ geçidi sunucusu yük devretme listesini tanımlar. <br />Kaynak koruma: Bir müşteri kaynağa atanmış kaynak kalkan sunucuları kümesini gösterir. | `icn1,hhp1,hnd1`
-X-EC -_&lt;adı&gt;_ | İle başlar ve istek üstbilgileri *X-EC* (örneğin, X-EC-etiketi, [X-EC-Debug](cdn-http-debug-headers.md)) CDN tarafından kullanım için ayrılmıştır.| waf üretim
+X-EC - _&lt;adı&gt;_ | İle başlar ve istek üstbilgileri *X-EC* (örneğin, X-EC-etiketi, [X-EC-Debug](cdn-http-debug-headers.md)) CDN tarafından kullanım için ayrılmıştır.| waf üretim
 
 ## <a name="via-request-header"></a>İstek üstbilgisi
 Bir biçime `Via` üstbilgisi tanımlar POP sunucu isteği aşağıdaki sözdizimi tarafından belirtilir:
@@ -62,7 +62,7 @@ Sözdiziminde kullanılan terimler şu şekilde tanımlanır:
 
 - POP: Gösterir [POP](cdn-pop-abbreviations.md) , işlenen istek. 
 
-- Kimlik: Yalnızca iç kullanım içindir.
+- KİMLİĞİ: Yalnızca iç kullanım içindir.
 
 ### <a name="example-via-request-header"></a>Örnek aracılığıyla istek üstbilgisi
 

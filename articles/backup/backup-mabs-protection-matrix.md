@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237611"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427373"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Sunucusu koruma matrisi
 
@@ -82,6 +82,15 @@ Bu makalede, çeşitli sunucular ve Azure Backup sunucusu ile Koruyabileceğiniz
 |VMware Sanal Makineleri|VMware vCenter/vSphere ESX/ESXi lisanslı sürüm 5.5/6.0/6.5 |Fiziksel sunucu <br/>Şirket içi Hyper-V VM <br/> Windows VMWare VM|E|E|Küme Paylaşılan birimleri (CSV), NFS, VMware Vm'lerinde ve SAN depolama alanı<br /> Dosya ve klasörleri öğe düzeyinde kurtarma yalnızca Windows Vm'leri için kullanılabilir, VMware Vapps'i desteklenmez.|
 |VMware Sanal Makineleri|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fiziksel sunucu <br/>Şirket içi Hyper-V VM <br/> Windows VMWare VM|E|N|Küme Paylaşılan birimleri (CSV), NFS, VMware Vm'lerinde ve SAN depolama alanı<br /> Dosya ve klasörleri öğe düzeyinde kurtarma yalnızca Windows Vm'leri için kullanılabilir, VMware Vapps'i desteklenmez.|
 |Linux|Hyper-V veya VMware Konuğu olarak çalıştırılan Linux|Fiziksel sunucu <br/>Şirket içi Hyper-V VM <br/> Windows VMWare VM|E|E|Hyper-V, Windows Server 2012 R2 veya Windows Server 2016 çalıştırmalıdır. Koruma: Sanal makinenin tamamını<br /><br />Kurtarma: Sanal makinenin tamamını <br/><br/> Desteklenen Linux dağıtımları ve sürümleri tam listesi için bkz [tarafından Azure destekli dağıtımlarda Linux](../virtual-machines/linux/endorsed-distros.md).|
+
+## <a name="azure-expressroute-support"></a>Azure ExpressRoute desteği
+
+Azure ExpressRoute özel veya Microsoft eşlemesi ile yapılandırılmışsa, verileri Azure'a yedeklemek için kullanılamaz.
+
+Azure ExpressRoute genel eşlemesi ile yapılandırılmışsa, verileri Azure'a yedeklemek için kullanılabilir.
+
+>[!NOTE]
+>Genel eşdüzey hizmet sağlama, yeni bağlantı hatları için kullanım dışı bırakılmıştır.
 
 ## <a name="cluster-support"></a>Küme desteği
 Azure Backup sunucusu, aşağıdaki kümelenmiş uygulamalarda verileri koruyabilir:

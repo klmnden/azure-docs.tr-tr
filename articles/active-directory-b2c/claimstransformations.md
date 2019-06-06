@@ -2,20 +2,20 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Kimlik deneyimi çerçevesi şema, Azure Active Directory B2C ClaimsTransformations öğe tanımı.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65b64563bf00bb519a65b6d2e0418b4f755dea2d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710825"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511542"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -59,7 +59,7 @@ Kullanıcı yolculuklarından içinde kullanılabilecek talep dönüştürme iş
 ```
 
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Listesini **Inputclaim** öğesi olarak gerçekleştirilen talep türlerini belirten talep dönüştürme için giriş. Bu öğelerin her biri, ilkeyi ClaimsSchema bölümünde önceden tanımlanmış bir ClaimType başvuru içeriyor. |
 | InputParameters | 0:1 | Listesini **InputParameter** talep dönüştürme için giriş olarak sağlanan öğeleri.  
@@ -69,7 +69,7 @@ Kullanıcı yolculuklarından içinde kullanılabilecek talep dönüştürme iş
 
 **InputClaims** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Inputclaim | 1:n | Beklenen bir giriş talep türü. |
 
@@ -86,7 +86,7 @@ Kullanıcı yolculuklarından içinde kullanılabilecek talep dönüştürme iş
 
 **InputParameters** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | Beklenen bir giriş parametresi. |
 
@@ -102,7 +102,7 @@ Kullanıcı yolculuklarından içinde kullanılabilecek talep dönüştürme iş
 
 **OutputClaims** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | outputClaim | 0: n | Beklenen bir çıkış talep türü. |
 

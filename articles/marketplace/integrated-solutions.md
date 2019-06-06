@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4cbc0b399bddbaebd4cb951dcd116e090c2e0c09
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938021"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515608"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Market ve AppSource tümleşik çözümler
 
@@ -30,6 +30,15 @@ Tümleşik bir yaklaşımın avantajları şunlardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Tümleşik çözümler bulmak ve danışmanlık hizmetleri bölümünü ziyaret ederek bu değere sahip iş ortaklarına bağlanın [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+Tümleşik çözümler bulmak ve bunların listelerini burada ziyaret ederek bu değere sahip iş ortaklarına bağlanın:
+
+* [Müşteri 360 Zero2Hero tarafından desteklenen](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Hızlı ticaret](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [Kredi analizi](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [Sağlık Hizmeti Cloud Security yığınının](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [DevOps hızlandırma altyapısı](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows Server destek sonu](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+ve ayrıca danışmanlık hizmetleri bölümünü ziyaret [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
 ---

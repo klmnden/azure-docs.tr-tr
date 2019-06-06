@@ -2,26 +2,26 @@
 title: Tanımlama bilgisi tanımları - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de kullanılan tanımlama bilgileri için tanımları sağlar.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: davidmu
+ms.author: marsma
 ms.component: B2C
-ms.openlocfilehash: 7864320b71416d1b06661b8ae96c6113962250dd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1de1734d791608f3262d2af70becc2e082c9f317
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703972"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511141"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Azure Active Directory B2C için tanımlama bilgileri tanımları
 
 Aşağıdaki tablo, Azure Active Directory B2C'de kullanılan tanımlama bilgilerini listeler.
 
-| Ad | Domain | Süre sonu | Amaç |
+| Ad | Etki Alanı | süre sonu | Amaç |
 | ----------- | ------ | -------------------------- | --------- |
 | x-ms-cpim-admin | main.b2cadmin.ext.azure.com | Bitiş [tarayıcı oturumu](active-directory-b2c-token-session-sso.md) | Kiracılar genelinde kullanıcı üyelik verileri tutar. Kiracılar bir kullanıcının üyesi olduğu ve düzey üyelik (yönetici veya kullanıcı). |
 | x-ms-cpım-dilim | Login.microsoftonline.com, b2clogin.com markalı bir etki alanı | Bitiş [tarayıcı oturumu](active-directory-b2c-token-session-sso.md) | İstekleri uygun üretim örneği kullanılır. |

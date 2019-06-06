@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C, özel bir ilke doğrulama teknik profil tanımlama | Microsoft Docs
 description: Azure Active Directory B2C özel bir ilke Azure Active Directory teknik profili tanımlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 11efd1fa3431d8200545cf1327e98cec6ed1f59e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683149"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511902"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C özel bir ilke doğrulama teknik profil tanımlama
 
@@ -43,7 +43,7 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 
 **ValidationTechnicalProfiles** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Bazı veya tüm başvuru teknik profili, çıkış talep doğrulamak için kullanılan bir teknik profili. |
 
@@ -57,7 +57,7 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 
 **ValidationTechnicalProfile** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Önkoşulları | 0:1 | Yürütülecek doğrulama teknik profil için karşılanması gereken önkoşulları listesi. |
 
@@ -70,7 +70,7 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 
 **Önkoşulu** öğesi öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Değer | 1:n | Denetimi tarafından kullanılan veri. Bu denetim türünde ise `ClaimsExist`, bir ClaimTypeReferenceId sorgulamak için bu alanı belirtir. Onay türü ise `ClaimEquals`, bir ClaimTypeReferenceId sorgulamak için bu alanı belirtir. Başka bir değeri öğenin değeri, Kontrol edilecek içerirken.|
 | Eylem | 1:1 | Önkoşul denetimi içinde bir düzenleme adımı doğruysa alınması gereken eylem. Değerini **eylem** ayarlanır `SkipThisValidationTechnicalProfile`. İlişkili doğrulama teknik profil çalıştırılmadı belirtir. |

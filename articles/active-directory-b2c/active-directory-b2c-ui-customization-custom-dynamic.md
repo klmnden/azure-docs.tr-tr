@@ -2,20 +2,20 @@
 title: Özel ilkeleri kullanarak Azure Active Directory B2C'yi kullanıcı arabirimini (UI) dinamik olarak özelleştirme | Microsoft Docs
 description: Çalışma zamanında dinamik olarak değiştirir, HTML5/CSS içeriğiyle birden çok marka deneyimleri destekler.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c655a1ed7cefcc7af8a22ed1d869b1a2e8b81715
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708884"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507773"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler kullanarak dinamik içerik ile kullanıcı arabirimini yapılandırma
 
@@ -64,11 +64,11 @@ Bu kılavuzda:
 * Çıkış noktaları arası kaynak paylaşımı (CORS) web uygulamanız için ayarlayın.
 * Geçersiz kılma `LoadUri` HTML5 dosyanıza işaret edecek şekilde öğeleri.
 
-## <a name="step-1-create-an-aspnet-web-app"></a>1. Adım: ASP.NET web uygulaması oluşturma
+## <a name="step-1-create-an-aspnet-web-app"></a>1. adım: ASP.NET web uygulaması oluşturma
 
 1. Visual Studio'da seçerek bir proje oluşturun **dosya** > **yeni** > **proje**.
 
-2. İçinde **yeni proje** penceresinde **Visual C#** > **Web** > **ASP.NET Core Web uygulaması (.NET Core)**.
+2. İçinde **yeni proje** penceresinde **Visual C#**  > **Web** > **ASP.NET Core Web uygulaması (.NET Core)** .
 
 3. Uygulama adı (örneğin, *Contoso.AADB2C.UI*) ve ardından **Tamam**.
 
@@ -80,9 +80,9 @@ Bu kılavuzda:
 
     ![Web uygulaması şablonunu seçin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
-6. Projeyi oluşturmak için **Tamam**'ı seçin.
+6. Seçin **Tamam** projeyi oluşturmak için.
 
-## <a name="step-2-create-mvc-view"></a>2. Adım: MVC görünümü oluşturma
+## <a name="step-2-create-mvc-view"></a>2. adım: MVC görünümü oluşturma
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2.1. adım: B2C yerleşik HTML5 şablonunu indirme
 Azure AD B2C'yi yerleşik HTML5 şablonu temel alan özel HTML5 şablonunuzu. İndirebileceğiniz [unified.html dosya](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) veya şablondan indirme [başlangıç paketi](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). Birleşik kaydolma veya oturum açma sayfası oluşturmak için bu HTML5 dosyasını kullanın.
 
@@ -143,7 +143,7 @@ Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ard�
 
 2. Web uygulamanızda hata ayıklama ve emin _birleşik_ sayfa erişilebilir (örneğin, `http://localhost:<Port number>/Home/unified`).
 
-### <a name="step-25-publish-to-azure"></a>2.5. adım: Azure’da Yayımlama
+### <a name="step-25-publish-to-azure"></a>2.5. adım: Azure'a Yayımlama
 1. İçinde **Çözüm Gezgini**, sağ **Contoso.AADB2C.UI** proje ve ardından **Yayımla**.
 
     ![Microsoft Azure App Service'e yayımlama](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -167,7 +167,7 @@ Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ard�
 
 5. URL'sini kopyalayın _birleşik_ sayfa (örneğin, _https://<app_name>.azurewebsites.net/home/unified_).
 
-## <a name="step-3-configure-cors-in-azure-app-service"></a>3. Adım: Azure uygulama Hizmeti'nde CORS'yi yapılandırın
+## <a name="step-3-configure-cors-in-azure-app-service"></a>3. adım: Azure uygulama Hizmeti'nde CORS'yi yapılandırın
 1. İçinde [Azure portalında](https://portal.azure.com/)seçin **uygulama hizmetleri**ve ardından API uygulamanızın adını seçin.
 
     ![Azure portalda API uygulamasını seçin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS1.png)
@@ -239,7 +239,7 @@ Yapılandırmak için `ContentDefinition`, aşağıdakileri yapın:
 
     ![Kaydolma veya oturum açma ilkenizin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
-## <a name="step-8-add-dynamic-content"></a>8. adım: Dinamik içerik ekle
+## <a name="step-8-add-dynamic-content"></a>8. adım: Dinamik İçerik Ekle
 Adlandırılmış sorgu dizesi parametresini temel alan arka planını değiştirin _campaignId_. (Web ve mobil uygulamalar), RP uygulaması, Azure AD B2C'ye parametresi gönderir. İlkeniz, parametre okur ve HTML5 şablonunuza değeri gönderir. 
 
 ### <a name="step-81-add-a-content-definition-parameter"></a>8.1. adım: İçerik tanımı parametre ekleme

@@ -2,20 +2,20 @@
 title: Kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için genel talep dönüştürme örnekler | Microsoft Docs
 description: Kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için genel talep dönüştürme örnekleri.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 831ecf2924ab6c321f69bb50c4a95a4156482585
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a5f8068ea7e97343749c719d2d0800e20701079c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683950"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510996"
 ---
 # <a name="general-claims-transformations"></a>Genel talep dönüştürmeleri
 
@@ -29,7 +29,7 @@ Denetler **Inputclaim** veya mevcut olduğundan ve ayarlar **outputClaim** true 
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Inputclaim |Herhangi biri | Giriş talep, varlığı doğrulanması gerekiyor. |
+| Inputclaim | Inputclaim |Tüm | Giriş talep, varlığı doğrulanması gerekiyor. |
 | outputClaim | outputClaim | boole | Bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType. |
 
 Bu dönüşüm talebi yok veya herhangi bir değer içeren denetlemek için talep kullanın. Talep var olup olmadığını belirten Boolean bir değer dönüş değeridir. Aşağıdaki örnek, e-posta adresi var olup olmadığını denetler.

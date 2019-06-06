@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783438"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473765"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -39,7 +39,7 @@ Bu makalede, ortamınızda SharePoint 2013 veya daha yeni zaten sahibi olduğunu
 
 * Yayımlanmış URL'sini SSL zorunlu kılarız. SSL iç URL'SİNDE gönderilen/eşlenen bağlantıları doğru olduğundan emin olmak için de gereklidir.
 
-## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1. Adım: Kerberos'u yapılandırma Kısıtlı temsilci (KCD)
+## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1. adım: Kerberos'u yapılandırma Kısıtlı temsilci (KCD)
 
 Windows kimlik doğrulaması kullanan şirket içi uygulamalar için çoklu oturum açma (SSO) ile Kerberos kimlik doğrulama protokolünü ve Kerberos Kısıtlı temsilci (KCD) adlı bir özellik elde edebilirsiniz. Kullanıcı için Windows doğrudan oturum henüz bile yapılandırıldığında, KCD, bir kullanıcı için bir Windows belirteç almak uygulama Proxy Bağlayıcısı sağlar. KCD hakkında daha fazla bilgi için bkz: [Kerberos Kısıtlı temsilci seçmeye genel bakış](https://technet.microsoft.com/library/jj553400.aspx).
 
@@ -110,14 +110,14 @@ KCD yapılandırmak için her bir bağlayıcı makine için aşağıdaki adımla
   
    ![Temsilci seçme ayarları](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
-## <a name="step-2-configure-azure-ad-proxy"></a>2. Adım: Azure AD Proxy Yapılandırma
+## <a name="step-2-configure-azure-ad-proxy"></a>2. adım: Azure AD Proxy Yapılandırma
 
 KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya hazırsınız.
 
-1. Aşağıdaki ayarlar ile SharePoint sitenizi yayımlayın. Adım adım yönergeler için bkz: [Azure AD uygulama proxy'si kullanarak uygulamaları yayımlama](application-proxy-publish-azure-portal.md).
-   * **İç URL**: Daha önce seçilen SharePoint İç URL gibi **<https://SharePoint/>**.
+1. Aşağıdaki ayarlar ile SharePoint sitenizi yayımlayın. Adım adım yönergeler için bkz: [Azure AD uygulama proxy'si kullanarak uygulamaları yayımlama](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   * **İç URL**: Daha önce seçilen SharePoint İç URL gibi **<https://SharePoint/>** .
    * **Ön kimlik doğrulama yöntemi**: Azure Active Directory
-   * **Bilgilerde URL'yi çevir**: HAYIR
+   * **Bilgilerde URL'yi çevir**: NO
 
    >[!TIP]
    >SharePoint kullanan _ana bilgisayar üst bilgisini_ siteyi aramak için değer. Ayrıca bu değere göre bağlantılar oluşturur. Net etkisiyle SharePoint oluşturan herhangi bir bağlantıyı dış URL'sini kullanmak üzere doğru şekilde yayımlanmış bir URL olmasıdır. Değerini **Evet** Ayrıca arka uç uygulaması isteği iletmek bağlayıcıyı etkinleştirir. Ancak, ayar değeri **Hayır** bağlayıcı iç ana bilgisayar adını göndermez anlamına gelir. Bunun yerine, bağlayıcıyı arka uç uygulaması için yayımlanan URL olarak ana bilgisayar üst bilgisi gönderir.

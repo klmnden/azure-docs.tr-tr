@@ -2,20 +2,20 @@
 title: Oturum açmak için bir Azure Active Directory kuruluş - Azure Active Directory B2C ayarlama | Microsoft Docs
 description: Oturum açma için Azure Active Directory B2C, belirli bir Azure Active Directory kuruluşunu ayarlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bae5759beb6a817c411ee52d7eb27dbff4cfe01c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785242"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508431"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C, belirli bir Azure Active Directory kuruluş için oturum açma ayarlama
 
@@ -64,7 +64,7 @@ Belirli kullanıcılar için oturum açma etkinleştirmek için Azure AD kurulu�
 
 8. İçin **istemci kimliği**, daha önce kaydettiğiniz uygulama Kimliğini girin ve **gizli**, daha önce kaydettiğiniz istemci gizli anahtarını girin.
 9. İsteğe bağlı olarak, bir değer girin **Domain_hint**. Örneğin, `ContosoAD`. Bu değeri kullanarak bu kimlik sağlayıcısını söz konusu olduğunda kullanılacak olan *domain_hint* istek. 
-10. **Tamam**'ı tıklatın.
+10. **Tamam** düğmesine tıklayın.
 11. Seçin **bu kimlik sağlayıcısının taleplerini Eşle** ve aşağıdaki talep ayarlayın:
     
     - İçin **kullanıcı kimliği**, girin `oid`.

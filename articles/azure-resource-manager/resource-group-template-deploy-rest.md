@@ -1,23 +1,18 @@
 ---
 title: REST API ve şablon ile kaynak dağıtma | Microsoft Docs
 description: Kaynakları Azure'a dağıtmak için Azure Resource Manager ve Resource Manager REST API'si kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0490cf6837cb413bc2e869424cd430fd4a824dc9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782982"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688876"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Kaynakları Resource Manager şablonları ve Resource Manager REST API’si ile dağıtma
 
@@ -27,11 +22,25 @@ Bu makalede, Resource Manager REST API'si Resource Manager şablonları ile kayn
 
 ## <a name="deployment-scope"></a>Dağıtım kapsamı
 
-Dağıtımınız için bir Azure aboneliğine veya abonelik içinde bir kaynak grubu hedefleyebilirsiniz. Çoğu durumda, bir kaynak grubuna dağıtım hedefi. İlkeleri ve rol atamalarını abonelik üzerinden uygulamak için abonelik dağıtımları'ı kullanın. Abonelik dağıtımları da bir kaynak grubu oluşturun ve kaynakları dağıtmak için kullanın. Dağıtım kapsamını bağlı olarak, farklı komutlarını kullanın.
+Dağıtımınız için bir yönetim grubu, bir Azure aboneliği veya bir kaynak grubu hedefleyebilirsiniz. Çoğu durumda, bir kaynak grubu dağıtımları hedef. İlkeleri ve rol atamaları arasında belirtilen kapsam uygulamak yönetim grubuna veya aboneliğe dağıtımları kullanın. Abonelik dağıtımları da bir kaynak grubu oluşturun ve kaynakları dağıtmak için kullanın. Dağıtım kapsamını bağlı olarak, farklı komutlarını kullanın.
 
-Dağıtmak için bir **kaynak grubu**, kullanın [- dağıtımlar oluşturmayı](/rest/api/resources/deployments/createorupdate).
+Dağıtmak için bir **kaynak grubu**, kullanın [- dağıtımlar oluşturmayı](/rest/api/resources/deployments/createorupdate). İstek gönderilir:
 
-Dağıtmak için bir **abonelik**, kullanın [dağıtımları - oluşturma, abonelik kapsamında](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Dağıtmak için bir **abonelik**, kullanın [dağıtımları - oluşturma, abonelik kapsamında](/rest/api/resources/deployments/createorupdateatsubscriptionscope). İstek gönderilir:
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Dağıtmak için bir **yönetim grubu**, kullanın [dağıtımları - oluşturma, Yönetim Grup kapsamı](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). İstek gönderilir:
+
+```HTTP
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
 
 Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıtımları hakkında daha fazla bilgi için bkz. [oluşturma kaynak grubu ve kaynak abonelik düzeyinde](deploy-to-subscription.md).
 
@@ -42,7 +51,7 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
 1. Mevcut bir kaynak grubu yoksa, bir kaynak grubu oluşturun. Abonelik Kimliğinizi, yeni kaynak grubu, çözümünüz için gereken yeri ve adı belirtin. Daha fazla bilgi için [bir kaynak grubu oluşturma](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
    ```
 
    İle istek gövdesi gibi:
@@ -58,13 +67,13 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
 
 1. Çalıştırarak çalıştırmadan önce dağıtımınızı doğrulama [şablon dağıtımı doğrulamak](/rest/api/resources/deployments/validate) işlemi. Tam olarak (bir sonraki adımda gösterilmiştir) dağıtım yürütülürken gibi test etme ve dağıtım parametreleri belirtin.
 
-1. Bir dağıtım oluşturun. Abonelik Kimliğiniz, kaynak grubu adı, dağıtım ve şablon için bir bağlantı adı belirtin. Şablon dosyası hakkında daha fazla bilgi için bkz. [parametre dosyası](#parameter-file). Bir kaynak grubu oluşturmak için REST API hakkında daha fazla bilgi için bkz: [şablon dağıtımı oluşturma](/rest/api/resources/deployments/createorupdate). Bildirim **modu** ayarlanır **artımlı**. Tam dağıtım çalışacak şekilde ayarlanmış **modu** için **tam**. Tam modda, şablonunuzda bulunmayan kaynaklar yanlışlıkla silebilirsiniz gibi kullanırken dikkatli olun.
+1. Bir şablonu dağıtmak için abonelik kimliği, istek URI'SİNDEKİ dağıtımın adını kaynak grubunun adını sağlayın. 
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   İle istek gövdesi gibi:
+   İstek gövdesinde, şablonu ve parametre dosyasının bağlantısını sağlar. Bildirim **modu** ayarlanır **artımlı**. Tam dağıtım çalışacak şekilde ayarlanmış **modu** için **tam**. Tam modda, şablonunuzda bulunmayan kaynaklar yanlışlıkla silebilirsiniz gibi kullanırken dikkatli olun.
 
    ```json
    {
@@ -73,11 +82,11 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
-      }
+      },
+      "mode": "Incremental"
     }
    }
    ```
@@ -91,11 +100,11 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
       },
+      "mode": "Incremental",
       "debugSetting": {
         "detailLevel": "requestContent, responseContent"
       }
@@ -105,7 +114,7 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
 
     Depolama hesabınızı ayarladığınızda, paylaşılan erişim imzası (SAS) belirteci kullanmak için ayarlayabilirsiniz. Daha fazla bilgi için [bir paylaşılan erişim imzası ile erişim için temsilci seçme](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-1. Dosyalar için şablon ve parametreleri bağlama yerine, istek gövdesinde içerebilir.
+1. Dosyalar için şablon ve parametreleri bağlama yerine, istek gövdesinde içerebilir. Aşağıdaki örnek şablonu ve parametre satır içi ile istek gövdesi gösterir:
 
    ```json
    {
@@ -168,7 +177,7 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
    }
    ```
 
-1. Şablon dağıtımı durumunu alın. Daha fazla bilgi için [şablon dağıtımı hakkında bilgi alma](/rest/api/resources/deployments/get).
+1. Şablon dağıtımı durumunu almak için kullanın [dağıtımları - alma](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -176,9 +185,9 @@ Bu makaledeki örneklerde, kaynak grubu dağıtımı kullanın. Abonelik dağıt
 
 ## <a name="redeploy-when-deployment-fails"></a>Dağıtım başarısız olduğunda yeniden dağıtma
 
-Bu özellik olarak da bilinir *hatada geri alma*. Bir dağıtım başarısız olduğunda, dağıtım geçmişinden eski, başarılı bir dağıtım otomatik olarak yeniden dağıtabilirsiniz. Yeniden dağıtım belirtmek için kullanın `onErrorDeployment` istek gövdesindeki özellik. Bu işlev, iyi bilinen bir duruma altyapı dağıtımınız için var ve bunun için döndürülmesi için istediğiniz yararlı olur. Uyarılar ve kısıtlamaları vardır:
+Bu özellik olarak da bilinir *hatada geri alma*. Bir dağıtım başarısız olduğunda, dağıtım geçmişinden eski, başarılı bir dağıtım otomatik olarak yeniden dağıtabilirsiniz. Yeniden dağıtım belirtmek için kullanın `onErrorDeployment` istek gövdesindeki özellik. Bu işlevsellik, altyapı dağıtımınız için iyi bilinen bir duruma var ve bu duruma geri dönmek istiyorsanız kullanışlıdır. Uyarılar ve kısıtlamaları vardır:
 
-- Yeniden dağıtma işlemi ile aynı parametreleri daha önce tam olarak çalıştırıldığı olarak çalıştırılır. Parametreleri değiştirilemiyor.
+- Yeniden dağıtma işlemi ile aynı parametreleri daha önce tam olarak çalıştırıldığı olarak çalıştırılır. Parametreleri değiştiremezsiniz.
 - Kullanarak önceki dağıtım çalıştırma [tam modda](./deployment-modes.md#complete-mode). Önceki dağıtıma dahil olmayan tüm kaynaklar silinir ve herhangi bir kaynak yapılandırmaları önceki durumlarına ayarlanır. Tam olarak anladığınızdan emin olun [dağıtım modları](./deployment-modes.md).
 - Yeniden dağıtma işlemi, yalnızca kaynakları etkiler, tüm veri değişiklikleri etkilenmez.
 - Bu özellik yalnızca kaynak grubu dağıtımlarında, abonelik düzeyinde dağıtımlar desteklenir. Abonelik düzeyi dağıtımı hakkında daha fazla bilgi için bkz. [oluşturma kaynak grubu ve kaynak abonelik düzeyinde](./deploy-to-subscription.md).
@@ -268,6 +277,5 @@ Bir parametre (parola gibi) için duyarlı bir değer sağlamanız gerekiyorsa, 
 
 - Kaynak grubunda var, ancak şablonunda tanımlanmayan kaynakları nasıl ele alınacağını belirtmek için bkz: [Azure Resource Manager dağıtım modları](deployment-modes.md).
 - REST işlemlerini zaman uyumsuz işleme hakkında bilgi edinmek için [Azure zaman uyumsuz işlemleri izleme](resource-manager-async-operations.md).
-- .NET istemci kitaplığı aracılığıyla kaynak dağıtmaya ilişkin bir örnek için bkz [.NET kitaplıkları ve şablon kullanarak kaynakları dağıtma](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).
-- Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- Şablonlar hakkında daha fazla bilgi için bkz: [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
+

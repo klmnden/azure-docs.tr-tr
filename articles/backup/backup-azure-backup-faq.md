@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551374"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688736"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -100,7 +100,7 @@ Windows 10 64 bit | Enterprise, Pro, Home | Makineler en son hizmet paketleri ve
 Windows 8.1 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 8 64 bit | Enterprise, Pro | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
 Windows 7 64-bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
-Sunucu  | |
+Sunucusu | |
 Windows Server 2019 64 bit | Standard, Datacenter, Essentials | En son hizmet paketleri/güncelleştirmelerle.
 Windows Server 2016 64 bit | Standard, Datacenter, Essentials | En son hizmet paketleri/güncelleştirmelerle.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | En son hizmet paketleri/güncelleştirmelerle.
@@ -182,8 +182,8 @@ Azure Backup alanı mimarisi, hızlı geri yükleme özelliğiyle optimum veri d
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Oluşturulabilecek kurtarma noktalarının sayısına yönelik bir sınır var mıdır?
 Korumalı bir örnek için en çok 9999 kurtarma noktası oluşturabilirsiniz. Korumalı örnek, bir bilgisayar, sunucu (fiziksel veya sanal) veya Azure'a yedekler iş yükü ' dir.
 
-- Daha fazla bilgi edinin [yedekleme ve bekletme](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- Hakkında bilgi edinin [korumalı örnekler](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
+- Daha fazla bilgi edinin [yedekleme ve bekletme](./backup-overview.md#backup-and-retention).
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Kaç kez kullanabilir miyim Azure'a yedeklenen verileri kurtarma?
 Azure Backup ile gerçekleştirilen kurtarma işlemlerinin sayısına yönelik bir sınır yoktur.

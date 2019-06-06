@@ -1,28 +1,28 @@
 ---
-title: 'Hızlı Başlangıç: Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma'
-description: Bu hızlı başlangıçta Node.js kullanarak verileri Azure Veri Gezgini'ne almayı (yüklemeyi) öğreneceksiniz.
+title: Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma
+description: Bu makalede, Node.js kullanarak Azure Veri Gezgini içinde (yükle) alabilen öğrenin.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
-ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800417"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494492"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Hızlı Başlangıç: Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma
 
-Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini Node için iki istemci kitaplığı sağlar: [alma kitaplığı](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) ve [veri kitaplığı](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Bu kitaplıklar verileri bir kümeye almanıza (yüklemenize ve kodunuzdan verileri sorgulamanıza olanak tanır. Bu hızlı başlangıçta, önce tek kümesinde bir tablo ve veri eşlemesi oluşturursunuz. Ardından veri alımını kümenin kuyruğuna ekler ve sonuçları doğrularsınız.
+Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini Node için iki istemci kitaplığı sağlar: [alma kitaplığı](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) ve [veri kitaplığı](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). Bu kitaplıklar verileri bir kümeye almanıza (yüklemenize ve kodunuzdan verileri sorgulamanıza olanak tanır. Bu makalede, ilk tablo ve test kümesi eşlemesindeki veri oluşturun. Ardından veri alımını kümenin kuyruğuna ekler ve sonuçları doğrularsınız.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için Azure aboneliğine ek olarak aşağıdakilere de ihtiyacınız vardır:
+Bir Azure aboneliğine ek olarak, bu makaleyi tamamlamak için aşağıdakiler gerekir:
 
 * [Test kümesi ve veritabanı](create-cluster-database-portal.md)
 
@@ -158,7 +158,7 @@ Son dört saatteki tüm veri alım işlemlerinin durumunu görüntülemek için 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyorsanız, oluşturduğunuz kaynakları tutun. Aksi takdirde, veritabanınızda aşağıdaki komutu çalıştırarak `StormEvents` tablosunu temizleyin.
+Diğer makalelerimize takip etmeyi planlıyorsanız, oluşturduğunuz kaynakları tutun. Aksi takdirde, veritabanınızda aşağıdaki komutu çalıştırarak `StormEvents` tablosunu temizleyin.
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Sorgu yazma](write-queries.md)
+* [Sorgu yazma](write-queries.md)

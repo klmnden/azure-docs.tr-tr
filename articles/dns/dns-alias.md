@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: b34baa6f1ba91935fc6307dbb1617393786043b9
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596709"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692840"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
@@ -67,6 +67,9 @@ Yalnızca bir Traffic Manager profili gibi diğer ad kayıtlarını, DNS bölge 
 Örneğin, www.contoso.com, statik Web sitesi ise, kullanıcılarınızın sitenizi gerek kalmadan contoso.com DNS adına www önüne eklediğinizden kullanarak erişebilirsiniz.
 
 Daha önce açıklandığı gibi bölge tepesinde CNAME kayıtları desteklenmez. Bu nedenle, bir CNAME kaydı, contoso.com CDN uç noktanıza işaret edecek şekilde kullanamazsınız. Bunun yerine, bölge tepesinde doğrudan CDN uç noktası için bir diğer ad kaydı kullanabilirsiniz.
+
+> [!NOTE]
+> Bölge tepesinde için CDN uç noktası için Azure CDN Akamai işaret eden şu anda desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

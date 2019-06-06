@@ -9,19 +9,19 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
-ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851428"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515286"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yönetme
 
 Hizmetlerinizin belirli parolalar, bağlantı dizelerini ve diğer gizli dizileri gibi veritabanları veya güvenli diğer Azure Hizmetleri için gerektirebilir. Yapılandırma dosyalarında bu gizli dizileri değerleri ayarlayarak, bunları kodunuzu bulunan ortam değişkenleri olarak yapabilirsiniz.  Bu gizli dizileri güvenliğini tehlikeye kaçınmak için dikkatli işlenmelidir.
 
-Azure geliştirme alanları, iki önerilen gizli dizileri depolamak için seçenekleri sağlar: values.dev.yaml dosya ve satır içi doğrudan azds.yaml. Values.yaml gizli dizileri depolamak için önermedi.
- 
+Azure geliştirme alanları, Azure geliştirme alanları istemci araçları tarafından oluşturulan Helm grafikleri gizli dizileri depolamak için iki önerilen, kolaylaştırılmış seçenekleri sağlar: values.dev.yaml dosya ve satır içi doğrudan azds.yaml. Values.yaml gizli dizileri depolamak için önermedi. Oluşturursanız, Helm için iki yaklaşım dışında istemci araçları tarafından oluşturulan grafikler bu makalede, kendi Helm grafiği tanımlanan, Helm grafiği doğrudan gizli dizileri depolamak ve yönetmek için kullanabilirsiniz.
+
 ## <a name="method-1-valuesdevyaml"></a>Yöntem 1: values.dev.yaml
 1. VS Code için Azure geliştirme alanları etkin projenizle açın.
 2. Adlı bir dosya ekleyin _values.dev.yaml_ aynı klasörde mevcut olarak _azds.yaml_ ve gizli anahtarı ve değerleri, aşağıdaki örnekte gösterildiği gibi tanımlayın:

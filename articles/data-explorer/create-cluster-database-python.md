@@ -1,18 +1,18 @@
 ---
-title: 'Hızlı Başlangıç: Python kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma'
+title: Python kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 description: Python kullanarak bir Azure Veri Gezgini küme ve veritabanı oluşturmayı öğrenin.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: caac53aec08e234f320ee4278a5a58bbc62bff68
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861021"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494573"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Python kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
 
@@ -24,7 +24,7 @@ ms.locfileid: "60861021"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanı Python kullanarak oluşturun.
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu makalede, bir küme ve bir veritabanı Python kullanarak oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -66,7 +66,7 @@ pip install azure-mgmt-kusto
    |**Ayar** | **Önerilen değer** | **Alan açıklaması**|
    |---|---|---|
    | küme_adı | *mykustocluster* | İstenen kümenizin adıdır.|
-   | sku | *D13_v2* | Kümeniz için kullanılan SKU. |
+   | SKU | *D13_v2* | Kümeniz için kullanılan SKU. |
    | resource_group_name | *testrg* | Kümenin oluşturulacağı kaynak grubu adı. |
 
     Küme kapasitesi gibi kullanabileceğiniz ek isteğe bağlı parametre yok.
@@ -119,7 +119,7 @@ Artık bir küme ve bir veritabanı vardır.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-* Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyorsanız, oluşturduğunuz kaynakları tutun.
+* Diğer makalelerimize takip etmeyi planlıyorsanız, oluşturduğunuz kaynakları tutun.
 * Kaynakları temizlemek için kümeyi silin. Bir küme sildiğinizde, tüm veritabanları da siler. Kümenizi silmek için aşağıdaki komutu kullanın:
 
     ```Python
@@ -128,5 +128,4 @@ Artık bir küme ve bir veritabanı vardır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure Veri Gezgini Python kitaplığı kullanarak veri alma](python-ingest-data.md)
+* [Azure Veri Gezgini Python kitaplığı kullanarak veri alma](python-ingest-data.md)

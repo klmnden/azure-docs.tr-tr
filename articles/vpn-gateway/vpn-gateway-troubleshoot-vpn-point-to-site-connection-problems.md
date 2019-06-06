@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457485"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475963"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Sorun giderme: Azure noktadan siteye bağlantı sorunları
 
@@ -62,7 +62,7 @@ Bu sorunu çözmek için aşağıdaki adımları izleyin:
 
 ### <a name="symptom"></a>Belirti
 
-Deneyin ve Windows üzerinde IKEv2'yi kullanarak bir Azure sanal ağı gteway bağlanmak, şu hata iletisiyle karşılaşırsınız:
+Deneyin ve Windows üzerinde IKEv2'yi kullanarak bir Azure sanal ağ geçidine bağlanmak, şu hata iletisiyle karşılaşırsınız:
 
 **Uzak sunucu yanıt vermediği için bilgisayarınızı VPN sunucusu arasında ağ bağlantısı kurulamadı**
 
@@ -305,7 +305,7 @@ Noktadan siteye VPN bağlantısı kaldırıp sonra da VPN istemcisini yeniden y�
 
 ### <a name="solution"></a>Çözüm
 
-Bu sorunu gidermek için eski VPN istemcisi yapılandırma dosyalarını silin. **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<sanal ağ kimliği >**, ve ardından VPN istemci yükleyiciyi yeniden çalıştırın .
+Bu sorunu gidermek için eski VPN istemcisi yapılandırma dosyalarını silin. **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<sanal ağ kimliği >** , ve ardından VPN istemci yükleyiciyi yeniden çalıştırın .
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Noktadan siteye VPN istemcisi yerel etki alanındaki kaynaklara FQDN'si çözümlenemiyor
 

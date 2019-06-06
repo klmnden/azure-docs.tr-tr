@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de kullanıcı geçişini yaklaşıyor | Microsoft Docs
 description: Graph API'sini kullanarak ve isteğe bağlı olarak Azure AD B2C özel ilkeleri kullanarak kullanıcı geçişi, temel ve Gelişmiş kavramlar açıklanmaktadır.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726127"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507661"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Kullanıcı Geçişi
 Azure Active Directory B2C kimlik sağlayıcınız geçirirken (Azure AD B2C) de gerekebilir kullanıcı hesabını geçirin. Bu makalede, var olan kullanıcı hesaplarını herhangi bir kimlik sağlayıcısından Azure AD B2C'ye geçirme açıklanmaktadır. Makalede aşağıdakilerin olması değildir ancak bunun yerine, bunu birkaç senaryolar açıklanmaktadır. Geliştirici, her bir yaklaşıma uygunluğu sorumludur.
@@ -31,7 +31,7 @@ Azure AD B2C ile kullanıcılar ile geçirebileceğiniz [Azure AD Graph API'si][
 
 Her iki akış, ilk geçiş öncesi işlemleri çalıştırmak, kullanıcılar eski kimliği sağlayıcınızdan okuyun ve yeni hesaplar Azure AD B2C dizini oluşturun. Parola yoksa rastgele oluşturulmuş bir parola kullanarak hesabı oluşturun. Ardından kullanıcının parolasını değiştirmesini isteyin veya kullanıcı ilk kez oturum açtığında, Azure AD B2C sıfırlamak için kullanıcıya sorar.
 
-## <a name="password-policy"></a>Parola ilkesi
+## <a name="password-policy"></a>Parola İlkesi
 Azure AD B2C parola ilkesini (yerel hesaplar için) Azure AD ilkesine bağlıdır. Azure AD B2C kaydolma veya oturum açma ve parola Sıfırla "güçlü" parola gücünü ilkeleri kullanın ve parolaları sona ermez. Daha fazla bilgi için [Azure AD parola ilkesi][AD-PasswordPolicies].
 
 Geçirmek istediğiniz hesapları daha zayıf bir parola gücünü kullanıyorsanız [Azure AD B2C tarafından zorlanan güçlü parola gücü][AD-PasswordPolicies], güçlü bir parola gereksinimini devre dışı bırakabilirsiniz. Varsayılan Parola ilkesini değiştirmek için Ayarla `passwordPolicies` özelliğini `DisableStrongPassword`. Örneğin, kullanıcı isteği oluştur şu şekilde değiştirebilirsiniz:
@@ -40,7 +40,7 @@ Geçirmek istediğiniz hesapları daha zayıf bir parola gücünü kullanıyorsa
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
-## <a name="step-1-use-azure-ad-graph-api-to-migrate-users"></a>1. Adım: Kullanıcıları geçirme için Azure AD Graph API'sini kullanın
+## <a name="step-1-use-azure-ad-graph-api-to-migrate-users"></a>1. adım: Kullanıcıları geçirme için Azure AD Graph API'sini kullanın
 (Parola veya rastgele bir parola ile) Graph API aracılığıyla Azure AD B2C kullanıcı hesabı oluşturun. Bu bölümde, Graph API'sini kullanarak Azure AD B2C dizininde kullanıcı hesaplarını oluşturma işlemi açıklanmaktadır.
 
 ### <a name="step-11-register-your-application-in-your-tenant"></a>Adım 1.1: Kiracınızda uygulamanızı kaydetme
@@ -134,7 +134,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 Değişiklik `$AppId` Azure AD değeriyle **uygulama kimliği**.
 
-## <a name="step-2-pre-migration-application-sample"></a>2. Adım: Geçiş öncesi uygulama örneği
+## <a name="step-2-pre-migration-application-sample"></a>2. adım: Geçiş öncesi uygulama örneği
 [İndirme ve örnek kodu çalıştırma][UserMigrationSample]. Bir .zip dosyası olarak indirebilirsiniz.
 
 ### <a name="step-21-edit-the-migration-data-file"></a>2.1. adım: Geçiş Deposu dosyası Düzenle
@@ -145,7 +145,7 @@ JSON dosyasını düzenlemek için açın `AADB2C.UserMigration.sln` Visual Stud
 ![Kullanıcı veri dosyası](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Gördüğünüz gibi kullanıcı varlıkları listesi dosyası içerir. Her kullanıcı varlığı, aşağıdaki özelliklere sahiptir:
-- e-posta
+- email
 - displayName
 - FirstName
 - Soyadı
@@ -214,7 +214,7 @@ Temizlemek istiyorsanız Azure AD kiracınıza yukarı ve çalıştırma Azure A
 ### <a name="step-26-sign-in-with-migrated-users-with-password"></a>2.6. adım: Geçirilen kullanıcı (parola) oturum açın
 Geçiş öncesi işlemleri ile kullanıcı parolalarını çalıştırdıktan sonra hesabı kullanmaya hazır olursunuz ve kullanıcılar Azure AD B2C'yi kullanarak uygulamanızı oturum açabilir. Kullanıcı parolaları için erişiminiz yoksa, sonraki bölüme geçin.
 
-## <a name="step-3-help-users-reset-their-password"></a>3. Adım: Kullanıcının parolasını sıfırlamasını kullanıcıların yardımcı olma
+## <a name="step-3-help-users-reset-their-password"></a>3. adım: Kullanıcının parolasını sıfırlamasını kullanıcıların yardımcı olma
 Rastgele bir parola ile kullanıcıların geçiş işlemi gerçekleştirirseniz, bunlar parolalarını sıfırlamanız gerekir. Parola sıfırlama yardımcı olmak için bir parola sıfırlama bağlantısı ile Hoş Geldiniz e-posta gönderin.
 
 Parola sıfırlama ilkenizi bağlantısını almak için aşağıdakileri yapın:

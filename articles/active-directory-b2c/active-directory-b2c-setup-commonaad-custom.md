@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de özel ilkeleri kullanarak bir çok kiracılı Azure AD kimlik sağlayıcısı için oturum açma ayarlama | Microsoft Docs
 description: Özel ilkeleri - Azure Active Directory B2C kullanarak bir çok kiracılı Azure AD kimlik sağlayıcısı ekleyin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d0c849619f2f39ebab533d7e1d7feee7c8822306
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 72d01d6927ee421d01a831244acf65c44a084354
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688246"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508658"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Oturum açma için çok kiracılı Azure özel ilkeleri Azure Active Directory B2C kullanarak Active Directory ayarlayın
 

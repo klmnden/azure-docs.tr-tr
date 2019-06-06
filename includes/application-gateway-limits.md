@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238743"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66689097"
 ---
 | Resource | Varsayılan/üst sınır | Not |
 | --- | --- | --- |
@@ -37,5 +37,6 @@ ms.locfileid: "66238743"
 | En büyük dosya yükleme boyutunu, standart |2 GB | |
 | En büyük dosya karşıya yükleme boyutu WAF |Orta WAF ağ geçitleri, 100 MB<br>Geniş WAF ağ geçitleri, 500 MB| |
 | Dosyaları olmadan WAF gövdesi boyutu sınırı|128 KB||
+|En fazla WAF özel kurallar|100||
 
 <sup>1</sup> WAF özellikli SKU'ları durumunda kaynakların en iyi performans için 40 sayısını sınırla olan öneririz.

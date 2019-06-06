@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 06/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 376a7f3f83cc7fcf7490675d9c0aef1513862e8a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521728"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514318"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Gerçek zamanlı (Önizleme) günlüklerini ve olayları görüntüleme
 Kapsayıcılar için Azure İzleyici şu anda kubectl komutlarını çalıştırmak zorunda kalmadan Azure Kubernetes Service (AKS) kapsayıcı günlüklerini (stdout/stderr) ve olayları dinamik bir görünüm sağlar Önizleme aşamasında olan bir özellik içerir. İki seçenekten birini seçtiğinizde, yeni bir bölme performans veri tablosu görünür **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** görünümü. Bu, dinamik günlüğe kaydetme ve daha fazla gerçek zamanlı sorunları gidermeye yardımcı olması için kapsayıcı altyapısı tarafından oluşturulan olayları gösterir. 
@@ -27,7 +27,7 @@ Kapsayıcılar için Azure İzleyici şu anda kubectl komutlarını çalıştır
 >**Katkıda bulunan** erişim küme kaynağı için bu özelliğin çalışması için gereklidir.
 >
 
-Günlükleri erişimi denetlemek için günlükleri desteklediği üç farklı yöntem Canlı:
+Canlı günlükler günlükleri erişimi denetlemek için üç farklı yöntemi destekler:
 
 1. AKS etkin Kubernetes RBAC yetkilendirme olmadan 
 2. AKS ile Kubernetes RBAC yetkilendirme etkin
@@ -66,10 +66,13 @@ Kubernetes RBAC yetkilendirme etkinleştirilirse, küme rolü bağlama uygulamak
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Bu ilk kez yapılandırıyorsanız, küme kural bağlama aşağıdaki komutu çalıştırarak oluşturduğunuz: `kubectl create -f LogReaderRBAC.yaml`. Canlı günlükler, yapılandırmasını güncelleştirmek için canlı olay günlükleri, kullanıma sunduk önce önizlemek için destek daha önce etkin değilse aşağıdaki komutu çalıştırın: `kubectl apply -f LiveLogRBAC.yml`. 
+2. İlk kez yapılandırıyorsanız, küme kural bağlama aşağıdaki komutu çalıştırarak oluşturduğunuz: `kubectl create -f LogReaderRBAC.yaml`. Canlı günlükler, yapılandırmasını güncelleştirmek için canlı olay günlükleri, kullanıma sunduk önce önizlemek için destek daha önce etkin değilse aşağıdaki komutu çalıştırın: `kubectl apply -f LogReaderRBAC.yml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>AKS ile Azure Active Directory'yi yapılandırma
-AKS, Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu ilk kez yapılandırıyorsanız, bkz. [Azure Active Directory Tümleştirme ile Azure Kubernetes hizmeti](../../aks/azure-ad-integration.md). Oluşturma adımları sırasında [istemci uygulaması](../../aks/azure-ad-integration.md#create-client-application) belirtin **yeniden yönlendirme URI'si**, başka bir URI listeye eklemeniz `https://ininprodeusuxbase.microsoft.com/*`.  
+AKS, Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. İlk kez yapılandırıyorsanız, bkz. [Azure Active Directory Tümleştirme ile Azure Kubernetes hizmeti](../../aks/azure-ad-integration.md). Oluşturma adımları sırasında [istemci uygulaması](../../aks/azure-ad-integration.md#create-client-application), iki belirtmeniz gereken **yeniden yönlendirme URI'si** girdileri. İki bir URI'leri şunlardır:
+
+- https://ininprodeusuxbase.microsoft.com/*
+- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
 
 >[!NOTE]
 >Kimlik doğrulama işlemini yapılandırmayı Azure Active Directory ile çoklu oturum açma için yalnızca yeni bir AKS kümesi ilk dağıtım sırasında gerçekleştirilebilir. Çoklu oturum zaten dağıtılmış bir AKS kümesi için üzerinde yapılandıramazsınız. Kimlik doğrulamasını yapılandırmalısınız **uygulama kaydı (eski)** URI'de bir joker karakter kullanımını desteklemek ve while için Azure AD'de seçeneği olarak kaydetme listesine ekleyerek bir **yerel** uygulama.
@@ -77,7 +80,7 @@ AKS, Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanma
 
 ## <a name="view-live-logs-and-events"></a>Görünüm Canlı günlükler ve olaylar
 
-Kapsayıcı altyapısı tarafından oluşturulan gerçek zamanlı günlük olayları görüntüleyebileceğiniz **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** görünümü. Özellikler bölmesinden seçtiğiniz **görüntüleme (Önizleme) canlı veriler** seçeneği ve bir bölmesinde görüntüleyebileceğiniz günlük ve olay sürekli bir akış içinde performans veri tablosu aşağıda sunulur. 
+Kapsayıcı altyapısı tarafından oluşturulan gerçek zamanlı günlük olayları görüntüleyebileceğiniz **düğümleri**, **denetleyicileri**, ve **kapsayıcıları** görünümü. Özellikler bölmesinde seçtiğiniz **görüntüleme (Önizleme) canlı veriler** seçeneği ve bir bölmesinde görüntüleyebileceğiniz günlük ve olay sürekli bir akış içinde performans veri tablosu aşağıda sunulur. 
 
 ![Düğüm özellikleri bölmesi görünümü Canlı günlükler seçeneği](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 

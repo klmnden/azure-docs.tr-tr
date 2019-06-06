@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786389"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475619"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
@@ -126,7 +126,7 @@ AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara di
 
 - Kubernetes için hizmet sorumlusu, küme yapılandırmasının bir parçasıdır. Ancak, kümeyi dağıtmak için kimlik kullanmayın.
 - Varsayılan olarak, hizmet sorumlusu kimlik bilgileri bir yıl süreyle geçerlidir. Yapabilecekleriniz [güncelleştirme veya hizmet sorumlusu kimlik bilgilerini döndürme] [ update-credentials] dilediğiniz zaman.
-- Her hizmet sorumlusunun bir Azure AD uygulamasıyla ilişkilendirilmiş olması gerekir. Bir Kubernetes kümesinin hizmet sorumlusu, geçerli herhangi bir Azure AD uygulama adıyla ilişkilendirilebilir (örneğin: *https://www.contoso.org/example*). Uygulama URL'sinin gerçek bir uç nokta olması gerekmez.
+- Her hizmet sorumlusunun bir Azure AD uygulamasıyla ilişkilendirilmiş olması gerekir. Bir Kubernetes kümesinin hizmet sorumlusu, geçerli herhangi bir Azure AD uygulama adıyla ilişkilendirilebilir (örneğin: *https://www.contoso.org/example* ). Uygulama URL'sinin gerçek bir uç nokta olması gerekmez.
 - Hizmet sorumlusu **İstemci kimliğini** belirttiğinizde `appId` değerini kullanın.
 - Aracı düğümde Vm'leri Kubernetes kümesinde hizmet sorumlusu kimlik bilgileri dosyasında depolanır. `/etc/kubernetes/azure.json`
 - Hizmet sorumlusunu otomatik olarak oluşturmak için [az aks create][az-aks-create] komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı makinede `~/.azure/aksServicePrincipal.json` dosyasına yazılır.
@@ -136,6 +136,24 @@ AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara di
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>Sorun giderme
+
+Azure CLI ile bir AKS kümesi için hizmet sorumlusu kimlik bilgileri önbelleğe alınır. Bu kimlik bilgilerinin kullanım süresi dolduğunda, AKS kümelerini dağıtma hatalarla karşılaşırsınız. Çalıştırırken aşağıdaki hata iletisini [az aks oluşturma] [ az-aks-create] önbelleğe alınan hizmet sorumlusu kimlik bilgileri bir sorun olduğunu gösteriyor olabilir:
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+Aşağıdaki komutu kullanarak kimlik bilgileri dosyası yaşını denetleyin:
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+Hizmet sorumlusu kimlik bilgileri için varsayılan zaman aşımı süresi bir yıldır. Varsa, *aksServicePrincipal.json* dosyasıdır bir yıldan eski, dosyayı silin ve yeniden bir AKS kümesi dağıtmayı deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

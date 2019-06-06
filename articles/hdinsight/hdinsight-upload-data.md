@@ -1,33 +1,32 @@
 ---
 title: HDInsight, Apache Hadoop işleri için veri yükleme
 description: Klasik Azure CLI, Azure Depolama Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak HDInsight, Apache Hadoop işleri için erişim verileri ve nasıl yükleneceğini öğrenin.
-keywords: etl hadoop, hadoop, hadoop veri yükleme ile veri alma
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/08/2019
-ms.openlocfilehash: 3283c885956c5b43171c6287dc00efa9a82db28e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/03/2019
+ms.openlocfilehash: 0dbd5a886e2369d29a568eca47dda5558f43c8cd
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722788"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479145"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight, Apache Hadoop işleri için veri yükleme
 
-Azure HDInsight, Azure depolama ve Azure Data Lake Storage (Gen1 ve 2. nesil) üzerinden bir tam özellikli Hadoop dağıtılmış dosya sistemi (HDFS) sağlar. Azure depolama ve Data Lake depolama Gen1 ve 2. nesil HDFS uzantıları müşterilere sorunsuz bir deneyim sağlamak için tasarlanmıştır. Bunlar Hadoop ekosistemindeki doğrudan yönettiği veriler üzerinde çalışılacak bileşenler kümesinin etkinleştirin. Azure depolama, Data Lake depolama Gen1 ve 2. nesil depolama verilerinin ve bu verileri hesaplamaları için optimize edilmiş farklı dosya sistemleridir. Azure depolama kullanmanın avantajları hakkında bilgi için [HDInsight ile Azure depolama kullanma][hdinsight-storage], [kullanım Data Lake depolama Gen1 HDInsight ile](hdinsight-hadoop-use-data-lake-store.md), ve [ HDInsight ile Data Lake depolama Gen2 kullanın](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Azure HDInsight, Azure depolama ve Azure Data Lake Storage (Gen1 ve 2. nesil) üzerinden bir tam özellikli Hadoop dağıtılmış dosya sistemi (HDFS) sağlar. Azure depolama ve Data Lake depolama Gen1 ve 2. nesil HDFS uzantıları müşterilere sorunsuz bir deneyim sağlamak için tasarlanmıştır. Bunlar Hadoop ekosistemindeki doğrudan yönettiği veriler üzerinde çalışılacak bileşenler kümesinin etkinleştirin. Azure depolama, Data Lake depolama Gen1 ve 2. nesil depolama verilerinin ve bu verileri hesaplamaları için optimize edilmiş farklı dosya sistemleridir. Azure depolama kullanmanın avantajları hakkında bilgi için [HDInsight ile Azure depolama kullanma](hdinsight-hadoop-use-blob-storage.md), [kullanım Data Lake depolama Gen1 HDInsight ile](hdinsight-hadoop-use-data-lake-store.md), ve [kullanım Data Lake depolama 2. nesil ile HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdaki gereksinimleri dikkate alın:
 
-* Bir Azure HDInsight kümesi. Yönergeler için [Azure HDInsight ile çalışmaya başlama] [ hdinsight-get-started] veya [oluşturma HDInsight kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
+* Bir Azure HDInsight kümesi. Yönergeler için [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md) veya [oluşturma HDInsight kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
 * Aşağıdaki makalelerdeki bilgi:
 
-    - [HDInsight ile Azure Depolama'yı kullanma][hdinsight-storage]
+    - [HDInsight ile Azure Depolama'yı kullanma](hdinsight-hadoop-use-blob-storage.md)
     - [Data Lake depolama Gen1 HDInsight ile kullanma](hdinsight-hadoop-use-data-lake-store.md)
     - [Data Lake depolama Gen2 HDInsight ile kullanma](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
@@ -36,7 +35,7 @@ Başlamadan önce aşağıdaki gereksinimleri dikkate alın:
 ## <a name="utilities"></a>Altyapı Hizmetleri
 Microsoft Azure depolama ile çalışmak için aşağıdaki yardımcı programlarını sağlar:
 
-| Tool | Linux | OS X | Windows |
+| Aracı | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -64,11 +63,11 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 HDInsight için varsayılan dosya sistemi Azure Storage'da /example/data.txt gerçekte Azure Depolama'da olduğu. Dosyayı farklı de başvurabilirsiniz:
 
-    wasb:///example/data/data.txt
+    wasbs:///example/data/data.txt
 
 or
 
-    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 Dosyalarla diğer Hadoop komutlarını bir listesi için bkz. [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -104,7 +103,7 @@ Azure Data Factory hizmeti, kolaylaştırılmış, ölçeklenebilir ve güvenili
 ### <a id="sqoop"></a>Apache Sqoop
 Sqoop, Hadoop ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL veya Oracle Hadoop dağıtılmış dosya sistemi (HDFS) ile Hadoop MapReduce veya Hive ile verileri dönüştürün ve ardından bir RDBMS'de geri verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemi (RDBMS), verileri içeri aktarmak için kullanabilirsiniz.
 
-Daha fazla bilgi için [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop].
+Daha fazla bilgi için [HDInsight ile Sqoop kullanma](hadoop/hdinsight-use-sqoop.md).
 
 ### <a name="development-sdks"></a>Geliştirme SDK'ları
 Azure depolama, bir Azure SDK'sından aşağıdaki programlama dilleri kullanılarak da erişilebilir:
@@ -152,28 +151,21 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Ayrıca değerini artırabilirsiniz `fs.azure.write.request.size` Apache Ambari kullanarak Global olarak. Aşağıdaki adımlar, Ambari Web kullanıcı arabiriminde değeri değiştirmek için kullanılabilir:
 
-1. Tarayıcınızda, kümeniz için Ambari Web kullanıcı arabirimini gidin. Bu https://CLUSTERNAME.azurehdinsight.netburada **CLUSTERNAME** kümenizin adıdır.
+1. Tarayıcınızda, kümeniz için Ambari Web kullanıcı arabirimini gidin. Bu `https://CLUSTERNAME.azurehdinsight.net`burada `CLUSTERNAME` kümenizin adıdır.
 
     İstendiğinde, küme için yönetim adını ve parolasını girin.
 2. Ekranın sol tarafından seçin **HDFS**ve ardından **yapılandırmaları** sekmesi.
 3. İçinde **Filtresi...**  alanına `fs.azure.write.request.size`. Bu alanı ve sayfanın ortasındaki geçerli değeri görüntüler.
 4. Değer 262144 (256 KB) yeni değerle değiştirin. Örneğin, 4194304 (4 MB).
 
-![Ambari Web kullanıcı Arabirimi aracılığıyla değerini değiştirme görüntüsü](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
+    ![Ambari Web kullanıcı Arabirimi aracılığıyla değerini değiştirme görüntüsü](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
 Ambari kullanarak daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Apache Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 HDInsight ile verileri alma anladığınıza göre Analiz gerçekleştirme hakkında bilgi edinmek için bu makaleleri okuyun:
 
-* [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
-* [Program aracılığıyla Apache Hadoop işlerini gönderme][hdinsight-submit-jobs]
-* [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
-* [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
-
-[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+* [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Program aracılığıyla Apache Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)

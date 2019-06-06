@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: b345f5e7f6f32d7fbb76d4f0227c8f4f925ff884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400304"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477578"
 ---
 # <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
@@ -76,7 +76,7 @@ Azure yedekleme kasası için depolama otomatik olarak işler. Bu depolamanın n
    - Daha fazla bilgi edinin [coğrafi](../storage/common/storage-redundancy-grs.md) ve [yerel](../storage/common/storage-redundancy-lrs.md) yedeklilik.
 
 > [!NOTE]
-> Seçtiğiniz sonra **depolama çoğaltma türü** gelen **coğrafi olarak yedekli** için **yerel olarak yedekli**, geri dönemezsiniz.
+> Değiştirme **depolama çoğaltma türü** bir kurtarma Hizmetleri kasası için yedekleme Kasası'nda yapılandırmadan önce yapılması (yerel olarak yedekli / coğrafi olarak yedekli) içerir. Yedeklemeyi yapılandırma, değiştirmek için bu seçeneği devre dışıdır ve değiştiremezsiniz sonra **depolama çoğaltma türü**. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

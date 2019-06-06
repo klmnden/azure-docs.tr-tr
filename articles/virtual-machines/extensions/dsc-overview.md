@@ -7,7 +7,7 @@ author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-keywords: dsc
+keywords: DSC
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518854"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515899"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration uzantısı işleyicisi giriş
 
@@ -81,7 +81,7 @@ Bu bilgiler görülebilir [Azure portalında](../../automation/automation-dsc-on
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Düğüm yapılandırması adı için adını kullandığınızdan emin olun *düğüm yapılandırması* ve yapılandırma.
+Düğüm yapılandırması adı, Azure durum yapılandırmasında düğüm yapılandırması var. emin olun.  Kullanmıyorsa, uzantı dağıtımı bir hata döndürür.  Ayrıca adını kullandığınızdan emin olun *düğüm yapılandırması* ve yapılandırma.
 Kullanılan komut dosyasında tanımlanmış bir yapılandırması [düğüm yapılandırması (MOF dosyası) derlemek için](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Ad bir nokta yapılandırması her zaman olacak `.` ve her iki `localhost` veya belirli bir bilgisayar adı.
 

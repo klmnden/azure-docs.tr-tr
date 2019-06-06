@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 65c89730e7d3d492b91daa8aba50e5606ca700a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238516"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455200"
 ---
 Aşağıdaki tabloda, Azure IOT Hub cihazı sağlama hizmeti kaynakları için geçerli olan sınırlar listelenmektedir.
 
@@ -20,6 +20,7 @@ Aşağıdaki tabloda, Azure IOT Hub cihazı sağlama hizmeti kaynakları için g
 | En fazla kayıt sayısı | 1.000.000 |
 | Kayıt grupları sayısı | 100 |
 | CAs sayısı | 25 |
+| İletinin en büyük boyutu | 96 KB'LIK|
 
 > [!NOTE]
 > Aboneliğinizdeki örneği sayısını artırmak için kişi [Microsoft Support](https://azure.microsoft.com/support/options/).

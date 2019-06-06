@@ -2,20 +2,20 @@
 title: Bir GitHub hesabı - Azure Active Directory B2C ile oturum açma ve kaydolma | Microsoft Docs
 description: Azure Active Directory B2C kullanarak uygulamalarınızda GitHub hesabı olan müşteriler için kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 686ba9662084b2a8013d3b514f6d2301d8cbc988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88d92e081a7b852035dd2b7d3bc9e4e29fefaddd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703159"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508571"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir GitHub hesabı ile kaydolma ve oturum açma ayarlama
 
@@ -41,6 +41,6 @@ Bir GitHub hesabı olarak kullanılacak bir [kimlik sağlayıcısı](active-dire
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
 5. Sağlayan bir **adı**. Örneğin, *GitHub*.
-6. Seçin **kimlik sağlayıcısı türü**seçin **GitHub (Önizleme)**, tıklatıp **Tamam**.
+6. Seçin **kimlik sağlayıcısı türü**seçin **GitHub (Önizleme)** , tıklatıp **Tamam**.
 7. Seçin **bu kimlik sağlayıcısını ayarlama** ve daha önce olarak kayıtlı istemci kimliğini girin **istemci kimliği** olarak kaydettiğiniz istemci gizli anahtarını girin **gizli**daha önce oluşturduğunuz GitHub hesabı uygulamanın.
 8. Tıklayın **Tamam** ve ardından **Oluştur** GitHub hesabı yapılandırmanızı kaydetmek için.

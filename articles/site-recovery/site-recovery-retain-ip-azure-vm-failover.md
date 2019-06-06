@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277333"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479951"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Yük devretme sırasında IP adreslerini koru
 
@@ -43,7 +43,7 @@ Yük devretmeden önce mimari aşağıda verilmiştir.
         - Doğu Asya sahip bir VNet (**kaynak VNet**) ile adres alanı 10.1.0.0/16.
         - Doğu Asya sanal ağ içindeki üç alt ağlar arasındaki bölme iş yükleri vardır:
             - **Alt ağ 1**: 10.1.1.0/24
-            - **Alt ağı 2**: 10.1.2.0/24,
+            - **Alt ağı 2**: 10.1.2.0/24
             - **Alt ağ 3**: 10.1.3.0/24
     - İkincil (hedef) bölgedir Azure Güneydoğu Asya
         - Güneydoğu Asya sahip bir kurtarma sanal ağ (**kurtarma VNet**) aynı **kaynak VNet**.
@@ -131,11 +131,11 @@ Ağ mimarisi önce yük devretme nasıl göründüğünü aşağıda verilmişti
 - Doğu Asya sahip bir VNet (**kaynak VNet**) ile adres alanı 10.1.0.0/16.
   - Doğu Asya sahip iş yükleri üç alt ağlar arasındaki bölme **kaynak VNet**:
     - **Alt ağ 1**: 10.1.1.0/24
-    - **Alt ağı 2**: 10.1.2.0/24,
-    - **Alt ağ 3**: bir Azure sanal ağ adres alanı 10.1.0.0/16 ile 10.1.3.0/24utilizing. Bu sanal ağ adlı **kaynak sanal ağ**
+    - **Alt ağı 2**: 10.1.2.0/24
+    - **Alt ağ 3**: Adres alanı 10.1.0.0/16 ile bir Azure sanal ağı kullanan 10.1.3.0/24. Bu sanal ağ adlı **kaynak sanal ağ**
       - Azure Güney Doğu Asya (hedef) ikincil bölgeye şöyledir:
   - Güneydoğu Asya sahip bir kurtarma sanal ağ (**kurtarma VNet**) aynı **kaynak VNet**.
-- Doğu Asya Vm'leri Azure ExpressRoute veya VPN sitesi site ile bir şirket içi veri merkezine bağlıdır.
+- Doğu Asya Vm'leri Azure ExpressRoute veya siteden siteye VPN ile bir şirket içi veri merkezine bağlıdır.
 - RTO azaltmak için ağ geçitleri Azure Güneydoğu Asya, Kurtarma VNet üzerinde yük devretme öncesinde Şirket B sağlar.
 - Şirket B atar/hedef IP adresleri çoğaltılan VM'ler için doğrular. Hedef IP adresine kaynak IP adresi her VM için aynıdır.
 

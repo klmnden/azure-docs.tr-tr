@@ -1,18 +1,18 @@
 ---
-title: 'Hızlı Başlangıç: Kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturmaC#'
+title: Kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturmaC#
 description: Kullanarak bir Azure Veri Gezgini küme ve veritabanı oluşturmayı öğreninC#
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 719aba498c08617b42d248d3c677499f8eb3e4b2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: e51551d4ce8061122fce52b05e68e102b71c27a8
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900819"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494600"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Kullanarak bir Azure Veri Gezgini kümesi ile veritabanı oluşturmaC#
 
@@ -24,7 +24,7 @@ ms.locfileid: "65900819"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta, bir küme ve bir veritabanı kullanarak oluşturduğunuz C#.
+Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasından akışı yapılan büyük miktarda veri üzerinde gerçek zamanlı analiz yapmaya yönelik hızlı ve tam olarak yönetilen bir veri analizi hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu makalede, bir küme ve bir veritabanı kullanarak oluşturduğunuz C#.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -66,7 +66,7 @@ Azure Veri Gezgini uygulamalar, web siteleri, IoT cihazları ve daha fazlasında
    |**Ayar** | **Önerilen değer** | **Alan açıklaması**|
    |---|---|---|
    | clusterName | *mykustocluster* | İstenen kümenizin adıdır.|
-   | sku | *D13_v2* | Kümeniz için kullanılan SKU. |
+   | SKU | *D13_v2* | Kümeniz için kullanılan SKU. |
    | resourceGroupName | *testrg* | Kümenin oluşturulacağı kaynak grubu adı. |
 
     Küme kapasitesi gibi kullanabileceğiniz ek isteğe bağlı parametre yok.
@@ -112,7 +112,7 @@ Artık bir küme ve bir veritabanı vardır.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-* Diğer hızlı başlangıçlarımızı ve öğreticilerimizi izlemeyi planlıyorsanız, oluşturduğunuz kaynakları tutun.
+* Diğer makalelerimize takip etmeyi planlıyorsanız, oluşturduğunuz kaynakları tutun.
 * Kaynakları temizlemek için kümeyi silin. Bir küme sildiğinizde, tüm veritabanları da siler. Kümenizi silmek için aşağıdaki komutu kullanın:
 
     ```C#-interactive
@@ -121,5 +121,4 @@ Artık bir küme ve bir veritabanı vardır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)
+* [Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)

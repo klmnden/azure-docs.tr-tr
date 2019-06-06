@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de özel ilkeleri kullanarak parola karmaşıklığını yapılandırma | Microsoft Docs
 description: Nasıl özel bir ilke kullanarak Azure Active Directory B2C'de parola karmaşıklık gereksinimlerini yapılandırabilirsiniz.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7fb90720b8ee3834a0451cc70b026099dadaf369
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 04a37e6faf51787457d7ca4ab8434fd253deb2ed
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682472"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509153"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak parola karmaşıklığını yapılandırın
 
@@ -119,7 +119,7 @@ Uygulamalarınızı Azure AD B2C'de test etme, döndürülen Azure AD B2C belirt
 6. Seçin **ilke varsa üzerine**, arayın ve seçin *SingUpOrSignInPasswordComplexity.xml* dosya.
 7. **Karşıya Yükle**'ye tıklayın.
 
-### <a name="run-the-policy"></a>İlkeyi çalıştır
+### <a name="run-the-policy"></a>İlke çalıştırın
 
 1. Değiştirdiğiniz İlkesi'ni açın. Örneğin, *B2C_1A_signup_signin_password_complexity*.
 2. İçin **uygulama**, daha önce kaydettiğiniz uygulamanızı seçin. Belirteç görmek için **yanıt URL'si** göstermelidir `https://jwt.ms`.

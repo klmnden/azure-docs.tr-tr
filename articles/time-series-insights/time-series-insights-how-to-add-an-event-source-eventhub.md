@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b39001481764eb955ab4535e8c6ea1752e0c012
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239017"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475734"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Zaman serisi görüşleri ortamınıza bir event hub olay kaynağı ekleme
 
@@ -34,7 +34,7 @@ Bu makalede, Azure zaman serisi görüşleri ortamınız için Azure Event Hubs'
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Olay hub'ınıza bir tüketici grubu Ekle
 
-Uygulamaları, Azure Event Hubs'dan veri çekmek için tüketici grubu kullanır. Güvenilir bir şekilde verileri olay hub'ından okumak için yalnızca bu zaman serisi görüşleri ortamı tarafından kullanılacak bir adanmış bir tüketici grubu sağlayın.
+Uygulamaları, Azure Event Hubs'dan veri çekmek için tüketici grubu kullanır. Güvenilir bir şekilde verileri olay hub'ından okumak için yalnızca bu zaman serisi görüşleri ortamı tarafından kullanılan ayrılmış bir tüketici grubu sağlayın.
 
 Olay hub'ında yeni bir tüketici grubu eklemek için:
 
@@ -64,38 +64,40 @@ Olay hub'ında yeni bir tüketici grubu eklemek için:
 
 1. İçin uygun değerleri seçin **içeri aktarma seçeneği**:
    - Mevcut bir olay hub'ı aboneliklerinizden biri varsa, seçin **kullanımı olay Hub'ından kullanılabilir abonelikleri**. Bu seçenek için kolay bir yaklaşımdır.
-   - Olay hub'ı aboneliklerinize dış olup olmadığını veya Gelişmiş seçeneklerini seçmek istiyorsanız seçin **sağlayan olay hub'ı ayarlarını elle**.
 
-   [![Yeni olay kaynağı bölmesinde ilk üç parametreleri için değerleri girin.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
+       [![Yeni olay kaynağı bölmesinde ilk üç parametreleri için değerleri girin.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
-1. Aşağıdaki tablo için gerekli özellikleri açıklar **kullanımı olay Hub'ından kullanılabilir abonelikleri** seçeneği:
 
-   [![Abonelik ve olay hub'ı ayrıntıları](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+       [![Abonelik ve olay hub'ı ayrıntıları](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
-   | Özellik | Açıklama |
-   | --- | --- |
-   | Abonelik Kimliği | Bu olay hub'ı oluşturulduğu abonelik seçin.
-   | Service bus ad alanı | Olay hub'ı içeren Azure Service Bus ad alanı seçin.
-   | Olay hub'ı adı | Olay hub'ı adını seçin.
-   | Olay hub'ı ilke adı | Paylaşılan erişim ilkesi seçin. Olay hub'ında paylaşılan erişim ilkesi oluşturabilirsiniz **yapılandırma** sekmesi. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağınız için paylaşılan erişim ilkesi *gerekir* sahip **okuma** izinleri.
-   | Olay hub'ı ilke anahtarı | Anahtar değeri önceden doldurulmuş.
-   | Olay hub'ı tüketici grubu | Tüketici grubu olayları olay hub'ından okur. Olay kaynağınız için ayrılmış bir tüketici grubu kullanmanızı öneririz. |
-   | Olay serileştirme biçimi | Şu anda, JSON yalnızca serileştirme biçimidir. Veri okuma veya olay iletileri şu biçimde olmalıdır. |
-   | Zaman damgası özellik adı | Bu değeri belirlemek için olay hub'ına gönderilen ileti verileri ileti biçimi anlamanız gerekir. Bu değer **adı** ileti verileri, olay zaman damgası kullanmak istediğiniz belirli olay özelliğini. Değer büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** olay kaynağı olarak olay zaman damgası kullanılır. |
+     Aşağıdaki tablo için gerekli özellikleri açıklar **kullanımı olay Hub'ından kullanılabilir abonelikleri** seçeneği:
 
-1. İçin gerekli özellikler aşağıdaki tabloda açıklanmıştır **sağlayan olay hub'ı ayarlarını elle** seçeneği:
+     | Özellik | Açıklama |
+     | --- | --- |
+     | Abonelik Kimliği | Bu olay hub'ı oluşturulduğu abonelik seçin.
+     | Service Bus ad alanı | Olay hub'ı içeren Azure Service Bus ad alanı seçin.
+     | Olay hub'ı adı | Olay hub'ı adını seçin.
+     | Olay hub'ı ilke adı | Paylaşılan erişim ilkesi seçin. Olay hub'ında paylaşılan erişim ilkesi oluşturabilirsiniz **yapılandırma** sekmesi. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağınız için paylaşılan erişim ilkesi *gerekir* sahip **okuma** izinleri.
+     | Olay hub'ı ilke anahtarı | Anahtar değeri önceden doldurulmuş.
+     | Olay hub'ı tüketici grubu | Tüketici grubu olayları olay hub'ından okur. Olay kaynağınız için ayrılmış bir tüketici grubu kullanmanızı öneririz. |
+     | Olay serileştirme biçimi | Şu anda, JSON yalnızca serileştirme biçimidir. Veri okunamıyor veya olay iletileri şu biçimde olmalıdır. |
+     | Zaman damgası özellik adı | Bu değeri belirlemek için olay hub'ına gönderilen ileti verileri ileti biçimi anlamanız gerekir. Bu değer **adı** ileti verileri, olay zaman damgası kullanmak istediğiniz belirli olay özelliğini. Değer büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** olay kaynağı olarak olay zaman damgası kullanılır. |
 
-   | Özellik | Açıklama |
-   | --- | --- |
-   | Abonelik Kimliği | Bu olay hub'ı oluşturulduğu abonelik.
-   | Kaynak grubu | Bu olay hub'ı oluşturulduğu kaynak grubu.
-   | Service bus ad alanı | Service Bus ad alanı, Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır. Yeni bir olay hub'ı oluşturduğunuzda, bir Service Bus ad alanı da oluşturmuş olursunuz.
-   | Olay hub'ı adı | Olay hub'ınızın adıdır. Olay hub'ınızı oluşturduğunuzda, onu bir özel ad da vermiş oldunuz.
-   | Olay hub'ı ilke adı | Paylaşılan erişim ilkesi. Olay hub'ında bir paylaşılan erişim ilkesi oluşturabilirsiniz **yapılandırma** sekmesi. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağınız için paylaşılan erişim ilkesi *gerekir* sahip **okuma** izinleri.
-   | Olay hub'ı ilke anahtarı | Service Bus ad alanı kimlik doğrulaması yapmak için kullanılan paylaşılan erişim anahtarı. Birincil veya ikincil anahtarı buraya girin.
-   | Olay hub'ı tüketici grubu | Tüketici grubu olayları olay hub'ından okur. Olay kaynağınız için ayrılmış bir tüketici grubu kullanmanızı öneririz.
-   | Olay serileştirme biçimi | Şu anda, JSON yalnızca serileştirme biçimidir. Veri okuma veya olay iletileri şu biçimde olmalıdır. |
-   | Zaman damgası özellik adı | Bu değeri belirlemek için olay hub'ına gönderilen ileti verileri ileti biçimi anlamanız gerekir. Bu değer **adı** ileti verileri, olay zaman damgası kullanmak istediğiniz belirli olay özelliğini. Değer büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** olay kaynağı olarak olay zaman damgası kullanılır. |
+    - Olay hub'ı aboneliklerinize dış olup olmadığını veya Gelişmiş seçeneklerini seçmek istiyorsanız seçin **sağlayan olay hub'ı ayarlarını elle**.
+
+      İçin gerekli özellikler aşağıdaki tabloda açıklanmıştır **sağlayan olay hub'ı ayarlarını elle** seçeneği:
+ 
+      | Özellik | Açıklama |
+      | --- | --- |
+      | Abonelik Kimliği | Bu olay hub'ı oluşturulduğu abonelik.
+      | Kaynak grubu | Bu olay hub'ı oluşturulduğu kaynak grubu.
+      | Service Bus ad alanı | Service Bus ad alanı, Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır. Yeni bir olay hub'ı oluşturduğunuzda, bir Service Bus ad alanı da oluşturmuş olursunuz.
+      | Olay hub'ı adı | Olay hub'ınızın adıdır. Olay hub'ınızı oluşturduğunuzda, onu bir özel ad da vermiş oldunuz.
+      | Olay hub'ı ilke adı | Paylaşılan erişim ilkesi. Olay hub'ında bir paylaşılan erişim ilkesi oluşturabilirsiniz **yapılandırma** sekmesi. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağınız için paylaşılan erişim ilkesi *gerekir* sahip **okuma** izinleri.
+      | Olay hub'ı ilke anahtarı | Service Bus ad alanı kimlik doğrulaması yapmak için kullanılan paylaşılan erişim anahtarı. Birincil veya ikincil anahtarı buraya girin.
+      | Olay hub'ı tüketici grubu | Tüketici grubu olayları olay hub'ından okur. Olay kaynağınız için ayrılmış bir tüketici grubu kullanmanızı öneririz.
+      | Olay serileştirme biçimi | Şu anda, JSON yalnızca serileştirme biçimidir. Veri okunamıyor veya olay iletileri şu biçimde olmalıdır. |
+      | Zaman damgası özellik adı | Bu değeri belirlemek için olay hub'ına gönderilen ileti verileri ileti biçimi anlamanız gerekir. Bu değer **adı** ileti verileri, olay zaman damgası kullanmak istediğiniz belirli olay özelliğini. Değer büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** olay kaynağı olarak olay zaman damgası kullanılır. |
 
 1. Olay hub'ınıza eklediğiniz adanmış Time Series Insights tüketici grubu adını ekleyin.
 

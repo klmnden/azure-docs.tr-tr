@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149241"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515735"
 ---
-# <a name="streaming-endpoints-origin"></a>Akış uç noktaları (kaynak)
+# <a name="streaming-endpoints"></a>Akış Uç Noktaları 
 
 Microsoft Azure Media Services, bir [akış uç noktası](https://docs.microsoft.com/rest/api/media/streamingendpoints) birini kullanarak doğrudan bir istemci oynatıcı uygulaması için canlı ve isteğe bağlı içerik teslim eden bir dinamik (tam zamanında) paketleme ve kaynak hizmetini temsil eder yaygın akış medya protokolleri (HLS veya DASH). Ayrıca, **akış uç noktası** sektör lideri benzeri DRM dinamik (tam zamanında) şifreleme sağlar.
 
@@ -35,7 +35,7 @@ Varsayılan uç nokta için: `{AccountName}-{DatacenterAbbreviation}.streaming.m
 
 Tüm ek uç noktalar için: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
-## <a name="types"></a>Türler  
+## <a name="types"></a>Türleri  
 
 İki **Akış Uç Noktası** türü vardır: **Standart** (Önizleme) ve **Premium**. Türü ölçek birimi sayısına göre tanımlanır (`scaleUnits`) akış uç noktası için ayırın. 
 

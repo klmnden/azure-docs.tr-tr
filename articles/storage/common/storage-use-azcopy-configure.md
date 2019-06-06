@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247132"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688029"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Yapılandırma, en iyi duruma getirmek ve AzCopy sorunlarını giderme
 
@@ -52,7 +52,7 @@ Kullanım `azcopy env` bu değişkenin geçerli değeri denetlemek için.  Değe
 
 ## <a name="change-the-location-of-the-log-files"></a>Günlük dosyalarının konumunu değiştirin
 
-Varsayılan olarak, günlük dosyalarının yer `%USERPROFILE\\.azcopy` klasör veya Windows üzerindeki `$HOME\\.azcopy` Mac ve Linux üzerinde klasör. Şu komutları kullanarak ihtiyacınız varsa, bu konuma değiştirebilirsiniz.
+Varsayılan olarak, günlük dosyalarının yer `%USERPROFILE\\.azcopy` veya Windows üzerindeki dizin `$HOME\\.azcopy` Mac ve Linux'ta dizin. Şu komutları kullanarak ihtiyacınız varsa, bu konuma değiştirebilirsiniz.
 
 | İşletim sistemi | Komut  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy günlük ve planı dosyaları her işi oluşturur. Araştırmak ve olası
 
 Günlükleri hata durumunu içerir (`UPLOADFAILED`, `COPYFAILED`, ve `DOWNLOADFAILED`), tam yolunu ve hatanın nedenini.
 
-Varsayılan olarak, günlük ve planı dosyaları yer `%USERPROFILE\\.azcopy` Windows klasöründe veya `$HOME\\.azcopy` Mac ve Linux üzerinde klasör.
+Varsayılan olarak, günlük ve planı dosyaları yer `%USERPROFILE\\.azcopy` Windows dizininde veya `$HOME\\.azcopy` Mac ve Linux'ta dizin.
 
 > [!IMPORTANT]
 > Microsoft Support (veya herhangi bir üçüncü taraf ilgili sorun giderme), bir isteği gönderirken çalıştırmak istediğiniz komutun sonuç kısaltılmıştır sürümü paylaşabilir. Bu, SAS yanlışlıkla herkesle paylaşılmaz sağlar. Günlük dosyasının başında sonuç kısaltılmıştır sürümü bulabilirsiniz.

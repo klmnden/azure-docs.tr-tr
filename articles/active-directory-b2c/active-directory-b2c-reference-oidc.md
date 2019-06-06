@@ -2,20 +2,20 @@
 title: Openıd Connect - Azure Active Directory B2C ile oturum açma Web | Microsoft Docs
 description: Azure Active Directory B2C'de Openıd Connect kimlik doğrulama protokolü kullanarak web uygulamaları oluşturun.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4137360fadab0206c6569b58d6a9a0519ce74450
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703943"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509215"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web oturumu açma Openıd Connect, Azure Active Directory B2C ile
 
@@ -100,7 +100,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | Parametre | Açıklama |
 | --------- | ----------- |
 | id_token | Bu uygulama istendiğinde kimlik belirteci. Kimlik belirteci, kullanıcının kimliğini doğrulamak ve kullanıcıyı bir oturum başlatmak için kullanabilirsiniz. |
-| kod | Yetkilendirme kodu kullandıysanız, uygulamayı, istenen `response_type=code+id_token`. Uygulama, bir hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Yetkilendirme kodları, genellikle yaklaşık 10 dakika sonra süresi dolar. |
+| code | Yetkilendirme kodu kullandıysanız, uygulamayı, istenen `response_type=code+id_token`. Uygulama, bir hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Yetkilendirme kodları, genellikle yaklaşık 10 dakika sonra süresi dolar. |
 | durum | Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
 
 Hata yanıtları da gönderilebilir `redirect_uri` parametresi uygulama bunları uygun şekilde işleyebilmeniz:
@@ -166,9 +166,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | --------- | -------- | ----------- |
 | p | Evet | Yetkilendirme kodunu almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre, sorgu dizesi için değil, POST gövdesini ekleyin. |
 | client_id | Evet | Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanmış. |
-| grant_type değeri | Evet | Olmalıdır verme türünü `authorization_code` yetkilendirme kod akışı için. |
+| grant_type | Evet | Olmalıdır verme türünü `authorization_code` yetkilendirme kod akışı için. |
 | scope | Hayır | Kapsamları boşlukla ayrılmış listesi. `openid` Kapsamı kullanıcının oturum açmasını ve id_token parametreleri biçiminde bir kullanıcı hakkında veri alma izni gösterir. Aynı uygulama kimliği istemci tarafından temsil edilen uygulamanın kendi arka uç Web API'si, belirteçlerini almak için kullanılabilir. `offline_access` Kapsamını belirtir, uygulamanızın kaynakları genişletilmiş erişim için bir yenileme belirteci gerekiyor. |
-| kod | Evet | Kullanıcı akışı, başlangıçta satın aldığınız yetkilendirme kodu. |
+| code | Evet | Kullanıcı akışı, başlangıçta satın aldığınız yetkilendirme kodu. |
 | redirect_uri | Evet | `redirect_uri` Yetkilendirme kodu aldığınız uygulama parametresi. |
 | client_secret | Evet | Oluşturulduğu uygulama gizli anahtarı [Azure portalında](https://portal.azure.com/). Bu uygulama gizli anahtarı önemli güvenlik bir yapıdır. Onu güvenli bir şekilde sunucunuzda depolamanız gerekir. Bu gizli düzenli olarak değiştirin. |
 
@@ -233,7 +233,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | --------- | -------- | ----------- |
 | p | Evet | Özgün yenileme belirteci almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre, sorgu dizesi için değil, POST gövdesini ekleyin. |
 | client_id | Evet | Uygulama Kimliği [Azure portalında](https://portal.azure.com/) uygulamanıza atanmış. |
-| grant_type değeri | Evet | Yetkilendirme kodu akışı bu kısmı için bir yenileme belirteci olmalıdır verme türü. |
+| grant_type | Evet | Yetkilendirme kodu akışı bu kısmı için bir yenileme belirteci olmalıdır verme türü. |
 | scope | Hayır | Kapsamları boşlukla ayrılmış listesi. `openid` Kapsamı kullanıcının oturum açmasını ve kullanıcı kimliği belirteçleri şeklinde hakkında veri alma izni gösterir. Aynı uygulama kimliği istemci tarafından temsil edilen, uygulamanın kendi arka uç web API'si, belirteçleri göndermek için kullanılabilir. `offline_access` Kapsamını belirtir, uygulamanızın kaynakları genişletilmiş erişim için bir yenileme belirteci gerekiyor. |
 | redirect_uri | Hayır | `redirect_uri` Yetkilendirme kodu aldığınız uygulama parametresi. |
 | refresh_token | Evet | Akış ikinci kısmında alındı özgün bir yenileme belirteci. `offline_access` Kapsamı kullanılmalıdır yetkilendirme ve belirteç isteklerinin bir yenileme belirteci almak için. |

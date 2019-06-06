@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969380"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497557"
 ---
 # <a name="monitor-site-recovery"></a>Site kurtarma İzleyicisi
 
@@ -26,7 +26,7 @@ Bu makalede, Azure Site Recovery'nin yerleşik İzleme özelliklerini izleme ve 
 
 2.  Pano, tek bir konumda kasa için tüm izleme bilgilerini birleştirir. Panodan farklı alanlara detaya gidebilirsiniz. 
 
-    ![Site Recovery Panosu](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png):
+    ![Site Recovery Panosu](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
 3. Üzerinde **çoğaltılan öğeler**, tıklayın **görünümü tüm** tüm sunucuları kasaya görmek için.
 4. Her bölümde durumu ayrıntıları tıklayarak detayına gidin. İçinde **altyapı görünümü**, izleme bilgilerini çoğaltılan makineler türüne göre sıralayabilirsiniz.
@@ -37,10 +37,10 @@ Bu makalede, Azure Site Recovery'nin yerleşik İzleme özelliklerini izleme ve 
 
 **State** | **Ayrıntılar**
 --- | ---
-İyi Durumda | Çoğaltma normal şekilde devam eder. Herhangi bir hata veya uyarı belirtileri algılanır.
+Sorunsuz | Çoğaltma normal şekilde devam eder. Herhangi bir hata veya uyarı belirtileri algılanır.
 Uyarı | Çoğaltma etkileyebilecek bir veya daha fazla uyarı belirtileri algılanır.
 Kritik | Bir veya daha fazla kritik çoğaltma hatası belirtileri tespit ettik.<br/><br/> Bu hata Belirtiler genellikle göstergeleri olduğundan, çoğaltma takılı kalıyor veya veri değişim oranı gibi hızlı ilerleyen değil.
-Uygulanamaz | Şu anda çoğaltma olması beklenen olmayan sunucuları. Bu yük devreden makineler içerebilir.
+Geçerli değil | Şu anda çoğaltma olması beklenen olmayan sunucuları. Bu yük devreden makineler içerebilir.
 
 ## <a name="monitor-test-failovers"></a>Yük devretme testi İzleyicisi
 
@@ -53,7 +53,7 @@ Kasada makineler için test yük devretme durumunu görüntüleyebilirsiniz.
 --- | ---
 Sınama önerilir | Koruma etkinleştirildikten sonra Yük devretme testi sahip olmayan makineler.
 Başarıyla gerçekleştirildi | Makine ile ya da daha başarılı test yük devretmeleri.
-Uygulanamaz | Yük devretme testi için şu anda uygun olmayan makineler. Örneğin, yük devretmesi makineler var. ilk çoğaltma ve test yük devretme/yük devretme sürüyor
+Geçerli değil | Yük devretme testi için şu anda uygun olmayan makineler. Örneğin, yük devretmesi makineler var. ilk çoğaltma ve test yük devretme/yük devretme sürüyor
 
 ## <a name="monitor-configuration-issues"></a>İzleyici yapılandırma sorunları
 
@@ -190,7 +190,7 @@ Bu kritik olaylar için e-posta bildirimleri almak için abone olabilirsiniz:
 
 Aşağıdaki şekilde abone olabilirsiniz:
 
-Kasadaki > **izleme ve raporlar** bölümünde **Site Recovery etkinlikleri**.
+Kasadaki > **izleme** bölümünde **Site Recovery etkinlikleri**.
 1. Tıklayın **e-posta bildirimleri**.
 1. İçinde **e-posta bildirimi**bildirimlerini açmak ve kimin göndermek belirtin. Tüm abonelik yöneticileri, bildirimler ve isteğe bağlı olarak belirli bir e-posta adreslerini gönderilmesini gönderebilirsiniz.
 

@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357070"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472736"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak Azure kaynaklarına erişimi yönetme
 
@@ -38,7 +38,7 @@ Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde,
 
 1. URI içinde değiştirin *{kapsamı}* rol atamalarını listelemek istediğiniz kapsama sahip.
 
-    | `Scope` | Type |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -52,9 +52,9 @@ Liste erişim, RBAC, rol atamalarını listeleyin. Rol atamalarını listesinde,
 
     | Filtre | Açıklama |
     | --- | --- |
-    | `$filter=atScope()` | Rol atamaları subscopes olarak dahil değil yalnızca belirtilen kapsam için rol atamalarını listeleyin. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Belirtilen kullanıcı, Grup veya hizmet sorumlusu için rol atamalarını listeleyin. |
-    | `$filter=assignedTo('{objectId}')` | Olanları gruplardan devralınan dahil olmak üzere belirli bir kullanıcı için rol atamalarını listeleyin. |
+    | `$filter=atScope()` | Rol atamaları subscopes sırasında rol atamaları dahil değil yalnızca belirtilen kapsam için listeler. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Belirtilen kullanıcı, Grup veya hizmet sorumlusu için rol atamalarını listeler. |
+    | `$filter=assignedTo('{objectId}')` | Belirtilen kullanıcı veya hizmet sorumlusu için rol atamalarını listeler. Kullanıcının bir rol atamasına sahip bir grubun üyesi ise, bu rol ataması da listelenir. Bu filtre, hangi kullanıcı grubunun bir üyesidir ve bu gruba bir rol atamasına sahip başka bir grubun üyesi ise, bu rol ataması da listelenen anlamına gelir grupları geçişlidir. Bu filtre, yalnızca bir kullanıcı veya hizmet sorumlusu nesne kimliği kabul eder. Bir grup için bir nesne kimliği geçiremezsiniz. |
 
 ## <a name="grant-access"></a>Erişim verme
 
@@ -81,7 +81,7 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir. Bir rol at
     
 1. URI içinde değiştirin *{kapsamı}* rol ataması kapsama sahip.
 
-    | `Scope` | Type |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |
@@ -109,7 +109,7 @@ RBAC'de erişimi kaldırmak için rol atamasını kaldırmanız gerekir. Bir rol
 
 1. URI içinde değiştirin *{kapsamı}* rol atamasını kaldırmak için kapsama sahip.
 
-    | `Scope` | Type |
+    | `Scope` | Tür |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonelik |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Kaynak grubu |

@@ -2,20 +2,20 @@
 title: Öğretici - kimlik sağlayıcıları, uygulamalarınıza - Azure Active Directory B2C ekleme | Microsoft Docs
 description: Kimlik sağlayıcıları, Azure portalını kullanarak uygulamalarınıza Azure Active Directory B2C'de eklemeyi öğrenin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c1bd78442f6a7218dde3710236766117816c42fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710141"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512205"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Öğretici: Kimlik sağlayıcıları Azure Active Directory B2C uygulamalarınızın ekleyin
 
@@ -107,7 +107,7 @@ Eklemek istediğiniz kimlik sağlayıcısı için uygulamayı oluşturduktan son
 
 8. İçin **istemci kimliği**, daha önce kaydettiğiniz uygulama Kimliğini girin ve **gizli**, daha önce kaydettiğiniz anahtarı değerini girin.
 9. İsteğe bağlı olarak, bir değer girin **Domain_hint**. Örneğin, `ContosoAD`. 
-10. **Tamam** düğmesine tıklayın.
+10. **Tamam**'ı tıklatın.
 11. Seçin **bu kimlik sağlayıcısının taleplerini Eşle** ve aşağıdaki talep ayarlayın:
     
     - İçin **kullanıcı kimliği**, girin `oid`.

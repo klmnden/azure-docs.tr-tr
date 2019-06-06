@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463486"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513659"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Oturum açma etkinlik raporundaki hata kodları 
 
@@ -181,6 +181,8 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |500121| Kimlik doğrulaması güçlü kimlik doğrulama isteği sırasında başarısız oldu.|
 |500133| Onaylama işlemi, geçerli zaman aralığı içinde değil. Kullanıcı onayı için kullanmadan önce erişim belirtecinin süresi dolmadı emin olun veya yeni bir belirteç isteyin.|
 |530021|Application onaylı koşullu erişim uygulama gereksinimlerini karşılamıyor.|
+|7000218|İstek gövdesi şu parametre içermelidir: 'client_assertion' veya 'client_secret'.|
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

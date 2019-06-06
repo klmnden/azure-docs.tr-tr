@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jnoller
-ms.openlocfilehash: 9c67902f8a6c10552ea60fed145afc24f82b01a1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9f3a62c5782724f14f10b5875fc8db31dbffe67c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594298"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693395"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile CoreDNS özelleştirme
 
@@ -27,7 +27,7 @@ Bu makalede aks'deki CoreDNS temel özelleştirme seçenekleri için ConfigMaps 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, var olan bir AKS kümesi olduğunu varsayar. [Azure CLI kullanarak] AKS hızlı başlangıç, bir AKS kümesi gerekirse bkz. [aks-hızlı başlangıç-cli] veya [Azure portalını kullanarak] [aks-hızlı başlangıç-portal].
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
 ## <a name="what-is-supportedunsupported"></a>Desteklenen/desteklenmeyen nedir
 
@@ -192,5 +192,7 @@ Bu makalede CoreDNS özelleştirme için bazı örnek senaryolar gösterilmişti
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
 
-<!-- LINKS - external -->
+<!-- LINKS - internal -->
 [concepts-network]: concepts-network.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md

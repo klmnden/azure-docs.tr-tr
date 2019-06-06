@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575415"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478597"
 ---
 # <a name="plan-virtual-networks"></a>Sanal ağları planlama
 
@@ -41,7 +41,7 @@ Tüm Azure kaynakları, bir Azure bölgesi ve abonelik oluşturulur. Bir kaynak 
 
 En fazla sayıda sanal ağlar her Abonelikteki gerektiği gibi dağıtabilirsiniz [sınırı](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Bazı kuruluşlar, örneğin farklı Departmanlar için farklı Aboneliklerde olabilir. Daha fazla bilgi ve dikkat edilecek noktalar geçici abonelikleri için bkz. [abonelik İdaresi](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
-## <a name="segmentation"></a>Segmentasyon
+## <a name="segmentation"></a>Segmentlere ayırma
 
 Bölge ve abonelik başına birden çok sanal ağlar oluşturabilir. Her sanal ağ içindeki birden çok alt ağ oluşturabilirsiniz. Aşağıdaki konular kaç sanal ağlar ve alt ağlar gerektirir belirlemenize yardımcı olmak:
 
@@ -77,7 +77,7 @@ Ağ güvenlik grupları ve ağ sanal Gereçleri kullanarak bir sanal ağ içinde
 - Uygulanmış olan farklı güvenlik kuralları bir alt ağ içinde farklı Vm'lere ihtiyacınız varsa, bir veya daha fazla uygulama güvenlik grupları VM ağ arabiriminin ilişkilendirebilirsiniz. Bir güvenlik kuralı, bir uygulama güvenlik grubu, kaynak, hedef veya her ikisi de belirtebilirsiniz. Bu kural yalnızca sonra uygulama güvenlik grubuna üye olan ağ arabirimlerini uygular. Daha fazla bilgi edinin [ağ güvenlik grupları](security-overview.md) ve [uygulama güvenlik grupları](security-overview.md#application-security-groups).
 - Azure, birkaç varsayılan güvenlik kuralları her ağ güvenlik grubu içinde oluşturur. Bir varsayılan kural tüm trafiği sanal ağ içindeki tüm kaynaklar arasında akmasına izin verir. Bu davranışı geçersiz kılmak için ağ güvenliği kullanın, trafiği yönlendirmek için bir NVA veya her ikisini de Yönlendirme özel gruplar. Tüm Azure'nın planladığınızdan önerilir [varsayılan güvenlik kuralları](security-overview.md#default-security-rules) ve ağ güvenlik grubu kuralları bir kaynağa uygulanma anlayın.
 
-Kullanarak internet ile Azure arasında bir çevre ağındaki (DMZ olarak da bilinir) uygulamak için örnek tasarımları görüntüleyebileceğiniz bir [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) veya [ağ güvenlik grupları](virtual-networks-dmz-nsg.md).
+Kullanarak internet ile Azure arasında bir çevre ağındaki (DMZ olarak da bilinir) uygulamak için örnek tasarımları görüntüleyebileceğiniz bir [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Trafik yönlendirme
 

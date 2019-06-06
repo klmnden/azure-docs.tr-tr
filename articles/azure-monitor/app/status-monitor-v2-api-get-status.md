@@ -1,6 +1,6 @@
 ---
-title: 'Azure durumu İzleyicisi v2 API Başvurusu: Durum alma | Microsoft Docs'
-description: Durum İzleyicisi'ni v2 API başvuru Get-ApplicationInsightsMonitoringStatus. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. Şirket içinde, sanal makinelerde veya Azure üzerinde ASP.NET web uygulamaları ile çalışır.
+title: 'Azure Durum İzleyicisi v2 API Başvurusu: Durum alma | Microsoft Docs'
+description: Durum İzleyicisi'ni v2 API'si başvurusu. Get-ApplicationInsightsMonitoringStatus. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. Şirket içinde, sanal makinelerde veya Azure üzerinde ASP.NET web uygulamaları ile çalışır.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,27 +12,27 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: ff61cf2bfb49a64d2f885cb13fd6c48e32c1f8f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415995"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514299"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>Durum İzleyicisi'ni v2 API'si: Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
 
-Bu belge, bir üyesi olarak sunulan bir cmdlet açıklar [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Bu makalede bir üyesi olan bir cmdlet [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Durum İzleyicisi'ni v2 şu anda genel Önizleme aşamasındadır.
-> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
-> Daha fazla bilgi için [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Bu önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor ve bazıları kısıtlı yeteneklere sahip.
+> Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Açıklama
 
-Bu cmdlet, sorun giderme için kullanılan PowerShell modülü sağlanır.
-Bu cmdlet, sürüm bilgilerini ve izleme için gerekli olan anahtar dosyaları bildirir.
-Ek parametreler geçerli durumunu izleme ek raporlar sağlar.
+Etkinleştirir, kullanılan PowerShell modülü sorun giderme.
+Bu cmdlet, sürüm bilgilerini ve izleme için gerekli olan anahtar dosyaları hakkında bilgi rapor eder.
+Ek parametreler durumu izleme ek raporlar sağlar.
 
 > [!IMPORTANT] 
 > Bu cmdlet, yönetici izinlerine sahip bir PowerShell oturumu gerektirir.
@@ -40,9 +40,9 @@ Ek parametreler geçerli durumunu izleme ek raporlar sağlar.
 ## <a name="examples"></a>Örnekler
 
 
-### <a name="example-basic-information"></a>Örnek: temel bilgileri
+### <a name="example-basic-information"></a>Örnek: Temel bilgiler
 
-Komutu çalıştırın: `Get-ApplicationInsightsMonitoringStatus` bu modülle ilgili bilgileri bir çıktısını almak için:
+Çalıştırma `Get-ApplicationInsightsMonitoringStatus` geçerli modülle ilgili bilgileri görüntülemek için:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -77,11 +77,11 @@ Machine Identifier:
 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
 ```
 
-### <a name="example-runtime-status"></a>Örnek: çalışma zamanı durumu
+### <a name="example-runtime-status"></a>Örnek: Çalışma zamanı durumu
 
-İşlem izleme eklenmiş makinedeki tüm DLL'ler yüklü olmadığını inceleyebilirsiniz. İzleme çalışıyorsa, en az 12 DLL'leri yüklenmesi gerekir.
+İşlem izleme eklenmiş bilgisayardaki tüm DLL'ler yüklü olmadığını inceleyebilirsiniz. İzleme çalışıyorsa, en az 12 DLL'leri yüklenmesi gerekir.
 
-- Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+Komutunu çalıştırın `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -115,19 +115,19 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>Parametreler 
+## <a name="parameters"></a>Parametreler
 
-### <a name="no-params"></a>(Parametre yok)
+### <a name="no-parameters"></a>(Parametre yok)
 
-Tarafından **varsayılan**, bu cmdlet, sürüm numaraları ve izleme için gerekli dll yolu rapor eder.
+Varsayılan olarak, bu cmdlet, izleme için gerekli DLL'lerin yollarını ve sürüm numaraları rapor eder.
 
 Application Insights SDK'sı dahil olmak üzere herhangi bir DLL sürümünü belirlemek gerekiyorsa bu seçeneği kullanın.
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**İsteğe bağlı**. Bu cmdlet, IIS çalışıp çalışmadığını bildirir.
-Bu cmdlet, ayrıca gerekli DLL'leri IIS çalışma zamanına yüklerse incelemek için dış araçları indirir.
+**İsteğe bağlı**. IIS çalışıp çalışmadığını bildirmek için bu parametreyi kullanın.
+Ayrıca, gerekli DLL'leri IIS çalışma zamanına yüklerse belirlemek için dış araçları ayrıca indirir.
 
 
 Bu işlem için herhangi bir nedenle başarısız olursa, bu komutları el ile çalıştırabilirsiniz:
@@ -138,7 +138,7 @@ Bu işlem için herhangi bir nedenle başarısız olursa, bu komutları el ile �
 
 ### <a name="-force"></a>-Force
 
-**İsteğe bağlı**. Yalnızca InspectProcess ile kullanılır. Bu anahtar, ek araçları yükleyin Kullanıcı istemi atlar.
+**İsteğe bağlı**. Yalnızca InspectProcess ile kullanılır. Ek araçlar yüklenmeden önce görüntülenen kullanıcı istemini atlamak için bu anahtarı kullanın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

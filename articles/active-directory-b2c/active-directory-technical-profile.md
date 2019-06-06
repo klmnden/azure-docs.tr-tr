@@ -2,20 +2,20 @@
 title: Özel bir ilke Azure Active Directory B2C, bir Azure Active Directory teknik profili tanımlamak | Microsoft Docs
 description: Azure Active Directory B2C özel bir ilke Azure Active Directory teknik profili tanımlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718711"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507440"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory teknik profili, bir Azure Active Directory B2C özel ilke tanımlayın
 
@@ -23,7 +23,7 @@ ms.locfileid: "64718711"
 
 Azure Active Directory (Azure AD) B2C, Azure Active Directory kullanıcı yönetimi için destek sağlar. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar.
 
-## <a name="protocol"></a>Protokol
+## <a name="protocol"></a>Protocol
 
 **Adı** özniteliği **Protokolü** öğesi ayarlanması gerekiyor `Proprietary`. **İşleyici** özniteliği, protokol işleyici bütünleştirilmiş kodun tam adı içermelidir `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 

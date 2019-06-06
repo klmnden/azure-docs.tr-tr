@@ -2,20 +2,20 @@
 title: UserJourneys | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilke UserJourneys öğesi belirtin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f5e56d4953eecdb488d5dadd4497b1c42b932f35
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812573"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512021"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ Bu kullanıcı yolculuklarından ilgi topluluğuna çeşitli bağlı olan tarafl
 
 **UserJourneys** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | UserJourney | 1:n | Kullanıcı yolculuğu tüm yapıları için tam kullanıcı Akış gerekli tanımlar. | 
 
@@ -41,7 +41,7 @@ Bu kullanıcı yolculuklarından ilgi topluluğuna çeşitli bağlı olan tarafl
 
 **UserJourney** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1:n | Başarılı bir işlem gelmelidir düzenleme dizisi. Her kullanıcı yolculuğu sırayla yürütülen düzenleme adımlarının sıralanmış bir listesini içerir. Herhangi bir adım başarısız olursa, işlem başarısız olur. |
 
@@ -55,7 +55,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 **OrchestrationSteps** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1:n | Bir sıralı düzenleme adımı. | 
 
@@ -71,7 +71,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 **OrchestrationStep** öğesi, aşağıdaki öğeleri içerebilir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- | 
 | Önkoşulları | 0: n | Düzenleme adımı yürütmek karşılanması gereken önkoşulları listesi. | 
 | ClaimsProviderSelections | 0: n | Düzenleme adımı için talep sağlayıcısı seçim listesi. | 
@@ -81,7 +81,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 **Önkoşulları** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- | 
 | Önkoşulu | 0: n | Kullanılan teknik profil bağlı olarak ya da yönlendiren istemci talep değişimi için bir sunucu çağrısı yapar ve Talep sağlayıcı seçimi göre. | 
 
@@ -97,7 +97,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 **Önkoşulu** öğeleri aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Değer | 1:n | İçin Sorgulanacak ClaimTypeReferenceId. Başka bir değeri öğenin denetlenecek değer içeriyor.</li></ul>|
 | Eylem | 1:1 | Önkoşul denetimi içinde bir düzenleme adımı doğru olması durumunda gerçekleştirilmesi gereken eylem. Varsa değerini `Action` ayarlanır `SkipThisOrchestrationStep`, ilişkili `OrchestrationStep` değil yürütülmelidir. | 
@@ -164,7 +164,7 @@ Bir düzenleme adımı türü `ClaimsProviderSelection` veya `CombinedSignInAndS
 
 **ClaimsProviderSelection** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 0: n | Seçilebilir talep sağlayıcıları listesini sağlar.|
 
@@ -216,7 +216,7 @@ Aşağıdaki düzenleme adımı, Facebook, LinkedIn, Twitter, Google veya yerel 
 
 **ClaimsExchanges** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | ClaimsExchange | 0: n | Kullanılan teknik profil bağlı olarak ya da yönlendiren istemci göre seçilen ClaimsProviderSelection veya talep değişimi için bir sunucu çağrısı yapar. | 
 

@@ -3,17 +3,17 @@ title: Azure IOT Central mimari kavramları | Microsoft Docs
 description: Bu makalede Azure IOT Central mimarisiyle ilgili temel kavramlar tanıtılmaktadır.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/26/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887427"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693140"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IOT Central mimarisi
 
@@ -44,7 +44,7 @@ IOT Hub hakkında daha fazla bilgi edinmek için [Azure IOT hub'ı](https://docs
 
 Azure IOT Central, cihaz bağlantısı hakkında daha fazla bilgi için bkz: [cihaz bağlantısı](concepts-connectivity.md).
 
-## <a name="data-stores"></a>Veri depolama alanları
+## <a name="data-stores"></a>Veri depoları
 
 Azure IOT Central, uygulama verilerini bulutta depolar. Uygulama verileri depolanan içerir:
 
@@ -79,6 +79,14 @@ Bir cihaz şablonunda:
 
 Bir uygulama, her cihaz şablonu temel alan bir veya daha fazla sanal ve gerçek cihazlar olabilir.
 
+## <a name="data-export"></a>Verileri dışarı aktarma
+
+Azure IOT Central bir uygulamada yapabilecekleriniz [verilerinizi sürekli dışarı aktarma](howto-export-data-event-hubs-service-bus.md) kendi Azure Event Hubs ve Azure Service Bus örnekleri. Verilerinizi Azure Blob Depolama hesabınıza da düzenli aralıklarla dışarı aktarabilirsiniz. IOT Central, ölçümleri, cihazları ve cihaz şablonları dışarı aktarabilirsiniz.
+
+## <a name="batch-device-updates"></a>Toplu cihaz güncelleştirmeleri
+
+Azure IOT Central bir uygulamada yapabilecekleriniz [oluşturma ve işleri çalıştırma](howto-run-a-job.md) bağlı cihazları yönetmek için. Bu işlerin izin toplu güncelleştirmeleri cihaz özellikleri veya ayarları veya komutları çalıştırın. Örneğin, birden çok refrigerated satış makineler için fanı hızını artırmak için bir proje oluşturabilirsiniz.
+
 ## <a name="role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC)
 
 Bir [yönetici erişim kurallarını tanımlayabilir](howto-administer.md) önceden tanımlı roller kullanarak Azure IOT Central uygulaması için. Yönetici kullanıcılar uygulamanın hangi alanlarda kullanıcının erişebileceği belirlemek roller atayabilirsiniz.
@@ -95,7 +103,10 @@ Azure IOT Central içindeki güvenlik özellikleri içerir:
 ## <a name="ui-shell"></a>UI Kabuğu
 
 Modern, duyarlı, HTML5 tarayıcı tabanlı bir uygulama UI kabuktur.
+Bir yönetici uygulamanın kullanıcı arabirimini özel temalar uygulayarak ve Yardım bağlantıları için kendi özel bir Yardım kaynakları işaret edecek şekilde değiştirerek özelleştirebilirsiniz. UI özelleştirme hakkında daha fazla bilgi için bkz: [Azure IOT Central kullanıcı Arabirimi özelleştirme](howto-customize-ui.md) makalesi.
+
+Bir işleç kişiselleştirilmiş uygulama panoları oluşturabilirsiniz. Farklı verileri görüntülemek ve bunlar arasında geçiş birçok paneliniz olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT Central'ın mimarisi hakkında bilgi edindiniz, hakkında bilgi edinmek için önerilen sonraki adım olan [cihaz bağlantısı](concepts-connectivity.md) Azure IOT Central içinde.
+Azure IOT Central'ın mimarisi hakkında öğrendiniz, hakkında bilgi edinmek için önerilen sonraki adım olan [cihaz bağlantısı](concepts-connectivity.md) Azure IOT Central içinde.

@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228367"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496514"
 ---
 # <a name="use-an-app-service-environment"></a>Bir App Service ortamını kullanma #
-
-## <a name="overview"></a>Genel Bakış ##
 
 Azure App Service ortamı, Azure App Service'in bir müşterinin Azure sanal ağdaki bir alt ağa dağıtımıdır. Şunlardan oluşur:
 
@@ -62,17 +60,14 @@ Bir ASE'de uygulama oluşturma için:
 
 1. İşletim sisteminizi seçin. 
 
-    * Linux uygulamaları şu anda üretim iş yükleri çalıştıran ASE eklemeyin öneririz ASE bir Linux uygulaması barındıran yeni bir önizleme özelliği olduğundan. 
-    * Bir ASE ile bir Linux uygulaması ekleme ASE önizleme modunda da olacağı anlamına gelir. 
-
 1. ASE'NİZDE var olan bir App Service planı seçin veya aşağıdaki adımları izleyerek yeni bir tane oluşturun:
 
     a. Seçin **Yeni Oluştur**.
 
     b. App Service planınız için adı girin.
 
-    c. ASE'NİZDE seçin **konumu** aşağı açılan listesi. Bir ASE bir Linux uygulaması barındırma yalnızca 6 bölgede şu anda etkindir: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Doğu Avustralya, Güneydoğu Asya.** 
-
+    c. ASE'NİZDE seçin **konumu** aşağı açılan listesi. 
+    
     d. Seçin bir **yalıtılmış** fiyatlandırma katmanı. Seçin **seçin**.
 
     e. **Tamam**’ı seçin.

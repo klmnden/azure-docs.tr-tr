@@ -7,13 +7,13 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+manager: philmea
+ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467793"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693178"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -139,7 +139,7 @@ Aşağıdaki adımlarda, bu işlem daha ayrıntılı açıklanmıştır. Adımla
 
 1. Bağlı cihaz ilk olarak görünür bir **ilişkilendirilmemiş cihaz** üzerinde **Device Explorer** sayfası. Sağlama durumu cihaz **kayıtlı**. **İlişkilendirme** uygun cihaz şablonu cihaza ve cihazı IOT Central uygulamanızı bağlamak için onaylayın. Cihaz IOT Hub'ından bir bağlantı dizesi alma ve veri göndermeye başlayın. Cihaz sağlama, artık tamamlandı ve sağlama durumunu şimdi **sağlanan**.
 
-## <a name="provisioning-status"></a>Sağlama durumu
+## <a name="provisioning-status"></a>sağlama durumu
 
 Ne zaman gerçek bir cihaz sağlama durumu değişiklikleri, IOT Central uygulaması'na aşağıdaki gibi bağlanır:
 

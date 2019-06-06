@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736981"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475293"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için X-EC-Debug HTTP üstbilgileri
 Hata ayıklama önbellek istek üstbilgisi `X-EC-Debug`, istenen varlığa uygulanır önbellek İlkesi hakkında ek bilgi sağlar. Bu üst özgü **verizon'dan Azure CDN Premium** ürünleri.
@@ -27,7 +27,7 @@ Hata ayıklama önbellek istek üstbilgisi `X-EC-Debug`, istenen varlığa uygul
 ## <a name="usage"></a>Kullanım
 POP sunuculardan bir kullanıcıya gönderilen yanıt içeriyor `X-EC-Debug` yalnızca aşağıdaki koşullar karşılandığında bir üst bilgi:
 
-- [Önbellek yanıt üst bilgileri hata ayıklama özelliği](cdn-rules-engine-reference-features.md#debug-cache-response-headers) kuralları altyapısını belirtilen istek için etkin.
+- [Önbellek yanıt üst bilgileri hata ayıklama özelliği](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) kuralları altyapısını belirtilen istek için etkin.
 - Belirtilen isteği, yanıta dahil edilecek hata ayıklama önbellek yanıt üstbilgilerini kümesini tanımlar.
 
 ## <a name="requesting-debug-cache-information"></a>Hata ayıklama önbellek bilgi isteniyor
@@ -54,7 +54,7 @@ Hata ayıklama önbellek yanıt üst bilgileri, aşağıdaki üst bilgi ve belir
 ## <a name="cache-status-code-information"></a>Durum kodu bilgilerini önbelleğe al
 X-EC-Debug yanıt üst bilgisi, bir sunucu ve aşağıdaki yönergeleri aracılığıyla yanıta işlenme belirleyebilirsiniz:
 
-Üst bilgi | Açıklama
+Üstbilgi | Açıklama
 -------|------------
 X-EC-Debug: x-ec-önbellek | Bu üst bilgi içeriği CDN üzerinden yönlendirilir her bildirilir. Bu, isteği yerine getiren POP sunucu tanımlar.
 X-EC-Debug: x-ec-cache-remote | Bir kaynak kalkan sunucu veya bir ADN ağ geçidi sunucusu üzerinde istenen içeriğin yalnızca önbelleğe ilişkili olduğunda bu başlığı bildirilir.
@@ -118,7 +118,7 @@ Aşağıdaki örnek yanıt üst bilgisi, istenen içeriği önbelleğe alınmam�
 ## <a name="cache-key-response-header"></a>Önbellek anahtarı yanıt üst bilgisi
 `X-EC-Debug: x-ec-cache-key` Yanıt üst bilgisi, istenen içerikle ilişkili fiziksel önbellek anahtarını belirtir. Fiziksel bir önbellek anahtarını önbelleğe alma amacıyla bir varlığı tanımlayan bir yol oluşur. Diğer bir deyişle, sunucuları bir varlık yolu göre önbelleğe alınmış bir sürümü için cache-anahtara göre tanımlanan şekilde kontrol eder.
 
-Bu fiziksel önbellek anahtarı çift İleri eğik çizgi ile başlar (/ /) (HTTP veya HTTPS) içerik istemek için kullanılan protokolü tarafından izlenen. Bu protokol içerik erişim noktasıyla başlatır istenen varlığa göreli yolu tarafından izlenir (örneğin, _/000001/_).
+Bu fiziksel önbellek anahtarı çift İleri eğik çizgi ile başlar (/ /) (HTTP veya HTTPS) içerik istemek için kullanılan protokolü tarafından izlenen. Bu protokol içerik erişim noktasıyla başlatır istenen varlığa göreli yolu tarafından izlenir (örneğin, _/000001/_ ).
 
 Varsayılan olarak HTTP platformları kullanmak üzere yapılandırılmış *standart önbellek*, yani sorgu dizelerini önbelleğe alma mekanizması tarafından göz ardı edilir. Bu tür bir yapılandırma, sorgu dizesi verileri dahil olmak üzere, önbellek anahtarını engeller.
 
@@ -151,7 +151,7 @@ Yukarıdaki yanıt üst bilgisi sözdiziminde kullanılan terimler şu şekilde 
 
 - MATimePeriod: Max-age değeri (diğer bir deyişle, MASeconds) daha büyük bir birim yaklaşık eşdeğerdir (örneğin, gün) dönüştürür. 
 
-- UnixTime: İstenen içerik önbelleği zaman damgası (diğer adıyla) Unix saati gösterir POSIX zaman ya da UNIX dönem). Bir varlığın TTL hesaplanır başlangıç tarih/saat önbellek zaman damgasını gösterir. 
+- UnixTime: İstenen içerik önbelleği zaman damgası Unix saati (olarak da bilinen POSIX zaman ya da UNIX dönem) gösterir. Bir varlığın TTL hesaplanır başlangıç tarih/saat önbellek zaman damgasını gösterir. 
 
     Kaynak sunucu, sunucu veya sunucu Age yanıtı üstbilgisi döndürmezse, önbelleğe alma bir üçüncü taraf HTTP kullanmaz, önbellek zaman damgası her zaman zaman varlık alınan yeniden doğrulanır veya tarih/saat olacaktır. Aksi takdirde, POP sunucuları varlığın TTL şu şekilde hesaplamak için yaş alanı'nı kullanır: Alma/RevalidateDateTime - yaş.
 

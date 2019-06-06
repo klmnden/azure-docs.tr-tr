@@ -2,20 +2,20 @@
 title: Koşullar ve PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: Sosyal hesap kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için dönüşüm örnekleri talepleri.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714159"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512959"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Koşullar ve PredicateValidations
 
@@ -33,9 +33,9 @@ Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:
 
 **Doğrulamaları** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| Koşul | 1:n | Koşullar listesi. | 
+| Karşılaştırma | 1:n | Koşullar listesi. | 
 
 **Koşul** öğesi aşağıdaki öznitelikler içerir:
 
@@ -46,20 +46,20 @@ Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:
 
 **Koşul** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Denetimi başarısız olursa, kullanıcılar için bir hata iletisi. Bu dize kullanarak yerelleştirilebilen [dil özelleştirme](localization.md) |
 | Parametreler | 1:1 | Dize doğrulama yöntemi türü parametreleri. | 
 
 **Parametreleri** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Parametre | 1:n | Dize doğrulama yöntemi türü parametreleri. | 
 
 **Parametre** öğesi aşağıdaki öznitelikler içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | Kimlik | 1:1 | Parametre tanımlayıcısı. |
 
@@ -132,7 +132,7 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 **PredicateValidations** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | Koşul doğrulama listesi. | 
 
@@ -144,13 +144,13 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 **PredicateValidation** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | Koşul gruplarının listesi. | 
 
 **PredicateGroups** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | Koşullar listesi. | 
 
@@ -162,7 +162,7 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 **PredicateGroup** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Hangi bir değer kattığını bilmek, kullanıcılar için yararlı olabilecek koşul açıklamasını bunlar yazmanız gerekir. | 
 | PredicateReferences | 1:n | Koşul başvuruları listesi. | 
@@ -175,7 +175,7 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 **PredicateReferences** öğesi aşağıdaki öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | Bir koşula yönelik bir başvuru. | 
 

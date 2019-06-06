@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 6147269ab38ac14c2a2ecadaac3448a491af7c20
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.date: 06/04/2019
+ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399303"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494661"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
 
@@ -38,13 +38,11 @@ Bu makalede tamamlamak için şunlara ihtiyacınız vardır:
 
     ![Verileri alma](media/power-bi-connector/get-data-more.png)
 
-1. Arama *Azure Veri Gezgini*seçin **Azure Veri Gezgini (Beta)** ardından **Connect**.
+1. Arama *Azure Veri Gezgini*seçin **Azure Veri Gezgini** ardından **Connect**.
 
     ![Arama ve veri alma](media/power-bi-connector/search-get-data.png)
 
-1. **Bağlayıcıyı önizle** ekranında **Devam**'ı seçin.
-
-1. Sonraki ekranda formunu aşağıdaki bilgilerle doldurun.
+1. Üzerinde **Azure Veri Gezgini (Kusto)** ekranında, formunu aşağıdaki bilgilerle doldurun.
 
     ![Küme, veritabanı, tablo seçenekleri](media/power-bi-connector/cluster-database-table.png)
 

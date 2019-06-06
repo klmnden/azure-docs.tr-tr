@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575608"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492848"
 ---
 # <a name="azure-functions-networking-options"></a>Azure işlevleri ağ seçenekleri
 
@@ -61,7 +61,7 @@ Sanal ağ tümleştirmesi, sanal ağ içindeki kaynaklarla işlevi erişim verir
 
 Sanal ağ tümleştirmesi, veritabanları ve sanal ağınızda çalışan web hizmetleri uygulamalardan erişimi etkinleştirmek için kullanabilirsiniz. Sanal ağ ile tümleştirme, sanal makinenizin üzerinde uygulamalar için ortak bir uç noktanın kullanıma gerekmez. Bunun yerine, özel, olmayan-internet yönlendirilebilir adreslerini kullanabilirsiniz.
 
-İşlev uygulamaları bir sanal ağa bağlanmak için bir VPN ağ geçidi sanal ağ tümleştirmesi genel kullanıma sunulan sürümünü kullanır. Bir App Service planında barındırılan işlevleri kullanılabilir. Bu özellik yapılandırma konusunda bilgi için bkz: [uygulamanızı bir Azure sanal ağı ile tümleştirme](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+İşlev uygulamaları bir sanal ağa bağlanmak için bir VPN ağ geçidi sanal ağ tümleştirmesi genel kullanıma sunulan sürümünü kullanır. Bir App Service planında barındırılan işlevleri kullanılabilir. Bu özellik yapılandırma konusunda bilgi için bkz: [uygulamanızı bir Azure sanal ağı ile tümleştirme](../app-service/web-sites-integrate-with-vnet.md).
 
 ### <a name="preview-version-of-virtual-network-integration"></a>Sanal ağ tümleştirmesi Önizleme sürümü
 

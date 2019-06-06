@@ -1,22 +1,22 @@
 ---
-title: "Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma"
-description: Bu hızlı başlangıçta Event Hub verilerini Azure Veri Gezgini'ne eklemeyi (yüklemeyi) öğreneceksiniz.
+title: Azure veri Gezgini'ne olay Hub'ından veri alma
+description: Bu makalede, Azure olay Hub'ından Veri Gezgini içinde (yükle) alabilen öğrenin.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/29/2019
-ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: c68662fbcc73d6c91d3fd40dc67804baa9205e53
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357678"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494806"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma
+# <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Azure veri Gezgini'ne olay Hub'ından veri alma
 
-Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, büyük veri akış platformu ve olay ekleme hizmeti olan Event Hubs'dan veri eklemeyi (veri yüklemeyi) destekler. [Olay hub'ları](/azure/event-hubs/event-hubs-about) neredeyse gerçek zamanlı saniyede milyonlarca işleyebilir. Bu hızlı başlangıçta bir olay hub'ı oluşturacak, Azure Veri Gezgini'nden bağlanacak ve sistemdeki veri akışını inceleyeceksiniz.
+Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, büyük veri akış platformu ve olay ekleme hizmeti olan Event Hubs'dan veri eklemeyi (veri yüklemeyi) destekler. [Olay hub'ları](/azure/event-hubs/event-hubs-about) neredeyse gerçek zamanlı saniyede milyonlarca işleyebilir. Bu makalede, bir olay hub'ı oluşturma, Azure Veri Gezgini ve bkz: veri akışı sistemi üzerinden bağlanabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,11 +34,11 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 
 ## <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
 
-Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndereceksiniz. İlk adım bir olay hub'ı oluşturmaktır. Bunun için Azure portalda bir Azure Resource Manager şablonu kullanacaksınız.
+Bu makalede, örnek veri üretme ve olay hub'ına gönderebilirsiniz. İlk adım bir olay hub'ı oluşturmaktır. Bunun için Azure portalda bir Azure Resource Manager şablonu kullanacaksınız.
 
 1. Bir olay hub'ı oluşturmak için dağıtımı başlatmak için aşağıdaki düğmeyi kullanın. Sağ tıklayıp **yeni pencerede aç**, geri kalanını bu makaledeki adımları izleyebilirsiniz.
 
-    [![Azure’a dağıtma](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Azure’a dağıtma](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstarts-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     **Azure'a dağıtma** düğmesi Azure portalda doldurmanız gereken bir form sayfasını açar.
 
@@ -58,7 +58,7 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
     |---|---|---|
     | Abonelik | Aboneliğiniz | Olay hub'ınız için kullanmak istediğiniz Azure aboneliğini seçin.|
     | Kaynak grubu | *test-hub-rg* | Yeni bir kaynak grubu oluşturun. |
-    | Konum | *Batı ABD* | Bu hızlı başlangıç için *Batı ABD* değerini seçin. Üretim sisteminde ihtiyaçlarınıza en uygun bölgeyi seçmeniz gerekir. Olay hub'ı ad alanı en iyi performans için Kusto kümesi ile aynı konumda (en yüksek aktarım hızı olay hub'ı ad alanları için önemli) oluşturun.
+    | Konum | *Batı ABD* | Seçin *Batı ABD* Bu makale için. Üretim sisteminde ihtiyaçlarınıza en uygun bölgeyi seçmeniz gerekir. Olay hub'ı ad alanı en iyi performans için Kusto kümesi ile aynı konumda (en yüksek aktarım hızı olay hub'ı ad alanları için önemli) oluşturun.
     | Ad alanı adı | Benzersiz bir ad alanı adı | Ad alanınızı tanımlayan benzersiz bir ad seçin. Örneğin, *mytestnamespace*. Girdiğiniz adın sonuna *servicebus.windows.net* etki alanı adı eklenir. Ad yalnızca küçük harf, sayı ve kısa çizgi içerebilir. Ad bir harf ile başlamalı ve harf veya sayı ile bitmelidir. Değer uzunluğu 6 ile 50 karakter arasında olmalıdır.
     | Olay hub'ı adı | *test-hub* | Olay hub'ı benzersiz bir kapsayıcı kapsamı sunan ad alanında bulunur. Olay hub'ı adının ad alanında benzersiz olması gerekir. |
     | Tüketici grubu adı | *test-group* | Tüketici grupları birden fazla tüketici uygulamasının ayrı olay akışı görünümüne sahip olmasını sağlar. |
@@ -205,5 +205,4 @@ Olay hub'ınızı daha sonra kullanmayı planlamıyorsanız ek maliyet oluşmas�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure veri Gezgini'nde verileri Sorgulama](web-query-data.md)
+* [Azure veri Gezgini'nde verileri Sorgulama](web-query-data.md)

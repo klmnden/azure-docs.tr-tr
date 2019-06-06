@@ -2,20 +2,20 @@
 title: ClaimsProviders - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilke ClaimsProvider öğesi belirtin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ababd7e9f1de33eb8679e583c2db18d2992cfb1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699638"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511513"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -41,7 +41,7 @@ Bir talep sağlayıcı kümesini içeren [teknik profiller](technicalprofiles.md
 
 **ClaimsProviders** öğesi aşağıdaki öğeyi içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1:n | Çeşitli kullanıcı yolculuklarından yararlanılabilir akredite talep sağlayıcısı. |
 
@@ -49,10 +49,10 @@ Bir talep sağlayıcı kümesini içeren [teknik profiller](technicalprofiles.md
 
 **ClaimsProvider** öğe aşağıdaki alt öğeleri içerir:
 
-| Öğe | Oluşumlar | Açıklama |
+| Öğe | Örnekleri | Açıklama |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | Talep sağlayıcının etki alanı adını içeren bir dize. Örneğin, Facebook teknik profili, Talep sağlayıcı içeriyorsa, etki alanı adı Facebook.com ' dir. Bu etki alanı adı, teknik profili tarafından geçersiz kılınmadığı sürece Talep sağlayıcı tanımlanan tüm teknik profiller için kullanılır. Etki alanı adı da içinde başvurulabilir bir **domain_hint**. Daha fazla bilgi için **sosyal sağlayıcılar için yönlendirme oturum** bölümünü [doğrudan Azure Active Directory B2C kullanarak oturum kümesi](direct-signin.md). |
-| DisplayName | 0:1 | Kullanıcılara gösterilen Talep sağlayıcı adını içeren bir dize. |
+| Etki Alanı | 0:1 | Talep sağlayıcının etki alanı adını içeren bir dize. Örneğin, Facebook teknik profili, Talep sağlayıcı içeriyorsa, etki alanı adı Facebook.com ' dir. Bu etki alanı adı, teknik profili tarafından geçersiz kılınmadığı sürece Talep sağlayıcı tanımlanan tüm teknik profiller için kullanılır. Etki alanı adı da içinde başvurulabilir bir **domain_hint**. Daha fazla bilgi için **sosyal sağlayıcılar için yönlendirme oturum** bölümünü [doğrudan Azure Active Directory B2C kullanarak oturum kümesi](direct-signin.md). |
+| displayName | 0:1 | Kullanıcılara gösterilen Talep sağlayıcı adını içeren bir dize. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Talep sağlayıcı tarafından desteklenen teknik profiller bir dizi |
 
 **ClaimsProvider** teknik profillerinize talep sağlayıcısını nasıl ilişki kuracağını düzenler. Aşağıdaki örnek, Azure Active Directory teknik profilleri ile Azure Active Directory talep sağlayıcısı gösterir:

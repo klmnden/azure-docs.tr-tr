@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C, özel bir ilkede OAuth1 teknik profili tanımlama | Microsoft Docs
 description: Azure Active Directory B2C, özel bir ilkede OAuth1 teknik profili tanımlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699837"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513111"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>OAuth1 teknik profili, bir Azure Active Directory B2C özel ilke tanımlayın
 
@@ -23,7 +23,7 @@ ms.locfileid: "64699837"
 
 Azure Active Directory (Azure AD) B2C için destek sağlar [OAuth 1.0 protokolünü](https://tools.ietf.org/html/rfc5849) kimlik sağlayıcısı. Bu makalede, standartlaştırılmış bu protokolü destekleyen bir talep sağlayıcı ile etkileşim kurmak için bir teknik profil ayrıntılarını açıklar. OAuth1 teknik profili ile Twitter gibi bir OAuth1 tabanlı kimlik sağlayıcısı ile ad'sini birleştirebilir. Kimlik sağlayıcısı ile Federasyon, kullanıcıların oturum sosyal var olan oturum veya Kurumsal kimlikleri sağlar.
 
-## <a name="protocol"></a>Protokol
+## <a name="protocol"></a>Protocol
 
 **Adı** özniteliği **Protokolü** öğesi ayarlanması gerekiyor `OAuth1`. Örneğin, protokol için **Twitter OAUTH1** teknik profil `OAuth1`.
 
@@ -85,7 +85,7 @@ Teknik profil de kimlik sağlayıcısı tarafından döndürülen olmayan talepl
 | --------- | -------- | ----------- |
 | client_secret | Evet | Kimlik sağlayıcısı uygulama istemci gizli bilgisi.   | 
 
-## <a name="redirect-uri"></a>Yönlendirme URI'si
+## <a name="redirect-uri"></a>Yeniden yönlendirme URI'si
 
 Kimlik sağlayıcınızın yeniden yönlendirme URL'sini yapılandırırken girin `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Değiştirdiğinizden emin olun **Kiracı** Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) ile ve **Policyıd** ilkenizin (örneğin, b2c_1a_policy) tanımlayıcısına sahip. Yeniden yönlendirme URI'si, tüm küçük harflerle olması gerekiyor. Kimlik sağlayıcısı oturum açma kullanan tüm ilkeleri için bir yönlendirme URL'si ekleyin. 
 

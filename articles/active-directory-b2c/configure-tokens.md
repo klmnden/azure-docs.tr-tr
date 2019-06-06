@@ -2,20 +2,20 @@
 title: Belirteçleri - Azure Active Directory B2C'yi yapılandırma | Microsoft Docs
 description: Azure Active Directory B2C belirteç ömrü ve uyumluluk ayarlarını yapılandırmayı öğrenin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69a6284ea7b8905bb5efdb1f4c9f26027bd6f9d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1163c88a100ebb7500607475ab5740557904137
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689602"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511324"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de belirteçleri yapılandırma
 
@@ -32,7 +32,7 @@ Herhangi bir kullanıcı Akış belirteç süresini yapılandırabilirsiniz.
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD B2C kiracınızı içeren dizine kullandığınızdan emin olun. Seçin **dizin ve abonelik filtresi** üst menüdeki ve Azure AD B2C kiracınızı içeren dizini seçin.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
-4. Seçin **kullanıcı akışları (ilke)**.
+4. Seçin **kullanıcı akışları (ilke)** .
 5. Daha önce oluşturduğunuz kullanıcı akışı açın. 
 6. Seçin **özellikleri**.
 7. Altında **belirteç ömrü**, uygulamanızın ihtiyaçlarına uyacak şekilde aşağıdaki özellikleri ayarlayın:
@@ -43,7 +43,7 @@ Herhangi bir kullanıcı Akış belirteç süresini yapılandırabilirsiniz.
 
 ## <a name="configure-token-compatibility"></a>Belirteç uyumluluk yapılandırın
 
-1. Seçin **kullanıcı akışları (ilke)**.
+1. Seçin **kullanıcı akışları (ilke)** .
 2. Daha önce oluşturduğunuz kullanıcı akışı açın. 
 3. Seçin **özellikleri**.
 4. Altında **belirteç uyumluluk ayarları**, uygulamanızın ihtiyaçlarına uyacak şekilde aşağıdaki özellikleri ayarlayın:

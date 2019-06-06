@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306807"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428060"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure'da Service Fabric ile API Management'ı tümleştirme
 
@@ -43,7 +43,7 @@ Başlamadan önce:
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
 * Yükleme [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) veya [Azure CLI](/cli/azure/install-azure-cli).
 * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) bir ağ güvenlik grubu.
-* Windows kümesi dağıtıyorsanız, bir Windows dağıtım ortamı ayarlayın. [Visual Studio 2017](https://www.visualstudio.com)'yi ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ayrıca **.NET Core çoklu platform geliştirme** iş yüklerini yükleyin.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
+* Windows kümesi dağıtıyorsanız, bir Windows dağıtım ortamı ayarlayın. Yükleme [Visual Studio 2019](https://www.visualstudio.com) ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ve **.NET Core çoklu platform geliştirme**iş yükleri.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
 
 ## <a name="network-topology"></a>Ağ topolojisi
 
@@ -88,7 +88,7 @@ Visual Studio'yu Yönetici olarak başlatın ve bir ASP.NET Core hizmeti oluştu
     </Resources>
     ```
 
-    Bağlantı noktasının kaldırılması Service Fabric'in uygulama bağlantı noktası aralığından bağlantı noktasını dinamik olarak atamasına olanak tanır. Bu, kümenin Resource Manager şablonundaki Ağ Güvenlik Grubu aracılığıyla açılır ve trafiğin API Management'tan oraya akmasını sağlar.
+    Bağlantı noktasının kaldırılması Service Fabric, bir bağlantı noktası üzerinden ağ güvenlik grubu için API Management'tan oraya akmasını trafiğe izin vererek Küme Kaynak Yöneticisi şablonunda açılan dinamik olarak uygulama bağlantı noktası aralığından, belirtmenizi sağlar.
 
  6. Web API'nin yerel olarak kullanılabilir olduğunu doğrulamak için Visual Studio'da F5'e basın.
 

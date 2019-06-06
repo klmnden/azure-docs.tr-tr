@@ -2,20 +2,20 @@
 title: Kimlik deneyimi çerçevesi şema Azure Active Directory B2C için dize talep dönüştürme örnekler | Microsoft Docs
 description: Dize dönüşüm örnekleri kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için talep.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c6b90cb2b24f6a87504a3a0dbd47f998b67ebc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707469"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512595"
 ---
 # <a name="string-claims-transformations"></a>Dize talep dönüşümleri
 
@@ -476,7 +476,7 @@ Bir e-posta adresi etki alanı kısmını alır.
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | EmailAddress | string | E-posta adresini içeren ClaimType. |
-| outputClaim | etki alanı | string | Bu dönüşüm talep sonra üreten ClaimType çağrıldıktan - etki alanı. |
+| outputClaim | Etki alanı | string | Bu dönüşüm talep sonra üreten ClaimType çağrıldıktan - etki alanı. |
 
 Kullanım bu etki alanı adından sonra ayrıştırılacak dönüştürme talep @ sembolünü kullanıcının. Bu, kişisel bilgileri (PII) gelen denetim verilerini kaldırılmasında yararlı olabilir. Aşağıdaki talep dönüştürmenin nasıl ayrıştıracağını etki alanı adından gösterir bir **e-posta** talep.
 
@@ -582,9 +582,9 @@ Bir dize talep denetler ve `matchTo` giriş parametresi eşit ve kümeleri çık
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **claimToMatch**: İkincil
+    - **claimToMatch**: Küçük
 - Giriş parametreleri:
-    - **matchTo**: İkincil
+    - **matchTo**: Küçük
     - **stringComparison**: Ordinalıgnorecase 
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Çıkış talep:

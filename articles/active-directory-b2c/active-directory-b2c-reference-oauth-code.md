@@ -2,20 +2,20 @@
 title: Yetkilendirme kodu akışı - Azure Active Directory B2C | Microsoft Docs
 description: Azure AD B2C'yi ve Openıd Connect kimlik doğrulama protokolü kullanarak Web uygulamaları oluşturmayı öğrenin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72111bc54691b340bcb0d8af8ef52bf0bd103a21
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703580"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509235"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C, OAuth 2.0 yetkilendirme kod akışı
 
@@ -80,7 +80,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |Gerekli |Kapsamları boşlukla ayrılmış listesi. Azure Active Directory'ye (Azure AD) hem talep edilen izinler, tek bir kapsam değeri gösterir. Kapsamı uygulamanızı kendi hizmeti veya web API karşı kullanılabilir bir erişim belirteci gerektiğini belirtir. istemci Kimliğini kullanarak aynı istemci kimliği ile temsil edilen  `offline_access` Kapsamını belirtir uygulamanıza kaynaklarına uzun süreli erişim için bir yenileme belirteci gerekiyor. Ayrıca `openid` Azure AD B2C'den bir kimlik belirteci istemek için kapsam. |
 | response_mode |Önerilen |Ortaya çıkan bir yetkilendirme kodu uygulamanıza geri göndermek için kullandığı yöntem. Bu olabilir `query`, `form_post`, veya `fragment`. |
 | durum |Önerilen |Kullanmak istediğiniz herhangi bir içeriği bir dize olabilir isteğinde bir değer. Genellikle, rastgele oluşturulmuş bir benzersiz değeri, siteler arası istek sahteciliği saldırılarına önlemek için kullanılır. Durum, kimlik doğrulama isteği oluşmadan önce uygulamasında kullanıcının durumu hakkında bilgi kodlamak için de kullanılır. Örneğin, sayfa üzerindeki kullanıcı tarafından veya yürütülmekte olan kullanıcı akışı. |
-| p |Gerekli |Yürütülen kullanıcı akışını. Azure AD B2C dizininizde oluşturulmuş bir kullanıcı akışı adıdır. Kullanıcı akışı ad değer ile başlaması gereken **b2c\_1\_**. Kullanıcı akışları hakkında daha fazla bilgi için bkz: [Azure AD B2C kullanıcı akışları](active-directory-b2c-reference-policies.md). |
+| p |Gerekli |Yürütülen kullanıcı akışını. Azure AD B2C dizininizde oluşturulmuş bir kullanıcı akışı adıdır. Kullanıcı akışı ad değer ile başlaması gereken **b2c\_1\_** . Kullanıcı akışları hakkında daha fazla bilgi için bkz: [Azure AD B2C kullanıcı akışları](active-directory-b2c-reference-policies.md). |
 | istemi |İsteğe bağlı |Gerekli olan kullanıcı etkileşimi türü. Şu anda geçerli olan `login`, bu isteği kimlik bilgilerini girmesini zorlar. Çoklu oturum açma etkili olmaz. |
 
 Bu noktada, kullanıcı kullanıcı Akış iş akışı tamamlamanız istenir. Bu dizinin veya herhangi bir adım sayısı için kaydolan bir sosyal kimlik bilgilerinizle oturum, kullanıcı adını ve parolasını girerek kullanıcı gerektirebilir. Kullanıcı akışı nasıl tanımlandığını kullanıcı eylemlerine bağlıdır.
@@ -97,7 +97,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 | Parametre | Açıklama |
 | --- | --- |
-| kod |Uygulama talep yetkilendirme kodu. Uygulama, bir hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Yetkilendirme kodları çok kısa ömürlüdür. Genellikle, yaklaşık 10 dakika sonra süresi. |
+| code |Uygulama talep yetkilendirme kodu. Uygulama, bir hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Yetkilendirme kodları çok kısa ömürlüdür. Genellikle, yaklaşık 10 dakika sonra süresi. |
 | durum |Önceki bölümde bulunan tablodaki tam açıklamasına bakın. Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama olduğunu doğrulamanız gerekir `state` istek ve yanıt değerleri aynıdır. |
 
 Uygulama bunları uygun şekilde işleyebilmeniz hata yanıtları da yeniden yönlendirme URI'si gönderilebilir:
@@ -131,9 +131,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | --- | --- | --- |
 | p |Gerekli |Yetkilendirme kodunu almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre için eklediğiniz Not *sorgu dizesi*, POST gövdesini içinde değil. |
 | client_id |Gerekli |Uygulamanıza atanan uygulama kimliği [Azure portalında](https://portal.azure.com). |
-| grant_type değeri |Gerekli |Verme türü. Yetkilendirme kod akışı, izin verme türü olmalıdır `authorization_code`. |
+| grant_type |Gerekli |Verme türü. Yetkilendirme kod akışı, izin verme türü olmalıdır `authorization_code`. |
 | scope |Önerilen |Kapsamları boşlukla ayrılmış listesi. Azure AD'ye istenecek izinlerin hem tek bir kapsam değeri gösterir. Kapsamı uygulamanızı kendi hizmeti veya web API karşı kullanılabilir bir erişim belirteci gerektiğini belirtir. istemci Kimliğini kullanarak aynı istemci kimliği ile temsil edilen  `offline_access` Kapsamını belirtir uygulamanıza kaynaklarına uzun süreli erişim için bir yenileme belirteci gerekiyor.  Ayrıca `openid` Azure AD B2C'den bir kimlik belirteci istemek için kapsam. |
-| kod |Gerekli |Akışın ilk oluşturan içinde alınan yetkilendirme kodu. |
+| code |Gerekli |Akışın ilk oluşturan içinde alınan yetkilendirme kodu. |
 | redirect_uri |Gerekli |Yeniden yönlendirme URI'sini yetkilendirme kodu aldığınız uygulama. |
 
 Başarılı bir token yanıt şöyle görünür:
@@ -196,7 +196,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 | p |Gerekli |Özgün yenileme belirteci almak için kullanılan kullanıcı akışı. Bu istekte farklı kullanıcı akışı kullanamazsınız. Bu parametre için eklediğiniz Not *sorgu dizesi*, POST gövdesini içinde değil. |
 | client_id |Gerekli |Uygulamanıza atanan uygulama kimliği [Azure portalında](https://portal.azure.com). |
 | client_secret |Gerekli |İçinde client_id ilişkili client_secret [Azure portalında](https://portal.azure.com). |
-| grant_type değeri |Gerekli |Verme türü. Bu yetkilendirme kod akışı oluşturan için izin verme türü olmalıdır `refresh_token`. |
+| grant_type |Gerekli |Verme türü. Bu yetkilendirme kod akışı oluşturan için izin verme türü olmalıdır `refresh_token`. |
 | scope |Önerilen |Kapsamları boşlukla ayrılmış listesi. Azure AD'ye istenecek izinlerin hem tek bir kapsam değeri gösterir. Kapsamı uygulamanızı kendi hizmeti veya web API karşı kullanılabilir bir erişim belirteci gerektiğini belirtir. istemci Kimliğini kullanarak aynı istemci kimliği ile temsil edilen  `offline_access` Kapsamını belirtir uygulamanızı kaynaklarına uzun süreli erişim için bir yenileme belirteci gerekir.  Ayrıca `openid` Azure AD B2C'den bir kimlik belirteci istemek için kapsam. |
 | redirect_uri |İsteğe bağlı |Yeniden yönlendirme URI'sini yetkilendirme kodu aldığınız uygulama. |
 | refresh_token |Gerekli |Akışın ikinci oluşturan içinde alınan özgün bir yenileme belirteci. |

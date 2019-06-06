@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417887"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514587"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -407,7 +407,7 @@ Oluşturun ve kimlik deneyimi çerçevesi güven framework ilkelerini yönetin.
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Oluşturun ve Office 365 destek biletlerini yönetebilir. |
 
 ### <a name="desktop-analytics-administrator"></a>Masaüstü Analytics Yöneticisi
-Erişebilir ve Masaüstü Yönetimi Araçları ve Hizmetleri Intune dahil olmak üzere yönetebilirsiniz.
+Masaüstü analiz ve Office Özelleştirme & İlkesi Hizmetleri'ni yönetebilirsiniz. Masaüstü analizler için bu varlık envanteri görüntülemek için dağıtım planı oluşturma, dağıtım ve sistem durumunu görüntüleme becerisine sahiptir. Office Özelleştirme & İlkesi Hizmeti için Office ilkelerini yönetmek kullanıcılar bu rolü etkinleştirir.
 
   > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Daha fazla bilgi için yukarıdaki rol tanımı bakın.

@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de istemci sertifikaları kullanarak, RESTful hizmeti güvenli hale getirme | Microsoft Docs
 description: Azure AD B2C'yi özel, REST API talep alışverişlerine istemci sertifikaları kullanarak güvenli hale getirme
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f184ddfc01260b203b0df4090f5f231f58d2cb80
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b007aa4619effbd34e4e969e4ce7b58f3b0c4cf6
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699006"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510535"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>İstemci sertifikaları kullanarak, RESTful hizmeti güvenli hale getirme
 
@@ -37,7 +37,7 @@ Bu makalede ayrıntıları nasıl yapılır:
 * Bölümündeki adımları tamamlamanız [tümleştirme REST API talep değişimleri](active-directory-b2c-custom-rest-api-netfw.md) makalesi.
 * Geçerli bir sertifika (.pfx dosyası özel bir anahtarla) alın.
 
-## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>1. Adım: İstemci sertifikası kimlik doğrulaması için bir web uygulamasını yapılandırma
+## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>1. adım: İstemci sertifikası kimlik doğrulaması için bir web uygulamasını yapılandırma
 Ayarlamak için **Azure App Service** istemci sertifikaları gerektirmek için web uygulamasını ayarlama `clientCertEnabled` site ayarını *true*. Azure portalında bu değişikliği yapmak için web uygulaması sayfanızın açın. Sol gezinti bölmesindeki altında **ayarları** seçin **SSL ayarları**. İçinde **istemci sertifikaları** bölümünde, açma **gelen istemci sertifikası** seçeneği.
 
 >[!NOTE]
@@ -46,7 +46,7 @@ Ayarlamak için **Azure App Service** istemci sertifikaları gerektirmek için w
 >[!NOTE]
 >Ayar hakkında daha fazla bilgi için **clientCertEnabled** özelliği bkz [web uygulamaları için yapılandırma TLS karşılıklı kimlik doğrulamayı](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
-## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>2. Adım: Sertifikanızı karşıya yüklemek için Azure AD B2C İlkesi anahtarları
+## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>2. adım: Sertifikanızı karşıya yüklemek için Azure AD B2C İlkesi anahtarları
 Ayarlandıktan sonra `clientCertEnabled` için *true*, RESTful API'niz ile iletişimi bir istemci sertifikası gerektirir. Edinme, yükleme ve istemci sertifikası, Azure AD B2C kiracınızda depolamak için aşağıdakileri yapın: 
 1. Azure AD B2C kiracınızı seçin **B2C ayarlarını** > **kimlik deneyimi çerçevesi**.
 
@@ -70,7 +70,7 @@ Ayarlandıktan sonra `clientCertEnabled` için *true*, RESTful API'niz ile ileti
 
 8. Kiracınızda kullanılabilir anahtarlarını görüntüleyebilir ve oluşturduğunuzu doğrulayın `B2C_1A_B2cRestClientCertificate` anahtar seçeneğini **ilke anahtarları**.
 
-## <a name="step-3-change-the-technical-profile"></a>3. Adım: Teknik profilini değiştirme
+## <a name="step-3-change-the-technical-profile"></a>3. adım: Teknik profilini değiştirme
 İstemci sertifikası kimlik doğrulaması, özel ilkeniz desteklemek için aşağıdakileri yaparak teknik profil değiştirin:
 
 1. Çalışma dizininizde açın *TrustFrameworkExtensions.xml* uzantı ilke dosyası.

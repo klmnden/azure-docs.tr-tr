@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245049"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475656"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure'a Office 365'ten veri kopyalama
 
-Azure Data Factory, Office 365'te kurumsal veri ölçeklenebilir bir şekilde Azure'a Kiracı ve analiz uygulamaları oluşturun ve bu değerli veri varlıklarını üzerinde göre içgörü zengin getirmenize olanak sağlar. Privileged Access Management ile tümleştirme için değerli seçkin verileri Office 365'te güvenli erişim denetimi sağlar.  Microsoft Graph veriler üzerinde daha fazla bilgi için Bağlan, lütfen [bu bağlantıyı](https://docs.microsoft.com/graph/data-connect-concept-overview).
+Azure Data Factory ile tümleştirilir [Microsoft Graph verilere](https://docs.microsoft.com/graph/data-connect-concept-overview), kuruluş verilerine, Office 365'te ölçeklenebilir bir şekilde Azure'a Kiracı ve analiz uygulamaları derleme zengin getirmenize olanak sağlayan ve temel içgörüleri ayıklayın Bu değerli veri varlıklarını. Privileged Access Management ile tümleştirme için değerli seçkin verileri Office 365'te güvenli erişim denetimi sağlar.  Lütfen [bu bağlantıyı](https://docs.microsoft.com/graph/data-connect-concept-overview) Microsoft Graph veri çubuğunda genel bir bakış için bağlanmak ve başvurmak [bu bağlantıyı](https://docs.microsoft.com/graph/data-connect-policies#licensing) lisans bilgileri için.
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de Office 365'ten veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
+ADF Office 365 Bağlayıcısı ve Microsoft Graph veri adres defteri kişileri, Takvim etkinlikleri, e-posta iletileri, kullanıcı bilgilerini, posta kutusu ayarlar dahil olmak üzere Exchange e-posta etkin kutularından etkinleştirir, Ölçek alımı, veri kümeleri farklı türdeki bağlanın ve benzeri.  Başvuru [burada](https://docs.microsoft.com/graph/data-connect-datasets) kullanılabilen veri kümelerini tam listesini görmek için.
 
 Şimdilik, tek bir kopyalama etkinliği içinde yalnızca yapabilecekleriniz **Office 365'ten veri kopyalama [Azure Blob Depolama](connector-azure-blob-storage.md), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md), ve [Azure Data Lake depolama 2. nesil ](connector-azure-data-lake-storage.md) JSON biçiminde** (setOfObjects yazın). Office 365 veri depolarının veya başka biçimlerde diğer türleri yüklemek istiyorsanız, daha fazla veri hiçbirine yüklemek için sonraki kopyalama etkinliği ile ilk kopyalama etkinliği zincirleyebilirsiniz [desteklenen ADF hedef depoları](copy-activity-overview.md#supported-data-stores-and-formats) (bakın" bir havuz olarak desteklenen"tablosundaki"desteklenen veri depoları ve biçimler").
 

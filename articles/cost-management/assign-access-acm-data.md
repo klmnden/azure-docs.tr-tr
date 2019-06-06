@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785851"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493764"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Maliyet Yönetimi verilerine erişim atama
 
@@ -170,6 +170,13 @@ Bir kaynak grubuna erişim, en az maliyet Yönetimi Okuyucu (veya Okuyucu) izni 
 7. Altında **erişim Ata**seçin **Azure AD kullanıcı, Grup veya uygulama**.
 8. Erişim atamak için arama yapın ve ardından kullanıcıyı seçin.
 9. **Kaydet**’e tıklayın.
+
+## <a name="cross-tenant-authentication-issues"></a>Kiracılar arası kimlik doğrulama sorunları
+
+Şu anda, Azure maliyet yönetimi, kiracılar arası kimlik doğrulaması için destek sınırlıdır. Bazı durumlarda, kiracılar arasında kimlik doğrulaması çalıştığınızda alabileceğiniz bir **erişim reddedildi** maliyet analizi hatası. Başka bir kiracının aboneliğine rol tabanlı erişim denetimi (RBAC) yapılandırma ve maliyet verilerini görüntüleme deneyin, bu sorun ortaya çıkabilir.
+
+*Sorunu gidermek için*: Kiracılar arası RBAC yapılandırdıktan sonra bir saat beklemeniz gerekebilir. Maliyet analizi maliyetleri görüntülemek veya her iki kiracılarındaki kullanıcılara maliyet Yönetimi erişim daha sonra deneyin.  
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123956"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479113"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N serisi Vm'lerde NVIDIA GPU sürücüleri yükleyin
 
@@ -160,7 +160,7 @@ Sürücü yüklediyseniz aşağıdakine benzer bir çıktı görürsünüz. Unut
 
 Aynı kullanılabilirlik kümesine veya VM ölçek kümesindeki bir tek bir yerleştirme grubu NC24r dağıtılmış gibi RDMA özellikli N serisi Vm'lerde RDMA ağ bağlantısı etkin hale getirilebilir. RDMA ağ Intel MPI ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğini destekleyerek 5.x veya sonraki bir sürümü. Ek gereksinimler izleyin:
 
-### <a name="distributions"></a>Dağıtımlar
+### <a name="distributions"></a>Dağıtımları
 
 RDMA özellikli N serisi sanal makineler N serisi Vm'lerde RDMA bağlantısı destekleyen Azure Marketi'nde görüntülerden birini dağıtın:
   
@@ -187,8 +187,8 @@ NV veya NVv2 serisi VM'ler, NVIDIA GRID sürücüleri yüklemek için her VM iç
 
    sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
+   sudo apt-get install build-essential ubuntu-desktop -y
+   ```
 3. NVIDIA sürücüsü ile uyumsuz Nouveau çekirdek sürücüsü devre dışı bırakın. (Yalnızca NVIDIA sürücüsü NV veya NVv2 Vm'lerinde kullanın.) Bunu yapmak için bir dosyada oluşturmak `/etc/modprobe.d` adlı `nouveau.conf` aşağıdaki içeriklerle:
 
    ```

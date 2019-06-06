@@ -2,20 +2,20 @@
 title: Özel ilkeleri kullanarak, Azure Active Directory B2C, bir Google hesabı ile oturum açma ayarlama | Microsoft Docs
 description: Özel ilkeleri kullanarak, Azure Active Directory B2C, bir Google hesabı ile oturum açma ayarlayın.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 94b71dc8a355b818af6789022eb297100b569e73
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 212243f38b153f75c08a9b4c58622d0444f0ac62
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712031"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510381"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak Google hesabıyla oturum açma özelliğini ayarlama
 

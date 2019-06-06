@@ -1,6 +1,6 @@
 ---
-title: 'Azure durumu İzleyicisi v2 API Başvurusu: İzleme devre dışı bırakma | Microsoft Docs'
-description: Durum İzleyicisi'ni v2 API başvuru devre dışı bırak-ApplicationInsightsMonitoring. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. Şirket içinde, sanal makinelerde veya Azure üzerinde ASP.NET web uygulamaları ile çalışır.
+title: 'Azure Durum İzleyicisi v2 API Başvurusu: İzleme devre dışı bırakma | Microsoft Docs'
+description: Durum İzleyicisi'ni v2 API'si başvurusu. Disable-ApplicationInsightsMonitoring. Web sitesi yeniden dağıtmaya gerek kalmadan Web sitesi performansını izleyin. ASP.NET web uygulamaları ile çalışır, şirket içi Vm'leri içinde veya azure'da barındırılan.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,25 +12,25 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6f2bde824c2a9815dc9fd4791ab43e03558da835
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144941"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514417"
 ---
 # <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Bu belge, bir üyesi olarak sunulan bir cmdlet açıklar [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Bu makalede bir üyesi olan bir cmdlet [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Durum İzleyicisi'ni v2 şu anda genel Önizleme aşamasındadır.
-> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
-> Daha fazla bilgi için [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> Bu önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor ve bazıları kısıtlı yeteneklere sahip.
+> Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Açıklama
 
-Hedef makinede izleme devre dışı bırakın.
+Hedef bilgisayarda izlemeyi devre dışı bırakır.
 Bu cmdlet IIS applicationHost.config düzenlemeleri kaldırır ve kayıt defteri anahtarları kaldırın.
 
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>Parametreler 
 
 ### <a name="-verbose"></a>-Verbose
-**Ortak parametresi.** Ayrıntılı günlük çıktısını almak için bu anahtarı kullanın.
+**Ortak parametresi.** Ayrıntılı günlükleri görüntülemek için bu anahtarı kullanın.
 
 ## <a name="output"></a>Çıktı
 

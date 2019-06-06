@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de kullanıcı erişimini yönetme | Microsoft Docs
 description: Reşit olmayanların tanımlamak, tarih Doğum ve ülke/bölge veri toplamak ve Azure AD B2C'yi kullanarak uygulamanızda kullanım koşullarının kabulü alma hakkında bilgi edinin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 6aead01ec0084eb75ea385a67f7c85ea185b017a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956958"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510564"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de kullanıcı erişimini yönetme
 
@@ -50,7 +50,7 @@ Kullanıcı akışı ebeveyn izni toplamak için bir örnek verilmiştir:
 
 2. Uygulama, JSON belirteci işler ve ebeveyn izni gerekli olduğunu bildiren ve çevrimiçi bir üst izni isteyen küçük için gösteren bir ekranla karşılaşırsınız. 
 
-3. Azure AD B2C kullanıcı normal şekilde oturum açabilir ve bir belirteç içerecek şekilde ayarlamak uygulamanın yayınlar bir oturum açma yolculuğu gösterir **legalAgeGroupClassification "minorWithParentalConsent" =**. Uygulama, e-posta adresi üst toplar ve üst yetişkin olduğunu doğrular. Bunu yapmak için bir Ulusal kimliği office, lisans doğrulama veya düzeltme kredi kartı gibi güvenilen bir kaynak kullanır. Doğrulama başarılı olursa, uygulamanın Azure AD B2C kullanıcı akışı kullanarak oturum açmak için alt ister. Onay reddedilirse (örneğin, **legalAgeGroupClassification "minorWithoutParentalConsent" =**), Azure AD B2C, onay işlemini yeniden başlatmak için uygulamaya bir JSON belirteç (oturum açma değil) döndürür. Bu, isteğe bağlı olarak bir yetişkin veya küçük küçük'ın hesabına erişimi küçük'ın e-posta adresi ya da bir yetişkinin e-posta adresi kaydı için bir kayıt kodu göndererek kazanabilirsiniz böylece kullanıcı akışını özelleştirmek mümkündür.
+3. Azure AD B2C kullanıcı normal şekilde oturum açabilir ve bir belirteç içerecek şekilde ayarlamak uygulamanın yayınlar bir oturum açma yolculuğu gösterir **legalAgeGroupClassification "minorWithParentalConsent" =** . Uygulama, e-posta adresi üst toplar ve üst yetişkin olduğunu doğrular. Bunu yapmak için bir Ulusal kimliği office, lisans doğrulama veya düzeltme kredi kartı gibi güvenilen bir kaynak kullanır. Doğrulama başarılı olursa, uygulamanın Azure AD B2C kullanıcı akışı kullanarak oturum açmak için alt ister. Onay reddedilirse (örneğin, **legalAgeGroupClassification "minorWithoutParentalConsent" =** ), Azure AD B2C, onay işlemini yeniden başlatmak için uygulamaya bir JSON belirteç (oturum açma değil) döndürür. Bu, isteğe bağlı olarak bir yetişkin veya küçük küçük'ın hesabına erişimi küçük'ın e-posta adresi ya da bir yetişkinin e-posta adresi kaydı için bir kayıt kodu göndererek kazanabilirsiniz böylece kullanıcı akışını özelleştirmek mümkündür.
 
 4. Uygulama onayı iptal etmek için küçük bir seçenek sunar.
 

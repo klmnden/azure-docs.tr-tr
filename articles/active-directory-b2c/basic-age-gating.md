@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C'de yaş geçidi etkinleştirme | Microsoft Docs
 description: Uygulamanızı kullanarak reşit olmayanların tanımlama hakkında bilgi edinin.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228010"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511675"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de yaş geçidi etkinleştir
 
@@ -53,13 +53,13 @@ Yaş geçidi iki yaş değerleri içerir: artık kişidir yaş kabul küçük ve
 | HR | Hırvatistan | 16 | 18 |
 | HU | Macaristan | 16 | 18 |
 | IE | İrlanda | 13 | 18 |
-| IT | İtalya | 16 | 18 |
+| BT | İtalya | 16 | 18 |
 | KR | Kore Cumhuriyeti | 14 | 18 |
 | LT | Litvanya | 16 | 18 |
 | LU | Lüksemburg | 16 | 18 |
 | LV | Letonya | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| NA | Namibia | None | 21 |
+| NA | Namibya | None | 21 |
 | NL | Hollanda | 16 | 18 |
 | PL | Polonya | 13 | 18 |
 | PT | Portekiz | 16 | 18 |
