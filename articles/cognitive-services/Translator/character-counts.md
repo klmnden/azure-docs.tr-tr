@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 157b809c1f1707cdaa561ab09486cf4886fff4e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389223"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514285"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Translator Text API karakter nasıl sayılır?
 
@@ -35,7 +35,7 @@ Ne sayıları şöyledir:
 
 Çince ve Japonca Kanji gibi kavramyazıların seçilmesini göre betikler, Translator Text API hala ideogram başına bir karakter Unicode kod noktaları, kaç sayılır. Özel durum: Unicode sayısı iki karakter olarak temsilciler.
 
-İstek, sözcük, bayt veya cümleler karakter sayısına ilgisiz sayısıdır. 
+İstek, sözcük, bayt veya cümleler karakter sayısına ilgisiz sayısıdır.
 
 Algılama ve BreakSentence yöntemlerine yapılan çağrıda karakter tüketimini sayılmaz. Ancak, algılama ve BreakSentence yöntemlere yapılan çağrılar sayılan diğer işlevleri kullanımını kabul edilebilir bir oranda olduğunu bekliyoruz. Yaptığınız Algıla veya BreakSentence çağrılarının sayısı 100 kez Microsoft sayılan başka yöntemlerle sayısını aşarsa algılama ve BreakSentence yöntemlerinin kullanımını kısıtlamak için hakkını saklı tutar.
 

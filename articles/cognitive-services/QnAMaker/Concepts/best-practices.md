@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: fde10da8d46a3aa5d0163a89d1212911701c4b60
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496937"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693224"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
 [Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
@@ -113,7 +113,7 @@ Soru-cevap Oluşturucu, kullanıcılara sağlayan [işbirliği](../How-to/collab
 
 ## <a name="active-learning"></a>Etkin öğrenme
 
-[Etkin öğrenme](../How-to/improve-knowledge-base.md) çok çeşitli kalite ve kullanıcı tabanlı sorgular miktarını sahip olduğunda, diğer sorular önerme en iyi bir iş yapar. Etkin durumda katılmak istemci uygulamalar kullanıcı sorgularına izin ver önemlidir Gerçekliğinde olmadan geri bildirim döngüsü öğrenme. Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra **[önerileri filtreyle](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** sonra gözden geçirin ve kabul edin veya bu önerilere reddet. 
+[Etkin öğrenme](../How-to/improve-knowledge-base.md) çok çeşitli kalite ve kullanıcı tabanlı sorgular miktarını sahip olduğunda, diğer sorular önerme en iyi bir iş yapar. Etkin durumda katılmak istemci uygulamalar kullanıcı sorgularına izin ver önemlidir Gerçekliğinde olmadan geri bildirim döngüsü öğrenme. Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra **[önerileri filtreyle](../How-To/improve-knowledge-base.md)** sonra gözden geçirin ve kabul edin veya bu önerilere reddet. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

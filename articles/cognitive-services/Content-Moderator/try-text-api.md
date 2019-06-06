@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: edf4a3e9d9e9b51ac44f839cababa9d14bc0d17a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/29/2019
+ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228056"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688846"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API Konsolu Orta metni
 
-Kullanım [metin denetimi API'si](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) metin içeriğinizi taramak için Azure Content Moderator içinde. İşlem, içeriğinizi küfür tarar ve kara özel ve paylaşılan içerikte karşılaştırır.
+Kullanım [metin denetimi API'si](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) metin içeriğinizi küfür tarama ve özel ve paylaşılan listeleriyle karşılaştırmak için Azure Content Moderator içinde.
 
 ## <a name="get-your-api-key"></a>API anahtarınızı alın
 
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Yanıt analiz edin
 
-Şu yanıtı çeşitli içgörüler API'den gösterir. Bu, olası küfürleri, PII, sınıflandırma (Önizleme) ve otomatik olarak düzeltti sürümünü içerir.
+Şu yanıtı çeşitli içgörüler API'den gösterir. Bu, olası küfürleri, kişisel verileri, sınıflandırma (Önizleme) ve otomatik olarak düzeltti sürümünü içerir.
 
 > [!NOTE]
 > Makine destekli 'Sınıflandırma' özellik Önizleme aşamasındadır ve yalnızca İngilizce dilini desteklemektedir.
