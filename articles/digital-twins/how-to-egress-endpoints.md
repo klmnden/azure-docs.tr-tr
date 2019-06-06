@@ -50,13 +50,13 @@ Olayları Azure ileti ve olay aracıları tarafından işlenmek IOT nesneler (ö
 | Öznitelik | Tür | Açıklama |
 | --- | --- | --- |
 | id | string | Olayın benzersiz tanımlayıcısı. |
-| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
-| veriler | object | Kaynak sağlayıcıya özel olay verileri. |
-| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| subject | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| data | object | Kaynak sağlayıcıya özel olay verileri. |
+| eventType | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
-| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| topic | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
 
 Event Grid olay şeması hakkında daha fazla bilgi için:
 
