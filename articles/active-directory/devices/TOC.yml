@@ -1,8 +1,8 @@
-- name: Cihaz Yönetimi Belgeleri
+- name: Cihaz Kimlikleri Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Azure AD’de cihaz yönetimi nedir?
+    - name: Cihaz kimliği nedir?
       href: overview.md
     - name: Enterprise State Roaming nedir?
       href: enterprise-state-roaming-overview.md
@@ -29,7 +29,7 @@
 - name: Nasıl yapılır kılavuzları
   expanded: true
   items:
-    - name: Azure portalı kullanarak cihazları yönetme
+    - name: Cihaz kimliğini yönetme
       href: device-management-azure-portal.md
     - name: Eski cihazları yönetme
       href: manage-stale-devices.md

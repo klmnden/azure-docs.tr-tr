@@ -73,6 +73,8 @@
           href: waf-overview.md
         - name: WAF yapılandırması
           href: application-gateway-waf-configuration.md
+        - name: Özel kurallar
+          href: custom-waf-rules-overview.md
     - name: Sistem durumunu izleme
       items:
         - name: Durum yoklaması
@@ -141,6 +143,12 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: application-gateway-customize-waf-rules-cli.md
+    - name: WAF özel kuralları
+      items:
+        - name: Özel kural örnekleri
+          href: create-custom-waf-rules.md
+        - name: Özel kurallar ile WAF’yi yapılandırma
+          href: configure-waf-custom-rules.md
     - name: URL’ye göre yönlendirme
       items:
         - name: Azure PowerShell

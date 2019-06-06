@@ -63,6 +63,8 @@
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Yüz tanıma modeli belirtme
       href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: Yüz algılama modeli belirtme
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: Büyük ölçek özelliğini kullanma
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Videoları gerçek zamanlı olarak analiz etme

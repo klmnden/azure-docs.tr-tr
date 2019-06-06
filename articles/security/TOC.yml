@@ -226,6 +226,8 @@
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
       items:
+        - name: Denetim Kapsamına göre Azure Hizmetleri
+          href: ./compliance/azure-services-in-fedramp-auditscope.md
         - name: Veri analizi
           href: ./blueprints/fedramp-analytics-overview.md
         - name: Veri ambarı
